@@ -9,9 +9,21 @@
 // * HAXE FILE SAVE PATH (modify this to control where the files are saved)
 // ------------------------------------------------------------------------------------
 
+#ifndef HAXE_FILE_SAVE_PATH
+
 // The path where your externs are saved.
 // The "%s" is replaced with the filename, (i.e. "AActor")
-#define HAXE_FILE_SAVE_PATH "Z:\\Downloads\\UE5Haxe\\unreal\\%s.hx"
+#define HAXE_FILE_SAVE_PATH "Haxe/Externs/generated_5_0_3/%s.hx"
+
+#endif
+
+#ifndef HAXE_FILE_SAVE_PATH_RELATIVE
+
+// If this is "true", "HAXE_FILE_SAVE_PATH" will be treated as a relative path.
+// It will be relative to the directory of the UE project this header was added to.
+#define HAXE_FILE_SAVE_PATH_RELATIVE true
+
+#endif
 
 
 
@@ -75,7 +87,9 @@ FString ConvertFPropertyToHaxeTypeString(FProperty* prop, bool isReturn = false)
 // This saves the provided "content" string into a file located at "HAXE_FILE_SAVE_PATH" named "filename".
 // Used to create the .hx source files.
 void SaveHaxeFile(const FString& filename, const FString& content) {
-	auto file = FString::Printf(TEXT(HAXE_FILE_SAVE_PATH), *filename);
+	static FString Dir = HAXE_FILE_SAVE_PATH_RELATIVE ? (FPaths::ConvertRelativePathToFull(FPaths::Combine(FPaths::ProjectDir(), HAXE_FILE_SAVE_PATH))) : HAXE_FILE_SAVE_PATH;
+
+	auto file = Dir.Replace(TEXT("%s"), *filename);
 	FFileHelper::SaveStringToFile(content, *file);
 }
 
