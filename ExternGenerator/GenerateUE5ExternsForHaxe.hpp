@@ -41,57 +41,53 @@ FString GetClassCPPName(UStruct* s) {
 FString ConvertCPPTypeStringToHaxeTypeString(const FString cppType) {
 	auto t = cppType.TrimStartAndEnd();
 
-	if (t.EndsWith("*")) {
+	if(t.EndsWith("*")) {
 		return "cpp.Star<" + ConvertCPPTypeStringToHaxeTypeString(t.Mid(0, t.Len() - 1)) + ">";
-	}
-	else if (t.EndsWith("&")) {
+	} else if(t.EndsWith("&")) {
 		return "cpp.Reference<" + ConvertCPPTypeStringToHaxeTypeString(t.Mid(0, t.Len() - 1)) + ">";
-	}
-	else if (t.EndsWith(">")) {
+	} else if(t.EndsWith(">")) {
 		int i = t.Len() - 2;
 		int depth = 0;
-		while (i >= 0 && (t[i] != TCHAR('<') || depth != 0)) {
-			if (t[i] == TCHAR('>')) {
+		while(i >= 0 && (t[i] != TCHAR('<') || depth != 0)) {
+			if(t[i] == TCHAR('>')) {
 				depth++;
-			}
-			else if (t[i] == TCHAR('<')) {
+			} else if(t[i] == TCHAR('<')) {
 				depth--;
 			}
 			i--;
 		}
 		return ConvertCPPTypeStringToHaxeTypeString(t.Mid(0, i)) + "<" + ConvertCPPTypeStringToHaxeTypeString(t.Mid(i + 1, t.Len() - i - 2)) + ">";
-	}
-	else if (t.Contains(",")) {
+	} else if(t.Contains(",")) {
 		FString curr = t;
 		FString left;
 		FString right;
 		TArray<FString> str;
-		while (curr.Split(FString(","), &left, &right)) {
+		while(curr.Split(FString(","), &left, &right)) {
 			str.Push(left);
 			curr = right;
 		}
 		str.Push(curr);
 		FString result = "";
-		for (int i = 0; i < str.Num(); i++) {
+		for(int i = 0; i < str.Num(); i++) {
 			result += ConvertCPPTypeStringToHaxeTypeString(str[i]) + (i < str.Num() - 1 ? ", " : "");
 		}
 		return result;
 	}
 
-	if (t == "bool") return "Bool";
-	else if (t == "int") return "Int";
-	else if (t == "float") return "cpp.Float32";
-	else if (t == "double") return "cpp.Float64";
-	else if (t == "int8") return "cpp.Int8";
-	else if (t == "int16") return "cpp.Int16";
-	else if (t == "int32") return "cpp.Int32";
-	else if (t == "int64") return "cpp.Int64";
-	else if (t == "uint8") return "cpp.UInt8";
-	else if (t == "uint16") return "cpp.UInt16";
-	else if (t == "uint32") return "cpp.UInt32";
-	else if (t == "uint64") return "cpp.UInt64";
-	else if (t == "float32") return "cpp.Float32";
-	else if (t == "float64") return "cpp.Float64";
+	if(t == "bool") return "Bool";
+	else if(t == "int") return "Int";
+	else if(t == "float") return "cpp.Float32";
+	else if(t == "double") return "cpp.Float64";
+	else if(t == "int8") return "cpp.Int8";
+	else if(t == "int16") return "cpp.Int16";
+	else if(t == "int32") return "cpp.Int32";
+	else if(t == "int64") return "cpp.Int64";
+	else if(t == "uint8") return "cpp.UInt8";
+	else if(t == "uint16") return "cpp.UInt16";
+	else if(t == "uint32") return "cpp.UInt32";
+	else if(t == "uint64") return "cpp.UInt64";
+	else if(t == "float32") return "cpp.Float32";
+	else if(t == "float64") return "cpp.Float64";
 
 	return t;
 }
@@ -123,7 +119,7 @@ FString ConvertFEnumPropertyToHaxeTypeString(FProperty* prop) {
 FString ConvertFStructPropertyToHaxeTypeString(FProperty* prop) {
 	auto s = CastField<FStructProperty>(prop);
 	UStruct* st = s->Struct;
-	if (st != nullptr) {
+	if(st != nullptr) {
 		ConvertUStructToHaxe(st);
 		return GetClassCPPName(st);
 	}
@@ -134,11 +130,10 @@ FString ConvertFStructPropertyToHaxeTypeString(FProperty* prop) {
 FString ConvertFBytePropertyToHaxeTypeString(FProperty* prop) {
 	auto e = CastField<FByteProperty>(prop);
 	UEnum* en = e->GetIntPropertyEnum();
-	if (en != nullptr) {
+	if(en != nullptr) {
 		ConvertUEnumToHaxe(en);
 		return en->GetName();
-	}
-	else {
+	} else {
 		return "cpp.UInt8";
 	}
 }
@@ -173,24 +168,23 @@ FString ConvertFDelegatePropertyToHaxeTypeString(FProperty* prop) {
 	FString result;
 
 	UFunction* f = nullptr;
-	if (prop->IsA<FDelegateProperty>()) {
+	if(prop->IsA<FDelegateProperty>()) {
 		result = "HaxeDelegateProperty<(";
 		auto test = CastField<FDelegateProperty>(prop);
 		f = test->SignatureFunction;
-	}
-	else {
+	} else {
 		result = "HaxeMulticastSparseDelegateProperty<(";
 		auto test = CastField<FMulticastDelegateProperty>(prop);
 		f = test->SignatureFunction;
 	}
 
 	TArray<FString> params;
-	for (TFieldIterator<FProperty> param(f); param && (param->PropertyFlags & CPF_Parm); ++param) {
-		if (!(param->PropertyFlags & CPF_ReturnParm)) {
+	for(TFieldIterator<FProperty> param(f); param && (param->PropertyFlags & CPF_Parm); ++param) {
+		if(!(param->PropertyFlags & CPF_ReturnParm)) {
 			params.Push(ConvertFPropertyToHaxeTypeString(*param));
 		}
 	}
-	for (int i = 0; i < params.Num(); i++) {
+	for(int i = 0; i < params.Num(); i++) {
 		result += params[i] + (i < params.Num() - 1 ? ", " : "");
 	}
 
@@ -201,26 +195,26 @@ FString ConvertFDelegatePropertyToHaxeTypeString(FProperty* prop) {
 // This function takes an FProperty and returns the Haxe type equvalient as a string.
 // It does this by checking the FProperty type and then using one of the ConvertF___Property functions above.
 FString ConvertFPropertyToHaxeTypeString(FProperty* prop, bool isReturn) {
-	if (prop->IsA<FBoolProperty>())              return ConvertFBoolPropertyToHaxeTypeString(prop);
-	else if (prop->IsA<FEnumProperty>())         return ConvertFEnumPropertyToHaxeTypeString(prop);
-	else if (prop->IsA<FStructProperty>())       return ConvertFStructPropertyToHaxeTypeString(prop);
-	else if (prop->IsA<FByteProperty>())         return ConvertFBytePropertyToHaxeTypeString(prop);
-	else if (prop->IsA<FArrayProperty>())        return ConvertFArrayPropertyToHaxeTypeString(prop);
-	else if (prop->IsA<FMapProperty>())          return ConvertFMapPropertyToHaxeTypeString(prop);
-	else if (prop->IsA<FSetProperty>())          return ConvertFSetPropertyToHaxeTypeString(prop);
-	else if (prop->IsA<FInterfaceProperty>())    return ConvertFInterfacePropertyToHaxeTypeString(prop);
-	else if (prop->IsA<FDelegateProperty>() ||
+	if(prop->IsA<FBoolProperty>())              return ConvertFBoolPropertyToHaxeTypeString(prop);
+	else if(prop->IsA<FEnumProperty>())         return ConvertFEnumPropertyToHaxeTypeString(prop);
+	else if(prop->IsA<FStructProperty>())       return ConvertFStructPropertyToHaxeTypeString(prop);
+	else if(prop->IsA<FByteProperty>())         return ConvertFBytePropertyToHaxeTypeString(prop);
+	else if(prop->IsA<FArrayProperty>())        return ConvertFArrayPropertyToHaxeTypeString(prop);
+	else if(prop->IsA<FMapProperty>())          return ConvertFMapPropertyToHaxeTypeString(prop);
+	else if(prop->IsA<FSetProperty>())          return ConvertFSetPropertyToHaxeTypeString(prop);
+	else if(prop->IsA<FInterfaceProperty>())    return ConvertFInterfacePropertyToHaxeTypeString(prop);
+	else if(prop->IsA<FDelegateProperty>() ||
 		prop->IsA<FMulticastDelegateProperty>()) return ConvertFDelegatePropertyToHaxeTypeString(prop);
 	return ConvertFPropertyCPPTypeToHaxeTypeString(prop, isReturn);
 }
 
-// Generates externs for variables and functions within a UClass or UStruct.
+// Generates externs forvariables and functions within a UClass or UStruct.
 void AddStructMembers(UStruct* cls, FString& haxeSource) {
 
 	// Variables
 	// public var name: Type;
 	TFieldIterator<FProperty> props(cls, EFieldIteratorFlags::ExcludeSuper);
-	while (props) {
+	while(props) {
 		auto propName = props->GetNameCPP();
 
 		haxeSource += "\tpublic var " + propName + ": " + ConvertFPropertyToHaxeTypeString(*props) + ";\n";
@@ -233,8 +227,8 @@ void AddStructMembers(UStruct* cls, FString& haxeSource) {
 	// Functions
 	// public function name(arg1: Type1, arg2: Type2, ...): ReturnType;
 	TFieldIterator<UFunction> funcs(cls, EFieldIteratorFlags::ExcludeSuper);
-	while (funcs) {
-		if (!addedSeparator) {
+	while(funcs) {
+		if(!addedSeparator) {
 			haxeSource += "\n";
 			addedSeparator = true;
 		}
@@ -246,23 +240,22 @@ void AddStructMembers(UStruct* cls, FString& haxeSource) {
 
 		TArray<FProperty*> params;
 		FProperty* ret = nullptr;
-		for (TFieldIterator<FProperty> it2(*funcs); it2 && (it2->PropertyFlags & CPF_Parm); ++it2) {
-			if (!(it2->PropertyFlags & CPF_ReturnParm)) {
+		for(TFieldIterator<FProperty> it2(*funcs); it2 && (it2->PropertyFlags & CPF_Parm); ++it2) {
+			if(!(it2->PropertyFlags & CPF_ReturnParm)) {
 				params.Push(*it2);
-			}
-			else {
+			} else {
 				ret = *it2;
 			}
 		}
 
-		for (int i = 0; i < params.Num(); i++) {
+		for(int i = 0; i < params.Num(); i++) {
 			auto p = params[i];
 			haxeSource += p->GetNameCPP() + ": " + ConvertFPropertyToHaxeTypeString(p) + ((i < params.Num() - 1) ? ", " : "");
 		}
 
 		haxeSource += "): ";
 
-		if (ret)
+		if(ret)
 			haxeSource += ConvertFPropertyToHaxeTypeString(ret, true);
 		else
 			haxeSource += "Void";
@@ -275,7 +268,7 @@ void AddStructMembers(UStruct* cls, FString& haxeSource) {
 
 // Generates and saves a Haxe extern based on a UEnum.
 void ConvertUEnumToHaxe(UEnum* e) {
-	if (EnumsConverted.Contains(e)) {
+	if(EnumsConverted.Contains(e)) {
 		return;
 	}
 
@@ -283,21 +276,20 @@ void ConvertUEnumToHaxe(UEnum* e) {
 
 	auto cppName = e->GetName();
 	FString haxeSource = "package unreal;\n\n";
-	if (!e->CppType.IsEmpty()) {
+	if(!e->CppType.IsEmpty()) {
 		haxeSource += "@:native(\"" + e->CppType.Replace(TEXT("::"), TEXT(".")) + "\")\n";
-	}
-	else {
+	} else {
 		haxeSource += "@:native(\"" + cppName + "\")\n";
 	}
 
 	auto includePath = e->GetMetaData(TEXT("ModuleRelativePath"));
-	if (!includePath.IsEmpty()) {
+	if(!includePath.IsEmpty()) {
 		haxeSource += "@:include(\"" + includePath.Replace(TEXT("Classes/"), TEXT("")).Replace(TEXT("Public/"), TEXT("")) + "\")\n";
 	}
 
 	haxeSource += "extern enum " + cppName + " {\n";
 
-	for (int i = 0; i < e->NumEnums(); i++) {
+	for(int i = 0; i < e->NumEnums(); i++) {
 		haxeSource += FString("\t") + e->GetNameStringByIndex(i) + ";\n";
 	}
 
@@ -308,7 +300,7 @@ void ConvertUEnumToHaxe(UEnum* e) {
 
 // Generates and saves a Haxe extern based on a UStruct.
 void ConvertUStructToHaxe(UStruct* s) {
-	if (StructsConverted.Contains(s)) {
+	if(StructsConverted.Contains(s)) {
 		return;
 	}
 
@@ -320,15 +312,15 @@ void ConvertUStructToHaxe(UStruct* s) {
 	haxeSource += "@:native(\"" + cppName + "\")\n";
 
 	auto includePath = s->GetMetaData(TEXT("ModuleRelativePath"));
-	if (!includePath.IsEmpty()) {
+	if(!includePath.IsEmpty()) {
 		haxeSource += "@:include(\"" + includePath.Replace(TEXT("Classes/"), TEXT("")).Replace(TEXT("Public/"), TEXT("")) + "\")\n";
 	}
 
 	haxeSource += "extern class " + cppName;
 
 	auto superClass = s->GetSuperStruct();
-	if (superClass) {
-		if (!StructsConverted.Contains(superClass)) {
+	if(superClass) {
+		if(!StructsConverted.Contains(superClass)) {
 			ConvertUStructToHaxe(superClass);
 		}
 
@@ -347,7 +339,7 @@ void ConvertUStructToHaxe(UStruct* s) {
 
 // Generates and saves a Haxe extern based on a UClass.
 void ConvertUClassToHaxe(UClass* cls) {
-	if (ClassesConverted.Contains(cls)) {
+	if(ClassesConverted.Contains(cls)) {
 		return;
 	}
 
@@ -359,13 +351,13 @@ void ConvertUClassToHaxe(UClass* cls) {
 
 	FString haxeSource = "package unreal;\n\n";
 	haxeSource += "@:native(\"" + cppName + "\")\n";
-	if (!headerPath.IsEmpty()) {
+	if(!headerPath.IsEmpty()) {
 		haxeSource += "@:include(\"" + headerPath + "\")\n";
 	}
 	haxeSource += "extern class " + cppName;
 
 	auto superClass = cls->GetSuperClass();
-	if (superClass) {
+	if(superClass) {
 		auto superName = GetClassCPPName(superClass);
 		haxeSource += " extends " + superName;
 	}
@@ -381,7 +373,7 @@ void ConvertUClassToHaxe(UClass* cls) {
 
 // Iterates through all of the available UClasses and converts them to Haxe.
 void ConvertAllUClasses() {
-	for (TObjectIterator<UClass> it; it; ++it) {
+	for(TObjectIterator<UClass> it; it; ++it) {
 		ConvertUClassToHaxe(*it);
 	}
 }
