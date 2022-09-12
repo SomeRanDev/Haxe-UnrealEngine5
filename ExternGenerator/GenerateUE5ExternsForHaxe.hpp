@@ -505,8 +505,6 @@ void ConvertUClassToHaxe(UClass* cls) {
 // * EXTRA EXTERNS
 // ------------------------------------------------------------------------------------
 
-#include "UObject/ObjectMacros.h"
-
 // This is where extra externs are defined.
 // If there is an important class/function/variable that Unreal's reflection misses, an extern for it in Haxe can be created here.
 void SetupExtraExterns() {
