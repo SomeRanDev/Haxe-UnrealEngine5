@@ -5,8 +5,6 @@
 #include "UObject/UObjectIterator.h"
 #include "UObject/UnrealType.h"
 
-#include "HAL/FileManagerGeneric.h"
-
 // The path where your externs are saved.
 // The "%s" is replaced with the filename, (i.e. "AActor")
 #define HAXE_FILE_SAVE_PATH "Z:\\Downloads\\UE5Haxe\\unreal\\%s.hx"
@@ -31,47 +29,6 @@ FString ConvertFPropertyToHaxeTypeString(FProperty* prop, bool isReturn = false)
 void SaveHaxeFile(const FString& filename, const FString& content) {
 	auto file = FString::Printf(TEXT(HAXE_FILE_SAVE_PATH), *filename);
 	FFileHelper::SaveStringToFile(content, *file);
-}
-
-// Given a path, all header files (.h) are stored into the TMap<FString, FString>& "Result".
-// The key is the name of the file, and the value is the relative path to "SearchPath".
-// This is used to find and cache all the header files for a module folder.
-void FindHeaders(const FString& SearchPath, TMap<FString, FString>& Result, const FString& PathHere) {
-	TArray<FString> FileNames;
-	FFileManagerGeneric FM;
-	FM.FindFiles(FileNames, *(SearchPath + "/*"), true, true);
-	for (auto& f : FileNames) {
-		auto fullPath = FPaths::Combine(SearchPath, f);
-		if (FM.DirectoryExists(*fullPath)) {
-			FindHeaders(fullPath, Result, FPaths::Combine(PathHere, f));
-		}
-		else if (FM.FileExists(*fullPath)) {
-			if (FPaths::GetExtension(f) == "h") {
-				auto name = FPaths::GetBaseFilename(f, true);
-				Result.Add(name, FPaths::Combine(PathHere, f));
-			}
-		}
-	}
-}
-
-// Given a module name, a map of the header files is provided.
-// See the "FindHeaders" function for more info.
-const TMap<FString, FString>& FindIncludesForModule(const FString& ModuleName) {
-	if (!ModuleIncludesMap.Contains(ModuleName)) {
-		auto engineDir = FPaths::ConvertRelativePathToFull(FPaths::EngineDir());
-		auto modulesDir = FPaths::Combine(engineDir, "Source", "Runtime", ModuleName);
-		auto pubPath = FPaths::Combine(modulesDir, "Public");
-		auto clsPath = FPaths::Combine(modulesDir, "Classes");
-		TMap<FString, FString> result;
-		if (FPaths::DirectoryExists(pubPath)) {
-			FindHeaders(pubPath, result, "");
-		}
-		if (FPaths::DirectoryExists(clsPath)) {
-			FindHeaders(clsPath, result, "");
-		}
-		ModuleIncludesMap.Add(ModuleName, result);
-	}
-	return ModuleIncludesMap[ModuleName];
 }
 
 // Returns the actual name of the UClass/UStruct in C++ (and by extension, Haxe).
@@ -348,8 +305,6 @@ void ConvertUEnumToHaxe(UEnum* e) {
 
 	SaveHaxeFile(cppName, haxeSource);
 }
-
-#include "Engine/EngineBaseTypes.h"
 
 // Generates and saves a Haxe extern based on a UStruct.
 void ConvertUStructToHaxe(UStruct* s) {
