@@ -3,7 +3,7 @@ package ue;
 
 @:native("UObjectBase")
 @:include("UObject/UObjectBaseUtility.h")
-extern class UObjectBase {
+extern class ObjectBase {
 	public function GetClass(): cpp.Star<UClass>;
 	public function GetExternalPackage(): cpp.Star<UPackage>;
 	public function GetExternalPackageInternal(): cpp.Star<UClass>;

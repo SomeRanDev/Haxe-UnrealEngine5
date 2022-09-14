@@ -2,4 +2,6 @@
 
 -D no-compilation
 
+MyActor
+
 -cpp ../Source/HaxeProject/HaxeOutput

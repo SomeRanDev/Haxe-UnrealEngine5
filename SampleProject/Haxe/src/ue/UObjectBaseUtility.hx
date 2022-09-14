@@ -3,5 +3,5 @@ package ue;
 
 @:native("UObjectBaseUtility")
 @:include("UObject/UObjectBaseUtility.h")
-extern class UObjectBaseUtility extends UObjectBase {
+extern class ObjectBaseUtility extends ObjectBase {
 }
