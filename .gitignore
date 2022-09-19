@@ -1,0 +1,5 @@
+ExternGenerator/*/.vs/*
+ExternGenerator/*/Binaries/*
+ExternGenerator/*/DerivedDataCache/*
+ExternGenerator/*/Intermediate/*
+ExternGenerator/*/Saved/*
