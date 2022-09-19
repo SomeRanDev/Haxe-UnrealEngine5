@@ -1,7 +1,44 @@
+# Define where we will place the list of classes we want to copy to Unreal's Source folder
+-D ClassListFilePath=CopyHxOutputToSourceFolder/Classes.txt
+
+# Store the name of our Unreal Engine project
+# This is needed later since it's used as the folder name for the Unreal C++ files
+# Source/<ProjectName>/HaxeOutput is where our Haxe/C++ output will go
+-D ProjectName=HaxeProject
+
+# ---------------------------------------------
+# * Compile Haxe Project
+# ---------------------------------------------
+
+--each
+
+# Set Haxe source code folder
 -cp src
 
+# We do not want the Haxe compiler to compile the C++ for us
 -D no-compilation
 
-MyActor
+# Handle Unreal metadata in Haxe
+--macro UEMetadata.init("game")
 
--cpp ../Source/HaxeProject/HaxeOutput
+# Ensure our "game" package is compiled
+game
+
+# Output to "output" folder
+# If you change this, it also needs to be changed in "CopyHxOutputToSourceFile/Main.hx"
+-cpp output
+
+# ---------------------------------------------
+# * Move Haxe/C++ Output to Unreal Source Folder
+# ---------------------------------------------
+
+--next
+
+# Script is stored in "CopyHxOutputToSourceFolder"
+-cp CopyHxOutputToSourceFolder
+
+# Call script main function
+-main Main
+
+# Interpret this Haxe script
+--interp
