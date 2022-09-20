@@ -5,7 +5,7 @@ package ue;
 extern class FObjectInitializer {
 	public function new();
 
-	public function CreateDefaultSubobject(Other: cpp.Star<UObject>, SubobjectName: FName, bTransient: Bool): cpp.Star<TReturnType>;
-	public function GetArchetype(): cpp.Star<UObject>;
-	public function GetClass(): cpp.Star<UClass>;
+	public function CreateDefaultSubobject<TReturnType>(Other: cpp.Star<Object>, SubobjectName: FName, bTransient: Bool): cpp.Star<TReturnType>;
+	public function GetArchetype(): cpp.Star<Object>;
+	public function GetClass(): cpp.Star<Class>;
 }
