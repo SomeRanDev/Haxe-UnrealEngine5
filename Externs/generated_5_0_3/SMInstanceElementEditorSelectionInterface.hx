@@ -3,7 +3,10 @@ package ue;
 
 @:native("USMInstanceElementEditorSelectionInterface")
 @:include("Elements/SMInstance/SMInstanceElementEditorSelectionInterface.h")
+@:structAccess
 extern class SMInstanceElementEditorSelectionInterface extends SMInstanceElementSelectionInterface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

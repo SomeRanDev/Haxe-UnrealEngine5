@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDialogueWave")
 @:include("Sound/DialogueWave.h")
+@:structAccess
 extern class DialogueWave extends Object {
 	public var bMature: Bool;
 	public var bOverride_SubtitleOverride: Bool;
@@ -11,6 +12,8 @@ extern class DialogueWave extends Object {
 	public var VoiceActorDirection: FString;
 	public var ContextMappings: TArray<DialogueContextMapping>;
 	public var LocalizationGUID: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

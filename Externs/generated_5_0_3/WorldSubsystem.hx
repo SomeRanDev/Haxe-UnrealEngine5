@@ -3,7 +3,10 @@ package ue;
 
 @:native("UWorldSubsystem")
 @:include("Subsystems/WorldSubsystem.h")
+@:structAccess
 extern class WorldSubsystem extends Subsystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

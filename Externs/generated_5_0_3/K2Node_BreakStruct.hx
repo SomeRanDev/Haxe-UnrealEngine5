@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_BreakStruct")
 @:include("K2Node_BreakStruct.h")
+@:structAccess
 extern class K2Node_BreakStruct extends K2Node_StructMemberGet {
 	public var bMadeAfterOverridePinRemoval: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

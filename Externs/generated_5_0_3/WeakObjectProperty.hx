@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UWeakObjectProperty")
+@:structAccess
 extern class WeakObjectProperty extends ObjectPropertyBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

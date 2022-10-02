@@ -2,7 +2,10 @@
 package ue;
 
 @:native("USMInstanceManagerProvider")
+@:structAccess
 extern class SMInstanceManagerProvider extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

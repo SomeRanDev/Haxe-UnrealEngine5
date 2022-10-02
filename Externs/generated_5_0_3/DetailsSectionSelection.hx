@@ -3,6 +3,10 @@ package ue;
 
 @:native("FDetailsSectionSelection")
 @:include("Private/DetailsViewConfig.h")
+@:structAccess
 extern class DetailsSectionSelection {
 	public var SectionNames: TSet<FName>;
+
+	@:native("FDetailsSectionSelection") public function new();
+	@:native("FDetailsSectionSelection") public static function make(SectionNames: TSet<FName>): DetailsSectionSelection ;
 }

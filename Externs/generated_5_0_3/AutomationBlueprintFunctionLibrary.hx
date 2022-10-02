@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAutomationBlueprintFunctionLibrary")
 @:include("AutomationBlueprintFunctionLibrary.h")
+@:structAccess
 extern class AutomationBlueprintFunctionLibrary extends BlueprintFunctionLibrary {
 	public function TakeHighResScreenshot(ResX: cpp.Int32, ResY: cpp.Int32, Filename: FString, Camera: cpp.Star<CameraActor>, bMaskEnabled: Bool, bCaptureHDR: Bool, ComparisonTolerance: EComparisonTolerance, ComparisonNotes: FString, Delay: cpp.Float32): cpp.Reference<cpp.Star<AutomationEditorTask>>;
 	public function TakeAutomationScreenshotOfUI(WorldContextObject: cpp.Star<Object>, LatentInfo: LatentActionInfo, Name: FString, Options: cpp.Reference<AutomationScreenshotOptions>): Void;
@@ -27,6 +28,8 @@ extern class AutomationBlueprintFunctionLibrary extends BlueprintFunctionLibrary
 	public function AreAutomatedTestsRunning(): cpp.Reference<Bool>;
 	public function AddTestTelemetryData(DataPoint: FString, Measurement: cpp.Float32, Context: FString): Void;
 	public function AddExpectedLogError(ExpectedPatternString: FString, Occurrences: cpp.Int32, ExactMatch: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

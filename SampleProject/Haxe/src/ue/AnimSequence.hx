@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimSequence")
 @:include("Animation/AnimSequence.h")
+@:structAccess
 extern class AnimSequence extends AnimSequenceBase {
 	public var ImportFileFramerate: cpp.Float32;
 	public var ImportResampleFramerate: cpp.Int32;
@@ -49,6 +50,8 @@ extern class AnimSequence extends AnimSequenceBase {
 	public function AddBoneStringCustomAttribute(BoneName: cpp.Reference<FName>, AttributeName: cpp.Reference<FName>, TimeKeys: cpp.Reference<TArray<cpp.Float32>>, ValueKeys: cpp.Reference<TArray<FString>>): Void;
 	public function AddBoneIntegerCustomAttribute(BoneName: cpp.Reference<FName>, AttributeName: cpp.Reference<FName>, TimeKeys: cpp.Reference<TArray<cpp.Float32>>, ValueKeys: cpp.Reference<TArray<cpp.Int32>>): Void;
 	public function AddBoneFloatCustomAttribute(BoneName: cpp.Reference<FName>, AttributeName: cpp.Reference<FName>, TimeKeys: cpp.Reference<TArray<cpp.Float32>>, ValueKeys: cpp.Reference<TArray<cpp.Float32>>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

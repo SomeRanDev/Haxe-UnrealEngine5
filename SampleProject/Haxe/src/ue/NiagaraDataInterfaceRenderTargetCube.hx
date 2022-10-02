@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraDataInterfaceRenderTargetCube")
 @:include("NiagaraDataInterfaceRenderTargetCube.h")
+@:structAccess
 extern class NiagaraDataInterfaceRenderTargetCube extends NiagaraDataInterfaceRWBase {
 	public var Size: cpp.Int32;
 	public var OverrideRenderTargetFormat: ETextureRenderTargetFormat;
@@ -11,6 +12,8 @@ extern class NiagaraDataInterfaceRenderTargetCube extends NiagaraDataInterfaceRW
 	public var bPreviewRenderTarget: Bool;
 	public var RenderTargetUserParameter: NiagaraUserParameterBinding;
 	public var ManagedRenderTargets: TMap<cpp.UInt64, cpp.Star<TextureRenderTargetCube>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

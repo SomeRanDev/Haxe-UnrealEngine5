@@ -3,10 +3,13 @@ package ue;
 
 @:native("UTimeSynchronizableMediaSource")
 @:include("TimeSynchronizableMediaSource.h")
+@:structAccess
 extern class TimeSynchronizableMediaSource extends BaseMediaSource {
 	public var bUseTimeSynchronization: Bool;
 	public var FrameDelay: cpp.Int32;
 	public var TimeDelay: cpp.Float64;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

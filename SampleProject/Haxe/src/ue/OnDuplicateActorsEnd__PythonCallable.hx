@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnDuplicateActorsEnd__PythonCallable")
+@:structAccess
 extern class OnDuplicateActorsEnd__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

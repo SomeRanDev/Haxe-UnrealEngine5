@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraCompileEvent")
 @:include("NiagaraShared.h")
+@:structAccess
 extern class NiagaraCompileEvent {
 	public var Severity: FNiagaraCompileEventSeverity;
 	public var Message: FString;
@@ -12,4 +13,6 @@ extern class NiagaraCompileEvent {
 	public var PinGuid: Guid;
 	public var StackGuids: TArray<Guid>;
 	public var Source: FNiagaraCompileEventSource;
+
+	@:native("FNiagaraCompileEvent") public function new();
 }

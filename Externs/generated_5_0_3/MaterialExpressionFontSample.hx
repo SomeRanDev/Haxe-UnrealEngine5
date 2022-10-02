@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionFontSample")
 @:include("Materials/MaterialExpressionFontSample.h")
+@:structAccess
 extern class MaterialExpressionFontSample extends MaterialExpression {
 	public var Font: cpp.Star<Font>;
 	public var FontTexturePage: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

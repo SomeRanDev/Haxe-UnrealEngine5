@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionGenericConstant")
 @:include("Materials/MaterialExpressionGenericConstant.h")
+@:structAccess
 extern class MaterialExpressionGenericConstant extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

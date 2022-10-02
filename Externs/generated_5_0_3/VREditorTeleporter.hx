@@ -3,6 +3,7 @@ package ue;
 
 @:native("AVREditorTeleporter")
 @:include("Teleporter/VREditorTeleporter.h")
+@:structAccess
 extern class VREditorTeleporter extends Actor {
 	public var VRMode: cpp.Star<VREditorMode>;
 	public var TeleportDirectionMeshComponent: cpp.Star<StaticMeshComp>;
@@ -26,6 +27,8 @@ extern class VREditorTeleporter extends Actor {
 	public function GetSlideDelta(Interactor: cpp.Star<VREditorInteractor>, Axis: Bool): cpp.Reference<cpp.Float32>;
 	public function GetInteractorTryingTeleport(): cpp.Reference<cpp.Star<ViewportInteractor>>;
 	public function DoTeleport(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsTeleporting, IsAiming, GetVRMode, GetInteractorTryingTeleport)

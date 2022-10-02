@@ -3,5 +3,7 @@ package ue;
 
 @:native("FPointerToUberGraphFrame")
 @:include("Engine/BlueprintGeneratedClass.h")
+@:structAccess
 extern class PointerToUberGraphFrame {
+	@:native("FPointerToUberGraphFrame") public function new();
 }

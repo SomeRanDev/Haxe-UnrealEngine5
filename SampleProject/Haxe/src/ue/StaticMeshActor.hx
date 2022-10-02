@@ -3,12 +3,15 @@ package ue;
 
 @:native("AStaticMeshActor")
 @:include("Engine/StaticMeshActor.h")
+@:structAccess
 extern class StaticMeshActor extends Actor {
 	public var StaticMeshComponent: cpp.Star<StaticMeshComp>;
 	public var bStaticMeshReplicateMovement: Bool;
 	public var NavigationGeometryGatheringMode: ENavDataGatheringMode;
 
 	public function SetMobility(InMobility: EComponentMobility): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

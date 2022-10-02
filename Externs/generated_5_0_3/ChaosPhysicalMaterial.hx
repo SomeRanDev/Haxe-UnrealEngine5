@@ -3,6 +3,7 @@ package ue;
 
 @:native("UChaosPhysicalMaterial")
 @:include("Chaos/ChaosPhysicalMaterial.h")
+@:structAccess
 extern class ChaosPhysicalMaterial extends Object {
 	public var Friction: cpp.Float32;
 	public var StaticFriction: cpp.Float32;
@@ -11,6 +12,8 @@ extern class ChaosPhysicalMaterial extends Object {
 	public var AngularEtherDrag: cpp.Float32;
 	public var SleepingLinearVelocityThreshold: cpp.Float32;
 	public var SleepingAngularVelocityThreshold: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

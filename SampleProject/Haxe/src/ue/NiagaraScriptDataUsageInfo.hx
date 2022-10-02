@@ -3,6 +3,10 @@ package ue;
 
 @:native("FNiagaraScriptDataUsageInfo")
 @:include("NiagaraCommon.h")
+@:structAccess
 extern class NiagaraScriptDataUsageInfo {
 	public var bReadsAttributeData: Bool;
+
+	@:native("FNiagaraScriptDataUsageInfo") public function new();
+	@:native("FNiagaraScriptDataUsageInfo") public static function make(bReadsAttributeData: Bool): NiagaraScriptDataUsageInfo ;
 }

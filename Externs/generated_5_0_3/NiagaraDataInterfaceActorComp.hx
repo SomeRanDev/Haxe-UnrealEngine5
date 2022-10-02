@@ -3,10 +3,13 @@ package ue;
 
 @:native("UNiagaraDataInterfaceActorComponent")
 @:include("DataInterface/NiagaraDataInterfaceActorComponent.h")
+@:structAccess
 extern class NiagaraDataInterfaceActorComp extends NiagaraDataInterface {
 	public var bRequireCurrentFrameData: Bool;
 	public var SourceActor: TLazyObjectPtr<Actor>;
 	public var ActorOrComponentParameter: NiagaraUserParameterBinding;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

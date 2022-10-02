@@ -3,11 +3,14 @@ package ue;
 
 @:native("UCameraLensEffectInterfaceClassSupportLibrary")
 @:include("Camera/CameraLensEffectInterface.h")
+@:structAccess
 extern class CameraLensEffectInterfaceClassSupportLibrary extends BlueprintFunctionLibrary {
 	public function SetInterfaceClass(Class: TSubclassOf<Actor>, Var: cpp.Reference<CameraLensInterfaceClassSupport>, Result: cpp.Reference<EInterfaceValidResult>): Void;
 	public function IsInterfaceValid(CameraLens: cpp.Reference<CameraLensEffectInterface.ConstCameraLensEffectInterface>, Result: cpp.Reference<EInterfaceValidResult>): Void;
 	public function IsInterfaceClassValid(CameraLens: cpp.Reference<CameraLensInterfaceClassSupport>, Result: cpp.Reference<EInterfaceValidResult>): Void;
 	public function GetInterfaceClass(CameraLens: cpp.Reference<CameraLensInterfaceClassSupport>): cpp.Reference<TSubclassOf<Actor>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

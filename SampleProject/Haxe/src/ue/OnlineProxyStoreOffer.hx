@@ -3,6 +3,7 @@ package ue;
 
 @:native("FOnlineProxyStoreOffer")
 @:include("InAppPurchaseQueryCallbackProxy2.h")
+@:structAccess
 extern class OnlineProxyStoreOffer {
 	public var OfferId: FString;
 	public var Title: FText;
@@ -17,4 +18,6 @@ extern class OnlineProxyStoreOffer {
 	public var ExpirationDate: DateTime;
 	public var DiscountType: EOnlineProxyStoreOfferDiscountType;
 	public var DynamicFields: TMap<FString, FString>;
+
+	@:native("FOnlineProxyStoreOffer") public function new();
 }

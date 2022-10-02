@@ -3,10 +3,14 @@ package ue;
 
 @:native("FInterpCurvePointLinearColor")
 @:include("UObject/NoExportTypes.h")
+@:structAccess
 extern class InterpCurvePointLinearColor {
 	public var InVal: cpp.Float32;
 	public var OutVal: LinearColor;
 	public var ArriveTangent: LinearColor;
 	public var LeaveTangent: LinearColor;
 	public var InterpMode: EInterpCurveMode;
+
+	@:native("FInterpCurvePointLinearColor") public function new();
+	@:native("FInterpCurvePointLinearColor") public static function make(InVal: cpp.Float32, OutVal: LinearColor, ArriveTangent: LinearColor, LeaveTangent: LinearColor, InterpMode: EInterpCurveMode): InterpCurvePointLinearColor ;
 }

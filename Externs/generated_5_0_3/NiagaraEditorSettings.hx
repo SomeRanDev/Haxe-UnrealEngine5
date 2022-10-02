@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraEditorSettings")
 @:include("NiagaraEditorSettings.h")
+@:structAccess
 extern class NiagaraEditorSettings extends DeveloperSettings {
 	public var DefaultScript: SoftObjectPath;
 	public var DefaultDynamicInputScript: SoftObjectPath;
@@ -30,6 +31,8 @@ extern class NiagaraEditorSettings extends DeveloperSettings {
 	public var bShowInstructionsCount: Bool;
 	public var bShowParticleCountsInViewport: Bool;
 	public var bShowEmitterExecutionOrder: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

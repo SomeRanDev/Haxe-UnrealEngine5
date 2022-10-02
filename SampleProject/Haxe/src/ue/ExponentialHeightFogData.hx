@@ -3,8 +3,12 @@ package ue;
 
 @:native("FExponentialHeightFogData")
 @:include("Components/ExponentialHeightFogComponent.h")
+@:structAccess
 extern class ExponentialHeightFogData {
 	public var FogDensity: cpp.Float32;
 	public var FogHeightFalloff: cpp.Float32;
 	public var FogHeightOffset: cpp.Float32;
+
+	@:native("FExponentialHeightFogData") public function new();
+	@:native("FExponentialHeightFogData") public static function make(FogDensity: cpp.Float32, FogHeightFalloff: cpp.Float32, FogHeightOffset: cpp.Float32): ExponentialHeightFogData ;
 }

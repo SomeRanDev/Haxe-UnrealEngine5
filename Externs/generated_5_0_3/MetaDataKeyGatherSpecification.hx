@@ -3,8 +3,12 @@ package ue;
 
 @:native("FMetaDataKeyGatherSpecification")
 @:include("LocalizationTargetTypes.h")
+@:structAccess
 extern class MetaDataKeyGatherSpecification {
 	public var MetaDataKey: MetaDataKeyName;
 	public var TextNamespace: FString;
 	public var TextKeyPattern: MetaDataTextKeyPattern;
+
+	@:native("FMetaDataKeyGatherSpecification") public function new();
+	@:native("FMetaDataKeyGatherSpecification") public static function make(MetaDataKey: MetaDataKeyName, TextNamespace: FString, TextKeyPattern: MetaDataTextKeyPattern): MetaDataKeyGatherSpecification ;
 }

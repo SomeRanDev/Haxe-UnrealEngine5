@@ -3,11 +3,14 @@ package ue;
 
 @:native("UGraphNodeContextMenuContext")
 @:include("EdGraph/EdGraphNode.h")
+@:structAccess
 extern class GraphNodeContextMenuContext extends Object {
 	public var Blueprint: cpp.Star<Blueprint>;
 	public var Graph: cpp.Star<EdGraph>;
 	public var Node: cpp.Star<EdGraphNode>;
 	public var bIsDebugging: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

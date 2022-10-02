@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneEnumTrack")
 @:include("Tracks/MovieSceneEnumTrack.h")
+@:structAccess
 extern class MovieSceneEnumTrack extends MovieScenePropertyTrack {
 	public var Enum: cpp.Star<Enum>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

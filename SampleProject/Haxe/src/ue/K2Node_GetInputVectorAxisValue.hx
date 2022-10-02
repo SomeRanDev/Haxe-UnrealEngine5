@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_GetInputVectorAxisValue")
 @:include("K2Node_GetInputVectorAxisValue.h")
+@:structAccess
 extern class K2Node_GetInputVectorAxisValue extends K2Node_GetInputAxisKeyValue {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

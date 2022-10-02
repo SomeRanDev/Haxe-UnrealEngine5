@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraDataInterfaceAudioPlayer")
 @:include("NiagaraDataInterfaceAudioPlayer.h")
+@:structAccess
 extern class NiagaraDataInterfaceAudioPlayer extends NiagaraDataInterface {
 	public var SoundToPlay: cpp.Star<SoundBase>;
 	public var Attenuation: cpp.Star<SoundAttenuation>;
@@ -12,6 +13,8 @@ extern class NiagaraDataInterfaceAudioPlayer extends NiagaraDataInterface {
 	public var MaxPlaysPerTick: cpp.Int32;
 	public var bStopWhenComponentIsDestroyed: Bool;
 	public var bOnlyActiveDuringGameplay: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

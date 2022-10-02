@@ -3,11 +3,14 @@ package ue;
 
 @:native("UBodySetupCore")
 @:include("BodySetupCore.h")
+@:structAccess
 extern class BodySetupCore extends Object {
 	public var BoneName: FName;
 	public var PhysicsType: EPhysicsType;
 	public var CollisionTraceFlag: ECollisionTraceFlag;
 	public var CollisionReponse: EBodyCollisionResponse;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

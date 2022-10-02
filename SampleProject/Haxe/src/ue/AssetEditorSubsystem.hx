@@ -3,11 +3,14 @@ package ue;
 
 @:native("UAssetEditorSubsystem")
 @:include("Subsystems/AssetEditorSubsystem.h")
+@:structAccess
 extern class AssetEditorSubsystem extends EditorSubsystem {
 	public var OwnedAssetEditors: TArray<cpp.Star<AssetEditor>>;
 
 	public function OpenEditorForAssets(Assets: cpp.Reference<TArray<cpp.Star<Object>>>): cpp.Reference<Bool>;
 	public function CloseAllEditorsForAsset(Asset: cpp.Star<Object>): cpp.Reference<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

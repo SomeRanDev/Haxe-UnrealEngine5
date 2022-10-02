@@ -3,7 +3,10 @@ package ue;
 
 @:native("UControlRigValidationPass")
 @:include("ControlRigValidationPass.h")
+@:structAccess
 extern class ControlRigValidationPass extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

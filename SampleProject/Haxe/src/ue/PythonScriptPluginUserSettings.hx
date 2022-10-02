@@ -3,9 +3,12 @@ package ue;
 
 @:native("UPythonScriptPluginUserSettings")
 @:include("PythonScriptPluginSettings.h")
+@:structAccess
 extern class PythonScriptPluginUserSettings extends DeveloperSettings {
 	public var bDeveloperMode: Bool;
 	public var bEnableContentBrowserIntegration: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

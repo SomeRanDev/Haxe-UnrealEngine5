@@ -3,10 +3,13 @@ package ue;
 
 @:native("UWidgetBlueprintFactory")
 @:include("WidgetBlueprintFactory.h")
+@:structAccess
 extern class WidgetBlueprintFactory extends Factory {
 	public var BlueprintType: EBlueprintType;
 	public var ParentClass: TSubclassOf<UserWidget>;
 	public var RootWidgetClass: TSubclassOf<Object>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

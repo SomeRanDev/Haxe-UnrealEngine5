@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMovieSceneNiagaraEmitterTrack")
 @:include("Sequencer/NiagaraSequence/MovieSceneNiagaraEmitterTrack.h")
+@:structAccess
 extern class MovieSceneNiagaraEmitterTrack extends MovieSceneNameableTrack {
 	public var Sections: TArray<cpp.Star<MovieSceneSection>>;
 	public var bSectionsWereModified: Bool;
 	public var EmitterHandleId: Guid;
 	public var SystemPath: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

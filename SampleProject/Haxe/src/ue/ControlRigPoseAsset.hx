@@ -3,6 +3,7 @@ package ue;
 
 @:native("UControlRigPoseAsset")
 @:include("Tools/ControlRigPose.h")
+@:structAccess
 extern class ControlRigPoseAsset extends Object {
 	public var Pose: ControlRigControlPose;
 
@@ -13,6 +14,8 @@ extern class ControlRigPoseAsset extends Object {
 	public function GetCurrentPose(InControlRig: cpp.Star<ControlRig>, OutPose: cpp.Reference<ControlRigControlPose>): Void;
 	public function GetControlNames(): cpp.Reference<TArray<FName>>;
 	public function DoesMirrorMatch(ControlRig: cpp.Star<ControlRig>, ControlName: cpp.Reference<FName>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetControlNames, DoesMirrorMatch)

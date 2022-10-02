@@ -3,6 +3,7 @@ package ue;
 
 @:native("FGatherTextFromPackagesConfiguration")
 @:include("LocalizationTargetTypes.h")
+@:structAccess
 extern class GatherTextFromPackagesConfiguration {
 	public var IsEnabled: Bool;
 	public var IncludePathWildcards: TArray<GatherTextIncludePath>;
@@ -13,4 +14,6 @@ extern class GatherTextFromPackagesConfiguration {
 	public var ShouldExcludeDerivedClasses: Bool;
 	public var ShouldGatherFromEditorOnlyData: Bool;
 	public var SkipGatherCache: Bool;
+
+	@:native("FGatherTextFromPackagesConfiguration") public function new();
 }

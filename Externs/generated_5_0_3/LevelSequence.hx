@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULevelSequence")
 @:include("LevelSequence.h")
+@:structAccess
 extern class LevelSequence extends MovieSceneSequence {
 	public var MovieScene: cpp.Star<MovieScene>;
 	public var ObjectReferences: LevelSequenceObjectReferenceMap;
@@ -17,6 +18,8 @@ extern class LevelSequence extends MovieSceneSequence {
 	public function FindOrAddMetaDataByClass(InClass: TSubclassOf<Object>): cpp.Reference<cpp.Star<Object>>;
 	public function FindMetaDataByClass(InClass: TSubclassOf<Object>): cpp.Reference<cpp.Star<Object>>;
 	public function CopyMetaData(InMetaData: cpp.Star<Object>): cpp.Reference<cpp.Star<Object>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(FindMetaDataByClass)

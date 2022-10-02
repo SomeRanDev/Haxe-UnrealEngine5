@@ -3,6 +3,7 @@ package ue;
 
 @:native("UInterchangeBaseNode")
 @:include("Nodes/InterchangeBaseNode.h")
+@:structAccess
 extern class InterchangeBaseNode extends Object {
 	public var ReferenceObject: SoftObjectPath;
 
@@ -35,6 +36,8 @@ extern class InterchangeBaseNode extends Object {
 	public function AddFloatAttribute(NodeAttributeKey: FString, Value: cpp.Reference<cpp.Float32>): cpp.Reference<Bool>;
 	public function AddFactoryDependencyUid(DependencyUid: FString): cpp.Reference<Bool>;
 	public function AddBooleanAttribute(NodeAttributeKey: FString, Value: cpp.Reference<Bool>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

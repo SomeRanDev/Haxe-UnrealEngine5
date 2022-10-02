@@ -3,9 +3,12 @@ package ue;
 
 @:native("ULightmappedSurfaceCollection")
 @:include("Lightmass/LightmappedSurfaceCollection.h")
+@:structAccess
 extern class LightmappedSurfaceCollection extends Object {
 	public var SourceModel: cpp.Star<Model>;
 	public var Surfaces: TArray<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

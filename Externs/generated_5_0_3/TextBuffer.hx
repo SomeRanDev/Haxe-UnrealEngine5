@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UTextBuffer")
+@:structAccess
 extern class TextBuffer extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

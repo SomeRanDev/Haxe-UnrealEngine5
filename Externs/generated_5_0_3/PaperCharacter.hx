@@ -3,8 +3,11 @@ package ue;
 
 @:native("APaperCharacter")
 @:include("PaperCharacter.h")
+@:structAccess
 extern class PaperCharacter extends Character {
 	public var Sprite: cpp.Star<PaperFlipbookComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

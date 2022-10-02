@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNavLocalGridManager")
 @:include("Navigation/NavLocalGridManager.h")
+@:structAccess
 extern class NavLocalGridManager extends Object {
 	public function SetLocalNavigationGridDensity(WorldContextObject: cpp.Star<Object>, CellSize: cpp.Float32): cpp.Reference<Bool>;
 	public function RemoveLocalNavigationGrid(WorldContextObject: cpp.Star<Object>, GridId: cpp.Int32, bRebuildGrids: Bool): Void;
@@ -11,6 +12,8 @@ extern class NavLocalGridManager extends Object {
 	public function AddLocalNavigationGridForPoint(WorldContextObject: cpp.Star<Object>, Location: cpp.Reference<Vector>, Radius2D: cpp.Int32, Height: cpp.Float32, bRebuildGrids: Bool): cpp.Reference<cpp.Int32>;
 	public function AddLocalNavigationGridForCapsule(WorldContextObject: cpp.Star<Object>, Location: cpp.Reference<Vector>, CapsuleRadius: cpp.Float32, CapsuleHalfHeight: cpp.Float32, Radius2D: cpp.Int32, Height: cpp.Float32, bRebuildGrids: Bool): cpp.Reference<cpp.Int32>;
 	public function AddLocalNavigationGridForBox(WorldContextObject: cpp.Star<Object>, Location: cpp.Reference<Vector>, Extent: Vector, Rotation: Rotator, Radius2D: cpp.Int32, Height: cpp.Float32, bRebuildGrids: Bool): cpp.Reference<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

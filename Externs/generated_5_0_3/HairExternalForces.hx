@@ -3,8 +3,12 @@ package ue;
 
 @:native("FHairExternalForces")
 @:include("GroomAssetPhysics.h")
+@:structAccess
 extern class HairExternalForces {
 	public var GravityVector: Vector;
 	public var AirDrag: cpp.Float32;
 	public var AirVelocity: Vector;
+
+	@:native("FHairExternalForces") public function new();
+	@:native("FHairExternalForces") public static function make(GravityVector: Vector, AirDrag: cpp.Float32, AirVelocity: Vector): HairExternalForces ;
 }

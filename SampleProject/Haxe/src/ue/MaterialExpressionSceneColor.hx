@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionSceneColor")
 @:include("Materials/MaterialExpressionSceneColor.h")
+@:structAccess
 extern class MaterialExpressionSceneColor extends MaterialExpression {
 	public var InputMode: EMaterialSceneAttributeInputMode;
 	public var Input: ExpressionInput;
 	public var OffsetFraction_DEPRECATED: ExpressionInput;
 	public var ConstInput: Vector2D;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_SequenceEvaluator")
 @:include("AnimGraphNode_SequenceEvaluator.h")
+@:structAccess
 extern class AnimGraphNode_SequenceEvaluator extends AnimGraphNode_AssetPlayerBase {
 	public var Node: AnimNode_SequenceEvaluator;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

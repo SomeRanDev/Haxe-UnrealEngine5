@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UClassProperty")
+@:structAccess
 extern class ClassProperty extends ObjectProperty {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

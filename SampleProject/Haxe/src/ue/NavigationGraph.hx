@@ -3,7 +3,10 @@ package ue;
 
 @:native("ANavigationGraph")
 @:include("NavGraph/NavigationGraph.h")
+@:structAccess
 extern class NavigationGraph extends NavigationData {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

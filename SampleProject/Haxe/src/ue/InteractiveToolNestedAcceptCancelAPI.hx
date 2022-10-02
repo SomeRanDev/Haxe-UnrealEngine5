@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UInteractiveToolNestedAcceptCancelAPI")
+@:structAccess
 extern class InteractiveToolNestedAcceptCancelAPI extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

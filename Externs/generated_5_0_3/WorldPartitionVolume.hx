@@ -3,7 +3,10 @@ package ue;
 
 @:native("AWorldPartitionVolume")
 @:include("WorldPartition/WorldPartitionVolume.h")
+@:structAccess
 extern class WorldPartitionVolume extends Volume {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

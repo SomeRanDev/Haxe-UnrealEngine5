@@ -3,11 +3,14 @@ package ue;
 
 @:native("UInterchangeResult")
 @:include("InterchangeResult.h")
+@:structAccess
 extern class InterchangeResult extends Object {
 	public var SourceAssetName: FString;
 	public var DestinationAssetName: FString;
 	public var AssetType: TSubclassOf<Object>;
 	public var InterchangeKey: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMovieSceneSkeletalAnimationParams")
 @:include("Sections/MovieSceneSkeletalAnimationSection.h")
+@:structAccess
 extern class MovieSceneSkeletalAnimationParams {
 	public var Animation: cpp.Star<AnimSequenceBase>;
 	public var FirstLoopStartFrameOffset: FrameNumber;
@@ -17,4 +18,6 @@ extern class MovieSceneSkeletalAnimationParams {
 	public var bForceCustomMode: Bool;
 	public var StartOffset_DEPRECATED: cpp.Float32;
 	public var EndOffset_DEPRECATED: cpp.Float32;
+
+	@:native("FMovieSceneSkeletalAnimationParams") public function new();
 }

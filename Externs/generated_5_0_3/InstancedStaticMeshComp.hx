@@ -3,6 +3,7 @@ package ue;
 
 @:native("UInstancedStaticMeshComponent")
 @:include("Components/InstancedStaticMeshComponent.h")
+@:structAccess
 extern class InstancedStaticMeshComp extends StaticMeshComp {
 	public var PerInstanceSMData: TArray<InstancedStaticMeshInstanceData>;
 	public var PerInstancePrevTransform: TArray<Matrix>;
@@ -32,6 +33,8 @@ extern class InstancedStaticMeshComp extends StaticMeshComp {
 	public function AddInstanceWorldSpace(WorldTransform: cpp.Reference<Transform>): cpp.Reference<cpp.Int32>;
 	public function AddInstances(InstanceTransforms: cpp.Reference<TArray<Transform>>, bShouldReturnIndices: Bool, bWorldSpace: Bool): cpp.Reference<TArray<cpp.Int32>>;
 	public function AddInstance(InstanceTransform: cpp.Reference<Transform>, bWorldSpace: Bool): cpp.Reference<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsValidInstance, GetInstanceTransform, GetInstancesOverlappingSphere, GetInstancesOverlappingBox, GetInstanceCount)

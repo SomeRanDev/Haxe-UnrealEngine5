@@ -3,6 +3,7 @@ package ue;
 
 @:native("URigVMActionStack")
 @:include("RigVMModel/RigVMControllerActions.h")
+@:structAccess
 extern class RigVMActionStack extends Object {
 	public var ActionIndex: cpp.Int32;
 	public var UndoActions: TArray<RigVMActionKey>;
@@ -13,6 +14,8 @@ extern class RigVMActionStack extends Object {
 	public function OpenUndoBracket(InTitle: FString): cpp.Reference<Bool>;
 	public function CloseUndoBracket(): cpp.Reference<Bool>;
 	public function CancelUndoBracket(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

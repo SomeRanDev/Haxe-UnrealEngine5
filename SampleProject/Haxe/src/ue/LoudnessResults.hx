@@ -3,9 +3,13 @@ package ue;
 
 @:native("FLoudnessResults")
 @:include("Loudness.h")
+@:structAccess
 extern class LoudnessResults {
 	public var Loudness: cpp.Float32;
 	public var NormalizedLoudness: cpp.Float32;
 	public var PerceptualEnergy: cpp.Float32;
 	public var TimeSeconds: cpp.Float32;
+
+	@:native("FLoudnessResults") public function new();
+	@:native("FLoudnessResults") public static function make(Loudness: cpp.Float32, NormalizedLoudness: cpp.Float32, PerceptualEnergy: cpp.Float32, TimeSeconds: cpp.Float32): LoudnessResults ;
 }

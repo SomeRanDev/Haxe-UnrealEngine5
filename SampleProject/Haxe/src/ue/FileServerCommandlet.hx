@@ -3,7 +3,10 @@ package ue;
 
 @:native("UFileServerCommandlet")
 @:include("Commandlets/FileServerCommandlet.h")
+@:structAccess
 extern class FileServerCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

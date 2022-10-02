@@ -3,8 +3,11 @@ package ue;
 
 @:native("UDatasmithStaticMeshImportData")
 @:include("DatasmithAssetImportData.h")
+@:structAccess
 extern class DatasmithStaticMeshImportData extends DatasmithAssetImportData {
 	public var ImportOptions: DatasmithStaticMeshImportOptions;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

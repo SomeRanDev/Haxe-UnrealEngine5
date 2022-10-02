@@ -3,6 +3,7 @@ package ue;
 
 @:native("ALight")
 @:include("Engine/Light.h")
+@:structAccess
 extern class Light extends Actor {
 	public var LightComponent: cpp.Star<LightComp>;
 	public var bEnabled: Bool;
@@ -20,6 +21,8 @@ extern class Light extends Actor {
 	public function IsEnabled(): cpp.Reference<Bool>;
 	public function GetLightColor(): cpp.Reference<LinearColor>;
 	public function GetBrightness(): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsEnabled, GetLightColor, GetBrightness)

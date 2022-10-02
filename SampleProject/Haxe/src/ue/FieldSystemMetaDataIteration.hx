@@ -3,10 +3,13 @@ package ue;
 
 @:native("UFieldSystemMetaDataIteration")
 @:include("Field/FieldSystemObjects.h")
+@:structAccess
 extern class FieldSystemMetaDataIteration extends FieldSystemMetaData {
 	public var Iterations: cpp.Int32;
 
 	public function SetMetaDataIteration(Iterations: cpp.Int32): cpp.Reference<cpp.Star<FieldSystemMetaDataIteration>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,12 +3,15 @@ package ue;
 
 @:native("UBTDecorator_DoesPathExist")
 @:include("BehaviorTree/Decorators/BTDecorator_DoesPathExist.h")
+@:structAccess
 extern class BTDecorator_DoesPathExist extends BTDecorator {
 	public var BlackboardKeyA: BlackboardKeySelector;
 	public var BlackboardKeyB: BlackboardKeySelector;
 	public var bUseSelf: Bool;
 	public var PathQueryType: EPathExistanceQueryType;
 	public var FilterClass: TSubclassOf<NavigationQueryFilter>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

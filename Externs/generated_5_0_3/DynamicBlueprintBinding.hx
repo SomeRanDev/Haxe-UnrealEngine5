@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDynamicBlueprintBinding")
 @:include("Engine/DynamicBlueprintBinding.h")
+@:structAccess
 extern class DynamicBlueprintBinding extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

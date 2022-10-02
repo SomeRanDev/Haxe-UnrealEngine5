@@ -3,5 +3,7 @@ package ue;
 
 @:native("FSmartNameContainer")
 @:include("Animation/SmartName.h")
+@:structAccess
 extern class SmartNameContainer {
+	@:native("FSmartNameContainer") public function new();
 }

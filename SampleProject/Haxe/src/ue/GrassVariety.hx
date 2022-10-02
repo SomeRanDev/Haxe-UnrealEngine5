@@ -3,6 +3,7 @@ package ue;
 
 @:native("FGrassVariety")
 @:include("LandscapeGrassType.h")
+@:structAccess
 extern class GrassVariety {
 	public var GrassMesh: cpp.Star<StaticMesh>;
 	public var OverrideMaterials: TArray<cpp.Star<MaterialInterface>>;
@@ -23,4 +24,6 @@ extern class GrassVariety {
 	public var bReceivesDecals: Bool;
 	public var bCastDynamicShadow: Bool;
 	public var bKeepInstanceBufferCPUCopy: Bool;
+
+	@:native("FGrassVariety") public function new();
 }

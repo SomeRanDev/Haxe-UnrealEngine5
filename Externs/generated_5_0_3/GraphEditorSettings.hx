@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGraphEditorSettings")
 @:include("GraphEditorSettings.h")
+@:structAccess
 extern class GraphEditorSettings extends Object {
 	public var DataPinStyle: EBlueprintPinStyleType;
 	public var PanningMouseButton: EGraphPanningMouseButton;
@@ -76,6 +77,8 @@ extern class GraphEditorSettings extends Object {
 	public var bOpenCreateMenuOnBlankGraphAreas: Bool;
 	public var DefaultCommentNodeMoveMode: ECommentBoxMode;
 	public var bShowCommentBubbleWhenZoomedOut: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

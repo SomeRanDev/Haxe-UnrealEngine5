@@ -3,10 +3,13 @@ package ue;
 
 @:native("UDatasmithDecalComponentTemplate")
 @:include("ObjectTemplates/DatasmithDecalComponentTemplate.h")
+@:structAccess
 extern class DatasmithDecalComponentTemplate extends DatasmithObjectTemplate {
 	public var SortOrder: cpp.Int32;
 	public var DecalSize: Vector;
 	public var Material: cpp.Star<MaterialInterface>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

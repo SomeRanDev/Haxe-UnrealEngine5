@@ -3,7 +3,10 @@ package ue;
 
 @:native("ARigidBodyBase")
 @:include("PhysicsEngine/RigidBodyBase.h")
+@:structAccess
 extern class RigidBodyBase extends Actor {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

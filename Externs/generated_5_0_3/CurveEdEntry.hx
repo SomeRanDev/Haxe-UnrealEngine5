@@ -3,6 +3,7 @@ package ue;
 
 @:native("FCurveEdEntry")
 @:include("Engine/InterpCurveEdSetup.h")
+@:structAccess
 extern class CurveEdEntry {
 	public var CurveObject: cpp.Star<Object>;
 	public var CurveColor: Color;
@@ -13,4 +14,6 @@ extern class CurveEdEntry {
 	public var bClamp: cpp.Int32;
 	public var ClampLow: cpp.Float32;
 	public var ClampHigh: cpp.Float32;
+
+	@:native("FCurveEdEntry") public function new();
 }

@@ -3,9 +3,12 @@ package ue;
 
 @:native("AWindDirectionalSource")
 @:include("Engine/WindDirectionalSource.h")
+@:structAccess
 extern class WindDirectionalSource extends Info {
 	public var Component: cpp.Star<WindDirectionalSourceComp>;
 	public var ArrowComponent: cpp.Star<ArrowComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

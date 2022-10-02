@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraNode")
 @:include("NiagaraNode.h")
+@:structAccess
 extern class NiagaraNode extends EdGraphNode {
 	public var ChangeId: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

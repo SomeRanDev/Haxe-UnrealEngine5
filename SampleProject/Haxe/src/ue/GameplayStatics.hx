@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGameplayStatics")
 @:include("Kismet/GameplayStatics.h")
+@:structAccess
 extern class GameplayStatics extends BlueprintFunctionLibrary {
 	public function UnRetainAllSoundsInSoundClass(InSoundClass: cpp.Star<SoundClass>): Void;
 	public function UnloadStreamLevelBySoftObjectPtr(WorldContextObject: cpp.Star<Object.ConstObject>, Level: TSoftObjectPtr<World.ConstWorld>, LatentInfo: LatentActionInfo, bShouldBlockOnUnload: Bool): Void;
@@ -133,6 +134,8 @@ extern class GameplayStatics extends BlueprintFunctionLibrary {
 	public function ApplyDamage(DamagedActor: cpp.Star<Actor>, BaseDamage: cpp.Float32, EventInstigator: cpp.Star<Controller>, DamageCauser: cpp.Star<Actor>, DamageTypeClass: TSubclassOf<DamageType>): cpp.Reference<cpp.Float32>;
 	public function AnnounceAccessibleString(AnnouncementString: FString): Void;
 	public function ActivateReverbEffect(WorldContextObject: cpp.Star<Object.ConstObject>, ReverbEffect: cpp.Star<ReverbEffect>, TagName: FName, Priority: cpp.Float32, Volume: cpp.Float32, FadeTime: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

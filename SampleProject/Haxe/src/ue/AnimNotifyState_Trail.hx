@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimNotifyState_Trail")
 @:include("Animation/AnimNotifies/AnimNotifyState_Trail.h")
+@:structAccess
 extern class AnimNotifyState_Trail extends AnimNotifyState {
 	public var PSTemplate: cpp.Star<ParticleSystem>;
 	public var FirstSocketName: FName;
@@ -16,6 +17,8 @@ extern class AnimNotifyState_Trail extends AnimNotifyState {
 	public var bRenderTessellation: Bool;
 
 	public function OverridePSTemplate(MeshComp: cpp.Star<SkeletalMeshComp>, Animation: cpp.Star<AnimSequenceBase>): cpp.Reference<cpp.Star<ParticleSystem>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(OverridePSTemplate)

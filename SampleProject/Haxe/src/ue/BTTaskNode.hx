@@ -3,9 +3,12 @@ package ue;
 
 @:native("UBTTaskNode")
 @:include("BehaviorTree/BTTaskNode.h")
+@:structAccess
 extern class BTTaskNode extends BTNode {
 	public var Services: TArray<cpp.Star<BTService>>;
 	public var bIgnoreRestartSelf: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

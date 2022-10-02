@@ -3,7 +3,10 @@ package ue;
 
 @:native("UControlRigLayerInstance")
 @:include("Sequencer/ControlRigLayerInstance.h")
+@:structAccess
 extern class ControlRigLayerInstance extends AnimInstance {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UTranslationPickerSettings")
 @:include("TranslationPickerEditWindow.h")
+@:structAccess
 extern class TranslationPickerSettings extends Object {
 	public var bSubmitTranslationPickerChangesToLocalizationService: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

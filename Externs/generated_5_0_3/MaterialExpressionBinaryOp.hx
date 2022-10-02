@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionBinaryOp")
 @:include("Materials/MaterialExpressionBinaryOp.h")
+@:structAccess
 extern class MaterialExpressionBinaryOp extends MaterialExpression {
 	public var A: ExpressionInput;
 	public var B: ExpressionInput;
 	public var ConstA: cpp.Float32;
 	public var ConstB: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

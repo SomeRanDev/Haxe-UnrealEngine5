@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_CCDIK")
 @:include("AnimGraphNode_CCDIK.h")
+@:structAccess
 extern class AnimGraphNode_CCDIK extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_CCDIK;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

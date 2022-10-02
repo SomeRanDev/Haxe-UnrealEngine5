@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_RotationOffsetBlendSpace")
 @:include("AnimGraphNode_RotationOffsetBlendSpace.h")
+@:structAccess
 extern class AnimGraphNode_RotationOffsetBlendSpace extends AnimGraphNode_BlendSpaceBase {
 	public var Node: AnimNode_RotationOffsetBlendSpace;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

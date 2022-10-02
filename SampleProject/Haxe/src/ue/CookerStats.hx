@@ -3,11 +3,14 @@ package ue;
 
 @:native("UCookerStats")
 @:include("CookerStats.h")
+@:structAccess
 extern class CookerStats extends Object {
 	public var Assets: TArray<TWeakObjectPtr<Object>>;
 	public var SizeBefore: cpp.Float32;
 	public var SizeAfter: cpp.Float32;
 	public var Path: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

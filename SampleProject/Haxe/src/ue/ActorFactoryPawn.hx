@@ -3,7 +3,10 @@ package ue;
 
 @:native("UActorFactoryPawn")
 @:include("ActorFactories/ActorFactoryPawn.h")
+@:structAccess
 extern class ActorFactoryPawn extends ActorFactoryEmptyActor {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

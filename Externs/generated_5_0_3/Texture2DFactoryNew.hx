@@ -3,9 +3,12 @@ package ue;
 
 @:native("UTexture2DFactoryNew")
 @:include("Factories/Texture2dFactoryNew.h")
+@:structAccess
 extern class Texture2DFactoryNew extends Factory {
 	public var Width: cpp.Int32;
 	public var Height: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

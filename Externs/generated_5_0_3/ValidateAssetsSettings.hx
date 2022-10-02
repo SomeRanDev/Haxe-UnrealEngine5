@@ -3,8 +3,12 @@ package ue;
 
 @:native("FValidateAssetsSettings")
 @:include("EditorValidatorSubsystem.h")
+@:structAccess
 extern class ValidateAssetsSettings {
 	public var bSkipExcludedDirectories: Bool;
 	public var bShowIfNoFailures: Bool;
 	public var ValidationUsecase: EDataValidationUsecase;
+
+	@:native("FValidateAssetsSettings") public function new();
+	@:native("FValidateAssetsSettings") public static function make(bSkipExcludedDirectories: Bool, bShowIfNoFailures: Bool, ValidationUsecase: EDataValidationUsecase): ValidateAssetsSettings ;
 }

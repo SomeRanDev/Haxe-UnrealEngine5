@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UVRNotificationsDelegate__PythonCallable")
+@:structAccess
 extern class VRNotificationsDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

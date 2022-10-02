@@ -3,8 +3,11 @@ package ue;
 
 @:native("AProceduralFoliageVolume")
 @:include("ProceduralFoliageVolume.h")
+@:structAccess
 extern class ProceduralFoliageVolume extends Volume {
 	public var ProceduralComponent: cpp.Star<ProceduralFoliageComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

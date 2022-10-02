@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULiveLinkFrameInterpolationProcessor")
 @:include("LiveLinkFrameInterpolationProcessor.h")
+@:structAccess
 extern class LiveLinkFrameInterpolationProcessor extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

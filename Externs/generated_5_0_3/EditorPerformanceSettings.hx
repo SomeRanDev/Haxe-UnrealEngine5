@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEditorPerformanceSettings")
 @:include("Editor/EditorPerformanceSettings.h")
+@:structAccess
 extern class EditorPerformanceSettings extends DeveloperSettings {
 	public var bShowFrameRateAndMemory: Bool;
 	public var bThrottleCPUWhenNotForeground: Bool;
@@ -20,6 +21,8 @@ extern class EditorPerformanceSettings extends DeveloperSettings {
 	public var MinViewportRenderingResolution: cpp.Int32;
 	public var bOverrideMaxViewportRenderingResolution: Bool;
 	public var MaxViewportRenderingResolution: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

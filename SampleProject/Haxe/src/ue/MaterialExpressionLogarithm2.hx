@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionLogarithm2")
 @:include("Materials/MaterialExpressionLogarithm2.h")
+@:structAccess
 extern class MaterialExpressionLogarithm2 extends MaterialExpression {
 	public var X: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

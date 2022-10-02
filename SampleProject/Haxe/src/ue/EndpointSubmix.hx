@@ -3,10 +3,13 @@ package ue;
 
 @:native("UEndpointSubmix")
 @:include("Sound/SoundSubmix.h")
+@:structAccess
 extern class EndpointSubmix extends SoundSubmixBase {
 	public var EndpointType: FName;
 	public var EndpointSettingsClass: TSubclassOf<AudioEndpointSettingsBase>;
 	public var EndpointSettings: cpp.Star<AudioEndpointSettingsBase>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

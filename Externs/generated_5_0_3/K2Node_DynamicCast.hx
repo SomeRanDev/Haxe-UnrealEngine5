@@ -3,9 +3,12 @@ package ue;
 
 @:native("UK2Node_DynamicCast")
 @:include("K2Node_DynamicCast.h")
+@:structAccess
 extern class K2Node_DynamicCast extends K2Node {
 	public var TargetType: TSubclassOf<Object>;
 	public var bIsPureCast: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,11 +3,14 @@ package ue;
 
 @:native("ANavigationObjectBase")
 @:include("Engine/NavigationObjectBase.h")
+@:structAccess
 extern class NavigationObjectBase extends Actor {
 	public var CapsuleComponent: cpp.Star<CapsuleComp>;
 	public var GoodSprite: cpp.Star<BillboardComp>;
 	public var BadSprite: cpp.Star<BillboardComp>;
 	public var bIsPIEPlayerStart: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

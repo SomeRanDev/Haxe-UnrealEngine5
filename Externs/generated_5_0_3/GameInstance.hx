@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGameInstance")
 @:include("Engine/GameInstance.h")
+@:structAccess
 extern class GameInstance extends Object {
 	public var LocalPlayers: TArray<cpp.Star<LocalPlayer>>;
 	public var OnlineSession: cpp.Star<OnlineSession>;
@@ -15,6 +16,8 @@ extern class GameInstance extends Object {
 	public function HandleNetworkError(FailureType: ENetworkFailure, bIsServer: Bool): Void;
 	public function DebugRemovePlayer(ControllerId: cpp.Int32): Void;
 	public function DebugCreatePlayer(ControllerId: cpp.Int32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

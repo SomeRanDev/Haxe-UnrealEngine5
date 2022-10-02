@@ -3,8 +3,12 @@ package ue;
 
 @:native("FRealCurve")
 @:include("Curves/RealCurve.h")
+@:structAccess
 extern class RealCurve extends IndexedCurve {
 	public var DefaultValue: cpp.Float32;
 	public var PreInfinityExtrap: ERichCurveExtrapolation;
 	public var PostInfinityExtrap: ERichCurveExtrapolation;
+
+	@:native("FRealCurve") public function new();
+	@:native("FRealCurve") public static function make(DefaultValue: cpp.Float32, PreInfinityExtrap: ERichCurveExtrapolation, PostInfinityExtrap: ERichCurveExtrapolation): RealCurve ;
 }

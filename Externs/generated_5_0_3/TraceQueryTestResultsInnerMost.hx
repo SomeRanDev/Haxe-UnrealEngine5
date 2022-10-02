@@ -3,6 +3,7 @@ package ue;
 
 @:native("FTraceQueryTestResultsInnerMost")
 @:include("TraceQueryTestResults.h")
+@:structAccess
 extern class TraceQueryTestResultsInnerMost {
 	public var SingleHit: HitResult;
 	public var SingleNames: TraceQueryTestNames;
@@ -10,4 +11,6 @@ extern class TraceQueryTestResultsInnerMost {
 	public var MultiHits: TArray<HitResult>;
 	public var MultiNames: TArray<TraceQueryTestNames>;
 	public var bMultiResult: Bool;
+
+	@:native("FTraceQueryTestResultsInnerMost") public function new();
 }

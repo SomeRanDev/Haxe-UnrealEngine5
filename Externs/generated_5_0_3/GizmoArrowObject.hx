@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGizmoArrowObject")
 @:include("EditorGizmos/GizmoArrowObject.h")
+@:structAccess
 extern class GizmoArrowObject extends GizmoBaseObject {
 	public var bHasConeHead: cpp.Int32;
 	public var Direction: Vector;
@@ -10,6 +11,8 @@ extern class GizmoArrowObject extends GizmoBaseObject {
 	public var CylinderObject: cpp.Star<GizmoCylinderObject>;
 	public var ConeObject: cpp.Star<GizmoConeObject>;
 	public var BoxObject: cpp.Star<GizmoBoxObject>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

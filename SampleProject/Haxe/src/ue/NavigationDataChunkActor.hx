@@ -3,9 +3,12 @@ package ue;
 
 @:native("ANavigationDataChunkActor")
 @:include("WorldPartition/NavigationData/NavigationDataChunkActor.h")
+@:structAccess
 extern class NavigationDataChunkActor extends PartitionActor {
 	public var NavDataChunks: TArray<cpp.Star<NavigationDataChunk>>;
 	public var DataChunkActorBounds: Box;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

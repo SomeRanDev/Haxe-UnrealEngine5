@@ -3,7 +3,10 @@ package ue;
 
 @:native("UUnrealEdTypes")
 @:include("Editor/UnrealEdTypes.h")
+@:structAccess
 extern class UnrealEdTypes extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

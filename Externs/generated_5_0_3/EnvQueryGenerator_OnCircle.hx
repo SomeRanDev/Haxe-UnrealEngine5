@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEnvQueryGenerator_OnCircle")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_OnCircle.h")
+@:structAccess
 extern class EnvQueryGenerator_OnCircle extends EnvQueryGenerator_ProjectedPoints {
 	public var CircleRadius: AIDataProviderFloatValue;
 	public var SpaceBetween: AIDataProviderFloatValue;
@@ -16,6 +17,8 @@ extern class EnvQueryGenerator_OnCircle extends EnvQueryGenerator_ProjectedPoint
 	public var CircleCenterZOffset: AIDataProviderFloatValue;
 	public var TraceData: EnvTraceData;
 	public var bDefineArc: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

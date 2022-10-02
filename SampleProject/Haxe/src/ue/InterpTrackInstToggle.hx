@@ -3,10 +3,13 @@ package ue;
 
 @:native("UInterpTrackInstToggle")
 @:include("Matinee/InterpTrackInstToggle.h")
+@:structAccess
 extern class InterpTrackInstToggle extends InterpTrackInst {
 	public var Action: ETrackToggleAction;
 	public var LastUpdatePosition: cpp.Float32;
 	public var bSavedActiveState: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

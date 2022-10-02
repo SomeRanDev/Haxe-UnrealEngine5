@@ -3,8 +3,11 @@ package ue;
 
 @:native("UParticleModuleEventReceiverKillParticles")
 @:include("Particles/Event/ParticleModuleEventReceiverKillParticles.h")
+@:structAccess
 extern class ParticleModuleEventReceiverKillParticles extends ParticleModuleEventReceiverBase {
 	public var bStopSpawning: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,5 +3,7 @@ package ue;
 
 @:native("FPointerEvent")
 @:include("Input/Events.h")
+@:structAccess
 extern class PointerEvent extends InputEvent {
+	@:native("FPointerEvent") public function new();
 }

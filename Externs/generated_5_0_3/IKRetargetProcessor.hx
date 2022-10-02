@@ -3,8 +3,11 @@ package ue;
 
 @:native("UIKRetargetProcessor")
 @:include("Retargeter/IKRetargetProcessor.h")
+@:structAccess
 extern class IKRetargetProcessor extends Object {
 	public var IKRigProcessor: cpp.Star<IKRigProcessor>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

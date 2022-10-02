@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMovieSceneRestorePreAnimatedStateSystem")
 @:include("EntitySystem/MovieScenePreAnimatedStateSystem.h")
+@:structAccess
 extern class MovieSceneRestorePreAnimatedStateSystem extends MovieSceneEntityInstantiatorSystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,12 @@ package ue;
 
 @:native("FBlueprintInputDelegateBinding")
 @:include("Engine/InputDelegateBinding.h")
+@:structAccess
 extern class BlueprintInputDelegateBinding {
 	public var bConsumeInput: Bool;
 	public var bExecuteWhenPaused: Bool;
 	public var bOverrideParentBinding: Bool;
+
+	@:native("FBlueprintInputDelegateBinding") public function new();
+	@:native("FBlueprintInputDelegateBinding") public static function make(bConsumeInput: Bool, bExecuteWhenPaused: Bool, bOverrideParentBinding: Bool): BlueprintInputDelegateBinding ;
 }

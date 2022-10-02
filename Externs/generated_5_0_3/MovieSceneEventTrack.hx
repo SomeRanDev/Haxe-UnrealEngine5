@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMovieSceneEventTrack")
 @:include("Tracks/MovieSceneEventTrack.h")
+@:structAccess
 extern class MovieSceneEventTrack extends MovieSceneNameableTrack {
 	public var bFireEventsWhenForwards: Bool;
 	public var bFireEventsWhenBackwards: Bool;
 	public var EventPosition: EFireEventsAtPosition;
 	public var Sections: TArray<cpp.Star<MovieSceneSection>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

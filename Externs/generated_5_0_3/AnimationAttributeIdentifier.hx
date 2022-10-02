@@ -3,10 +3,14 @@ package ue;
 
 @:native("FAnimationAttributeIdentifier")
 @:include("Animation/AnimData/AttributeIdentifier.h")
+@:structAccess
 extern class AnimationAttributeIdentifier {
 	public var Name: FName;
 	public var BoneName: FName;
 	public var BoneIndex: cpp.Int32;
 	public var ScriptStruct: cpp.Star<ScriptStruct>;
 	public var ScriptStructPath: SoftObjectPath;
+
+	@:native("FAnimationAttributeIdentifier") public function new();
+	@:native("FAnimationAttributeIdentifier") public static function make(Name: FName, BoneName: FName, BoneIndex: cpp.Int32, ScriptStruct: cpp.Star<ScriptStruct>, ScriptStructPath: SoftObjectPath): AnimationAttributeIdentifier ;
 }

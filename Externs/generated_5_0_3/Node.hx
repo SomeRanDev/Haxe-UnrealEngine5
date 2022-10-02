@@ -3,10 +3,14 @@ package ue;
 
 @:native("FNode")
 @:include("Animation/Rig.h")
+@:structAccess
 extern class Node {
 	public var Name: FName;
 	public var ParentName: FName;
 	public var Transform: Transform;
 	public var DisplayName: FString;
 	public var bAdvanced: Bool;
+
+	@:native("FNode") public function new();
+	@:native("FNode") public static function make(Name: FName, ParentName: FName, Transform: Transform, DisplayName: FString, bAdvanced: Bool): Node ;
 }

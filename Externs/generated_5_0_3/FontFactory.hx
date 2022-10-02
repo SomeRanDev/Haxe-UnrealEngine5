@@ -3,7 +3,10 @@ package ue;
 
 @:native("UFontFactory")
 @:include("Factories/FontFactory.h")
+@:structAccess
 extern class FontFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

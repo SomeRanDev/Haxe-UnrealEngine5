@@ -3,7 +3,11 @@ package ue;
 
 @:native("FARSessionStatus")
 @:include("ARTypes.h")
+@:structAccess
 extern class ARSessionStatus {
 	public var AdditionalInfo: FString;
 	public var Status: EARSessionStatus;
+
+	@:native("FARSessionStatus") public function new();
+	@:native("FARSessionStatus") public static function make(AdditionalInfo: FString, Status: EARSessionStatus): ARSessionStatus ;
 }

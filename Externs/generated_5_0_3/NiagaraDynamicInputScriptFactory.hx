@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraDynamicInputScriptFactory")
 @:include("NiagaraScriptFactoryNew.h")
+@:structAccess
 extern class NiagaraDynamicInputScriptFactory extends NiagaraScriptFactoryNew {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UGeometryCacheCodecBase")
 @:include("GeometryCacheCodecBase.h")
+@:structAccess
 extern class GeometryCacheCodecBase extends Object {
 	public var TopologyRanges: TArray<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

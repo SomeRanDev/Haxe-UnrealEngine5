@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieScene3DTransformSectionRecorderSettings")
 @:include("Sections/MovieScene3DTransformSectionRecorderSettings.h")
+@:structAccess
 extern class MovieScene3DTransformSectionRecorderSettings extends Object {
 	public var bRecordTransforms: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("ASpatialHashRuntimeGridInfo")
 @:include("WorldPartition/WorldPartitionRuntimeSpatialHash.h")
+@:structAccess
 extern class SpatialHashRuntimeGridInfo extends Info {
 	public var GridSettings: SpatialHashRuntimeGrid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

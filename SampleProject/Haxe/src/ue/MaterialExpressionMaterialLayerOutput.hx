@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionMaterialLayerOutput")
 @:include("Materials/MaterialExpressionMaterialLayerOutput.h")
+@:structAccess
 extern class MaterialExpressionMaterialLayerOutput extends MaterialExpressionFunctionOutput {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

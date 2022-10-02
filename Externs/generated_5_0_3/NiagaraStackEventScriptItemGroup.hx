@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraStackEventScriptItemGroup")
 @:include("ViewModels/Stack/NiagaraStackEventScriptItemGroup.h")
+@:structAccess
 extern class NiagaraStackEventScriptItemGroup extends NiagaraStackScriptItemGroup {
 	public var EventHandlerProperties: cpp.Star<NiagaraStackEventHandlerPropertiesItem>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

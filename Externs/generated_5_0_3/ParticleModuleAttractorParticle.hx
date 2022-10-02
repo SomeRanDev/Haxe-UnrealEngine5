@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleAttractorParticle")
 @:include("Particles/Attractor/ParticleModuleAttractorParticle.h")
+@:structAccess
 extern class ParticleModuleAttractorParticle extends ParticleModuleAttractorBase {
 	public var EmitterName: FName;
 	public var Range: RawDistributionFloat;
@@ -13,6 +14,8 @@ extern class ParticleModuleAttractorParticle extends ParticleModuleAttractorBase
 	public var bRenewSource: Bool;
 	public var bInheritSourceVel: Bool;
 	public var LastSelIndex: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

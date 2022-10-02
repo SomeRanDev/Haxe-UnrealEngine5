@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_FunctionResult")
 @:include("K2Node_FunctionResult.h")
+@:structAccess
 extern class K2Node_FunctionResult extends K2Node_FunctionTerminator {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UJsonUtilitiesDummyObject")
 @:include("JsonObjectWrapper.h")
+@:structAccess
 extern class JsonUtilitiesDummyObject extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

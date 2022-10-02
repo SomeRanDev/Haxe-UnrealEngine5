@@ -3,6 +3,7 @@ package ue;
 
 @:native("USoundNodeEnveloper")
 @:include("Sound/SoundNodeEnveloper.h")
+@:structAccess
 extern class SoundNodeEnveloper extends SoundNode {
 	public var LoopStart: cpp.Float32;
 	public var LoopEnd: cpp.Float32;
@@ -18,6 +19,8 @@ extern class SoundNodeEnveloper extends SoundNode {
 	public var PitchMax: cpp.Float32;
 	public var VolumeMin: cpp.Float32;
 	public var VolumeMax: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

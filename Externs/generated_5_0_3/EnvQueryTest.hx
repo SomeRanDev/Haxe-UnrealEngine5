@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEnvQueryTest")
 @:include("EnvironmentQuery/EnvQueryTest.h")
+@:structAccess
 extern class EnvQueryTest extends EnvQueryNode {
 	public var TestOrder: cpp.Int32;
 	public var TestPurpose: EEnvTestPurpose;
@@ -23,6 +24,8 @@ extern class EnvQueryTest extends EnvQueryNode {
 	public var ReferenceValue: AIDataProviderFloatValue;
 	public var bDefineReferenceValue: Bool;
 	public var bWorkOnFloatValues: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

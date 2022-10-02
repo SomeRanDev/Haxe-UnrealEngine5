@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionCloudSampleAttribute")
 @:include("Materials/MaterialExpressionCloudLayer.h")
+@:structAccess
 extern class MaterialExpressionCloudSampleAttribute extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

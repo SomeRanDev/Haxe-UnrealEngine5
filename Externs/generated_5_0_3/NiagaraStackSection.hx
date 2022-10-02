@@ -3,9 +3,13 @@ package ue;
 
 @:native("FNiagaraStackSection")
 @:include("NiagaraStackSection.h")
+@:structAccess
 extern class NiagaraStackSection {
 	public var SectionIdentifier: FName;
 	public var SectionDisplayName: FText;
 	public var Categories: TArray<FText>;
 	public var bEnabled: Bool;
+
+	@:native("FNiagaraStackSection") public function new();
+	@:native("FNiagaraStackSection") public static function make(SectionIdentifier: FName, SectionDisplayName: FText, Categories: TArray<FText>, bEnabled: Bool): NiagaraStackSection ;
 }

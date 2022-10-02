@@ -3,7 +3,11 @@ package ue;
 
 @:native("FNiagaraNewAssetDialogConfig")
 @:include("NiagaraEditorSettings.h")
+@:structAccess
 extern class NiagaraNewAssetDialogConfig {
 	public var SelectedOptionIndex: cpp.Int32;
 	public var WindowSize: Vector2D;
+
+	@:native("FNiagaraNewAssetDialogConfig") public function new();
+	@:native("FNiagaraNewAssetDialogConfig") public static function make(SelectedOptionIndex: cpp.Int32, WindowSize: Vector2D): NiagaraNewAssetDialogConfig ;
 }

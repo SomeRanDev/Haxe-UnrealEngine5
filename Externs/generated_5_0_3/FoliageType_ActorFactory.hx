@@ -3,7 +3,10 @@ package ue;
 
 @:native("UFoliageType_ActorFactory")
 @:include("FoliageTypeFactory.h")
+@:structAccess
 extern class FoliageType_ActorFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

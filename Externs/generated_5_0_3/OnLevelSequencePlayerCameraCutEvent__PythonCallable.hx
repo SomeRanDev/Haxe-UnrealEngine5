@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnLevelSequencePlayerCameraCutEvent__PythonCallable")
+@:structAccess
 extern class OnLevelSequencePlayerCameraCutEvent__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,10 @@ package ue;
 
 @:native("FStyleColorList")
 @:include("Styling/StyleColors.h")
+@:structAccess
 extern class StyleColorList {
 	public var StyleColors: LinearColor;
+
+	@:native("FStyleColorList") public function new();
+	@:native("FStyleColorList") public static function make(StyleColors: LinearColor): StyleColorList ;
 }

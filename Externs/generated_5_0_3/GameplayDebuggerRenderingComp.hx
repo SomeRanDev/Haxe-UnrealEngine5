@@ -3,7 +3,10 @@ package ue;
 
 @:native("UGameplayDebuggerRenderingComponent")
 @:include("GameplayDebuggerRenderingComponent.h")
+@:structAccess
 extern class GameplayDebuggerRenderingComp extends DebugDrawComp {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

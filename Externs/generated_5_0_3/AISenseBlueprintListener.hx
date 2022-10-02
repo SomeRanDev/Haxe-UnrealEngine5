@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAISenseBlueprintListener")
 @:include("Perception/AISenseBlueprintListener.h")
+@:structAccess
 extern class AISenseBlueprintListener extends UserDefinedStruct {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UARTrackedPose")
 @:include("ARTrackable.h")
+@:structAccess
 extern class ARTrackedPose extends ARTrackedGeometry {
 	public var TrackedPose: ARPose3D;
 
 	public function GetTrackedPoseData(): cpp.Reference<ARPose3D>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetTrackedPoseData)

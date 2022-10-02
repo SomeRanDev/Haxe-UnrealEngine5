@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMovieSceneBoolSection")
 @:include("Sections/MovieSceneBoolSection.h")
+@:structAccess
 extern class MovieSceneBoolSection extends MovieSceneSection {
 	public var DefaultValue_DEPRECATED: Bool;
 	public var BoolCurve: MovieSceneBoolChannel;
 	public var bIsExternallyInverted: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

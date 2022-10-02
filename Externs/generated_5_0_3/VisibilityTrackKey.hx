@@ -3,8 +3,12 @@ package ue;
 
 @:native("FVisibilityTrackKey")
 @:include("Matinee/InterpTrackVisibility.h")
+@:structAccess
 extern class VisibilityTrackKey {
 	public var Time: cpp.Float32;
 	public var Action: EVisibilityTrackAction;
 	public var ActiveCondition: EVisibilityTrackCondition;
+
+	@:native("FVisibilityTrackKey") public function new();
+	@:native("FVisibilityTrackKey") public static function make(Time: cpp.Float32, Action: EVisibilityTrackAction, ActiveCondition: EVisibilityTrackCondition): VisibilityTrackKey ;
 }

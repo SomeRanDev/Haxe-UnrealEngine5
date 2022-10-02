@@ -3,11 +3,14 @@ package ue;
 
 @:native("UParticleModuleSizeMultiplyLife")
 @:include("Particles/Size/ParticleModuleSizeMultiplyLife.h")
+@:structAccess
 extern class ParticleModuleSizeMultiplyLife extends ParticleModuleSizeBase {
 	public var LifeMultiplier: RawDistributionVector;
 	public var MultiplyX: Bool;
 	public var MultiplyY: Bool;
 	public var MultiplyZ: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

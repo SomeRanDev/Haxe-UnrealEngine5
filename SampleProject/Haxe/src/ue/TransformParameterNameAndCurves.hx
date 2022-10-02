@@ -3,9 +3,13 @@ package ue;
 
 @:native("FTransformParameterNameAndCurves")
 @:include("Sections/MovieSceneParameterSection.h")
+@:structAccess
 extern class TransformParameterNameAndCurves {
 	public var ParameterName: FName;
 	public var Translation: MovieSceneFloatChannel;
 	public var Rotation: MovieSceneFloatChannel;
 	public var Scale: MovieSceneFloatChannel;
+
+	@:native("FTransformParameterNameAndCurves") public function new();
+	@:native("FTransformParameterNameAndCurves") public static function make(ParameterName: FName, Translation: MovieSceneFloatChannel, Rotation: MovieSceneFloatChannel, Scale: MovieSceneFloatChannel): TransformParameterNameAndCurves ;
 }

@@ -3,5 +3,7 @@ package ue;
 
 @:native("FEmptyPayload")
 @:include("Animation/AnimData/AnimDataNotifications.h")
+@:structAccess
 extern class EmptyPayload {
+	@:native("FEmptyPayload") public function new();
 }

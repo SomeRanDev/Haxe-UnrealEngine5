@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBehaviorTreeComponent")
 @:include("BehaviorTree/BehaviorTreeComponent.h")
+@:structAccess
 extern class BehaviorTreeComp extends BrainComp {
 	public var NodeInstances: TArray<cpp.Star<BTNode>>;
 	public var DefaultBehaviorTreeAsset: cpp.Star<BehaviorTree>;
@@ -10,6 +11,8 @@ extern class BehaviorTreeComp extends BrainComp {
 	public function SetDynamicSubtree(InjectTag: GameplayTag, BehaviorAsset: cpp.Star<BehaviorTree>): Void;
 	public function GetTagCooldownEndTime(CooldownTag: GameplayTag): cpp.Reference<cpp.Float32>;
 	public function AddCooldownTagDuration(CooldownTag: GameplayTag, CooldownDuration: cpp.Float32, bAddToExistingDuration: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetTagCooldownEndTime)

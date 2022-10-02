@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnIsSelectingKeyChanged__PythonCallable")
+@:structAccess
 extern class OnIsSelectingKeyChanged__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

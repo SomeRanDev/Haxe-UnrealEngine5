@@ -3,6 +3,7 @@ package ue;
 
 @:native("UForceFeedbackComponent")
 @:include("Components/ForceFeedbackComponent.h")
+@:structAccess
 extern class ForceFeedbackComp extends SceneComp {
 	public var ForceFeedbackEffect: cpp.Star<ForceFeedbackEffect>;
 	public var bAutoDestroy: Bool;
@@ -21,6 +22,8 @@ extern class ForceFeedbackComp extends SceneComp {
 	public function Play(StartTime: cpp.Float32): Void;
 	public function BP_GetAttenuationSettingsToApply(OutAttenuationSettings: cpp.Reference<ForceFeedbackAttenuationSettings>): cpp.Reference<Bool>;
 	public function AdjustAttenuation(InAttenuationSettings: cpp.Reference<ForceFeedbackAttenuationSettings>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(BP_GetAttenuationSettingsToApply)

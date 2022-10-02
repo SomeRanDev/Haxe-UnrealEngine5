@@ -3,9 +3,12 @@ package ue;
 
 @:native("UVirtualTexturePoolConfig")
 @:include("VT/VirtualTexturePoolConfig.h")
+@:structAccess
 extern class VirtualTexturePoolConfig extends Object {
 	public var DefaultSizeInMegabyte: cpp.Int32;
 	public var Pools: TArray<VirtualTextureSpacePoolConfig>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

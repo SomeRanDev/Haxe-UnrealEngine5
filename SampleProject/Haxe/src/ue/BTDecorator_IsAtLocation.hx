@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBTDecorator_IsAtLocation")
 @:include("BehaviorTree/Decorators/BTDecorator_IsAtLocation.h")
+@:structAccess
 extern class BTDecorator_IsAtLocation extends BTDecorator_BlackboardBase {
 	public var AcceptableRadius: cpp.Float32;
 	public var ParametrizedAcceptableRadius: AIDataProviderFloatValue;
@@ -10,6 +11,8 @@ extern class BTDecorator_IsAtLocation extends BTDecorator_BlackboardBase {
 	public var bUseParametrizedRadius: Bool;
 	public var bUseNavAgentGoalLocation: Bool;
 	public var bPathFindingBasedTest: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

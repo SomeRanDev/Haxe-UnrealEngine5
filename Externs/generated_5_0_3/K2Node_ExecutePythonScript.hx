@@ -3,9 +3,12 @@ package ue;
 
 @:native("UK2Node_ExecutePythonScript")
 @:include("K2Node_ExecutePythonScript.h")
+@:structAccess
 extern class K2Node_ExecutePythonScript extends K2Node_CallFunction {
 	public var Inputs: TArray<FName>;
 	public var Outputs: TArray<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneAudioSection")
 @:include("Sections/MovieSceneAudioSection.h")
+@:structAccess
 extern class MovieSceneAudioSection extends MovieSceneSection {
 	public var Sound: cpp.Star<SoundBase>;
 	public var StartFrameOffset: FrameNumber;
@@ -30,6 +31,8 @@ extern class MovieSceneAudioSection extends MovieSceneSection {
 	public function SetSound(InSound: cpp.Star<SoundBase>): Void;
 	public function GetStartOffset(): cpp.Reference<FrameNumber>;
 	public function GetSound(): cpp.Reference<cpp.Star<SoundBase>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetStartOffset, GetSound)

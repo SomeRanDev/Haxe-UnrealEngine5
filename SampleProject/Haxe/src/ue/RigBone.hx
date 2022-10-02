@@ -3,6 +3,7 @@ package ue;
 
 @:native("FRigBone")
 @:include("Rigs/RigBoneHierarchy.h")
+@:structAccess
 extern class RigBone extends RigElement {
 	public var ParentName: FName;
 	public var ParentIndex: cpp.Int32;
@@ -11,4 +12,6 @@ extern class RigBone extends RigElement {
 	public var LocalTransform: Transform;
 	public var Dependents: TArray<cpp.Int32>;
 	public var Type: ERigBoneType;
+
+	@:native("FRigBone") public function new();
 }

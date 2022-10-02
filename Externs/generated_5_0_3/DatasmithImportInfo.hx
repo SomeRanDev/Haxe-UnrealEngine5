@@ -3,7 +3,11 @@ package ue;
 
 @:native("FDatasmithImportInfo")
 @:include("DatasmithAssetImportData.h")
+@:structAccess
 extern class DatasmithImportInfo {
 	public var SourceUri: FString;
 	public var SourceHash: FString;
+
+	@:native("FDatasmithImportInfo") public function new();
+	@:native("FDatasmithImportInfo") public static function make(SourceUri: FString, SourceHash: FString): DatasmithImportInfo ;
 }

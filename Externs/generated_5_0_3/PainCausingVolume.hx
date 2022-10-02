@@ -3,6 +3,7 @@ package ue;
 
 @:native("APainCausingVolume")
 @:include("GameFramework/PainCausingVolume.h")
+@:structAccess
 extern class PainCausingVolume extends PhysicsVolume {
 	public var bPainCausing: Bool;
 	public var DamagePerSec: cpp.Float32;
@@ -11,6 +12,8 @@ extern class PainCausingVolume extends PhysicsVolume {
 	public var bEntryPain: Bool;
 	public var BACKUP_bPainCausing: Bool;
 	public var DamageInstigator: cpp.Star<Controller>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

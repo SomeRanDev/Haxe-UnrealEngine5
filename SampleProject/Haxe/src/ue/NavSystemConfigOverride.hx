@@ -3,6 +3,7 @@ package ue;
 
 @:native("ANavSystemConfigOverride")
 @:include("NavSystemConfigOverride.h")
+@:structAccess
 extern class NavSystemConfigOverride extends Actor {
 	public var SpriteComponent: cpp.Star<BillboardComp>;
 	public var NavigationSystemConfig: cpp.Star<NavigationSystemConfig>;
@@ -10,6 +11,8 @@ extern class NavSystemConfigOverride extends Actor {
 	public var bLoadOnClient: Bool;
 
 	public function ApplyChanges(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

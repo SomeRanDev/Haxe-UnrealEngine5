@@ -3,10 +3,14 @@ package ue;
 
 @:native("FAutomationTestExcludelistEntry")
 @:include("AutomationTestExcludelist.h")
+@:structAccess
 extern class AutomationTestExcludelistEntry {
 	public var Map: FName;
 	public var Test: FName;
 	public var Reason: FName;
 	public var RHIs: TSet<FName>;
 	public var Warn: Bool;
+
+	@:native("FAutomationTestExcludelistEntry") public function new();
+	@:native("FAutomationTestExcludelistEntry") public static function make(Map: FName, Test: FName, Reason: FName, RHIs: TSet<FName>, Warn: Bool): AutomationTestExcludelistEntry ;
 }

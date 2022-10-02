@@ -3,10 +3,14 @@ package ue;
 
 @:native("FControlRigPublicFunctionArg")
 @:include("ControlRigBlueprint.h")
+@:structAccess
 extern class ControlRigPublicFunctionArg {
 	public var Name: FName;
 	public var CPPType: FName;
 	public var CPPTypeObjectPath: FName;
 	public var bIsArray: Bool;
 	public var Direction: ERigVMPinDirection;
+
+	@:native("FControlRigPublicFunctionArg") public function new();
+	@:native("FControlRigPublicFunctionArg") public static function make(Name: FName, CPPType: FName, CPPTypeObjectPath: FName, bIsArray: Bool, Direction: ERigVMPinDirection): ControlRigPublicFunctionArg ;
 }

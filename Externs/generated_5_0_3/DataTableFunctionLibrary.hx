@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDataTableFunctionLibrary")
 @:include("Kismet/DataTableFunctionLibrary.h")
+@:structAccess
 extern class DataTableFunctionLibrary extends BlueprintFunctionLibrary {
 	public function GetDataTableRowNames(Table: cpp.Star<DataTable>, OutRowNames: cpp.Reference<TArray<FName>>): Void;
 	public function GetDataTableRowFromName(Table: cpp.Star<DataTable>, RowName: FName, OutRow: cpp.Reference<TableRowBase>): cpp.Reference<Bool>;
@@ -13,6 +14,8 @@ extern class DataTableFunctionLibrary extends BlueprintFunctionLibrary {
 	public function FillDataTableFromCSVFile(DataTable: cpp.Star<DataTable>, CSVFilePath: FString): cpp.Reference<Bool>;
 	public function EvaluateCurveTableRow(CurveTable: cpp.Star<CurveTable>, RowName: FName, InXY: cpp.Float32, OutResult: cpp.Reference<EEvaluateCurveTableResult>, OutXY: cpp.Reference<cpp.Float32>, ContextString: FString): Void;
 	public function DoesDataTableRowExist(Table: cpp.Star<DataTable>, RowName: FName): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

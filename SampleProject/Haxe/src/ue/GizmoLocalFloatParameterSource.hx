@@ -3,9 +3,12 @@ package ue;
 
 @:native("UGizmoLocalFloatParameterSource")
 @:include("BaseGizmos/ParameterSourcesFloat.h")
+@:structAccess
 extern class GizmoLocalFloatParameterSource extends GizmoBaseFloatParameterSource {
 	public var Value: cpp.Float32;
 	public var LastChange: GizmoFloatParameterChange;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

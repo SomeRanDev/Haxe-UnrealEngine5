@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnPrimaryAssetLoaded__PythonCallable")
+@:structAccess
 extern class OnPrimaryAssetLoaded__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

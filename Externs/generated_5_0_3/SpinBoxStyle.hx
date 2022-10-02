@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSpinBoxStyle")
 @:include("Styling/SlateTypes.h")
+@:structAccess
 extern class SpinBoxStyle extends SlateWidgetStyle {
 	public var BackgroundBrush: SlateBrush;
 	public var ActiveBackgroundBrush: SlateBrush;
@@ -14,4 +15,6 @@ extern class SpinBoxStyle extends SlateWidgetStyle {
 	public var ForegroundColor: SlateColor;
 	public var TextPadding: Margin;
 	public var InsetPadding: Margin;
+
+	@:native("FSpinBoxStyle") public function new();
 }

@@ -3,7 +3,11 @@ package ue;
 
 @:native("FQuartzClockSettings")
 @:include("Sound/QuartzQuantizationUtilities.h")
+@:structAccess
 extern class QuartzClockSettings {
 	public var TimeSignature: QuartzTimeSignature;
 	public var bIgnoreLevelChange: Bool;
+
+	@:native("FQuartzClockSettings") public function new();
+	@:native("FQuartzClockSettings") public static function make(TimeSignature: QuartzTimeSignature, bIgnoreLevelChange: Bool): QuartzClockSettings ;
 }

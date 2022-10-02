@@ -3,6 +3,7 @@ package ue;
 
 @:native("URigVM")
 @:include("RigVMCore/RigVM.h")
+@:structAccess
 extern class RigVM extends Object {
 	public var WorkMemoryStorageObject: cpp.Star<RigVMMemoryStorage>;
 	public var LiteralMemoryStorageObject: cpp.Star<RigVMMemoryStorage>;
@@ -40,6 +41,8 @@ extern class RigVM extends Object {
 	public function GetParameterValueBool(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): cpp.Reference<Bool>;
 	public function Execute(InEntryName: cpp.Reference<FName>): cpp.Reference<Bool>;
 	public function AddRigVMFunction(InRigVMStruct: cpp.Star<ScriptStruct>, InMethodName: cpp.Reference<FName>): cpp.Reference<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetStatistics, GetRigVMFunctionName)

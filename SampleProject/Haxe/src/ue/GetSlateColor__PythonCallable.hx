@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UGetSlateColor__PythonCallable")
+@:structAccess
 extern class GetSlateColor__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

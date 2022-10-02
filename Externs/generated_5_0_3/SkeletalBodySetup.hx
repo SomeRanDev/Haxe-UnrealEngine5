@@ -3,10 +3,13 @@ package ue;
 
 @:native("USkeletalBodySetup")
 @:include("PhysicsEngine/PhysicsAsset.h")
+@:structAccess
 extern class SkeletalBodySetup extends BodySetup {
 	public var CurrentPhysicalAnimationProfile: PhysicalAnimationProfile;
 	public var bSkipScaleFromAnimation: Bool;
 	public var PhysicalAnimationData: TArray<PhysicalAnimationProfile>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

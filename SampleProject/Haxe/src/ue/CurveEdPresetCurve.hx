@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDEPRECATED_CurveEdPresetCurve")
 @:include("Curves/CurveEdPresetCurve.h")
+@:structAccess
 extern class CurveEdPresetCurve extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

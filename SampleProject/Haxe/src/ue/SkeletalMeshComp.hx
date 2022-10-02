@@ -3,6 +3,7 @@ package ue;
 
 @:native("USkeletalMeshComponent")
 @:include("Components/SkeletalMeshComponent.h")
+@:structAccess
 extern class SkeletalMeshComp extends SkinnedMeshComp {
 	public var AnimationBlueprint_DEPRECATED: cpp.Star<AnimBlueprint>;
 	public var AnimBlueprintGeneratedClass: TSubclassOf<Object>;
@@ -184,6 +185,8 @@ extern class SkeletalMeshComp extends SkinnedMeshComp {
 	public function AddImpulseToAllBodiesBelow(Impulse: Vector, BoneName: FName, bVelChange: Bool, bIncludeSelf: Bool): Void;
 	public function AddForceToAllBodiesBelow(Force: Vector, BoneName: FName, bAccelChange: Bool, bIncludeSelf: Bool): Void;
 	public function AccumulateAllBodiesBelowPhysicsBlendWeight(InBoneName: cpp.Reference<FName>, AddPhysicsBlendWeight: cpp.Float32, bSkipCustomPhysicsType: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

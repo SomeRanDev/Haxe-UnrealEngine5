@@ -3,6 +3,7 @@ package ue;
 
 @:native("USlider")
 @:include("Components/Slider.h")
+@:structAccess
 extern class Slider extends Widget {
 	public var Value: cpp.Float32;
 	public var ValueDelegate: HaxeDelegateProperty<() -> Void>;
@@ -34,6 +35,8 @@ extern class Slider extends Widget {
 	public function SetIndentHandle(InValue: Bool): Void;
 	public function GetValue(): cpp.Reference<cpp.Float32>;
 	public function GetNormalizedValue(): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetValue, GetNormalizedValue)

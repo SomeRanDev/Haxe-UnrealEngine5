@@ -3,10 +3,14 @@ package ue;
 
 @:native("FNiagaraDetailsLevelScaleOverrides")
 @:include("NiagaraEmitter.h")
+@:structAccess
 extern class NiagaraDetailsLevelScaleOverrides {
 	public var Low: cpp.Float32;
 	public var Medium: cpp.Float32;
 	public var High: cpp.Float32;
 	public var Epic: cpp.Float32;
 	public var Cine: cpp.Float32;
+
+	@:native("FNiagaraDetailsLevelScaleOverrides") public function new();
+	@:native("FNiagaraDetailsLevelScaleOverrides") public static function make(Low: cpp.Float32, Medium: cpp.Float32, High: cpp.Float32, Epic: cpp.Float32, Cine: cpp.Float32): NiagaraDetailsLevelScaleOverrides ;
 }

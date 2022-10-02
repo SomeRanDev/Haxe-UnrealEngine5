@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULiveLinkBasicRole")
 @:include("Roles/LiveLinkBasicRole.h")
+@:structAccess
 extern class LiveLinkBasicRole extends LiveLinkRole {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

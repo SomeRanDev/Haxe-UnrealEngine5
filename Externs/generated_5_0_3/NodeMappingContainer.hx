@@ -3,12 +3,15 @@ package ue;
 
 @:native("UNodeMappingContainer")
 @:include("Animation/NodeMappingContainer.h")
+@:structAccess
 extern class NodeMappingContainer extends Object {
 	public var SourceItems: TMap<FName, NodeItem>;
 	public var TargetItems: TMap<FName, NodeItem>;
 	public var SourceToTarget: TMap<FName, FName>;
 	public var SourceAsset: TSoftObjectPtr<Object>;
 	public var TargetAsset: TSoftObjectPtr<Object>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

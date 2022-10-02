@@ -3,7 +3,11 @@ package ue;
 
 @:native("FGatherTextSearchDirectory")
 @:include("LocalizationTargetTypes.h")
+@:structAccess
 extern class GatherTextSearchDirectory {
 	public var PathRoot: ELocalizationGatherPathRoot;
 	public var Path: FString;
+
+	@:native("FGatherTextSearchDirectory") public function new();
+	@:native("FGatherTextSearchDirectory") public static function make(PathRoot: ELocalizationGatherPathRoot, Path: FString): GatherTextSearchDirectory ;
 }

@@ -3,6 +3,10 @@ package ue;
 
 @:native("FNavGraphNode")
 @:include("NavGraph/NavigationGraph.h")
+@:structAccess
 extern class NavGraphNode {
 	public var Owner: cpp.Star<Object>;
+
+	@:native("FNavGraphNode") public function new();
+	@:native("FNavGraphNode") public static function make(Owner: cpp.Star<Object>): NavGraphNode ;
 }

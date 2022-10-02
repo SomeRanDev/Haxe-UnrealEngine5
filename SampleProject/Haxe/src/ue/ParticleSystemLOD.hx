@@ -3,5 +3,7 @@ package ue;
 
 @:native("FParticleSystemLOD")
 @:include("Particles/ParticleSystem.h")
+@:structAccess
 extern class ParticleSystemLOD {
+	@:native("FParticleSystemLOD") public function new();
 }

@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnQuartzMetronomeEventBP__PythonCallable")
+@:structAccess
 extern class OnQuartzMetronomeEventBP__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

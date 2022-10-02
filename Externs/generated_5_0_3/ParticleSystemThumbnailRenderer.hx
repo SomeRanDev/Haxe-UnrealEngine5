@@ -3,9 +3,12 @@ package ue;
 
 @:native("UParticleSystemThumbnailRenderer")
 @:include("ThumbnailRendering/ParticleSystemThumbnailRenderer.h")
+@:structAccess
 extern class ParticleSystemThumbnailRenderer extends TextureThumbnailRenderer {
 	public var NoImage: cpp.Star<Texture2D>;
 	public var OutOfDate: cpp.Star<Texture2D>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

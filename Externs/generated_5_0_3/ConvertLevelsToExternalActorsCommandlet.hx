@@ -3,7 +3,10 @@ package ue;
 
 @:native("UConvertLevelsToExternalActorsCommandlet")
 @:include("Commandlets/ConvertLevelsToExternalActorsCommandlet.h")
+@:structAccess
 extern class ConvertLevelsToExternalActorsCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

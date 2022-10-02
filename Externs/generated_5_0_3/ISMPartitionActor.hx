@@ -3,11 +3,14 @@ package ue;
 
 @:native("AISMPartitionActor")
 @:include("ISMPartition/ISMPartitionActor.h")
+@:structAccess
 extern class ISMPartitionActor extends PartitionActor {
 	public var Clients: TArray<Guid>;
 	public var Descriptors: TArray<ISMComponentDescriptor>;
 	public var DescriptorComponents: TArray<ISMComponentData>;
 	public var ClientInstanceManagers: TMap<Guid, ISMClientInstanceManagerData>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

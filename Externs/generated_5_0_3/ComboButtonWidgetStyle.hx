@@ -3,8 +3,11 @@ package ue;
 
 @:native("UComboButtonWidgetStyle")
 @:include("Framework/Styling/ComboButtonWidgetStyle.h")
+@:structAccess
 extern class ComboButtonWidgetStyle extends SlateWidgetStyleContainerBase {
 	public var ComboButtonStyle: ComboButtonStyle;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

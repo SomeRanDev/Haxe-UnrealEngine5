@@ -3,12 +3,15 @@ package ue;
 
 @:native("APlanarReflection")
 @:include("Engine/PlanarReflection.h")
+@:structAccess
 extern class PlanarReflection extends SceneCapture {
 	public var PlanarReflectionComponent: cpp.Star<PlanarReflectionComp>;
 	public var SpriteComponent: cpp.Star<BillboardComp>;
 	public var bShowPreviewPlane_DEPRECATED: Bool;
 
 	public function OnInterpToggle(bEnable: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

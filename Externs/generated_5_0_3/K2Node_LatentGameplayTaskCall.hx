@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_LatentGameplayTaskCall")
 @:include("K2Node_LatentGameplayTaskCall.h")
+@:structAccess
 extern class K2Node_LatentGameplayTaskCall extends K2Node_BaseAsyncTask {
 	public var SpawnParamPins: TArray<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

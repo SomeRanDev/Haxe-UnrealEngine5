@@ -3,10 +3,13 @@ package ue;
 
 @:native("UCurveEditorBakeFilter")
 @:include("Filters/CurveEditorBakeFilter.h")
+@:structAccess
 extern class CurveEditorBakeFilter extends CurveEditorFilterBase {
 	public var bUseFrameBake: Bool;
 	public var BakeIntervalInFrames: FrameNumber;
 	public var BakeIntervalInSeconds: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

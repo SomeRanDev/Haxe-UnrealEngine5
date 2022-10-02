@@ -3,9 +3,12 @@ package ue;
 
 @:native("UK2Node_SwitchString")
 @:include("K2Node_SwitchString.h")
+@:structAccess
 extern class K2Node_SwitchString extends K2Node_Switch {
 	public var PinNames: TArray<FName>;
 	public var bIsCaseSensitive: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

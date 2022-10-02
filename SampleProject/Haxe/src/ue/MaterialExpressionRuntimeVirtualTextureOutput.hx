@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionRuntimeVirtualTextureOutput")
 @:include("Materials/MaterialExpressionRuntimeVirtualTextureOutput.h")
+@:structAccess
 extern class MaterialExpressionRuntimeVirtualTextureOutput extends MaterialExpressionCustomOutput {
 	public var BaseColor: ExpressionInput;
 	public var Specular: ExpressionInput;
@@ -11,6 +12,8 @@ extern class MaterialExpressionRuntimeVirtualTextureOutput extends MaterialExpre
 	public var WorldHeight: ExpressionInput;
 	public var Opacity: ExpressionInput;
 	public var Mask: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

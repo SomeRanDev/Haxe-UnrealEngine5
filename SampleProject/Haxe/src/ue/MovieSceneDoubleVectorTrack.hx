@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneDoubleVectorTrack")
 @:include("Tracks/MovieSceneVectorTrack.h")
+@:structAccess
 extern class MovieSceneDoubleVectorTrack extends MovieScenePropertyTrack {
 	public var NumChannelsUsed: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

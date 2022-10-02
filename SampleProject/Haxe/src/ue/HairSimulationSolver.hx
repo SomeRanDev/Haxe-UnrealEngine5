@@ -3,6 +3,10 @@ package ue;
 
 @:native("FHairSimulationSolver")
 @:include("GroomAssetPhysics.h")
+@:structAccess
 extern class HairSimulationSolver {
 	public var bEnableSimulation: Bool;
+
+	@:native("FHairSimulationSolver") public function new();
+	@:native("FHairSimulationSolver") public static function make(bEnableSimulation: Bool): HairSimulationSolver ;
 }

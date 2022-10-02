@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_ModifyBone")
 @:include("AnimGraphNode_ModifyBone.h")
+@:structAccess
 extern class AnimGraphNode_ModifyBone extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_ModifyBone;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

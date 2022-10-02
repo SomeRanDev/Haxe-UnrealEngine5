@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULoudnessSettings")
 @:include("Loudness.h")
+@:structAccess
 extern class LoudnessSettings extends AudioSynesthesiaSettings {
 	public var AnalysisPeriod: cpp.Float32;
 	public var MinimumFrequency: cpp.Float32;
@@ -10,6 +11,8 @@ extern class LoudnessSettings extends AudioSynesthesiaSettings {
 	public var CurveType: ELoudnessCurveTypeEnum;
 	public var NoiseFloorDb: cpp.Float32;
 	public var ExpectedMaxLoudness: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

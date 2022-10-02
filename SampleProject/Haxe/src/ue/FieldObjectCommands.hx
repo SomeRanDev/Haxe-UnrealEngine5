@@ -3,8 +3,12 @@ package ue;
 
 @:native("FFieldObjectCommands")
 @:include("Field/FieldSystemObjects.h")
+@:structAccess
 extern class FieldObjectCommands {
 	public var TargetNames: TArray<FName>;
 	public var RootNodes: TArray<cpp.Star<FieldNodeBase>>;
 	public var MetaDatas: TArray<cpp.Star<FieldSystemMetaData>>;
+
+	@:native("FFieldObjectCommands") public function new();
+	@:native("FFieldObjectCommands") public static function make(TargetNames: TArray<FName>, RootNodes: TArray<cpp.Star<FieldNodeBase>>, MetaDatas: TArray<cpp.Star<FieldSystemMetaData>>): FieldObjectCommands ;
 }

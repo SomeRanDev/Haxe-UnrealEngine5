@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnObjectImportDoneDynamic__PythonCallable")
+@:structAccess
 extern class OnObjectImportDoneDynamic__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

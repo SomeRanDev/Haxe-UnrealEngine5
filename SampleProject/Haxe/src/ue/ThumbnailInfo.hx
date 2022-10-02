@@ -3,7 +3,10 @@ package ue;
 
 @:native("UThumbnailInfo")
 @:include("EditorFramework/ThumbnailInfo.h")
+@:structAccess
 extern class ThumbnailInfo extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

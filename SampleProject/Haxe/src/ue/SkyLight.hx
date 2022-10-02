@@ -3,11 +3,14 @@ package ue;
 
 @:native("ASkyLight")
 @:include("Engine/SkyLight.h")
+@:structAccess
 extern class SkyLight extends Info {
 	public var LightComponent: cpp.Star<SkyLightComp>;
 	public var bEnabled: Bool;
 
 	public function OnRep_bEnabled(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

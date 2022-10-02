@@ -3,11 +3,14 @@ package ue;
 
 @:native("UContentBrowserItemLibrary")
 @:include("ContentBrowserItem.h")
+@:structAccess
 extern class ContentBrowserItemLibrary extends BlueprintFunctionLibrary {
 	public function IsFolder(Item: cpp.Reference<ContentBrowserItem>): cpp.Reference<Bool>;
 	public function IsFile(Item: cpp.Reference<ContentBrowserItem>): cpp.Reference<Bool>;
 	public function GetVirtualPath(Item: cpp.Reference<ContentBrowserItem>): cpp.Reference<FName>;
 	public function GetDisplayName(Item: cpp.Reference<ContentBrowserItem>): cpp.Reference<FText>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,12 @@ package ue;
 
 @:native("FDoubleVectorParameterValue")
 @:include("Materials/MaterialInstance.h")
+@:structAccess
 extern class DoubleVectorParameterValue {
 	public var ParameterInfo: MaterialParameterInfo;
 	public var ParameterValue: Vector4d;
 	public var ExpressionGUID: Guid;
+
+	@:native("FDoubleVectorParameterValue") public function new();
+	@:native("FDoubleVectorParameterValue") public static function make(ParameterInfo: MaterialParameterInfo, ParameterValue: Vector4d, ExpressionGUID: Guid): DoubleVectorParameterValue ;
 }

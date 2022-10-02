@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleSpawn")
 @:include("Particles/Spawn/ParticleModuleSpawn.h")
+@:structAccess
 extern class ParticleModuleSpawn extends ParticleModuleSpawnBase {
 	public var Rate: RawDistributionFloat;
 	public var RateScale: RawDistributionFloat;
@@ -10,6 +11,8 @@ extern class ParticleModuleSpawn extends ParticleModuleSpawnBase {
 	public var BurstList: TArray<ParticleBurst>;
 	public var BurstScale: RawDistributionFloat;
 	public var bApplyGlobalSpawnRateScale: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

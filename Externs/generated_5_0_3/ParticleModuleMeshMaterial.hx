@@ -3,8 +3,11 @@ package ue;
 
 @:native("UParticleModuleMeshMaterial")
 @:include("Particles/Material/ParticleModuleMeshMaterial.h")
+@:structAccess
 extern class ParticleModuleMeshMaterial extends ParticleModuleMaterialBase {
 	public var MeshMaterials: TArray<cpp.Star<MaterialInterface>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

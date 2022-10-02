@@ -3,8 +3,11 @@ package ue;
 
 @:native("UTextureImportSettings")
 @:include("TextureImportSettings.h")
+@:structAccess
 extern class TextureImportSettings extends DeveloperSettings {
 	public var AutoVTSize: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

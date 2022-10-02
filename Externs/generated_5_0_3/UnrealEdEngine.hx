@@ -3,6 +3,7 @@ package ue;
 
 @:native("UUnrealEdEngine")
 @:include("Editor/UnrealEdEngine.h")
+@:structAccess
 extern class UnrealEdEngine extends EditorEngine {
 	public var EditorOptionsInst: cpp.Star<UnrealEdOptions>;
 	public var AutoReimportManager: cpp.Star<AutoReimportManager>;
@@ -15,6 +16,8 @@ extern class UnrealEdEngine extends EditorEngine {
 	public var SortedSpriteCategories_DEPRECATED: TArray<FString>;
 	public var TemplateMapInfos: TArray<TemplateMapInfo>;
 	public var CookServer: cpp.Star<CookOnTheFlyServer>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraScripStatsViewModelSettings")
 @:include("ViewModels/NiagaraScriptStatsViewModel.h")
+@:structAccess
 extern class NiagaraScripStatsViewModelSettings extends Object {
 	public var EnabledPlatforms: TArray<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

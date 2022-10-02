@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBoxFalloff")
 @:include("Field/FieldSystemObjects.h")
+@:structAccess
 extern class BoxFalloff extends FieldNodeFloat {
 	public var Magnitude: cpp.Float32;
 	public var MinRange: cpp.Float32;
@@ -12,6 +13,8 @@ extern class BoxFalloff extends FieldNodeFloat {
 	public var Falloff: EFieldFalloffType;
 
 	public function SetBoxFalloff(Magnitude: cpp.Float32, MinRange: cpp.Float32, MaxRange: cpp.Float32, Default: cpp.Float32, Transform: Transform, Falloff: EFieldFalloffType): cpp.Reference<cpp.Star<BoxFalloff>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

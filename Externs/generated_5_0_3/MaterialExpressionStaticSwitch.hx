@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionStaticSwitch")
 @:include("Materials/MaterialExpressionStaticSwitch.h")
+@:structAccess
 extern class MaterialExpressionStaticSwitch extends MaterialExpression {
 	public var DefaultValue: Bool;
 	public var A: ExpressionInput;
 	public var B: ExpressionInput;
 	public var Value: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

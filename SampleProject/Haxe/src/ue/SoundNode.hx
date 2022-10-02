@@ -3,9 +3,12 @@ package ue;
 
 @:native("USoundNode")
 @:include("Sound/SoundNode.h")
+@:structAccess
 extern class SoundNode extends Object {
 	public var ChildNodes: TArray<cpp.Star<SoundNode>>;
 	public var GraphNode: cpp.Star<EdGraphNode>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

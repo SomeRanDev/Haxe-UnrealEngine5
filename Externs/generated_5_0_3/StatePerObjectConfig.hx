@@ -3,9 +3,12 @@ package ue;
 
 @:native("UStatePerObjectConfig")
 @:include("Net/Core/Connection/StateStruct.h")
+@:structAccess
 extern class StatePerObjectConfig extends Object {
 	public var PerObjectConfigSection: FString;
 	public var bEnabled: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

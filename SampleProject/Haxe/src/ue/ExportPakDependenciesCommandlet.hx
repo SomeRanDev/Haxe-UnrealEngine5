@@ -3,7 +3,10 @@ package ue;
 
 @:native("UExportPakDependenciesCommandlet")
 @:include("Commandlets/ExportPakDependencies.h")
+@:structAccess
 extern class ExportPakDependenciesCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

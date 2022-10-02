@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneFolder")
 @:include("MovieSceneFolder.h")
+@:structAccess
 extern class MovieSceneFolder extends Object {
 	public var FolderName: FName;
 	public var ChildFolders: TArray<cpp.Star<MovieSceneFolder>>;
@@ -10,6 +11,8 @@ extern class MovieSceneFolder extends Object {
 	public var ChildObjectBindingStrings: TArray<FString>;
 	public var FolderColor: Color;
 	public var SortingOrder: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

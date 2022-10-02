@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPlaneFalloff")
 @:include("Field/FieldSystemObjects.h")
+@:structAccess
 extern class PlaneFalloff extends FieldNodeFloat {
 	public var Magnitude: cpp.Float32;
 	public var MinRange: cpp.Float32;
@@ -14,6 +15,8 @@ extern class PlaneFalloff extends FieldNodeFloat {
 	public var Falloff: EFieldFalloffType;
 
 	public function SetPlaneFalloff(Magnitude: cpp.Float32, MinRange: cpp.Float32, MaxRange: cpp.Float32, Default: cpp.Float32, Distance: cpp.Float32, Position: Vector, Normal: Vector, Falloff: EFieldFalloffType): cpp.Reference<cpp.Star<PlaneFalloff>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("USMInstanceElementIdMapTransactor")
 @:include("Elements/SMInstance/SMInstanceElementId.h")
+@:structAccess
 extern class SMInstanceElementIdMapTransactor extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

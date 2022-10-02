@@ -3,7 +3,10 @@ package ue;
 
 @:native("UScalableSphereGizmoBuilder")
 @:include("BaseGizmos/ScalableSphereGizmo.h")
+@:structAccess
 extern class ScalableSphereGizmoBuilder extends InteractiveGizmoBuilder {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

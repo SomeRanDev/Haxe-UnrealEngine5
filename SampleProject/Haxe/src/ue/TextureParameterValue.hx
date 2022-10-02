@@ -3,9 +3,13 @@ package ue;
 
 @:native("FTextureParameterValue")
 @:include("Materials/MaterialInstance.h")
+@:structAccess
 extern class TextureParameterValue {
 	public var ParameterName_DEPRECATED: FName;
 	public var ParameterInfo: MaterialParameterInfo;
 	public var ParameterValue: cpp.Star<Texture>;
 	public var ExpressionGUID: Guid;
+
+	@:native("FTextureParameterValue") public function new();
+	@:native("FTextureParameterValue") public static function make(ParameterName_DEPRECATED: FName, ParameterInfo: MaterialParameterInfo, ParameterValue: cpp.Star<Texture>, ExpressionGUID: Guid): TextureParameterValue ;
 }

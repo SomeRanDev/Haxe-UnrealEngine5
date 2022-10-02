@@ -2,7 +2,10 @@
 package ue;
 
 @:native("ULocationServicesData_OnLocationChanged__PythonCallable")
+@:structAccess
 extern class LocationServicesData_OnLocationChanged__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

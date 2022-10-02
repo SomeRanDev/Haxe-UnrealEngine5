@@ -3,7 +3,11 @@ package ue;
 
 @:native("FBlueprintInputAxisDelegateBinding")
 @:include("Engine/InputAxisDelegateBinding.h")
+@:structAccess
 extern class BlueprintInputAxisDelegateBinding extends BlueprintInputDelegateBinding {
 	public var InputAxisName: FName;
 	public var FunctionNameToBind: FName;
+
+	@:native("FBlueprintInputAxisDelegateBinding") public function new();
+	@:native("FBlueprintInputAxisDelegateBinding") public static function make(InputAxisName: FName, FunctionNameToBind: FName): BlueprintInputAxisDelegateBinding ;
 }

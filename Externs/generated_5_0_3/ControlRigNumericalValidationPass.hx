@@ -3,6 +3,7 @@ package ue;
 
 @:native("UControlRigNumericalValidationPass")
 @:include("Validation/ControlRigNumericalValidationPass.h")
+@:structAccess
 extern class ControlRigNumericalValidationPass extends ControlRigValidationPass {
 	public var bCheckControls: Bool;
 	public var bCheckBones: Bool;
@@ -14,6 +15,8 @@ extern class ControlRigNumericalValidationPass extends ControlRigValidationPass 
 	public var EventNameA: FName;
 	public var EventNameB: FName;
 	public var Pose: RigPose;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

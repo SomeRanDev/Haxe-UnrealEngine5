@@ -3,12 +3,15 @@ package ue;
 
 @:native("UVRScoutingInteractor")
 @:include("VRScoutingInteractor.h")
+@:structAccess
 extern class VRScoutingInteractor extends VREditorInteractor {
 	public var FlyingIndicatorComponent: cpp.Star<StaticMeshComp>;
 
 	public function SetGizmoMode(InGizmoMode: EGizmoHandleTypes): Void;
 	public function GetSelectedActors(): cpp.Reference<TArray<cpp.Star<Actor>>>;
 	public function GetGizmoMode(): cpp.Reference<EGizmoHandleTypes>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetGizmoMode)

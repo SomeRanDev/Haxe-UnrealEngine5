@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMovieSceneComponentAttachmentInvalidatorSystem")
 @:include("Systems/MovieSceneComponentAttachmentSystem.h")
+@:structAccess
 extern class MovieSceneComponentAttachmentInvalidatorSystem extends MovieSceneEntityInstantiatorSystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

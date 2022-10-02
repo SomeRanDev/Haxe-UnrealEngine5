@@ -3,8 +3,11 @@ package ue;
 
 @:native("ANavMeshBoundsVolume")
 @:include("NavMesh/NavMeshBoundsVolume.h")
+@:structAccess
 extern class NavMeshBoundsVolume extends Volume {
 	public var SupportedAgents: NavAgentSelector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

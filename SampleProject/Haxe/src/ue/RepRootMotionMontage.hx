@@ -3,6 +3,7 @@ package ue;
 
 @:native("FRepRootMotionMontage")
 @:include("GameFramework/Character.h")
+@:structAccess
 extern class RepRootMotionMontage {
 	public var bIsActive: Bool;
 	public var AnimMontage: cpp.Star<AnimMontage>;
@@ -16,4 +17,6 @@ extern class RepRootMotionMontage {
 	public var AuthoritativeRootMotion: RootMotionSourceGroup;
 	public var Acceleration: Vector_NetQuantize10;
 	public var LinearVelocity: Vector_NetQuantize10;
+
+	@:native("FRepRootMotionMontage") public function new();
 }

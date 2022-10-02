@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULandscapeSplineSegment")
 @:include("LandscapeSplineSegment.h")
+@:structAccess
 extern class LandscapeSplineSegment extends Object {
 	public var Connections: LandscapeSplineSegmentConnection;
 	public var LayerName: FName;
@@ -34,6 +35,8 @@ extern class LandscapeSplineSegment extends Object {
 	public var LocalMeshComponents: TArray<cpp.Star<SplineMeshComp>>;
 	public var ForeignWorlds: TArray<TSoftObjectPtr<World>>;
 	public var ModificationKey: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

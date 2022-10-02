@@ -3,5 +3,7 @@ package ue;
 
 @:native("FSkeletalControlReference")
 @:include("SkeletalControlLibrary.h")
+@:structAccess
 extern class SkeletalControlReference extends AnimNodeReference {
+	@:native("FSkeletalControlReference") public function new();
 }

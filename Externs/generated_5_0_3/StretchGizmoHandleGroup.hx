@@ -3,7 +3,10 @@ package ue;
 
 @:native("UStretchGizmoHandleGroup")
 @:include("Gizmo/VIStretchGizmoHandle.h")
+@:structAccess
 extern class StretchGizmoHandleGroup extends GizmoHandleGroup {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

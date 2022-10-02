@@ -3,8 +3,12 @@ package ue;
 
 @:native("FBranchingPoint")
 @:include("Animation/AnimMontage.h")
+@:structAccess
 extern class BranchingPoint extends AnimLinkableElement {
 	public var EventName: FName;
 	public var DisplayTime_DEPRECATED: cpp.Float32;
 	public var TriggerTimeOffset: cpp.Float32;
+
+	@:native("FBranchingPoint") public function new();
+	@:native("FBranchingPoint") public static function make(EventName: FName, DisplayTime_DEPRECATED: cpp.Float32, TriggerTimeOffset: cpp.Float32): BranchingPoint ;
 }

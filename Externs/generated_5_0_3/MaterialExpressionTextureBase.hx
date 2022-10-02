@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionTextureBase")
 @:include("Materials/MaterialExpressionTextureBase.h")
+@:structAccess
 extern class MaterialExpressionTextureBase extends MaterialExpression {
 	public var Texture: cpp.Star<Texture>;
 	public var SamplerType: EMaterialSamplerType;
 	public var IsDefaultMeshpaintTexture: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

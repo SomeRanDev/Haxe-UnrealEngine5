@@ -3,6 +3,7 @@ package ue;
 
 @:native("FToolMenuEntryScriptDataAdvanced")
 @:include("ToolMenuEntryScript.h")
+@:structAccess
 extern class ToolMenuEntryScriptDataAdvanced {
 	public var TutorialHighlight: FName;
 	public var EntryType: EMultiBlockType;
@@ -12,4 +13,6 @@ extern class ToolMenuEntryScriptDataAdvanced {
 	public var bOpenSubMenuOnClick: Bool;
 	public var bShouldCloseWindowAfterMenuSelection: Bool;
 	public var bSimpleComboBox: Bool;
+
+	@:native("FToolMenuEntryScriptDataAdvanced") public function new();
 }

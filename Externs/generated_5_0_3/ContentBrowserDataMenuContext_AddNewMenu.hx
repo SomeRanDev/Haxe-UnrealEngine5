@@ -3,11 +3,14 @@ package ue;
 
 @:native("UContentBrowserDataMenuContext_AddNewMenu")
 @:include("ContentBrowserDataMenuContexts.h")
+@:structAccess
 extern class ContentBrowserDataMenuContext_AddNewMenu extends Object {
 	public var SelectedPaths: TArray<FName>;
 	public var bContainsValidPackagePath: Bool;
 	public var bCanBeModified: Bool;
 	public var OwnerDomain: EContentBrowserDataMenuContext_AddNewMenuDomain;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

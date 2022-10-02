@@ -3,6 +3,7 @@ package ue;
 
 @:native("UUMGEditorProjectSettings")
 @:include("UMGEditorProjectSettings.h")
+@:structAccess
 extern class UMGEditorProjectSettings extends DeveloperSettings {
 	public var DefaultCompilerOptions: WidgetCompilerOptions;
 	public var DirectoryCompilerOptions: TArray<DirectoryWidgetCompilerOptions>;
@@ -15,6 +16,8 @@ extern class UMGEditorProjectSettings extends DeveloperSettings {
 	public var DefaultWidgetParentClass: TSoftClassPtr<Class>;
 	public var DebugResolutions: TArray<DebugResolution>;
 	public var Version: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

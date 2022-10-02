@@ -3,10 +3,14 @@ package ue;
 
 @:native("FLevelCollection")
 @:include("Engine/World.h")
+@:structAccess
 extern class LevelCollection {
 	public var GameState: cpp.Star<GameStateBase>;
 	public var NetDriver: cpp.Star<NetDriver>;
 	public var DemoNetDriver: cpp.Star<DemoNetDriver>;
 	public var PersistentLevel: cpp.Star<Level>;
 	public var Levels: TSet<cpp.Star<Level>>;
+
+	@:native("FLevelCollection") public function new();
+	@:native("FLevelCollection") public static function make(GameState: cpp.Star<GameStateBase>, NetDriver: cpp.Star<NetDriver>, DemoNetDriver: cpp.Star<DemoNetDriver>, PersistentLevel: cpp.Star<Level>, Levels: TSet<cpp.Star<Level>>): LevelCollection ;
 }

@@ -3,12 +3,15 @@ package ue;
 
 @:native("UMaterialExpressionForLoop")
 @:include("Materials/MaterialExpressionForLoop.h")
+@:structAccess
 extern class MaterialExpressionForLoop extends MaterialExpression {
 	public var LoopBody: ExpressionExecOutput;
 	public var Completed: ExpressionExecOutput;
 	public var StartIndex: ExpressionInput;
 	public var EndIndex: ExpressionInput;
 	public var IndexStep: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

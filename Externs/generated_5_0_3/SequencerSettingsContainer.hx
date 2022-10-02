@@ -3,7 +3,10 @@ package ue;
 
 @:native("USequencerSettingsContainer")
 @:include("SequencerSettings.h")
+@:structAccess
 extern class SequencerSettingsContainer extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

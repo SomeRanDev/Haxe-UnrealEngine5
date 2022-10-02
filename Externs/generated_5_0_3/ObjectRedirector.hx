@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UObjectRedirector")
+@:structAccess
 extern class ObjectRedirector extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

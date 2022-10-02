@@ -3,12 +3,15 @@ package ue;
 
 @:native("UK2Node_FunctionEntry")
 @:include("K2Node_FunctionEntry.h")
+@:structAccess
 extern class K2Node_FunctionEntry extends K2Node_FunctionTerminator {
 	public var CustomGeneratedFunctionName: FName;
 	public var MetaData: KismetUserDeclaredFunctionMetadata;
 	public var LocalVariables: TArray<BPVariableDescription>;
 	public var bEnforceConstCorrectness: Bool;
 	public var ExtraFlags: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAdditiveControlRig")
 @:include("Rigs/AdditiveControlRig.h")
+@:structAccess
 extern class AdditiveControlRig extends ControlRig {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

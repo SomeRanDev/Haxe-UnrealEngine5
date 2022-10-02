@@ -3,8 +3,12 @@ package ue;
 
 @:native("FRigPose")
 @:include("Rigs/RigHierarchyPose.h")
+@:structAccess
 extern class RigPose {
 	public var Elements: TArray<RigPoseElement>;
 	public var HierarchyTopologyVersion: cpp.Int32;
 	public var PoseHash: cpp.Int32;
+
+	@:native("FRigPose") public function new();
+	@:native("FRigPose") public static function make(Elements: TArray<RigPoseElement>, HierarchyTopologyVersion: cpp.Int32, PoseHash: cpp.Int32): RigPose ;
 }

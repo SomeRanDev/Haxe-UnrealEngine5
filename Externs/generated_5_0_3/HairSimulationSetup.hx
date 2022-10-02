@@ -3,6 +3,7 @@ package ue;
 
 @:native("FHairSimulationSetup")
 @:include("GroomAssetPhysics.h")
+@:structAccess
 extern class HairSimulationSetup {
 	public var bResetSimulation: Bool;
 	public var bDebugSimulation: Bool;
@@ -11,4 +12,6 @@ extern class HairSimulationSetup {
 	public var AngularVelocityScale: cpp.Float32;
 	public var LocalBone: FString;
 	public var TeleportDistance: cpp.Float32;
+
+	@:native("FHairSimulationSetup") public function new();
 }

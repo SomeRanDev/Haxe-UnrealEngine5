@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDragDropOperation")
 @:include("Blueprint/DragDropOperation.h")
+@:structAccess
 extern class DragDropOperation extends Object {
 	public var Tag: FString;
 	public var Payload: cpp.Star<Object>;
@@ -16,6 +17,8 @@ extern class DragDropOperation extends Object {
 	public function Drop(PointerEvent: cpp.Reference<PointerEvent>): Void;
 	public function Dragged(PointerEvent: cpp.Reference<PointerEvent>): Void;
 	public function DragCancelled(PointerEvent: cpp.Reference<PointerEvent>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,12 +3,15 @@ package ue;
 
 @:native("UParticleModuleKillBox")
 @:include("Particles/Kill/ParticleModuleKillBox.h")
+@:structAccess
 extern class ParticleModuleKillBox extends ParticleModuleKillBase {
 	public var LowerLeftCorner: RawDistributionVector;
 	public var UpperRightCorner: RawDistributionVector;
 	public var bAbsolute: Bool;
 	public var bKillInside: Bool;
 	public var bAxisAlignedAndFixedSize: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

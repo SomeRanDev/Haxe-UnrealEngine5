@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraStackEmitterPropertiesItem")
 @:include("ViewModels/Stack/NiagaraStackEmitterSettingsGroup.h")
+@:structAccess
 extern class NiagaraStackEmitterPropertiesItem extends NiagaraStackItem {
 	public var EmitterObject: cpp.Star<NiagaraStackObject>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

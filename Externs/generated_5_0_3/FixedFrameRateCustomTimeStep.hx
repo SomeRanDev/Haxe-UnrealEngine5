@@ -3,7 +3,10 @@ package ue;
 
 @:native("UFixedFrameRateCustomTimeStep")
 @:include("FixedFrameRateCustomTimeStep.h")
+@:structAccess
 extern class FixedFrameRateCustomTimeStep extends EngineCustomTimeStep {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

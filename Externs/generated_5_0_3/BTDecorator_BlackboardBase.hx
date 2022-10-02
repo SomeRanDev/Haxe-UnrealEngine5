@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBTDecorator_BlackboardBase")
 @:include("BehaviorTree/Decorators/BTDecorator_BlackboardBase.h")
+@:structAccess
 extern class BTDecorator_BlackboardBase extends BTDecorator {
 	public var BlackboardKey: BlackboardKeySelector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

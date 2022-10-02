@@ -3,8 +3,11 @@ package ue;
 
 @:native("UInterpFilter")
 @:include("Matinee/InterpFilter.h")
+@:structAccess
 extern class InterpFilter extends Object {
 	public var Caption: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

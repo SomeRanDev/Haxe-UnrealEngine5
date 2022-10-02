@@ -3,10 +3,13 @@ package ue;
 
 @:native("URawAnimSequenceTrackExtensions")
 @:include("Animation/AnimTypes.h")
+@:structAccess
 extern class RawAnimSequenceTrackExtensions extends BlueprintFunctionLibrary {
 	public function GetScaleKeys(Track: cpp.Reference<RawAnimSequenceTrack>): cpp.Reference<TArray<Vector>>;
 	public function GetRotationalKeys(Track: cpp.Reference<RawAnimSequenceTrack>): cpp.Reference<TArray<Quat>>;
 	public function GetPositionalKeys(Track: cpp.Reference<RawAnimSequenceTrack>): cpp.Reference<TArray<Vector>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleOrbit")
 @:include("Particles/Orbit/ParticleModuleOrbit.h")
+@:structAccess
 extern class ParticleModuleOrbit extends ParticleModuleOrbitBase {
 	public var ChainMode: EOrbitChainMode;
 	public var OffsetAmount: RawDistributionVector;
@@ -11,6 +12,8 @@ extern class ParticleModuleOrbit extends ParticleModuleOrbitBase {
 	public var RotationOptions: OrbitOptions;
 	public var RotationRateAmount: RawDistributionVector;
 	public var RotationRateOptions: OrbitOptions;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

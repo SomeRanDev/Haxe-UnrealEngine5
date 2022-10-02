@@ -3,6 +3,7 @@ package ue;
 
 @:native("UInterpTrackMove")
 @:include("Matinee/InterpTrackMove.h")
+@:structAccess
 extern class InterpTrackMove extends InterpTrack {
 	public var PosTrack: InterpCurveVector;
 	public var EulerTrack: InterpCurveVector;
@@ -17,6 +18,8 @@ extern class InterpTrackMove extends InterpTrack {
 	public var bShowRotationOnCurveEd: Bool;
 	public var bHide3DTrack: Bool;
 	public var RotMode: EInterpTrackMoveRotMode;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

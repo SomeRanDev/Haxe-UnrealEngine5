@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAudioAnalyzerSubsystem")
 @:include("AudioAnalyzerSubsystem.h")
+@:structAccess
 extern class AudioAnalyzerSubsystem extends EngineSubsystem {
 	public var AudioAnalyzers: TArray<cpp.Star<AudioAnalyzer>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

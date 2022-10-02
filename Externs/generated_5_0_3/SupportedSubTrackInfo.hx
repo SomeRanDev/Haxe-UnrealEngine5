@@ -3,8 +3,12 @@ package ue;
 
 @:native("FSupportedSubTrackInfo")
 @:include("Matinee/InterpTrack.h")
+@:structAccess
 extern class SupportedSubTrackInfo {
 	public var SupportedClass: TSubclassOf<InterpTrack>;
 	public var SubTrackName: FString;
 	public var GroupIndex: cpp.Int32;
+
+	@:native("FSupportedSubTrackInfo") public function new();
+	@:native("FSupportedSubTrackInfo") public static function make(SupportedClass: TSubclassOf<InterpTrack>, SubTrackName: FString, GroupIndex: cpp.Int32): SupportedSubTrackInfo ;
 }

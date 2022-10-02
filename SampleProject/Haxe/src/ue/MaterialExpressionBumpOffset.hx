@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionBumpOffset")
 @:include("Materials/MaterialExpressionBumpOffset.h")
+@:structAccess
 extern class MaterialExpressionBumpOffset extends MaterialExpression {
 	public var Coordinate: ExpressionInput;
 	public var Height: ExpressionInput;
@@ -10,6 +11,8 @@ extern class MaterialExpressionBumpOffset extends MaterialExpression {
 	public var HeightRatio: cpp.Float32;
 	public var ReferencePlane: cpp.Float32;
 	public var ConstCoordinate: cpp.UInt32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UAnimCurveCompressionCodec_UniformlySampled")
 @:include("Animation/AnimCurveCompressionCodec_UniformlySampled.h")
+@:structAccess
 extern class AnimCurveCompressionCodec_UniformlySampled extends AnimCurveCompressionCodec {
 	public var UseAnimSequenceSampleRate: Bool;
 	public var SampleRate: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

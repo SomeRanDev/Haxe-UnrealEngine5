@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_CommutativeAssociativeBinaryOperator")
 @:include("K2Node_CommutativeAssociativeBinaryOperator.h")
+@:structAccess
 extern class K2Node_CommutativeAssociativeBinaryOperator extends K2Node_CallFunction {
 	public var NumAdditionalInputs: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

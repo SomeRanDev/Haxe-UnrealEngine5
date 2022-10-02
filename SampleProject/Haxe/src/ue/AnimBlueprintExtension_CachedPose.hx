@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimBlueprintExtension_CachedPose")
 @:include("AnimBlueprintExtension_CachedPose.h")
+@:structAccess
 extern class AnimBlueprintExtension_CachedPose extends AnimBlueprintExtension {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

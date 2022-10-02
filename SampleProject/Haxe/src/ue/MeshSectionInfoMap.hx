@@ -3,6 +3,10 @@ package ue;
 
 @:native("FMeshSectionInfoMap")
 @:include("Engine/StaticMesh.h")
+@:structAccess
 extern class MeshSectionInfoMap {
 	public var Map: TMap<cpp.UInt32, MeshSectionInfo>;
+
+	@:native("FMeshSectionInfoMap") public function new();
+	@:native("FMeshSectionInfoMap") public static function make(Map: TMap<cpp.UInt32, MeshSectionInfo>): MeshSectionInfoMap ;
 }

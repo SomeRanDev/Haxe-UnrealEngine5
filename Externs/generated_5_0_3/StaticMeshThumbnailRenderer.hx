@@ -3,7 +3,10 @@ package ue;
 
 @:native("UStaticMeshThumbnailRenderer")
 @:include("ThumbnailRendering/StaticMeshThumbnailRenderer.h")
+@:structAccess
 extern class StaticMeshThumbnailRenderer extends DefaultSizedThumbnailRenderer {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimLayerInterfaceFactory")
 @:include("Factories/AnimBlueprintFactory.h")
+@:structAccess
 extern class AnimLayerInterfaceFactory extends AnimBlueprintFactory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

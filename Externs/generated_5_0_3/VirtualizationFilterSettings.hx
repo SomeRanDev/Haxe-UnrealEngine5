@@ -3,8 +3,11 @@ package ue;
 
 @:native("UVirtualizationFilterSettings")
 @:include("VirtualizationFilterSettings.h")
+@:structAccess
 extern class VirtualizationFilterSettings extends Object {
 	public var ExcludePackagePaths: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

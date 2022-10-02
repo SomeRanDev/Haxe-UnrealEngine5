@@ -3,8 +3,11 @@ package ue;
 
 @:native("UPinTypeSelectorFilter")
 @:include("PinTypeSelectorFilter.h")
+@:structAccess
 extern class PinTypeSelectorFilter extends Object {
 	public var FilterClass: TSoftClassPtr<Class>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

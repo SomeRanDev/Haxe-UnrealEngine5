@@ -3,7 +3,10 @@ package ue;
 
 @:native("UCombinedTransformGizmoContextObject")
 @:include("BaseGizmos/TransformGizmoUtil.h")
+@:structAccess
 extern class CombinedTransformGizmoContextObject extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

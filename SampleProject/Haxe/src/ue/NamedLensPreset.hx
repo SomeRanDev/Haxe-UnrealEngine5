@@ -3,7 +3,11 @@ package ue;
 
 @:native("FNamedLensPreset")
 @:include("CineCameraComponent.h")
+@:structAccess
 extern class NamedLensPreset {
 	public var Name: FString;
 	public var LensSettings: CameraLensSettings;
+
+	@:native("FNamedLensPreset") public function new();
+	@:native("FNamedLensPreset") public static function make(Name: FString, LensSettings: CameraLensSettings): NamedLensPreset ;
 }

@@ -3,11 +3,14 @@ package ue;
 
 @:native("UIKRigComponent")
 @:include("ActorComponents/IKRigComponent.h")
+@:structAccess
 extern class IKRigComp extends ActorComp {
 	public function SetIKRigGoalTransform(GoalName: FName, Transform: Transform, PositionAlpha: cpp.Float32, RotationAlpha: cpp.Float32): Void;
 	public function SetIKRigGoalPositionAndRotation(GoalName: FName, Position: Vector, Rotation: Quat, PositionAlpha: cpp.Float32, RotationAlpha: cpp.Float32): Void;
 	public function SetIKRigGoal(Goal: cpp.Reference<IKRigGoal>): Void;
 	public function ClearAllGoals(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

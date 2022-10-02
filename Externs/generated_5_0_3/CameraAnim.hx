@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCameraAnim")
 @:include("Camera/CameraAnim.h")
+@:structAccess
 extern class CameraAnim extends Object {
 	public var CameraInterpGroup: cpp.Star<InterpGroup>;
 	public var PreviewInterpGroup: cpp.Star<InterpGroup>;
@@ -13,6 +14,8 @@ extern class CameraAnim extends Object {
 	public var BaseFOV: cpp.Float32;
 	public var BasePostProcessSettings: PostProcessSettings;
 	public var BasePostProcessBlendWeight: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

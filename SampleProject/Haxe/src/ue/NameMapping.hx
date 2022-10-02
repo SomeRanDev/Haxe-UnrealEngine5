@@ -3,7 +3,11 @@ package ue;
 
 @:native("FNameMapping")
 @:include("Animation/Skeleton.h")
+@:structAccess
 extern class NameMapping {
 	public var NodeName: FName;
 	public var BoneName: FName;
+
+	@:native("FNameMapping") public function new();
+	@:native("FNameMapping") public static function make(NodeName: FName, BoneName: FName): NameMapping ;
 }

@@ -3,8 +3,12 @@ package ue;
 
 @:native("FAutoReimportDirectoryConfig")
 @:include("Settings/EditorLoadingSavingSettings.h")
+@:structAccess
 extern class AutoReimportDirectoryConfig {
 	public var SourceDirectory: FString;
 	public var MountPoint: FString;
 	public var Wildcards: TArray<AutoReimportWildcard>;
+
+	@:native("FAutoReimportDirectoryConfig") public function new();
+	@:native("FAutoReimportDirectoryConfig") public static function make(SourceDirectory: FString, MountPoint: FString, Wildcards: TArray<AutoReimportWildcard>): AutoReimportDirectoryConfig ;
 }

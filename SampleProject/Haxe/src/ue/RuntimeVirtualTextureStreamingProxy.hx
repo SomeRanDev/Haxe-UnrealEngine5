@@ -3,7 +3,10 @@ package ue;
 
 @:native("URuntimeVirtualTextureStreamingProxy")
 @:include("VT/VirtualTexture.h")
+@:structAccess
 extern class RuntimeVirtualTextureStreamingProxy extends Texture2D {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

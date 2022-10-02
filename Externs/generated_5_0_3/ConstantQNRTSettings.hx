@@ -3,6 +3,7 @@ package ue;
 
 @:native("UConstantQNRTSettings")
 @:include("ConstantQNRT.h")
+@:structAccess
 extern class ConstantQNRTSettings extends AudioSynesthesiaNRTSettings {
 	public var StartingFrequency: cpp.Float32;
 	public var NumBands: cpp.Int32;
@@ -15,6 +16,8 @@ extern class ConstantQNRTSettings extends AudioSynesthesiaNRTSettings {
 	public var BandWidthStretch: cpp.Float32;
 	public var CQTNormalization: EConstantQNormalizationEnum;
 	public var NoiseFloorDb: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

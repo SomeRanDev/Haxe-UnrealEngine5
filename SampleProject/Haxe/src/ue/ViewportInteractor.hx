@@ -3,6 +3,7 @@ package ue;
 
 @:native("UViewportInteractor")
 @:include("ViewportInteractor.h")
+@:structAccess
 extern class ViewportInteractor extends Object {
 	public var KeyToActionMap: TMap<Key, ViewportActionKeyInput>;
 	public var WorldInteraction: cpp.Star<ViewportWorldInteraction>;
@@ -28,6 +29,8 @@ extern class ViewportInteractor extends Object {
 	public function GetHitResultGizmoFilterMode(): cpp.Reference<EHitResultGizmoFilterMode>;
 	public function GetDraggingMode(): cpp.Reference<EViewportInteractionDraggingMode>;
 	public function CanCarry(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

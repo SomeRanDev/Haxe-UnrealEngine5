@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMovieScenePossessable")
 @:include("MovieScenePossessable.h")
+@:structAccess
 extern class MovieScenePossessable {
 	public var Tags: TArray<FName>;
 	public var Guid: Guid;
@@ -10,4 +11,6 @@ extern class MovieScenePossessable {
 	public var PossessedObjectClass: TSoftClassPtr<Class>;
 	public var ParentGuid: Guid;
 	public var SpawnableObjectBindingID: MovieSceneObjectBindingID;
+
+	@:native("FMovieScenePossessable") public function new();
 }

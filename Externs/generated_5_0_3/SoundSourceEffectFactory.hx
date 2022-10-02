@@ -3,8 +3,11 @@ package ue;
 
 @:native("USoundSourceEffectFactory")
 @:include("Factories/SoundSourceEffectFactory.h")
+@:structAccess
 extern class SoundSourceEffectFactory extends Factory {
 	public var SoundEffectSourcepresetClass: TSubclassOf<SoundEffectSourcePreset>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UBlueprintPropertyTestObject")
 @:include("Editor/PropertyEditorTestObject.h")
+@:structAccess
 extern class BlueprintPropertyTestObject extends Object {
 	public var ShouldBeHidden: cpp.Int32;
 	public var ShouldBeVisible: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

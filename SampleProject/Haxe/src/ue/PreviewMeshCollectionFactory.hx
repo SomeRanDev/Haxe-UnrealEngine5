@@ -3,8 +3,11 @@ package ue;
 
 @:native("UPreviewMeshCollectionFactory")
 @:include("Factories/PreviewMeshCollectionFactory.h")
+@:structAccess
 extern class PreviewMeshCollectionFactory extends Factory {
 	public var CurrentSkeleton: TWeakObjectPtr<Skeleton>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

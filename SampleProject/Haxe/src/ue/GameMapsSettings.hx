@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGameMapsSettings")
 @:include("GameMapsSettings.h")
+@:structAccess
 extern class GameMapsSettings extends Object {
 	public var EditorStartupMap: SoftObjectPath;
 	public var EditorTemplateMapOverrides: TArray<TemplateMapInfoOverride>;
@@ -24,6 +25,8 @@ extern class GameMapsSettings extends Object {
 	public function SetSkipAssigningGamepadToPlayer1(bSkipFirstPlayer: Bool): Void;
 	public function GetSkipAssigningGamepadToPlayer1(): cpp.Reference<Bool>;
 	public function GetGameMapsSettings(): cpp.Reference<cpp.Star<GameMapsSettings>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetSkipAssigningGamepadToPlayer1)

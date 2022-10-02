@@ -3,6 +3,7 @@ package ue;
 
 @:native("FCurveEdTab")
 @:include("Engine/InterpCurveEdSetup.h")
+@:structAccess
 extern class CurveEdTab {
 	public var TabName: FString;
 	public var Curves: TArray<CurveEdEntry>;
@@ -10,4 +11,6 @@ extern class CurveEdTab {
 	public var ViewEndInput: cpp.Float32;
 	public var ViewStartOutput: cpp.Float32;
 	public var ViewEndOutput: cpp.Float32;
+
+	@:native("FCurveEdTab") public function new();
 }

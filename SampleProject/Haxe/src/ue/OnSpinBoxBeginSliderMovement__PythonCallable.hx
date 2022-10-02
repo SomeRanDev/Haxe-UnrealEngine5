@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnSpinBoxBeginSliderMovement__PythonCallable")
+@:structAccess
 extern class OnSpinBoxBeginSliderMovement__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

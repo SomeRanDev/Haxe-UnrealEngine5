@@ -3,7 +3,10 @@ package ue;
 
 @:native("URecastFilter_UseDefaultArea")
 @:include("NavFilters/RecastFilter_UseDefaultArea.h")
+@:structAccess
 extern class RecastFilter_UseDefaultArea extends NavigationQueryFilter {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FStaticTerrainLayerWeightParameter")
 @:include("StaticParameterSet.h")
+@:structAccess
 extern class StaticTerrainLayerWeightParameter {
 	public var ParameterInfo_DEPRECATED: MaterialParameterInfo;
 	public var ExpressionGUID_DEPRECATED: Guid;
@@ -10,4 +11,6 @@ extern class StaticTerrainLayerWeightParameter {
 	public var LayerName: FName;
 	public var WeightmapIndex: cpp.Int32;
 	public var bWeightBasedBlend: Bool;
+
+	@:native("FStaticTerrainLayerWeightParameter") public function new();
 }

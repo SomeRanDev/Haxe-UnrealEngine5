@@ -2,11 +2,14 @@
 package ue;
 
 @:native("UGizmoAxisSource")
+@:structAccess
 extern class GizmoAxisSource extends Interface {
 	public function HasTangentVectors(): cpp.Reference<Bool>;
 	public function GetTangentVectors(TangentXOut: cpp.Reference<Vector>, TangentYOut: cpp.Reference<Vector>): Void;
 	public function GetOrigin(): cpp.Reference<Vector>;
 	public function GetDirection(): cpp.Reference<Vector>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(HasTangentVectors, GetTangentVectors, GetOrigin, GetDirection)

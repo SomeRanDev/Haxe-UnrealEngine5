@@ -3,6 +3,10 @@ package ue;
 
 @:native("FMetaDataKeyName")
 @:include("LocalizationTargetTypes.h")
+@:structAccess
 extern class MetaDataKeyName {
 	public var Name: FString;
+
+	@:native("FMetaDataKeyName") public function new();
+	@:native("FMetaDataKeyName") public static function make(Name: FString): MetaDataKeyName ;
 }

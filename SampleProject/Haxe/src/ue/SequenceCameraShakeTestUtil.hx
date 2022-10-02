@@ -3,10 +3,13 @@ package ue;
 
 @:native("USequenceCameraShakeTestUtil")
 @:include("Tests/SequenceCameraShakeTestUtil.h")
+@:structAccess
 extern class SequenceCameraShakeTestUtil extends BlueprintFunctionLibrary {
 	public function GetPostProcessBlendCache(PlayerController: cpp.Star<PlayerController>, PPIndex: cpp.Int32, OutPPSettings: cpp.Reference<PostProcessSettings>, OutPPBlendWeight: cpp.Reference<cpp.Float32>): cpp.Reference<Bool>;
 	public function GetLastFrameCameraCachePOV(PlayerController: cpp.Star<PlayerController>): cpp.Reference<MinimalViewInfo>;
 	public function GetCameraCachePOV(PlayerController: cpp.Star<PlayerController>): cpp.Reference<MinimalViewInfo>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

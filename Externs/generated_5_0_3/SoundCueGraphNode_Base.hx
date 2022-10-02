@@ -3,7 +3,10 @@ package ue;
 
 @:native("USoundCueGraphNode_Base")
 @:include("SoundCueGraph/SoundCueGraphNode_Base.h")
+@:structAccess
 extern class SoundCueGraphNode_Base extends EdGraphNode {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("USpringArmComponent")
 @:include("GameFramework/SpringArmComponent.h")
+@:structAccess
 extern class SpringArmComp extends SceneComp {
 	public var TargetArmLength: cpp.Float32;
 	public var SocketOffset: Vector;
@@ -27,6 +28,8 @@ extern class SpringArmComp extends SceneComp {
 	public function IsCollisionFixApplied(): cpp.Reference<Bool>;
 	public function GetUnfixedCameraPosition(): cpp.Reference<Vector>;
 	public function GetTargetRotation(): cpp.Reference<Rotator>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsCollisionFixApplied, GetUnfixedCameraPosition, GetTargetRotation)

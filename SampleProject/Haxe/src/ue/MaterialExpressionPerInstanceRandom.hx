@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionPerInstanceRandom")
 @:include("Materials/MaterialExpressionPerInstanceRandom.h")
+@:structAccess
 extern class MaterialExpressionPerInstanceRandom extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

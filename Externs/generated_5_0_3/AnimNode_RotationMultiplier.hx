@@ -3,10 +3,14 @@ package ue;
 
 @:native("FAnimNode_RotationMultiplier")
 @:include("BoneControllers/AnimNode_RotationMultiplier.h")
+@:structAccess
 extern class AnimNode_RotationMultiplier extends AnimNode_SkeletalControlBase {
 	public var TargetBone: BoneReference;
 	public var SourceBone: BoneReference;
 	public var Multiplier: cpp.Float32;
 	public var RotationAxisToRefer: EBoneAxis;
 	public var bIsAdditive: Bool;
+
+	@:native("FAnimNode_RotationMultiplier") public function new();
+	@:native("FAnimNode_RotationMultiplier") public static function make(TargetBone: BoneReference, SourceBone: BoneReference, Multiplier: cpp.Float32, RotationAxisToRefer: EBoneAxis, bIsAdditive: Bool): AnimNode_RotationMultiplier ;
 }

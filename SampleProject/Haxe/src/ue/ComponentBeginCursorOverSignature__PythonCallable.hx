@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UComponentBeginCursorOverSignature__PythonCallable")
+@:structAccess
 extern class ComponentBeginCursorOverSignature__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

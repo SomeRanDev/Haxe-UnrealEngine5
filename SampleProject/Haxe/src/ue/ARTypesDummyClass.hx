@@ -3,7 +3,10 @@ package ue;
 
 @:native("UARTypesDummyClass")
 @:include("ARTypes.h")
+@:structAccess
 extern class ARTypesDummyClass extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,10 @@ package ue;
 
 @:native("FVirtualKeyboardOptions")
 @:include("Widgets/Input/IVirtualKeyboardEntry.h")
+@:structAccess
 extern class VirtualKeyboardOptions {
 	public var bEnableAutocorrect: Bool;
+
+	@:native("FVirtualKeyboardOptions") public function new();
+	@:native("FVirtualKeyboardOptions") public static function make(bEnableAutocorrect: Bool): VirtualKeyboardOptions ;
 }

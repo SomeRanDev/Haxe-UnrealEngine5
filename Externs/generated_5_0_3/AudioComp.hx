@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAudioComponent")
 @:include("Components/AudioComponent.h")
+@:structAccess
 extern class AudioComp extends SceneComp {
 	public var Sound: cpp.Star<SoundBase>;
 	public var DefaultParameters: TArray<AudioParameter>;
@@ -89,6 +90,8 @@ extern class AudioComp extends SceneComp {
 	public function BP_GetAttenuationSettingsToApply(OutAttenuationSettings: cpp.Reference<SoundAttenuationSettings>): cpp.Reference<Bool>;
 	public function AdjustVolume(AdjustVolumeDuration: cpp.Float32, AdjustVolumeLevel: cpp.Float32, FadeCurve: EAudioFaderCurve): Void;
 	public function AdjustAttenuation(InAttenuationSettings: cpp.Reference<SoundAttenuationSettings>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsVirtualized, IsPlaying, HasCookedFFTData, HasCookedAmplitudeEnvelopeData, GetPlayState)

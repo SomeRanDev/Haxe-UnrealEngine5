@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionVolumetricAdvancedMaterialInput")
 @:include("Materials/MaterialExpressionVolumetricAdvancedMaterialInput.h")
+@:structAccess
 extern class MaterialExpressionVolumetricAdvancedMaterialInput extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

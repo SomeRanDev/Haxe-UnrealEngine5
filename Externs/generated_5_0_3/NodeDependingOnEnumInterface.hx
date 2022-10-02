@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UNodeDependingOnEnumInterface")
+@:structAccess
 extern class NodeDependingOnEnumInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

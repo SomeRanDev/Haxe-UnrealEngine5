@@ -3,6 +3,10 @@ package ue;
 
 @:native("FSkeletalMeshSamplingRegionMaterialFilter")
 @:include("Engine/SkeletalMeshSampling.h")
+@:structAccess
 extern class SkeletalMeshSamplingRegionMaterialFilter {
 	public var MaterialName: FName;
+
+	@:native("FSkeletalMeshSamplingRegionMaterialFilter") public function new();
+	@:native("FSkeletalMeshSamplingRegionMaterialFilter") public static function make(MaterialName: FName): SkeletalMeshSamplingRegionMaterialFilter ;
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULODSyncComponent")
 @:include("Components/LODSyncComponent.h")
+@:structAccess
 extern class LODSyncComp extends ActorComp {
 	public var NumLODs: cpp.Int32;
 	public var ForcedLOD: cpp.Int32;
@@ -15,6 +16,8 @@ extern class LODSyncComp extends ActorComp {
 	public var SubComponents: TArray<cpp.Star<PrimitiveComp>>;
 
 	public function GetLODSyncDebugText(): cpp.Reference<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetLODSyncDebugText)

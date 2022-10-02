@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBodySetup")
 @:include("PhysicsEngine/BodySetup.h")
+@:structAccess
 extern class BodySetup extends BodySetupCore {
 	public var AggGeom: KAggregateGeom;
 	public var bAlwaysFullAnimWeight_DEPRECATED: Bool;
@@ -19,6 +20,8 @@ extern class BodySetup extends BodySetupCore {
 	public var BuildScale_DEPRECATED: cpp.Float32;
 	public var DefaultInstance: BodyInstance;
 	public var BuildScale3D: Vector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

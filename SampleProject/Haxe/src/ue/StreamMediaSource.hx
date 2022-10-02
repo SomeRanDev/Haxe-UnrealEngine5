@@ -3,8 +3,11 @@ package ue;
 
 @:native("UStreamMediaSource")
 @:include("StreamMediaSource.h")
+@:structAccess
 extern class StreamMediaSource extends BaseMediaSource {
 	public var StreamUrl: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

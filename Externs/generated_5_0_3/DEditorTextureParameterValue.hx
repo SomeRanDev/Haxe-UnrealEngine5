@@ -3,9 +3,12 @@ package ue;
 
 @:native("UDEditorTextureParameterValue")
 @:include("MaterialEditor/DEditorTextureParameterValue.h")
+@:structAccess
 extern class DEditorTextureParameterValue extends DEditorParameterValue {
 	public var ParameterValue: cpp.Star<Texture>;
 	public var ChannelNames: ParameterChannelNames;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

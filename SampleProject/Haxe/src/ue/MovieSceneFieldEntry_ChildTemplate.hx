@@ -3,8 +3,12 @@ package ue;
 
 @:native("FMovieSceneFieldEntry_ChildTemplate")
 @:include("Evaluation/MovieSceneEvaluationField.h")
+@:structAccess
 extern class MovieSceneFieldEntry_ChildTemplate {
 	public var ChildIndex: cpp.UInt16;
 	public var Flags: ESectionEvaluationFlags;
 	public var ForcedTime: FrameNumber;
+
+	@:native("FMovieSceneFieldEntry_ChildTemplate") public function new();
+	@:native("FMovieSceneFieldEntry_ChildTemplate") public static function make(ChildIndex: cpp.UInt16, Flags: ESectionEvaluationFlags, ForcedTime: FrameNumber): MovieSceneFieldEntry_ChildTemplate ;
 }

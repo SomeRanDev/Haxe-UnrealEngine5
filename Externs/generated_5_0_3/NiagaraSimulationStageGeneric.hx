@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraSimulationStageGeneric")
 @:include("NiagaraSimulationStageBase.h")
+@:structAccess
 extern class NiagaraSimulationStageGeneric extends NiagaraSimulationStageBase {
 	public var EnabledBinding: NiagaraVariableAttributeBinding;
 	public var IterationSource: ENiagaraIterationSource;
@@ -18,6 +19,8 @@ extern class NiagaraSimulationStageGeneric extends NiagaraSimulationStageBase {
 	public var bGpuDispatchForceLinear: Bool;
 	public var bOverrideGpuDispatchNumThreads: Bool;
 	public var OverrideGpuDispatchNumThreads: IntVector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

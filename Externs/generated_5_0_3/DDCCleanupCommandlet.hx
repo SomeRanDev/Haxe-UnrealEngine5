@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDDCCleanupCommandlet")
 @:include("Commandlets/DDCCleanupCommandlet.h")
+@:structAccess
 extern class DDCCleanupCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraFunctionSignature")
 @:include("NiagaraCommon.h")
+@:structAccess
 extern class NiagaraFunctionSignature {
 	public var Name: FName;
 	public var Inputs: TArray<NiagaraVariable>;
@@ -26,4 +27,6 @@ extern class NiagaraFunctionSignature {
 	public var Description: FText;
 	public var InputDescriptions: TMap<NiagaraVariableBase, FText>;
 	public var OutputDescriptions: TMap<NiagaraVariableBase, FText>;
+
+	@:native("FNiagaraFunctionSignature") public function new();
 }

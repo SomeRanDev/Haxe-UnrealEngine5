@@ -3,11 +3,14 @@ package ue;
 
 @:native("UGameplayTask_TimeLimitedExecution")
 @:include("Tasks/GameplayTask_TimeLimitedExecution.h")
+@:structAccess
 extern class GameplayTask_TimeLimitedExecution extends GameplayTask {
 	public var OnFinished: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnTimeExpired: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
 	public function TaskFinishDelegate__DelegateSignature(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

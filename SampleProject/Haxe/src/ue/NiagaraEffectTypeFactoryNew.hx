@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraEffectTypeFactoryNew")
 @:include("NiagaraEffectTypeFactoryNew.h")
+@:structAccess
 extern class NiagaraEffectTypeFactoryNew extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

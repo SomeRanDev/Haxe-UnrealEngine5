@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UAsyncDelayComplete__PythonCallable")
+@:structAccess
 extern class AsyncDelayComplete__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -2,6 +2,7 @@
 package ue;
 
 @:native("UTypedElementWorldInterface")
+@:structAccess
 extern class TypedElementWorldInterface extends Interface {
 	public function SetWorldTransform(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InTransform: cpp.Reference<Transform>): cpp.Reference<Bool>;
 	public function SetRelativeTransform(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InTransform: cpp.Reference<Transform>): cpp.Reference<Bool>;
@@ -22,6 +23,8 @@ extern class TypedElementWorldInterface extends Interface {
 	public function CanEditElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): cpp.Reference<Bool>;
 	public function CanDuplicateElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): cpp.Reference<Bool>;
 	public function CanDeleteElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimNotify_ResumeClothingSimulation")
 @:include("Animation/AnimNotifies/AnimNotify_ResumeClothingSimulation.h")
+@:structAccess
 extern class AnimNotify_ResumeClothingSimulation extends AnimNotify {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

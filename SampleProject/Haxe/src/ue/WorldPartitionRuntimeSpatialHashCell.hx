@@ -3,11 +3,14 @@ package ue;
 
 @:native("UWorldPartitionRuntimeSpatialHashCell")
 @:include("WorldPartition/WorldPartitionRuntimeSpatialHashCell.h")
+@:structAccess
 extern class WorldPartitionRuntimeSpatialHashCell extends WorldPartitionRuntimeCell {
 	public var Position: Vector;
 	public var Extent: cpp.Float32;
 	public var Level: cpp.Int32;
 	public var UnsavedActorsContainer: cpp.Star<ActorContainer>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

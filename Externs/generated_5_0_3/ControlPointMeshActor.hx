@@ -3,8 +3,11 @@ package ue;
 
 @:native("AControlPointMeshActor")
 @:include("ControlPointMeshActor.h")
+@:structAccess
 extern class ControlPointMeshActor extends Actor {
 	public var ControlPointMeshComponent: cpp.Star<ControlPointMeshComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

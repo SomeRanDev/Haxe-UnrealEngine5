@@ -3,10 +3,13 @@ package ue;
 
 @:native("URotatingMovementComponent")
 @:include("GameFramework/RotatingMovementComponent.h")
+@:structAccess
 extern class RotatingMovementComp extends MovementComp {
 	public var RotationRate: Rotator;
 	public var PivotTranslation: Vector;
 	public var bRotationInLocalSpace: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

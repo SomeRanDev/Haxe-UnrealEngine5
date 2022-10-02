@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneByteSection")
 @:include("Sections/MovieSceneByteSection.h")
+@:structAccess
 extern class MovieSceneByteSection extends MovieSceneSection {
 	public var ByteCurve: MovieSceneByteChannel;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

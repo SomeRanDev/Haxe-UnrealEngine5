@@ -3,6 +3,7 @@ package ue;
 
 @:native("FInputScaleBiasClamp")
 @:include("Animation/InputScaleBias.h")
+@:structAccess
 extern class InputScaleBiasClamp {
 	public var bMapRange: Bool;
 	public var bClampResult: Bool;
@@ -15,4 +16,6 @@ extern class InputScaleBiasClamp {
 	public var ClampMax: cpp.Float32;
 	public var InterpSpeedIncreasing: cpp.Float32;
 	public var InterpSpeedDecreasing: cpp.Float32;
+
+	@:native("FInputScaleBiasClamp") public function new();
 }

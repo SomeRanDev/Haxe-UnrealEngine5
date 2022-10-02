@@ -3,6 +3,7 @@ package ue;
 
 @:native("UARBasicLightEstimate")
 @:include("ARLightEstimate.h")
+@:structAccess
 extern class ARBasicLightEstimate extends ARLightEstimate {
 	public var AmbientIntensityLumens: cpp.Float32;
 	public var AmbientColorTemperatureKelvin: cpp.Float32;
@@ -11,6 +12,8 @@ extern class ARBasicLightEstimate extends ARLightEstimate {
 	public function GetAmbientIntensityLumens(): cpp.Reference<cpp.Float32>;
 	public function GetAmbientColorTemperatureKelvin(): cpp.Reference<cpp.Float32>;
 	public function GetAmbientColor(): cpp.Reference<LinearColor>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetAmbientIntensityLumens, GetAmbientColorTemperatureKelvin, GetAmbientColor)

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneDataLayerSection")
 @:include("Sections/MovieSceneDataLayerSection.h")
+@:structAccess
 extern class MovieSceneDataLayerSection extends MovieSceneSection {
 	public var DataLayers: TArray<ActorDataLayer>;
 	public var DesiredState: EDataLayerRuntimeState;
@@ -17,6 +18,8 @@ extern class MovieSceneDataLayerSection extends MovieSceneSection {
 	public function GetFlushOnUnload(): cpp.Reference<Bool>;
 	public function GetDesiredState(): cpp.Reference<EDataLayerRuntimeState>;
 	public function GetDataLayers(): cpp.Reference<TArray<ActorDataLayer>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetPrerollState, GetFlushOnUnload, GetDesiredState, GetDataLayers)

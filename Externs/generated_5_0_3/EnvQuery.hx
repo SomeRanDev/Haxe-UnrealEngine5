@@ -3,10 +3,13 @@ package ue;
 
 @:native("UEnvQuery")
 @:include("EnvironmentQuery/EnvQuery.h")
+@:structAccess
 extern class EnvQuery extends DataAsset {
 	public var EdGraph: cpp.Star<EdGraph>;
 	public var QueryName: FName;
 	public var Options: TArray<cpp.Star<EnvQueryOption>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

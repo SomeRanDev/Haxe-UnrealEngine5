@@ -3,5 +3,7 @@ package ue;
 
 @:native("FEventReply")
 @:include("Components/SlateWrapperTypes.h")
+@:structAccess
 extern class EventReply {
+	@:native("FEventReply") public function new();
 }

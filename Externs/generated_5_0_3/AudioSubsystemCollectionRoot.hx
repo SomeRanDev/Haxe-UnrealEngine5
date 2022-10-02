@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAudioSubsystemCollectionRoot")
 @:include("Subsystems/AudioEngineSubsystem.h")
+@:structAccess
 extern class AudioSubsystemCollectionRoot extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

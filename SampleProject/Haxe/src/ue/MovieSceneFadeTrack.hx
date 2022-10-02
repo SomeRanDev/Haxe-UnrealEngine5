@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMovieSceneFadeTrack")
 @:include("Tracks/MovieSceneFadeTrack.h")
+@:structAccess
 extern class MovieSceneFadeTrack extends MovieSceneFloatTrack {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("APhasedAutomationActorBase")
 @:include("FunctionalTestingManager.h")
+@:structAccess
 extern class PhasedAutomationActorBase extends Actor {
 	public function OnFunctionalTestingComplete(): Void;
 	public function OnFunctionalTestingBegin(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

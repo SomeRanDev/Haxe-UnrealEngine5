@@ -3,11 +3,14 @@ package ue;
 
 @:native("UEngineElementsLibrary")
 @:include("Elements/Framework/EngineElementsLibrary.h")
+@:structAccess
 extern class EngineElementsLibrary extends BlueprintFunctionLibrary {
 	public function K2_AcquireEditorSMInstanceElementHandle(ISMComponent: cpp.Star<InstancedStaticMeshComp.ConstInstancedStaticMeshComp>, InstanceIndex: cpp.Int32, bAllowCreate: Bool): cpp.Reference<ScriptTypedElementHandle>;
 	public function K2_AcquireEditorObjectElementHandle(Object: cpp.Star<Object.ConstObject>, bAllowCreate: Bool): cpp.Reference<ScriptTypedElementHandle>;
 	public function K2_AcquireEditorComponentElementHandle(Component: cpp.Star<ActorComp.ConstActorComp>, bAllowCreate: Bool): cpp.Reference<ScriptTypedElementHandle>;
 	public function K2_AcquireEditorActorElementHandle(Actor: cpp.Star<Actor.ConstActor>, bAllowCreate: Bool): cpp.Reference<ScriptTypedElementHandle>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

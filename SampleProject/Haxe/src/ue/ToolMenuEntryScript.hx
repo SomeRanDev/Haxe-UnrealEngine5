@@ -3,6 +3,7 @@ package ue;
 
 @:native("UToolMenuEntryScript")
 @:include("ToolMenuEntryScript.h")
+@:structAccess
 extern class ToolMenuEntryScript extends Object {
 	public var Data: ToolMenuEntryScriptData;
 
@@ -16,6 +17,8 @@ extern class ToolMenuEntryScript extends Object {
 	public function Execute(Context: cpp.Reference<ToolMenuContext>): Void;
 	public function ConstructMenuEntry(Menu: cpp.Star<ToolMenu>, SectionName: FName, Context: cpp.Reference<ToolMenuContext>): Void;
 	public function CanExecute(Context: cpp.Reference<ToolMenuContext>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsVisible, GetToolTip, GetLabel, GetIcon, GetCheckState, CanExecute)

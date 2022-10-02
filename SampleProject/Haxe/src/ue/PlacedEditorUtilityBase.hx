@@ -3,6 +3,7 @@ package ue;
 
 @:native("ADEPRECATED_PlacedEditorUtilityBase")
 @:include("PlacedEditorUtilityBase.h")
+@:structAccess
 extern class PlacedEditorUtilityBase extends Actor {
 	public var HelpText: FString;
 
@@ -13,6 +14,8 @@ extern class PlacedEditorUtilityBase extends Actor {
 	public function GetLevelViewportCameraInfo(CameraLocation: cpp.Reference<Vector>, CameraRotation: cpp.Reference<Rotator>): cpp.Reference<Bool>;
 	public function GetActorReference(PathToActor: FString): cpp.Reference<cpp.Star<Actor>>;
 	public function ClearActorSelectionSet(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

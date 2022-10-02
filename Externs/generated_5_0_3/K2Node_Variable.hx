@@ -3,12 +3,15 @@ package ue;
 
 @:native("UK2Node_Variable")
 @:include("K2Node_Variable.h")
+@:structAccess
 extern class K2Node_Variable extends K2Node {
 	public var VariableReference: MemberReference;
 	public var SelfContextInfo: ESelfContextInfo;
 	public var VariableSourceClass_DEPRECATED: TSubclassOf<Object>;
 	public var VariableName_DEPRECATED: FName;
 	public var bSelfContext_DEPRECATED: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

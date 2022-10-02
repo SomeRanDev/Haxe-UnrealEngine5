@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneFloatVectorTrack")
 @:include("Tracks/MovieSceneVectorTrack.h")
+@:structAccess
 extern class MovieSceneFloatVectorTrack extends MovieScenePropertyTrack {
 	public var NumChannelsUsed: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

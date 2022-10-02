@@ -3,6 +3,10 @@ package ue;
 
 @:native("FAnimNotifyArray")
 @:include("Animation/AnimNotifyQueue.h")
+@:structAccess
 extern class AnimNotifyArray {
 	public var Notifies: TArray<AnimNotifyEventReference>;
+
+	@:native("FAnimNotifyArray") public function new();
+	@:native("FAnimNotifyArray") public static function make(Notifies: TArray<AnimNotifyEventReference>): AnimNotifyArray ;
 }

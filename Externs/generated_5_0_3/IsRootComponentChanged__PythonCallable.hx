@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UIsRootComponentChanged__PythonCallable")
+@:structAccess
 extern class IsRootComponentChanged__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

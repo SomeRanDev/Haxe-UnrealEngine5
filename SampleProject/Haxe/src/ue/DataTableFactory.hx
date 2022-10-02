@@ -3,8 +3,11 @@ package ue;
 
 @:native("UDataTableFactory")
 @:include("Factories/DataTableFactory.h")
+@:structAccess
 extern class DataTableFactory extends Factory {
 	public var Struct: cpp.Star<ScriptStruct>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

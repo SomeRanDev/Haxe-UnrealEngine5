@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPythonCallableForDelegate")
 @:include("PyWrapperDelegate.h")
+@:structAccess
 extern class PythonCallableForDelegate extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

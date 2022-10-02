@@ -3,12 +3,15 @@ package ue;
 
 @:native("UTcpMessagingSettings")
 @:include("Settings/TcpMessagingSettings.h")
+@:structAccess
 extern class TcpMessagingSettings extends Object {
 	public var EnableTransport: Bool;
 	public var ListenEndpoint: FString;
 	public var ConnectToEndpoints: TArray<FString>;
 	public var ConnectionRetryDelay: cpp.Int32;
 	public var bStopServiceWhenAppDeactivates: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

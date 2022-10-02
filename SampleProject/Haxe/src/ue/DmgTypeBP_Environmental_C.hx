@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UDmgTypeBP_Environmental_C")
+@:structAccess
 extern class DmgTypeBP_Environmental_C extends DamageType {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

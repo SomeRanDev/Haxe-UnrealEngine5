@@ -3,6 +3,7 @@ package ue;
 
 @:native("FChaosPhysicsCollisionInfo")
 @:include("Chaos/ChaosNotifyHandlerInterface.h")
+@:structAccess
 extern class ChaosPhysicsCollisionInfo {
 	public var Component: cpp.Star<PrimitiveComp>;
 	public var OtherComponent: cpp.Star<PrimitiveComp>;
@@ -15,4 +16,6 @@ extern class ChaosPhysicsCollisionInfo {
 	public var OtherAngularVelocity: Vector;
 	public var Mass: cpp.Float32;
 	public var OtherMass: cpp.Float32;
+
+	@:native("FChaosPhysicsCollisionInfo") public function new();
 }

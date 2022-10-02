@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionStrataLegacyConversion")
 @:include("Materials/MaterialExpressionStrata.h")
+@:structAccess
 extern class MaterialExpressionStrataLegacyConversion extends MaterialExpressionStrataBSDF {
 	public var BaseColor: ExpressionInput;
 	public var Metallic: ExpressionInput;
@@ -25,6 +26,8 @@ extern class MaterialExpressionStrataLegacyConversion extends MaterialExpression
 	public var ShadingModel: ExpressionInput;
 	public var SubsurfaceProfile: cpp.Star<SubsurfaceProfile>;
 	public var ConvertedStrataMaterialInfo: StrataMaterialInfo;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

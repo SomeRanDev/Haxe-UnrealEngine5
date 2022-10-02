@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraStackSummaryViewObject")
 @:include("ViewModels/Stack/NiagaraStackSummaryViewInputCollection.h")
+@:structAccess
 extern class NiagaraStackSummaryViewObject extends NiagaraStackFunctionInputCollectionBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

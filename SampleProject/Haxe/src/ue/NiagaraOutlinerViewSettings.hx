@@ -3,10 +3,14 @@ package ue;
 
 @:native("FNiagaraOutlinerViewSettings")
 @:include("Private/NiagaraOutliner.h")
+@:structAccess
 extern class NiagaraOutlinerViewSettings {
 	public var ViewMode: ENiagaraOutlinerViewModes;
 	public var FilterSettings: NiagaraOutlinerFilterSettings;
 	public var bSortDescending: Bool;
 	public var SortMode: ENiagaraOutlinerSortMode;
 	public var TimeUnits: ENiagaraOutlinerTimeUnits;
+
+	@:native("FNiagaraOutlinerViewSettings") public function new();
+	@:native("FNiagaraOutlinerViewSettings") public static function make(ViewMode: ENiagaraOutlinerViewModes, FilterSettings: NiagaraOutlinerFilterSettings, bSortDescending: Bool, SortMode: ENiagaraOutlinerSortMode, TimeUnits: ENiagaraOutlinerTimeUnits): NiagaraOutlinerViewSettings ;
 }

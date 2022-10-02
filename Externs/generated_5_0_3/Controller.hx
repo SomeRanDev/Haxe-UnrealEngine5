@@ -3,6 +3,7 @@ package ue;
 
 @:native("AController")
 @:include("GameFramework/Controller.h")
+@:structAccess
 extern class Controller extends Actor {
 	public var PlayerState: cpp.Star<PlayerState>;
 	public var OnInstigatedAnyDamage: HaxeMulticastSparseDelegateProperty<(cpp.Float32, cpp.Star<DamageType.ConstDamageType>, cpp.Star<Actor>, cpp.Star<Actor>) -> Void>;
@@ -42,6 +43,8 @@ extern class Controller extends Actor {
 	public function GetControlRotation(): cpp.Reference<Rotator>;
 	public function ClientSetRotation(NewRotation: Rotator, bResetCamera: Bool): Void;
 	public function ClientSetLocation(NewLocation: Vector, NewRotation: Rotator): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

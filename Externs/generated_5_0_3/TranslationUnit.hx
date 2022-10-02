@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTranslationUnit")
 @:include("TranslationUnit.h")
+@:structAccess
 extern class TranslationUnit extends Object {
 	public var Namespace: FString;
 	public var Key: FString;
@@ -12,6 +13,8 @@ extern class TranslationUnit extends Object {
 	public var HasBeenReviewed: Bool;
 	public var TranslationBeforeImport: FString;
 	public var LocresPath: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

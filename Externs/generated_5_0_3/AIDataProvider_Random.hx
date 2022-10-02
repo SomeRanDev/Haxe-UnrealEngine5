@@ -3,10 +3,13 @@ package ue;
 
 @:native("UAIDataProvider_Random")
 @:include("DataProviders/AIDataProvider_Random.h")
+@:structAccess
 extern class AIDataProvider_Random extends AIDataProvider_QueryParams {
 	public var Min: cpp.Float32;
 	public var Max: cpp.Float32;
 	public var bInteger: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

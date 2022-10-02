@@ -3,8 +3,11 @@ package ue;
 
 @:native("URichTextBlockImageDecorator")
 @:include("Components/RichTextBlockImageDecorator.h")
+@:structAccess
 extern class RichTextBlockImageDecorator extends RichTextBlockDecorator {
 	public var ImageSet: cpp.Star<DataTable>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

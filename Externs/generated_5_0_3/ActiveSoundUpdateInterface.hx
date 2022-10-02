@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UActiveSoundUpdateInterface")
+@:structAccess
 extern class ActiveSoundUpdateInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

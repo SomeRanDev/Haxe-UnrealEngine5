@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMirrorDataTable")
 @:include("Animation/MirrorDataTable.h")
+@:structAccess
 extern class MirrorDataTable extends DataTable {
 	public var MirrorFindReplaceExpressions: TArray<MirrorFindReplaceExpression>;
 	public var MirrorAxis: EAxis;
 	public var Skeleton: cpp.Star<Skeleton>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

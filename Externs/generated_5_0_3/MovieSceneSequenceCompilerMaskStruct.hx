@@ -3,9 +3,13 @@ package ue;
 
 @:native("FMovieSceneSequenceCompilerMaskStruct")
 @:include("Compilation/MovieSceneCompiledDataManager.h")
+@:structAccess
 extern class MovieSceneSequenceCompilerMaskStruct {
 	public var bHierarchy: Bool;
 	public var bEvaluationTemplate: Bool;
 	public var bEvaluationTemplateField: Bool;
 	public var bEntityComponentField: Bool;
+
+	@:native("FMovieSceneSequenceCompilerMaskStruct") public function new();
+	@:native("FMovieSceneSequenceCompilerMaskStruct") public static function make(bHierarchy: Bool, bEvaluationTemplate: Bool, bEvaluationTemplateField: Bool, bEntityComponentField: Bool): MovieSceneSequenceCompilerMaskStruct ;
 }

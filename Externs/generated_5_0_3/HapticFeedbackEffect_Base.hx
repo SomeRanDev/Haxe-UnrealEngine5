@@ -3,7 +3,10 @@ package ue;
 
 @:native("UHapticFeedbackEffect_Base")
 @:include("Haptics/HapticFeedbackEffect_Base.h")
+@:structAccess
 extern class HapticFeedbackEffect_Base extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

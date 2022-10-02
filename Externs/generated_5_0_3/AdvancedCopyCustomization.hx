@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAdvancedCopyCustomization")
 @:include("AdvancedCopyCustomization.h")
+@:structAccess
 extern class AdvancedCopyCustomization extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

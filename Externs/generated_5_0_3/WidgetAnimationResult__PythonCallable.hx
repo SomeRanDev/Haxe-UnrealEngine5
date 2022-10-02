@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UWidgetAnimationResult__PythonCallable")
+@:structAccess
 extern class WidgetAnimationResult__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

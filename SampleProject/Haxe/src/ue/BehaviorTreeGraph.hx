@@ -3,9 +3,12 @@ package ue;
 
 @:native("UBehaviorTreeGraph")
 @:include("BehaviorTreeGraph.h")
+@:structAccess
 extern class BehaviorTreeGraph extends AIGraph {
 	public var ModCounter: cpp.Int32;
 	public var bIsUsingModCounter: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

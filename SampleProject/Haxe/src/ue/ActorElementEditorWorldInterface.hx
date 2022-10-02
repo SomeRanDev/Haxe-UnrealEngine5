@@ -3,7 +3,10 @@ package ue;
 
 @:native("UActorElementEditorWorldInterface")
 @:include("Elements/Actor/ActorElementEditorWorldInterface.h")
+@:structAccess
 extern class ActorElementEditorWorldInterface extends ActorElementWorldInterface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

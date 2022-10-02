@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnalysisProperties")
 @:include("Animation/BlendSpace.h")
+@:structAccess
 extern class AnalysisProperties extends Object {
 	public var Function: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

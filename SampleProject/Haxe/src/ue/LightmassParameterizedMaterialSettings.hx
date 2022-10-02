@@ -3,9 +3,13 @@ package ue;
 
 @:native("FLightmassParameterizedMaterialSettings")
 @:include("Editor/UnrealEdTypes.h")
+@:structAccess
 extern class LightmassParameterizedMaterialSettings {
 	public var CastShadowAsMasked: LightmassBooleanParameterValue;
 	public var EmissiveBoost: LightmassScalarParameterValue;
 	public var DiffuseBoost: LightmassScalarParameterValue;
 	public var ExportResolutionScale: LightmassScalarParameterValue;
+
+	@:native("FLightmassParameterizedMaterialSettings") public function new();
+	@:native("FLightmassParameterizedMaterialSettings") public static function make(CastShadowAsMasked: LightmassBooleanParameterValue, EmissiveBoost: LightmassScalarParameterValue, DiffuseBoost: LightmassScalarParameterValue, ExportResolutionScale: LightmassScalarParameterValue): LightmassParameterizedMaterialSettings ;
 }

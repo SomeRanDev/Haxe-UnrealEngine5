@@ -3,9 +3,12 @@ package ue;
 
 @:native("UDatasmithLandscapeTemplate")
 @:include("ObjectTemplates/DatasmithLandscapeTemplate.h")
+@:structAccess
 extern class DatasmithLandscapeTemplate extends DatasmithObjectTemplate {
 	public var LandscapeMaterial: cpp.Star<MaterialInterface>;
 	public var StaticLightingLOD: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

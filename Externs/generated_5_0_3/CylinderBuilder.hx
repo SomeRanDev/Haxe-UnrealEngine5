@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCylinderBuilder")
 @:include("Builders/CylinderBuilder.h")
+@:structAccess
 extern class CylinderBuilder extends EditorBrushBuilder {
 	public var Z: cpp.Float32;
 	public var OuterRadius: cpp.Float32;
@@ -11,6 +12,8 @@ extern class CylinderBuilder extends EditorBrushBuilder {
 	public var GroupName: FName;
 	public var AlignToSide: Bool;
 	public var Hollow: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

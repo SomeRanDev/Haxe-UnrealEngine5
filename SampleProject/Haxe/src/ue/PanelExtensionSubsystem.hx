@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPanelExtensionSubsystem")
 @:include("Subsystems/PanelExtensionSubsystem.h")
+@:structAccess
 extern class PanelExtensionSubsystem extends EditorSubsystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

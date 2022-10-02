@@ -3,6 +3,10 @@ package ue;
 
 @:native("FInterpLookupTrack")
 @:include("Matinee/InterpTrackMove.h")
+@:structAccess
 extern class InterpLookupTrack {
 	public var Points: TArray<InterpLookupPoint>;
+
+	@:native("FInterpLookupTrack") public function new();
+	@:native("FInterpLookupTrack") public static function make(Points: TArray<InterpLookupPoint>): InterpLookupTrack ;
 }

@@ -3,5 +3,7 @@ package ue;
 
 @:native("FMovieSceneKeyHandleMap")
 @:include("Channels/MovieSceneChannelData.h")
+@:structAccess
 extern class MovieSceneKeyHandleMap extends KeyHandleLookupTable {
+	@:native("FMovieSceneKeyHandleMap") public function new();
 }

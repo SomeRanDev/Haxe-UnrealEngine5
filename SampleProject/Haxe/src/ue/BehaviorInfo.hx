@@ -3,6 +3,10 @@ package ue;
 
 @:native("FBehaviorInfo")
 @:include("InputBehaviorSet.h")
+@:structAccess
 extern class BehaviorInfo {
 	public var Behavior: cpp.Star<InputBehavior>;
+
+	@:native("FBehaviorInfo") public function new();
+	@:native("FBehaviorInfo") public static function make(Behavior: cpp.Star<InputBehavior>): BehaviorInfo ;
 }

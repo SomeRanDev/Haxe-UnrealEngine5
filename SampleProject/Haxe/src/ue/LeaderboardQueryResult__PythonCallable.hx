@@ -2,7 +2,10 @@
 package ue;
 
 @:native("ULeaderboardQueryResult__PythonCallable")
+@:structAccess
 extern class LeaderboardQueryResult__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

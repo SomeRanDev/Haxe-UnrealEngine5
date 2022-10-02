@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEditorUtilitySubsystem")
 @:include("EditorUtilitySubsystem.h")
+@:structAccess
 extern class EditorUtilitySubsystem extends EditorSubsystem {
 	public var LoadedUIs: TArray<SoftObjectPath>;
 	public var StartupObjects: TArray<SoftObjectPath>;
@@ -23,6 +24,8 @@ extern class EditorUtilitySubsystem extends EditorSubsystem {
 	public function DoesTabExist(NewTabID: FName): cpp.Reference<Bool>;
 	public function CloseTabByID(NewTabID: FName): cpp.Reference<Bool>;
 	public function CanRun(Asset: cpp.Star<Object>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(CanRun)

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UStreamingSettings")
 @:include("Engine/CoreSettings.h")
+@:structAccess
 extern class StreamingSettings extends DeveloperSettings {
 	public var AsyncLoadingThreadEnabled: Bool;
 	public var WarnIfTimeLimitExceeded: Bool;
@@ -21,6 +22,8 @@ extern class StreamingSettings extends DeveloperSettings {
 	public var LevelStreamingComponentsUnregistrationGranularity: cpp.Int32;
 	public var FlushStreamingOnExit: Bool;
 	public var EventDrivenLoaderEnabled: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

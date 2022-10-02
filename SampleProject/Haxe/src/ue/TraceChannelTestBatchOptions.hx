@@ -3,6 +3,7 @@ package ue;
 
 @:native("FTraceChannelTestBatchOptions")
 @:include("TraceQueryTestResults.h")
+@:structAccess
 extern class TraceChannelTestBatchOptions {
 	public var bLineTrace: Bool;
 	public var bSphereTrace: Bool;
@@ -11,4 +12,6 @@ extern class TraceChannelTestBatchOptions {
 	public var bChannelTrace: Bool;
 	public var bObjectsTrace: Bool;
 	public var bProfileTrace: Bool;
+
+	@:native("FTraceChannelTestBatchOptions") public function new();
 }

@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UTypedElementCounterInterface")
+@:structAccess
 extern class TypedElementCounterInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleCollisionGPU")
 @:include("Particles/Collision/ParticleModuleCollisionGPU.h")
+@:structAccess
 extern class ParticleModuleCollisionGPU extends ParticleModuleCollisionBase {
 	public var Resilience: RawDistributionFloat;
 	public var ResilienceScaleOverLife: RawDistributionFloat;
@@ -13,6 +14,8 @@ extern class ParticleModuleCollisionGPU extends ParticleModuleCollisionBase {
 	public var RadiusBias: cpp.Float32;
 	public var Response: EParticleCollisionResponse;
 	public var CollisionMode: EParticleCollisionMode;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

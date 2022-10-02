@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleEventReceiverSpawn")
 @:include("Particles/Event/ParticleModuleEventReceiverSpawn.h")
+@:structAccess
 extern class ParticleModuleEventReceiverSpawn extends ParticleModuleEventReceiverBase {
 	public var SpawnCount: RawDistributionFloat;
 	public var bUseParticleTime: Bool;
@@ -11,6 +12,8 @@ extern class ParticleModuleEventReceiverSpawn extends ParticleModuleEventReceive
 	public var InheritVelocityScale: RawDistributionVector;
 	public var PhysicalMaterials: TArray<cpp.Star<PhysicalMaterial>>;
 	public var bBanPhysicalMaterials: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

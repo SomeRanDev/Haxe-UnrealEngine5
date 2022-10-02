@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEngineCustomTimeStep")
 @:include("Engine/EngineCustomTimeStep.h")
+@:structAccess
 extern class EngineCustomTimeStep extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

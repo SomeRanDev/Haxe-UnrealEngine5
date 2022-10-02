@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UEditorInteractiveGizmoConditionalBuilder")
+@:structAccess
 extern class EditorInteractiveGizmoConditionalBuilder extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

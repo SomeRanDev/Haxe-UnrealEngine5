@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAIResource_Movement")
 @:include("AIResources.h")
+@:structAccess
 extern class AIResource_Movement extends GameplayTaskResource {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

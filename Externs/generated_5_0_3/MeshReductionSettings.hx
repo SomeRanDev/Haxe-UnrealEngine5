@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMeshReductionSettings")
 @:include("Engine/MeshMerging.h")
+@:structAccess
 extern class MeshReductionSettings {
 	public var PercentTriangles: cpp.Float32;
 	public var PercentVertices: cpp.Float32;
@@ -22,4 +23,6 @@ extern class MeshReductionSettings {
 	public var TerminationCriterion: EStaticMeshReductionTerimationCriterion;
 	public var VisibilityAggressiveness: EMeshFeatureImportance;
 	public var VertexColorImportance: EMeshFeatureImportance;
+
+	@:native("FMeshReductionSettings") public function new();
 }

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UInterpTrackVectorProp")
 @:include("Matinee/InterpTrackVectorProp.h")
+@:structAccess
 extern class InterpTrackVectorProp extends InterpTrackVectorBase {
 	public var PropertyName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

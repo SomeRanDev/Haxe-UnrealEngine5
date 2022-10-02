@@ -3,8 +3,11 @@ package ue;
 
 @:native("USoundSubmixWithParentBase")
 @:include("Sound/SoundSubmix.h")
+@:structAccess
 extern class SoundSubmixWithParentBase extends SoundSubmixBase {
 	public var ParentSubmix: cpp.Star<SoundSubmixBase>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

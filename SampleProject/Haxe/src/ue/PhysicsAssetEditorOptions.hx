@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPhysicsAssetEditorOptions")
 @:include("Preferences/PhysicsAssetEditorOptions.h")
+@:structAccess
 extern class PhysicsAssetEditorOptions extends Object {
 	public var PhysicsBlend: cpp.Float32;
 	public var bUpdateJointsFromAnimation: Bool;
@@ -34,6 +35,8 @@ extern class PhysicsAssetEditorOptions extends Object {
 	public var bHideSimulatedBodies: Bool;
 	public var bHideKinematicBodies: Bool;
 	public var bResetClothWhenSimulating: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

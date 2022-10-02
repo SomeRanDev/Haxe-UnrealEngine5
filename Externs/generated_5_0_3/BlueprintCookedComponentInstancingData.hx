@@ -3,7 +3,11 @@ package ue;
 
 @:native("FBlueprintCookedComponentInstancingData")
 @:include("Engine/BlueprintGeneratedClass.h")
+@:structAccess
 extern class BlueprintCookedComponentInstancingData {
 	public var ChangedPropertyList: TArray<BlueprintComponentChangedPropertyInfo>;
 	public var bHasValidCookedData: Bool;
+
+	@:native("FBlueprintCookedComponentInstancingData") public function new();
+	@:native("FBlueprintCookedComponentInstancingData") public static function make(ChangedPropertyList: TArray<BlueprintComponentChangedPropertyInfo>, bHasValidCookedData: Bool): BlueprintCookedComponentInstancingData ;
 }

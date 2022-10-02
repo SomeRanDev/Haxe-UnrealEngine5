@@ -3,8 +3,12 @@ package ue;
 
 @:native("FHairGroupsLOD")
 @:include("GroomAssetInterpolation.h")
+@:structAccess
 extern class HairGroupsLOD {
 	public var LODs: TArray<HairLODSettings>;
 	public var ClusterWorldSize: cpp.Float32;
 	public var ClusterScreenSizeScale: cpp.Float32;
+
+	@:native("FHairGroupsLOD") public function new();
+	@:native("FHairGroupsLOD") public static function make(LODs: TArray<HairLODSettings>, ClusterWorldSize: cpp.Float32, ClusterScreenSizeScale: cpp.Float32): HairGroupsLOD ;
 }

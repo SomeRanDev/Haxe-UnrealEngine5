@@ -3,11 +3,14 @@ package ue;
 
 @:native("UTexture2DArray")
 @:include("Engine/Texture2DArray.h")
+@:structAccess
 extern class Texture2DArray extends Texture {
 	public var AddressX: TextureAddress;
 	public var AddressY: TextureAddress;
 	public var AddressZ: TextureAddress;
 	public var SourceTextures: TArray<cpp.Star<Texture2D>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

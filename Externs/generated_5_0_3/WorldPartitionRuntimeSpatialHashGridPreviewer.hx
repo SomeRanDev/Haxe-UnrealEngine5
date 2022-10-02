@@ -3,8 +3,12 @@ package ue;
 
 @:native("FWorldPartitionRuntimeSpatialHashGridPreviewer")
 @:include("WorldPartition/WorldPartitionRuntimeSpatialHashGridPreviewer.h")
+@:structAccess
 extern class WorldPartitionRuntimeSpatialHashGridPreviewer {
 	public var Material: cpp.Star<Material>;
 	public var MID: cpp.Star<MaterialInstanceDynamic>;
 	public var Volume: cpp.Star<PostProcessVolume>;
+
+	@:native("FWorldPartitionRuntimeSpatialHashGridPreviewer") public function new();
+	@:native("FWorldPartitionRuntimeSpatialHashGridPreviewer") public static function make(Material: cpp.Star<Material>, MID: cpp.Star<MaterialInstanceDynamic>, Volume: cpp.Star<PostProcessVolume>): WorldPartitionRuntimeSpatialHashGridPreviewer ;
 }

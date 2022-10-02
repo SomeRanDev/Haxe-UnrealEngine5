@@ -3,9 +3,12 @@ package ue;
 
 @:native("UControlPointMeshComponent")
 @:include("ControlPointMeshComponent.h")
+@:structAccess
 extern class ControlPointMeshComp extends StaticMeshComp {
 	public var bSelected: Bool;
 	public var VirtualTextureMainPassMaxDrawDistance: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,12 +3,15 @@ package ue;
 
 @:native("UAsyncCaptureScene")
 @:include("AsyncCaptureScene.h")
+@:structAccess
 extern class AsyncCaptureScene extends BlueprintAsyncActionBase {
 	public var Complete: HaxeMulticastSparseDelegateProperty<(cpp.Star<TextureRenderTarget2D>) -> Void>;
 	public var SceneCapture: cpp.Star<SceneCapture2D>;
 	public var SceneCaptureRT: cpp.Star<TextureRenderTarget2D>;
 
 	public function CaptureSceneAsync(ViewCamera: cpp.Star<CameraComp>, SceneCaptureClass: TSubclassOf<SceneCapture2D>, ResX: cpp.Int32, ResY: cpp.Int32): cpp.Reference<cpp.Star<AsyncCaptureScene>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

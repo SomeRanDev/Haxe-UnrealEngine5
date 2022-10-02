@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionLightmassReplace")
 @:include("Materials/MaterialExpressionLightmassReplace.h")
+@:structAccess
 extern class MaterialExpressionLightmassReplace extends MaterialExpression {
 	public var Realtime: ExpressionInput;
 	public var Lightmass: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

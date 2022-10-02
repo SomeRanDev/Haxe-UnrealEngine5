@@ -3,11 +3,14 @@ package ue;
 
 @:native("UAIDataProvider_QueryParams")
 @:include("DataProviders/AIDataProvider_QueryParams.h")
+@:structAccess
 extern class AIDataProvider_QueryParams extends AIDataProvider {
 	public var ParamName: FName;
 	public var FloatValue: cpp.Float32;
 	public var IntValue: cpp.Int32;
 	public var BoolValue: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,12 +3,15 @@ package ue;
 
 @:native("UDatasmithGLTFSceneImportData")
 @:include("DatasmithAssetImportData.h")
+@:structAccess
 extern class DatasmithGLTFSceneImportData extends DatasmithSceneImportData {
 	public var Generator: FString;
 	public var Version: cpp.Float32;
 	public var Author: FString;
 	public var License: FString;
 	public var Source: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

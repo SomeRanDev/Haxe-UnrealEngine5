@@ -3,7 +3,11 @@ package ue;
 
 @:native("FLandscapeMaterialTextureStreamingInfo")
 @:include("LandscapeMaterialInstanceConstant.h")
+@:structAccess
 extern class LandscapeMaterialTextureStreamingInfo {
 	public var TextureName: FName;
 	public var TexelFactor: cpp.Float32;
+
+	@:native("FLandscapeMaterialTextureStreamingInfo") public function new();
+	@:native("FLandscapeMaterialTextureStreamingInfo") public static function make(TextureName: FName, TexelFactor: cpp.Float32): LandscapeMaterialTextureStreamingInfo ;
 }

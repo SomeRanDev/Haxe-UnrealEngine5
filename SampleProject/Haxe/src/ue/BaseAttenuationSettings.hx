@@ -3,6 +3,7 @@ package ue;
 
 @:native("FBaseAttenuationSettings")
 @:include("Engine/Attenuation.h")
+@:structAccess
 extern class BaseAttenuationSettings {
 	public var DistanceAlgorithm: EAttenuationDistanceModel;
 	public var AttenuationShape: EAttenuationShape;
@@ -14,4 +15,6 @@ extern class BaseAttenuationSettings {
 	public var ConeSphereRadius: cpp.Float32;
 	public var ConeSphereFalloffDistance: cpp.Float32;
 	public var CustomAttenuationCurve: RuntimeFloatCurve;
+
+	@:native("FBaseAttenuationSettings") public function new();
 }

@@ -3,11 +3,14 @@ package ue;
 
 @:native("UAISense_Hearing")
 @:include("Perception/AISense_Hearing.h")
+@:structAccess
 extern class AISense_Hearing extends AISense {
 	public var NoiseEvents: TArray<AINoiseEvent>;
 	public var SpeedOfSoundSq: cpp.Float32;
 
 	public function ReportNoiseEvent(WorldContextObject: cpp.Star<Object>, NoiseLocation: Vector, Loudness: cpp.Float32, Instigator: cpp.Star<Actor>, MaxRange: cpp.Float32, Tag: FName): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

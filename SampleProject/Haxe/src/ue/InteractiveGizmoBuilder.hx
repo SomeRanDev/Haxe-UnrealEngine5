@@ -3,7 +3,10 @@ package ue;
 
 @:native("UInteractiveGizmoBuilder")
 @:include("InteractiveGizmoBuilder.h")
+@:structAccess
 extern class InteractiveGizmoBuilder extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

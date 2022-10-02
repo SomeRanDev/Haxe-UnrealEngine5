@@ -3,9 +3,13 @@ package ue;
 
 @:native("FOverlayItem")
 @:include("Overlays.h")
+@:structAccess
 extern class OverlayItem {
 	public var StartTime: Timespan;
 	public var EndTime: Timespan;
 	public var Text: FString;
 	public var Position: Vector2D;
+
+	@:native("FOverlayItem") public function new();
+	@:native("FOverlayItem") public static function make(StartTime: Timespan, EndTime: Timespan, Text: FString, Position: Vector2D): OverlayItem ;
 }

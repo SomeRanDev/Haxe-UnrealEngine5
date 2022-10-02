@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNavArea_Obstacle")
 @:include("NavAreas/NavArea_Obstacle.h")
+@:structAccess
 extern class NavArea_Obstacle extends NavArea {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

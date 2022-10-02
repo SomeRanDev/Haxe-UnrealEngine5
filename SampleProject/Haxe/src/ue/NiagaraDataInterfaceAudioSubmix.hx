@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraDataInterfaceAudioSubmix")
 @:include("NiagaraDataInterfaceAudio.h")
+@:structAccess
 extern class NiagaraDataInterfaceAudioSubmix extends NiagaraDataInterface {
 	public var Submix: cpp.Star<SoundSubmix>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

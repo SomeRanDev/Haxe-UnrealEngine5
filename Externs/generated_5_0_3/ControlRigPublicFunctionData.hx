@@ -3,6 +3,7 @@ package ue;
 
 @:native("FControlRigPublicFunctionData")
 @:include("ControlRigBlueprint.h")
+@:structAccess
 extern class ControlRigPublicFunctionData {
 	public var Name: FName;
 	public var DisplayName: FString;
@@ -10,4 +11,6 @@ extern class ControlRigPublicFunctionData {
 	public var Keywords: FString;
 	public var ReturnValue: ControlRigPublicFunctionArg;
 	public var Arguments: TArray<ControlRigPublicFunctionArg>;
+
+	@:native("FControlRigPublicFunctionData") public function new();
 }

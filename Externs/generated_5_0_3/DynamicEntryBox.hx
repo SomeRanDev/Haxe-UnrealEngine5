@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDynamicEntryBox")
 @:include("Components/DynamicEntryBox.h")
+@:structAccess
 extern class DynamicEntryBox extends DynamicEntryBoxBase {
 	public var NumDesignerPreviewEntries: cpp.Int32;
 	public var EntryWidgetClass: TSubclassOf<UserWidget>;
@@ -11,6 +12,8 @@ extern class DynamicEntryBox extends DynamicEntryBoxBase {
 	public function RemoveEntry(EntryWidget: cpp.Star<UserWidget>): Void;
 	public function BP_CreateEntryOfClass(EntryClass: TSubclassOf<UserWidget>): cpp.Reference<cpp.Star<UserWidget>>;
 	public function BP_CreateEntry(): cpp.Reference<cpp.Star<UserWidget>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FBuildPromotionOpenAssetSettings")
 @:include("Tests/AutomationTestSettings.h")
+@:structAccess
 extern class BuildPromotionOpenAssetSettings {
 	public var BlueprintAsset: FilePath;
 	public var MaterialAsset: FilePath;
@@ -10,4 +11,6 @@ extern class BuildPromotionOpenAssetSettings {
 	public var SkeletalMeshAsset: FilePath;
 	public var StaticMeshAsset: FilePath;
 	public var TextureAsset: FilePath;
+
+	@:native("FBuildPromotionOpenAssetSettings") public function new();
 }

@@ -3,12 +3,15 @@ package ue;
 
 @:native("UBTTask_PlayAnimation")
 @:include("BehaviorTree/Tasks/BTTask_PlayAnimation.h")
+@:structAccess
 extern class BTTask_PlayAnimation extends BTTaskNode {
 	public var AnimationToPlay: cpp.Star<AnimationAsset>;
 	public var bLooping: Bool;
 	public var bNonBlocking: Bool;
 	public var MyOwnerComp: cpp.Star<BehaviorTreeComp>;
 	public var CachedSkelMesh: cpp.Star<SkeletalMeshComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

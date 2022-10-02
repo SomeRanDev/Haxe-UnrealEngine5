@@ -3,10 +3,13 @@ package ue;
 
 @:native("ULayer")
 @:include("Layers/Layer.h")
+@:structAccess
 extern class Layer extends Object {
 	public var LayerName: FName;
 	public var bIsVisible: Bool;
 	public var ActorStats: TArray<LayerActorStats>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

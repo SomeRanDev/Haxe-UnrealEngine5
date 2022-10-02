@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UNavigationDataInterface")
+@:structAccess
 extern class NavigationDataInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

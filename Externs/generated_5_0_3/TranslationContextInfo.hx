@@ -3,8 +3,12 @@ package ue;
 
 @:native("FTranslationContextInfo")
 @:include("Private/TranslationUnit.h")
+@:structAccess
 extern class TranslationContextInfo {
 	public var Key: FString;
 	public var Context: FString;
 	public var Changes: TArray<TranslationChange>;
+
+	@:native("FTranslationContextInfo") public function new();
+	@:native("FTranslationContextInfo") public static function make(Key: FString, Context: FString, Changes: TArray<TranslationChange>): TranslationContextInfo ;
 }

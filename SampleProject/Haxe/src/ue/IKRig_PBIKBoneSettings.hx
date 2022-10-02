@@ -3,6 +3,7 @@ package ue;
 
 @:native("UIKRig_PBIKBoneSettings")
 @:include("Solvers/IKRig_PBIKSolver.h")
+@:structAccess
 extern class IKRig_PBIKBoneSettings extends Object {
 	public var Bone: FName;
 	public var RotationStiffness: cpp.Float32;
@@ -18,6 +19,8 @@ extern class IKRig_PBIKBoneSettings extends Object {
 	public var MaxZ: cpp.Float32;
 	public var bUsePreferredAngles: Bool;
 	public var PreferredAngles: Vector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

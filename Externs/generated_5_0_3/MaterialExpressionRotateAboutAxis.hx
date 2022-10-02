@@ -3,12 +3,15 @@ package ue;
 
 @:native("UMaterialExpressionRotateAboutAxis")
 @:include("Materials/MaterialExpressionRotateAboutAxis.h")
+@:structAccess
 extern class MaterialExpressionRotateAboutAxis extends MaterialExpression {
 	public var NormalizedRotationAxis: ExpressionInput;
 	public var RotationAngle: ExpressionInput;
 	public var PivotPoint: ExpressionInput;
 	public var Position: ExpressionInput;
 	public var Period: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

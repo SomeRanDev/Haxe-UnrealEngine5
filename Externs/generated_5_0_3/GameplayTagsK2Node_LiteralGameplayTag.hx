@@ -3,7 +3,10 @@ package ue;
 
 @:native("UGameplayTagsK2Node_LiteralGameplayTag")
 @:include("GameplayTagsK2Node_LiteralGameplayTag.h")
+@:structAccess
 extern class GameplayTagsK2Node_LiteralGameplayTag extends K2Node {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

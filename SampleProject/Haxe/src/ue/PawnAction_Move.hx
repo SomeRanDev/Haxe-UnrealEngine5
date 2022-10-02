@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPawnAction_Move")
 @:include("Actions/PawnAction_Move.h")
+@:structAccess
 extern class PawnAction_Move extends PawnAction {
 	public var GoalActor: cpp.Star<Actor>;
 	public var GoalLocation: Vector;
@@ -15,6 +16,8 @@ extern class PawnAction_Move extends PawnAction {
 	public var bProjectGoalToNavigation: Bool;
 	public var bUpdatePathToGoal: Bool;
 	public var bAbortChildActionOnPathChange: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

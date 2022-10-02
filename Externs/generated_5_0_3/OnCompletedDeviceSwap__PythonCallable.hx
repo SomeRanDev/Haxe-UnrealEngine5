@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnCompletedDeviceSwap__PythonCallable")
+@:structAccess
 extern class OnCompletedDeviceSwap__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

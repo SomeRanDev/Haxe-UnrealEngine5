@@ -3,10 +3,14 @@ package ue;
 
 @:native("FAssetRegistryDependencyOptions")
 @:include("AssetRegistry/IAssetRegistry.h")
+@:structAccess
 extern class AssetRegistryDependencyOptions {
 	public var bIncludeSoftPackageReferences: Bool;
 	public var bIncludeHardPackageReferences: Bool;
 	public var bIncludeSearchableNames: Bool;
 	public var bIncludeSoftManagementReferences: Bool;
 	public var bIncludeHardManagementReferences: Bool;
+
+	@:native("FAssetRegistryDependencyOptions") public function new();
+	@:native("FAssetRegistryDependencyOptions") public static function make(bIncludeSoftPackageReferences: Bool, bIncludeHardPackageReferences: Bool, bIncludeSearchableNames: Bool, bIncludeSoftManagementReferences: Bool, bIncludeHardManagementReferences: Bool): AssetRegistryDependencyOptions ;
 }

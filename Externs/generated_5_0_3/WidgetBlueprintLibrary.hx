@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWidgetBlueprintLibrary")
 @:include("Blueprint/WidgetBlueprintLibrary.h")
+@:structAccess
 extern class WidgetBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function UnlockMouse(Reply: cpp.Reference<EventReply>): cpp.Reference<EventReply>;
 	public function Unhandled(): cpp.Reference<EventReply>;
@@ -58,6 +59,8 @@ extern class WidgetBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function CaptureMouse(Reply: cpp.Reference<EventReply>, CapturingWidget: cpp.Star<Widget>): cpp.Reference<EventReply>;
 	public function CaptureJoystick(Reply: cpp.Reference<EventReply>, CapturingWidget: cpp.Star<Widget>, bInAllJoysticks: Bool): cpp.Reference<EventReply>;
 	public function CancelDragDrop(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

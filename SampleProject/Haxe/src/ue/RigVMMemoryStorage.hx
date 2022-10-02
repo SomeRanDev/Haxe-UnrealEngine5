@@ -3,7 +3,10 @@ package ue;
 
 @:native("URigVMMemoryStorage")
 @:include("RigVMCore/RigVMMemoryStorage.h")
+@:structAccess
 extern class RigVMMemoryStorage extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

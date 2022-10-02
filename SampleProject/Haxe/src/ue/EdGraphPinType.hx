@@ -3,6 +3,7 @@ package ue;
 
 @:native("FEdGraphPinType")
 @:include("EdGraph/EdGraphPin.h")
+@:structAccess
 extern class EdGraphPinType {
 	public var PinCategory: FName;
 	public var PinSubCategory: FName;
@@ -16,4 +17,6 @@ extern class EdGraphPinType {
 	public var bIsWeakPointer: Bool;
 	public var bIsUObjectWrapper: Bool;
 	public var bSerializeAsSinglePrecisionFloat: Bool;
+
+	@:native("FEdGraphPinType") public function new();
 }

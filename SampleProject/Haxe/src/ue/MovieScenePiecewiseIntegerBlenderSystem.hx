@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMovieScenePiecewiseIntegerBlenderSystem")
 @:include("Systems/MovieScenePiecewiseIntegerBlenderSystem.h")
+@:structAccess
 extern class MovieScenePiecewiseIntegerBlenderSystem extends MovieSceneBlenderSystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

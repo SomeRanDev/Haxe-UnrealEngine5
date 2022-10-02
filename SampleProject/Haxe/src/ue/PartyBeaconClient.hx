@@ -3,6 +3,7 @@ package ue;
 
 @:native("APartyBeaconClient")
 @:include("PartyBeaconClient.h")
+@:structAccess
 extern class PartyBeaconClient extends OnlineBeaconClient {
 	public var DestSessionId: FString;
 	public var PendingReservation: PartyReservation;
@@ -19,6 +20,8 @@ extern class PartyBeaconClient extends OnlineBeaconClient {
 	public function ClientSendReservationFull(): Void;
 	public function ClientReservationResponse(ReservationResponse: EPartyReservationResult): Void;
 	public function ClientCancelReservationResponse(ReservationResponse: EPartyReservationResult): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FFileManifestData")
 @:include("Private/Data/ManifestUObject.h")
+@:structAccess
 extern class FileManifestData {
 	public var Filename: FString;
 	public var FileHash: SHAHashData;
@@ -12,4 +13,6 @@ extern class FileManifestData {
 	public var SymlinkTarget: FString;
 	public var bIsReadOnly: Bool;
 	public var bIsCompressed: Bool;
+
+	@:native("FFileManifestData") public function new();
 }

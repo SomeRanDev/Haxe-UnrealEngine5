@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBuildPatchManifest")
 @:include("Data/ManifestUObject.h")
+@:structAccess
 extern class BuildPatchManifest extends Object {
 	public var ManifestFileVersion: cpp.UInt8;
 	public var bIsFileData: Bool;
@@ -18,6 +19,8 @@ extern class BuildPatchManifest extends Object {
 	public var FileManifestList: TArray<FileManifestData>;
 	public var ChunkList: TArray<ChunkInfoData>;
 	public var CustomFields: TArray<CustomFieldData>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

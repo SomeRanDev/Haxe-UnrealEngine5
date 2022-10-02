@@ -3,6 +3,7 @@ package ue;
 
 @:native("FLandscapeEditToolRenderData")
 @:include("LandscapeComponent.h")
+@:structAccess
 extern class LandscapeEditToolRenderData {
 	public var ToolMaterial: cpp.Star<MaterialInterface>;
 	public var GizmoMaterial: cpp.Star<MaterialInterface>;
@@ -13,4 +14,6 @@ extern class LandscapeEditToolRenderData {
 	public var DataTexture: cpp.Star<Texture2D>;
 	public var LayerContributionTexture: cpp.Star<Texture2D>;
 	public var DirtyTexture: cpp.Star<Texture2D>;
+
+	@:native("FLandscapeEditToolRenderData") public function new();
 }

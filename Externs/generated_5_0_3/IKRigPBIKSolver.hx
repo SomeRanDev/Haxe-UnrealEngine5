@@ -3,6 +3,7 @@ package ue;
 
 @:native("UIKRigPBIKSolver")
 @:include("Solvers/IKRig_PBIKSolver.h")
+@:structAccess
 extern class IKRigPBIKSolver extends IKRigSolver {
 	public var RootBone: FName;
 	public var Iterations: cpp.Int32;
@@ -13,6 +14,8 @@ extern class IKRigPBIKSolver extends IKRigSolver {
 	public var bStartSolveFromInputPose: Bool;
 	public var Effectors: TArray<cpp.Star<IKRig_FBIKEffector>>;
 	public var BoneSettings: TArray<cpp.Star<IKRig_PBIKBoneSettings>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

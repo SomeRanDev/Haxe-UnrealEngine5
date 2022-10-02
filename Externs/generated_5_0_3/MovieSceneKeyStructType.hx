@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMovieSceneKeyStructType")
 @:include("SequencerKeyStructGenerator.h")
+@:structAccess
 extern class MovieSceneKeyStructType extends ScriptStruct {
 	public var SourceTimesProperty: TFieldPath<FArrayProperty>;
 	public var SourceValuesProperty: TFieldPath<FArrayProperty>;
 	public var DestTimeProperty: TFieldPath<FStructProperty>;
 	public var DestValueProperty: TFieldPath<FProperty>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

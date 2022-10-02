@@ -3,7 +3,10 @@ package ue;
 
 @:native("UObjectElementObjectInterface")
 @:include("Elements/Object/ObjectElementObjectInterface.h")
+@:structAccess
 extern class ObjectElementObjectInterface extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

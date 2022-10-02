@@ -3,6 +3,7 @@ package ue;
 
 @:native("UInterpTrack")
 @:include("Matinee/InterpTrack.h")
+@:structAccess
 extern class InterpTrack extends Object {
 	public var SubTracks: TArray<cpp.Star<InterpTrack>>;
 	public var SubTrackGroups: TArray<SubTrackGroup>;
@@ -20,6 +21,8 @@ extern class InterpTrack extends Object {
 	public var bVisible: Bool;
 	public var bIsRecording: Bool;
 	public var bIsCollapsed: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

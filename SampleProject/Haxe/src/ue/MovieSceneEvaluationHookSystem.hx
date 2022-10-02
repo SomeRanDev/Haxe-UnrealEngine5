@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneEvaluationHookSystem")
 @:include("EntitySystem/MovieSceneEvaluationHookSystem.h")
+@:structAccess
 extern class MovieSceneEvaluationHookSystem extends MovieSceneEntitySystem {
 	public var PendingEventsByRootInstance: TMap<MovieSceneEvaluationInstanceKey, MovieSceneEvaluationHookEventContainer>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

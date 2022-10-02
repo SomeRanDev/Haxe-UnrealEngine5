@@ -3,8 +3,11 @@ package ue;
 
 @:native("UEditableGameplayTagQueryExpression_AllExprMatch")
 @:include("GameplayTagContainer.h")
+@:structAccess
 extern class EditableGameplayTagQueryExpression_AllExprMatch extends EditableGameplayTagQueryExpression {
 	public var Expressions: TArray<cpp.Star<EditableGameplayTagQueryExpression>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionFunctionInput")
 @:include("Materials/MaterialExpressionFunctionInput.h")
+@:structAccess
 extern class MaterialExpressionFunctionInput extends MaterialExpression {
 	public var Preview: ExpressionInput;
 	public var InputName: FName;
@@ -13,6 +14,8 @@ extern class MaterialExpressionFunctionInput extends MaterialExpression {
 	public var bUsePreviewValueAsDefault: Bool;
 	public var SortPriority: cpp.Int32;
 	public var bCompilingFunctionPreview: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

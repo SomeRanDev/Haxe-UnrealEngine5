@@ -3,10 +3,14 @@ package ue;
 
 @:native("FNetViewer")
 @:include("GameFramework/WorldSettings.h")
+@:structAccess
 extern class NetViewer {
 	public var Connection: cpp.Star<NetConnection>;
 	public var InViewer: cpp.Star<Actor>;
 	public var ViewTarget: cpp.Star<Actor>;
 	public var ViewLocation: Vector;
 	public var ViewDir: Vector;
+
+	@:native("FNetViewer") public function new();
+	@:native("FNetViewer") public static function make(Connection: cpp.Star<NetConnection>, InViewer: cpp.Star<Actor>, ViewTarget: cpp.Star<Actor>, ViewLocation: Vector, ViewDir: Vector): NetViewer ;
 }

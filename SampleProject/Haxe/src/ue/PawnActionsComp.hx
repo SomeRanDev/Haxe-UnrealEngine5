@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPawnActionsComponent")
 @:include("Actions/PawnActionsComponent.h")
+@:structAccess
 extern class PawnActionsComp extends ActorComp {
 	public var ControlledPawn: cpp.Star<Pawn>;
 	public var ActionStacks: TArray<PawnActionStack>;
@@ -13,6 +14,8 @@ extern class PawnActionsComp extends ActorComp {
 	public function K2_PerformAction(Pawn: cpp.Star<Pawn>, Action: cpp.Star<PawnAction>, Priority: EAIRequestPriority): cpp.Reference<Bool>;
 	public function K2_ForceAbortAction(ActionToAbort: cpp.Star<PawnAction>): cpp.Reference<EPawnActionAbortState>;
 	public function K2_AbortAction(ActionToAbort: cpp.Star<PawnAction>): cpp.Reference<EPawnActionAbortState>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_RandomPlayer")
 @:include("AnimGraphNode_RandomPlayer.h")
+@:structAccess
 extern class AnimGraphNode_RandomPlayer extends AnimGraphNode_Base {
 	public var Node: AnimNode_RandomPlayer;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,13 @@ package ue;
 
 @:native("FPoseData")
 @:include("Animation/PoseAsset.h")
+@:structAccess
 extern class PoseData {
 	public var SourceLocalSpacePose: TArray<Transform>;
 	public var SourceCurveData: TArray<cpp.Float32>;
 	public var LocalSpacePose: TArray<Transform>;
 	public var CurveData: TArray<cpp.Float32>;
+
+	@:native("FPoseData") public function new();
+	@:native("FPoseData") public static function make(SourceLocalSpacePose: TArray<Transform>, SourceCurveData: TArray<cpp.Float32>, LocalSpacePose: TArray<Transform>, CurveData: TArray<cpp.Float32>): PoseData ;
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNetConnection")
 @:include("Engine/NetConnection.h")
+@:structAccess
 extern class NetConnection extends Player {
 	public var Children: TArray<cpp.Star<ChildConnection>>;
 	public var Driver: cpp.Star<NetDriver>;
@@ -17,6 +18,8 @@ extern class NetConnection extends Player {
 	public var PlayerId: UniqueNetIdRepl;
 	public var LastReceiveTime: cpp.Float64;
 	public var ChannelsToTick: TArray<cpp.Star<Channel>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

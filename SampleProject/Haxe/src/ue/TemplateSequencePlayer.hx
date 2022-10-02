@@ -3,8 +3,11 @@ package ue;
 
 @:native("UTemplateSequencePlayer")
 @:include("TemplateSequencePlayer.h")
+@:structAccess
 extern class TemplateSequencePlayer extends MovieSceneSequencePlayer {
 	public function CreateTemplateSequencePlayer(WorldContextObject: cpp.Star<Object>, TemplateSequence: cpp.Star<TemplateSequence>, Settings: MovieSceneSequencePlaybackSettings, OutActor: cpp.Reference<cpp.Star<TemplateSequenceActor>>): cpp.Reference<cpp.Star<TemplateSequencePlayer>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

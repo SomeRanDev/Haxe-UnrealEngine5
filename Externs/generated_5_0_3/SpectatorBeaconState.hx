@@ -3,12 +3,15 @@ package ue;
 
 @:native("USpectatorBeaconState")
 @:include("SpectatorBeaconState.h")
+@:structAccess
 extern class SpectatorBeaconState extends Object {
 	public var SessionName: FName;
 	public var NumConsumedReservations: cpp.Int32;
 	public var MaxReservations: cpp.Int32;
 	public var bRestrictCrossConsole: Bool;
 	public var Reservations: TArray<SpectatorReservation>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

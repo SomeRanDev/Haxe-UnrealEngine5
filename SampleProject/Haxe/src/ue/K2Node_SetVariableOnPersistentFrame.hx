@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_SetVariableOnPersistentFrame")
 @:include("K2Node_SetVariableOnPersistentFrame.h")
+@:structAccess
 extern class K2Node_SetVariableOnPersistentFrame extends K2Node {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

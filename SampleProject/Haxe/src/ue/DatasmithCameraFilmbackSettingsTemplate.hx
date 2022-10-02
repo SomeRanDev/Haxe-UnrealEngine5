@@ -3,7 +3,11 @@ package ue;
 
 @:native("FDatasmithCameraFilmbackSettingsTemplate")
 @:include("ObjectTemplates/DatasmithCineCameraComponentTemplate.h")
+@:structAccess
 extern class DatasmithCameraFilmbackSettingsTemplate {
 	public var SensorWidth: cpp.Float32;
 	public var SensorHeight: cpp.Float32;
+
+	@:native("FDatasmithCameraFilmbackSettingsTemplate") public function new();
+	@:native("FDatasmithCameraFilmbackSettingsTemplate") public static function make(SensorWidth: cpp.Float32, SensorHeight: cpp.Float32): DatasmithCameraFilmbackSettingsTemplate ;
 }

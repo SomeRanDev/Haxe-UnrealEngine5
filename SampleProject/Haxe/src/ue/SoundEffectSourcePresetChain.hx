@@ -3,9 +3,12 @@ package ue;
 
 @:native("USoundEffectSourcePresetChain")
 @:include("Sound/SoundEffectSource.h")
+@:structAccess
 extern class SoundEffectSourcePresetChain extends Object {
 	public var Chain: TArray<SourceEffectChainEntry>;
 	public var bPlayEffectChainTails: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

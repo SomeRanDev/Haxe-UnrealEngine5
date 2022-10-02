@@ -3,7 +3,11 @@ package ue;
 
 @:native("FNiagaraDataInterfaceEmitterBinding")
 @:include("NiagaraDataInterfaceEmitterBinding.h")
+@:structAccess
 extern class NiagaraDataInterfaceEmitterBinding {
 	public var BindingMode: ENiagaraDataInterfaceEmitterBindingMode;
 	public var EmitterName: FName;
+
+	@:native("FNiagaraDataInterfaceEmitterBinding") public function new();
+	@:native("FNiagaraDataInterfaceEmitterBinding") public static function make(BindingMode: ENiagaraDataInterfaceEmitterBindingMode, EmitterName: FName): NiagaraDataInterfaceEmitterBinding ;
 }

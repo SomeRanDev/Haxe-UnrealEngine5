@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_PromotableOperator")
 @:include("K2Node_PromotableOperator.h")
+@:structAccess
 extern class K2Node_PromotableOperator extends K2Node_CallFunction {
 	public var NumAdditionalInputs: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

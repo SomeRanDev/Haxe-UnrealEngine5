@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEditorStyleSettings")
 @:include("Classes/EditorStyleSettings.h")
+@:structAccess
 extern class EditorStyleSettings extends Object {
 	public var bEnableHighDPIAwareness: Bool;
 	public var bEnableUserEditorLayoutManagement: Bool;
@@ -34,6 +35,8 @@ extern class EditorStyleSettings extends Object {
 	public var bCycleToOutputLogDrawer: Bool;
 	public var AssetEditorOpenLocation: EAssetEditorOpenLocation;
 	public var bEnableColorizedEditorTabs: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

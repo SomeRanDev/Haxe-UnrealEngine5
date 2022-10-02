@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UAISightTargetInterface")
+@:structAccess
 extern class AISightTargetInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,11 +3,14 @@ package ue;
 
 @:native("UK2Node_WidgetAnimationEvent")
 @:include("K2Node_WidgetAnimationEvent.h")
+@:structAccess
 extern class K2Node_WidgetAnimationEvent extends K2Node_Event {
 	public var Action: EWidgetAnimationEvent;
 	public var AnimationPropertyName: FName;
 	public var UserTag: FName;
 	public var SourceWidgetBlueprint: cpp.Star<WidgetBlueprint>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

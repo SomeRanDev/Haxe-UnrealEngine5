@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneObjectPropertyTrack")
 @:include("Tracks/MovieSceneObjectPropertyTrack.h")
+@:structAccess
 extern class MovieSceneObjectPropertyTrack extends MovieScenePropertyTrack {
 	public var PropertyClass: TSubclassOf<Object>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

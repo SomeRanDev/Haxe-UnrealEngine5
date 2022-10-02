@@ -3,8 +3,11 @@ package ue;
 
 @:native("UIKRigProcessor")
 @:include("IKRigProcessor.h")
+@:structAccess
 extern class IKRigProcessor extends Object {
 	public var Solvers: TArray<cpp.Star<IKRigSolver>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

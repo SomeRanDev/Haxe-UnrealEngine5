@@ -3,6 +3,7 @@ package ue;
 
 @:native("UImage")
 @:include("Components/Image.h")
+@:structAccess
 extern class Image extends Widget {
 	public var Image_DEPRECATED: cpp.Star<SlateBrushAsset>;
 	public var Brush: SlateBrush;
@@ -26,6 +27,8 @@ extern class Image extends Widget {
 	public function SetBrushFromAsset(Asset: cpp.Star<SlateBrushAsset>): Void;
 	public function SetBrush(InBrush: cpp.Reference<SlateBrush>): Void;
 	public function GetDynamicMaterial(): cpp.Reference<cpp.Star<MaterialInstanceDynamic>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,11 @@ package ue;
 
 @:native("FIntegerParameterNameAndCurve")
 @:include("Sequencer/MovieSceneControlRigParameterSection.h")
+@:structAccess
 extern class IntegerParameterNameAndCurve {
 	public var ParameterName: FName;
 	public var ParameterCurve: MovieSceneIntegerChannel;
+
+	@:native("FIntegerParameterNameAndCurve") public function new();
+	@:native("FIntegerParameterNameAndCurve") public static function make(ParameterName: FName, ParameterCurve: MovieSceneIntegerChannel): IntegerParameterNameAndCurve ;
 }

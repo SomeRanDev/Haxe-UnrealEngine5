@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAssetRenameData")
 @:include("IAssetTools.h")
+@:structAccess
 extern class AssetRenameData {
 	public var Asset: TWeakObjectPtr<Object>;
 	public var NewPackagePath: FString;
@@ -10,4 +11,6 @@ extern class AssetRenameData {
 	public var OldObjectPath: SoftObjectPath;
 	public var NewObjectPath: SoftObjectPath;
 	public var bOnlyFixSoftReferences: Bool;
+
+	@:native("FAssetRenameData") public function new();
 }

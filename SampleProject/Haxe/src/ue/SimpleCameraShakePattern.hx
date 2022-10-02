@@ -3,10 +3,13 @@ package ue;
 
 @:native("USimpleCameraShakePattern")
 @:include("SimpleCameraShakePattern.h")
+@:structAccess
 extern class SimpleCameraShakePattern extends CameraShakePattern {
 	public var Duration: cpp.Float32;
 	public var BlendInTime: cpp.Float32;
 	public var BlendOutTime: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

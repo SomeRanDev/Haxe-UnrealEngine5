@@ -3,7 +3,10 @@ package ue;
 
 @:native("APlayerStartPIE")
 @:include("Engine/PlayerStartPIE.h")
+@:structAccess
 extern class PlayerStartPIE extends PlayerStart {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

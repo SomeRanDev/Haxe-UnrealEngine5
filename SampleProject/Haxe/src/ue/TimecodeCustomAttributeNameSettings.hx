@@ -3,6 +3,7 @@ package ue;
 
 @:native("FTimecodeCustomAttributeNameSettings")
 @:include("Animation/CustomAttributes.h")
+@:structAccess
 extern class TimecodeCustomAttributeNameSettings {
 	public var HourAttributeName: FName;
 	public var MinuteAttributeName: FName;
@@ -11,4 +12,6 @@ extern class TimecodeCustomAttributeNameSettings {
 	public var SubframeAttributeName: FName;
 	public var RateAttributeName: FName;
 	public var TakenameAttributeName: FName;
+
+	@:native("FTimecodeCustomAttributeNameSettings") public function new();
 }

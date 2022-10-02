@@ -3,6 +3,7 @@ package ue;
 
 @:native("FActiveCameraAnimationInfo")
 @:include("CameraAnimationCameraModifier.h")
+@:structAccess
 extern class ActiveCameraAnimationInfo {
 	public var Sequence: cpp.Star<CameraAnimationSequence>;
 	public var Params: CameraAnimationParams;
@@ -13,4 +14,6 @@ extern class ActiveCameraAnimationInfo {
 	public var EaseOutCurrentTime: cpp.Float32;
 	public var bIsEasingIn: Bool;
 	public var bIsEasingOut: Bool;
+
+	@:native("FActiveCameraAnimationInfo") public function new();
 }

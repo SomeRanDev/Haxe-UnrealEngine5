@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraClipboardFunction")
 @:include("NiagaraClipboard.h")
+@:structAccess
 extern class NiagaraClipboardFunction extends Object {
 	public var FunctionName: FString;
 	public var DisplayName: FText;
@@ -16,6 +17,8 @@ extern class NiagaraClipboardFunction extends Object {
 	public var Messages: TArray<NiagaraStackMessage>;
 
 	public function OnPastedFunctionCallNode__DelegateSignature(PastedFunctionCall: cpp.Star<NiagaraNodeFunctionCall>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

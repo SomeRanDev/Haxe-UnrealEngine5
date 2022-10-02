@@ -3,8 +3,12 @@ package ue;
 
 @:native("FVirtualBone")
 @:include("Animation/Skeleton.h")
+@:structAccess
 extern class VirtualBone {
 	public var SourceBoneName: FName;
 	public var TargetBoneName: FName;
 	public var VirtualBoneName: FName;
+
+	@:native("FVirtualBone") public function new();
+	@:native("FVirtualBone") public static function make(SourceBoneName: FName, TargetBoneName: FName, VirtualBoneName: FName): VirtualBone ;
 }

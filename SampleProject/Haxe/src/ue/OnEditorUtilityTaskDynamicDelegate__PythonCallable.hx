@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnEditorUtilityTaskDynamicDelegate__PythonCallable")
+@:structAccess
 extern class OnEditorUtilityTaskDynamicDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

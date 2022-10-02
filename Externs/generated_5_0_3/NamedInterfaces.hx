@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNamedInterfaces")
 @:include("NamedInterfaces.h")
+@:structAccess
 extern class NamedInterfaces extends Object {
 	public var NamedInterfaces: TArray<NamedInterface>;
 	public var NamedInterfaceDefs: TArray<NamedInterfaceDef>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,11 +3,14 @@ package ue;
 
 @:native("UWorldPartitionRuntimeSpatialHash")
 @:include("WorldPartition/WorldPartitionRuntimeSpatialHash.h")
+@:structAccess
 extern class WorldPartitionRuntimeSpatialHash extends WorldPartitionRuntimeHash {
 	public var Grids: TArray<SpatialHashRuntimeGrid>;
 	public var bPreviewGrids: Bool;
 	public var GridPreviewer: WorldPartitionRuntimeSpatialHashGridPreviewer;
 	public var StreamingGrids: TArray<SpatialHashStreamingGrid>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

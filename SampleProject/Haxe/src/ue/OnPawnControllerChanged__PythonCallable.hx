@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnPawnControllerChanged__PythonCallable")
+@:structAccess
 extern class OnPawnControllerChanged__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

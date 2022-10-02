@@ -3,7 +3,10 @@ package ue;
 
 @:native("UTestTypedElementInterfaceA_ImplUntyped")
 @:include("TypedElementFrameworkTests.h")
+@:structAccess
 extern class TestTypedElementInterfaceA_ImplUntyped extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

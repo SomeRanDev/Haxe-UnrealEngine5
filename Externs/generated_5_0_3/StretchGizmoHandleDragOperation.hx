@@ -3,7 +3,10 @@ package ue;
 
 @:native("UStretchGizmoHandleDragOperation")
 @:include("Gizmo/VIStretchGizmoHandle.h")
+@:structAccess
 extern class StretchGizmoHandleDragOperation extends ViewportDragOperation {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

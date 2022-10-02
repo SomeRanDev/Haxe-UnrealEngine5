@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGroomBindingAsset")
 @:include("GroomBindingAsset.h")
+@:structAccess
 extern class GroomBindingAsset extends Object {
 	public var GroomBindingType: EGroomBindingMeshType;
 	public var Groom: cpp.Star<GroomAsset>;
@@ -13,6 +14,8 @@ extern class GroomBindingAsset extends Object {
 	public var NumInterpolationPoints: cpp.Int32;
 	public var MatchingSection: cpp.Int32;
 	public var GroupInfos: TArray<GoomBindingGroupInfo>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

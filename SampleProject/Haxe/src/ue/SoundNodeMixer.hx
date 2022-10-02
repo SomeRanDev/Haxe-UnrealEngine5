@@ -3,8 +3,11 @@ package ue;
 
 @:native("USoundNodeMixer")
 @:include("Sound/SoundNodeMixer.h")
+@:structAccess
 extern class SoundNodeMixer extends SoundNode {
 	public var InputVolume: TArray<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

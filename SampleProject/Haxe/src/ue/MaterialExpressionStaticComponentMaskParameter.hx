@@ -3,12 +3,15 @@ package ue;
 
 @:native("UMaterialExpressionStaticComponentMaskParameter")
 @:include("Materials/MaterialExpressionStaticComponentMaskParameter.h")
+@:structAccess
 extern class MaterialExpressionStaticComponentMaskParameter extends MaterialExpressionParameter {
 	public var Input: ExpressionInput;
 	public var DefaultR: Bool;
 	public var DefaultG: Bool;
 	public var DefaultB: Bool;
 	public var DefaultA: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

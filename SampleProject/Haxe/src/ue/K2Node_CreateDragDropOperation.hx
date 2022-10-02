@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_CreateDragDropOperation")
 @:include("Nodes/K2Node_CreateDragDropOperation.h")
+@:structAccess
 extern class K2Node_CreateDragDropOperation extends K2Node_ConstructObjectFromClass {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

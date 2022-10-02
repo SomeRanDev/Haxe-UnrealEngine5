@@ -3,6 +3,7 @@ package ue;
 
 @:native("UIntervalGizmo")
 @:include("BaseGizmos/IntervalGizmo.h")
+@:structAccess
 extern class IntervalGizmo extends InteractiveGizmo {
 	public var StateTarget: cpp.Star<GizmoTransformChangeStateTarget>;
 	public var TransformProxy: cpp.Star<TransformProxy>;
@@ -10,6 +11,8 @@ extern class IntervalGizmo extends InteractiveGizmo {
 	public var ActiveGizmos: TArray<cpp.Star<InteractiveGizmo>>;
 	public var AxisYSource: cpp.Star<GizmoComponentAxisSource>;
 	public var AxisZSource: cpp.Star<GizmoComponentAxisSource>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

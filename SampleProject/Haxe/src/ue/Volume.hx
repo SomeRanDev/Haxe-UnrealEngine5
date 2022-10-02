@@ -3,7 +3,10 @@ package ue;
 
 @:native("AVolume")
 @:include("GameFramework/Volume.h")
+@:structAccess
 extern class Volume extends Brush {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

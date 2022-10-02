@@ -3,6 +3,10 @@ package ue;
 
 @:native("FAnimNode_PoseHandler")
 @:include("AnimNodes/AnimNode_PoseHandler.h")
+@:structAccess
 extern class AnimNode_PoseHandler extends AnimNode_AssetPlayerBase {
 	public var PoseAsset: cpp.Star<PoseAsset>;
+
+	@:native("FAnimNode_PoseHandler") public function new();
+	@:native("FAnimNode_PoseHandler") public static function make(PoseAsset: cpp.Star<PoseAsset>): AnimNode_PoseHandler ;
 }

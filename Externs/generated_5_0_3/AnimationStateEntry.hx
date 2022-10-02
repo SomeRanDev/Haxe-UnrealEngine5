@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimationStateEntry")
 @:include("AnimationSharingTypes.h")
+@:structAccess
 extern class AnimationStateEntry {
 	public var State: cpp.UInt8;
 	public var AnimationSetups: TArray<AnimationSetup>;
@@ -15,4 +16,6 @@ extern class AnimationStateEntry {
 	public var MaximumNumberOfConcurrentInstances: PerPlatformInt;
 	public var WiggleTimePercentage: cpp.Float32;
 	public var bRequiresCurves: Bool;
+
+	@:native("FAnimationStateEntry") public function new();
 }

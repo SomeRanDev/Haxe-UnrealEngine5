@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDataLayerSubsystem")
 @:include("WorldPartition/DataLayer/DataLayerSubsystem.h")
+@:structAccess
 extern class DataLayerSubsystem extends WorldSubsystem {
 	public var OnDataLayerRuntimeStateChanged: HaxeMulticastSparseDelegateProperty<(cpp.Star<DataLayer.ConstDataLayer>, EDataLayerRuntimeState) -> Void>;
 
@@ -21,6 +22,8 @@ extern class DataLayerSubsystem extends WorldSubsystem {
 	public function GetDataLayerEffectiveRuntimeState(InDataLayer: cpp.Reference<ActorDataLayer>): cpp.Reference<EDataLayerRuntimeState>;
 	public function GetDataLayer(InDataLayer: cpp.Reference<ActorDataLayer>): cpp.Reference<cpp.Star<DataLayer>>;
 	public function GetActiveDataLayerNames(): cpp.Reference<TSet<FName>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UStaticMesh")
 @:include("Engine/StaticMesh.h")
+@:structAccess
 extern class StaticMesh extends StreamableRenderAsset {
 	public var SourceModels: TArray<StaticMeshSourceModel>;
 	public var HiResSourceModel: StaticMeshSourceModel;
@@ -74,6 +75,8 @@ extern class StaticMesh extends StreamableRenderAsset {
 	public function BuildFromStaticMeshDescriptions(StaticMeshDescriptions: cpp.Reference<TArray<cpp.Star<StaticMeshDescription>>>, bBuildSimpleCollision: Bool, bFastBuild: Bool): Void;
 	public function AddSocket(Socket: cpp.Star<StaticMeshSocket>): Void;
 	public function AddMaterial(Material: cpp.Star<MaterialInterface>): cpp.Reference<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UBTTask_SetTagCooldown")
 @:include("BehaviorTree/Tasks/BTTask_SetTagCooldown.h")
+@:structAccess
 extern class BTTask_SetTagCooldown extends BTTaskNode {
 	public var CooldownTag: GameplayTag;
 	public var bAddToExistingDuration: Bool;
 	public var CooldownDuration: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

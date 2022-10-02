@@ -3,9 +3,12 @@ package ue;
 
 @:native("UBookMark2D")
 @:include("Engine/BookMark2D.h")
+@:structAccess
 extern class BookMark2D extends BookmarkBase {
 	public var Zoom2D: cpp.Float32;
 	public var Location: IntPoint;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

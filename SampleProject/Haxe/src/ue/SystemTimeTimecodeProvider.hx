@@ -3,10 +3,13 @@ package ue;
 
 @:native("USystemTimeTimecodeProvider")
 @:include("Engine/SystemTimeTimecodeProvider.h")
+@:structAccess
 extern class SystemTimeTimecodeProvider extends TimecodeProvider {
 	public var FrameRate: FrameRate;
 	public var bGenerateFullFrame: Bool;
 	public var bUseHighPerformanceClock: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

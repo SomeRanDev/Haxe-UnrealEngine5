@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWidgetComponent")
 @:include("Components/WidgetComponent.h")
+@:structAccess
 extern class WidgetComp extends MeshComp {
 	public var Space: EWidgetSpace;
 	public var TimingPolicy: EWidgetTimingPolicy;
@@ -81,6 +82,8 @@ extern class WidgetComp extends MeshComp {
 	public function GetDrawAtDesiredSize(): cpp.Reference<Bool>;
 	public function GetCylinderArcAngle(): cpp.Reference<cpp.Float32>;
 	public function GetCurrentDrawSize(): cpp.Reference<Vector2D>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

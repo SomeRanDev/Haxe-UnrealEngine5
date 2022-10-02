@@ -3,7 +3,11 @@ package ue;
 
 @:native("FRedirector")
 @:include("Engine/EngineTypes.h")
+@:structAccess
 extern class Redirector {
 	public var OldName: FName;
 	public var NewName: FName;
+
+	@:native("FRedirector") public function new();
+	@:native("FRedirector") public static function make(OldName: FName, NewName: FName): Redirector ;
 }

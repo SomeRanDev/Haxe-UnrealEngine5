@@ -3,7 +3,10 @@ package ue;
 
 @:native("UOnlineSession")
 @:include("GameFramework/OnlineSession.h")
+@:structAccess
 extern class OnlineSession extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

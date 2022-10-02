@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBorder")
 @:include("Components/Border.h")
+@:structAccess
 extern class Border extends ContentWidget {
 	public var HorizontalAlignment: EHorizontalAlignment;
 	public var VerticalAlignment: EVerticalAlignment;
@@ -33,6 +34,8 @@ extern class Border extends ContentWidget {
 	public function SetBrushColor(InBrushColor: LinearColor): Void;
 	public function SetBrush(InBrush: cpp.Reference<SlateBrush>): Void;
 	public function GetDynamicMaterial(): cpp.Reference<cpp.Star<MaterialInstanceDynamic>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

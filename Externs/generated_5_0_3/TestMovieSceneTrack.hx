@@ -3,9 +3,12 @@ package ue;
 
 @:native("UTestMovieSceneTrack")
 @:include("Tests/MovieSceneTestObjects.h")
+@:structAccess
 extern class TestMovieSceneTrack extends MovieSceneTrack {
 	public var bHighPassFilter: Bool;
 	public var SectionArray: TArray<cpp.Star<MovieSceneSection>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UDynamicClass")
+@:structAccess
 extern class DynamicClass extends Class {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

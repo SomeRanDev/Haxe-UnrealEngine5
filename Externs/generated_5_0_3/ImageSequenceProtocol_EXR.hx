@@ -3,9 +3,12 @@ package ue;
 
 @:native("UImageSequenceProtocol_EXR")
 @:include("Protocols/ImageSequenceProtocol.h")
+@:structAccess
 extern class ImageSequenceProtocol_EXR extends ImageSequenceProtocol {
 	public var bCompressed: Bool;
 	public var CaptureGamut: EHDRCaptureGamut;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

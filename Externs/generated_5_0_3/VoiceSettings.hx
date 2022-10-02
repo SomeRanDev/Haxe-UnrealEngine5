@@ -3,8 +3,12 @@ package ue;
 
 @:native("FVoiceSettings")
 @:include("Net/VoiceConfig.h")
+@:structAccess
 extern class VoiceSettings {
 	public var ComponentToAttachTo: cpp.Star<SceneComp>;
 	public var AttenuationSettings: cpp.Star<SoundAttenuation>;
 	public var SourceEffectChain: cpp.Star<SoundEffectSourcePresetChain>;
+
+	@:native("FVoiceSettings") public function new();
+	@:native("FVoiceSettings") public static function make(ComponentToAttachTo: cpp.Star<SceneComp>, AttenuationSettings: cpp.Star<SoundAttenuation>, SourceEffectChain: cpp.Star<SoundEffectSourcePresetChain>): VoiceSettings ;
 }

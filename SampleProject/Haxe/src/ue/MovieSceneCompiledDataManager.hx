@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMovieSceneCompiledDataManager")
 @:include("Compilation/MovieSceneCompiledDataManager.h")
+@:structAccess
 extern class MovieSceneCompiledDataManager extends Object {
 	public var Hierarchies: TMap<cpp.Int32, MovieSceneSequenceHierarchy>;
 	public var TrackTemplates: TMap<cpp.Int32, MovieSceneEvaluationTemplate>;
 	public var TrackTemplateFields: TMap<cpp.Int32, MovieSceneEvaluationField>;
 	public var EntityComponentFields: TMap<cpp.Int32, MovieSceneEntityComponentField>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

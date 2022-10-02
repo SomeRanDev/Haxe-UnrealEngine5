@@ -3,8 +3,11 @@ package ue;
 
 @:native("UTemplateCategories")
 @:include("TemplateProjectDefs.h")
+@:structAccess
 extern class TemplateCategories extends Object {
 	public var Categories: TArray<TemplateCategoryDef>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

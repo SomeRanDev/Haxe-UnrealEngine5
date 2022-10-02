@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULandscapeLODStreamingProxy")
 @:include("LandscapeComponent.h")
+@:structAccess
 extern class LandscapeLODStreamingProxy extends StreamableRenderAsset {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

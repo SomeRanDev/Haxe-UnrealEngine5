@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAimOffsetBlendSpace1D")
 @:include("Animation/AimOffsetBlendSpace1D.h")
+@:structAccess
 extern class AimOffsetBlendSpace1D extends BlendSpace1D {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

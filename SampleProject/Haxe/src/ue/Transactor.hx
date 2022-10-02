@@ -3,7 +3,10 @@ package ue;
 
 @:native("UTransactor")
 @:include("Editor/Transactor.h")
+@:structAccess
 extern class Transactor extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

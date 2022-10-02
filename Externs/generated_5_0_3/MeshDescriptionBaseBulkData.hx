@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMeshDescriptionBaseBulkData")
 @:include("MeshDescriptionBaseBulkData.h")
+@:structAccess
 extern class MeshDescriptionBaseBulkData extends Object {
 	public var PreallocatedMeshDescription: cpp.Star<MeshDescriptionBase>;
 	public var MeshDescription: cpp.Star<MeshDescriptionBase>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

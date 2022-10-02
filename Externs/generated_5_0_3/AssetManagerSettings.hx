@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAssetManagerSettings")
 @:include("Engine/AssetManagerSettings.h")
+@:structAccess
 extern class AssetManagerSettings extends DeveloperSettings {
 	public var PrimaryAssetTypesToScan: TArray<PrimaryAssetTypeInfo>;
 	public var DirectoriesToExclude: TArray<DirectoryPath>;
@@ -17,6 +18,8 @@ extern class AssetManagerSettings extends DeveloperSettings {
 	public var PrimaryAssetTypeRedirects: TArray<AssetManagerRedirect>;
 	public var AssetPathRedirects: TArray<AssetManagerRedirect>;
 	public var MetaDataTagsForAssetRegistry: TSet<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

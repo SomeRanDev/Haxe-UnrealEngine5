@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEnumFactory")
 @:include("Factories/EnumFactory.h")
+@:structAccess
 extern class EnumFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMotionTrailToolOptions")
 @:include("Tools/MotionTrailOptions.h")
+@:structAccess
 extern class MotionTrailToolOptions extends Object {
 	public var bShowTrails: Bool;
 	public var TrailColor: LinearColor;
@@ -20,6 +21,8 @@ extern class MotionTrailToolOptions extends Object {
 	public var MarkSize: cpp.Float64;
 	public var bLockMarksToFrames: Bool;
 	public var SecondsPerMark: cpp.Float64;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,10 +3,14 @@ package ue;
 
 @:native("FMeshSectionInfo")
 @:include("Engine/StaticMesh.h")
+@:structAccess
 extern class MeshSectionInfo {
 	public var MaterialIndex: cpp.Int32;
 	public var bEnableCollision: Bool;
 	public var bCastShadow: Bool;
 	public var bVisibleInRayTracing: Bool;
 	public var bForceOpaque: Bool;
+
+	@:native("FMeshSectionInfo") public function new();
+	@:native("FMeshSectionInfo") public static function make(MaterialIndex: cpp.Int32, bEnableCollision: Bool, bCastShadow: Bool, bVisibleInRayTracing: Bool, bForceOpaque: Bool): MeshSectionInfo ;
 }

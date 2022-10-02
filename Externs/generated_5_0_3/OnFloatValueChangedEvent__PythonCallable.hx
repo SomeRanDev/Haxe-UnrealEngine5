@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnFloatValueChangedEvent__PythonCallable")
+@:structAccess
 extern class OnFloatValueChangedEvent__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

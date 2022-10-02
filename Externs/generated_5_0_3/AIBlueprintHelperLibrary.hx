@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAIBlueprintHelperLibrary")
 @:include("Blueprint/AIBlueprintHelperLibrary.h")
+@:structAccess
 extern class AIBlueprintHelperLibrary extends BlueprintFunctionLibrary {
 	public function UnlockAIResourcesWithAnimation(AnimInstance: cpp.Star<AnimInstance>, bUnlockMovement: Bool, UnlockAILogic: Bool): Void;
 	public function SpawnAIFromClass(WorldContextObject: cpp.Star<Object>, PawnClass: TSubclassOf<Pawn>, BehaviorTree: cpp.Star<BehaviorTree>, Location: Vector, Rotation: Rotator, bNoCollisionFail: Bool, Owner: cpp.Star<Actor>): cpp.Reference<cpp.Star<Pawn>>;
@@ -20,6 +21,8 @@ extern class AIBlueprintHelperLibrary extends BlueprintFunctionLibrary {
 	public function GetBlackboard(Target: cpp.Star<Actor>): cpp.Reference<cpp.Star<BlackboardComp>>;
 	public function GetAIController(ControlledActor: cpp.Star<Actor>): cpp.Reference<cpp.Star<AIController>>;
 	public function CreateMoveToProxyObject(WorldContextObject: cpp.Star<Object>, Pawn: cpp.Star<Pawn>, Destination: Vector, TargetActor: cpp.Star<Actor>, AcceptanceRadius: cpp.Float32, bStopOnOverlap: Bool): cpp.Reference<cpp.Star<AIAsyncTaskBlueprintProxy>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

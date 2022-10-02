@@ -3,6 +3,7 @@ package ue;
 
 @:native("UHierarchicalLODSettings")
 @:include("HierarchicalLOD.h")
+@:structAccess
 extern class HierarchicalLODSettings extends DeveloperSettings {
 	public var bForceSettingsInAllMaps: Bool;
 	public var bSaveLODActorsToHLODPackages: Bool;
@@ -10,6 +11,8 @@ extern class HierarchicalLODSettings extends DeveloperSettings {
 	public var DirectoriesForHLODCommandlet: TArray<DirectoryPath>;
 	public var MapsToBuild: TArray<FilePath>;
 	public var BaseMaterial: TSoftObjectPtr<MaterialInterface>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

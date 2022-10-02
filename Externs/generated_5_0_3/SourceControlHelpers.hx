@@ -3,6 +3,7 @@ package ue;
 
 @:native("USourceControlHelpers")
 @:include("SourceControlHelpers.h")
+@:structAccess
 extern class SourceControlHelpers extends Object {
 	public function SyncFiles(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): cpp.Reference<Bool>;
 	public function SyncFile(InFile: FString, bSilent: Bool): cpp.Reference<Bool>;
@@ -26,6 +27,8 @@ extern class SourceControlHelpers extends Object {
 	public function CheckOutFile(InFile: FString, bSilent: Bool): cpp.Reference<Bool>;
 	public function CheckInFiles(InFiles: cpp.Reference<TArray<FString>>, InDescription: FString, bSilent: Bool): cpp.Reference<Bool>;
 	public function CheckInFile(InFile: FString, InDescription: FString, bSilent: Bool): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

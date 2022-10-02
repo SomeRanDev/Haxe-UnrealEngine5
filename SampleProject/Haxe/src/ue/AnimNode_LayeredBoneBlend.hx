@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_LayeredBoneBlend")
 @:include("AnimNodes/AnimNode_LayeredBoneBlend.h")
+@:structAccess
 extern class AnimNode_LayeredBoneBlend extends AnimNode_Base {
 	public var BasePose: PoseLink;
 	public var BlendPoses: TArray<PoseLink>;
@@ -18,4 +19,6 @@ extern class AnimNode_LayeredBoneBlend extends AnimNode_Base {
 	public var PerBoneBlendWeights: TArray<PerBoneBlendWeight>;
 	public var SkeletonGuid: Guid;
 	public var VirtualBoneGuid: Guid;
+
+	@:native("FAnimNode_LayeredBoneBlend") public function new();
 }

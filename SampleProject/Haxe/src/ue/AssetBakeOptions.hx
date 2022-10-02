@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAssetBakeOptions")
 @:include("MaterialOptions.h")
+@:structAccess
 extern class AssetBakeOptions extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

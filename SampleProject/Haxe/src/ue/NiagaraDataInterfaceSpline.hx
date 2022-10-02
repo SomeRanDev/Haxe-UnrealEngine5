@@ -3,11 +3,14 @@ package ue;
 
 @:native("UNiagaraDataInterfaceSpline")
 @:include("NiagaraDataInterfaceSpline.h")
+@:structAccess
 extern class NiagaraDataInterfaceSpline extends NiagaraDataInterface {
 	public var Source: cpp.Star<Actor>;
 	public var SplineUserParameter: NiagaraUserParameterBinding;
 	public var bUseLUT: Bool;
 	public var NumLUTSteps: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

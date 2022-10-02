@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnLeaderboardFlushed__PythonCallable")
+@:structAccess
 extern class OnLeaderboardFlushed__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

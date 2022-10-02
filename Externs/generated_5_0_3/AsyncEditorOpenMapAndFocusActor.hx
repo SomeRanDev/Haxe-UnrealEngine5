@@ -3,10 +3,13 @@ package ue;
 
 @:native("UAsyncEditorOpenMapAndFocusActor")
 @:include("EditorUtilityLibrary.h")
+@:structAccess
 extern class AsyncEditorOpenMapAndFocusActor extends EditorUtilityBlueprintAsyncActionBase {
 	public var Complete: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
 	public function AsyncEditorOpenMapAndFocusActor(Map: SoftObjectPath, FocusActorName: FString): cpp.Reference<cpp.Star<AsyncEditorOpenMapAndFocusActor>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

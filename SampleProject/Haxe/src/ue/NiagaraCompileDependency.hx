@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraCompileDependency")
 @:include("NiagaraCommon.h")
+@:structAccess
 extern class NiagaraCompileDependency {
 	public var LinkerErrorMessage: FString;
 	public var NodeGuid: Guid;
@@ -10,4 +11,6 @@ extern class NiagaraCompileDependency {
 	public var StackGuids: TArray<Guid>;
 	public var DependentVariable: NiagaraVariableBase;
 	public var bDependentVariableFromCustomIterationNamespace: Bool;
+
+	@:native("FNiagaraCompileDependency") public function new();
 }

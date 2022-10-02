@@ -3,8 +3,11 @@ package ue;
 
 @:native("USharedProfiles")
 @:include("AssetViewerSettings.h")
+@:structAccess
 extern class SharedProfiles extends Object {
 	public var Profiles: TArray<PreviewSceneProfile>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

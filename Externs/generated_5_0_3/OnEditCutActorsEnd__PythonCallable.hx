@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnEditCutActorsEnd__PythonCallable")
+@:structAccess
 extern class OnEditCutActorsEnd__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UTextFilterKeyValueHandlers")
 @:include("TextFilterKeyValueHandlers.h")
+@:structAccess
 extern class TextFilterKeyValueHandlers extends Object {
 	public var TextFilterKeyValueHandlers: TArray<TextFilterKeyValueHandlerEntry>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

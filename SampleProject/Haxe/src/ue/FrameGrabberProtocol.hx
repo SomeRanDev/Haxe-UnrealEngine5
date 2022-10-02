@@ -3,7 +3,10 @@ package ue;
 
 @:native("UFrameGrabberProtocol")
 @:include("Protocols/FrameGrabberProtocol.h")
+@:structAccess
 extern class FrameGrabberProtocol extends MovieSceneImageCaptureProtocolBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

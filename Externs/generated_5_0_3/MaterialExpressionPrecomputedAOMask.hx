@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionPrecomputedAOMask")
 @:include("Materials/MaterialExpressionPrecomputedAOMask.h")
+@:structAccess
 extern class MaterialExpressionPrecomputedAOMask extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -2,8 +2,11 @@
 package ue;
 
 @:native("UIKGoalCreatorInterface")
+@:structAccess
 extern class IKGoalCreatorInterface extends Interface {
 	public function AddIKGoals(OutGoals: cpp.Reference<TMap<FName, IKRigGoal>>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

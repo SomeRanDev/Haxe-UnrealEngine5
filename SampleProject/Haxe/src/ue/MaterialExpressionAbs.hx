@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionAbs")
 @:include("Materials/MaterialExpressionAbs.h")
+@:structAccess
 extern class MaterialExpressionAbs extends MaterialExpression {
 	public var Input: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

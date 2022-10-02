@@ -3,9 +3,12 @@ package ue;
 
 @:native("UWidgetTree")
 @:include("Blueprint/WidgetTree.h")
+@:structAccess
 extern class WidgetTree extends Object {
 	public var RootWidget: cpp.Star<Widget>;
 	public var AllWidgets: TArray<cpp.Star<Widget>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

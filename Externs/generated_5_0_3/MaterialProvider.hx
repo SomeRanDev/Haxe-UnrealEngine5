@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UMaterialProvider")
+@:structAccess
 extern class MaterialProvider extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

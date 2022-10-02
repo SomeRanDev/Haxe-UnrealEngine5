@@ -3,7 +3,10 @@ package ue;
 
 @:native("UListMaterialsUsedWithMeshEmittersCommandlet")
 @:include("Commandlets/ListMaterialsUsedWithMeshEmittersCommandlet.h")
+@:structAccess
 extern class ListMaterialsUsedWithMeshEmittersCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UTypedElementViewportInteraction")
 @:include("Elements/Framework/TypedElementViewportInteraction.h")
+@:structAccess
 extern class TypedElementViewportInteraction extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

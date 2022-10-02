@@ -3,9 +3,12 @@ package ue;
 
 @:native("ADocumentationActor")
 @:include("Engine/DocumentationActor.h")
+@:structAccess
 extern class DocumentationActor extends Actor {
 	public var DocumentLink: FString;
 	public var Billboard: cpp.Star<MaterialBillboardComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UParticleModuleOrientationAxisLock")
 @:include("Particles/Orientation/ParticleModuleOrientationAxisLock.h")
+@:structAccess
 extern class ParticleModuleOrientationAxisLock extends ParticleModuleOrientationBase {
 	public var LockAxisFlags: EParticleAxisLock;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

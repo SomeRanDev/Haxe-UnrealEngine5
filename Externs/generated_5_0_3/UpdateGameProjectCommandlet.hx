@@ -3,7 +3,10 @@ package ue;
 
 @:native("UUpdateGameProjectCommandlet")
 @:include("Commandlets/UpdateGameProjectCommandlet.h")
+@:structAccess
 extern class UpdateGameProjectCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

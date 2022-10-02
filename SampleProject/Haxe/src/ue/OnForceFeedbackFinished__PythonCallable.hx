@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnForceFeedbackFinished__PythonCallable")
+@:structAccess
 extern class OnForceFeedbackFinished__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

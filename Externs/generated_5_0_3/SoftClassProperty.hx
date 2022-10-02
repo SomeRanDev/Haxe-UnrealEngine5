@@ -2,7 +2,10 @@
 package ue;
 
 @:native("USoftClassProperty")
+@:structAccess
 extern class SoftClassProperty extends SoftObjectProperty {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

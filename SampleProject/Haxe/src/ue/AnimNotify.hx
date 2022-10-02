@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimNotify")
 @:include("Animation/AnimNotifies/AnimNotify.h")
+@:structAccess
 extern class AnimNotify extends Object {
 	public var NotifyColor: Color;
 	public var bShouldFireInEditor: Bool;
@@ -10,6 +11,8 @@ extern class AnimNotify extends Object {
 	public function Received_Notify(MeshComp: cpp.Star<SkeletalMeshComp>, Animation: cpp.Star<AnimSequenceBase>, EventReference: cpp.Reference<AnimNotifyEventReference>): cpp.Reference<Bool>;
 	public function GetNotifyName(): cpp.Reference<FString>;
 	public function GetDefaultTriggerWeightThreshold(): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(Received_Notify, GetNotifyName, GetDefaultTriggerWeightThreshold)

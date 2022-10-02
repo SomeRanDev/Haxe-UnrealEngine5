@@ -3,6 +3,7 @@ package ue;
 
 @:native("UChaosClothingInteractor")
 @:include("ChaosCloth/ChaosClothingSimulationInteractor.h")
+@:structAccess
 extern class ChaosClothingInteractor extends ClothingInteractor {
 	public function SetWind(Drag: Vector2D, Lift: Vector2D, AirDensity: cpp.Float32, WindVelocity: Vector): Void;
 	public function SetVelocityScale(LinearVelocityScale: Vector, AngularVelocityScale: cpp.Float32, FictitiousAngularScale: cpp.Float32): Void;
@@ -18,6 +19,8 @@ extern class ChaosClothingInteractor extends ClothingInteractor {
 	public function SetAnimDrive(AnimDriveStiffness: Vector2D, AnimDriveDamping: Vector2D): Void;
 	public function SetAerodynamics(DragCoefficient: cpp.Float32, LiftCoefficient: cpp.Float32, WindVelocity: Vector): Void;
 	public function ResetAndTeleport(bReset: Bool, bTeleport: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPaperTileSet")
 @:include("PaperTileSet.h")
+@:structAccess
 extern class PaperTileSet extends Object {
 	public var TileSize: IntPoint;
 	public var TileSheet: cpp.Star<Texture2D>;
@@ -21,6 +22,8 @@ extern class PaperTileSet extends Object {
 	public var TileHeight_DEPRECATED: cpp.Int32;
 	public var Margin_DEPRECATED: cpp.Int32;
 	public var Spacing_DEPRECATED: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

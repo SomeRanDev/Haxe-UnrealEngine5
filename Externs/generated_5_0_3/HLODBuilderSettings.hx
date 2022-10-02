@@ -3,7 +3,10 @@ package ue;
 
 @:native("UHLODBuilderSettings")
 @:include("WorldPartition/HLOD/HLODBuilder.h")
+@:structAccess
 extern class HLODBuilderSettings extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

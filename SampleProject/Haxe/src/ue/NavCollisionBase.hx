@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNavCollisionBase")
 @:include("AI/Navigation/NavCollisionBase.h")
+@:structAccess
 extern class NavCollisionBase extends Object {
 	public var bIsDynamicObstacle: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

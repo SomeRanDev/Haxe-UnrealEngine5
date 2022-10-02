@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UAIResourceInterface")
+@:structAccess
 extern class AIResourceInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

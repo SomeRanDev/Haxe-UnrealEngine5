@@ -3,9 +3,12 @@ package ue;
 
 @:native("UGameplayTagsManager")
 @:include("GameplayTagsManager.h")
+@:structAccess
 extern class GameplayTagsManager extends Object {
 	public var TagSources: TMap<FName, GameplayTagSource>;
 	public var GameplayTagTables: TArray<cpp.Star<DataTable>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

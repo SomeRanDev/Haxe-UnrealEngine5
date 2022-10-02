@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimationAssetExtensions")
 @:include("Animation/AnimationAssetExtensions.h")
+@:structAccess
 extern class AnimationAssetExtensions extends BlueprintFunctionLibrary {
 	public function GetSkeleton(InAsset: cpp.Star<AnimationAsset>): cpp.Reference<cpp.Star<Skeleton>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

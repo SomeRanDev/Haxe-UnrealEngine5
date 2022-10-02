@@ -3,6 +3,10 @@ package ue;
 
 @:native("FUserActivity")
 @:include("Engine/EngineTypes.h")
+@:structAccess
 extern class UserActivity {
 	public var ActionName: FString;
+
+	@:native("FUserActivity") public function new();
+	@:native("FUserActivity") public static function make(ActionName: FString): UserActivity ;
 }

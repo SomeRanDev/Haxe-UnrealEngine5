@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULevelEditorViewportSettings")
 @:include("Settings/LevelEditorViewportSettings.h")
+@:structAccess
 extern class LevelEditorViewportSettings extends Object {
 	public var FlightCameraControlType: EWASDType;
 	public var FlightCameraControlExperimentalNavigation: Bool;
@@ -80,6 +81,8 @@ extern class LevelEditorViewportSettings extends Object {
 	public var SplineTangentScale: cpp.Float32;
 	public var LastInViewportMenuLocation: Vector2D;
 	public var PerInstanceSettings: TArray<LevelEditorViewportInstanceSettingsKeyValuePair>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

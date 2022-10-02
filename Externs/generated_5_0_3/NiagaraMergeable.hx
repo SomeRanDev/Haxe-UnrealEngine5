@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraMergeable")
 @:include("NiagaraMergeable.h")
+@:structAccess
 extern class NiagaraMergeable extends Object {
 	public var MergeId: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

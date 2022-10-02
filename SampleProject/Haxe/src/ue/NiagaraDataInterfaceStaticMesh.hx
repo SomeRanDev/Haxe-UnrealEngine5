@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraDataInterfaceStaticMesh")
 @:include("DataInterface/NiagaraDataInterfaceStaticMesh.h")
+@:structAccess
 extern class NiagaraDataInterfaceStaticMesh extends NiagaraDataInterface {
 	public var SourceMode: ENDIStaticMesh_SourceMode;
 	public var PreviewMesh: TSoftObjectPtr<StaticMesh>;
@@ -12,6 +13,8 @@ extern class NiagaraDataInterfaceStaticMesh extends NiagaraDataInterface {
 	public var SectionFilter: NDIStaticMeshSectionFilter;
 	public var bUsePhysicsBodyVelocity: Bool;
 	public var FilteredSockets: TArray<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

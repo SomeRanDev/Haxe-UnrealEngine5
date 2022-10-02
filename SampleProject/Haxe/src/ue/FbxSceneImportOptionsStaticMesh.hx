@@ -3,6 +3,7 @@ package ue;
 
 @:native("UFbxSceneImportOptionsStaticMesh")
 @:include("Factories/FbxSceneImportOptionsStaticMesh.h")
+@:structAccess
 extern class FbxSceneImportOptionsStaticMesh extends Object {
 	public var StaticMeshLODGroup: FName;
 	public var bAutoGenerateCollision: Bool;
@@ -14,6 +15,8 @@ extern class FbxSceneImportOptionsStaticMesh extends Object {
 	public var bOneConvexHullPerUCX: Bool;
 	public var NormalImportMethod: EFBXSceneNormalImportMethod;
 	public var NormalGenerationMethod: EFBXSceneNormalGenerationMethod;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

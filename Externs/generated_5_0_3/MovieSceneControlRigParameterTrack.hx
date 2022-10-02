@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMovieSceneControlRigParameterTrack")
 @:include("Sequencer/MovieSceneControlRigParameterTrack.h")
+@:structAccess
 extern class MovieSceneControlRigParameterTrack extends MovieSceneNameableTrack {
 	public var ControlRig: cpp.Star<ControlRig>;
 	public var SectionToKey: cpp.Star<MovieSceneSection>;
 	public var Sections: TArray<cpp.Star<MovieSceneSection>>;
 	public var TrackName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

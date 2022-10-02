@@ -3,12 +3,15 @@ package ue;
 
 @:native("AOnlineBeaconClient")
 @:include("OnlineBeaconClient.h")
+@:structAccess
 extern class OnlineBeaconClient extends OnlineBeacon {
 	public var BeaconOwner: cpp.Star<OnlineBeaconHostObject>;
 	public var BeaconConnection: cpp.Star<NetConnection>;
 	public var ConnectionState: EBeaconConnectionState;
 
 	public function ClientOnConnected(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

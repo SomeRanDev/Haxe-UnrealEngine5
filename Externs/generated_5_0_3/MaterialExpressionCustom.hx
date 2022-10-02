@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionCustom")
 @:include("Materials/MaterialExpressionCustom.h")
+@:structAccess
 extern class MaterialExpressionCustom extends MaterialExpression {
 	public var Code: FString;
 	public var OutputType: ECustomMaterialOutputType;
@@ -11,6 +12,8 @@ extern class MaterialExpressionCustom extends MaterialExpression {
 	public var AdditionalOutputs: TArray<CustomOutput>;
 	public var AdditionalDefines: TArray<CustomDefine>;
 	public var IncludeFilePaths: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

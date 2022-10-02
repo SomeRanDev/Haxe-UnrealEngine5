@@ -3,11 +3,14 @@ package ue;
 
 @:native("UAnimSharingAdditiveInstance")
 @:include("AnimationSharingInstances.h")
+@:structAccess
 extern class AnimSharingAdditiveInstance extends AnimInstance {
 	public var BaseComponent: TWeakObjectPtr<SkeletalMeshComp>;
 	public var AdditiveAnimation: TWeakObjectPtr<AnimSequence>;
 	public var Alpha: cpp.Float32;
 	public var bStateBool: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

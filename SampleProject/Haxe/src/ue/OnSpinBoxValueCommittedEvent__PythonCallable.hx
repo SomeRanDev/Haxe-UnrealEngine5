@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnSpinBoxValueCommittedEvent__PythonCallable")
+@:structAccess
 extern class OnSpinBoxValueCommittedEvent__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

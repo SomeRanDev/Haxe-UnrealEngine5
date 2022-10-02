@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraParameterDefinitionsBase")
 @:include("NiagaraParameterDefinitionsBase.h")
+@:structAccess
 extern class NiagaraParameterDefinitionsBase extends Object {
 	public var UniqueId: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

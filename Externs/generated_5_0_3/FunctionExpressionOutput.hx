@@ -3,8 +3,12 @@ package ue;
 
 @:native("FFunctionExpressionOutput")
 @:include("Materials/MaterialExpressionMaterialFunctionCall.h")
+@:structAccess
 extern class FunctionExpressionOutput {
 	public var ExpressionOutput: cpp.Star<MaterialExpressionFunctionOutput>;
 	public var ExpressionOutputId: Guid;
 	public var Output: ExpressionOutput;
+
+	@:native("FFunctionExpressionOutput") public function new();
+	@:native("FFunctionExpressionOutput") public static function make(ExpressionOutput: cpp.Star<MaterialExpressionFunctionOutput>, ExpressionOutputId: Guid, Output: ExpressionOutput): FunctionExpressionOutput ;
 }

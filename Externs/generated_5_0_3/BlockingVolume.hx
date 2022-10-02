@@ -3,7 +3,10 @@ package ue;
 
 @:native("ABlockingVolume")
 @:include("Engine/BlockingVolume.h")
+@:structAccess
 extern class BlockingVolume extends Volume {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

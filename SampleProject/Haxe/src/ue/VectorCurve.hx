@@ -3,6 +3,10 @@ package ue;
 
 @:native("FVectorCurve")
 @:include("Animation/AnimCurveTypes.h")
+@:structAccess
 extern class VectorCurve extends AnimCurveBase {
 	public var FloatCurves: RichCurve;
+
+	@:native("FVectorCurve") public function new();
+	@:native("FVectorCurve") public static function make(FloatCurves: RichCurve): VectorCurve ;
 }

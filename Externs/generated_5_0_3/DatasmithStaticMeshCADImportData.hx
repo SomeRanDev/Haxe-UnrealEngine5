@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDatasmithStaticMeshCADImportData")
 @:include("DatasmithAssetImportData.h")
+@:structAccess
 extern class DatasmithStaticMeshCADImportData extends DatasmithStaticMeshImportData {
 	public var TessellationOptions: DatasmithTessellationOptions;
 	public var ModelUnit: cpp.Float64;
@@ -10,6 +11,8 @@ extern class DatasmithStaticMeshCADImportData extends DatasmithStaticMeshImportD
 	public var ResourcePath: FString;
 	public var ResourceFilename: FString;
 	public var AuxiliaryFilenames: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

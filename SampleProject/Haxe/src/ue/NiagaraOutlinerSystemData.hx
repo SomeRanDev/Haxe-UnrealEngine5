@@ -3,10 +3,14 @@ package ue;
 
 @:native("FNiagaraOutlinerSystemData")
 @:include("NiagaraDebuggerCommon.h")
+@:structAccess
 extern class NiagaraOutlinerSystemData {
 	public var SystemInstances: TArray<NiagaraOutlinerSystemInstanceData>;
 	public var AveragePerFrameTime: NiagaraOutlinerTimingData;
 	public var MaxPerFrameTime: NiagaraOutlinerTimingData;
 	public var AveragePerInstanceTime: NiagaraOutlinerTimingData;
 	public var MaxPerInstanceTime: NiagaraOutlinerTimingData;
+
+	@:native("FNiagaraOutlinerSystemData") public function new();
+	@:native("FNiagaraOutlinerSystemData") public static function make(SystemInstances: TArray<NiagaraOutlinerSystemInstanceData>, AveragePerFrameTime: NiagaraOutlinerTimingData, MaxPerFrameTime: NiagaraOutlinerTimingData, AveragePerInstanceTime: NiagaraOutlinerTimingData, MaxPerInstanceTime: NiagaraOutlinerTimingData): NiagaraOutlinerSystemData ;
 }

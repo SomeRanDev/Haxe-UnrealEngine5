@@ -3,8 +3,11 @@ package ue;
 
 @:native("UInterpTrackInstDirector")
 @:include("Matinee/InterpTrackInstDirector.h")
+@:structAccess
 extern class InterpTrackInstDirector extends InterpTrackInst {
 	public var OldViewTarget: cpp.Star<Actor>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

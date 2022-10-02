@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCameraAnimInst")
 @:include("Camera/CameraAnimInst.h")
+@:structAccess
 extern class CameraAnimInst extends Object {
 	public var CamAnim: cpp.Star<CameraAnim>;
 	public var InterpGroupInst: cpp.Star<InterpGroupInst>;
@@ -14,6 +15,8 @@ extern class CameraAnimInst extends Object {
 	public function Stop(bImmediate: Bool): Void;
 	public function SetScale(NewDuration: cpp.Float32): Void;
 	public function SetDuration(NewDuration: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

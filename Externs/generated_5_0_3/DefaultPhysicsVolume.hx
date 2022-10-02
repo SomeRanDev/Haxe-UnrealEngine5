@@ -3,7 +3,10 @@ package ue;
 
 @:native("ADefaultPhysicsVolume")
 @:include("GameFramework/DefaultPhysicsVolume.h")
+@:structAccess
 extern class DefaultPhysicsVolume extends PhysicsVolume {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

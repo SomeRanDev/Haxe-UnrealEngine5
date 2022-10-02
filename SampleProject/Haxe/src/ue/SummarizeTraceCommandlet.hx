@@ -3,7 +3,10 @@ package ue;
 
 @:native("USummarizeTraceCommandlet")
 @:include("Commandlets/SummarizeTraceCommandlet.h")
+@:structAccess
 extern class SummarizeTraceCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UWorldPartitionBuilderCommandlet")
 @:include("Commandlets/WorldPartitionBuilderCommandlet.h")
+@:structAccess
 extern class WorldPartitionBuilderCommandlet extends Commandlet {
 	public var Builders: TArray<cpp.Star<WorldPartitionBuilder>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

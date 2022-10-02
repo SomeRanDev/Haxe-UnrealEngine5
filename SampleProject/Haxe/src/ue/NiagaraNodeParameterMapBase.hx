@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraNodeParameterMapBase")
 @:include("NiagaraNodeParameterMapBase.h")
+@:structAccess
 extern class NiagaraNodeParameterMapBase extends NiagaraNodeWithDynamicPins {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

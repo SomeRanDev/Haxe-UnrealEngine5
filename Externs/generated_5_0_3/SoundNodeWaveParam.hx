@@ -3,8 +3,11 @@ package ue;
 
 @:native("USoundNodeWaveParam")
 @:include("Sound/SoundNodeWaveParam.h")
+@:structAccess
 extern class SoundNodeWaveParam extends SoundNode {
 	public var WaveParameterName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("ULevelSequenceAnimSequenceLink")
 @:include("LevelSequenceAnimSequenceLink.h")
+@:structAccess
 extern class LevelSequenceAnimSequenceLink extends AssetUserData {
 	public var AnimSequenceLinks: TArray<LevelSequenceAnimSequenceLinkItem>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

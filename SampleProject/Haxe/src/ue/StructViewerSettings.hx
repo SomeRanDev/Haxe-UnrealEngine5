@@ -3,9 +3,12 @@ package ue;
 
 @:native("UStructViewerSettings")
 @:include("Settings/StructViewerSettings.h")
+@:structAccess
 extern class StructViewerSettings extends Object {
 	public var DisplayInternalStructs: Bool;
 	public var DeveloperFolderType: EStructViewerDeveloperType;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

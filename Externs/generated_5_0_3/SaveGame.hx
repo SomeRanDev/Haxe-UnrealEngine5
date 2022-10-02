@@ -3,7 +3,10 @@ package ue;
 
 @:native("USaveGame")
 @:include("GameFramework/SaveGame.h")
+@:structAccess
 extern class SaveGame extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

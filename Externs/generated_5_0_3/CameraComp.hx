@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCameraComponent")
 @:include("Camera/CameraComponent.h")
+@:structAccess
 extern class CameraComp extends SceneComp {
 	public var FieldOfView: cpp.Float32;
 	public var OrthoWidth: cpp.Float32;
@@ -35,6 +36,8 @@ extern class CameraComp extends SceneComp {
 	public function GetFilmbackText(): cpp.Reference<FText>;
 	public function GetCameraView(DeltaTime: cpp.Float32, DesiredView: cpp.Reference<MinimalViewInfo>): Void;
 	public function AddOrUpdateBlendable(InBlendableObject: BlendableInterface, InWeight: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetFilmbackText)

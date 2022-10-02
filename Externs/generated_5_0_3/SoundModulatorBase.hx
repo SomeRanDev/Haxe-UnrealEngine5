@@ -3,7 +3,10 @@ package ue;
 
 @:native("USoundModulatorBase")
 @:include("IAudioModulation.h")
+@:structAccess
 extern class SoundModulatorBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

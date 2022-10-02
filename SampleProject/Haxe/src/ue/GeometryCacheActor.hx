@@ -3,10 +3,13 @@ package ue;
 
 @:native("AGeometryCacheActor")
 @:include("GeometryCacheActor.h")
+@:structAccess
 extern class GeometryCacheActor extends Actor {
 	public var GeometryCacheComponent: cpp.Star<GeometryCacheComp>;
 
 	public function GetGeometryCacheComponent(): cpp.Reference<cpp.Star<GeometryCacheComp>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetGeometryCacheComponent)

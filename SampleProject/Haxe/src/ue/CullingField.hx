@@ -3,12 +3,15 @@ package ue;
 
 @:native("UCullingField")
 @:include("Field/FieldSystemObjects.h")
+@:structAccess
 extern class CullingField extends FieldNodeBase {
 	public var Culling: cpp.Star<FieldNodeBase>;
 	public var Field: cpp.Star<FieldNodeBase>;
 	public var Operation: EFieldCullingOperationType;
 
 	public function SetCullingField(Culling: cpp.Star<FieldNodeBase.ConstFieldNodeBase>, Field: cpp.Star<FieldNodeBase.ConstFieldNodeBase>, Operation: EFieldCullingOperationType): cpp.Reference<cpp.Star<CullingField>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

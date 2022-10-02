@@ -3,7 +3,10 @@ package ue;
 
 @:native("UInteractiveFoliageComponent")
 @:include("InteractiveFoliageComponent.h")
+@:structAccess
 extern class InteractiveFoliageComp extends StaticMeshComp {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

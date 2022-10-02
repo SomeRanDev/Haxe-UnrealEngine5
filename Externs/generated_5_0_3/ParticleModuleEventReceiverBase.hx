@@ -3,9 +3,12 @@ package ue;
 
 @:native("UParticleModuleEventReceiverBase")
 @:include("Particles/Event/ParticleModuleEventReceiverBase.h")
+@:structAccess
 extern class ParticleModuleEventReceiverBase extends ParticleModuleEventBase {
 	public var EventGeneratorType: EParticleEventType;
 	public var EventName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

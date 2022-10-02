@@ -3,7 +3,10 @@ package ue;
 
 @:native("UUncontrolledChangelistValidator")
 @:include("UncontrolledChangelistValidator.h")
+@:structAccess
 extern class UncontrolledChangelistValidator extends EditorValidatorBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

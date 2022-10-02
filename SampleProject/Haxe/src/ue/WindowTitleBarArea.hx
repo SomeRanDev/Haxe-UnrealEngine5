@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWindowTitleBarArea")
 @:include("Components/WindowTitleBarArea.h")
+@:structAccess
 extern class WindowTitleBarArea extends ContentWidget {
 	public var bWindowButtonsEnabled: Bool;
 	public var bDoubleClickTogglesFullscreen: Bool;
@@ -10,6 +11,8 @@ extern class WindowTitleBarArea extends ContentWidget {
 	public function SetVerticalAlignment(InVerticalAlignment: EVerticalAlignment): Void;
 	public function SetPadding(InPadding: Margin): Void;
 	public function SetHorizontalAlignment(InHorizontalAlignment: EHorizontalAlignment): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

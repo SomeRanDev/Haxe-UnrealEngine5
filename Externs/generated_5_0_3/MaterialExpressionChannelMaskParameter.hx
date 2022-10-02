@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionChannelMaskParameter")
 @:include("Materials/MaterialExpressionChannelMaskParameter.h")
+@:structAccess
 extern class MaterialExpressionChannelMaskParameter extends MaterialExpressionVectorParameter {
 	public var MaskChannel: EChannelMaskParameterColor;
 	public var Input: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

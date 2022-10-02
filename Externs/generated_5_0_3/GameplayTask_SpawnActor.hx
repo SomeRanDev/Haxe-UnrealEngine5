@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGameplayTask_SpawnActor")
 @:include("Tasks/GameplayTask_SpawnActor.h")
+@:structAccess
 extern class GameplayTask_SpawnActor extends GameplayTask {
 	public var Success: HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor>) -> Void>;
 	public var DidNotSpawn: HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor>) -> Void>;
@@ -11,6 +12,8 @@ extern class GameplayTask_SpawnActor extends GameplayTask {
 	public function SpawnActor(TaskOwner: GameplayTaskOwnerInterface, SpawnLocation: Vector, SpawnRotation: Rotator, Class: TSubclassOf<Actor>, bSpawnOnlyOnAuthority: Bool): cpp.Reference<cpp.Star<GameplayTask_SpawnActor>>;
 	public function FinishSpawningActor(WorldContextObject: cpp.Star<Object>, SpawnedActor: cpp.Star<Actor>): Void;
 	public function BeginSpawningActor(WorldContextObject: cpp.Star<Object>, SpawnedActor: cpp.Reference<cpp.Star<Actor>>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

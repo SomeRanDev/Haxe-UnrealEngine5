@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialEditorPreviewParameters")
 @:include("MaterialEditor/MaterialEditorPreviewParameters.h")
+@:structAccess
 extern class MaterialEditorPreviewParameters extends Object {
 	public var ParameterGroups: TArray<EditorParameterGroup>;
 	public var PreviewMaterial: cpp.Star<Material>;
@@ -10,6 +11,8 @@ extern class MaterialEditorPreviewParameters extends Object {
 	public var OriginalMaterial: cpp.Star<Material>;
 	public var StoredLayerPreviews: TArray<cpp.Star<MaterialInstanceConstant>>;
 	public var StoredBlendPreviews: TArray<cpp.Star<MaterialInstanceConstant>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

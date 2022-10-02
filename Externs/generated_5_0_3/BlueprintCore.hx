@@ -3,11 +3,14 @@ package ue;
 
 @:native("UBlueprintCore")
 @:include("Engine/BlueprintCore.h")
+@:structAccess
 extern class BlueprintCore extends Object {
 	public var SkeletonGeneratedClass: TSubclassOf<Object>;
 	public var GeneratedClass: TSubclassOf<Object>;
 	public var bLegacyNeedToPurgeSkelRefs: Bool;
 	public var BlueprintGuid: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

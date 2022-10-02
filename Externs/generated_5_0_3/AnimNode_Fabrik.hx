@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_Fabrik")
 @:include("BoneControllers/AnimNode_Fabrik.h")
+@:structAccess
 extern class AnimNode_Fabrik extends AnimNode_SkeletalControlBase {
 	public var EffectorTransform: Transform;
 	public var EffectorTarget: BoneSocketTarget;
@@ -14,4 +15,6 @@ extern class AnimNode_Fabrik extends AnimNode_SkeletalControlBase {
 	public var EffectorRotationSource: EBoneRotationSource;
 	public var bEnableDebugDraw: Bool;
 	public var EffectorTransformBone_DEPRECATED: BoneReference;
+
+	@:native("FAnimNode_Fabrik") public function new();
 }

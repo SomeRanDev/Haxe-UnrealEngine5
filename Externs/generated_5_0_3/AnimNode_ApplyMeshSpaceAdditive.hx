@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_ApplyMeshSpaceAdditive")
 @:include("Animation/AnimNode_ApplyMeshSpaceAdditive.h")
+@:structAccess
 extern class AnimNode_ApplyMeshSpaceAdditive extends AnimNode_Base {
 	public var Base: PoseLink;
 	public var Additive: PoseLink;
@@ -14,4 +15,6 @@ extern class AnimNode_ApplyMeshSpaceAdditive extends AnimNode_Base {
 	public var AlphaScaleBias: InputScaleBias;
 	public var AlphaScaleBiasClamp: InputScaleBiasClamp;
 	public var LODThreshold: cpp.Int32;
+
+	@:native("FAnimNode_ApplyMeshSpaceAdditive") public function new();
 }

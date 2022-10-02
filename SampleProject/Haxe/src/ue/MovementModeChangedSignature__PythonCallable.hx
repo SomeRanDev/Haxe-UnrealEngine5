@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UMovementModeChangedSignature__PythonCallable")
+@:structAccess
 extern class MovementModeChangedSignature__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,13 @@ package ue;
 
 @:native("FTemplateSectionPropertyScale")
 @:include("Sections/TemplateSequenceSection.h")
+@:structAccess
 extern class TemplateSectionPropertyScale {
 	public var ObjectBinding: Guid;
 	public var PropertyBinding: MovieScenePropertyBinding;
 	public var PropertyScaleType: ETemplateSectionPropertyScaleType;
 	public var FloatChannel: MovieSceneFloatChannel;
+
+	@:native("FTemplateSectionPropertyScale") public function new();
+	@:native("FTemplateSectionPropertyScale") public static function make(ObjectBinding: Guid, PropertyBinding: MovieScenePropertyBinding, PropertyScaleType: ETemplateSectionPropertyScaleType, FloatChannel: MovieSceneFloatChannel): TemplateSectionPropertyScale ;
 }

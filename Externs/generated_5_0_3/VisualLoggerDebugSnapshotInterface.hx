@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UVisualLoggerDebugSnapshotInterface")
+@:structAccess
 extern class VisualLoggerDebugSnapshotInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

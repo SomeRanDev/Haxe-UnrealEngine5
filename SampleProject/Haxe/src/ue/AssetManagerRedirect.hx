@@ -3,7 +3,11 @@ package ue;
 
 @:native("FAssetManagerRedirect")
 @:include("Engine/AssetManagerSettings.h")
+@:structAccess
 extern class AssetManagerRedirect {
 	public var Old: FString;
 	public var New: FString;
+
+	@:native("FAssetManagerRedirect") public function new();
+	@:native("FAssetManagerRedirect") public static function make(Old: FString, New: FString): AssetManagerRedirect ;
 }

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UActorSequenceComponent")
 @:include("ActorSequenceComponent.h")
+@:structAccess
 extern class ActorSequenceComp extends ActorComp {
 	public var PlaybackSettings: MovieSceneSequencePlaybackSettings;
 	public var Sequence: cpp.Star<ActorSequence>;
 	public var SequencePlayer: cpp.Star<ActorSequencePlayer>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

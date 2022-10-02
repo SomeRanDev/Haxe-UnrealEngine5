@@ -3,9 +3,12 @@ package ue;
 
 @:native("UClassViewerProjectSettings")
 @:include("ClassViewerProjectSettings.h")
+@:structAccess
 extern class ClassViewerProjectSettings extends Object {
 	public var InternalOnlyPaths: TArray<DirectoryPath>;
 	public var InternalOnlyClasses: TArray<SoftClassPath>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

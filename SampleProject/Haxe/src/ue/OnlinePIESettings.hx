@@ -3,9 +3,12 @@ package ue;
 
 @:native("UOnlinePIESettings")
 @:include("OnlinePIESettings.h")
+@:structAccess
 extern class OnlinePIESettings extends DeveloperSettings {
 	public var bOnlinePIEEnabled: Bool;
 	public var Logins: TArray<PIELoginSettingsInternal>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDataLayerEditorSubsystem")
 @:include("DataLayer/DataLayerEditorSubsystem.h")
+@:structAccess
 extern class DataLayerEditorSubsystem extends EditorSubsystem {
 	public function UpdateAllViewVisibility(DataLayerThatChanged: cpp.Star<DataLayer>): Void;
 	public function UpdateAllActorsVisibility(bNotifySelectionChange: Bool, bRedrawViewports: Bool): cpp.Reference<Bool>;
@@ -49,6 +50,8 @@ extern class DataLayerEditorSubsystem extends EditorSubsystem {
 	public function AddActorToDataLayer(Actor: cpp.Star<Actor>, DataLayer: cpp.Star<DataLayer>): cpp.Reference<Bool>;
 	public function AddActorsToDataLayers(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>, DataLayers: cpp.Reference<TArray<cpp.Star<DataLayer>>>): cpp.Reference<Bool>;
 	public function AddActorsToDataLayer(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>, DataLayer: cpp.Star<DataLayer>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetDataLayerFromLabel, GetDataLayer, GetActorsFromDataLayers, GetActorsFromDataLayer, AppendActorsFromDataLayers, AppendActorsFromDataLayer)

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UFacialAnimationBulkImporterSettings")
 @:include("FacialAnimationBulkImporterSettings.h")
+@:structAccess
 extern class FacialAnimationBulkImporterSettings extends Object {
 	public var SourceImportPath: DirectoryPath;
 	public var TargetImportPath: DirectoryPath;
 	public var CurveNodeName: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

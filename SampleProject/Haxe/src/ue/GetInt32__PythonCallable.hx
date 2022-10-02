@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UGetInt32__PythonCallable")
+@:structAccess
 extern class GetInt32__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

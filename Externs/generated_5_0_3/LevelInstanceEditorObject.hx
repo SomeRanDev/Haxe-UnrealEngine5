@@ -3,9 +3,12 @@ package ue;
 
 @:native("ULevelInstanceEditorObject")
 @:include("LevelInstance/LevelInstanceEditorObject.h")
+@:structAccess
 extern class LevelInstanceEditorObject extends Object {
 	public var bMovedActors: Bool;
 	public var OtherPackagesToSave: TArray<TWeakObjectPtr<Package>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

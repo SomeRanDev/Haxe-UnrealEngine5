@@ -3,7 +3,10 @@ package ue;
 
 @:native("USSCSEditorMenuContext")
 @:include("SSCSEditorMenuContext.h")
+@:structAccess
 extern class SSCSEditorMenuContext extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

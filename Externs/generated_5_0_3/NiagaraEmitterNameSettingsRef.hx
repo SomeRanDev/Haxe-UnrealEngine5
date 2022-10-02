@@ -3,7 +3,11 @@ package ue;
 
 @:native("FNiagaraEmitterNameSettingsRef")
 @:include("NiagaraComponentSettings.h")
+@:structAccess
 extern class NiagaraEmitterNameSettingsRef {
 	public var SystemName: FName;
 	public var EmitterName: FString;
+
+	@:native("FNiagaraEmitterNameSettingsRef") public function new();
+	@:native("FNiagaraEmitterNameSettingsRef") public static function make(SystemName: FName, EmitterName: FString): NiagaraEmitterNameSettingsRef ;
 }

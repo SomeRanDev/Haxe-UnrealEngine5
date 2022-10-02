@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_AimOffsetLookAt")
 @:include("AnimGraphNode_AimOffsetLookAt.h")
+@:structAccess
 extern class AnimGraphNode_AimOffsetLookAt extends AnimGraphNode_BlendSpaceBase {
 	public var Node: AnimNode_AimOffsetLookAt;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

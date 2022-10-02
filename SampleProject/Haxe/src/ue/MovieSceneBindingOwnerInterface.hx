@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UMovieSceneBindingOwnerInterface")
+@:structAccess
 extern class MovieSceneBindingOwnerInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

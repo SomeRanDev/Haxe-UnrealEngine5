@@ -3,6 +3,10 @@ package ue;
 
 @:native("FMovieSceneObjectBindingIDs")
 @:include("MovieScene.h")
+@:structAccess
 extern class MovieSceneObjectBindingIDs {
 	public var IDs: TArray<MovieSceneObjectBindingID>;
+
+	@:native("FMovieSceneObjectBindingIDs") public function new();
+	@:native("FMovieSceneObjectBindingIDs") public static function make(IDs: TArray<MovieSceneObjectBindingID>): MovieSceneObjectBindingIDs ;
 }

@@ -3,7 +3,11 @@ package ue;
 
 @:native("FWidgetAnimation_DEPRECATED")
 @:include("WidgetBlueprint.h")
+@:structAccess
 extern class WidgetAnimation_DEPRECATED {
 	public var MovieScene: cpp.Star<MovieScene>;
 	public var AnimationBindings: TArray<WidgetAnimationBinding>;
+
+	@:native("FWidgetAnimation_DEPRECATED") public function new();
+	@:native("FWidgetAnimation_DEPRECATED") public static function make(MovieScene: cpp.Star<MovieScene>, AnimationBindings: TArray<WidgetAnimationBinding>): WidgetAnimation_DEPRECATED ;
 }

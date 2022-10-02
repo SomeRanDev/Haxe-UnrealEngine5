@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAssetRegistryDumpCommandlet")
 @:include("Commandlets/AssetRegUtilCommandlet.h")
+@:structAccess
 extern class AssetRegistryDumpCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

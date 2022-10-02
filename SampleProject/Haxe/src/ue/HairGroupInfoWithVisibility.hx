@@ -3,6 +3,10 @@ package ue;
 
 @:native("FHairGroupInfoWithVisibility")
 @:include("GroomAsset.h")
+@:structAccess
 extern class HairGroupInfoWithVisibility extends HairGroupInfo {
 	public var bIsVisible: Bool;
+
+	@:native("FHairGroupInfoWithVisibility") public function new();
+	@:native("FHairGroupInfoWithVisibility") public static function make(bIsVisible: Bool): HairGroupInfoWithVisibility ;
 }

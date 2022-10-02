@@ -3,8 +3,12 @@ package ue;
 
 @:native("FBoneSocketTarget")
 @:include("Animation/BoneSocketReference.h")
+@:structAccess
 extern class BoneSocketTarget {
 	public var bUseSocket: Bool;
 	public var BoneReference: BoneReference;
 	public var SocketReference: SocketReference;
+
+	@:native("FBoneSocketTarget") public function new();
+	@:native("FBoneSocketTarget") public static function make(bUseSocket: Bool, BoneReference: BoneReference, SocketReference: SocketReference): BoneSocketTarget ;
 }

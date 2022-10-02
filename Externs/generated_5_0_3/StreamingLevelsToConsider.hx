@@ -3,6 +3,10 @@ package ue;
 
 @:native("FStreamingLevelsToConsider")
 @:include("Engine/World.h")
+@:structAccess
 extern class StreamingLevelsToConsider {
 	public var StreamingLevels: TArray<cpp.Star<LevelStreaming>>;
+
+	@:native("FStreamingLevelsToConsider") public function new();
+	@:native("FStreamingLevelsToConsider") public static function make(StreamingLevels: TArray<cpp.Star<LevelStreaming>>): StreamingLevelsToConsider ;
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FXRGestureConfig")
 @:include("XRGestureConfig.h")
+@:structAccess
 extern class XRGestureConfig {
 	public var bTap: Bool;
 	public var bHold: Bool;
@@ -10,4 +11,6 @@ extern class XRGestureConfig {
 	public var bNavigationAxisX: Bool;
 	public var bNavigationAxisY: Bool;
 	public var bNavigationAxisZ: Bool;
+
+	@:native("FXRGestureConfig") public function new();
 }

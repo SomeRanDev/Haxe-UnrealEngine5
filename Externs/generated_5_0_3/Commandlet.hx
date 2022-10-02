@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCommandlet")
 @:include("Commandlets/Commandlet.h")
+@:structAccess
 extern class Commandlet extends Object {
 	public var HelpDescription: FString;
 	public var HelpUsage: FString;
@@ -15,6 +16,8 @@ extern class Commandlet extends Object {
 	public var LogToConsole: Bool;
 	public var ShowErrorCount: Bool;
 	public var ShowProgress: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

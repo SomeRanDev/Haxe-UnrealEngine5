@@ -3,10 +3,13 @@ package ue;
 
 @:native("UAnimationGraph")
 @:include("AnimationGraph.h")
+@:structAccess
 extern class AnimationGraph extends EdGraph {
 	public var BlendOptions: AnimGraphBlendOptions;
 
 	public function GetGraphNodesOfClass(NodeClass: TSubclassOf<AnimGraphNode_Base>, GraphNodes: cpp.Reference<TArray<cpp.Star<AnimGraphNode_Base>>>, bIncludeChildClasses: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

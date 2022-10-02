@@ -3,6 +3,7 @@ package ue;
 
 @:native("APivotTransformGizmo")
 @:include("Gizmo/VIPivotTransformGizmo.h")
+@:structAccess
 extern class PivotTransformGizmo extends BaseTransformGizmo {
 	public var UniformScaleGizmoHandleGroup: cpp.Star<UniformScaleGizmoHandleGroup>;
 	public var TranslationGizmoHandleGroup: cpp.Star<PivotTranslationGizmoHandleGroup>;
@@ -11,6 +12,8 @@ extern class PivotTransformGizmo extends BaseTransformGizmo {
 	public var RotationGizmoHandleGroup: cpp.Star<PivotRotationGizmoHandleGroup>;
 	public var StretchGizmoHandleGroup: cpp.Star<StretchGizmoHandleGroup>;
 	public var LastDraggingHandle: cpp.Star<ActorComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

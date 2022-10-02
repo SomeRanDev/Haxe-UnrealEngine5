@@ -3,9 +3,13 @@ package ue;
 
 @:native("FNiagaraScriptExecutionPaddingInfo")
 @:include("NiagaraScriptExecutionParameterStore.h")
+@:structAccess
 extern class NiagaraScriptExecutionPaddingInfo {
 	public var SrcOffset: cpp.UInt16;
 	public var DestOffset: cpp.UInt16;
 	public var SrcSize: cpp.UInt16;
 	public var DestSize: cpp.UInt16;
+
+	@:native("FNiagaraScriptExecutionPaddingInfo") public function new();
+	@:native("FNiagaraScriptExecutionPaddingInfo") public static function make(SrcOffset: cpp.UInt16, DestOffset: cpp.UInt16, SrcSize: cpp.UInt16, DestSize: cpp.UInt16): NiagaraScriptExecutionPaddingInfo ;
 }

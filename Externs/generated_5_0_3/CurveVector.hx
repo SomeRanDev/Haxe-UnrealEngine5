@@ -3,10 +3,13 @@ package ue;
 
 @:native("UCurveVector")
 @:include("Curves/CurveVector.h")
+@:structAccess
 extern class CurveVector extends CurveBase {
 	public var FloatCurves: RichCurve;
 
 	public function GetVectorValue(InTime: cpp.Float32): cpp.Reference<Vector>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetVectorValue)

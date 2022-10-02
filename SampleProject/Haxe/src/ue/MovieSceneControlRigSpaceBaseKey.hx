@@ -3,7 +3,11 @@ package ue;
 
 @:native("FMovieSceneControlRigSpaceBaseKey")
 @:include("Sequencer/MovieSceneControlRigSpaceChannel.h")
+@:structAccess
 extern class MovieSceneControlRigSpaceBaseKey {
 	public var SpaceType: EMovieSceneControlRigSpaceType;
 	public var ControlRigElement: RigElementKey;
+
+	@:native("FMovieSceneControlRigSpaceBaseKey") public function new();
+	@:native("FMovieSceneControlRigSpaceBaseKey") public static function make(SpaceType: EMovieSceneControlRigSpaceType, ControlRigElement: RigElementKey): MovieSceneControlRigSpaceBaseKey ;
 }

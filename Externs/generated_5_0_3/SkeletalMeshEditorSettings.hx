@@ -3,6 +3,7 @@ package ue;
 
 @:native("USkeletalMeshEditorSettings")
 @:include("Settings/SkeletalMeshEditorSettings.h")
+@:structAccess
 extern class SkeletalMeshEditorSettings extends Object {
 	public var AnimPreviewFloorColor: Color;
 	public var AnimPreviewSkyColor: Color;
@@ -10,6 +11,8 @@ extern class SkeletalMeshEditorSettings extends Object {
 	public var AnimPreviewLightBrightness: cpp.Float32;
 	public var AnimPreviewLightingDirection: Rotator;
 	public var AnimPreviewDirectionalColor: Color;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

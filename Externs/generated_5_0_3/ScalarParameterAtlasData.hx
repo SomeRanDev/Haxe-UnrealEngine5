@@ -3,8 +3,12 @@ package ue;
 
 @:native("FScalarParameterAtlasData")
 @:include("MaterialEditor/DEditorScalarParameterValue.h")
+@:structAccess
 extern class ScalarParameterAtlasData {
 	public var bIsUsedAsAtlasPosition: Bool;
 	public var Curve: TSoftObjectPtr<CurveLinearColor>;
 	public var Atlas: TSoftObjectPtr<CurveLinearColorAtlas>;
+
+	@:native("FScalarParameterAtlasData") public function new();
+	@:native("FScalarParameterAtlasData") public static function make(bIsUsedAsAtlasPosition: Bool, Curve: TSoftObjectPtr<CurveLinearColor>, Atlas: TSoftObjectPtr<CurveLinearColorAtlas>): ScalarParameterAtlasData ;
 }

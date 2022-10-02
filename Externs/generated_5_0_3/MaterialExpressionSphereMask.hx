@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionSphereMask")
 @:include("Materials/MaterialExpressionSphereMask.h")
+@:structAccess
 extern class MaterialExpressionSphereMask extends MaterialExpression {
 	public var A: ExpressionInput;
 	public var B: ExpressionInput;
@@ -10,6 +11,8 @@ extern class MaterialExpressionSphereMask extends MaterialExpression {
 	public var Hardness: ExpressionInput;
 	public var AttenuationRadius: cpp.Float32;
 	public var HardnessPercent: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

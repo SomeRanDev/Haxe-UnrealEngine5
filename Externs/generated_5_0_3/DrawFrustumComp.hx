@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDrawFrustumComponent")
 @:include("Components/DrawFrustumComponent.h")
+@:structAccess
 extern class DrawFrustumComp extends PrimitiveComp {
 	public var bFrustumEnabled: Bool;
 	public var FrustumColor: Color;
@@ -11,6 +12,8 @@ extern class DrawFrustumComp extends PrimitiveComp {
 	public var FrustumStartDist: cpp.Float32;
 	public var FrustumEndDist: cpp.Float32;
 	public var Texture: cpp.Star<Texture>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_GetSubsystemFromPC")
 @:include("K2Node_GetSubsystem.h")
+@:structAccess
 extern class K2Node_GetSubsystemFromPC extends K2Node_GetSubsystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

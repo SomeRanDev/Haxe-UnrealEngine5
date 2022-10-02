@@ -3,5 +3,7 @@ package ue;
 
 @:native("FRemovalEventCallbackWrapper")
 @:include("Chaos/ChaosGameplayEventDispatcher.h")
+@:structAccess
 extern class RemovalEventCallbackWrapper {
+	@:native("FRemovalEventCallbackWrapper") public function new();
 }

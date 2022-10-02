@@ -3,7 +3,10 @@ package ue;
 
 @:native("UBasicOverlaysFactoryNew")
 @:include("Factories/BasicOverlaysFactoryNew.h")
+@:structAccess
 extern class BasicOverlaysFactoryNew extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

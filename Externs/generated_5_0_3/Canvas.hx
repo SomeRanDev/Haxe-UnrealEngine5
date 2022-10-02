@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCanvas")
 @:include("Engine/Canvas.h")
+@:structAccess
 extern class Canvas extends Object {
 	public var OrgX: cpp.Float32;
 	public var OrgY: cpp.Float32;
@@ -32,6 +33,8 @@ extern class Canvas extends Object {
 	public function K2_DrawBox(ScreenPosition: Vector2D, ScreenSize: Vector2D, Thickness: cpp.Float32, RenderColor: LinearColor): Void;
 	public function K2_DrawBorder(BorderTexture: cpp.Star<Texture>, BackgroundTexture: cpp.Star<Texture>, LeftBorderTexture: cpp.Star<Texture>, RightBorderTexture: cpp.Star<Texture>, TopBorderTexture: cpp.Star<Texture>, BottomBorderTexture: cpp.Star<Texture>, ScreenPosition: Vector2D, ScreenSize: Vector2D, CoordinatePosition: Vector2D, CoordinateSize: Vector2D, RenderColor: LinearColor, BorderScale: Vector2D, BackgroundScale: Vector2D, Rotation: cpp.Float32, PivotPoint: Vector2D, CornerSize: Vector2D): Void;
 	public function K2_Deproject(ScreenPosition: Vector2D, WorldOrigin: cpp.Reference<Vector>, WorldDirection: cpp.Reference<Vector>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

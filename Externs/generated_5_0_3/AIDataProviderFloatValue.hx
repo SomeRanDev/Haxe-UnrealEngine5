@@ -3,6 +3,10 @@ package ue;
 
 @:native("FAIDataProviderFloatValue")
 @:include("DataProviders/AIDataProvider.h")
+@:structAccess
 extern class AIDataProviderFloatValue extends AIDataProviderTypedValue {
 	public var DefaultValue: cpp.Float32;
+
+	@:native("FAIDataProviderFloatValue") public function new();
+	@:native("FAIDataProviderFloatValue") public static function make(DefaultValue: cpp.Float32): AIDataProviderFloatValue ;
 }

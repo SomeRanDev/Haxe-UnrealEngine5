@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionVolumetricAdvancedMaterialOutput")
 @:include("Materials/MaterialExpressionVolumetricAdvancedMaterialOutput.h")
+@:structAccess
 extern class MaterialExpressionVolumetricAdvancedMaterialOutput extends MaterialExpressionCustomOutput {
 	public var PhaseG: ExpressionInput;
 	public var PhaseG2: ExpressionInput;
@@ -22,6 +23,8 @@ extern class MaterialExpressionVolumetricAdvancedMaterialOutput extends Material
 	public var bGroundContribution: Bool;
 	public var bGrayScaleMaterial: Bool;
 	public var bRayMarchVolumeShadow: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

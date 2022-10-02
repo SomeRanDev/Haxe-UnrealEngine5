@@ -3,8 +3,11 @@ package ue;
 
 @:native("USoundfieldEffectBase")
 @:include("ISoundfieldFormat.h")
+@:structAccess
 extern class SoundfieldEffectBase extends Object {
 	public var Settings: cpp.Star<SoundfieldEffectSettingsBase>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

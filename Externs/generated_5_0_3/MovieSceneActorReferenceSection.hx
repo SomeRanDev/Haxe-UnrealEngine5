@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMovieSceneActorReferenceSection")
 @:include("Sections/MovieSceneActorReferenceSection.h")
+@:structAccess
 extern class MovieSceneActorReferenceSection extends MovieSceneSection {
 	public var ActorReferenceData: MovieSceneActorReferenceData;
 	public var ActorGuidIndexCurve_DEPRECATED: IntegralCurve;
 	public var ActorGuidStrings_DEPRECATED: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

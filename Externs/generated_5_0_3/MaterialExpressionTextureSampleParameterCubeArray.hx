@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionTextureSampleParameterCubeArray")
 @:include("Materials/MaterialExpressionTextureSampleParameterCubeArray.h")
+@:structAccess
 extern class MaterialExpressionTextureSampleParameterCubeArray extends MaterialExpressionTextureSampleParameter {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

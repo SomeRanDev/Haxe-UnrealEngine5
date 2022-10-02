@@ -3,11 +3,14 @@ package ue;
 
 @:native("UInterchangeSourceData")
 @:include("InterchangeSourceData.h")
+@:structAccess
 extern class InterchangeSourceData extends Object {
 	public var Filename: FString;
 
 	public function SetFilename(InFilename: FString): cpp.Reference<Bool>;
 	public function GetFilename(): cpp.Reference<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetFilename)

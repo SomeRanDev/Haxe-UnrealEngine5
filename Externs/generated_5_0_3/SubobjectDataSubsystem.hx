@@ -3,6 +3,7 @@ package ue;
 
 @:native("USubobjectDataSubsystem")
 @:include("SubobjectDataSubsystem.h")
+@:structAccess
 extern class SubobjectDataSubsystem extends EngineSubsystem {
 	public function ReparentSubobjects(Params: cpp.Reference<ReparentSubobjectParams>, HandlesToMove: cpp.Reference<TArray<SubobjectDataHandle>>): cpp.Reference<Bool>;
 	public function ReparentSubobject(Params: cpp.Reference<ReparentSubobjectParams>, ToReparentHandle: cpp.Reference<SubobjectDataHandle>): cpp.Reference<Bool>;
@@ -27,6 +28,8 @@ extern class SubobjectDataSubsystem extends EngineSubsystem {
 	public function CanCopySubobjects(Handles: cpp.Reference<TArray<SubobjectDataHandle>>): cpp.Reference<Bool>;
 	public function AttachSubobject(OwnerHandle: cpp.Reference<SubobjectDataHandle>, ChildToAddHandle: cpp.Reference<SubobjectDataHandle>): cpp.Reference<Bool>;
 	public function AddNewSubobject(Params: cpp.Reference<AddNewSubobjectParams>, FailReason: cpp.Reference<FText>): cpp.Reference<SubobjectDataHandle>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(K2_FindSubobjectDataFromHandle, IsValidRename, FindHandleForObject, CanPasteSubobjects, CanCopySubobjects)

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UDEditorVectorParameterValue")
 @:include("MaterialEditor/DEditorVectorParameterValue.h")
+@:structAccess
 extern class DEditorVectorParameterValue extends DEditorParameterValue {
 	public var ParameterValue: LinearColor;
 	public var bIsUsedAsChannelMask: Bool;
 	public var ChannelNames: ParameterChannelNames;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

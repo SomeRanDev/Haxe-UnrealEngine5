@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleSystemComponent")
 @:include("Particles/ParticleSystemComponent.h")
+@:structAccess
 extern class ParticleSystemComp extends FXSystemComp {
 	public var Template: cpp.Star<ParticleSystem>;
 	public var EmitterMaterials: TArray<cpp.Star<MaterialInterface>>;
@@ -65,6 +66,8 @@ extern class ParticleSystemComp extends FXSystemComp {
 	public function EndTrails(): Void;
 	public function CreateNamedDynamicMaterialInstance(InName: FName, SourceMaterial: cpp.Star<MaterialInterface>): cpp.Reference<cpp.Star<MaterialInstanceDynamic>>;
 	public function BeginTrails(InFirstSocketName: FName, InSecondSocketName: FName, InWidthMode: ETrailWidthMode, InWidth: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetNumActiveParticles, GetNamedMaterial, GetBeamTargetTangent, GetBeamTargetStrength, GetBeamTargetPoint, GetBeamSourceTangent, GetBeamSourceStrength, GetBeamSourcePoint, GetBeamEndPoint)

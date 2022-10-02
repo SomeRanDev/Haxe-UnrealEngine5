@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionDesaturation")
 @:include("Materials/MaterialExpressionDesaturation.h")
+@:structAccess
 extern class MaterialExpressionDesaturation extends MaterialExpression {
 	public var Input: ExpressionInput;
 	public var Fraction: ExpressionInput;
 	public var LuminanceFactors: LinearColor;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

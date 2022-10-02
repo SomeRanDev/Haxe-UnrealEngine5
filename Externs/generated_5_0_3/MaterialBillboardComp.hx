@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMaterialBillboardComponent")
 @:include("Components/MaterialBillboardComponent.h")
+@:structAccess
 extern class MaterialBillboardComp extends PrimitiveComp {
 	public var Elements: TArray<MaterialSpriteElement>;
 
 	public function SetElements(NewElements: cpp.Reference<TArray<MaterialSpriteElement>>): Void;
 	public function AddElement(Material: cpp.Star<MaterialInterface>, DistanceToOpacityCurve: cpp.Star<CurveFloat>, bSizeIsInScreenSpace: Bool, BaseSizeX: cpp.Float32, BaseSizeY: cpp.Float32, DistanceToSizeCurve: cpp.Star<CurveFloat>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("APlayerState")
 @:include("GameFramework/PlayerState.h")
+@:structAccess
 extern class PlayerState extends Info {
 	public var Score: cpp.Float32;
 	public var PlayerId: cpp.Int32;
@@ -35,6 +36,8 @@ extern class PlayerState extends Info {
 	public function GetPingInMilliseconds(): cpp.Reference<cpp.Float32>;
 	public function GetPawn(): cpp.Reference<cpp.Star<Pawn>>;
 	public function BP_GetUniqueId(): cpp.Reference<UniqueNetIdRepl>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsOnlyASpectator, GetPlayerName, GetPlayerController, GetPingInMilliseconds, GetPawn, BP_GetUniqueId)

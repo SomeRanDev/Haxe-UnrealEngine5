@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWrapBoxSlot")
 @:include("Components/WrapBoxSlot.h")
+@:structAccess
 extern class WrapBoxSlot extends PanelSlot {
 	public var Padding: Margin;
 	public var bFillEmptySpace: Bool;
@@ -17,6 +18,8 @@ extern class WrapBoxSlot extends PanelSlot {
 	public function SetHorizontalAlignment(InHorizontalAlignment: EHorizontalAlignment): Void;
 	public function SetFillSpanWhenLessThan(InFillSpanWhenLessThan: cpp.Float32): Void;
 	public function SetFillEmptySpace(InbFillEmptySpace: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

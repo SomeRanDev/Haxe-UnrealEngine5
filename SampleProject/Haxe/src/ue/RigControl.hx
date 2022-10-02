@@ -3,6 +3,7 @@ package ue;
 
 @:native("FRigControl")
 @:include("Rigs/RigControlHierarchy.h")
+@:structAccess
 extern class RigControl extends RigElement {
 	public var ControlType: ERigControlType;
 	public var DisplayName: FName;
@@ -30,4 +31,6 @@ extern class RigControl extends RigElement {
 	public var Dependents: TArray<cpp.Int32>;
 	public var bIsTransientControl: Bool;
 	public var ControlEnum: cpp.Star<Enum>;
+
+	@:native("FRigControl") public function new();
 }

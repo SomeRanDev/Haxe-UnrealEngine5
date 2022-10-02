@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGameUserSettings")
 @:include("GameFramework/GameUserSettings.h")
+@:structAccess
 extern class GameUserSettings extends Object {
 	public var bUseVSync: Bool;
 	public var bUseDynamicResolution: Bool;
@@ -109,6 +110,8 @@ extern class GameUserSettings extends Object {
 	public function ApplyResolutionSettings(bCheckForCommandLineOverrides: Bool): Void;
 	public function ApplyNonResolutionSettings(): Void;
 	public function ApplyHardwareBenchmarkResults(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

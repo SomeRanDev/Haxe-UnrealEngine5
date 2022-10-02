@@ -2,8 +2,11 @@
 package ue;
 
 @:native("UActorSoundParameterInterface")
+@:structAccess
 extern class ActorSoundParameterInterface extends Interface {
 	public function GetActorSoundParams(Params: cpp.Reference<TArray<AudioParameter>>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetActorSoundParams)

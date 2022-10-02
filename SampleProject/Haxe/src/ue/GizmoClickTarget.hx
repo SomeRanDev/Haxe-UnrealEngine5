@@ -2,9 +2,12 @@
 package ue;
 
 @:native("UGizmoClickTarget")
+@:structAccess
 extern class GizmoClickTarget extends Interface {
 	public function UpdateInteractingState(bInteracting: Bool): Void;
 	public function UpdateHoverState(bHovering: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,10 @@ package ue;
 
 @:native("FPropertyEditorTestInstancedStruct")
 @:include("Editor/PropertyEditorTestObject.h")
+@:structAccess
 extern class PropertyEditorTestInstancedStruct {
 	public var Object: cpp.Star<PropertyEditorTestInstancedObject>;
+
+	@:native("FPropertyEditorTestInstancedStruct") public function new();
+	@:native("FPropertyEditorTestInstancedStruct") public static function make(Object: cpp.Star<PropertyEditorTestInstancedObject>): PropertyEditorTestInstancedStruct ;
 }

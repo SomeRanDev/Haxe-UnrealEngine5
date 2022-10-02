@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEngineMessage")
 @:include("GameFramework/EngineMessage.h")
+@:structAccess
 extern class EngineMessage extends LocalMessage {
 	public var FailedPlaceMessage: FString;
 	public var MaxedOutMessage: FString;
@@ -12,6 +13,8 @@ extern class EngineMessage extends LocalMessage {
 	public var SpecEnteredMessage: FString;
 	public var NewPlayerMessage: FString;
 	public var NewSpecMessage: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

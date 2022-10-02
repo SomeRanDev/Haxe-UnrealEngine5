@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimationModifiersAssetUserData")
 @:include("AnimationModifiersAssetUserData.h")
+@:structAccess
 extern class AnimationModifiersAssetUserData extends AssetUserData {
 	public var AnimationModifierInstances: TArray<cpp.Star<AnimationModifier>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

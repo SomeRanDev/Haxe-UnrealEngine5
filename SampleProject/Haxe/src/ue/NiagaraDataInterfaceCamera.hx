@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNiagaraDataInterfaceCamera")
 @:include("NiagaraDataInterfaceCamera.h")
+@:structAccess
 extern class NiagaraDataInterfaceCamera extends NiagaraDataInterface {
 	public var PlayerControllerIndex: cpp.Int32;
 	public var bRequireCurrentFrameData: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

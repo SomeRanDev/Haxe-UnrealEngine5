@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMovieSceneEulerTransformTrack")
 @:include("Tracks/MovieSceneEulerTransformTrack.h")
+@:structAccess
 extern class MovieSceneEulerTransformTrack extends MovieScenePropertyTrack {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

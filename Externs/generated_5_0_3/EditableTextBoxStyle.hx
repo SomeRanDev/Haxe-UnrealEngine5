@@ -3,6 +3,7 @@ package ue;
 
 @:native("FEditableTextBoxStyle")
 @:include("Styling/SlateTypes.h")
+@:structAccess
 extern class EditableTextBoxStyle extends SlateWidgetStyle {
 	public var BackgroundImageNormal: SlateBrush;
 	public var BackgroundImageHovered: SlateBrush;
@@ -17,4 +18,6 @@ extern class EditableTextBoxStyle extends SlateWidgetStyle {
 	public var HScrollBarPadding: Margin;
 	public var VScrollBarPadding: Margin;
 	public var ScrollBarStyle: ScrollBarStyle;
+
+	@:native("FEditableTextBoxStyle") public function new();
 }

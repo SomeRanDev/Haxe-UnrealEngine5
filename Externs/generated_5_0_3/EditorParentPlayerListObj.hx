@@ -3,8 +3,11 @@ package ue;
 
 @:native("UEditorParentPlayerListObj")
 @:include("Animation/EditorParentPlayerListObj.h")
+@:structAccess
 extern class EditorParentPlayerListObj extends Object {
 	public var Overrides: TArray<AnimParentNodeAssetOverride>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

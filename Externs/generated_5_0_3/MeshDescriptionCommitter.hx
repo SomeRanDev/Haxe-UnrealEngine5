@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UMeshDescriptionCommitter")
+@:structAccess
 extern class MeshDescriptionCommitter extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

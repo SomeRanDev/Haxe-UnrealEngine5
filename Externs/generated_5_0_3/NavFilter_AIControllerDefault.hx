@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNavFilter_AIControllerDefault")
 @:include("Navigation/NavFilter_AIControllerDefault.h")
+@:structAccess
 extern class NavFilter_AIControllerDefault extends NavigationQueryFilter {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

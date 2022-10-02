@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimationModifier")
 @:include("AnimationModifier.h")
+@:structAccess
 extern class AnimationModifier extends Object {
 	public var RevisionGuid: Guid;
 	public var AppliedGuid: Guid;
@@ -11,6 +12,8 @@ extern class AnimationModifier extends Object {
 
 	public function OnRevert(AnimationSequence: cpp.Star<AnimSequence>): Void;
 	public function OnApply(AnimationSequence: cpp.Star<AnimSequence>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

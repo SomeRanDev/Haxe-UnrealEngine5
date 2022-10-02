@@ -3,8 +3,11 @@ package ue;
 
 @:native("UInterpTrackInstColorProp")
 @:include("Matinee/InterpTrackInstColorProp.h")
+@:structAccess
 extern class InterpTrackInstColorProp extends InterpTrackInstProperty {
 	public var ResetColor: Color;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

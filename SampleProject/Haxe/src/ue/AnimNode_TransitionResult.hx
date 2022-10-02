@@ -3,6 +3,10 @@ package ue;
 
 @:native("FAnimNode_TransitionResult")
 @:include("Animation/AnimNode_TransitionResult.h")
+@:structAccess
 extern class AnimNode_TransitionResult extends AnimNode_Base {
 	public var bCanEnterTransition: Bool;
+
+	@:native("FAnimNode_TransitionResult") public function new();
+	@:native("FAnimNode_TransitionResult") public static function make(bCanEnterTransition: Bool): AnimNode_TransitionResult ;
 }

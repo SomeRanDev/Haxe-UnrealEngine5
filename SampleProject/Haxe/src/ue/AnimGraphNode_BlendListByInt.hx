@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_BlendListByInt")
 @:include("AnimGraphNode_BlendListByInt.h")
+@:structAccess
 extern class AnimGraphNode_BlendListByInt extends AnimGraphNode_BlendListBase {
 	public var Node: AnimNode_BlendListByInt;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

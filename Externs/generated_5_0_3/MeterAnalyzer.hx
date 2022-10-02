@@ -3,12 +3,15 @@ package ue;
 
 @:native("UMeterAnalyzer")
 @:include("Meter.h")
+@:structAccess
 extern class MeterAnalyzer extends AudioAnalyzer {
 	public var Settings: cpp.Star<MeterSettings>;
 	public var OnOverallMeterResults: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<MeterResults>>) -> Void>;
 	public var OnPerChannelMeterResults: HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<TArray<MeterResults>>) -> Void>;
 	public var OnLatestOverallMeterResults: HaxeMulticastSparseDelegateProperty<(cpp.Reference<MeterResults>) -> Void>;
 	public var OnLatestPerChannelMeterResults: HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<MeterResults>) -> Void>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UProceduralFoliageSpawner")
 @:include("ProceduralFoliageSpawner.h")
+@:structAccess
 extern class ProceduralFoliageSpawner extends Object {
 	public var RandomSeed: cpp.Int32;
 	public var TileSize: cpp.Float32;
@@ -11,6 +12,8 @@ extern class ProceduralFoliageSpawner extends Object {
 	public var FoliageTypes: TArray<FoliageTypeObject>;
 
 	public function Simulate(NumSteps: cpp.Int32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

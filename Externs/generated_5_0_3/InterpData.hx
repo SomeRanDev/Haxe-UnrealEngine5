@@ -3,6 +3,7 @@ package ue;
 
 @:native("UInterpData")
 @:include("Matinee/InterpData.h")
+@:structAccess
 extern class InterpData extends Object {
 	public var InterpLength: cpp.Float32;
 	public var PathBuildTime: cpp.Float32;
@@ -16,6 +17,8 @@ extern class InterpData extends Object {
 	public var bShouldBakeAndPrune: Bool;
 	public var CachedDirectorGroup: cpp.Star<InterpGroupDirector>;
 	public var AllEventNames: TArray<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,13 @@ package ue;
 
 @:native("FForceFeedbackParameters")
 @:include("GameFramework/ForceFeedbackEffect.h")
+@:structAccess
 extern class ForceFeedbackParameters {
 	public var Tag: FName;
 	public var bLooping: Bool;
 	public var bIgnoreTimeDilation: Bool;
 	public var bPlayWhilePaused: Bool;
+
+	@:native("FForceFeedbackParameters") public function new();
+	@:native("FForceFeedbackParameters") public static function make(Tag: FName, bLooping: Bool, bIgnoreTimeDilation: Bool, bPlayWhilePaused: Bool): ForceFeedbackParameters ;
 }

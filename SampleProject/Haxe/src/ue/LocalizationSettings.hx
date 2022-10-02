@@ -3,11 +3,14 @@ package ue;
 
 @:native("ULocalizationSettings")
 @:include("LocalizationSettings.h")
+@:structAccess
 extern class LocalizationSettings extends Object {
 	public var EngineTargetSet: cpp.Star<LocalizationTargetSet>;
 	public var EngineTargetsSettings: TArray<LocalizationTargetSettings>;
 	public var GameTargetSet: cpp.Star<LocalizationTargetSet>;
 	public var GameTargetsSettings: TArray<LocalizationTargetSettings>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,10 @@ package ue;
 
 @:native("FMetaDataTextKeyPattern")
 @:include("LocalizationTargetTypes.h")
+@:structAccess
 extern class MetaDataTextKeyPattern {
 	public var Pattern: FString;
+
+	@:native("FMetaDataTextKeyPattern") public function new();
+	@:native("FMetaDataTextKeyPattern") public static function make(Pattern: FString): MetaDataTextKeyPattern ;
 }

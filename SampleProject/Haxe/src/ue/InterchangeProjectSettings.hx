@@ -3,6 +3,7 @@ package ue;
 
 @:native("UInterchangeProjectSettings")
 @:include("InterchangeProjectSettings.h")
+@:structAccess
 extern class InterchangeProjectSettings extends DeveloperSettings {
 	public var PipelineStacks: TMap<FName, InterchangePipelineStack>;
 	public var DefaultPipelineStack: FName;
@@ -10,6 +11,8 @@ extern class InterchangeProjectSettings extends DeveloperSettings {
 	public var bShowPipelineStacksConfigurationDialog: Bool;
 	public var bUseInterchangeWhenImportingIntoLevel: Bool;
 	public var DefaultScenePipelineStack: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

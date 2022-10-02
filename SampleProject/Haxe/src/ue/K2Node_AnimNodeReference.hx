@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_AnimNodeReference")
 @:include("K2Node_AnimNodeReference.h")
+@:structAccess
 extern class K2Node_AnimNodeReference extends K2Node {
 	public var Tag: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

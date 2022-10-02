@@ -3,8 +3,11 @@ package ue;
 
 @:native("USMInstanceElementDetailsProxyObject")
 @:include("Elements/SMInstance/SMInstanceElementDetailsProxyObject.h")
+@:structAccess
 extern class SMInstanceElementDetailsProxyObject extends Object {
 	public var Transform: Transform;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

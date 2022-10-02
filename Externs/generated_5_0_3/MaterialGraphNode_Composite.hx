@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialGraphNode_Composite")
 @:include("MaterialGraph/MaterialGraphNode_Composite.h")
+@:structAccess
 extern class MaterialGraphNode_Composite extends MaterialGraphNode {
 	public var BoundGraph: cpp.Star<MaterialGraph>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

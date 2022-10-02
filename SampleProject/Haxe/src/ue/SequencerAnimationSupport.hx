@@ -2,7 +2,10 @@
 package ue;
 
 @:native("USequencerAnimationSupport")
+@:structAccess
 extern class SequencerAnimationSupport extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

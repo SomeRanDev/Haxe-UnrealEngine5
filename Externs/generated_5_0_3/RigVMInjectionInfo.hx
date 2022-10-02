@@ -3,6 +3,7 @@ package ue;
 
 @:native("URigVMInjectionInfo")
 @:include("RigVMModel/RigVMPin.h")
+@:structAccess
 extern class RigVMInjectionInfo extends Object {
 	public var UnitNode_DEPRECATED: cpp.Star<RigVMUnitNode>;
 	public var Node: cpp.Star<RigVMNode>;
@@ -12,6 +13,8 @@ extern class RigVMInjectionInfo extends Object {
 
 	public function GetPin(): cpp.Reference<cpp.Star<RigVMPin>>;
 	public function GetGraph(): cpp.Reference<cpp.Star<RigVMGraph>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetPin, GetGraph)

@@ -3,7 +3,11 @@ package ue;
 
 @:native("FPaperTileSetTerrain")
 @:include("PaperTileSet.h")
+@:structAccess
 extern class PaperTileSetTerrain {
 	public var TerrainName: FString;
 	public var CenterTileIndex: cpp.Int32;
+
+	@:native("FPaperTileSetTerrain") public function new();
+	@:native("FPaperTileSetTerrain") public static function make(TerrainName: FString, CenterTileIndex: cpp.Int32): PaperTileSetTerrain ;
 }

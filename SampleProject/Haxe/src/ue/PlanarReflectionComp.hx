@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPlanarReflectionComponent")
 @:include("Components/PlanarReflectionComponent.h")
+@:structAccess
 extern class PlanarReflectionComp extends SceneCaptureComp {
 	public var PreviewBox: cpp.Star<BoxComp>;
 	public var NormalDistortionStrength: cpp.Float32;
@@ -19,6 +20,8 @@ extern class PlanarReflectionComp extends SceneCaptureComp {
 	public var bShowPreviewPlane: Bool;
 	public var bRenderSceneTwoSided: Bool;
 	public var CaptureMaterial: cpp.Star<Material>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

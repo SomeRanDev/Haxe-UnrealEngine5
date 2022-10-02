@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionShadingModel")
 @:include("Materials/MaterialExpressionShadingModel.h")
+@:structAccess
 extern class MaterialExpressionShadingModel extends MaterialExpression {
 	public var ShadingModel: EMaterialShadingModel;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

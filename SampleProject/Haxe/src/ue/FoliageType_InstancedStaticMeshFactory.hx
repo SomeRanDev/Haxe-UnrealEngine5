@@ -3,7 +3,10 @@ package ue;
 
 @:native("UFoliageType_InstancedStaticMeshFactory")
 @:include("FoliageTypeFactory.h")
+@:structAccess
 extern class FoliageType_InstancedStaticMeshFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

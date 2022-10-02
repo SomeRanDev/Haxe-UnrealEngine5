@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDEPRECATED_TemplateMapMetadata")
 @:include("Editor/TemplateMapMetadata.h")
+@:structAccess
 extern class TemplateMapMetadata extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

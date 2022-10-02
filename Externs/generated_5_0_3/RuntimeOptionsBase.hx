@@ -3,7 +3,10 @@ package ue;
 
 @:native("URuntimeOptionsBase")
 @:include("Engine/RuntimeOptionsBase.h")
+@:structAccess
 extern class RuntimeOptionsBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

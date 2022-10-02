@@ -3,12 +3,15 @@ package ue;
 
 @:native("UAISense")
 @:include("Perception/AISense.h")
+@:structAccess
 extern class AISense extends Object {
 	public var DefaultExpirationAge: cpp.Float32;
 	public var NotifyType: EAISenseNotifyType;
 	public var bWantsNewPawnNotification: Bool;
 	public var bAutoRegisterAllPawnsAsSources: Bool;
 	public var PerceptionSystemInstance: cpp.Star<AIPerceptionSystem>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

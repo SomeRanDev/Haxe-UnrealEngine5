@@ -3,6 +3,7 @@ package ue;
 
 @:native("FKeyAttributes")
 @:include("CurveDataAbstraction.h")
+@:structAccess
 extern class KeyAttributes {
 	public var bHasArriveTangent: Bool;
 	public var bHasLeaveTangent: Bool;
@@ -18,4 +19,6 @@ extern class KeyAttributes {
 	public var TangentWeightMode: ERichCurveTangentWeightMode;
 	public var ArriveTangentWeight: cpp.Float32;
 	public var LeaveTangentWeight: cpp.Float32;
+
+	@:native("FKeyAttributes") public function new();
 }

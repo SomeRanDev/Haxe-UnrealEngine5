@@ -3,10 +3,13 @@ package ue;
 
 @:native("USpacer")
 @:include("Components/Spacer.h")
+@:structAccess
 extern class Spacer extends Widget {
 	public var Size: Vector2D;
 
 	public function SetSize(InSize: Vector2D): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

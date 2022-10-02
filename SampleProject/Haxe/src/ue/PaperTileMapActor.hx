@@ -3,8 +3,11 @@ package ue;
 
 @:native("APaperTileMapActor")
 @:include("PaperTileMapActor.h")
+@:structAccess
 extern class PaperTileMapActor extends Actor {
 	public var RenderComponent: cpp.Star<PaperTileMapComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

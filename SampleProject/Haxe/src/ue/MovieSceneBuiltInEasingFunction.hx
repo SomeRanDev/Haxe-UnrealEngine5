@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneBuiltInEasingFunction")
 @:include("Generators/MovieSceneEasingCurves.h")
+@:structAccess
 extern class MovieSceneBuiltInEasingFunction extends Object {
 	public var Type: EMovieSceneBuiltInEasing;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

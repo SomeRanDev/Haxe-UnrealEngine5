@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimBoneCompressionSettingsFactory")
 @:include("Factories/AnimBoneCompressionSettingsFactory.h")
+@:structAccess
 extern class AnimBoneCompressionSettingsFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

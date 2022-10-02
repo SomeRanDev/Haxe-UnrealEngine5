@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleLight")
 @:include("Particles/Light/ParticleModuleLight.h")
+@:structAccess
 extern class ParticleModuleLight extends ParticleModuleLightBase {
 	public var bUseInverseSquaredFalloff: Bool;
 	public var bAffectsTranslucency: Bool;
@@ -16,6 +17,8 @@ extern class ParticleModuleLight extends ParticleModuleLightBase {
 	public var VolumetricScatteringIntensity: cpp.Float32;
 	public var bHighQualityLights: Bool;
 	public var bShadowCastingLights: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

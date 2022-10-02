@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UPlasticDeformationEventSignature__PythonCallable")
+@:structAccess
 extern class PlasticDeformationEventSignature__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

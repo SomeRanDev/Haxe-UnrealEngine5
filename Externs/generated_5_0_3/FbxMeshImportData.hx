@@ -3,6 +3,7 @@ package ue;
 
 @:native("UFbxMeshImportData")
 @:include("Factories/FbxMeshImportData.h")
+@:structAccess
 extern class FbxMeshImportData extends FbxAssetImportData {
 	public var bTransformVertexToAbsolute: Bool;
 	public var bBakePivotInVertex: Bool;
@@ -13,6 +14,8 @@ extern class FbxMeshImportData extends FbxAssetImportData {
 	public var bReorderMaterialToFbxOrder: Bool;
 	public var ImportMaterialOriginalNameData: TArray<FName>;
 	public var ImportMeshLodData: TArray<ImportMeshLodSectionsData>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UMapProperty")
+@:structAccess
 extern class MapProperty extends Property {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

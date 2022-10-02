@@ -3,7 +3,10 @@ package ue;
 
 @:native("UInterchangeWriterBase")
 @:include("InterchangeWriterBase.h")
+@:structAccess
 extern class InterchangeWriterBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

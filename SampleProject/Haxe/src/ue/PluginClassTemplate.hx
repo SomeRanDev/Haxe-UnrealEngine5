@@ -3,8 +3,11 @@ package ue;
 
 @:native("UPluginClassTemplate")
 @:include("ClassTemplateEditorSubsystem.h")
+@:structAccess
 extern class PluginClassTemplate extends ClassTemplate {
 	public var PluginName: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

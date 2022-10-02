@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraNodeReroute")
 @:include("NiagaraNodeReroute.h")
+@:structAccess
 extern class NiagaraNodeReroute extends NiagaraNode {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

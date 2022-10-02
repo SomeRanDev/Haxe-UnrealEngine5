@@ -3,6 +3,7 @@ package ue;
 
 @:native("UKismetStringLibrary")
 @:include("Kismet/KismetStringLibrary.h")
+@:structAccess
 extern class KismetStringLibrary extends BlueprintFunctionLibrary {
 	public function TrimTrailing(SourceString: FString): cpp.Reference<FString>;
 	public function Trim(SourceString: FString): cpp.Reference<FString>;
@@ -73,6 +74,8 @@ extern class KismetStringLibrary extends BlueprintFunctionLibrary {
 	public function BuildString_Double(AppendTo: FString, Prefix: FString, InDouble: cpp.Float64, Suffix: FString): cpp.Reference<FString>;
 	public function BuildString_Color(AppendTo: FString, Prefix: FString, InColor: LinearColor, Suffix: FString): cpp.Reference<FString>;
 	public function BuildString_Bool(AppendTo: FString, Prefix: FString, InBool: Bool, Suffix: FString): cpp.Reference<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

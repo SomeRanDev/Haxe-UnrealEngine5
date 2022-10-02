@@ -3,10 +3,13 @@ package ue;
 
 @:native("UNiagaraDataInterfacePhysicsAsset")
 @:include("Niagara/NiagaraDataInterfacePhysicsAsset.h")
+@:structAccess
 extern class NiagaraDataInterfacePhysicsAsset extends NiagaraDataInterface {
 	public var DefaultSource: cpp.Star<PhysicsAsset>;
 	public var SourceActor: cpp.Star<Actor>;
 	public var MeshUserParameter: NiagaraUserParameterBinding;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

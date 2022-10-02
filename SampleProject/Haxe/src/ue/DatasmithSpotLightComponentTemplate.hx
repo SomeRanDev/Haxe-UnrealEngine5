@@ -3,9 +3,12 @@ package ue;
 
 @:native("UDatasmithSpotLightComponentTemplate")
 @:include("ObjectTemplates/DatasmithSpotLightComponentTemplate.h")
+@:structAccess
 extern class DatasmithSpotLightComponentTemplate extends DatasmithObjectTemplate {
 	public var InnerConeAngle: cpp.Float32;
 	public var OuterConeAngle: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

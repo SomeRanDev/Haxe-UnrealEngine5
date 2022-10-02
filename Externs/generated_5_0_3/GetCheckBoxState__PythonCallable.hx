@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UGetCheckBoxState__PythonCallable")
+@:structAccess
 extern class GetCheckBoxState__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

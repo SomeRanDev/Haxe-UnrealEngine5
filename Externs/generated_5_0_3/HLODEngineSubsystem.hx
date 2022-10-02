@@ -3,7 +3,10 @@ package ue;
 
 @:native("UHLODEngineSubsystem")
 @:include("HLOD/HLODEngineSubsystem.h")
+@:structAccess
 extern class HLODEngineSubsystem extends EngineSubsystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

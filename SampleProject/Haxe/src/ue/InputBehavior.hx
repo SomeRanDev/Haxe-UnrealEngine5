@@ -3,7 +3,10 @@ package ue;
 
 @:native("UInputBehavior")
 @:include("InputBehavior.h")
+@:structAccess
 extern class InputBehavior extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

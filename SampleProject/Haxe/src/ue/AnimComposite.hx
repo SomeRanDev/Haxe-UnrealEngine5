@@ -3,9 +3,12 @@ package ue;
 
 @:native("UAnimComposite")
 @:include("Animation/AnimComposite.h")
+@:structAccess
 extern class AnimComposite extends AnimCompositeBase {
 	public var AnimationTrack: AnimTrack;
 	public var PreviewBasePose: cpp.Star<AnimSequence>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

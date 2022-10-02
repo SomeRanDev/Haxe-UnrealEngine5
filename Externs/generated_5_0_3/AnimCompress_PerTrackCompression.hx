@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimCompress_PerTrackCompression")
 @:include("Animation/AnimCompress_PerTrackCompression.h")
+@:structAccess
 extern class AnimCompress_PerTrackCompression extends AnimCompress_RemoveLinearKeys {
 	public var MaxZeroingThreshold: cpp.Float32;
 	public var MaxPosDiffBitwise: cpp.Float32;
@@ -25,6 +26,8 @@ extern class AnimCompress_PerTrackCompression extends AnimCompress_RemoveLinearK
 	public var ScaleErrorSourceRatio: cpp.Float32;
 	public var MaxErrorPerTrackRatio: cpp.Float32;
 	public var PerturbationProbeSize: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

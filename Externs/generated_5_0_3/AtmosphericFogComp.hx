@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAtmosphericFogComponent")
 @:include("Atmosphere/AtmosphericFogComponent.h")
+@:structAccess
 extern class AtmosphericFogComp extends SkyAtmosphereComp {
 	public function SetSunMultiplier(NewSunMultiplier: cpp.Float32): Void;
 	public function SetStartDistance(NewStartDistance: cpp.Float32): Void;
@@ -17,6 +18,8 @@ extern class AtmosphericFogComp extends SkyAtmosphereComp {
 	public function SetAltitudeScale(NewAltitudeScale: cpp.Float32): Void;
 	public function DisableSunDisk(NewSunDisk: Bool): Void;
 	public function DisableGroundScattering(NewGroundScattering: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

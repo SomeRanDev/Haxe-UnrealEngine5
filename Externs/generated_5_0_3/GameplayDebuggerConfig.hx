@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGameplayDebuggerConfig")
 @:include("GameplayDebuggerConfig.h")
+@:structAccess
 extern class GameplayDebuggerConfig extends Object {
 	public var ActivationKey: Key;
 	public var CategoryRowNextKey: Key;
@@ -24,6 +25,8 @@ extern class GameplayDebuggerConfig extends Object {
 	public var bDebugCanvasEnableTextShadow: Bool;
 	public var Categories: TArray<GameplayDebuggerCategoryConfig>;
 	public var Extensions: TArray<GameplayDebuggerExtensionConfig>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

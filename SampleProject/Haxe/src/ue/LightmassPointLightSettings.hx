@@ -3,5 +3,7 @@ package ue;
 
 @:native("FLightmassPointLightSettings")
 @:include("Engine/EngineTypes.h")
+@:structAccess
 extern class LightmassPointLightSettings extends LightmassLightSettings {
+	@:native("FLightmassPointLightSettings") public function new();
 }

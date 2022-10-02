@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraDataInterfaceGBuffer")
 @:include("DataInterface/NiagaraDataInterfaceGBuffer.h")
+@:structAccess
 extern class NiagaraDataInterfaceGBuffer extends NiagaraDataInterface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

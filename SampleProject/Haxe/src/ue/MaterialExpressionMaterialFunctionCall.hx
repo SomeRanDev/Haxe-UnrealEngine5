@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionMaterialFunctionCall")
 @:include("Materials/MaterialExpressionMaterialFunctionCall.h")
+@:structAccess
 extern class MaterialExpressionMaterialFunctionCall extends MaterialExpression {
 	public var MaterialFunction: cpp.Star<MaterialFunctionInterface>;
 	public var FunctionInputs: TArray<FunctionExpressionInput>;
@@ -10,6 +11,8 @@ extern class MaterialExpressionMaterialFunctionCall extends MaterialExpression {
 	public var FunctionParameterInfo: MaterialParameterInfo;
 
 	public function SetMaterialFunction(NewMaterialFunction: cpp.Star<MaterialFunctionInterface>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

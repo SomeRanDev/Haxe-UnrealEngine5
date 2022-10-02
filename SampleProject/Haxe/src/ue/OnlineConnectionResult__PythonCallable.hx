@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnlineConnectionResult__PythonCallable")
+@:structAccess
 extern class OnlineConnectionResult__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULiveLinkCameraRole")
 @:include("Roles/LiveLinkCameraRole.h")
+@:structAccess
 extern class LiveLinkCameraRole extends LiveLinkTransformRole {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

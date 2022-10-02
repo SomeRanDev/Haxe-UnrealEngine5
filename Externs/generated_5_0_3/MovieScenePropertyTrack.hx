@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieScenePropertyTrack")
 @:include("Tracks/MovieScenePropertyTrack.h")
+@:structAccess
 extern class MovieScenePropertyTrack extends MovieSceneNameableTrack {
 	public var UniqueTrackName: FName;
 	public var PropertyName_DEPRECATED: FName;
@@ -10,6 +11,8 @@ extern class MovieScenePropertyTrack extends MovieSceneNameableTrack {
 	public var SectionToKey: cpp.Star<MovieSceneSection>;
 	public var PropertyBinding: MovieScenePropertyBinding;
 	public var Sections: TArray<cpp.Star<MovieSceneSection>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

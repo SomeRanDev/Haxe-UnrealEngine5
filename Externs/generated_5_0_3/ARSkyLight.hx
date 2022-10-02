@@ -3,10 +3,13 @@ package ue;
 
 @:native("AARSkyLight")
 @:include("ARSkyLight.h")
+@:structAccess
 extern class ARSkyLight extends SkyLight {
 	public var CaptureProbe: cpp.Star<AREnvironmentCaptureProbe>;
 
 	public function SetEnvironmentCaptureProbe(InCaptureProbe: cpp.Star<AREnvironmentCaptureProbe>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

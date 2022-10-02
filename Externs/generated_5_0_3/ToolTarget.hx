@@ -3,7 +3,10 @@ package ue;
 
 @:native("UToolTarget")
 @:include("ToolTargets/ToolTarget.h")
+@:structAccess
 extern class ToolTarget extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UControlRig")
 @:include("ControlRig.h")
+@:structAccess
 extern class ControlRig extends Object {
 	public var ExecutionType: ERigExecutionType;
 	public var VMRuntimeSettings: RigVMRuntimeSettings;
@@ -50,6 +51,8 @@ extern class ControlRig extends Object {
 	public function CurrentControlSelection(): cpp.Reference<TArray<FName>>;
 	public function ClearControlSelection(): cpp.Reference<Bool>;
 	public function CanExecute(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

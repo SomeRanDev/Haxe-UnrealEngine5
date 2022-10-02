@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGameplayTagsSettings")
 @:include("GameplayTagsSettings.h")
+@:structAccess
 extern class GameplayTagsSettings extends GameplayTagsList {
 	public var ImportTagsFromConfig: Bool;
 	public var WarnOnInvalidTags: Bool;
@@ -17,6 +18,8 @@ extern class GameplayTagsSettings extends GameplayTagsList {
 	public var NetIndexFirstBitSegment: cpp.Int32;
 	public var RestrictedConfigFiles: TArray<RestrictedConfigInfo>;
 	public var RestrictedTagList: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

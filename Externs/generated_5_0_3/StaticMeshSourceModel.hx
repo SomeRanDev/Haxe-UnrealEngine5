@@ -3,6 +3,7 @@ package ue;
 
 @:native("FStaticMeshSourceModel")
 @:include("Engine/StaticMeshSourceData.h")
+@:structAccess
 extern class StaticMeshSourceModel {
 	public var StaticMeshDescriptionBulkData: cpp.Star<StaticMeshDescriptionBulkData>;
 	public var BuildSettings: MeshBuildSettings;
@@ -11,4 +12,6 @@ extern class StaticMeshSourceModel {
 	public var ScreenSize: PerPlatformFloat;
 	public var SourceImportFilename: FString;
 	public var bImportWithBaseMesh: Bool;
+
+	@:native("FStaticMeshSourceModel") public function new();
 }

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UGizmoLambdaStateTarget")
 @:include("BaseGizmos/StateTargets.h")
+@:structAccess
 extern class GizmoLambdaStateTarget extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

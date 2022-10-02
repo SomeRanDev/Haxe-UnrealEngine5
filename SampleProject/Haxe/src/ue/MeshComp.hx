@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMeshComponent")
 @:include("Components/MeshComponent.h")
+@:structAccess
 extern class MeshComp extends PrimitiveComp {
 	public var OverrideMaterials: TArray<cpp.Star<MaterialInterface>>;
 	public var bEnableMaterialParameterCaching: Bool;
@@ -14,6 +15,8 @@ extern class MeshComp extends PrimitiveComp {
 	public function GetMaterialSlotNames(): cpp.Reference<TArray<FName>>;
 	public function GetMaterials(): cpp.Reference<TArray<cpp.Star<MaterialInterface>>>;
 	public function GetMaterialIndex(MaterialSlotName: FName): cpp.Reference<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsMaterialSlotNameValid, GetMaterialSlotNames, GetMaterials, GetMaterialIndex)

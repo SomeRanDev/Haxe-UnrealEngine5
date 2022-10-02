@@ -3,6 +3,7 @@ package ue;
 
 @:native("USplineComponentVisualizerSelectionState")
 @:include("SplineComponentVisualizer.h")
+@:structAccess
 extern class SplineComponentVisualizerSelectionState extends Object {
 	public var SplinePropertyPath: ComponentPropertyPath;
 	public var SelectedKeys: TSet<cpp.Int32>;
@@ -12,6 +13,8 @@ extern class SplineComponentVisualizerSelectionState extends Object {
 	public var SelectedTangentHandleType: ESelectedTangentHandle;
 	public var SelectedSplinePosition: Vector;
 	public var CachedRotation: Quat;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,13 @@ package ue;
 
 @:native("FAnimNode_AssetPlayerBase")
 @:include("Animation/AnimNode_AssetPlayerBase.h")
+@:structAccess
 extern class AnimNode_AssetPlayerBase extends AnimNode_Base {
 	public var GroupIndex_DEPRECATED: cpp.Int32;
 	public var GroupScope_DEPRECATED: EAnimSyncGroupScope;
 	public var BlendWeight: cpp.Float32;
 	public var InternalTimeAccumulator: cpp.Float32;
+
+	@:native("FAnimNode_AssetPlayerBase") public function new();
+	@:native("FAnimNode_AssetPlayerBase") public static function make(GroupIndex_DEPRECATED: cpp.Int32, GroupScope_DEPRECATED: EAnimSyncGroupScope, BlendWeight: cpp.Float32, InternalTimeAccumulator: cpp.Float32): AnimNode_AssetPlayerBase ;
 }

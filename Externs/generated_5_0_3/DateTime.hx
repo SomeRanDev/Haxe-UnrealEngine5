@@ -3,5 +3,7 @@ package ue;
 
 @:native("FDateTime")
 @:include("UObject/NoExportTypes.h")
+@:structAccess
 extern class DateTime {
+	@:native("FDateTime") public function new();
 }

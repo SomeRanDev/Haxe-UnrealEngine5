@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimControlTrackKey")
 @:include("Matinee/InterpTrackAnimControl.h")
+@:structAccess
 extern class AnimControlTrackKey {
 	public var StartTime: cpp.Float32;
 	public var AnimSeq: cpp.Star<AnimSequence>;
@@ -11,4 +12,6 @@ extern class AnimControlTrackKey {
 	public var AnimPlayRate: cpp.Float32;
 	public var bLooping: Bool;
 	public var bReverse: Bool;
+
+	@:native("FAnimControlTrackKey") public function new();
 }

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UComponentElementHierarchyInterface")
 @:include("Elements/Component/ComponentElementHierarchyInterface.h")
+@:structAccess
 extern class ComponentElementHierarchyInterface extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

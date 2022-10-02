@@ -3,10 +3,13 @@ package ue;
 
 @:native("UK2Node_SwitchEnum")
 @:include("K2Node_SwitchEnum.h")
+@:structAccess
 extern class K2Node_SwitchEnum extends K2Node_Switch {
 	public var Enum: cpp.Star<Enum>;
 	public var EnumEntries: TArray<FName>;
 	public var EnumFriendlyNames: TArray<FText>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

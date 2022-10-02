@@ -3,8 +3,11 @@ package ue;
 
 @:native("UPersonaPreviewSceneAnimationController")
 @:include("PersonaPreviewSceneAnimationController.h")
+@:structAccess
 extern class PersonaPreviewSceneAnimationController extends PersonaPreviewSceneController {
 	public var Animation: TSoftObjectPtr<AnimationAsset>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

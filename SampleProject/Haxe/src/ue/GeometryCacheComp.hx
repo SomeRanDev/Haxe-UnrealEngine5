@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGeometryCacheComponent")
 @:include("GeometryCacheComponent.h")
+@:structAccess
 extern class GeometryCacheComp extends MeshComp {
 	public var GeometryCache: cpp.Star<GeometryCache>;
 	public var bRunning: Bool;
@@ -46,6 +47,8 @@ extern class GeometryCacheComp extends MeshComp {
 	public function GetMotionVectorScale(): cpp.Reference<cpp.Float32>;
 	public function GetDuration(): cpp.Reference<cpp.Float32>;
 	public function GetAnimationTime(): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

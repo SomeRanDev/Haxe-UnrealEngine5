@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimMontage")
 @:include("Animation/AnimMontage.h")
+@:structAccess
 extern class AnimMontage extends AnimCompositeBase {
 	public var BlendModeIn: EMontageBlendMode;
 	public var BlendModeOut: EMontageBlendMode;
@@ -35,6 +36,8 @@ extern class AnimMontage extends AnimCompositeBase {
 	public function GetBlendOutArgs(): cpp.Reference<AlphaBlendArgs>;
 	public function GetBlendInArgs(): cpp.Reference<AlphaBlendArgs>;
 	public function CreateSlotAnimationAsDynamicMontage_WithBlendSettings(Asset: cpp.Star<AnimSequenceBase>, SlotNodeName: FName, BlendInSettings: cpp.Reference<MontageBlendSettings>, BlendOutSettings: cpp.Reference<MontageBlendSettings>, InPlayRate: cpp.Float32, LoopCount: cpp.Int32, InBlendOutTriggerTime: cpp.Float32): cpp.Reference<cpp.Star<AnimMontage>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsValidSectionName, GetDefaultBlendOutTime, GetDefaultBlendInTime, GetBlendOutArgs, GetBlendInArgs)

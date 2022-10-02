@@ -3,6 +3,7 @@ package ue;
 
 @:native("UKismetArrayLibrary")
 @:include("Kismet/KismetArrayLibrary.h")
+@:structAccess
 extern class KismetArrayLibrary extends BlueprintFunctionLibrary {
 	public function SetArrayPropertyByName(Object: cpp.Star<Object>, PropertyName: FName, Value: cpp.Reference<TArray<cpp.Int32>>): Void;
 	public function FilterArray(TargetArray: cpp.Reference<TArray<cpp.Star<Actor>>>, FilterClass: TSubclassOf<Actor>, FilteredArray: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
@@ -29,6 +30,8 @@ extern class KismetArrayLibrary extends BlueprintFunctionLibrary {
 	public function Array_Append(TargetArray: cpp.Reference<TArray<cpp.Int32>>, SourceArray: cpp.Reference<TArray<cpp.Int32>>): Void;
 	public function Array_AddUnique(TargetArray: cpp.Reference<TArray<cpp.Int32>>, NewItem: cpp.Reference<cpp.Int32>): cpp.Reference<cpp.Int32>;
 	public function Array_Add(TargetArray: cpp.Reference<TArray<cpp.Int32>>, NewItem: cpp.Reference<cpp.Int32>): cpp.Reference<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

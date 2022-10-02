@@ -3,6 +3,7 @@ package ue;
 
 @:native("FChaosSolverConfiguration")
 @:include("ChaosSolverConfiguration.h")
+@:structAccess
 extern class ChaosSolverConfiguration {
 	public var Iterations: cpp.Int32;
 	public var CollisionPairIterations: cpp.Int32;
@@ -23,4 +24,6 @@ extern class ChaosSolverConfiguration {
 	public var bGenerateTrailingData: Bool;
 	public var TrailingFilterSettings: SolverTrailingFilterSettings;
 	public var bGenerateContactGraph: Bool;
+
+	@:native("FChaosSolverConfiguration") public function new();
 }

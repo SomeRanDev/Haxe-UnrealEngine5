@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionGIReplace")
 @:include("Materials/MaterialExpressionGIReplace.h")
+@:structAccess
 extern class MaterialExpressionGIReplace extends MaterialExpression {
 	public var Default: ExpressionInput;
 	public var StaticIndirect: ExpressionInput;
 	public var DynamicIndirect: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

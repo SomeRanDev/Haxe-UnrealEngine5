@@ -3,8 +3,11 @@ package ue;
 
 @:native("UParticleModuleEventGenerator")
 @:include("Particles/Event/ParticleModuleEventGenerator.h")
+@:structAccess
 extern class ParticleModuleEventGenerator extends ParticleModuleEventBase {
 	public var Events: TArray<ParticleEvent_GenerateInfo>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

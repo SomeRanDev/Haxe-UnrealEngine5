@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimDataController")
 @:include("AnimDataController.h")
+@:structAccess
 extern class AnimDataController extends Object {
 	public var Model: cpp.Star<AnimDataModel>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

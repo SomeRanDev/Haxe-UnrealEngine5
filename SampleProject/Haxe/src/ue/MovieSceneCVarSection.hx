@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMovieSceneCVarSection")
 @:include("Sections/MovieSceneCVarSection.h")
+@:structAccess
 extern class MovieSceneCVarSection extends MovieSceneSection {
 	public var ConsoleVariables: MovieSceneCVarOverrides;
 
 	public function SetFromString(InString: FString): Void;
 	public function GetString(): cpp.Reference<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetString)

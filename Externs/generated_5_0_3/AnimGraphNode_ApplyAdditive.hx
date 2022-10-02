@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_ApplyAdditive")
 @:include("AnimGraphNode_ApplyAdditive.h")
+@:structAccess
 extern class AnimGraphNode_ApplyAdditive extends AnimGraphNode_Base {
 	public var Node: AnimNode_ApplyAdditive;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

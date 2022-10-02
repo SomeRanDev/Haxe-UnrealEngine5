@@ -3,7 +3,11 @@ package ue;
 
 @:native("FAnimNotifyTrack")
 @:include("Animation/AnimTypes.h")
+@:structAccess
 extern class AnimNotifyTrack {
 	public var TrackName: FName;
 	public var TrackColor: LinearColor;
+
+	@:native("FAnimNotifyTrack") public function new();
+	@:native("FAnimNotifyTrack") public static function make(TrackName: FName, TrackColor: LinearColor): AnimNotifyTrack ;
 }

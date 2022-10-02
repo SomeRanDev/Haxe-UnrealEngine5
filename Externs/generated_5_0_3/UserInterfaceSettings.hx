@@ -3,6 +3,7 @@ package ue;
 
 @:native("UUserInterfaceSettings")
 @:include("Engine/UserInterfaceSettings.h")
+@:structAccess
 extern class UserInterfaceSettings extends DeveloperSettings {
 	public var RenderFocusRule: ERenderFocusRule;
 	public var HardwareCursors: TMap<EMouseCursor, HardwareCursorReference>;
@@ -24,6 +25,8 @@ extern class UserInterfaceSettings extends DeveloperSettings {
 	public var CursorClasses: TArray<cpp.Star<Object>>;
 	public var CustomScalingRuleClassInstance: TSubclassOf<Object>;
 	public var CustomScalingRule: cpp.Star<DPICustomScalingRule>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

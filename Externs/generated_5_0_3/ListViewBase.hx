@@ -3,6 +3,7 @@ package ue;
 
 @:native("UListViewBase")
 @:include("Components/ListViewBase.h")
+@:structAccess
 extern class ListViewBase extends Widget {
 	public var EntryWidgetClass: TSubclassOf<UserWidget>;
 	public var WheelScrollMultiplier: cpp.Float32;
@@ -26,6 +27,8 @@ extern class ListViewBase extends Widget {
 	public function RegenerateAllEntries(): Void;
 	public function GetScrollOffset(): cpp.Reference<cpp.Float32>;
 	public function GetDisplayedEntryWidgets(): cpp.Reference<TArray<cpp.Star<UserWidget>>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetScrollOffset, GetDisplayedEntryWidgets)

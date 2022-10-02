@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPropertyEditorTestObject")
 @:include("Editor/PropertyEditorTestObject.h")
+@:structAccess
 extern class PropertyEditorTestObject extends Object {
 	public var Int8Property: cpp.Int8;
 	public var Int16Property: cpp.Int16;
@@ -181,6 +182,8 @@ extern class PropertyEditorTestObject extends Object {
 	public var UsesSharedEditCondition2: cpp.Float32;
 	public var StructWithInlineCondition: PropertyEditorTestEditCondition;
 	public var ArrayOfStructsWithInlineCondition: TArray<PropertyEditorTestEditCondition>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("ABrush")
 @:include("Engine/Brush.h")
+@:structAccess
 extern class Brush extends Actor {
 	public var BrushType: EBrushType;
 	public var BrushColor: Color;
@@ -18,6 +19,8 @@ extern class Brush extends Actor {
 	public var ShadedVolumeOpacityValue: cpp.Float32;
 	public var bInManipulation: Bool;
 	public var SavedSelections: TArray<GeomSelection>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

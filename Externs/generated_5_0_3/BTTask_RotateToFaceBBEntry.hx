@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBTTask_RotateToFaceBBEntry")
 @:include("BehaviorTree/Tasks/BTTask_RotateToFaceBBEntry.h")
+@:structAccess
 extern class BTTask_RotateToFaceBBEntry extends BTTask_BlackboardBase {
 	public var Precision: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

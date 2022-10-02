@@ -3,7 +3,11 @@ package ue;
 
 @:native("FPaperSpriteSocket")
 @:include("PaperSprite.h")
+@:structAccess
 extern class PaperSpriteSocket {
 	public var LocalTransform: Transform;
 	public var SocketName: FName;
+
+	@:native("FPaperSpriteSocket") public function new();
+	@:native("FPaperSpriteSocket") public static function make(LocalTransform: Transform, SocketName: FName): PaperSpriteSocket ;
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FToolMenuEntry")
 @:include("ToolMenuEntry.h")
+@:structAccess
 extern class ToolMenuEntry {
 	public var Name: FName;
 	public var Owner: ToolMenuOwner;
@@ -14,4 +15,6 @@ extern class ToolMenuEntry {
 	public var ScriptObject: cpp.Star<ToolMenuEntryScript>;
 	public var StyleNameOverride: FName;
 	public var bCommandIsKeybindOnly: Bool;
+
+	@:native("FToolMenuEntry") public function new();
 }

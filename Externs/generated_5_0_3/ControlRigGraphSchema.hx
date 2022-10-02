@@ -3,7 +3,10 @@ package ue;
 
 @:native("UControlRigGraphSchema")
 @:include("Graph/ControlRigGraphSchema.h")
+@:structAccess
 extern class ControlRigGraphSchema extends EdGraphSchema {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

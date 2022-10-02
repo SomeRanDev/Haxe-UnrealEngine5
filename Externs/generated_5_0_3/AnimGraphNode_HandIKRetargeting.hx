@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_HandIKRetargeting")
 @:include("AnimGraphNode_HandIKRetargeting.h")
+@:structAccess
 extern class AnimGraphNode_HandIKRetargeting extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_HandIKRetargeting;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

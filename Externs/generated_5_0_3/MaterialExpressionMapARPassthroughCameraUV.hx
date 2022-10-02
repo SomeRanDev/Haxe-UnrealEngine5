@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionMapARPassthroughCameraUV")
 @:include("Materials/MaterialExpressionMapARPassthroughCameraUV.h")
+@:structAccess
 extern class MaterialExpressionMapARPassthroughCameraUV extends MaterialExpression {
 	public var Coordinates: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

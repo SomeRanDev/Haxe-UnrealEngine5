@@ -3,9 +3,13 @@ package ue;
 
 @:native("FTemplateReplacement")
 @:include("TemplateProjectDefs.h")
+@:structAccess
 extern class TemplateReplacement {
 	public var Extensions: TArray<FString>;
 	public var From: FString;
 	public var To: FString;
 	public var bCaseSensitive: Bool;
+
+	@:native("FTemplateReplacement") public function new();
+	@:native("FTemplateReplacement") public static function make(Extensions: TArray<FString>, From: FString, To: FString, bCaseSensitive: Bool): TemplateReplacement ;
 }

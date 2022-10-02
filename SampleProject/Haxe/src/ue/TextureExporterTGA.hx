@@ -3,7 +3,10 @@ package ue;
 
 @:native("UTextureExporterTGA")
 @:include("Exporters/TextureExporterTGA.h")
+@:structAccess
 extern class TextureExporterTGA extends Exporter {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEditableText")
 @:include("Components/EditableText.h")
+@:structAccess
 extern class EditableText extends Widget {
 	public var Text: FText;
 	public var TextDelegate: HaxeDelegateProperty<() -> Void>;
@@ -43,6 +44,8 @@ extern class EditableText extends Widget {
 	public function OnEditableTextCommittedEvent__DelegateSignature(Text: cpp.Reference<FText>, CommitMethod: ETextCommit): Void;
 	public function OnEditableTextChangedEvent__DelegateSignature(Text: cpp.Reference<FText>): Void;
 	public function GetText(): cpp.Reference<FText>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetText)

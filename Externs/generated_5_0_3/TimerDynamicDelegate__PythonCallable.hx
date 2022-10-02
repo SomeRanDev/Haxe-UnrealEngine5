@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UTimerDynamicDelegate__PythonCallable")
+@:structAccess
 extern class TimerDynamicDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("ADebugCameraHUD")
 @:include("Engine/DebugCameraHUD.h")
+@:structAccess
 extern class DebugCameraHUD extends HUD {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraRendererProperties")
 @:include("NiagaraRendererProperties.h")
+@:structAccess
 extern class NiagaraRendererProperties extends NiagaraMergeable {
 	public var Platforms: NiagaraPlatformSet;
 	public var SortOrderHint: cpp.Int32;
@@ -11,6 +12,8 @@ extern class NiagaraRendererProperties extends NiagaraMergeable {
 	public var bIsEnabled: Bool;
 	public var bAllowInCullProxies: Bool;
 	public var bMotionBlurEnabled_DEPRECATED: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

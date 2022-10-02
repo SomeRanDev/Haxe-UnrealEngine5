@@ -3,6 +3,7 @@ package ue;
 
 @:native("FTimeline")
 @:include("Components/TimelineComponent.h")
+@:structAccess
 extern class Timeline {
 	public var LengthMode: ETimelineLengthMode;
 	public var bLooping: Bool;
@@ -19,4 +20,6 @@ extern class Timeline {
 	public var TimelineFinishedFunc: HaxeDelegateProperty<() -> Void>;
 	public var PropertySetObject: TWeakObjectPtr<Object>;
 	public var DirectionPropertyName: FName;
+
+	@:native("FTimeline") public function new();
 }

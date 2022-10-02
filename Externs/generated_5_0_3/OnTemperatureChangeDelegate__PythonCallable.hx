@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnTemperatureChangeDelegate__PythonCallable")
+@:structAccess
 extern class OnTemperatureChangeDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

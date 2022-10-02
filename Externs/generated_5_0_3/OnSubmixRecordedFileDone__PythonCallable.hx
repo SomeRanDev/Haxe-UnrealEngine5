@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnSubmixRecordedFileDone__PythonCallable")
+@:structAccess
 extern class OnSubmixRecordedFileDone__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

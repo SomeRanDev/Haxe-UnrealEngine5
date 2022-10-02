@@ -3,11 +3,14 @@ package ue;
 
 @:native("UBTDecorator_CheckGameplayTagsOnActor")
 @:include("BehaviorTree/Decorators/BTDecorator_CheckGameplayTagsOnActor.h")
+@:structAccess
 extern class BTDecorator_CheckGameplayTagsOnActor extends BTDecorator {
 	public var ActorToCheck: BlackboardKeySelector;
 	public var TagsToMatch: EGameplayContainerMatchType;
 	public var GameplayTags: GameplayTagContainer;
 	public var CachedDescription: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

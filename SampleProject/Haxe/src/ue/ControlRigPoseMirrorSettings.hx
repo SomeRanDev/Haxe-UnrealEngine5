@@ -3,11 +3,14 @@ package ue;
 
 @:native("UControlRigPoseMirrorSettings")
 @:include("Tools/ControlRigPoseMirrorSettings.h")
+@:structAccess
 extern class ControlRigPoseMirrorSettings extends Object {
 	public var RightSide: FString;
 	public var LeftSide: FString;
 	public var MirrorAxis: EAxis;
 	public var AxisToFlip: EAxis;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

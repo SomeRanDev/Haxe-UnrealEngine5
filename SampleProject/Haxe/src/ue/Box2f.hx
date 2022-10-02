@@ -3,8 +3,12 @@ package ue;
 
 @:native("FBox2f")
 @:include("UObject/NoExportTypes.h")
+@:structAccess
 extern class Box2f {
 	public var Min: Vector2f;
 	public var Max: Vector2f;
 	public var bIsValid: cpp.UInt8;
+
+	@:native("FBox2f") public function new();
+	@:native("FBox2f") public static function make(Min: Vector2f, Max: Vector2f, bIsValid: cpp.UInt8): Box2f ;
 }

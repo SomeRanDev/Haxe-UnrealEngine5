@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBillboardComponent")
 @:include("Components/BillboardComponent.h")
+@:structAccess
 extern class BillboardComp extends PrimitiveComp {
 	public var Sprite: cpp.Star<Texture2D>;
 	public var bIsScreenSizeScaled: Bool;
@@ -20,6 +21,8 @@ extern class BillboardComp extends PrimitiveComp {
 	public function SetSpriteAndUV(NewSprite: cpp.Star<Texture2D>, NewU: cpp.Int32, NewUL: cpp.Int32, NewV: cpp.Int32, NewVL: cpp.Int32): Void;
 	public function SetSprite(NewSprite: cpp.Star<Texture2D>): Void;
 	public function SetOpacityMaskRefVal(RefVal: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

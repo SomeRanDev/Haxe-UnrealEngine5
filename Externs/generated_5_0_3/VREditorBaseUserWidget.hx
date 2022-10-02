@@ -3,8 +3,11 @@ package ue;
 
 @:native("UVREditorBaseUserWidget")
 @:include("UI/VREditorBaseUserWidget.h")
+@:structAccess
 extern class VREditorBaseUserWidget extends UserWidget {
 	public var Owner: TWeakObjectPtr<VREditorFloatingUI>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

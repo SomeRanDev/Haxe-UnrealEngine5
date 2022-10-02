@@ -3,6 +3,7 @@ package ue;
 
 @:native("FClothPhysicsProperties_Legacy")
 @:include("Engine/SkeletalMesh.h")
+@:structAccess
 extern class ClothPhysicsProperties_Legacy {
 	public var VerticalResistance: cpp.Float32;
 	public var HorizontalResistance: cpp.Float32;
@@ -24,4 +25,6 @@ extern class ClothPhysicsProperties_Legacy {
 	public var FiberCompression: cpp.Float32;
 	public var FiberExpansion: cpp.Float32;
 	public var FiberResistance: cpp.Float32;
+
+	@:native("FClothPhysicsProperties_Legacy") public function new();
 }

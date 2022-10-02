@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UViewportDisplayCallback__PythonCallable")
+@:structAccess
 extern class ViewportDisplayCallback__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

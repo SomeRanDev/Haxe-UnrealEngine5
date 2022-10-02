@@ -3,7 +3,10 @@ package ue;
 
 @:native("UReplicationDriver")
 @:include("Engine/ReplicationDriver.h")
+@:structAccess
 extern class ReplicationDriver extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

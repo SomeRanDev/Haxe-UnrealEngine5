@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMovieSceneMarginPropertySystem")
 @:include("Animation/MovieSceneMarginPropertySystem.h")
+@:structAccess
 extern class MovieSceneMarginPropertySystem extends MovieScenePropertySystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

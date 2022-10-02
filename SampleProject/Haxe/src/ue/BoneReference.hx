@@ -3,6 +3,10 @@ package ue;
 
 @:native("FBoneReference")
 @:include("BoneContainer.h")
+@:structAccess
 extern class BoneReference {
 	public var BoneName: FName;
+
+	@:native("FBoneReference") public function new();
+	@:native("FBoneReference") public static function make(BoneName: FName): BoneReference ;
 }

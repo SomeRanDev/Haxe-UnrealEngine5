@@ -3,11 +3,14 @@ package ue;
 
 @:native("UK2Node_GetClassDefaults")
 @:include("K2Node_GetClassDefaults.h")
+@:structAccess
 extern class K2Node_GetClassDefaults extends K2Node {
 	public var BlueprintSubscribedTo: cpp.Star<Blueprint>;
 	public var ShowPinForProperties: TArray<OptionalPinFromProperty>;
 	public var bExcludeObjectContainers: Bool;
 	public var bExcludeObjectArrays_DEPRECATED: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

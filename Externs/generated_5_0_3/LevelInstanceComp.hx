@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULevelInstanceComponent")
 @:include("LevelInstance/LevelInstanceComponent.h")
+@:structAccess
 extern class LevelInstanceComp extends SceneComp {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

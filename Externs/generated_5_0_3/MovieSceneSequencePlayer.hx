@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneSequencePlayer")
 @:include("MovieSceneSequencePlayer.h")
+@:structAccess
 extern class MovieSceneSequencePlayer extends Object {
 	public var OnPlay: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnPlayReverse: HaxeMulticastSparseDelegateProperty<() -> Void>;
@@ -66,6 +67,8 @@ extern class MovieSceneSequencePlayer extends Object {
 	public function GetCurrentTime(): cpp.Reference<QualifiedFrameTime>;
 	public function GetBoundObjects(ObjectBinding: MovieSceneObjectBindingID): cpp.Reference<TArray<cpp.Star<Object>>>;
 	public function ChangePlaybackDirection(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

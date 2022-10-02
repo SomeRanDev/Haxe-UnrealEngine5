@@ -3,11 +3,14 @@ package ue;
 
 @:native("UParticleModuleLocationPrimitiveCylinder")
 @:include("Particles/Location/ParticleModuleLocationPrimitiveCylinder.h")
+@:structAccess
 extern class ParticleModuleLocationPrimitiveCylinder extends ParticleModuleLocationPrimitiveBase {
 	public var RadialVelocity: Bool;
 	public var StartRadius: RawDistributionFloat;
 	public var StartHeight: RawDistributionFloat;
 	public var HeightAxis: CylinderHeightAxis;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

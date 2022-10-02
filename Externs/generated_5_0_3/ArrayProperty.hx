@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UArrayProperty")
+@:structAccess
 extern class ArrayProperty extends Property {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

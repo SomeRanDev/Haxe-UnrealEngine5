@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_PlayMontage")
 @:include("K2Node_PlayMontage.h")
+@:structAccess
 extern class K2Node_PlayMontage extends K2Node_BaseAsyncTask {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

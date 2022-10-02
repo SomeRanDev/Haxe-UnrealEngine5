@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBrainComponent")
 @:include("BrainComponent.h")
+@:structAccess
 extern class BrainComp extends ActorComp {
 	public var BlackboardComp: cpp.Star<BlackboardComp>;
 	public var AIOwner: cpp.Star<AIController>;
@@ -12,6 +13,8 @@ extern class BrainComp extends ActorComp {
 	public function RestartLogic(): Void;
 	public function IsRunning(): cpp.Reference<Bool>;
 	public function IsPaused(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsRunning, IsPaused)

@@ -3,12 +3,15 @@ package ue;
 
 @:native("UNiagaraNodeInput")
 @:include("NiagaraNodeInput.h")
+@:structAccess
 extern class NiagaraNodeInput extends NiagaraNode {
 	public var Input: NiagaraVariable;
 	public var Usage: ENiagaraInputNodeUsage;
 	public var CallSortPriority: cpp.Int32;
 	public var ExposureOptions: NiagaraInputExposureOptions;
 	public var DataInterface: cpp.Star<NiagaraDataInterface>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FClothParameterMask_Legacy")
 @:include("ClothLODData_Legacy.h")
+@:structAccess
 extern class ClothParameterMask_Legacy {
 	public var MaskName: FName;
 	public var CurrentTarget: EWeightMapTargetCommon;
@@ -10,4 +11,6 @@ extern class ClothParameterMask_Legacy {
 	public var MinValue_DEPRECATED: cpp.Float32;
 	public var Values: TArray<cpp.Float32>;
 	public var bEnabled: Bool;
+
+	@:native("FClothParameterMask_Legacy") public function new();
 }

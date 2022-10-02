@@ -3,5 +3,7 @@ package ue;
 
 @:native("FBranchingPointNotifyPayload")
 @:include("Animation/AnimNotifies/AnimNotify.h")
+@:structAccess
 extern class BranchingPointNotifyPayload {
+	@:native("FBranchingPointNotifyPayload") public function new();
 }

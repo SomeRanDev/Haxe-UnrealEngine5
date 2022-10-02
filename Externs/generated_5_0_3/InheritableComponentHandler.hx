@@ -3,9 +3,12 @@ package ue;
 
 @:native("UInheritableComponentHandler")
 @:include("Engine/InheritableComponentHandler.h")
+@:structAccess
 extern class InheritableComponentHandler extends Object {
 	public var Records: TArray<ComponentOverrideRecord>;
 	public var UnnecessaryComponents: TArray<cpp.Star<ActorComp>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraDataInterfaceRWBase")
 @:include("NiagaraDataInterfaceRW.h")
+@:structAccess
 extern class NiagaraDataInterfaceRWBase extends NiagaraDataInterface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("USoundGroups")
 @:include("Sound/SoundGroups.h")
+@:structAccess
 extern class SoundGroups extends Object {
 	public var SoundGroupProfiles: TArray<SoundGroup>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

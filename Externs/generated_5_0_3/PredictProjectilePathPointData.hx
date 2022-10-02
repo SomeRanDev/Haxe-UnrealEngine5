@@ -3,8 +3,12 @@ package ue;
 
 @:native("FPredictProjectilePathPointData")
 @:include("Kismet/GameplayStaticsTypes.h")
+@:structAccess
 extern class PredictProjectilePathPointData {
 	public var Location: Vector;
 	public var Velocity: Vector;
 	public var Time: cpp.Float32;
+
+	@:native("FPredictProjectilePathPointData") public function new();
+	@:native("FPredictProjectilePathPointData") public static function make(Location: Vector, Velocity: Vector, Time: cpp.Float32): PredictProjectilePathPointData ;
 }

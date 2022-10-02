@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UNetworkPredictionInterface")
+@:structAccess
 extern class NetworkPredictionInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

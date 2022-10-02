@@ -3,6 +3,7 @@ package ue;
 
 @:native("FDatasmithPostProcessSettingsTemplate")
 @:include("ObjectTemplates/DatasmithCineCameraComponentTemplate.h")
+@:structAccess
 extern class DatasmithPostProcessSettingsTemplate {
 	public var bOverride_WhiteTemp: Bool;
 	public var bOverride_ColorSaturation: Bool;
@@ -18,4 +19,6 @@ extern class DatasmithPostProcessSettingsTemplate {
 	public var CameraISO: cpp.Float32;
 	public var CameraShutterSpeed: cpp.Float32;
 	public var DepthOfFieldFstop: cpp.Float32;
+
+	@:native("FDatasmithPostProcessSettingsTemplate") public function new();
 }

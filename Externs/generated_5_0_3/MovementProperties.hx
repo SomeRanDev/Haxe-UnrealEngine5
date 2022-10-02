@@ -3,10 +3,14 @@ package ue;
 
 @:native("FMovementProperties")
 @:include("AI/Navigation/NavigationTypes.h")
+@:structAccess
 extern class MovementProperties {
 	public var bCanCrouch: Bool;
 	public var bCanJump: Bool;
 	public var bCanWalk: Bool;
 	public var bCanSwim: Bool;
 	public var bCanFly: Bool;
+
+	@:native("FMovementProperties") public function new();
+	@:native("FMovementProperties") public static function make(bCanCrouch: Bool, bCanJump: Bool, bCanWalk: Bool, bCanSwim: Bool, bCanFly: Bool): MovementProperties ;
 }

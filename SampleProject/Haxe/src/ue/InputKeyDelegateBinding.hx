@@ -3,8 +3,11 @@ package ue;
 
 @:native("UInputKeyDelegateBinding")
 @:include("Engine/InputKeyDelegateBinding.h")
+@:structAccess
 extern class InputKeyDelegateBinding extends InputDelegateBinding {
 	public var InputKeyDelegateBindings: TArray<BlueprintInputKeyDelegateBinding>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

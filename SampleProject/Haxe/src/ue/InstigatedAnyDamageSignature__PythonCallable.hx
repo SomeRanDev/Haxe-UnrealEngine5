@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UInstigatedAnyDamageSignature__PythonCallable")
+@:structAccess
 extern class InstigatedAnyDamageSignature__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UUserDefinedImageCaptureProtocol")
 @:include("Protocols/UserDefinedCaptureProtocol.h")
+@:structAccess
 extern class UserDefinedImageCaptureProtocol extends UserDefinedCaptureProtocol {
 	public var Format: EDesiredImageFormat;
 	public var bEnableCompression: Bool;
@@ -11,6 +12,8 @@ extern class UserDefinedImageCaptureProtocol extends UserDefinedCaptureProtocol 
 	public function WriteImageToDisk(PixelData: cpp.Reference<CapturedPixels>, StreamID: cpp.Reference<CapturedPixelsID>, FrameMetrics: cpp.Reference<FrameMetrics>, bCopyImageData: Bool): Void;
 	public function GenerateFilenameForCurrentFrame(): cpp.Reference<FString>;
 	public function GenerateFilenameForBuffer(Buffer: cpp.Star<Texture>, StreamID: cpp.Reference<CapturedPixelsID>): cpp.Reference<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPlayMontageCallbackProxy")
 @:include("PlayMontageCallbackProxy.h")
+@:structAccess
 extern class PlayMontageCallbackProxy extends Object {
 	public var OnCompleted: HaxeMulticastSparseDelegateProperty<(FName) -> Void>;
 	public var OnBlendOut: HaxeMulticastSparseDelegateProperty<(FName) -> Void>;
@@ -15,6 +16,8 @@ extern class PlayMontageCallbackProxy extends Object {
 	public function OnMontageEnded(Montage: cpp.Star<AnimMontage>, bInterrupted: Bool): Void;
 	public function OnMontageBlendingOut(Montage: cpp.Star<AnimMontage>, bInterrupted: Bool): Void;
 	public function CreateProxyObjectForPlayMontage(InSkeletalMeshComponent: cpp.Star<SkeletalMeshComp>, MontageToPlay: cpp.Star<AnimMontage>, PlayRate: cpp.Float32, StartingPosition: cpp.Float32, StartingSection: FName): cpp.Reference<cpp.Star<PlayMontageCallbackProxy>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

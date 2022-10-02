@@ -3,8 +3,11 @@ package ue;
 
 @:native("UGizmoTransformProxyTransformSource")
 @:include("BaseGizmos/TransformSources.h")
+@:structAccess
 extern class GizmoTransformProxyTransformSource extends GizmoBaseTransformSource {
 	public var Proxy: cpp.Star<TransformProxy>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

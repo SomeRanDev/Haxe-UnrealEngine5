@@ -3,8 +3,11 @@ package ue;
 
 @:native("UInternationalizationSettingsModel")
 @:include("InternationalizationSettingsModel.h")
+@:structAccess
 extern class InternationalizationSettingsModel extends Object {
 	public var DisplayTimezone: ETimezoneSetting;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

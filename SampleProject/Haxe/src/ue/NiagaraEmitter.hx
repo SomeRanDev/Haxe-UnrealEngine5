@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraEmitter")
 @:include("NiagaraEmitter.h")
+@:structAccess
 extern class NiagaraEmitter extends Object {
 	public var bLocalSpace: Bool;
 	public var bDeterminism: Bool;
@@ -56,6 +57,8 @@ extern class NiagaraEmitter extends Object {
 	public var ParentAtLastMerge: cpp.Star<NiagaraEmitter>;
 	public var ParameterDefinitionsSubscriptions: TArray<ParameterDefinitionsSubscription>;
 	public var MessageKeyToMessageMap: TMap<Guid, cpp.Star<NiagaraMessageDataBase>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

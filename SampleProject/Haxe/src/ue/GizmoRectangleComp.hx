@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGizmoRectangleComponent")
 @:include("BaseGizmos/GizmoRectangleComponent.h")
+@:structAccess
 extern class GizmoRectangleComp extends GizmoBaseComp {
 	public var DirectionX: Vector;
 	public var DirectionY: Vector;
@@ -13,6 +14,8 @@ extern class GizmoRectangleComp extends GizmoBaseComp {
 	public var LengthY: cpp.Float32;
 	public var Thickness: cpp.Float32;
 	public var SegmentFlags: cpp.UInt8;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpression")
 @:include("Materials/MaterialExpression.h")
+@:structAccess
 extern class MaterialExpression extends Object {
 	public var MaterialExpressionEditorX: cpp.Int32;
 	public var MaterialExpressionEditorY: cpp.Int32;
@@ -25,6 +26,8 @@ extern class MaterialExpression extends Object {
 	public var bShowOutputs: Bool;
 	public var MenuCategories: TArray<FText>;
 	public var Outputs: TArray<ExpressionOutput>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

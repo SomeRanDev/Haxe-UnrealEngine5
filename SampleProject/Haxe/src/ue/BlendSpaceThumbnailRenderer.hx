@@ -3,7 +3,10 @@ package ue;
 
 @:native("UBlendSpaceThumbnailRenderer")
 @:include("ThumbnailRendering/BlendSpaceThumbnailRenderer.h")
+@:structAccess
 extern class BlendSpaceThumbnailRenderer extends DefaultSizedThumbnailRenderer {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

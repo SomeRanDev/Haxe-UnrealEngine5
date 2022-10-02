@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimBlueprintGeneratedStruct")
 @:include("Animation/AnimBlueprintGeneratedClass.h")
+@:structAccess
 extern class AnimBlueprintGeneratedStruct extends ScriptStruct {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

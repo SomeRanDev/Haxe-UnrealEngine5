@@ -3,9 +3,12 @@ package ue;
 
 @:native("UParticleModuleVectorFieldScale")
 @:include("Particles/VectorField/ParticleModuleVectorFieldScale.h")
+@:structAccess
 extern class ParticleModuleVectorFieldScale extends ParticleModuleVectorFieldBase {
 	public var VectorFieldScale_DEPRECATED: cpp.Star<DistributionFloat>;
 	public var VectorFieldScaleRaw: RawDistributionFloat;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

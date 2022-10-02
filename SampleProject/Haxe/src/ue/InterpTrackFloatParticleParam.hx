@@ -3,8 +3,11 @@ package ue;
 
 @:native("UInterpTrackFloatParticleParam")
 @:include("Matinee/InterpTrackFloatParticleParam.h")
+@:structAccess
 extern class InterpTrackFloatParticleParam extends InterpTrackFloatBase {
 	public var ParamName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FBuildPromotionImportWorkflowSettings")
 @:include("Tests/AutomationTestSettings.h")
+@:structAccess
 extern class BuildPromotionImportWorkflowSettings {
 	public var Diffuse: EditorImportWorkflowDefinition;
 	public var Normal: EditorImportWorkflowDefinition;
@@ -15,4 +16,6 @@ extern class BuildPromotionImportWorkflowSettings {
 	public var Sound: EditorImportWorkflowDefinition;
 	public var SurroundSound: EditorImportWorkflowDefinition;
 	public var OtherAssetsToImport: TArray<EditorImportWorkflowDefinition>;
+
+	@:native("FBuildPromotionImportWorkflowSettings") public function new();
 }

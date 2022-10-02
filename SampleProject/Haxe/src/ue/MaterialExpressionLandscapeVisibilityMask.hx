@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionLandscapeVisibilityMask")
 @:include("Materials/MaterialExpressionLandscapeVisibilityMask.h")
+@:structAccess
 extern class MaterialExpressionLandscapeVisibilityMask extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

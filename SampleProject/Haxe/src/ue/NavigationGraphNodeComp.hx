@@ -3,10 +3,13 @@ package ue;
 
 @:native("UNavigationGraphNodeComponent")
 @:include("NavGraph/NavigationGraphNodeComponent.h")
+@:structAccess
 extern class NavigationGraphNodeComp extends SceneComp {
 	public var Node: NavGraphNode;
 	public var NextNodeComponent: cpp.Star<NavigationGraphNodeComp>;
 	public var PrevNodeComponent: cpp.Star<NavigationGraphNodeComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

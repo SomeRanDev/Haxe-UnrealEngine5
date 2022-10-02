@@ -3,8 +3,11 @@ package ue;
 
 @:native("AInternalToolFrameworkActor")
 @:include("InteractiveToolObjects.h")
+@:structAccess
 extern class InternalToolFrameworkActor extends Actor {
 	public var bIsSelectableInEditor: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

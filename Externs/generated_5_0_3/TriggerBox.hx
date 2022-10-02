@@ -3,7 +3,10 @@ package ue;
 
 @:native("ATriggerBox")
 @:include("Engine/TriggerBox.h")
+@:structAccess
 extern class TriggerBox extends TriggerBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

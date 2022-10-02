@@ -3,9 +3,12 @@ package ue;
 
 @:native("UActorTextureStreamingBuildDataComponent")
 @:include("Streaming/ActorTextureStreamingBuildDataComponent.h")
+@:structAccess
 extern class ActorTextureStreamingBuildDataComp extends ActorComp {
 	public var StreamableTextures: TArray<StreamableTexture>;
 	public var PackedTextureStreamingQualityLevelFeatureLevel: cpp.UInt32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

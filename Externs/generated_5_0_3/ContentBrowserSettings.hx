@@ -3,6 +3,7 @@ package ue;
 
 @:native("UContentBrowserSettings")
 @:include("Settings/ContentBrowserSettings.h")
+@:structAccess
 extern class ContentBrowserSettings extends Object {
 	public var NumObjectsToLoadBeforeWarning: cpp.Int32;
 	public var bOpenSourcesPanelByDefault: Bool;
@@ -26,6 +27,8 @@ extern class ContentBrowserSettings extends Object {
 	public var IncludeClassNames: Bool;
 	public var IncludeAssetPaths: Bool;
 	public var IncludeCollectionNames: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

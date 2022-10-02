@@ -3,6 +3,7 @@ package ue;
 
 @:native("UInputComponent")
 @:include("Components/InputComponent.h")
+@:structAccess
 extern class InputComp extends ActorComp {
 	public var CachedKeyToActionInfo: TArray<CachedKeyToActionInfo>;
 
@@ -16,6 +17,8 @@ extern class InputComp extends ActorComp {
 	public function GetControllerKeyTimeDown(Key: Key): cpp.Reference<cpp.Float32>;
 	public function GetControllerAnalogStickState(WhichStick: EControllerAnalogStick, StickX: cpp.Reference<cpp.Float32>, StickY: cpp.Reference<cpp.Float32>): Void;
 	public function GetControllerAnalogKeyState(Key: Key): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(WasControllerKeyJustReleased, WasControllerKeyJustPressed, IsControllerKeyDown, GetTouchState, GetControllerVectorKeyState, GetControllerMouseDelta, GetControllerKeyTimeDown, GetControllerAnalogStickState, GetControllerAnalogKeyState)

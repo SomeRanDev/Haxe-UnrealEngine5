@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UApplicationStartupArgumentsDelegate__PythonCallable")
+@:structAccess
 extern class ApplicationStartupArgumentsDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

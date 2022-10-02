@@ -3,7 +3,11 @@ package ue;
 
 @:native("FNiagaraVMExecutableByteCode")
 @:include("NiagaraScript.h")
+@:structAccess
 extern class NiagaraVMExecutableByteCode {
 	public var Data: TArray<cpp.UInt8>;
 	public var UncompressedSize: cpp.Int32;
+
+	@:native("FNiagaraVMExecutableByteCode") public function new();
+	@:native("FNiagaraVMExecutableByteCode") public static function make(Data: TArray<cpp.UInt8>, UncompressedSize: cpp.Int32): NiagaraVMExecutableByteCode ;
 }

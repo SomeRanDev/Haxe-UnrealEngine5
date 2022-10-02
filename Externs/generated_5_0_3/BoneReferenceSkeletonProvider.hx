@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UBoneReferenceSkeletonProvider")
+@:structAccess
 extern class BoneReferenceSkeletonProvider extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

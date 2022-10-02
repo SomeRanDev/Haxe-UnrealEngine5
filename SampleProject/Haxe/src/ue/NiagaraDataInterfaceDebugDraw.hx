@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraDataInterfaceDebugDraw")
 @:include("DataInterface/NiagaraDataInterfaceDebugDraw.h")
+@:structAccess
 extern class NiagaraDataInterfaceDebugDraw extends NiagaraDataInterface {
 	public var OverrideMaxLineInstances: cpp.UInt32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

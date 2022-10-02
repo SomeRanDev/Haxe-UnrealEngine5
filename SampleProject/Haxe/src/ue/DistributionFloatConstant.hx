@@ -3,8 +3,11 @@ package ue;
 
 @:native("UDistributionFloatConstant")
 @:include("Distributions/DistributionFloatConstant.h")
+@:structAccess
 extern class DistributionFloatConstant extends DistributionFloat {
 	public var Constant: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

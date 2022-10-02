@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNavigationLinkBase")
 @:include("AI/Navigation/NavLinkDefinition.h")
+@:structAccess
 extern class NavigationLinkBase {
 	public var LeftProjectHeight: cpp.Float32;
 	public var MaxFallDownLength: cpp.Float32;
@@ -38,4 +39,6 @@ extern class NavigationLinkBase {
 	public var bCustomFlag6: Bool;
 	public var bCustomFlag7: Bool;
 	public var AreaClass: TSubclassOf<NavAreaBase>;
+
+	@:native("FNavigationLinkBase") public function new();
 }

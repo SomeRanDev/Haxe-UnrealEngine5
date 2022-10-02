@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDatasmithObjectTemplate")
 @:include("ObjectTemplates/DatasmithObjectTemplate.h")
+@:structAccess
 extern class DatasmithObjectTemplate extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

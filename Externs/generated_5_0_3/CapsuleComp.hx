@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCapsuleComponent")
 @:include("Components/CapsuleComponent.h")
+@:structAccess
 extern class CapsuleComp extends ShapeComp {
 	public var CapsuleHalfHeight: cpp.Float32;
 	public var CapsuleRadius: cpp.Float32;
@@ -22,6 +23,8 @@ extern class CapsuleComp extends ShapeComp {
 	public function GetScaledCapsuleRadius(): cpp.Reference<cpp.Float32>;
 	public function GetScaledCapsuleHalfHeight_WithoutHemisphere(): cpp.Reference<cpp.Float32>;
 	public function GetScaledCapsuleHalfHeight(): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

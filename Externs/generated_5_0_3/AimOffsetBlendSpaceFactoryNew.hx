@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAimOffsetBlendSpaceFactoryNew")
 @:include("Factories/AimOffsetBlendSpaceFactoryNew.h")
+@:structAccess
 extern class AimOffsetBlendSpaceFactoryNew extends BlendSpaceFactoryNew {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

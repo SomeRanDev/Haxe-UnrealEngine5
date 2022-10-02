@@ -3,6 +3,7 @@ package ue;
 
 @:native("AARSharedWorldGameState")
 @:include("ARSharedWorldGameState.h")
+@:structAccess
 extern class ARSharedWorldGameState extends GameState {
 	public var PreviewImageData: TArray<cpp.UInt8>;
 	public var ARWorldData: TArray<cpp.UInt8>;
@@ -12,6 +13,8 @@ extern class ARSharedWorldGameState extends GameState {
 	public var ARWorldBytesDelivered: cpp.Int32;
 
 	public function K2_OnARWorldMapIsReady(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FDelegateEditorBinding")
 @:include("WidgetBlueprint.h")
+@:structAccess
 extern class DelegateEditorBinding {
 	public var ObjectName: FString;
 	public var PropertyName: FName;
@@ -11,4 +12,6 @@ extern class DelegateEditorBinding {
 	public var SourcePath: EditorPropertyPath;
 	public var MemberGuid: Guid;
 	public var Kind: EBindingKind;
+
+	@:native("FDelegateEditorBinding") public function new();
 }

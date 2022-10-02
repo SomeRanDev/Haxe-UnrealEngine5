@@ -3,7 +3,10 @@ package ue;
 
 @:native("USplineMetadata")
 @:include("Components/SplineComponent.h")
+@:structAccess
 extern class SplineMetadata extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

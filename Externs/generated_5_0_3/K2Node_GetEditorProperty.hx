@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_GetEditorProperty")
 @:include("K2Node_EditorPropertyAccess.h")
+@:structAccess
 extern class K2Node_GetEditorProperty extends K2Node_EditorPropertyAccessBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,11 +3,14 @@ package ue;
 
 @:native("UDEditorParameterValue")
 @:include("MaterialEditor/DEditorParameterValue.h")
+@:structAccess
 extern class DEditorParameterValue extends Object {
 	public var bOverride: Bool;
 	public var ParameterInfo: MaterialParameterInfo;
 	public var ExpressionId: Guid;
 	public var SortPriority: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

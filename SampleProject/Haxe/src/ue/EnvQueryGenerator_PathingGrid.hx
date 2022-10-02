@@ -3,10 +3,13 @@ package ue;
 
 @:native("UEnvQueryGenerator_PathingGrid")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_PathingGrid.h")
+@:structAccess
 extern class EnvQueryGenerator_PathingGrid extends EnvQueryGenerator_SimpleGrid {
 	public var PathToItem: AIDataProviderBoolValue;
 	public var NavigationFilter: TSubclassOf<NavigationQueryFilter>;
 	public var ScanRangeMultiplier: AIDataProviderFloatValue;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

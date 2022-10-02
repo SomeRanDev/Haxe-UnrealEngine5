@@ -3,7 +3,10 @@ package ue;
 
 @:native("UBTAuxiliaryNode")
 @:include("BehaviorTree/BTAuxiliaryNode.h")
+@:structAccess
 extern class BTAuxiliaryNode extends BTNode {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

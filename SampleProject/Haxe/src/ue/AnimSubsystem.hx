@@ -3,5 +3,7 @@ package ue;
 
 @:native("FAnimSubsystem")
 @:include("Animation/AnimSubsystem.h")
+@:structAccess
 extern class AnimSubsystem {
+	@:native("FAnimSubsystem") public function new();
 }

@@ -3,12 +3,15 @@ package ue;
 
 @:native("UNoiseField")
 @:include("Field/FieldSystemObjects.h")
+@:structAccess
 extern class NoiseField extends FieldNodeFloat {
 	public var MinRange: cpp.Float32;
 	public var MaxRange: cpp.Float32;
 	public var Transform: Transform;
 
 	public function SetNoiseField(MinRange: cpp.Float32, MaxRange: cpp.Float32, Transform: Transform): cpp.Reference<cpp.Star<NoiseField>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

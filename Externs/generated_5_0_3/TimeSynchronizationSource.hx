@@ -3,9 +3,12 @@ package ue;
 
 @:native("UTimeSynchronizationSource")
 @:include("TimeSynchronizationSource.h")
+@:structAccess
 extern class TimeSynchronizationSource extends Object {
 	public var bUseForSynchronization: Bool;
 	public var FrameOffset: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

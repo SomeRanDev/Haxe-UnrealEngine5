@@ -3,8 +3,11 @@ package ue;
 
 @:native("USignificanceManager")
 @:include("SignificanceManager.h")
+@:structAccess
 extern class SignificanceManager extends Object {
 	public var SignificanceManagerClassName: SoftClassPath;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

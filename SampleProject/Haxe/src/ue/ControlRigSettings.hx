@@ -3,8 +3,11 @@ package ue;
 
 @:native("UControlRigSettings")
 @:include("Settings/ControlRigSettings.h")
+@:structAccess
 extern class ControlRigSettings extends DeveloperSettings {
 	public var DefaultShapeLibrary: TSoftObjectPtr<ControlRigShapeLibrary>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UDEPRECATED_K2Node_LocalVariable")
 @:include("K2Node_LocalVariable.h")
+@:structAccess
 extern class K2Node_LocalVariable extends K2Node_TemporaryVariable {
 	public var CustomVariableName: FName;
 	public var VariableTooltip: FText;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

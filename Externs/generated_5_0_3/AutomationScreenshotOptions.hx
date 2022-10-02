@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAutomationScreenshotOptions")
 @:include("AutomationScreenshotOptions.h")
+@:structAccess
 extern class AutomationScreenshotOptions {
 	public var Resolution: Vector2D;
 	public var Delay: cpp.Float32;
@@ -18,4 +19,6 @@ extern class AutomationScreenshotOptions {
 	public var MaximumGlobalError: cpp.Float32;
 	public var bIgnoreAntiAliasing: Bool;
 	public var bIgnoreColors: Bool;
+
+	@:native("FAutomationScreenshotOptions") public function new();
 }

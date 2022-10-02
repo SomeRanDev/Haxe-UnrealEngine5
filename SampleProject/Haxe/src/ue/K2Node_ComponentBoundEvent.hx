@@ -3,11 +3,14 @@ package ue;
 
 @:native("UK2Node_ComponentBoundEvent")
 @:include("K2Node_ComponentBoundEvent.h")
+@:structAccess
 extern class K2Node_ComponentBoundEvent extends K2Node_Event {
 	public var DelegatePropertyName: FName;
 	public var DelegateOwnerClass: TSubclassOf<Object>;
 	public var ComponentPropertyName: FName;
 	public var DelegatePropertyDisplayName: FText;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

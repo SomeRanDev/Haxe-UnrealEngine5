@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraCullProxyComponent")
 @:include("NiagaraCullProxyComponent.h")
+@:structAccess
 extern class NiagaraCullProxyComp extends NiagaraComp {
 	public var Instances: TArray<NiagaraCulledComponentInfo>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

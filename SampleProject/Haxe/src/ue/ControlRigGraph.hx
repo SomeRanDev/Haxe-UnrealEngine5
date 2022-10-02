@@ -3,10 +3,13 @@ package ue;
 
 @:native("UControlRigGraph")
 @:include("Graph/ControlRigGraph.h")
+@:structAccess
 extern class ControlRigGraph extends EdGraph {
 	public var ModelNodePath: FString;
 	public var bIsFunctionDefinition: Bool;
 	public var TemplateController: cpp.Star<RigVMController>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

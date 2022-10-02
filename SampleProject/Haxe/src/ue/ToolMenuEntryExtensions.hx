@@ -3,6 +3,7 @@ package ue;
 
 @:native("UToolMenuEntryExtensions")
 @:include("ToolMenusBlueprintLibrary.h")
+@:structAccess
 extern class ToolMenuEntryExtensions extends Object {
 	public function SetToolTip(Target: cpp.Reference<ToolMenuEntry>, ToolTip: cpp.Reference<FText>): Void;
 	public function SetStringCommand(Target: cpp.Reference<ToolMenuEntry>, Type: EToolMenuStringCommandType, CustomType: FName, String: FString): Void;
@@ -17,6 +18,8 @@ extern class ToolMenuEntryExtensions extends Object {
 	public function BreakToolMenuOwner(InValue: cpp.Reference<ToolMenuOwner>, Name: cpp.Reference<FName>): Void;
 	public function BreakStringCommand(InValue: cpp.Reference<ToolMenuStringCommand>, Type: cpp.Reference<EToolMenuStringCommandType>, CustomType: cpp.Reference<FName>, String: cpp.Reference<FString>): Void;
 	public function BreakScriptSlateIcon(InValue: cpp.Reference<ScriptSlateIcon>, StyleSetName: cpp.Reference<FName>, StyleName: cpp.Reference<FName>, SmallStyleName: cpp.Reference<FName>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

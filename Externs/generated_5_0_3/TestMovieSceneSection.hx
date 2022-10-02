@@ -3,7 +3,10 @@ package ue;
 
 @:native("UTestMovieSceneSection")
 @:include("Tests/MovieSceneTestObjects.h")
+@:structAccess
 extern class TestMovieSceneSection extends MovieSceneSection {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

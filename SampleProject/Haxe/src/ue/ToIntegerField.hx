@@ -3,10 +3,13 @@ package ue;
 
 @:native("UToIntegerField")
 @:include("Field/FieldSystemObjects.h")
+@:structAccess
 extern class ToIntegerField extends FieldNodeInt {
 	public var FloatField: cpp.Star<FieldNodeFloat>;
 
 	public function SetToIntegerField(FloatField: cpp.Star<FieldNodeFloat.ConstFieldNodeFloat>): cpp.Reference<cpp.Star<ToIntegerField>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

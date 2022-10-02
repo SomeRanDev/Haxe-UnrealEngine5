@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPawnMovementComponent")
 @:include("GameFramework/PawnMovementComponent.h")
+@:structAccess
 extern class PawnMovementComp extends NavMovementComp {
 	public var PawnOwner: cpp.Star<Pawn>;
 
@@ -12,6 +13,8 @@ extern class PawnMovementComp extends NavMovementComp {
 	public function GetLastInputVector(): cpp.Reference<Vector>;
 	public function ConsumeInputVector(): cpp.Reference<Vector>;
 	public function AddInputVector(WorldVector: Vector, bForce: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsMoveInputIgnored, GetPendingInputVector, GetPawnOwner, GetLastInputVector)

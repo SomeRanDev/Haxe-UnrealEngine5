@@ -3,12 +3,15 @@ package ue;
 
 @:native("UNiagaraParameterCollection")
 @:include("NiagaraParameterCollection.h")
+@:structAccess
 extern class NiagaraParameterCollection extends Object {
 	public var Namespace: FName;
 	public var Parameters: TArray<NiagaraVariable>;
 	public var SourceMaterialCollection: cpp.Star<MaterialParameterCollection>;
 	public var DefaultInstance: cpp.Star<NiagaraParameterCollectionInstance>;
 	public var CompileId: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

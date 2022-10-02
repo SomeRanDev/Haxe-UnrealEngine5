@@ -3,7 +3,10 @@ package ue;
 
 @:native("UTransBuffer")
 @:include("Editor/TransBuffer.h")
+@:structAccess
 extern class TransBuffer extends Transactor {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

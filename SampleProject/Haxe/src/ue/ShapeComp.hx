@@ -3,6 +3,7 @@ package ue;
 
 @:native("UShapeComponent")
 @:include("Components/ShapeComponent.h")
+@:structAccess
 extern class ShapeComp extends PrimitiveComp {
 	public var ShapeBodySetup: cpp.Star<BodySetup>;
 	public var AreaClass: TSubclassOf<NavAreaBase>;
@@ -10,6 +11,8 @@ extern class ShapeComp extends PrimitiveComp {
 	public var bDrawOnlyIfSelected: Bool;
 	public var bShouldCollideWhenPlacing: Bool;
 	public var bDynamicObstacle: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPartyBeaconState")
 @:include("PartyBeaconState.h")
+@:structAccess
 extern class PartyBeaconState extends Object {
 	public var SessionName: FName;
 	public var NumConsumedReservations: cpp.Int32;
@@ -17,6 +18,8 @@ extern class PartyBeaconState extends Object {
 	public var PlatformTypeMapping: TArray<PartyBeaconCrossplayPlatformMapping>;
 	public var bEnableRemovalRequests: Bool;
 	public var Reservations: TArray<PartyReservation>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

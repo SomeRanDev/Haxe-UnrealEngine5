@@ -2,7 +2,10 @@
 package ue;
 
 @:native("USparseDelegateFunction")
+@:structAccess
 extern class SparseDelegateFunction extends DelegateFunction {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

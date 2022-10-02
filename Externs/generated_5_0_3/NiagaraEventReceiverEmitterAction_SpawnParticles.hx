@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraEventReceiverEmitterAction_SpawnParticles")
 @:include("NiagaraEvents.h")
+@:structAccess
 extern class NiagaraEventReceiverEmitterAction_SpawnParticles extends NiagaraEventReceiverEmitterAction {
 	public var NumParticles: cpp.UInt32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

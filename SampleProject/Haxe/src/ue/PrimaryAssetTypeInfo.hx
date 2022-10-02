@@ -3,6 +3,7 @@ package ue;
 
 @:native("FPrimaryAssetTypeInfo")
 @:include("Engine/AssetManagerTypes.h")
+@:structAccess
 extern class PrimaryAssetTypeInfo {
 	public var PrimaryAssetType: FName;
 	public var AssetBaseClass: TSoftClassPtr<Class>;
@@ -15,4 +16,6 @@ extern class PrimaryAssetTypeInfo {
 	public var AssetScanPaths: TArray<FString>;
 	public var bIsDynamicAsset: Bool;
 	public var NumberOfAssets: cpp.Int32;
+
+	@:native("FPrimaryAssetTypeInfo") public function new();
 }

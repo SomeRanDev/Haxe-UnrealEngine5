@@ -3,10 +3,13 @@ package ue;
 
 @:native("UBoxReflectionCaptureComponent")
 @:include("Components/BoxReflectionCaptureComponent.h")
+@:structAccess
 extern class BoxReflectionCaptureComp extends ReflectionCaptureComp {
 	public var BoxTransitionDistance: cpp.Float32;
 	public var PreviewInfluenceBox: cpp.Star<BoxComp>;
 	public var PreviewCaptureBox: cpp.Star<BoxComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

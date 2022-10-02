@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBTTask_BlackboardBase")
 @:include("BehaviorTree/Tasks/BTTask_BlackboardBase.h")
+@:structAccess
 extern class BTTask_BlackboardBase extends BTTaskNode {
 	public var BlackboardKey: BlackboardKeySelector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

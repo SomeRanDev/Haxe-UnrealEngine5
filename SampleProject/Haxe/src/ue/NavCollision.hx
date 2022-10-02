@@ -3,12 +3,15 @@ package ue;
 
 @:native("UNavCollision")
 @:include("NavCollision.h")
+@:structAccess
 extern class NavCollision extends NavCollisionBase {
 	public var CylinderCollision: TArray<NavCollisionCylinder>;
 	public var BoxCollision: TArray<NavCollisionBox>;
 	public var AreaClass: TSubclassOf<NavArea>;
 	public var bGatherConvexGeometry: Bool;
 	public var bCreateOnClient: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

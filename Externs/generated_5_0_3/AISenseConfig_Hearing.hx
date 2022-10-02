@@ -3,12 +3,15 @@ package ue;
 
 @:native("UAISenseConfig_Hearing")
 @:include("Perception/AISenseConfig_Hearing.h")
+@:structAccess
 extern class AISenseConfig_Hearing extends AISenseConfig {
 	public var Implementation: TSubclassOf<AISense_Hearing>;
 	public var HearingRange: cpp.Float32;
 	public var LoSHearingRange: cpp.Float32;
 	public var bUseLoSHearing: Bool;
 	public var DetectionByAffiliation: AISenseAffiliationFilter;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

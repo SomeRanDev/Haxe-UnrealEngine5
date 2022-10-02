@@ -3,8 +3,11 @@ package ue;
 
 @:native("UPacketHandlerProfileConfig")
 @:include("PacketHandlerProfileConfig.h")
+@:structAccess
 extern class PacketHandlerProfileConfig extends Object {
 	public var Components: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

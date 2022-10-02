@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionTime")
 @:include("Materials/MaterialExpressionTime.h")
+@:structAccess
 extern class MaterialExpressionTime extends MaterialExpression {
 	public var bIgnorePause: Bool;
 	public var bOverride_Period: Bool;
 	public var Period: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

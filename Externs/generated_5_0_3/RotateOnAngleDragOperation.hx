@@ -3,7 +3,10 @@ package ue;
 
 @:native("URotateOnAngleDragOperation")
 @:include("ViewportInteractionDragOperations.h")
+@:structAccess
 extern class RotateOnAngleDragOperation extends ViewportDragOperation {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

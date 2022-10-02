@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDatasmithVREDSceneImportData")
 @:include("DatasmithAssetImportData.h")
+@:structAccess
 extern class DatasmithVREDSceneImportData extends DatasmithFBXSceneImportData {
 	public var bMergeNodes: Bool;
 	public var bOptimizeDuplicatedNodes: Bool;
@@ -15,6 +16,8 @@ extern class DatasmithVREDSceneImportData extends DatasmithFBXSceneImportData {
 	public var LightInfoPath: FString;
 	public var bImportClipInfo: Bool;
 	public var ClipInfoPath: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

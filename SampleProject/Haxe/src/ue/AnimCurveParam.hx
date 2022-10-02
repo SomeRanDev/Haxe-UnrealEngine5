@@ -3,6 +3,10 @@ package ue;
 
 @:native("FAnimCurveParam")
 @:include("Animation/AnimCurveTypes.h")
+@:structAccess
 extern class AnimCurveParam {
 	public var Name: FName;
+
+	@:native("FAnimCurveParam") public function new();
+	@:native("FAnimCurveParam") public static function make(Name: FName): AnimCurveParam ;
 }

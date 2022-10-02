@@ -3,8 +3,11 @@ package ue;
 
 @:native("UActorFactoryEmptyActor")
 @:include("ActorFactories/ActorFactoryEmptyActor.h")
+@:structAccess
 extern class ActorFactoryEmptyActor extends ActorFactory {
 	public var bVisualizeActor: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

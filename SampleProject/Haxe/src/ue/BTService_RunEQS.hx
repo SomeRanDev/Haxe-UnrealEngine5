@@ -3,9 +3,12 @@ package ue;
 
 @:native("UBTService_RunEQS")
 @:include("BehaviorTree/Services/BTService_RunEQS.h")
+@:structAccess
 extern class BTService_RunEQS extends BTService_BlackboardBase {
 	public var EQSRequest: EQSParametrizedQueryExecutionRequest;
 	public var bUpdateBBOnFail: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

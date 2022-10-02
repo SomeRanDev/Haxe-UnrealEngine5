@@ -3,10 +3,13 @@ package ue;
 
 @:native("UK2Node_MacroInstance")
 @:include("K2Node_MacroInstance.h")
+@:structAccess
 extern class K2Node_MacroInstance extends K2Node_Tunnel {
 	public var MacroGraph_DEPRECATED: cpp.Star<EdGraph>;
 	public var MacroGraphReference: GraphReference;
 	public var ResolvedWildcardType: EdGraphPinType;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

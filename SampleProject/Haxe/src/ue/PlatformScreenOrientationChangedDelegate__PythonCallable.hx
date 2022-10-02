@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UPlatformScreenOrientationChangedDelegate__PythonCallable")
+@:structAccess
 extern class PlatformScreenOrientationChangedDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -2,8 +2,11 @@
 package ue;
 
 @:native("USoundSubmixWidgetInterface")
+@:structAccess
 extern class SoundSubmixWidgetInterface extends Interface {
 	public function OnConstructed(SoundSubmix: cpp.Star<SoundSubmixBase>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

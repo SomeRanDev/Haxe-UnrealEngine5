@@ -3,6 +3,7 @@ package ue;
 
 @:native("FLocationServicesData")
 @:include("LocationServicesBPLibrary.h")
+@:structAccess
 extern class LocationServicesData {
 	public var Timestamp: cpp.Float32;
 	public var Longitude: cpp.Float32;
@@ -10,4 +11,6 @@ extern class LocationServicesData {
 	public var HorizontalAccuracy: cpp.Float32;
 	public var VerticalAccuracy: cpp.Float32;
 	public var Altitude: cpp.Float32;
+
+	@:native("FLocationServicesData") public function new();
 }

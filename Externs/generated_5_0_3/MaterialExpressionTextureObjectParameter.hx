@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionTextureObjectParameter")
 @:include("Materials/MaterialExpressionTextureObjectParameter.h")
+@:structAccess
 extern class MaterialExpressionTextureObjectParameter extends MaterialExpressionTextureSampleParameter {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

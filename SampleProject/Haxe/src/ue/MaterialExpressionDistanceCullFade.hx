@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionDistanceCullFade")
 @:include("Materials/MaterialExpressionDistanceCullFade.h")
+@:structAccess
 extern class MaterialExpressionDistanceCullFade extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

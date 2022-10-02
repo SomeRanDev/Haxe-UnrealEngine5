@@ -3,8 +3,11 @@ package ue;
 
 @:native("UPackageTools")
 @:include("PackageTools.h")
+@:structAccess
 extern class PackageTools extends Object {
 	public function SanitizePackageName(InPackageName: FString): cpp.Reference<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

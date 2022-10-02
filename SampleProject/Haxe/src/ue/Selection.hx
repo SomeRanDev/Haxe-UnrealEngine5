@@ -3,8 +3,11 @@ package ue;
 
 @:native("USelection")
 @:include("Selection.h")
+@:structAccess
 extern class Selection extends Object {
 	public var ElementSelectionSet: cpp.Star<TypedElementSelectionSet>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

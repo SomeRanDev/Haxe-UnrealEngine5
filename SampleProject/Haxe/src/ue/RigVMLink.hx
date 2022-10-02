@@ -3,6 +3,7 @@ package ue;
 
 @:native("URigVMLink")
 @:include("RigVMModel/RigVMLink.h")
+@:structAccess
 extern class RigVMLink extends Object {
 	public var SourcePinPath: FString;
 	public var TargetPinPath: FString;
@@ -12,6 +13,8 @@ extern class RigVMLink extends Object {
 	public function GetPinPathRepresentation(): cpp.Reference<FString>;
 	public function GetLinkIndex(): cpp.Reference<cpp.Int32>;
 	public function GetGraph(): cpp.Reference<cpp.Star<RigVMGraph>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetLinkIndex, GetGraph)

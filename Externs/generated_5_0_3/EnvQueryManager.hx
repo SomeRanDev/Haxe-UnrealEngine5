@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEnvQueryManager")
 @:include("EnvironmentQuery/EnvQueryManager.h")
+@:structAccess
 extern class EnvQueryManager extends AISubsystem {
 	public var InstanceCache: TArray<EnvQueryInstanceCache>;
 	public var LocalContexts: TArray<cpp.Star<EnvQueryContext>>;
@@ -16,6 +17,8 @@ extern class EnvQueryManager extends AISubsystem {
 	public var GenerationTimeWarningSeconds: cpp.Float64;
 
 	public function RunEQSQuery(WorldContextObject: cpp.Star<Object>, QueryTemplate: cpp.Star<EnvQuery>, Querier: cpp.Star<Object>, RunMode: EEnvQueryRunMode, WrapperClass: TSubclassOf<EnvQueryInstanceBlueprintWrapper>): cpp.Reference<cpp.Star<EnvQueryInstanceBlueprintWrapper>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

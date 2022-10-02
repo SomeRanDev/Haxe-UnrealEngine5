@@ -3,10 +3,13 @@ package ue;
 
 @:native("UTetrahedronBuilder")
 @:include("Builders/TetrahedronBuilder.h")
+@:structAccess
 extern class TetrahedronBuilder extends EditorBrushBuilder {
 	public var Radius: cpp.Float32;
 	public var SphereExtrapolation: cpp.Int32;
 	public var GroupName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

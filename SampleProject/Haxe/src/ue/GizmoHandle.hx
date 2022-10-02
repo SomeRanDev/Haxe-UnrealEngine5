@@ -3,5 +3,7 @@ package ue;
 
 @:native("FGizmoHandle")
 @:include("VIGizmoHandle.h")
+@:structAccess
 extern class GizmoHandle {
+	@:native("FGizmoHandle") public function new();
 }

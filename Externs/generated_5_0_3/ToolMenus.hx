@@ -3,6 +3,7 @@ package ue;
 
 @:native("UToolMenus")
 @:include("ToolMenus.h")
+@:structAccess
 extern class ToolMenus extends Object {
 	public var CustomizedMenus: TArray<CustomizedToolMenu>;
 	public var MenuSubstitutionsDuringGenerate: TMap<FName, FName>;
@@ -23,6 +24,8 @@ extern class ToolMenus extends Object {
 	public function FindContext(InContext: cpp.Reference<ToolMenuContext>, InClass: cpp.Star<Class>): cpp.Reference<cpp.Star<Object>>;
 	public function ExtendMenu(Name: FName): cpp.Reference<cpp.Star<ToolMenu>>;
 	public function AddMenuEntryObject(MenuEntryObject: cpp.Star<ToolMenuEntryScript>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsMenuRegistered)

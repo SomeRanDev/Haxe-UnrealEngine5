@@ -3,8 +3,12 @@ package ue;
 
 @:native("FCompositeFont")
 @:include("Fonts/CompositeFont.h")
+@:structAccess
 extern class CompositeFont {
 	public var DefaultTypeface: Typeface;
 	public var FallbackTypeface: CompositeFallbackFont;
 	public var SubTypefaces: TArray<CompositeSubFont>;
+
+	@:native("FCompositeFont") public function new();
+	@:native("FCompositeFont") public static function make(DefaultTypeface: Typeface, FallbackTypeface: CompositeFallbackFont, SubTypefaces: TArray<CompositeSubFont>): CompositeFont ;
 }

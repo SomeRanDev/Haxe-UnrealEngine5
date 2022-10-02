@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNavLinkDefinition")
 @:include("AI/Navigation/NavLinkDefinition.h")
+@:structAccess
 extern class NavLinkDefinition extends Object {
 	public var Links: TArray<NavigationLink>;
 	public var SegmentLinks: TArray<NavigationSegmentLink>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

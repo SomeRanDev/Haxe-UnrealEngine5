@@ -3,6 +3,7 @@ package ue;
 
 @:native("FARFilter")
 @:include("UObject/NoExportTypes.h")
+@:structAccess
 extern class ARFilter {
 	public var PackageNames: TArray<FName>;
 	public var PackagePaths: TArray<FName>;
@@ -12,4 +13,6 @@ extern class ARFilter {
 	public var bRecursivePaths: Bool;
 	public var bRecursiveClasses: Bool;
 	public var bIncludeOnlyOnDiskAssets: Bool;
+
+	@:native("FARFilter") public function new();
 }

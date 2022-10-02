@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraVersionMetaData")
 @:include("NiagaraVersionMetaData.h")
+@:structAccess
 extern class NiagaraVersionMetaData extends Object {
 	public var bIsExposedVersion: Bool;
 	public var ChangeDescription: FText;
@@ -11,6 +12,8 @@ extern class NiagaraVersionMetaData extends Object {
 	public var UpdateScriptExecution: ENiagaraPythonUpdateScriptReference;
 	public var PythonUpdateScript: FString;
 	public var ScriptAsset: FilePath;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

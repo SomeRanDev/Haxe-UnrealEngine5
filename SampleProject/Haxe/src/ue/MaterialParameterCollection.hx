@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialParameterCollection")
 @:include("Materials/MaterialParameterCollection.h")
+@:structAccess
 extern class MaterialParameterCollection extends Object {
 	public var StateId: Guid;
 	public var ScalarParameters: TArray<CollectionScalarParameter>;
@@ -12,6 +13,8 @@ extern class MaterialParameterCollection extends Object {
 	public function GetVectorParameterDefaultValue(ParameterName: FName, bParameterFound: cpp.Reference<Bool>): cpp.Reference<LinearColor>;
 	public function GetScalarParameterNames(): cpp.Reference<TArray<FName>>;
 	public function GetScalarParameterDefaultValue(ParameterName: FName, bParameterFound: cpp.Reference<Bool>): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

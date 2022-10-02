@@ -3,8 +3,12 @@ package ue;
 
 @:native("FARSkeletonDefinition")
 @:include("ARTypes.h")
+@:structAccess
 extern class ARSkeletonDefinition {
 	public var NumJoints: cpp.Int32;
 	public var JointNames: TArray<FName>;
 	public var ParentIndices: TArray<cpp.Int32>;
+
+	@:native("FARSkeletonDefinition") public function new();
+	@:native("FARSkeletonDefinition") public static function make(NumJoints: cpp.Int32, JointNames: TArray<FName>, ParentIndices: TArray<cpp.Int32>): ARSkeletonDefinition ;
 }

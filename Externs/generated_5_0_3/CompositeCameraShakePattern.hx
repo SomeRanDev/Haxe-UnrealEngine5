@@ -3,8 +3,11 @@ package ue;
 
 @:native("UCompositeCameraShakePattern")
 @:include("CompositeCameraShakePattern.h")
+@:structAccess
 extern class CompositeCameraShakePattern extends CameraShakePattern {
 	public var ChildPatterns: TArray<cpp.Star<CameraShakePattern>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

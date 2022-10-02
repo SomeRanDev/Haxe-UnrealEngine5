@@ -3,9 +3,12 @@ package ue;
 
 @:native("ANiagaraPreviewBase")
 @:include("NiagaraPreviewGrid.h")
+@:structAccess
 extern class NiagaraPreviewBase extends Actor {
 	public function SetSystem(InSystem: cpp.Star<NiagaraSystem>): Void;
 	public function SetLabelText(InXAxisText: cpp.Reference<FText>, InYAxisText: cpp.Reference<FText>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

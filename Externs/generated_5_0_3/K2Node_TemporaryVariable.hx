@@ -3,9 +3,12 @@ package ue;
 
 @:native("UK2Node_TemporaryVariable")
 @:include("K2Node_TemporaryVariable.h")
+@:structAccess
 extern class K2Node_TemporaryVariable extends K2Node {
 	public var VariableType: EdGraphPinType;
 	public var bIsPersistent: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

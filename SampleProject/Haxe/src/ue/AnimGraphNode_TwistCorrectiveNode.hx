@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_TwistCorrectiveNode")
 @:include("AnimGraphNode_TwistCorrectiveNode.h")
+@:structAccess
 extern class AnimGraphNode_TwistCorrectiveNode extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_TwistCorrectiveNode;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

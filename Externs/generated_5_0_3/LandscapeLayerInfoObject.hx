@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULandscapeLayerInfoObject")
 @:include("LandscapeLayerInfoObject.h")
+@:structAccess
 extern class LandscapeLayerInfoObject extends Object {
 	public var LayerName: FName;
 	public var PhysMaterial: cpp.Star<PhysicalMaterial>;
@@ -16,6 +17,8 @@ extern class LandscapeLayerInfoObject extends Object {
 	public var SplineFalloffModulationScale: cpp.Float32;
 	public var IsReferencedFromLoadedData: Bool;
 	public var LayerUsageDebugColor: LinearColor;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

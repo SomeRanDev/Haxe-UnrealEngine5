@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULandscapeSplineControlPoint")
 @:include("LandscapeSplineControlPoint.h")
+@:structAccess
 extern class LandscapeSplineControlPoint extends Object {
 	public var Location: Vector;
 	public var Rotation: Rotator;
@@ -45,6 +46,8 @@ extern class LandscapeSplineControlPoint extends Object {
 	public var LocalMeshComponent: cpp.Star<ControlPointMeshComp>;
 	public var ForeignWorld: TSoftObjectPtr<World>;
 	public var ModificationKey: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

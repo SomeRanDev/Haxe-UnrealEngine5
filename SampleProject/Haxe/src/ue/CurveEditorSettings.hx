@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCurveEditorSettings")
 @:include("CurveEditorSettings.h")
+@:structAccess
 extern class CurveEditorSettings extends Object {
 	public var bAutoFrameCurveEditor: Bool;
 	public var FrameInputPadding: cpp.Int32;
@@ -14,6 +15,8 @@ extern class CurveEditorSettings extends Object {
 	public var ParentSpaceCustomColor: LinearColor;
 	public var WorldSpaceCustomColor: LinearColor;
 	public var ControlSpaceCustomColors: TArray<CustomColorForSpaceSwitch>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

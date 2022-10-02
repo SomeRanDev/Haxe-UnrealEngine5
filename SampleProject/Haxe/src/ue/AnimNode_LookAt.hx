@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_LookAt")
 @:include("BoneControllers/AnimNode_LookAt.h")
+@:structAccess
 extern class AnimNode_LookAt extends AnimNode_SkeletalControlBase {
 	public var BoneToModify: BoneReference;
 	public var LookAtTarget: BoneSocketTarget;
@@ -20,4 +21,6 @@ extern class AnimNode_LookAt extends AnimNode_SkeletalControlBase {
 	public var CustomLookAtAxis_DEPRECATED: Vector;
 	public var LookUpAxis_DEPRECATED: EAxisOption;
 	public var CustomLookUpAxis_DEPRECATED: Vector;
+
+	@:native("FAnimNode_LookAt") public function new();
 }

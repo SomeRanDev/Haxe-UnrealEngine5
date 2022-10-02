@@ -3,6 +3,7 @@ package ue;
 
 @:native("ALightWeightInstanceManager")
 @:include("GameFramework/LightWeightInstanceManager.h")
+@:structAccess
 extern class LightWeightInstanceManager extends Actor {
 	public var RepresentedClass: TSubclassOf<Actor>;
 	public var AcceptedClass: TSubclassOf<Actor>;
@@ -11,6 +12,8 @@ extern class LightWeightInstanceManager extends Actor {
 	public var ValidIndices: TArray<Bool>;
 
 	public function OnRep_Transforms(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

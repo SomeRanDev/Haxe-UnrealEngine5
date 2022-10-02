@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBlueprint")
 @:include("Engine/Blueprint.h")
+@:structAccess
 extern class Blueprint extends BlueprintCore {
 	public var ParentClass: TSubclassOf<Object>;
 	public var BlueprintType: EBlueprintType;
@@ -62,6 +63,8 @@ extern class Blueprint extends BlueprintCore {
 	public var CachedDependents: TSet<TWeakObjectPtr<Blueprint>>;
 	public var CachedUDSDependencies: TSet<TWeakObjectPtr<Struct>>;
 	public var OriginalClass: TSubclassOf<Object>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

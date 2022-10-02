@@ -3,8 +3,11 @@ package ue;
 
 @:native("ULocalizationTarget")
 @:include("LocalizationTargetTypes.h")
+@:structAccess
 extern class LocalizationTarget extends Object {
 	public var Settings: LocalizationTargetSettings;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

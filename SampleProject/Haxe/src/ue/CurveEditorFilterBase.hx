@@ -3,7 +3,10 @@ package ue;
 
 @:native("UCurveEditorFilterBase")
 @:include("Filters/CurveEditorFilterBase.h")
+@:structAccess
 extern class CurveEditorFilterBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

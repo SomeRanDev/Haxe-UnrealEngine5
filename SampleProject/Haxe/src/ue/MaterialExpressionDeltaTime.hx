@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionDeltaTime")
 @:include("Materials/MaterialExpressionDeltaTime.h")
+@:structAccess
 extern class MaterialExpressionDeltaTime extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,10 @@ package ue;
 
 @:native("FMovieSceneCVarOverrides")
 @:include("Sections/MovieSceneCVarSection.h")
+@:structAccess
 extern class MovieSceneCVarOverrides {
 	public var ValuesByCVar: TMap<FString, FString>;
+
+	@:native("FMovieSceneCVarOverrides") public function new();
+	@:native("FMovieSceneCVarOverrides") public static function make(ValuesByCVar: TMap<FString, FString>): MovieSceneCVarOverrides ;
 }

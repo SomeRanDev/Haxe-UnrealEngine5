@@ -3,9 +3,12 @@ package ue;
 
 @:native("UBlueprintVariableNodeSpawner")
 @:include("BlueprintVariableNodeSpawner.h")
+@:structAccess
 extern class BlueprintVariableNodeSpawner extends BlueprintFieldNodeSpawner {
 	public var LocalVarOuter: cpp.Star<EdGraph>;
 	public var LocalVarDesc: BPVariableDescription;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

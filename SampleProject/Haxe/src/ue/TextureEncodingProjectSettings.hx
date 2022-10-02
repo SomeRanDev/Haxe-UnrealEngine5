@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTextureEncodingProjectSettings")
 @:include("TextureEncodingSettings.h")
+@:structAccess
 extern class TextureEncodingProjectSettings extends DeveloperSettings {
 	public var bFinalUsesRDO: Bool;
 	public var FinalRDOLambda: cpp.Int8;
@@ -14,6 +15,8 @@ extern class TextureEncodingProjectSettings extends DeveloperSettings {
 	public var FastUniversalTiling: ETextureUniversalTiling;
 	public var CookUsesSpeed: ETextureEncodeSpeed;
 	public var EditorUsesSpeed: ETextureEncodeSpeed;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

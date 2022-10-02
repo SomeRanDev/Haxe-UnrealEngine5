@@ -2,7 +2,10 @@
 package ue;
 
 @:native("ABP_ThirdPersonCharacter_C")
+@:structAccess
 extern class BP_ThirdPersonCharacter_C extends HaxeForUnrealCharacter {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

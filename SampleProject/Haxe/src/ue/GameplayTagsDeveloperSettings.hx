@@ -3,9 +3,12 @@ package ue;
 
 @:native("UGameplayTagsDeveloperSettings")
 @:include("GameplayTagsSettings.h")
+@:structAccess
 extern class GameplayTagsDeveloperSettings extends DeveloperSettings {
 	public var DeveloperConfigName: FString;
 	public var FavoriteTagSource: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

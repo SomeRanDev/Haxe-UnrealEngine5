@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPythonScriptPluginSettings")
 @:include("PythonScriptPluginSettings.h")
+@:structAccess
 extern class PythonScriptPluginSettings extends DeveloperSettings {
 	public var StartupScripts: TArray<FString>;
 	public var AdditionalPaths: TArray<DirectoryPath>;
@@ -14,6 +15,8 @@ extern class PythonScriptPluginSettings extends DeveloperSettings {
 	public var RemoteExecutionSendBufferSizeBytes: cpp.Int32;
 	public var RemoteExecutionReceiveBufferSizeBytes: cpp.Int32;
 	public var RemoteExecutionMulticastTtl: cpp.UInt8;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

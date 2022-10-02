@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAISenseConfig_Blueprint")
 @:include("Perception/AISenseConfig_Blueprint.h")
+@:structAccess
 extern class AISenseConfig_Blueprint extends AISenseConfig {
 	public var Implementation: TSubclassOf<AISense_Blueprint>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

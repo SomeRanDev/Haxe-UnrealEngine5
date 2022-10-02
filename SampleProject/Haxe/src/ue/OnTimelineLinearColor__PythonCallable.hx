@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnTimelineLinearColor__PythonCallable")
+@:structAccess
 extern class OnTimelineLinearColor__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

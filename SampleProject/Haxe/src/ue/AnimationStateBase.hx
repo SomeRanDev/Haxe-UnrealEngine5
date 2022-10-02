@@ -3,6 +3,10 @@ package ue;
 
 @:native("FAnimationStateBase")
 @:include("Animation/AnimStateMachineTypes.h")
+@:structAccess
 extern class AnimationStateBase {
 	public var StateName: FName;
+
+	@:native("FAnimationStateBase") public function new();
+	@:native("FAnimationStateBase") public static function make(StateName: FName): AnimationStateBase ;
 }

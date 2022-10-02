@@ -3,12 +3,15 @@ package ue;
 
 @:native("UTypedElementSelectionSetLibrary")
 @:include("Elements/Framework/TypedElementSelectionSetLibrary.h")
+@:structAccess
 extern class TypedElementSelectionSetLibrary extends Object {
 	public function SetSelectionFromList(SelectionSet: cpp.Star<TypedElementSelectionSet>, ElementList: ScriptTypedElementListProxy, SelectionOptions: TypedElementSelectionOptions): cpp.Reference<Bool>;
 	public function SelectElementsFromList(SelectionSet: cpp.Star<TypedElementSelectionSet>, ElementList: ScriptTypedElementListProxy, SelectionOptions: TypedElementSelectionOptions): cpp.Reference<Bool>;
 	public function GetNormalizedSelection(SelectionSet: cpp.Star<TypedElementSelectionSet>, NormalizationOptions: TypedElementSelectionNormalizationOptions): cpp.Reference<ScriptTypedElementListProxy>;
 	public function GetNormalizedElementList(SelectionSet: cpp.Star<TypedElementSelectionSet>, ElementList: ScriptTypedElementListProxy, NormalizationOptions: TypedElementSelectionNormalizationOptions): cpp.Reference<ScriptTypedElementListProxy>;
 	public function DeselectElementsFromList(SelectionSet: cpp.Star<TypedElementSelectionSet>, ElementList: ScriptTypedElementListProxy, SelectionOptions: TypedElementSelectionOptions): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

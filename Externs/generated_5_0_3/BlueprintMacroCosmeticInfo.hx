@@ -3,5 +3,7 @@ package ue;
 
 @:native("FBlueprintMacroCosmeticInfo")
 @:include("Engine/Blueprint.h")
+@:structAccess
 extern class BlueprintMacroCosmeticInfo {
+	@:native("FBlueprintMacroCosmeticInfo") public function new();
 }

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UGizmoGroupObject")
 @:include("EditorGizmos/GizmoGroupObject.h")
+@:structAccess
 extern class GizmoGroupObject extends GizmoBaseObject {
 	public var Objects: TArray<cpp.Star<GizmoBaseObject>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

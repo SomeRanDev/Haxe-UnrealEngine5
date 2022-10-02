@@ -3,8 +3,11 @@ package ue;
 
 @:native("UImageWriteBlueprintLibrary")
 @:include("ImageWriteBlueprintLibrary.h")
+@:structAccess
 extern class ImageWriteBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function ExportToDisk(Texture: cpp.Star<Texture>, Filename: FString, Options: cpp.Reference<ImageWriteOptions>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

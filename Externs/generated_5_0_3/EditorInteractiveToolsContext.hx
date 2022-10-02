@@ -3,8 +3,11 @@ package ue;
 
 @:native("UEditorInteractiveToolsContext")
 @:include("EdModeInteractiveToolsContext.h")
+@:structAccess
 extern class EditorInteractiveToolsContext extends InteractiveToolsContext {
 	public var StandardVertexColorMaterial: cpp.Star<MaterialInterface>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

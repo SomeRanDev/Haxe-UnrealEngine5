@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UPhysicsDataSource")
+@:structAccess
 extern class PhysicsDataSource extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

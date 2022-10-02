@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAISense_Touch")
 @:include("Perception/AISense_Touch.h")
+@:structAccess
 extern class AISense_Touch extends AISense {
 	public var RegisteredEvents: TArray<AITouchEvent>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

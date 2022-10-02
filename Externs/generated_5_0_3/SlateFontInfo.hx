@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSlateFontInfo")
 @:include("Fonts/SlateFontInfo.h")
+@:structAccess
 extern class SlateFontInfo {
 	public var FontObject: cpp.Star<Object>;
 	public var FontMaterial: cpp.Star<Object>;
@@ -12,4 +13,6 @@ extern class SlateFontInfo {
 	public var LetterSpacing: cpp.Int32;
 	public var FontName_DEPRECATED: FName;
 	public var Hinting_DEPRECATED: EFontHinting;
+
+	@:native("FSlateFontInfo") public function new();
 }

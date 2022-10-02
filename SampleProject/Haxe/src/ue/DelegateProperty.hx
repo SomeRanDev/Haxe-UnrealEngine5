@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UDelegateProperty")
+@:structAccess
 extern class DelegateProperty extends Property {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

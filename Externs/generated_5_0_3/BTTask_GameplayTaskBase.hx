@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBTTask_GameplayTaskBase")
 @:include("BehaviorTree/Tasks/BTTask_GameplayTaskBase.h")
+@:structAccess
 extern class BTTask_GameplayTaskBase extends BTTaskNode {
 	public var bWaitForGameplayTask: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

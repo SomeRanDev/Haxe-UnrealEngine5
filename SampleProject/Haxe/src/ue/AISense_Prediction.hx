@@ -3,11 +3,14 @@ package ue;
 
 @:native("UAISense_Prediction")
 @:include("Perception/AISense_Prediction.h")
+@:structAccess
 extern class AISense_Prediction extends AISense {
 	public var RegisteredEvents: TArray<AIPredictionEvent>;
 
 	public function RequestPawnPredictionEvent(Requestor: cpp.Star<Pawn>, PredictedActor: cpp.Star<Actor>, PredictionTime: cpp.Float32): Void;
 	public function RequestControllerPredictionEvent(Requestor: cpp.Star<AIController>, PredictedActor: cpp.Star<Actor>, PredictionTime: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

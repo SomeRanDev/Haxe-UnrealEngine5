@@ -3,11 +3,14 @@ package ue;
 
 @:native("UInterpTrackVisibility")
 @:include("Matinee/InterpTrackVisibility.h")
+@:structAccess
 extern class InterpTrackVisibility extends InterpTrack {
 	public var VisibilityTrack: TArray<VisibilityTrackKey>;
 	public var bFireEventsWhenForwards: Bool;
 	public var bFireEventsWhenBackwards: Bool;
 	public var bFireEventsWhenJumpingForwards: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

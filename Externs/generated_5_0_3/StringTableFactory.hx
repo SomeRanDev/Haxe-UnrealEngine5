@@ -3,7 +3,10 @@ package ue;
 
 @:native("UStringTableFactory")
 @:include("Factories/StringTableFactory.h")
+@:structAccess
 extern class StringTableFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

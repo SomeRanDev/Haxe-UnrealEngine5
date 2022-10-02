@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UDoubleProperty")
+@:structAccess
 extern class DoubleProperty extends NumericProperty {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

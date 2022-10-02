@@ -3,6 +3,7 @@ package ue;
 
 @:native("UInterchangeManager")
 @:include("InterchangeManager.h")
+@:structAccess
 extern class InterchangeManager extends Object {
 	public var RegisteredTranslatorsClass: TSet<TSubclassOf<Object>>;
 	public var RegisteredFactoryClasses: TMap<TSubclassOf<Object>, TSubclassOf<Object>>;
@@ -16,6 +17,8 @@ extern class InterchangeManager extends Object {
 	public function ExportScene(World: cpp.Star<Object.ConstObject>, bIsAutomated: Bool): cpp.Reference<Bool>;
 	public function ExportAsset(Asset: cpp.Star<Object.ConstObject>, bIsAutomated: Bool): cpp.Reference<Bool>;
 	public function CreateSourceData(InFileName: FString): cpp.Reference<cpp.Star<InterchangeSourceData>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetRegisteredFactoryClass)

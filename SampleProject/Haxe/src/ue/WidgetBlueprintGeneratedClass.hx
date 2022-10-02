@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWidgetBlueprintGeneratedClass")
 @:include("Blueprint/WidgetBlueprintGeneratedClass.h")
+@:structAccess
 extern class WidgetBlueprintGeneratedClass extends BlueprintGeneratedClass {
 	public var WidgetTree: cpp.Star<WidgetTree>;
 	public var bCanCallPreConstruct: Bool;
@@ -10,6 +11,8 @@ extern class WidgetBlueprintGeneratedClass extends BlueprintGeneratedClass {
 	public var Bindings: TArray<DelegateRuntimeBinding>;
 	public var Animations: TArray<cpp.Star<WidgetAnimation>>;
 	public var NamedSlots: TArray<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

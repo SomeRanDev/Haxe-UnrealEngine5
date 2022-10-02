@@ -3,7 +3,10 @@ package ue;
 
 @:native("UModelFactory")
 @:include("Factories/ModelFactory.h")
+@:structAccess
 extern class ModelFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

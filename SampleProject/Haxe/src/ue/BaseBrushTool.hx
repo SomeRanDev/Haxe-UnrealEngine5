@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBaseBrushTool")
 @:include("BaseTools/BaseBrushTool.h")
+@:structAccess
 extern class BaseBrushTool extends MeshSurfacePointTool {
 	public var BrushProperties: cpp.Star<BrushBaseProperties>;
 	public var bInBrushStroke: Bool;
@@ -10,6 +11,8 @@ extern class BaseBrushTool extends MeshSurfacePointTool {
 	public var LastBrushStamp: BrushStampData;
 	public var PropertyClass: TSoftClassPtr<Class>;
 	public var BrushStampIndicator: cpp.Star<BrushStampIndicator>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

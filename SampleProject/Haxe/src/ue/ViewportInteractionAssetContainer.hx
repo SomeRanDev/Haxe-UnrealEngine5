@@ -3,6 +3,7 @@ package ue;
 
 @:native("UViewportInteractionAssetContainer")
 @:include("ViewportInteractionAssetContainer.h")
+@:structAccess
 extern class ViewportInteractionAssetContainer extends DataAsset {
 	public var GizmoHandleSelectedSound: cpp.Star<SoundBase>;
 	public var GizmoHandleDropSound: cpp.Star<SoundBase>;
@@ -26,6 +27,8 @@ extern class ViewportInteractionAssetContainer extends DataAsset {
 	public var GridMaterial: cpp.Star<MaterialInterface>;
 	public var TransformGizmoMaterial: cpp.Star<MaterialInterface>;
 	public var TranslucentTransformGizmoMaterial: cpp.Star<MaterialInterface>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

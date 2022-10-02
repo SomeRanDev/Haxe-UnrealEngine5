@@ -3,9 +3,12 @@ package ue;
 
 @:native("ARuntimeVirtualTextureVolume")
 @:include("VT/RuntimeVirtualTextureVolume.h")
+@:structAccess
 extern class RuntimeVirtualTextureVolume extends Actor {
 	public var VirtualTextureComponent: cpp.Star<RuntimeVirtualTextureComp>;
 	public var Box: cpp.Star<BoxComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

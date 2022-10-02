@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGeneralProjectSettings")
 @:include("GeneralProjectSettings.h")
+@:structAccess
 extern class GeneralProjectSettings extends Object {
 	public var CompanyName: FString;
 	public var CompanyDistinguishedName: FString;
@@ -24,6 +25,8 @@ extern class GeneralProjectSettings extends Object {
 	public var bAllowClose: Bool;
 	public var bAllowMaximize: Bool;
 	public var bAllowMinimize: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

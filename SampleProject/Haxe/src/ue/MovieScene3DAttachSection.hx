@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieScene3DAttachSection")
 @:include("Sections/MovieScene3DAttachSection.h")
+@:structAccess
 extern class MovieScene3DAttachSection extends MovieScene3DConstraintSection {
 	public var AttachSocketName: FName;
 	public var AttachComponentName: FName;
@@ -14,6 +15,8 @@ extern class MovieScene3DAttachSection extends MovieScene3DConstraintSection {
 	public var DetachmentLocationRule: EDetachmentRule;
 	public var DetachmentRotationRule: EDetachmentRule;
 	public var DetachmentScaleRule: EDetachmentRule;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

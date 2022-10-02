@@ -2,9 +2,12 @@
 package ue;
 
 @:native("UAudioPanelWidgetInterface")
+@:structAccess
 extern class AudioPanelWidgetInterface extends Interface {
 	public function GetIconBrushName(): cpp.Reference<FName>;
 	public function GetEditorName(): cpp.Reference<FText>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

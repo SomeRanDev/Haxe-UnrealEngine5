@@ -3,11 +3,14 @@ package ue;
 
 @:native("UAnimationStateMachineLibrary")
 @:include("AnimationStateMachineLibrary.h")
+@:structAccess
 extern class AnimationStateMachineLibrary extends BlueprintFunctionLibrary {
 	public function IsStateBlendingOut(UpdateContext: cpp.Reference<AnimUpdateContext>, Node: cpp.Reference<AnimationStateResultReference>): cpp.Reference<Bool>;
 	public function IsStateBlendingIn(UpdateContext: cpp.Reference<AnimUpdateContext>, Node: cpp.Reference<AnimationStateResultReference>): cpp.Reference<Bool>;
 	public function ConvertToAnimationStateResultPure(Node: cpp.Reference<AnimNodeReference>, AnimationState: cpp.Reference<AnimationStateResultReference>, Result: cpp.Reference<Bool>): Void;
 	public function ConvertToAnimationStateResult(Node: cpp.Reference<AnimNodeReference>, AnimationState: cpp.Reference<AnimationStateResultReference>, Result: cpp.Reference<EAnimNodeReferenceConversionResult>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

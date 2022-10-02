@@ -3,6 +3,7 @@ package ue;
 
 @:native("UHLODLayer")
 @:include("WorldPartition/HLOD/HLODLayer.h")
+@:structAccess
 extern class HLODLayer extends Object {
 	public var LayerType: EHLODLayerType;
 	public var HLODBuilderClass: TSubclassOf<HLODBuilder>;
@@ -16,6 +17,8 @@ extern class HLODLayer extends Object {
 	public var MeshSimplifySettings_DEPRECATED: MeshProxySettings;
 	public var MeshApproximationSettings_DEPRECATED: MeshApproximationSettings;
 	public var HLODMaterial_DEPRECATED: TSoftObjectPtr<Material>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

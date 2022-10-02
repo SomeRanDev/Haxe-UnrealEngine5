@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAudioParameterConversionStatics")
 @:include("Audio/SoundParameterControllerInterface.h")
+@:structAccess
 extern class AudioParameterConversionStatics extends BlueprintFunctionLibrary {
 	public function StringToAudioParameter(Name: FName, String: FString): cpp.Reference<AudioParameter>;
 	public function StringArrayToAudioParameter(Name: FName, Strings: TArray<FString>): cpp.Reference<AudioParameter>;
@@ -14,6 +15,8 @@ extern class AudioParameterConversionStatics extends BlueprintFunctionLibrary {
 	public function FloatArrayToAudioParameter(Name: FName, Floats: TArray<cpp.Float32>): cpp.Reference<AudioParameter>;
 	public function BooleanToAudioParameter(Name: FName, Bool: Bool): cpp.Reference<AudioParameter>;
 	public function BooleanArrayToAudioParameter(Name: FName, Bools: TArray<Bool>): cpp.Reference<AudioParameter>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWidgetInteractionComponent")
 @:include("Components/WidgetInteractionComponent.h")
+@:structAccess
 extern class WidgetInteractionComp extends SceneComp {
 	public var OnHoveredWidgetChanged: HaxeMulticastSparseDelegateProperty<(cpp.Star<WidgetComp>, cpp.Star<WidgetComp>) -> Void>;
 	public var VirtualUserIndex: cpp.Int32;
@@ -40,6 +41,8 @@ extern class WidgetInteractionComp extends SceneComp {
 	public function GetLastHitResult(): cpp.Reference<HitResult>;
 	public function GetHoveredWidgetComponent(): cpp.Reference<cpp.Star<WidgetComp>>;
 	public function Get2DHitLocation(): cpp.Reference<Vector2D>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsOverInteractableWidget, IsOverHitTestVisibleWidget, IsOverFocusableWidget, GetLastHitResult, GetHoveredWidgetComponent, Get2DHitLocation)

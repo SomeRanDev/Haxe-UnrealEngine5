@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPythonOnlineDocsCommandlet")
 @:include("PythonOnlineDocsCommandlet.h")
+@:structAccess
 extern class PythonOnlineDocsCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

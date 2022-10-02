@@ -3,8 +3,11 @@ package ue;
 
 @:native("USoundNodeQualityLevel")
 @:include("Sound/SoundNodeQualityLevel.h")
+@:structAccess
 extern class SoundNodeQualityLevel extends SoundNode {
 	public var CookedQualityLevelIndex: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

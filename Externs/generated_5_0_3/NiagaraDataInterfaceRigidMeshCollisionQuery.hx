@@ -3,10 +3,13 @@ package ue;
 
 @:native("UNiagaraDataInterfaceRigidMeshCollisionQuery")
 @:include("NiagaraDataInterfaceRigidMeshCollisionQuery.h")
+@:structAccess
 extern class NiagaraDataInterfaceRigidMeshCollisionQuery extends NiagaraDataInterface {
 	public var Tag: FString;
 	public var OnlyUseMoveable: Bool;
 	public var MaxNumPrimitives: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

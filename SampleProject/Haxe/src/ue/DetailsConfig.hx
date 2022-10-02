@@ -3,8 +3,11 @@ package ue;
 
 @:native("UDetailsConfig")
 @:include("DetailsViewConfig.h")
+@:structAccess
 extern class DetailsConfig extends EditorConfigBase {
 	public var Views: TMap<FName, DetailsViewConfig>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

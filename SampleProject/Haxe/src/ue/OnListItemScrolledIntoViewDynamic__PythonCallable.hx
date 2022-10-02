@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnListItemScrolledIntoViewDynamic__PythonCallable")
+@:structAccess
 extern class OnListItemScrolledIntoViewDynamic__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

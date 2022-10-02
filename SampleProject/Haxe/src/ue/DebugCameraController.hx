@@ -3,6 +3,7 @@ package ue;
 
 @:native("ADebugCameraController")
 @:include("Engine/DebugCameraController.h")
+@:structAccess
 extern class DebugCameraController extends PlayerController {
 	public var bShowSelectedInfo: Bool;
 	public var bIsFrozenRendering: Bool;
@@ -30,6 +31,8 @@ extern class DebugCameraController extends PlayerController {
 	public function ReceiveOnActorSelected(NewSelectedActor: cpp.Star<Actor>, SelectHitLocation: cpp.Reference<Vector>, SelectHitNormal: cpp.Reference<Vector>, Hit: cpp.Reference<HitResult>): Void;
 	public function ReceiveOnActivate(OriginalPC: cpp.Star<PlayerController>): Void;
 	public function GetSelectedActor(): cpp.Reference<cpp.Star<Actor>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetSelectedActor)

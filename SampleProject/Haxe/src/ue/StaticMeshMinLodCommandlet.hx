@@ -3,7 +3,10 @@ package ue;
 
 @:native("UStaticMeshMinLodCommandlet")
 @:include("Commandlets/StaticMeshMinLodCommandlet.h")
+@:structAccess
 extern class StaticMeshMinLodCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

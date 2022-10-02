@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_ApplyMeshSpaceAdditive")
 @:include("AnimGraphNode_ApplyMeshSpaceAdditive.h")
+@:structAccess
 extern class AnimGraphNode_ApplyMeshSpaceAdditive extends AnimGraphNode_Base {
 	public var Node: AnimNode_ApplyMeshSpaceAdditive;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

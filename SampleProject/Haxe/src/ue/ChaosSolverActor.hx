@@ -3,6 +3,7 @@ package ue;
 
 @:native("AChaosSolverActor")
 @:include("Chaos/ChaosSolverActor.h")
+@:structAccess
 extern class ChaosSolverActor extends Actor {
 	public var Properties: ChaosSolverConfiguration;
 	public var TimeStepMultiplier_DEPRECATED: cpp.Float32;
@@ -27,6 +28,8 @@ extern class ChaosSolverActor extends Actor {
 
 	public function SetSolverActive(bActive: Bool): Void;
 	public function SetAsCurrentWorldSolver(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

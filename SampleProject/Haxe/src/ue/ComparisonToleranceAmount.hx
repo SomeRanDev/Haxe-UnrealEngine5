@@ -3,6 +3,7 @@ package ue;
 
 @:native("FComparisonToleranceAmount")
 @:include("AutomationScreenshotOptions.h")
+@:structAccess
 extern class ComparisonToleranceAmount {
 	public var Red: cpp.UInt8;
 	public var Green: cpp.UInt8;
@@ -10,4 +11,6 @@ extern class ComparisonToleranceAmount {
 	public var Alpha: cpp.UInt8;
 	public var MinBrightness: cpp.UInt8;
 	public var MaxBrightness: cpp.UInt8;
+
+	@:native("FComparisonToleranceAmount") public function new();
 }

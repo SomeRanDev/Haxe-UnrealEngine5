@@ -3,9 +3,12 @@ package ue;
 
 @:native("UK2Node_GetSequenceBinding")
 @:include("K2Node_GetSequenceBinding.h")
+@:structAccess
 extern class K2Node_GetSequenceBinding extends K2Node {
 	public var SourceSequence: SoftObjectPath;
 	public var Binding: MovieSceneObjectBindingID;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

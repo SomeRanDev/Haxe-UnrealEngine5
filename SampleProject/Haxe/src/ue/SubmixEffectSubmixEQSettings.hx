@@ -3,6 +3,10 @@ package ue;
 
 @:native("FSubmixEffectSubmixEQSettings")
 @:include("SubmixEffects/AudioMixerSubmixEffectEQ.h")
+@:structAccess
 extern class SubmixEffectSubmixEQSettings {
 	public var EQBands: TArray<SubmixEffectEQBand>;
+
+	@:native("FSubmixEffectSubmixEQSettings") public function new();
+	@:native("FSubmixEffectSubmixEQSettings") public static function make(EQBands: TArray<SubmixEffectEQBand>): SubmixEffectSubmixEQSettings ;
 }

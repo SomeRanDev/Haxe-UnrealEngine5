@@ -3,10 +3,13 @@ package ue;
 
 @:native("UNiagaraDataInterfaceRasterizationGrid3D")
 @:include("NiagaraDataInterfaceRasterizationGrid3D.h")
+@:structAccess
 extern class NiagaraDataInterfaceRasterizationGrid3D extends NiagaraDataInterfaceGrid3D {
 	public var NumAttributes: cpp.Int32;
 	public var Precision: cpp.Float32;
 	public var ResetValue: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

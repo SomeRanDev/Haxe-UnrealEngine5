@@ -3,8 +3,12 @@ package ue;
 
 @:native("FSoundModulationDestinationSettings")
 @:include("Sound/SoundModulationDestination.h")
+@:structAccess
 extern class SoundModulationDestinationSettings {
 	public var Value: cpp.Float32;
 	public var bEnableModulation: Bool;
 	public var Modulator: cpp.Star<SoundModulatorBase>;
+
+	@:native("FSoundModulationDestinationSettings") public function new();
+	@:native("FSoundModulationDestinationSettings") public static function make(Value: cpp.Float32, bEnableModulation: Bool, Modulator: cpp.Star<SoundModulatorBase>): SoundModulationDestinationSettings ;
 }

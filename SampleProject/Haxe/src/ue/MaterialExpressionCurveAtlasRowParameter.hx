@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionCurveAtlasRowParameter")
 @:include("Materials/MaterialExpressionCurveAtlasRowParameter.h")
+@:structAccess
 extern class MaterialExpressionCurveAtlasRowParameter extends MaterialExpressionScalarParameter {
 	public var Curve: cpp.Star<CurveLinearColor>;
 	public var Atlas: cpp.Star<CurveLinearColorAtlas>;
 	public var InputTime: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraGraph")
 @:include("NiagaraGraph.h")
+@:structAccess
 extern class NiagaraGraph extends EdGraph {
 	public var ChangeId: Guid;
 	public var ForceRebuildId: Guid;
@@ -11,6 +12,8 @@ extern class NiagaraGraph extends EdGraph {
 	public var VariableToMetaData_DEPRECATED: TMap<NiagaraVariable, NiagaraVariableMetaData>;
 	public var VariableToScriptVariable: TMap<NiagaraVariable, cpp.Star<NiagaraScriptVariable>>;
 	public var ParameterToReferencesMap: TMap<NiagaraVariable, NiagaraGraphParameterReferenceCollection>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

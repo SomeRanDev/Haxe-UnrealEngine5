@@ -3,7 +3,10 @@ package ue;
 
 @:native("ABrushShape")
 @:include("Engine/BrushShape.h")
+@:structAccess
 extern class BrushShape extends Brush {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,11 +3,14 @@ package ue;
 
 @:native("UNavRelevantComponent")
 @:include("NavRelevantComponent.h")
+@:structAccess
 extern class NavRelevantComp extends ActorComp {
 	public var bAttachToOwnersRoot: Bool;
 	public var CachedNavParent: cpp.Star<Object>;
 
 	public function SetNavigationRelevancy(bRelevant: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

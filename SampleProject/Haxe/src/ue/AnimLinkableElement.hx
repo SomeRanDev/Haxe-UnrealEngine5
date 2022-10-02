@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimLinkableElement")
 @:include("Animation/AnimLinkableElement.h")
+@:structAccess
 extern class AnimLinkableElement {
 	public var LinkedMontage: cpp.Star<AnimMontage>;
 	public var SlotIndex: cpp.Int32;
@@ -13,4 +14,6 @@ extern class AnimLinkableElement {
 	public var SegmentLength: cpp.Float32;
 	public var LinkValue: cpp.Float32;
 	public var LinkedSequence: cpp.Star<AnimSequenceBase>;
+
+	@:native("FAnimLinkableElement") public function new();
 }

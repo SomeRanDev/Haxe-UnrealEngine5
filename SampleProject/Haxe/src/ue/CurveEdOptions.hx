@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCurveEdOptions")
 @:include("Preferences/CurveEdOptions.h")
+@:structAccess
 extern class CurveEdOptions extends Object {
 	public var MinViewRange: cpp.Float32;
 	public var MaxViewRange: cpp.Float32;
@@ -13,6 +14,8 @@ extern class CurveEdOptions extends Object {
 	public var GridTextColor: LinearColor;
 	public var LabelBlockBkgColor: LinearColor;
 	public var SelectedKeyColor: LinearColor;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

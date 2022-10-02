@@ -3,11 +3,14 @@ package ue;
 
 @:native("UParticleModuleAttractorPointGravity")
 @:include("Particles/Attractor/ParticleModuleAttractorPointGravity.h")
+@:structAccess
 extern class ParticleModuleAttractorPointGravity extends ParticleModuleAttractorBase {
 	public var Position: Vector;
 	public var Radius: cpp.Float32;
 	public var Strength_DEPRECATED: cpp.Star<DistributionFloat>;
 	public var StrengthRaw: RawDistributionFloat;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

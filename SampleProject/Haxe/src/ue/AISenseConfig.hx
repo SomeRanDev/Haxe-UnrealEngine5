@@ -3,10 +3,13 @@ package ue;
 
 @:native("UAISenseConfig")
 @:include("Perception/AISenseConfig.h")
+@:structAccess
 extern class AISenseConfig extends Object {
 	public var DebugColor: Color;
 	public var MaxAge: cpp.Float32;
 	public var bStartsEnabled: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

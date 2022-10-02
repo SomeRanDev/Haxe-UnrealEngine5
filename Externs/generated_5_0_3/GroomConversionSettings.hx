@@ -3,7 +3,11 @@ package ue;
 
 @:native("FGroomConversionSettings")
 @:include("GroomSettings.h")
+@:structAccess
 extern class GroomConversionSettings {
 	public var Rotation: Vector;
 	public var Scale: Vector;
+
+	@:native("FGroomConversionSettings") public function new();
+	@:native("FGroomConversionSettings") public static function make(Rotation: Vector, Scale: Vector): GroomConversionSettings ;
 }

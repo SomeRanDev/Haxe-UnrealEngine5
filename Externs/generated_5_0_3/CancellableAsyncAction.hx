@@ -3,9 +3,12 @@ package ue;
 
 @:native("UCancellableAsyncAction")
 @:include("Engine/CancellableAsyncAction.h")
+@:structAccess
 extern class CancellableAsyncAction extends BlueprintAsyncActionBase {
 	public function IsActive(): cpp.Reference<Bool>;
 	public function Cancel(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsActive)

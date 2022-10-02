@@ -3,7 +3,10 @@ package ue;
 
 @:native("UExtractLocResCommandlet")
 @:include("Commandlets/ExtractLocResCommandlet.h")
+@:structAccess
 extern class ExtractLocResCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

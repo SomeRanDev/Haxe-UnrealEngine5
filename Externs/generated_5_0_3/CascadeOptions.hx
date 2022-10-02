@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCascadeOptions")
 @:include("Preferences/CascadeOptions.h")
+@:structAccess
 extern class CascadeOptions extends Object {
 	public var bShowModuleDump: Bool;
 	public var BackgroundColor: Color;
@@ -53,6 +54,8 @@ extern class CascadeOptions extends Object {
 	public var bCenterCascadeModuleText: Bool;
 	public var Cascade_MouseMoveThreshold: cpp.Int32;
 	public var MotionModeRadius: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

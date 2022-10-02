@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionArctangent2")
 @:include("Materials/MaterialExpressionArctangent2.h")
+@:structAccess
 extern class MaterialExpressionArctangent2 extends MaterialExpression {
 	public var Y: ExpressionInput;
 	public var X: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

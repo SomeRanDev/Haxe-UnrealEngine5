@@ -3,6 +3,10 @@ package ue;
 
 @:native("FRichCurve")
 @:include("Curves/RichCurve.h")
+@:structAccess
 extern class RichCurve extends RealCurve {
 	public var Keys: TArray<RichCurveKey>;
+
+	@:native("FRichCurve") public function new();
+	@:native("FRichCurve") public static function make(Keys: TArray<RichCurveKey>): RichCurve ;
 }

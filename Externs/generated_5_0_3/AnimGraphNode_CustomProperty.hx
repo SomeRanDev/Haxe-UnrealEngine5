@@ -3,10 +3,13 @@ package ue;
 
 @:native("UAnimGraphNode_CustomProperty")
 @:include("AnimGraphNode_CustomProperty.h")
+@:structAccess
 extern class AnimGraphNode_CustomProperty extends AnimGraphNode_Base {
 	public var KnownExposableProperties_DEPRECATED: TArray<FName>;
 	public var ExposedPropertyNames_DEPRECATED: TArray<FName>;
 	public var CustomPinProperties: TArray<OptionalPinFromProperty>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

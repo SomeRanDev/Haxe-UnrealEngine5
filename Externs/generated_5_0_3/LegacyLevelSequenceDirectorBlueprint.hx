@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULegacyLevelSequenceDirectorBlueprint")
 @:include("LevelSequenceDirector.h")
+@:structAccess
 extern class LegacyLevelSequenceDirectorBlueprint extends Blueprint {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FHairCollisionConstraint")
 @:include("GroomAssetPhysics.h")
+@:structAccess
 extern class HairCollisionConstraint {
 	public var SolveCollision: Bool;
 	public var ProjectCollision: Bool;
@@ -12,4 +13,6 @@ extern class HairCollisionConstraint {
 	public var GridDimension: IntVector;
 	public var CollisionRadius: cpp.Float32;
 	public var RadiusScale: RuntimeFloatCurve;
+
+	@:native("FHairCollisionConstraint") public function new();
 }

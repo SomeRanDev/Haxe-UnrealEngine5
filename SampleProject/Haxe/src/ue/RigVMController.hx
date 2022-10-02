@@ -3,6 +3,7 @@ package ue;
 
 @:native("URigVMController")
 @:include("RigVMModel/RigVMController.h")
+@:structAccess
 extern class RigVMController extends Object {
 	public var ModifiedEventDynamic: HaxeMulticastSparseDelegateProperty<(ERigVMGraphNotifType, cpp.Star<RigVMGraph>, cpp.Star<Object>) -> Void>;
 	public var Graphs: TArray<cpp.Star<RigVMGraph>>;
@@ -124,6 +125,8 @@ extern class RigVMController extends Object {
 	public function AddArrayPin(InArrayPinPath: FString, InDefaultValue: FString, bSetupUndoRedo: Bool, bPrintPythonCommand: Bool): cpp.Reference<FString>;
 	public function AddArrayNodeFromObjectPath(InOpCode: ERigVMOpCode, InCPPType: FString, InCPPTypeObjectPath: FString, InPosition: cpp.Reference<Vector2D>, InNodeName: FString, bSetupUndoRedo: Bool, bPrintPythonCommand: Bool): cpp.Reference<cpp.Star<RigVMArrayNode>>;
 	public function AddArrayNode(InOpCode: ERigVMOpCode, InCPPType: FString, InCPPTypeObject: cpp.Star<Object>, InPosition: cpp.Reference<Vector2D>, InNodeName: FString, bSetupUndoRedo: Bool, bPrintPythonCommand: Bool): cpp.Reference<cpp.Star<RigVMArrayNode>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsReportingEnabled, GetTopLevelGraph, GetGraph)

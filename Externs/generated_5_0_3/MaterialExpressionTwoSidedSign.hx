@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionTwoSidedSign")
 @:include("Materials/MaterialExpressionTwoSidedSign.h")
+@:structAccess
 extern class MaterialExpressionTwoSidedSign extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

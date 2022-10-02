@@ -3,9 +3,12 @@ package ue;
 
 @:native("UAnimationStateMachineGraph")
 @:include("AnimationStateMachineGraph.h")
+@:structAccess
 extern class AnimationStateMachineGraph extends EdGraph {
 	public var EntryNode: cpp.Star<AnimStateEntryNode>;
 	public var OwnerAnimGraphNode: cpp.Star<AnimGraphNode_StateMachineBase>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

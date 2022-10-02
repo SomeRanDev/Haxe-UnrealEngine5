@@ -3,10 +3,13 @@ package ue;
 
 @:native("UTrueTypeFontFactory")
 @:include("Factories/TrueTypeFontFactory.h")
+@:structAccess
 extern class TrueTypeFontFactory extends TextureFactory {
 	public var ImportOptions: cpp.Star<FontImportOptions>;
 	public var bPropertiesConfigured: Bool;
 	public var bFontSelected: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

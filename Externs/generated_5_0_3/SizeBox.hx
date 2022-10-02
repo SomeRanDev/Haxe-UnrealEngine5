@@ -3,6 +3,7 @@ package ue;
 
 @:native("USizeBox")
 @:include("Components/SizeBox.h")
+@:structAccess
 extern class SizeBox extends ContentWidget {
 	public var WidthOverride: cpp.Float32;
 	public var HeightOverride: cpp.Float32;
@@ -37,6 +38,8 @@ extern class SizeBox extends ContentWidget {
 	public function ClearMaxDesiredHeight(): Void;
 	public function ClearMaxAspectRatio(): Void;
 	public function ClearHeightOverride(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FHairGroupDesc")
 @:include("GroomDesc.h")
+@:structAccess
 extern class HairGroupDesc {
 	public var HairLength: cpp.Float32;
 	public var HairWidth: cpp.Float32;
@@ -26,4 +27,6 @@ extern class HairGroupDesc {
 	public var bSupportVoxelization_Override: Bool;
 	public var HairLengthScale: cpp.Float32;
 	public var HairLengthScale_Override: Bool;
+
+	@:native("FHairGroupDesc") public function new();
 }

@@ -3,11 +3,14 @@ package ue;
 
 @:native("UDatasmithPointLightComponentTemplate")
 @:include("ObjectTemplates/DatasmithPointLightComponentTemplate.h")
+@:structAccess
 extern class DatasmithPointLightComponentTemplate extends DatasmithObjectTemplate {
 	public var IntensityUnits: ELightUnits;
 	public var SourceRadius: cpp.Float32;
 	public var SourceLength: cpp.Float32;
 	public var AttenuationRadius: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPhysicalMaterialMaskThumbnailRenderer")
 @:include("ThumbnailRendering/PhysicalMaterialMaskThumbnailRenderer.h")
+@:structAccess
 extern class PhysicalMaterialMaskThumbnailRenderer extends TextureThumbnailRenderer {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

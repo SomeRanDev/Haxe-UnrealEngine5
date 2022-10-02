@@ -3,10 +3,13 @@ package ue;
 
 @:native("UPaperRuntimeSettings")
 @:include("PaperRuntimeSettings.h")
+@:structAccess
 extern class PaperRuntimeSettings extends Object {
 	public var bEnableSpriteAtlasGroups: Bool;
 	public var bEnableTerrainSplineEditing: Bool;
 	public var bResizeSpriteDataToMatchTextures: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAutomationTestSettings")
 @:include("Tests/AutomationTestSettings.h")
+@:structAccess
 extern class AutomationTestSettings extends Object {
 	public var EngineTestModules: TArray<FString>;
 	public var EditorTestModules: TArray<FString>;
@@ -21,6 +22,8 @@ extern class AutomationTestSettings extends Object {
 	public var LaunchOnSettings: TArray<LaunchOnTestSettings>;
 	public var DefaultScreenshotResolution: IntPoint;
 	public var PIETestDuration: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

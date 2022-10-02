@@ -3,6 +3,7 @@ package ue;
 
 @:native("FToolMenuEntryScriptData")
 @:include("ToolMenuEntryScript.h")
+@:structAccess
 extern class ToolMenuEntryScriptData {
 	public var Menu: FName;
 	public var Section: FName;
@@ -13,4 +14,6 @@ extern class ToolMenuEntryScriptData {
 	public var OwnerName: FName;
 	public var InsertPosition: ToolMenuInsert;
 	public var Advanced: ToolMenuEntryScriptDataAdvanced;
+
+	@:native("FToolMenuEntryScriptData") public function new();
 }

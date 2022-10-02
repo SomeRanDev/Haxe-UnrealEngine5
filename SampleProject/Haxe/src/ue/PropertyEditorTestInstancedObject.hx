@@ -3,8 +3,11 @@ package ue;
 
 @:native("UPropertyEditorTestInstancedObject")
 @:include("Editor/PropertyEditorTestObject.h")
+@:structAccess
 extern class PropertyEditorTestInstancedObject extends Object {
 	public var Number: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("USlateBrushAssetFactory")
 @:include("Factories/SlateBrushAssetFactory.h")
+@:structAccess
 extern class SlateBrushAssetFactory extends Factory {
 	public var InitialTexture: cpp.Star<Texture2D>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

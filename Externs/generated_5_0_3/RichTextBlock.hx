@@ -3,6 +3,7 @@ package ue;
 
 @:native("URichTextBlock")
 @:include("Components/RichTextBlock.h")
+@:structAccess
 extern class RichTextBlock extends TextLayoutWidget {
 	public var Text: FText;
 	public var TextStyleSet: cpp.Star<DataTable>;
@@ -32,6 +33,8 @@ extern class RichTextBlock extends TextLayoutWidget {
 	public function GetDefaultDynamicMaterial(): cpp.Reference<cpp.Star<MaterialInstanceDynamic>>;
 	public function GetDecoratorByClass(DecoratorClass: TSubclassOf<RichTextBlockDecorator>): cpp.Reference<cpp.Star<RichTextBlockDecorator>>;
 	public function ClearAllDefaultStyleOverrides(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetText)

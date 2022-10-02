@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraDataInterfaceArrayFloat3")
 @:include("NiagaraDataInterfaceArrayFloat.h")
+@:structAccess
 extern class NiagaraDataInterfaceArrayFloat3 extends NiagaraDataInterfaceArray {
 	public var FloatData: TArray<Vector>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

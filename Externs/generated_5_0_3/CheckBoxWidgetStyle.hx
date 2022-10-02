@@ -3,8 +3,11 @@ package ue;
 
 @:native("UCheckBoxWidgetStyle")
 @:include("Framework/Styling/CheckBoxWidgetStyle.h")
+@:structAccess
 extern class CheckBoxWidgetStyle extends SlateWidgetStyleContainerBase {
 	public var CheckBoxStyle: CheckBoxStyle;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

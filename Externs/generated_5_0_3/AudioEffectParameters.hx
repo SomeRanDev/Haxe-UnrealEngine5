@@ -3,5 +3,7 @@ package ue;
 
 @:native("FAudioEffectParameters")
 @:include("Sound/SoundMix.h")
+@:structAccess
 extern class AudioEffectParameters {
+	@:native("FAudioEffectParameters") public function new();
 }

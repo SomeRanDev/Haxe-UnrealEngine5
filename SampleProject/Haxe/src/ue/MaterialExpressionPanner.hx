@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionPanner")
 @:include("Materials/MaterialExpressionPanner.h")
+@:structAccess
 extern class MaterialExpressionPanner extends MaterialExpression {
 	public var Coordinate: ExpressionInput;
 	public var Time: ExpressionInput;
@@ -11,6 +12,8 @@ extern class MaterialExpressionPanner extends MaterialExpression {
 	public var SpeedY: cpp.Float32;
 	public var ConstCoordinate: cpp.UInt32;
 	public var bFractionalPart: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

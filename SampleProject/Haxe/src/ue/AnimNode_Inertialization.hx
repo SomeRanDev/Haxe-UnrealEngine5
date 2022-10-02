@@ -3,7 +3,11 @@ package ue;
 
 @:native("FAnimNode_Inertialization")
 @:include("Animation/AnimNode_Inertialization.h")
+@:structAccess
 extern class AnimNode_Inertialization extends AnimNode_Base {
 	public var Source: PoseLink;
 	public var FilteredCurves: TArray<FName>;
+
+	@:native("FAnimNode_Inertialization") public function new();
+	@:native("FAnimNode_Inertialization") public static function make(Source: PoseLink, FilteredCurves: TArray<FName>): AnimNode_Inertialization ;
 }

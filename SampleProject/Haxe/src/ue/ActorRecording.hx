@@ -3,6 +3,7 @@ package ue;
 
 @:native("UActorRecording")
 @:include("ActorRecording.h")
+@:structAccess
 extern class ActorRecording extends SequenceRecordingBase {
 	public var ActorSettings: ActorRecordingSettings;
 	public var bActive: Bool;
@@ -15,6 +16,8 @@ extern class ActorRecording extends SequenceRecordingBase {
 	public var AnimationSettings: AnimationRecordingSettings;
 	public var bRecordToPossessable: Bool;
 	public var ActorToRecord: TSoftObjectPtr<Actor>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

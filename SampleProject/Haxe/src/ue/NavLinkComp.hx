@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNavLinkComponent")
 @:include("NavLinkComponent.h")
+@:structAccess
 extern class NavLinkComp extends PrimitiveComp {
 	public var Links: TArray<NavigationLink>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

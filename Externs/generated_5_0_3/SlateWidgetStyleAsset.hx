@@ -3,8 +3,11 @@ package ue;
 
 @:native("USlateWidgetStyleAsset")
 @:include("Styling/SlateWidgetStyleAsset.h")
+@:structAccess
 extern class SlateWidgetStyleAsset extends Object {
 	public var CustomStyle: cpp.Star<SlateWidgetStyleContainerBase>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

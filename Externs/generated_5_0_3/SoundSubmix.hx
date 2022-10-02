@@ -3,6 +3,7 @@ package ue;
 
 @:native("USoundSubmix")
 @:include("Sound/SoundSubmix.h")
+@:structAccess
 extern class SoundSubmix extends SoundSubmixWithParentBase {
 	public var bMuteWhenBackgrounded: Bool;
 	public var SubmixEffectChain: TArray<cpp.Star<SoundEffectSubmixPreset>>;
@@ -30,6 +31,8 @@ extern class SoundSubmix extends SoundSubmixWithParentBase {
 	public function RemoveSpectralAnalysisDelegate(WorldContextObject: cpp.Star<Object.ConstObject>, OnSubmixSpectralAnalysisBP: cpp.Reference<HaxeDelegateProperty<(cpp.Reference<TArray<cpp.Float32>>) -> Void>>): Void;
 	public function AddSpectralAnalysisDelegate(WorldContextObject: cpp.Star<Object.ConstObject>, InBandSettings: cpp.Reference<TArray<SoundSubmixSpectralAnalysisBandSettings>>, OnSubmixSpectralAnalysisBP: cpp.Reference<HaxeDelegateProperty<(cpp.Reference<TArray<cpp.Float32>>) -> Void>>, UpdateRate: cpp.Float32, DecibelNoiseFloor: cpp.Float32, bDoNormalize: Bool, bDoAutoRange: Bool, AutoRangeAttackTime: cpp.Float32, AutoRangeReleaseTime: cpp.Float32): Void;
 	public function AddEnvelopeFollowerDelegate(WorldContextObject: cpp.Star<Object.ConstObject>, OnSubmixEnvelopeBP: cpp.Reference<HaxeDelegateProperty<(cpp.Reference<TArray<cpp.Float32>>) -> Void>>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

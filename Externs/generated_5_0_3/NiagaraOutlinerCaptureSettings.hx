@@ -3,8 +3,12 @@ package ue;
 
 @:native("FNiagaraOutlinerCaptureSettings")
 @:include("NiagaraDebuggerCommon.h")
+@:structAccess
 extern class NiagaraOutlinerCaptureSettings {
 	public var bTriggerCapture: Bool;
 	public var CaptureDelayFrames: cpp.UInt32;
 	public var bGatherPerfData: Bool;
+
+	@:native("FNiagaraOutlinerCaptureSettings") public function new();
+	@:native("FNiagaraOutlinerCaptureSettings") public static function make(bTriggerCapture: Bool, CaptureDelayFrames: cpp.UInt32, bGatherPerfData: Bool): NiagaraOutlinerCaptureSettings ;
 }

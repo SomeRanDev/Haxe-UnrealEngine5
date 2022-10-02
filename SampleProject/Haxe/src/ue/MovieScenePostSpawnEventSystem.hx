@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMovieScenePostSpawnEventSystem")
 @:include("Systems/MovieSceneEventSystems.h")
+@:structAccess
 extern class MovieScenePostSpawnEventSystem extends MovieSceneEventSystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

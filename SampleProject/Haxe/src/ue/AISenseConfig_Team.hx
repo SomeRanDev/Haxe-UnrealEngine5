@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAISenseConfig_Team")
 @:include("Perception/AISenseConfig_Team.h")
+@:structAccess
 extern class AISenseConfig_Team extends AISenseConfig {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

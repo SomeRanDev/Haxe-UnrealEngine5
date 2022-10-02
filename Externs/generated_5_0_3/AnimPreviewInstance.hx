@@ -3,9 +3,12 @@ package ue;
 
 @:native("UAnimPreviewInstance")
 @:include("AnimPreviewInstance.h")
+@:structAccess
 extern class AnimPreviewInstance extends AnimSingleNodeInstance {
 	public var MontagePreviewType: EMontagePreviewType;
 	public var MontagePreviewStartSectionIdx: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

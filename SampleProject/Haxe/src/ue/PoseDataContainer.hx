@@ -3,6 +3,7 @@ package ue;
 
 @:native("FPoseDataContainer")
 @:include("Animation/PoseAsset.h")
+@:structAccess
 extern class PoseDataContainer {
 	public var PoseNames: TArray<SmartName>;
 	public var Tracks: TArray<FName>;
@@ -10,4 +11,6 @@ extern class PoseDataContainer {
 	public var TrackPoseInfluenceIndices: TArray<PoseAssetInfluences>;
 	public var Poses: TArray<PoseData>;
 	public var Curves: TArray<AnimCurveBase>;
+
+	@:native("FPoseDataContainer") public function new();
 }

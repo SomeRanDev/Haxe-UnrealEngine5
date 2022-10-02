@@ -3,12 +3,15 @@ package ue;
 
 @:native("UAnimBlueprintFactory")
 @:include("Factories/AnimBlueprintFactory.h")
+@:structAccess
 extern class AnimBlueprintFactory extends Factory {
 	public var BlueprintType: EBlueprintType;
 	public var ParentClass: TSubclassOf<AnimInstance>;
 	public var TargetSkeleton: cpp.Star<Skeleton>;
 	public var PreviewSkeletalMesh: cpp.Star<SkeletalMesh>;
 	public var bTemplate: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

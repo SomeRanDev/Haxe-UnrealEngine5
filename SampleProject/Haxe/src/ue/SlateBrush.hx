@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSlateBrush")
 @:include("Styling/SlateBrush.h")
+@:structAccess
 extern class SlateBrush {
 	public var ImageSize: Vector2D;
 	public var Margin: Margin;
@@ -18,4 +19,6 @@ extern class SlateBrush {
 	public var ImageType: ESlateBrushImageType;
 	public var bIsDynamicallyLoaded: Bool;
 	public var bHasUObject_DEPRECATED: Bool;
+
+	@:native("FSlateBrush") public function new();
 }

@@ -3,7 +3,11 @@ package ue;
 
 @:native("FHairAdvancedRenderingSettings")
 @:include("GroomAssetRendering.h")
+@:structAccess
 extern class HairAdvancedRenderingSettings {
 	public var bUseStableRasterization: Bool;
 	public var bScatterSceneLighting: Bool;
+
+	@:native("FHairAdvancedRenderingSettings") public function new();
+	@:native("FHairAdvancedRenderingSettings") public static function make(bUseStableRasterization: Bool, bScatterSceneLighting: Bool): HairAdvancedRenderingSettings ;
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UVariantSet")
 @:include("VariantSet.h")
+@:structAccess
 extern class VariantSet extends Object {
 	public var DisplayText_DEPRECATED: FText;
 	public var bExpanded: Bool;
@@ -20,6 +21,8 @@ extern class VariantSet extends Object {
 	public function GetParent(): cpp.Reference<cpp.Star<LevelVariantSets>>;
 	public function GetNumVariants(): cpp.Reference<cpp.Int32>;
 	public function GetDisplayText(): cpp.Reference<FText>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetNumVariants, GetDisplayText)

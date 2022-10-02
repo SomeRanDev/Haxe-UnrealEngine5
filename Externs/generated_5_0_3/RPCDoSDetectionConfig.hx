@@ -3,6 +3,7 @@ package ue;
 
 @:native("URPCDoSDetectionConfig")
 @:include("Net/RPCDoSDetectionConfig.h")
+@:structAccess
 extern class RPCDoSDetectionConfig extends Object {
 	public var bRPCDoSDetection: Bool;
 	public var bRPCDoSAnalytics: Bool;
@@ -13,6 +14,8 @@ extern class RPCDoSDetectionConfig extends Object {
 	public var RPCBlockWhitelist: TArray<FName>;
 	public var RPCAnalyticsThresholds: TArray<RPCAnalyticsThreshold>;
 	public var RPCAnalyticsOverrideChance: cpp.Float64;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

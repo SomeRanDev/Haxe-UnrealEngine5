@@ -3,9 +3,13 @@ package ue;
 
 @:native("FSubobjectData")
 @:include("SubobjectData.h")
+@:structAccess
 extern class SubobjectData {
 	public var WeakObjectPtr: TWeakObjectPtr<Object>;
 	public var Handle: SubobjectDataHandle;
 	public var ParentObjectHandle: SubobjectDataHandle;
 	public var ChildrenHandles: TArray<SubobjectDataHandle>;
+
+	@:native("FSubobjectData") public function new();
+	@:native("FSubobjectData") public static function make(WeakObjectPtr: TWeakObjectPtr<Object>, Handle: SubobjectDataHandle, ParentObjectHandle: SubobjectDataHandle, ChildrenHandles: TArray<SubobjectDataHandle>): SubobjectData ;
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCameraAnimationSequenceCameraStandIn")
 @:include("CameraAnimationSequencePlayer.h")
+@:structAccess
 extern class CameraAnimationSequenceCameraStandIn extends Object {
 	public var FieldOfView: cpp.Float32;
 	public var bConstrainAspectRatio: Bool;
@@ -15,6 +16,8 @@ extern class CameraAnimationSequenceCameraStandIn extends Object {
 	public var CurrentFocalLength: cpp.Float32;
 	public var CurrentAperture: cpp.Float32;
 	public var CurrentFocusDistance: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

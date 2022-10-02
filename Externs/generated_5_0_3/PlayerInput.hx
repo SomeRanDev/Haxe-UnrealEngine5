@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPlayerInput")
 @:include("GameFramework/PlayerInput.h")
+@:structAccess
 extern class PlayerInput extends Object {
 	public var DebugExecBindings: TArray<KeyBind>;
 	public var InvertedAxis: TArray<FName>;
@@ -12,6 +13,8 @@ extern class PlayerInput extends Object {
 	public function InvertAxisKey(AxisKey: Key): Void;
 	public function InvertAxis(AxisName: FName): Void;
 	public function ClearSmoothing(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,10 @@ package ue;
 
 @:native("FDrawToRenderTargetContext")
 @:include("Kismet/KismetRenderingLibrary.h")
+@:structAccess
 extern class DrawToRenderTargetContext {
 	public var RenderTarget: cpp.Star<TextureRenderTarget2D>;
+
+	@:native("FDrawToRenderTargetContext") public function new();
+	@:native("FDrawToRenderTargetContext") public static function make(RenderTarget: cpp.Star<TextureRenderTarget2D>): DrawToRenderTargetContext ;
 }

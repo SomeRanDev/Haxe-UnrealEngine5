@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDEPRECATED_ClothSharedSimConfigBase")
 @:include("ClothConfigBase.h")
+@:structAccess
 extern class ClothSharedSimConfigBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

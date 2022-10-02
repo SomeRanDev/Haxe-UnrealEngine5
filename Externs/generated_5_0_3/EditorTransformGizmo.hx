@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEditorTransformGizmo")
 @:include("EditorGizmos/EditorTransformGizmo.h")
+@:structAccess
 extern class EditorTransformGizmo extends InteractiveGizmo {
 	public var ActiveTarget: cpp.Star<TransformProxy>;
 	public var bSnapToWorldGrid: Bool;
@@ -28,6 +29,8 @@ extern class EditorTransformGizmo extends InteractiveGizmo {
 	public var UnitAxisYSource: cpp.Star<GizmoEditorAxisSource>;
 	public var UnitAxisZSource: cpp.Star<GizmoEditorAxisSource>;
 	public var StateTarget: cpp.Star<GizmoObjectTransformChangeStateTarget>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

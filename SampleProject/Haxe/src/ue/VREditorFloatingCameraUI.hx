@@ -3,9 +3,12 @@ package ue;
 
 @:native("AVREditorFloatingCameraUI")
 @:include("UI/VREditorFloatingCameraUI.h")
+@:structAccess
 extern class VREditorFloatingCameraUI extends VREditorFloatingUI {
 	public var OffsetFromCamera: Vector;
 	public var LinkedActor: TWeakObjectPtr<Actor>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

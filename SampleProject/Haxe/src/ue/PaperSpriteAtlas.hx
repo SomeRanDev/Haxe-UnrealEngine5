@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPaperSpriteAtlas")
 @:include("PaperSpriteAtlas.h")
+@:structAccess
 extern class PaperSpriteAtlas extends Object {
 	public var AtlasDescription: FString;
 	public var MaxWidth: cpp.Int32;
@@ -20,6 +21,8 @@ extern class PaperSpriteAtlas extends Object {
 	public var BuiltWidth: cpp.Int32;
 	public var BuiltHeight: cpp.Int32;
 	public var BuiltPadding: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

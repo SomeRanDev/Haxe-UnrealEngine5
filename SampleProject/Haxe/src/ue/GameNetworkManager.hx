@@ -3,6 +3,7 @@ package ue;
 
 @:native("AGameNetworkManager")
 @:include("GameFramework/GameNetworkManager.h")
+@:structAccess
 extern class GameNetworkManager extends Info {
 	public var BadPacketLossThreshold: cpp.Float32;
 	public var SeverePacketLossThreshold: cpp.Float32;
@@ -48,6 +49,8 @@ extern class GameNetworkManager extends Info {
 	public var MovementTimeDiscrepancyDriftAllowance: cpp.Float32;
 	public var bMovementTimeDiscrepancyForceCorrectionsDuringResolution: Bool;
 	public var bUseDistanceBasedRelevancy: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

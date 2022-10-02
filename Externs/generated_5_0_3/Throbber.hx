@@ -3,6 +3,7 @@ package ue;
 
 @:native("UThrobber")
 @:include("Components/Throbber.h")
+@:structAccess
 extern class Throbber extends Widget {
 	public var NumberOfPieces: cpp.Int32;
 	public var bAnimateHorizontally: Bool;
@@ -15,6 +16,8 @@ extern class Throbber extends Widget {
 	public function SetAnimateVertically(bInAnimateVertically: Bool): Void;
 	public function SetAnimateOpacity(bInAnimateOpacity: Bool): Void;
 	public function SetAnimateHorizontally(bInAnimateHorizontally: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -2,8 +2,11 @@
 package ue;
 
 @:native("UUserObjectListEntry")
+@:structAccess
 extern class UserObjectListEntry extends UserListEntry {
 	public function OnListItemObjectSet(ListItemObject: cpp.Star<Object>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UConstantCameraShakePattern")
 @:include("Tests/CameraShakeTestObjects.h")
+@:structAccess
 extern class ConstantCameraShakePattern extends SimpleCameraShakePattern {
 	public var LocationOffset: Vector;
 	public var RotationOffset: Rotator;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

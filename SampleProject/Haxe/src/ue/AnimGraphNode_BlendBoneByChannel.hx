@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_BlendBoneByChannel")
 @:include("AnimGraphNode_BlendBoneByChannel.h")
+@:structAccess
 extern class AnimGraphNode_BlendBoneByChannel extends AnimGraphNode_Base {
 	public var BlendNode: AnimNode_BlendBoneByChannel;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

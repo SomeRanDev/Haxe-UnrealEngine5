@@ -3,5 +3,7 @@ package ue;
 
 @:native("FStaticMeshComponentLODInfo")
 @:include("Components/StaticMeshComponent.h")
+@:structAccess
 extern class StaticMeshComponentLODInfo {
+	@:native("FStaticMeshComponentLODInfo") public function new();
 }

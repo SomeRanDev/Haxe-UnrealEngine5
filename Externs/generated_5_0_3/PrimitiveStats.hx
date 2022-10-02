@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPrimitiveStats")
 @:include("PrimitiveStats.h")
+@:structAccess
 extern class PrimitiveStats extends Object {
 	public var Object: TWeakObjectPtr<Object>;
 	public var Actors: TArray<TWeakObjectPtr<Actor>>;
@@ -25,6 +26,8 @@ extern class PrimitiveStats extends Object {
 	public var RadiusMin: cpp.Float32;
 	public var RadiusMax: cpp.Float32;
 	public var RadiusAvg: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

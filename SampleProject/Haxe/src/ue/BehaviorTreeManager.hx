@@ -3,10 +3,13 @@ package ue;
 
 @:native("UBehaviorTreeManager")
 @:include("BehaviorTree/BehaviorTreeManager.h")
+@:structAccess
 extern class BehaviorTreeManager extends Object {
 	public var MaxDebuggerSteps: cpp.Int32;
 	public var LoadedTemplates: TArray<BehaviorTreeTemplateInfo>;
 	public var ActiveComponents: TArray<cpp.Star<BehaviorTreeComp>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

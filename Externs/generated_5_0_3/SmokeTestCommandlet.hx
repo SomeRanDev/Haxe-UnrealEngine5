@@ -3,7 +3,10 @@ package ue;
 
 @:native("USmokeTestCommandlet")
 @:include("Commandlets/SmokeTestCommandlet.h")
+@:structAccess
 extern class SmokeTestCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

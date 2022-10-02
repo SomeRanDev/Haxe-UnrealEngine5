@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnNotifyReplaced__PythonCallable")
+@:structAccess
 extern class OnNotifyReplaced__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimNotifyState_TimedParticleEffect")
 @:include("Animation/AnimNotifies/AnimNotifyState_TimedParticleEffect.h")
+@:structAccess
 extern class AnimNotifyState_TimedParticleEffect extends AnimNotifyState {
 	public var PSTemplate: cpp.Star<ParticleSystem>;
 	public var SocketName: FName;
@@ -11,6 +12,8 @@ extern class AnimNotifyState_TimedParticleEffect extends AnimNotifyState {
 	public var bDestroyAtEnd: Bool;
 	public var PreviousPSTemplates: TArray<cpp.Star<ParticleSystem>>;
 	public var PreviousSocketNames: TArray<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

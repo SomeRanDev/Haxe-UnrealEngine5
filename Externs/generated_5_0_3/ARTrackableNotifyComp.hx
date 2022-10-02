@@ -3,6 +3,7 @@ package ue;
 
 @:native("UARTrackableNotifyComponent")
 @:include("ARTrackableNotifyComponent.h")
+@:structAccess
 extern class ARTrackableNotifyComp extends ActorComp {
 	public var OnAddTrackedGeometry: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedGeometry>) -> Void>;
 	public var OnUpdateTrackedGeometry: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedGeometry>) -> Void>;
@@ -25,6 +26,8 @@ extern class ARTrackableNotifyComp extends ActorComp {
 	public var OnAddTrackedObject: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedObject>) -> Void>;
 	public var OnUpdateTrackedObject: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedObject>) -> Void>;
 	public var OnRemoveTrackedObject: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedObject>) -> Void>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

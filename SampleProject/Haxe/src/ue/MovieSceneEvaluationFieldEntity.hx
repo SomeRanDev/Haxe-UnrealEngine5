@@ -3,7 +3,11 @@ package ue;
 
 @:native("FMovieSceneEvaluationFieldEntity")
 @:include("Evaluation/MovieSceneEvaluationField.h")
+@:structAccess
 extern class MovieSceneEvaluationFieldEntity {
 	public var Key: MovieSceneEvaluationFieldEntityKey;
 	public var SharedMetaDataIndex: cpp.Int32;
+
+	@:native("FMovieSceneEvaluationFieldEntity") public function new();
+	@:native("FMovieSceneEvaluationFieldEntity") public static function make(Key: MovieSceneEvaluationFieldEntityKey, SharedMetaDataIndex: cpp.Int32): MovieSceneEvaluationFieldEntity ;
 }

@@ -3,8 +3,11 @@ package ue;
 
 @:native("ULightWeightInstanceFactory")
 @:include("Factories/LightWeightInstanceFactory.h")
+@:structAccess
 extern class LightWeightInstanceFactory extends Factory {
 	public var ParentClass: TSubclassOf<Object>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

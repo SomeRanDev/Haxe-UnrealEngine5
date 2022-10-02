@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_CallFunctionOnMember")
 @:include("K2Node_CallFunctionOnMember.h")
+@:structAccess
 extern class K2Node_CallFunctionOnMember extends K2Node_CallFunction {
 	public var MemberVariableToCallOn: MemberReference;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

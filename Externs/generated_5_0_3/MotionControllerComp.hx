@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMotionControllerComponent")
 @:include("MotionControllerComponent.h")
+@:structAccess
 extern class MotionControllerComp extends PrimitiveComp {
 	public var PlayerIndex: cpp.Int32;
 	public var Hand_DEPRECATED: EControllerHand;
@@ -26,6 +27,8 @@ extern class MotionControllerComp extends PrimitiveComp {
 	public function GetTrackingSource(): cpp.Reference<EControllerHand>;
 	public function GetParameterValue(InName: FName, bValueFound: cpp.Reference<Bool>): cpp.Reference<cpp.Float32>;
 	public function GetHandJointPosition(jointIndex: cpp.Int32, bValueFound: cpp.Reference<Bool>): cpp.Reference<Vector>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsTracked, GetTrackingSource)

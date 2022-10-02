@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraClipboardEditorScriptingUtilities")
 @:include("NiagaraClipboard.h")
+@:structAccess
 extern class NiagaraClipboardEditorScriptingUtilities extends Object {
 	public function TrySetLocalValueAsInt(InInput: cpp.Star<NiagaraClipboardFunctionInput>, bOutSucceeded: cpp.Reference<Bool>, InValue: cpp.Int32, bLooseTyping: Bool): Void;
 	public function TryGetLocalValueAsInt(InInput: cpp.Star<NiagaraClipboardFunctionInput.ConstNiagaraClipboardFunctionInput>, bOutSucceeded: cpp.Reference<Bool>, OutValue: cpp.Reference<cpp.Int32>): Void;
@@ -20,6 +21,8 @@ extern class NiagaraClipboardEditorScriptingUtilities extends Object {
 	public function CreateDynamicValueInput(InOuter: cpp.Star<Object>, InInputName: FName, InInputTypeName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InDynamicValueName: FString, InDynamicValue: cpp.Star<NiagaraScript>): cpp.Reference<cpp.Star<NiagaraClipboardFunctionInput>>;
 	public function CreateDataValueInput(InOuter: cpp.Star<Object>, InInputName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InDataValue: cpp.Star<NiagaraDataInterface>): cpp.Reference<cpp.Star<NiagaraClipboardFunctionInput>>;
 	public function CreateBoolLocalValueInput(InOuter: cpp.Star<Object>, InInputName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InBoolValue: Bool): cpp.Reference<cpp.Star<NiagaraClipboardFunctionInput>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

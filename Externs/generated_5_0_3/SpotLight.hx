@@ -3,12 +3,15 @@ package ue;
 
 @:native("ASpotLight")
 @:include("Engine/SpotLight.h")
+@:structAccess
 extern class SpotLight extends Light {
 	public var SpotLightComponent: cpp.Star<SpotLightComp>;
 	public var ArrowComponent: cpp.Star<ArrowComp>;
 
 	public function SetOuterConeAngle(NewOuterConeAngle: cpp.Float32): Void;
 	public function SetInnerConeAngle(NewInnerConeAngle: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

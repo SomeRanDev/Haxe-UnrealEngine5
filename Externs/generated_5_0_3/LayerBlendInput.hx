@@ -3,6 +3,7 @@ package ue;
 
 @:native("FLayerBlendInput")
 @:include("Materials/MaterialExpressionLandscapeLayerBlend.h")
+@:structAccess
 extern class LayerBlendInput {
 	public var LayerName: FName;
 	public var BlendType: ELandscapeLayerBlendType;
@@ -11,4 +12,6 @@ extern class LayerBlendInput {
 	public var PreviewWeight: cpp.Float32;
 	public var ConstLayerInput: Vector;
 	public var ConstHeightInput: cpp.Float32;
+
+	@:native("FLayerBlendInput") public function new();
 }

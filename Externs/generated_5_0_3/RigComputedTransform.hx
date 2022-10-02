@@ -3,6 +3,10 @@ package ue;
 
 @:native("FRigComputedTransform")
 @:include("Rigs/RigHierarchyElements.h")
+@:structAccess
 extern class RigComputedTransform {
 	public var Transform: Transform;
+
+	@:native("FRigComputedTransform") public function new();
+	@:native("FRigComputedTransform") public static function make(Transform: Transform): RigComputedTransform ;
 }

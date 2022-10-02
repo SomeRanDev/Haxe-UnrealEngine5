@@ -3,6 +3,7 @@ package ue;
 
 @:native("UChaosClothConfig")
 @:include("ChaosCloth/ChaosClothConfig.h")
+@:structAccess
 extern class ChaosClothConfig extends ClothConfigCommon {
 	public var MassMode: EClothMassMode;
 	public var UniformMass: cpp.Float32;
@@ -49,6 +50,8 @@ extern class ChaosClothConfig extends ClothConfigCommon {
 	public var LiftCoefficient_DEPRECATED: cpp.Float32;
 	public var AnimDriveSpringStiffness_DEPRECATED: cpp.Float32;
 	public var StrainLimitingStiffness_DEPRECATED: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

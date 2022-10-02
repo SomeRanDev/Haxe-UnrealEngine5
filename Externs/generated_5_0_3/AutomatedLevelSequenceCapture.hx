@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAutomatedLevelSequenceCapture")
 @:include("AutomatedLevelSequenceCapture.h")
+@:structAccess
 extern class AutomatedLevelSequenceCapture extends MovieSceneCapture {
 	public var LevelSequenceAsset: SoftObjectPath;
 	public var ShotName: FString;
@@ -18,6 +19,8 @@ extern class AutomatedLevelSequenceCapture extends MovieSceneCapture {
 	public var bWriteEditDecisionList: Bool;
 	public var bWriteFinalCutProXML: Bool;
 	public var LevelSequenceActor: TWeakObjectPtr<LevelSequenceActor>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

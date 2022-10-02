@@ -3,6 +3,7 @@ package ue;
 
 @:native("FFontData")
 @:include("Fonts/CompositeFont.h")
+@:structAccess
 extern class FontData {
 	public var FontFilename: FString;
 	public var Hinting: EFontHinting;
@@ -11,4 +12,6 @@ extern class FontData {
 	public var FontFaceAsset: cpp.Star<Object>;
 	public var BulkDataPtr_DEPRECATED: cpp.Star<FontBulkData>;
 	public var FontData_DEPRECATED: TArray<cpp.UInt8>;
+
+	@:native("FFontData") public function new();
 }

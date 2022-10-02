@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraStackParameterStoreEntry")
 @:include("ViewModels/Stack/NiagaraStackParameterStoreEntry.h")
+@:structAccess
 extern class NiagaraStackParameterStoreEntry extends NiagaraStackItemContent {
 	public var ValueObjectEntry: cpp.Star<NiagaraStackObject>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

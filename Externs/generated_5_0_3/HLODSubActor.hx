@@ -3,6 +3,7 @@ package ue;
 
 @:native("FHLODSubActor")
 @:include("WorldPartition/HLOD/HLODSubActor.h")
+@:structAccess
 extern class HLODSubActor {
 	public var ActorGuid: Guid;
 	public var ActorPackage: FName;
@@ -10,4 +11,6 @@ extern class HLODSubActor {
 	public var ContainerID: ActorContainerID;
 	public var ContainerPackage: FName;
 	public var ContainerTransform: Transform;
+
+	@:native("FHLODSubActor") public function new();
 }

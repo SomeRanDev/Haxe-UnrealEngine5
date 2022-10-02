@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraSystemEditorData")
 @:include("NiagaraSystemEditorData.h")
+@:structAccess
 extern class NiagaraSystemEditorData extends NiagaraEditorDataBase {
 	public var bSetOrbitModeByAsset: Bool;
 	public var bSystemViewportInOrbitMode: Bool;
@@ -14,6 +15,8 @@ extern class NiagaraSystemEditorData extends NiagaraEditorDataBase {
 	public var SystemOverviewGraph: cpp.Star<EdGraph>;
 	public var OverviewGraphViewSettings: NiagaraGraphViewSettings;
 	public var bSystemIsPlaceholder: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

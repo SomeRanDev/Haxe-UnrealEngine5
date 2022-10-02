@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMaterialQualityOverrides")
 @:include("ShaderPlatformQualitySettings.h")
+@:structAccess
 extern class MaterialQualityOverrides {
 	public var bDiscardQualityDuringCook: Bool;
 	public var bEnableOverride: Bool;
@@ -13,4 +14,6 @@ extern class MaterialQualityOverrides {
 	public var bForceDisablePreintegratedGF: Bool;
 	public var bDisableMaterialNormalCalculation: Bool;
 	public var MobileShadowQuality: EMobileShadowQuality;
+
+	@:native("FMaterialQualityOverrides") public function new();
 }

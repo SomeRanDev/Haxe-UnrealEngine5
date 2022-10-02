@@ -3,6 +3,7 @@ package ue;
 
 @:native("UStaticMeshSocket")
 @:include("Engine/StaticMeshSocket.h")
+@:structAccess
 extern class StaticMeshSocket extends Object {
 	public var SocketName: FName;
 	public var RelativeLocation: Vector;
@@ -11,6 +12,8 @@ extern class StaticMeshSocket extends Object {
 	public var Tag: FString;
 	public var PreviewStaticMesh: cpp.Star<StaticMesh>;
 	public var bSocketCreatedAtImport: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

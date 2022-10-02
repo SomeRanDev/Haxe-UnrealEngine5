@@ -3,10 +3,13 @@ package ue;
 
 @:native("UEnvQueryGenerator")
 @:include("EnvironmentQuery/EnvQueryGenerator.h")
+@:structAccess
 extern class EnvQueryGenerator extends EnvQueryNode {
 	public var OptionName: FString;
 	public var ItemType: TSubclassOf<EnvQueryItemType>;
 	public var bAutoSortTests: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

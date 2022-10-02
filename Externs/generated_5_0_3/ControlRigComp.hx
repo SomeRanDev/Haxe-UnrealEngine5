@@ -3,6 +3,7 @@ package ue;
 
 @:native("UControlRigComponent")
 @:include("ControlRigComponent.h")
+@:structAccess
 extern class ControlRigComp extends PrimitiveComp {
 	public var ControlRigClass: TSubclassOf<ControlRig>;
 	public var OnPreInitializeDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Star<ControlRigComp>) -> Void>;
@@ -69,6 +70,8 @@ extern class ControlRigComp extends PrimitiveComp {
 	public function AddMappedElements(NewMappedElements: TArray<ControlRigComponentMappedElement>): Void;
 	public function AddMappedComponents(Components: TArray<ControlRigComponentMappedComp>): Void;
 	public function AddMappedCompleteSkeletalMesh(SkeletalMeshComponent: cpp.Star<SkeletalMeshComp>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetAbsoluteTime)

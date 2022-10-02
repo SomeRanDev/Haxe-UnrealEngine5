@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionMaterialProxyReplace")
 @:include("Materials/MaterialExpressionMaterialProxyReplace.h")
+@:structAccess
 extern class MaterialExpressionMaterialProxyReplace extends MaterialExpression {
 	public var Realtime: ExpressionInput;
 	public var MaterialProxy: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

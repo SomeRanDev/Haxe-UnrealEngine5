@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnDeleteActorsEnd__PythonCallable")
+@:structAccess
 extern class OnDeleteActorsEnd__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

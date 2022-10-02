@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEnvQueryGenerator_Donut")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_Donut.h")
+@:structAccess
 extern class EnvQueryGenerator_Donut extends EnvQueryGenerator_ProjectedPoints {
 	public var InnerRadius: AIDataProviderFloatValue;
 	public var OuterRadius: AIDataProviderFloatValue;
@@ -13,6 +14,8 @@ extern class EnvQueryGenerator_Donut extends EnvQueryGenerator_ProjectedPoints {
 	public var bUseSpiralPattern: Bool;
 	public var Center: TSubclassOf<EnvQueryContext>;
 	public var bDefineArc: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

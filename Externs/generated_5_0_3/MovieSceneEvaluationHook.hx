@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UMovieSceneEvaluationHook")
+@:structAccess
 extern class MovieSceneEvaluationHook extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UPendingNetGame")
 @:include("Engine/PendingNetGame.h")
+@:structAccess
 extern class PendingNetGame extends Object {
 	public var NetDriver: cpp.Star<NetDriver>;
 	public var DemoNetDriver: cpp.Star<DemoNetDriver>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPrimaryAssetLabel")
 @:include("Engine/PrimaryAssetLabel.h")
+@:structAccess
 extern class PrimaryAssetLabel extends PrimaryDataAsset {
 	public var Rules: PrimaryAssetRules;
 	public var bLabelAssetsInMyDirectory: Bool;
@@ -10,6 +11,8 @@ extern class PrimaryAssetLabel extends PrimaryDataAsset {
 	public var ExplicitAssets: TArray<TSoftObjectPtr<Object>>;
 	public var ExplicitBlueprints: TArray<TSoftClassPtr<Class>>;
 	public var AssetCollection: CollectionReference;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

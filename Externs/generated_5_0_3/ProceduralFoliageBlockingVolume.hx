@@ -3,9 +3,12 @@ package ue;
 
 @:native("AProceduralFoliageBlockingVolume")
 @:include("ProceduralFoliageBlockingVolume.h")
+@:structAccess
 extern class ProceduralFoliageBlockingVolume extends Volume {
 	public var ProceduralFoliageVolume: cpp.Star<ProceduralFoliageVolume>;
 	public var DensityFalloff: FoliageDensityFalloff;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

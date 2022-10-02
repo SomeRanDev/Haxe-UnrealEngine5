@@ -3,6 +3,10 @@ package ue;
 
 @:native("FSmartName")
 @:include("Animation/SmartName.h")
+@:structAccess
 extern class SmartName {
 	public var DisplayName: FName;
+
+	@:native("FSmartName") public function new();
+	@:native("FSmartName") public static function make(DisplayName: FName): SmartName ;
 }

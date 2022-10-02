@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEnvQueryInstanceBlueprintWrapper")
 @:include("EnvironmentQuery/EnvQueryInstanceBlueprintWrapper.h")
+@:structAccess
 extern class EnvQueryInstanceBlueprintWrapper extends Object {
 	public var QueryID: cpp.Int32;
 	public var ItemType: TSubclassOf<EnvQueryItemType>;
@@ -16,6 +17,8 @@ extern class EnvQueryInstanceBlueprintWrapper extends Object {
 	public function GetQueryResultsAsActors(ResultActors: cpp.Reference<TArray<cpp.Star<Actor>>>): cpp.Reference<Bool>;
 	public function GetItemScore(ItemIndex: cpp.Int32): cpp.Reference<cpp.Float32>;
 	public function EQSQueryDoneSignature__DelegateSignature(QueryInstance: cpp.Star<EnvQueryInstanceBlueprintWrapper>, QueryStatus: EEnvQueryStatus): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetResultsAsLocations, GetResultsAsActors, GetQueryResultsAsLocations, GetQueryResultsAsActors, GetItemScore)

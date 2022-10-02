@@ -3,7 +3,10 @@ package ue;
 
 @:native("UListViewDesignerPreviewItem")
 @:include("Blueprint/ListViewDesignerPreviewItem.h")
+@:structAccess
 extern class ListViewDesignerPreviewItem extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

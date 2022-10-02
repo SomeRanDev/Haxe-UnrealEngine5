@@ -3,11 +3,14 @@ package ue;
 
 @:native("UContentBrowserFolderContext")
 @:include("ContentBrowserMenuContexts.h")
+@:structAccess
 extern class ContentBrowserFolderContext extends ContentBrowserMenuContext {
 	public var bCanBeModified: Bool;
 	public var bNoFolderOnDisk: Bool;
 	public var NumAssetPaths: cpp.Int32;
 	public var NumClassPaths: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

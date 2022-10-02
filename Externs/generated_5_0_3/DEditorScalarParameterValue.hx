@@ -3,9 +3,12 @@ package ue;
 
 @:native("UDEditorScalarParameterValue")
 @:include("MaterialEditor/DEditorScalarParameterValue.h")
+@:structAccess
 extern class DEditorScalarParameterValue extends DEditorParameterValue {
 	public var ParameterValue: cpp.Float32;
 	public var AtlasData: ScalarParameterAtlasData;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

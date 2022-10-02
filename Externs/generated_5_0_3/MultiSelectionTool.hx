@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMultiSelectionTool")
 @:include("MultiSelectionTool.h")
+@:structAccess
 extern class MultiSelectionTool extends InteractiveTool {
 	public var Targets: TArray<cpp.Star<ToolTarget>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

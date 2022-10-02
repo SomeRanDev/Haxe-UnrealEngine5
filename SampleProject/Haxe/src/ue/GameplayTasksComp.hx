@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGameplayTasksComponent")
 @:include("GameplayTasksComponent.h")
+@:structAccess
 extern class GameplayTasksComp extends ActorComp {
 	public var bIsNetDirty: Bool;
 	public var SimulatedTasks: TArray<cpp.Star<GameplayTask>>;
@@ -13,6 +14,8 @@ extern class GameplayTasksComp extends ActorComp {
 
 	public function OnRep_SimulatedTasks(): Void;
 	public function K2_RunGameplayTask(TaskOwner: GameplayTaskOwnerInterface, Task: cpp.Star<GameplayTask>, Priority: cpp.UInt8, AdditionalRequiredResources: TArray<TSubclassOf<GameplayTaskResource>>, AdditionalClaimedResources: TArray<TSubclassOf<GameplayTaskResource>>): cpp.Reference<EGameplayTaskRunResult>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

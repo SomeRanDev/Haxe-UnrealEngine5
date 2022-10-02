@@ -3,6 +3,10 @@ package ue;
 
 @:native("FInputBlendPose")
 @:include("Animation/AnimData/BoneMaskFilter.h")
+@:structAccess
 extern class InputBlendPose {
 	public var BranchFilters: TArray<BranchFilter>;
+
+	@:native("FInputBlendPose") public function new();
+	@:native("FInputBlendPose") public static function make(BranchFilters: TArray<BranchFilter>): InputBlendPose ;
 }

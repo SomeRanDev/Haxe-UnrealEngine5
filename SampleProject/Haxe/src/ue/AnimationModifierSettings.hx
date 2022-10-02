@@ -3,9 +3,12 @@ package ue;
 
 @:native("UAnimationModifierSettings")
 @:include("AnimationModifierSettings.h")
+@:structAccess
 extern class AnimationModifierSettings extends DeveloperSettings {
 	public var DefaultAnimationModifiers: TArray<TSubclassOf<AnimationModifier>>;
 	public var bApplyAnimationModifiersOnImport: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

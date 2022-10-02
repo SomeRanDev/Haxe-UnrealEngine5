@@ -3,6 +3,7 @@ package ue;
 
 @:native("FRigVMStatistics")
 @:include("RigVMCore/RigVMStatistics.h")
+@:structAccess
 extern class RigVMStatistics {
 	public var BytesForCDO: cpp.Int32;
 	public var BytesPerInstance: cpp.Int32;
@@ -11,4 +12,6 @@ extern class RigVMStatistics {
 	public var DebugMemory: RigVMMemoryStatistics;
 	public var BytesForCaching: cpp.Int32;
 	public var ByteCode: RigVMByteCodeStatistics;
+
+	@:native("FRigVMStatistics") public function new();
 }

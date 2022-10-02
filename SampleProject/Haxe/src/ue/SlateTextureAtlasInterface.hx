@@ -2,7 +2,10 @@
 package ue;
 
 @:native("USlateTextureAtlasInterface")
+@:structAccess
 extern class SlateTextureAtlasInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleLocationEmitter")
 @:include("Particles/Location/ParticleModuleLocationEmitter.h")
+@:structAccess
 extern class ParticleModuleLocationEmitter extends ParticleModuleLocationBase {
 	public var EmitterName: FName;
 	public var SelectionMethod: ELocationEmitterSelectionMethod;
@@ -10,6 +11,8 @@ extern class ParticleModuleLocationEmitter extends ParticleModuleLocationBase {
 	public var InheritSourceVelocityScale: cpp.Float32;
 	public var bInheritSourceRotation: Bool;
 	public var InheritSourceRotationScale: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

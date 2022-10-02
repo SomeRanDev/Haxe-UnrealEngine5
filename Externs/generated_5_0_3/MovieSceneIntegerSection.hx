@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneIntegerSection")
 @:include("Sections/MovieSceneIntegerSection.h")
+@:structAccess
 extern class MovieSceneIntegerSection extends MovieSceneSection {
 	public var IntegerCurve: MovieSceneIntegerChannel;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,11 @@ package ue;
 
 @:native("FBPInterfaceDescription")
 @:include("Engine/Blueprint.h")
+@:structAccess
 extern class BPInterfaceDescription {
 	public var Interface: TSubclassOf<Interface>;
 	public var Graphs: TArray<cpp.Star<EdGraph>>;
+
+	@:native("FBPInterfaceDescription") public function new();
+	@:native("FBPInterfaceDescription") public static function make(Interface: TSubclassOf<Interface>, Graphs: TArray<cpp.Star<EdGraph>>): BPInterfaceDescription ;
 }

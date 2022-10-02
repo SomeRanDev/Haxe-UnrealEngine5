@@ -3,7 +3,10 @@ package ue;
 
 @:native("UReverbEffectFactory")
 @:include("Factories/ReverbEffectFactory.h")
+@:structAccess
 extern class ReverbEffectFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

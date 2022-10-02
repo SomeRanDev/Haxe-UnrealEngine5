@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAsyncTask_LoadXRDeviceVisComponent")
 @:include("XRAssetFunctionLibrary.h")
+@:structAccess
 extern class AsyncTask_LoadXRDeviceVisComp extends BlueprintAsyncActionBase {
 	public var OnModelLoaded: HaxeMulticastSparseDelegateProperty<(cpp.Star<PrimitiveComp.ConstPrimitiveComp>) -> Void>;
 	public var OnLoadFailure: HaxeMulticastSparseDelegateProperty<(cpp.Star<PrimitiveComp.ConstPrimitiveComp>) -> Void>;
@@ -10,6 +11,8 @@ extern class AsyncTask_LoadXRDeviceVisComp extends BlueprintAsyncActionBase {
 
 	public function AddNamedDeviceVisualizationComponentAsync(Target: cpp.Star<Actor>, SystemName: FName, DeviceName: FName, bManualAttachment: Bool, RelativeTransform: cpp.Reference<Transform>, XRDeviceId: cpp.Reference<XRDeviceId>, NewComponent: cpp.Reference<cpp.Star<PrimitiveComp>>): cpp.Reference<cpp.Star<AsyncTask_LoadXRDeviceVisComp>>;
 	public function AddDeviceVisualizationComponentAsync(Target: cpp.Star<Actor>, XRDeviceId: cpp.Reference<XRDeviceId>, bManualAttachment: Bool, RelativeTransform: cpp.Reference<Transform>, NewComponent: cpp.Reference<cpp.Star<PrimitiveComp>>): cpp.Reference<cpp.Star<AsyncTask_LoadXRDeviceVisComp>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

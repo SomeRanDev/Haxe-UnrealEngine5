@@ -3,8 +3,11 @@ package ue;
 
 @:native("UParticleModuleAccelerationBase")
 @:include("Particles/Acceleration/ParticleModuleAccelerationBase.h")
+@:structAccess
 extern class ParticleModuleAccelerationBase extends ParticleModule {
 	public var bAlwaysInWorldSpace: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

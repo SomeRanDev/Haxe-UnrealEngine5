@@ -3,9 +3,13 @@ package ue;
 
 @:native("FGameplayTagSource")
 @:include("GameplayTagsManager.h")
+@:structAccess
 extern class GameplayTagSource {
 	public var SourceName: FName;
 	public var SourceType: EGameplayTagSourceType;
 	public var SourceTagList: cpp.Star<GameplayTagsList>;
 	public var SourceRestrictedTagList: cpp.Star<RestrictedGameplayTagsList>;
+
+	@:native("FGameplayTagSource") public function new();
+	@:native("FGameplayTagSource") public static function make(SourceName: FName, SourceType: EGameplayTagSourceType, SourceTagList: cpp.Star<GameplayTagsList>, SourceRestrictedTagList: cpp.Star<RestrictedGameplayTagsList>): GameplayTagSource ;
 }

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionSceneTexelSize")
 @:include("Materials/MaterialExpressionSceneTexelSize.h")
+@:structAccess
 extern class MaterialExpressionSceneTexelSize extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FLightmassPrimitiveSettings")
 @:include("Engine/EngineTypes.h")
+@:structAccess
 extern class LightmassPrimitiveSettings {
 	public var bUseTwoSidedLighting: Bool;
 	public var bShadowIndirectOnly: Bool;
@@ -13,4 +14,6 @@ extern class LightmassPrimitiveSettings {
 	public var EmissiveBoost: cpp.Float32;
 	public var DiffuseBoost: cpp.Float32;
 	public var FullyOccludedSamplesFraction: cpp.Float32;
+
+	@:native("FLightmassPrimitiveSettings") public function new();
 }

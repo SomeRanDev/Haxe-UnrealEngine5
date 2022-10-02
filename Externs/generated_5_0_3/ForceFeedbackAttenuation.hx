@@ -3,8 +3,11 @@ package ue;
 
 @:native("UForceFeedbackAttenuation")
 @:include("GameFramework/ForceFeedbackAttenuation.h")
+@:structAccess
 extern class ForceFeedbackAttenuation extends Object {
 	public var Attenuation: ForceFeedbackAttenuationSettings;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

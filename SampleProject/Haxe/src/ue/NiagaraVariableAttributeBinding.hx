@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraVariableAttributeBinding")
 @:include("NiagaraCommon.h")
+@:structAccess
 extern class NiagaraVariableAttributeBinding {
 	public var ParamMapVariable: NiagaraVariableBase;
 	public var DataSetVariable: NiagaraVariable;
@@ -12,4 +13,6 @@ extern class NiagaraVariableAttributeBinding {
 	public var BindingSourceMode: ENiagaraBindingSource;
 	public var bBindingExistsOnSource: Bool;
 	public var bIsCachedParticleValue: Bool;
+
+	@:native("FNiagaraVariableAttributeBinding") public function new();
 }

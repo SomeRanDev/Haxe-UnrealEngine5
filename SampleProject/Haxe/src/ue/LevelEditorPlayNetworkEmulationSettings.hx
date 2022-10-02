@@ -3,10 +3,14 @@ package ue;
 
 @:native("FLevelEditorPlayNetworkEmulationSettings")
 @:include("Settings/LevelEditorPlayNetworkEmulationSettings.h")
+@:structAccess
 extern class LevelEditorPlayNetworkEmulationSettings {
 	public var bIsNetworkEmulationEnabled: Bool;
 	public var EmulationTarget: NetworkEmulationTarget;
 	public var CurrentProfile: FString;
 	public var OutPackets: NetworkEmulationPacketSettings;
 	public var InPackets: NetworkEmulationPacketSettings;
+
+	@:native("FLevelEditorPlayNetworkEmulationSettings") public function new();
+	@:native("FLevelEditorPlayNetworkEmulationSettings") public static function make(bIsNetworkEmulationEnabled: Bool, EmulationTarget: NetworkEmulationTarget, CurrentProfile: FString, OutPackets: NetworkEmulationPacketSettings, InPackets: NetworkEmulationPacketSettings): LevelEditorPlayNetworkEmulationSettings ;
 }

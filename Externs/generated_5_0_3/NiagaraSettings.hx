@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraSettings")
 @:include("NiagaraSettings.h")
+@:structAccess
 extern class NiagaraSettings extends DeveloperSettings {
 	public var AdditionalParameterTypes: TArray<SoftObjectPath>;
 	public var AdditionalPayloadTypes: TArray<SoftObjectPath>;
@@ -24,6 +25,8 @@ extern class NiagaraSettings extends DeveloperSettings {
 	public var NDISkelMesh_AdjacencyTriangleIndexFormat: ENDISkelMesh_AdjacencyTriangleIndexFormat;
 	public var NDIStaticMesh_AllowDistanceFields: Bool;
 	public var NDICollisionQuery_AsyncGpuTraceProviderOrder: TArray<ENDICollisionQuery_AsyncGpuTraceProvider>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

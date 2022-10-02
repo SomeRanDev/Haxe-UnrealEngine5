@@ -3,7 +3,11 @@ package ue;
 
 @:native("FHairGroupsInterpolation")
 @:include("GroomAssetInterpolation.h")
+@:structAccess
 extern class HairGroupsInterpolation {
 	public var DecimationSettings: HairDecimationSettings;
 	public var InterpolationSettings: HairInterpolationSettings;
+
+	@:native("FHairGroupsInterpolation") public function new();
+	@:native("FHairGroupsInterpolation") public static function make(DecimationSettings: HairDecimationSettings, InterpolationSettings: HairInterpolationSettings): HairGroupsInterpolation ;
 }

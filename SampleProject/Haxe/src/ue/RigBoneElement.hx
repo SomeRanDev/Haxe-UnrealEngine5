@@ -3,6 +3,10 @@ package ue;
 
 @:native("FRigBoneElement")
 @:include("Rigs/RigHierarchyElements.h")
+@:structAccess
 extern class RigBoneElement extends RigSingleParentElement {
 	public var BoneType: ERigBoneType;
+
+	@:native("FRigBoneElement") public function new();
+	@:native("FRigBoneElement") public static function make(BoneType: ERigBoneType): RigBoneElement ;
 }

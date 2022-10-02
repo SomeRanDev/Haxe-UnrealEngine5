@@ -3,7 +3,11 @@ package ue;
 
 @:native("FPoseAssetInfluence")
 @:include("Animation/PoseAsset.h")
+@:structAccess
 extern class PoseAssetInfluence {
 	public var PoseIndex: cpp.Int32;
 	public var BoneTransformIndex: cpp.Int32;
+
+	@:native("FPoseAssetInfluence") public function new();
+	@:native("FPoseAssetInfluence") public static function make(PoseIndex: cpp.Int32, BoneTransformIndex: cpp.Int32): PoseAssetInfluence ;
 }

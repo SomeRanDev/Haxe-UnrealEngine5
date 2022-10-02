@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMaterialEditorSettings")
 @:include("MaterialEditorSettings.h")
+@:structAccess
 extern class MaterialEditorSettings extends Object {
 	public var MaliOfflineCompilerPath: FilePath;
 	public var DefaultPreviewWidth: cpp.Int32;
 	public var DefaultPreviewHeight: cpp.Int32;
 	public var PreviewBackground: PreviewBackgroundSettings;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

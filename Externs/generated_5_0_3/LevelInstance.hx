@@ -3,10 +3,13 @@ package ue;
 
 @:native("ALevelInstance")
 @:include("LevelInstance/LevelInstanceActor.h")
+@:structAccess
 extern class LevelInstance extends Actor {
 	public var WorldAsset: TSoftObjectPtr<World>;
 	public var CookedWorldAsset: TSoftObjectPtr<World>;
 	public var DesiredRuntimeBehavior: ELevelInstanceRuntimeBehavior;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNavigationSystemBase")
 @:include("AI/NavigationSystemBase.h")
+@:structAccess
 extern class NavigationSystemBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

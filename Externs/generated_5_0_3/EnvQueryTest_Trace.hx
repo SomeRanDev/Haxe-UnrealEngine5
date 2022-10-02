@@ -3,12 +3,15 @@ package ue;
 
 @:native("UEnvQueryTest_Trace")
 @:include("EnvironmentQuery/Tests/EnvQueryTest_Trace.h")
+@:structAccess
 extern class EnvQueryTest_Trace extends EnvQueryTest {
 	public var TraceData: EnvTraceData;
 	public var TraceFromContext: AIDataProviderBoolValue;
 	public var ItemHeightOffset: AIDataProviderFloatValue;
 	public var ContextHeightOffset: AIDataProviderFloatValue;
 	public var Context: TSubclassOf<EnvQueryContext>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

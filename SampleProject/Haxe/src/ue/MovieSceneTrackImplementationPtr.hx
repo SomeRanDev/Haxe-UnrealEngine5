@@ -3,5 +3,7 @@ package ue;
 
 @:native("FMovieSceneTrackImplementationPtr")
 @:include("Evaluation/MovieSceneTrackImplementation.h")
+@:structAccess
 extern class MovieSceneTrackImplementationPtr {
+	@:native("FMovieSceneTrackImplementationPtr") public function new();
 }

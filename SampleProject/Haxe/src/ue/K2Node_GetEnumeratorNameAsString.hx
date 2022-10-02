@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_GetEnumeratorNameAsString")
 @:include("K2Node_GetEnumeratorNameAsString.h")
+@:structAccess
 extern class K2Node_GetEnumeratorNameAsString extends K2Node_GetEnumeratorName {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

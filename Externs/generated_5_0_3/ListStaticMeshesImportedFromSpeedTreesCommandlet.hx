@@ -3,7 +3,10 @@ package ue;
 
 @:native("UListStaticMeshesImportedFromSpeedTreesCommandlet")
 @:include("Commandlets/ListStaticMeshesImportedFromSpeedTreesCommandlet.h")
+@:structAccess
 extern class ListStaticMeshesImportedFromSpeedTreesCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionParticleRadius")
 @:include("Materials/MaterialExpressionParticleRadius.h")
+@:structAccess
 extern class MaterialExpressionParticleRadius extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

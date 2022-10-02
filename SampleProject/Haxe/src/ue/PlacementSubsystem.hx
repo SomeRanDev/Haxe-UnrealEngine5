@@ -3,8 +3,11 @@ package ue;
 
 @:native("UPlacementSubsystem")
 @:include("Subsystems/PlacementSubsystem.h")
+@:structAccess
 extern class PlacementSubsystem extends EditorSubsystem {
 	public var AssetFactories: TArray<AssetFactoryInterface>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

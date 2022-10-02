@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_InputVectorAxisEvent")
 @:include("K2Node_InputVectorAxisEvent.h")
+@:structAccess
 extern class K2Node_InputVectorAxisEvent extends K2Node_InputAxisKeyEvent {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

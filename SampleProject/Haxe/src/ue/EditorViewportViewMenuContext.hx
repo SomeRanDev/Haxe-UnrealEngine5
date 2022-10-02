@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEditorViewportViewMenuContext")
 @:include("SEditorViewportViewMenuContext.h")
+@:structAccess
 extern class EditorViewportViewMenuContext extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

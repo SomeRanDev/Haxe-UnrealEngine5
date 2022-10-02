@@ -3,10 +3,13 @@ package ue;
 
 @:native("ANote")
 @:include("Engine/Note.h")
+@:structAccess
 extern class Note extends Actor {
 	public var Text: FString;
 	public var SpriteComponent: cpp.Star<BillboardComp>;
 	public var ArrowComponent: cpp.Star<ArrowComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

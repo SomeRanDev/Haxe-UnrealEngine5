@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionLandscapeLayerCoords")
 @:include("Materials/MaterialExpressionLandscapeLayerCoords.h")
+@:structAccess
 extern class MaterialExpressionLandscapeLayerCoords extends MaterialExpression {
 	public var MappingType: ETerrainCoordMappingType;
 	public var CustomUVType: ELandscapeCustomizedCoordType;
@@ -10,6 +11,8 @@ extern class MaterialExpressionLandscapeLayerCoords extends MaterialExpression {
 	public var MappingRotation: cpp.Float32;
 	public var MappingPanU: cpp.Float32;
 	public var MappingPanV: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UClassVariableCreator")
+@:structAccess
 extern class ClassVariableCreator extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UReimportSoundFactory")
 @:include("Factories/ReimportSoundFactory.h")
+@:structAccess
 extern class ReimportSoundFactory extends SoundFactory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

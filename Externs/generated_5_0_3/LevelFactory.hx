@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULevelFactory")
 @:include("Factories/LevelFactory.h")
+@:structAccess
 extern class LevelFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

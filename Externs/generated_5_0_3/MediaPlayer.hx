@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMediaPlayer")
 @:include("MediaPlayer.h")
+@:structAccess
 extern class MediaPlayer extends Object {
 	public var OnEndReached: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnMediaClosed: HaxeMulticastSparseDelegateProperty<() -> Void>;
@@ -100,6 +101,8 @@ extern class MediaPlayer extends Object {
 	public function CanPlayUrl(Url: FString): cpp.Reference<Bool>;
 	public function CanPlaySource(MediaSource: cpp.Star<MediaSource>): cpp.Reference<Bool>;
 	public function CanPause(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

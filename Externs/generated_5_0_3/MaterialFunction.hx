@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialFunction")
 @:include("Materials/MaterialFunction.h")
+@:structAccess
 extern class MaterialFunction extends MaterialFunctionInterface {
 	public var ParentFunction: cpp.Star<MaterialFunction>;
 	public var Description: FString;
@@ -16,6 +17,8 @@ extern class MaterialFunction extends MaterialFunctionInterface {
 	public var DependentFunctionExpressionCandidates: TArray<cpp.Star<MaterialExpressionMaterialFunctionCall>>;
 	public var PreviewBlendMode: EBlendMode;
 	public var bReentrantFlag: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

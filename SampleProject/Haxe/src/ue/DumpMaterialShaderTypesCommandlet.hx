@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDumpMaterialShaderTypesCommandlet")
 @:include("Commandlets/DumpMaterialShaderTypes.h")
+@:structAccess
 extern class DumpMaterialShaderTypesCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

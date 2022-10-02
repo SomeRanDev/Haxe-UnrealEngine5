@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDetailsView")
 @:include("Components/DetailsView.h")
+@:structAccess
 extern class DetailsView extends PropertyViewBase {
 	public var bAllowFiltering: Bool;
 	public var bAllowFavoriteSystem: Bool;
@@ -16,6 +17,8 @@ extern class DetailsView extends PropertyViewBase {
 	public var CategoriesToShow: TArray<FName>;
 	public var PropertiesToShow: TArray<FName>;
 	public var bShowOnlyAllowed: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

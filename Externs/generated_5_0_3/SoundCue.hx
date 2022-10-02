@@ -3,6 +3,7 @@ package ue;
 
 @:native("USoundCue")
 @:include("Sound/SoundCue.h")
+@:structAccess
 extern class SoundCue extends SoundBase {
 	public var bPrimeOnLoad: Bool;
 	public var FirstNode: cpp.Star<SoundNode>;
@@ -16,6 +17,8 @@ extern class SoundCue extends SoundBase {
 	public var bExcludeFromRandomNodeBranchCulling: Bool;
 	public var CookedQualityIndex: cpp.Int32;
 	public var bHasPlayWhenSilent: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

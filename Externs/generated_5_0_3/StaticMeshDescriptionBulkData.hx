@@ -3,7 +3,10 @@ package ue;
 
 @:native("UStaticMeshDescriptionBulkData")
 @:include("Engine/StaticMeshSourceData.h")
+@:structAccess
 extern class StaticMeshDescriptionBulkData extends MeshDescriptionBaseBulkData {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

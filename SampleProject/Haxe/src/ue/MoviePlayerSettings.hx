@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMoviePlayerSettings")
 @:include("MoviePlayerSettings.h")
+@:structAccess
 extern class MoviePlayerSettings extends Object {
 	public var bWaitForMoviesToComplete: Bool;
 	public var bMoviesAreSkippable: Bool;
 	public var StartupMovies: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

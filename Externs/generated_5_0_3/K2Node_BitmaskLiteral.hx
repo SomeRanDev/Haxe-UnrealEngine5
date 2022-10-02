@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_BitmaskLiteral")
 @:include("K2Node_BitmaskLiteral.h")
+@:structAccess
 extern class K2Node_BitmaskLiteral extends K2Node {
 	public var BitflagsEnum: cpp.Star<Enum>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

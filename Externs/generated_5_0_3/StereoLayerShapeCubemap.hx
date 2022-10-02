@@ -3,7 +3,10 @@ package ue;
 
 @:native("UStereoLayerShapeCubemap")
 @:include("Components/StereoLayerComponent.h")
+@:structAccess
 extern class StereoLayerShapeCubemap extends StereoLayerShape {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

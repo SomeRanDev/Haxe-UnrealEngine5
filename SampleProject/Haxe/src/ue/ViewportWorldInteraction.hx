@@ -3,6 +3,7 @@ package ue;
 
 @:native("UViewportWorldInteraction")
 @:include("ViewportWorldInteraction.h")
+@:structAccess
 extern class ViewportWorldInteraction extends EditorWorldExtension {
 	public var Interactors: TArray<cpp.Star<ViewportInteractor>>;
 	public var ViewportTransformer: cpp.Star<ViewportTransformer>;
@@ -26,6 +27,8 @@ extern class ViewportWorldInteraction extends EditorWorldExtension {
 	public function GetHeadTransform(): cpp.Reference<Transform>;
 	public function AddInteractor(Interactor: cpp.Star<ViewportInteractor>): Void;
 	public function AddActorToExcludeFromHitTests(ActorToExcludeFromHitTests: cpp.Star<Actor>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetWorldScaleFactor, GetRoomTransform, GetRoomSpaceHeadTransform, GetInteractors, GetHeadTransform)

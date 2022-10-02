@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBoolBinding")
 @:include("Binding/BoolBinding.h")
+@:structAccess
 extern class BoolBinding extends PropertyBinding {
 	public function GetValue(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetValue)

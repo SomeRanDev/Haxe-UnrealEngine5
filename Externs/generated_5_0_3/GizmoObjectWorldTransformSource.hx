@@ -3,9 +3,12 @@ package ue;
 
 @:native("UGizmoObjectWorldTransformSource")
 @:include("EditorGizmos/GizmoObjectTransformSources.h")
+@:structAccess
 extern class GizmoObjectWorldTransformSource extends GizmoBaseTransformSource {
 	public var Object: cpp.Star<GizmoBaseObject>;
 	public var bModifyObjectOnTransform: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

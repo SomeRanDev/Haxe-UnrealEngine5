@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMouseCursorBinding")
 @:include("Binding/MouseCursorBinding.h")
+@:structAccess
 extern class MouseCursorBinding extends PropertyBinding {
 	public function GetValue(): cpp.Reference<EMouseCursor>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetValue)

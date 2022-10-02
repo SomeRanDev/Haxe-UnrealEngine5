@@ -3,7 +3,10 @@ package ue;
 
 @:native("ASequencerMeshTrail")
 @:include("SequencerMeshTrail.h")
+@:structAccess
 extern class SequencerMeshTrail extends Actor {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

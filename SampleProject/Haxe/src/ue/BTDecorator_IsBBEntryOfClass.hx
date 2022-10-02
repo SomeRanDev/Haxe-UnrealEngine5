@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBTDecorator_IsBBEntryOfClass")
 @:include("BehaviorTree/Decorators/BTDecorator_IsBBEntryOfClass.h")
+@:structAccess
 extern class BTDecorator_IsBBEntryOfClass extends BTDecorator_BlackboardBase {
 	public var TestClass: TSubclassOf<Object>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

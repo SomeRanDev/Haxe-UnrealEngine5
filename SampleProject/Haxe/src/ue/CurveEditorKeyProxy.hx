@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UCurveEditorKeyProxy")
+@:structAccess
 extern class CurveEditorKeyProxy extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

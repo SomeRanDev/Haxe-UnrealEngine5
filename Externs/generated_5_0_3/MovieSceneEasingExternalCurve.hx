@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneEasingExternalCurve")
 @:include("Generators/MovieSceneEasingCurves.h")
+@:structAccess
 extern class MovieSceneEasingExternalCurve extends Object {
 	public var Curve: cpp.Star<CurveFloat>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UARTextureCameraDepth")
 @:include("ARTextures.h")
+@:structAccess
 extern class ARTextureCameraDepth extends ARTexture {
 	public var DepthQuality: EARDepthQuality;
 	public var DepthAccuracy: EARDepthAccuracy;
 	public var bIsTemporallySmoothed: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

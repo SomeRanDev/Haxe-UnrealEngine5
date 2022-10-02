@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_IKRig")
 @:include("AnimGraphNode_IKRig.h")
+@:structAccess
 extern class AnimGraphNode_IKRig extends AnimGraphNode_CustomProperty {
 	public var Node: AnimNode_IKRig;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

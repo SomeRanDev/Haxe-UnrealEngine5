@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPostProcessComponent")
 @:include("Components/PostProcessComponent.h")
+@:structAccess
 extern class PostProcessComp extends SceneComp {
 	public var Settings: PostProcessSettings;
 	public var Priority: cpp.Float32;
@@ -12,6 +13,8 @@ extern class PostProcessComp extends SceneComp {
 	public var bUnbound: Bool;
 
 	public function AddOrUpdateBlendable(InBlendableObject: BlendableInterface, InWeight: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

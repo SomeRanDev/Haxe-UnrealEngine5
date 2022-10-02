@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEditorSubsystem")
 @:include("EditorSubsystem.h")
+@:structAccess
 extern class EditorSubsystem extends DynamicSubsystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

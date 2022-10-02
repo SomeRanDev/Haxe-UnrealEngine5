@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULandscapeInfo")
 @:include("LandscapeInfo.h")
+@:structAccess
 extern class LandscapeInfo extends Object {
 	public var LandscapeActor: TLazyObjectPtr<Landscape>;
 	public var LandscapeGuid: Guid;
@@ -13,6 +14,8 @@ extern class LandscapeInfo extends Object {
 	public var Layers: TArray<LandscapeInfoLayerSettings>;
 	public var Proxies: TArray<cpp.Star<LandscapeStreamingProxy>>;
 	public var SplineActors: TArray<LandscapeSplineInterface>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

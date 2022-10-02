@@ -3,11 +3,14 @@ package ue;
 
 @:native("UInterpTrackInstVectorMaterialParam")
 @:include("Matinee/InterpTrackInstVectorMaterialParam.h")
+@:structAccess
 extern class InterpTrackInstVectorMaterialParam extends InterpTrackInst {
 	public var MaterialInstances: TArray<cpp.Star<MaterialInstanceDynamic>>;
 	public var ResetVectors: TArray<Vector>;
 	public var PrimitiveMaterialRefs: TArray<PrimitiveMaterialRef>;
 	public var InstancedTrack: cpp.Star<InterpTrackVectorMaterialParam>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

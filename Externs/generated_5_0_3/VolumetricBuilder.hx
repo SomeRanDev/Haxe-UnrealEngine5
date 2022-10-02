@@ -3,11 +3,14 @@ package ue;
 
 @:native("UVolumetricBuilder")
 @:include("Builders/VolumetricBuilder.h")
+@:structAccess
 extern class VolumetricBuilder extends EditorBrushBuilder {
 	public var Z: cpp.Float32;
 	public var Radius: cpp.Float32;
 	public var NumSheets: cpp.Int32;
 	public var GroupName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

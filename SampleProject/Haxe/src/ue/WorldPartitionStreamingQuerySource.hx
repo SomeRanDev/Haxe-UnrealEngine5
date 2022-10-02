@@ -3,6 +3,7 @@ package ue;
 
 @:native("FWorldPartitionStreamingQuerySource")
 @:include("WorldPartition/WorldPartitionStreamingSource.h")
+@:structAccess
 extern class WorldPartitionStreamingQuerySource {
 	public var Location: Vector;
 	public var Radius: cpp.Float32;
@@ -10,4 +11,6 @@ extern class WorldPartitionStreamingQuerySource {
 	public var DataLayers: TArray<FName>;
 	public var bDataLayersOnly: Bool;
 	public var bSpatialQuery: Bool;
+
+	@:native("FWorldPartitionStreamingQuerySource") public function new();
 }

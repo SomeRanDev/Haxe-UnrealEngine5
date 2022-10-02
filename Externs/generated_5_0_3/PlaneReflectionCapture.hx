@@ -3,7 +3,10 @@ package ue;
 
 @:native("APlaneReflectionCapture")
 @:include("Engine/PlaneReflectionCapture.h")
+@:structAccess
 extern class PlaneReflectionCapture extends ReflectionCapture {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

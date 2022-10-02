@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UMovieSceneDeterminismSource")
+@:structAccess
 extern class MovieSceneDeterminismSource extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

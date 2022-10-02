@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULevelStreaming")
 @:include("Engine/LevelStreaming.h")
+@:structAccess
 extern class LevelStreaming extends Object {
 	public var PackageName_DEPRECATED: FName;
 	public var WorldAsset: TSoftObjectPtr<World>;
@@ -48,6 +49,8 @@ extern class LevelStreaming extends Object {
 	public function GetLevelScriptActor(): cpp.Reference<cpp.Star<LevelScriptActor>>;
 	public function GetIsRequestingUnloadAndRemoval(): cpp.Reference<Bool>;
 	public function CreateInstance(UniqueInstanceName: FString): cpp.Reference<cpp.Star<LevelStreaming>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(ShouldBeLoaded, IsStreamingStatePending, IsLevelVisible, IsLevelLoaded, GetWorldAssetPackageFName, GetLoadedLevel, GetIsRequestingUnloadAndRemoval)

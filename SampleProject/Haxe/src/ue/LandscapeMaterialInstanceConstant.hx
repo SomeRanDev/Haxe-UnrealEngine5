@@ -3,12 +3,15 @@ package ue;
 
 @:native("ULandscapeMaterialInstanceConstant")
 @:include("LandscapeMaterialInstanceConstant.h")
+@:structAccess
 extern class LandscapeMaterialInstanceConstant extends MaterialInstanceConstant {
 	public var TextureStreamingInfo: TArray<LandscapeMaterialTextureStreamingInfo>;
 	public var bIsLayerThumbnail: Bool;
 	public var bDisableTessellation: Bool;
 	public var bMobile: Bool;
 	public var bEditorToolUsage: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnTimelineVector__PythonCallable")
+@:structAccess
 extern class OnTimelineVector__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

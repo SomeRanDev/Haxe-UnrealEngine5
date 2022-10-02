@@ -3,7 +3,11 @@ package ue;
 
 @:native("FImportFactorySettingValues")
 @:include("Tests/AutomationTestSettings.h")
+@:structAccess
 extern class ImportFactorySettingValues {
 	public var SettingName: FString;
 	public var Value: FString;
+
+	@:native("FImportFactorySettingValues") public function new();
+	@:native("FImportFactorySettingValues") public static function make(SettingName: FString, Value: FString): ImportFactorySettingValues ;
 }

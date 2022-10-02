@@ -3,8 +3,12 @@ package ue;
 
 @:native("FScriptSlateIcon")
 @:include("ToolMenuEntryScript.h")
+@:structAccess
 extern class ScriptSlateIcon {
 	public var StyleSetName: FName;
 	public var StyleName: FName;
 	public var SmallStyleName: FName;
+
+	@:native("FScriptSlateIcon") public function new();
+	@:native("FScriptSlateIcon") public static function make(StyleSetName: FName, StyleName: FName, SmallStyleName: FName): ScriptSlateIcon ;
 }

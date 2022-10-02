@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraRibbonRendererProperties")
 @:include("NiagaraRibbonRendererProperties.h")
+@:structAccess
 extern class NiagaraRibbonRendererProperties extends NiagaraRendererProperties {
 	public var Material: cpp.Star<MaterialInterface>;
 	public var MaterialUserParamBinding: NiagaraUserParameterBinding;
@@ -54,6 +55,8 @@ extern class NiagaraRibbonRendererProperties extends NiagaraRendererProperties {
 	public var PrevRibbonWidthBinding: NiagaraVariableAttributeBinding;
 	public var PrevRibbonFacingBinding: NiagaraVariableAttributeBinding;
 	public var PrevRibbonTwistBinding: NiagaraVariableAttributeBinding;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

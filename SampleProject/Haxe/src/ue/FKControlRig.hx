@@ -3,9 +3,12 @@ package ue;
 
 @:native("UFKControlRig")
 @:include("Rigs/FKControlRig.h")
+@:structAccess
 extern class FKControlRig extends ControlRig {
 	public var IsControlActive: TArray<Bool>;
 	public var ApplyMode: EControlRigFKRigExecuteMode;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

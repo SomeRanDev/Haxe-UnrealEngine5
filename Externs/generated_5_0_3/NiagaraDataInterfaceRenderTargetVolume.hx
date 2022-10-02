@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraDataInterfaceRenderTargetVolume")
 @:include("NiagaraDataInterfaceRenderTargetVolume.h")
+@:structAccess
 extern class NiagaraDataInterfaceRenderTargetVolume extends NiagaraDataInterfaceRWBase {
 	public var Size: IntVector;
 	public var OverrideRenderTargetFormat: ETextureRenderTargetFormat;
@@ -11,6 +12,8 @@ extern class NiagaraDataInterfaceRenderTargetVolume extends NiagaraDataInterface
 	public var bPreviewRenderTarget: Bool;
 	public var RenderTargetUserParameter: NiagaraUserParameterBinding;
 	public var ManagedRenderTargets: TMap<cpp.UInt64, cpp.Star<TextureRenderTargetVolume>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

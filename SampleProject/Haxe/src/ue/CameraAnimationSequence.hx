@@ -3,7 +3,10 @@ package ue;
 
 @:native("UCameraAnimationSequence")
 @:include("CameraAnimationSequence.h")
+@:structAccess
 extern class CameraAnimationSequence extends TemplateSequence {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

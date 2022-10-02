@@ -3,5 +3,7 @@ package ue;
 
 @:native("FSkeletalMeshSamplingLODBuiltData")
 @:include("Engine/SkeletalMeshSampling.h")
+@:structAccess
 extern class SkeletalMeshSamplingLODBuiltData {
+	@:native("FSkeletalMeshSamplingLODBuiltData") public function new();
 }

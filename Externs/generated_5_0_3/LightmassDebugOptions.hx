@@ -3,6 +3,7 @@ package ue;
 
 @:native("FLightmassDebugOptions")
 @:include("Engine/EngineTypes.h")
+@:structAccess
 extern class LightmassDebugOptions {
 	public var bDebugMode: Bool;
 	public var bStatsEnabled: Bool;
@@ -20,4 +21,6 @@ extern class LightmassDebugOptions {
 	public var bColorBordersGreen: Bool;
 	public var bColorByExecutionTime: Bool;
 	public var ExecutionTimeDivisor: cpp.Float32;
+
+	@:native("FLightmassDebugOptions") public function new();
 }

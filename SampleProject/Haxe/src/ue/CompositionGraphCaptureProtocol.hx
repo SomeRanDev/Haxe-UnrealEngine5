@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCompositionGraphCaptureProtocol")
 @:include("Protocols/CompositionGraphCaptureProtocol.h")
+@:structAccess
 extern class CompositionGraphCaptureProtocol extends MovieSceneImageCaptureProtocolBase {
 	public var IncludeRenderPasses: CompositionGraphCapturePasses;
 	public var bCaptureFramesInHDR: Bool;
@@ -11,6 +12,8 @@ extern class CompositionGraphCaptureProtocol extends MovieSceneImageCaptureProto
 	public var PostProcessingMaterial: SoftObjectPath;
 	public var bDisableScreenPercentage: Bool;
 	public var PostProcessingMaterialPtr: cpp.Star<MaterialInterface>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

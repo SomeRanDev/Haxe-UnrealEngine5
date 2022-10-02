@@ -3,7 +3,11 @@ package ue;
 
 @:native("FCustomOutput")
 @:include("Materials/MaterialExpressionCustom.h")
+@:structAccess
 extern class CustomOutput {
 	public var OutputName: FName;
 	public var OutputType: ECustomMaterialOutputType;
+
+	@:native("FCustomOutput") public function new();
+	@:native("FCustomOutput") public static function make(OutputName: FName, OutputType: ECustomMaterialOutputType): CustomOutput ;
 }

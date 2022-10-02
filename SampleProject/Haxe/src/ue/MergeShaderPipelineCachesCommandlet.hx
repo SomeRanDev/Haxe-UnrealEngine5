@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMergeShaderPipelineCachesCommandlet")
 @:include("Commandlets/MergeShaderPipelineCachesCommandlet.h")
+@:structAccess
 extern class MergeShaderPipelineCachesCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

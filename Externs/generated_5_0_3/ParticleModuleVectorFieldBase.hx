@@ -3,7 +3,10 @@ package ue;
 
 @:native("UParticleModuleVectorFieldBase")
 @:include("Particles/VectorField/ParticleModuleVectorFieldBase.h")
+@:structAccess
 extern class ParticleModuleVectorFieldBase extends ParticleModule {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

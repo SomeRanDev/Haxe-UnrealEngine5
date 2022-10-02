@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMeshProxySettings")
 @:include("Engine/MeshMerging.h")
+@:structAccess
 extern class MeshProxySettings {
 	public var ScreenSize: cpp.Int32;
 	public var VoxelSize: cpp.Float32;
@@ -36,4 +37,6 @@ extern class MeshProxySettings {
 	public var bGenerateLightmapUVs: Bool;
 	public var bGenerateNaniteEnabledMesh: Bool;
 	public var NaniteProxyTrianglePercent: cpp.Float32;
+
+	@:native("FMeshProxySettings") public function new();
 }

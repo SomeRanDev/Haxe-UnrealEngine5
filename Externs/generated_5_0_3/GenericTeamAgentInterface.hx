@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UGenericTeamAgentInterface")
+@:structAccess
 extern class GenericTeamAgentInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

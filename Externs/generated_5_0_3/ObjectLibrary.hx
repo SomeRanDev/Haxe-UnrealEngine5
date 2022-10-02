@@ -3,6 +3,7 @@ package ue;
 
 @:native("UObjectLibrary")
 @:include("Engine/ObjectLibrary.h")
+@:structAccess
 extern class ObjectLibrary extends Object {
 	public var ObjectBaseClass: TSubclassOf<Object>;
 	public var bHasBlueprintClasses: Bool;
@@ -10,6 +11,8 @@ extern class ObjectLibrary extends Object {
 	public var WeakObjects: TArray<TWeakObjectPtr<Object>>;
 	public var bUseWeakReferences: Bool;
 	public var bIsFullyLoaded: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

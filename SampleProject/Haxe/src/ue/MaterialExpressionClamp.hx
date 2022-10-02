@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionClamp")
 @:include("Materials/MaterialExpressionClamp.h")
+@:structAccess
 extern class MaterialExpressionClamp extends MaterialExpression {
 	public var Input: ExpressionInput;
 	public var Min: ExpressionInput;
@@ -10,6 +11,8 @@ extern class MaterialExpressionClamp extends MaterialExpression {
 	public var ClampMode: EClampMode;
 	public var MinDefault: cpp.Float32;
 	public var MaxDefault: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

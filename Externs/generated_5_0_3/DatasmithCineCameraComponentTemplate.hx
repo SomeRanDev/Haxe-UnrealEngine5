@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDatasmithCineCameraComponentTemplate")
 @:include("ObjectTemplates/DatasmithCineCameraComponentTemplate.h")
+@:structAccess
 extern class DatasmithCineCameraComponentTemplate extends DatasmithObjectTemplate {
 	public var FilmbackSettings: DatasmithCameraFilmbackSettingsTemplate;
 	public var LensSettings: DatasmithCameraLensSettingsTemplate;
@@ -10,6 +11,8 @@ extern class DatasmithCineCameraComponentTemplate extends DatasmithObjectTemplat
 	public var CurrentFocalLength: cpp.Float32;
 	public var CurrentAperture: cpp.Float32;
 	public var PostProcessSettings: DatasmithPostProcessSettingsTemplate;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

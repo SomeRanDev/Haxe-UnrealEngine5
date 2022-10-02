@@ -3,7 +3,10 @@ package ue;
 
 @:native("UFixupNeedsLoadForEditorGameCommandlet")
 @:include("Commandlets/FixupNeedsLoadForEditorGameCommandlet.h")
+@:structAccess
 extern class FixupNeedsLoadForEditorGameCommandlet extends ResavePackagesCommandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

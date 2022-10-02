@@ -3,7 +3,10 @@ package ue;
 
 @:native("UActorFactoryInteractiveFoliage")
 @:include("ActorFactories/ActorFactoryInteractiveFoliage.h")
+@:structAccess
 extern class ActorFactoryInteractiveFoliage extends ActorFactoryStaticMesh {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

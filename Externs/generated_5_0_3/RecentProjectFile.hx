@@ -3,7 +3,11 @@ package ue;
 
 @:native("FRecentProjectFile")
 @:include("Settings/EditorSettings.h")
+@:structAccess
 extern class RecentProjectFile {
 	public var ProjectName: FString;
 	public var LastOpenTime: DateTime;
+
+	@:native("FRecentProjectFile") public function new();
+	@:native("FRecentProjectFile") public static function make(ProjectName: FString, LastOpenTime: DateTime): RecentProjectFile ;
 }

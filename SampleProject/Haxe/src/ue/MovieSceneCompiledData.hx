@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneCompiledData")
 @:include("Compilation/MovieSceneCompiledDataManager.h")
+@:structAccess
 extern class MovieSceneCompiledData extends Object {
 	public var EvaluationTemplate: MovieSceneEvaluationTemplate;
 	public var Hierarchy: MovieSceneSequenceHierarchy;
@@ -14,6 +15,8 @@ extern class MovieSceneCompiledData extends Object {
 	public var AccumulatedMask: MovieSceneSequenceCompilerMaskStruct;
 	public var AllocatedMask: MovieSceneSequenceCompilerMaskStruct;
 	public var AccumulatedFlags: EMovieSceneSequenceFlags;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDistribution")
 @:include("Distributions/Distribution.h")
+@:structAccess
 extern class Distribution extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

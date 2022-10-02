@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnMouseCaptureEndEvent__PythonCallable")
+@:structAccess
 extern class OnMouseCaptureEndEvent__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("URectLightComponent")
 @:include("Components/RectLightComponent.h")
+@:structAccess
 extern class RectLightComp extends LocalLightComp {
 	public var SourceWidth: cpp.Float32;
 	public var SourceHeight: cpp.Float32;
@@ -15,6 +16,8 @@ extern class RectLightComp extends LocalLightComp {
 	public function SetSourceHeight(NewValue: cpp.Float32): Void;
 	public function SetBarnDoorLength(NewValue: cpp.Float32): Void;
 	public function SetBarnDoorAngle(NewValue: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

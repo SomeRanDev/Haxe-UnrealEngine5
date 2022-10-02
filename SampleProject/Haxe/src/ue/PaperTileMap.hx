@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPaperTileMap")
 @:include("PaperTileMap.h")
+@:structAccess
 extern class PaperTileMap extends Object {
 	public var MapWidth: cpp.Int32;
 	public var MapHeight: cpp.Int32;
@@ -31,6 +32,8 @@ extern class PaperTileMap extends Object {
 	public var MultiTileGridOffsetY: cpp.Int32;
 	public var LayerGridColor: LinearColor;
 	public var LayerNameIndex: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

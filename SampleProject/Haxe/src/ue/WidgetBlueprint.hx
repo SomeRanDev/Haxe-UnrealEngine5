@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWidgetBlueprint")
 @:include("WidgetBlueprint.h")
+@:structAccess
 extern class WidgetBlueprint extends BaseWidgetBlueprint {
 	public var Bindings: TArray<DelegateEditorBinding>;
 	public var AnimationData_DEPRECATED: TArray<WidgetAnimation_DEPRECATED>;
@@ -15,6 +16,8 @@ extern class WidgetBlueprint extends BaseWidgetBlueprint {
 	public var ThumbnailSizeMode: EThumbnailPreviewSizeMode;
 	public var ThumbnailCustomSize: Vector2D;
 	public var ThumbnailImage: cpp.Star<Texture2D>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

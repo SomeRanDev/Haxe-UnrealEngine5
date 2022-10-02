@@ -3,6 +3,10 @@ package ue;
 
 @:native("FPropertyEditTestTextStruct")
 @:include("Editor/PropertyEditorTestObject.h")
+@:structAccess
 extern class PropertyEditTestTextStruct {
 	public var NormalProperty: FText;
+
+	@:native("FPropertyEditTestTextStruct") public function new();
+	@:native("FPropertyEditTestTextStruct") public static function make(NormalProperty: FText): PropertyEditTestTextStruct ;
 }

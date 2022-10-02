@@ -3,7 +3,10 @@ package ue;
 
 @:native("UFoliageType_ActorThumbnailRenderer")
 @:include("FoliageType_ActorThumbnailRenderer.h")
+@:structAccess
 extern class FoliageType_ActorThumbnailRenderer extends BlueprintThumbnailRenderer {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

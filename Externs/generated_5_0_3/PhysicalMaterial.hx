@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPhysicalMaterial")
 @:include("PhysicalMaterials/PhysicalMaterial.h")
+@:structAccess
 extern class PhysicalMaterial extends Object {
 	public var Friction: cpp.Float32;
 	public var StaticFriction: cpp.Float32;
@@ -19,6 +20,8 @@ extern class PhysicalMaterial extends Object {
 	public var DestructibleDamageThresholdScale: cpp.Float32;
 	public var PhysicalMaterialProperty_DEPRECATED: cpp.Star<PhysicalMaterialPropertyBase>;
 	public var SurfaceType: EPhysicalSurface;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

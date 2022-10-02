@@ -3,8 +3,11 @@ package ue;
 
 @:native("AFunctionalAITest")
 @:include("FunctionalAITest.h")
+@:structAccess
 extern class FunctionalAITest extends FunctionalAITestBase {
 	public var SpawnSets: TArray<AITestSpawnSet>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

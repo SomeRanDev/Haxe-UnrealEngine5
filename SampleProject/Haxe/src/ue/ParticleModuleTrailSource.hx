@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleTrailSource")
 @:include("Particles/Trail/ParticleModuleTrailSource.h")
+@:structAccess
 extern class ParticleModuleTrailSource extends ParticleModuleTrailBase {
 	public var SourceMethod: ETrail2SourceMethod;
 	public var SourceName: FName;
@@ -12,6 +13,8 @@ extern class ParticleModuleTrailSource extends ParticleModuleTrailBase {
 	public var SourceOffsetDefaults: TArray<Vector>;
 	public var SelectionMethod: EParticleSourceSelectionMethod;
 	public var bInheritRotation: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraDataInterfaceRenderTarget2DArray")
 @:include("NiagaraDataInterfaceRenderTarget2DArray.h")
+@:structAccess
 extern class NiagaraDataInterfaceRenderTarget2DArray extends NiagaraDataInterfaceRWBase {
 	public var Size: IntVector;
 	public var OverrideRenderTargetFormat: ETextureRenderTargetFormat;
@@ -11,6 +12,8 @@ extern class NiagaraDataInterfaceRenderTarget2DArray extends NiagaraDataInterfac
 	public var bPreviewRenderTarget: Bool;
 	public var RenderTargetUserParameter: NiagaraUserParameterBinding;
 	public var ManagedRenderTargets: TMap<cpp.UInt64, cpp.Star<TextureRenderTarget2DArray>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UInputGestureHandlerDynamicSignature__PythonCallable")
+@:structAccess
 extern class InputGestureHandlerDynamicSignature__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

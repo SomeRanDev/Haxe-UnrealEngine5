@@ -3,8 +3,11 @@ package ue;
 
 @:native("UUnrealEdKeyBindings")
 @:include("Preferences/UnrealEdKeyBindings.h")
+@:structAccess
 extern class UnrealEdKeyBindings extends Object {
 	public var KeyBindings: TArray<EditorKeyBinding>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

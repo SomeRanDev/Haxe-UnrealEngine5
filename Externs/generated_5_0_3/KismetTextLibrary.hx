@@ -3,6 +3,7 @@ package ue;
 
 @:native("UKismetTextLibrary")
 @:include("Kismet/KismetTextLibrary.h")
+@:structAccess
 extern class KismetTextLibrary extends BlueprintFunctionLibrary {
 	public function TextTrimTrailing(InText: cpp.Reference<FText>): cpp.Reference<FText>;
 	public function TextTrimPrecedingAndTrailing(InText: cpp.Reference<FText>): cpp.Reference<FText>;
@@ -50,6 +51,8 @@ extern class KismetTextLibrary extends BlueprintFunctionLibrary {
 	public function AsCurrencyBase(BaseValue: cpp.Int32, CurrencyCode: FString): cpp.Reference<FText>;
 	public function AsCurrency_Integer(Value: cpp.Int32, RoundingMode: ERoundingMode, bAlwaysSign: Bool, bUseGrouping: Bool, MinimumIntegralDigits: cpp.Int32, MaximumIntegralDigits: cpp.Int32, MinimumFractionalDigits: cpp.Int32, MaximumFractionalDigits: cpp.Int32, CurrencyCode: FString): cpp.Reference<FText>;
 	public function AsCurrency_Float(Value: cpp.Float32, RoundingMode: ERoundingMode, bAlwaysSign: Bool, bUseGrouping: Bool, MinimumIntegralDigits: cpp.Int32, MaximumIntegralDigits: cpp.Int32, MinimumFractionalDigits: cpp.Int32, MaximumFractionalDigits: cpp.Int32, CurrencyCode: FString): cpp.Reference<FText>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

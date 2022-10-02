@@ -3,7 +3,10 @@ package ue;
 
 @:native("UInterpTrackInst")
 @:include("Matinee/InterpTrackInst.h")
+@:structAccess
 extern class InterpTrackInst extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

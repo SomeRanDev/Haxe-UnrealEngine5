@@ -3,7 +3,10 @@ package ue;
 
 @:native("UScene")
 @:include("Engine/Scene.h")
+@:structAccess
 extern class Scene extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

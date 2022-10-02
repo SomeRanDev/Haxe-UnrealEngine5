@@ -3,6 +3,7 @@ package ue;
 
 @:native("FBasedMovementInfo")
 @:include("GameFramework/Character.h")
+@:structAccess
 extern class BasedMovementInfo {
 	public var MovementBase: cpp.Star<PrimitiveComp>;
 	public var BoneName: FName;
@@ -11,4 +12,6 @@ extern class BasedMovementInfo {
 	public var bServerHasBaseComponent: Bool;
 	public var bRelativeRotation: Bool;
 	public var bServerHasVelocity: Bool;
+
+	@:native("FBasedMovementInfo") public function new();
 }

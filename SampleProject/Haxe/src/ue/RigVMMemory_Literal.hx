@@ -2,6 +2,7 @@
 package ue;
 
 @:native("URigVMMemory_Literal")
+@:structAccess
 extern class RigVMMemory_Literal extends RigVMMemoryStorage {
 	public var LocalVariableDefault__FootTrace_AnimatedFloorLocation__Const: Vector;
 	public var FootTrace_FootTrace_MathVectorAdd_A__Const: Vector;
@@ -41,6 +42,8 @@ extern class RigVMMemory_Literal extends RigVMMemoryStorage {
 	public var PBIK_ExcludedBones__Const: TArray<FName>;
 	public var PBIK_Settings__Const: PBIKSolverSettings;
 	public var PBIK_Debug__Const: PBIKDebug;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

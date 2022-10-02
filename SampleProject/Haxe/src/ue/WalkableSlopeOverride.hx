@@ -3,7 +3,11 @@ package ue;
 
 @:native("FWalkableSlopeOverride")
 @:include("Engine/EngineTypes.h")
+@:structAccess
 extern class WalkableSlopeOverride {
 	public var WalkableSlopeBehavior: EWalkableSlopeBehavior;
 	public var WalkableSlopeAngle: cpp.Float32;
+
+	@:native("FWalkableSlopeOverride") public function new();
+	@:native("FWalkableSlopeOverride") public static function make(WalkableSlopeBehavior: EWalkableSlopeBehavior, WalkableSlopeAngle: cpp.Float32): WalkableSlopeOverride ;
 }

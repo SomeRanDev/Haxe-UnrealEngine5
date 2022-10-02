@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPoseAsset")
 @:include("Animation/PoseAsset.h")
+@:structAccess
 extern class PoseAsset extends AnimationAsset {
 	public var PoseContainer: PoseDataContainer;
 	public var bAdditivePose: Bool;
@@ -16,6 +17,8 @@ extern class PoseAsset extends AnimationAsset {
 	public function UpdatePoseFromAnimation(AnimSequence: cpp.Star<AnimSequence>): Void;
 	public function RenamePose(OriginalPoseName: cpp.Reference<FName>, NewPoseName: cpp.Reference<FName>): Void;
 	public function GetPoseNames(PoseNames: cpp.Reference<TArray<FName>>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetPoseNames)

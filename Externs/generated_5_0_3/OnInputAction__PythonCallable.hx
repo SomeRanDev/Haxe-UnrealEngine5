@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnInputAction__PythonCallable")
+@:structAccess
 extern class OnInputAction__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

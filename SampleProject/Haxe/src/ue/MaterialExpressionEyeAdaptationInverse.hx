@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionEyeAdaptationInverse")
 @:include("Materials/MaterialExpressionEyeAdaptationInverse.h")
+@:structAccess
 extern class MaterialExpressionEyeAdaptationInverse extends MaterialExpression {
 	public var LightValueInput: ExpressionInput;
 	public var AlphaInput: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

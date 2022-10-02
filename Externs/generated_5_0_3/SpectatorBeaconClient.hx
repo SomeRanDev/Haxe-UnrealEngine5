@@ -3,6 +3,7 @@ package ue;
 
 @:native("ASpectatorBeaconClient")
 @:include("SpectatorBeaconClient.h")
+@:structAccess
 extern class SpectatorBeaconClient extends OnlineBeaconClient {
 	public var DestSessionId: FString;
 	public var PendingReservation: SpectatorReservation;
@@ -16,6 +17,8 @@ extern class SpectatorBeaconClient extends OnlineBeaconClient {
 	public function ClientSendReservationFull(): Void;
 	public function ClientReservationResponse(ReservationResponse: ESpectatorReservationResult): Void;
 	public function ClientCancelReservationResponse(ReservationResponse: ESpectatorReservationResult): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

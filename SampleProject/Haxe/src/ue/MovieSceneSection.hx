@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneSection")
 @:include("MovieSceneSection.h")
+@:structAccess
 extern class MovieSceneSection extends MovieSceneSignedObject {
 	public var EvalOptions: MovieSceneSectionEvalOptions;
 	public var Easing: MovieSceneEasingSettings;
@@ -38,6 +39,8 @@ extern class MovieSceneSection extends MovieSceneSignedObject {
 	public function GetOverlapPriority(): cpp.Reference<cpp.Int32>;
 	public function GetCompletionMode(): cpp.Reference<EMovieSceneCompletionMode>;
 	public function GetBlendType(): cpp.Reference<OptionalMovieSceneBlendType>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsLocked, IsActive, GetRowIndex, GetPreRollFrames, GetPostRollFrames, GetOverlapPriority, GetCompletionMode, GetBlendType)

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionPower")
 @:include("Materials/MaterialExpressionPower.h")
+@:structAccess
 extern class MaterialExpressionPower extends MaterialExpression {
 	public var Base: ExpressionInput;
 	public var Exponent: ExpressionInput;
 	public var ConstExponent: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

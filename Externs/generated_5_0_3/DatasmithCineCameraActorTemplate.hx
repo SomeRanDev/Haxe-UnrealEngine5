@@ -3,8 +3,11 @@ package ue;
 
 @:native("UDatasmithCineCameraActorTemplate")
 @:include("ObjectTemplates/DatasmithCineCameraActorTemplate.h")
+@:structAccess
 extern class DatasmithCineCameraActorTemplate extends DatasmithObjectTemplate {
 	public var LookatTrackingSettings: DatasmithCameraLookatTrackingSettingsTemplate;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

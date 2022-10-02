@@ -3,10 +3,13 @@ package ue;
 
 @:native("UPropertyBinding")
 @:include("Binding/PropertyBinding.h")
+@:structAccess
 extern class PropertyBinding extends Object {
 	public var SourceObject: TWeakObjectPtr<Object>;
 	public var SourcePath: DynamicPropertyPath;
 	public var DestinationProperty: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

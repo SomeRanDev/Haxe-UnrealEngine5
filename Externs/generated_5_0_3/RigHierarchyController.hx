@@ -3,6 +3,7 @@ package ue;
 
 @:native("URigHierarchyController")
 @:include("Rigs/RigHierarchyController.h")
+@:structAccess
 extern class RigHierarchyController extends Object {
 	public var bReportWarningsAndErrors: Bool;
 	public var Hierarchy: TWeakObjectPtr<RigHierarchy>;
@@ -36,6 +37,8 @@ extern class RigHierarchyController extends Object {
 	public function AddCurve(InName: FName, InValue: cpp.Float32, bSetupUndo: Bool, bPrintPythonCommand: Bool): cpp.Reference<RigElementKey>;
 	public function AddControl_ForBlueprint(InName: FName, InParent: RigElementKey, InSettings: RigControlSettings, InValue: RigControlValue, bSetupUndo: Bool): cpp.Reference<RigElementKey>;
 	public function AddBone(InName: FName, InParent: RigElementKey, InTransform: Transform, bTransformInGlobal: Bool, InBoneType: ERigBoneType, bSetupUndo: Bool, bPrintPythonCommand: Bool): cpp.Reference<RigElementKey>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(SetControlSettings, GetHierarchy, GetControlSettings, ExportToText, ExportSelectionToText)

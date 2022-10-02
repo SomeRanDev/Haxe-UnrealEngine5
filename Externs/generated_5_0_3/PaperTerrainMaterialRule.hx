@@ -3,6 +3,7 @@ package ue;
 
 @:native("FPaperTerrainMaterialRule")
 @:include("PaperTerrainMaterial.h")
+@:structAccess
 extern class PaperTerrainMaterialRule {
 	public var StartCap: cpp.Star<PaperSprite>;
 	public var Body: TArray<cpp.Star<PaperSprite>>;
@@ -13,4 +14,6 @@ extern class PaperTerrainMaterialRule {
 	public var CollisionOffset: cpp.Float32;
 	public var DrawOrder: cpp.Int32;
 	public var Description: FText;
+
+	@:native("FPaperTerrainMaterialRule") public function new();
 }

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNiagaraDataInterfaceHairStrands")
 @:include("Niagara/NiagaraDataInterfaceHairStrands.h")
+@:structAccess
 extern class NiagaraDataInterfaceHairStrands extends NiagaraDataInterface {
 	public var DefaultSource: cpp.Star<GroomAsset>;
 	public var SourceActor: cpp.Star<Actor>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

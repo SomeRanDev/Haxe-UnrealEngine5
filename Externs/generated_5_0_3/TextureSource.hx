@@ -3,6 +3,7 @@ package ue;
 
 @:native("FTextureSource")
 @:include("Engine/Texture.h")
+@:structAccess
 extern class TextureSource {
 	public var Id: Guid;
 	public var BaseBlockX: cpp.Int32;
@@ -20,4 +21,6 @@ extern class TextureSource {
 	public var LayerFormat: TArray<ETextureSourceFormat>;
 	public var Blocks: TArray<TextureSourceBlock>;
 	public var BlockDataOffsets: TArray<cpp.Int64>;
+
+	@:native("FTextureSource") public function new();
 }

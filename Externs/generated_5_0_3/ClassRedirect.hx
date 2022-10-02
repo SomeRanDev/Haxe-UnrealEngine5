@@ -3,6 +3,7 @@ package ue;
 
 @:native("FClassRedirect")
 @:include("Engine/Engine.h")
+@:structAccess
 extern class ClassRedirect {
 	public var ObjectName: FName;
 	public var OldClassName: FName;
@@ -12,4 +13,6 @@ extern class ClassRedirect {
 	public var NewClassClass: FName;
 	public var NewClassPackage: FName;
 	public var InstanceOnly: Bool;
+
+	@:native("FClassRedirect") public function new();
 }

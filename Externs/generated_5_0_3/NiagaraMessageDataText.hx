@@ -3,12 +3,15 @@ package ue;
 
 @:native("UNiagaraMessageDataText")
 @:include("NiagaraMessages.h")
+@:structAccess
 extern class NiagaraMessageDataText extends NiagaraMessageData {
 	public var MessageText: FText;
 	public var ShortDescription: FText;
 	public var MessageSeverity: ENiagaraMessageSeverity;
 	public var bAllowDismissal: Bool;
 	public var TopicName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

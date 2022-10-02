@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULiveLinkSubjectSettings")
 @:include("LiveLinkSubjectSettings.h")
+@:structAccess
 extern class LiveLinkSubjectSettings extends Object {
 	public var PreProcessors: TArray<cpp.Star<LiveLinkFramePreProcessor>>;
 	public var InterpolationProcessor: cpp.Star<LiveLinkFrameInterpolationProcessor>;
@@ -10,6 +11,8 @@ extern class LiveLinkSubjectSettings extends Object {
 	public var Role: TSubclassOf<LiveLinkRole>;
 	public var FrameRate: FrameRate;
 	public var bRebroadcastSubject: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

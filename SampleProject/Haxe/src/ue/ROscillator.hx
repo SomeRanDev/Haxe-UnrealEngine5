@@ -3,8 +3,12 @@ package ue;
 
 @:native("FROscillator")
 @:include("MatineeCameraShake.h")
+@:structAccess
 extern class ROscillator {
 	public var Pitch: FOscillator;
 	public var Yaw: FOscillator;
 	public var Roll: FOscillator;
+
+	@:native("FROscillator") public function new();
+	@:native("FROscillator") public static function make(Pitch: FOscillator, Yaw: FOscillator, Roll: FOscillator): ROscillator ;
 }

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAssetEditorContextObject")
 @:include("Tools/AssetEditorContextObject.h")
+@:structAccess
 extern class AssetEditorContextObject extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

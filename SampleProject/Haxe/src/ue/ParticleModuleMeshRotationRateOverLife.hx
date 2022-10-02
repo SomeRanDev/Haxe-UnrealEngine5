@@ -3,9 +3,12 @@ package ue;
 
 @:native("UParticleModuleMeshRotationRateOverLife")
 @:include("Particles/RotationRate/ParticleModuleMeshRotationRateOverLife.h")
+@:structAccess
 extern class ParticleModuleMeshRotationRateOverLife extends ParticleModuleRotationRateBase {
 	public var RotRate: RawDistributionVector;
 	public var bScaleRotRate: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

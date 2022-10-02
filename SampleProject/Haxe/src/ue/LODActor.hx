@@ -3,6 +3,7 @@ package ue;
 
 @:native("ALODActor")
 @:include("Engine/LODActor.h")
+@:structAccess
 extern class LODActor extends Actor {
 	public var StaticMeshComponent: cpp.Star<StaticMeshComp>;
 	public var InstancedStaticMeshComponents: TMap<HLODInstancingKey, cpp.Star<InstancedStaticMeshComp>>;
@@ -23,6 +24,8 @@ extern class LODActor extends Actor {
 	public var LODActorTag: FString;
 	public var bBuiltFromHLODDesc: Bool;
 	public var ProxyDesc: cpp.Star<HLODProxyDesc>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

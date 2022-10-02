@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULevelSequenceDirector")
 @:include("LevelSequenceDirector.h")
+@:structAccess
 extern class LevelSequenceDirector extends Object {
 	public var Player: cpp.Star<LevelSequencePlayer>;
 	public var SubSequenceID: cpp.Int32;
@@ -14,6 +15,8 @@ extern class LevelSequenceDirector extends Object {
 	public function GetBoundObject(ObjectBinding: MovieSceneObjectBindingID): cpp.Reference<cpp.Star<Object>>;
 	public function GetBoundActors(ObjectBinding: MovieSceneObjectBindingID): cpp.Reference<TArray<cpp.Star<Actor>>>;
 	public function GetBoundActor(ObjectBinding: MovieSceneObjectBindingID): cpp.Reference<cpp.Star<Actor>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

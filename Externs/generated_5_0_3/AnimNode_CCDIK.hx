@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_CCDIK")
 @:include("BoneControllers/AnimNode_CCDIK.h")
+@:structAccess
 extern class AnimNode_CCDIK extends AnimNode_SkeletalControlBase {
 	public var EffectorLocation: Vector;
 	public var EffectorLocationSpace: EBoneControlSpace;
@@ -14,4 +15,6 @@ extern class AnimNode_CCDIK extends AnimNode_SkeletalControlBase {
 	public var bStartFromTail: Bool;
 	public var bEnableRotationLimit: Bool;
 	public var RotationLimitPerJoints: TArray<cpp.Float32>;
+
+	@:native("FAnimNode_CCDIK") public function new();
 }

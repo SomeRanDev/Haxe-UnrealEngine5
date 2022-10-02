@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMatineeCameraShakeFunctionLibrary")
 @:include("MatineeCameraShake.h")
+@:structAccess
 extern class MatineeCameraShakeFunctionLibrary extends BlueprintFunctionLibrary {
 	public function Conv_MatineeCameraShake(CameraShake: cpp.Star<CameraShakeBase>): cpp.Reference<cpp.Star<MatineeCameraShake>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

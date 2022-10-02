@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionPerInstanceCustomData")
 @:include("Materials/MaterialExpressionPerInstanceCustomData.h")
+@:structAccess
 extern class MaterialExpressionPerInstanceCustomData extends MaterialExpression {
 	public var DefaultValue: ExpressionInput;
 	public var ConstDefaultValue: cpp.Float32;
 	public var DataIndex: cpp.UInt32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

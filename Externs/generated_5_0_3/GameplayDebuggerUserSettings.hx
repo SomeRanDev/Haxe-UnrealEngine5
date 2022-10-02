@@ -3,11 +3,14 @@ package ue;
 
 @:native("UGameplayDebuggerUserSettings")
 @:include("GameplayDebuggerConfig.h")
+@:structAccess
 extern class GameplayDebuggerUserSettings extends DeveloperSettings {
 	public var bEnableGameplayDebuggerInEditor: Bool;
 	public var MaxViewDistance: cpp.Float32;
 	public var MaxViewAngle: cpp.Float32;
 	public var FontSize: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

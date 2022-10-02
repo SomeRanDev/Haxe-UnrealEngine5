@@ -3,6 +3,7 @@ package ue;
 
 @:native("UOperatorField")
 @:include("Field/FieldSystemObjects.h")
+@:structAccess
 extern class OperatorField extends FieldNodeBase {
 	public var Magnitude: cpp.Float32;
 	public var RightField: cpp.Star<FieldNodeBase>;
@@ -10,6 +11,8 @@ extern class OperatorField extends FieldNodeBase {
 	public var Operation: EFieldOperationType;
 
 	public function SetOperatorField(Magnitude: cpp.Float32, LeftField: cpp.Star<FieldNodeBase.ConstFieldNodeBase>, RightField: cpp.Star<FieldNodeBase.ConstFieldNodeBase>, Operation: EFieldOperationType): cpp.Reference<cpp.Star<OperatorField>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

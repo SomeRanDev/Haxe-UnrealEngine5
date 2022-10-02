@@ -3,7 +3,10 @@ package ue;
 
 @:native("AAnimationThumbnailSkeletalMeshActor")
 @:include("ThumbnailHelpers.h")
+@:structAccess
 extern class AnimationThumbnailSkeletalMeshActor extends SkeletalMeshActor {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

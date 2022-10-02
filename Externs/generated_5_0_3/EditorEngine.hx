@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEditorEngine")
 @:include("Editor/EditorEngine.h")
+@:structAccess
 extern class EditorEngine extends Engine {
 	public var TempModel: cpp.Star<Model>;
 	public var ConversionTempModel: cpp.Star<Model>;
@@ -74,6 +75,8 @@ extern class EditorEngine extends Engine {
 	public var bUseVRPreviewForPlayWorld: Bool;
 	public var bIsSimulatingInEditor: Bool;
 	public var PlayInEditorViewportIndex: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

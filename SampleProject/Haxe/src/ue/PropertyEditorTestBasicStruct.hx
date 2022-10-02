@@ -3,9 +3,13 @@ package ue;
 
 @:native("FPropertyEditorTestBasicStruct")
 @:include("Editor/PropertyEditorTestObject.h")
+@:structAccess
 extern class PropertyEditorTestBasicStruct {
 	public var IntPropertyInsideAStruct: cpp.Int32;
 	public var FloatPropertyInsideAStruct: cpp.Float32;
 	public var ObjectPropertyInsideAStruct: cpp.Star<Object>;
 	public var InnerStruct: PropertyEditorTestSubStruct;
+
+	@:native("FPropertyEditorTestBasicStruct") public function new();
+	@:native("FPropertyEditorTestBasicStruct") public static function make(IntPropertyInsideAStruct: cpp.Int32, FloatPropertyInsideAStruct: cpp.Float32, ObjectPropertyInsideAStruct: cpp.Star<Object>, InnerStruct: PropertyEditorTestSubStruct): PropertyEditorTestBasicStruct ;
 }

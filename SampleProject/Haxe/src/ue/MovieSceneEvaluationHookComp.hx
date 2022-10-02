@@ -3,6 +3,10 @@ package ue;
 
 @:native("FMovieSceneEvaluationHookComponent")
 @:include("EntitySystem/BuiltInComponentTypes.h")
+@:structAccess
 extern class MovieSceneEvaluationHookComp {
 	public var Interface: MovieSceneEvaluationHook;
+
+	@:native("FMovieSceneEvaluationHookComponent") public function new();
+	@:native("FMovieSceneEvaluationHookComponent") public static function make(Interface: MovieSceneEvaluationHook): MovieSceneEvaluationHookComp ;
 }

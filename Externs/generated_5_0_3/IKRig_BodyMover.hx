@@ -3,6 +3,7 @@ package ue;
 
 @:native("UIKRig_BodyMover")
 @:include("Solvers/IKRig_BodyMover.h")
+@:structAccess
 extern class IKRig_BodyMover extends IKRigSolver {
 	public var RootBone: FName;
 	public var PositionAlpha: cpp.Float32;
@@ -17,6 +18,8 @@ extern class IKRig_BodyMover extends IKRigSolver {
 	public var RotateYAlpha: cpp.Float32;
 	public var RotateZAlpha: cpp.Float32;
 	public var Effectors: TArray<cpp.Star<IKRig_BodyMoverEffector>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

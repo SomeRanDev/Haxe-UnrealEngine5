@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionParticleSubUV")
 @:include("Materials/MaterialExpressionParticleSubUV.h")
+@:structAccess
 extern class MaterialExpressionParticleSubUV extends MaterialExpressionTextureSample {
 	public var bBlend: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,5 +3,7 @@ package ue;
 
 @:native("FVectorSpringState")
 @:include("Kismet/KismetMathLibrary.h")
+@:structAccess
 extern class VectorSpringState {
+	@:native("FVectorSpringState") public function new();
 }

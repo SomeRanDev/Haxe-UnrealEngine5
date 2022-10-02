@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionMultiply")
 @:include("Materials/MaterialExpressionMultiply.h")
+@:structAccess
 extern class MaterialExpressionMultiply extends MaterialExpression {
 	public var A: ExpressionInput;
 	public var B: ExpressionInput;
 	public var ConstA: cpp.Float32;
 	public var ConstB: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

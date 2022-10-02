@@ -3,7 +3,10 @@ package ue;
 
 @:native("UTextureCubeThumbnailRenderer")
 @:include("Factories/TextureCubeThumbnailRenderer.h")
+@:structAccess
 extern class TextureCubeThumbnailRenderer extends TextureThumbnailRenderer {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UEnvQueryOption")
 @:include("EnvironmentQuery/EnvQueryOption.h")
+@:structAccess
 extern class EnvQueryOption extends Object {
 	public var Generator: cpp.Star<EnvQueryGenerator>;
 	public var Tests: TArray<cpp.Star<EnvQueryTest>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

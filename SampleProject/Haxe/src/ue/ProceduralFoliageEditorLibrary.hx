@@ -3,11 +3,14 @@ package ue;
 
 @:native("UProceduralFoliageEditorLibrary")
 @:include("ProceduralFoliageEditorLibrary.h")
+@:structAccess
 extern class ProceduralFoliageEditorLibrary extends BlueprintFunctionLibrary {
 	public function ResimulateProceduralFoliageVolumes(ProceduralFoliageVolumes: cpp.Reference<TArray<cpp.Star<ProceduralFoliageVolume>>>): Void;
 	public function ResimulateProceduralFoliageComponents(ProceduralFoliageComponents: cpp.Reference<TArray<cpp.Star<ProceduralFoliageComp>>>): Void;
 	public function ClearProceduralFoliageVolumes(ProceduralFoliageVolumes: cpp.Reference<TArray<cpp.Star<ProceduralFoliageVolume>>>): Void;
 	public function ClearProceduralFoliageComponents(ProceduralFoliageComponents: cpp.Reference<TArray<cpp.Star<ProceduralFoliageComp>>>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

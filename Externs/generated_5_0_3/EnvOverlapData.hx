@@ -3,6 +3,7 @@ package ue;
 
 @:native("FEnvOverlapData")
 @:include("EnvironmentQuery/EnvQueryTypes.h")
+@:structAccess
 extern class EnvOverlapData {
 	public var ExtentX: cpp.Float32;
 	public var ExtentY: cpp.Float32;
@@ -13,4 +14,6 @@ extern class EnvOverlapData {
 	public var bOnlyBlockingHits: Bool;
 	public var bOverlapComplex: Bool;
 	public var bSkipOverlapQuerier: Bool;
+
+	@:native("FEnvOverlapData") public function new();
 }

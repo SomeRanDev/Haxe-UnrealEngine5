@@ -2,7 +2,10 @@
 package ue;
 
 @:native("USkeletalMeshBackedTarget")
+@:structAccess
 extern class SkeletalMeshBackedTarget extends AssetBackedTarget {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

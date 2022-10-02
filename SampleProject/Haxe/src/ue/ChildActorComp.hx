@@ -3,6 +3,7 @@ package ue;
 
 @:native("UChildActorComponent")
 @:include("Components/ChildActorComponent.h")
+@:structAccess
 extern class ChildActorComp extends SceneComp {
 	public var ChildActorClass: TSubclassOf<Actor>;
 	public var ChildActor: cpp.Star<Actor>;
@@ -10,6 +11,8 @@ extern class ChildActorComp extends SceneComp {
 	public var EditorTreeViewVisualizationMode: EChildActorComponentTreeViewVisualizationMode;
 
 	public function SetChildActorClass(InClass: TSubclassOf<Actor>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

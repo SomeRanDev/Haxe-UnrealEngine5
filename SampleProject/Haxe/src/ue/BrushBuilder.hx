@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBrushBuilder")
 @:include("Engine/BrushBuilder.h")
+@:structAccess
 extern class BrushBuilder extends Object {
 	public var BitmapFilename: FString;
 	public var ToolTip: FString;
@@ -11,6 +12,8 @@ extern class BrushBuilder extends Object {
 	public var Polys: TArray<BuilderPoly>;
 	public var Layer: FName;
 	public var MergeCoplanars: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

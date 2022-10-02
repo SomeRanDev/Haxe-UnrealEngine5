@@ -2,7 +2,10 @@
 package ue;
 
 @:native("ULazyObjectProperty")
+@:structAccess
 extern class LazyObjectProperty extends ObjectPropertyBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

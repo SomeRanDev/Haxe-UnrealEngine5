@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBlueprintPathsLibrary")
 @:include("Kismet/BlueprintPathsLibrary.h")
+@:structAccess
 extern class BlueprintPathsLibrary extends BlueprintFunctionLibrary {
 	public function VideoCaptureDir(): cpp.Reference<FString>;
 	public function ValidatePath(InPath: FString, bDidSucceed: cpp.Reference<Bool>, OutReason: cpp.Reference<FText>): Void;
@@ -86,6 +87,8 @@ extern class BlueprintPathsLibrary extends BlueprintFunctionLibrary {
 	public function AutomationTransientDir(): cpp.Reference<FString>;
 	public function AutomationLogDir(): cpp.Reference<FString>;
 	public function AutomationDir(): cpp.Reference<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

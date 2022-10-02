@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionStrataSingleLayerWaterBSDF")
 @:include("Materials/MaterialExpressionStrata.h")
+@:structAccess
 extern class MaterialExpressionStrataSingleLayerWaterBSDF extends MaterialExpressionStrataBSDF {
 	public var BaseColor: ExpressionInput;
 	public var Metallic: ExpressionInput;
@@ -15,6 +16,8 @@ extern class MaterialExpressionStrataSingleLayerWaterBSDF extends MaterialExpres
 	public var WaterExtinction: ExpressionInput;
 	public var WaterPhaseG: ExpressionInput;
 	public var ColorScaleBehindWater: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

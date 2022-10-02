@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnCanvasRenderTargetUpdate__PythonCallable")
+@:structAccess
 extern class OnCanvasRenderTargetUpdate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

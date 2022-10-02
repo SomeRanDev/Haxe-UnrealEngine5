@@ -3,11 +3,14 @@ package ue;
 
 @:native("UStereoLayerFunctionLibrary")
 @:include("Kismet/StereoLayerFunctionLibrary.h")
+@:structAccess
 extern class StereoLayerFunctionLibrary extends BlueprintFunctionLibrary {
 	public function ShowSplashScreen(): Void;
 	public function SetSplashScreen(Texture: cpp.Star<Texture>, Scale: Vector2D, Offset: Vector, bShowLoadingMovie: Bool, bShowOnSet: Bool): Void;
 	public function HideSplashScreen(): Void;
 	public function EnableAutoLoadingSplashScreen(InAutoShowEnabled: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

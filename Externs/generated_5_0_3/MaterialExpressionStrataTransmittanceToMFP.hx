@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionStrataTransmittanceToMFP")
 @:include("Materials/MaterialExpressionStrata.h")
+@:structAccess
 extern class MaterialExpressionStrataTransmittanceToMFP extends MaterialExpressionStrataBSDF {
 	public var TransmittanceColor: ExpressionInput;
 	public var Thickness: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

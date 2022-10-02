@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULandscapeInfoMap")
 @:include("LandscapeInfoMap.h")
+@:structAccess
 extern class LandscapeInfoMap extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

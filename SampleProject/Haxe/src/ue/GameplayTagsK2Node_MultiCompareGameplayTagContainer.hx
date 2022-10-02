@@ -3,7 +3,10 @@ package ue;
 
 @:native("UGameplayTagsK2Node_MultiCompareGameplayTagContainer")
 @:include("GameplayTagsK2Node_MultiCompareGameplayTagContainer.h")
+@:structAccess
 extern class GameplayTagsK2Node_MultiCompareGameplayTagContainer extends GameplayTagsK2Node_MultiCompareBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

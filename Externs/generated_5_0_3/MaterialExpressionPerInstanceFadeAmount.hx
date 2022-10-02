@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionPerInstanceFadeAmount")
 @:include("Materials/MaterialExpressionPerInstanceFadeAmount.h")
+@:structAccess
 extern class MaterialExpressionPerInstanceFadeAmount extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

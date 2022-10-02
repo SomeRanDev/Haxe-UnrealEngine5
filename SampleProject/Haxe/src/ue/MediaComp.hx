@@ -3,12 +3,15 @@ package ue;
 
 @:native("UMediaComponent")
 @:include("MediaComponent.h")
+@:structAccess
 extern class MediaComp extends ActorComp {
 	public var MediaTexture: cpp.Star<MediaTexture>;
 	public var MediaPlayer: cpp.Star<MediaPlayer>;
 
 	public function GetMediaTexture(): cpp.Reference<cpp.Star<MediaTexture>>;
 	public function GetMediaPlayer(): cpp.Reference<cpp.Star<MediaPlayer>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetMediaTexture, GetMediaPlayer)

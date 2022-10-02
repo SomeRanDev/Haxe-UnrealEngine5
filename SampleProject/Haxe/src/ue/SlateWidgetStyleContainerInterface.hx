@@ -2,7 +2,10 @@
 package ue;
 
 @:native("USlateWidgetStyleContainerInterface")
+@:structAccess
 extern class SlateWidgetStyleContainerInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

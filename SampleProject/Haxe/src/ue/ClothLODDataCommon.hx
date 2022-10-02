@@ -3,6 +3,7 @@ package ue;
 
 @:native("FClothLODDataCommon")
 @:include("ClothLODData.h")
+@:structAccess
 extern class ClothLODDataCommon {
 	public var PhysicalMeshData: ClothPhysicalMeshData;
 	public var CollisionData: ClothCollisionData;
@@ -11,4 +12,6 @@ extern class ClothLODDataCommon {
 	public var bSmoothTransition: Bool;
 	public var ParameterMasks_DEPRECATED: TArray<ClothParameterMask_Legacy>;
 	public var PointWeightMaps: TArray<PointWeightMap>;
+
+	@:native("FClothLODDataCommon") public function new();
 }

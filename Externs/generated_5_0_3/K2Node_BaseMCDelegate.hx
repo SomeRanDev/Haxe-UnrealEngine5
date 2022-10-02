@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_BaseMCDelegate")
 @:include("K2Node_BaseMCDelegate.h")
+@:structAccess
 extern class K2Node_BaseMCDelegate extends K2Node {
 	public var DelegateReference: MemberReference;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

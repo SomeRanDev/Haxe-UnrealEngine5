@@ -3,9 +3,13 @@ package ue;
 
 @:native("FForeignWorldSplineData")
 @:include("LandscapeSplinesComponent.h")
+@:structAccess
 extern class ForeignWorldSplineData {
 	public var ForeignControlPointDataMap_DEPRECATED: TMap<TLazyObjectPtr<LandscapeSplineControlPoint>, ForeignControlPointData>;
 	public var ForeignControlPointData: TArray<ForeignControlPointData>;
 	public var ForeignSplineSegmentDataMap_DEPRECATED: TMap<TLazyObjectPtr<LandscapeSplineSegment>, ForeignSplineSegmentData>;
 	public var ForeignSplineSegmentData: TArray<ForeignSplineSegmentData>;
+
+	@:native("FForeignWorldSplineData") public function new();
+	@:native("FForeignWorldSplineData") public static function make(ForeignControlPointDataMap_DEPRECATED: TMap<TLazyObjectPtr<LandscapeSplineControlPoint>, ForeignControlPointData>, ForeignControlPointData: TArray<ForeignControlPointData>, ForeignSplineSegmentDataMap_DEPRECATED: TMap<TLazyObjectPtr<LandscapeSplineSegment>, ForeignSplineSegmentData>, ForeignSplineSegmentData: TArray<ForeignSplineSegmentData>): ForeignWorldSplineData ;
 }

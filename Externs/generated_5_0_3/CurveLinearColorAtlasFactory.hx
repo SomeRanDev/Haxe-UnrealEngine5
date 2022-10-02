@@ -3,10 +3,13 @@ package ue;
 
 @:native("UCurveLinearColorAtlasFactory")
 @:include("Factories/CurveLinearColorAtlasFactory.h")
+@:structAccess
 extern class CurveLinearColorAtlasFactory extends Factory {
 	public var Width: cpp.Int32;
 	public var Height: cpp.Int32;
 	public var Format: cpp.UInt8;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

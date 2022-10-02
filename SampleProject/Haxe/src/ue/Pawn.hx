@@ -3,6 +3,7 @@ package ue;
 
 @:native("APawn")
 @:include("GameFramework/Pawn.h")
+@:structAccess
 extern class Pawn extends Actor {
 	public var bUseControllerRotationPitch: Bool;
 	public var bUseControllerRotationYaw: Bool;
@@ -54,6 +55,8 @@ extern class Pawn extends Actor {
 	public function AddControllerYawInput(Val: cpp.Float32): Void;
 	public function AddControllerRollInput(Val: cpp.Float32): Void;
 	public function AddControllerPitchInput(Val: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNiagaraBaselineController_Basic")
 @:include("NiagaraPerfBaseline.h")
+@:structAccess
 extern class NiagaraBaselineController_Basic extends NiagaraBaselineController {
 	public var NumInstances: cpp.Int32;
 	public var SpawnedComponents: TArray<cpp.Star<NiagaraComp>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

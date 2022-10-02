@@ -3,6 +3,7 @@ package ue;
 
 @:native("URigVMFunctionLibrary")
 @:include("RigVMModel/RigVMFunctionLibrary.h")
+@:structAccess
 extern class RigVMFunctionLibrary extends RigVMGraph {
 	public var FunctionReferences_DEPRECATED: TMap<cpp.Star<RigVMLibraryNode>, RigVMFunctionReferenceArray>;
 	public var LocalizedFunctions: TMap<FString, cpp.Star<RigVMLibraryNode>>;
@@ -13,6 +14,8 @@ extern class RigVMFunctionLibrary extends RigVMGraph {
 	public function GetBuildData(): cpp.Reference<cpp.Star<RigVMBuildData>>;
 	public function FindFunctionForNode(InNode: cpp.Star<RigVMNode>): cpp.Reference<cpp.Star<RigVMLibraryNode>>;
 	public function FindFunction(InFunctionName: cpp.Reference<FName>): cpp.Reference<cpp.Star<RigVMLibraryNode>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetFunctions, GetBuildData, FindFunctionForNode, FindFunction)

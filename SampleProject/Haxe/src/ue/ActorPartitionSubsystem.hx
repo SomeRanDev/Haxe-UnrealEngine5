@@ -3,7 +3,10 @@ package ue;
 
 @:native("UActorPartitionSubsystem")
 @:include("ActorPartition/ActorPartitionSubsystem.h")
+@:structAccess
 extern class ActorPartitionSubsystem extends WorldSubsystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

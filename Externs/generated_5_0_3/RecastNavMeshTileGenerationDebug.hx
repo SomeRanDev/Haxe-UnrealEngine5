@@ -3,6 +3,7 @@ package ue;
 
 @:native("FRecastNavMeshTileGenerationDebug")
 @:include("NavMesh/RecastNavMesh.h")
+@:structAccess
 extern class RecastNavMeshTileGenerationDebug {
 	public var bEnabled: Bool;
 	public var TileCoordinate: IntVector;
@@ -18,4 +19,6 @@ extern class RecastNavMeshTileGenerationDebug {
 	public var bTileCacheContours: Bool;
 	public var bTileCachePolyMesh: Bool;
 	public var bTileCacheDetailMesh: Bool;
+
+	@:native("FRecastNavMeshTileGenerationDebug") public function new();
 }

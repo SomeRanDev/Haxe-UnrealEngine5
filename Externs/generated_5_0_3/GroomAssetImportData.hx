@@ -3,8 +3,11 @@ package ue;
 
 @:native("UGroomAssetImportData")
 @:include("GroomAssetImportData.h")
+@:structAccess
 extern class GroomAssetImportData extends AssetImportData {
 	public var ImportOptions: cpp.Star<GroomImportOptions>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

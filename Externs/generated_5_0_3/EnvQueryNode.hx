@@ -3,8 +3,11 @@ package ue;
 
 @:native("UEnvQueryNode")
 @:include("EnvironmentQuery/EnvQueryNode.h")
+@:structAccess
 extern class EnvQueryNode extends Object {
 	public var VerNum: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

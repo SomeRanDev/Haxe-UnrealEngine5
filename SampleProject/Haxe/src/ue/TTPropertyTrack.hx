@@ -3,6 +3,10 @@ package ue;
 
 @:native("FTTPropertyTrack")
 @:include("Engine/TimelineTemplate.h")
+@:structAccess
 extern class TTPropertyTrack extends TTTrackBase {
 	public var PropertyName: FName;
+
+	@:native("FTTPropertyTrack") public function new();
+	@:native("FTTPropertyTrack") public static function make(PropertyName: FName): TTPropertyTrack ;
 }

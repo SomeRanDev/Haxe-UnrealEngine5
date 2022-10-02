@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEditorLevelUtils")
 @:include("EditorLevelUtils.h")
+@:structAccess
 extern class EditorLevelUtils extends Object {
 	public function SetLevelVisibility(Level: cpp.Star<Level>, bShouldBeVisible: Bool, bForceLayersVisible: Bool, ModifyMode: ELevelVisibilityDirtyMode): Void;
 	public function SetLevelsVisibility(Levels: cpp.Reference<TArray<cpp.Star<Level>>>, bShouldBeVisible: cpp.Reference<TArray<Bool>>, bForceLayersVisible: Bool, ModifyMode: ELevelVisibilityDirtyMode): Void;
@@ -13,6 +14,8 @@ extern class EditorLevelUtils extends Object {
 	public function K2_AddLevelToWorld(World: cpp.Star<World>, LevelPackageName: FString, LevelStreamingClass: TSubclassOf<LevelStreaming>): cpp.Reference<cpp.Star<LevelStreaming>>;
 	public function GetLevels(World: cpp.Star<World>): cpp.Reference<TArray<cpp.Star<Level>>>;
 	public function CreateNewStreamingLevel(LevelStreamingClass: TSubclassOf<LevelStreaming>, NewLevelPath: FString, bMoveSelectedActorsIntoNewLevel: Bool): cpp.Reference<cpp.Star<LevelStreaming>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

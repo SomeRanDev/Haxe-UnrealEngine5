@@ -3,8 +3,11 @@ package ue;
 
 @:native("UTextBlockWidgetStyle")
 @:include("Framework/Styling/TextBlockWidgetStyle.h")
+@:structAccess
 extern class TextBlockWidgetStyle extends SlateWidgetStyleContainerBase {
 	public var TextBlockStyle: TextBlockStyle;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

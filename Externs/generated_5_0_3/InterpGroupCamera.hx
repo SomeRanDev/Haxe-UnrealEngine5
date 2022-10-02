@@ -3,10 +3,13 @@ package ue;
 
 @:native("UInterpGroupCamera")
 @:include("Matinee/InterpGroupCamera.h")
+@:structAccess
 extern class InterpGroupCamera extends InterpGroup {
 	public var CameraAnimInst: cpp.Star<CameraAnim>;
 	public var Target: CameraPreviewInfo;
 	public var CompressTolerance: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

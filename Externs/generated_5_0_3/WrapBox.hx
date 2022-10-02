@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWrapBox")
 @:include("Components/WrapBox.h")
+@:structAccess
 extern class WrapBox extends PanelWidget {
 	public var InnerSlotPadding: Vector2D;
 	public var WrapWidth_DEPRECATED: cpp.Float32;
@@ -15,6 +16,8 @@ extern class WrapBox extends PanelWidget {
 	public function SetInnerSlotPadding(InPadding: Vector2D): Void;
 	public function SetHorizontalAlignment(InHorizontalAlignment: EHorizontalAlignment): Void;
 	public function AddChildToWrapBox(Content: cpp.Star<Widget>): cpp.Reference<cpp.Star<WrapBoxSlot>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

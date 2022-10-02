@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraDataInterfaceArrayFunctionLibrary")
 @:include("NiagaraDataInterfaceArrayFunctionLibrary.h")
+@:structAccess
 extern class NiagaraDataInterfaceArrayFunctionLibrary extends BlueprintFunctionLibrary {
 	public function SetNiagaraArrayVectorValue(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, Index: cpp.Int32, Value: cpp.Reference<Vector>, bSizeToFit: Bool): Void;
 	public function SetNiagaraArrayVector4Value(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, Index: cpp.Int32, Value: cpp.Reference<Vector4>, bSizeToFit: Bool): Void;
@@ -40,6 +41,8 @@ extern class NiagaraDataInterfaceArrayFunctionLibrary extends BlueprintFunctionL
 	public function GetNiagaraArrayColor(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName): cpp.Reference<TArray<LinearColor>>;
 	public function GetNiagaraArrayBoolValue(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, Index: cpp.Int32): cpp.Reference<Bool>;
 	public function GetNiagaraArrayBool(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName): cpp.Reference<TArray<Bool>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEnvQueryContext_Querier")
 @:include("EnvironmentQuery/Contexts/EnvQueryContext_Querier.h")
+@:structAccess
 extern class EnvQueryContext_Querier extends EnvQueryContext {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDeveloperSettingsBackedByCVars")
 @:include("Engine/DeveloperSettingsBackedByCVars.h")
+@:structAccess
 extern class DeveloperSettingsBackedByCVars extends DeveloperSettings {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

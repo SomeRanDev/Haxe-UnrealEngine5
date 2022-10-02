@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEdGraphPin_Deprecated")
 @:include("EdGraph/EdGraphPin.h")
+@:structAccess
 extern class EdGraphPin_Deprecated extends Object {
 	public var PinName: FString;
 	public var PinFriendlyName: FText;
@@ -25,6 +26,8 @@ extern class EdGraphPin_Deprecated extends Object {
 	public var bAdvancedView: Bool;
 	public var bDisplayAsMutableRef: Bool;
 	public var PersistentGuid: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

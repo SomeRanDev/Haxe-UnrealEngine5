@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDirtyFilesChangelistValidator")
 @:include("DirtyFilesChangelistValidator.h")
+@:structAccess
 extern class DirtyFilesChangelistValidator extends EditorValidatorBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

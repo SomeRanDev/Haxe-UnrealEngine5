@@ -3,10 +3,13 @@ package ue;
 
 @:native("UEnvQueryGenerator_SimpleGrid")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_SimpleGrid.h")
+@:structAccess
 extern class EnvQueryGenerator_SimpleGrid extends EnvQueryGenerator_ProjectedPoints {
 	public var GridSize: AIDataProviderFloatValue;
 	public var SpaceBetween: AIDataProviderFloatValue;
 	public var GenerateAround: TSubclassOf<EnvQueryContext>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

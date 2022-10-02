@@ -3,8 +3,11 @@ package ue;
 
 @:native("UProgressWidgetStyle")
 @:include("Framework/Styling/ProgressWidgetStyle.h")
+@:structAccess
 extern class ProgressWidgetStyle extends SlateWidgetStyleContainerBase {
 	public var ProgressBarStyle: ProgressBarStyle;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

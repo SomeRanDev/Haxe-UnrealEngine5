@@ -3,9 +3,12 @@ package ue;
 
 @:native("UAnimGraphNode_SaveCachedPose")
 @:include("AnimGraphNode_SaveCachedPose.h")
+@:structAccess
 extern class AnimGraphNode_SaveCachedPose extends AnimGraphNode_Base {
 	public var Node: AnimNode_SaveCachedPose;
 	public var CacheName: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

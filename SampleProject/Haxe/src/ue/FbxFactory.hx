@@ -3,9 +3,12 @@ package ue;
 
 @:native("UFbxFactory")
 @:include("Factories/FbxFactory.h")
+@:structAccess
 extern class FbxFactory extends Factory {
 	public var ImportUI: cpp.Star<FbxImportUI>;
 	public var OriginalImportUI: cpp.Star<FbxImportUI>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

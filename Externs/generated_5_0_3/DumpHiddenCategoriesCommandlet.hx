@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDumpHiddenCategoriesCommandlet")
 @:include("Commandlets/DumpHiddenCategoriesCommandlet.h")
+@:structAccess
 extern class DumpHiddenCategoriesCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,5 +3,7 @@ package ue;
 
 @:native("FAnimationStateResultReference")
 @:include("AnimationStateMachineLibrary.h")
+@:structAccess
 extern class AnimationStateResultReference extends AnimNodeReference {
+	@:native("FAnimationStateResultReference") public function new();
 }

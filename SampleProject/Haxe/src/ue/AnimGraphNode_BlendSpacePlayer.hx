@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_BlendSpacePlayer")
 @:include("AnimGraphNode_BlendSpacePlayer.h")
+@:structAccess
 extern class AnimGraphNode_BlendSpacePlayer extends AnimGraphNode_BlendSpaceBase {
 	public var Node: AnimNode_BlendSpacePlayer;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

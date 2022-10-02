@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMasterAudioSubmixCaptureProtocol")
 @:include("Protocols/AudioCaptureProtocol.h")
+@:structAccess
 extern class MasterAudioSubmixCaptureProtocol extends MovieSceneAudioCaptureProtocolBase {
 	public var FileName: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

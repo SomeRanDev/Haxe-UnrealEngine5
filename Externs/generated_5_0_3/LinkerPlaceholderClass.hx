@@ -2,7 +2,10 @@
 package ue;
 
 @:native("ULinkerPlaceholderClass")
+@:structAccess
 extern class LinkerPlaceholderClass extends Class {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

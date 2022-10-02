@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTextureRenderTarget2D")
 @:include("Engine/TextureRenderTarget2D.h")
+@:structAccess
 extern class TextureRenderTarget2D extends TextureRenderTarget {
 	public var SizeX: cpp.Int32;
 	public var SizeY: cpp.Int32;
@@ -18,6 +19,8 @@ extern class TextureRenderTarget2D extends TextureRenderTarget {
 	public var MipsAddressU: TextureAddress;
 	public var MipsAddressV: TextureAddress;
 	public var OverrideFormat: EPixelFormat;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

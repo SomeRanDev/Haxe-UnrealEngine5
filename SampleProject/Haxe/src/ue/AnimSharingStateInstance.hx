@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimSharingStateInstance")
 @:include("AnimationSharingInstances.h")
+@:structAccess
 extern class AnimSharingStateInstance extends AnimInstance {
 	public var AnimationToPlay: cpp.Star<AnimSequence>;
 	public var PermutationTimeOffset: cpp.Float32;
@@ -11,6 +12,8 @@ extern class AnimSharingStateInstance extends AnimInstance {
 	public var Instance: cpp.Star<AnimSharingInstance>;
 
 	public function GetInstancedActors(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

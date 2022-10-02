@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneSkeletalAnimationSection")
 @:include("Sections/MovieSceneSkeletalAnimationSection.h")
+@:structAccess
 extern class MovieSceneSkeletalAnimationSection extends MovieSceneSection {
 	public var Params: MovieSceneSkeletalAnimationParams;
 	public var AnimSequence_DEPRECATED: cpp.Star<AnimSequence>;
@@ -24,6 +25,8 @@ extern class MovieSceneSkeletalAnimationSection extends MovieSceneSection {
 	public var bMatchRotationPitch: Bool;
 	public var bMatchRotationRoll: Bool;
 	public var bShowSkeleton: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

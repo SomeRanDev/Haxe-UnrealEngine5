@@ -3,8 +3,11 @@ package ue;
 
 @:native("ASplineMeshActor")
 @:include("Engine/SplineMeshActor.h")
+@:structAccess
 extern class SplineMeshActor extends Actor {
 	public var SplineMeshComponent: cpp.Star<SplineMeshComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

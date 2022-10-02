@@ -3,6 +3,7 @@ package ue;
 
 @:native("UARCandidateImage")
 @:include("ARTypes.h")
+@:structAccess
 extern class ARCandidateImage extends DataAsset {
 	public var CandidateTexture: cpp.Star<Texture2D>;
 	public var FriendlyName: FString;
@@ -15,6 +16,8 @@ extern class ARCandidateImage extends DataAsset {
 	public function GetOrientation(): cpp.Reference<EARCandidateImageOrientation>;
 	public function GetFriendlyName(): cpp.Reference<FString>;
 	public function GetCandidateTexture(): cpp.Reference<cpp.Star<Texture2D>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetPhysicalWidth, GetPhysicalHeight, GetOrientation, GetFriendlyName, GetCandidateTexture)

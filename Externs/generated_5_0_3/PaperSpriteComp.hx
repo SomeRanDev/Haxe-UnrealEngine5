@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPaperSpriteComponent")
 @:include("PaperSpriteComponent.h")
+@:structAccess
 extern class PaperSpriteComp extends MeshComp {
 	public var SourceSprite: cpp.Star<PaperSprite>;
 	public var MaterialOverride_DEPRECATED: cpp.Star<MaterialInterface>;
@@ -11,6 +12,8 @@ extern class PaperSpriteComp extends MeshComp {
 	public function SetSpriteColor(NewColor: LinearColor): Void;
 	public function SetSprite(NewSprite: cpp.Star<PaperSprite>): cpp.Reference<Bool>;
 	public function GetSprite(): cpp.Reference<cpp.Star<PaperSprite>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

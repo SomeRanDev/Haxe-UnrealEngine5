@@ -3,8 +3,11 @@ package ue;
 
 @:native("UParticleSystemReplay")
 @:include("Particles/ParticleSystemReplay.h")
+@:structAccess
 extern class ParticleSystemReplay extends Object {
 	public var ClipIDNumber: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

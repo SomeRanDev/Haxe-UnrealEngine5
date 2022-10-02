@@ -3,11 +3,14 @@ package ue;
 
 @:native("UAIAsyncTaskBlueprintProxy")
 @:include("Blueprint/AIAsyncTaskBlueprintProxy.h")
+@:structAccess
 extern class AIAsyncTaskBlueprintProxy extends Object {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(EPathFollowingResult) -> Void>;
 	public var OnFail: HaxeMulticastSparseDelegateProperty<(EPathFollowingResult) -> Void>;
 
 	public function OnMoveCompleted(RequestID: AIRequestID, MovementResult: EPathFollowingResult): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UReflectionCaptureComponent")
 @:include("Components/ReflectionCaptureComponent.h")
+@:structAccess
 extern class ReflectionCaptureComp extends SceneComp {
 	public var CaptureOffsetComponent: cpp.Star<BillboardComp>;
 	public var ReflectionSourceType: EReflectionSourceType;
@@ -15,6 +16,8 @@ extern class ReflectionCaptureComp extends SceneComp {
 	public var CaptureOffset: Vector;
 	public var MapBuildDataId: Guid;
 	public var CachedEncodedHDRCubemap: cpp.Star<TextureCube>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

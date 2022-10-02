@@ -3,11 +3,14 @@ package ue;
 
 @:native("UParticleModuleSizeScale")
 @:include("Particles/Size/ParticleModuleSizeScale.h")
+@:structAccess
 extern class ParticleModuleSizeScale extends ParticleModuleSizeBase {
 	public var SizeScale: RawDistributionVector;
 	public var EnableX: Bool;
 	public var EnableY: Bool;
 	public var EnableZ: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("ACameraRig_Crane")
 @:include("CameraRig_Crane.h")
+@:structAccess
 extern class CameraRig_Crane extends Actor {
 	public var CranePitch: cpp.Float32;
 	public var CraneYaw: cpp.Float32;
@@ -17,6 +18,8 @@ extern class CameraRig_Crane extends Actor {
 	public var PreviewMesh_CraneBase: cpp.Star<StaticMeshComp>;
 	public var PreviewMesh_CraneMount: cpp.Star<StaticMeshComp>;
 	public var PreviewMesh_CraneCounterWeight: cpp.Star<StaticMeshComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

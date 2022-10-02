@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnConstructEvent__PythonCallable")
+@:structAccess
 extern class OnConstructEvent__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

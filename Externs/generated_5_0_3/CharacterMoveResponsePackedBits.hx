@@ -3,5 +3,7 @@ package ue;
 
 @:native("FCharacterMoveResponsePackedBits")
 @:include("GameFramework/CharacterMovementReplication.h")
+@:structAccess
 extern class CharacterMoveResponsePackedBits extends CharacterNetworkSerializationPackedBits {
+	@:native("FCharacterMoveResponsePackedBits") public function new();
 }

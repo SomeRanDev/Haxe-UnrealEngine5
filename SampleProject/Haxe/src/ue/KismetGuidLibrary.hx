@@ -3,6 +3,7 @@ package ue;
 
 @:native("UKismetGuidLibrary")
 @:include("Kismet/KismetGuidLibrary.h")
+@:structAccess
 extern class KismetGuidLibrary extends BlueprintFunctionLibrary {
 	public function Parse_StringToGuid(GuidString: FString, OutGuid: cpp.Reference<Guid>, Success: cpp.Reference<Bool>): Void;
 	public function NotEqual_GuidGuid(A: cpp.Reference<Guid>, B: cpp.Reference<Guid>): cpp.Reference<Bool>;
@@ -11,6 +12,8 @@ extern class KismetGuidLibrary extends BlueprintFunctionLibrary {
 	public function Invalidate_Guid(InGuid: cpp.Reference<Guid>): Void;
 	public function EqualEqual_GuidGuid(A: cpp.Reference<Guid>, B: cpp.Reference<Guid>): cpp.Reference<Bool>;
 	public function Conv_GuidToString(InGuid: cpp.Reference<Guid>): cpp.Reference<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

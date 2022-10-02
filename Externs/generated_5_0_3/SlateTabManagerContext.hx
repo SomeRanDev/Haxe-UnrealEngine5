@@ -3,7 +3,10 @@ package ue;
 
 @:native("USlateTabManagerContext")
 @:include("ToolMenuContext.h")
+@:structAccess
 extern class SlateTabManagerContext extends ToolMenuContextBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

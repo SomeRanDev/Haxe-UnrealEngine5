@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDirectionalLightComponent")
 @:include("Components/DirectionalLightComponent.h")
+@:structAccess
 extern class DirectionalLightComp extends LightComp {
 	public var ShadowCascadeBiasDistribution: cpp.Float32;
 	public var bEnableLightShaftOcclusion: Bool;
@@ -62,6 +63,8 @@ extern class DirectionalLightComp extends LightComp {
 	public function SetCascadeDistributionExponent(NewValue: cpp.Float32): Void;
 	public function SetAtmosphereSunLightIndex(NewValue: cpp.Int32): Void;
 	public function SetAtmosphereSunLight(bNewValue: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

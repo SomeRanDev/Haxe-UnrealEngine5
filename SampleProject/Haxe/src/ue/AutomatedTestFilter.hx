@@ -3,8 +3,12 @@ package ue;
 
 @:native("FAutomatedTestFilter")
 @:include("AutomationControllerSettings.h")
+@:structAccess
 extern class AutomatedTestFilter {
 	public var Contains: FString;
 	public var MatchFromStart: Bool;
 	public var MatchFromEnd: Bool;
+
+	@:native("FAutomatedTestFilter") public function new();
+	@:native("FAutomatedTestFilter") public static function make(Contains: FString, MatchFromStart: Bool, MatchFromEnd: Bool): AutomatedTestFilter ;
 }

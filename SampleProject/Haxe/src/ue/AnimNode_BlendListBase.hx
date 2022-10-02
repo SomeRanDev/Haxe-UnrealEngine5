@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_BlendListBase")
 @:include("AnimNodes/AnimNode_BlendListBase.h")
+@:structAccess
 extern class AnimNode_BlendListBase extends AnimNode_Base {
 	public var BlendPose: TArray<PoseLink>;
 	public var BlendTime: TArray<cpp.Float32>;
@@ -11,4 +12,6 @@ extern class AnimNode_BlendListBase extends AnimNode_Base {
 	public var bResetChildOnActivation: Bool;
 	public var CustomBlendCurve: cpp.Star<CurveFloat>;
 	public var BlendProfile: cpp.Star<BlendProfile>;
+
+	@:native("FAnimNode_BlendListBase") public function new();
 }

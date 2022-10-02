@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPersonaPreviewSceneController")
 @:include("PersonaPreviewSceneController.h")
+@:structAccess
 extern class PersonaPreviewSceneController extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

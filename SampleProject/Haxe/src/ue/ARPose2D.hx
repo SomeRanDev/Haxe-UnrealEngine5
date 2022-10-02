@@ -3,8 +3,12 @@ package ue;
 
 @:native("FARPose2D")
 @:include("ARTypes.h")
+@:structAccess
 extern class ARPose2D {
 	public var SkeletonDefinition: ARSkeletonDefinition;
 	public var JointLocations: TArray<Vector2D>;
 	public var IsJointTracked: TArray<Bool>;
+
+	@:native("FARPose2D") public function new();
+	@:native("FARPose2D") public static function make(SkeletonDefinition: ARSkeletonDefinition, JointLocations: TArray<Vector2D>, IsJointTracked: TArray<Bool>): ARPose2D ;
 }

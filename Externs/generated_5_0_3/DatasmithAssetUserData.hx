@@ -3,9 +3,12 @@ package ue;
 
 @:native("UDatasmithAssetUserData")
 @:include("DatasmithAssetUserData.h")
+@:structAccess
 extern class DatasmithAssetUserData extends AssetUserData {
 	public var MetaData: TMap<FName, FString>;
 	public var ObjectTemplates: TMap<TSubclassOf<DatasmithObjectTemplate>, cpp.Star<DatasmithObjectTemplate>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

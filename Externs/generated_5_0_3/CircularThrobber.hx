@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCircularThrobber")
 @:include("Components/CircularThrobber.h")
+@:structAccess
 extern class CircularThrobber extends Widget {
 	public var NumberOfPieces: cpp.Int32;
 	public var Period: cpp.Float32;
@@ -14,6 +15,8 @@ extern class CircularThrobber extends Widget {
 	public function SetRadius(InRadius: cpp.Float32): Void;
 	public function SetPeriod(InPeriod: cpp.Float32): Void;
 	public function SetNumberOfPieces(InNumberOfPieces: cpp.Int32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

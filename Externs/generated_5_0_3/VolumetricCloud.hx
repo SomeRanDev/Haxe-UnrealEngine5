@@ -3,8 +3,11 @@ package ue;
 
 @:native("AVolumetricCloud")
 @:include("Components/VolumetricCloudComponent.h")
+@:structAccess
 extern class VolumetricCloud extends Info {
 	public var VolumetricCloudComponent: cpp.Star<VolumetricCloudComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

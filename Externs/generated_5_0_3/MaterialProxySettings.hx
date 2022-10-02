@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMaterialProxySettings")
 @:include("Engine/MaterialMerging.h")
+@:structAccess
 extern class MaterialProxySettings {
 	public var TextureSizingType: ETextureSizingType;
 	public var TextureSize: IntPoint;
@@ -41,4 +42,6 @@ extern class MaterialProxySettings {
 	public var OpacityTextureSize: IntPoint;
 	public var OpacityMaskTextureSize: IntPoint;
 	public var AmbientOcclusionTextureSize: IntPoint;
+
+	@:native("FMaterialProxySettings") public function new();
 }

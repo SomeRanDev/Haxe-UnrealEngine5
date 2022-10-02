@@ -3,7 +3,10 @@ package ue;
 
 @:native("ATriggerCapsule")
 @:include("Engine/TriggerCapsule.h")
+@:structAccess
 extern class TriggerCapsule extends TriggerBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

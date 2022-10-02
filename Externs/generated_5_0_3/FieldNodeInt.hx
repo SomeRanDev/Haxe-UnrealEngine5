@@ -3,7 +3,10 @@ package ue;
 
 @:native("UFieldNodeInt")
 @:include("Field/FieldSystemObjects.h")
+@:structAccess
 extern class FieldNodeInt extends FieldNodeBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

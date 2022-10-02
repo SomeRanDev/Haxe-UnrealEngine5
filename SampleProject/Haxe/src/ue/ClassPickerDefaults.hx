@@ -3,7 +3,11 @@ package ue;
 
 @:native("FClassPickerDefaults")
 @:include("Preferences/UnrealEdOptions.h")
+@:structAccess
 extern class ClassPickerDefaults {
 	public var ClassName: FString;
 	public var AssetClass: FString;
+
+	@:native("FClassPickerDefaults") public function new();
+	@:native("FClassPickerDefaults") public static function make(ClassName: FString, AssetClass: FString): ClassPickerDefaults ;
 }

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UInterpFilter_Custom")
 @:include("Matinee/InterpFilter_Custom.h")
+@:structAccess
 extern class InterpFilter_Custom extends InterpFilter {
 	public var GroupsToInclude: TArray<cpp.Star<InterpGroup>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

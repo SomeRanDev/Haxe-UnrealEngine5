@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCookerSettings")
 @:include("CookerSettings.h")
+@:structAccess
 extern class CookerSettings extends DeveloperSettings {
 	public var bEnableCookOnTheSide: Bool;
 	public var bEnableBuildDDCInBackground: Bool;
@@ -25,6 +26,8 @@ extern class CookerSettings extends DeveloperSettings {
 	public var bAllowASTCHDRProfile: Bool;
 	public var bAllowCookedDataInEditorBuilds: Bool;
 	public var bCookBlueprintComponentTemplateData: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

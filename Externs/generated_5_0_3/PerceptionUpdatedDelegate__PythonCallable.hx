@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UPerceptionUpdatedDelegate__PythonCallable")
+@:structAccess
 extern class PerceptionUpdatedDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

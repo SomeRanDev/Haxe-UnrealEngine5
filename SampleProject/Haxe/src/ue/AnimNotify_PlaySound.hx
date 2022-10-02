@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimNotify_PlaySound")
 @:include("Animation/AnimNotifies/AnimNotify_PlaySound.h")
+@:structAccess
 extern class AnimNotify_PlaySound extends AnimNotify {
 	public var Sound: cpp.Star<SoundBase>;
 	public var VolumeMultiplier: cpp.Float32;
@@ -10,6 +11,8 @@ extern class AnimNotify_PlaySound extends AnimNotify {
 	public var bFollow: Bool;
 	public var bPreviewIgnoreAttenuation: Bool;
 	public var AttachName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

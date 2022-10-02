@@ -3,6 +3,10 @@ package ue;
 
 @:native("FSectionReference")
 @:include("Engine/SkeletalMesh.h")
+@:structAccess
 extern class SectionReference {
 	public var SectionIndex: cpp.Int32;
+
+	@:native("FSectionReference") public function new();
+	@:native("FSectionReference") public static function make(SectionIndex: cpp.Int32): SectionReference ;
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEdGraph")
 @:include("EdGraph/EdGraph.h")
+@:structAccess
 extern class EdGraph extends Object {
 	public var Schema: TSubclassOf<EdGraphSchema>;
 	public var Nodes: TArray<cpp.Star<EdGraphNode>>;
@@ -12,6 +13,8 @@ extern class EdGraph extends Object {
 	public var SubGraphs: TArray<cpp.Star<EdGraph>>;
 	public var GraphGuid: Guid;
 	public var InterfaceGuid: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

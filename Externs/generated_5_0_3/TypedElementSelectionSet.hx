@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTypedElementSelectionSet")
 @:include("Elements/Framework/TypedElementSelectionSet.h")
+@:structAccess
 extern class TypedElementSelectionSet extends Object {
 	public var OnPreSelectionChange: HaxeMulticastSparseDelegateProperty<(cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet>) -> Void>;
 	public var OnSelectionChange: HaxeMulticastSparseDelegateProperty<(cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet>) -> Void>;
@@ -31,6 +32,8 @@ extern class TypedElementSelectionSet extends Object {
 	public function CanSelectElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionOptions: TypedElementSelectionOptions): cpp.Reference<Bool>;
 	public function CanDeselectElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionOptions: TypedElementSelectionOptions): cpp.Reference<Bool>;
 	public function AllowSelectionModifiers(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

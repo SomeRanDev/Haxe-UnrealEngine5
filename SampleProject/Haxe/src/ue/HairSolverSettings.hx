@@ -3,10 +3,14 @@ package ue;
 
 @:native("FHairSolverSettings")
 @:include("GroomAssetPhysics.h")
+@:structAccess
 extern class HairSolverSettings {
 	public var EnableSimulation: Bool;
 	public var NiagaraSolver: EGroomNiagaraSolvers;
 	public var CustomSystem: TSoftObjectPtr<NiagaraSystem>;
 	public var SubSteps: cpp.Int32;
 	public var IterationCount: cpp.Int32;
+
+	@:native("FHairSolverSettings") public function new();
+	@:native("FHairSolverSettings") public static function make(EnableSimulation: Bool, NiagaraSolver: EGroomNiagaraSolvers, CustomSystem: TSoftObjectPtr<NiagaraSystem>, SubSteps: cpp.Int32, IterationCount: cpp.Int32): HairSolverSettings ;
 }

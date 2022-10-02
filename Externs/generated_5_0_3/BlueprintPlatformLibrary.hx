@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBlueprintPlatformLibrary")
 @:include("Kismet/BlueprintPlatformLibrary.h")
+@:structAccess
 extern class BlueprintPlatformLibrary extends BlueprintFunctionLibrary {
 	public function ScheduleLocalNotificationFromNow(inSecondsFromNow: cpp.Int32, Title: cpp.Reference<FText>, Body: cpp.Reference<FText>, Action: cpp.Reference<FText>, ActivationEvent: FString): cpp.Reference<cpp.Int32>;
 	public function ScheduleLocalNotificationBadgeFromNow(inSecondsFromNow: cpp.Int32, ActivationEvent: FString): Void;
@@ -13,6 +14,8 @@ extern class BlueprintPlatformLibrary extends BlueprintFunctionLibrary {
 	public function ClearAllLocalNotifications(): Void;
 	public function CancelLocalNotificationById(NotificationId: cpp.Int32): Void;
 	public function CancelLocalNotification(ActivationEvent: FString): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

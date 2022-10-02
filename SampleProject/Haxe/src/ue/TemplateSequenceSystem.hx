@@ -3,7 +3,10 @@ package ue;
 
 @:native("UTemplateSequenceSystem")
 @:include("Systems/TemplateSequenceSystem.h")
+@:structAccess
 extern class TemplateSequenceSystem extends MovieSceneEntitySystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

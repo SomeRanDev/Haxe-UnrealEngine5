@@ -3,5 +3,7 @@ package ue;
 
 @:native("FAnimationCurveIdentifier")
 @:include("Animation/AnimData/CurveIdentifier.h")
+@:structAccess
 extern class AnimationCurveIdentifier {
+	@:native("FAnimationCurveIdentifier") public function new();
 }

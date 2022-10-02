@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCurveLinearColor")
 @:include("Curves/CurveLinearColor.h")
+@:structAccess
 extern class CurveLinearColor extends CurveBase {
 	public var FloatCurves: RichCurve;
 	public var AdjustHue: cpp.Float32;
@@ -16,6 +17,8 @@ extern class CurveLinearColor extends CurveBase {
 	public function GetUnadjustedLinearColorValue(InTime: cpp.Float32): cpp.Reference<LinearColor>;
 	public function GetLinearColorValue(InTime: cpp.Float32): cpp.Reference<LinearColor>;
 	public function GetClampedLinearColorValue(InTime: cpp.Float32): cpp.Reference<LinearColor>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetUnadjustedLinearColorValue, GetLinearColorValue, GetClampedLinearColorValue)

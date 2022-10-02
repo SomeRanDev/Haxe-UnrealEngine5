@@ -3,7 +3,11 @@ package ue;
 
 @:native("FBoneFilter")
 @:include("Engine/SkeletalMeshLODSettings.h")
+@:structAccess
 extern class BoneFilter {
 	public var bExcludeSelf: Bool;
 	public var BoneName: FName;
+
+	@:native("FBoneFilter") public function new();
+	@:native("FBoneFilter") public static function make(bExcludeSelf: Bool, BoneName: FName): BoneFilter ;
 }

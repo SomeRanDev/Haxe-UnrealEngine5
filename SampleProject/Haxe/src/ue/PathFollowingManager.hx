@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPathFollowingManager")
 @:include("Navigation/PathFollowingManager.h")
+@:structAccess
 extern class PathFollowingManager extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

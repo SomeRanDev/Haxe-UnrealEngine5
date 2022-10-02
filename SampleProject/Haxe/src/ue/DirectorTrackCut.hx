@@ -3,9 +3,13 @@ package ue;
 
 @:native("FDirectorTrackCut")
 @:include("Matinee/InterpTrackDirector.h")
+@:structAccess
 extern class DirectorTrackCut {
 	public var Time: cpp.Float32;
 	public var TransitionTime: cpp.Float32;
 	public var TargetCamGroup: FName;
 	public var ShotNumber: cpp.Int32;
+
+	@:native("FDirectorTrackCut") public function new();
+	@:native("FDirectorTrackCut") public static function make(Time: cpp.Float32, TransitionTime: cpp.Float32, TargetCamGroup: FName, ShotNumber: cpp.Int32): DirectorTrackCut ;
 }

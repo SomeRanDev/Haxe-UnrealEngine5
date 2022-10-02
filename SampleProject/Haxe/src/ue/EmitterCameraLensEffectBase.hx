@@ -3,6 +3,7 @@ package ue;
 
 @:native("AEmitterCameraLensEffectBase")
 @:include("Particles/EmitterCameraLensEffectBase.h")
+@:structAccess
 extern class EmitterCameraLensEffectBase extends Emitter {
 	public var PS_CameraEffect: cpp.Star<ParticleSystem>;
 	public var BaseCamera: cpp.Star<PlayerCameraManager>;
@@ -12,6 +13,8 @@ extern class EmitterCameraLensEffectBase extends Emitter {
 	public var bResetWhenRetriggered: Bool;
 	public var EmittersToTreatAsSame: TArray<TSubclassOf<Actor>>;
 	public var DistFromCamera_DEPRECATED: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

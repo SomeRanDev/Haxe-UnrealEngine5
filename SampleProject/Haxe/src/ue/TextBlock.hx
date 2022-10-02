@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTextBlock")
 @:include("Components/TextBlock.h")
+@:structAccess
 extern class TextBlock extends TextLayoutWidget {
 	public var Text: FText;
 	public var TextDelegate: HaxeDelegateProperty<() -> Void>;
@@ -34,6 +35,8 @@ extern class TextBlock extends TextLayoutWidget {
 	public function GetText(): cpp.Reference<FText>;
 	public function GetDynamicOutlineMaterial(): cpp.Reference<cpp.Star<MaterialInstanceDynamic>>;
 	public function GetDynamicFontMaterial(): cpp.Reference<cpp.Star<MaterialInstanceDynamic>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetText)

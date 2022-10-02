@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEditableTextBox")
 @:include("Components/EditableTextBox.h")
+@:structAccess
 extern class EditableTextBox extends Widget {
 	public var Text: FText;
 	public var TextDelegate: HaxeDelegateProperty<() -> Void>;
@@ -47,6 +48,8 @@ extern class EditableTextBox extends Widget {
 	public function HasError(): cpp.Reference<Bool>;
 	public function GetText(): cpp.Reference<FText>;
 	public function ClearError(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(HasError, GetText)

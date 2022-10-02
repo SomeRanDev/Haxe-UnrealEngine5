@@ -3,9 +3,12 @@ package ue;
 
 @:native("UEdGraphNode_Documentation")
 @:include("EdGraph/EdGraphNode_Documentation.h")
+@:structAccess
 extern class EdGraphNode_Documentation extends EdGraphNode {
 	public var Link: FString;
 	public var Excerpt: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

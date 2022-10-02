@@ -3,6 +3,7 @@ package ue;
 
 @:native("UARBlueprintLibrary")
 @:include("ARBlueprintLibrary.h")
+@:structAccess
 extern class ARBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function UnpinComponent(ComponentToUnpin: cpp.Star<SceneComp>): Void;
 	public function ToggleARCapture(bOnOff: Bool, CaptureType: EARCaptureType): cpp.Reference<Bool>;
@@ -65,6 +66,8 @@ extern class ARBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function AddTrackedPointWithName(WorldTransform: cpp.Reference<Transform>, PointName: FString, bDeletePointsWithSameName: Bool): cpp.Reference<Bool>;
 	public function AddRuntimeCandidateImage(SessionConfig: cpp.Star<ARSessionConfig>, CandidateTexture: cpp.Star<Texture2D>, FriendlyName: FString, PhysicalWidth: cpp.Float32): cpp.Reference<cpp.Star<ARCandidateImage>>;
 	public function AddManualEnvironmentCaptureProbe(Location: Vector, Extent: Vector): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

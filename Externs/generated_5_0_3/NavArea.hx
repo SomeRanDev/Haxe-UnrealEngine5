@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNavArea")
 @:include("NavAreas/NavArea.h")
+@:structAccess
 extern class NavArea extends NavAreaBase {
 	public var DefaultCost: cpp.Float32;
 	public var FixedAreaEnteringCost: cpp.Float32;
@@ -24,6 +25,8 @@ extern class NavArea extends NavAreaBase {
 	public var bSupportsAgent13: Bool;
 	public var bSupportsAgent14: Bool;
 	public var bSupportsAgent15: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

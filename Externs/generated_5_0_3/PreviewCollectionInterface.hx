@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UPreviewCollectionInterface")
+@:structAccess
 extern class PreviewCollectionInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

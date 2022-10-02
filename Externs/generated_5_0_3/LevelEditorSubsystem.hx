@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULevelEditorSubsystem")
 @:include("LevelEditorSubsystem.h")
+@:structAccess
 extern class LevelEditorSubsystem extends EditorSubsystem {
 	public function SetCurrentLevelByName(LevelName: FName): cpp.Reference<Bool>;
 	public function SetAllowsCinematicControl(bAllow: Bool, ViewportConfigKey: FName): Void;
@@ -24,6 +25,8 @@ extern class LevelEditorSubsystem extends EditorSubsystem {
 	public function EditorPlaySimulate(): Void;
 	public function EditorInvalidateViewports(): Void;
 	public function EditorGetGameView(ViewportConfigKey: FName): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsInPlayInEditor)

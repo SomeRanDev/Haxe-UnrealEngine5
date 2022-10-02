@@ -3,9 +3,13 @@ package ue;
 
 @:native("FClothCollisionPrim_Convex")
 @:include("ClothCollisionPrim.h")
+@:structAccess
 extern class ClothCollisionPrim_Convex {
 	public var Planes_DEPRECATED: TArray<Plane>;
 	public var Faces: TArray<ClothCollisionPrim_ConvexFace>;
 	public var SurfacePoints: TArray<Vector>;
 	public var BoneIndex: cpp.Int32;
+
+	@:native("FClothCollisionPrim_Convex") public function new();
+	@:native("FClothCollisionPrim_Convex") public static function make(Planes_DEPRECATED: TArray<Plane>, Faces: TArray<ClothCollisionPrim_ConvexFace>, SurfacePoints: TArray<Vector>, BoneIndex: cpp.Int32): ClothCollisionPrim_Convex ;
 }

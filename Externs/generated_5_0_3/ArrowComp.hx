@@ -3,6 +3,7 @@ package ue;
 
 @:native("UArrowComponent")
 @:include("Components/ArrowComponent.h")
+@:structAccess
 extern class ArrowComp extends PrimitiveComp {
 	public var ArrowColor: Color;
 	public var ArrowSize: cpp.Float32;
@@ -16,6 +17,8 @@ extern class ArrowComp extends PrimitiveComp {
 	public var bUseInEditorScaling: Bool;
 
 	public function SetArrowColor(NewColor: LinearColor): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

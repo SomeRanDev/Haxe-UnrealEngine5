@@ -3,11 +3,14 @@ package ue;
 
 @:native("UAudioEditorSettings")
 @:include("AudioEditorSettings.h")
+@:structAccess
 extern class AudioEditorSettings extends DeveloperSettings {
 	public var bPinSoundCueInAssetMenu: Bool;
 	public var bPinSoundCueTemplateInAssetMenu: Bool;
 	public var bPinSoundAttenuationInAssetMenu: Bool;
 	public var bPinSoundConcurrencyInAssetMenu: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

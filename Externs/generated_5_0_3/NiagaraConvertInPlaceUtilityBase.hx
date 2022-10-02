@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraConvertInPlaceUtilityBase")
 @:include("NiagaraConvertInPlaceUtilityBase.h")
+@:structAccess
 extern class NiagaraConvertInPlaceUtilityBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

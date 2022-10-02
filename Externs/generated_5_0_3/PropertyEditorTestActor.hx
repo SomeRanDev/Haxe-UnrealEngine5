@@ -3,10 +3,13 @@ package ue;
 
 @:native("APropertyEditorTestActor")
 @:include("Editor/PropertyEditorTestObject.h")
+@:structAccess
 extern class PropertyEditorTestActor extends Actor {
 	public var GetOptionsValue: FName;
 
 	public function GetOptionsFunc(): cpp.Reference<TArray<FString>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetOptionsFunc)

@@ -3,10 +3,13 @@ package ue;
 
 @:native("AGroupActor")
 @:include("Editor/GroupActor.h")
+@:structAccess
 extern class GroupActor extends Actor {
 	public var bLocked: Bool;
 	public var GroupActors: TArray<cpp.Star<Actor>>;
 	public var SubGroups: TArray<cpp.Star<GroupActor>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

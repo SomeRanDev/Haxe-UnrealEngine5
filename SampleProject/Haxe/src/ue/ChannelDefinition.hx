@@ -3,6 +3,7 @@ package ue;
 
 @:native("FChannelDefinition")
 @:include("Engine/NetDriver.h")
+@:structAccess
 extern class ChannelDefinition {
 	public var ChannelName: FName;
 	public var ClassName: FName;
@@ -13,4 +14,6 @@ extern class ChannelDefinition {
 	public var bClientOpen: Bool;
 	public var bInitialServer: Bool;
 	public var bInitialClient: Bool;
+
+	@:native("FChannelDefinition") public function new();
 }

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNiagaraPreviewAxis_InterpParamLinearColor")
 @:include("NiagaraPreviewGrid.h")
+@:structAccess
 extern class NiagaraPreviewAxis_InterpParamLinearColor extends NiagaraPreviewAxis_InterpParamBase {
 	public var Min: LinearColor;
 	public var Max: LinearColor;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

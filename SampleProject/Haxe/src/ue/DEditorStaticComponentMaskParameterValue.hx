@@ -3,8 +3,11 @@ package ue;
 
 @:native("UDEditorStaticComponentMaskParameterValue")
 @:include("MaterialEditor/DEditorStaticComponentMaskParameterValue.h")
+@:structAccess
 extern class DEditorStaticComponentMaskParameterValue extends DEditorParameterValue {
 	public var ParameterValue: DComponentMaskParameter;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

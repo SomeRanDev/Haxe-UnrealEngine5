@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAutomationViewSettings")
 @:include("AutomationViewSettings.h")
+@:structAccess
 extern class AutomationViewSettings extends DataAsset {
 	public var AntiAliasing: Bool;
 	public var MotionBlur: Bool;
@@ -13,6 +14,8 @@ extern class AutomationViewSettings extends DataAsset {
 	public var ContactShadows: Bool;
 	public var EyeAdaptation: Bool;
 	public var Bloom: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

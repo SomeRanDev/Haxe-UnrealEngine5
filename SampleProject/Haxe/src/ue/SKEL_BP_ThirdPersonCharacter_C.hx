@@ -2,6 +2,7 @@
 package ue;
 
 @:native("ASKEL_BP_ThirdPersonCharacter_C")
+@:structAccess
 extern class SKEL_BP_ThirdPersonCharacter_C extends HaxeForUnrealCharacter {
 	public var UberGraphFrame: PointerToUberGraphFrame;
 
@@ -9,6 +10,8 @@ extern class SKEL_BP_ThirdPersonCharacter_C extends HaxeForUnrealCharacter {
 	public function ReceiveActorBeginOverlap(OtherActor: cpp.Star<Actor>): Void;
 	public function ReceiveTick(DeltaSeconds: cpp.Float32): Void;
 	public function UserConstructionScript(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

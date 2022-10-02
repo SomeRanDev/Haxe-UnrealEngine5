@@ -3,6 +3,7 @@ package ue;
 
 @:native("ASwitchActor")
 @:include("SwitchActor.h")
+@:structAccess
 extern class SwitchActor extends Actor {
 	public var SceneComponent: cpp.Star<SceneComp>;
 	public var LastSelectedOption: cpp.Int32;
@@ -10,6 +11,8 @@ extern class SwitchActor extends Actor {
 	public function SelectOption(OptionIndex: cpp.Int32): Void;
 	public function GetSelectedOption(): cpp.Reference<cpp.Int32>;
 	public function GetOptions(): cpp.Reference<TArray<cpp.Star<Actor>>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetSelectedOption, GetOptions)

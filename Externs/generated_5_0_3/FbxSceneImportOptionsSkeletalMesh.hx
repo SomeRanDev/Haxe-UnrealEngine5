@@ -3,6 +3,7 @@ package ue;
 
 @:native("UFbxSceneImportOptionsSkeletalMesh")
 @:include("Factories/FbxSceneImportOptionsSkeletalMesh.h")
+@:structAccess
 extern class FbxSceneImportOptionsSkeletalMesh extends Object {
 	public var bUpdateSkeletonReferencePose: Bool;
 	public var bCreatePhysicsAsset: Bool;
@@ -24,6 +25,8 @@ extern class FbxSceneImportOptionsSkeletalMesh extends Object {
 	public var bDeleteExistingNonCurveCustomAttributes: Bool;
 	public var bPreserveLocalTransform: Bool;
 	public var bDeleteExistingMorphTargetCurves: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

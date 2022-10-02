@@ -3,6 +3,7 @@ package ue;
 
 @:native("USoundNodeRandom")
 @:include("Sound/SoundNodeRandom.h")
+@:structAccess
 extern class SoundNodeRandom extends SoundNode {
 	public var Weights: TArray<cpp.Float32>;
 	public var HasBeenUsed: TArray<Bool>;
@@ -12,6 +13,8 @@ extern class SoundNodeRandom extends SoundNode {
 	public var bSoundCueExcludedFromBranchCulling: Bool;
 	public var bRandomizeWithoutReplacement: Bool;
 	public var PIEHiddenNodes: TArray<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

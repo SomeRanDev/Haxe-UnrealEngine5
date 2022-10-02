@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimCurveCompressionCodec")
 @:include("Animation/AnimCurveCompressionCodec.h")
+@:structAccess
 extern class AnimCurveCompressionCodec extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

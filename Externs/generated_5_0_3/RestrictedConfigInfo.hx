@@ -3,7 +3,11 @@ package ue;
 
 @:native("FRestrictedConfigInfo")
 @:include("GameplayTagsSettings.h")
+@:structAccess
 extern class RestrictedConfigInfo {
 	public var RestrictedConfigName: FString;
 	public var Owners: TArray<FString>;
+
+	@:native("FRestrictedConfigInfo") public function new();
+	@:native("FRestrictedConfigInfo") public static function make(RestrictedConfigName: FString, Owners: TArray<FString>): RestrictedConfigInfo ;
 }

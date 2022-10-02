@@ -3,6 +3,7 @@ package ue;
 
 @:native("UARCandidateObject")
 @:include("ARTypes.h")
+@:structAccess
 extern class ARCandidateObject extends DataAsset {
 	public var CandidateObjectData: TArray<cpp.UInt8>;
 	public var FriendlyName: FString;
@@ -14,6 +15,8 @@ extern class ARCandidateObject extends DataAsset {
 	public function GetFriendlyName(): cpp.Reference<FString>;
 	public function GetCandidateObjectData(): cpp.Reference<TArray<cpp.UInt8>>;
 	public function GetBoundingBox(): cpp.Reference<Box>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetFriendlyName, GetCandidateObjectData, GetBoundingBox)

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UInputCoreTypes")
 @:include("InputCoreTypes.h")
+@:structAccess
 extern class InputCoreTypes extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

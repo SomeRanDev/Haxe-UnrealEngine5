@@ -3,8 +3,12 @@ package ue;
 
 @:native("FActorSequenceObjectReference")
 @:include("ActorSequenceObjectReference.h")
+@:structAccess
 extern class ActorSequenceObjectReference {
 	public var Type: EActorSequenceObjectReferenceType;
 	public var ActorId: Guid;
 	public var PathToComponent: FString;
+
+	@:native("FActorSequenceObjectReference") public function new();
+	@:native("FActorSequenceObjectReference") public static function make(Type: EActorSequenceObjectReferenceType, ActorId: Guid, PathToComponent: FString): ActorSequenceObjectReference ;
 }

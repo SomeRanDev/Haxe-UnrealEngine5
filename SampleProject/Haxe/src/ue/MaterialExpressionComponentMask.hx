@@ -3,12 +3,15 @@ package ue;
 
 @:native("UMaterialExpressionComponentMask")
 @:include("Materials/MaterialExpressionComponentMask.h")
+@:structAccess
 extern class MaterialExpressionComponentMask extends MaterialExpression {
 	public var Input: ExpressionInput;
 	public var R: Bool;
 	public var G: Bool;
 	public var B: Bool;
 	public var A: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

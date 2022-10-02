@@ -3,7 +3,10 @@ package ue;
 
 @:native("UVisual")
 @:include("Components/Visual.h")
+@:structAccess
 extern class Visual extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

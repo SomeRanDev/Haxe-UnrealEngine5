@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UARGetCandidateObjectPin__PythonCallable")
+@:structAccess
 extern class ARGetCandidateObjectPin__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

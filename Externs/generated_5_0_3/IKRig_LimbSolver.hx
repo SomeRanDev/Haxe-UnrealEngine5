@@ -3,6 +3,7 @@ package ue;
 
 @:native("UIKRig_LimbSolver")
 @:include("Solvers/IKRig_LimbSolver.h")
+@:structAccess
 extern class IKRig_LimbSolver extends IKRigSolver {
 	public var RootName: FName;
 	public var ReachPrecision: cpp.Float32;
@@ -16,6 +17,8 @@ extern class IKRig_LimbSolver extends IKRigSolver {
 	public var bEnableTwistCorrection: Bool;
 	public var EndBoneForwardAxis: EAxis;
 	public var Effector: cpp.Star<IKRig_LimbEffector>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

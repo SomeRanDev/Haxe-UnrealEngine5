@@ -3,6 +3,10 @@ package ue;
 
 @:native("FFloatDistribution")
 @:include("Distributions/DistributionFloat.h")
+@:structAccess
 extern class FloatDistribution {
 	public var Table: DistributionLookupTable;
+
+	@:native("FFloatDistribution") public function new();
+	@:native("FFloatDistribution") public static function make(Table: DistributionLookupTable): FloatDistribution ;
 }

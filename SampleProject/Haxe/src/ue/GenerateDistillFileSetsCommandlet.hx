@@ -3,7 +3,10 @@ package ue;
 
 @:native("UGenerateDistillFileSetsCommandlet")
 @:include("Commandlets/GenerateDistillFileSetsCommandlet.h")
+@:structAccess
 extern class GenerateDistillFileSetsCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

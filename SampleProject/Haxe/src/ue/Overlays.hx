@@ -3,7 +3,10 @@ package ue;
 
 @:native("UOverlays")
 @:include("Overlays.h")
+@:structAccess
 extern class Overlays extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

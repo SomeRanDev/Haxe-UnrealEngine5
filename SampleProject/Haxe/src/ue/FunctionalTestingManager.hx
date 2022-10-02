@@ -3,6 +3,7 @@ package ue;
 
 @:native("UFunctionalTestingManager")
 @:include("FunctionalTestingManager.h")
+@:structAccess
 extern class FunctionalTestingManager extends BlueprintFunctionLibrary {
 	public var TestsLeft: TArray<cpp.Star<FunctionalTest>>;
 	public var AllTests: TArray<cpp.Star<FunctionalTest>>;
@@ -11,6 +12,8 @@ extern class FunctionalTestingManager extends BlueprintFunctionLibrary {
 	public var OnTestsBegin: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
 	public function RunAllFunctionalTests(WorldContextObject: cpp.Star<Object>, bNewLog: Bool, bRunLooped: Bool, FailedTestsReproString: FString): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

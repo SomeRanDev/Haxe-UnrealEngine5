@@ -3,9 +3,13 @@ package ue;
 
 @:native("FBlueprintWidgetAnimationDelegateBinding")
 @:include("Animation/WidgetAnimationDelegateBinding.h")
+@:structAccess
 extern class BlueprintWidgetAnimationDelegateBinding {
 	public var Action: EWidgetAnimationEvent;
 	public var AnimationToBind: FName;
 	public var FunctionNameToBind: FName;
 	public var UserTag: FName;
+
+	@:native("FBlueprintWidgetAnimationDelegateBinding") public function new();
+	@:native("FBlueprintWidgetAnimationDelegateBinding") public static function make(Action: EWidgetAnimationEvent, AnimationToBind: FName, FunctionNameToBind: FName, UserTag: FName): BlueprintWidgetAnimationDelegateBinding ;
 }

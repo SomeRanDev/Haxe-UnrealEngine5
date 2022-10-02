@@ -3,5 +3,7 @@ package ue;
 
 @:native("FClothTetherData")
 @:include("ClothTetherData.h")
+@:structAccess
 extern class ClothTetherData {
+	@:native("FClothTetherData") public function new();
 }

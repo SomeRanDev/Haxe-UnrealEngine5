@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMovieSceneGroomCacheParams")
 @:include("MovieSceneGroomCacheSection.h")
+@:structAccess
 extern class MovieSceneGroomCacheParams {
 	public var GroomCache: cpp.Star<GroomCache>;
 	public var FirstLoopStartFrameOffset: FrameNumber;
@@ -10,4 +11,6 @@ extern class MovieSceneGroomCacheParams {
 	public var EndFrameOffset: FrameNumber;
 	public var PlayRate: cpp.Float32;
 	public var bReverse: Bool;
+
+	@:native("FMovieSceneGroomCacheParams") public function new();
 }

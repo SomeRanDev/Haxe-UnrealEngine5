@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAITask_LockLogic")
 @:include("Tasks/AITask_LockLogic.h")
+@:structAccess
 extern class AITask_LockLogic extends AITask {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

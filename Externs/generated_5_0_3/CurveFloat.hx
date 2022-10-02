@@ -3,11 +3,14 @@ package ue;
 
 @:native("UCurveFloat")
 @:include("Curves/CurveFloat.h")
+@:structAccess
 extern class CurveFloat extends CurveBase {
 	public var FloatCurve: RichCurve;
 	public var bIsEventCurve: Bool;
 
 	public function GetFloatValue(InTime: cpp.Float32): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetFloatValue)

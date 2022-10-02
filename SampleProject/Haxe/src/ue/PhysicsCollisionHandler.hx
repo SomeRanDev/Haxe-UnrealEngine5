@@ -3,11 +3,14 @@ package ue;
 
 @:native("UPhysicsCollisionHandler")
 @:include("PhysicsEngine/PhysicsCollisionHandler.h")
+@:structAccess
 extern class PhysicsCollisionHandler extends Object {
 	public var ImpactThreshold: cpp.Float32;
 	public var ImpactReFireDelay: cpp.Float32;
 	public var DefaultImpactSound: cpp.Star<SoundBase>;
 	public var LastImpactSoundTime: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

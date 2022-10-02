@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPointLightComponent")
 @:include("Components/PointLightComponent.h")
+@:structAccess
 extern class PointLightComp extends LocalLightComp {
 	public var bUseInverseSquaredFalloff: Bool;
 	public var LightFalloffExponent: cpp.Float32;
@@ -14,6 +15,8 @@ extern class PointLightComp extends LocalLightComp {
 	public function SetSourceLength(NewValue: cpp.Float32): Void;
 	public function SetSoftSourceRadius(bNewValue: cpp.Float32): Void;
 	public function SetLightFalloffExponent(NewLightFalloffExponent: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

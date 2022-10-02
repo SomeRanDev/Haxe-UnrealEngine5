@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_SequenceEvaluator")
 @:include("AnimNodes/AnimNode_SequenceEvaluator.h")
+@:structAccess
 extern class AnimNode_SequenceEvaluator extends AnimNode_SequenceEvaluatorBase {
 	public var GroupName: FName;
 	public var GroupRole: EAnimGroupRole;
@@ -14,4 +15,6 @@ extern class AnimNode_SequenceEvaluator extends AnimNode_SequenceEvaluatorBase {
 	public var bTeleportToExplicitTime: Bool;
 	public var ReinitializationBehavior: ESequenceEvalReinit;
 	public var StartPosition: cpp.Float32;
+
+	@:native("FAnimNode_SequenceEvaluator") public function new();
 }

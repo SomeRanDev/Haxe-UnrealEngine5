@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDecalComponent")
 @:include("Components/DecalComponent.h")
+@:structAccess
 extern class DecalComp extends SceneComp {
 	public var DecalMaterial: cpp.Star<MaterialInterface>;
 	public var SortOrder: cpp.Int32;
@@ -25,6 +26,8 @@ extern class DecalComp extends SceneComp {
 	public function GetFadeDuration(): cpp.Reference<cpp.Float32>;
 	public function GetDecalMaterial(): cpp.Reference<cpp.Star<MaterialInterface>>;
 	public function CreateDynamicMaterialInstance(): cpp.Reference<cpp.Star<MaterialInstanceDynamic>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetFadeStartDelay, GetFadeInStartDelay, GetFadeInDuration, GetFadeDuration, GetDecalMaterial)

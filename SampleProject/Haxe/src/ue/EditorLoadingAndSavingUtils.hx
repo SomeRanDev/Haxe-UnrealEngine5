@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEditorLoadingAndSavingUtils")
 @:include("FileHelpers.h")
+@:structAccess
 extern class EditorLoadingAndSavingUtils extends Object {
 	public function UnloadPackages(PackagesToUnload: cpp.Reference<TArray<cpp.Star<Package>>>, bOutAnyPackagesUnloaded: cpp.Reference<Bool>, OutErrorMessage: cpp.Reference<FText>): Void;
 	public function SavePackagesWithDialog(PackagesToSave: cpp.Reference<TArray<cpp.Star<Package>>>, bOnlyDirty: Bool): cpp.Reference<Bool>;
@@ -20,6 +21,8 @@ extern class EditorLoadingAndSavingUtils extends Object {
 	public function GetDirtyMapPackages(OutDirtyPackages: cpp.Reference<TArray<cpp.Star<Package>>>): Void;
 	public function GetDirtyContentPackages(OutDirtyPackages: cpp.Reference<TArray<cpp.Star<Package>>>): Void;
 	public function ExportScene(bExportSelectedActorsOnly: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,11 +3,14 @@ package ue;
 
 @:native("UControlRigSnapSettings")
 @:include("Tools/ControlRigSnapSettings.h")
+@:structAccess
 extern class ControlRigSnapSettings extends Object {
 	public var bKeepOffset: Bool;
 	public var bSnapPosition: Bool;
 	public var bSnapRotation: Bool;
 	public var bSnapScale: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

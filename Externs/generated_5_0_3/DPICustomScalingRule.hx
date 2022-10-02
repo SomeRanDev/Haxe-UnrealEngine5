@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDPICustomScalingRule")
 @:include("Engine/DPICustomScalingRule.h")
+@:structAccess
 extern class DPICustomScalingRule extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

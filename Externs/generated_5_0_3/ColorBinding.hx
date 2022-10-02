@@ -3,9 +3,12 @@ package ue;
 
 @:native("UColorBinding")
 @:include("Binding/ColorBinding.h")
+@:structAccess
 extern class ColorBinding extends PropertyBinding {
 	public function GetSlateValue(): cpp.Reference<SlateColor>;
 	public function GetLinearValue(): cpp.Reference<LinearColor>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetSlateValue, GetLinearValue)

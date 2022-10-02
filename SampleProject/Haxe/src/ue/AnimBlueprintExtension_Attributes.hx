@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimBlueprintExtension_Attributes")
 @:include("AnimBlueprintExtension_Attributes.h")
+@:structAccess
 extern class AnimBlueprintExtension_Attributes extends AnimBlueprintExtension {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UViewportInteractableInterface")
+@:structAccess
 extern class ViewportInteractableInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

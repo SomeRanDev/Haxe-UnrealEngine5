@@ -3,8 +3,11 @@ package ue;
 
 @:native("UActorContainer")
 @:include("Engine/Level.h")
+@:structAccess
 extern class ActorContainer extends Object {
 	public var Actors: TMap<FName, cpp.Star<Actor>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

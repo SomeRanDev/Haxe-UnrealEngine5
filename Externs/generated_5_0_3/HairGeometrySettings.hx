@@ -3,8 +3,12 @@ package ue;
 
 @:native("FHairGeometrySettings")
 @:include("GroomAssetRendering.h")
+@:structAccess
 extern class HairGeometrySettings {
 	public var HairWidth: cpp.Float32;
 	public var HairRootScale: cpp.Float32;
 	public var HairTipScale: cpp.Float32;
+
+	@:native("FHairGeometrySettings") public function new();
+	@:native("FHairGeometrySettings") public static function make(HairWidth: cpp.Float32, HairRootScale: cpp.Float32, HairTipScale: cpp.Float32): HairGeometrySettings ;
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FPropertyAccessIndirection")
 @:include("PropertyAccess.h")
+@:structAccess
 extern class PropertyAccessIndirection {
 	public var Property: TFieldPath<FProperty>;
 	public var Function: cpp.Star<Function>;
@@ -12,4 +13,6 @@ extern class PropertyAccessIndirection {
 	public var Offset: cpp.UInt32;
 	public var ObjectType: EPropertyAccessObjectType;
 	public var Type: EPropertyAccessIndirectionType;
+
+	@:native("FPropertyAccessIndirection") public function new();
 }

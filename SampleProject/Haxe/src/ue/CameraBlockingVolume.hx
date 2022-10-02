@@ -3,7 +3,10 @@ package ue;
 
 @:native("ACameraBlockingVolume")
 @:include("GameFramework/CameraBlockingVolume.h")
+@:structAccess
 extern class CameraBlockingVolume extends Volume {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

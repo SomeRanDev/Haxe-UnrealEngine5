@@ -3,9 +3,12 @@ package ue;
 
 @:native("ULevelCapture")
 @:include("LevelCapture.h")
+@:structAccess
 extern class LevelCapture extends MovieSceneCapture {
 	public var bAutoStartCapture: Bool;
 	public var PrerequisiteActorId: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULightComponent")
 @:include("Components/LightComponent.h")
+@:structAccess
 extern class LightComp extends LightComponentBase {
 	public var Temperature: cpp.Float32;
 	public var MaxDrawDistance: cpp.Float32;
@@ -64,6 +65,8 @@ extern class LightComp extends LightComponentBase {
 	public function SetBloomMaxBrightness(NewValue: cpp.Float32): Void;
 	public function SetAffectTranslucentLighting(bNewValue: Bool): Void;
 	public function SetAffectDynamicIndirectLighting(bNewValue: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

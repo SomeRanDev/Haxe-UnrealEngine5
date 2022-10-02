@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnPastedFunctionCallNode__PythonCallable")
+@:structAccess
 extern class OnPastedFunctionCallNode__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

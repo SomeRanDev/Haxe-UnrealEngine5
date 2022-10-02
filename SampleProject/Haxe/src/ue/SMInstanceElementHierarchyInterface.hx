@@ -3,7 +3,10 @@ package ue;
 
 @:native("USMInstanceElementHierarchyInterface")
 @:include("Elements/SMInstance/SMInstanceElementHierarchyInterface.h")
+@:structAccess
 extern class SMInstanceElementHierarchyInterface extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

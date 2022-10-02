@@ -3,6 +3,7 @@ package ue;
 
 @:native("FViewportConfigOptions")
 @:include("Preferences/PersonaOptions.h")
+@:structAccess
 extern class ViewportConfigOptions {
 	public var ViewModeIndex: EViewModeIndex;
 	public var ViewFOV: cpp.Float32;
@@ -10,4 +11,6 @@ extern class ViewportConfigOptions {
 	public var CameraSpeedScalar: cpp.Float32;
 	public var CameraFollowMode: EAnimationViewportCameraFollowMode;
 	public var CameraFollowBoneName: FName;
+
+	@:native("FViewportConfigOptions") public function new();
 }

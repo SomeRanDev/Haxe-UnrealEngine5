@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNiagaraPrecompileContainer")
 @:include("NiagaraPrecompileContainer.h")
+@:structAccess
 extern class NiagaraPrecompileContainer extends Object {
 	public var Scripts: TArray<cpp.Star<NiagaraScript>>;
 	public var System: cpp.Star<NiagaraSystem>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

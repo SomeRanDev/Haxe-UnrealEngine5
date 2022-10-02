@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionRotator")
 @:include("Materials/MaterialExpressionRotator.h")
+@:structAccess
 extern class MaterialExpressionRotator extends MaterialExpression {
 	public var Coordinate: ExpressionInput;
 	public var Time: ExpressionInput;
@@ -10,6 +11,8 @@ extern class MaterialExpressionRotator extends MaterialExpression {
 	public var CenterY: cpp.Float32;
 	public var Speed: cpp.Float32;
 	public var ConstCoordinate: cpp.UInt32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

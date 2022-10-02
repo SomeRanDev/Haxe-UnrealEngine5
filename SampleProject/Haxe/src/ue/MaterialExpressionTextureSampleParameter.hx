@@ -3,12 +3,15 @@ package ue;
 
 @:native("UMaterialExpressionTextureSampleParameter")
 @:include("Materials/MaterialExpressionTextureSampleParameter.h")
+@:structAccess
 extern class MaterialExpressionTextureSampleParameter extends MaterialExpressionTextureSample {
 	public var ParameterName: FName;
 	public var ExpressionGUID: Guid;
 	public var Group: FName;
 	public var SortPriority: cpp.Int32;
 	public var ChannelNames: ParameterChannelNames;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

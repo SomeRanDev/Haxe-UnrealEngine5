@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNiagaraSystemSelectionViewModel")
 @:include("ViewModels/NiagaraSystemSelectionViewModel.h")
+@:structAccess
 extern class NiagaraSystemSelectionViewModel extends Object {
 	public var StackSelection: cpp.Star<NiagaraStackSelection>;
 	public var SelectionStackViewModel: cpp.Star<NiagaraStackViewModel>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

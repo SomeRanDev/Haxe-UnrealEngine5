@@ -3,10 +3,13 @@ package ue;
 
 @:native("AHaxeForUnrealCharacter")
 @:include("HaxeForUnrealCharacter.h")
+@:structAccess
 extern class HaxeForUnrealCharacter extends Character {
 	public var CameraBoom: cpp.Star<SpringArmComp>;
 	public var FollowCamera: cpp.Star<CameraComp>;
 	public var TurnRateGamepad: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

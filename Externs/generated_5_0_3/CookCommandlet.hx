@@ -3,8 +3,11 @@ package ue;
 
 @:native("UCookCommandlet")
 @:include("Commandlets/CookCommandlet.h")
+@:structAccess
 extern class CookCommandlet extends Commandlet {
 	public var FullGCAssetClassNames: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

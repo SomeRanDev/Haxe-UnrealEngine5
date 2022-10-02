@@ -3,6 +3,7 @@ package ue;
 
 @:native("AGameMode")
 @:include("GameFramework/GameMode.h")
+@:structAccess
 extern class GameMode extends GameModeBase {
 	public var MatchState: FName;
 	public var bDelayedStart: Bool;
@@ -27,6 +28,8 @@ extern class GameMode extends GameModeBase {
 	public function GetMatchState(): cpp.Reference<FName>;
 	public function EndMatch(): Void;
 	public function AbortMatch(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsMatchInProgress, GetMatchState)

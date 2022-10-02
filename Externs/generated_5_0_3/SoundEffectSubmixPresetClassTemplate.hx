@@ -3,7 +3,10 @@ package ue;
 
 @:native("USoundEffectSubmixPresetClassTemplate")
 @:include("SoundClassTemplates.h")
+@:structAccess
 extern class SoundEffectSubmixPresetClassTemplate extends ClassTemplate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

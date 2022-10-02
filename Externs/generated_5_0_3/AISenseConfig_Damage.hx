@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAISenseConfig_Damage")
 @:include("Perception/AISenseConfig_Damage.h")
+@:structAccess
 extern class AISenseConfig_Damage extends AISenseConfig {
 	public var Implementation: TSubclassOf<AISense_Damage>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

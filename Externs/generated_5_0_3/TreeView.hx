@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTreeView")
 @:include("Components/TreeView.h")
+@:structAccess
 extern class TreeView extends ListView {
 	public var BP_OnGetItemChildren: HaxeDelegateProperty<(cpp.Star<Object>, cpp.Reference<TArray<cpp.Star<Object>>>) -> Void>;
 	public var BP_OnItemExpansionChanged: HaxeMulticastSparseDelegateProperty<(cpp.Star<Object>, Bool) -> Void>;
@@ -10,6 +11,8 @@ extern class TreeView extends ListView {
 	public function SetItemExpansion(Item: cpp.Star<Object>, bExpandItem: Bool): Void;
 	public function ExpandAll(): Void;
 	public function CollapseAll(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("USoundNodeOscillator")
 @:include("Sound/SoundNodeOscillator.h")
+@:structAccess
 extern class SoundNodeOscillator extends SoundNode {
 	public var bModulateVolume: Bool;
 	public var bModulatePitch: Bool;
@@ -14,6 +15,8 @@ extern class SoundNodeOscillator extends SoundNode {
 	public var OffsetMax: cpp.Float32;
 	public var CenterMin: cpp.Float32;
 	public var CenterMax: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

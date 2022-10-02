@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraDebugHUDSettingsData")
 @:include("NiagaraDebuggerCommon.h")
+@:structAccess
 extern class NiagaraDebugHUDSettingsData {
 	public var bWidgetEnabled: Bool;
 	public var bHudEnabled: Bool;
@@ -68,4 +69,6 @@ extern class NiagaraDebugHUDSettingsData {
 	public var bLoopTimeEnabled: Bool;
 	public var LoopTime: cpp.Float32;
 	public var bShowGlobalBudgetInfo: Bool;
+
+	@:native("FNiagaraDebugHUDSettingsData") public function new();
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAxisAngleGizmo")
 @:include("BaseGizmos/AxisAngleGizmo.h")
+@:structAccess
 extern class AxisAngleGizmo extends InteractiveGizmo {
 	public var AxisSource: GizmoAxisSource;
 	public var AngleSource: GizmoFloatParameterSource;
@@ -18,6 +19,8 @@ extern class AxisAngleGizmo extends InteractiveGizmo {
 	public var InteractionCurPoint: Vector;
 	public var InteractionStartAngle: cpp.Float32;
 	public var InteractionCurAngle: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

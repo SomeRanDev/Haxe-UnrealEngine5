@@ -3,7 +3,10 @@ package ue;
 
 @:native("UTemplateSequencePropertyScalingInstantiatorSystem")
 @:include("Systems/TemplateSequenceSystem.h")
+@:structAccess
 extern class TemplateSequencePropertyScalingInstantiatorSystem extends MovieSceneEntitySystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

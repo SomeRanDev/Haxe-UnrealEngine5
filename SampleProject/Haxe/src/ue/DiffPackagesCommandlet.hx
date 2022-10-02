@@ -3,8 +3,11 @@ package ue;
 
 @:native("UDEPRECATED_DiffPackagesCommandlet")
 @:include("Commandlets/DiffPackagesCommandlet.h")
+@:structAccess
 extern class DiffPackagesCommandlet extends Commandlet {
 	public var Packages: cpp.Star<Package>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

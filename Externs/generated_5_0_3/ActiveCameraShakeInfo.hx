@@ -3,8 +3,12 @@ package ue;
 
 @:native("FActiveCameraShakeInfo")
 @:include("Camera/CameraModifier_CameraShake.h")
+@:structAccess
 extern class ActiveCameraShakeInfo {
 	public var ShakeInstance: cpp.Star<CameraShakeBase>;
 	public var ShakeSource: TWeakObjectPtr<CameraShakeSourceComp>;
 	public var bIsCustomInitialized: Bool;
+
+	@:native("FActiveCameraShakeInfo") public function new();
+	@:native("FActiveCameraShakeInfo") public static function make(ShakeInstance: cpp.Star<CameraShakeBase>, ShakeSource: TWeakObjectPtr<CameraShakeSourceComp>, bIsCustomInitialized: Bool): ActiveCameraShakeInfo ;
 }

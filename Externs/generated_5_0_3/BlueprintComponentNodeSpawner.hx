@@ -3,10 +3,13 @@ package ue;
 
 @:native("UBlueprintComponentNodeSpawner")
 @:include("BlueprintComponentNodeSpawner.h")
+@:structAccess
 extern class BlueprintComponentNodeSpawner extends BlueprintNodeSpawner {
 	public var ComponentClass: TSubclassOf<ActorComp>;
 	public var ComponentName: FString;
 	public var ComponentAssetName: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("ANiagaraPreviewGrid")
 @:include("NiagaraPreviewGrid.h")
+@:structAccess
 extern class NiagaraPreviewGrid extends Actor {
 	public var System: cpp.Star<NiagaraSystem>;
 	public var ResetMode: ENiagaraPreviewGridResetMode;
@@ -21,6 +22,8 @@ extern class NiagaraPreviewGrid extends Actor {
 	public function GetPreviews(OutPreviews: cpp.Reference<TArray<cpp.Star<NiagaraComp>>>): Void;
 	public function DeactivatePreviews(): Void;
 	public function ActivatePreviews(bReset: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

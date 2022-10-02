@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimationBlueprintLibrary")
 @:include("AnimationBlueprintLibrary.h")
+@:structAccess
 extern class AnimationBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function SetRootMotionLockType(AnimationSequence: cpp.Star<AnimSequence>, RootMotionLockType: ERootMotionRootLock): Void;
 	public function SetRootMotionEnabled(AnimationSequence: cpp.Star<AnimSequence>, bEnabled: Bool): Void;
@@ -100,6 +101,8 @@ extern class AnimationBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function AddAnimationNotifyStateEvent(AnimationSequenceBase: cpp.Star<AnimSequenceBase>, NotifyTrackName: FName, StartTime: cpp.Float32, Duration: cpp.Float32, NotifyStateClass: TSubclassOf<AnimNotifyState>): cpp.Reference<cpp.Star<AnimNotifyState.ConstAnimNotifyState>>;
 	public function AddAnimationNotifyEventObject(AnimationSequenceBase: cpp.Star<AnimSequenceBase>, StartTime: cpp.Float32, Notify: cpp.Star<AnimNotify.ConstAnimNotify>, NotifyTrackName: FName): Void;
 	public function AddAnimationNotifyEvent(AnimationSequenceBase: cpp.Star<AnimSequenceBase>, NotifyTrackName: FName, StartTime: cpp.Float32, NotifyClass: TSubclassOf<AnimNotify>): cpp.Reference<cpp.Star<AnimNotify.ConstAnimNotify>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

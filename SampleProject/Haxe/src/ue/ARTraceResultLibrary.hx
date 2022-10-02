@@ -3,6 +3,7 @@ package ue;
 
 @:native("UARTraceResultLibrary")
 @:include("ARBlueprintLibrary.h")
+@:structAccess
 extern class ARTraceResultLibrary extends BlueprintFunctionLibrary {
 	public function GetTrackedGeometry(TraceResult: cpp.Reference<ARTraceResult>): cpp.Reference<cpp.Star<ARTrackedGeometry>>;
 	public function GetTraceChannel(TraceResult: cpp.Reference<ARTraceResult>): cpp.Reference<EARLineTraceChannels>;
@@ -10,6 +11,8 @@ extern class ARTraceResultLibrary extends BlueprintFunctionLibrary {
 	public function GetLocalToWorldTransform(TraceResult: cpp.Reference<ARTraceResult>): cpp.Reference<Transform>;
 	public function GetLocalToTrackingTransform(TraceResult: cpp.Reference<ARTraceResult>): cpp.Reference<Transform>;
 	public function GetDistanceFromCamera(TraceResult: cpp.Reference<ARTraceResult>): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

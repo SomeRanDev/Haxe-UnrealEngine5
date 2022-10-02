@@ -3,6 +3,7 @@ package ue;
 
 @:native("FXRHMDData")
 @:include("HeadMountedDisplayTypes.h")
+@:structAccess
 extern class XRHMDData {
 	public var bValid: Bool;
 	public var DeviceName: FName;
@@ -10,4 +11,6 @@ extern class XRHMDData {
 	public var TrackingStatus: ETrackingStatus;
 	public var Position: Vector;
 	public var Rotation: Quat;
+
+	@:native("FXRHMDData") public function new();
 }

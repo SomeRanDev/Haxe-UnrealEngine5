@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionDecalMipmapLevel")
 @:include("Materials/MaterialExpressionDecalMipmapLevel.h")
+@:structAccess
 extern class MaterialExpressionDecalMipmapLevel extends MaterialExpression {
 	public var TextureSize: ExpressionInput;
 	public var ConstWidth: cpp.Float32;
 	public var ConstHeight: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPyTestObject")
 @:include("PyTest.h")
+@:structAccess
 extern class PyTestObject extends Object {
 	public var Bool: Bool;
 	public var Int: cpp.Int32;
@@ -41,6 +42,8 @@ extern class PyTestObject extends Object {
 	public function CallFuncBlueprintNativeRef(InOutStruct: cpp.Reference<PyTestStruct>): Void;
 	public function CallFuncBlueprintNative(InValue: cpp.Int32): cpp.Reference<cpp.Int32>;
 	public function CallFuncBlueprintImplementable(InValue: cpp.Int32): cpp.Reference<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

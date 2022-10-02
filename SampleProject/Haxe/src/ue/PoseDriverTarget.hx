@@ -3,6 +3,7 @@ package ue;
 
 @:native("FPoseDriverTarget")
 @:include("AnimNodes/AnimNode_PoseDriver.h")
+@:structAccess
 extern class PoseDriverTarget {
 	public var BoneTransforms: TArray<PoseDriverTransform>;
 	public var TargetRotation: Rotator;
@@ -13,4 +14,6 @@ extern class PoseDriverTarget {
 	public var CustomCurve: RichCurve;
 	public var DrivenName: FName;
 	public var bIsHidden: Bool;
+
+	@:native("FPoseDriverTarget") public function new();
 }

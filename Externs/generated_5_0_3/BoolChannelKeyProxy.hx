@@ -3,9 +3,12 @@ package ue;
 
 @:native("UBoolChannelKeyProxy")
 @:include("Channels/BoolChannelKeyProxy.h")
+@:structAccess
 extern class BoolChannelKeyProxy extends Object {
 	public var Time: FrameNumber;
 	public var bValue: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

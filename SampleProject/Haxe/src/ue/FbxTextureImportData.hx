@@ -3,6 +3,7 @@ package ue;
 
 @:native("UFbxTextureImportData")
 @:include("Factories/FbxTextureImportData.h")
+@:structAccess
 extern class FbxTextureImportData extends FbxAssetImportData {
 	public var bInvertNormalMaps: Bool;
 	public var MaterialSearchLocation: EMaterialSearchLocation;
@@ -14,6 +15,8 @@ extern class FbxTextureImportData extends FbxAssetImportData {
 	public var BaseEmmisiveTextureName: FString;
 	public var BaseSpecularTextureName: FString;
 	public var BaseOpacityTextureName: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

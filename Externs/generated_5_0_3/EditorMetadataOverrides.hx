@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEditorMetadataOverrides")
 @:include("EditorMetadataOverrides.h")
+@:structAccess
 extern class EditorMetadataOverrides extends EditorSubsystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

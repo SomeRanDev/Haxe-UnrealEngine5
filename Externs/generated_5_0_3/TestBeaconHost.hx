@@ -3,7 +3,10 @@ package ue;
 
 @:native("ATestBeaconHost")
 @:include("TestBeaconHost.h")
+@:structAccess
 extern class TestBeaconHost extends OnlineBeaconHostObject {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

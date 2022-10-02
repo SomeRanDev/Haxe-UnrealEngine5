@@ -3,6 +3,7 @@ package ue;
 
 @:native("UKismetInputLibrary")
 @:include("Kismet/KismetInputLibrary.h")
+@:structAccess
 extern class KismetInputLibrary extends BlueprintFunctionLibrary {
 	public function PointerEvent_IsTouchEvent(Input: cpp.Reference<PointerEvent>): cpp.Reference<Bool>;
 	public function PointerEvent_IsMouseButtonDown(Input: cpp.Reference<PointerEvent>, MouseButton: Key): cpp.Reference<Bool>;
@@ -53,6 +54,8 @@ extern class KismetInputLibrary extends BlueprintFunctionLibrary {
 	public function EqualEqual_KeyKey(A: Key, B: Key): cpp.Reference<Bool>;
 	public function EqualEqual_InputChordInputChord(A: InputChord, B: InputChord): cpp.Reference<Bool>;
 	public function CalibrateTilt(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

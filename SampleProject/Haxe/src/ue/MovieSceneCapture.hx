@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneCapture")
 @:include("MovieSceneCapture.h")
+@:structAccess
 extern class MovieSceneCapture extends Object {
 	public var ImageCaptureProtocolType: SoftClassPath;
 	public var AudioCaptureProtocolType: SoftClassPath;
@@ -18,6 +19,8 @@ extern class MovieSceneCapture extends Object {
 	public function SetAudioCaptureProtocolType(ProtocolType: TSubclassOf<MovieSceneCaptureProtocolBase>): Void;
 	public function GetImageCaptureProtocol(): cpp.Reference<cpp.Star<MovieSceneCaptureProtocolBase>>;
 	public function GetAudioCaptureProtocol(): cpp.Reference<cpp.Star<MovieSceneCaptureProtocolBase>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

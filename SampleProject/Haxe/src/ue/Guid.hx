@@ -3,9 +3,13 @@ package ue;
 
 @:native("FGuid")
 @:include("UObject/NoExportTypes.h")
+@:structAccess
 extern class Guid {
 	public var A: cpp.Int32;
 	public var B: cpp.Int32;
 	public var C: cpp.Int32;
 	public var D: cpp.Int32;
+
+	@:native("FGuid") public function new();
+	@:native("FGuid") public static function make(A: cpp.Int32, B: cpp.Int32, C: cpp.Int32, D: cpp.Int32): Guid ;
 }

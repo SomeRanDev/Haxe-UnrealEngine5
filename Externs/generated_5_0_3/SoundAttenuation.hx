@@ -3,8 +3,11 @@ package ue;
 
 @:native("USoundAttenuation")
 @:include("Sound/SoundAttenuation.h")
+@:structAccess
 extern class SoundAttenuation extends Object {
 	public var Attenuation: SoundAttenuationSettings;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

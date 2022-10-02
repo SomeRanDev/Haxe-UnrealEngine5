@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCanvasPanelSlot")
 @:include("Components/CanvasPanelSlot.h")
+@:structAccess
 extern class CanvasPanelSlot extends PanelSlot {
 	public var LayoutData: AnchorData;
 	public var bAutoSize: Bool;
@@ -26,6 +27,8 @@ extern class CanvasPanelSlot extends PanelSlot {
 	public function GetAutoSize(): cpp.Reference<Bool>;
 	public function GetAnchors(): cpp.Reference<Anchors>;
 	public function GetAlignment(): cpp.Reference<Vector2D>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetZOrder, GetSize, GetPosition, GetOffsets, GetLayout, GetAutoSize, GetAnchors, GetAlignment)

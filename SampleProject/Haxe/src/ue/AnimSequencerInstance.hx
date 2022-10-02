@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimSequencerInstance")
 @:include("AnimSequencerInstance.h")
+@:structAccess
 extern class AnimSequencerInstance extends AnimInstance {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraEffectType")
 @:include("NiagaraEffectType.h")
+@:structAccess
 extern class NiagaraEffectType extends Object {
 	public var bAllowCullingForLocalPlayers: Bool;
 	public var UpdateFrequency: ENiagaraScalabilityUpdateFrequency;
@@ -14,6 +15,8 @@ extern class NiagaraEffectType extends Object {
 	public var PerformanceBaselineController: cpp.Star<NiagaraBaselineController>;
 	public var PerfBaselineStats: NiagaraPerfBaselineStats;
 	public var PerfBaselineVersion: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieScenePropertySystem")
 @:include("Systems/MovieScenePropertySystem.h")
+@:structAccess
 extern class MovieScenePropertySystem extends MovieSceneEntitySystem {
 	public var InstantiatorSystem: cpp.Star<MovieScenePropertyInstantiatorSystem>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

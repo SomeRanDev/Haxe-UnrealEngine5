@@ -3,8 +3,11 @@ package ue;
 
 @:native("UChannel")
 @:include("Engine/Channel.h")
+@:structAccess
 extern class Channel extends Object {
 	public var Connection: cpp.Star<NetConnection>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

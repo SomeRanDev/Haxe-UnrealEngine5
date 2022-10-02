@@ -3,9 +3,12 @@ package ue;
 
 @:native("AGroomActor")
 @:include("GroomActor.h")
+@:structAccess
 extern class GroomActor extends Actor {
 	public var GroomComponent: cpp.Star<GroomComp>;
 	public var SpriteComponent: cpp.Star<BillboardComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

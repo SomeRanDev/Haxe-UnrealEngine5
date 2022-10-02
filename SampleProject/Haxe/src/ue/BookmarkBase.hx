@@ -3,7 +3,10 @@ package ue;
 
 @:native("UBookmarkBase")
 @:include("Engine/BookmarkBase.h")
+@:structAccess
 extern class BookmarkBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

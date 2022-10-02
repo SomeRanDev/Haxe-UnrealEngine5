@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraScriptVariable")
 @:include("NiagaraScriptVariable.h")
+@:structAccess
 extern class NiagaraScriptVariable extends Object {
 	public var DefaultMode: ENiagaraDefaultMode;
 	public var DefaultBinding: NiagaraScriptVariableBinding;
@@ -14,6 +15,8 @@ extern class NiagaraScriptVariable extends Object {
 	public var bSubscribedToParameterDefinitions: Bool;
 	public var ChangeId: Guid;
 	public var bOverrideParameterDefinitionsDefaultValue: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

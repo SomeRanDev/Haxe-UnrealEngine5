@@ -2,9 +2,12 @@
 package ue;
 
 @:native("UTypedElementHierarchyInterface")
+@:structAccess
 extern class TypedElementHierarchyInterface extends Interface {
 	public function GetParentElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, bAllowCreate: Bool): cpp.Reference<ScriptTypedElementHandle>;
 	public function GetChildElements(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, OutElementHandles: cpp.Reference<TArray<ScriptTypedElementHandle>>, bAllowCreate: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,10 +3,13 @@ package ue;
 
 @:native("URigVMRerouteNode")
 @:include("RigVMModel/Nodes/RigVMRerouteNode.h")
+@:structAccess
 extern class RigVMRerouteNode extends RigVMNode {
 	public var bShowAsFullNode: Bool;
 
 	public function GetShowsAsFullNode(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetShowsAsFullNode)

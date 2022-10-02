@@ -3,12 +3,15 @@ package ue;
 
 @:native("UDatasmithMaterialInstanceTemplate")
 @:include("ObjectTemplates/DatasmithMaterialInstanceTemplate.h")
+@:structAccess
 extern class DatasmithMaterialInstanceTemplate extends DatasmithObjectTemplate {
 	public var ParentMaterial: TSoftObjectPtr<MaterialInterface>;
 	public var ScalarParameterValues: TMap<FName, cpp.Float32>;
 	public var VectorParameterValues: TMap<FName, LinearColor>;
 	public var TextureParameterValues: TMap<FName, TSoftObjectPtr<Texture>>;
 	public var StaticParameters: DatasmithStaticParameterSetTemplate;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

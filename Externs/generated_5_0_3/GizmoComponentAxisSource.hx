@@ -3,10 +3,13 @@ package ue;
 
 @:native("UGizmoComponentAxisSource")
 @:include("BaseGizmos/AxisSources.h")
+@:structAccess
 extern class GizmoComponentAxisSource extends Object {
 	public var Component: cpp.Star<SceneComp>;
 	public var AxisIndex: cpp.Int32;
 	public var bLocalAxes: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -2,9 +2,12 @@
 package ue;
 
 @:native("UTypedElementAssetDataInterface")
+@:structAccess
 extern class TypedElementAssetDataInterface extends Interface {
 	public function GetAssetData(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): cpp.Reference<AssetData>;
 	public function GetAllReferencedAssetDatas(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): cpp.Reference<TArray<AssetData>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

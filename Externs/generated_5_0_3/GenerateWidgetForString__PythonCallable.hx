@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UGenerateWidgetForString__PythonCallable")
+@:structAccess
 extern class GenerateWidgetForString__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

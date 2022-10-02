@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAudioMixerBlueprintLibrary")
 @:include("AudioMixerBlueprintLibrary.h")
+@:structAccess
 extern class AudioMixerBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function TrimAudioCache(InMegabytesToFree: cpp.Float32): cpp.Reference<cpp.Float32>;
 	public function SwapAudioOutputDevice(WorldContextObject: cpp.Star<Object.ConstObject>, NewDeviceId: FString, OnCompletedDeviceSwap: cpp.Reference<HaxeDelegateProperty<(cpp.Reference<SwapAudioOutputResult>) -> Void>>): Void;
@@ -42,6 +43,8 @@ extern class AudioMixerBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function AddSubmixEffect(WorldContextObject: cpp.Star<Object.ConstObject>, SoundSubmix: cpp.Star<SoundSubmix>, SubmixEffectPreset: cpp.Star<SoundEffectSubmixPreset>): cpp.Reference<cpp.Int32>;
 	public function AddSourceEffectToPresetChain(WorldContextObject: cpp.Star<Object.ConstObject>, PresetChain: cpp.Star<SoundEffectSourcePresetChain>, Entry: SourceEffectChainEntry): Void;
 	public function AddMasterSubmixEffect(WorldContextObject: cpp.Star<Object.ConstObject>, SubmixEffectPreset: cpp.Star<SoundEffectSubmixPreset>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

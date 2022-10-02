@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionShaderStageSwitch")
 @:include("Materials/MaterialExpressionShaderStageSwitch.h")
+@:structAccess
 extern class MaterialExpressionShaderStageSwitch extends MaterialExpression {
 	public var PixelShader: ExpressionInput;
 	public var VertexShader: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

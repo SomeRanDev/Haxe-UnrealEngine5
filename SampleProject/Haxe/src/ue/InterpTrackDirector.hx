@@ -3,10 +3,13 @@ package ue;
 
 @:native("UInterpTrackDirector")
 @:include("Matinee/InterpTrackDirector.h")
+@:structAccess
 extern class InterpTrackDirector extends InterpTrack {
 	public var CutTrack: TArray<DirectorTrackCut>;
 	public var bSimulateCameraCutsOnClients: Bool;
 	public var PreviewCamera: cpp.Star<CameraActor>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

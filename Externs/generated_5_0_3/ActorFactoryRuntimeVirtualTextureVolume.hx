@@ -3,7 +3,10 @@ package ue;
 
 @:native("UActorFactoryRuntimeVirtualTextureVolume")
 @:include("ActorFactories/ActorFactoryRuntimeVirtualTextureVolume.h")
+@:structAccess
 extern class ActorFactoryRuntimeVirtualTextureVolume extends ActorFactory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

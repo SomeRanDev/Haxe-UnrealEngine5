@@ -3,8 +3,11 @@ package ue;
 
 @:native("UInputAxisDelegateBinding")
 @:include("Engine/InputAxisDelegateBinding.h")
+@:structAccess
 extern class InputAxisDelegateBinding extends InputDelegateBinding {
 	public var InputAxisDelegateBindings: TArray<BlueprintInputAxisDelegateBinding>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

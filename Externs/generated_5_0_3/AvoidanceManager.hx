@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAvoidanceManager")
 @:include("AI/Navigation/AvoidanceManager.h")
+@:structAccess
 extern class AvoidanceManager extends Object {
 	public var DefaultTimeToLive: cpp.Float32;
 	public var LockTimeAfterAvoid: cpp.Float32;
@@ -16,6 +17,8 @@ extern class AvoidanceManager extends Object {
 	public function GetObjectCount(): cpp.Reference<cpp.Int32>;
 	public function GetNewAvoidanceUID(): cpp.Reference<cpp.Int32>;
 	public function GetAvoidanceVelocityForComponent(MovementComp: cpp.Star<MovementComp>): cpp.Reference<Vector>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

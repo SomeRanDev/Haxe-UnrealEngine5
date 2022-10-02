@@ -3,10 +3,13 @@ package ue;
 
 @:native("UNiagaraNodeIf")
 @:include("NiagaraNodeIf.h")
+@:structAccess
 extern class NiagaraNodeIf extends NiagaraNodeWithDynamicPins {
 	public var OutputVars: TArray<NiagaraVariable>;
 	public var PathAssociatedPinGuids: TArray<PinGuidsForPath>;
 	public var ConditionPinGuid: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

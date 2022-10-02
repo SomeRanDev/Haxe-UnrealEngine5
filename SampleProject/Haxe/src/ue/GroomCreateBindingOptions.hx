@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGroomCreateBindingOptions")
 @:include("GroomCreateBindingOptions.h")
+@:structAccess
 extern class GroomCreateBindingOptions extends Object {
 	public var GroomBindingType: EGroomBindingMeshType;
 	public var SourceSkeletalMesh: cpp.Star<SkeletalMesh>;
@@ -11,6 +12,8 @@ extern class GroomCreateBindingOptions extends Object {
 	public var TargetGeometryCache: cpp.Star<GeometryCache>;
 	public var NumInterpolationPoints: cpp.Int32;
 	public var MatchingSection: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

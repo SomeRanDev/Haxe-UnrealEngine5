@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTouchInterface")
 @:include("GameFramework/TouchInterface.h")
+@:structAccess
 extern class TouchInterface extends Object {
 	public var Controls: TArray<TouchInputControl>;
 	public var ActiveOpacity: cpp.Float32;
@@ -12,6 +13,8 @@ extern class TouchInterface extends Object {
 	public var ActivationDelay: cpp.Float32;
 	public var bPreventRecenter: Bool;
 	public var StartupDelay: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

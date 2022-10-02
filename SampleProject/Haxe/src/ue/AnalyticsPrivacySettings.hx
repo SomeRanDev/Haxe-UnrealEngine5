@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnalyticsPrivacySettings")
 @:include("Analytics/AnalyticsPrivacySettings.h")
+@:structAccess
 extern class AnalyticsPrivacySettings extends Object {
 	public var bSendUsageData: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

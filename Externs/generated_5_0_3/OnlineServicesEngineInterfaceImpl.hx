@@ -3,7 +3,10 @@ package ue;
 
 @:native("UOnlineServicesEngineInterfaceImpl")
 @:include("OnlineServicesEngineInterfaceImpl.h")
+@:structAccess
 extern class OnlineServicesEngineInterfaceImpl extends OnlineEngineInterface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

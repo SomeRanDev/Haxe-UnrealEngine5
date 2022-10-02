@@ -3,6 +3,7 @@ package ue;
 
 @:native("ANiagaraActor")
 @:include("NiagaraActor.h")
+@:structAccess
 extern class NiagaraActor extends Actor {
 	public var NiagaraComponent: cpp.Star<NiagaraComp>;
 	public var SpriteComponent: cpp.Star<BillboardComp>;
@@ -11,6 +12,8 @@ extern class NiagaraActor extends Actor {
 
 	public function SetDestroyOnSystemFinish(bShouldDestroyOnSystemFinish: Bool): Void;
 	public function OnNiagaraSystemFinished(FinishedComponent: cpp.Star<NiagaraComp>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

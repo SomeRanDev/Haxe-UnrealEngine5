@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimBlueprintPostCompileValidation")
 @:include("AnimBlueprintPostCompileValidation.h")
+@:structAccess
 extern class AnimBlueprintPostCompileValidation extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

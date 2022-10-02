@@ -3,10 +3,13 @@ package ue;
 
 @:native("USphereReflectionCaptureComponent")
 @:include("Components/SphereReflectionCaptureComponent.h")
+@:structAccess
 extern class SphereReflectionCaptureComp extends ReflectionCaptureComp {
 	public var InfluenceRadius: cpp.Float32;
 	public var CaptureDistanceScale: cpp.Float32;
 	public var PreviewInfluenceRadius: cpp.Star<DrawSphereComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

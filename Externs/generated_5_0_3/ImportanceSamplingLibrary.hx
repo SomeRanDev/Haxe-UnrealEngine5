@@ -3,6 +3,7 @@ package ue;
 
 @:native("UImportanceSamplingLibrary")
 @:include("Kismet/ImportanceSamplingLibrary.h")
+@:structAccess
 extern class ImportanceSamplingLibrary extends BlueprintFunctionLibrary {
 	public function RandomSobolFloat(Index: cpp.Int32, Dimension: cpp.Int32, Seed: cpp.Float32): cpp.Reference<cpp.Float32>;
 	public function RandomSobolCell3D(Index: cpp.Int32, NumCells: cpp.Int32, Cell: Vector, Seed: Vector): cpp.Reference<Vector>;
@@ -13,6 +14,8 @@ extern class ImportanceSamplingLibrary extends BlueprintFunctionLibrary {
 	public function MakeImportanceTexture(Texture: cpp.Star<Texture2D>, WeightingFunc: EImportanceWeight): cpp.Reference<ImportanceTexture>;
 	public function ImportanceSample(Texture: cpp.Reference<ImportanceTexture>, Rand: cpp.Reference<Vector2D>, Samples: cpp.Int32, Intensity: cpp.Float32, SamplePosition: cpp.Reference<Vector2D>, SampleColor: cpp.Reference<LinearColor>, SampleIntensity: cpp.Reference<cpp.Float32>, SampleSize: cpp.Reference<cpp.Float32>): Void;
 	public function BreakImportanceTexture(ImportanceTexture: cpp.Reference<ImportanceTexture>, Texture: cpp.Reference<cpp.Star<Texture2D>>, WeightingFunc: cpp.Reference<EImportanceWeight>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

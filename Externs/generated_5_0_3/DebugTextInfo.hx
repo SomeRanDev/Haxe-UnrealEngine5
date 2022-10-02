@@ -3,6 +3,7 @@ package ue;
 
 @:native("FDebugTextInfo")
 @:include("GameFramework/DebugTextInfo.h")
+@:structAccess
 extern class DebugTextInfo {
 	public var SrcActor: cpp.Star<Actor>;
 	public var SrcActorOffset: Vector;
@@ -17,4 +18,6 @@ extern class DebugTextInfo {
 	public var OrigActorLocation: Vector;
 	public var Font: cpp.Star<Font>;
 	public var FontScale: cpp.Float32;
+
+	@:native("FDebugTextInfo") public function new();
 }

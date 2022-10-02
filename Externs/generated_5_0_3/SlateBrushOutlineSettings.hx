@@ -3,10 +3,14 @@ package ue;
 
 @:native("FSlateBrushOutlineSettings")
 @:include("Styling/SlateBrush.h")
+@:structAccess
 extern class SlateBrushOutlineSettings {
 	public var CornerRadii: Vector4;
 	public var Color: SlateColor;
 	public var Width: cpp.Float32;
 	public var RoundingType: ESlateBrushRoundingType;
 	public var bUseBrushTransparency: Bool;
+
+	@:native("FSlateBrushOutlineSettings") public function new();
+	@:native("FSlateBrushOutlineSettings") public static function make(CornerRadii: Vector4, Color: SlateColor, Width: cpp.Float32, RoundingType: ESlateBrushRoundingType, bUseBrushTransparency: Bool): SlateBrushOutlineSettings ;
 }

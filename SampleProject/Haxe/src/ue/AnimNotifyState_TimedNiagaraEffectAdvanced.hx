@@ -3,12 +3,15 @@ package ue;
 
 @:native("UAnimNotifyState_TimedNiagaraEffectAdvanced")
 @:include("AnimNotifyState_TimedNiagaraEffect.h")
+@:structAccess
 extern class AnimNotifyState_TimedNiagaraEffectAdvanced extends AnimNotifyState_TimedNiagaraEffect {
 	public var bEnableNormalizedNotifyProgress: Bool;
 	public var NotifyProgressUserParameter: FName;
 	public var AnimCurves: TArray<CurveParameterPair>;
 
 	public function GetNotifyProgress(MeshComp: cpp.Star<MeshComp>): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetNotifyProgress)

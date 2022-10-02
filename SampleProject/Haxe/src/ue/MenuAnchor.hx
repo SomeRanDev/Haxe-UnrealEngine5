@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMenuAnchor")
 @:include("Components/MenuAnchor.h")
+@:structAccess
 extern class MenuAnchor extends ContentWidget {
 	public var MenuClass: TSubclassOf<UserWidget>;
 	public var OnGetMenuContentEvent: HaxeDelegateProperty<() -> Void>;
@@ -23,6 +24,8 @@ extern class MenuAnchor extends ContentWidget {
 	public function GetMenuPosition(): cpp.Reference<Vector2D>;
 	public function FitInWindow(bFit: Bool): Void;
 	public function Close(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(ShouldOpenDueToClick, IsOpen, HasOpenSubMenus, GetMenuPosition)

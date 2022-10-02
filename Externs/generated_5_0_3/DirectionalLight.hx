@@ -3,9 +3,12 @@ package ue;
 
 @:native("ADirectionalLight")
 @:include("Engine/DirectionalLight.h")
+@:structAccess
 extern class DirectionalLight extends Light {
 	public var ArrowComponent: cpp.Star<ArrowComp>;
 	public var DirectionalLightComponent: cpp.Star<DirectionalLightComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

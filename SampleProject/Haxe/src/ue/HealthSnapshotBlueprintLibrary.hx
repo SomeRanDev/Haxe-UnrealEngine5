@@ -3,10 +3,13 @@ package ue;
 
 @:native("UHealthSnapshotBlueprintLibrary")
 @:include("ProfilingDebugging/HealthSnapshot.h")
+@:structAccess
 extern class HealthSnapshotBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function StopPerformanceSnapshots(): Void;
 	public function StartPerformanceSnapshots(): Void;
 	public function LogPerformanceSnapshot(SnapshotTitle: FString, bResetStats: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UBlueprintPaletteFavorites")
 @:include("BlueprintPaletteFavorites.h")
+@:structAccess
 extern class BlueprintPaletteFavorites extends Object {
 	public var CustomFavorites: TArray<FString>;
 	public var CurrentFavorites: TArray<FavoritedBlueprintPaletteItem>;
 	public var CurrentProfile: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

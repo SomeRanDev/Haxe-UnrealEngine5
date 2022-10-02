@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnPerChannelMeterResults__PythonCallable")
+@:structAccess
 extern class OnPerChannelMeterResults__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

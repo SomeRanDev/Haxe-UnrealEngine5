@@ -3,6 +3,7 @@ package ue;
 
 @:native("UStereoLayerShapeEquirect")
 @:include("Components/StereoLayerComponent.h")
+@:structAccess
 extern class StereoLayerShapeEquirect extends StereoLayerShape {
 	public var LeftUVRect: Box2D;
 	public var RightUVRect: Box2D;
@@ -12,6 +13,8 @@ extern class StereoLayerShapeEquirect extends StereoLayerShape {
 	public var RightBias: Vector2D;
 
 	public function SetEquirectProps(InScaleBiases: EquirectProps): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

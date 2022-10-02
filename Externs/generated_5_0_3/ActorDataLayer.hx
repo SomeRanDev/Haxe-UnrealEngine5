@@ -3,6 +3,10 @@ package ue;
 
 @:native("FActorDataLayer")
 @:include("WorldPartition/DataLayer/ActorDataLayer.h")
+@:structAccess
 extern class ActorDataLayer {
 	public var Name: FName;
+
+	@:native("FActorDataLayer") public function new();
+	@:native("FActorDataLayer") public static function make(Name: FName): ActorDataLayer ;
 }

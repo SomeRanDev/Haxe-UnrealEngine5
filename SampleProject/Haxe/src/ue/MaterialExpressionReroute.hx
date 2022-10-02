@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionReroute")
 @:include("Materials/MaterialExpressionReroute.h")
+@:structAccess
 extern class MaterialExpressionReroute extends MaterialExpressionRerouteBase {
 	public var Input: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

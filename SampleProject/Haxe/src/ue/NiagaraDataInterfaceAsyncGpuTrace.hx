@@ -3,10 +3,13 @@ package ue;
 
 @:native("UNiagaraDataInterfaceAsyncGpuTrace")
 @:include("NiagaraDataInterfaceAsyncGpuTrace.h")
+@:structAccess
 extern class NiagaraDataInterfaceAsyncGpuTrace extends NiagaraDataInterface {
 	public var MaxTracesPerParticle: cpp.Int32;
 	public var MaxRetraces: cpp.Int32;
 	public var TraceProvider: ENDICollisionQuery_AsyncGpuTraceProvider;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

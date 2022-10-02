@@ -3,7 +3,11 @@ package ue;
 
 @:native("FMediaCaptureDevice")
 @:include("Misc/MediaBlueprintFunctionLibrary.h")
+@:structAccess
 extern class MediaCaptureDevice {
 	public var DisplayName: FText;
 	public var Url: FString;
+
+	@:native("FMediaCaptureDevice") public function new();
+	@:native("FMediaCaptureDevice") public static function make(DisplayName: FText, Url: FString): MediaCaptureDevice ;
 }

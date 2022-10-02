@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMovieSceneLevelVisibilitySystem")
 @:include("Systems/MovieSceneLevelVisibilitySystem.h")
+@:structAccess
 extern class MovieSceneLevelVisibilitySystem extends MovieSceneEntitySystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

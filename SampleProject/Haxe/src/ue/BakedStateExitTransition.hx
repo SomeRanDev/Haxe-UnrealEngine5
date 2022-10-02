@@ -3,6 +3,7 @@ package ue;
 
 @:native("FBakedStateExitTransition")
 @:include("Animation/AnimStateMachineTypes.h")
+@:structAccess
 extern class BakedStateExitTransition {
 	public var CanTakeDelegateIndex: cpp.Int32;
 	public var CustomResultNodeIndex: cpp.Int32;
@@ -11,4 +12,6 @@ extern class BakedStateExitTransition {
 	public var bAutomaticRemainingTimeRule: Bool;
 	public var SyncGroupNameToRequireValidMarkersRule: FName;
 	public var PoseEvaluatorLinks: TArray<cpp.Int32>;
+
+	@:native("FBakedStateExitTransition") public function new();
 }

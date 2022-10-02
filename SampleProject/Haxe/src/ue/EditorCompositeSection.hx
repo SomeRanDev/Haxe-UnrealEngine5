@@ -3,8 +3,11 @@ package ue;
 
 @:native("UEditorCompositeSection")
 @:include("Animation/EditorCompositeSection.h")
+@:structAccess
 extern class EditorCompositeSection extends EditorAnimBaseObj {
 	public var CompositeSection: CompositeSection;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

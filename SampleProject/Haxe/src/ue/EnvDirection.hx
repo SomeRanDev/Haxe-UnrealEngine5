@@ -3,9 +3,13 @@ package ue;
 
 @:native("FEnvDirection")
 @:include("EnvironmentQuery/EnvQueryTypes.h")
+@:structAccess
 extern class EnvDirection {
 	public var LineFrom: TSubclassOf<EnvQueryContext>;
 	public var LineTo: TSubclassOf<EnvQueryContext>;
 	public var Rotation: TSubclassOf<EnvQueryContext>;
 	public var DirMode: EEnvDirection;
+
+	@:native("FEnvDirection") public function new();
+	@:native("FEnvDirection") public static function make(LineFrom: TSubclassOf<EnvQueryContext>, LineTo: TSubclassOf<EnvQueryContext>, Rotation: TSubclassOf<EnvQueryContext>, DirMode: EEnvDirection): EnvDirection ;
 }

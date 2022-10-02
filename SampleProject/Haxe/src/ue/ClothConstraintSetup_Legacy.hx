@@ -3,9 +3,13 @@ package ue;
 
 @:native("FClothConstraintSetup_Legacy")
 @:include("ClothConfig_Legacy.h")
+@:structAccess
 extern class ClothConstraintSetup_Legacy {
 	public var Stiffness: cpp.Float32;
 	public var StiffnessMultiplier: cpp.Float32;
 	public var StretchLimit: cpp.Float32;
 	public var CompressionLimit: cpp.Float32;
+
+	@:native("FClothConstraintSetup_Legacy") public function new();
+	@:native("FClothConstraintSetup_Legacy") public static function make(Stiffness: cpp.Float32, StiffnessMultiplier: cpp.Float32, StretchLimit: cpp.Float32, CompressionLimit: cpp.Float32): ClothConstraintSetup_Legacy ;
 }

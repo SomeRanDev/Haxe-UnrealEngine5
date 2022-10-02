@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UToolFrameworkComponent")
+@:structAccess
 extern class ToolFrameworkComp extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

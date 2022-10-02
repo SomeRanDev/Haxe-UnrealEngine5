@@ -3,6 +3,7 @@ package ue;
 
 @:native("UInterpToMovementComponent")
 @:include("Components/InterpToMovementComponent.h")
+@:structAccess
 extern class InterpToMovementComp extends MovementComp {
 	public var Duration: cpp.Float32;
 	public var bPauseOnImpact: Bool;
@@ -30,6 +31,8 @@ extern class InterpToMovementComp extends MovementComp {
 	public function OnInterpToResetDelegate__DelegateSignature(ImpactResult: cpp.Reference<HitResult>, Time: cpp.Float32): Void;
 	public function FinaliseControlPoints(): Void;
 	public function AddControlPointPosition(Pos: Vector, bPositionIsRelative: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialFunctionMaterialLayerInstance")
 @:include("Materials/MaterialFunctionMaterialLayer.h")
+@:structAccess
 extern class MaterialFunctionMaterialLayerInstance extends MaterialFunctionInstance {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

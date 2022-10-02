@@ -3,6 +3,7 @@ package ue;
 
 @:native("UConsoleSettings")
 @:include("ConsoleSettings.h")
+@:structAccess
 extern class ConsoleSettings extends Object {
 	public var MaxScrollbackSize: cpp.Int32;
 	public var ManualAutoCompleteList: TArray<AutoCompleteCommand>;
@@ -15,6 +16,8 @@ extern class ConsoleSettings extends Object {
 	public var AutoCompleteCommandColor: Color;
 	public var AutoCompleteCVarColor: Color;
 	public var AutoCompleteFadedColor: Color;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

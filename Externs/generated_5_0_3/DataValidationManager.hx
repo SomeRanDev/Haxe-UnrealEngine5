@@ -3,10 +3,13 @@ package ue;
 
 @:native("UDEPRECATED_DataValidationManager")
 @:include("DataValidationManager.h")
+@:structAccess
 extern class DataValidationManager extends Object {
 	public var ExcludedDirectories: TArray<DirectoryPath>;
 	public var bValidateOnSave: Bool;
 	public var DataValidationManagerClassName: SoftClassPath;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

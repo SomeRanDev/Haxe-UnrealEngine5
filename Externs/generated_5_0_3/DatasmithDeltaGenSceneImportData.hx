@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDatasmithDeltaGenSceneImportData")
 @:include("DatasmithAssetImportData.h")
+@:structAccess
 extern class DatasmithDeltaGenSceneImportData extends DatasmithFBXSceneImportData {
 	public var bMergeNodes: Bool;
 	public var bOptimizeDuplicatedNodes: Bool;
@@ -14,6 +15,8 @@ extern class DatasmithDeltaGenSceneImportData extends DatasmithFBXSceneImportDat
 	public var PosPath: FString;
 	public var bImportTml: Bool;
 	public var TmlPath: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

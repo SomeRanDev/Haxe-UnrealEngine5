@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMakeBinaryConfigCommandlet")
 @:include("Commandlets/MakeBinaryConfigCommandlet.h")
+@:structAccess
 extern class MakeBinaryConfigCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

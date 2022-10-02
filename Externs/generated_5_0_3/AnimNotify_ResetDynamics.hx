@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimNotify_ResetDynamics")
 @:include("Animation/AnimNotifies/AnimNotify_ResetDynamics.h")
+@:structAccess
 extern class AnimNotify_ResetDynamics extends AnimNotify {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

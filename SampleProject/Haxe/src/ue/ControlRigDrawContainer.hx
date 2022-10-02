@@ -3,6 +3,10 @@ package ue;
 
 @:native("FControlRigDrawContainer")
 @:include("Drawing/ControlRigDrawContainer.h")
+@:structAccess
 extern class ControlRigDrawContainer {
 	public var Instructions: TArray<ControlRigDrawInstruction>;
+
+	@:native("FControlRigDrawContainer") public function new();
+	@:native("FControlRigDrawContainer") public static function make(Instructions: TArray<ControlRigDrawInstruction>): ControlRigDrawContainer ;
 }

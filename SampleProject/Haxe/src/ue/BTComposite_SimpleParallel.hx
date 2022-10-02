@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBTComposite_SimpleParallel")
 @:include("BehaviorTree/Composites/BTComposite_SimpleParallel.h")
+@:structAccess
 extern class BTComposite_SimpleParallel extends BTCompositeNode {
 	public var FinishMode: EBTParallelMode;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

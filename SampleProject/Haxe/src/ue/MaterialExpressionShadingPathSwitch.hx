@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionShadingPathSwitch")
 @:include("Materials/MaterialExpressionShadingPathSwitch.h")
+@:structAccess
 extern class MaterialExpressionShadingPathSwitch extends MaterialExpression {
 	public var Default: ExpressionInput;
 	public var Inputs: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

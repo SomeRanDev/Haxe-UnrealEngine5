@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_EditablePinBase")
 @:include("K2Node_EditablePinBase.h")
+@:structAccess
 extern class K2Node_EditablePinBase extends K2Node {
 	public var bIsEditable: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

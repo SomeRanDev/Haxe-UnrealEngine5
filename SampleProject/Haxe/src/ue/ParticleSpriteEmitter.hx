@@ -3,7 +3,10 @@ package ue;
 
 @:native("UParticleSpriteEmitter")
 @:include("Particles/ParticleSpriteEmitter.h")
+@:structAccess
 extern class ParticleSpriteEmitter extends ParticleEmitter {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

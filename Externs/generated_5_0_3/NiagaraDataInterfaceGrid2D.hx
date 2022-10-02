@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraDataInterfaceGrid2D")
 @:include("NiagaraDataInterfaceRW.h")
+@:structAccess
 extern class NiagaraDataInterfaceGrid2D extends NiagaraDataInterfaceRWBase {
 	public var NumCellsX: cpp.Int32;
 	public var NumCellsY: cpp.Int32;
@@ -10,6 +11,8 @@ extern class NiagaraDataInterfaceGrid2D extends NiagaraDataInterfaceRWBase {
 	public var NumAttributes: cpp.Int32;
 	public var SetGridFromMaxAxis: Bool;
 	public var WorldBBoxSize: Vector2D;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

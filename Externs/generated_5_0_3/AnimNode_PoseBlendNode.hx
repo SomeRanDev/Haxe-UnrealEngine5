@@ -3,8 +3,12 @@ package ue;
 
 @:native("FAnimNode_PoseBlendNode")
 @:include("AnimNodes/AnimNode_PoseBlendNode.h")
+@:structAccess
 extern class AnimNode_PoseBlendNode extends AnimNode_PoseHandler {
 	public var SourcePose: PoseLink;
 	public var BlendOption: EAlphaBlendOption;
 	public var CustomCurve: cpp.Star<CurveFloat>;
+
+	@:native("FAnimNode_PoseBlendNode") public function new();
+	@:native("FAnimNode_PoseBlendNode") public static function make(SourcePose: PoseLink, BlendOption: EAlphaBlendOption, CustomCurve: cpp.Star<CurveFloat>): AnimNode_PoseBlendNode ;
 }

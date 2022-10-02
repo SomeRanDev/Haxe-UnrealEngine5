@@ -3,6 +3,7 @@ package ue;
 
 @:native("USkeleton")
 @:include("Animation/Skeleton.h")
+@:structAccess
 extern class Skeleton extends Object {
 	public var BoneTree: TArray<BoneNode>;
 	public var RefLocalPoses_DEPRECATED: TArray<Transform>;
@@ -22,6 +23,8 @@ extern class Skeleton extends Object {
 
 	public function GetBlendProfile(InProfileName: cpp.Reference<FName>): cpp.Reference<cpp.Star<BlendProfile>>;
 	public function AddCompatibleSkeleton(SourceSkeleton: cpp.Star<Skeleton.ConstSkeleton>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,10 @@ package ue;
 
 @:native("FPawnActionEvent")
 @:include("Actions/PawnActionsComponent.h")
+@:structAccess
 extern class PawnActionEvent {
 	public var Action: cpp.Star<PawnAction>;
+
+	@:native("FPawnActionEvent") public function new();
+	@:native("FPawnActionEvent") public static function make(Action: cpp.Star<PawnAction>): PawnActionEvent ;
 }

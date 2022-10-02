@@ -3,8 +3,12 @@ package ue;
 
 @:native("FQuartzTimeSignature")
 @:include("Sound/QuartzQuantizationUtilities.h")
+@:structAccess
 extern class QuartzTimeSignature {
 	public var NumBeats: cpp.Int32;
 	public var BeatType: EQuartzTimeSignatureQuantization;
 	public var OptionalPulseOverride: TArray<QuartzPulseOverrideStep>;
+
+	@:native("FQuartzTimeSignature") public function new();
+	@:native("FQuartzTimeSignature") public static function make(NumBeats: cpp.Int32, BeatType: EQuartzTimeSignatureQuantization, OptionalPulseOverride: TArray<QuartzPulseOverrideStep>): QuartzTimeSignature ;
 }

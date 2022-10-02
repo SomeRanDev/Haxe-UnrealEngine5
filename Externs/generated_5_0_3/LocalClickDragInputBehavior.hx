@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULocalClickDragInputBehavior")
 @:include("BaseBehaviors/ClickDragBehavior.h")
+@:structAccess
 extern class LocalClickDragInputBehavior extends ClickDragInputBehavior {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

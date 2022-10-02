@@ -3,8 +3,12 @@ package ue;
 
 @:native("FGameplayDebuggerExtensionConfig")
 @:include("GameplayDebuggerConfig.h")
+@:structAccess
 extern class GameplayDebuggerExtensionConfig {
 	public var ExtensionName: FString;
 	public var UseExtension: EGameplayDebuggerOverrideMode;
 	public var InputHandlers: TArray<GameplayDebuggerInputConfig>;
+
+	@:native("FGameplayDebuggerExtensionConfig") public function new();
+	@:native("FGameplayDebuggerExtensionConfig") public static function make(ExtensionName: FString, UseExtension: EGameplayDebuggerOverrideMode, InputHandlers: TArray<GameplayDebuggerInputConfig>): GameplayDebuggerExtensionConfig ;
 }

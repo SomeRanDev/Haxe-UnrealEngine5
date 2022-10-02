@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UBlendableInterface")
+@:structAccess
 extern class BlendableInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

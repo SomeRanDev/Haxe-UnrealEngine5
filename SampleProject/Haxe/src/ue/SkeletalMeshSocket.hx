@@ -3,6 +3,7 @@ package ue;
 
 @:native("USkeletalMeshSocket")
 @:include("Engine/SkeletalMeshSocket.h")
+@:structAccess
 extern class SkeletalMeshSocket extends Object {
 	public var SocketName: FName;
 	public var BoneName: FName;
@@ -13,6 +14,8 @@ extern class SkeletalMeshSocket extends Object {
 
 	public function InitializeSocketFromLocation(SkelComp: cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp>, WorldLocation: Vector, WorldNormal: Vector): Void;
 	public function GetSocketLocation(SkelComp: cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp>): cpp.Reference<Vector>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetSocketLocation)

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UCompositeDataTableFactory")
 @:include("Factories/CompositeDataTableFactory.h")
+@:structAccess
 extern class CompositeDataTableFactory extends DataTableFactory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

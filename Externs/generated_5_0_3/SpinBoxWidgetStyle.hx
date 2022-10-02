@@ -3,8 +3,11 @@ package ue;
 
 @:native("USpinBoxWidgetStyle")
 @:include("Framework/Styling/SpinBoxWidgetStyle.h")
+@:structAccess
 extern class SpinBoxWidgetStyle extends SlateWidgetStyleContainerBase {
 	public var SpinBoxStyle: SpinBoxStyle;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

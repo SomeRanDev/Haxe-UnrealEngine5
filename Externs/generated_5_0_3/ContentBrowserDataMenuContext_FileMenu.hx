@@ -3,9 +3,12 @@ package ue;
 
 @:native("UContentBrowserDataMenuContext_FileMenu")
 @:include("ContentBrowserDataMenuContexts.h")
+@:structAccess
 extern class ContentBrowserDataMenuContext_FileMenu extends Object {
 	public var SelectedItems: TArray<ContentBrowserItem>;
 	public var bCanBeModified: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

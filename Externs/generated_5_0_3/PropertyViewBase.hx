@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPropertyViewBase")
 @:include("Components/PropertyViewBase.h")
+@:structAccess
 extern class PropertyViewBase extends Widget {
 	public var Object: TSoftObjectPtr<Object>;
 	public var SoftObjectPath_DEPRECATED: SoftObjectPath;
@@ -11,6 +12,8 @@ extern class PropertyViewBase extends Widget {
 
 	public function SetObject(NewObject: cpp.Star<Object>): Void;
 	public function GetObject(): cpp.Reference<cpp.Star<Object>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetObject)

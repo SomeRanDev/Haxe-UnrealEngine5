@@ -3,8 +3,11 @@ package ue;
 
 @:native("USoundNodeDistanceCrossFade")
 @:include("Sound/SoundNodeDistanceCrossFade.h")
+@:structAccess
 extern class SoundNodeDistanceCrossFade extends SoundNode {
 	public var CrossFadeInput: TArray<DistanceDatum>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraSequencerTrackFilter")
 @:include("Sequencer/NiagaraSequence/NiagaraSequencerFilters.h")
+@:structAccess
 extern class NiagaraSequencerTrackFilter extends SequencerTrackFilterExtension {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

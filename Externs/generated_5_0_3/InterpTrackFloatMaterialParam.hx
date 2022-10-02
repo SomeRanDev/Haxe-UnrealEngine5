@@ -3,9 +3,12 @@ package ue;
 
 @:native("UInterpTrackFloatMaterialParam")
 @:include("Matinee/InterpTrackFloatMaterialParam.h")
+@:structAccess
 extern class InterpTrackFloatMaterialParam extends InterpTrackFloatBase {
 	public var TargetMaterials: TArray<cpp.Star<MaterialInterface>>;
 	public var ParamName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

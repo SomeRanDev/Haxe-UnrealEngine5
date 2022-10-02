@@ -3,9 +3,13 @@ package ue;
 
 @:native("FAITestSpawnInfo")
 @:include("FunctionalAITest.h")
+@:structAccess
 extern class AITestSpawnInfo extends AITestSpawnInfoBase {
 	public var PawnClass: TSubclassOf<Pawn>;
 	public var ControllerClass: TSubclassOf<AIController>;
 	public var TeamID: GenericTeamId;
 	public var BehaviorTree: cpp.Star<BehaviorTree>;
+
+	@:native("FAITestSpawnInfo") public function new();
+	@:native("FAITestSpawnInfo") public static function make(PawnClass: TSubclassOf<Pawn>, ControllerClass: TSubclassOf<AIController>, TeamID: GenericTeamId, BehaviorTree: cpp.Star<BehaviorTree>): AITestSpawnInfo ;
 }

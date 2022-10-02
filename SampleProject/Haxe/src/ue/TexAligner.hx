@@ -3,12 +3,15 @@ package ue;
 
 @:native("UTexAligner")
 @:include("TexAligner/TexAligner.h")
+@:structAccess
 extern class TexAligner extends Object {
 	public var DefTexAlign: ETexAlign;
 	public var TAxis: cpp.UInt8;
 	public var UTile: cpp.Float32;
 	public var VTile: cpp.Float32;
 	public var Desc: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

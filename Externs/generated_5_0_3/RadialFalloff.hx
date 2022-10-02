@@ -3,6 +3,7 @@ package ue;
 
 @:native("URadialFalloff")
 @:include("Field/FieldSystemObjects.h")
+@:structAccess
 extern class RadialFalloff extends FieldNodeFloat {
 	public var Magnitude: cpp.Float32;
 	public var MinRange: cpp.Float32;
@@ -13,6 +14,8 @@ extern class RadialFalloff extends FieldNodeFloat {
 	public var Falloff: EFieldFalloffType;
 
 	public function SetRadialFalloff(Magnitude: cpp.Float32, MinRange: cpp.Float32, MaxRange: cpp.Float32, Default: cpp.Float32, Radius: cpp.Float32, Position: Vector, Falloff: EFieldFalloffType): cpp.Reference<cpp.Star<RadialFalloff>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UUserWidget")
 @:include("Blueprint/UserWidget.h")
+@:structAccess
 extern class UserWidget extends Widget {
 	public var ColorAndOpacity: LinearColor;
 	public var ColorAndOpacityDelegate: HaxeDelegateProperty<() -> Void>;
@@ -120,6 +121,8 @@ extern class UserWidget extends Widget {
 	public function BindToAnimationEvent(Animation: cpp.Star<WidgetAnimation>, Delegate: HaxeDelegateProperty<() -> Void>, AnimationEvent: EWidgetAnimationEvent, UserTag: FName): Void;
 	public function AddToViewport(ZOrder: cpp.Int32): Void;
 	public function AddToPlayerScreen(ZOrder: cpp.Int32): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

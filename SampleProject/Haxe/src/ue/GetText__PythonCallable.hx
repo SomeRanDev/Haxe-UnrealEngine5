@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UGetText__PythonCallable")
+@:structAccess
 extern class GetText__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

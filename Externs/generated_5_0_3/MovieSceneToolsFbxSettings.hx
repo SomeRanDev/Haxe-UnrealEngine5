@@ -3,8 +3,12 @@ package ue;
 
 @:native("FMovieSceneToolsFbxSettings")
 @:include("MovieSceneToolsProjectSettings.h")
+@:structAccess
 extern class MovieSceneToolsFbxSettings {
 	public var FbxPropertyName: FString;
 	public var PropertyPath: MovieSceneToolsPropertyTrackSettings;
 	public var PropertyType: EMovieSceneToolsPropertyTrackType;
+
+	@:native("FMovieSceneToolsFbxSettings") public function new();
+	@:native("FMovieSceneToolsFbxSettings") public static function make(FbxPropertyName: FString, PropertyPath: MovieSceneToolsPropertyTrackSettings, PropertyType: EMovieSceneToolsPropertyTrackType): MovieSceneToolsFbxSettings ;
 }

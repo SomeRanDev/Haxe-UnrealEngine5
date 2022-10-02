@@ -3,9 +3,12 @@ package ue;
 
 @:native("ULightWeightInstanceBlueprintFunctionLibrary")
 @:include("GameFramework/LightWeightInstanceBlueprintFunctionLibrary.h")
+@:structAccess
 extern class LightWeightInstanceBlueprintFunctionLibrary extends BlueprintFunctionLibrary {
 	public function CreateNewLightWeightInstance(ActorClass: cpp.Star<Class>, Transform: Transform, Layer: cpp.Star<DataLayer>, World: cpp.Star<World>): cpp.Reference<ActorInstanceHandle>;
 	public function ConvertActorToLightWeightInstance(Actor: cpp.Star<Actor>): cpp.Reference<ActorInstanceHandle>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UGeometryCacheTrackStreamable")
 @:include("GeometryCacheTrackStreamable.h")
+@:structAccess
 extern class GeometryCacheTrackStreamable extends GeometryCacheTrack {
 	public var Codec: cpp.Star<GeometryCacheCodecBase>;
 	public var StartSampleTime: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

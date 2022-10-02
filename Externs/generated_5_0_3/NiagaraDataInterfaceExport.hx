@@ -3,11 +3,14 @@ package ue;
 
 @:native("UNiagaraDataInterfaceExport")
 @:include("NiagaraDataInterfaceExport.h")
+@:structAccess
 extern class NiagaraDataInterfaceExport extends NiagaraDataInterface {
 	public var CallbackHandlerParameter: NiagaraUserParameterBinding;
 	public var GPUAllocationMode: ENDIExport_GPUAllocationMode;
 	public var GPUAllocationFixedSize: cpp.Int32;
 	public var GPUAllocationPerParticleSize: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

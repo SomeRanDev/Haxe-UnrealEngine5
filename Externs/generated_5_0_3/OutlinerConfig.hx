@@ -3,8 +3,11 @@ package ue;
 
 @:native("UOutlinerConfig")
 @:include("SceneOutlinerConfig.h")
+@:structAccess
 extern class OutlinerConfig extends EditorConfigBase {
 	public var Outliners: TMap<FName, SceneOutlinerConfig>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

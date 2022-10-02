@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMovieSceneCopyableTrack")
 @:include("MovieSceneCopyableTrack.h")
+@:structAccess
 extern class MovieSceneCopyableTrack extends Object {
 	public var Track: cpp.Star<MovieSceneTrack>;
 	public var bIsAMasterTrack: Bool;
 	public var bIsACameraCutTrack: Bool;
 	public var FolderPath: TArray<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

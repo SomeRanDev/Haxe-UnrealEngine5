@@ -3,5 +3,7 @@ package ue;
 
 @:native("FAnimNode_ResetRoot")
 @:include("BoneControllers/AnimNode_ResetRoot.h")
+@:structAccess
 extern class AnimNode_ResetRoot extends AnimNode_SkeletalControlBase {
+	@:native("FAnimNode_ResetRoot") public function new();
 }

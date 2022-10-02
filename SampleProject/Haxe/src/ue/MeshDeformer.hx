@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMeshDeformer")
 @:include("Animation/MeshDeformer.h")
+@:structAccess
 extern class MeshDeformer extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

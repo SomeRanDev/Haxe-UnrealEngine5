@@ -3,7 +3,10 @@ package ue;
 
 @:native("UTestSparseClassDataBase")
 @:include("Editor/PropertyEditorTestObject.h")
+@:structAccess
 extern class TestSparseClassDataBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

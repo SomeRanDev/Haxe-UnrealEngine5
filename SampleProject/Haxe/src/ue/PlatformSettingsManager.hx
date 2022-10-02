@@ -3,8 +3,11 @@ package ue;
 
 @:native("UPlatformSettingsManager")
 @:include("Engine/PlatformSettingsManager.h")
+@:structAccess
 extern class PlatformSettingsManager extends Object {
 	public var SettingsMap: TMap<TSubclassOf<PlatformSettings>, PlatformSettingsInstances>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

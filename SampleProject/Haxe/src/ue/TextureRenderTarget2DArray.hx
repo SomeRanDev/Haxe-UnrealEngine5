@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTextureRenderTarget2DArray")
 @:include("Engine/TextureRenderTarget2DArray.h")
+@:structAccess
 extern class TextureRenderTarget2DArray extends TextureRenderTarget {
 	public var SizeX: cpp.Int32;
 	public var SizeY: cpp.Int32;
@@ -11,6 +12,8 @@ extern class TextureRenderTarget2DArray extends TextureRenderTarget {
 	public var OverrideFormat: EPixelFormat;
 	public var bHDR: Bool;
 	public var bForceLinearGamma: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

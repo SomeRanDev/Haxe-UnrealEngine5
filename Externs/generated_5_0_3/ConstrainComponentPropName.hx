@@ -3,6 +3,10 @@ package ue;
 
 @:native("FConstrainComponentPropName")
 @:include("Engine/EngineTypes.h")
+@:structAccess
 extern class ConstrainComponentPropName {
 	public var ComponentName: FName;
+
+	@:native("FConstrainComponentPropName") public function new();
+	@:native("FConstrainComponentPropName") public static function make(ComponentName: FName): ConstrainComponentPropName ;
 }

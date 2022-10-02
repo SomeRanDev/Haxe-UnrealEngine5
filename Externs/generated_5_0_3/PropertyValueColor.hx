@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPropertyValueColor")
 @:include("PropertyValueColor.h")
+@:structAccess
 extern class PropertyValueColor extends PropertyValue {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

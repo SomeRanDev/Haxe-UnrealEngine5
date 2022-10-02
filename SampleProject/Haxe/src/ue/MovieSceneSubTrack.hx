@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneSubTrack")
 @:include("Tracks/MovieSceneSubTrack.h")
+@:structAccess
 extern class MovieSceneSubTrack extends MovieSceneNameableTrack {
 	public var Sections: TArray<cpp.Star<MovieSceneSection>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

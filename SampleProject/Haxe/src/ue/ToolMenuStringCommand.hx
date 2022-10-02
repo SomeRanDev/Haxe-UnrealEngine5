@@ -3,8 +3,12 @@ package ue;
 
 @:native("FToolMenuStringCommand")
 @:include("ToolMenuMisc.h")
+@:structAccess
 extern class ToolMenuStringCommand {
 	public var Type: EToolMenuStringCommandType;
 	public var CustomType: FName;
 	public var String: FString;
+
+	@:native("FToolMenuStringCommand") public function new();
+	@:native("FToolMenuStringCommand") public static function make(Type: EToolMenuStringCommandType, CustomType: FName, String: FString): ToolMenuStringCommand ;
 }

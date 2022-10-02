@@ -3,7 +3,10 @@ package ue;
 
 @:native("UTextureMipDataProviderFactory")
 @:include("Engine/TextureMipDataProviderFactory.h")
+@:structAccess
 extern class TextureMipDataProviderFactory extends AssetUserData {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

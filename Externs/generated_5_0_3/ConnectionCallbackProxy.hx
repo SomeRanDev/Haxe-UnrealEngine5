@@ -3,11 +3,14 @@ package ue;
 
 @:native("UConnectionCallbackProxy")
 @:include("ConnectionCallbackProxy.h")
+@:structAccess
 extern class ConnectionCallbackProxy extends OnlineBlueprintCallProxyBase {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
 
 	public function ConnectToService(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>): cpp.Reference<cpp.Star<ConnectionCallbackProxy>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

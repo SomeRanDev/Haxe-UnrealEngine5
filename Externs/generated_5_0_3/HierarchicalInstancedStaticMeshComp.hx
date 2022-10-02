@@ -3,6 +3,7 @@ package ue;
 
 @:native("UHierarchicalInstancedStaticMeshComponent")
 @:include("Components/HierarchicalInstancedStaticMeshComponent.h")
+@:structAccess
 extern class HierarchicalInstancedStaticMeshComp extends InstancedStaticMeshComp {
 	public var bUseTranslatedInstanceSpace: Bool;
 	public var TranslatedInstanceSpaceOrigin: Vector;
@@ -16,6 +17,8 @@ extern class HierarchicalInstancedStaticMeshComp extends InstancedStaticMeshComp
 	public var CacheMeshExtendedBounds: BoxSphereBounds;
 	public var bDisableCollision: Bool;
 	public var InstanceCountToRender: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

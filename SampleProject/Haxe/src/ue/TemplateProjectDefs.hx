@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTemplateProjectDefs")
 @:include("TemplateProjectDefs.h")
+@:structAccess
 extern class TemplateProjectDefs extends Object {
 	public var LocalizedDisplayNames: TArray<LocalizedTemplateString>;
 	public var LocalizedDescriptions: TArray<LocalizedTemplateString>;
@@ -24,6 +25,8 @@ extern class TemplateProjectDefs extends Object {
 	public var EditDetailLevelPreference: EFeaturePackDetailLevel;
 	public var SharedContentPacks: TArray<FeaturePackLevelSet>;
 	public var StarterContent: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -1,0 +1,1 @@
+"Z:/Epic Games/UE_5.0/Engine/Build/BatchFiles/RunUAT.bat" BuildPlugin -Platform=Win64 -Plugin="Z:/Desktop/GithubProjects/Haxe-UnrealEngine5/SampleProject/HaxePlugin/HaxeCompatibility.uplugin" -Package="Z:/Desktop/GithubProjects/Haxe-UnrealEngine5/SampleProject/Plugins/HaxeCompatibility" -Rocket -noturnkeyvariables

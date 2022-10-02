@@ -3,10 +3,13 @@ package ue;
 
 @:native("UParticleModuleSubUVMovie")
 @:include("Particles/SubUV/ParticleModuleSubUVMovie.h")
+@:structAccess
 extern class ParticleModuleSubUVMovie extends ParticleModuleSubUV {
 	public var bUseEmitterTime: Bool;
 	public var FrameRate: RawDistributionFloat;
 	public var StartingFrame: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

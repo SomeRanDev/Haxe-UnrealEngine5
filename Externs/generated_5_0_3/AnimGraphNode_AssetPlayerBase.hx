@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_AssetPlayerBase")
 @:include("AnimGraphNode_AssetPlayerBase.h")
+@:structAccess
 extern class AnimGraphNode_AssetPlayerBase extends AnimGraphNode_Base {
 	public var SyncGroup_DEPRECATED: AnimationGroupReference;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

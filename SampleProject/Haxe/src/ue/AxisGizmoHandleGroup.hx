@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAxisGizmoHandleGroup")
 @:include("VIGizmoHandle.h")
+@:structAccess
 extern class AxisGizmoHandleGroup extends GizmoHandleGroup {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

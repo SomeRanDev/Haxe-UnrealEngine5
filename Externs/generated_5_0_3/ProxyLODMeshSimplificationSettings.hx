@@ -3,8 +3,11 @@ package ue;
 
 @:native("UProxyLODMeshSimplificationSettings")
 @:include("Engine/ProxyLODMeshSimplificationSettings.h")
+@:structAccess
 extern class ProxyLODMeshSimplificationSettings extends DeveloperSettings {
 	public var ProxyLODMeshReductionModuleName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

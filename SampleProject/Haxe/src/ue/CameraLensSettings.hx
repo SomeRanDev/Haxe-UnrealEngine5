@@ -3,6 +3,7 @@ package ue;
 
 @:native("FCameraLensSettings")
 @:include("CineCameraComponent.h")
+@:structAccess
 extern class CameraLensSettings {
 	public var MinFocalLength: cpp.Float32;
 	public var MaxFocalLength: cpp.Float32;
@@ -10,4 +11,6 @@ extern class CameraLensSettings {
 	public var MaxFStop: cpp.Float32;
 	public var MinimumFocusDistance: cpp.Float32;
 	public var DiaphragmBladeCount: cpp.Int32;
+
+	@:native("FCameraLensSettings") public function new();
 }

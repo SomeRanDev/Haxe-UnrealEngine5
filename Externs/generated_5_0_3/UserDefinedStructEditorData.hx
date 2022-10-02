@@ -3,10 +3,13 @@ package ue;
 
 @:native("UUserDefinedStructEditorData")
 @:include("UserDefinedStructure/UserDefinedStructEditorData.h")
+@:structAccess
 extern class UserDefinedStructEditorData extends Object {
 	public var UniqueNameId: cpp.UInt32;
 	public var VariablesDescriptions: TArray<StructVariableDescription>;
 	public var ToolTip: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

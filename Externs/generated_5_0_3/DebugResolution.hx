@@ -3,9 +3,13 @@ package ue;
 
 @:native("FDebugResolution")
 @:include("UMGEditorProjectSettings.h")
+@:structAccess
 extern class DebugResolution {
 	public var Width: cpp.Int32;
 	public var Height: cpp.Int32;
 	public var Description: FString;
 	public var Color: LinearColor;
+
+	@:native("FDebugResolution") public function new();
+	@:native("FDebugResolution") public static function make(Width: cpp.Int32, Height: cpp.Int32, Description: FString, Color: LinearColor): DebugResolution ;
 }

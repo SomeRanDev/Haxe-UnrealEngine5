@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnControllerCaptureBeginEvent__PythonCallable")
+@:structAccess
 extern class OnControllerCaptureBeginEvent__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

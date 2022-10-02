@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimSingleNodeInstance")
 @:include("Animation/AnimSingleNodeInstance.h")
+@:structAccess
 extern class AnimSingleNodeInstance extends AnimInstance {
 	public var CurrentAsset: cpp.Star<AnimationAsset>;
 	public var PostEvaluateAnimEvent: HaxeDelegateProperty<() -> Void>;
@@ -22,6 +23,8 @@ extern class AnimSingleNodeInstance extends AnimInstance {
 	public function GetMirrorDataTable(): cpp.Reference<cpp.Star<MirrorDataTable.ConstMirrorDataTable>>;
 	public function GetLength(): cpp.Reference<cpp.Float32>;
 	public function GetAnimationAsset(): cpp.Reference<cpp.Star<AnimationAsset>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetAnimationAsset)

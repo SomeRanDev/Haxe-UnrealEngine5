@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UFontProviderInterface")
+@:structAccess
 extern class FontProviderInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

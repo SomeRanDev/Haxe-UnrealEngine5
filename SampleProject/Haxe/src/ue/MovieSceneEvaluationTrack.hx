@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMovieSceneEvaluationTrack")
 @:include("Evaluation/MovieSceneEvaluationTrack.h")
+@:structAccess
 extern class MovieSceneEvaluationTrack {
 	public var ObjectBindingID: Guid;
 	public var EvaluationPriority: cpp.UInt16;
@@ -14,4 +15,6 @@ extern class MovieSceneEvaluationTrack {
 	public var bEvaluateInPreroll: Bool;
 	public var bEvaluateInPostroll: Bool;
 	public var bTearDownPriority: Bool;
+
+	@:native("FMovieSceneEvaluationTrack") public function new();
 }

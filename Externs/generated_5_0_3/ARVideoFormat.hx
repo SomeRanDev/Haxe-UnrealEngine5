@@ -3,8 +3,12 @@ package ue;
 
 @:native("FARVideoFormat")
 @:include("ARTypes.h")
+@:structAccess
 extern class ARVideoFormat {
 	public var FPS: cpp.Int32;
 	public var Width: cpp.Int32;
 	public var Height: cpp.Int32;
+
+	@:native("FARVideoFormat") public function new();
+	@:native("FARVideoFormat") public static function make(FPS: cpp.Int32, Width: cpp.Int32, Height: cpp.Int32): ARVideoFormat ;
 }

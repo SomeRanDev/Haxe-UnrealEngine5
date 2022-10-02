@@ -3,7 +3,10 @@ package ue;
 
 @:native("UGameplayTagSearchFilter")
 @:include("GameplayTagSearchFilter.h")
+@:structAccess
 extern class GameplayTagSearchFilter extends ContentBrowserFrontEndFilterExtension {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

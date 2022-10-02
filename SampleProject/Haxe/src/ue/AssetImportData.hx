@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAssetImportData")
 @:include("EditorFramework/AssetImportData.h")
+@:structAccess
 extern class AssetImportData extends Object {
 	public var SourceFilePath_DEPRECATED: FString;
 	public var SourceFileTimestamp_DEPRECATED: FString;
@@ -11,6 +12,8 @@ extern class AssetImportData extends Object {
 	public function ScriptedAddFilename(InPath: FString, Index: cpp.Int32, SourceFileLabel: FString): Void;
 	public function K2_GetFirstFilename(): cpp.Reference<FString>;
 	public function K2_ExtractFilenames(): cpp.Reference<TArray<FString>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(K2_GetFirstFilename, K2_ExtractFilenames)

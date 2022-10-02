@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionPathTracingQualitySwitch")
 @:include("Materials/MaterialExpressionPathTracingQualitySwitch.h")
+@:structAccess
 extern class MaterialExpressionPathTracingQualitySwitch extends MaterialExpression {
 	public var Normal: ExpressionInput;
 	public var PathTraced: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

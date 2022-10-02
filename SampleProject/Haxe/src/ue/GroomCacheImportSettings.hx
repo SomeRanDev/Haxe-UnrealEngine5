@@ -3,6 +3,7 @@ package ue;
 
 @:native("FGroomCacheImportSettings")
 @:include("GroomCacheImportOptions.h")
+@:structAccess
 extern class GroomCacheImportSettings {
 	public var bImportGroomCache: Bool;
 	public var FrameStart: cpp.Int32;
@@ -10,4 +11,6 @@ extern class GroomCacheImportSettings {
 	public var bSkipEmptyFrames: Bool;
 	public var bImportGroomAsset: Bool;
 	public var GroomAsset: SoftObjectPath;
+
+	@:native("FGroomCacheImportSettings") public function new();
 }

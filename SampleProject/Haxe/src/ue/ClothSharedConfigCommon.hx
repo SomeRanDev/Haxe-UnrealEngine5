@@ -3,7 +3,10 @@ package ue;
 
 @:native("UClothSharedConfigCommon")
 @:include("ClothConfig.h")
+@:structAccess
 extern class ClothSharedConfigCommon extends ClothConfigCommon {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

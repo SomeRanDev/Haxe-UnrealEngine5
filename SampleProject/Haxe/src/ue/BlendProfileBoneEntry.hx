@@ -3,7 +3,11 @@ package ue;
 
 @:native("FBlendProfileBoneEntry")
 @:include("Animation/BlendProfile.h")
+@:structAccess
 extern class BlendProfileBoneEntry {
 	public var BoneReference: BoneReference;
 	public var BlendScale: cpp.Float32;
+
+	@:native("FBlendProfileBoneEntry") public function new();
+	@:native("FBlendProfileBoneEntry") public static function make(BoneReference: BoneReference, BlendScale: cpp.Float32): BlendProfileBoneEntry ;
 }

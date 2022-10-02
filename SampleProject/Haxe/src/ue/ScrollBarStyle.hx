@@ -3,6 +3,7 @@ package ue;
 
 @:native("FScrollBarStyle")
 @:include("Styling/SlateTypes.h")
+@:structAccess
 extern class ScrollBarStyle extends SlateWidgetStyle {
 	public var HorizontalBackgroundImage: SlateBrush;
 	public var VerticalBackgroundImage: SlateBrush;
@@ -14,4 +15,6 @@ extern class ScrollBarStyle extends SlateWidgetStyle {
 	public var HoveredThumbImage: SlateBrush;
 	public var DraggedThumbImage: SlateBrush;
 	public var Thickness: cpp.Float32;
+
+	@:native("FScrollBarStyle") public function new();
 }

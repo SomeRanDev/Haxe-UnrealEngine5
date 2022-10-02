@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraLightRendererProperties")
 @:include("NiagaraLightRendererProperties.h")
+@:structAccess
 extern class NiagaraLightRendererProperties extends NiagaraRendererProperties {
 	public var bUseInverseSquaredFalloff: Bool;
 	public var bAffectsTranslucency: Bool;
@@ -18,6 +19,8 @@ extern class NiagaraLightRendererProperties extends NiagaraRendererProperties {
 	public var RadiusBinding: NiagaraVariableAttributeBinding;
 	public var VolumetricScatteringBinding: NiagaraVariableAttributeBinding;
 	public var RendererVisibilityTagBinding: NiagaraVariableAttributeBinding;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

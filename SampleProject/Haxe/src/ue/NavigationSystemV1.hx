@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNavigationSystemV1")
 @:include("NavigationSystem.h")
+@:structAccess
 extern class NavigationSystemV1 extends NavigationSystemBase {
 	public var MainNavData: cpp.Star<NavigationData>;
 	public var AbstractNavData: cpp.Star<NavigationData>;
@@ -55,6 +56,8 @@ extern class NavigationSystemV1 extends NavigationSystemBase {
 	public function GetNavigationSystem(WorldContextObject: cpp.Star<Object>): cpp.Reference<cpp.Star<NavigationSystemV1>>;
 	public function FindPathToLocationSynchronously(WorldContextObject: cpp.Star<Object>, PathStart: cpp.Reference<Vector>, PathEnd: cpp.Reference<Vector>, PathfindingContext: cpp.Star<Actor>, FilterClass: TSubclassOf<NavigationQueryFilter>): cpp.Reference<cpp.Star<NavigationPath>>;
 	public function FindPathToActorSynchronously(WorldContextObject: cpp.Star<Object>, PathStart: cpp.Reference<Vector>, GoalActor: cpp.Star<Actor>, TetherDistance: cpp.Float32, PathfindingContext: cpp.Star<Actor>, FilterClass: TSubclassOf<NavigationQueryFilter>): cpp.Reference<cpp.Star<NavigationPath>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

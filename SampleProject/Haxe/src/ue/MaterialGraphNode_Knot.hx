@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialGraphNode_Knot")
 @:include("MaterialGraphNode_Knot.h")
+@:structAccess
 extern class MaterialGraphNode_Knot extends MaterialGraphNode {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

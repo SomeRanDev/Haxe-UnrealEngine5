@@ -3,11 +3,14 @@ package ue;
 
 @:native("AExponentialHeightFog")
 @:include("Engine/ExponentialHeightFog.h")
+@:structAccess
 extern class ExponentialHeightFog extends Info {
 	public var Component: cpp.Star<ExponentialHeightFogComp>;
 	public var bEnabled: Bool;
 
 	public function OnRep_bEnabled(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

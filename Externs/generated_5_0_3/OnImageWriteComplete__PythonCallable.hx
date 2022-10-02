@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnImageWriteComplete__PythonCallable")
+@:structAccess
 extern class OnImageWriteComplete__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

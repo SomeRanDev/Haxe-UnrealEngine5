@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSubsurfaceProfileStruct")
 @:include("Engine/SubsurfaceProfile.h")
+@:structAccess
 extern class SubsurfaceProfileStruct {
 	public var SurfaceAlbedo: LinearColor;
 	public var MeanFreePathColor: LinearColor;
@@ -22,4 +23,6 @@ extern class SubsurfaceProfileStruct {
 	public var Roughness1: cpp.Float32;
 	public var LobeMix: cpp.Float32;
 	public var TransmissionTintColor: LinearColor;
+
+	@:native("FSubsurfaceProfileStruct") public function new();
 }

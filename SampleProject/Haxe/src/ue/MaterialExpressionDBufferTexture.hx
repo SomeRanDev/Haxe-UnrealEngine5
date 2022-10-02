@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionDBufferTexture")
 @:include("Materials/MaterialExpressionDBufferTexture.h")
+@:structAccess
 extern class MaterialExpressionDBufferTexture extends MaterialExpression {
 	public var Coordinates: ExpressionInput;
 	public var DBufferTextureId: EDBufferTextureId;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

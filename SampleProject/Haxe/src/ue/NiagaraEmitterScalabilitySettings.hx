@@ -3,8 +3,12 @@ package ue;
 
 @:native("FNiagaraEmitterScalabilitySettings")
 @:include("NiagaraEffectType.h")
+@:structAccess
 extern class NiagaraEmitterScalabilitySettings {
 	public var Platforms: NiagaraPlatformSet;
 	public var bScaleSpawnCount: Bool;
 	public var SpawnCountScale: cpp.Float32;
+
+	@:native("FNiagaraEmitterScalabilitySettings") public function new();
+	@:native("FNiagaraEmitterScalabilitySettings") public static function make(Platforms: NiagaraPlatformSet, bScaleSpawnCount: Bool, SpawnCountScale: cpp.Float32): NiagaraEmitterScalabilitySettings ;
 }

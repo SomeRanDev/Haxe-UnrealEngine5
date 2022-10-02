@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEditorGizmoRegistryCategoryEntry_Primary")
 @:include("EditorInteractiveGizmoRegistry.h")
+@:structAccess
 extern class EditorGizmoRegistryCategoryEntry_Primary extends EditorGizmoRegistryCategoryEntry_ConditionalSelection {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

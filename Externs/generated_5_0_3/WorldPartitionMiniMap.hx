@@ -3,12 +3,15 @@ package ue;
 
 @:native("AWorldPartitionMiniMap")
 @:include("WorldPartition/WorldPartitionMiniMap.h")
+@:structAccess
 extern class WorldPartitionMiniMap extends Info {
 	public var MiniMapWorldBounds: Box;
 	public var UVOffset: Box2D;
 	public var MiniMapTexture: cpp.Star<Texture2D>;
 	public var ExcludedDataLayers: TSet<ActorDataLayer>;
 	public var MiniMapTileSize: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

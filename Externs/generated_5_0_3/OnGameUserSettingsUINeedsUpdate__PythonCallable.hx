@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnGameUserSettingsUINeedsUpdate__PythonCallable")
+@:structAccess
 extern class OnGameUserSettingsUINeedsUpdate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

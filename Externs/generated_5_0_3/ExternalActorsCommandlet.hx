@@ -3,7 +3,10 @@ package ue;
 
 @:native("UExternalActorsCommandlet")
 @:include("Commandlets/ExternalActorsCommandlet.h")
+@:structAccess
 extern class ExternalActorsCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

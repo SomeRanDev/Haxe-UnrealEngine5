@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_ControlRig")
 @:include("AnimGraphNode_ControlRig.h")
+@:structAccess
 extern class AnimGraphNode_ControlRig extends AnimGraphNode_CustomProperty {
 	public var Node: AnimNode_ControlRig;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

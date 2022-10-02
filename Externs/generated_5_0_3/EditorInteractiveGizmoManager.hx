@@ -3,10 +3,13 @@ package ue;
 
 @:native("UEditorInteractiveGizmoManager")
 @:include("EditorInteractiveGizmoManager.h")
+@:structAccess
 extern class EditorInteractiveGizmoManager extends InteractiveGizmoManager {
 	public var Registry: cpp.Star<EditorInteractiveGizmoRegistry>;
 	public var ActiveEditorGizmos: TArray<ActiveEditorGizmo>;
 	public var CachedGizmoMap: TMap<cpp.Star<InteractiveGizmoBuilder>, cpp.Star<InteractiveGizmo>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

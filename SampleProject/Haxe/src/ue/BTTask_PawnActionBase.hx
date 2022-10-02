@@ -3,7 +3,10 @@ package ue;
 
 @:native("UBTTask_PawnActionBase")
 @:include("BehaviorTree/Tasks/BTTask_PawnActionBase.h")
+@:structAccess
 extern class BTTask_PawnActionBase extends BTTaskNode {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

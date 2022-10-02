@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneEventBlueprintExtension")
 @:include("MovieSceneEventBlueprintExtension.h")
+@:structAccess
 extern class MovieSceneEventBlueprintExtension extends BlueprintExtension {
 	public var EventSections: TArray<TWeakObjectPtr<MovieSceneEventSectionBase>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,10 @@ package ue;
 
 @:native("FDelegateArray")
 @:include("Engine/PlatformInterfaceBase.h")
+@:structAccess
 extern class DelegateArray {
 	public var Delegates: TArray<HaxeDelegateProperty<(cpp.Reference<PlatformInterfaceDelegateResult>) -> Void>>;
+
+	@:native("FDelegateArray") public function new();
+	@:native("FDelegateArray") public static function make(Delegates: TArray<HaxeDelegateProperty<(cpp.Reference<PlatformInterfaceDelegateResult>) -> Void>>): DelegateArray ;
 }

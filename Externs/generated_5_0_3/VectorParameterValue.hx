@@ -3,9 +3,13 @@ package ue;
 
 @:native("FVectorParameterValue")
 @:include("Materials/MaterialInstance.h")
+@:structAccess
 extern class VectorParameterValue {
 	public var ParameterName_DEPRECATED: FName;
 	public var ParameterInfo: MaterialParameterInfo;
 	public var ParameterValue: LinearColor;
 	public var ExpressionGUID: Guid;
+
+	@:native("FVectorParameterValue") public function new();
+	@:native("FVectorParameterValue") public static function make(ParameterName_DEPRECATED: FName, ParameterInfo: MaterialParameterInfo, ParameterValue: LinearColor, ExpressionGUID: Guid): VectorParameterValue ;
 }

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UUserDefinedEnum")
 @:include("Engine/UserDefinedEnum.h")
+@:structAccess
 extern class UserDefinedEnum extends Enum {
 	public var UniqueNameIndex: cpp.UInt32;
 	public var EnumDescription: FText;
 	public var DisplayNameMap: TMap<FName, FText>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

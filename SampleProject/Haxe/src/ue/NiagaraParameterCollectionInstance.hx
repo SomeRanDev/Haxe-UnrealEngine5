@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraParameterCollectionInstance")
 @:include("NiagaraParameterCollection.h")
+@:structAccess
 extern class NiagaraParameterCollectionInstance extends Object {
 	public var Collection: cpp.Star<NiagaraParameterCollection>;
 	public var OverridenParameters: TArray<NiagaraVariable>;
@@ -24,6 +25,8 @@ extern class NiagaraParameterCollectionInstance extends Object {
 	public function GetFloatParameter(InVariableName: FString): cpp.Reference<cpp.Float32>;
 	public function GetColorParameter(InVariableName: FString): cpp.Reference<LinearColor>;
 	public function GetBoolParameter(InVariableName: FString): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

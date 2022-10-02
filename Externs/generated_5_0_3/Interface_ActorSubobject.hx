@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UInterface_ActorSubobject")
+@:structAccess
 extern class Interface_ActorSubobject extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

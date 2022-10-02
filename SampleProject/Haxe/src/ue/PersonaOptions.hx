@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPersonaOptions")
 @:include("Preferences/PersonaOptions.h")
+@:structAccess
 extern class PersonaOptions extends Object {
 	public var bAutoAlignFloorToMesh: Bool;
 	public var bAlwaysOpenAnimationAssetsInNewTab: Bool;
@@ -32,6 +33,8 @@ extern class PersonaOptions extends Object {
 	public var bTimelineDisplayFormatSecondary: Bool;
 	public var bTimelineDisplayCurveKeys: Bool;
 	public var TimelineEnabledSnaps: TArray<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

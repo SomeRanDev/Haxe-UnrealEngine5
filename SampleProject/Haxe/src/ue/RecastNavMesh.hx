@@ -3,6 +3,7 @@ package ue;
 
 @:native("ARecastNavMesh")
 @:include("NavMesh/RecastNavMesh.h")
+@:structAccess
 extern class RecastNavMesh extends NavigationData {
 	public var bDrawTriangleEdges: Bool;
 	public var bDrawPolyEdges: Bool;
@@ -68,6 +69,8 @@ extern class RecastNavMesh extends NavigationData {
 	public var VerticalDeviationFromGroundCompensation: cpp.Float32;
 
 	public function K2_ReplaceAreaInTileBounds(Bounds: Box, OldArea: TSubclassOf<NavArea>, NewArea: TSubclassOf<NavArea>, ReplaceLinks: Bool): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

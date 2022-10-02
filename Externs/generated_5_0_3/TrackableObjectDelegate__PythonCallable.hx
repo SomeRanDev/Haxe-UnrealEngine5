@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UTrackableObjectDelegate__PythonCallable")
+@:structAccess
 extern class TrackableObjectDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

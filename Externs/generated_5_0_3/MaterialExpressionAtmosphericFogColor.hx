@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionAtmosphericFogColor")
 @:include("Materials/MaterialExpressionAtmosphericFogColor.h")
+@:structAccess
 extern class MaterialExpressionAtmosphericFogColor extends MaterialExpression {
 	public var WorldPosition: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

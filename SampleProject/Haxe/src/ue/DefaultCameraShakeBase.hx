@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDefaultCameraShakeBase")
 @:include("DefaultCameraShakeBase.h")
+@:structAccess
 extern class DefaultCameraShakeBase extends CameraShakeBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

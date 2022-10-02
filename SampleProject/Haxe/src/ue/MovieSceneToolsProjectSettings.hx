@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneToolsProjectSettings")
 @:include("MovieSceneToolsProjectSettings.h")
+@:structAccess
 extern class MovieSceneToolsProjectSettings extends Object {
 	public var DefaultStartTime: cpp.Float32;
 	public var DefaultDuration: cpp.Float32;
@@ -16,6 +17,8 @@ extern class MovieSceneToolsProjectSettings extends Object {
 	public var TakeSeparator: FString;
 	public var SubSequenceSeparator: FString;
 	public var FbxSettings: TArray<MovieSceneToolsFbxSettings>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

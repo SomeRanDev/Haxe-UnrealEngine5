@@ -3,6 +3,7 @@ package ue;
 
 @:native("FBPVariableDescription")
 @:include("Engine/Blueprint.h")
+@:structAccess
 extern class BPVariableDescription {
 	public var VarName: FName;
 	public var VarGuid: Guid;
@@ -14,4 +15,6 @@ extern class BPVariableDescription {
 	public var ReplicationCondition: ELifetimeCondition;
 	public var MetaDataArray: TArray<BPVariableMetaDataEntry>;
 	public var DefaultValue: FString;
+
+	@:native("FBPVariableDescription") public function new();
 }

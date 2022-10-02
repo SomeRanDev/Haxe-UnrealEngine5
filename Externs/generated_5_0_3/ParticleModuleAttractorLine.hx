@@ -3,11 +3,14 @@ package ue;
 
 @:native("UParticleModuleAttractorLine")
 @:include("Particles/Attractor/ParticleModuleAttractorLine.h")
+@:structAccess
 extern class ParticleModuleAttractorLine extends ParticleModuleAttractorBase {
 	public var EndPoint0: Vector;
 	public var EndPoint1: Vector;
 	public var Range: RawDistributionFloat;
 	public var Strength: RawDistributionFloat;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

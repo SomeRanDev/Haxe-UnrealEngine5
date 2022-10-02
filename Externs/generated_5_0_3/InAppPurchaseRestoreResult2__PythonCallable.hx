@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UInAppPurchaseRestoreResult2__PythonCallable")
+@:structAccess
 extern class InAppPurchaseRestoreResult2__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

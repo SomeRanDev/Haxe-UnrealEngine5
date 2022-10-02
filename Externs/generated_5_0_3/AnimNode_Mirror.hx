@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_Mirror")
 @:include("AnimNodes/AnimNode_Mirror.h")
+@:structAccess
 extern class AnimNode_Mirror extends AnimNode_MirrorBase {
 	public var bMirror: Bool;
 	public var MirrorDataTable: cpp.Star<MirrorDataTable>;
@@ -11,4 +12,6 @@ extern class AnimNode_Mirror extends AnimNode_MirrorBase {
 	public var bBoneMirroring: Bool;
 	public var bCurveMirroring: Bool;
 	public var bAttributeMirroring: Bool;
+
+	@:native("FAnimNode_Mirror") public function new();
 }

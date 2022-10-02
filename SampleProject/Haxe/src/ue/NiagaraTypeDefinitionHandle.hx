@@ -3,6 +3,10 @@ package ue;
 
 @:native("FNiagaraTypeDefinitionHandle")
 @:include("NiagaraTypes.h")
+@:structAccess
 extern class NiagaraTypeDefinitionHandle {
 	public var RegisteredTypeIndex: cpp.Int32;
+
+	@:native("FNiagaraTypeDefinitionHandle") public function new();
+	@:native("FNiagaraTypeDefinitionHandle") public static function make(RegisteredTypeIndex: cpp.Int32): NiagaraTypeDefinitionHandle ;
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDEPRECATED_GlobalEditorUtilityBase")
 @:include("GlobalEditorUtilityBase.h")
+@:structAccess
 extern class GlobalEditorUtilityBase extends Object {
 	public var HelpText: FString;
 	public var bDirtiedSelectionSet: Bool;
@@ -22,6 +23,8 @@ extern class GlobalEditorUtilityBase extends Object {
 	public function ForEachSelectedAsset(): Void;
 	public function ForEachSelectedActor(): Void;
 	public function ClearActorSelectionSet(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

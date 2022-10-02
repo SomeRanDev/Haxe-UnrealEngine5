@@ -3,7 +3,10 @@ package ue;
 
 @:native("UBlueprintFunctionLibrary")
 @:include("Kismet/BlueprintFunctionLibrary.h")
+@:structAccess
 extern class BlueprintFunctionLibrary extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimSequenceExporterFBX")
 @:include("Exporters/AnimSequenceExporterFBX.h")
+@:structAccess
 extern class AnimSequenceExporterFBX extends ExporterFBX {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

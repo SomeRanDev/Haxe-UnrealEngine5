@@ -3,10 +3,13 @@ package ue;
 
 @:native("UFoliageType_InstancedStaticMesh")
 @:include("FoliageType_InstancedStaticMesh.h")
+@:structAccess
 extern class FoliageType_InstancedStaticMesh extends FoliageType {
 	public var Mesh: cpp.Star<StaticMesh>;
 	public var OverrideMaterials: TArray<cpp.Star<MaterialInterface>>;
 	public var ComponentClass: TSubclassOf<FoliageInstancedStaticMeshComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,11 @@ package ue;
 
 @:native("FPBIKDebug")
 @:include("RigUnit_PBIK.h")
+@:structAccess
 extern class PBIKDebug {
 	public var DrawScale: cpp.Float32;
 	public var bDrawDebug: Bool;
+
+	@:native("FPBIKDebug") public function new();
+	@:native("FPBIKDebug") public static function make(DrawScale: cpp.Float32, bDrawDebug: Bool): PBIKDebug ;
 }

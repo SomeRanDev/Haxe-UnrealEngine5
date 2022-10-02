@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULineBatchComponent")
 @:include("Components/LineBatchComponent.h")
+@:structAccess
 extern class LineBatchComp extends PrimitiveComp {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

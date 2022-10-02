@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UUInt32Property")
+@:structAccess
 extern class UInt32Property extends NumericProperty {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UPawnAction_Wait")
 @:include("Actions/PawnAction_Wait.h")
+@:structAccess
 extern class PawnAction_Wait extends PawnAction {
 	public var TimeToWait: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

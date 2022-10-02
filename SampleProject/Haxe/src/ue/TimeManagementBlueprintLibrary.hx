@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTimeManagementBlueprintLibrary")
 @:include("TimeManagementBlueprintLibrary.h")
+@:structAccess
 extern class TimeManagementBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function TransformTime(SourceTime: cpp.Reference<FrameTime>, SourceRate: cpp.Reference<FrameRate>, DestinationRate: cpp.Reference<FrameRate>): cpp.Reference<FrameTime>;
 	public function Subtract_FrameNumberInteger(A: FrameNumber, B: cpp.Int32): cpp.Reference<FrameNumber>;
@@ -21,6 +22,8 @@ extern class TimeManagementBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function Conv_FrameNumberToInteger(InFrameNumber: cpp.Reference<FrameNumber>): cpp.Reference<cpp.Int32>;
 	public function Add_FrameNumberInteger(A: FrameNumber, B: cpp.Int32): cpp.Reference<FrameNumber>;
 	public function Add_FrameNumberFrameNumber(A: FrameNumber, B: FrameNumber): cpp.Reference<FrameNumber>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

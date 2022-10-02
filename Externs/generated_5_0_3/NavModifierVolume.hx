@@ -3,11 +3,14 @@ package ue;
 
 @:native("ANavModifierVolume")
 @:include("NavModifierVolume.h")
+@:structAccess
 extern class NavModifierVolume extends Volume {
 	public var AreaClass: TSubclassOf<NavArea>;
 	public var bMaskFillCollisionUnderneathForNavmesh: Bool;
 
 	public function SetAreaClass(NewAreaClass: TSubclassOf<NavArea>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

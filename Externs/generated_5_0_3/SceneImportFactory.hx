@@ -3,7 +3,10 @@ package ue;
 
 @:native("USceneImportFactory")
 @:include("Factories/SceneImportFactory.h")
+@:structAccess
 extern class SceneImportFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

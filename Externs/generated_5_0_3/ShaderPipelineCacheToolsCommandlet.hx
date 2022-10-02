@@ -3,7 +3,10 @@ package ue;
 
 @:native("UShaderPipelineCacheToolsCommandlet")
 @:include("Commandlets/ShaderPipelineCacheToolsCommandlet.h")
+@:structAccess
 extern class ShaderPipelineCacheToolsCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

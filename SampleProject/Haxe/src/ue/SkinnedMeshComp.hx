@@ -3,6 +3,7 @@ package ue;
 
 @:native("USkinnedMeshComponent")
 @:include("Components/SkinnedMeshComponent.h")
+@:structAccess
 extern class SkinnedMeshComp extends MeshComp {
 	public var SkeletalMesh: cpp.Star<SkeletalMesh>;
 	public var MasterPoseComponent: TWeakObjectPtr<SkinnedMeshComp>;
@@ -86,6 +87,8 @@ extern class SkinnedMeshComp extends MeshComp {
 	public function ClearSkinWeightProfile(): Void;
 	public function ClearSkinWeightOverride(LODIndex: cpp.Int32): Void;
 	public function BoneIsChildOf(BoneName: FName, ParentBoneName: FName): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

@@ -3,10 +3,14 @@ package ue;
 
 @:native("FEditableTextStyle")
 @:include("Styling/SlateTypes.h")
+@:structAccess
 extern class EditableTextStyle extends SlateWidgetStyle {
 	public var Font: SlateFontInfo;
 	public var ColorAndOpacity: SlateColor;
 	public var BackgroundImageSelected: SlateBrush;
 	public var BackgroundImageComposing: SlateBrush;
 	public var CaretImage: SlateBrush;
+
+	@:native("FEditableTextStyle") public function new();
+	@:native("FEditableTextStyle") public static function make(Font: SlateFontInfo, ColorAndOpacity: SlateColor, BackgroundImageSelected: SlateBrush, BackgroundImageComposing: SlateBrush, CaretImage: SlateBrush): EditableTextStyle ;
 }

@@ -3,5 +3,7 @@ package ue;
 
 @:native("FTriangleID")
 @:include("MeshTypes.h")
+@:structAccess
 extern class TriangleID extends ElementID {
+	@:native("FTriangleID") public function new();
 }

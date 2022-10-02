@@ -3,9 +3,12 @@ package ue;
 
 @:native("UEnvQueryTest_Distance")
 @:include("EnvironmentQuery/Tests/EnvQueryTest_Distance.h")
+@:structAccess
 extern class EnvQueryTest_Distance extends EnvQueryTest {
 	public var TestMode: EEnvTestDistance;
 	public var DistanceTo: TSubclassOf<EnvQueryContext>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

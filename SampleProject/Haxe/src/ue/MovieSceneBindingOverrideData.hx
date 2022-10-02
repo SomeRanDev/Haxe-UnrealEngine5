@@ -3,8 +3,12 @@ package ue;
 
 @:native("FMovieSceneBindingOverrideData")
 @:include("MovieSceneBindingOverrides.h")
+@:structAccess
 extern class MovieSceneBindingOverrideData {
 	public var ObjectBindingId: MovieSceneObjectBindingID;
 	public var Object: TSoftObjectPtr<Object>;
 	public var bOverridesDefault: Bool;
+
+	@:native("FMovieSceneBindingOverrideData") public function new();
+	@:native("FMovieSceneBindingOverrideData") public static function make(ObjectBindingId: MovieSceneObjectBindingID, Object: TSoftObjectPtr<Object>, bOverridesDefault: Bool): MovieSceneBindingOverrideData ;
 }

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionPinBase")
 @:include("Materials/MaterialExpressionPinBase.h")
+@:structAccess
 extern class MaterialExpressionPinBase extends MaterialExpression {
 	public var ReroutePins: TArray<CompositeReroute>;
 	public var PinDirection: EEdGraphPinDirection;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

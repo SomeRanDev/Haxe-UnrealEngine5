@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_RemoveDelegate")
 @:include("K2Node_RemoveDelegate.h")
+@:structAccess
 extern class K2Node_RemoveDelegate extends K2Node_BaseMCDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

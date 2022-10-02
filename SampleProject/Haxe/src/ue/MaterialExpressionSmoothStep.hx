@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionSmoothStep")
 @:include("Materials/MaterialExpressionSmoothStep.h")
+@:structAccess
 extern class MaterialExpressionSmoothStep extends MaterialExpression {
 	public var Min: ExpressionInput;
 	public var Max: ExpressionInput;
@@ -10,6 +11,8 @@ extern class MaterialExpressionSmoothStep extends MaterialExpression {
 	public var ConstMin: cpp.Float32;
 	public var ConstMax: cpp.Float32;
 	public var ConstValue: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

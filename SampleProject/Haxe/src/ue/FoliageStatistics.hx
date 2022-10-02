@@ -3,10 +3,13 @@ package ue;
 
 @:native("UFoliageStatistics")
 @:include("FoliageStatistics.h")
+@:structAccess
 extern class FoliageStatistics extends BlueprintFunctionLibrary {
 	public function FoliageOverlappingSphereCount(WorldContextObject: cpp.Star<Object>, StaticMesh: cpp.Star<StaticMesh.ConstStaticMesh>, CenterPosition: Vector, Radius: cpp.Float32): cpp.Reference<cpp.Int32>;
 	public function FoliageOverlappingBoxTransforms(WorldContextObject: cpp.Star<Object>, StaticMesh: cpp.Star<StaticMesh.ConstStaticMesh>, Box: Box, OutTransforms: cpp.Reference<TArray<Transform>>): Void;
 	public function FoliageOverlappingBoxCount(WorldContextObject: cpp.Star<Object>, StaticMesh: cpp.Star<StaticMesh.ConstStaticMesh>, Box: Box): cpp.Reference<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

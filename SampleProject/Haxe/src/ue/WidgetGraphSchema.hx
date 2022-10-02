@@ -3,7 +3,10 @@ package ue;
 
 @:native("UWidgetGraphSchema")
 @:include("WidgetGraphSchema.h")
+@:structAccess
 extern class WidgetGraphSchema extends EdGraphSchema_K2 {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

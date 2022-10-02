@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBlueprintAsyncActionBase")
 @:include("Kismet/BlueprintAsyncActionBase.h")
+@:structAccess
 extern class BlueprintAsyncActionBase extends Object {
 	public function Activate(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

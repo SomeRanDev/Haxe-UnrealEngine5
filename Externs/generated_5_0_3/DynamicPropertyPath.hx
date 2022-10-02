@@ -3,5 +3,7 @@ package ue;
 
 @:native("FDynamicPropertyPath")
 @:include("Binding/DynamicPropertyPath.h")
+@:structAccess
 extern class DynamicPropertyPath extends CachedPropertyPath {
+	@:native("FDynamicPropertyPath") public function new();
 }

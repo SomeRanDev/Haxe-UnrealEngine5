@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnSubmixEnvelopeBP__PythonCallable")
+@:structAccess
 extern class OnSubmixEnvelopeBP__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

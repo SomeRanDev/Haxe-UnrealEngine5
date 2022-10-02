@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_ObserveBone")
 @:include("BoneControllers/AnimNode_ObserveBone.h")
+@:structAccess
 extern class AnimNode_ObserveBone extends AnimNode_SkeletalControlBase {
 	public var BoneToObserve: BoneReference;
 	public var DisplaySpace: EBoneControlSpace;
@@ -10,4 +11,6 @@ extern class AnimNode_ObserveBone extends AnimNode_SkeletalControlBase {
 	public var Translation: Vector;
 	public var Rotation: Rotator;
 	public var Scale: Vector;
+
+	@:native("FAnimNode_ObserveBone") public function new();
 }

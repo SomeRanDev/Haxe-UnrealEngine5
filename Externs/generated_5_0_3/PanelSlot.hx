@@ -3,9 +3,12 @@ package ue;
 
 @:native("UPanelSlot")
 @:include("Components/PanelSlot.h")
+@:structAccess
 extern class PanelSlot extends Visual {
 	public var Parent: cpp.Star<PanelWidget>;
 	public var Content: cpp.Star<Widget>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

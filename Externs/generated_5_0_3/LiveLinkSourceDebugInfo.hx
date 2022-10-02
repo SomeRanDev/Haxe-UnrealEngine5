@@ -3,8 +3,12 @@ package ue;
 
 @:native("FLiveLinkSourceDebugInfo")
 @:include("LiveLinkSourceSettings.h")
+@:structAccess
 extern class LiveLinkSourceDebugInfo {
 	public var SubjectName: LiveLinkSubjectName;
 	public var SnapshotIndex: cpp.Int32;
 	public var NumberOfBufferAtSnapshot: cpp.Int32;
+
+	@:native("FLiveLinkSourceDebugInfo") public function new();
+	@:native("FLiveLinkSourceDebugInfo") public static function make(SubjectName: LiveLinkSubjectName, SnapshotIndex: cpp.Int32, NumberOfBufferAtSnapshot: cpp.Int32): LiveLinkSourceDebugInfo ;
 }

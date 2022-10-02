@@ -3,7 +3,10 @@ package ue;
 
 @:native("UFontBulkData")
 @:include("Fonts/FontBulkData.h")
+@:structAccess
 extern class FontBulkData extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

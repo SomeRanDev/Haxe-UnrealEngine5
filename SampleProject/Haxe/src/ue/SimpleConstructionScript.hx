@@ -3,12 +3,15 @@ package ue;
 
 @:native("USimpleConstructionScript")
 @:include("Engine/SimpleConstructionScript.h")
+@:structAccess
 extern class SimpleConstructionScript extends Object {
 	public var RootNodes: TArray<cpp.Star<SCS_Node>>;
 	public var AllNodes: TArray<cpp.Star<SCS_Node>>;
 	public var DefaultSceneRootNode: cpp.Star<SCS_Node>;
 	public var RootNode_DEPRECATED: cpp.Star<SCS_Node>;
 	public var ActorComponentNodes_DEPRECATED: TArray<cpp.Star<SCS_Node>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

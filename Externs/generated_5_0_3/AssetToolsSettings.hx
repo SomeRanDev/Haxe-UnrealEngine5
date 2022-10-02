@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAssetToolsSettings")
 @:include("AssetToolsSettings.h")
+@:structAccess
 extern class AssetToolsSettings extends DeveloperSettings {
 	public var AdvancedCopyCustomizations: TArray<AdvancedCopyMap>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

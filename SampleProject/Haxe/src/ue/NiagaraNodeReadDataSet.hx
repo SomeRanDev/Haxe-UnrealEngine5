@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraNodeReadDataSet")
 @:include("NiagaraNodeReadDataSet.h")
+@:structAccess
 extern class NiagaraNodeReadDataSet extends NiagaraNodeDataSetBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

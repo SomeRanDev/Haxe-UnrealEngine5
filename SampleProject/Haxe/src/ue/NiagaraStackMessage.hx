@@ -3,10 +3,14 @@ package ue;
 
 @:native("FNiagaraStackMessage")
 @:include("NiagaraMessages.h")
+@:structAccess
 extern class NiagaraStackMessage {
 	public var MessageText: FText;
 	public var ShortDescription: FText;
 	public var MessageSeverity: ENiagaraMessageSeverity;
 	public var bAllowDismissal: Bool;
 	public var Guid: Guid;
+
+	@:native("FNiagaraStackMessage") public function new();
+	@:native("FNiagaraStackMessage") public static function make(MessageText: FText, ShortDescription: FText, MessageSeverity: ENiagaraMessageSeverity, bAllowDismissal: Bool, Guid: Guid): NiagaraStackMessage ;
 }

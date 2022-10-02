@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBoundsCopyComponent")
 @:include("Components/BoundsCopyComponent.h")
+@:structAccess
 extern class BoundsCopyComp extends ActorComp {
 	public var BoundsSourceActor: TSoftObjectPtr<Actor>;
 	public var bUseCollidingComponentsForSourceBounds: Bool;
@@ -15,6 +16,8 @@ extern class BoundsCopyComp extends ActorComp {
 
 	public function SetTransformToBounds(): Void;
 	public function SetRotation(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

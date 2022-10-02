@@ -3,7 +3,10 @@ package ue;
 
 @:native("UWorldPartitionMiniMapBuilder")
 @:include("WorldPartition/WorldPartitionMiniMapBuilder.h")
+@:structAccess
 extern class WorldPartitionMiniMapBuilder extends WorldPartitionBuilder {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UCookOnTheFlyServer")
 @:include("CookOnTheSide/CookOnTheFlyServer.h")
+@:structAccess
 extern class CookOnTheFlyServer extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDistributionVectorParticleParameter")
 @:include("Distributions/DistributionVectorParticleParameter.h")
+@:structAccess
 extern class DistributionVectorParticleParameter extends DistributionVectorParameterBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

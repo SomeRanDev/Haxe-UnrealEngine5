@@ -3,8 +3,11 @@ package ue;
 
 @:native("ALandscapeSplineActor")
 @:include("LandscapeSplineActor.h")
+@:structAccess
 extern class LandscapeSplineActor extends Actor {
 	public var LandscapeGuid: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FLandscapeLayer")
 @:include("Landscape.h")
+@:structAccess
 extern class LandscapeLayer {
 	public var Guid: Guid;
 	public var Name: FName;
@@ -13,4 +14,6 @@ extern class LandscapeLayer {
 	public var BlendMode: ELandscapeBlendMode;
 	public var Brushes: TArray<LandscapeLayerBrush>;
 	public var WeightmapLayerAllocationBlend: TMap<cpp.Star<LandscapeLayerInfoObject>, Bool>;
+
+	@:native("FLandscapeLayer") public function new();
 }

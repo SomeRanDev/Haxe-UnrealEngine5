@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEnvQueryDebugHelpers")
 @:include("EnvironmentQuery/EnvQueryDebugHelpers.h")
+@:structAccess
 extern class EnvQueryDebugHelpers extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

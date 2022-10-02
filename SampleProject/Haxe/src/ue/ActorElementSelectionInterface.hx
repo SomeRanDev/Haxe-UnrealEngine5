@@ -3,7 +3,10 @@ package ue;
 
 @:native("UActorElementSelectionInterface")
 @:include("Elements/Actor/ActorElementSelectionInterface.h")
+@:structAccess
 extern class ActorElementSelectionInterface extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

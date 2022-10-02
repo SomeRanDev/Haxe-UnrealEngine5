@@ -3,9 +3,13 @@ package ue;
 
 @:native("FMovieSceneRootEvaluationTemplateInstance")
 @:include("Evaluation/MovieSceneEvaluationTemplateInstance.h")
+@:structAccess
 extern class MovieSceneRootEvaluationTemplateInstance {
 	public var WeakRootSequence: TWeakObjectPtr<MovieSceneSequence>;
 	public var CompiledDataManager: cpp.Star<MovieSceneCompiledDataManager>;
 	public var EntitySystemLinker: cpp.Star<MovieSceneEntitySystemLinker>;
 	public var DirectorInstances: TMap<MovieSceneSequenceID, cpp.Star<Object>>;
+
+	@:native("FMovieSceneRootEvaluationTemplateInstance") public function new();
+	@:native("FMovieSceneRootEvaluationTemplateInstance") public static function make(WeakRootSequence: TWeakObjectPtr<MovieSceneSequence>, CompiledDataManager: cpp.Star<MovieSceneCompiledDataManager>, EntitySystemLinker: cpp.Star<MovieSceneEntitySystemLinker>, DirectorInstances: TMap<MovieSceneSequenceID, cpp.Star<Object>>): MovieSceneRootEvaluationTemplateInstance ;
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UARPlaneGeometry")
 @:include("ARTrackable.h")
+@:structAccess
 extern class ARPlaneGeometry extends ARTrackedGeometry {
 	public var Orientation: EARPlaneOrientation;
 	public var Center: Vector;
@@ -15,6 +16,8 @@ extern class ARPlaneGeometry extends ARTrackedGeometry {
 	public function GetExtent(): cpp.Reference<Vector>;
 	public function GetCenter(): cpp.Reference<Vector>;
 	public function GetBoundaryPolygonInLocalSpace(): cpp.Reference<TArray<Vector>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetSubsumedBy, GetOrientation, GetExtent, GetCenter, GetBoundaryPolygonInLocalSpace)

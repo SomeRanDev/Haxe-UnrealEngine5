@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionLandscapeLayerSample")
 @:include("Materials/MaterialExpressionLandscapeLayerSample.h")
+@:structAccess
 extern class MaterialExpressionLandscapeLayerSample extends MaterialExpression {
 	public var ParameterName: FName;
 	public var PreviewWeight: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

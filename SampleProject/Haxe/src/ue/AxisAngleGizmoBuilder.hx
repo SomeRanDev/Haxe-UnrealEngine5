@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAxisAngleGizmoBuilder")
 @:include("BaseGizmos/AxisAngleGizmo.h")
+@:structAccess
 extern class AxisAngleGizmoBuilder extends InteractiveGizmoBuilder {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

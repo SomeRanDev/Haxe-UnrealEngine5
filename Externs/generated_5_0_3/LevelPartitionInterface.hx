@@ -2,7 +2,10 @@
 package ue;
 
 @:native("ULevelPartitionInterface")
+@:structAccess
 extern class LevelPartitionInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

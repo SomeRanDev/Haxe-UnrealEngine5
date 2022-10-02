@@ -3,11 +3,14 @@ package ue;
 
 @:native("UBlackboardData")
 @:include("BehaviorTree/BlackboardData.h")
+@:structAccess
 extern class BlackboardData extends DataAsset {
 	public var Parent: cpp.Star<BlackboardData>;
 	public var ParentKeys: TArray<BlackboardEntry>;
 	public var Keys: TArray<BlackboardEntry>;
 	public var bHasSynchronizedKeys: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

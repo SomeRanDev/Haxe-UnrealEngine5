@@ -3,8 +3,11 @@ package ue;
 
 @:native("ULandscapeSettings")
 @:include("LandscapeSettings.h")
+@:structAccess
 extern class LandscapeSettings extends DeveloperSettings {
 	public var MaxNumberOfLayers: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,10 @@ package ue;
 
 @:native("FDebugCameraControllerSettingsViewModeIndex")
 @:include("Engine/DebugCameraControllerSettings.h")
+@:structAccess
 extern class DebugCameraControllerSettingsViewModeIndex {
 	public var ViewModeIndex: EViewModeIndex;
+
+	@:native("FDebugCameraControllerSettingsViewModeIndex") public function new();
+	@:native("FDebugCameraControllerSettingsViewModeIndex") public static function make(ViewModeIndex: EViewModeIndex): DebugCameraControllerSettingsViewModeIndex ;
 }

@@ -2,9 +2,12 @@
 package ue;
 
 @:native("UTurnBasedMatchInterface")
+@:structAccess
 extern class TurnBasedMatchInterface extends Interface {
 	public function OnMatchReceivedTurn(Match: FString, bDidBecomeActive: Bool): Void;
 	public function OnMatchEnded(Match: FString): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

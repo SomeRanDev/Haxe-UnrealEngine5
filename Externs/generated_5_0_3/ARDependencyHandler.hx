@@ -3,12 +3,15 @@ package ue;
 
 @:native("UARDependencyHandler")
 @:include("ARDependencyHandler.h")
+@:structAccess
 extern class ARDependencyHandler extends Object {
 	public function StartARSessionLatent(WorldContextObject: cpp.Star<Object>, SessionConfig: cpp.Star<ARSessionConfig>, LatentInfo: LatentActionInfo): Void;
 	public function RequestARSessionPermission(WorldContextObject: cpp.Star<Object>, SessionConfig: cpp.Star<ARSessionConfig>, LatentInfo: LatentActionInfo, OutPermissionResult: cpp.Reference<EARServicePermissionRequestResult>): Void;
 	public function InstallARService(WorldContextObject: cpp.Star<Object>, LatentInfo: LatentActionInfo, OutInstallResult: cpp.Reference<EARServiceInstallRequestResult>): Void;
 	public function GetARDependencyHandler(): cpp.Reference<cpp.Star<ARDependencyHandler>>;
 	public function CheckARServiceAvailability(WorldContextObject: cpp.Star<Object>, LatentInfo: LatentActionInfo, OutAvailability: cpp.Reference<EARServiceAvailability>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -2,7 +2,10 @@
 package ue;
 
 @:native("USoundParameterControllerInterface")
+@:structAccess
 extern class SoundParameterControllerInterface extends AudioParameterControllerInterface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

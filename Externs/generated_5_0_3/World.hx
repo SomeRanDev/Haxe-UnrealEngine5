@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWorld")
 @:include("Engine/World.h")
+@:structAccess
 extern class World extends Object {
 	public var Layers: TArray<cpp.Star<Layer>>;
 	public var ActiveGroupActors: TArray<cpp.Star<Actor>>;
@@ -49,6 +50,8 @@ extern class World extends Object {
 
 	public function K2_GetWorldSettings(): cpp.Reference<cpp.Star<WorldSettings>>;
 	public function HandleTimelineScrubbed(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

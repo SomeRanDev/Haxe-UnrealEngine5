@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSimSpaceSettings")
 @:include("BoneControllers/AnimNode_RigidBody.h")
+@:structAccess
 extern class SimSpaceSettings {
 	public var MasterAlpha: cpp.Float32;
 	public var VelocityScaleZ: cpp.Float32;
@@ -14,4 +15,6 @@ extern class SimSpaceSettings {
 	public var ExternalLinearDragV: Vector;
 	public var ExternalLinearVelocity: Vector;
 	public var ExternalAngularVelocity: Vector;
+
+	@:native("FSimSpaceSettings") public function new();
 }

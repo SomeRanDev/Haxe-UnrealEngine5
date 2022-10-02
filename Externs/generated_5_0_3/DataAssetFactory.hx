@@ -3,8 +3,11 @@ package ue;
 
 @:native("UDataAssetFactory")
 @:include("Factories/DataAssetFactory.h")
+@:structAccess
 extern class DataAssetFactory extends Factory {
 	public var DataAssetClass: TSubclassOf<DataAsset>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

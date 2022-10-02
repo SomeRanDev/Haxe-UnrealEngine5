@@ -3,6 +3,7 @@ package ue;
 
 @:native("UActorGroupingUtils")
 @:include("ActorGroupingUtils.h")
+@:structAccess
 extern class ActorGroupingUtils extends Object {
 	public function UnlockSelectedGroups(): Void;
 	public function UngroupSelected(): Void;
@@ -15,6 +16,8 @@ extern class ActorGroupingUtils extends Object {
 	public function GroupActors(ActorsToGroup: cpp.Reference<TArray<cpp.Star<Actor>>>): cpp.Reference<cpp.Star<GroupActor>>;
 	public function Get(): cpp.Reference<cpp.Star<ActorGroupingUtils>>;
 	public function AddSelectedToGroup(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,12 @@ package ue;
 
 @:native("FLandscapeLayerComponentData")
 @:include("LandscapeComponent.h")
+@:structAccess
 extern class LandscapeLayerComponentData {
 	public var DebugName: FName;
 	public var HeightmapData: HeightmapData;
 	public var WeightmapData: WeightmapData;
+
+	@:native("FLandscapeLayerComponentData") public function new();
+	@:native("FLandscapeLayerComponentData") public static function make(DebugName: FName, HeightmapData: HeightmapData, WeightmapData: WeightmapData): LandscapeLayerComponentData ;
 }

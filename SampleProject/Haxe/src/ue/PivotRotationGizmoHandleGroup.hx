@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPivotRotationGizmoHandleGroup")
 @:include("Gizmo/VIPivotTransformGizmo.h")
+@:structAccess
 extern class PivotRotationGizmoHandleGroup extends AxisGizmoHandleGroup {
 	public var RootFullRotationHandleComponent: cpp.Star<SceneComp>;
 	public var FullRotationHandleMeshComponent: cpp.Star<GizmoHandleMeshComp>;
@@ -10,6 +11,8 @@ extern class PivotRotationGizmoHandleGroup extends AxisGizmoHandleGroup {
 	public var RootStartRotationIdicatorComponent: cpp.Star<SceneComp>;
 	public var DeltaRotationIndicatorMeshComponent: cpp.Star<GizmoHandleMeshComp>;
 	public var RootDeltaRotationIndicatorComponent: cpp.Star<SceneComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

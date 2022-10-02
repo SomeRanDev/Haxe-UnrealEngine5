@@ -3,8 +3,11 @@ package ue;
 
 @:native("UVolumeTextureThumbnailRenderer")
 @:include("ThumbnailRendering/VolumeTextureThumbnailRenderer.h")
+@:structAccess
 extern class VolumeTextureThumbnailRenderer extends DefaultSizedThumbnailRenderer {
 	public var MaterialInstance: cpp.Star<MaterialInstanceConstant>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

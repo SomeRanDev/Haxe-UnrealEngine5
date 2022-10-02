@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOAISimpleDelegate__PythonCallable")
+@:structAccess
 extern class OAISimpleDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

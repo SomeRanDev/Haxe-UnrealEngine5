@@ -3,11 +3,14 @@ package ue;
 
 @:native("ASequencerKeyActor")
 @:include("SequencerKeyActor.h")
+@:structAccess
 extern class SequencerKeyActor extends Actor {
 	public var KeyMeshComponent: cpp.Star<StaticMeshComp>;
 	public var AssociatedActor: cpp.Star<Actor>;
 	public var TrackSection: cpp.Star<MovieScene3DTransformSection>;
 	public var KeyTime: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

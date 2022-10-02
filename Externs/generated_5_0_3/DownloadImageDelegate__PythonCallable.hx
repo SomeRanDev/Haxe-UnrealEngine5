@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UDownloadImageDelegate__PythonCallable")
+@:structAccess
 extern class DownloadImageDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

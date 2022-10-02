@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraBakerSettings")
 @:include("NiagaraBakerSettings.h")
+@:structAccess
 extern class NiagaraBakerSettings extends Object {
 	public var StartSeconds: cpp.Float32;
 	public var DurationSeconds: cpp.Float32;
@@ -19,6 +20,8 @@ extern class NiagaraBakerSettings extends Object {
 	public var bUseCameraAspectRatio: Bool;
 	public var CameraAspectRatio: cpp.Float32;
 	public var bRenderComponentOnly: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_GetArrayItem")
 @:include("K2Node_GetArrayItem.h")
+@:structAccess
 extern class K2Node_GetArrayItem extends K2Node {
 	public var bReturnByRefDesired: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

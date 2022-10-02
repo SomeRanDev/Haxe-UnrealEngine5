@@ -3,6 +3,7 @@ package ue;
 
 @:native("UShaderCookerStats")
 @:include("ShaderCookerStats.h")
+@:structAccess
 extern class ShaderCookerStats extends Object {
 	public var Name: FString;
 	public var Platform: FString;
@@ -12,6 +13,8 @@ extern class ShaderCookerStats extends Object {
 	public var Permutations: cpp.Int32;
 	public var CompileTime: cpp.Float32;
 	public var Path: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

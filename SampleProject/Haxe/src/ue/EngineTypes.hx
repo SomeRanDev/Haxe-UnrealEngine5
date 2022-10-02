@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEngineTypes")
 @:include("Engine/EngineTypes.h")
+@:structAccess
 extern class EngineTypes extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

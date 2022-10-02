@@ -3,7 +3,10 @@ package ue;
 
 @:native("ALightmassCharacterIndirectDetailVolume")
 @:include("Lightmass/LightmassCharacterIndirectDetailVolume.h")
+@:structAccess
 extern class LightmassCharacterIndirectDetailVolume extends Volume {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

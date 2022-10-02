@@ -3,6 +3,7 @@ package ue;
 
 @:native("FDistributionLookupTable")
 @:include("Distributions/Distribution.h")
+@:structAccess
 extern class DistributionLookupTable {
 	public var TimeScale: cpp.Float32;
 	public var TimeBias: cpp.Float32;
@@ -12,4 +13,6 @@ extern class DistributionLookupTable {
 	public var EntryStride: cpp.UInt8;
 	public var SubEntryStride: cpp.UInt8;
 	public var LockFlag: cpp.UInt8;
+
+	@:native("FDistributionLookupTable") public function new();
 }

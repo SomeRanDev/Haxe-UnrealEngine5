@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraDataInterfaceCollisionQuery")
 @:include("NiagaraDataInterfaceCollisionQuery.h")
+@:structAccess
 extern class NiagaraDataInterfaceCollisionQuery extends NiagaraDataInterface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

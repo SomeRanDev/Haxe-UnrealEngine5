@@ -3,7 +3,10 @@ package ue;
 
 @:native("UGizmoBaseFloatParameterSource")
 @:include("BaseGizmos/ParameterSourcesFloat.h")
+@:structAccess
 extern class GizmoBaseFloatParameterSource extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

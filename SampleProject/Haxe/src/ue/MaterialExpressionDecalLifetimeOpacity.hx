@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionDecalLifetimeOpacity")
 @:include("Materials/MaterialExpressionDecalLifetimeOpacity.h")
+@:structAccess
 extern class MaterialExpressionDecalLifetimeOpacity extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

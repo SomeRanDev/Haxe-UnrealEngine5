@@ -3,7 +3,10 @@ package ue;
 
 @:native("UContentBrowserFileDataSource")
 @:include("ContentBrowserFileDataSource.h")
+@:structAccess
 extern class ContentBrowserFileDataSource extends ContentBrowserDataSource {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAudioEQEffect")
 @:include("Sound/SoundMix.h")
+@:structAccess
 extern class AudioEQEffect extends AudioEffectParameters {
 	public var FrequencyCenter0: cpp.Float32;
 	public var Gain0: cpp.Float32;
@@ -16,4 +17,6 @@ extern class AudioEQEffect extends AudioEffectParameters {
 	public var FrequencyCenter3: cpp.Float32;
 	public var Gain3: cpp.Float32;
 	public var Bandwidth3: cpp.Float32;
+
+	@:native("FAudioEQEffect") public function new();
 }

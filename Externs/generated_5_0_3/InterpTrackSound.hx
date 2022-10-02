@@ -3,6 +3,7 @@ package ue;
 
 @:native("UInterpTrackSound")
 @:include("Matinee/InterpTrackSound.h")
+@:structAccess
 extern class InterpTrackSound extends InterpTrackVectorBase {
 	public var Sounds: TArray<SoundTrackKey>;
 	public var bPlayOnReverse: Bool;
@@ -10,6 +11,8 @@ extern class InterpTrackSound extends InterpTrackVectorBase {
 	public var bSuppressSubtitles: Bool;
 	public var bTreatAsDialogue: Bool;
 	public var bAttach: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

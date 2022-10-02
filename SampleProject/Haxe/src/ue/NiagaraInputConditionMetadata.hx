@@ -3,7 +3,11 @@ package ue;
 
 @:native("FNiagaraInputConditionMetadata")
 @:include("NiagaraTypes.h")
+@:structAccess
 extern class NiagaraInputConditionMetadata {
 	public var InputName: FName;
 	public var TargetValues: TArray<FString>;
+
+	@:native("FNiagaraInputConditionMetadata") public function new();
+	@:native("FNiagaraInputConditionMetadata") public static function make(InputName: FName, TargetValues: TArray<FString>): NiagaraInputConditionMetadata ;
 }

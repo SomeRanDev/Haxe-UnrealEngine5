@@ -3,5 +3,7 @@ package ue;
 
 @:native("FFocusEvent")
 @:include("Input/Events.h")
+@:structAccess
 extern class FocusEvent {
+	@:native("FFocusEvent") public function new();
 }

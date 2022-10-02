@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionRuntimeVirtualTextureSample")
 @:include("Materials/MaterialExpressionRuntimeVirtualTextureSample.h")
+@:structAccess
 extern class MaterialExpressionRuntimeVirtualTextureSample extends MaterialExpression {
 	public var Coordinates: ExpressionInput;
 	public var WorldPosition: ExpressionInput;
@@ -13,6 +14,8 @@ extern class MaterialExpressionRuntimeVirtualTextureSample extends MaterialExpre
 	public var bAdaptive: Bool;
 	public var MipValueMode: ERuntimeVirtualTextureMipValueMode;
 	public var TextureAddressMode: ERuntimeVirtualTextureTextureAddressMode;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

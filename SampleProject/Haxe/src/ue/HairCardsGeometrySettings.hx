@@ -3,6 +3,7 @@ package ue;
 
 @:native("FHairCardsGeometrySettings")
 @:include("GroomAssetCards.h")
+@:structAccess
 extern class HairCardsGeometrySettings {
 	public var GenerationType: EHairCardsGenerationType;
 	public var CardsCount: cpp.Int32;
@@ -11,4 +12,6 @@ extern class HairCardsGeometrySettings {
 	public var AngularThreshold: cpp.Float32;
 	public var MinCardsLength: cpp.Float32;
 	public var MaxCardsLength: cpp.Float32;
+
+	@:native("FHairCardsGeometrySettings") public function new();
 }

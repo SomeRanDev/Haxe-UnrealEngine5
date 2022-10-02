@@ -3,6 +3,7 @@ package ue;
 
 @:native("UControlRigGraphNode")
 @:include("Graph/ControlRigGraphNode.h")
+@:structAccess
 extern class ControlRigGraphNode extends EdGraphNode {
 	public var ModelNodePath: FString;
 	public var CachedModelNode: cpp.Star<RigVMNode>;
@@ -12,6 +13,8 @@ extern class ControlRigGraphNode extends EdGraphNode {
 	public var PinType_DEPRECATED: EdGraphPinType;
 	public var ParameterType_DEPRECATED: cpp.Int32;
 	public var ExpandedPins_DEPRECATED: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

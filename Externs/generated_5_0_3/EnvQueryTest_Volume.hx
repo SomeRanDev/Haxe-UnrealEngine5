@@ -3,10 +3,13 @@ package ue;
 
 @:native("UEnvQueryTest_Volume")
 @:include("EnvironmentQuery/Tests/EnvQueryTest_Volume.h")
+@:structAccess
 extern class EnvQueryTest_Volume extends EnvQueryTest {
 	public var VolumeContext: TSubclassOf<EnvQueryContext>;
 	public var VolumeClass: TSubclassOf<Volume>;
 	public var bDoComplexVolumeTest: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

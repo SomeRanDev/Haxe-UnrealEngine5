@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULandscapeHLODBuilder")
 @:include("LandscapeHLODBuilder.h")
+@:structAccess
 extern class LandscapeHLODBuilder extends HLODBuilder {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

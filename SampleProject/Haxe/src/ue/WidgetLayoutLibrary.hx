@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWidgetLayoutLibrary")
 @:include("Blueprint/WidgetLayoutLibrary.h")
+@:structAccess
 extern class WidgetLayoutLibrary extends BlueprintFunctionLibrary {
 	public function SlotAsWrapBoxSlot(Widget: cpp.Star<Widget>): cpp.Reference<cpp.Star<WrapBoxSlot>>;
 	public function SlotAsWidgetSwitcherSlot(Widget: cpp.Star<Widget>): cpp.Reference<cpp.Star<WidgetSwitcherSlot>>;
@@ -26,6 +27,8 @@ extern class WidgetLayoutLibrary extends BlueprintFunctionLibrary {
 	public function GetMousePositionScaledByDPI(Player: cpp.Star<PlayerController>, LocationX: cpp.Reference<cpp.Float32>, LocationY: cpp.Reference<cpp.Float32>): cpp.Reference<Bool>;
 	public function GetMousePositionOnViewport(WorldContextObject: cpp.Star<Object>): cpp.Reference<Vector2D>;
 	public function GetMousePositionOnPlatform(): cpp.Reference<Vector2D>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

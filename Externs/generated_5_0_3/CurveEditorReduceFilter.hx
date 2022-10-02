@@ -3,8 +3,11 @@ package ue;
 
 @:native("UCurveEditorReduceFilter")
 @:include("Filters/CurveEditorReduceFilter.h")
+@:structAccess
 extern class CurveEditorReduceFilter extends CurveEditorFilterBase {
 	public var Tolerance: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FPyTestStruct")
 @:include("Private/PyTest.h")
+@:structAccess
 extern class PyTestStruct {
 	public var Bool: Bool;
 	public var Int: cpp.Int32;
@@ -17,4 +18,6 @@ extern class PyTestStruct {
 	public var LegacyInt_DEPRECATED: cpp.Int32;
 	public var BoolInstanceOnly: Bool;
 	public var BoolDefaultsOnly: Bool;
+
+	@:native("FPyTestStruct") public function new();
 }

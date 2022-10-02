@@ -3,9 +3,12 @@ package ue;
 
 @:native("UIntegerChannelKeyProxy")
 @:include("Channels/IntegerChannelKeyProxy.h")
+@:structAccess
 extern class IntegerChannelKeyProxy extends Object {
 	public var Time: FrameNumber;
 	public var Value: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

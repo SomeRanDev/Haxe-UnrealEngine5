@@ -2,6 +2,7 @@
 package ue;
 
 @:native("URigVMMemory_Work")
+@:structAccess
 extern class RigVMMemory_Work extends RigVMMemoryStorage {
 	public var ExecuteContext_: ControlRigExecuteContext;
 	public var FootTrace_FootTrace_SphereTraceByTraceChannel_HitLocation: Vector;
@@ -58,6 +59,8 @@ extern class RigVMMemory_Work extends RigVMMemoryStorage {
 	public var PBIK_SolverBoneToElementIndex: TArray<TArray<cpp.Int32>>;
 	public var PBIK_Solver: TArray<PBIKSolver>;
 	public var PBIK_bNeedsInit: TArray<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

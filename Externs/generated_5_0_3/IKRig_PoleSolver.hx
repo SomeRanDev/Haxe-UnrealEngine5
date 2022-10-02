@@ -3,10 +3,13 @@ package ue;
 
 @:native("UIKRig_PoleSolver")
 @:include("Solvers/IKRig_PoleSolver.h")
+@:structAccess
 extern class IKRig_PoleSolver extends IKRigSolver {
 	public var RootName: FName;
 	public var EndName: FName;
 	public var Effector: cpp.Star<IKRig_PoleSolverEffector>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

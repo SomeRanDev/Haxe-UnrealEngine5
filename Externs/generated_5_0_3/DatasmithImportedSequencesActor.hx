@@ -3,10 +3,13 @@ package ue;
 
 @:native("ADatasmithImportedSequencesActor")
 @:include("DatasmithImportedSequencesActor.h")
+@:structAccess
 extern class DatasmithImportedSequencesActor extends Actor {
 	public var ImportedSequences: TArray<cpp.Star<LevelSequence>>;
 
 	public function PlayLevelSequence(SequenceToPlay: cpp.Star<LevelSequence>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

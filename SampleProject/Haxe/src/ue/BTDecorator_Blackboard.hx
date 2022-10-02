@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBTDecorator_Blackboard")
 @:include("BehaviorTree/Decorators/BTDecorator_Blackboard.h")
+@:structAccess
 extern class BTDecorator_Blackboard extends BTDecorator_BlackboardBase {
 	public var IntValue: cpp.Int32;
 	public var FloatValue: cpp.Float32;
@@ -13,6 +14,8 @@ extern class BTDecorator_Blackboard extends BTDecorator_BlackboardBase {
 	public var BasicOperation: EBasicKeyOperation;
 	public var ArithmeticOperation: EArithmeticKeyOperation;
 	public var TextOperation: ETextKeyOperation;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

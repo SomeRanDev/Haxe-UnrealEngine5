@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAIPerceptionSystem")
 @:include("Perception/AIPerceptionSystem.h")
+@:structAccess
 extern class AIPerceptionSystem extends AISubsystem {
 	public var Senses: TArray<cpp.Star<AISense>>;
 	public var PerceptionAgingRate: cpp.Float32;
@@ -12,6 +13,8 @@ extern class AIPerceptionSystem extends AISubsystem {
 	public function RegisterPerceptionStimuliSource(WorldContextObject: cpp.Star<Object>, Sense: TSubclassOf<AISense>, Target: cpp.Star<Actor>): cpp.Reference<Bool>;
 	public function OnPerceptionStimuliSourceEndPlay(Actor: cpp.Star<Actor>, EndPlayReason: EEndPlayReason): Void;
 	public function GetSenseClassForStimulus(WorldContextObject: cpp.Star<Object>, Stimulus: cpp.Reference<AIStimulus>): cpp.Reference<TSubclassOf<AISense>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

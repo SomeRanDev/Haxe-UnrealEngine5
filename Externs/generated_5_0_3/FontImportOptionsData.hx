@@ -3,6 +3,7 @@ package ue;
 
 @:native("FFontImportOptionsData")
 @:include("Engine/FontImportOptions.h")
+@:structAccess
 extern class FontImportOptionsData {
 	public var FontName: FString;
 	public var Height: cpp.Float32;
@@ -33,4 +34,6 @@ extern class FontImportOptionsData {
 	public var bUseDistanceFieldAlpha: Bool;
 	public var DistanceFieldScaleFactor: cpp.Int32;
 	public var DistanceFieldScanRadiusScale: cpp.Float32;
+
+	@:native("FFontImportOptionsData") public function new();
 }

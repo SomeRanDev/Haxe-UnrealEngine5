@@ -3,6 +3,7 @@ package ue;
 
 @:native("FBodyInstanceCore")
 @:include("BodyInstanceCore.h")
+@:structAccess
 extern class BodyInstanceCore {
 	public var bSimulatePhysics: Bool;
 	public var bOverrideMass: Bool;
@@ -11,4 +12,6 @@ extern class BodyInstanceCore {
 	public var bStartAwake: Bool;
 	public var bGenerateWakeEvents: Bool;
 	public var bUpdateMassWhenScaleChanges: Bool;
+
+	@:native("FBodyInstanceCore") public function new();
 }

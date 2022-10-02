@@ -3,10 +3,13 @@ package ue;
 
 @:native("UAssetGuideline")
 @:include("Editor/AssetGuideline.h")
+@:structAccess
 extern class AssetGuideline extends AssetUserData {
 	public var Plugins: TArray<FString>;
 	public var ProjectSettings: TArray<IniStringValue>;
 	public var GuidelineName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

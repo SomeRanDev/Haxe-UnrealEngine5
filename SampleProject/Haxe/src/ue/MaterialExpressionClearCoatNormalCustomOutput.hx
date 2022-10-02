@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionClearCoatNormalCustomOutput")
 @:include("Materials/MaterialExpressionClearCoatNormalCustomOutput.h")
+@:structAccess
 extern class MaterialExpressionClearCoatNormalCustomOutput extends MaterialExpressionCustomOutput {
 	public var Input: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

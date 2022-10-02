@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraDataInterfaceEmitterProperties")
 @:include("DataInterface/NiagaraDataInterfaceEmitterProperties.h")
+@:structAccess
 extern class NiagaraDataInterfaceEmitterProperties extends NiagaraDataInterface {
 	public var EmitterBinding: NiagaraDataInterfaceEmitterBinding;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UProjectileMovementComponent")
 @:include("GameFramework/ProjectileMovementComponent.h")
+@:structAccess
 extern class ProjectileMovementComp extends MovementComp {
 	public var InitialSpeed: cpp.Float32;
 	public var MaxSpeed: cpp.Float32;
@@ -48,6 +49,8 @@ extern class ProjectileMovementComp extends MovementComp {
 	public function LimitVelocity(NewVelocity: Vector): cpp.Reference<Vector>;
 	public function IsVelocityUnderSimulationThreshold(): cpp.Reference<Bool>;
 	public function IsInterpolationComplete(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(LimitVelocity, IsVelocityUnderSimulationThreshold, IsInterpolationComplete)

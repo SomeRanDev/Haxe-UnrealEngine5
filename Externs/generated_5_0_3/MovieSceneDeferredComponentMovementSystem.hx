@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMovieSceneDeferredComponentMovementSystem")
 @:include("Systems/MovieSceneDeferredComponentMovementSystem.h")
+@:structAccess
 extern class MovieSceneDeferredComponentMovementSystem extends MovieSceneEntitySystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

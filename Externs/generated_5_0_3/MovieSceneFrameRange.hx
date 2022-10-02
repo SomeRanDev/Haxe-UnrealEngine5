@@ -3,5 +3,7 @@ package ue;
 
 @:native("FMovieSceneFrameRange")
 @:include("MovieSceneFrameMigration.h")
+@:structAccess
 extern class MovieSceneFrameRange {
+	@:native("FMovieSceneFrameRange") public function new();
 }

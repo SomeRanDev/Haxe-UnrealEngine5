@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UK2Node_ExternalGraphInterface")
+@:structAccess
 extern class K2Node_ExternalGraphInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

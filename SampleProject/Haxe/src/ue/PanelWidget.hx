@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPanelWidget")
 @:include("Components/PanelWidget.h")
+@:structAccess
 extern class PanelWidget extends Widget {
 	public var Slots: TArray<cpp.Star<PanelSlot>>;
 
@@ -16,6 +17,8 @@ extern class PanelWidget extends Widget {
 	public function GetAllChildren(): cpp.Reference<TArray<cpp.Star<Widget>>>;
 	public function ClearChildren(): Void;
 	public function AddChild(Content: cpp.Star<Widget>): cpp.Reference<cpp.Star<PanelSlot>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(HasChild, HasAnyChildren, GetChildrenCount, GetChildIndex, GetChildAt, GetAllChildren)

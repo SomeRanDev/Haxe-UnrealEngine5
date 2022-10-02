@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnyButtonInputBehavior")
 @:include("BaseBehaviors/AnyButtonInputBehavior.h")
+@:structAccess
 extern class AnyButtonInputBehavior extends InputBehavior {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

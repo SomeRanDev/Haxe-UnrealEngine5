@@ -3,8 +3,12 @@ package ue;
 
 @:native("FExpandableAreaStyle")
 @:include("Styling/SlateTypes.h")
+@:structAccess
 extern class ExpandableAreaStyle extends SlateWidgetStyle {
 	public var CollapsedImage: SlateBrush;
 	public var ExpandedImage: SlateBrush;
 	public var RolloutAnimationSeconds: cpp.Float32;
+
+	@:native("FExpandableAreaStyle") public function new();
+	@:native("FExpandableAreaStyle") public static function make(CollapsedImage: SlateBrush, ExpandedImage: SlateBrush, RolloutAnimationSeconds: cpp.Float32): ExpandableAreaStyle ;
 }

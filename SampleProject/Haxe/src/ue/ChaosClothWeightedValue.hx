@@ -3,7 +3,11 @@ package ue;
 
 @:native("FChaosClothWeightedValue")
 @:include("ChaosCloth/ChaosClothConfig.h")
+@:structAccess
 extern class ChaosClothWeightedValue {
 	public var Low: cpp.Float32;
 	public var High: cpp.Float32;
+
+	@:native("FChaosClothWeightedValue") public function new();
+	@:native("FChaosClothWeightedValue") public static function make(Low: cpp.Float32, High: cpp.Float32): ChaosClothWeightedValue ;
 }

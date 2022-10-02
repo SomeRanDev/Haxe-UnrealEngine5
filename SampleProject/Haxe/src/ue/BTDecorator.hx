@@ -3,9 +3,12 @@ package ue;
 
 @:native("UBTDecorator")
 @:include("BehaviorTree/BTDecorator.h")
+@:structAccess
 extern class BTDecorator extends BTAuxiliaryNode {
 	public var bInverseCondition: Bool;
 	public var FlowAbortMode: EBTFlowAbortMode;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

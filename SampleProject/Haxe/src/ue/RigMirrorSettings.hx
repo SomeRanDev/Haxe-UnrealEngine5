@@ -3,9 +3,13 @@ package ue;
 
 @:native("FRigMirrorSettings")
 @:include("Rigs/RigHierarchyDefines.h")
+@:structAccess
 extern class RigMirrorSettings {
 	public var MirrorAxis: EAxis;
 	public var AxisToFlip: EAxis;
 	public var SearchString: FString;
 	public var ReplaceString: FString;
+
+	@:native("FRigMirrorSettings") public function new();
+	@:native("FRigMirrorSettings") public static function make(MirrorAxis: EAxis, AxisToFlip: EAxis, SearchString: FString, ReplaceString: FString): RigMirrorSettings ;
 }

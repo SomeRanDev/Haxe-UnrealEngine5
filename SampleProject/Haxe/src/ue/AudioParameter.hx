@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAudioParameter")
 @:include("AudioParameter.h")
+@:structAccess
 extern class AudioParameter {
 	public var ParamName: FName;
 	public var FloatParam: cpp.Float32;
@@ -17,4 +18,6 @@ extern class AudioParameter {
 	public var ArrayStringParam: TArray<FString>;
 	public var ParamType: EAudioParameterType;
 	public var TypeName: FName;
+
+	@:native("FAudioParameter") public function new();
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCrowdFollowingComponent")
 @:include("Navigation/CrowdFollowingComponent.h")
+@:structAccess
 extern class CrowdFollowingComp extends PathFollowingComp {
 	public var CrowdAgentMoveDirection: Vector;
 	public var CharacterMovement: cpp.Star<CharacterMovementComp>;
@@ -11,6 +12,8 @@ extern class CrowdFollowingComp extends PathFollowingComp {
 	public var GroupsToIgnore_DEPRECATED: NavAvoidanceMask;
 
 	public function SuspendCrowdSteering(bSuspend: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("AHUD")
 @:include("GameFramework/HUD.h")
+@:structAccess
 extern class HUD extends Actor {
 	public var PlayerOwner: cpp.Star<PlayerController>;
 	public var bLostFocusPaused: Bool;
@@ -50,6 +51,8 @@ extern class HUD extends Actor {
 	public function Deproject(ScreenX: cpp.Float32, ScreenY: cpp.Float32, WorldPosition: cpp.Reference<Vector>, WorldDirection: cpp.Reference<Vector>): Void;
 	public function AddHitBox(Position: Vector2D, Size: Vector2D, InName: FName, bConsumesInput: Bool, Priority: cpp.Int32): Void;
 	public function AddDebugText(DebugText: FString, SrcActor: cpp.Star<Actor>, Duration: cpp.Float32, Offset: Vector, DesiredOffset: Vector, TextColor: Color, bSkipOverwriteCheck: Bool, bAbsoluteLocation: Bool, bKeepAttachedToActor: Bool, InFont: cpp.Star<Font>, FontScale: cpp.Float32, bDrawShadow: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(Project, GetTextSize, GetOwningPlayerController, GetOwningPawn, Deproject)

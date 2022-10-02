@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnEditorUtilityPIEEvent__PythonCallable")
+@:structAccess
 extern class OnEditorUtilityPIEEvent__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

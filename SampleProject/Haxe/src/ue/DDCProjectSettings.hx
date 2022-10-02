@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDDCProjectSettings")
 @:include("Settings/EditorProjectSettings.h")
+@:structAccess
 extern class DDCProjectSettings extends DeveloperSettings {
 	public var EnableWarnings: Bool;
 	public var RecommendEveryoneSetupAGlobalLocalDDCPath: Bool;
@@ -10,6 +11,8 @@ extern class DDCProjectSettings extends DeveloperSettings {
 	public var RecommendEveryoneSetupAGlobalS3DDCPath: Bool;
 	public var RecommendEveryoneEnableS3DDC: Bool;
 	public var RecommendEveryoneUseHordeStorage: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

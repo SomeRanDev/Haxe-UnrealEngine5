@@ -3,6 +3,10 @@ package ue;
 
 @:native("FCapturedPixelsID")
 @:include("Protocols/UserDefinedCaptureProtocol.h")
+@:structAccess
 extern class CapturedPixelsID {
 	public var Identifiers: TMap<FName, FName>;
+
+	@:native("FCapturedPixelsID") public function new();
+	@:native("FCapturedPixelsID") public static function make(Identifiers: TMap<FName, FName>): CapturedPixelsID ;
 }

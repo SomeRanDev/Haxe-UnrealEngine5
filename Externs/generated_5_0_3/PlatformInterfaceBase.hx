@@ -3,8 +3,11 @@ package ue;
 
 @:native("UPlatformInterfaceBase")
 @:include("Engine/PlatformInterfaceBase.h")
+@:structAccess
 extern class PlatformInterfaceBase extends Object {
 	public var AllDelegates: TArray<DelegateArray>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

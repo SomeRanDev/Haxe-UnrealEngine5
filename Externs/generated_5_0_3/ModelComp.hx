@@ -3,8 +3,11 @@ package ue;
 
 @:native("UModelComponent")
 @:include("Components/ModelComponent.h")
+@:structAccess
 extern class ModelComp extends PrimitiveComp {
 	public var ModelBodySetup: cpp.Star<BodySetup>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

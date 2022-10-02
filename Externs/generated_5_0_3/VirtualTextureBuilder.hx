@@ -3,9 +3,12 @@ package ue;
 
 @:native("UVirtualTextureBuilder")
 @:include("VT/VirtualTextureBuilder.h")
+@:structAccess
 extern class VirtualTextureBuilder extends Object {
 	public var Texture: cpp.Star<VirtualTexture2D>;
 	public var BuildHash: cpp.UInt64;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

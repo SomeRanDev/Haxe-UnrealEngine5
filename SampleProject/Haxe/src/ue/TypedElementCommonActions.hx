@@ -3,11 +3,14 @@ package ue;
 
 @:native("UTypedElementCommonActions")
 @:include("Elements/Framework/TypedElementCommonActions.h")
+@:structAccess
 extern class TypedElementCommonActions extends Object {
 	public function K2_DuplicateSelectedElements(SelectionSet: cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet>, World: cpp.Star<World>, LocationOffset: cpp.Reference<Vector>): cpp.Reference<TArray<ScriptTypedElementHandle>>;
 	public function DuplicateNormalizedElements(ElementList: ScriptTypedElementListProxy, World: cpp.Star<World>, LocationOffset: cpp.Reference<Vector>): cpp.Reference<TArray<ScriptTypedElementHandle>>;
 	public function DeleteSelectedElements(SelectionSet: cpp.Star<TypedElementSelectionSet>, World: cpp.Star<World>, DeletionOptions: cpp.Reference<TypedElementDeletionOptions>): cpp.Reference<Bool>;
 	public function DeleteNormalizedElements(ElementList: ScriptTypedElementListProxy, World: cpp.Star<World>, InSelectionSet: cpp.Star<TypedElementSelectionSet>, DeletionOptions: cpp.Reference<TypedElementDeletionOptions>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

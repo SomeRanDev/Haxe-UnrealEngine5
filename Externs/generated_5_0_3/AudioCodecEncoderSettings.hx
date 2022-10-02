@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAudioCodecEncoderSettings")
 @:include("IAudioCodec.h")
+@:structAccess
 extern class AudioCodecEncoderSettings extends Object {
 	public var Version: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

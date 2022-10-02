@@ -3,6 +3,10 @@ package ue;
 
 @:native("FRigCurve")
 @:include("Rigs/RigCurveContainer.h")
+@:structAccess
 extern class RigCurve extends RigElement {
 	public var Value: cpp.Float32;
+
+	@:native("FRigCurve") public function new();
+	@:native("FRigCurve") public static function make(Value: cpp.Float32): RigCurve ;
 }

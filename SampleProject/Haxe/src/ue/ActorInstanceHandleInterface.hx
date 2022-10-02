@@ -3,7 +3,10 @@ package ue;
 
 @:native("UActorInstanceHandleInterface")
 @:include("GameFramework/LightWeightInstanceManager.h")
+@:structAccess
 extern class ActorInstanceHandleInterface extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

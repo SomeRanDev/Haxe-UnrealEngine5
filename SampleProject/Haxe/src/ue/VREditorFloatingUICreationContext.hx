@@ -3,6 +3,7 @@ package ue;
 
 @:native("FVREditorFloatingUICreationContext")
 @:include("UI/VREditorFloatingUI.h")
+@:structAccess
 extern class VREditorFloatingUICreationContext {
 	public var WidgetClass: TSubclassOf<UserWidget>;
 	public var PanelID: FName;
@@ -14,4 +15,6 @@ extern class VREditorFloatingUICreationContext {
 	public var bHideWindowHandles: Bool;
 	public var bMaskOutWidgetBackground: Bool;
 	public var bNoCloseButton: Bool;
+
+	@:native("FVREditorFloatingUICreationContext") public function new();
 }

@@ -3,8 +3,12 @@ package ue;
 
 @:native("FActorPerceptionUpdateInfo")
 @:include("Perception/AIPerceptionComponent.h")
+@:structAccess
 extern class ActorPerceptionUpdateInfo {
 	public var TargetId: cpp.Int32;
 	public var Target: TWeakObjectPtr<Actor>;
 	public var Stimulus: AIStimulus;
+
+	@:native("FActorPerceptionUpdateInfo") public function new();
+	@:native("FActorPerceptionUpdateInfo") public static function make(TargetId: cpp.Int32, Target: TWeakObjectPtr<Actor>, Stimulus: AIStimulus): ActorPerceptionUpdateInfo ;
 }

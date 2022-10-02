@@ -3,11 +3,14 @@ package ue;
 
 @:native("UEnvQueryTest_Dot")
 @:include("EnvironmentQuery/Tests/EnvQueryTest_Dot.h")
+@:structAccess
 extern class EnvQueryTest_Dot extends EnvQueryTest {
 	public var LineA: EnvDirection;
 	public var LineB: EnvDirection;
 	public var TestMode: EEnvTestDot;
 	public var bAbsoluteValue: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

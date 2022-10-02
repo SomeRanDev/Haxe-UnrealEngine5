@@ -3,11 +3,14 @@ package ue;
 
 @:native("USourceControlPreferences")
 @:include("SourceControlPreferences.h")
+@:structAccess
 extern class SourceControlPreferences extends DeveloperSettings {
 	public var bEnableValidationTag: Bool;
 	public var bShouldDeleteNewFilesOnRevert: Bool;
 	public var CollectionChangelistTags: TArray<FString>;
 	public var SpecificCollectionChangelistTags: TMap<FName, FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

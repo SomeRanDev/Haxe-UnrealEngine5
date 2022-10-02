@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAISense_Team")
 @:include("Perception/AISense_Team.h")
+@:structAccess
 extern class AISense_Team extends AISense {
 	public var RegisteredEvents: TArray<AITeamStimulusEvent>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

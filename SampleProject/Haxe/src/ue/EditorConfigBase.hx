@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEditorConfigBase")
 @:include("EditorConfigBase.h")
+@:structAccess
 extern class EditorConfigBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

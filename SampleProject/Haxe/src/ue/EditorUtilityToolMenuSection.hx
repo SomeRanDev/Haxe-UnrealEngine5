@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEditorUtilityToolMenuSection")
 @:include("EditorUtilityToolMenu.h")
+@:structAccess
 extern class EditorUtilityToolMenuSection extends ToolMenuSectionDynamic {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

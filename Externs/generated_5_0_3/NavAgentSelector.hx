@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNavAgentSelector")
 @:include("AI/Navigation/NavigationTypes.h")
+@:structAccess
 extern class NavAgentSelector {
 	public var bSupportsAgent0: Bool;
 	public var bSupportsAgent1: Bool;
@@ -20,4 +21,6 @@ extern class NavAgentSelector {
 	public var bSupportsAgent13: Bool;
 	public var bSupportsAgent14: Bool;
 	public var bSupportsAgent15: Bool;
+
+	@:native("FNavAgentSelector") public function new();
 }

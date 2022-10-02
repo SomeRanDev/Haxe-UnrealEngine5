@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDataValidationChangelist")
 @:include("DataValidationChangelist.h")
+@:structAccess
 extern class DataValidationChangelist extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

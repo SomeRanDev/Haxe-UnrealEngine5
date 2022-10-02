@@ -3,12 +3,15 @@ package ue;
 
 @:native("UWorldPartitionResaveActorsBuilder")
 @:include("WorldPartition/WorldPartitionResaveActorsBuilder.h")
+@:structAccess
 extern class WorldPartitionResaveActorsBuilder extends WorldPartitionBuilder {
 	public var ActorClassName: FString;
 	public var bReportOnly: Bool;
 	public var bResaveDirtyActorDescsOnly: Bool;
 	public var bSwitchActorPackagingSchemeToReduced: Bool;
 	public var bEnableActorFolders: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

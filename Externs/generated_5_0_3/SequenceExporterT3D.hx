@@ -3,7 +3,10 @@ package ue;
 
 @:native("USequenceExporterT3D")
 @:include("Exporters/SequenceExporterT3D.h")
+@:structAccess
 extern class SequenceExporterT3D extends Exporter {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

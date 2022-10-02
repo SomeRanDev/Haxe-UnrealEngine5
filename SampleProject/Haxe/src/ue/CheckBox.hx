@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCheckBox")
 @:include("Components/CheckBox.h")
+@:structAccess
 extern class CheckBox extends ContentWidget {
 	public var CheckedState: ECheckBoxState;
 	public var CheckedStateDelegate: HaxeDelegateProperty<() -> Void>;
@@ -34,6 +35,8 @@ extern class CheckBox extends ContentWidget {
 	public function IsPressed(): cpp.Reference<Bool>;
 	public function IsChecked(): cpp.Reference<Bool>;
 	public function GetCheckedState(): cpp.Reference<ECheckBoxState>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsPressed, IsChecked, GetCheckedState)

@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMovieSceneMarginSection")
 @:include("Animation/MovieSceneMarginSection.h")
+@:structAccess
 extern class MovieSceneMarginSection extends MovieSceneSection {
 	public var TopCurve: MovieSceneFloatChannel;
 	public var LeftCurve: MovieSceneFloatChannel;
 	public var RightCurve: MovieSceneFloatChannel;
 	public var BottomCurve: MovieSceneFloatChannel;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

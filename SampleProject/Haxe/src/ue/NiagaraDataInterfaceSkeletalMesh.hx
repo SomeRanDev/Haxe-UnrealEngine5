@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraDataInterfaceSkeletalMesh")
 @:include("NiagaraDataInterfaceSkeletalMesh.h")
+@:structAccess
 extern class NiagaraDataInterfaceSkeletalMesh extends NiagaraDataInterface {
 	public var SourceMode: ENDISkeletalMesh_SourceMode;
 	public var PreviewMesh: TSoftObjectPtr<SkeletalMesh>;
@@ -18,6 +19,8 @@ extern class NiagaraDataInterfaceSkeletalMesh extends NiagaraDataInterface {
 	public var bExcludeBone: Bool;
 	public var UvSetIndex: cpp.Int32;
 	public var bRequireCurrentFrameData: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,12 +3,15 @@ package ue;
 
 @:native("UMaterialExpressionTextureCoordinate")
 @:include("Materials/MaterialExpressionTextureCoordinate.h")
+@:structAccess
 extern class MaterialExpressionTextureCoordinate extends MaterialExpression {
 	public var CoordinateIndex: cpp.Int32;
 	public var UTiling: cpp.Float32;
 	public var VTiling: cpp.Float32;
 	public var UnMirrorU: Bool;
 	public var UnMirrorV: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

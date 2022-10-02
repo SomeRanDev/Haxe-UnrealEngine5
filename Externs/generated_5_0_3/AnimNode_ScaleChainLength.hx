@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_ScaleChainLength")
 @:include("BoneControllers/AnimNode_ScaleChainLength.h")
+@:structAccess
 extern class AnimNode_ScaleChainLength extends AnimNode_Base {
 	public var InputPose: PoseLink;
 	public var DefaultChainLength: cpp.Float32;
@@ -12,4 +13,6 @@ extern class AnimNode_ScaleChainLength extends AnimNode_Base {
 	public var Alpha: cpp.Float32;
 	public var AlphaScaleBias: InputScaleBias;
 	public var ChainInitialLength: EScaleChainInitialLength;
+
+	@:native("FAnimNode_ScaleChainLength") public function new();
 }

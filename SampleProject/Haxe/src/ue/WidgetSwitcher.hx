@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWidgetSwitcher")
 @:include("Components/WidgetSwitcher.h")
+@:structAccess
 extern class WidgetSwitcher extends PanelWidget {
 	public var ActiveWidgetIndex: cpp.Int32;
 
@@ -12,6 +13,8 @@ extern class WidgetSwitcher extends PanelWidget {
 	public function GetNumWidgets(): cpp.Reference<cpp.Int32>;
 	public function GetActiveWidgetIndex(): cpp.Reference<cpp.Int32>;
 	public function GetActiveWidget(): cpp.Reference<cpp.Star<Widget>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetWidgetAtIndex, GetNumWidgets, GetActiveWidgetIndex, GetActiveWidget)

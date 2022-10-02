@@ -3,11 +3,14 @@ package ue;
 
 @:native("UNavigationSystemModuleConfig")
 @:include("NavigationSystem.h")
+@:structAccess
 extern class NavigationSystemModuleConfig extends NavigationSystemConfig {
 	public var bStrictlyStatic: Bool;
 	public var bCreateOnClient: Bool;
 	public var bAutoSpawnMissingNavData: Bool;
 	public var bSpawnNavDataInNavBoundsLevel: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

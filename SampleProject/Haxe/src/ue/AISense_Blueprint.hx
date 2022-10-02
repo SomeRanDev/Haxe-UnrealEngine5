@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAISense_Blueprint")
 @:include("Perception/AISense_Blueprint.h")
+@:structAccess
 extern class AISense_Blueprint extends AISense {
 	public var ListenerDataType: TSubclassOf<UserDefinedStruct>;
 	public var ListenerContainer: TArray<cpp.Star<AIPerceptionComp>>;
@@ -15,6 +16,8 @@ extern class AISense_Blueprint extends AISense {
 	public function K2_OnNewPawn(NewPawn: cpp.Star<Pawn>): Void;
 	public function GetAllListenerComponents(ListenerComponents: cpp.Reference<TArray<cpp.Star<AIPerceptionComp>>>): Void;
 	public function GetAllListenerActors(ListenerActors: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetAllListenerComponents, GetAllListenerActors)

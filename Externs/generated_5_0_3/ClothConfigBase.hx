@@ -3,7 +3,10 @@ package ue;
 
 @:native("UClothConfigBase")
 @:include("ClothConfigBase.h")
+@:structAccess
 extern class ClothConfigBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

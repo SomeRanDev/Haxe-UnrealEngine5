@@ -3,6 +3,7 @@ package ue;
 
 @:native("UIntSerialization")
 @:include("Engine/IntSerialization.h")
+@:structAccess
 extern class IntSerialization extends Object {
 	public var UnsignedInt16Variable: cpp.UInt16;
 	public var UnsignedInt32Variable: cpp.UInt32;
@@ -12,6 +13,8 @@ extern class IntSerialization extends Object {
 	public var SignedInt64Variable: cpp.Int64;
 	public var UnsignedInt8Variable: cpp.UInt8;
 	public var SignedInt32Variable: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

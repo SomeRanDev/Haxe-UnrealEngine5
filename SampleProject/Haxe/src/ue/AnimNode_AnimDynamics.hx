@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_AnimDynamics")
 @:include("BoneControllers/AnimNode_AnimDynamics.h")
+@:structAccess
 extern class AnimNode_AnimDynamics extends AnimNode_SkeletalControlBase {
 	public var LinearDampingOverride: cpp.Float32;
 	public var AngularDampingOverride: cpp.Float32;
@@ -43,4 +44,6 @@ extern class AnimNode_AnimDynamics extends AnimNode_SkeletalControlBase {
 	public var bAngularSpring: Bool;
 	public var bChain: Bool;
 	public var RetargetingSettings: RotationRetargetingInfo;
+
+	@:native("FAnimNode_AnimDynamics") public function new();
 }

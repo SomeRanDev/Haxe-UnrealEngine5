@@ -3,6 +3,7 @@ package ue;
 
 @:native("FVirtualTextureSpacePoolConfig")
 @:include("VT/VirtualTexturePoolConfig.h")
+@:structAccess
 extern class VirtualTextureSpacePoolConfig {
 	public var MinTileSize: cpp.Int32;
 	public var MaxTileSize: cpp.Int32;
@@ -13,4 +14,6 @@ extern class VirtualTextureSpacePoolConfig {
 	public var ScalabilityGroup: cpp.UInt32;
 	public var MinScaledSizeInMegabyte: cpp.Int32;
 	public var MaxScaledSizeInMegabyte: cpp.Int32;
+
+	@:native("FVirtualTextureSpacePoolConfig") public function new();
 }

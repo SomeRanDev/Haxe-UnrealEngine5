@@ -3,10 +3,13 @@ package ue;
 
 @:native("UCrashReporterSettings")
 @:include("CrashReporterSettings.h")
+@:structAccess
 extern class CrashReporterSettings extends Object {
 	public var UploadSymbolsPath: FString;
 	public var DownstreamStorage: FString;
 	public var RemoteStorage: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEditorValidatorSubsystem")
 @:include("EditorValidatorSubsystem.h")
+@:structAccess
 extern class EditorValidatorSubsystem extends EditorSubsystem {
 	public var ExcludedDirectories: TArray<DirectoryPath>;
 	public var bValidateOnSave: Bool;
@@ -15,6 +16,8 @@ extern class EditorValidatorSubsystem extends EditorSubsystem {
 	public function IsObjectValid(InObject: cpp.Star<Object>, ValidationErrors: cpp.Reference<TArray<FText>>, ValidationWarnings: cpp.Reference<TArray<FText>>, InValidationUsecase: EDataValidationUsecase): cpp.Reference<EDataValidationResult>;
 	public function IsAssetValid(AssetData: cpp.Reference<AssetData>, ValidationErrors: cpp.Reference<TArray<FText>>, ValidationWarnings: cpp.Reference<TArray<FText>>, InValidationUsecase: EDataValidationUsecase): cpp.Reference<EDataValidationResult>;
 	public function AddValidator(InValidator: cpp.Star<EditorValidatorBase>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(ValidateAssetsWithSettings, ValidateAssets, IsObjectValid, IsAssetValid)

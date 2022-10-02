@@ -3,11 +3,14 @@ package ue;
 
 @:native("UInAppPurchaseRestoreCallbackProxy2")
 @:include("InAppPurchaseRestoreCallbackProxy2.h")
+@:structAccess
 extern class InAppPurchaseRestoreCallbackProxy2 extends Object {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(EInAppPurchaseStatus, cpp.Reference<TArray<InAppPurchaseRestoreInfo2>>) -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<(EInAppPurchaseStatus, cpp.Reference<TArray<InAppPurchaseRestoreInfo2>>) -> Void>;
 
 	public function CreateProxyObjectForInAppPurchaseRestore(ConsumableProductFlags: cpp.Reference<TArray<InAppPurchaseProductRequest2>>, PlayerController: cpp.Star<PlayerController>): cpp.Reference<cpp.Star<InAppPurchaseRestoreCallbackProxy2>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

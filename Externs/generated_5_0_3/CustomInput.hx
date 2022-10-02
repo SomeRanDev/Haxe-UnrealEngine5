@@ -3,7 +3,11 @@ package ue;
 
 @:native("FCustomInput")
 @:include("Materials/MaterialExpressionCustom.h")
+@:structAccess
 extern class CustomInput {
 	public var InputName: FName;
 	public var Input: ExpressionInput;
+
+	@:native("FCustomInput") public function new();
+	@:native("FCustomInput") public static function make(InputName: FName, Input: ExpressionInput): CustomInput ;
 }

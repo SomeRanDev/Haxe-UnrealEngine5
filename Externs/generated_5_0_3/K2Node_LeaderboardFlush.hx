@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_LeaderboardFlush")
 @:include("K2Node_LeaderboardFlush.h")
+@:structAccess
 extern class K2Node_LeaderboardFlush extends K2Node_BaseAsyncTask {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

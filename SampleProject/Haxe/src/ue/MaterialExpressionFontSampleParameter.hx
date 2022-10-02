@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionFontSampleParameter")
 @:include("Materials/MaterialExpressionFontSampleParameter.h")
+@:structAccess
 extern class MaterialExpressionFontSampleParameter extends MaterialExpressionFontSample {
 	public var ParameterName: FName;
 	public var ExpressionGUID: Guid;
 	public var Group: FName;
 	public var SortPriority: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("URuntimeVirtualTextureThumbnailRenderer")
 @:include("RuntimeVirtualTextureThumbnailRenderer.h")
+@:structAccess
 extern class RuntimeVirtualTextureThumbnailRenderer extends DefaultSizedThumbnailRenderer {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

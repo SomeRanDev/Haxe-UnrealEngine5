@@ -3,9 +3,12 @@ package ue;
 
 @:native("UInterpTrackBoolProp")
 @:include("Matinee/InterpTrackBoolProp.h")
+@:structAccess
 extern class InterpTrackBoolProp extends InterpTrack {
 	public var BoolTrack: TArray<BoolTrackKey>;
 	public var PropertyName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

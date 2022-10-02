@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBlueprintBoundEventNodeSpawner")
 @:include("BlueprintBoundEventNodeSpawner.h")
+@:structAccess
 extern class BlueprintBoundEventNodeSpawner extends BlueprintEventNodeSpawner {
 	public var EventDelegate: TFieldPath<FMulticastDelegateProperty>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("USkeletalMeshEditorData")
 @:include("Engine/SkeletalMeshEditorData.h")
+@:structAccess
 extern class SkeletalMeshEditorData extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

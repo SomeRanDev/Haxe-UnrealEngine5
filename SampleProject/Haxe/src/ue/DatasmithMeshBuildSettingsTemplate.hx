@@ -3,6 +3,7 @@ package ue;
 
 @:native("FDatasmithMeshBuildSettingsTemplate")
 @:include("ObjectTemplates/DatasmithStaticMeshTemplate.h")
+@:structAccess
 extern class DatasmithMeshBuildSettingsTemplate {
 	public var bUseMikkTSpace: Bool;
 	public var bRecomputeNormals: Bool;
@@ -14,4 +15,6 @@ extern class DatasmithMeshBuildSettingsTemplate {
 	public var MinLightmapResolution: cpp.Int32;
 	public var SrcLightmapIndex: cpp.Int32;
 	public var DstLightmapIndex: cpp.Int32;
+
+	@:native("FDatasmithMeshBuildSettingsTemplate") public function new();
 }

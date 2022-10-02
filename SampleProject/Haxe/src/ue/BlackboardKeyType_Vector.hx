@@ -3,7 +3,10 @@ package ue;
 
 @:native("UBlackboardKeyType_Vector")
 @:include("BehaviorTree/Blackboard/BlackboardKeyType_Vector.h")
+@:structAccess
 extern class BlackboardKeyType_Vector extends BlackboardKeyType {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

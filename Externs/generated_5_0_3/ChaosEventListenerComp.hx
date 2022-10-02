@@ -3,7 +3,10 @@ package ue;
 
 @:native("UChaosEventListenerComponent")
 @:include("Chaos/ChaosEventListenerComponent.h")
+@:structAccess
 extern class ChaosEventListenerComp extends ActorComp {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

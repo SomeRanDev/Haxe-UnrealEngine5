@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraFunctionLibrary")
 @:include("NiagaraFunctionLibrary.h")
+@:structAccess
 extern class NiagaraFunctionLibrary extends BlueprintFunctionLibrary {
 	public function SpawnSystemAttachedWithParams(SpawnParams: cpp.Reference<FXSystemSpawnParameters>): cpp.Reference<cpp.Star<NiagaraComp>>;
 	public function SpawnSystemAttached(SystemTemplate: cpp.Star<NiagaraSystem>, AttachToComponent: cpp.Star<SceneComp>, AttachPointName: FName, Location: Vector, Rotation: Rotator, LocationType: EAttachLocation, bAutoDestroy: Bool, bAutoActivate: Bool, PoolingMethod: ENCPoolMethod, bPreCullCheck: Bool): cpp.Reference<cpp.Star<NiagaraComp>>;
@@ -20,6 +21,8 @@ extern class NiagaraFunctionLibrary extends BlueprintFunctionLibrary {
 	public function OverrideSystemUserVariableSkeletalMeshComponent(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FString, SkeletalMeshComponent: cpp.Star<SkeletalMeshComp>): Void;
 	public function GetNiagaraParameterCollection(WorldContextObject: cpp.Star<Object>, Collection: cpp.Star<NiagaraParameterCollection>): cpp.Reference<cpp.Star<NiagaraParameterCollectionInstance>>;
 	public function AcquireNiagaraGPURayTracedCollisionGroup(WorldContextObject: cpp.Star<Object>): cpp.Reference<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -94,35 +94,55 @@ class UEMetadata {
 		// Unreal only allows #pramga once on files with UCLASS()
 		addMeta(cls, ":pragmaOnce");
 
+		// Remove Haxe/C++ output class prepend content
 		addMeta(cls, ":headerClassNamePrepend");
 
 		// Unreal requires "<CLASS>.generated.h"
 		final generatedInclude = nativeName + ".generated.h";
 		cls.meta.add(":headerInclude", [macro $v{generatedInclude}], nopos);
 
+		// Any extra fields we want to add afterward are collected here
+		final extraFields = [];
+
 		// Modify the meta for fields
 		for(f in fields) {
+			// Check if field is a function
+			final isFunc = switch(f.kind) { case FFun(_): true; case _: false; }
+
 			// Convert @:uprop to UPROPERTY, throw an error if the field isn't a variable
 			if(convertMetadataToNativePrepend(f, ":uprop", "UPROPERTY")) {
-				final isVar = switch(f.kind) { case FVar(_, _): true; case _: false; }
-				if(!isVar) {
+				if(isFunc) {
 					Context.error("Cannot use @:uprop on field that is not variable.", f.pos);
 				}
 			}
 
 			// Convert @:ufunc to UFUNCTION, throw an error if the field isn't a function
 			if(convertMetadataToNativePrepend(f, ":ufunc", "UFUNCTION")) {
-				final isFunc = switch(f.kind) { case FFun(_): true; case _: false; }
 				if(!isFunc) {
 					Context.error("Cannot use @:ufunc on field that is not function.", f.pos);
+				} else {
+					// All UFUNCTION functions must be Unreal callable
+					f.meta.push({ name: ":ueExport", params: [], pos: nopos });
 				}
 			}
+
+			// Handle functions that should be accessible on Unreal's side
+			if(isFunc) {
+				final newField = processUEExportMeta(f);
+				if(newField != null) {
+					extraFields.push(newField);
+				}
+			}
+		}
+
+		// Let's add our extra fields to the final list of fields
+		for(extra in extraFields) {
+			fields.push(extra);
 		}
 
 		// Store native class name so we know which ones to copy from our
 		// Haxe/C++ ouput into Unreal's Source folder
 		nativeClassNames.push(nativeName);
-
 
 		// fields metadata may have been modified, so return them
 		return fields;
@@ -201,14 +221,13 @@ class UEMetadata {
 	}
 
 	// Replaces an arbitrary metadata on a Field into a "native" Unreal attribute using @:headerDefinitionPrepend
-	static function convertMetadataToNativePrepend(field: Field, metaName: String, nativePrependName: String) {
-		final meta = field.meta != null;
-
+	static function convertMetadataToNativePrepend(field: Field, metaName: String, nativePrependName: String): Bool {
 		var metadata = null;
 		if(field.meta != null) {
 			for(m in field.meta) {
 				if(m.name == metaName) {
 					metadata = m;
+					break;
 				}
 			}
 		}
@@ -233,6 +252,77 @@ class UEMetadata {
 		field.meta.push({ name: ":headerDefinitionPrepend", params: [macro $v{cppAttr}], pos: nopos });
 
 		return true;
+	}
+
+	// Process @:ueExport meta
+	static function processUEExportMeta(field: Field): Null<Field> {
+		var shouldExport = false;
+		if(field.meta != null) {
+			for(m in field.meta) {
+				if(m.name == ":ueExport") {
+					shouldExport = true;
+					break;
+				}
+			}
+		}
+
+		if(!shouldExport) {
+			return null;
+		}
+
+		final funData = switch(field.kind) {
+			case FFun(f): f;
+			case _: null;
+		}
+
+		if(funData == null) {
+			return null;
+		}
+
+		final originalName = field.name;
+		if(field.access != null && field.access.contains(AOverride)) {
+			field.access.remove(AOverride);
+		}
+		field.name = "uehx_" + originalName;
+
+		final aliasCallText = field.name + "(" + funData.args.map(a -> a.name).join(", ") + ")";
+		final aliasCallExpr = Context.parse(aliasCallText, nopos);
+
+		return {
+			pos: nopos,
+			name: originalName,
+			kind: FFun({
+				ret: funData.ret,
+				params: funData.params,
+				expr: macro {
+					untyped __cpp__("int top = 99");
+					untyped __cpp__("::hx::SetTopOfStack(&top, true)");
+					$aliasCallExpr;
+					untyped __cpp__("::hx::SetTopOfStack((int*)0, true)");
+				},
+				args: funData.args
+			}),
+			access: [AOverride]
+		};
+
+		/*
+		final exprCopy = {
+			expr: expr.expr,
+			pos: expr.pos
+		};
+
+
+
+		final newExpr = macro {
+			untyped __cpp__("int top = 99");
+			untyped __cpp__("::hx::SetTopOfStack(&top, true)");
+			$i{field.name}();
+			untyped __cpp__("::hx::SetTopOfStack((int*)0, true)");
+		}
+
+		expr.expr = newExpr.expr;*/
+
+		//return true;
 	}
 }
 

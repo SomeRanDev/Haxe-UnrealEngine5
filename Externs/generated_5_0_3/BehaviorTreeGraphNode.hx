@@ -3,10 +3,13 @@ package ue;
 
 @:native("UBehaviorTreeGraphNode")
 @:include("BehaviorTreeGraphNode.h")
+@:structAccess
 extern class BehaviorTreeGraphNode extends AIGraphNode {
 	public var Decorators: TArray<cpp.Star<BehaviorTreeGraphNode>>;
 	public var Services: TArray<cpp.Star<BehaviorTreeGraphNode>>;
 	public var bInjectedNode: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

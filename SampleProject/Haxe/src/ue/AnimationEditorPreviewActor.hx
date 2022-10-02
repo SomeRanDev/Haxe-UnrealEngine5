@@ -3,7 +3,10 @@ package ue;
 
 @:native("AAnimationEditorPreviewActor")
 @:include("AnimationEditorPreviewActor.h")
+@:structAccess
 extern class AnimationEditorPreviewActor extends Actor {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

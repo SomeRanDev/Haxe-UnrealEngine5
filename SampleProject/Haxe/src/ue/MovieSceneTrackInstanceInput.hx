@@ -3,6 +3,10 @@ package ue;
 
 @:native("FMovieSceneTrackInstanceInput")
 @:include("EntitySystem/TrackInstance/MovieSceneTrackInstance.h")
+@:structAccess
 extern class MovieSceneTrackInstanceInput {
 	public var Section: cpp.Star<MovieSceneSection>;
+
+	@:native("FMovieSceneTrackInstanceInput") public function new();
+	@:native("FMovieSceneTrackInstanceInput") public static function make(Section: cpp.Star<MovieSceneSection>): MovieSceneTrackInstanceInput ;
 }

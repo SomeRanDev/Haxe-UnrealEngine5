@@ -3,12 +3,15 @@ package ue;
 
 @:native("UNavModifierComponent")
 @:include("NavModifierComponent.h")
+@:structAccess
 extern class NavModifierComp extends NavRelevantComp {
 	public var AreaClass: TSubclassOf<NavArea>;
 	public var FailsafeExtent: Vector;
 	public var bIncludeAgentHeight: Bool;
 
 	public function SetAreaClass(NewAreaClass: TSubclassOf<NavArea>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

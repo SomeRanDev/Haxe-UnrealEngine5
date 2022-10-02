@@ -3,10 +3,13 @@ package ue;
 
 @:native("UIKRig_BodyMoverEffector")
 @:include("Solvers/IKRig_BodyMover.h")
+@:structAccess
 extern class IKRig_BodyMoverEffector extends Object {
 	public var GoalName: FName;
 	public var BoneName: FName;
 	public var InfluenceMultiplier: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

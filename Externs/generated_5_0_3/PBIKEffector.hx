@@ -3,6 +3,7 @@ package ue;
 
 @:native("FPBIKEffector")
 @:include("RigUnit_PBIK.h")
+@:structAccess
 extern class PBIKEffector {
 	public var Bone: FName;
 	public var Transform: Transform;
@@ -11,4 +12,6 @@ extern class PBIKEffector {
 	public var StrengthAlpha: cpp.Float32;
 	public var PullChainAlpha: cpp.Float32;
 	public var PinRotation: cpp.Float32;
+
+	@:native("FPBIKEffector") public function new();
 }

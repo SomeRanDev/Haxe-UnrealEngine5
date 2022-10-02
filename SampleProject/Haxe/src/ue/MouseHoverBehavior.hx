@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMouseHoverBehavior")
 @:include("BaseBehaviors/MouseHoverBehavior.h")
+@:structAccess
 extern class MouseHoverBehavior extends InputBehavior {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

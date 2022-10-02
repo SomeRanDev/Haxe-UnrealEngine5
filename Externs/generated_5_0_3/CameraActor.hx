@@ -3,6 +3,7 @@ package ue;
 
 @:native("ACameraActor")
 @:include("Camera/CameraActor.h")
+@:structAccess
 extern class CameraActor extends Actor {
 	public var AutoActivateForPlayer: EAutoReceiveInput;
 	public var CameraComponent: cpp.Star<CameraComp>;
@@ -14,6 +15,8 @@ extern class CameraActor extends Actor {
 	public var PostProcessSettings_DEPRECATED: PostProcessSettings;
 
 	public function GetAutoActivatePlayerIndex(): cpp.Reference<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetAutoActivatePlayerIndex)

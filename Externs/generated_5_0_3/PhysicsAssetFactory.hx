@@ -3,8 +3,11 @@ package ue;
 
 @:native("UPhysicsAssetFactory")
 @:include("Factories/PhysicsAssetFactory.h")
+@:structAccess
 extern class PhysicsAssetFactory extends Factory {
 	public var TargetSkeletalMesh: cpp.Star<SkeletalMesh>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

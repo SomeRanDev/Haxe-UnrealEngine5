@@ -3,10 +3,14 @@ package ue;
 
 @:native("FBuildPromotionTestSettings")
 @:include("Tests/AutomationTestSettings.h")
+@:structAccess
 extern class BuildPromotionTestSettings {
 	public var DefaultStaticMeshAsset: FilePath;
 	public var ImportWorkflow: BuildPromotionImportWorkflowSettings;
 	public var OpenAssets: BuildPromotionOpenAssetSettings;
 	public var NewProjectSettings: BuildPromotionNewProjectSettings;
 	public var SourceControlMaterial: FilePath;
+
+	@:native("FBuildPromotionTestSettings") public function new();
+	@:native("FBuildPromotionTestSettings") public static function make(DefaultStaticMeshAsset: FilePath, ImportWorkflow: BuildPromotionImportWorkflowSettings, OpenAssets: BuildPromotionOpenAssetSettings, NewProjectSettings: BuildPromotionNewProjectSettings, SourceControlMaterial: FilePath): BuildPromotionTestSettings ;
 }

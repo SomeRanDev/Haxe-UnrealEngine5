@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPythonGeneratedEnum")
 @:include("PyWrapperEnum.h")
+@:structAccess
 extern class PythonGeneratedEnum extends Enum {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

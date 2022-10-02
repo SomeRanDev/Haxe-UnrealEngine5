@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWorldPartitionRuntimeCell")
 @:include("WorldPartition/WorldPartitionRuntimeCell.h")
+@:structAccess
 extern class WorldPartitionRuntimeCell extends Object {
 	public var bIsAlwaysLoaded: Bool;
 	public var DataLayers: TArray<FName>;
@@ -13,6 +14,8 @@ extern class WorldPartitionRuntimeCell extends Object {
 	public var bClientOnlyVisible: Bool;
 	public var bIsHLOD: Bool;
 	public var bBlockOnSlowLoading: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

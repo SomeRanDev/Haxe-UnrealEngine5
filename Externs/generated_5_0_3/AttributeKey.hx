@@ -3,6 +3,10 @@ package ue;
 
 @:native("FAttributeKey")
 @:include("Animation/AttributeCurve.h")
+@:structAccess
 extern class AttributeKey {
 	public var Time: cpp.Float32;
+
+	@:native("FAttributeKey") public function new();
+	@:native("FAttributeKey") public static function make(Time: cpp.Float32): AttributeKey ;
 }

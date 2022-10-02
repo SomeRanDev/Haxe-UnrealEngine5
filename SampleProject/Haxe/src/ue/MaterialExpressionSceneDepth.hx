@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionSceneDepth")
 @:include("Materials/MaterialExpressionSceneDepth.h")
+@:structAccess
 extern class MaterialExpressionSceneDepth extends MaterialExpression {
 	public var InputMode: EMaterialSceneAttributeInputMode;
 	public var Input: ExpressionInput;
 	public var Coordinates_DEPRECATED: ExpressionInput;
 	public var ConstInput: Vector2D;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_SwitchInteger")
 @:include("K2Node_SwitchInteger.h")
+@:structAccess
 extern class K2Node_SwitchInteger extends K2Node_Switch {
 	public var StartIndex: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

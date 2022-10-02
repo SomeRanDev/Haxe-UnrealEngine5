@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPixelInspectorView")
 @:include("PixelInspectorView.h")
+@:structAccess
 extern class PixelInspectorView extends Object {
 	public var FinalColor: LinearColor;
 	public var SceneColor: LinearColor;
@@ -30,6 +31,8 @@ extern class PixelInspectorView extends Object {
 	public var EyeTangent: Vector;
 	public var IrisMask: cpp.Float32;
 	public var IrisDistance: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

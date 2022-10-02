@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UChaosNotifyHandlerInterface")
+@:structAccess
 extern class ChaosNotifyHandlerInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

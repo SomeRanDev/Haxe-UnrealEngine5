@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEditorUtilityTask")
 @:include("EditorUtilityTask.h")
+@:structAccess
 extern class EditorUtilityTask extends Object {
 	public var MyTaskManager: cpp.Star<EditorUtilitySubsystem>;
 	public var MyParentTask: cpp.Star<EditorUtilityTask>;
@@ -14,6 +15,8 @@ extern class EditorUtilityTask extends Object {
 	public function ReceiveCancelRequested(): Void;
 	public function ReceiveBeginExecution(): Void;
 	public function FinishExecutingTask(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(WasCancelRequested)

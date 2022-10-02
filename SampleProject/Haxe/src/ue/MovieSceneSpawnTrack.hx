@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMovieSceneSpawnTrack")
 @:include("Tracks/MovieSceneSpawnTrack.h")
+@:structAccess
 extern class MovieSceneSpawnTrack extends MovieSceneTrack {
 	public var Sections: TArray<cpp.Star<MovieSceneSection>>;
 	public var ObjectGuid: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

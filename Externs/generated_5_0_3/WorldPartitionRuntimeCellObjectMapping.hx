@@ -3,6 +3,7 @@ package ue;
 
 @:native("FWorldPartitionRuntimeCellObjectMapping")
 @:include("WorldPartition/WorldPartitionRuntimeCell.h")
+@:structAccess
 extern class WorldPartitionRuntimeCellObjectMapping {
 	public var Package: FName;
 	public var Path: FName;
@@ -10,4 +11,6 @@ extern class WorldPartitionRuntimeCellObjectMapping {
 	public var ContainerTransform: Transform;
 	public var ContainerPackage: FName;
 	public var LoadedPath: FName;
+
+	@:native("FWorldPartitionRuntimeCellObjectMapping") public function new();
 }

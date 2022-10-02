@@ -3,6 +3,7 @@ package ue;
 
 @:native("UFbxSkeletalMeshImportData")
 @:include("Factories/FbxSkeletalMeshImportData.h")
+@:structAccess
 extern class FbxSkeletalMeshImportData extends FbxMeshImportData {
 	public var ImportContentType: EFBXImportContentType;
 	public var LastImportContentType: EFBXImportContentType;
@@ -17,6 +18,8 @@ extern class FbxSkeletalMeshImportData extends FbxMeshImportData {
 	public var ThresholdTangentNormal: cpp.Float32;
 	public var ThresholdUV: cpp.Float32;
 	public var MorphThresholdPosition: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UK2Node_InputTouch")
 @:include("K2Node_InputTouch.h")
+@:structAccess
 extern class K2Node_InputTouch extends K2Node {
 	public var bConsumeInput: Bool;
 	public var bExecuteWhenPaused: Bool;
 	public var bOverrideParentBinding: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

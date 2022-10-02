@@ -3,8 +3,12 @@ package ue;
 
 @:native("FRigTransformConstraint")
 @:include("Animation/Rig.h")
+@:structAccess
 extern class RigTransformConstraint {
 	public var TranformType: EConstraintTransform;
 	public var ParentSpace: FName;
 	public var Weight: cpp.Float32;
+
+	@:native("FRigTransformConstraint") public function new();
+	@:native("FRigTransformConstraint") public static function make(TranformType: EConstraintTransform, ParentSpace: FName, Weight: cpp.Float32): RigTransformConstraint ;
 }

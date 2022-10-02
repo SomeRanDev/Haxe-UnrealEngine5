@@ -3,8 +3,11 @@ package ue;
 
 @:native("UTemplateSequenceSection")
 @:include("Sections/TemplateSequenceSection.h")
+@:structAccess
 extern class TemplateSequenceSection extends MovieSceneSubSection {
 	public var PropertyScales: TArray<TemplateSectionPropertyScale>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

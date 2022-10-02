@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UMovieSceneTrackTemplateProducer")
+@:structAccess
 extern class MovieSceneTrackTemplateProducer extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

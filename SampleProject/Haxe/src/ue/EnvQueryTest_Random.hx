@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEnvQueryTest_Random")
 @:include("EnvironmentQuery/Tests/EnvQueryTest_Random.h")
+@:structAccess
 extern class EnvQueryTest_Random extends EnvQueryTest {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

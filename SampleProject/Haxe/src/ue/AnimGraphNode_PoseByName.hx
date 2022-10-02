@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_PoseByName")
 @:include("AnimGraphNode_PoseByName.h")
+@:structAccess
 extern class AnimGraphNode_PoseByName extends AnimGraphNode_AssetPlayerBase {
 	public var Node: AnimNode_PoseByName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

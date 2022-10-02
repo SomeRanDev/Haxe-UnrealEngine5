@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UNavigationPathGenerator")
+@:structAccess
 extern class NavigationPathGenerator extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

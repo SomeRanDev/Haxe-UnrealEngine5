@@ -3,7 +3,10 @@ package ue;
 
 @:native("UControlRigBlueprintGeneratedClass")
 @:include("ControlRigBlueprintGeneratedClass.h")
+@:structAccess
 extern class ControlRigBlueprintGeneratedClass extends BlueprintGeneratedClass {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

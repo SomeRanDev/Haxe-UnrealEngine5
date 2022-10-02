@@ -3,12 +3,15 @@ package ue;
 
 @:native("UWorldPartitionLevelStreamingDynamic")
 @:include("WorldPartition/WorldPartitionLevelStreamingDynamic.h")
+@:structAccess
 extern class WorldPartitionLevelStreamingDynamic extends LevelStreamingDynamic {
 	public var RuntimeLevel: cpp.Star<Level>;
 	public var bShouldBeAlwaysLoaded: Bool;
 	public var UnsavedActorsContainer: cpp.Star<ActorContainer>;
 	public var StreamingCell: TWeakObjectPtr<WorldPartitionRuntimeLevelStreamingCell>;
 	public var OuterWorldPartition: TWeakObjectPtr<WorldPartition>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

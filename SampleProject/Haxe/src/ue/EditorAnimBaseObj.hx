@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEditorAnimBaseObj")
 @:include("Animation/EditorAnimBaseObj.h")
+@:structAccess
 extern class EditorAnimBaseObj extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

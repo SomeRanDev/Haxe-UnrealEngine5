@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneParameterSection")
 @:include("Sections/MovieSceneParameterSection.h")
+@:structAccess
 extern class MovieSceneParameterSection extends MovieSceneSection {
 	public var BoolParameterNamesAndCurves: TArray<BoolParameterNameAndCurve>;
 	public var ScalarParameterNamesAndCurves: TArray<ScalarParameterNameAndCurve>;
@@ -24,6 +25,8 @@ extern class MovieSceneParameterSection extends MovieSceneSection {
 	public function AddScalarParameterKey(InParameterName: FName, InTime: FrameNumber, InValue: cpp.Float32): Void;
 	public function AddColorParameterKey(InParameterName: FName, InTime: FrameNumber, InValue: LinearColor): Void;
 	public function AddBoolParameterKey(InParameterName: FName, InTime: FrameNumber, InValue: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetParameterNames)

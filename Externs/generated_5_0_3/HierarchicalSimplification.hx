@@ -3,6 +3,7 @@ package ue;
 
 @:native("FHierarchicalSimplification")
 @:include("GameFramework/WorldSettings.h")
+@:structAccess
 extern class HierarchicalSimplification {
 	public var TransitionScreenSize: cpp.Float32;
 	public var OverrideDrawDistance: cpp.Float32;
@@ -16,4 +17,6 @@ extern class HierarchicalSimplification {
 	public var DesiredBoundRadius: cpp.Float32;
 	public var DesiredFillingPercentage: cpp.Float32;
 	public var MinNumberOfActorsToBuild: cpp.Int32;
+
+	@:native("FHierarchicalSimplification") public function new();
 }

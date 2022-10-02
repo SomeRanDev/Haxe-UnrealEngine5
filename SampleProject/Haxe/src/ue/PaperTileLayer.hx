@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPaperTileLayer")
 @:include("PaperTileLayer.h")
+@:structAccess
 extern class PaperTileLayer extends Object {
 	public var LayerName: FText;
 	public var LayerWidth: cpp.Int32;
@@ -20,6 +21,8 @@ extern class PaperTileLayer extends Object {
 	public var AllocatedCells: TArray<PaperTileInfo>;
 	public var TileSet_DEPRECATED: cpp.Star<PaperTileSet>;
 	public var AllocatedGrid_DEPRECATED: TArray<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneMaterialParameterCollectionTrack")
 @:include("Tracks/MovieSceneMaterialParameterCollectionTrack.h")
+@:structAccess
 extern class MovieSceneMaterialParameterCollectionTrack extends MovieSceneMaterialTrack {
 	public var MPC: cpp.Star<MaterialParameterCollection>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

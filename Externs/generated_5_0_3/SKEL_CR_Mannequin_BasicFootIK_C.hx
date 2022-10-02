@@ -2,6 +2,7 @@
 package ue;
 
 @:native("USKEL_CR_Mannequin_BasicFootIK_C")
+@:structAccess
 extern class SKEL_CR_Mannequin_BasicFootIK_C extends ControlRig {
 	public var UberGraphFrame: PointerToUberGraphFrame;
 	public var ZOffset_L_Target: cpp.Float64;
@@ -10,6 +11,8 @@ extern class SKEL_CR_Mannequin_BasicFootIK_C extends ControlRig {
 	public var ZOffset_R: cpp.Float64;
 	public var ZOffset_Pelvis: cpp.Float64;
 	public var ShouldDoIKTrace: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

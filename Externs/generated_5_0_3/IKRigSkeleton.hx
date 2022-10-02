@@ -3,6 +3,7 @@ package ue;
 
 @:native("FIKRigSkeleton")
 @:include("IKRigSkeleton.h")
+@:structAccess
 extern class IKRigSkeleton {
 	public var BoneNames: TArray<FName>;
 	public var ParentIndices: TArray<cpp.Int32>;
@@ -10,4 +11,6 @@ extern class IKRigSkeleton {
 	public var CurrentPoseGlobal: TArray<Transform>;
 	public var CurrentPoseLocal: TArray<Transform>;
 	public var RefPoseGlobal: TArray<Transform>;
+
+	@:native("FIKRigSkeleton") public function new();
 }

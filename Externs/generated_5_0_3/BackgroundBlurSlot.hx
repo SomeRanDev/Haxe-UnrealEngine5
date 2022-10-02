@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBackgroundBlurSlot")
 @:include("Components/BackgroundBlurSlot.h")
+@:structAccess
 extern class BackgroundBlurSlot extends PanelSlot {
 	public var Padding: Margin;
 	public var HorizontalAlignment: EHorizontalAlignment;
@@ -11,6 +12,8 @@ extern class BackgroundBlurSlot extends PanelSlot {
 	public function SetVerticalAlignment(InVerticalAlignment: EVerticalAlignment): Void;
 	public function SetPadding(InPadding: Margin): Void;
 	public function SetHorizontalAlignment(InHorizontalAlignment: EHorizontalAlignment): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

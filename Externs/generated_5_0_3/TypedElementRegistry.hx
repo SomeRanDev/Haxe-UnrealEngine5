@@ -3,9 +3,12 @@ package ue;
 
 @:native("UTypedElementRegistry")
 @:include("Elements/Framework/TypedElementRegistry.h")
+@:structAccess
 extern class TypedElementRegistry extends Object {
 	public function GetInstance(): cpp.Reference<cpp.Star<TypedElementRegistry>>;
 	public function GetElementInterface(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InBaseInterfaceType: TSubclassOf<Interface.ConstInterface>): cpp.Reference<cpp.Star<Object>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetElementInterface)

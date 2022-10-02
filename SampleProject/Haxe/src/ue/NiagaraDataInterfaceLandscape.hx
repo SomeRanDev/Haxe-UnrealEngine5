@@ -3,10 +3,13 @@ package ue;
 
 @:native("UNiagaraDataInterfaceLandscape")
 @:include("NiagaraDataInterfaceLandscape.h")
+@:structAccess
 extern class NiagaraDataInterfaceLandscape extends NiagaraDataInterface {
 	public var SourceLandscape: cpp.Star<Actor>;
 	public var SourceMode: ENDILandscape_SourceMode;
 	public var PhysicalMaterials: TArray<cpp.Star<PhysicalMaterial>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

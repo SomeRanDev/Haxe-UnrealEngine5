@@ -3,7 +3,11 @@ package ue;
 
 @:native("FTimeStretchCurveMarker")
 @:include("Animation/TimeStretchCurve.h")
+@:structAccess
 extern class TimeStretchCurveMarker {
 	public var Time: cpp.Float32;
 	public var Alpha: cpp.Float32;
+
+	@:native("FTimeStretchCurveMarker") public function new();
+	@:native("FTimeStretchCurveMarker") public static function make(Time: cpp.Float32, Alpha: cpp.Float32): TimeStretchCurveMarker ;
 }

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UDEPRECATED_GeometryCacheTrack_FlipbookAnimation")
 @:include("GeometryCacheTrackFlipbookAnimation.h")
+@:structAccess
 extern class GeometryCacheTrack_FlipbookAnimation extends GeometryCacheTrack {
 	public var NumMeshSamples: cpp.UInt32;
 
 	public function AddMeshSample(MeshData: cpp.Reference<GeometryCacheMeshData>, SampleTime: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

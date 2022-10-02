@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCameraAnimationCameraModifier")
 @:include("CameraAnimationCameraModifier.h")
+@:structAccess
 extern class CameraAnimationCameraModifier extends CameraModifier {
 	public var ActiveAnimations: TArray<ActiveCameraAnimationInfo>;
 	public var InstanceSerialNumber: cpp.UInt16;
@@ -15,6 +16,8 @@ extern class CameraAnimationCameraModifier extends CameraModifier {
 	public function GetCameraAnimationCameraModifierFromPlayerController(PlayerController: cpp.Star<PlayerController.ConstPlayerController>): cpp.Reference<cpp.Star<CameraAnimationCameraModifier>>;
 	public function GetCameraAnimationCameraModifierFromID(WorldContextObject: cpp.Star<Object.ConstObject>, ControllerID: cpp.Int32): cpp.Reference<cpp.Star<CameraAnimationCameraModifier>>;
 	public function GetCameraAnimationCameraModifier(WorldContextObject: cpp.Star<Object.ConstObject>, PlayerIndex: cpp.Int32): cpp.Reference<cpp.Star<CameraAnimationCameraModifier>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsCameraAnimationActive)

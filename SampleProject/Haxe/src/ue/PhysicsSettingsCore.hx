@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPhysicsSettingsCore")
 @:include("PhysicsSettingsCore.h")
+@:structAccess
 extern class PhysicsSettingsCore extends DeveloperSettings {
 	public var DefaultGravityZ: cpp.Float32;
 	public var DefaultTerminalVelocity: cpp.Float32;
@@ -27,6 +28,8 @@ extern class PhysicsSettingsCore extends DeveloperSettings {
 	public var bSimulateSkeletalMeshOnDedicatedServer: Bool;
 	public var DefaultShapeComplexity: ECollisionTraceFlag;
 	public var SolverOptions: ChaosSolverConfiguration;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

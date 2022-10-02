@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAIPerceptionComponent")
 @:include("Perception/AIPerceptionComponent.h")
+@:structAccess
 extern class AIPerceptionComp extends ActorComp {
 	public var SensesConfig: TArray<cpp.Star<AISenseConfig>>;
 	public var DominantSense: TSubclassOf<AISense>;
@@ -21,6 +22,8 @@ extern class AIPerceptionComp extends ActorComp {
 	public function GetCurrentlyPerceivedActors(SenseToUse: TSubclassOf<AISense>, OutActors: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
 	public function GetActorsPerception(Actor: cpp.Star<Actor>, Info: cpp.Reference<ActorPerceptionBlueprintInfo>): cpp.Reference<Bool>;
 	public function ForgetAll(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetPerceivedHostileActorsBySense, GetPerceivedHostileActors, GetPerceivedActors, GetKnownPerceivedActors, GetCurrentlyPerceivedActors)

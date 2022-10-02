@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_VariableGet")
 @:include("K2Node_VariableGet.h")
+@:structAccess
 extern class K2Node_VariableGet extends K2Node_Variable {
 	public var bIsPureGet: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

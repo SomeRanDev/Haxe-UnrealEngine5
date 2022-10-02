@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDemoPendingNetGame")
 @:include("Engine/DemoPendingNetGame.h")
+@:structAccess
 extern class DemoPendingNetGame extends PendingNetGame {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

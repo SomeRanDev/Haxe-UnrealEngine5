@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionSkyLightEnvMapSample")
 @:include("Materials/MaterialExpressionSkyLightEnvMapSample.h")
+@:structAccess
 extern class MaterialExpressionSkyLightEnvMapSample extends MaterialExpression {
 	public var Direction: ExpressionInput;
 	public var Roughness: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

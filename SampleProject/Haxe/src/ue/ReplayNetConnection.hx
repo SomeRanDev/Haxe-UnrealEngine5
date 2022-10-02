@@ -3,7 +3,10 @@ package ue;
 
 @:native("UReplayNetConnection")
 @:include("ReplayNetConnection.h")
+@:structAccess
 extern class ReplayNetConnection extends NetConnection {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

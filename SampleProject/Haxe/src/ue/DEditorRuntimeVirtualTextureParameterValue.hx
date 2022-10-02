@@ -3,8 +3,11 @@ package ue;
 
 @:native("UDEditorRuntimeVirtualTextureParameterValue")
 @:include("MaterialEditor/DEditorRuntimeVirtualTextureParameterValue.h")
+@:structAccess
 extern class DEditorRuntimeVirtualTextureParameterValue extends DEditorParameterValue {
 	public var ParameterValue: cpp.Star<RuntimeVirtualTexture>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UAutoDestroySubsystem")
 @:include("Engine/AutoDestroySubsystem.h")
+@:structAccess
 extern class AutoDestroySubsystem extends TickableWorldSubsystem {
 	public var ActorsToPoll: TArray<cpp.Star<Actor>>;
 
 	public function OnActorEndPlay(Actor: cpp.Star<Actor>, EndPlayReason: EEndPlayReason): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

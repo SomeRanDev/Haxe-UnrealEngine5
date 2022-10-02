@@ -3,10 +3,13 @@ package ue;
 
 @:native("UDatasmithSkyLightComponentTemplate")
 @:include("ObjectTemplates/DatasmithSkyLightComponentTemplate.h")
+@:structAccess
 extern class DatasmithSkyLightComponentTemplate extends DatasmithObjectTemplate {
 	public var SourceType: ESkyLightSourceType;
 	public var CubemapResolution: cpp.Int32;
 	public var Cubemap: cpp.Star<TextureCube>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

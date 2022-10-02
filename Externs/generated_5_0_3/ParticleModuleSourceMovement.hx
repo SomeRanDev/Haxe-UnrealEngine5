@@ -3,8 +3,11 @@ package ue;
 
 @:native("UParticleModuleSourceMovement")
 @:include("Particles/Location/ParticleModuleSourceMovement.h")
+@:structAccess
 extern class ParticleModuleSourceMovement extends ParticleModuleLocationBase {
 	public var SourceMovementScale: RawDistributionVector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UInterpTrackFade")
 @:include("Matinee/InterpTrackFade.h")
+@:structAccess
 extern class InterpTrackFade extends InterpTrackFloatBase {
 	public var bPersistFade: Bool;
 	public var bFadeAudio: Bool;
 	public var FadeColor: LinearColor;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

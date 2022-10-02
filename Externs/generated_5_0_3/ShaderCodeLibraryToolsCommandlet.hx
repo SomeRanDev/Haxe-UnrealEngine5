@@ -3,7 +3,10 @@ package ue;
 
 @:native("UShaderCodeLibraryToolsCommandlet")
 @:include("Commandlets/ShaderCodeLibraryToolsCommandlet.h")
+@:structAccess
 extern class ShaderCodeLibraryToolsCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,11 +3,14 @@ package ue;
 
 @:native("UEnvQueryContext_BlueprintBase")
 @:include("EnvironmentQuery/Contexts/EnvQueryContext_BlueprintBase.h")
+@:structAccess
 extern class EnvQueryContext_BlueprintBase extends EnvQueryContext {
 	public function ProvideSingleLocation(QuerierObject: cpp.Star<Object>, QuerierActor: cpp.Star<Actor>, ResultingLocation: cpp.Reference<Vector>): Void;
 	public function ProvideSingleActor(QuerierObject: cpp.Star<Object>, QuerierActor: cpp.Star<Actor>, ResultingActor: cpp.Reference<cpp.Star<Actor>>): Void;
 	public function ProvideLocationsSet(QuerierObject: cpp.Star<Object>, QuerierActor: cpp.Star<Actor>, ResultingLocationSet: cpp.Reference<TArray<Vector>>): Void;
 	public function ProvideActorsSet(QuerierObject: cpp.Star<Object>, QuerierActor: cpp.Star<Actor>, ResultingActorsSet: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(ProvideSingleLocation, ProvideSingleActor, ProvideLocationsSet, ProvideActorsSet)

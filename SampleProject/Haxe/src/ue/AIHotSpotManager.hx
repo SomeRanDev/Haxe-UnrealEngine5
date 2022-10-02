@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAIHotSpotManager")
 @:include("HotSpots/AIHotSpotManager.h")
+@:structAccess
 extern class AIHotSpotManager extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

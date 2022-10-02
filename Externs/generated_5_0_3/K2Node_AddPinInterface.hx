@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UK2Node_AddPinInterface")
+@:structAccess
 extern class K2Node_AddPinInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

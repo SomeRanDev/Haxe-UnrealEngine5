@@ -3,10 +3,13 @@ package ue;
 
 @:native("AOnlineBeaconHostObject")
 @:include("OnlineBeaconHostObject.h")
+@:structAccess
 extern class OnlineBeaconHostObject extends Actor {
 	public var BeaconTypeName: FString;
 	public var ClientBeaconActorClass: TSubclassOf<OnlineBeaconClient>;
 	public var ClientActors: TArray<cpp.Star<OnlineBeaconClient>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,10 @@ package ue;
 
 @:native("FDatasmithMeshSectionInfoMapTemplate")
 @:include("ObjectTemplates/DatasmithStaticMeshTemplate.h")
+@:structAccess
 extern class DatasmithMeshSectionInfoMapTemplate {
 	public var Map: TMap<cpp.UInt32, DatasmithMeshSectionInfoTemplate>;
+
+	@:native("FDatasmithMeshSectionInfoMapTemplate") public function new();
+	@:native("FDatasmithMeshSectionInfoMapTemplate") public static function make(Map: TMap<cpp.UInt32, DatasmithMeshSectionInfoTemplate>): DatasmithMeshSectionInfoMapTemplate ;
 }

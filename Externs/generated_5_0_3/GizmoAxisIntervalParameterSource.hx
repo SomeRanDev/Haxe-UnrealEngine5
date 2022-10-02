@@ -3,10 +3,13 @@ package ue;
 
 @:native("UGizmoAxisIntervalParameterSource")
 @:include("BaseGizmos/IntervalGizmo.h")
+@:structAccess
 extern class GizmoAxisIntervalParameterSource extends GizmoBaseFloatParameterSource {
 	public var FloatParameterSource: GizmoFloatParameterSource;
 	public var MinParameter: cpp.Float32;
 	public var MaxParameter: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

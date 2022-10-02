@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPhysicsAssetThumbnailRenderer")
 @:include("ThumbnailRendering/PhysicsAssetThumbnailRenderer.h")
+@:structAccess
 extern class PhysicsAssetThumbnailRenderer extends DefaultSizedThumbnailRenderer {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

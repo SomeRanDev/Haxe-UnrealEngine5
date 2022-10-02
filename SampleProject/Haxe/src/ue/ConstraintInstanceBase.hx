@@ -3,5 +3,7 @@ package ue;
 
 @:native("FConstraintInstanceBase")
 @:include("PhysicsEngine/ConstraintInstance.h")
+@:structAccess
 extern class ConstraintInstanceBase {
+	@:native("FConstraintInstanceBase") public function new();
 }

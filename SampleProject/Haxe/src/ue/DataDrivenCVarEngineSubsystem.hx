@@ -3,10 +3,13 @@ package ue;
 
 @:native("UDataDrivenCVarEngineSubsystem")
 @:include("DataDrivenCVars/DataDrivenCVars.h")
+@:structAccess
 extern class DataDrivenCVarEngineSubsystem extends EngineSubsystem {
 	public var OnDataDrivenCVarDelegate: HaxeMulticastSparseDelegateProperty<(FString) -> Void>;
 
 	public function OnDataDrivenCVarChanged__DelegateSignature(CVarName: FString): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

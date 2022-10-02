@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_VariableSetRef")
 @:include("K2Node_VariableSetRef.h")
+@:structAccess
 extern class K2Node_VariableSetRef extends K2Node {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

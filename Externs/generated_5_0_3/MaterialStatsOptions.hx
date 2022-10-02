@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialStatsOptions")
 @:include("Preferences/MaterialStatsOptions.h")
+@:structAccess
 extern class MaterialStatsOptions extends Object {
 	public var bPlatformUsed: cpp.Int32;
 	public var bMaterialQualityUsed: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

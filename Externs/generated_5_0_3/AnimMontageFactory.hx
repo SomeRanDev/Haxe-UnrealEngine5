@@ -3,10 +3,13 @@ package ue;
 
 @:native("UAnimMontageFactory")
 @:include("Factories/AnimMontageFactory.h")
+@:structAccess
 extern class AnimMontageFactory extends Factory {
 	public var TargetSkeleton: cpp.Star<Skeleton>;
 	public var SourceAnimation: cpp.Star<AnimSequence>;
 	public var PreviewSkeletalMesh: cpp.Star<SkeletalMesh>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

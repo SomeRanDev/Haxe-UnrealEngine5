@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionPreviousFrameSwitch")
 @:include("Materials/MaterialExpressionPreviousFrameSwitch.h")
+@:structAccess
 extern class MaterialExpressionPreviousFrameSwitch extends MaterialExpression {
 	public var CurrentFrame: ExpressionInput;
 	public var PreviousFrame: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

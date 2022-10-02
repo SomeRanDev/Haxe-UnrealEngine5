@@ -3,6 +3,7 @@ package ue;
 
 @:native("UK2Node_Select")
 @:include("K2Node_Select.h")
+@:structAccess
 extern class K2Node_Select extends K2Node {
 	public var NumOptionPins: cpp.Int32;
 	public var IndexPinType: EdGraphPinType;
@@ -10,6 +11,8 @@ extern class K2Node_Select extends K2Node {
 	public var EnumEntries: TArray<FName>;
 	public var EnumEntryFriendlyNames: TArray<FText>;
 	public var bReconstructNode: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

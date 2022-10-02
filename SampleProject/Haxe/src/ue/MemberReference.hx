@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMemberReference")
 @:include("Engine/MemberReference.h")
+@:structAccess
 extern class MemberReference {
 	public var MemberParent: cpp.Star<Object>;
 	public var MemberScope: FString;
@@ -10,4 +11,6 @@ extern class MemberReference {
 	public var MemberGuid: Guid;
 	public var bSelfContext: Bool;
 	public var bWasDeprecated: Bool;
+
+	@:native("FMemberReference") public function new();
 }

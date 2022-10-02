@@ -3,9 +3,13 @@ package ue;
 
 @:native("FContentBrowserDataFilter")
 @:include("ContentBrowserDataFilter.h")
+@:structAccess
 extern class ContentBrowserDataFilter {
 	public var bRecursivePaths: Bool;
 	public var ItemTypeFilter: EContentBrowserItemTypeFilter;
 	public var ItemCategoryFilter: EContentBrowserItemCategoryFilter;
 	public var ItemAttributeFilter: EContentBrowserItemAttributeFilter;
+
+	@:native("FContentBrowserDataFilter") public function new();
+	@:native("FContentBrowserDataFilter") public static function make(bRecursivePaths: Bool, ItemTypeFilter: EContentBrowserItemTypeFilter, ItemCategoryFilter: EContentBrowserItemCategoryFilter, ItemAttributeFilter: EContentBrowserItemAttributeFilter): ContentBrowserDataFilter ;
 }

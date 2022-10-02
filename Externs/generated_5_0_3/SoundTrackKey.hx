@@ -3,9 +3,13 @@ package ue;
 
 @:native("FSoundTrackKey")
 @:include("Matinee/InterpTrackSound.h")
+@:structAccess
 extern class SoundTrackKey {
 	public var Time: cpp.Float32;
 	public var Volume: cpp.Float32;
 	public var Pitch: cpp.Float32;
 	public var Sound: cpp.Star<SoundBase>;
+
+	@:native("FSoundTrackKey") public function new();
+	@:native("FSoundTrackKey") public static function make(Time: cpp.Float32, Volume: cpp.Float32, Pitch: cpp.Float32, Sound: cpp.Star<SoundBase>): SoundTrackKey ;
 }

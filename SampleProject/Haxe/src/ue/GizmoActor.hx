@@ -3,7 +3,10 @@ package ue;
 
 @:native("AGizmoActor")
 @:include("BaseGizmos/GizmoActor.h")
+@:structAccess
 extern class GizmoActor extends InternalToolFrameworkActor {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

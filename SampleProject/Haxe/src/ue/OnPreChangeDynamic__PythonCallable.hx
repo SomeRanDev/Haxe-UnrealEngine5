@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnPreChangeDynamic__PythonCallable")
+@:structAccess
 extern class OnPreChangeDynamic__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UAnimSequenceLevelSequenceLink")
 @:include("AnimSequenceLevelSequenceLink.h")
+@:structAccess
 extern class AnimSequenceLevelSequenceLink extends AssetUserData {
 	public var SkelTrackGuid: Guid;
 	public var PathToLevelSequence: SoftObjectPath;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

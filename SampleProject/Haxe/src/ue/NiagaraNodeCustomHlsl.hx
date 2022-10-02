@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNiagaraNodeCustomHlsl")
 @:include("NiagaraNodeCustomHlsl.h")
+@:structAccess
 extern class NiagaraNodeCustomHlsl extends NiagaraNodeFunctionCall {
 	public var ScriptUsage: ENiagaraScriptUsage;
 	public var CustomHlsl: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

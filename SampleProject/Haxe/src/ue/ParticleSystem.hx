@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleSystem")
 @:include("Particles/ParticleSystem.h")
+@:structAccess
 extern class ParticleSystem extends FXSystemAsset {
 	public var UpdateTime_FPS: cpp.Float32;
 	public var UpdateTime_Delta: cpp.Float32;
@@ -53,6 +54,8 @@ extern class ParticleSystem extends FXSystemAsset {
 	public var NamedMaterialSlots: TArray<NamedEmitterMaterial>;
 
 	public function ContainsEmitterType(TypeData: cpp.Star<Class>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

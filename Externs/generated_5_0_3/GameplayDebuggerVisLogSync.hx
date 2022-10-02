@@ -3,6 +3,10 @@ package ue;
 
 @:native("FGameplayDebuggerVisLogSync")
 @:include("GameplayDebuggerCategoryReplicator.h")
+@:structAccess
 extern class GameplayDebuggerVisLogSync {
 	public var DeviceIDs: FString;
+
+	@:native("FGameplayDebuggerVisLogSync") public function new();
+	@:native("FGameplayDebuggerVisLogSync") public static function make(DeviceIDs: FString): GameplayDebuggerVisLogSync ;
 }

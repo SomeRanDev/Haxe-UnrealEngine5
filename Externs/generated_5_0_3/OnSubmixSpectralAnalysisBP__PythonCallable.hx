@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnSubmixSpectralAnalysisBP__PythonCallable")
+@:structAccess
 extern class OnSubmixSpectralAnalysisBP__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

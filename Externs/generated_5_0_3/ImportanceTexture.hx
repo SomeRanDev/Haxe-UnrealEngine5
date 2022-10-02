@@ -3,6 +3,7 @@ package ue;
 
 @:native("FImportanceTexture")
 @:include("Kismet/ImportanceSamplingLibrary.h")
+@:structAccess
 extern class ImportanceTexture {
 	public var Size: IntPoint;
 	public var NumMips: cpp.Int32;
@@ -11,4 +12,6 @@ extern class ImportanceTexture {
 	public var TextureData: TArray<Color>;
 	public var Texture: TWeakObjectPtr<Texture2D>;
 	public var Weighting: EImportanceWeight;
+
+	@:native("FImportanceTexture") public function new();
 }

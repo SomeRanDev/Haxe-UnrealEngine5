@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBehaviorTreeGraphNode_CompositeDecorator")
 @:include("BehaviorTreeGraphNode_CompositeDecorator.h")
+@:structAccess
 extern class BehaviorTreeGraphNode_CompositeDecorator extends BehaviorTreeGraphNode {
 	public var BoundGraph: cpp.Star<EdGraph>;
 	public var CompositeName: FString;
@@ -10,6 +11,8 @@ extern class BehaviorTreeGraphNode_CompositeDecorator extends BehaviorTreeGraphN
 	public var bCanAbortFlow: Bool;
 	public var ParentNodeInstance: cpp.Star<BTCompositeNode>;
 	public var CachedDescription: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

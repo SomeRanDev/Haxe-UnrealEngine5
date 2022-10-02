@@ -3,6 +3,7 @@ package ue;
 
 @:native("USafeZone")
 @:include("Components/SafeZone.h")
+@:structAccess
 extern class SafeZone extends ContentWidget {
 	public var PadLeft: Bool;
 	public var PadRight: Bool;
@@ -10,6 +11,8 @@ extern class SafeZone extends ContentWidget {
 	public var PadBottom: Bool;
 
 	public function SetSidesToPad(InPadLeft: Bool, InPadRight: Bool, InPadTop: Bool, InPadBottom: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

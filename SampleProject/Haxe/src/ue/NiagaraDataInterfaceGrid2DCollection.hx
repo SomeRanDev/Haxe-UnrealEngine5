@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraDataInterfaceGrid2DCollection")
 @:include("NiagaraDataInterfaceGrid2DCollection.h")
+@:structAccess
 extern class NiagaraDataInterfaceGrid2DCollection extends NiagaraDataInterfaceGrid2D {
 	public var RenderTargetUserParameter: NiagaraUserParameterBinding;
 	public var OverrideBufferFormat: ENiagaraGpuBufferFormat;
@@ -15,6 +16,8 @@ extern class NiagaraDataInterfaceGrid2DCollection extends NiagaraDataInterfaceGr
 	public function GetRawTextureSize(Component: cpp.Star<NiagaraComp.ConstNiagaraComp>, SizeX: cpp.Reference<cpp.Int32>, SizeY: cpp.Reference<cpp.Int32>): Void;
 	public function FillTexture2D(Component: cpp.Star<NiagaraComp.ConstNiagaraComp>, dest: cpp.Star<TextureRenderTarget2D>, AttributeIndex: cpp.Int32): cpp.Reference<Bool>;
 	public function FillRawTexture2D(Component: cpp.Star<NiagaraComp.ConstNiagaraComp>, Dest: cpp.Star<TextureRenderTarget2D>, TilesX: cpp.Reference<cpp.Int32>, TilesY: cpp.Reference<cpp.Int32>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

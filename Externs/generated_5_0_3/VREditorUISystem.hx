@@ -3,6 +3,7 @@ package ue;
 
 @:native("UVREditorUISystem")
 @:include("UI/VREditorUISystem.h")
+@:structAccess
 extern class VREditorUISystem extends Object {
 	public var VRMode: cpp.Star<VREditorMode>;
 	public var FloatingUIs: TMap<FName, cpp.Star<VREditorFloatingUI>>;
@@ -15,6 +16,8 @@ extern class VREditorUISystem extends Object {
 	public var UIInteractor: cpp.Star<VREditorInteractor>;
 	public var VRButtons: TArray<VRButton>;
 	public var RadialMenuHandler: cpp.Star<VRRadialMenuHandler>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

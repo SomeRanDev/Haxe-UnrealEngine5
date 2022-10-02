@@ -3,7 +3,11 @@ package ue;
 
 @:native("FRigVMActionKey")
 @:include("RigVMModel/RigVMControllerActions.h")
+@:structAccess
 extern class RigVMActionKey {
 	public var ScriptStructPath: FString;
 	public var ExportedText: FString;
+
+	@:native("FRigVMActionKey") public function new();
+	@:native("FRigVMActionKey") public static function make(ScriptStructPath: FString, ExportedText: FString): RigVMActionKey ;
 }

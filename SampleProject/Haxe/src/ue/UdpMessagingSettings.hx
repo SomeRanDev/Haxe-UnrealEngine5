@@ -3,6 +3,7 @@ package ue;
 
 @:native("UUdpMessagingSettings")
 @:include("Shared/UdpMessagingSettings.h")
+@:structAccess
 extern class UdpMessagingSettings extends Object {
 	public var EnabledByDefault: Bool;
 	public var EnableTransport: Bool;
@@ -19,6 +20,8 @@ extern class UdpMessagingSettings extends Object {
 	public var TunnelUnicastEndpoint: FString;
 	public var TunnelMulticastEndpoint: FString;
 	public var RemoteTunnelEndpoints: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

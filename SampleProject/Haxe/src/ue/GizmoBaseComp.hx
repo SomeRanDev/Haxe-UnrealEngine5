@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGizmoBaseComponent")
 @:include("BaseGizmos/GizmoBaseComponent.h")
+@:structAccess
 extern class GizmoBaseComp extends PrimitiveComp {
 	public var Color: LinearColor;
 	public var HoverSizeMultiplier: cpp.Float32;
@@ -11,6 +12,8 @@ extern class GizmoBaseComp extends PrimitiveComp {
 
 	public function UpdateWorldLocalState(bWorldIn: Bool): Void;
 	public function UpdateHoverState(bHoveringIn: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

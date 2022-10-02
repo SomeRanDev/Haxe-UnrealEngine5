@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnWidgetAnimationPlaybackStatusChanged__PythonCallable")
+@:structAccess
 extern class OnWidgetAnimationPlaybackStatusChanged__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

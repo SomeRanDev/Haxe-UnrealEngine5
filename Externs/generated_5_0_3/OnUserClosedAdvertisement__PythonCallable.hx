@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnUserClosedAdvertisement__PythonCallable")
+@:structAccess
 extern class OnUserClosedAdvertisement__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

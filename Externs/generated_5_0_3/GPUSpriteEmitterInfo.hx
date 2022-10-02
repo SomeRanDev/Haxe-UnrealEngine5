@@ -3,6 +3,7 @@ package ue;
 
 @:native("FGPUSpriteEmitterInfo")
 @:include("Particles/TypeData/ParticleModuleTypeDataGpu.h")
+@:structAccess
 extern class GPUSpriteEmitterInfo {
 	public var RequiredModule: cpp.Star<ParticleModuleRequired>;
 	public var SpawnModule: cpp.Star<ParticleModuleSpawn>;
@@ -33,4 +34,6 @@ extern class GPUSpriteEmitterInfo {
 	public var DynamicAlpha: RawDistributionFloat;
 	public var DynamicColorScale: RawDistributionVector;
 	public var DynamicAlphaScale: RawDistributionFloat;
+
+	@:native("FGPUSpriteEmitterInfo") public function new();
 }

@@ -3,10 +3,13 @@ package ue;
 
 @:native("USkinWeightImportOptions")
 @:include("SSkinWeightProfileImportOptions.h")
+@:structAccess
 extern class SkinWeightImportOptions extends Object {
 	public var ProfileName: FString;
 	public var FilePath: FString;
 	public var LODIndex: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

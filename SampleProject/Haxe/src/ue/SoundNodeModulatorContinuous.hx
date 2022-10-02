@@ -3,9 +3,12 @@ package ue;
 
 @:native("USoundNodeModulatorContinuous")
 @:include("Sound/SoundNodeModulatorContinuous.h")
+@:structAccess
 extern class SoundNodeModulatorContinuous extends SoundNode {
 	public var PitchModulationParams: ModulatorContinuousParams;
 	public var VolumeModulationParams: ModulatorContinuousParams;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

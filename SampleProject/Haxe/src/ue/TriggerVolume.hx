@@ -3,7 +3,10 @@ package ue;
 
 @:native("ATriggerVolume")
 @:include("Engine/TriggerVolume.h")
+@:structAccess
 extern class TriggerVolume extends Volume {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

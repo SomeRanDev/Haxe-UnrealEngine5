@@ -3,9 +3,12 @@ package ue;
 
 @:native("UInterpTrackMoveAxis")
 @:include("Matinee/InterpTrackMoveAxis.h")
+@:structAccess
 extern class InterpTrackMoveAxis extends InterpTrackFloatBase {
 	public var MoveAxis: EInterpMoveAxis;
 	public var LookupTrack: InterpLookupTrack;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

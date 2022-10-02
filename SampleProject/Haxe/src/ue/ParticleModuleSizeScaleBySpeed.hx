@@ -3,9 +3,12 @@ package ue;
 
 @:native("UParticleModuleSizeScaleBySpeed")
 @:include("Particles/Size/ParticleModuleSizeScaleBySpeed.h")
+@:structAccess
 extern class ParticleModuleSizeScaleBySpeed extends ParticleModuleSizeBase {
 	public var SpeedScale: Vector2D;
 	public var MaxScale: Vector2D;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

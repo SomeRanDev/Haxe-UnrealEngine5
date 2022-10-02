@@ -3,6 +3,7 @@ package ue;
 
 @:native("UInvalidationBox")
 @:include("Components/InvalidationBox.h")
+@:structAccess
 extern class InvalidationBox extends ContentWidget {
 	public var bCanCache: Bool;
 	public var CacheRelativeTransforms_DEPRECATED: Bool;
@@ -10,6 +11,8 @@ extern class InvalidationBox extends ContentWidget {
 	public function SetCanCache(CanCache: Bool): Void;
 	public function InvalidateCache(): Void;
 	public function GetCanCache(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetCanCache)

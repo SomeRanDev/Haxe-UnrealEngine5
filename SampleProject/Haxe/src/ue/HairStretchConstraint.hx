@@ -3,10 +3,14 @@ package ue;
 
 @:native("FHairStretchConstraint")
 @:include("GroomAssetPhysics.h")
+@:structAccess
 extern class HairStretchConstraint {
 	public var SolveStretch: Bool;
 	public var ProjectStretch: Bool;
 	public var StretchDamping: cpp.Float32;
 	public var StretchStiffness: cpp.Float32;
 	public var StretchScale: RuntimeFloatCurve;
+
+	@:native("FHairStretchConstraint") public function new();
+	@:native("FHairStretchConstraint") public static function make(SolveStretch: Bool, ProjectStretch: Bool, StretchDamping: cpp.Float32, StretchStiffness: cpp.Float32, StretchScale: RuntimeFloatCurve): HairStretchConstraint ;
 }

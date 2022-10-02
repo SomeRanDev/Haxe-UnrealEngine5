@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UMatineeInterface")
+@:structAccess
 extern class MatineeInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

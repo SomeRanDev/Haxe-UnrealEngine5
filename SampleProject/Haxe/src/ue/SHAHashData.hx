@@ -3,6 +3,10 @@ package ue;
 
 @:native("FSHAHashData")
 @:include("Private/Data/ManifestUObject.h")
+@:structAccess
 extern class SHAHashData {
 	public var Hash: cpp.UInt8;
+
+	@:native("FSHAHashData") public function new();
+	@:native("FSHAHashData") public static function make(Hash: cpp.UInt8): SHAHashData ;
 }

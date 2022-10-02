@@ -3,6 +3,7 @@ package ue;
 
 @:native("UConeBuilder")
 @:include("Builders/ConeBuilder.h")
+@:structAccess
 extern class ConeBuilder extends EditorBrushBuilder {
 	public var Z: cpp.Float32;
 	public var CapZ: cpp.Float32;
@@ -12,6 +13,8 @@ extern class ConeBuilder extends EditorBrushBuilder {
 	public var GroupName: FName;
 	public var AlignToSide: Bool;
 	public var Hollow: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

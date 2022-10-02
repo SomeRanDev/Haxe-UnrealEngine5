@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_LayeredBoneBlend")
 @:include("AnimGraphNode_LayeredBoneBlend.h")
+@:structAccess
 extern class AnimGraphNode_LayeredBoneBlend extends AnimGraphNode_BlendListBase {
 	public var Node: AnimNode_LayeredBoneBlend;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

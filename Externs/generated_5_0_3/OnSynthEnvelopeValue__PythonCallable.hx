@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnSynthEnvelopeValue__PythonCallable")
+@:structAccess
 extern class OnSynthEnvelopeValue__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

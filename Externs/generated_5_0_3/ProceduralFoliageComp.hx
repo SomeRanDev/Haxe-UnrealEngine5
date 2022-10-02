@@ -3,6 +3,7 @@ package ue;
 
 @:native("UProceduralFoliageComponent")
 @:include("ProceduralFoliageComponent.h")
+@:structAccess
 extern class ProceduralFoliageComp extends ActorComp {
 	public var FoliageSpawner: cpp.Star<ProceduralFoliageSpawner>;
 	public var TileOverlap: cpp.Float32;
@@ -16,6 +17,8 @@ extern class ProceduralFoliageComp extends ActorComp {
 	public var SpawningVolume: cpp.Star<Volume>;
 	public var ProceduralGuid: Guid;
 	public var LastSimulationDataLayer: ActorDataLayer;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

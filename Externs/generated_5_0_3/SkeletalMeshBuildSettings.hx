@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSkeletalMeshBuildSettings")
 @:include("Engine/EngineTypes.h")
+@:structAccess
 extern class SkeletalMeshBuildSettings {
 	public var bRecomputeNormals: Bool;
 	public var bRecomputeTangents: Bool;
@@ -16,4 +17,6 @@ extern class SkeletalMeshBuildSettings {
 	public var ThresholdTangentNormal: cpp.Float32;
 	public var ThresholdUV: cpp.Float32;
 	public var MorphThresholdPosition: cpp.Float32;
+
+	@:native("FSkeletalMeshBuildSettings") public function new();
 }

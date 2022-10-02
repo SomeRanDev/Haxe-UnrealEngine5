@@ -3,6 +3,7 @@ package ue;
 
 @:native("UVectorFieldAnimated")
 @:include("VectorField/VectorFieldAnimated.h")
+@:structAccess
 extern class VectorFieldAnimated extends VectorField {
 	public var Texture: cpp.Star<Texture2D>;
 	public var ConstructionOp: EVectorFieldConstructionOp;
@@ -17,6 +18,8 @@ extern class VectorFieldAnimated extends VectorField {
 	public var NoiseField: cpp.Star<VectorFieldStatic>;
 	public var NoiseScale: cpp.Float32;
 	public var NoiseMax: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UViewportDragOperationComponent")
 @:include("ViewportDragOperation.h")
+@:structAccess
 extern class ViewportDragOperationComp extends ActorComp {
 	public var DragOperation: cpp.Star<ViewportDragOperation>;
 	public var DragOperationSubclass: TSubclassOf<ViewportDragOperation>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

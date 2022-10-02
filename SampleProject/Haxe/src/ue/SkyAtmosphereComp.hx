@@ -3,6 +3,7 @@ package ue;
 
 @:native("USkyAtmosphereComponent")
 @:include("Components/SkyAtmosphereComponent.h")
+@:structAccess
 extern class SkyAtmosphereComp extends SceneComp {
 	public var TransformMode: ESkyAtmosphereTransformMode;
 	public var BottomRadius: cpp.Float32;
@@ -47,6 +48,8 @@ extern class SkyAtmosphereComp extends SceneComp {
 	public function SetAerialPespectiveViewDistanceScale(NewValue: cpp.Float32): Void;
 	public function OverrideAtmosphereLightDirection(AtmosphereLightIndex: cpp.Int32, LightDirection: cpp.Reference<Vector>): Void;
 	public function GetAtmosphereTransmitanceOnGroundAtPlanetTop(DirectionalLight: cpp.Star<DirectionalLightComp>): cpp.Reference<LinearColor>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

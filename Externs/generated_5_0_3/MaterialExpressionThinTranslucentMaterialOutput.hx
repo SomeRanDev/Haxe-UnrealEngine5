@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionThinTranslucentMaterialOutput")
 @:include("Materials/MaterialExpressionThinTranslucentMaterialOutput.h")
+@:structAccess
 extern class MaterialExpressionThinTranslucentMaterialOutput extends MaterialExpressionCustomOutput {
 	public var TransmittanceColor: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

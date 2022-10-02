@@ -3,8 +3,12 @@ package ue;
 
 @:native("FRigElementWeight")
 @:include("Rigs/RigHierarchyElements.h")
+@:structAccess
 extern class RigElementWeight {
 	public var Location: cpp.Float32;
 	public var Rotation: cpp.Float32;
 	public var Scale: cpp.Float32;
+
+	@:native("FRigElementWeight") public function new();
+	@:native("FRigElementWeight") public static function make(Location: cpp.Float32, Rotation: cpp.Float32, Scale: cpp.Float32): RigElementWeight ;
 }

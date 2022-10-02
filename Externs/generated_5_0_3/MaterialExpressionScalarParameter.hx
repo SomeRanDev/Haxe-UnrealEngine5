@@ -3,12 +3,15 @@ package ue;
 
 @:native("UMaterialExpressionScalarParameter")
 @:include("Materials/MaterialExpressionScalarParameter.h")
+@:structAccess
 extern class MaterialExpressionScalarParameter extends MaterialExpressionParameter {
 	public var DefaultValue: cpp.Float32;
 	public var bUseCustomPrimitiveData: Bool;
 	public var PrimitiveDataIndex: cpp.UInt8;
 	public var SliderMin: cpp.Float32;
 	public var SliderMax: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

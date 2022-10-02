@@ -3,6 +3,10 @@ package ue;
 
 @:native("FStaticSwitchParameter")
 @:include("StaticParameterSet.h")
+@:structAccess
 extern class StaticSwitchParameter extends StaticParameterBase {
 	public var Value: Bool;
+
+	@:native("FStaticSwitchParameter") public function new();
+	@:native("FStaticSwitchParameter") public static function make(Value: Bool): StaticSwitchParameter ;
 }

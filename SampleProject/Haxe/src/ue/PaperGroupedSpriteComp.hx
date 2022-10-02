@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPaperGroupedSpriteComponent")
 @:include("PaperGroupedSpriteComponent.h")
+@:structAccess
 extern class PaperGroupedSpriteComp extends MeshComp {
 	public var InstanceMaterials: TArray<cpp.Star<MaterialInterface>>;
 	public var PerInstanceSpriteData: TArray<SpriteInstanceData>;
@@ -15,6 +16,8 @@ extern class PaperGroupedSpriteComp extends MeshComp {
 	public function GetInstanceCount(): cpp.Reference<cpp.Int32>;
 	public function ClearInstances(): Void;
 	public function AddInstance(Transform: cpp.Reference<Transform>, Sprite: cpp.Star<PaperSprite>, bWorldSpace: Bool, Color: LinearColor): cpp.Reference<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetInstanceTransform, GetInstanceCount)

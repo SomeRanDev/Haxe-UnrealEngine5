@@ -3,10 +3,13 @@ package ue;
 
 @:native("UParticleModuleSubUV")
 @:include("Particles/SubUV/ParticleModuleSubUV.h")
+@:structAccess
 extern class ParticleModuleSubUV extends ParticleModuleSubUVBase {
 	public var Animation: cpp.Star<SubUVAnimation>;
 	public var SubImageIndex: RawDistributionFloat;
 	public var bUseRealTime: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("AFunctionalTestGameMode")
 @:include("FunctionalTestGameMode.h")
+@:structAccess
 extern class FunctionalTestGameMode extends GameModeBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

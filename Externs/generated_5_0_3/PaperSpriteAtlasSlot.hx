@@ -3,6 +3,7 @@ package ue;
 
 @:native("FPaperSpriteAtlasSlot")
 @:include("PaperSpriteAtlas.h")
+@:structAccess
 extern class PaperSpriteAtlasSlot {
 	public var SpriteRef: TSoftObjectPtr<PaperSprite>;
 	public var AtlasIndex: cpp.Int32;
@@ -10,4 +11,6 @@ extern class PaperSpriteAtlasSlot {
 	public var Y: cpp.Int32;
 	public var Width: cpp.Int32;
 	public var Height: cpp.Int32;
+
+	@:native("FPaperSpriteAtlasSlot") public function new();
 }

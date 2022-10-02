@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPhysicsFieldComponent")
 @:include("PhysicsField/PhysicsFieldComponent.h")
+@:structAccess
 extern class PhysicsFieldComp extends SceneComp {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

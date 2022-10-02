@@ -3,6 +3,10 @@ package ue;
 
 @:native("FInstancedStaticMeshInstanceData")
 @:include("Components/InstancedStaticMeshComponent.h")
+@:structAccess
 extern class InstancedStaticMeshInstanceData {
 	public var Transform: Matrix;
+
+	@:native("FInstancedStaticMeshInstanceData") public function new();
+	@:native("FInstancedStaticMeshInstanceData") public static function make(Transform: Matrix): InstancedStaticMeshInstanceData ;
 }

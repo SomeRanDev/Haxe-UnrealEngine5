@@ -3,9 +3,13 @@ package ue;
 
 @:native("FWorldPartitionPerWorldSettings")
 @:include("WorldPartition/WorldPartitionEditorPerProjectUserSettings.h")
+@:structAccess
 extern class WorldPartitionPerWorldSettings {
 	public var LoadedEditorGridCells: TArray<FName>;
 	public var NotLoadedDataLayers: TArray<FName>;
 	public var LoadedDataLayers: TArray<FName>;
 	public var EditorGridConfigHash: cpp.UInt32;
+
+	@:native("FWorldPartitionPerWorldSettings") public function new();
+	@:native("FWorldPartitionPerWorldSettings") public static function make(LoadedEditorGridCells: TArray<FName>, NotLoadedDataLayers: TArray<FName>, LoadedDataLayers: TArray<FName>, EditorGridConfigHash: cpp.UInt32): WorldPartitionPerWorldSettings ;
 }

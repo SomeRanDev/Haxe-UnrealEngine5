@@ -3,9 +3,13 @@ package ue;
 
 @:native("FComponentOverrideRecord")
 @:include("Engine/InheritableComponentHandler.h")
+@:structAccess
 extern class ComponentOverrideRecord {
 	public var ComponentClass: TSubclassOf<Object>;
 	public var ComponentTemplate: cpp.Star<ActorComp>;
 	public var ComponentKey: ComponentKey;
 	public var CookedComponentInstancingData: BlueprintCookedComponentInstancingData;
+
+	@:native("FComponentOverrideRecord") public function new();
+	@:native("FComponentOverrideRecord") public static function make(ComponentClass: TSubclassOf<Object>, ComponentTemplate: cpp.Star<ActorComp>, ComponentKey: ComponentKey, CookedComponentInstancingData: BlueprintCookedComponentInstancingData): ComponentOverrideRecord ;
 }

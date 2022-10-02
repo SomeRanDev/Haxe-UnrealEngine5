@@ -3,7 +3,11 @@ package ue;
 
 @:native("FNamedSlotBinding")
 @:include("Blueprint/UserWidget.h")
+@:structAccess
 extern class NamedSlotBinding {
 	public var Name: FName;
 	public var Content: cpp.Star<Widget>;
+
+	@:native("FNamedSlotBinding") public function new();
+	@:native("FNamedSlotBinding") public static function make(Name: FName, Content: cpp.Star<Widget>): NamedSlotBinding ;
 }

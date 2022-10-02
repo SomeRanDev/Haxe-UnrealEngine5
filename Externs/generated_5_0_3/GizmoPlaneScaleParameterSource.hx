@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGizmoPlaneScaleParameterSource")
 @:include("BaseGizmos/ParameterToTransformAdapters.h")
+@:structAccess
 extern class GizmoPlaneScaleParameterSource extends GizmoBaseVec2ParameterSource {
 	public var AxisSource: GizmoAxisSource;
 	public var TransformSource: GizmoTransformSource;
@@ -16,6 +17,8 @@ extern class GizmoPlaneScaleParameterSource extends GizmoBaseVec2ParameterSource
 	public var CurScaleAxisX: Vector;
 	public var CurScaleAxisY: Vector;
 	public var InitialTransform: Transform;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

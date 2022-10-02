@@ -3,7 +3,10 @@ package ue;
 
 @:native("USoundExporterOGG")
 @:include("Exporters/SoundExporterOGG.h")
+@:structAccess
 extern class SoundExporterOGG extends Exporter {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

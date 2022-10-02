@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraComponentPool")
 @:include("NiagaraComponentPool.h")
+@:structAccess
 extern class NiagaraComponentPool extends Object {
 	public var WorldParticleSystemPools: TMap<cpp.Star<NiagaraSystem>, NCPool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

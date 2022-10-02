@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_IKRig")
 @:include("AnimNodes/AnimNode_IKRig.h")
+@:structAccess
 extern class AnimNode_IKRig extends AnimNode_CustomProperty {
 	public var Source: PoseLink;
 	public var RigDefinitionAsset: cpp.Star<IKRigDefinition>;
@@ -19,4 +20,6 @@ extern class AnimNode_IKRig extends AnimNode_CustomProperty {
 	public var AlphaScaleBiasClamp: InputScaleBiasClamp;
 	public var IKRigProcessor: cpp.Star<IKRigProcessor>;
 	public var ActualAlpha: cpp.Float32;
+
+	@:native("FAnimNode_IKRig") public function new();
 }

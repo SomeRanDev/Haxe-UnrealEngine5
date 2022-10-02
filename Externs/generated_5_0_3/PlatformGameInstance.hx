@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPlatformGameInstance")
 @:include("Kismet/BlueprintPlatformLibrary.h")
+@:structAccess
 extern class PlatformGameInstance extends GameInstance {
 	public var ApplicationWillDeactivateDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var ApplicationHasReactivatedDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
@@ -26,6 +27,8 @@ extern class PlatformGameInstance extends GameInstance {
 	public function PlatformReceivedLocalNotificationDelegate__DelegateSignature(inString: FString, inInt: cpp.Int32, inAppState: EApplicationState): Void;
 	public function PlatformFailedToRegisterForRemoteNotificationsDelegate__DelegateSignature(inString: FString): Void;
 	public function PlatformDelegate__DelegateSignature(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

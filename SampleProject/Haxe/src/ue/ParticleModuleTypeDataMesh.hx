@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleTypeDataMesh")
 @:include("Particles/TypeData/ParticleModuleTypeDataMesh.h")
+@:structAccess
 extern class ParticleModuleTypeDataMesh extends ParticleModuleTypeDataBase {
 	public var Mesh: cpp.Star<StaticMesh>;
 	public var LODSizeScale: cpp.Float32;
@@ -21,6 +22,8 @@ extern class ParticleModuleTypeDataMesh extends ParticleModuleTypeDataBase {
 	public var bApplyParticleRotationAsSpin: Bool;
 	public var bFaceCameraDirectionRatherThanPosition: Bool;
 	public var bCollisionsConsiderPartilceSize: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

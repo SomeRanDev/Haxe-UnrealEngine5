@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAIStimulus")
 @:include("Perception/AIPerceptionTypes.h")
+@:structAccess
 extern class AIStimulus {
 	public var Age: cpp.Float32;
 	public var ExpirationAge: cpp.Float32;
@@ -11,4 +12,6 @@ extern class AIStimulus {
 	public var ReceiverLocation: Vector;
 	public var Tag: FName;
 	public var bSuccessfullySensed: Bool;
+
+	@:native("FAIStimulus") public function new();
 }

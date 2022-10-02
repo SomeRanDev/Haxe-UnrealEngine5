@@ -3,6 +3,7 @@ package ue;
 
 @:native("FARGeoAnchorUpdatePayload")
 @:include("ARComponent.h")
+@:structAccess
 extern class ARGeoAnchorUpdatePayload {
 	public var SessionPayload: ARSessionPayload;
 	public var WorldTransform: Transform;
@@ -11,4 +12,6 @@ extern class ARGeoAnchorUpdatePayload {
 	public var AltitudeMeters: cpp.Float32;
 	public var AltitudeSource: EARAltitudeSource;
 	public var AnchorName: FString;
+
+	@:native("FARGeoAnchorUpdatePayload") public function new();
 }

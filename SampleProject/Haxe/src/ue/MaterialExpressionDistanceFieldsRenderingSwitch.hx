@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionDistanceFieldsRenderingSwitch")
 @:include("Materials/MaterialExpressionDistanceFieldsRenderingSwitch.h")
+@:structAccess
 extern class MaterialExpressionDistanceFieldsRenderingSwitch extends MaterialExpression {
 	public var No: ExpressionInput;
 	public var Yes: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

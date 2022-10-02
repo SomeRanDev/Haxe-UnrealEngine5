@@ -3,10 +3,14 @@ package ue;
 
 @:native("FRigSpace")
 @:include("Rigs/RigSpaceHierarchy.h")
+@:structAccess
 extern class RigSpace extends RigElement {
 	public var SpaceType: ERigSpaceType;
 	public var ParentName: FName;
 	public var ParentIndex: cpp.Int32;
 	public var InitialTransform: Transform;
 	public var LocalTransform: Transform;
+
+	@:native("FRigSpace") public function new();
+	@:native("FRigSpace") public static function make(SpaceType: ERigSpaceType, ParentName: FName, ParentIndex: cpp.Int32, InitialTransform: Transform, LocalTransform: Transform): RigSpace ;
 }

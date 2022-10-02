@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPhysicsConstraintComponent")
 @:include("PhysicsEngine/PhysicsConstraintComponent.h")
+@:structAccess
 extern class PhysicsConstraintComp extends SceneComp {
 	public var ConstraintActor1: cpp.Star<Actor>;
 	public var ComponentName1: ConstrainComponentPropName;
@@ -52,6 +53,8 @@ extern class PhysicsConstraintComp extends SceneComp {
 	public function GetConstraint(): cpp.Reference<ConstraintInstanceAccessor>;
 	public function GetConstrainedComponents(OutComponent1: cpp.Reference<cpp.Star<PrimitiveComp>>, OutBoneName1: cpp.Reference<FName>, OutComponent2: cpp.Reference<cpp.Star<PrimitiveComp>>, OutBoneName2: cpp.Reference<FName>): Void;
 	public function BreakConstraint(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetCurrentTwist, GetCurrentSwing2, GetCurrentSwing1)

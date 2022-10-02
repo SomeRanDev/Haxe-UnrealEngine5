@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneAsyncAction_SequencePrediction")
 @:include("Systems/MovieScenePredictionSystem.h")
+@:structAccess
 extern class MovieSceneAsyncAction_SequencePrediction extends BlueprintAsyncActionBase {
 	public var Result: HaxeMulticastSparseDelegateProperty<(Transform) -> Void>;
 	public var Failure: HaxeMulticastSparseDelegateProperty<() -> Void>;
@@ -13,6 +14,8 @@ extern class MovieSceneAsyncAction_SequencePrediction extends BlueprintAsyncActi
 	public function PredictWorldTransformAtFrame(Player: cpp.Star<MovieSceneSequencePlayer>, TargetComponent: cpp.Star<SceneComp>, FrameTime: FrameTime): cpp.Reference<cpp.Star<MovieSceneAsyncAction_SequencePrediction>>;
 	public function PredictLocalTransformAtTime(Player: cpp.Star<MovieSceneSequencePlayer>, TargetComponent: cpp.Star<SceneComp>, TimeInSeconds: cpp.Float32): cpp.Reference<cpp.Star<MovieSceneAsyncAction_SequencePrediction>>;
 	public function PredictLocalTransformAtFrame(Player: cpp.Star<MovieSceneSequencePlayer>, TargetComponent: cpp.Star<SceneComp>, FrameTime: FrameTime): cpp.Reference<cpp.Star<MovieSceneAsyncAction_SequencePrediction>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

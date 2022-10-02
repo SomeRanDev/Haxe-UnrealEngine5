@@ -3,6 +3,7 @@ package ue;
 
 @:native("AEmitter")
 @:include("Particles/Emitter.h")
+@:structAccess
 extern class Emitter extends Actor {
 	public var ParticleSystemComponent: cpp.Star<ParticleSystemComp>;
 	public var bDestroyOnSystemFinish: Bool;
@@ -27,6 +28,8 @@ extern class Emitter extends Actor {
 	public function IsActive(): cpp.Reference<Bool>;
 	public function Deactivate(): Void;
 	public function Activate(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsActive)

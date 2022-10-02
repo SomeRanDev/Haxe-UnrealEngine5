@@ -3,6 +3,7 @@ package ue;
 
 @:native("AInteractiveFoliageActor")
 @:include("InteractiveFoliageActor.h")
+@:structAccess
 extern class InteractiveFoliageActor extends StaticMeshActor {
 	public var CapsuleComponent: cpp.Star<CapsuleComp>;
 	public var TouchingActorEntryPosition: Vector;
@@ -20,6 +21,8 @@ extern class InteractiveFoliageActor extends StaticMeshActor {
 	public var Mass: cpp.Float32;
 
 	public function CapsuleTouched(OverlappedComp: cpp.Star<PrimitiveComp>, Other: cpp.Star<Actor>, OtherComp: cpp.Star<PrimitiveComp>, OtherBodyIndex: cpp.Int32, bFromSweep: Bool, OverlapInfo: cpp.Reference<HitResult>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("ULightmassPrimitiveSettingsObject")
 @:include("Lightmass/LightmassPrimitiveSettingsObject.h")
+@:structAccess
 extern class LightmassPrimitiveSettingsObject extends Object {
 	public var LightmassSettings: LightmassPrimitiveSettings;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

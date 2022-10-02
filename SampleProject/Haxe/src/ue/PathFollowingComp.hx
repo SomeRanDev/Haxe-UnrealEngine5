@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPathFollowingComponent")
 @:include("Navigation/PathFollowingComponent.h")
+@:structAccess
 extern class PathFollowingComp extends ActorComp {
 	public var MovementComp: cpp.Star<NavMovementComp>;
 	public var MyNavData: cpp.Star<NavigationData>;
@@ -11,6 +12,8 @@ extern class PathFollowingComp extends ActorComp {
 	public function OnActorBump(SelfActor: cpp.Star<Actor>, OtherActor: cpp.Star<Actor>, NormalImpulse: Vector, Hit: cpp.Reference<HitResult>): Void;
 	public function GetPathDestination(): cpp.Reference<Vector>;
 	public function GetPathActionType(): cpp.Reference<EPathFollowingAction>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetPathDestination, GetPathActionType)

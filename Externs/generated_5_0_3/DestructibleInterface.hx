@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UDestructibleInterface")
+@:structAccess
 extern class DestructibleInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

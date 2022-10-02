@@ -3,10 +3,13 @@ package ue;
 
 @:native("UPropertyConfigFileDisplayRow")
 @:include("ConfigPropertyHelper.h")
+@:structAccess
 extern class PropertyConfigFileDisplayRow extends Object {
 	public var ConfigFileName: FString;
 	public var ExternalProperty: TFieldPath<FProperty>;
 	public var bIsFileWritable: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UConstraintInstanceBlueprintLibrary")
 @:include("PhysicsEngine/ConstraintInstanceBlueprintLibrary.h")
+@:structAccess
 extern class ConstraintInstanceBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function SetProjectionParams(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bEnableProjection: Bool, ProjectionLinearAlpha: cpp.Float32, ProjectionAngularAlpha: cpp.Float32): Void;
 	public function SetParentDominates(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bParentDominates: Bool): Void;
@@ -58,6 +59,8 @@ extern class ConstraintInstanceBlueprintLibrary extends BlueprintFunctionLibrary
 	public function GetAngularDriveMode(Accessor: cpp.Reference<ConstraintInstanceAccessor>, OutDriveMode: cpp.Reference<EAngularDriveMode>): Void;
 	public function GetAngularBreakable(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bAngularBreakable: cpp.Reference<Bool>, AngularBreakThreshold: cpp.Reference<cpp.Float32>): Void;
 	public function CopyParams(Accessor: cpp.Reference<ConstraintInstanceAccessor>, SourceAccessor: cpp.Reference<ConstraintInstanceAccessor>, bKeepPosition: Bool, bKeepRotation: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

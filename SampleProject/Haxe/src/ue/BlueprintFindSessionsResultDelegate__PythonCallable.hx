@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UBlueprintFindSessionsResultDelegate__PythonCallable")
+@:structAccess
 extern class BlueprintFindSessionsResultDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

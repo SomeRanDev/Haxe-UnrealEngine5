@@ -3,6 +3,7 @@ package ue;
 
 @:native("FTextureSourceColorSettings")
 @:include("Engine/Texture.h")
+@:structAccess
 extern class TextureSourceColorSettings {
 	public var EncodingOverride: ETextureSourceEncoding;
 	public var ColorSpace: ETextureColorSpace;
@@ -11,4 +12,6 @@ extern class TextureSourceColorSettings {
 	public var BlueChromaticityCoordinate: Vector2D;
 	public var WhiteChromaticityCoordinate: Vector2D;
 	public var ChromaticAdaptationMethod: ETextureChromaticAdaptationMethod;
+
+	@:native("FTextureSourceColorSettings") public function new();
 }

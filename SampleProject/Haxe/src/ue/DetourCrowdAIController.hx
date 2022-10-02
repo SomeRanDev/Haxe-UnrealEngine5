@@ -3,7 +3,10 @@ package ue;
 
 @:native("ADetourCrowdAIController")
 @:include("DetourCrowdAIController.h")
+@:structAccess
 extern class DetourCrowdAIController extends AIController {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

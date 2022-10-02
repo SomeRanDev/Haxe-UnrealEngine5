@@ -3,11 +3,14 @@ package ue;
 
 @:native("UFoliageType_Actor")
 @:include("FoliageType_Actor.h")
+@:structAccess
 extern class FoliageType_Actor extends FoliageType {
 	public var ActorClass: TSubclassOf<Actor>;
 	public var bShouldAttachToBaseComponent: Bool;
 	public var bStaticMeshOnly: Bool;
 	public var StaticMeshOnlyComponentClass: TSubclassOf<FoliageInstancedStaticMeshComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

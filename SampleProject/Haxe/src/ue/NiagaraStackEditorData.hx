@@ -3,11 +3,14 @@ package ue;
 
 @:native("UNiagaraStackEditorData")
 @:include("NiagaraStackEditorData.h")
+@:structAccess
 extern class NiagaraStackEditorData extends NiagaraEditorDataBase {
 	public var StackEntryKeyToExpandedMap: TMap<FString, Bool>;
 	public var StackEntryKeyToExpandedOverviewMap: TMap<FString, Bool>;
 	public var StackEntryKeyToDisplayName: TMap<FString, FText>;
 	public var DismissedStackIssueIds: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

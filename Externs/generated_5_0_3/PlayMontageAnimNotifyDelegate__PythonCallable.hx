@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UPlayMontageAnimNotifyDelegate__PythonCallable")
+@:structAccess
 extern class PlayMontageAnimNotifyDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

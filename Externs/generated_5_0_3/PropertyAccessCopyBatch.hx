@@ -3,6 +3,10 @@ package ue;
 
 @:native("FPropertyAccessCopyBatch")
 @:include("PropertyAccess.h")
+@:structAccess
 extern class PropertyAccessCopyBatch {
 	public var Copies: TArray<PropertyAccessCopy>;
+
+	@:native("FPropertyAccessCopyBatch") public function new();
+	@:native("FPropertyAccessCopyBatch") public static function make(Copies: TArray<PropertyAccessCopy>): PropertyAccessCopyBatch ;
 }

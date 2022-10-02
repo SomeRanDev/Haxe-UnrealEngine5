@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraScalabilityState")
 @:include("NiagaraCommon.h")
+@:structAccess
 extern class NiagaraScalabilityState {
 	public var Significance: cpp.Float32;
 	public var bCulled: Bool;
@@ -11,4 +12,6 @@ extern class NiagaraScalabilityState {
 	public var bCulledByInstanceCount: Bool;
 	public var bCulledByVisibility: Bool;
 	public var bCulledByGlobalBudget: Bool;
+
+	@:native("FNiagaraScalabilityState") public function new();
 }

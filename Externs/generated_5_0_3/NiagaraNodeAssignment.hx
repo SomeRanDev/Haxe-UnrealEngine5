@@ -3,12 +3,15 @@ package ue;
 
 @:native("UNiagaraNodeAssignment")
 @:include("NiagaraNodeAssignment.h")
+@:structAccess
 extern class NiagaraNodeAssignment extends NiagaraNodeFunctionCall {
 	public var AssignmentTarget_DEPRECATED: NiagaraVariable;
 	public var AssignmentDefaultValue_DEPRECATED: FString;
 	public var AssignmentTargets: TArray<NiagaraVariable>;
 	public var AssignmentDefaultValues: TArray<FString>;
 	public var OldFunctionCallName: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

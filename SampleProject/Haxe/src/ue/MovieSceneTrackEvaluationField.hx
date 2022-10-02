@@ -3,6 +3,10 @@ package ue;
 
 @:native("FMovieSceneTrackEvaluationField")
 @:include("MovieSceneTrackEvaluationField.h")
+@:structAccess
 extern class MovieSceneTrackEvaluationField {
 	public var Entries: TArray<MovieSceneTrackEvaluationFieldEntry>;
+
+	@:native("FMovieSceneTrackEvaluationField") public function new();
+	@:native("FMovieSceneTrackEvaluationField") public static function make(Entries: TArray<MovieSceneTrackEvaluationFieldEntry>): MovieSceneTrackEvaluationField ;
 }

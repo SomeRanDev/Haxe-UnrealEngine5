@@ -3,6 +3,7 @@ package ue;
 
 @:native("URadialIntMask")
 @:include("Field/FieldSystemObjects.h")
+@:structAccess
 extern class RadialIntMask extends FieldNodeInt {
 	public var Radius: cpp.Float32;
 	public var Position: Vector;
@@ -11,6 +12,8 @@ extern class RadialIntMask extends FieldNodeInt {
 	public var SetMaskCondition: ESetMaskConditionType;
 
 	public function SetRadialIntMask(Radius: cpp.Float32, Position: Vector, InteriorValue: cpp.Int32, ExteriorValue: cpp.Int32, SetMaskConditionIn: ESetMaskConditionType): cpp.Reference<cpp.Star<RadialIntMask>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

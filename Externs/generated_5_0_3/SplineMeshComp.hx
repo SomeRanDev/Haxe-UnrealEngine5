@@ -3,6 +3,7 @@ package ue;
 
 @:native("USplineMeshComponent")
 @:include("Components/SplineMeshComponent.h")
+@:structAccess
 extern class SplineMeshComp extends StaticMeshComp {
 	public var SplineParams: SplineMeshParams;
 	public var SplineUpDir: Vector;
@@ -47,6 +48,8 @@ extern class SplineMeshComp extends StaticMeshComp {
 	public function GetEndOffset(): cpp.Reference<Vector2D>;
 	public function GetBoundaryMin(): cpp.Reference<cpp.Float32>;
 	public function GetBoundaryMax(): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

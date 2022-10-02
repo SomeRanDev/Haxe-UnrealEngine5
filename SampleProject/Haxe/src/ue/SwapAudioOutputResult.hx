@@ -3,8 +3,12 @@ package ue;
 
 @:native("FSwapAudioOutputResult")
 @:include("AudioMixerBlueprintLibrary.h")
+@:structAccess
 extern class SwapAudioOutputResult {
 	public var CurrentDeviceId: FString;
 	public var RequestedDeviceId: FString;
 	public var Result: ESwapAudioOutputDeviceResultState;
+
+	@:native("FSwapAudioOutputResult") public function new();
+	@:native("FSwapAudioOutputResult") public static function make(CurrentDeviceId: FString, RequestedDeviceId: FString, Result: ESwapAudioOutputDeviceResultState): SwapAudioOutputResult ;
 }

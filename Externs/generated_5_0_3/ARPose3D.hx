@@ -3,9 +3,13 @@ package ue;
 
 @:native("FARPose3D")
 @:include("ARTypes.h")
+@:structAccess
 extern class ARPose3D {
 	public var SkeletonDefinition: ARSkeletonDefinition;
 	public var JointTransforms: TArray<Transform>;
 	public var IsJointTracked: TArray<Bool>;
 	public var JointTransformSpace: EARJointTransformSpace;
+
+	@:native("FARPose3D") public function new();
+	@:native("FARPose3D") public static function make(SkeletonDefinition: ARSkeletonDefinition, JointTransforms: TArray<Transform>, IsJointTracked: TArray<Bool>, JointTransformSpace: EARJointTransformSpace): ARPose3D ;
 }

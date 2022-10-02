@@ -3,7 +3,10 @@ package ue;
 
 @:native("UTemplateSequencePropertyScalingEvaluatorSystem")
 @:include("Systems/TemplateSequenceSystem.h")
+@:structAccess
 extern class TemplateSequencePropertyScalingEvaluatorSystem extends MovieSceneEntitySystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraScriptDataInterfaceCompileInfo")
 @:include("NiagaraCommon.h")
+@:structAccess
 extern class NiagaraScriptDataInterfaceCompileInfo {
 	public var Name: FName;
 	public var UserPtrIdx: cpp.Int32;
@@ -11,4 +12,6 @@ extern class NiagaraScriptDataInterfaceCompileInfo {
 	public var RegisteredParameterMapRead: FName;
 	public var RegisteredParameterMapWrite: FName;
 	public var bIsPlaceholder: Bool;
+
+	@:native("FNiagaraScriptDataInterfaceCompileInfo") public function new();
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FCameraLookatTrackingSettings")
 @:include("CineCameraActor.h")
+@:structAccess
 extern class CameraLookatTrackingSettings {
 	public var bEnableLookAtTracking: Bool;
 	public var bDrawDebugLookAtTrackingPosition: Bool;
@@ -10,4 +11,6 @@ extern class CameraLookatTrackingSettings {
 	public var ActorToTrack: TSoftObjectPtr<Actor>;
 	public var RelativeOffset: Vector;
 	public var bAllowRoll: Bool;
+
+	@:native("FCameraLookatTrackingSettings") public function new();
 }

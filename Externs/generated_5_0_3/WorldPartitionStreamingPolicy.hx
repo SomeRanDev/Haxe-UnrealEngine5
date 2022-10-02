@@ -3,7 +3,10 @@ package ue;
 
 @:native("UWorldPartitionStreamingPolicy")
 @:include("WorldPartition/WorldPartitionStreamingPolicy.h")
+@:structAccess
 extern class WorldPartitionStreamingPolicy extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

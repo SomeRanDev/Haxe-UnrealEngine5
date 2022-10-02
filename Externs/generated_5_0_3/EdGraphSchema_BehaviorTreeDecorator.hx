@@ -3,8 +3,11 @@ package ue;
 
 @:native("UEdGraphSchema_BehaviorTreeDecorator")
 @:include("EdGraphSchema_BehaviorTreeDecorator.h")
+@:structAccess
 extern class EdGraphSchema_BehaviorTreeDecorator extends EdGraphSchema {
 	public var PC_Boolean: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

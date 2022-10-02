@@ -3,10 +3,13 @@ package ue;
 
 @:native("UAnimBoneCompressionSettings")
 @:include("Animation/AnimBoneCompressionSettings.h")
+@:structAccess
 extern class AnimBoneCompressionSettings extends Object {
 	public var Codecs: TArray<cpp.Star<AnimBoneCompressionCodec>>;
 	public var ErrorThreshold: cpp.Float32;
 	public var bForceBelowThreshold: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

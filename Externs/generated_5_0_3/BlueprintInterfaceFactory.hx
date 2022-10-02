@@ -3,7 +3,10 @@ package ue;
 
 @:native("UBlueprintInterfaceFactory")
 @:include("Factories/BlueprintInterfaceFactory.h")
+@:structAccess
 extern class BlueprintInterfaceFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

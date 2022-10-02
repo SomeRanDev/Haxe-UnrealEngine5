@@ -3,10 +3,13 @@ package ue;
 
 @:native("UAnimGraphNode_BlendListByEnum")
 @:include("AnimGraphNode_BlendListByEnum.h")
+@:structAccess
 extern class AnimGraphNode_BlendListByEnum extends AnimGraphNode_BlendListBase {
 	public var Node: AnimNode_BlendListByEnum;
 	public var BoundEnum: cpp.Star<Enum>;
 	public var VisibleEnumEntries: TArray<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,10 @@ package ue;
 
 @:native("FCameraLensInterfaceClassSupport")
 @:include("Camera/CameraLensEffectInterface.h")
+@:structAccess
 extern class CameraLensInterfaceClassSupport {
 	public var Class: TSubclassOf<Actor>;
+
+	@:native("FCameraLensInterfaceClassSupport") public function new();
+	@:native("FCameraLensInterfaceClassSupport") public static function make(Class: TSubclassOf<Actor>): CameraLensInterfaceClassSupport ;
 }

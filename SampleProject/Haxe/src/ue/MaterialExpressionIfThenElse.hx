@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionIfThenElse")
 @:include("Materials/MaterialExpressionIfThenElse.h")
+@:structAccess
 extern class MaterialExpressionIfThenElse extends MaterialExpression {
 	public var Then: ExpressionExecOutput;
 	public var Else: ExpressionExecOutput;
 	public var Condition: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,12 +3,15 @@ package ue;
 
 @:native("UGizmoConeObject")
 @:include("EditorGizmos/GizmoConeObject.h")
+@:structAccess
 extern class GizmoConeObject extends GizmoBaseObject {
 	public var Direction: Vector;
 	public var Height: cpp.Float64;
 	public var Offset: cpp.Float64;
 	public var Angle: cpp.Float64;
 	public var NumSides: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

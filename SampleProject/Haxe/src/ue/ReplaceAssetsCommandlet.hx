@@ -3,7 +3,10 @@ package ue;
 
 @:native("UReplaceAssetsCommandlet")
 @:include("Commandlets/ReplaceAssetsCommandlet.h")
+@:structAccess
 extern class ReplaceAssetsCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

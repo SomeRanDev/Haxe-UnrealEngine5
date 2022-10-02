@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_MultiGate")
 @:include("K2Node_MultiGate.h")
+@:structAccess
 extern class K2Node_MultiGate extends K2Node_ExecutionSequence {
 	public var DataNode: cpp.Star<K2Node_TemporaryVariable>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

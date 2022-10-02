@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDoubleChannelEvaluatorSystem")
 @:include("Systems/DoubleChannelEvaluatorSystem.h")
+@:structAccess
 extern class DoubleChannelEvaluatorSystem extends MovieSceneEntitySystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

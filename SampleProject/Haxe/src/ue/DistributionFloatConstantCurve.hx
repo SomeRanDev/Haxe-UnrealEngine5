@@ -3,8 +3,11 @@ package ue;
 
 @:native("UDistributionFloatConstantCurve")
 @:include("Distributions/DistributionFloatConstantCurve.h")
+@:structAccess
 extern class DistributionFloatConstantCurve extends DistributionFloat {
 	public var ConstantCurve: InterpCurveFloat;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNiagaraNodeOutputTag")
 @:include("NiagaraNodeOutputTag.h")
+@:structAccess
 extern class NiagaraNodeOutputTag extends NiagaraNodeWithDynamicPins {
 	public var bEmitMessageOnFailure: Bool;
 	public var FailureSeverity: FNiagaraCompileEventSeverity;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

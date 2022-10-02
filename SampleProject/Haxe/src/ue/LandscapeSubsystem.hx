@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULandscapeSubsystem")
 @:include("LandscapeSubsystem.h")
+@:structAccess
 extern class LandscapeSubsystem extends TickableWorldSubsystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

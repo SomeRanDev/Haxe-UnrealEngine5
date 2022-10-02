@@ -3,8 +3,11 @@ package ue;
 
 @:native("AInstancedPlacementPartitionActor")
 @:include("Instances/InstancedPlacementPartitionActor.h")
+@:structAccess
 extern class InstancedPlacementPartitionActor extends ISMPartitionActor {
 	public var PlacementGridGuid: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

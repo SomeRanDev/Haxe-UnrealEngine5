@@ -3,8 +3,11 @@ package ue;
 
 @:native("UWidgetBinding")
 @:include("Binding/WidgetBinding.h")
+@:structAccess
 extern class WidgetBinding extends PropertyBinding {
 	public function GetValue(): cpp.Reference<cpp.Star<Widget>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetValue)

@@ -3,11 +3,14 @@ package ue;
 
 @:native("UConstantQNRT")
 @:include("ConstantQNRT.h")
+@:structAccess
 extern class ConstantQNRT extends AudioSynesthesiaNRT {
 	public var Settings: cpp.Star<ConstantQNRTSettings>;
 
 	public function GetNormalizedChannelConstantQAtTime(InSeconds: cpp.Float32, InChannel: cpp.Int32, OutConstantQ: cpp.Reference<TArray<cpp.Float32>>): Void;
 	public function GetChannelConstantQAtTime(InSeconds: cpp.Float32, InChannel: cpp.Int32, OutConstantQ: cpp.Reference<TArray<cpp.Float32>>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetNormalizedChannelConstantQAtTime, GetChannelConstantQAtTime)

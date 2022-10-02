@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UInterface_AsyncCompilation")
+@:structAccess
 extern class Interface_AsyncCompilation extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

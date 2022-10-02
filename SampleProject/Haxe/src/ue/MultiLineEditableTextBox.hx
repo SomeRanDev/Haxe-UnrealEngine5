@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMultiLineEditableTextBox")
 @:include("Components/MultiLineEditableTextBox.h")
+@:structAccess
 extern class MultiLineEditableTextBox extends TextLayoutWidget {
 	public var Text: FText;
 	public var HintText: FText;
@@ -31,6 +32,8 @@ extern class MultiLineEditableTextBox extends TextLayoutWidget {
 	public function OnMultiLineEditableTextBoxChangedEvent__DelegateSignature(Text: cpp.Reference<FText>): Void;
 	public function GetText(): cpp.Reference<FText>;
 	public function GetHintText(): cpp.Reference<FText>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetText, GetHintText)

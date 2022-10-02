@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMockDataMeshTrackerComponent")
 @:include("MockDataMeshTrackerComponent.h")
+@:structAccess
 extern class MockDataMeshTrackerComp extends SceneComp {
 	public var OnMeshTrackerUpdated: HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<TArray<Vector>>, cpp.Reference<TArray<cpp.Int32>>, cpp.Reference<TArray<Vector>>, cpp.Reference<TArray<cpp.Float32>>) -> Void>;
 	public var ScanWorld: Bool;
@@ -18,6 +19,8 @@ extern class MockDataMeshTrackerComp extends SceneComp {
 	public function OnMockDataMeshTrackerUpdated__DelegateSignature(Index: cpp.Int32, Vertices: cpp.Reference<TArray<Vector>>, Triangles: cpp.Reference<TArray<cpp.Int32>>, Normals: cpp.Reference<TArray<Vector>>, Confidence: cpp.Reference<TArray<cpp.Float32>>): Void;
 	public function DisconnectMRMesh(InMRMeshPtr: cpp.Star<MRMeshComp>): Void;
 	public function ConnectMRMesh(InMRMeshPtr: cpp.Star<MRMeshComp>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

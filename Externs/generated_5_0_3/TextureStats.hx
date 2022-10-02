@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTextureStats")
 @:include("TextureStats.h")
+@:structAccess
 extern class TextureStats extends Object {
 	public var Texture: TWeakObjectPtr<Texture>;
 	public var Actors: TArray<TWeakObjectPtr<Actor>>;
@@ -18,6 +19,8 @@ extern class TextureStats extends Object {
 	public var NumUses: cpp.Int32;
 	public var LastTimeRendered: cpp.Float32;
 	public var Path: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UFbxAssetImportData")
 @:include("Factories/FbxAssetImportData.h")
+@:structAccess
 extern class FbxAssetImportData extends AssetImportData {
 	public var ImportTranslation: Vector;
 	public var ImportRotation: Rotator;
@@ -12,6 +13,8 @@ extern class FbxAssetImportData extends AssetImportData {
 	public var bConvertSceneUnit: Bool;
 	public var bImportAsScene: Bool;
 	public var FbxSceneImportDataReference: cpp.Star<FbxSceneImportData>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

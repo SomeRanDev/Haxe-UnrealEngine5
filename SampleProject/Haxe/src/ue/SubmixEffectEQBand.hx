@@ -3,9 +3,13 @@ package ue;
 
 @:native("FSubmixEffectEQBand")
 @:include("SubmixEffects/AudioMixerSubmixEffectEQ.h")
+@:structAccess
 extern class SubmixEffectEQBand {
 	public var Frequency: cpp.Float32;
 	public var Bandwidth: cpp.Float32;
 	public var GainDb: cpp.Float32;
 	public var bEnabled: Bool;
+
+	@:native("FSubmixEffectEQBand") public function new();
+	@:native("FSubmixEffectEQBand") public static function make(Frequency: cpp.Float32, Bandwidth: cpp.Float32, GainDb: cpp.Float32, bEnabled: Bool): SubmixEffectEQBand ;
 }

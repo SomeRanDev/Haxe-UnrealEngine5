@@ -3,7 +3,10 @@ package ue;
 
 @:native("ALevelInstancePivot")
 @:include("LevelInstance/LevelInstanceEditorPivotActor.h")
+@:structAccess
 extern class LevelInstancePivot extends Actor {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

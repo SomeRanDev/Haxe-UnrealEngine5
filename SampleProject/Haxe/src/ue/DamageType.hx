@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDamageType")
 @:include("GameFramework/DamageType.h")
+@:structAccess
 extern class DamageType extends Object {
 	public var bCausedByWorld: Bool;
 	public var bScaleMomentumByMass: Bool;
@@ -11,6 +12,8 @@ extern class DamageType extends Object {
 	public var DestructibleImpulse: cpp.Float32;
 	public var DestructibleDamageSpreadScale: cpp.Float32;
 	public var DamageFalloff: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

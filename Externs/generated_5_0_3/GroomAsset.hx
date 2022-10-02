@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGroomAsset")
 @:include("GroomAsset.h")
+@:structAccess
 extern class GroomAsset extends Object {
 	public var HairGroupsInfo: TArray<HairGroupInfoWithVisibility>;
 	public var HairGroupsRendering: TArray<HairGroupsRendering>;
@@ -19,6 +20,8 @@ extern class GroomAsset extends Object {
 	public var EffectiveLODBias: TArray<cpp.Float32>;
 	public var AssetImportData: cpp.Star<AssetImportData>;
 	public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

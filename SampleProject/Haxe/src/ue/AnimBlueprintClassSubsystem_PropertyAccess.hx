@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimBlueprintClassSubsystem_PropertyAccess")
 @:include("Animation/AnimBlueprintClassSubsystem_PropertyAccess.h")
+@:structAccess
 extern class AnimBlueprintClassSubsystem_PropertyAccess extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UGizmoScaledTransformSource")
 @:include("BaseGizmos/TransformSources.h")
+@:structAccess
 extern class GizmoScaledTransformSource extends GizmoBaseTransformSource {
 	public var ChildTransformSource: GizmoTransformSource;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

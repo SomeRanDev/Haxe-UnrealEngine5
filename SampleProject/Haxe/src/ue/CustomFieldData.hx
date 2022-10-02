@@ -3,7 +3,11 @@ package ue;
 
 @:native("FCustomFieldData")
 @:include("Private/Data/ManifestUObject.h")
+@:structAccess
 extern class CustomFieldData {
 	public var Key: FString;
 	public var Value: FString;
+
+	@:native("FCustomFieldData") public function new();
+	@:native("FCustomFieldData") public static function make(Key: FString, Value: FString): CustomFieldData ;
 }

@@ -3,7 +3,11 @@ package ue;
 
 @:native("FCompositeFallbackFont")
 @:include("Fonts/CompositeFont.h")
+@:structAccess
 extern class CompositeFallbackFont {
 	public var Typeface: Typeface;
 	public var ScalingFactor: cpp.Float32;
+
+	@:native("FCompositeFallbackFont") public function new();
+	@:native("FCompositeFallbackFont") public static function make(Typeface: Typeface, ScalingFactor: cpp.Float32): CompositeFallbackFont ;
 }

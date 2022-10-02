@@ -3,12 +3,15 @@ package ue;
 
 @:native("ULevelStreamingDynamic")
 @:include("Engine/LevelStreamingDynamic.h")
+@:structAccess
 extern class LevelStreamingDynamic extends LevelStreaming {
 	public var bInitiallyLoaded: Bool;
 	public var bInitiallyVisible: Bool;
 
 	public function LoadLevelInstanceBySoftObjectPtr(WorldContextObject: cpp.Star<Object>, Level: TSoftObjectPtr<World>, Location: Vector, Rotation: Rotator, bOutSuccess: cpp.Reference<Bool>, OptionalLevelNameOverride: FString, OptionalLevelStreamingClass: TSubclassOf<LevelStreamingDynamic>, bLoadAsTempPackage: Bool): cpp.Reference<cpp.Star<LevelStreamingDynamic>>;
 	public function LoadLevelInstance(WorldContextObject: cpp.Star<Object>, LevelName: FString, Location: Vector, Rotation: Rotator, bOutSuccess: cpp.Reference<Bool>, OptionalLevelNameOverride: FString, OptionalLevelStreamingClass: TSubclassOf<LevelStreamingDynamic>, bLoadAsTempPackage: Bool): cpp.Reference<cpp.Star<LevelStreamingDynamic>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

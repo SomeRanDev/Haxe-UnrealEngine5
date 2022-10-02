@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneSequence")
 @:include("MovieSceneSequence.h")
+@:structAccess
 extern class MovieSceneSequence extends MovieSceneSignedObject {
 	public var CompiledData: cpp.Star<MovieSceneCompiledData>;
 	public var DefaultCompletionMode: EMovieSceneCompletionMode;
@@ -13,6 +14,8 @@ extern class MovieSceneSequence extends MovieSceneSignedObject {
 	public function GetEarliestTimecodeSource(): cpp.Reference<MovieSceneTimecodeSource>;
 	public function FindBindingsByTag(InBindingName: FName): cpp.Reference<TArray<MovieSceneObjectBindingID>>;
 	public function FindBindingByTag(InBindingName: FName): cpp.Reference<MovieSceneObjectBindingID>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetEarliestTimecodeSource, FindBindingsByTag, FindBindingByTag)

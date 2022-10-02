@@ -3,11 +3,14 @@ package ue;
 
 @:native("ULevelEditor2DSettings")
 @:include("Settings/EditorProjectSettings.h")
+@:structAccess
 extern class LevelEditor2DSettings extends DeveloperSettings {
 	public var bEnable2DWidget: Bool;
 	public var bEnableSnapLayers: Bool;
 	public var SnapAxis: ELevelEditor2DAxis;
 	public var SnapLayers: TArray<Mode2DLayer>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

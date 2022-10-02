@@ -3,6 +3,7 @@ package ue;
 
 @:native("ALevelSequenceActor")
 @:include("LevelSequenceActor.h")
+@:structAccess
 extern class LevelSequenceActor extends Actor {
 	public var PlaybackSettings: MovieSceneSequencePlaybackSettings;
 	public var SequencePlayer: cpp.Star<LevelSequencePlayer>;
@@ -36,6 +37,8 @@ extern class LevelSequenceActor extends Actor {
 	public function FindNamedBinding(Tag: FName): cpp.Reference<MovieSceneObjectBindingID>;
 	public function AddBindingByTag(BindingTag: FName, Actor: cpp.Star<Actor>, bAllowBindingsFromAsset: Bool): Void;
 	public function AddBinding(Binding: MovieSceneObjectBindingID, Actor: cpp.Star<Actor>, bAllowBindingsFromAsset: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(LoadSequence, GetSequencePlayer, GetSequence, FindNamedBindings, FindNamedBinding)

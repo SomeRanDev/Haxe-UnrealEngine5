@@ -3,7 +3,10 @@ package ue;
 
 @:native("AMeshMergeCullingVolume")
 @:include("Engine/MeshMergeCullingVolume.h")
+@:structAccess
 extern class MeshMergeCullingVolume extends Volume {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("USubUVAnimationFactory")
 @:include("Factories/SubUVAnimationFactory.h")
+@:structAccess
 extern class SubUVAnimationFactory extends Factory {
 	public var InitialTexture: cpp.Star<Texture2D>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

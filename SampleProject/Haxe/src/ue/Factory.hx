@@ -3,6 +3,7 @@ package ue;
 
 @:native("UFactory")
 @:include("Factories/Factory.h")
+@:structAccess
 extern class Factory extends Object {
 	public var bCreateNew: Bool;
 	public var SupportedClass: TSubclassOf<Object>;
@@ -18,6 +19,8 @@ extern class Factory extends Object {
 
 	public function ScriptFactoryCreateFile(InTask: cpp.Star<AssetImportTask>): cpp.Reference<Bool>;
 	public function ScriptFactoryCanImport(Filename: FString): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

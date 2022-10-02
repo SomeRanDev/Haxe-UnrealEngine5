@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMovieSceneNiagaraEmitterSection")
 @:include("Sequencer/NiagaraSequence/Sections/MovieSceneNiagaraEmitterSection.h")
+@:structAccess
 extern class MovieSceneNiagaraEmitterSection extends MovieSceneNiagaraEmitterSectionBase {
 	public var NumLoops: cpp.Int32;
 	public var bStartTimeIncludedInFirstLoopOnly: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("AWorldDataLayers")
 @:include("WorldPartition/DataLayer/WorldDataLayers.h")
+@:structAccess
 extern class WorldDataLayers extends Info {
 	public var bAllowRuntimeDataLayerEditing: Bool;
 	public var WorldDataLayers: TSet<cpp.Star<DataLayer>>;
@@ -16,6 +17,8 @@ extern class WorldDataLayers extends Info {
 	public function OnRep_EffectiveActiveDataLayerNames(): Void;
 	public function OnRep_ActiveDataLayerNames(): Void;
 	public function OnDataLayerRuntimeStateChanged(InDataLayer: cpp.Star<DataLayer.ConstDataLayer>, InState: EDataLayerRuntimeState): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

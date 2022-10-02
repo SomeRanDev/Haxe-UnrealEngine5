@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphAttributes")
 @:include("AnimGraphAttributes.h")
+@:structAccess
 extern class AnimGraphAttributes extends Object {
 	public var Attributes: TArray<AnimGraphAttributeDesc>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

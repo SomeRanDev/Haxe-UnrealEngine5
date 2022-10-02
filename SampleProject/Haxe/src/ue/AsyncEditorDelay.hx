@@ -3,10 +3,13 @@ package ue;
 
 @:native("UAsyncEditorDelay")
 @:include("EditorUtilityLibrary.h")
+@:structAccess
 extern class AsyncEditorDelay extends EditorUtilityBlueprintAsyncActionBase {
 	public var Complete: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
 	public function AsyncEditorDelay(Seconds: cpp.Float32, MinimumFrames: cpp.Int32): cpp.Reference<cpp.Star<AsyncEditorDelay>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

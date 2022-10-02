@@ -3,8 +3,11 @@ package ue;
 
 @:native("UInterpTrackInstSlomo")
 @:include("Matinee/InterpTrackInstSlomo.h")
+@:structAccess
 extern class InterpTrackInstSlomo extends InterpTrackInst {
 	public var OldTimeDilation: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

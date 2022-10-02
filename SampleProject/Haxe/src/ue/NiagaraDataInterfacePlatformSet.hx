@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraDataInterfacePlatformSet")
 @:include("NiagaraDataInterfacePlatformSet.h")
+@:structAccess
 extern class NiagaraDataInterfacePlatformSet extends NiagaraDataInterface {
 	public var Platforms: NiagaraPlatformSet;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

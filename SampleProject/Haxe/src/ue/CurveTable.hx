@@ -3,9 +3,12 @@ package ue;
 
 @:native("UCurveTable")
 @:include("Engine/CurveTable.h")
+@:structAccess
 extern class CurveTable extends Object {
 	public var AssetImportData: cpp.Star<AssetImportData>;
 	public var ImportPath_DEPRECATED: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

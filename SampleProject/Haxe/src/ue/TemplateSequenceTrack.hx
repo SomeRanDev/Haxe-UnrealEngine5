@@ -3,7 +3,10 @@ package ue;
 
 @:native("UTemplateSequenceTrack")
 @:include("Tracks/TemplateSequenceTrack.h")
+@:structAccess
 extern class TemplateSequenceTrack extends MovieSceneSubTrack {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

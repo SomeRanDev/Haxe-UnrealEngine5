@@ -3,6 +3,7 @@ package ue;
 
 @:native("FRigControlValueStorage")
 @:include("Rigs/RigHierarchyDefines.h")
+@:structAccess
 extern class RigControlValueStorage {
 	public var Float00: cpp.Float32;
 	public var Float01: cpp.Float32;
@@ -37,4 +38,6 @@ extern class RigControlValueStorage {
 	public var Float32_2: cpp.Float32;
 	public var Float33_2: cpp.Float32;
 	public var bValid: Bool;
+
+	@:native("FRigControlValueStorage") public function new();
 }

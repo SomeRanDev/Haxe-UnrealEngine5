@@ -3,8 +3,11 @@ package ue;
 
 @:native("UEditorUtilityWidgetBlueprint")
 @:include("EditorUtilityWidgetBlueprint.h")
+@:structAccess
 extern class EditorUtilityWidgetBlueprint extends WidgetBlueprint {
 	public var CreatedUMGWidget: cpp.Star<EditorUtilityWidget>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

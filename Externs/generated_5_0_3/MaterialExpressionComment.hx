@@ -3,12 +3,15 @@ package ue;
 
 @:native("UMaterialExpressionComment")
 @:include("Materials/MaterialExpressionComment.h")
+@:structAccess
 extern class MaterialExpressionComment extends MaterialExpression {
 	public var SizeX: cpp.Int32;
 	public var SizeY: cpp.Int32;
 	public var Text: FString;
 	public var CommentColor: LinearColor;
 	public var FontSize: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UInterface_CollisionDataProvider")
+@:structAccess
 extern class Interface_CollisionDataProvider extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

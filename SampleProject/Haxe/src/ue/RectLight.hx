@@ -3,8 +3,11 @@ package ue;
 
 @:native("ARectLight")
 @:include("Engine/RectLight.h")
+@:structAccess
 extern class RectLight extends Light {
 	public var RectLightComponent: cpp.Star<RectLightComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

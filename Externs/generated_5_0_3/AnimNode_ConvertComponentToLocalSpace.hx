@@ -3,6 +3,10 @@ package ue;
 
 @:native("FAnimNode_ConvertComponentToLocalSpace")
 @:include("Animation/AnimNodeSpaceConversions.h")
+@:structAccess
 extern class AnimNode_ConvertComponentToLocalSpace extends AnimNode_Base {
 	public var ComponentPose: ComponentSpacePoseLink;
+
+	@:native("FAnimNode_ConvertComponentToLocalSpace") public function new();
+	@:native("FAnimNode_ConvertComponentToLocalSpace") public static function make(ComponentPose: ComponentSpacePoseLink): AnimNode_ConvertComponentToLocalSpace ;
 }

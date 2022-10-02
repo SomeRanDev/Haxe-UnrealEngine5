@@ -3,7 +3,11 @@ package ue;
 
 @:native("FFilterData")
 @:include("Private/FilterPresets.h")
+@:structAccess
 extern class FilterData {
 	public var Name: FString;
 	public var AllowlistedNames: TArray<FString>;
+
+	@:native("FFilterData") public function new();
+	@:native("FFilterData") public static function make(Name: FString, AllowlistedNames: TArray<FString>): FilterData ;
 }

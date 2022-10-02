@@ -3,11 +3,14 @@ package ue;
 
 @:native("USoundCueFactoryNew")
 @:include("Factories/SoundCueFactoryNew.h")
+@:structAccess
 extern class SoundCueFactoryNew extends Factory {
 	public var InitialSoundWave: cpp.Star<SoundWave>;
 	public var InitialSoundWaves: TArray<TWeakObjectPtr<SoundWave>>;
 	public var InitialDialogueWave: cpp.Star<DialogueWave>;
 	public var InitialDialogueWaves: TArray<TWeakObjectPtr<DialogueWave>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

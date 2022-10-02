@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMeshReconstructorBase")
 @:include("MeshReconstructorBase.h")
+@:structAccess
 extern class MeshReconstructorBase extends Object {
 	public function StopReconstruction(): Void;
 	public function StartReconstruction(): Void;
@@ -11,6 +12,8 @@ extern class MeshReconstructorBase extends Object {
 	public function IsReconstructionPaused(): cpp.Reference<Bool>;
 	public function DisconnectMRMesh(): Void;
 	public function ConnectMRMesh(Mesh: cpp.Star<MRMeshComp>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsReconstructionStarted, IsReconstructionPaused)

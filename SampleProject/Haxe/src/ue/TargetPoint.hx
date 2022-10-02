@@ -3,9 +3,12 @@ package ue;
 
 @:native("ATargetPoint")
 @:include("Engine/TargetPoint.h")
+@:structAccess
 extern class TargetPoint extends Actor {
 	public var SpriteComponent: cpp.Star<BillboardComp>;
 	public var ArrowComponent: cpp.Star<ArrowComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

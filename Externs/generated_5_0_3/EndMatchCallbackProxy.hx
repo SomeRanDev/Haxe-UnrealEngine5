@@ -3,11 +3,14 @@ package ue;
 
 @:native("UEndMatchCallbackProxy")
 @:include("EndMatchCallbackProxy.h")
+@:structAccess
 extern class EndMatchCallbackProxy extends OnlineBlueprintCallProxyBase {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
 	public function EndMatch(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, MatchActor: TurnBasedMatchInterface, MatchID: FString, LocalPlayerOutcome: EMPMatchOutcome, OtherPlayersOutcome: EMPMatchOutcome): cpp.Reference<cpp.Star<EndMatchCallbackProxy>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

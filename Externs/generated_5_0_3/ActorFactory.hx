@@ -3,6 +3,7 @@ package ue;
 
 @:native("UActorFactory")
 @:include("ActorFactories/ActorFactory.h")
+@:structAccess
 extern class ActorFactory extends Object {
 	public var DisplayName: FText;
 	public var MenuPriority: cpp.Int32;
@@ -12,6 +13,8 @@ extern class ActorFactory extends Object {
 	public var bUseSurfaceOrientation: Bool;
 	public var bUsePlacementExtent: Bool;
 	public var SpawnPositionOffset: Vector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

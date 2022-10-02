@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionLandscapeLayerBlend")
 @:include("Materials/MaterialExpressionLandscapeLayerBlend.h")
+@:structAccess
 extern class MaterialExpressionLandscapeLayerBlend extends MaterialExpression {
 	public var Layers: TArray<LayerBlendInput>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

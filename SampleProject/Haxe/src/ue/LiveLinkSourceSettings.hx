@@ -3,12 +3,15 @@ package ue;
 
 @:native("ULiveLinkSourceSettings")
 @:include("LiveLinkSourceSettings.h")
+@:structAccess
 extern class LiveLinkSourceSettings extends Object {
 	public var Mode: ELiveLinkSourceMode;
 	public var BufferSettings: LiveLinkSourceBufferManagementSettings;
 	public var ConnectionString: FString;
 	public var Factory: TSubclassOf<LiveLinkSourceFactory>;
 	public var SourceDebugInfos_DEPRECATED: TArray<LiveLinkSourceDebugInfo>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

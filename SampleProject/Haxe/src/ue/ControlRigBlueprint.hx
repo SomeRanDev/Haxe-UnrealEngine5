@@ -3,6 +3,7 @@ package ue;
 
 @:native("UControlRigBlueprint")
 @:include("ControlRigBlueprint.h")
+@:structAccess
 extern class ControlRigBlueprint extends Blueprint {
 	public var FunctionLibraryEdGraph: cpp.Star<ControlRigGraph>;
 	public var RigGraphDisplaySettings: RigGraphDisplaySettings;
@@ -61,6 +62,8 @@ extern class ControlRigBlueprint extends Blueprint {
 	public function CreateControlRig(): cpp.Reference<cpp.Star<ControlRig>>;
 	public function ChangeMemberVariableType(InName: cpp.Reference<FName>, InCPPType: FString, bIsPublic: Bool, bIsReadOnly: Bool, InDefaultValue: FString): cpp.Reference<Bool>;
 	public function AddMemberVariable(InName: cpp.Reference<FName>, InCPPType: FString, bIsPublic: Bool, bIsReadOnly: Bool, InDefaultValue: FString): cpp.Reference<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetPreviewMesh, GetModel, GetLocalFunctionLibrary, GetControllerByName, GetController, GetAllModels)

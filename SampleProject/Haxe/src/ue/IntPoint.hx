@@ -3,7 +3,11 @@ package ue;
 
 @:native("FIntPoint")
 @:include("UObject/NoExportTypes.h")
+@:structAccess
 extern class IntPoint {
 	public var X: cpp.Int32;
 	public var Y: cpp.Int32;
+
+	@:native("FIntPoint") public function new();
+	@:native("FIntPoint") public static function make(X: cpp.Int32, Y: cpp.Int32): IntPoint ;
 }

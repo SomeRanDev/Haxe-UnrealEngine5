@@ -3,7 +3,11 @@ package ue;
 
 @:native("FGameNameRedirect")
 @:include("Engine/Engine.h")
+@:structAccess
 extern class GameNameRedirect {
 	public var OldGameName: FName;
 	public var NewGameName: FName;
+
+	@:native("FGameNameRedirect") public function new();
+	@:native("FGameNameRedirect") public static function make(OldGameName: FName, NewGameName: FName): GameNameRedirect ;
 }

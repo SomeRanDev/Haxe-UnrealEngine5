@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_EnumInequality")
 @:include("K2Node_EnumInequality.h")
+@:structAccess
 extern class K2Node_EnumInequality extends K2Node_EnumEquality {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

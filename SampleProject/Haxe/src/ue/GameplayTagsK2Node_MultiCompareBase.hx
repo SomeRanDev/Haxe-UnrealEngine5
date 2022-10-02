@@ -3,9 +3,12 @@ package ue;
 
 @:native("UGameplayTagsK2Node_MultiCompareBase")
 @:include("GameplayTagsK2Node_MultiCompareBase.h")
+@:structAccess
 extern class GameplayTagsK2Node_MultiCompareBase extends K2Node {
 	public var NumberOfPins: cpp.Int32;
 	public var PinNames: TArray<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

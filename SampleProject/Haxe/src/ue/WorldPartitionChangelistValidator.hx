@@ -3,7 +3,10 @@ package ue;
 
 @:native("UWorldPartitionChangelistValidator")
 @:include("WorldPartitionChangelistValidator.h")
+@:structAccess
 extern class WorldPartitionChangelistValidator extends EditorValidatorBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,11 @@ package ue;
 
 @:native("FPoseLinkBase")
 @:include("Animation/AnimNodeBase.h")
+@:structAccess
 extern class PoseLinkBase {
 	public var LinkID: cpp.Int32;
 	public var SourceLinkID: cpp.Int32;
+
+	@:native("FPoseLinkBase") public function new();
+	@:native("FPoseLinkBase") public static function make(LinkID: cpp.Int32, SourceLinkID: cpp.Int32): PoseLinkBase ;
 }

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPackageFactory")
 @:include("Factories/PackageFactory.h")
+@:structAccess
 extern class PackageFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

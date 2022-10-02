@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGizmoBoxComponent")
 @:include("BaseGizmos/GizmoBoxComponent.h")
+@:structAccess
 extern class GizmoBoxComp extends GizmoBaseComp {
 	public var Origin: Vector;
 	public var Rotation: Quat;
@@ -10,6 +11,8 @@ extern class GizmoBoxComp extends GizmoBaseComp {
 	public var LineThickness: cpp.Float32;
 	public var bRemoveHiddenLines: Bool;
 	public var bEnableAxisFlip: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

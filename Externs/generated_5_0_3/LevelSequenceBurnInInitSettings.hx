@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULevelSequenceBurnInInitSettings")
 @:include("LevelSequenceActor.h")
+@:structAccess
 extern class LevelSequenceBurnInInitSettings extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

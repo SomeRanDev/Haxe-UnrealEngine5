@@ -3,7 +3,11 @@ package ue;
 
 @:native("FPhysicalMaterialInput")
 @:include("Materials/MaterialExpressionLandscapePhysicalMaterialOutput.h")
+@:structAccess
 extern class PhysicalMaterialInput {
 	public var PhysicalMaterial: cpp.Star<PhysicalMaterial>;
 	public var Input: ExpressionInput;
+
+	@:native("FPhysicalMaterialInput") public function new();
+	@:native("FPhysicalMaterialInput") public static function make(PhysicalMaterial: cpp.Star<PhysicalMaterial>, Input: ExpressionInput): PhysicalMaterialInput ;
 }

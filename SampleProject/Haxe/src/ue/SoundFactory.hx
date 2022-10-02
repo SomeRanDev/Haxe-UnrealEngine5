@@ -3,6 +3,7 @@ package ue;
 
 @:native("USoundFactory")
 @:include("Factories/SoundFactory.h")
+@:structAccess
 extern class SoundFactory extends Factory {
 	public var bAutoCreateCue: Bool;
 	public var bIncludeAttenuationNode: Bool;
@@ -10,6 +11,8 @@ extern class SoundFactory extends Factory {
 	public var bIncludeModulatorNode: Bool;
 	public var CueVolume: cpp.Float32;
 	public var CuePackageSuffix: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

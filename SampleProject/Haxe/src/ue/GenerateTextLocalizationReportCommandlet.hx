@@ -3,7 +3,10 @@ package ue;
 
 @:native("UGenerateTextLocalizationReportCommandlet")
 @:include("Commandlets/GenerateTextLocalizationReportCommandlet.h")
+@:structAccess
 extern class GenerateTextLocalizationReportCommandlet extends GatherTextCommandletBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

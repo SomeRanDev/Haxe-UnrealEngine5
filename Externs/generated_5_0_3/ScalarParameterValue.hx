@@ -3,10 +3,14 @@ package ue;
 
 @:native("FScalarParameterValue")
 @:include("Materials/MaterialInstance.h")
+@:structAccess
 extern class ScalarParameterValue {
 	public var ParameterName_DEPRECATED: FName;
 	public var AtlasData: ScalarParameterAtlasInstanceData;
 	public var ParameterInfo: MaterialParameterInfo;
 	public var ParameterValue: cpp.Float32;
 	public var ExpressionGUID: Guid;
+
+	@:native("FScalarParameterValue") public function new();
+	@:native("FScalarParameterValue") public static function make(ParameterName_DEPRECATED: FName, AtlasData: ScalarParameterAtlasInstanceData, ParameterInfo: MaterialParameterInfo, ParameterValue: cpp.Float32, ExpressionGUID: Guid): ScalarParameterValue ;
 }

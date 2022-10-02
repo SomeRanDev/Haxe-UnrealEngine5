@@ -3,9 +3,12 @@ package ue;
 
 @:native("UParticleModuleVectorFieldScaleOverLife")
 @:include("Particles/VectorField/ParticleModuleVectorFieldScaleOverLife.h")
+@:structAccess
 extern class ParticleModuleVectorFieldScaleOverLife extends ParticleModuleVectorFieldBase {
 	public var VectorFieldScaleOverLife_DEPRECATED: cpp.Star<DistributionFloat>;
 	public var VectorFieldScaleOverLifeRaw: RawDistributionFloat;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

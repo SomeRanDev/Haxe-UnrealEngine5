@@ -3,6 +3,7 @@ package ue;
 
 @:native("ARadialForceActor")
 @:include("PhysicsEngine/RadialForceActor.h")
+@:structAccess
 extern class RadialForceActor extends RigidBodyBase {
 	public var ForceComponent: cpp.Star<RadialForceComp>;
 	public var SpriteComponent: cpp.Star<BillboardComp>;
@@ -11,6 +12,8 @@ extern class RadialForceActor extends RigidBodyBase {
 	public function FireImpulse(): Void;
 	public function EnableForce(): Void;
 	public function DisableForce(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

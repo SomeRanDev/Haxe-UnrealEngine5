@@ -3,6 +3,7 @@ package ue;
 
 @:native("ANavigationData")
 @:include("NavigationData.h")
+@:structAccess
 extern class NavigationData extends Actor {
 	public var RenderingComp: cpp.Star<PrimitiveComp>;
 	public var NavDataConfig: NavDataConfig;
@@ -16,6 +17,8 @@ extern class NavigationData extends Actor {
 	public var ObservedPathsTickInterval: cpp.Float32;
 	public var DataVersion: cpp.UInt32;
 	public var SupportedAreas: TArray<SupportedAreaData>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

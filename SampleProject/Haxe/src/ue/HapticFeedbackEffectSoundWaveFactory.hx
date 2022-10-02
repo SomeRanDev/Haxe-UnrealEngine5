@@ -3,7 +3,10 @@ package ue;
 
 @:native("UHapticFeedbackEffectSoundWaveFactory")
 @:include("Factories/HapticFeedbackEffectSoundWaveFactory.h")
+@:structAccess
 extern class HapticFeedbackEffectSoundWaveFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

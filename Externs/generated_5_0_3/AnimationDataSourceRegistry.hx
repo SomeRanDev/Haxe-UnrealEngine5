@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimationDataSourceRegistry")
 @:include("AnimationDataSource.h")
+@:structAccess
 extern class AnimationDataSourceRegistry extends Object {
 	public var DataSources: TMap<FName, TWeakObjectPtr<Object>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

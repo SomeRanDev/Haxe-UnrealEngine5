@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAssetRegistryHelpers")
 @:include("AssetRegistry/AssetRegistryHelpers.h")
+@:structAccess
 extern class AssetRegistryHelpers extends Object {
 	public function ToSoftObjectPath(InAssetData: cpp.Reference<AssetData>): cpp.Reference<SoftObjectPath>;
 	public function SetFilterTagsAndValues(InFilter: cpp.Reference<ARFilter>, InTagsAndValues: cpp.Reference<TArray<TagAndValue>>): cpp.Reference<ARFilter>;
@@ -17,6 +18,8 @@ extern class AssetRegistryHelpers extends Object {
 	public function GetAssetRegistry(): cpp.Reference<AssetRegistry>;
 	public function GetAsset(InAssetData: cpp.Reference<AssetData>): cpp.Reference<cpp.Star<Object>>;
 	public function CreateAssetData(InAsset: cpp.Star<Object.ConstObject>, bAllowBlueprintClass: Bool): cpp.Reference<AssetData>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

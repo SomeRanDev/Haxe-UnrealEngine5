@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPhysicsAsset")
 @:include("PhysicsEngine/PhysicsAsset.h")
+@:structAccess
 extern class PhysicsAsset extends Object {
 	public var DefaultSkelMesh_DEPRECATED: cpp.Star<SkeletalMesh>;
 	public var PreviewSkeletalMesh: TSoftObjectPtr<SkeletalMesh>;
@@ -23,6 +24,8 @@ extern class PhysicsAsset extends Object {
 	public function GetConstraints(bIncludesTerminated: Bool, OutConstraints: cpp.Reference<TArray<ConstraintInstanceAccessor>>): Void;
 	public function GetConstraintByName(ConstraintName: FName): cpp.Reference<ConstraintInstanceAccessor>;
 	public function GetConstraintByBoneNames(Bone1Name: FName, Bone2Name: FName): cpp.Reference<ConstraintInstanceAccessor>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

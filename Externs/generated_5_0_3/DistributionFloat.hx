@@ -3,9 +3,12 @@ package ue;
 
 @:native("UDistributionFloat")
 @:include("Distributions/DistributionFloat.h")
+@:structAccess
 extern class DistributionFloat extends Distribution {
 	public var bCanBeBaked: Bool;
 	public var bBakedDataSuccesfully: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

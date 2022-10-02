@@ -3,6 +3,7 @@ package ue;
 
 @:native("FISMComponentDescriptor")
 @:include("ISMPartition/ISMComponentDescriptor.h")
+@:structAccess
 extern class ISMComponentDescriptor {
 	public var Hash: cpp.UInt32;
 	public var ComponentClass: TSubclassOf<InstancedStaticMeshComp>;
@@ -44,4 +45,6 @@ extern class ISMComponentDescriptor {
 	public var bIsEditorOnly: Bool;
 	public var bVisible: Bool;
 	public var bConsiderForActorPlacementWhenHidden: Bool;
+
+	@:native("FISMComponentDescriptor") public function new();
 }

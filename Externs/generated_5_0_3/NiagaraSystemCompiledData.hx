@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraSystemCompiledData")
 @:include("NiagaraSystem.h")
+@:structAccess
 extern class NiagaraSystemCompiledData {
 	public var InstanceParamStore: NiagaraParameterStore;
 	public var DataSetCompiledData: NiagaraDataSetCompiledData;
@@ -16,4 +17,6 @@ extern class NiagaraSystemCompiledData {
 	public var UpdateInstanceSystemBinding: NiagaraParameterDataSetBindingCollection;
 	public var UpdateInstanceOwnerBinding: NiagaraParameterDataSetBindingCollection;
 	public var UpdateInstanceEmitterBindings: TArray<NiagaraParameterDataSetBindingCollection>;
+
+	@:native("FNiagaraSystemCompiledData") public function new();
 }

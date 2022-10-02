@@ -3,6 +3,7 @@ package ue;
 
 @:native("UKismetAnimationLibrary")
 @:include("KismetAnimationLibrary.h")
+@:structAccess
 extern class KismetAnimationLibrary extends BlueprintFunctionLibrary {
 	public function K2_TwoBoneIK(RootPos: cpp.Reference<Vector>, JointPos: cpp.Reference<Vector>, EndPos: cpp.Reference<Vector>, JointTarget: cpp.Reference<Vector>, Effector: cpp.Reference<Vector>, OutJointPos: cpp.Reference<Vector>, OutEndPos: cpp.Reference<Vector>, bAllowStretching: Bool, StartStretchRatio: cpp.Float32, MaxStretchScale: cpp.Float32): Void;
 	public function K2_StartProfilingTimer(): Void;
@@ -15,6 +16,8 @@ extern class KismetAnimationLibrary extends BlueprintFunctionLibrary {
 	public function K2_CalculateVelocityFromSockets(DeltaSeconds: cpp.Float32, Component: cpp.Star<SkeletalMeshComp>, SocketOrBoneName: FName, ReferenceSocketOrBone: FName, SocketSpace: ERelativeTransformSpace, OffsetInBoneSpace: Vector, History: cpp.Reference<PositionHistory>, NumberOfSamples: cpp.Int32, VelocityMin: cpp.Float32, VelocityMax: cpp.Float32, EasingType: EEasingFuncType, CustomCurve: cpp.Reference<RuntimeFloatCurve>): cpp.Reference<cpp.Float32>;
 	public function K2_CalculateVelocityFromPositionHistory(DeltaSeconds: cpp.Float32, Position: Vector, History: cpp.Reference<PositionHistory>, NumberOfSamples: cpp.Int32, VelocityMin: cpp.Float32, VelocityMax: cpp.Float32): cpp.Reference<cpp.Float32>;
 	public function CalculateDirection(Velocity: cpp.Reference<Vector>, BaseRotation: cpp.Reference<Rotator>): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

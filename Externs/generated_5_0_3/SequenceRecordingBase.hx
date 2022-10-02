@@ -3,7 +3,10 @@ package ue;
 
 @:native("USequenceRecordingBase")
 @:include("SequenceRecordingBase.h")
+@:structAccess
 extern class SequenceRecordingBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

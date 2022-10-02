@@ -3,8 +3,11 @@ package ue;
 
 @:native("UGenlockedTimecodeProvider")
 @:include("GenlockedTimecodeProvider.h")
+@:structAccess
 extern class GenlockedTimecodeProvider extends TimecodeProvider {
 	public var bUseGenlockToCount: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

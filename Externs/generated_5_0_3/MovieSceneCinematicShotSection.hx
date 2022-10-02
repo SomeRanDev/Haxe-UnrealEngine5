@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneCinematicShotSection")
 @:include("Sections/MovieSceneCinematicShotSection.h")
+@:structAccess
 extern class MovieSceneCinematicShotSection extends MovieSceneSubSection {
 	public var ShotDisplayName: FString;
 	public var DisplayName_DEPRECATED: FText;
@@ -10,6 +11,8 @@ extern class MovieSceneCinematicShotSection extends MovieSceneSubSection {
 
 	public function SetShotDisplayName(InShotDisplayName: FString): Void;
 	public function GetShotDisplayName(): cpp.Reference<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetShotDisplayName)

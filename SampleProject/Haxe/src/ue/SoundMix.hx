@@ -3,6 +3,7 @@ package ue;
 
 @:native("USoundMix")
 @:include("Sound/SoundMix.h")
+@:structAccess
 extern class SoundMix extends Object {
 	public var bApplyEQ: Bool;
 	public var EQPriority: cpp.Float32;
@@ -13,6 +14,8 @@ extern class SoundMix extends Object {
 	public var Duration: cpp.Float32;
 	public var FadeOutTime: cpp.Float32;
 	public var bChanged: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

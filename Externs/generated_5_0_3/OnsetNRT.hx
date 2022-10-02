@@ -3,11 +3,14 @@ package ue;
 
 @:native("UOnsetNRT")
 @:include("OnsetNRT.h")
+@:structAccess
 extern class OnsetNRT extends AudioSynesthesiaNRT {
 	public var Settings: cpp.Star<OnsetNRTSettings>;
 
 	public function GetNormalizedChannelOnsetsBetweenTimes(InStartSeconds: cpp.Float32, InEndSeconds: cpp.Float32, InChannel: cpp.Int32, OutOnsetTimestamps: cpp.Reference<TArray<cpp.Float32>>, OutOnsetStrengths: cpp.Reference<TArray<cpp.Float32>>): Void;
 	public function GetChannelOnsetsBetweenTimes(InStartSeconds: cpp.Float32, InEndSeconds: cpp.Float32, InChannel: cpp.Int32, OutOnsetTimestamps: cpp.Reference<TArray<cpp.Float32>>, OutOnsetStrengths: cpp.Reference<TArray<cpp.Float32>>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetNormalizedChannelOnsetsBetweenTimes, GetChannelOnsetsBetweenTimes)

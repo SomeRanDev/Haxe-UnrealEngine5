@@ -3,7 +3,11 @@ package ue;
 
 @:native("FDatasmithReimportOptions")
 @:include("DatasmithImportOptions.h")
+@:structAccess
 extern class DatasmithReimportOptions {
 	public var bUpdateActors: Bool;
 	public var bRespawnDeletedActors: Bool;
+
+	@:native("FDatasmithReimportOptions") public function new();
+	@:native("FDatasmithReimportOptions") public static function make(bUpdateActors: Bool, bRespawnDeletedActors: Bool): DatasmithReimportOptions ;
 }

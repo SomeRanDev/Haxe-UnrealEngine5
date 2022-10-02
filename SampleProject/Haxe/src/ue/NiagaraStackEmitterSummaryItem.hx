@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNiagaraStackEmitterSummaryItem")
 @:include("ViewModels/Stack/NiagaraStackEmitterSettingsGroup.h")
+@:structAccess
 extern class NiagaraStackEmitterSummaryItem extends NiagaraStackItem {
 	public var FilteredObject: cpp.Star<NiagaraStackSummaryViewObject>;
 	public var SummaryEditorData: cpp.Star<NiagaraStackObject>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

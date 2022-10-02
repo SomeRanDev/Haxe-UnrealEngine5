@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBTTask_FinishWithResult")
 @:include("BehaviorTree/Tasks/BTTask_FinishWithResult.h")
+@:structAccess
 extern class BTTask_FinishWithResult extends BTTaskNode {
 	public var Result: EBTNodeResult;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

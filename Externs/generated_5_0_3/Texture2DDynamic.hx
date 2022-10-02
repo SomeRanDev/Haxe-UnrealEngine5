@@ -3,8 +3,11 @@ package ue;
 
 @:native("UTexture2DDynamic")
 @:include("Engine/Texture2DDynamic.h")
+@:structAccess
 extern class Texture2DDynamic extends Texture {
 	public var Format: EPixelFormat;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

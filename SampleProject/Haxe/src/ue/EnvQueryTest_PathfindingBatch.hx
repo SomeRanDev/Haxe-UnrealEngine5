@@ -3,8 +3,11 @@ package ue;
 
 @:native("UEnvQueryTest_PathfindingBatch")
 @:include("EnvironmentQuery/Tests/EnvQueryTest_PathfindingBatch.h")
+@:structAccess
 extern class EnvQueryTest_PathfindingBatch extends EnvQueryTest_Pathfinding {
 	public var ScanRangeMultiplier: AIDataProviderFloatValue;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

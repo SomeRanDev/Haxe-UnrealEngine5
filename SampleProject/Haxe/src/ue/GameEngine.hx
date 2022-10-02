@@ -3,10 +3,13 @@ package ue;
 
 @:native("UGameEngine")
 @:include("Engine/GameEngine.h")
+@:structAccess
 extern class GameEngine extends Engine {
 	public var MaxDeltaTime: cpp.Float32;
 	public var ServerFlushLogInterval: cpp.Float32;
 	public var GameInstance: cpp.Star<GameInstance>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

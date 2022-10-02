@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAITask")
 @:include("Tasks/AITask.h")
+@:structAccess
 extern class AITask extends GameplayTask {
 	public var OwnerController: cpp.Star<AIController>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

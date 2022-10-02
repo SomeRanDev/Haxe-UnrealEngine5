@@ -3,7 +3,10 @@ package ue;
 
 @:native("UIntervalGizmoBuilder")
 @:include("BaseGizmos/IntervalGizmo.h")
+@:structAccess
 extern class IntervalGizmoBuilder extends InteractiveGizmoBuilder {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

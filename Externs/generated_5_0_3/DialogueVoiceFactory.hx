@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDialogueVoiceFactory")
 @:include("Factories/DialogueVoiceFactory.h")
+@:structAccess
 extern class DialogueVoiceFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

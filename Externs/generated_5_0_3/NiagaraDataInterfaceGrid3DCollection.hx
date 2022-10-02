@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraDataInterfaceGrid3DCollection")
 @:include("NiagaraDataInterfaceGrid3DCollection.h")
+@:structAccess
 extern class NiagaraDataInterfaceGrid3DCollection extends NiagaraDataInterfaceGrid3D {
 	public var NumAttributes: cpp.Int32;
 	public var RenderTargetUserParameter: NiagaraUserParameterBinding;
@@ -15,6 +16,8 @@ extern class NiagaraDataInterfaceGrid3DCollection extends NiagaraDataInterfaceGr
 	public function GetRawTextureSize(Component: cpp.Star<NiagaraComp.ConstNiagaraComp>, SizeX: cpp.Reference<cpp.Int32>, SizeY: cpp.Reference<cpp.Int32>, SizeZ: cpp.Reference<cpp.Int32>): Void;
 	public function FillVolumeTexture(Component: cpp.Star<NiagaraComp.ConstNiagaraComp>, dest: cpp.Star<VolumeTexture>, AttributeIndex: cpp.Int32): cpp.Reference<Bool>;
 	public function FillRawVolumeTexture(Component: cpp.Star<NiagaraComp.ConstNiagaraComp>, Dest: cpp.Star<VolumeTexture>, TilesX: cpp.Reference<cpp.Int32>, TilesY: cpp.Reference<cpp.Int32>, TileZ: cpp.Reference<cpp.Int32>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

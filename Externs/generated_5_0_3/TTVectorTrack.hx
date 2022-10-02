@@ -3,6 +3,10 @@ package ue;
 
 @:native("FTTVectorTrack")
 @:include("Engine/TimelineTemplate.h")
+@:structAccess
 extern class TTVectorTrack extends TTPropertyTrack {
 	public var CurveVector: cpp.Star<CurveVector>;
+
+	@:native("FTTVectorTrack") public function new();
+	@:native("FTTVectorTrack") public static function make(CurveVector: cpp.Star<CurveVector>): TTVectorTrack ;
 }

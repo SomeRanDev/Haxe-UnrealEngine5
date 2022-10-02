@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialInterface")
 @:include("Materials/MaterialInterface.h")
+@:structAccess
 extern class MaterialInterface extends Object {
 	public var SubsurfaceProfile: cpp.Star<SubsurfaceProfile>;
 	public var LightmassSettings: LightmassMaterialInterfaceSettings;
@@ -24,6 +25,8 @@ extern class MaterialInterface extends Object {
 	public function GetPhysicalMaterial(): cpp.Reference<cpp.Star<PhysicalMaterial>>;
 	public function GetParameterInfo(Association: EMaterialParameterAssociation, ParameterName: FName, LayerFunction: cpp.Star<MaterialFunctionInterface>): cpp.Reference<MaterialParameterInfo>;
 	public function GetBaseMaterial(): cpp.Reference<cpp.Star<Material>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetPhysicalMaterialMask, GetPhysicalMaterialFromMap, GetPhysicalMaterial, GetParameterInfo)

@@ -2,7 +2,10 @@
 package ue;
 
 @:native("ULandscapeSplineInterface")
+@:structAccess
 extern class LandscapeSplineInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UOnlineBlueprintCallProxyBase")
 @:include("Net/OnlineBlueprintCallProxyBase.h")
+@:structAccess
 extern class OnlineBlueprintCallProxyBase extends BlueprintAsyncActionBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

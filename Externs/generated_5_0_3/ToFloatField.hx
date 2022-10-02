@@ -3,10 +3,13 @@ package ue;
 
 @:native("UToFloatField")
 @:include("Field/FieldSystemObjects.h")
+@:structAccess
 extern class ToFloatField extends FieldNodeFloat {
 	public var IntField: cpp.Star<FieldNodeInt>;
 
 	public function SetToFloatField(IntegerField: cpp.Star<FieldNodeInt.ConstFieldNodeInt>): cpp.Reference<cpp.Star<ToFloatField>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

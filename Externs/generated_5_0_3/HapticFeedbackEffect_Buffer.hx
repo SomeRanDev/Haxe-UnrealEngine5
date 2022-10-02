@@ -3,9 +3,12 @@ package ue;
 
 @:native("UHapticFeedbackEffect_Buffer")
 @:include("Haptics/HapticFeedbackEffect_Buffer.h")
+@:structAccess
 extern class HapticFeedbackEffect_Buffer extends HapticFeedbackEffect_Base {
 	public var Amplitudes: TArray<cpp.UInt8>;
 	public var SampleRate: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

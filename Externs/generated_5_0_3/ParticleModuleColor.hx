@@ -3,10 +3,13 @@ package ue;
 
 @:native("UParticleModuleColor")
 @:include("Particles/Color/ParticleModuleColor.h")
+@:structAccess
 extern class ParticleModuleColor extends ParticleModuleColorBase {
 	public var StartColor: RawDistributionVector;
 	public var StartAlpha: RawDistributionFloat;
 	public var bClampAlpha: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

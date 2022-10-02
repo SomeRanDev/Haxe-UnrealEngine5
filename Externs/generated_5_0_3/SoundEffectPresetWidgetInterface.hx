@@ -2,10 +2,13 @@
 package ue;
 
 @:native("USoundEffectPresetWidgetInterface")
+@:structAccess
 extern class SoundEffectPresetWidgetInterface extends AudioPanelWidgetInterface {
 	public function OnPropertyChanged(Preset: cpp.Star<SoundEffectPreset>, PropertyName: FName): Void;
 	public function OnConstructed(Preset: cpp.Star<SoundEffectPreset>): Void;
 	public function GetClass(): cpp.Reference<TSubclassOf<SoundEffectPreset>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

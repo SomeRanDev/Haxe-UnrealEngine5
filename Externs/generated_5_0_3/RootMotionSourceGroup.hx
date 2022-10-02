@@ -3,6 +3,7 @@ package ue;
 
 @:native("FRootMotionSourceGroup")
 @:include("GameFramework/RootMotionSource.h")
+@:structAccess
 extern class RootMotionSourceGroup {
 	public var bHasAdditiveSources: Bool;
 	public var bHasOverrideSources: Bool;
@@ -10,4 +11,6 @@ extern class RootMotionSourceGroup {
 	public var bIsAdditiveVelocityApplied: Bool;
 	public var LastAccumulatedSettings: RootMotionSourceSettings;
 	public var LastPreAdditiveVelocity: Vector_NetQuantize10;
+
+	@:native("FRootMotionSourceGroup") public function new();
 }

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UComponentDelegateBinding")
 @:include("Engine/ComponentDelegateBinding.h")
+@:structAccess
 extern class ComponentDelegateBinding extends DynamicBlueprintBinding {
 	public var ComponentDelegateBindings: TArray<BlueprintComponentDelegateBinding>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

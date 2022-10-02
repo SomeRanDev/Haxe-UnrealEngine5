@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMovieScenePredictionSystem")
 @:include("Systems/MovieScenePredictionSystem.h")
+@:structAccess
 extern class MovieScenePredictionSystem extends MovieSceneEntitySystem {
 	public var PendingPredictions: TArray<cpp.Star<MovieSceneAsyncAction_SequencePrediction>>;
 	public var ProcessingPredictions: TArray<cpp.Star<MovieSceneAsyncAction_SequencePrediction>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("URendererOverrideSettings")
 @:include("Engine/RendererSettings.h")
+@:structAccess
 extern class RendererOverrideSettings extends DeveloperSettings {
 	public var bSupportAllShaderPermutations: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FRigidBodyErrorCorrection")
 @:include("Engine/EngineTypes.h")
+@:structAccess
 extern class RigidBodyErrorCorrection {
 	public var PingExtrapolation: cpp.Float32;
 	public var PingLimit: cpp.Float32;
@@ -17,4 +18,6 @@ extern class RigidBodyErrorCorrection {
 	public var ErrorAccumulationSeconds: cpp.Float32;
 	public var ErrorAccumulationDistanceSq: cpp.Float32;
 	public var ErrorAccumulationSimilarity: cpp.Float32;
+
+	@:native("FRigidBodyErrorCorrection") public function new();
 }

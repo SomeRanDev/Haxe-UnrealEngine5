@@ -3,6 +3,7 @@ package ue;
 
 @:native("UVRModeSettings")
 @:include("VRModeSettings.h")
+@:structAccess
 extern class VRModeSettings extends VISettings {
 	public var bEnableAutoVREditMode: Bool;
 	public var bAutokeySequences: Bool;
@@ -17,6 +18,8 @@ extern class VRModeSettings extends VISettings {
 	public var TriggerPressedThreshold_Rift: cpp.Float32;
 	public var InteractorClass: TSoftClassPtr<Class>;
 	public var TeleporterClass: TSoftClassPtr<Class>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

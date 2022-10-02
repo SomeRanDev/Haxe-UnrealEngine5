@@ -3,7 +3,11 @@ package ue;
 
 @:native("FSpatialHashStreamingGridLevel")
 @:include("WorldPartition/WorldPartitionRuntimeSpatialHash.h")
+@:structAccess
 extern class SpatialHashStreamingGridLevel {
 	public var LayerCells: TArray<SpatialHashStreamingGridLayerCell>;
 	public var LayerCellsMapping: TMap<cpp.Int32, cpp.Int32>;
+
+	@:native("FSpatialHashStreamingGridLevel") public function new();
+	@:native("FSpatialHashStreamingGridLevel") public static function make(LayerCells: TArray<SpatialHashStreamingGridLayerCell>, LayerCellsMapping: TMap<cpp.Int32, cpp.Int32>): SpatialHashStreamingGridLevel ;
 }

@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UEnum")
+@:structAccess
 extern class Enum extends Field {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

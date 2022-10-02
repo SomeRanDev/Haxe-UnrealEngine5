@@ -3,9 +3,12 @@ package ue;
 
 @:native("UPaperTerrainMaterial")
 @:include("PaperTerrainMaterial.h")
+@:structAccess
 extern class PaperTerrainMaterial extends DataAsset {
 	public var Rules: TArray<PaperTerrainMaterialRule>;
 	public var InteriorFill: cpp.Star<PaperSprite>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

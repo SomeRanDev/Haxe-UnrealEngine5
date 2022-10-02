@@ -3,9 +3,12 @@ package ue;
 
 @:native("UWorldThumbnailInfo")
 @:include("ThumbnailRendering/WorldThumbnailInfo.h")
+@:structAccess
 extern class WorldThumbnailInfo extends SceneThumbnailInfo {
 	public var CameraMode: ECameraProjectionMode;
 	public var OrthoDirection: EOrthoThumbnailDirection;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,11 @@ package ue;
 
 @:native("FNavCollisionBox")
 @:include("NavCollision.h")
+@:structAccess
 extern class NavCollisionBox {
 	public var Offset: Vector;
 	public var Extent: Vector;
+
+	@:native("FNavCollisionBox") public function new();
+	@:native("FNavCollisionBox") public static function make(Offset: Vector, Extent: Vector): NavCollisionBox ;
 }

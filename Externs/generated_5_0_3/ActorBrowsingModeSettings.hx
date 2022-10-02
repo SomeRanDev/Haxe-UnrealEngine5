@@ -3,6 +3,7 @@ package ue;
 
 @:native("UActorBrowsingModeSettings")
 @:include("ActorBrowsingModeSettings.h")
+@:structAccess
 extern class ActorBrowsingModeSettings extends Object {
 	public var bHideTemporaryActors: Bool;
 	public var bShowOnlyActorsInCurrentLevel: Bool;
@@ -10,6 +11,8 @@ extern class ActorBrowsingModeSettings extends Object {
 	public var bHideActorComponents: Bool;
 	public var bHideLevelInstanceHierarchy: Bool;
 	public var bHideUnloadedActors: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

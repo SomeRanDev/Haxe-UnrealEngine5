@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneSignedObject")
 @:include("MovieSceneSignedObject.h")
+@:structAccess
 extern class MovieSceneSignedObject extends Object {
 	public var Signature: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

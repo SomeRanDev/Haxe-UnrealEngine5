@@ -3,10 +3,13 @@ package ue;
 
 @:native("UInterpTrackInstAnimControl")
 @:include("Matinee/InterpTrackInstAnimControl.h")
+@:structAccess
 extern class InterpTrackInstAnimControl extends InterpTrackInst {
 	public var LastUpdatePosition: cpp.Float32;
 	public var InitPosition: Vector;
 	public var InitRotation: Rotator;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

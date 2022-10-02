@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_FormatText")
 @:include("K2Node_FormatText.h")
+@:structAccess
 extern class K2Node_FormatText extends K2Node {
 	public var PinNames: TArray<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

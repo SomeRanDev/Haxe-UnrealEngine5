@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPlatformEventsComponent")
 @:include("Components/PlatformEventsComponent.h")
+@:structAccess
 extern class PlatformEventsComp extends ActorComp {
 	public var PlatformChangedToLaptopModeDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var PlatformChangedToTabletModeDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
@@ -11,6 +12,8 @@ extern class PlatformEventsComp extends ActorComp {
 	public function PlatformEventDelegate__DelegateSignature(): Void;
 	public function IsInTabletMode(): cpp.Reference<Bool>;
 	public function IsInLaptopMode(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

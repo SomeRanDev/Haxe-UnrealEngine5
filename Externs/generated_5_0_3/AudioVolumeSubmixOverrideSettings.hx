@@ -3,8 +3,12 @@ package ue;
 
 @:native("FAudioVolumeSubmixOverrideSettings")
 @:include("Sound/AudioVolume.h")
+@:structAccess
 extern class AudioVolumeSubmixOverrideSettings {
 	public var Submix: cpp.Star<SoundSubmix>;
 	public var SubmixEffectChain: TArray<cpp.Star<SoundEffectSubmixPreset>>;
 	public var CrossfadeTime: cpp.Float32;
+
+	@:native("FAudioVolumeSubmixOverrideSettings") public function new();
+	@:native("FAudioVolumeSubmixOverrideSettings") public static function make(Submix: cpp.Star<SoundSubmix>, SubmixEffectChain: TArray<cpp.Star<SoundEffectSubmixPreset>>, CrossfadeTime: cpp.Float32): AudioVolumeSubmixOverrideSettings ;
 }

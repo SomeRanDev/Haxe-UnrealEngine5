@@ -3,6 +3,7 @@ package ue;
 
 @:native("ATemplateSequenceActor")
 @:include("TemplateSequenceActor.h")
+@:structAccess
 extern class TemplateSequenceActor extends Actor {
 	public var PlaybackSettings: MovieSceneSequencePlaybackSettings;
 	public var SequencePlayer: cpp.Star<TemplateSequencePlayer>;
@@ -14,6 +15,8 @@ extern class TemplateSequenceActor extends Actor {
 	public function LoadSequence(): cpp.Reference<cpp.Star<TemplateSequence>>;
 	public function GetSequencePlayer(): cpp.Reference<cpp.Star<TemplateSequencePlayer>>;
 	public function GetSequence(): cpp.Reference<cpp.Star<TemplateSequence>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(LoadSequence, GetSequencePlayer, GetSequence)

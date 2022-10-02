@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBTDecorator_Cooldown")
 @:include("BehaviorTree/Decorators/BTDecorator_Cooldown.h")
+@:structAccess
 extern class BTDecorator_Cooldown extends BTDecorator {
 	public var CoolDownTime: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

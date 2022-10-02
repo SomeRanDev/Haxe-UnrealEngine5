@@ -3,6 +3,7 @@ package ue;
 
 @:native("FGPUSpriteLocalVectorFieldInfo")
 @:include("Particles/TypeData/ParticleModuleTypeDataGpu.h")
+@:structAccess
 extern class GPUSpriteLocalVectorFieldInfo {
 	public var Field: cpp.Star<VectorField>;
 	public var Transform: Transform;
@@ -16,4 +17,6 @@ extern class GPUSpriteLocalVectorFieldInfo {
 	public var bTileY: Bool;
 	public var bTileZ: Bool;
 	public var bUseFixDT: Bool;
+
+	@:native("FGPUSpriteLocalVectorFieldInfo") public function new();
 }

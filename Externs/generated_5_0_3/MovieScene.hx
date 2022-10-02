@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieScene")
 @:include("MovieScene.h")
+@:structAccess
 extern class MovieScene extends MovieSceneSignedObject {
 	public var Spawnables: TArray<MovieSceneSpawnable>;
 	public var Possessables: TArray<MovieScenePossessable>;
@@ -34,6 +35,8 @@ extern class MovieScene extends MovieSceneSignedObject {
 	public var EndTime_DEPRECATED: cpp.Float32;
 	public var bForceFixedFrameIntervalPlayback_DEPRECATED: Bool;
 	public var FixedFrameInterval_DEPRECATED: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

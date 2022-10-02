@@ -3,12 +3,15 @@ package ue;
 
 @:native("UInterpTrackEvent")
 @:include("Matinee/InterpTrackEvent.h")
+@:structAccess
 extern class InterpTrackEvent extends InterpTrack {
 	public var EventTrack: TArray<EventTrackKey>;
 	public var bFireEventsWhenForwards: Bool;
 	public var bFireEventsWhenBackwards: Bool;
 	public var bFireEventsWhenJumpingForwards: Bool;
 	public var bUseCustomEventName: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UBlackboardKeyType_Float")
 @:include("BehaviorTree/Blackboard/BlackboardKeyType_Float.h")
+@:structAccess
 extern class BlackboardKeyType_Float extends BlackboardKeyType {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionDoubleVectorParameter")
 @:include("Materials/MaterialExpressionDoubleVectorParameter.h")
+@:structAccess
 extern class MaterialExpressionDoubleVectorParameter extends MaterialExpressionParameter {
 	public var DefaultValue: Vector4d;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

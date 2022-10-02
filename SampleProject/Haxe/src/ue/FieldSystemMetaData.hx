@@ -3,7 +3,10 @@ package ue;
 
 @:native("UFieldSystemMetaData")
 @:include("Field/FieldSystemObjects.h")
+@:structAccess
 extern class FieldSystemMetaData extends ActorComp {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

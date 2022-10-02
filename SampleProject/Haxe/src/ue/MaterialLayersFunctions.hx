@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMaterialLayersFunctions")
 @:include("Materials/MaterialLayersFunctions.h")
+@:structAccess
 extern class MaterialLayersFunctions {
 	public var Layers: TArray<cpp.Star<MaterialFunctionInterface>>;
 	public var Blends: TArray<cpp.Star<MaterialFunctionInterface>>;
@@ -13,4 +14,6 @@ extern class MaterialLayersFunctions {
 	public var LayerGuids: TArray<Guid>;
 	public var LayerLinkStates: TArray<EMaterialLayerLinkState>;
 	public var DeletedParentLayerGuids: TArray<Guid>;
+
+	@:native("FMaterialLayersFunctions") public function new();
 }

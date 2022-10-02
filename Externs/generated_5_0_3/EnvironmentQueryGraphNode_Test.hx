@@ -3,10 +3,13 @@ package ue;
 
 @:native("UEnvironmentQueryGraphNode_Test")
 @:include("EnvironmentQueryGraphNode_Test.h")
+@:structAccess
 extern class EnvironmentQueryGraphNode_Test extends EnvironmentQueryGraphNode {
 	public var TestWeightPct: cpp.Float32;
 	public var bHasNamedWeight: Bool;
 	public var bTestEnabled: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

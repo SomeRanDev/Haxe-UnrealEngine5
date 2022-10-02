@@ -3,7 +3,10 @@ package ue;
 
 @:native("AVisualLoggerFilterVolume")
 @:include("VisualLogger/VisualLoggerFilterVolume.h")
+@:structAccess
 extern class VisualLoggerFilterVolume extends Volume {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

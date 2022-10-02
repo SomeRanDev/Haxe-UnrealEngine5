@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UPhysicsVolumeChanged__PythonCallable")
+@:structAccess
 extern class PhysicsVolumeChanged__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

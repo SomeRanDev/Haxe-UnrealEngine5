@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_ModifyCurve")
 @:include("AnimGraphNode_ModifyCurve.h")
+@:structAccess
 extern class AnimGraphNode_ModifyCurve extends AnimGraphNode_Base {
 	public var Node: AnimNode_ModifyCurve;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

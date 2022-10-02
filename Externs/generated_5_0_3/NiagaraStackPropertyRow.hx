@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraStackPropertyRow")
 @:include("ViewModels/Stack/NiagaraStackPropertyRow.h")
+@:structAccess
 extern class NiagaraStackPropertyRow extends NiagaraStackItemContent {
 	public var CategorySpacer: cpp.Star<NiagaraStackSpacer>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

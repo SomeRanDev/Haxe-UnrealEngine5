@@ -3,9 +3,13 @@ package ue;
 
 @:native("FConstraint")
 @:include("BoneControllers/AnimNode_Constraint.h")
+@:structAccess
 extern class Constraint {
 	public var TargetBone: BoneReference;
 	public var OffsetOption: EConstraintOffsetOption;
 	public var TransformType: ETransformConstraintType;
 	public var PerAxis: FilterOptionPerAxis;
+
+	@:native("FConstraint") public function new();
+	@:native("FConstraint") public static function make(TargetBone: BoneReference, OffsetOption: EConstraintOffsetOption, TransformType: ETransformConstraintType, PerAxis: FilterOptionPerAxis): Constraint ;
 }

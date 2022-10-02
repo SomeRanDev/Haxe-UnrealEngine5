@@ -3,9 +3,13 @@ package ue;
 
 @:native("FInputAxisProperties")
 @:include("GameFramework/PlayerInput.h")
+@:structAccess
 extern class InputAxisProperties {
 	public var DeadZone: cpp.Float32;
 	public var Sensitivity: cpp.Float32;
 	public var Exponent: cpp.Float32;
 	public var bInvert: Bool;
+
+	@:native("FInputAxisProperties") public function new();
+	@:native("FInputAxisProperties") public static function make(DeadZone: cpp.Float32, Sensitivity: cpp.Float32, Exponent: cpp.Float32, bInvert: Bool): InputAxisProperties ;
 }

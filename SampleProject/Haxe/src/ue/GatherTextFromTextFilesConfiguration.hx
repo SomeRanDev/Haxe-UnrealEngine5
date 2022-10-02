@@ -3,10 +3,14 @@ package ue;
 
 @:native("FGatherTextFromTextFilesConfiguration")
 @:include("LocalizationTargetTypes.h")
+@:structAccess
 extern class GatherTextFromTextFilesConfiguration {
 	public var IsEnabled: Bool;
 	public var SearchDirectories: TArray<GatherTextSearchDirectory>;
 	public var ExcludePathWildcards: TArray<GatherTextExcludePath>;
 	public var FileExtensions: TArray<GatherTextFileExtension>;
 	public var ShouldGatherFromEditorOnlyData: Bool;
+
+	@:native("FGatherTextFromTextFilesConfiguration") public function new();
+	@:native("FGatherTextFromTextFilesConfiguration") public static function make(IsEnabled: Bool, SearchDirectories: TArray<GatherTextSearchDirectory>, ExcludePathWildcards: TArray<GatherTextExcludePath>, FileExtensions: TArray<GatherTextFileExtension>, ShouldGatherFromEditorOnlyData: Bool): GatherTextFromTextFilesConfiguration ;
 }

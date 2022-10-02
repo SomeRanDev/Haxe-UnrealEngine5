@@ -3,6 +3,7 @@ package ue;
 
 @:native("USoundBase")
 @:include("Sound/SoundBase.h")
+@:structAccess
 extern class SoundBase extends Object {
 	public var SoundClassObject: cpp.Star<SoundClass>;
 	public var bDebug: Bool;
@@ -32,6 +33,8 @@ extern class SoundBase extends Object {
 	public var BusSends: TArray<SoundSourceBusSendInfo>;
 	public var PreEffectBusSends: TArray<SoundSourceBusSendInfo>;
 	public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGroomComponent")
 @:include("GroomComponent.h")
+@:structAccess
 extern class GroomComp extends MeshComp {
 	public var GroomAsset: cpp.Star<GroomAsset>;
 	public var GroomCache: cpp.Star<GroomCache>;
@@ -37,6 +38,8 @@ extern class GroomComp extends MeshComp {
 	public function ResetCollisionComponents(): Void;
 	public function GetIsHairLengthScaleEnabled(): cpp.Reference<Bool>;
 	public function AddCollisionComponent(SkeletalMeshComponent: cpp.Star<SkeletalMeshComp>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

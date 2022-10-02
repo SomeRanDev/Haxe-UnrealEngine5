@@ -3,7 +3,10 @@ package ue;
 
 @:native("UInterpTrackSlomo")
 @:include("Matinee/InterpTrackSlomo.h")
+@:structAccess
 extern class InterpTrackSlomo extends InterpTrackFloatBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

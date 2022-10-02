@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraNodeConvert")
 @:include("NiagaraNodeConvert.h")
+@:structAccess
 extern class NiagaraNodeConvert extends NiagaraNodeWithDynamicPins {
 	public var AutowireSwizzle: FString;
 	public var AutowireMakeType: NiagaraTypeDefinition;
@@ -10,6 +11,8 @@ extern class NiagaraNodeConvert extends NiagaraNodeWithDynamicPins {
 	public var Connections: TArray<NiagaraConvertConnection>;
 	public var bIsWiringShown: Bool;
 	public var ExpandedItems: TArray<NiagaraConvertPinRecord>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FGPUSpriteResourceData")
 @:include("Particles/TypeData/ParticleModuleTypeDataGpu.h")
+@:structAccess
 extern class GPUSpriteResourceData {
 	public var QuantizedColorSamples: TArray<Color>;
 	public var QuantizedMiscSamples: TArray<Color>;
@@ -44,4 +45,6 @@ extern class GPUSpriteResourceData {
 	public var bRemoveHMDRoll: Bool;
 	public var MinFacingCameraBlendDistance: cpp.Float32;
 	public var MaxFacingCameraBlendDistance: cpp.Float32;
+
+	@:native("FGPUSpriteResourceData") public function new();
 }

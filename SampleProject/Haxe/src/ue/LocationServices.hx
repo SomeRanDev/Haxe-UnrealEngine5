@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULocationServices")
 @:include("LocationServicesBPLibrary.h")
+@:structAccess
 extern class LocationServices extends BlueprintFunctionLibrary {
 	public function StopLocationServices(): cpp.Reference<Bool>;
 	public function StartLocationServices(): cpp.Reference<Bool>;
@@ -11,6 +12,8 @@ extern class LocationServices extends BlueprintFunctionLibrary {
 	public function GetLocationServicesImpl(): cpp.Reference<cpp.Star<LocationServicesImpl>>;
 	public function GetLastKnownLocation(): cpp.Reference<LocationServicesData>;
 	public function AreLocationServicesEnabled(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

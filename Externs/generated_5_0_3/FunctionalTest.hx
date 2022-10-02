@@ -3,6 +3,7 @@ package ue;
 
 @:native("AFunctionalTest")
 @:include("FunctionalTest.h")
+@:structAccess
 extern class FunctionalTest extends Actor {
 	public var TestLabel: FString;
 	public var SpriteComponent: cpp.Star<BillboardComp>;
@@ -65,6 +66,8 @@ extern class FunctionalTest extends Actor {
 	public function AddWarning(Message: FString): Void;
 	public function AddRerun(Reason: FName): Void;
 	public function AddError(Message: FString): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(OnWantsReRunCheck, OnAdditionalTestFinishedMessageRequest, IsRunning, IsEnabled, GetCurrentRerunReason, DebugGatherRelevantActors)

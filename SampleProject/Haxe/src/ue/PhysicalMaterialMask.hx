@@ -3,12 +3,15 @@ package ue;
 
 @:native("UPhysicalMaterialMask")
 @:include("PhysicalMaterials/PhysicalMaterialMask.h")
+@:structAccess
 extern class PhysicalMaterialMask extends Object {
 	public var AssetImportData: cpp.Star<AssetImportData>;
 	public var MaskTexture: cpp.Star<Texture>;
 	public var UVChannelIndex: cpp.Int32;
 	public var AddressX: TextureAddress;
 	public var AddressY: TextureAddress;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

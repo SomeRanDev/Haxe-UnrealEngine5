@@ -3,10 +3,13 @@ package ue;
 
 @:native("UNiagaraOutliner")
 @:include("NiagaraOutliner.h")
+@:structAccess
 extern class NiagaraOutliner extends Object {
 	public var CaptureSettings: NiagaraOutlinerCaptureSettings;
 	public var ViewSettings: NiagaraOutlinerViewSettings;
 	public var Data: NiagaraOutlinerData;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

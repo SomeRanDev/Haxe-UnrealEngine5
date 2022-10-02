@@ -3,9 +3,13 @@ package ue;
 
 @:native("FNiagaraActionColors")
 @:include("NiagaraEditorSettings.h")
+@:structAccess
 extern class NiagaraActionColors {
 	public var NiagaraColor: LinearColor;
 	public var GameColor: LinearColor;
 	public var PluginColor: LinearColor;
 	public var DeveloperColor: LinearColor;
+
+	@:native("FNiagaraActionColors") public function new();
+	@:native("FNiagaraActionColors") public static function make(NiagaraColor: LinearColor, GameColor: LinearColor, PluginColor: LinearColor, DeveloperColor: LinearColor): NiagaraActionColors ;
 }

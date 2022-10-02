@@ -3,9 +3,12 @@ package ue;
 
 @:native("ASceneCapture")
 @:include("Engine/SceneCapture.h")
+@:structAccess
 extern class SceneCapture extends Actor {
 	public var MeshComp_DEPRECATED: cpp.Star<StaticMeshComp>;
 	public var SceneComponent: cpp.Star<SceneComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

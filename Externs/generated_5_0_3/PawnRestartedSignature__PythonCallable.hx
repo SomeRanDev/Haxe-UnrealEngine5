@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UPawnRestartedSignature__PythonCallable")
+@:structAccess
 extern class PawnRestartedSignature__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

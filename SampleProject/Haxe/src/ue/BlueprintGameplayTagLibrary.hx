@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBlueprintGameplayTagLibrary")
 @:include("BlueprintGameplayTagLibrary.h")
+@:structAccess
 extern class BlueprintGameplayTagLibrary extends BlueprintFunctionLibrary {
 	public function RemoveGameplayTag(TagContainer: cpp.Reference<GameplayTagContainer>, Tag: GameplayTag): cpp.Reference<Bool>;
 	public function NotEqual_TagTag(A: GameplayTag, B: FString): cpp.Reference<Bool>;
@@ -34,6 +35,8 @@ extern class BlueprintGameplayTagLibrary extends BlueprintFunctionLibrary {
 	public function BreakGameplayTagContainer(GameplayTagContainer: cpp.Reference<GameplayTagContainer>, GameplayTags: cpp.Reference<TArray<GameplayTag>>): Void;
 	public function AppendGameplayTagContainers(InOutTagContainer: cpp.Reference<GameplayTagContainer>, InTagContainer: cpp.Reference<GameplayTagContainer>): Void;
 	public function AddGameplayTag(TagContainer: cpp.Reference<GameplayTagContainer>, Tag: GameplayTag): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

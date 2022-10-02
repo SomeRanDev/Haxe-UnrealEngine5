@@ -3,12 +3,15 @@ package ue;
 
 @:native("UDeviceProfile")
 @:include("DeviceProfiles/DeviceProfile.h")
+@:structAccess
 extern class DeviceProfile extends TextureLODSettings {
 	public var DeviceType: FString;
 	public var BaseProfileName: FString;
 	public var Parent: cpp.Star<DeviceProfile>;
 	public var CVars: TArray<FString>;
 	public var MatchingRules: TArray<DPMatchingRulestruct>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

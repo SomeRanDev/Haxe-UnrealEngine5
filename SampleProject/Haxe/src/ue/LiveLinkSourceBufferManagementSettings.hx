@@ -3,6 +3,7 @@ package ue;
 
 @:native("FLiveLinkSourceBufferManagementSettings")
 @:include("LiveLinkSourceSettings.h")
+@:structAccess
 extern class LiveLinkSourceBufferManagementSettings {
 	public var bValidEngineTimeEnabled: Bool;
 	public var ValidEngineTime: cpp.Float32;
@@ -21,4 +22,6 @@ extern class LiveLinkSourceBufferManagementSettings {
 	public var LatestOffset: cpp.Int32;
 	public var MaxNumberOfFrameToBuffered: cpp.Int32;
 	public var bKeepAtLeastOneFrame: Bool;
+
+	@:native("FLiveLinkSourceBufferManagementSettings") public function new();
 }

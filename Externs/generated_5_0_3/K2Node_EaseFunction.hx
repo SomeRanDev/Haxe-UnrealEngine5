@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_EaseFunction")
 @:include("K2Node_EaseFunction.h")
+@:structAccess
 extern class K2Node_EaseFunction extends K2Node {
 	public var EaseFunctionName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

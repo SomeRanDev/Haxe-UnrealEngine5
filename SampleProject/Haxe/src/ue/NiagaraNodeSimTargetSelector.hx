@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraNodeSimTargetSelector")
 @:include("NiagaraNodeSimTargetSelector.h")
+@:structAccess
 extern class NiagaraNodeSimTargetSelector extends NiagaraNodeUsageSelector {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

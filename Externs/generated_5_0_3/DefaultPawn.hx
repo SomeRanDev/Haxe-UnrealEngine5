@@ -3,6 +3,7 @@ package ue;
 
 @:native("ADefaultPawn")
 @:include("GameFramework/DefaultPawn.h")
+@:structAccess
 extern class DefaultPawn extends Pawn {
 	public var BaseTurnRate: cpp.Float32;
 	public var BaseLookUpRate: cpp.Float32;
@@ -16,6 +17,8 @@ extern class DefaultPawn extends Pawn {
 	public function MoveRight(Val: cpp.Float32): Void;
 	public function MoveForward(Val: cpp.Float32): Void;
 	public function LookUpAtRate(Rate: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

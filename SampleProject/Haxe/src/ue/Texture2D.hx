@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTexture2D")
 @:include("Engine/Texture2D.h")
+@:structAccess
 extern class Texture2D extends Texture {
 	public var FirstResourceMemMip: cpp.Int32;
 	public var bTemporarilyDisableStreaming: Bool;
@@ -13,6 +14,8 @@ extern class Texture2D extends Texture {
 
 	public function Blueprint_GetSizeY(): cpp.Reference<cpp.Int32>;
 	public function Blueprint_GetSizeX(): cpp.Reference<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(Blueprint_GetSizeY, Blueprint_GetSizeX)

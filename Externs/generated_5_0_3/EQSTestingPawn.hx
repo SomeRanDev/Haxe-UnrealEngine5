@@ -3,6 +3,7 @@ package ue;
 
 @:native("AEQSTestingPawn")
 @:include("EnvironmentQuery/EQSTestingPawn.h")
+@:structAccess
 extern class EQSTestingPawn extends Character {
 	public var QueryTemplate: cpp.Star<EnvQuery>;
 	public var QueryParams: TArray<EnvNamedValue>;
@@ -18,6 +19,8 @@ extern class EQSTestingPawn extends Character {
 	public var QueryingMode: EEnvQueryRunMode;
 	public var NavAgentProperties: NavAgentProperties;
 	public var EdRenderComp: cpp.Star<EQSRenderingComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

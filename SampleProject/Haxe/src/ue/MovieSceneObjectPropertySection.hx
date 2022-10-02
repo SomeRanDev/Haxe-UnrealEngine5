@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneObjectPropertySection")
 @:include("Sections/MovieSceneObjectPropertySection.h")
+@:structAccess
 extern class MovieSceneObjectPropertySection extends MovieSceneSection {
 	public var ObjectChannel: MovieSceneObjectPathChannel;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

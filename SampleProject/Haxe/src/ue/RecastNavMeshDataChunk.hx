@@ -3,7 +3,10 @@ package ue;
 
 @:native("URecastNavMeshDataChunk")
 @:include("NavMesh/RecastNavMeshDataChunk.h")
+@:structAccess
 extern class RecastNavMeshDataChunk extends NavigationDataChunk {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPaperTerrainSplineComponent")
 @:include("PaperTerrainSplineComponent.h")
+@:structAccess
 extern class PaperTerrainSplineComp extends SplineComp {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

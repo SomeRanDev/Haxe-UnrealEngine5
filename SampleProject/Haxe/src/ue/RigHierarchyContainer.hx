@@ -3,9 +3,13 @@ package ue;
 
 @:native("FRigHierarchyContainer")
 @:include("Rigs/RigHierarchyContainer.h")
+@:structAccess
 extern class RigHierarchyContainer {
 	public var BoneHierarchy: RigBoneHierarchy;
 	public var SpaceHierarchy: RigSpaceHierarchy;
 	public var ControlHierarchy: RigControlHierarchy;
 	public var CurveContainer: RigCurveContainer;
+
+	@:native("FRigHierarchyContainer") public function new();
+	@:native("FRigHierarchyContainer") public static function make(BoneHierarchy: RigBoneHierarchy, SpaceHierarchy: RigSpaceHierarchy, ControlHierarchy: RigControlHierarchy, CurveContainer: RigCurveContainer): RigHierarchyContainer ;
 }

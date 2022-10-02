@@ -3,6 +3,7 @@ package ue;
 
 @:native("FPolyglotTextData")
 @:include("UObject/NoExportTypes.h")
+@:structAccess
 extern class PolyglotTextData {
 	public var Category: ELocalizedTextSourceCategory;
 	public var NativeCulture: FString;
@@ -12,4 +13,6 @@ extern class PolyglotTextData {
 	public var LocalizedStrings: TMap<FString, FString>;
 	public var bIsMinimalPatch: Bool;
 	public var CachedText: FText;
+
+	@:native("FPolyglotTextData") public function new();
 }

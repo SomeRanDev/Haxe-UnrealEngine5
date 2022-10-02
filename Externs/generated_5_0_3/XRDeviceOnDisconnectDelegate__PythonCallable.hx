@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UXRDeviceOnDisconnectDelegate__PythonCallable")
+@:structAccess
 extern class XRDeviceOnDisconnectDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

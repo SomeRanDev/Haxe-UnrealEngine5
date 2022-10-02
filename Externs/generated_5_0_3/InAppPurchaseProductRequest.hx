@@ -3,7 +3,11 @@ package ue;
 
 @:native("FInAppPurchaseProductRequest")
 @:include("Interfaces/OnlineStoreInterface.h")
+@:structAccess
 extern class InAppPurchaseProductRequest {
 	public var ProductIdentifier: FString;
 	public var bIsConsumable: Bool;
+
+	@:native("FInAppPurchaseProductRequest") public function new();
+	@:native("FInAppPurchaseProductRequest") public static function make(ProductIdentifier: FString, bIsConsumable: Bool): InAppPurchaseProductRequest ;
 }

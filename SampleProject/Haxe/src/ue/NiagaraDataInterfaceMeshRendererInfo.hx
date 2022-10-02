@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraDataInterfaceMeshRendererInfo")
 @:include("NiagaraDataInterfaceMeshRendererInfo.h")
+@:structAccess
 extern class NiagaraDataInterfaceMeshRendererInfo extends NiagaraDataInterface {
 	public var MeshRenderer: cpp.Star<NiagaraMeshRendererProperties>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

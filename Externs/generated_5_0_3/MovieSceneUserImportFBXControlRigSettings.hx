@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneUserImportFBXControlRigSettings")
 @:include("MovieSceneToolsUserSettings.h")
+@:structAccess
 extern class MovieSceneUserImportFBXControlRigSettings extends Object {
 	public var ImportedFileName: FString;
 	public var ImportedStartTime: FrameNumber;
@@ -20,6 +21,8 @@ extern class MovieSceneUserImportFBXControlRigSettings extends Object {
 	public var StartTimeRange: FrameNumber;
 	public var EndTimeRange: FrameNumber;
 	public var ControlChannelMappings: TArray<ControlToTransformMappings>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

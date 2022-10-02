@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UGetSlateBrush__PythonCallable")
+@:structAccess
 extern class GetSlateBrush__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

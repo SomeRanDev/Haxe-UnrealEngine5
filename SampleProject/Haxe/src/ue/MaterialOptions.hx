@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialOptions")
 @:include("MaterialOptions.h")
+@:structAccess
 extern class MaterialOptions extends Object {
 	public var Properties: TArray<PropertyEntry>;
 	public var TextureSize: IntPoint;
@@ -10,6 +11,8 @@ extern class MaterialOptions extends Object {
 	public var bUseMeshData: Bool;
 	public var bUseSpecificUVIndex: Bool;
 	public var TextureCoordinateIndex: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

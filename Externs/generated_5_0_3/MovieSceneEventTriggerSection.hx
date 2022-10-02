@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneEventTriggerSection")
 @:include("Sections/MovieSceneEventTriggerSection.h")
+@:structAccess
 extern class MovieSceneEventTriggerSection extends MovieSceneEventSectionBase {
 	public var EventChannel: MovieSceneEventChannel;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

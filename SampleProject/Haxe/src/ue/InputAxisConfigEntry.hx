@@ -3,7 +3,11 @@ package ue;
 
 @:native("FInputAxisConfigEntry")
 @:include("GameFramework/PlayerInput.h")
+@:structAccess
 extern class InputAxisConfigEntry {
 	public var AxisKeyName: FName;
 	public var AxisProperties: InputAxisProperties;
+
+	@:native("FInputAxisConfigEntry") public function new();
+	@:native("FInputAxisConfigEntry") public static function make(AxisKeyName: FName, AxisProperties: InputAxisProperties): InputAxisConfigEntry ;
 }

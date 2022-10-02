@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionDepthOfFieldFunction")
 @:include("Materials/MaterialExpressionDepthOfFieldFunction.h")
+@:structAccess
 extern class MaterialExpressionDepthOfFieldFunction extends MaterialExpression {
 	public var FunctionValue: EDepthOfFieldFunctionValue;
 	public var Depth: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

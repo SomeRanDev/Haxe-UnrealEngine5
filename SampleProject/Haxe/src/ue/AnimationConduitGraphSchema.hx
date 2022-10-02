@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimationConduitGraphSchema")
 @:include("AnimationConduitGraphSchema.h")
+@:structAccess
 extern class AnimationConduitGraphSchema extends EdGraphSchema_K2 {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

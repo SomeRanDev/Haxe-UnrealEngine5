@@ -3,6 +3,7 @@ package ue;
 
 @:native("UHeadMountedDisplayFunctionLibrary")
 @:include("HeadMountedDisplayFunctionLibrary.h")
+@:structAccess
 extern class HeadMountedDisplayFunctionLibrary extends BlueprintFunctionLibrary {
 	public function UpdateExternalTrackingHMDPosition(ExternalTrackingTransform: cpp.Reference<Transform>): Void;
 	public function SetXRTimedInputActionDelegate(ActionName: cpp.Reference<FName>, InDelegate: cpp.Reference<HaxeDelegateProperty<(cpp.Float32, Timespan) -> Void>>): Void;
@@ -49,6 +50,8 @@ extern class HeadMountedDisplayFunctionLibrary extends BlueprintFunctionLibrary 
 	public function ClearXRTimedInputActionDelegate(ActionPath: cpp.Reference<FName>): Void;
 	public function CalibrateExternalTrackingToHMD(ExternalTrackingTransform: cpp.Reference<Transform>): Void;
 	public function BreakKey(InKey: Key, InteractionProfile: cpp.Reference<FString>, Hand: cpp.Reference<EControllerHand>, MotionSource: cpp.Reference<FName>, Indentifier: cpp.Reference<FString>, Component: cpp.Reference<FString>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

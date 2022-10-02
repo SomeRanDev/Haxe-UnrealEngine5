@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UEditorInteractiveGizmoSelectionBuilder")
+@:structAccess
 extern class EditorInteractiveGizmoSelectionBuilder extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

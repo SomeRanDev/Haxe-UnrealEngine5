@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimSequenceThumbnailRenderer")
 @:include("ThumbnailRendering/AnimSequenceThumbnailRenderer.h")
+@:structAccess
 extern class AnimSequenceThumbnailRenderer extends DefaultSizedThumbnailRenderer {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

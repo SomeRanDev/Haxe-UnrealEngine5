@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneNiagaraVectorParameterTrack")
 @:include("MovieScene/Parameters/MovieSceneNiagaraVectorParameterTrack.h")
+@:structAccess
 extern class MovieSceneNiagaraVectorParameterTrack extends MovieSceneNiagaraParameterTrack {
 	public var ChannelsUsed: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

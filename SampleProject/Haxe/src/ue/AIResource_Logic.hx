@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAIResource_Logic")
 @:include("AIResources.h")
+@:structAccess
 extern class AIResource_Logic extends GameplayTaskResource {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

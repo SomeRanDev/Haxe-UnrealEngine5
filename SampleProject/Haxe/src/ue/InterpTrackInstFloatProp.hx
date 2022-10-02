@@ -3,8 +3,11 @@ package ue;
 
 @:native("UInterpTrackInstFloatProp")
 @:include("Matinee/InterpTrackInstFloatProp.h")
+@:structAccess
 extern class InterpTrackInstFloatProp extends InterpTrackInstProperty {
 	public var ResetFloat: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

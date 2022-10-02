@@ -3,7 +3,10 @@ package ue;
 
 @:native("USwapSoundForDialogueInCuesCommandlet")
 @:include("Commandlets/SwapSoundForDialogueInCuesCommandlet.h")
+@:structAccess
 extern class SwapSoundForDialogueInCuesCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

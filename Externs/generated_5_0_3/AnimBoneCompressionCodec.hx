@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimBoneCompressionCodec")
 @:include("Animation/AnimBoneCompressionCodec.h")
+@:structAccess
 extern class AnimBoneCompressionCodec extends Object {
 	public var Description: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

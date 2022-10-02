@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPyTestStructLibrary")
 @:include("PyTest.h")
+@:structAccess
 extern class PyTestStructLibrary extends BlueprintFunctionLibrary {
 	public function LegacyIsBoolSet(InStruct: cpp.Reference<PyTestStruct>): cpp.Reference<Bool>;
 	public function IsBoolSet(InStruct: cpp.Reference<PyTestStruct>): cpp.Reference<Bool>;
@@ -10,6 +11,8 @@ extern class PyTestStructLibrary extends BlueprintFunctionLibrary {
 	public function AddStr(InStruct: cpp.Reference<PyTestStruct>, InValue: FString): cpp.Reference<PyTestStruct>;
 	public function AddInt(InStruct: cpp.Reference<PyTestStruct>, InValue: cpp.Int32): cpp.Reference<PyTestStruct>;
 	public function AddFloat(InStruct: cpp.Reference<PyTestStruct>, InValue: cpp.Float32): cpp.Reference<PyTestStruct>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

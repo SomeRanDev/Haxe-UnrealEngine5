@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimGraphNodePropertyBinding")
 @:include("AnimGraphNode_Base.h")
+@:structAccess
 extern class AnimGraphNodePropertyBinding {
 	public var PinType: EdGraphPinType;
 	public var PromotedPinType: EdGraphPinType;
@@ -16,4 +17,6 @@ extern class AnimGraphNodePropertyBinding {
 	public var Type: EAnimGraphNodePropertyBindingType;
 	public var bIsBound: Bool;
 	public var bIsPromotion: Bool;
+
+	@:native("FAnimGraphNodePropertyBinding") public function new();
 }

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UParticleSystemAuditCommandlet")
 @:include("Commandlets/ParticleSystemAuditCommandlet.h")
+@:structAccess
 extern class ParticleSystemAuditCommandlet extends Commandlet {
 	public var HighSpawnRateOrBurstThreshold: cpp.Float32;
 	public var FarLODDistanceTheshold: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

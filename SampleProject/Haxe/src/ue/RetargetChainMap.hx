@@ -3,7 +3,11 @@ package ue;
 
 @:native("FRetargetChainMap")
 @:include("Retargeter/IKRetargeter.h")
+@:structAccess
 extern class RetargetChainMap {
 	public var SourceChain: FName;
 	public var TargetChain: FName;
+
+	@:native("FRetargetChainMap") public function new();
+	@:native("FRetargetChainMap") public static function make(SourceChain: FName, TargetChain: FName): RetargetChainMap ;
 }

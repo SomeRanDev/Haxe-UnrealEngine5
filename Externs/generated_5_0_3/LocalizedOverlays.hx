@@ -3,10 +3,13 @@ package ue;
 
 @:native("ULocalizedOverlays")
 @:include("LocalizedOverlays.h")
+@:structAccess
 extern class LocalizedOverlays extends Overlays {
 	public var DefaultOverlays: cpp.Star<BasicOverlays>;
 	public var LocaleToOverlaysMap: TMap<FString, cpp.Star<BasicOverlays>>;
 	public var AssetImportData: cpp.Star<AssetImportData>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

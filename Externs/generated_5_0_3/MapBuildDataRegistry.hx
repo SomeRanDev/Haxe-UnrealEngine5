@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMapBuildDataRegistry")
 @:include("Engine/MapBuildDataRegistry.h")
+@:structAccess
 extern class MapBuildDataRegistry extends Object {
 	public var LevelLightingQuality: ELightingBuildQuality;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

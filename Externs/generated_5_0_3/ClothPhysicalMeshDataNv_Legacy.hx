@@ -3,11 +3,14 @@ package ue;
 
 @:native("UClothPhysicalMeshDataNv_Legacy")
 @:include("ClothPhysicalMeshDataNv_Legacy.h")
+@:structAccess
 extern class ClothPhysicalMeshDataNv_Legacy extends ClothPhysicalMeshDataBase_Legacy {
 	public var MaxDistances: TArray<cpp.Float32>;
 	public var BackstopDistances: TArray<cpp.Float32>;
 	public var BackstopRadiuses: TArray<cpp.Float32>;
 	public var AnimDriveMultipliers: TArray<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

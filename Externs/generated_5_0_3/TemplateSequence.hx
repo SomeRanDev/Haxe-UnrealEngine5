@@ -3,11 +3,14 @@ package ue;
 
 @:native("UTemplateSequence")
 @:include("TemplateSequence.h")
+@:structAccess
 extern class TemplateSequence extends MovieSceneSequence {
 	public var MovieScene: cpp.Star<MovieScene>;
 	public var BoundActorClass: TSoftClassPtr<Class>;
 	public var BoundPreviewActor: TSoftObjectPtr<Actor>;
 	public var BoundActorComponents: TMap<Guid, FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

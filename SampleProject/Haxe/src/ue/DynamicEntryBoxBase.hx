@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDynamicEntryBoxBase")
 @:include("Components/DynamicEntryBoxBase.h")
+@:structAccess
 extern class DynamicEntryBoxBase extends Widget {
 	public var EntryBoxType: EDynamicBoxType;
 	public var EntrySpacing: Vector2D;
@@ -18,6 +19,8 @@ extern class DynamicEntryBoxBase extends Widget {
 	public function SetEntrySpacing(InEntrySpacing: cpp.Reference<Vector2D>): Void;
 	public function GetNumEntries(): cpp.Reference<cpp.Int32>;
 	public function GetAllEntries(): cpp.Reference<TArray<cpp.Star<UserWidget>>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetNumEntries, GetAllEntries)

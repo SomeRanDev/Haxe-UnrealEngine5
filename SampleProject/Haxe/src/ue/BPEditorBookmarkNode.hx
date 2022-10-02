@@ -3,8 +3,12 @@ package ue;
 
 @:native("FBPEditorBookmarkNode")
 @:include("Engine/Blueprint.h")
+@:structAccess
 extern class BPEditorBookmarkNode {
 	public var NodeGuid: Guid;
 	public var ParentGuid: Guid;
 	public var DisplayName: FText;
+
+	@:native("FBPEditorBookmarkNode") public function new();
+	@:native("FBPEditorBookmarkNode") public static function make(NodeGuid: Guid, ParentGuid: Guid, DisplayName: FText): BPEditorBookmarkNode ;
 }

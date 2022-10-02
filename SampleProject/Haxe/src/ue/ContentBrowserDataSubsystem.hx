@@ -3,6 +3,7 @@ package ue;
 
 @:native("UContentBrowserDataSubsystem")
 @:include("ContentBrowserDataSubsystem.h")
+@:structAccess
 extern class ContentBrowserDataSubsystem extends EditorSubsystem {
 	public var EnabledDataSources: TArray<FName>;
 
@@ -15,6 +16,8 @@ extern class ContentBrowserDataSubsystem extends EditorSubsystem {
 	public function DeactivateAllDataSources(): Void;
 	public function ActivateDataSource(Name: FName): cpp.Reference<Bool>;
 	public function ActivateAllDataSources(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetItemsUnderPath, GetItemsAtPath, GetItemAtPath, GetAvailableDataSources, GetActiveDataSources)

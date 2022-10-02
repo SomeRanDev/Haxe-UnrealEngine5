@@ -3,7 +3,11 @@ package ue;
 
 @:native("FNiagaraID")
 @:include("NiagaraTypes.h")
+@:structAccess
 extern class NiagaraID {
 	public var Index: cpp.Int32;
 	public var AcquireTag: cpp.Int32;
+
+	@:native("FNiagaraID") public function new();
+	@:native("FNiagaraID") public static function make(Index: cpp.Int32, AcquireTag: cpp.Int32): NiagaraID ;
 }

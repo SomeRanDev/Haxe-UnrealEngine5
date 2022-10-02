@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UHearNoiseDelegate__PythonCallable")
+@:structAccess
 extern class HearNoiseDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULiveLinkSourceFactory")
 @:include("LiveLinkSourceFactory.h")
+@:structAccess
 extern class LiveLinkSourceFactory extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

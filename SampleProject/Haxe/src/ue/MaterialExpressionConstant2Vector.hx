@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionConstant2Vector")
 @:include("Materials/MaterialExpressionConstant2Vector.h")
+@:structAccess
 extern class MaterialExpressionConstant2Vector extends MaterialExpression {
 	public var R: cpp.Float32;
 	public var G: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

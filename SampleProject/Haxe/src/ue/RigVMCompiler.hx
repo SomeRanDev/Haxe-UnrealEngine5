@@ -3,10 +3,13 @@ package ue;
 
 @:native("URigVMCompiler")
 @:include("RigVMCompiler/RigVMCompiler.h")
+@:structAccess
 extern class RigVMCompiler extends Object {
 	public var Settings: RigVMCompileSettings;
 
 	public function Compile(InGraph: cpp.Star<RigVMGraph>, InController: cpp.Star<RigVMController>, OutVM: cpp.Star<RigVM>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

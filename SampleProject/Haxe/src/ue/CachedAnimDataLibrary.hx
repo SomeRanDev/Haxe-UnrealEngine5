@@ -3,10 +3,13 @@ package ue;
 
 @:native("UCachedAnimDataLibrary")
 @:include("Animation/CachedAnimDataLibrary.h")
+@:structAccess
 extern class CachedAnimDataLibrary extends BlueprintFunctionLibrary {
 	public function StateMachine_IsStateRelevant(InAnimInstance: cpp.Star<AnimInstance>, CachedAnimStateData: cpp.Reference<CachedAnimStateData>): cpp.Reference<Bool>;
 	public function StateMachine_GetLocalWeight(InAnimInstance: cpp.Star<AnimInstance>, CachedAnimStateData: cpp.Reference<CachedAnimStateData>): cpp.Reference<cpp.Float32>;
 	public function StateMachine_GetGlobalWeight(InAnimInstance: cpp.Star<AnimInstance>, CachedAnimStateData: cpp.Reference<CachedAnimStateData>): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

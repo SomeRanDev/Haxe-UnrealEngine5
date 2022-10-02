@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMovieSceneEventSection")
 @:include("Sections/MovieSceneEventSection.h")
+@:structAccess
 extern class MovieSceneEventSection extends MovieSceneSection {
 	public var Events_DEPRECATED: NameCurve;
 	public var EventData: MovieSceneEventSectionData;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

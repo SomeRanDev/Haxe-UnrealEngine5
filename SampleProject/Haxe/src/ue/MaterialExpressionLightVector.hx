@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionLightVector")
 @:include("Materials/MaterialExpressionLightVector.h")
+@:structAccess
 extern class MaterialExpressionLightVector extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

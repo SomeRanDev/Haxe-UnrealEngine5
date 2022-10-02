@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionReflectionVectorWS")
 @:include("Materials/MaterialExpressionReflectionVectorWS.h")
+@:structAccess
 extern class MaterialExpressionReflectionVectorWS extends MaterialExpression {
 	public var CustomWorldNormal: ExpressionInput;
 	public var bNormalizeCustomWorldNormal: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

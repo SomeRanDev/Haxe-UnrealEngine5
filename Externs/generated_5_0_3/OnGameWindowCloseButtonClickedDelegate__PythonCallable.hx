@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnGameWindowCloseButtonClickedDelegate__PythonCallable")
+@:structAccess
 extern class OnGameWindowCloseButtonClickedDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

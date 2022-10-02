@@ -2,6 +2,7 @@
 package ue;
 
 @:native("UREINST_CR_Mannequin_BasicFootIK_C_0")
+@:structAccess
 extern class REINST_CR_Mannequin_BasicFootIK_C_0 extends ControlRig {
 	public var ZOffset_L_Target: cpp.Float64;
 	public var ZOffset_R_Target: cpp.Float64;
@@ -9,20 +10,23 @@ extern class REINST_CR_Mannequin_BasicFootIK_C_0 extends ControlRig {
 	public var ZOffset_R: cpp.Float64;
 	public var ZOffset_Pelvis: cpp.Float64;
 	public var ShouldDoIKTrace: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()
+@:nativeGen
 abstract ConstREINST_CR_Mannequin_BasicFootIK_C_0(REINST_CR_Mannequin_BasicFootIK_C_0) from REINST_CR_Mannequin_BasicFootIK_C_0 {
-	public var ZOffset_L_Target(get, never): cpp.Float64;
+	public extern var ZOffset_L_Target(get, never): cpp.Float64;
 	public inline extern function get_ZOffset_L_Target(): cpp.Float64 return this.ZOffset_L_Target;
-	public var ZOffset_R_Target(get, never): cpp.Float64;
+	public extern var ZOffset_R_Target(get, never): cpp.Float64;
 	public inline extern function get_ZOffset_R_Target(): cpp.Float64 return this.ZOffset_R_Target;
-	public var ZOffset_L(get, never): cpp.Float64;
+	public extern var ZOffset_L(get, never): cpp.Float64;
 	public inline extern function get_ZOffset_L(): cpp.Float64 return this.ZOffset_L;
-	public var ZOffset_R(get, never): cpp.Float64;
+	public extern var ZOffset_R(get, never): cpp.Float64;
 	public inline extern function get_ZOffset_R(): cpp.Float64 return this.ZOffset_R;
-	public var ZOffset_Pelvis(get, never): cpp.Float64;
+	public extern var ZOffset_Pelvis(get, never): cpp.Float64;
 	public inline extern function get_ZOffset_Pelvis(): cpp.Float64 return this.ZOffset_Pelvis;
-	public var ShouldDoIKTrace(get, never): Bool;
+	public extern var ShouldDoIKTrace(get, never): Bool;
 	public inline extern function get_ShouldDoIKTrace(): Bool return this.ShouldDoIKTrace;
 }

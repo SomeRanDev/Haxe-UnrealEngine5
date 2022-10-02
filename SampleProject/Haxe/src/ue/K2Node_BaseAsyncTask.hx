@@ -3,11 +3,14 @@ package ue;
 
 @:native("UK2Node_BaseAsyncTask")
 @:include("K2Node_BaseAsyncTask.h")
+@:structAccess
 extern class K2Node_BaseAsyncTask extends K2Node {
 	public var ProxyFactoryFunctionName: FName;
 	public var ProxyFactoryClass: TSubclassOf<Object>;
 	public var ProxyClass: TSubclassOf<Object>;
 	public var ProxyActivateFunctionName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

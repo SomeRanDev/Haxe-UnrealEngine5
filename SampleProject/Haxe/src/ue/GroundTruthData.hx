@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGroundTruthData")
 @:include("GroundTruthData.h")
+@:structAccess
 extern class GroundTruthData extends Object {
 	public var bResetGroundTruth: Bool;
 	public var ObjectData: cpp.Star<Object>;
@@ -10,6 +11,8 @@ extern class GroundTruthData extends Object {
 	public function SaveObject(GroundTruth: cpp.Star<Object>): Void;
 	public function LoadObject(): cpp.Reference<cpp.Star<Object>>;
 	public function CanModify(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(CanModify)

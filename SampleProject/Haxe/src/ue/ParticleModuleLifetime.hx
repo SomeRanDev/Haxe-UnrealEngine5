@@ -3,8 +3,11 @@ package ue;
 
 @:native("UParticleModuleLifetime")
 @:include("Particles/Lifetime/ParticleModuleLifetime.h")
+@:structAccess
 extern class ParticleModuleLifetime extends ParticleModuleLifetimeBase {
 	public var Lifetime: RawDistributionFloat;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,12 @@ package ue;
 
 @:native("FParameterDefinitionsSubscription")
 @:include("NiagaraParameterDefinitionsSubscriber.h")
+@:structAccess
 extern class ParameterDefinitionsSubscription {
 	public var Definitions: cpp.Star<NiagaraParameterDefinitionsBase>;
 	public var DefinitionsId_DEPRECATED: Guid;
 	public var CachedChangeIdHash: cpp.Int32;
+
+	@:native("FParameterDefinitionsSubscription") public function new();
+	@:native("FParameterDefinitionsSubscription") public static function make(Definitions: cpp.Star<NiagaraParameterDefinitionsBase>, DefinitionsId_DEPRECATED: Guid, CachedChangeIdHash: cpp.Int32): ParameterDefinitionsSubscription ;
 }

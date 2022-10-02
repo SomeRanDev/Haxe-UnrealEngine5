@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMovieSceneSpawnable")
 @:include("MovieSceneSpawnable.h")
+@:structAccess
 extern class MovieSceneSpawnable {
 	public var SpawnTransform: Transform;
 	public var Tags: TArray<FName>;
@@ -16,4 +17,6 @@ extern class MovieSceneSpawnable {
 	public var Ownership: ESpawnOwnership;
 	public var GeneratedClass_DEPRECATED: TSubclassOf<Object>;
 	public var LevelName: FName;
+
+	@:native("FMovieSceneSpawnable") public function new();
 }

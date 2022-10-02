@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAssetManager")
 @:include("Engine/AssetManager.h")
+@:structAccess
 extern class AssetManager extends Object {
 	public var ObjectReferenceList: TArray<cpp.Star<Object>>;
 	public var bIsGlobalAsyncScanEnvironment: Bool;
@@ -18,6 +19,8 @@ extern class AssetManager extends Object {
 	public var bIncludeOnlyOnDiskAssets: Bool;
 	public var bHasCompletedInitialScan: Bool;
 	public var NumberOfSpawnedNotifications: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimPose")
 @:include("AnimPose.h")
+@:structAccess
 extern class AnimPose {
 	public var BoneNames: TArray<FName>;
 	public var BoneIndices: TArray<cpp.Int32>;
@@ -11,4 +12,6 @@ extern class AnimPose {
 	public var WorldSpacePoses: TArray<Transform>;
 	public var RefLocalSpacePoses: TArray<Transform>;
 	public var RefWorldSpacePoses: TArray<Transform>;
+
+	@:native("FAnimPose") public function new();
 }

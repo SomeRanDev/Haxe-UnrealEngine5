@@ -3,8 +3,11 @@ package ue;
 
 @:native("UCheatManagerExtension")
 @:include("GameFramework/CheatManager.h")
+@:structAccess
 extern class CheatManagerExtension extends Object {
 	public function GetPlayerController(): cpp.Reference<cpp.Star<PlayerController>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetPlayerController)

@@ -3,11 +3,14 @@ package ue;
 
 @:native("UAnimGraphNode_LinkedInputPose")
 @:include("AnimGraphNode_LinkedInputPose.h")
+@:structAccess
 extern class AnimGraphNode_LinkedInputPose extends AnimGraphNode_Base {
 	public var Node: AnimNode_LinkedInputPose;
 	public var Inputs: TArray<AnimBlueprintFunctionPinInfo>;
 	public var FunctionReference: MemberReference;
 	public var InputPoseIndex: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

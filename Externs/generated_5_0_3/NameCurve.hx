@@ -3,6 +3,10 @@ package ue;
 
 @:native("FNameCurve")
 @:include("Curves/NameCurve.h")
+@:structAccess
 extern class NameCurve extends IndexedCurve {
 	public var Keys: TArray<NameCurveKey>;
+
+	@:native("FNameCurve") public function new();
+	@:native("FNameCurve") public static function make(Keys: TArray<NameCurveKey>): NameCurve ;
 }

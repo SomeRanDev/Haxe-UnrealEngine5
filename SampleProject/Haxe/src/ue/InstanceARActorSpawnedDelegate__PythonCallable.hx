@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UInstanceARActorSpawnedDelegate__PythonCallable")
+@:structAccess
 extern class InstanceARActorSpawnedDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

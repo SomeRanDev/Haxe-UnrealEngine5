@@ -3,6 +3,7 @@ package ue;
 
 @:native("FTextureFormatSettings")
 @:include("Engine/Texture.h")
+@:structAccess
 extern class TextureFormatSettings {
 	public var CompressionSettings: TextureCompressionSettings;
 	public var CompressionNoAlpha: Bool;
@@ -10,4 +11,6 @@ extern class TextureFormatSettings {
 	public var CompressionNone: Bool;
 	public var CompressionYCoCg: Bool;
 	public var SRGB: Bool;
+
+	@:native("FTextureFormatSettings") public function new();
 }

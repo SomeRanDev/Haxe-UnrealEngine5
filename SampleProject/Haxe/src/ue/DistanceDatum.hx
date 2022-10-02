@@ -3,10 +3,14 @@ package ue;
 
 @:native("FDistanceDatum")
 @:include("Sound/SoundNodeDistanceCrossFade.h")
+@:structAccess
 extern class DistanceDatum {
 	public var FadeInDistanceStart: cpp.Float32;
 	public var FadeInDistanceEnd: cpp.Float32;
 	public var FadeOutDistanceStart: cpp.Float32;
 	public var FadeOutDistanceEnd: cpp.Float32;
 	public var Volume: cpp.Float32;
+
+	@:native("FDistanceDatum") public function new();
+	@:native("FDistanceDatum") public static function make(FadeInDistanceStart: cpp.Float32, FadeInDistanceEnd: cpp.Float32, FadeOutDistanceStart: cpp.Float32, FadeOutDistanceEnd: cpp.Float32, Volume: cpp.Float32): DistanceDatum ;
 }

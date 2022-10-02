@@ -3,8 +3,11 @@ package ue;
 
 @:native("UEditorSkeletonNotifyObj")
 @:include("Animation/EditorSkeletonNotifyObj.h")
+@:structAccess
 extern class EditorSkeletonNotifyObj extends Object {
 	public var Name: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

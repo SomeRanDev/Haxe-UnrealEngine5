@@ -3,6 +3,7 @@ package ue;
 
 @:native("FEnvTraceData")
 @:include("EnvironmentQuery/EnvQueryTypes.h")
+@:structAccess
 extern class EnvTraceData {
 	public var VersionNum: cpp.Int32;
 	public var NavigationFilter: TSubclassOf<NavigationQueryFilter>;
@@ -23,4 +24,6 @@ extern class EnvTraceData {
 	public var bCanTraceOnGeometry: Bool;
 	public var bCanDisableTrace: Bool;
 	public var bCanProjectDown: Bool;
+
+	@:native("FEnvTraceData") public function new();
 }

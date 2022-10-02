@@ -3,7 +3,10 @@ package ue;
 
 @:native("UIntegerChannelEvaluatorSystem")
 @:include("Systems/IntegerChannelEvaluatorSystem.h")
+@:structAccess
 extern class IntegerChannelEvaluatorSystem extends MovieSceneEntitySystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

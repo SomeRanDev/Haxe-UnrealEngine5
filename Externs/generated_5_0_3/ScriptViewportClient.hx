@@ -3,7 +3,10 @@ package ue;
 
 @:native("UScriptViewportClient")
 @:include("Engine/ScriptViewportClient.h")
+@:structAccess
 extern class ScriptViewportClient extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

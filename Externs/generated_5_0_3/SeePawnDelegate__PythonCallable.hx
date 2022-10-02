@@ -2,7 +2,10 @@
 package ue;
 
 @:native("USeePawnDelegate__PythonCallable")
+@:structAccess
 extern class SeePawnDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

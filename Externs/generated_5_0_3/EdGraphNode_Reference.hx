@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEdGraphNode_Reference")
 @:include("ReferenceViewer/EdGraphNode_Reference.h")
+@:structAccess
 extern class EdGraphNode_Reference extends EdGraphNode {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

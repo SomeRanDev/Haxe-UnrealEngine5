@@ -3,12 +3,15 @@ package ue;
 
 @:native("UCollisionProfile")
 @:include("Engine/CollisionProfile.h")
+@:structAccess
 extern class CollisionProfile extends DeveloperSettings {
 	public var Profiles: TArray<CollisionResponseTemplate>;
 	public var DefaultChannelResponses: TArray<CustomChannelSetup>;
 	public var EditProfiles: TArray<CustomProfile>;
 	public var ProfileRedirects: TArray<Redirector>;
 	public var CollisionChannelRedirects: TArray<Redirector>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

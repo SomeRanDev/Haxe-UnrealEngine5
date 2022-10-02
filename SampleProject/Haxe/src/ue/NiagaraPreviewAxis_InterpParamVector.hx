@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNiagaraPreviewAxis_InterpParamVector")
 @:include("NiagaraPreviewGrid.h")
+@:structAccess
 extern class NiagaraPreviewAxis_InterpParamVector extends NiagaraPreviewAxis_InterpParamBase {
 	public var Min: Vector;
 	public var Max: Vector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

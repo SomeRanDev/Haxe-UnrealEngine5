@@ -3,12 +3,15 @@ package ue;
 
 @:native("UDatasmithStaticMeshTemplate")
 @:include("ObjectTemplates/DatasmithStaticMeshTemplate.h")
+@:structAccess
 extern class DatasmithStaticMeshTemplate extends DatasmithObjectTemplate {
 	public var SectionInfoMap: DatasmithMeshSectionInfoMapTemplate;
 	public var LightMapCoordinateIndex: cpp.Int32;
 	public var LightMapResolution: cpp.Int32;
 	public var BuildSettings: TArray<DatasmithMeshBuildSettingsTemplate>;
 	public var StaticMaterials: TArray<DatasmithStaticMaterialTemplate>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

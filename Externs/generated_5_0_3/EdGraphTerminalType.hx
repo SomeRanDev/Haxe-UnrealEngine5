@@ -3,6 +3,7 @@ package ue;
 
 @:native("FEdGraphTerminalType")
 @:include("EdGraph/EdGraphNode.h")
+@:structAccess
 extern class EdGraphTerminalType {
 	public var TerminalCategory: FName;
 	public var TerminalSubCategory: FName;
@@ -10,4 +11,6 @@ extern class EdGraphTerminalType {
 	public var bTerminalIsConst: Bool;
 	public var bTerminalIsWeakPointer: Bool;
 	public var bTerminalIsUObjectWrapper: Bool;
+
+	@:native("FEdGraphTerminalType") public function new();
 }

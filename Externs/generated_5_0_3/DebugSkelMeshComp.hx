@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDebugSkelMeshComponent")
 @:include("Animation/DebugSkelMeshComponent.h")
+@:structAccess
 extern class DebugSkelMeshComp extends SkeletalMeshComp {
 	public var bRenderRawSkeleton: Bool;
 	public var bDrawMesh: Bool;
@@ -45,6 +46,8 @@ extern class DebugSkelMeshComp extends SkeletalMeshComp {
 	public var bPerformSingleClothingTick: Bool;
 	public var bPauseClothingSimulationWithAnim: Bool;
 	public var bTrackAttachedInstanceLOD: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnOverallLoudnessResults__PythonCallable")
+@:structAccess
 extern class OnOverallLoudnessResults__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

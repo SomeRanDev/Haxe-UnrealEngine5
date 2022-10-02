@@ -3,12 +3,15 @@ package ue;
 
 @:native("ULinuxTargetSettings")
 @:include("LinuxTargetSettings.h")
+@:structAccess
 extern class LinuxTargetSettings extends Object {
 	public var SpatializationPlugin: FString;
 	public var ReverbPlugin: FString;
 	public var OcclusionPlugin: FString;
 	public var SoundCueCookQualityIndex: cpp.Int32;
 	public var TargetedRHIs: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

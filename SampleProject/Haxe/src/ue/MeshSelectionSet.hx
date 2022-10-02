@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMeshSelectionSet")
 @:include("SelectionSet.h")
+@:structAccess
 extern class MeshSelectionSet extends SelectionSet {
 	public var Vertices: TArray<cpp.Int32>;
 	public var Edges: TArray<cpp.Int32>;
 	public var Faces: TArray<cpp.Int32>;
 	public var Groups: TArray<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

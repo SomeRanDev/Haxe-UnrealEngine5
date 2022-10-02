@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEditorDomainSaveCommandlet")
 @:include("Commandlets/EditorDomainSaveCommandlet.h")
+@:structAccess
 extern class EditorDomainSaveCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

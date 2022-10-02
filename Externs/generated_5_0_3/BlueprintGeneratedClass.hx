@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBlueprintGeneratedClass")
 @:include("Engine/BlueprintGeneratedClass.h")
+@:structAccess
 extern class BlueprintGeneratedClass extends Class {
 	public var NumReplicatedProperties: cpp.Int32;
 	public var bHasNativizedParent_DEPRECATED: Bool;
@@ -21,6 +22,8 @@ extern class BlueprintGeneratedClass extends Class {
 	public var PropertyGuids: TMap<FName, Guid>;
 	public var CalledFunctions: TArray<cpp.Star<Function>>;
 	public var CookedComponentInstancingData: TMap<FName, BlueprintCookedComponentInstancingData>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

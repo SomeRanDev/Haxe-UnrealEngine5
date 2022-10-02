@@ -3,9 +3,12 @@ package ue;
 
 @:native("UGizmoLocalVec2ParameterSource")
 @:include("BaseGizmos/ParameterSourcesVec2.h")
+@:structAccess
 extern class GizmoLocalVec2ParameterSource extends GizmoBaseVec2ParameterSource {
 	public var Value: Vector2D;
 	public var LastChange: GizmoVec2ParameterChange;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UClickDragInputBehavior")
 @:include("BaseBehaviors/ClickDragBehavior.h")
+@:structAccess
 extern class ClickDragInputBehavior extends AnyButtonInputBehavior {
 	public var bUpdateModifiersDuringDrag: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

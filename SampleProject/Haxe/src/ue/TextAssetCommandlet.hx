@@ -3,7 +3,10 @@ package ue;
 
 @:native("UTextAssetCommandlet")
 @:include("Commandlets/TextAssetCommandlet.h")
+@:structAccess
 extern class TextAssetCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraSequence")
 @:include("Sequencer/NiagaraSequence/NiagaraSequence.h")
+@:structAccess
 extern class NiagaraSequence extends MovieSceneSequence {
 	public var MovieScene: cpp.Star<MovieScene>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

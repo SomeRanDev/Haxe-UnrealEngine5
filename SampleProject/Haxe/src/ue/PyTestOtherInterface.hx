@@ -2,8 +2,11 @@
 package ue;
 
 @:native("UPyTestOtherInterface")
+@:structAccess
 extern class PyTestOtherInterface extends Interface {
 	public function FuncInterfaceOther(InValue: cpp.Int32): cpp.Reference<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(FuncInterfaceOther)

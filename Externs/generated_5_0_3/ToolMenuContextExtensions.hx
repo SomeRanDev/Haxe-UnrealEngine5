@@ -3,8 +3,11 @@ package ue;
 
 @:native("UToolMenuContextExtensions")
 @:include("ToolMenusBlueprintLibrary.h")
+@:structAccess
 extern class ToolMenuContextExtensions extends Object {
 	public function FindByClass(Context: cpp.Reference<ToolMenuContext>, InClass: TSubclassOf<Object>): cpp.Reference<cpp.Star<Object>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

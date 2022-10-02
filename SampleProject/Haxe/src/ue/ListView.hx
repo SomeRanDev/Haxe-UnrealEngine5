@@ -3,6 +3,7 @@ package ue;
 
 @:native("UListView")
 @:include("Components/ListView.h")
+@:structAccess
 extern class ListView extends ListViewBase {
 	public var WidgetStyle: TableViewStyle;
 	public var ScrollBarStyle: ScrollBarStyle;
@@ -46,6 +47,8 @@ extern class ListView extends ListViewBase {
 	public function BP_ClearSelection(): Void;
 	public function BP_CancelScrollIntoView(): Void;
 	public function AddItem(Item: cpp.Star<Object>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsRefreshPending, GetNumItems, GetListItems, GetItemAt, GetIndexForItem, BP_IsItemVisible, BP_GetSelectedItems, BP_GetSelectedItem, BP_GetNumItemsSelected)

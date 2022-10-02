@@ -3,11 +3,14 @@ package ue;
 
 @:native("UDatasmithFBXSceneImportData")
 @:include("DatasmithAssetImportData.h")
+@:structAccess
 extern class DatasmithFBXSceneImportData extends DatasmithSceneImportData {
 	public var bGenerateLightmapUVs: Bool;
 	public var TexturesDir: FString;
 	public var IntermediateSerialization: cpp.UInt8;
 	public var bColorizeMaterials: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

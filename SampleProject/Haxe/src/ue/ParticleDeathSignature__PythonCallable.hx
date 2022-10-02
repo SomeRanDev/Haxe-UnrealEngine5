@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UParticleDeathSignature__PythonCallable")
+@:structAccess
 extern class ParticleDeathSignature__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

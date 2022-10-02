@@ -3,8 +3,11 @@ package ue;
 
 @:native("UControlRigObjectHolder")
 @:include("Sequencer/ControlRigObjectSpawner.h")
+@:structAccess
 extern class ControlRigObjectHolder extends Object {
 	public var Objects: TArray<cpp.Star<Object>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

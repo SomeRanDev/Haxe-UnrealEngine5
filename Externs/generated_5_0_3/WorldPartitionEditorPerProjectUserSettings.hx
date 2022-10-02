@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWorldPartitionEditorPerProjectUserSettings")
 @:include("WorldPartition/WorldPartitionEditorPerProjectUserSettings.h")
+@:structAccess
 extern class WorldPartitionEditorPerProjectUserSettings extends Object {
 	public var bHideEditorDataLayers: Bool;
 	public var bHideRuntimeDataLayers: Bool;
@@ -14,6 +15,8 @@ extern class WorldPartitionEditorPerProjectUserSettings extends Object {
 	public var bBugItGoLoadCells: Bool;
 	public var bShowCellCoords: Bool;
 	public var PerWorldEditorSettings: TMap<TSoftObjectPtr<World>, WorldPartitionPerWorldSettings>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEditorExperimentalSettings")
 @:include("Settings/EditorExperimentalSettings.h")
+@:structAccess
 extern class EditorExperimentalSettings extends Object {
 	public var bEnableAsyncTextureCompilation: Bool;
 	public var bEnableAsyncStaticMeshCompilation: Bool;
@@ -36,6 +37,8 @@ extern class EditorExperimentalSettings extends Object {
 	public var bEnableLongPathsSupport: Bool;
 	public var bPackedLevelActor: Bool;
 	public var bLevelInstance: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

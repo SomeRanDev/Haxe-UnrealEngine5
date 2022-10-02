@@ -3,6 +3,10 @@ package ue;
 
 @:native("FMovieSceneSectionGroup")
 @:include("MovieScene.h")
+@:structAccess
 extern class MovieSceneSectionGroup {
 	public var Sections: TArray<TWeakObjectPtr<MovieSceneSection>>;
+
+	@:native("FMovieSceneSectionGroup") public function new();
+	@:native("FMovieSceneSectionGroup") public static function make(Sections: TArray<TWeakObjectPtr<MovieSceneSection>>): MovieSceneSectionGroup ;
 }

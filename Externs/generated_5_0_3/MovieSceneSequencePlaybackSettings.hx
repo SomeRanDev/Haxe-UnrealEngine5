@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMovieSceneSequencePlaybackSettings")
 @:include("MovieSceneSequencePlayer.h")
+@:structAccess
 extern class MovieSceneSequencePlaybackSettings {
 	public var bAutoPlay: Bool;
 	public var LoopCount: MovieSceneSequenceLoopCount;
@@ -16,4 +17,6 @@ extern class MovieSceneSequencePlaybackSettings {
 	public var bHideHud: Bool;
 	public var bDisableCameraCuts: Bool;
 	public var bPauseAtEnd: Bool;
+
+	@:native("FMovieSceneSequencePlaybackSettings") public function new();
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGroomCreateStrandsTexturesOptions")
 @:include("GroomCreateStrandsTexturesOptions.h")
+@:structAccess
 extern class GroomCreateStrandsTexturesOptions extends Object {
 	public var Resolution: cpp.Int32;
 	public var TraceType: EStrandsTexturesTraceType;
@@ -14,6 +15,8 @@ extern class GroomCreateStrandsTexturesOptions extends Object {
 	public var SectionIndex: cpp.Int32;
 	public var UVChannelIndex: cpp.Int32;
 	public var GroupIndex: TArray<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

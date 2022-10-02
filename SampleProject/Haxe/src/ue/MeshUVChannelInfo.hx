@@ -3,8 +3,12 @@ package ue;
 
 @:native("FMeshUVChannelInfo")
 @:include("Components.h")
+@:structAccess
 extern class MeshUVChannelInfo {
 	public var bInitialized: Bool;
 	public var bOverrideDensities: Bool;
 	public var LocalUVDensities: cpp.Float32;
+
+	@:native("FMeshUVChannelInfo") public function new();
+	@:native("FMeshUVChannelInfo") public static function make(bInitialized: Bool, bOverrideDensities: Bool, LocalUVDensities: cpp.Float32): MeshUVChannelInfo ;
 }

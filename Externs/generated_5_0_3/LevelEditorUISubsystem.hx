@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULevelEditorUISubsystem")
 @:include("SLevelEditorToolBox.h")
+@:structAccess
 extern class LevelEditorUISubsystem extends AssetEditorUISubsystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

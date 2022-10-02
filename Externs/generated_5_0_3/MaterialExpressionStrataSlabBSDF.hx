@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionStrataSlabBSDF")
 @:include("Materials/MaterialExpressionStrata.h")
+@:structAccess
 extern class MaterialExpressionStrataSlabBSDF extends MaterialExpressionStrataBSDF {
 	public var BaseColor: ExpressionInput;
 	public var EdgeColor: ExpressionInput;
@@ -25,6 +26,8 @@ extern class MaterialExpressionStrataSlabBSDF extends MaterialExpressionStrataBS
 	public var FuzzColor: ExpressionInput;
 	public var SubsurfaceProfile: cpp.Star<SubsurfaceProfile>;
 	public var bUseMetalness: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

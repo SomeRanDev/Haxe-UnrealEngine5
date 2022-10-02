@@ -2,8 +2,11 @@
 package ue;
 
 @:native("UMovieSceneEasingFunction")
+@:structAccess
 extern class MovieSceneEasingFunction extends Interface {
 	public function OnEvaluate(Interp: cpp.Float32): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(OnEvaluate)

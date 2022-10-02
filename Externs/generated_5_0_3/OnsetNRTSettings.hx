@@ -3,12 +3,15 @@ package ue;
 
 @:native("UOnsetNRTSettings")
 @:include("OnsetNRT.h")
+@:structAccess
 extern class OnsetNRTSettings extends AudioSynesthesiaNRTSettings {
 	public var bDownmixToMono: Bool;
 	public var GranularityInSeconds: cpp.Float32;
 	public var Sensitivity: cpp.Float32;
 	public var MinimumFrequency: cpp.Float32;
 	public var MaximumFrequency: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionConstant4Vector")
 @:include("Materials/MaterialExpressionConstant4Vector.h")
+@:structAccess
 extern class MaterialExpressionConstant4Vector extends MaterialExpression {
 	public var Constant: LinearColor;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

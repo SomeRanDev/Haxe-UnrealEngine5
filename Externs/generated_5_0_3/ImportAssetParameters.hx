@@ -3,6 +3,7 @@ package ue;
 
 @:native("FImportAssetParameters")
 @:include("InterchangeManager.h")
+@:structAccess
 extern class ImportAssetParameters {
 	public var ReimportAsset: cpp.Star<Object>;
 	public var bIsAutomated: Bool;
@@ -11,4 +12,6 @@ extern class ImportAssetParameters {
 	public var OnAssetsImportDone: HaxeDelegateProperty<(cpp.Reference<TArray<cpp.Star<Object>>>) -> Void>;
 	public var OnSceneObjectDone: HaxeDelegateProperty<(cpp.Star<Object>) -> Void>;
 	public var OnSceneImportDone: HaxeDelegateProperty<(cpp.Reference<TArray<cpp.Star<Object>>>) -> Void>;
+
+	@:native("FImportAssetParameters") public function new();
 }

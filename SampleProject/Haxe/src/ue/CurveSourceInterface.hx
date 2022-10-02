@@ -2,10 +2,13 @@
 package ue;
 
 @:native("UCurveSourceInterface")
+@:structAccess
 extern class CurveSourceInterface extends Interface {
 	public function GetCurveValue(CurveName: FName): cpp.Reference<cpp.Float32>;
 	public function GetCurves(OutValues: cpp.Reference<TArray<NamedCurveValue>>): Void;
 	public function GetBindingName(): cpp.Reference<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetCurveValue, GetCurves, GetBindingName)

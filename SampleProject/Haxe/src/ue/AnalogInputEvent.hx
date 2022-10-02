@@ -3,5 +3,7 @@ package ue;
 
 @:native("FAnalogInputEvent")
 @:include("Input/Events.h")
+@:structAccess
 extern class AnalogInputEvent extends KeyEvent {
+	@:native("FAnalogInputEvent") public function new();
 }

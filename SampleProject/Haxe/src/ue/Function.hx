@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UFunction")
+@:structAccess
 extern class Function extends Struct {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

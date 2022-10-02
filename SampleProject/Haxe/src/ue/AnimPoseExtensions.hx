@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimPoseExtensions")
 @:include("AnimPose.h")
+@:structAccess
 extern class AnimPoseExtensions extends BlueprintFunctionLibrary {
 	public function SetBonePose(Pose: cpp.Reference<AnimPose>, Transform: Transform, BoneName: FName, Space: EAnimPoseSpaces): Void;
 	public function IsValid(Pose: cpp.Reference<AnimPose>): cpp.Reference<Bool>;
@@ -16,6 +17,8 @@ extern class AnimPoseExtensions extends BlueprintFunctionLibrary {
 	public function GetAnimPoseAtTime(AnimationSequenceBase: cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>, Time: cpp.Float32, EvaluationOptions: AnimPoseEvaluationOptions, Pose: cpp.Reference<AnimPose>): Void;
 	public function GetAnimPoseAtFrame(AnimationSequenceBase: cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>, FrameIndex: cpp.Int32, EvaluationOptions: AnimPoseEvaluationOptions, Pose: cpp.Reference<AnimPose>): Void;
 	public function EvaluateAnimationBlueprintWithInputPose(InputPose: cpp.Reference<AnimPose>, TargetSkeletalMesh: cpp.Star<SkeletalMesh>, AnimationBlueprint: cpp.Star<AnimBlueprint>, OutPose: cpp.Reference<AnimPose>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

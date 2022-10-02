@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEngine")
 @:include("Engine/Engine.h")
+@:structAccess
 extern class Engine extends Object {
 	public var TinyFont: cpp.Star<Font>;
 	public var TinyFontName: SoftObjectPath;
@@ -239,6 +240,8 @@ extern class Engine extends Object {
 	public var NetErrorLogInterval: cpp.Float32;
 	public var bStartedLoadMapMovie: Bool;
 	public var NextWorldContextHandle: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UInputDelegateBinding")
 @:include("Engine/InputDelegateBinding.h")
+@:structAccess
 extern class InputDelegateBinding extends DynamicBlueprintBinding {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

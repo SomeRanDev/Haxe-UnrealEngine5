@@ -3,8 +3,11 @@ package ue;
 
 @:native("UVolumeTextureFactory")
 @:include("Factories/VolumeTextureFactory.h")
+@:structAccess
 extern class VolumeTextureFactory extends Factory {
 	public var InitialTexture: cpp.Star<Texture2D>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

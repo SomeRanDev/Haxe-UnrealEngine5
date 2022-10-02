@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULandscapeGrassType")
 @:include("LandscapeGrassType.h")
+@:structAccess
 extern class LandscapeGrassType extends Object {
 	public var GrassVarieties: TArray<GrassVariety>;
 	public var bEnableDensityScaling: Bool;
@@ -13,6 +14,8 @@ extern class LandscapeGrassType extends Object {
 	public var EndCullDistance_DEPRECATED: cpp.Int32;
 	public var RandomRotation_DEPRECATED: Bool;
 	public var AlignToSurface_DEPRECATED: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UKismetRenderingLibrary")
 @:include("Kismet/KismetRenderingLibrary.h")
+@:structAccess
 extern class KismetRenderingLibrary extends BlueprintFunctionLibrary {
 	public function SetCastInsetShadowForAllAttachments(PrimitiveComponent: cpp.Star<PrimitiveComp>, bCastInsetShadow: Bool, bLightAttachmentsAsGroup: Bool): Void;
 	public function RenderTargetCreateStaticTexture2DEditorOnly(RenderTarget: cpp.Star<TextureRenderTarget2D>, Name: FString, CompressionSettings: TextureCompressionSettings, MipSettings: TextureMipGenSettings): cpp.Reference<cpp.Star<Texture2D>>;
@@ -30,6 +31,8 @@ extern class KismetRenderingLibrary extends BlueprintFunctionLibrary {
 	public function CalculateProjectionMatrix(MinimalViewInfo: cpp.Reference<MinimalViewInfo>): cpp.Reference<Matrix>;
 	public function BreakSkinWeightInfo(InWeight: SkelMeshSkinWeightInfo, Bone0: cpp.Reference<cpp.Int32>, Weight0: cpp.Reference<cpp.UInt8>, Bone1: cpp.Reference<cpp.Int32>, Weight1: cpp.Reference<cpp.UInt8>, Bone2: cpp.Reference<cpp.Int32>, Weight2: cpp.Reference<cpp.UInt8>, Bone3: cpp.Reference<cpp.Int32>, Weight3: cpp.Reference<cpp.UInt8>): Void;
 	public function BeginDrawCanvasToRenderTarget(WorldContextObject: cpp.Star<Object>, TextureRenderTarget: cpp.Star<TextureRenderTarget2D>, Canvas: cpp.Reference<cpp.Star<Canvas>>, Size: cpp.Reference<Vector2D>, Context: cpp.Reference<DrawToRenderTargetContext>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

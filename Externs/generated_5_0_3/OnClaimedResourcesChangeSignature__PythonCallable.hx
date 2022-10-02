@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnClaimedResourcesChangeSignature__PythonCallable")
+@:structAccess
 extern class OnClaimedResourcesChangeSignature__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraDataInterfaceVelocityGrid")
 @:include("Niagara/NiagaraDataInterfaceVelocityGrid.h")
+@:structAccess
 extern class NiagaraDataInterfaceVelocityGrid extends NiagaraDataInterfaceRWBase {
 	public var GridSize: IntVector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

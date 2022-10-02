@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_SplineIK")
 @:include("AnimGraphNode_SplineIK.h")
+@:structAccess
 extern class AnimGraphNode_SplineIK extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_SplineIK;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

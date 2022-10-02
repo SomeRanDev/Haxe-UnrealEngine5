@@ -3,7 +3,10 @@ package ue;
 
 @:native("UReverbPluginSourceSettingsBase")
 @:include("IAudioExtensionPlugin.h")
+@:structAccess
 extern class ReverbPluginSourceSettingsBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

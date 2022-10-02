@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_Sync")
 @:include("AnimGraphNode_Sync.h")
+@:structAccess
 extern class AnimGraphNode_Sync extends AnimGraphNode_Base {
 	public var Node: AnimNode_Sync;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,12 +3,15 @@ package ue;
 
 @:native("UContentBrowserAssetContextMenuContext")
 @:include("ContentBrowserMenuContexts.h")
+@:structAccess
 extern class ContentBrowserAssetContextMenuContext extends Object {
 	public var SelectedObjects: TArray<TWeakObjectPtr<Object>>;
 	public var CommonClass: TSubclassOf<Object>;
 	public var bCanBeModified: Bool;
 
 	public function GetSelectedObjects(): cpp.Reference<TArray<cpp.Star<Object>>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetSelectedObjects)

@@ -3,6 +3,7 @@ package ue;
 
 @:native("USubobjectDataBlueprintFunctionLibrary")
 @:include("SubobjectDataBlueprintFunctionLibrary.h")
+@:structAccess
 extern class SubobjectDataBlueprintFunctionLibrary extends BlueprintFunctionLibrary {
 	public function IsValid(Data: cpp.Reference<SubobjectData>): cpp.Reference<Bool>;
 	public function IsSceneComponent(Data: cpp.Reference<SubobjectData>): cpp.Reference<Bool>;
@@ -30,6 +31,8 @@ extern class SubobjectDataBlueprintFunctionLibrary extends BlueprintFunctionLibr
 	public function CanDuplicate(Data: cpp.Reference<SubobjectData>): cpp.Reference<Bool>;
 	public function CanDelete(Data: cpp.Reference<SubobjectData>): cpp.Reference<Bool>;
 	public function CanCopy(Data: cpp.Reference<SubobjectData>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

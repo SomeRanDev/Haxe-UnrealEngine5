@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTextRenderComponent")
 @:include("Components/TextRenderComponent.h")
+@:structAccess
 extern class TextRenderComp extends PrimitiveComp {
 	public var Text: FText;
 	public var TextMaterial: cpp.Star<MaterialInterface>;
@@ -31,6 +32,8 @@ extern class TextRenderComp extends PrimitiveComp {
 	public function K2_SetText(Value: cpp.Reference<FText>): Void;
 	public function GetTextWorldSize(): cpp.Reference<Vector>;
 	public function GetTextLocalSize(): cpp.Reference<Vector>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetTextWorldSize, GetTextLocalSize)

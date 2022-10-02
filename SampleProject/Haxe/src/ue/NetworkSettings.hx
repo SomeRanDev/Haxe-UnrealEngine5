@@ -3,12 +3,15 @@ package ue;
 
 @:native("UNetworkSettings")
 @:include("Engine/NetworkSettings.h")
+@:structAccess
 extern class NetworkSettings extends DeveloperSettings {
 	public var bVerifyPeer: Bool;
 	public var bEnableMultiplayerWorldOriginRebasing: Bool;
 	public var MaxRepArraySize: cpp.Int32;
 	public var MaxRepArrayMemory: cpp.Int32;
 	public var NetworkEmulationProfiles: TArray<NetworkEmulationProfileDescription>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

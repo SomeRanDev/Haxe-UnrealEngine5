@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraPythonScriptModuleInput")
 @:include("UpgradeNiagaraScriptResults.h")
+@:structAccess
 extern class NiagaraPythonScriptModuleInput extends Object {
 	public var Input: cpp.Star<NiagaraClipboardFunctionInput>;
 
@@ -17,6 +18,8 @@ extern class NiagaraPythonScriptModuleInput extends Object {
 	public function AsEnum(): cpp.Reference<FString>;
 	public function AsColor(): cpp.Reference<LinearColor>;
 	public function AsBool(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

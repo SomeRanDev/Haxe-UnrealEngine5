@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimBlueprintFunction")
 @:include("Animation/AnimClassInterface.h")
+@:structAccess
 extern class AnimBlueprintFunction {
 	public var Name: FName;
 	public var Group: FName;
@@ -10,4 +11,6 @@ extern class AnimBlueprintFunction {
 	public var InputPoseNames: TArray<FName>;
 	public var InputPoseNodeIndices: TArray<cpp.Int32>;
 	public var bImplemented: Bool;
+
+	@:native("FAnimBlueprintFunction") public function new();
 }

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UGeometryCacheCodecV1")
 @:include("GeometryCacheCodecV1.h")
+@:structAccess
 extern class GeometryCacheCodecV1 extends GeometryCacheCodecBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

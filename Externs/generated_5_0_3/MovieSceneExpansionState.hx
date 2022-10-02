@@ -3,6 +3,10 @@ package ue;
 
 @:native("FMovieSceneExpansionState")
 @:include("MovieScene.h")
+@:structAccess
 extern class MovieSceneExpansionState {
 	public var bExpanded: Bool;
+
+	@:native("FMovieSceneExpansionState") public function new();
+	@:native("FMovieSceneExpansionState") public static function make(bExpanded: Bool): MovieSceneExpansionState ;
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBlueprintEditorSettings")
 @:include("BlueprintEditorSettings.h")
+@:structAccess
 extern class BlueprintEditorSettings extends DeveloperSettings {
 	public var bDrawMidpointArrowsInBlueprints: Bool;
 	public var bShowGraphInstructionText: Bool;
@@ -50,6 +51,8 @@ extern class BlueprintEditorSettings extends DeveloperSettings {
 	public var bShowBookmarksForCurrentDocumentOnlyInTab: Bool;
 	public var GraphEditorQuickJumps: TMap<cpp.Int32, EditedDocumentInfo>;
 	public var BaseClassesToAllowRecompilingDuringPlayInEditor: TArray<TSoftClassPtr<Class>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

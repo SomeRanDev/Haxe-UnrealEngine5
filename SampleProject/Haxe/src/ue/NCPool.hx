@@ -3,6 +3,10 @@ package ue;
 
 @:native("FNCPool")
 @:include("NiagaraComponentPool.h")
+@:structAccess
 extern class NCPool {
 	public var FreeElements: TArray<NCPoolElement>;
+
+	@:native("FNCPool") public function new();
+	@:native("FNCPool") public static function make(FreeElements: TArray<NCPoolElement>): NCPool ;
 }

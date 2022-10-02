@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNiagaraDataInterfaceArray")
 @:include("NiagaraDataInterfaceArray.h")
+@:structAccess
 extern class NiagaraDataInterfaceArray extends NiagaraDataInterfaceRWBase {
 	public var GpuSyncMode: ENiagaraGpuSyncMode;
 	public var MaxElements: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

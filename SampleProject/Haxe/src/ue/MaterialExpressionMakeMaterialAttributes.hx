@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionMakeMaterialAttributes")
 @:include("Materials/MaterialExpressionMakeMaterialAttributes.h")
+@:structAccess
 extern class MaterialExpressionMakeMaterialAttributes extends MaterialExpression {
 	public var BaseColor: ExpressionInput;
 	public var Metallic: ExpressionInput;
@@ -23,6 +24,8 @@ extern class MaterialExpressionMakeMaterialAttributes extends MaterialExpression
 	public var CustomizedUVs: ExpressionInput;
 	public var PixelDepthOffset: ExpressionInput;
 	public var ShadingModel: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

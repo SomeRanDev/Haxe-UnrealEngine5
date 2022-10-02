@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneCopyableBinding")
 @:include("MovieSceneCopyableBinding.h")
+@:structAccess
 extern class MovieSceneCopyableBinding extends Object {
 	public var SpawnableObjectTemplate: cpp.Star<Object>;
 	public var Tracks: TArray<cpp.Star<MovieSceneTrack>>;
@@ -10,6 +11,8 @@ extern class MovieSceneCopyableBinding extends Object {
 	public var Spawnable: MovieSceneSpawnable;
 	public var Possessable: MovieScenePossessable;
 	public var FolderPath: TArray<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

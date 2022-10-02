@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSolverIterations")
 @:include("PhysicsEngine/PhysicsAsset.h")
+@:structAccess
 extern class SolverIterations {
 	public var SolverIterations: cpp.Int32;
 	public var JointIterations: cpp.Int32;
@@ -10,4 +11,6 @@ extern class SolverIterations {
 	public var SolverPushOutIterations: cpp.Int32;
 	public var JointPushOutIterations: cpp.Int32;
 	public var CollisionPushOutIterations: cpp.Int32;
+
+	@:native("FSolverIterations") public function new();
 }

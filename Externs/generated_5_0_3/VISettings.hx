@@ -3,10 +3,13 @@ package ue;
 
 @:native("UVISettings")
 @:include("VISettings.h")
+@:structAccess
 extern class VISettings extends Object {
 	public var bScaleWorldFromFloor: Bool;
 	public var bScaleWorldWithDynamicPivot: Bool;
 	public var bAllowSimultaneousWorldScalingAndRotation: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

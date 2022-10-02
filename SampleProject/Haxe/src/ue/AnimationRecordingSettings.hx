@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimationRecordingSettings")
 @:include("Animation/AnimationRecordingSettings.h")
+@:structAccess
 extern class AnimationRecordingSettings {
 	public var bRecordInWorldSpace: Bool;
 	public var bRemoveRootAnimation: Bool;
@@ -15,4 +16,6 @@ extern class AnimationRecordingSettings {
 	public var bRecordMorphTargets: Bool;
 	public var bRecordAttributeCurves: Bool;
 	public var bRecordMaterialCurves: Bool;
+
+	@:native("FAnimationRecordingSettings") public function new();
 }

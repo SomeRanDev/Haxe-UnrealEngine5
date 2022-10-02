@@ -3,10 +3,13 @@ package ue;
 
 @:native("UDistributionVectorConstant")
 @:include("Distributions/DistributionVectorConstant.h")
+@:structAccess
 extern class DistributionVectorConstant extends DistributionVector {
 	public var Constant: Vector;
 	public var bLockAxes: Bool;
 	public var LockedAxes: EDistributionVectorLockFlags;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

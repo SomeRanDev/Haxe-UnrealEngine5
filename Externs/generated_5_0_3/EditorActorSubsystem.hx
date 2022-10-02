@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEditorActorSubsystem")
 @:include("Subsystems/EditorActorSubsystem.h")
+@:structAccess
 extern class EditorActorSubsystem extends EditorSubsystem {
 	public var OnEditCutActorsBegin: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnEditCutActorsEnd: HaxeMulticastSparseDelegateProperty<() -> Void>;
@@ -37,6 +38,8 @@ extern class EditorActorSubsystem extends EditorSubsystem {
 	public function DeleteSelectedActors(InWorld: cpp.Star<World>): Void;
 	public function ConvertActors(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>, ActorClass: TSubclassOf<Actor>, StaticMeshPackagePath: FString): cpp.Reference<TArray<cpp.Star<Actor>>>;
 	public function ClearActorSelectionSet(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

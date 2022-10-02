@@ -3,8 +3,11 @@ package ue;
 
 @:native("UInteractiveGizmo")
 @:include("InteractiveGizmo.h")
+@:structAccess
 extern class InteractiveGizmo extends Object {
 	public var InputBehaviors: cpp.Star<InputBehaviorSet>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

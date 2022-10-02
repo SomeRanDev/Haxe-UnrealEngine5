@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnLatestOverallMeterResults__PythonCallable")
+@:structAccess
 extern class OnLatestOverallMeterResults__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

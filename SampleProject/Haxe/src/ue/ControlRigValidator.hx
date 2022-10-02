@@ -3,8 +3,11 @@ package ue;
 
 @:native("UControlRigValidator")
 @:include("ControlRigValidationPass.h")
+@:structAccess
 extern class ControlRigValidator extends Object {
 	public var Passes: TArray<cpp.Star<ControlRigValidationPass>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

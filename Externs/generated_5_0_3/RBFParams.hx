@@ -3,6 +3,7 @@ package ue;
 
 @:native("FRBFParams")
 @:include("RBF/RBFSolver.h")
+@:structAccess
 extern class RBFParams {
 	public var TargetDimensions: cpp.Int32;
 	public var SolverType: ERBFSolverType;
@@ -16,4 +17,6 @@ extern class RBFParams {
 	public var MedianReference: Vector;
 	public var MedianMin: cpp.Float32;
 	public var MedianMax: cpp.Float32;
+
+	@:native("FRBFParams") public function new();
 }

@@ -3,9 +3,13 @@ package ue;
 
 @:native("FClothCollisionPrim_Box")
 @:include("ClothCollisionPrim.h")
+@:structAccess
 extern class ClothCollisionPrim_Box {
 	public var LocalPosition: Vector;
 	public var LocalRotation: Quat;
 	public var HalfExtents: Vector;
 	public var BoneIndex: cpp.Int32;
+
+	@:native("FClothCollisionPrim_Box") public function new();
+	@:native("FClothCollisionPrim_Box") public static function make(LocalPosition: Vector, LocalRotation: Quat, HalfExtents: Vector, BoneIndex: cpp.Int32): ClothCollisionPrim_Box ;
 }

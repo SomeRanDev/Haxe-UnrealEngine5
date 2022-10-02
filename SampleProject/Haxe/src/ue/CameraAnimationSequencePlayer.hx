@@ -3,10 +3,13 @@ package ue;
 
 @:native("UCameraAnimationSequencePlayer")
 @:include("CameraAnimationSequencePlayer.h")
+@:structAccess
 extern class CameraAnimationSequencePlayer extends Object {
 	public var BoundObjectOverride: cpp.Star<Object>;
 	public var Sequence: cpp.Star<MovieSceneSequence>;
 	public var RootTemplateInstance: MovieSceneRootEvaluationTemplateInstance;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

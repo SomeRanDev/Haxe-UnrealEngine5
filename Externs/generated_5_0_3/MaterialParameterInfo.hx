@@ -3,8 +3,12 @@ package ue;
 
 @:native("FMaterialParameterInfo")
 @:include("Materials/MaterialLayersFunctions.h")
+@:structAccess
 extern class MaterialParameterInfo {
 	public var Name: FName;
 	public var Association: EMaterialParameterAssociation;
 	public var Index: cpp.Int32;
+
+	@:native("FMaterialParameterInfo") public function new();
+	@:native("FMaterialParameterInfo") public static function make(Name: FName, Association: EMaterialParameterAssociation, Index: cpp.Int32): MaterialParameterInfo ;
 }

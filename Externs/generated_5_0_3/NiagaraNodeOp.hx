@@ -3,10 +3,13 @@ package ue;
 
 @:native("UNiagaraNodeOp")
 @:include("NiagaraNodeOp.h")
+@:structAccess
 extern class NiagaraNodeOp extends NiagaraNodeWithDynamicPins {
 	public var OpName: FName;
 	public var AddedPins: TArray<AddedPinData>;
 	public var bAllStatic: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

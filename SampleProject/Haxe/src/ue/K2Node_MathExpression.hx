@@ -3,9 +3,12 @@ package ue;
 
 @:native("UK2Node_MathExpression")
 @:include("K2Node_MathExpression.h")
+@:structAccess
 extern class K2Node_MathExpression extends K2Node_Composite {
 	public var Expression: FString;
 	public var bMadeAfterRotChange: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

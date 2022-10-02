@@ -3,6 +3,7 @@ package ue;
 
 @:native("FConstraintProfileProperties")
 @:include("PhysicsEngine/ConstraintInstance.h")
+@:structAccess
 extern class ConstraintProfileProperties {
 	public var ProjectionLinearTolerance: cpp.Float32;
 	public var ProjectionAngularTolerance: cpp.Float32;
@@ -31,4 +32,6 @@ extern class ConstraintProfileProperties {
 	public var bLinearBreakable: Bool;
 	public var bLinearPlasticity: Bool;
 	public var LinearPlasticityType: EConstraintPlasticityType;
+
+	@:native("FConstraintProfileProperties") public function new();
 }

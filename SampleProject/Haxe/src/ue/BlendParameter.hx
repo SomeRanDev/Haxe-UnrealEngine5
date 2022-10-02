@@ -3,6 +3,7 @@ package ue;
 
 @:native("FBlendParameter")
 @:include("Animation/BlendSpace.h")
+@:structAccess
 extern class BlendParameter {
 	public var DisplayName: FString;
 	public var Min: cpp.Float32;
@@ -10,4 +11,6 @@ extern class BlendParameter {
 	public var GridNum: cpp.Int32;
 	public var bSnapToGrid: Bool;
 	public var bWrapInput: Bool;
+
+	@:native("FBlendParameter") public function new();
 }

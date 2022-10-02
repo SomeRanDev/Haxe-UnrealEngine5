@@ -3,6 +3,7 @@ package ue;
 
 @:native("UUniformGridPanel")
 @:include("Components/UniformGridPanel.h")
+@:structAccess
 extern class UniformGridPanel extends PanelWidget {
 	public var SlotPadding: Margin;
 	public var MinDesiredSlotWidth: cpp.Float32;
@@ -12,6 +13,8 @@ extern class UniformGridPanel extends PanelWidget {
 	public function SetMinDesiredSlotWidth(InMinDesiredSlotWidth: cpp.Float32): Void;
 	public function SetMinDesiredSlotHeight(InMinDesiredSlotHeight: cpp.Float32): Void;
 	public function AddChildToUniformGrid(Content: cpp.Star<Widget>, InRow: cpp.Int32, InColumn: cpp.Int32): cpp.Reference<cpp.Star<UniformGridSlot>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

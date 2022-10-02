@@ -3,7 +3,10 @@ package ue;
 
 @:native("UActorFactoryVectorFieldVolume")
 @:include("ActorFactories/ActorFactoryVectorFieldVolume.h")
+@:structAccess
 extern class ActorFactoryVectorFieldVolume extends ActorFactory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UWrangleContentCommandlet")
 @:include("Commandlets/WrangleContentCommandlet.h")
+@:structAccess
 extern class WrangleContentCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

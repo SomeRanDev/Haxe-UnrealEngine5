@@ -3,9 +3,12 @@ package ue;
 
 @:native("UUMGSequenceTickManager")
 @:include("Animation/UMGSequenceTickManager.h")
+@:structAccess
 extern class UMGSequenceTickManager extends Object {
 	public var WeakUserWidgetData: TMap<TWeakObjectPtr<UserWidget>, SequenceTickManagerWidgetData>;
 	public var Linker: cpp.Star<MovieSceneEntitySystemLinker>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

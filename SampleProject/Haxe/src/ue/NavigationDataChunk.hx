@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNavigationDataChunk")
 @:include("AI/Navigation/NavigationDataChunk.h")
+@:structAccess
 extern class NavigationDataChunk extends Object {
 	public var NavigationDataName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

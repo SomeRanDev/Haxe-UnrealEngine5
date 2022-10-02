@@ -3,6 +3,10 @@ package ue;
 
 @:native("FPrimaryAssetType")
 @:include("UObject/NoExportTypes.h")
+@:structAccess
 extern class PrimaryAssetType {
 	public var Name: FName;
+
+	@:native("FPrimaryAssetType") public function new();
+	@:native("FPrimaryAssetType") public static function make(Name: FName): PrimaryAssetType ;
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("AControlRigShapeActor")
 @:include("ControlRigGizmoActor.h")
+@:structAccess
 extern class ControlRigShapeActor extends Actor {
 	public var ActorRootComponent: cpp.Star<SceneComp>;
 	public var StaticMeshComponent: cpp.Star<StaticMeshComp>;
@@ -28,6 +29,8 @@ extern class ControlRigShapeActor extends Actor {
 	public function IsHovered(): cpp.Reference<Bool>;
 	public function IsEnabled(): cpp.Reference<Bool>;
 	public function GetGlobalTransform(): cpp.Reference<Transform>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsSelectedInEditor, IsHovered, IsEnabled, GetGlobalTransform)

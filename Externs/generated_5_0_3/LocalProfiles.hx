@@ -3,8 +3,11 @@ package ue;
 
 @:native("ULocalProfiles")
 @:include("AssetViewerSettings.h")
+@:structAccess
 extern class LocalProfiles extends Object {
 	public var Profiles: TArray<PreviewSceneProfile>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

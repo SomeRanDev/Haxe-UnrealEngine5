@@ -3,6 +3,7 @@ package ue;
 
 @:native("URigVMCommentNode")
 @:include("RigVMModel/Nodes/RigVMCommentNode.h")
+@:structAccess
 extern class RigVMCommentNode extends RigVMNode {
 	public var CommentText: FString;
 	public var FontSize: cpp.Int32;
@@ -13,6 +14,8 @@ extern class RigVMCommentNode extends RigVMNode {
 	public function GetCommentFontSize(): cpp.Reference<cpp.Int32>;
 	public function GetCommentColorBubble(): cpp.Reference<Bool>;
 	public function GetCommentBubbleVisible(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetCommentText, GetCommentFontSize, GetCommentColorBubble, GetCommentBubbleVisible)

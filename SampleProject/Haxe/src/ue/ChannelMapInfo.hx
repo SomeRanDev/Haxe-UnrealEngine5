@@ -3,6 +3,7 @@ package ue;
 
 @:native("FChannelMapInfo")
 @:include("Sequencer/MovieSceneControlRigParameterSection.h")
+@:structAccess
 extern class ChannelMapInfo {
 	public var ControlIndex: cpp.Int32;
 	public var TotalChannelIndex: cpp.Int32;
@@ -13,4 +14,6 @@ extern class ChannelMapInfo {
 	public var SpaceChannelIndex: cpp.Int32;
 	public var MaskIndex: cpp.Int32;
 	public var CategoryIndex: cpp.Int32;
+
+	@:native("FChannelMapInfo") public function new();
 }

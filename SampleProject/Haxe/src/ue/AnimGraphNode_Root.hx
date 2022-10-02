@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_Root")
 @:include("AnimGraphNode_Root.h")
+@:structAccess
 extern class AnimGraphNode_Root extends AnimGraphNode_Base {
 	public var Node: AnimNode_Root;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

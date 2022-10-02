@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCrowdManager")
 @:include("Navigation/CrowdManager.h")
+@:structAccess
 extern class CrowdManager extends CrowdManagerBase {
 	public var MyNavData: cpp.Star<NavigationData>;
 	public var AvoidanceConfig: TArray<CrowdAvoidanceConfig>;
@@ -16,6 +17,8 @@ extern class CrowdManager extends CrowdManagerBase {
 	public var SeparationDirClamp: cpp.Float32;
 	public var PathOffsetRadiusMultiplier: cpp.Float32;
 	public var bResolveCollisions: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

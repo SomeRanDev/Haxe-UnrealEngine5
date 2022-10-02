@@ -3,6 +3,10 @@ package ue;
 
 @:native("FMovieSceneTrackDisplayOptions")
 @:include("MovieSceneTrack.h")
+@:structAccess
 extern class MovieSceneTrackDisplayOptions {
 	public var bShowVerticalFrames: Bool;
+
+	@:native("FMovieSceneTrackDisplayOptions") public function new();
+	@:native("FMovieSceneTrackDisplayOptions") public static function make(bShowVerticalFrames: Bool): MovieSceneTrackDisplayOptions ;
 }

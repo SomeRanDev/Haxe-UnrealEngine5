@@ -3,6 +3,7 @@ package ue;
 
 @:native("FTextBlockStyle")
 @:include("Styling/SlateTypes.h")
+@:structAccess
 extern class TextBlockStyle extends SlateWidgetStyle {
 	public var Font: SlateFontInfo;
 	public var ColorAndOpacity: SlateColor;
@@ -15,4 +16,6 @@ extern class TextBlockStyle extends SlateWidgetStyle {
 	public var UnderlineBrush: SlateBrush;
 	public var TransformPolicy: ETextTransformPolicy;
 	public var OverflowPolicy: ETextOverflowPolicy;
+
+	@:native("FTextBlockStyle") public function new();
 }

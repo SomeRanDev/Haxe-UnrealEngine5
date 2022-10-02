@@ -3,10 +3,13 @@ package ue;
 
 @:native("USoundSubmixBase")
 @:include("Sound/SoundSubmix.h")
+@:structAccess
 extern class SoundSubmixBase extends Object {
 	public var bAutoDisable: Bool;
 	public var AutoDisableTime: cpp.Float32;
 	public var ChildSubmixes: TArray<cpp.Star<SoundSubmixBase>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

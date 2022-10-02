@@ -3,11 +3,14 @@ package ue;
 
 @:native("UNiagaraNodeOutput")
 @:include("NiagaraNodeOutput.h")
+@:structAccess
 extern class NiagaraNodeOutput extends NiagaraNode {
 	public var Outputs: TArray<NiagaraVariable>;
 	public var ScriptType: ENiagaraScriptUsage;
 	public var ScriptTypeId: Guid;
 	public var ScriptTypeIndex_DEPRECATED: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

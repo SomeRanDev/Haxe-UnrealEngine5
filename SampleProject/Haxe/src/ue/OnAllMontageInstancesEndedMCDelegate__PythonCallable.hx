@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnAllMontageInstancesEndedMCDelegate__PythonCallable")
+@:structAccess
 extern class OnAllMontageInstancesEndedMCDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

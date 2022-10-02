@@ -3,7 +3,11 @@ package ue;
 
 @:native("FBlendSpaceSegment")
 @:include("Animation/BlendSpace.h")
+@:structAccess
 extern class BlendSpaceSegment {
 	public var SampleIndices: cpp.Int32;
 	public var Vertices: cpp.Float32;
+
+	@:native("FBlendSpaceSegment") public function new();
+	@:native("FBlendSpaceSegment") public static function make(SampleIndices: cpp.Int32, Vertices: cpp.Float32): BlendSpaceSegment ;
 }

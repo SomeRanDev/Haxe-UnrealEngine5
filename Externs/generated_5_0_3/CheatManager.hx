@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCheatManager")
 @:include("GameFramework/CheatManager.h")
+@:structAccess
 extern class CheatManager extends Object {
 	public var DebugCameraControllerRef: cpp.Star<DebugCameraController>;
 	public var DebugCameraControllerClass: TSubclassOf<DebugCameraController>;
@@ -65,6 +66,8 @@ extern class CheatManager extends Object {
 	public function BugItStringCreator(ViewLocation: Vector, ViewRotation: Rotator, GoString: cpp.Reference<FString>, LocString: cpp.Reference<FString>): Void;
 	public function BugItGo(X: cpp.Float32, Y: cpp.Float32, Z: cpp.Float32, Pitch: cpp.Float32, Yaw: cpp.Float32, Roll: cpp.Float32): Void;
 	public function BugIt(ScreenShotDescription: FString): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetPlayerController)

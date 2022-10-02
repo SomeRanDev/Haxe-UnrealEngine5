@@ -3,6 +3,7 @@ package ue;
 
 @:native("UARPin")
 @:include("ARPin.h")
+@:structAccess
 extern class ARPin extends Object {
 	public var TrackedGeometry: cpp.Star<ARTrackedGeometry>;
 	public var PinnedComponent: cpp.Star<SceneComp>;
@@ -19,6 +20,8 @@ extern class ARPin extends Object {
 	public function GetLocalToTrackingTransform(): cpp.Reference<Transform>;
 	public function GetDebugName(): cpp.Reference<FName>;
 	public function DebugDraw(World: cpp.Star<World>, Color: cpp.Reference<LinearColor>, Scale: cpp.Float32, PersistForSeconds: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetTrackingState, GetTrackedGeometry, GetPinnedComponent, GetLocalToWorldTransform, GetLocalToTrackingTransform, GetDebugName, DebugDraw)

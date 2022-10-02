@@ -3,6 +3,7 @@ package ue;
 
 @:native("UARGeoTrackingSupport")
 @:include("ARGeoTrackingSupport.h")
+@:structAccess
 extern class ARGeoTrackingSupport extends Object {
 	public function GetGeoTrackingSupport(): cpp.Reference<cpp.Star<ARGeoTrackingSupport>>;
 	public function GetGeoTrackingStateReason(): cpp.Reference<EARGeoTrackingStateReason>;
@@ -10,6 +11,8 @@ extern class ARGeoTrackingSupport extends Object {
 	public function GetGeoTrackingAccuracy(): cpp.Reference<EARGeoTrackingAccuracy>;
 	public function AddGeoAnchorAtLocationWithAltitude(Longitude: cpp.Float32, Latitude: cpp.Float32, AltitudeMeters: cpp.Float32, OptionalAnchorName: FString): cpp.Reference<Bool>;
 	public function AddGeoAnchorAtLocation(Longitude: cpp.Float32, Latitude: cpp.Float32, OptionalAnchorName: FString): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetGeoTrackingStateReason, GetGeoTrackingState, GetGeoTrackingAccuracy)

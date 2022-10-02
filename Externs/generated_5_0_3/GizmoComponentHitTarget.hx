@@ -3,8 +3,11 @@ package ue;
 
 @:native("UGizmoComponentHitTarget")
 @:include("BaseGizmos/HitTargets.h")
+@:structAccess
 extern class GizmoComponentHitTarget extends Object {
 	public var Component: cpp.Star<PrimitiveComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

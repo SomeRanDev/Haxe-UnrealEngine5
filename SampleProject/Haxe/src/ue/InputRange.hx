@@ -3,7 +3,11 @@ package ue;
 
 @:native("FInputRange")
 @:include("Animation/InputScaleBias.h")
+@:structAccess
 extern class InputRange {
 	public var Min: cpp.Float32;
 	public var Max: cpp.Float32;
+
+	@:native("FInputRange") public function new();
+	@:native("FInputRange") public static function make(Min: cpp.Float32, Max: cpp.Float32): InputRange ;
 }

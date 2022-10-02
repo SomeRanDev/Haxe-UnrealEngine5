@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_Literal")
 @:include("K2Node_Literal.h")
+@:structAccess
 extern class K2Node_Literal extends K2Node {
 	public var ObjectRef: cpp.Star<Object>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

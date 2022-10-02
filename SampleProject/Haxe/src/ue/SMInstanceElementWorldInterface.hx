@@ -3,7 +3,10 @@ package ue;
 
 @:native("USMInstanceElementWorldInterface")
 @:include("Elements/SMInstance/SMInstanceElementWorldInterface.h")
+@:structAccess
 extern class SMInstanceElementWorldInterface extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

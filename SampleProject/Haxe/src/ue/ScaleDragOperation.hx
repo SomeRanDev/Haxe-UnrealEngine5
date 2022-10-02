@@ -3,7 +3,10 @@ package ue;
 
 @:native("UScaleDragOperation")
 @:include("ViewportInteractionDragOperations.h")
+@:structAccess
 extern class ScaleDragOperation extends ViewportDragOperation {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

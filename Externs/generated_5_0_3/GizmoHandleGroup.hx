@@ -3,12 +3,15 @@ package ue;
 
 @:native("UGizmoHandleGroup")
 @:include("VIGizmoHandle.h")
+@:structAccess
 extern class GizmoHandleGroup extends SceneComp {
 	public var GizmoMaterial: cpp.Star<MaterialInterface>;
 	public var TranslucentGizmoMaterial: cpp.Star<MaterialInterface>;
 	public var Handles: TArray<GizmoHandle>;
 	public var OwningTransformGizmoActor: cpp.Star<BaseTransformGizmo>;
 	public var DragOperationComponent: cpp.Star<ViewportDragOperationComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

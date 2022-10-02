@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEditorValidator_Localization")
 @:include("EditorValidator_Localization.h")
+@:structAccess
 extern class EditorValidator_Localization extends EditorValidatorBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

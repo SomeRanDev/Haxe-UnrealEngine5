@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMovieSceneQuaternionInterpolationRotationSystem")
 @:include("Systems/MovieSceneQuaternionInterpolationRotationSystem.h")
+@:structAccess
 extern class MovieSceneQuaternionInterpolationRotationSystem extends MovieSceneEntitySystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

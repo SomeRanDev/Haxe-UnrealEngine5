@@ -3,6 +3,7 @@ package ue;
 
 @:native("UViewportTransformer")
 @:include("ViewportTransformer.h")
+@:structAccess
 extern class ViewportTransformer extends Object {
 	public var ViewportWorldInteraction: cpp.Star<ViewportWorldInteraction>;
 
@@ -12,6 +13,8 @@ extern class ViewportTransformer extends Object {
 	public function OnStartDragging(Interactor: cpp.Star<ViewportInteractor>): Void;
 	public function Init(InitViewportWorldInteraction: cpp.Star<ViewportWorldInteraction>): Void;
 	public function CanAlignToActors(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(ShouldCenterTransformGizmoPivot, CanAlignToActors)

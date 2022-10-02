@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionPixelNormalWS")
 @:include("Materials/MaterialExpressionPixelNormalWS.h")
+@:structAccess
 extern class MaterialExpressionPixelNormalWS extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

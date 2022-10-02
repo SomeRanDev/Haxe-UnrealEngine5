@@ -3,10 +3,14 @@ package ue;
 
 @:native("FMovieSceneTrackEvaluationFieldEntry")
 @:include("MovieSceneTrackEvaluationField.h")
+@:structAccess
 extern class MovieSceneTrackEvaluationFieldEntry {
 	public var Section: cpp.Star<MovieSceneSection>;
 	public var Range: FrameNumberRange;
 	public var ForcedTime: FrameNumber;
 	public var Flags: ESectionEvaluationFlags;
 	public var LegacySortOrder: cpp.Int16;
+
+	@:native("FMovieSceneTrackEvaluationFieldEntry") public function new();
+	@:native("FMovieSceneTrackEvaluationFieldEntry") public static function make(Section: cpp.Star<MovieSceneSection>, Range: FrameNumberRange, ForcedTime: FrameNumber, Flags: ESectionEvaluationFlags, LegacySortOrder: cpp.Int16): MovieSceneTrackEvaluationFieldEntry ;
 }

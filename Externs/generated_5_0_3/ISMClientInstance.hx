@@ -3,6 +3,10 @@ package ue;
 
 @:native("FISMClientInstance")
 @:include("ISMPartition/ISMComponentData.h")
+@:structAccess
 extern class ISMClientInstance {
 	public var ComponentIndices: TArray<cpp.Int32>;
+
+	@:native("FISMClientInstance") public function new();
+	@:native("FISMClientInstance") public static function make(ComponentIndices: TArray<cpp.Int32>): ISMClientInstance ;
 }

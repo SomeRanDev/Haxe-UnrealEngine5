@@ -3,7 +3,10 @@ package ue;
 
 @:native("UControlChannel")
 @:include("Engine/ControlChannel.h")
+@:structAccess
 extern class ControlChannel extends Channel {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

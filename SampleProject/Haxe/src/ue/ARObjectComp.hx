@@ -3,12 +3,15 @@ package ue;
 
 @:native("UARObjectComponent")
 @:include("ARComponent.h")
+@:structAccess
 extern class ARObjectComp extends ARComp {
 	public var ReplicatedPayload: ARObjectUpdatePayload;
 
 	public function ServerUpdatePayload(NewPayload: cpp.Reference<ARObjectUpdatePayload>): Void;
 	public function ReceiveUpdate(Payload: cpp.Reference<ARObjectUpdatePayload>): Void;
 	public function ReceiveAdd(Payload: cpp.Reference<ARObjectUpdatePayload>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

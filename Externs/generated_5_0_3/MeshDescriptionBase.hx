@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMeshDescriptionBase")
 @:include("MeshDescriptionBase.h")
+@:structAccess
 extern class MeshDescriptionBase extends Object {
 	public function SetVertexPosition(VertexID: VertexID, Position: cpp.Reference<Vector>): Void;
 	public function SetPolygonVertexInstances(PolygonID: PolygonID, VertexInstanceIDs: cpp.Reference<TArray<VertexInstanceID>>): Void;
@@ -95,6 +96,8 @@ extern class MeshDescriptionBase extends Object {
 	public function CreateEdgeWithID(EdgeID: EdgeID, VertexID0: VertexID, VertexID1: VertexID): Void;
 	public function CreateEdge(VertexID0: VertexID, VertexID1: VertexID): cpp.Reference<EdgeID>;
 	public function ComputePolygonTriangulation(PolygonID: PolygonID): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

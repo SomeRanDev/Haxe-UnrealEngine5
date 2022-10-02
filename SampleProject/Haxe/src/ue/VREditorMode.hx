@@ -3,6 +3,7 @@ package ue;
 
 @:native("UVREditorMode")
 @:include("VREditorMode.h")
+@:structAccess
 extern class VREditorMode extends EditorWorldExtension {
 	public var AvatarActor: cpp.Star<VREditorAvatarActor>;
 	public var UISystem: cpp.Star<VREditorUISystem>;
@@ -14,6 +15,8 @@ extern class VREditorMode extends EditorWorldExtension {
 	public var AssetContainer: cpp.Star<VREditorAssetContainer>;
 
 	public function GetWorldScaleFactor(): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetWorldScaleFactor)

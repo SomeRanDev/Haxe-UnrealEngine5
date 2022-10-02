@@ -3,9 +3,12 @@ package ue;
 
 @:native("UHierarchicalLODSetup")
 @:include("GameFramework/WorldSettings.h")
+@:structAccess
 extern class HierarchicalLODSetup extends Object {
 	public var HierarchicalLODSetup: TArray<HierarchicalSimplification>;
 	public var OverrideBaseMaterial: TSoftObjectPtr<MaterialInterface>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

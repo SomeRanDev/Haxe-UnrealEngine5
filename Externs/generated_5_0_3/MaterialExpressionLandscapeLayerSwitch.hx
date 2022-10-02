@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionLandscapeLayerSwitch")
 @:include("Materials/MaterialExpressionLandscapeLayerSwitch.h")
+@:structAccess
 extern class MaterialExpressionLandscapeLayerSwitch extends MaterialExpression {
 	public var LayerUsed: ExpressionInput;
 	public var LayerNotUsed: ExpressionInput;
 	public var ParameterName: FName;
 	public var PreviewUsed: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

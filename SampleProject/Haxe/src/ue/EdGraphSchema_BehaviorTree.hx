@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEdGraphSchema_BehaviorTree")
 @:include("EdGraphSchema_BehaviorTree.h")
+@:structAccess
 extern class EdGraphSchema_BehaviorTree extends AIGraphSchema {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

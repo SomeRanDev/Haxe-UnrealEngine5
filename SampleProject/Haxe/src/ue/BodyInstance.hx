@@ -3,6 +3,7 @@ package ue;
 
 @:native("FBodyInstance")
 @:include("PhysicsEngine/BodyInstance.h")
+@:structAccess
 extern class BodyInstance extends BodyInstanceCore {
 	public var ObjectType: ECollisionChannel;
 	public var CollisionEnabled: ECollisionEnabled;
@@ -43,4 +44,6 @@ extern class BodyInstance extends BodyInstanceCore {
 	public var CustomSleepThresholdMultiplier: cpp.Float32;
 	public var StabilizationThresholdMultiplier: cpp.Float32;
 	public var PhysicsBlendWeight: cpp.Float32;
+
+	@:native("FBodyInstance") public function new();
 }

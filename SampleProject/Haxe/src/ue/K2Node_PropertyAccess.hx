@@ -3,12 +3,15 @@ package ue;
 
 @:native("UK2Node_PropertyAccess")
 @:include("K2Node_PropertyAccess.h")
+@:structAccess
 extern class K2Node_PropertyAccess extends K2Node {
 	public var Path: TArray<FString>;
 	public var TextPath: FText;
 	public var ResolvedPinType: EdGraphPinType;
 	public var GeneratedPropertyName: FName;
 	public var ContextId: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

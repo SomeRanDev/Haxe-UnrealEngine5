@@ -3,7 +3,11 @@ package ue;
 
 @:native("FGameplayTagRedirect")
 @:include("GameplayTagRedirectors.h")
+@:structAccess
 extern class GameplayTagRedirect {
 	public var OldTagName: FName;
 	public var NewTagName: FName;
+
+	@:native("FGameplayTagRedirect") public function new();
+	@:native("FGameplayTagRedirect") public static function make(OldTagName: FName, NewTagName: FName): GameplayTagRedirect ;
 }

@@ -3,8 +3,12 @@ package ue;
 
 @:native("FViewportActionKeyInput")
 @:include("ViewportInteractionTypes.h")
+@:structAccess
 extern class ViewportActionKeyInput {
 	public var ActionType: FName;
 	public var Event: EInputEvent;
 	public var bIsInputCaptured: Bool;
+
+	@:native("FViewportActionKeyInput") public function new();
+	@:native("FViewportActionKeyInput") public static function make(ActionType: FName, Event: EInputEvent, bIsInputCaptured: Bool): ViewportActionKeyInput ;
 }

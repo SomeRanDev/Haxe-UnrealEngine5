@@ -3,8 +3,12 @@ package ue;
 
 @:native("FParticleReplayTrackKey")
 @:include("Matinee/InterpTrackParticleReplay.h")
+@:structAccess
 extern class ParticleReplayTrackKey {
 	public var Time: cpp.Float32;
 	public var Duration: cpp.Float32;
 	public var ClipIDNumber: cpp.Int32;
+
+	@:native("FParticleReplayTrackKey") public function new();
+	@:native("FParticleReplayTrackKey") public static function make(Time: cpp.Float32, Duration: cpp.Float32, ClipIDNumber: cpp.Int32): ParticleReplayTrackKey ;
 }

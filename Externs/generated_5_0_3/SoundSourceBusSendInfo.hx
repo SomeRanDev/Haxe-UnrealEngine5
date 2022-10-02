@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSoundSourceBusSendInfo")
 @:include("Sound/SoundSourceBusSend.h")
+@:structAccess
 extern class SoundSourceBusSendInfo {
 	public var SourceBusSendLevelControlMethod: ESourceBusSendLevelControlMethod;
 	public var SoundSourceBus: cpp.Star<SoundSourceBus>;
@@ -13,4 +14,6 @@ extern class SoundSourceBusSendInfo {
 	public var MinSendDistance: cpp.Float32;
 	public var MaxSendDistance: cpp.Float32;
 	public var CustomSendLevelCurve: RuntimeFloatCurve;
+
+	@:native("FSoundSourceBusSendInfo") public function new();
 }

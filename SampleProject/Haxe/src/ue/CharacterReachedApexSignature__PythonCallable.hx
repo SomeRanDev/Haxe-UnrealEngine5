@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UCharacterReachedApexSignature__PythonCallable")
+@:structAccess
 extern class CharacterReachedApexSignature__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

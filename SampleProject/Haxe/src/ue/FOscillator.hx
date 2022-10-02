@@ -3,9 +3,13 @@ package ue;
 
 @:native("FFOscillator")
 @:include("MatineeCameraShake.h")
+@:structAccess
 extern class FOscillator {
 	public var Amplitude: cpp.Float32;
 	public var Frequency: cpp.Float32;
 	public var InitialOffset: EInitialOscillatorOffset;
 	public var Waveform: EOscillatorWaveform;
+
+	@:native("FFOscillator") public function new();
+	@:native("FFOscillator") public static function make(Amplitude: cpp.Float32, Frequency: cpp.Float32, InitialOffset: EInitialOscillatorOffset, Waveform: EOscillatorWaveform): FOscillator ;
 }

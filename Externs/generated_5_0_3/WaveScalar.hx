@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWaveScalar")
 @:include("Field/FieldSystemObjects.h")
+@:structAccess
 extern class WaveScalar extends FieldNodeFloat {
 	public var Magnitude: cpp.Float32;
 	public var Position: Vector;
@@ -12,6 +13,8 @@ extern class WaveScalar extends FieldNodeFloat {
 	public var Falloff: EFieldFalloffType;
 
 	public function SetWaveScalar(Magnitude: cpp.Float32, Position: Vector, Wavelength: cpp.Float32, Period: cpp.Float32, Time: cpp.Float32, Function: EWaveFunctionType, Falloff: EFieldFalloffType): cpp.Reference<cpp.Star<WaveScalar>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

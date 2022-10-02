@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionDynamicParameter")
 @:include("Materials/MaterialExpressionDynamicParameter.h")
+@:structAccess
 extern class MaterialExpressionDynamicParameter extends MaterialExpression {
 	public var ParamNames: TArray<FString>;
 	public var DefaultValue: LinearColor;
 	public var ParameterIndex: cpp.UInt32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

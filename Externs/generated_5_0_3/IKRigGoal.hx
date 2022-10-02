@@ -3,6 +3,7 @@ package ue;
 
 @:native("FIKRigGoal")
 @:include("IKRigDataTypes.h")
+@:structAccess
 extern class IKRigGoal {
 	public var Name: FName;
 	public var TransformSource: EIKRigGoalTransformSource;
@@ -15,4 +16,6 @@ extern class IKRigGoal {
 	public var RotationSpace: EIKRigGoalSpace;
 	public var FinalBlendedPosition: Vector;
 	public var FinalBlendedRotation: Quat;
+
+	@:native("FIKRigGoal") public function new();
 }

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UActorDescContainer")
 @:include("WorldPartition/ActorDescContainer.h")
+@:structAccess
 extern class ActorDescContainer extends Object {
 	public var World: cpp.Star<World>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

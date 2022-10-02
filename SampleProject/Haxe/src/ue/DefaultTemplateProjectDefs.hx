@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDefaultTemplateProjectDefs")
 @:include("DefaultTemplateProjectDefs.h")
+@:structAccess
 extern class DefaultTemplateProjectDefs extends TemplateProjectDefs {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

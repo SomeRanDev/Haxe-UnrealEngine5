@@ -3,10 +3,14 @@ package ue;
 
 @:native("FBlackboardEntry")
 @:include("BehaviorTree/BlackboardData.h")
+@:structAccess
 extern class BlackboardEntry {
 	public var EntryName: FName;
 	public var EntryDescription: FString;
 	public var EntryCategory: FName;
 	public var KeyType: cpp.Star<BlackboardKeyType>;
 	public var bInstanceSynced: Bool;
+
+	@:native("FBlackboardEntry") public function new();
+	@:native("FBlackboardEntry") public static function make(EntryName: FName, EntryDescription: FString, EntryCategory: FName, KeyType: cpp.Star<BlackboardKeyType>, bInstanceSynced: Bool): BlackboardEntry ;
 }

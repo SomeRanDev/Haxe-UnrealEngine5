@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTimelineComponent")
 @:include("Components/TimelineComponent.h")
+@:structAccess
 extern class TimelineComp extends ActorComp {
 	public var TheTimeline: Timeline;
 	public var bIgnoreTimeDilation: Bool;
@@ -31,6 +32,8 @@ extern class TimelineComp extends ActorComp {
 	public function GetPlayRate(): cpp.Reference<cpp.Float32>;
 	public function GetPlaybackPosition(): cpp.Reference<cpp.Float32>;
 	public function GetIgnoreTimeDilation(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsReversing, IsPlaying, IsLooping, GetTimelineLength, GetScaledTimelineLength, GetPlayRate, GetPlaybackPosition, GetIgnoreTimeDilation)

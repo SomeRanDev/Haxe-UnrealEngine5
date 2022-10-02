@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_LookAt")
 @:include("AnimGraphNode_LookAt.h")
+@:structAccess
 extern class AnimGraphNode_LookAt extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_LookAt;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

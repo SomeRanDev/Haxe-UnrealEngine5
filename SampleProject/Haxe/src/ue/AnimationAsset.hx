@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimationAsset")
 @:include("Animation/AnimationAsset.h")
+@:structAccess
 extern class AnimationAsset extends Object {
 	public var Skeleton: cpp.Star<Skeleton>;
 	public var MetaData: TArray<cpp.Star<AnimMetaData>>;
@@ -16,6 +17,8 @@ extern class AnimationAsset extends Object {
 
 	public function SetPreviewSkeletalMesh(PreviewMesh: cpp.Star<SkeletalMesh>): Void;
 	public function GetPlayLength(): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetPlayLength)

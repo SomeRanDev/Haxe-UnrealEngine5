@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UGetGeoLocationDelegate__PythonCallable")
+@:structAccess
 extern class GetGeoLocationDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

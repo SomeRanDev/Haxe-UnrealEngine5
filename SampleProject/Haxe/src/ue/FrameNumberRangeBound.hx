@@ -3,7 +3,11 @@ package ue;
 
 @:native("FFrameNumberRangeBound")
 @:include("UObject/NoExportTypes.h")
+@:structAccess
 extern class FrameNumberRangeBound {
 	public var Type: ERangeBoundTypes;
 	public var Value: FrameNumber;
+
+	@:native("FFrameNumberRangeBound") public function new();
+	@:native("FFrameNumberRangeBound") public static function make(Type: ERangeBoundTypes, Value: FrameNumber): FrameNumberRangeBound ;
 }

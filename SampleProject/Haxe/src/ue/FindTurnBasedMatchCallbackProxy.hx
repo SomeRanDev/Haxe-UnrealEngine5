@@ -3,11 +3,14 @@ package ue;
 
 @:native("UFindTurnBasedMatchCallbackProxy")
 @:include("FindTurnBasedMatchCallbackProxy.h")
+@:structAccess
 extern class FindTurnBasedMatchCallbackProxy extends OnlineBlueprintCallProxyBase {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(FString) -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<(FString) -> Void>;
 
 	public function FindTurnBasedMatch(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, MatchActor: TurnBasedMatchInterface, MinPlayers: cpp.Int32, MaxPlayers: cpp.Int32, PlayerGroup: cpp.Int32, ShowExistingMatches: Bool): cpp.Reference<cpp.Star<FindTurnBasedMatchCallbackProxy>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraScriptDataInterfaceInfo")
 @:include("NiagaraCommon.h")
+@:structAccess
 extern class NiagaraScriptDataInterfaceInfo {
 	public var DataInterface: cpp.Star<NiagaraDataInterface>;
 	public var Name: FName;
@@ -10,4 +11,6 @@ extern class NiagaraScriptDataInterfaceInfo {
 	public var Type: NiagaraTypeDefinition;
 	public var RegisteredParameterMapRead: FName;
 	public var RegisteredParameterMapWrite: FName;
+
+	@:native("FNiagaraScriptDataInterfaceInfo") public function new();
 }

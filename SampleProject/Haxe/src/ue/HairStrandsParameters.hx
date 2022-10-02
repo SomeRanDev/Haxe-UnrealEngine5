@@ -3,10 +3,14 @@ package ue;
 
 @:native("FHairStrandsParameters")
 @:include("GroomAssetPhysics.h")
+@:structAccess
 extern class HairStrandsParameters {
 	public var StrandsSize: EGroomStrandsSize;
 	public var StrandsDensity: cpp.Float32;
 	public var StrandsSmoothing: cpp.Float32;
 	public var StrandsThickness: cpp.Float32;
 	public var ThicknessScale: RuntimeFloatCurve;
+
+	@:native("FHairStrandsParameters") public function new();
+	@:native("FHairStrandsParameters") public static function make(StrandsSize: EGroomStrandsSize, StrandsDensity: cpp.Float32, StrandsSmoothing: cpp.Float32, StrandsThickness: cpp.Float32, ThicknessScale: RuntimeFloatCurve): HairStrandsParameters ;
 }

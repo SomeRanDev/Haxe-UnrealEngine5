@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEQSRenderingComponent")
 @:include("EnvironmentQuery/EQSRenderingComponent.h")
+@:structAccess
 extern class EQSRenderingComp extends DebugDrawComp {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UProperty")
+@:structAccess
 extern class Property extends Field {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

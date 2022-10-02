@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULightComponentBase")
 @:include("Components/LightComponentBase.h")
+@:structAccess
 extern class LightComponentBase extends SceneComp {
 	public var LightGuid: Guid;
 	public var Brightness_DEPRECATED: cpp.Float32;
@@ -38,6 +39,8 @@ extern class LightComponentBase extends SceneComp {
 	public function SetAffectReflection(bNewValue: Bool): Void;
 	public function SetAffectGlobalIllumination(bNewValue: Bool): Void;
 	public function GetLightColor(): cpp.Reference<LinearColor>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetLightColor)

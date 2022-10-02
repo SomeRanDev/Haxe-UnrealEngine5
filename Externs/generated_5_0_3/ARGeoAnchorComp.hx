@@ -3,6 +3,7 @@ package ue;
 
 @:native("UARGeoAnchorComponent")
 @:include("ARComponent.h")
+@:structAccess
 extern class ARGeoAnchorComp extends ARComp {
 	public var ReplicatedPayload: ARGeoAnchorUpdatePayload;
 
@@ -10,6 +11,8 @@ extern class ARGeoAnchorComp extends ARComp {
 	public function ServerUpdatePayload(NewPayload: cpp.Reference<ARGeoAnchorUpdatePayload>): Void;
 	public function ReceiveUpdate(Payload: cpp.Reference<ARGeoAnchorUpdatePayload>): Void;
 	public function ReceiveAdd(Payload: cpp.Reference<ARGeoAnchorUpdatePayload>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

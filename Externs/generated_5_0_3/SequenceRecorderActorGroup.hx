@@ -3,6 +3,7 @@ package ue;
 
 @:native("USequenceRecorderActorGroup")
 @:include("SequenceRecorderActorGroup.h")
+@:structAccess
 extern class SequenceRecorderActorGroup extends Object {
 	public var GroupName: FName;
 	public var SequenceName: FString;
@@ -12,6 +13,8 @@ extern class SequenceRecorderActorGroup extends Object {
 	public var bDuplicateTargetLevelSequence: Bool;
 	public var bRecordTargetLevelSequenceLength: Bool;
 	public var RecordedActors: TArray<cpp.Star<ActorRecording>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

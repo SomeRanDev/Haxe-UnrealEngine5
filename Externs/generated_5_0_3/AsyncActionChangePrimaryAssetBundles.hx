@@ -3,11 +3,14 @@ package ue;
 
 @:native("UAsyncActionChangePrimaryAssetBundles")
 @:include("AsyncActionLoadPrimaryAsset.h")
+@:structAccess
 extern class AsyncActionChangePrimaryAssetBundles extends AsyncActionLoadPrimaryAssetBase {
 	public var Completed: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
 	public function AsyncChangeBundleStateForPrimaryAssetList(WorldContextObject: cpp.Star<Object>, PrimaryAssetList: cpp.Reference<TArray<PrimaryAssetId>>, AddBundles: cpp.Reference<TArray<FName>>, RemoveBundles: cpp.Reference<TArray<FName>>): cpp.Reference<cpp.Star<AsyncActionChangePrimaryAssetBundles>>;
 	public function AsyncChangeBundleStateForMatchingPrimaryAssets(WorldContextObject: cpp.Star<Object>, NewBundles: cpp.Reference<TArray<FName>>, OldBundles: cpp.Reference<TArray<FName>>): cpp.Reference<cpp.Star<AsyncActionChangePrimaryAssetBundles>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

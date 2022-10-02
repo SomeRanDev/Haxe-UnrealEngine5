@@ -3,6 +3,10 @@ package ue;
 
 @:native("FNiagaraSystemCompileRequest")
 @:include("NiagaraSystem.h")
+@:structAccess
 extern class NiagaraSystemCompileRequest {
 	public var RootObjects: TArray<cpp.Star<Object>>;
+
+	@:native("FNiagaraSystemCompileRequest") public function new();
+	@:native("FNiagaraSystemCompileRequest") public static function make(RootObjects: TArray<cpp.Star<Object>>): NiagaraSystemCompileRequest ;
 }

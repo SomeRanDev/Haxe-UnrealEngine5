@@ -3,7 +3,11 @@ package ue;
 
 @:native("FTemplateFolderRename")
 @:include("TemplateProjectDefs.h")
+@:structAccess
 extern class TemplateFolderRename {
 	public var From: FString;
 	public var To: FString;
+
+	@:native("FTemplateFolderRename") public function new();
+	@:native("FTemplateFolderRename") public static function make(From: FString, To: FString): TemplateFolderRename ;
 }

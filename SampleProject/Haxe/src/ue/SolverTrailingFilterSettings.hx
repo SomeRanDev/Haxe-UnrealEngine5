@@ -3,9 +3,13 @@ package ue;
 
 @:native("FSolverTrailingFilterSettings")
 @:include("SolverEventFilters.h")
+@:structAccess
 extern class SolverTrailingFilterSettings {
 	public var FilterEnabled: Bool;
 	public var MinMass: cpp.Float32;
 	public var MinSpeed: cpp.Float32;
 	public var MinVolume: cpp.Float32;
+
+	@:native("FSolverTrailingFilterSettings") public function new();
+	@:native("FSolverTrailingFilterSettings") public static function make(FilterEnabled: Bool, MinMass: cpp.Float32, MinSpeed: cpp.Float32, MinVolume: cpp.Float32): SolverTrailingFilterSettings ;
 }

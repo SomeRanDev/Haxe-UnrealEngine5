@@ -3,6 +3,10 @@ package ue;
 
 @:native("FNDIStaticMeshSectionFilter")
 @:include("Private/DataInterface/NiagaraDataInterfaceStaticMesh.h")
+@:structAccess
 extern class NDIStaticMeshSectionFilter {
 	public var AllowedMaterialSlots: TArray<cpp.Int32>;
+
+	@:native("FNDIStaticMeshSectionFilter") public function new();
+	@:native("FNDIStaticMeshSectionFilter") public static function make(AllowedMaterialSlots: TArray<cpp.Int32>): NDIStaticMeshSectionFilter ;
 }

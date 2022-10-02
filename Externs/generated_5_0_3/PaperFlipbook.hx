@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPaperFlipbook")
 @:include("PaperFlipbook.h")
+@:structAccess
 extern class PaperFlipbook extends Object {
 	public var FramesPerSecond: cpp.Float32;
 	public var KeyFrames: TArray<PaperFlipbookKeyFrame>;
@@ -16,6 +17,8 @@ extern class PaperFlipbook extends Object {
 	public function GetNumKeyFrames(): cpp.Reference<cpp.Int32>;
 	public function GetNumFrames(): cpp.Reference<cpp.Int32>;
 	public function GetKeyFrameIndexAtTime(Time: cpp.Float32, bClampToEnds: Bool): cpp.Reference<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsValidKeyFrameIndex, GetTotalDuration, GetSpriteAtTime, GetSpriteAtFrame, GetNumKeyFrames, GetNumFrames, GetKeyFrameIndexAtTime)

@@ -3,8 +3,11 @@ package ue;
 
 @:native("USlateSettings")
 @:include("SlateSettings.h")
+@:structAccess
 extern class SlateSettings extends Object {
 	public var bExplicitCanvasChildZOrder: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

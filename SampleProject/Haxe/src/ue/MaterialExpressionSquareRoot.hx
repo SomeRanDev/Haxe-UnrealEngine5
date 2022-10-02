@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionSquareRoot")
 @:include("Materials/MaterialExpressionSquareRoot.h")
+@:structAccess
 extern class MaterialExpressionSquareRoot extends MaterialExpression {
 	public var Input: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UStabilizeLocalizationKeysCommandlet")
 @:include("Commandlets/StabilizeLocalizationKeys.h")
+@:structAccess
 extern class StabilizeLocalizationKeysCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

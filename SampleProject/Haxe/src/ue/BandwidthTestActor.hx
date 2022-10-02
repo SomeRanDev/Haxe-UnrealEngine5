@@ -3,8 +3,11 @@ package ue;
 
 @:native("ABandwidthTestActor")
 @:include("Net/BandwidthTestActor.h")
+@:structAccess
 extern class BandwidthTestActor extends Actor {
 	public var BandwidthGenerator: BandwidthTestGenerator;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

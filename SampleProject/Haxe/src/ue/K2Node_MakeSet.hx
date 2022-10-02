@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_MakeSet")
 @:include("K2Node_MakeSet.h")
+@:structAccess
 extern class K2Node_MakeSet extends K2Node_MakeContainer {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

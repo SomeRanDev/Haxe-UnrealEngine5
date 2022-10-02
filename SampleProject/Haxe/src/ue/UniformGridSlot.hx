@@ -3,6 +3,7 @@ package ue;
 
 @:native("UUniformGridSlot")
 @:include("Components/UniformGridSlot.h")
+@:structAccess
 extern class UniformGridSlot extends PanelSlot {
 	public var HorizontalAlignment: EHorizontalAlignment;
 	public var VerticalAlignment: EVerticalAlignment;
@@ -13,6 +14,8 @@ extern class UniformGridSlot extends PanelSlot {
 	public function SetRow(InRow: cpp.Int32): Void;
 	public function SetHorizontalAlignment(InHorizontalAlignment: EHorizontalAlignment): Void;
 	public function SetColumn(InColumn: cpp.Int32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEditorValidatorBase")
 @:include("EditorValidatorBase.h")
+@:structAccess
 extern class EditorValidatorBase extends Object {
 	public var bIsEnabled: Bool;
 
@@ -13,6 +14,8 @@ extern class EditorValidatorBase extends Object {
 	public function AssetWarning(InAsset: cpp.Star<Object>, InMessage: cpp.Reference<FText>): Void;
 	public function AssetPasses(InAsset: cpp.Star<Object>): Void;
 	public function AssetFails(InAsset: cpp.Star<Object>, InMessage: cpp.Reference<FText>, ValidationErrors: cpp.Reference<TArray<FText>>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetValidationResult, CanValidateAsset, CanValidate)

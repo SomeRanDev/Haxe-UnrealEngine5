@@ -3,7 +3,10 @@ package ue;
 
 @:native("UWorldPartitionFoliageBuilder")
 @:include("WorldPartition/WorldPartitionFoliageBuilder.h")
+@:structAccess
 extern class WorldPartitionFoliageBuilder extends WorldPartitionBuilder {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,11 +3,14 @@ package ue;
 
 @:native("URigVMCollapseNode")
 @:include("RigVMModel/Nodes/RigVMCollapseNode.h")
+@:structAccess
 extern class RigVMCollapseNode extends RigVMLibraryNode {
 	public var ContainedGraph: cpp.Star<RigVMGraph>;
 	public var NodeCategory: FString;
 	public var NodeKeywords: FString;
 	public var NodeDescription: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

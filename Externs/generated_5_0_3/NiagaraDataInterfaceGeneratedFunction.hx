@@ -3,5 +3,7 @@ package ue;
 
 @:native("FNiagaraDataInterfaceGeneratedFunction")
 @:include("NiagaraShared.h")
+@:structAccess
 extern class NiagaraDataInterfaceGeneratedFunction {
+	@:native("FNiagaraDataInterfaceGeneratedFunction") public function new();
 }

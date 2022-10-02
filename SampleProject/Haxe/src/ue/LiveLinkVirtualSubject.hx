@@ -3,11 +3,14 @@ package ue;
 
 @:native("ULiveLinkVirtualSubject")
 @:include("LiveLinkVirtualSubject.h")
+@:structAccess
 extern class LiveLinkVirtualSubject extends Object {
 	public var Role: TSubclassOf<LiveLinkRole>;
 	public var Subjects: TArray<LiveLinkSubjectName>;
 	public var FrameTranslators: TArray<cpp.Star<LiveLinkFrameTranslator>>;
 	public var bRebroadcastSubject: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

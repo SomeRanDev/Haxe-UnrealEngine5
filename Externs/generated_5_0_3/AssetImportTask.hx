@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAssetImportTask")
 @:include("AssetImportTask.h")
+@:structAccess
 extern class AssetImportTask extends Object {
 	public var Filename: FString;
 	public var DestinationPath: FString;
@@ -15,6 +16,8 @@ extern class AssetImportTask extends Object {
 	public var Options: cpp.Star<Object>;
 	public var ImportedObjectPaths: TArray<FString>;
 	public var Result: TArray<cpp.Star<Object>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

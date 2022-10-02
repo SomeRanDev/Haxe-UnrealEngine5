@@ -3,6 +3,7 @@ package ue;
 
 @:native("UUpgradeNiagaraScriptResults")
 @:include("UpgradeNiagaraScriptResults.h")
+@:structAccess
 extern class UpgradeNiagaraScriptResults extends Object {
 	public var bCancelledByPythonError: Bool;
 	public var OldInputs: TArray<cpp.Star<NiagaraPythonScriptModuleInput>>;
@@ -19,6 +20,8 @@ extern class UpgradeNiagaraScriptResults extends Object {
 	public function SetColorInput(InputName: FString, Value: LinearColor): Void;
 	public function SetBoolInput(InputName: FString, Value: Bool): Void;
 	public function GetOldInput(InputName: FString): cpp.Reference<cpp.Star<NiagaraPythonScriptModuleInput>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

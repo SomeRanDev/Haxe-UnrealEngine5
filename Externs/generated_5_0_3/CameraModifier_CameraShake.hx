@@ -3,10 +3,13 @@ package ue;
 
 @:native("UCameraModifier_CameraShake")
 @:include("Camera/CameraModifier_CameraShake.h")
+@:structAccess
 extern class CameraModifier_CameraShake extends CameraModifier {
 	public var ActiveShakes: TArray<ActiveCameraShakeInfo>;
 	public var ExpiredPooledShakesMap: TMap<TSubclassOf<CameraShakeBase>, PooledCameraShakes>;
 	public var SplitScreenShakeScale: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

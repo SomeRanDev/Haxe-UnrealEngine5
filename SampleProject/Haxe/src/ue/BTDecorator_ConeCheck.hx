@@ -3,11 +3,14 @@ package ue;
 
 @:native("UBTDecorator_ConeCheck")
 @:include("BehaviorTree/Decorators/BTDecorator_ConeCheck.h")
+@:structAccess
 extern class BTDecorator_ConeCheck extends BTDecorator {
 	public var ConeHalfAngle: cpp.Float32;
 	public var ConeOrigin: BlackboardKeySelector;
 	public var ConeDirection: BlackboardKeySelector;
 	public var Observed: BlackboardKeySelector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

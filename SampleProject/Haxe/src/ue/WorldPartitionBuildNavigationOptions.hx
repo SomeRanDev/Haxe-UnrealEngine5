@@ -3,9 +3,12 @@ package ue;
 
 @:native("UWorldPartitionBuildNavigationOptions")
 @:include("WorldPartition/WorldPartitionBuildNavigationOptions.h")
+@:structAccess
 extern class WorldPartitionBuildNavigationOptions extends Object {
 	public var bVerbose: Bool;
 	public var bCleanPackages: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

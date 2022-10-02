@@ -3,6 +3,7 @@ package ue;
 
 @:native("FInAppPurchaseProductInfo")
 @:include("Interfaces/OnlineStoreInterface.h")
+@:structAccess
 extern class InAppPurchaseProductInfo {
 	public var Identifier: FString;
 	public var TransactionIdentifier: FString;
@@ -15,4 +16,6 @@ extern class InAppPurchaseProductInfo {
 	public var DecimalSeparator: FString;
 	public var GroupingSeparator: FString;
 	public var ReceiptData: FString;
+
+	@:native("FInAppPurchaseProductInfo") public function new();
 }

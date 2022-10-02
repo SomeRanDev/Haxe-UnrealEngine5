@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULevelEditorPlaySettings")
 @:include("Settings/LevelEditorPlaySettings.h")
+@:structAccess
 extern class LevelEditorPlaySettings extends Object {
 	public var PlayFromHerePlayerStartClassName: FString;
 	public var GameGetsMouseControl: Bool;
@@ -68,6 +69,8 @@ extern class LevelEditorPlaySettings extends Object {
 	public var PIESafeZoneOverride: Margin;
 	public var CustomUnsafeZoneStarts: TArray<Vector2D>;
 	public var CustomUnsafeZoneDimensions: TArray<Vector2D>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

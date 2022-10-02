@@ -3,7 +3,11 @@ package ue;
 
 @:native("FNiagaraPositionSource")
 @:include("NiagaraParameterStore.h")
+@:structAccess
 extern class NiagaraPositionSource {
 	public var Name: FName;
 	public var Value: Vector;
+
+	@:native("FNiagaraPositionSource") public function new();
+	@:native("FNiagaraPositionSource") public static function make(Name: FName, Value: Vector): NiagaraPositionSource ;
 }

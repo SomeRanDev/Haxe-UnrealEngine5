@@ -3,6 +3,7 @@ package ue;
 
 @:native("AWorldSettings")
 @:include("GameFramework/WorldSettings.h")
+@:structAccess
 extern class WorldSettings extends Info {
 	public var VisibilityCellSize: cpp.Int32;
 	public var VisibilityAggressiveness: EVisibilityAggressiveness;
@@ -77,6 +78,8 @@ extern class WorldSettings extends Info {
 	public var bEnableHierarchicalLODSystem_DEPRECATED: Bool;
 
 	public function OnRep_WorldGravityZ(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

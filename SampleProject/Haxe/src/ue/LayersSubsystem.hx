@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULayersSubsystem")
 @:include("Layers/LayersSubsystem.h")
+@:structAccess
 extern class LayersSubsystem extends EditorSubsystem {
 	public function UpdateAllViewVisibility(LayerThatChanged: cpp.Reference<FName>): Void;
 	public function UpdateAllActorsVisibility(bNotifySelectionChange: Bool, bRedrawViewports: Bool): cpp.Reference<Bool>;
@@ -50,6 +51,8 @@ extern class LayersSubsystem extends EditorSubsystem {
 	public function AddActorToLayer(Actor: cpp.Star<Actor>, LayerName: cpp.Reference<FName>): cpp.Reference<Bool>;
 	public function AddActorsToLayers(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>, LayerNames: cpp.Reference<TArray<FName>>): cpp.Reference<Bool>;
 	public function AddActorsToLayer(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>, LayerName: cpp.Reference<FName>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetWorld, GetSelectedActors, GetLayer, GetActorsFromLayers, GetActorsFromLayer, AppendActorsFromLayers, AppendActorsFromLayer, AddAllLayersTo, AddAllLayerNamesTo)

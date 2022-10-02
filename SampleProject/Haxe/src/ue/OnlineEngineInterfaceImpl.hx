@@ -3,10 +3,13 @@ package ue;
 
 @:native("UOnlineEngineInterfaceImpl")
 @:include("OnlineEngineInterfaceImpl.h")
+@:structAccess
 extern class OnlineEngineInterfaceImpl extends OnlineEngineInterface {
 	public var MappedUniqueNetIdTypes: TMap<FName, FName>;
 	public var CompatibleUniqueNetIdTypes: TArray<FName>;
 	public var VoiceSubsystemNameOverride: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

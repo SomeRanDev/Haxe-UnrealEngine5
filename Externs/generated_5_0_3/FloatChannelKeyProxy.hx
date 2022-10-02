@@ -3,9 +3,12 @@ package ue;
 
 @:native("UFloatChannelKeyProxy")
 @:include("Channels/FloatChannelKeyProxy.h")
+@:structAccess
 extern class FloatChannelKeyProxy extends Object {
 	public var Time: FrameNumber;
 	public var Value: MovieSceneFloatValue;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

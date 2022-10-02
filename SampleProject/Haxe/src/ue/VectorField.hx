@@ -3,9 +3,12 @@ package ue;
 
 @:native("UVectorField")
 @:include("VectorField/VectorField.h")
+@:structAccess
 extern class VectorField extends Object {
 	public var Bounds: Box;
 	public var Intensity: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

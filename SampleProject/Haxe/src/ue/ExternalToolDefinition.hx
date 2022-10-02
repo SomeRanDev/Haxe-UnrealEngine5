@@ -3,6 +3,7 @@ package ue;
 
 @:native("FExternalToolDefinition")
 @:include("Tests/AutomationTestSettings.h")
+@:structAccess
 extern class ExternalToolDefinition {
 	public var ToolName: FString;
 	public var ExecutablePath: FilePath;
@@ -10,4 +11,6 @@ extern class ExternalToolDefinition {
 	public var WorkingDirectory: DirectoryPath;
 	public var ScriptExtension: FString;
 	public var ScriptDirectory: DirectoryPath;
+
+	@:native("FExternalToolDefinition") public function new();
 }

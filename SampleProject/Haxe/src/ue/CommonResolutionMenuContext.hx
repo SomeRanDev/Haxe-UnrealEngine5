@@ -3,7 +3,10 @@ package ue;
 
 @:native("UCommonResolutionMenuContext")
 @:include("Settings/LevelEditorPlaySettings.h")
+@:structAccess
 extern class CommonResolutionMenuContext extends ToolMenuContextBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

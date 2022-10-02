@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraComponent")
 @:include("NiagaraComponent.h")
+@:structAccess
 extern class NiagaraComp extends FXSystemComp {
 	public var Asset: cpp.Star<NiagaraSystem>;
 	public var TickBehavior: ENiagaraTickBehavior;
@@ -103,6 +104,8 @@ extern class NiagaraComp extends FXSystemComp {
 	public function ClearEmitterFixedBounds(EmitterName: FName): Void;
 	public function AdvanceSimulationByTime(SimulateTime: cpp.Float32, TickDeltaSeconds: cpp.Float32): Void;
 	public function AdvanceSimulation(TickCount: cpp.Int32, TickDeltaSeconds: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

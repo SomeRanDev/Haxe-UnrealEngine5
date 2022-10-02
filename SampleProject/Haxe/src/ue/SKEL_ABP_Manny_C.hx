@@ -2,6 +2,7 @@
 package ue;
 
 @:native("USKEL_ABP_Manny_C")
+@:structAccess
 extern class SKEL_ABP_Manny_C extends AnimInstance {
 	public var UberGraphFrame: PointerToUberGraphFrame;
 	public var __CustomProperty_ShouldDoIKTrace_385011E94C94F6DE70691192D3E0622C: Bool;
@@ -15,6 +16,8 @@ extern class SKEL_ABP_Manny_C extends AnimInstance {
 	public function BlueprintUpdateAnimation(DeltaTimeX: cpp.Float32): Void;
 	public function BlueprintInitializeAnimation(): Void;
 	public function AnimGraph(AnimGraph: cpp.Reference<PoseLink>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

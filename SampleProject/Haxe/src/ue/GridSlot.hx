@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGridSlot")
 @:include("Components/GridSlot.h")
+@:structAccess
 extern class GridSlot extends PanelSlot {
 	public var Padding: Margin;
 	public var HorizontalAlignment: EHorizontalAlignment;
@@ -23,6 +24,8 @@ extern class GridSlot extends PanelSlot {
 	public function SetHorizontalAlignment(InHorizontalAlignment: EHorizontalAlignment): Void;
 	public function SetColumnSpan(InColumnSpan: cpp.Int32): Void;
 	public function SetColumn(InColumn: cpp.Int32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

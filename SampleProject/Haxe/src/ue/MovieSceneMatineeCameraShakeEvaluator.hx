@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMovieSceneMatineeCameraShakeEvaluator")
 @:include("MatineeCameraShake.h")
+@:structAccess
 extern class MovieSceneMatineeCameraShakeEvaluator extends MovieSceneCameraShakeEvaluator {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UEdMode")
 @:include("Tools/UEdMode.h")
+@:structAccess
 extern class EdMode extends Object {
 	public var ModeToolsContext: cpp.Star<EdModeInteractiveToolsContext>;
 	public var SettingsClass: TSoftClassPtr<Class>;
 	public var SettingsObject: cpp.Star<Object>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

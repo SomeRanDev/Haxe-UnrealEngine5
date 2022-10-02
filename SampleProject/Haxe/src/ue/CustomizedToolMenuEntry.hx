@@ -3,6 +3,10 @@ package ue;
 
 @:native("FCustomizedToolMenuEntry")
 @:include("Framework/MultiBox/ToolMenuBase.h")
+@:structAccess
 extern class CustomizedToolMenuEntry {
 	public var Visibility: ECustomizedToolMenuVisibility;
+
+	@:native("FCustomizedToolMenuEntry") public function new();
+	@:native("FCustomizedToolMenuEntry") public static function make(Visibility: ECustomizedToolMenuVisibility): CustomizedToolMenuEntry ;
 }

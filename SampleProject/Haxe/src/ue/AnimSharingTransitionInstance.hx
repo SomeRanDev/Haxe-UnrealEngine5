@@ -3,11 +3,14 @@ package ue;
 
 @:native("UAnimSharingTransitionInstance")
 @:include("AnimationSharingInstances.h")
+@:structAccess
 extern class AnimSharingTransitionInstance extends AnimInstance {
 	public var FromComponent: TWeakObjectPtr<SkeletalMeshComp>;
 	public var ToComponent: TWeakObjectPtr<SkeletalMeshComp>;
 	public var BlendTime: cpp.Float32;
 	public var bBlendBool: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

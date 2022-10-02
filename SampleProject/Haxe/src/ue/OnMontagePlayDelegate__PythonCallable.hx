@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnMontagePlayDelegate__PythonCallable")
+@:structAccess
 extern class OnMontagePlayDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

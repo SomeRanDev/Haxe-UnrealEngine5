@@ -10,16 +10,21 @@ public class HaxeProject : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
+		bUseRTTI = true;
+
 		// ========================================================================================
 		// * INCLUDE PATHS
 		// ========================================================================================
 		Console.WriteLine(ModuleDirectory);
 		PublicIncludePaths.AddRange(new string[] {
 			System.IO.Path.GetFullPath(
-				System.IO.Path.Combine(ModuleDirectory, "../../Haxe/hxcpp-Unreal/include")
+				System.IO.Path.Combine(ModuleDirectory, "../../Haxe/hxcpp-include")
 			),
 			System.IO.Path.GetFullPath(
 				System.IO.Path.Combine(ModuleDirectory, "HaxeOutput/include")
+			),
+			System.IO.Path.GetFullPath(
+				System.IO.Path.Combine(ModuleDirectory, "HaxeOutput")
 			)
 		});
 
@@ -39,7 +44,7 @@ public class HaxeProject : ModuleRules
 		// * DEFINITIONS
 		// ========================================================================================
 		PublicDefinitions.AddRange(new string[] {
-			"HXCPP_API_LEVEL",
+			"HXCPP_API_LEVEL=430",
 			"HX_WINDOWS",
 			"HXCPP_M64",
 			"HXCPP_VISIT_ALLOCS",
@@ -56,5 +61,12 @@ public class HaxeProject : ModuleRules
 		// PrivateDependencyModuleNames.Add("OnlineSubsystem");
 
 		// To include OnlineSubsystemSteam, add it to the plugins section in your uproject file with the Enabled attribute set to true
+		PublicAdditionalLibraries.AddRange(
+			new string[]
+			{
+				Path.Combine(ModuleDirectory, "../../HaxePlugin/Haxe/bin/liboutput.lib"),
+			}
+			);
+
 	}
 }

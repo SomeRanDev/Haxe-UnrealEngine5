@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimGraphNode_PoseDriver")
 @:include("AnimGraphNode_PoseDriver.h")
+@:structAccess
 extern class AnimGraphNode_PoseDriver extends AnimGraphNode_PoseHandler {
 	public var Node: AnimNode_PoseDriver;
 	public var AxisLength: cpp.Float32;
@@ -23,6 +24,8 @@ extern class AnimGraphNode_PoseDriver extends AnimGraphNode_PoseHandler {
 	public function GetOnlyDriveSelectedBones(): cpp.Reference<Bool>;
 	public function GetDrivingBoneNames(BoneNames: cpp.Reference<TArray<FName>>): Void;
 	public function CopyTargetsFromPoseAsset(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UToolMenu")
 @:include("ToolMenu.h")
+@:structAccess
 extern class ToolMenu extends ToolMenuBase {
 	public var MenuName: FName;
 	public var MenuParent: FName;
@@ -28,6 +29,8 @@ extern class ToolMenu extends ToolMenuBase {
 	public function AddMenuEntryObject(InObject: cpp.Star<ToolMenuEntryScript>): Void;
 	public function AddMenuEntry(SectionName: FName, Args: cpp.Reference<ToolMenuEntry>): Void;
 	public function AddDynamicSectionScript(SectionName: FName, Object: cpp.Star<ToolMenuSectionDynamic>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

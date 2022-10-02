@@ -3,6 +3,10 @@ package ue;
 
 @:native("FNiagaraScriptVariableBinding")
 @:include("NiagaraCommon.h")
+@:structAccess
 extern class NiagaraScriptVariableBinding {
 	public var Name: FName;
+
+	@:native("FNiagaraScriptVariableBinding") public function new();
+	@:native("FNiagaraScriptVariableBinding") public static function make(Name: FName): NiagaraScriptVariableBinding ;
 }

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UUserWidgetBlueprint")
 @:include("Blueprint/UserWidgetBlueprint.h")
+@:structAccess
 extern class UserWidgetBlueprint extends Blueprint {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

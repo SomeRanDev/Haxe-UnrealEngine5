@@ -3,7 +3,11 @@ package ue;
 
 @:native("FDialogueWaveParameter")
 @:include("Sound/DialogueTypes.h")
+@:structAccess
 extern class DialogueWaveParameter {
 	public var DialogueWave: cpp.Star<DialogueWave>;
 	public var Context: DialogueContext;
+
+	@:native("FDialogueWaveParameter") public function new();
+	@:native("FDialogueWaveParameter") public static function make(DialogueWave: cpp.Star<DialogueWave>, Context: DialogueContext): DialogueWaveParameter ;
 }

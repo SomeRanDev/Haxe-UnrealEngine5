@@ -3,12 +3,15 @@ package ue;
 
 @:native("UUMGSequencePlayer")
 @:include("Animation/UMGSequencePlayer.h")
+@:structAccess
 extern class UMGSequencePlayer extends Object {
 	public var Animation: cpp.Star<WidgetAnimation>;
 	public var RootTemplateInstance: MovieSceneRootEvaluationTemplateInstance;
 
 	public function SetUserTag(InUserTag: FName): Void;
 	public function GetUserTag(): cpp.Reference<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetUserTag)

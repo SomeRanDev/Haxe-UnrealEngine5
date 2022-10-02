@@ -3,6 +3,10 @@ package ue;
 
 @:native("FActorSequenceObjectReferences")
 @:include("ActorSequenceObjectReference.h")
+@:structAccess
 extern class ActorSequenceObjectReferences {
 	public var Array: TArray<ActorSequenceObjectReference>;
+
+	@:native("FActorSequenceObjectReferences") public function new();
+	@:native("FActorSequenceObjectReferences") public static function make(Array: TArray<ActorSequenceObjectReference>): ActorSequenceObjectReferences ;
 }

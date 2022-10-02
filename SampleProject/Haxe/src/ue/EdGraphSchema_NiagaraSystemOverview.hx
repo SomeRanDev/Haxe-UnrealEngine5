@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEdGraphSchema_NiagaraSystemOverview")
 @:include("EdGraphSchema_NiagaraSystemOverview.h")
+@:structAccess
 extern class EdGraphSchema_NiagaraSystemOverview extends EdGraphSchema {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

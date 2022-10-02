@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraMeshRendererProperties")
 @:include("NiagaraMeshRendererProperties.h")
+@:structAccess
 extern class NiagaraMeshRendererProperties extends NiagaraRendererProperties {
 	public var Meshes: TArray<NiagaraMeshRendererMeshProperties>;
 	public var SourceMode: ENiagaraRendererSourceDataMode;
@@ -52,6 +53,8 @@ extern class NiagaraMeshRendererProperties extends NiagaraRendererProperties {
 	public var ParticleMesh_DEPRECATED: cpp.Star<StaticMesh>;
 	public var PivotOffset_DEPRECATED: Vector;
 	public var PivotOffsetSpace_DEPRECATED: ENiagaraMeshPivotOffsetSpace;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

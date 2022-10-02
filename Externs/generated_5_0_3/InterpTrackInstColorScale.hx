@@ -3,7 +3,10 @@ package ue;
 
 @:native("UInterpTrackInstColorScale")
 @:include("Matinee/InterpTrackInstColorScale.h")
+@:structAccess
 extern class InterpTrackInstColorScale extends InterpTrackInst {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

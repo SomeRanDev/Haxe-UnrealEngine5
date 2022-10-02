@@ -3,10 +3,14 @@ package ue;
 
 @:native("FTemplateCategoryDef")
 @:include("TemplateProjectDefs.h")
+@:structAccess
 extern class TemplateCategoryDef {
 	public var Key: FName;
 	public var LocalizedDisplayNames: TArray<LocalizedTemplateString>;
 	public var LocalizedDescriptions: TArray<LocalizedTemplateString>;
 	public var Icon: FString;
 	public var IsMajorCategory: Bool;
+
+	@:native("FTemplateCategoryDef") public function new();
+	@:native("FTemplateCategoryDef") public static function make(Key: FName, LocalizedDisplayNames: TArray<LocalizedTemplateString>, LocalizedDescriptions: TArray<LocalizedTemplateString>, Icon: FString, IsMajorCategory: Bool): TemplateCategoryDef ;
 }

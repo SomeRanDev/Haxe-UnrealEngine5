@@ -3,8 +3,11 @@ package ue;
 
 @:native("UParticleModuleVectorFieldRotationRate")
 @:include("Particles/VectorField/ParticleModuleVectorFieldRotationRate.h")
+@:structAccess
 extern class ParticleModuleVectorFieldRotationRate extends ParticleModuleVectorFieldBase {
 	public var RotationRate: Vector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

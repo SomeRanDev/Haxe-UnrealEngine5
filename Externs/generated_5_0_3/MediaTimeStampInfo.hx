@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMediaTimeStampInfo")
 @:include("MediaPlayer.h")
+@:structAccess
 extern class MediaTimeStampInfo extends Object {
 	public var Time: Timespan;
 	public var SequenceIndex: cpp.Int64;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

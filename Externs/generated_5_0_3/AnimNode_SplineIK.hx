@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_SplineIK")
 @:include("BoneControllers/AnimNode_SplineIK.h")
+@:structAccess
 extern class AnimNode_SplineIK extends AnimNode_SkeletalControlBase {
 	public var StartBone: BoneReference;
 	public var EndBone: BoneReference;
@@ -16,4 +17,6 @@ extern class AnimNode_SplineIK extends AnimNode_SkeletalControlBase {
 	public var TwistBlend: AlphaBlend;
 	public var Stretch: cpp.Float32;
 	public var Offset: cpp.Float32;
+
+	@:native("FAnimNode_SplineIK") public function new();
 }

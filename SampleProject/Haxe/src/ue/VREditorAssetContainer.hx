@@ -3,6 +3,7 @@ package ue;
 
 @:native("UVREditorAssetContainer")
 @:include("VREditorAssetContainer.h")
+@:structAccess
 extern class VREditorAssetContainer extends DataAsset {
 	public var DockableWindowCloseSound: cpp.Star<SoundBase>;
 	public var DockableWindowOpenSound: cpp.Star<SoundBase>;
@@ -47,6 +48,8 @@ extern class VREditorAssetContainer extends DataAsset {
 	public var LineMaterial: cpp.Star<Material>;
 	public var TranslucentTextMaterial: cpp.Star<MaterialInterface>;
 	public var TextFont: cpp.Star<Font>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

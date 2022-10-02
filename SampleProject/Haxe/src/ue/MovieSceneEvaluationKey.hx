@@ -3,8 +3,12 @@ package ue;
 
 @:native("FMovieSceneEvaluationKey")
 @:include("Evaluation/MovieSceneEvaluationKey.h")
+@:structAccess
 extern class MovieSceneEvaluationKey {
 	public var SequenceID: MovieSceneSequenceID;
 	public var TrackIdentifier: MovieSceneTrackIdentifier;
 	public var SectionIndex: cpp.UInt32;
+
+	@:native("FMovieSceneEvaluationKey") public function new();
+	@:native("FMovieSceneEvaluationKey") public static function make(SequenceID: MovieSceneSequenceID, TrackIdentifier: MovieSceneTrackIdentifier, SectionIndex: cpp.UInt32): MovieSceneEvaluationKey ;
 }

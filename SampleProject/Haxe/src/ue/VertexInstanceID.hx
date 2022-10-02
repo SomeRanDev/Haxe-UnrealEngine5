@@ -3,5 +3,7 @@ package ue;
 
 @:native("FVertexInstanceID")
 @:include("MeshTypes.h")
+@:structAccess
 extern class VertexInstanceID extends ElementID {
+	@:native("FVertexInstanceID") public function new();
 }

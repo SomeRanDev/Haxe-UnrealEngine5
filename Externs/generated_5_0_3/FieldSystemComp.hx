@@ -3,6 +3,7 @@ package ue;
 
 @:native("UFieldSystemComponent")
 @:include("Field/FieldSystemComponent.h")
+@:structAccess
 extern class FieldSystemComp extends PrimitiveComp {
 	public var FieldSystem: cpp.Star<FieldSystem>;
 	public var bIsWorldField: Bool;
@@ -22,6 +23,8 @@ extern class FieldSystemComp extends PrimitiveComp {
 	public function ApplyLinearForce(Enabled: Bool, Direction: Vector, Magnitude: cpp.Float32): Void;
 	public function AddPersistentField(Enabled: Bool, Target: EFieldPhysicsType, MetaData: cpp.Star<FieldSystemMetaData>, Field: cpp.Star<FieldNodeBase>): Void;
 	public function AddFieldCommand(Enabled: Bool, Target: EFieldPhysicsType, MetaData: cpp.Star<FieldSystemMetaData>, Field: cpp.Star<FieldNodeBase>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

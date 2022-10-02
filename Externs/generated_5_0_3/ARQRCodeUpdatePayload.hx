@@ -3,9 +3,13 @@ package ue;
 
 @:native("FARQRCodeUpdatePayload")
 @:include("ARComponent.h")
+@:structAccess
 extern class ARQRCodeUpdatePayload {
 	public var SessionPayload: ARSessionPayload;
 	public var WorldTransform: Transform;
 	public var Extents: Vector;
 	public var QRCode: FString;
+
+	@:native("FARQRCodeUpdatePayload") public function new();
+	@:native("FARQRCodeUpdatePayload") public static function make(SessionPayload: ARSessionPayload, WorldTransform: Transform, Extents: Vector, QRCode: FString): ARQRCodeUpdatePayload ;
 }

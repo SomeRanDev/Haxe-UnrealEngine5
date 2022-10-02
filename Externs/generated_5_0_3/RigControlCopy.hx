@@ -3,6 +3,7 @@ package ue;
 
 @:native("FRigControlCopy")
 @:include("Tools/ControlRigPose.h")
+@:structAccess
 extern class RigControlCopy {
 	public var Name: FName;
 	public var ControlType: ERigControlType;
@@ -12,4 +13,6 @@ extern class RigControlCopy {
 	public var ParentTransform: Transform;
 	public var LocalTransform: Transform;
 	public var GlobalTransform: Transform;
+
+	@:native("FRigControlCopy") public function new();
 }

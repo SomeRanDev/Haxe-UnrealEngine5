@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDataTable")
 @:include("Engine/DataTable.h")
+@:structAccess
 extern class DataTable extends Object {
 	public var RowStruct: cpp.Star<ScriptStruct>;
 	public var bStripFromClientBuilds: Bool;
@@ -14,6 +15,8 @@ extern class DataTable extends Object {
 	public var RowStructName: FName;
 	public var RowsSerializedWithTags: TArray<cpp.UInt8>;
 	public var TemporarilyReferencedObjects: TSet<cpp.Star<Object>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

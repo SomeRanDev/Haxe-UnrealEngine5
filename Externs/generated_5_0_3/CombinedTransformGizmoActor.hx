@@ -3,6 +3,7 @@ package ue;
 
 @:native("ACombinedTransformGizmoActor")
 @:include("BaseGizmos/CombinedTransformGizmo.h")
+@:structAccess
 extern class CombinedTransformGizmoActor extends GizmoActor {
 	public var TranslateX: cpp.Star<PrimitiveComp>;
 	public var TranslateY: cpp.Star<PrimitiveComp>;
@@ -20,6 +21,8 @@ extern class CombinedTransformGizmoActor extends GizmoActor {
 	public var PlaneScaleYZ: cpp.Star<PrimitiveComp>;
 	public var PlaneScaleXZ: cpp.Star<PrimitiveComp>;
 	public var PlaneScaleXY: cpp.Star<PrimitiveComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

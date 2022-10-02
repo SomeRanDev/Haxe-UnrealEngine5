@@ -3,7 +3,11 @@ package ue;
 
 @:native("FBlendSpaceData")
 @:include("Animation/BlendSpace.h")
+@:structAccess
 extern class BlendSpaceData {
 	public var Segments: TArray<BlendSpaceSegment>;
 	public var Triangles: TArray<BlendSpaceTriangle>;
+
+	@:native("FBlendSpaceData") public function new();
+	@:native("FBlendSpaceData") public static function make(Segments: TArray<BlendSpaceSegment>, Triangles: TArray<BlendSpaceTriangle>): BlendSpaceData ;
 }

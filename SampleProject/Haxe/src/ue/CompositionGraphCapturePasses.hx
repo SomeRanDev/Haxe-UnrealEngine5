@@ -3,6 +3,10 @@ package ue;
 
 @:native("FCompositionGraphCapturePasses")
 @:include("Protocols/CompositionGraphCaptureProtocol.h")
+@:structAccess
 extern class CompositionGraphCapturePasses {
 	public var Value: TArray<FString>;
+
+	@:native("FCompositionGraphCapturePasses") public function new();
+	@:native("FCompositionGraphCapturePasses") public static function make(Value: TArray<FString>): CompositionGraphCapturePasses ;
 }

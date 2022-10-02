@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimBlueprintGeneratedClass")
 @:include("Animation/AnimBlueprintGeneratedClass.h")
+@:structAccess
 extern class AnimBlueprintGeneratedClass extends BlueprintGeneratedClass {
 	public var BakedStateMachines: TArray<BakedAnimationStateMachine>;
 	public var TargetSkeleton: cpp.Star<Skeleton>;
@@ -14,6 +15,8 @@ extern class AnimBlueprintGeneratedClass extends BlueprintGeneratedClass {
 	public var GraphBlendOptions: TMap<FName, AnimGraphBlendOptions>;
 	public var AnimNodeData: TArray<AnimNodeData>;
 	public var NodeTypeMap: TMap<cpp.Star<ScriptStruct>, AnimNodeStructData>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

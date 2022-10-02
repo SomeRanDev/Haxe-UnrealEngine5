@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEditorBrushBuilder")
 @:include("Builders/EditorBrushBuilder.h")
+@:structAccess
 extern class EditorBrushBuilder extends BrushBuilder {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

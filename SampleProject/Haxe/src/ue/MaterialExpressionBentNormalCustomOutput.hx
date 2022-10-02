@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionBentNormalCustomOutput")
 @:include("Materials/MaterialExpressionBentNormalCustomOutput.h")
+@:structAccess
 extern class MaterialExpressionBentNormalCustomOutput extends MaterialExpressionCustomOutput {
 	public var Input: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

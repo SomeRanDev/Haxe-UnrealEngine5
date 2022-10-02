@@ -3,10 +3,15 @@ package ue;
 
 @:native("UObject")
 @:include("UObject/Object.h")
+@:structAccess
 extern class Object extends ObjectBaseUtility {
 	public function ExecuteUbergraph(EntryPoint: cpp.Int32): Void;
+	public extern inline overload function CreateDefaultSubobject(SubobjectName: FName, ReturnType: cpp.Star<Class>): cpp.Star<Object> { return CreateDefaultSubobject(SubobjectName, ReturnType, ReturnType, true, false); };
+	public overload function CreateDefaultSubobject(SubobjectName: FName, ReturnType: cpp.Star<Class>, ClassToCreateByDefault: cpp.Star<Class>, bIsRequired: Bool, bIsTransient: Bool): cpp.Star<Object>;
 	public overload function CreateDefaultSubobject<TReturnType>(SubobjectName: FName, bTransient: Bool = false): TReturnType;
 	public overload function CreateDefaultSubobject<TReturnType, TClassToConstructByDefault>(SubobjectName: FName, bTransient: Bool = false): TReturnType;
+	public function PostLoad(): Void;
+
 	public static function StaticClass(): cpp.Star<Class>;
 }
 

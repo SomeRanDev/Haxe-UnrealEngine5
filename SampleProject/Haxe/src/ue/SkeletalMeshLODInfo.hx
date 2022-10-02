@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSkeletalMeshLODInfo")
 @:include("Engine/SkeletalMesh.h")
+@:structAccess
 extern class SkeletalMeshLODInfo {
 	public var ScreenSize: PerPlatformFloat;
 	public var LODHysteresis: cpp.Float32;
@@ -25,4 +26,6 @@ extern class SkeletalMeshLODInfo {
 	public var bAllowCPUAccess: Bool;
 	public var bSupportUniformlyDistributedSampling: Bool;
 	public var bImportWithBaseMesh: Bool;
+
+	@:native("FSkeletalMeshLODInfo") public function new();
 }

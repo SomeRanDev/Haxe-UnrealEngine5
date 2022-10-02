@@ -3,8 +3,11 @@ package ue;
 
 @:native("UTextureLODSettings")
 @:include("Engine/TextureLODSettings.h")
+@:structAccess
 extern class TextureLODSettings extends Object {
 	public var TextureLODGroups: TArray<TextureLODGroup>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

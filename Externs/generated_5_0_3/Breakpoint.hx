@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDEPRECATED_Breakpoint")
 @:include("Engine/Blueprint.h")
+@:structAccess
 extern class Breakpoint extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

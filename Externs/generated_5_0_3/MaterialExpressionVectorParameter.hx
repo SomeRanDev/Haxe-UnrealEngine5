@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionVectorParameter")
 @:include("Materials/MaterialExpressionVectorParameter.h")
+@:structAccess
 extern class MaterialExpressionVectorParameter extends MaterialExpressionParameter {
 	public var DefaultValue: LinearColor;
 	public var bUseCustomPrimitiveData: Bool;
 	public var PrimitiveDataIndex: cpp.UInt8;
 	public var ChannelNames: ParameterChannelNames;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

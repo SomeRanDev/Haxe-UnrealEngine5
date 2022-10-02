@@ -3,6 +3,10 @@ package ue;
 
 @:native("FPoseAssetInfluences")
 @:include("Animation/PoseAsset.h")
+@:structAccess
 extern class PoseAssetInfluences {
 	public var Influences: TArray<PoseAssetInfluence>;
+
+	@:native("FPoseAssetInfluences") public function new();
+	@:native("FPoseAssetInfluences") public static function make(Influences: TArray<PoseAssetInfluence>): PoseAssetInfluences ;
 }

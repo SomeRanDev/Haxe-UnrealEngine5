@@ -3,8 +3,11 @@ package ue;
 
 @:native("UGeometryCacheTrack")
 @:include("GeometryCacheTrack.h")
+@:structAccess
 extern class GeometryCacheTrack extends Object {
 	public var Duration: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

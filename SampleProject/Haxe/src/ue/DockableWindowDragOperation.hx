@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDockableWindowDragOperation")
 @:include("UI/VREditorDockableWindow.h")
+@:structAccess
 extern class DockableWindowDragOperation extends ViewportDragOperation {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

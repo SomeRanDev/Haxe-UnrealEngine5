@@ -3,8 +3,11 @@ package ue;
 
 @:native("UInterpTrackInstBoolProp")
 @:include("Matinee/InterpTrackInstBoolProp.h")
+@:structAccess
 extern class InterpTrackInstBoolProp extends InterpTrackInstProperty {
 	public var ResetBool: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

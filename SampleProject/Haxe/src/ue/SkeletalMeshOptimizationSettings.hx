@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSkeletalMeshOptimizationSettings")
 @:include("SkeletalMeshReductionSettings.h")
+@:structAccess
 extern class SkeletalMeshOptimizationSettings {
 	public var TerminationCriterion: SkeletalMeshTerminationCriterion;
 	public var NumOfTrianglesPercentage: cpp.Float32;
@@ -30,4 +31,6 @@ extern class SkeletalMeshOptimizationSettings {
 	public var BaseLOD: cpp.Int32;
 	public var BonesToRemove_DEPRECATED: TArray<BoneReference>;
 	public var BakePose_DEPRECATED: cpp.Star<AnimSequence>;
+
+	@:native("FSkeletalMeshOptimizationSettings") public function new();
 }

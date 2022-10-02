@@ -3,7 +3,10 @@ package ue;
 
 @:native("UBrushEditingSubsystem")
 @:include("Subsystems/BrushEditingSubsystem.h")
+@:structAccess
 extern class BrushEditingSubsystem extends EditorSubsystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

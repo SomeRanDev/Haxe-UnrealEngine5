@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionStrataHorizontalMixing")
 @:include("Materials/MaterialExpressionStrata.h")
+@:structAccess
 extern class MaterialExpressionStrataHorizontalMixing extends MaterialExpressionStrataBSDF {
 	public var Background: ExpressionInput;
 	public var Foreground: ExpressionInput;
 	public var Mix: ExpressionInput;
 	public var bUseParameterBlending: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSpatialHashRuntimeGrid")
 @:include("WorldPartition/WorldPartitionRuntimeSpatialHash.h")
+@:structAccess
 extern class SpatialHashRuntimeGrid {
 	public var GridName: FName;
 	public var CellSize: cpp.Int32;
@@ -12,4 +13,6 @@ extern class SpatialHashRuntimeGrid {
 	public var DebugColor: LinearColor;
 	public var bClientOnlyVisible: Bool;
 	public var HLODLayer: cpp.Star<HLODLayer>;
+
+	@:native("FSpatialHashRuntimeGrid") public function new();
 }

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UBTDecorator_ConditionalLoop")
 @:include("BehaviorTree/Decorators/BTDecorator_ConditionalLoop.h")
+@:structAccess
 extern class BTDecorator_ConditionalLoop extends BTDecorator_Blackboard {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

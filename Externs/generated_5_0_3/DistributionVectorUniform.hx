@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDistributionVectorUniform")
 @:include("Distributions/DistributionVectorUniform.h")
+@:structAccess
 extern class DistributionVectorUniform extends DistributionVector {
 	public var Max: Vector;
 	public var Min: Vector;
@@ -10,6 +11,8 @@ extern class DistributionVectorUniform extends DistributionVector {
 	public var LockedAxes: EDistributionVectorLockFlags;
 	public var MirrorFlags: EDistributionVectorMirrorFlags;
 	public var bUseExtremes: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

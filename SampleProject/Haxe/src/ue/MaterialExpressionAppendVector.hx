@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionAppendVector")
 @:include("Materials/MaterialExpressionAppendVector.h")
+@:structAccess
 extern class MaterialExpressionAppendVector extends MaterialExpression {
 	public var A: ExpressionInput;
 	public var B: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

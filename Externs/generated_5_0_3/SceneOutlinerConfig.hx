@@ -3,6 +3,10 @@ package ue;
 
 @:native("FSceneOutlinerConfig")
 @:include("Private/SceneOutlinerConfig.h")
+@:structAccess
 extern class SceneOutlinerConfig {
 	public var ColumnVisibilities: TMap<FName, Bool>;
+
+	@:native("FSceneOutlinerConfig") public function new();
+	@:native("FSceneOutlinerConfig") public static function make(ColumnVisibilities: TMap<FName, Bool>): SceneOutlinerConfig ;
 }

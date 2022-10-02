@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionStrataAdd")
 @:include("Materials/MaterialExpressionStrata.h")
+@:structAccess
 extern class MaterialExpressionStrataAdd extends MaterialExpressionStrataBSDF {
 	public var A: ExpressionInput;
 	public var B: ExpressionInput;
 	public var bUseParameterBlending: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

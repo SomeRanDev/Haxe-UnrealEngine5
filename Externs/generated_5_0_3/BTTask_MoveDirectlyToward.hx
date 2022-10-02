@@ -3,10 +3,13 @@ package ue;
 
 @:native("UBTTask_MoveDirectlyToward")
 @:include("BehaviorTree/Tasks/BTTask_MoveDirectlyToward.h")
+@:structAccess
 extern class BTTask_MoveDirectlyToward extends BTTask_MoveTo {
 	public var bDisablePathUpdateOnGoalLocationChange: Bool;
 	public var bProjectVectorGoalToNavigation: Bool;
 	public var bUpdatedDeprecatedProperties: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSpriteGeometryShape")
 @:include("SpriteEditorOnlyTypes.h")
+@:structAccess
 extern class SpriteGeometryShape {
 	public var ShapeType: ESpriteShapeType;
 	public var Vertices: TArray<Vector2D>;
@@ -10,4 +11,6 @@ extern class SpriteGeometryShape {
 	public var BoxPosition: Vector2D;
 	public var Rotation: cpp.Float32;
 	public var bNegativeWinding: Bool;
+
+	@:native("FSpriteGeometryShape") public function new();
 }

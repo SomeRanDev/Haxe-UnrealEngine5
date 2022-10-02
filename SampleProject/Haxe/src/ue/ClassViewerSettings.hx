@@ -3,10 +3,13 @@ package ue;
 
 @:native("UClassViewerSettings")
 @:include("Settings/ClassViewerSettings.h")
+@:structAccess
 extern class ClassViewerSettings extends Object {
 	public var AllowedClasses: TArray<FString>;
 	public var DisplayInternalClasses: Bool;
 	public var DeveloperFolderType: EClassViewerDeveloperType;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

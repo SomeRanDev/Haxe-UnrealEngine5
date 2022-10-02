@@ -3,8 +3,11 @@ package ue;
 
 @:native("USoundConcurrency")
 @:include("Sound/SoundConcurrency.h")
+@:structAccess
 extern class SoundConcurrency extends Object {
 	public var Concurrency: SoundConcurrencySettings;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

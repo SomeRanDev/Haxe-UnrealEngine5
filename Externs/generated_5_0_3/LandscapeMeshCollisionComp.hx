@@ -3,8 +3,11 @@ package ue;
 
 @:native("ULandscapeMeshCollisionComponent")
 @:include("LandscapeMeshCollisionComponent.h")
+@:structAccess
 extern class LandscapeMeshCollisionComp extends LandscapeHeightfieldCollisionComp {
 	public var MeshGuid: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

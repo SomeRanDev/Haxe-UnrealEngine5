@@ -3,8 +3,12 @@ package ue;
 
 @:native("FNiagaraPlatformSet")
 @:include("NiagaraPlatformSet.h")
+@:structAccess
 extern class NiagaraPlatformSet {
 	public var QualityLevelMask: cpp.Int32;
 	public var DeviceProfileStates: TArray<NiagaraDeviceProfileStateEntry>;
 	public var CVarConditions: TArray<NiagaraPlatformSetCVarCondition>;
+
+	@:native("FNiagaraPlatformSet") public function new();
+	@:native("FNiagaraPlatformSet") public static function make(QualityLevelMask: cpp.Int32, DeviceProfileStates: TArray<NiagaraDeviceProfileStateEntry>, CVarConditions: TArray<NiagaraPlatformSetCVarCondition>): NiagaraPlatformSet ;
 }

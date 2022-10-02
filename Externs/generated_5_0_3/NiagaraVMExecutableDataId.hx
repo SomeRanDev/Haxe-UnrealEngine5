@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraVMExecutableDataId")
 @:include("NiagaraScript.h")
+@:structAccess
 extern class NiagaraVMExecutableDataId {
 	public var CompilerVersionID: Guid;
 	public var ScriptUsageType: ENiagaraScriptUsage;
@@ -17,4 +18,6 @@ extern class NiagaraVMExecutableDataId {
 	public var BaseScriptCompileHash: NiagaraCompileHash;
 	public var ReferencedCompileHashes: TArray<NiagaraCompileHash>;
 	public var ScriptVersionID: Guid;
+
+	@:native("FNiagaraVMExecutableDataId") public function new();
 }

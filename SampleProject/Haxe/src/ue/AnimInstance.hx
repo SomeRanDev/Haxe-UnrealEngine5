@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimInstance")
 @:include("Animation/AnimInstance.h")
+@:structAccess
 extern class AnimInstance extends Object {
 	public var CurrentSkeleton: cpp.Star<Skeleton>;
 	public var RootMotionMode: ERootMotionMode;
@@ -120,6 +121,8 @@ extern class AnimInstance extends Object {
 	public function BlueprintLinkedAnimationLayersInitialized(): Void;
 	public function BlueprintInitializeAnimation(): Void;
 	public function BlueprintBeginPlay(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

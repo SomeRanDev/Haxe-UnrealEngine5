@@ -3,6 +3,7 @@ package ue;
 
 @:native("UReverbEffect")
 @:include("Sound/ReverbEffect.h")
+@:structAccess
 extern class ReverbEffect extends Object {
 	public var bBypassEarlyReflections: Bool;
 	public var ReflectionsDelay: cpp.Float32;
@@ -19,6 +20,8 @@ extern class ReverbEffect extends Object {
 	public var Gain: cpp.Float32;
 	public var RoomRolloffFactor: cpp.Float32;
 	public var bChanged: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

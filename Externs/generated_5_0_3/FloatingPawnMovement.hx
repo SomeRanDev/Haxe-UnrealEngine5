@@ -3,12 +3,15 @@ package ue;
 
 @:native("UFloatingPawnMovement")
 @:include("GameFramework/FloatingPawnMovement.h")
+@:structAccess
 extern class FloatingPawnMovement extends PawnMovementComp {
 	public var MaxSpeed: cpp.Float32;
 	public var Acceleration: cpp.Float32;
 	public var Deceleration: cpp.Float32;
 	public var TurningBoost: cpp.Float32;
 	public var bPositionCorrected: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

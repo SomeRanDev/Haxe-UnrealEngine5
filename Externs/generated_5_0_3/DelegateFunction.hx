@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UDelegateFunction")
+@:structAccess
 extern class DelegateFunction extends Function {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

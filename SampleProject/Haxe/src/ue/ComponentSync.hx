@@ -3,7 +3,11 @@ package ue;
 
 @:native("FComponentSync")
 @:include("Components/LODSyncComponent.h")
+@:structAccess
 extern class ComponentSync {
 	public var Name: FName;
 	public var SyncOption: ESyncOption;
+
+	@:native("FComponentSync") public function new();
+	@:native("FComponentSync") public static function make(Name: FName, SyncOption: ESyncOption): ComponentSync ;
 }

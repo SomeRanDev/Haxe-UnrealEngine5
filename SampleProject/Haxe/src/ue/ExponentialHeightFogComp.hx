@@ -3,6 +3,7 @@ package ue;
 
 @:native("UExponentialHeightFogComponent")
 @:include("Components/ExponentialHeightFogComponent.h")
+@:structAccess
 extern class ExponentialHeightFogComp extends SceneComp {
 	public var FogDensity: cpp.Float32;
 	public var FogHeightFalloff: cpp.Float32;
@@ -50,6 +51,8 @@ extern class ExponentialHeightFogComp extends SceneComp {
 	public function SetDirectionalInscatteringStartDistance(Value: cpp.Float32): Void;
 	public function SetDirectionalInscatteringExponent(Value: cpp.Float32): Void;
 	public function SetDirectionalInscatteringColor(Value: LinearColor): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

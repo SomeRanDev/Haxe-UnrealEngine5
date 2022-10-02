@@ -3,11 +3,14 @@ package ue;
 
 @:native("UParticleModuleTypeDataGpu")
 @:include("Particles/TypeData/ParticleModuleTypeDataGpu.h")
+@:structAccess
 extern class ParticleModuleTypeDataGpu extends ParticleModuleTypeDataBase {
 	public var EmitterInfo: GPUSpriteEmitterInfo;
 	public var ResourceData: GPUSpriteResourceData;
 	public var CameraMotionBlurAmount: cpp.Float32;
 	public var bClearExistingParticlesOnInit: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

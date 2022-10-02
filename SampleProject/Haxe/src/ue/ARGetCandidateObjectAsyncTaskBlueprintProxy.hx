@@ -3,11 +3,14 @@ package ue;
 
 @:native("UARGetCandidateObjectAsyncTaskBlueprintProxy")
 @:include("ARBlueprintProxy.h")
+@:structAccess
 extern class ARGetCandidateObjectAsyncTaskBlueprintProxy extends ARBaseAsyncTaskBlueprintProxy {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARCandidateObject>) -> Void>;
 	public var OnFailed: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARCandidateObject>) -> Void>;
 
 	public function ARGetCandidateObject(WorldContextObject: cpp.Star<Object>, Location: Vector, Extent: Vector): cpp.Reference<cpp.Star<ARGetCandidateObjectAsyncTaskBlueprintProxy>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

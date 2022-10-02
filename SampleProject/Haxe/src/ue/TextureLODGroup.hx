@@ -3,6 +3,7 @@ package ue;
 
 @:native("FTextureLODGroup")
 @:include("Engine/TextureLODSettings.h")
+@:structAccess
 extern class TextureLODGroup {
 	public var Group: TextureGroup;
 	public var LODBias: cpp.Int32;
@@ -27,4 +28,6 @@ extern class TextureLODGroup {
 	public var VirtualTextureTileCountBias: cpp.Int32;
 	public var VirtualTextureTileSizeBias: cpp.Int32;
 	public var LossyCompressionAmount: ETextureLossyCompressionAmount;
+
+	@:native("FTextureLODGroup") public function new();
 }

@@ -3,12 +3,15 @@ package ue;
 
 @:native("UEnvQueryTest_GameplayTags")
 @:include("EnvironmentQuery/Tests/EnvQueryTest_GameplayTags.h")
+@:structAccess
 extern class EnvQueryTest_GameplayTags extends EnvQueryTest {
 	public var TagQueryToMatch: GameplayTagQuery;
 	public var bRejectIncompatibleItems: Bool;
 	public var bUpdatedToUseQuery: Bool;
 	public var TagsToMatch: EGameplayContainerMatchType;
 	public var GameplayTags: GameplayTagContainer;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

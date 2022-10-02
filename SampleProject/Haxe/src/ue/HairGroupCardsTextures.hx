@@ -3,6 +3,7 @@ package ue;
 
 @:native("FHairGroupCardsTextures")
 @:include("GroomAssetCards.h")
+@:structAccess
 extern class HairGroupCardsTextures {
 	public var DepthTexture: cpp.Star<Texture2D>;
 	public var CoverageTexture: cpp.Star<Texture2D>;
@@ -10,4 +11,6 @@ extern class HairGroupCardsTextures {
 	public var AttributeTexture: cpp.Star<Texture2D>;
 	public var AuxilaryDataTexture: cpp.Star<Texture2D>;
 	public var MaterialTexture: cpp.Star<Texture2D>;
+
+	@:native("FHairGroupCardsTextures") public function new();
 }

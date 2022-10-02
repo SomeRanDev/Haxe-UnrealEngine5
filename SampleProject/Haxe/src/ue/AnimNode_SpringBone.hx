@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_SpringBone")
 @:include("BoneControllers/AnimNode_SpringBone.h")
+@:structAccess
 extern class AnimNode_SpringBone extends AnimNode_SkeletalControlBase {
 	public var SpringBone: BoneReference;
 	public var MaxDisplacement: cpp.Float32;
@@ -17,4 +18,6 @@ extern class AnimNode_SpringBone extends AnimNode_SkeletalControlBase {
 	public var bRotateX: Bool;
 	public var bRotateY: Bool;
 	public var bRotateZ: Bool;
+
+	@:native("FAnimNode_SpringBone") public function new();
 }

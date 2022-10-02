@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionReflectionCapturePassSwitch")
 @:include("Materials/MaterialExpressionReflectionCapturePassSwitch.h")
+@:structAccess
 extern class MaterialExpressionReflectionCapturePassSwitch extends MaterialExpression {
 	public var Default: ExpressionInput;
 	public var Reflection: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

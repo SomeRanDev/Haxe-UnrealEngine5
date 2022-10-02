@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAudioOutputDeviceInfo")
 @:include("AudioMixerBlueprintLibrary.h")
+@:structAccess
 extern class AudioOutputDeviceInfo {
 	public var Name: FString;
 	public var DeviceId: FString;
@@ -12,4 +13,6 @@ extern class AudioOutputDeviceInfo {
 	public var OutputChannelArray: TArray<EAudioMixerChannelType>;
 	public var bIsSystemDefault: Bool;
 	public var bIsCurrentDevice: Bool;
+
+	@:native("FAudioOutputDeviceInfo") public function new();
 }

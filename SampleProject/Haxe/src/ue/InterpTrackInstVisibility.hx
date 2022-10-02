@@ -3,9 +3,12 @@ package ue;
 
 @:native("UInterpTrackInstVisibility")
 @:include("Matinee/InterpTrackInstVisibility.h")
+@:structAccess
 extern class InterpTrackInstVisibility extends InterpTrackInst {
 	public var Action: EVisibilityTrackAction;
 	public var LastUpdatePosition: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

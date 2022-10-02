@@ -3,11 +3,14 @@ package ue;
 
 @:native("UFileMediaSource")
 @:include("FileMediaSource.h")
+@:structAccess
 extern class FileMediaSource extends BaseMediaSource {
 	public var FilePath: FString;
 	public var PrecacheFile: Bool;
 
 	public function SetFilePath(Path: FString): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

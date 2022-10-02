@@ -3,8 +3,11 @@ package ue;
 
 @:native("UParticleModuleLocationPrimitiveCylinder_Seeded")
 @:include("Particles/Location/ParticleModuleLocationPrimitiveCylinder_Seeded.h")
+@:structAccess
 extern class ParticleModuleLocationPrimitiveCylinder_Seeded extends ParticleModuleLocationPrimitiveCylinder {
 	public var RandomSeedInfo: ParticleRandomSeedInfo;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

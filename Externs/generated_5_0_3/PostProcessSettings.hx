@@ -3,6 +3,7 @@ package ue;
 
 @:native("FPostProcessSettings")
 @:include("Engine/Scene.h")
+@:structAccess
 extern class PostProcessSettings {
 	public var bOverride_TemperatureType: Bool;
 	public var bOverride_WhiteTemp: Bool;
@@ -414,4 +415,6 @@ extern class PostProcessSettings {
 	public var ScreenPercentage_DEPRECATED: cpp.Float32;
 	public var WeightedBlendables: WeightedBlendables;
 	public var Blendables_DEPRECATED: TArray<cpp.Star<Object>>;
+
+	@:native("FPostProcessSettings") public function new();
 }

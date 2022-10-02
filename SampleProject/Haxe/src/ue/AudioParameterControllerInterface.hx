@@ -2,6 +2,7 @@
 package ue;
 
 @:native("UAudioParameterControllerInterface")
+@:structAccess
 extern class AudioParameterControllerInterface extends Interface {
 	public function SetTriggerParameter(InName: FName): Void;
 	public function SetStringParameter(InName: FName, InValue: FString): Void;
@@ -16,6 +17,8 @@ extern class AudioParameterControllerInterface extends Interface {
 	public function SetBoolParameter(InName: FName, InBool: Bool): Void;
 	public function SetBoolArrayParameter(InName: FName, InValue: cpp.Reference<TArray<Bool>>): Void;
 	public function ResetParameters(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

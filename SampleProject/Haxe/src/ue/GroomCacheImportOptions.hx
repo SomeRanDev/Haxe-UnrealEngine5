@@ -3,8 +3,11 @@ package ue;
 
 @:native("UGroomCacheImportOptions")
 @:include("GroomCacheImportOptions.h")
+@:structAccess
 extern class GroomCacheImportOptions extends Object {
 	public var ImportSettings: GroomCacheImportSettings;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

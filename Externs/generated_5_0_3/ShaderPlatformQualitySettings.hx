@@ -3,8 +3,11 @@ package ue;
 
 @:native("UShaderPlatformQualitySettings")
 @:include("ShaderPlatformQualitySettings.h")
+@:structAccess
 extern class ShaderPlatformQualitySettings extends Object {
 	public var QualityOverrides: MaterialQualityOverrides;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

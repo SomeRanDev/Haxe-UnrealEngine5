@@ -3,6 +3,10 @@ package ue;
 
 @:native("FStaticMaterialLayersParameter")
 @:include("StaticParameterSet.h")
+@:structAccess
 extern class StaticMaterialLayersParameter extends StaticParameterBase {
 	public var Value: MaterialLayersFunctions;
+
+	@:native("FStaticMaterialLayersParameter") public function new();
+	@:native("FStaticMaterialLayersParameter") public static function make(Value: MaterialLayersFunctions): StaticMaterialLayersParameter ;
 }

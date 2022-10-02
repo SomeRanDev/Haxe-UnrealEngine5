@@ -3,8 +3,11 @@ package ue;
 
 @:native("URichCurveKeyProxy")
 @:include("RichCurveKeyProxy.h")
+@:structAccess
 extern class RichCurveKeyProxy extends Object {
 	public var Value: RichCurveKey;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

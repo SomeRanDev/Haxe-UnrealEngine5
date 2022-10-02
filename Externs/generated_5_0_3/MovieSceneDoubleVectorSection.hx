@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMovieSceneDoubleVectorSection")
 @:include("Sections/MovieSceneVectorSection.h")
+@:structAccess
 extern class MovieSceneDoubleVectorSection extends MovieSceneSection {
 	public var Curves: MovieSceneDoubleChannel;
 	public var ChannelsUsed: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

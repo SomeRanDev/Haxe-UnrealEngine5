@@ -3,6 +3,10 @@ package ue;
 
 @:native("FAnimSetMeshLinkup")
 @:include("Animation/AnimSet.h")
+@:structAccess
 extern class AnimSetMeshLinkup {
 	public var BoneToTrackTable: TArray<cpp.Int32>;
+
+	@:native("FAnimSetMeshLinkup") public function new();
+	@:native("FAnimSetMeshLinkup") public static function make(BoneToTrackTable: TArray<cpp.Int32>): AnimSetMeshLinkup ;
 }

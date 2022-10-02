@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_MakeVariable")
 @:include("K2Node_MakeVariable.h")
+@:structAccess
 extern class K2Node_MakeVariable extends K2Node {
 	public var VariableType: BPVariableDescription;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

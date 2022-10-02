@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionTextureSample")
 @:include("Materials/MaterialExpressionTextureSample.h")
+@:structAccess
 extern class MaterialExpressionTextureSample extends MaterialExpressionTextureBase {
 	public var Coordinates: ExpressionInput;
 	public var TextureObject: ExpressionInput;
@@ -15,6 +16,8 @@ extern class MaterialExpressionTextureSample extends MaterialExpressionTextureBa
 	public var AutomaticViewMipBias: Bool;
 	public var ConstCoordinate: cpp.UInt8;
 	public var ConstMipValue: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

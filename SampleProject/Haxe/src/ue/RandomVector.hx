@@ -3,10 +3,13 @@ package ue;
 
 @:native("URandomVector")
 @:include("Field/FieldSystemObjects.h")
+@:structAccess
 extern class RandomVector extends FieldNodeVector {
 	public var Magnitude: cpp.Float32;
 
 	public function SetRandomVector(Magnitude: cpp.Float32): cpp.Reference<cpp.Star<RandomVector>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

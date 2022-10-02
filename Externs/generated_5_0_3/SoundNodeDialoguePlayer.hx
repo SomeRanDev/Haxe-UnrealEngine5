@@ -3,9 +3,12 @@ package ue;
 
 @:native("USoundNodeDialoguePlayer")
 @:include("Sound/SoundNodeDialoguePlayer.h")
+@:structAccess
 extern class SoundNodeDialoguePlayer extends SoundNode {
 	public var DialogueWaveParameter: DialogueWaveParameter;
 	public var bLooping: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

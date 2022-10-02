@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UFunctionalTestEventSignature__PythonCallable")
+@:structAccess
 extern class FunctionalTestEventSignature__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

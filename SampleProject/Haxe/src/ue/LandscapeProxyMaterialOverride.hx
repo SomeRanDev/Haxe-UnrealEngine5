@@ -3,7 +3,11 @@ package ue;
 
 @:native("FLandscapeProxyMaterialOverride")
 @:include("LandscapeProxy.h")
+@:structAccess
 extern class LandscapeProxyMaterialOverride {
 	public var LODIndex: PerPlatformInt;
 	public var Material: cpp.Star<MaterialInterface>;
+
+	@:native("FLandscapeProxyMaterialOverride") public function new();
+	@:native("FLandscapeProxyMaterialOverride") public static function make(LODIndex: PerPlatformInt, Material: cpp.Star<MaterialInterface>): LandscapeProxyMaterialOverride ;
 }

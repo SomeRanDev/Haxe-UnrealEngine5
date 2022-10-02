@@ -3,11 +3,14 @@ package ue;
 
 @:native("UAchievementWriteCallbackProxy")
 @:include("AchievementWriteCallbackProxy.h")
+@:structAccess
 extern class AchievementWriteCallbackProxy extends OnlineBlueprintCallProxyBase {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32) -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32) -> Void>;
 
 	public function WriteAchievementProgress(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, AchievementName: FName, Progress: cpp.Float32, UserTag: cpp.Int32): cpp.Reference<cpp.Star<AchievementWriteCallbackProxy>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

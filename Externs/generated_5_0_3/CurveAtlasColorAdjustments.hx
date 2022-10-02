@@ -3,6 +3,7 @@ package ue;
 
 @:native("FCurveAtlasColorAdjustments")
 @:include("Curves/CurveLinearColorAtlas.h")
+@:structAccess
 extern class CurveAtlasColorAdjustments {
 	public var bChromaKeyTexture: Bool;
 	public var AdjustBrightness: cpp.Float32;
@@ -13,4 +14,6 @@ extern class CurveAtlasColorAdjustments {
 	public var AdjustHue: cpp.Float32;
 	public var AdjustMinAlpha: cpp.Float32;
 	public var AdjustMaxAlpha: cpp.Float32;
+
+	@:native("FCurveAtlasColorAdjustments") public function new();
 }

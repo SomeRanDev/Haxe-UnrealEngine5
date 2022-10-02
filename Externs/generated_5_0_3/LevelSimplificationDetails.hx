@@ -3,6 +3,7 @@ package ue;
 
 @:native("FLevelSimplificationDetails")
 @:include("Engine/Level.h")
+@:structAccess
 extern class LevelSimplificationDetails {
 	public var bCreatePackagePerAsset: Bool;
 	public var DetailsPercentage: cpp.Float32;
@@ -20,4 +21,6 @@ extern class LevelSimplificationDetails {
 	public var bGenerateLandscapeMetallicMap_DEPRECATED: Bool;
 	public var bGenerateLandscapeRoughnessMap_DEPRECATED: Bool;
 	public var bGenerateLandscapeSpecularMap_DEPRECATED: Bool;
+
+	@:native("FLevelSimplificationDetails") public function new();
 }

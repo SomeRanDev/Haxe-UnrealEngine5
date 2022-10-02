@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPrimitiveComponent")
 @:include("Components/PrimitiveComponent.h")
+@:structAccess
 extern class PrimitiveComp extends SceneComp {
 	public var MinDrawDistance: cpp.Float32;
 	public var LDMaxDrawDistance: cpp.Float32;
@@ -240,6 +241,8 @@ extern class PrimitiveComp extends SceneComp {
 	public function AddForce(Force: Vector, BoneName: FName, bAccelChange: Bool): Void;
 	public function AddAngularImpulseInRadians(Impulse: Vector, BoneName: FName, bVelChange: Bool): Void;
 	public function AddAngularImpulseInDegrees(Impulse: Vector, BoneName: FName, bVelChange: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

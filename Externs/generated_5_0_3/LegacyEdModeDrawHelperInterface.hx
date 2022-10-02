@@ -2,7 +2,10 @@
 package ue;
 
 @:native("ULegacyEdModeDrawHelperInterface")
+@:structAccess
 extern class LegacyEdModeDrawHelperInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

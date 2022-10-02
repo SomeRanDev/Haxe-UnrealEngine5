@@ -3,6 +3,7 @@ package ue;
 
 @:native("ALevelSequenceMediaController")
 @:include("SequenceMediaController.h")
+@:structAccess
 extern class LevelSequenceMediaController extends Actor {
 	public var Sequence: cpp.Star<LevelSequenceActor>;
 	public var MediaComponent: cpp.Star<MediaComp>;
@@ -13,6 +14,8 @@ extern class LevelSequenceMediaController extends Actor {
 	public function OnRep_ServerStartTimeSeconds(): Void;
 	public function GetSequence(): cpp.Reference<cpp.Star<LevelSequenceActor>>;
 	public function GetMediaComponent(): cpp.Reference<cpp.Star<MediaComp>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetSequence, GetMediaComponent)

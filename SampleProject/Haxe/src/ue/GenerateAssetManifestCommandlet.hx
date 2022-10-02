@@ -3,7 +3,10 @@ package ue;
 
 @:native("UGenerateAssetManifestCommandlet")
 @:include("Commandlets/GenerateAssetManifestCommandlet.h")
+@:structAccess
 extern class GenerateAssetManifestCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

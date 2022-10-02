@@ -3,7 +3,10 @@ package ue;
 
 @:native("USourceDataOverridePluginSourceSettingsBase")
 @:include("IAudioExtensionPlugin.h")
+@:structAccess
 extern class SourceDataOverridePluginSourceSettingsBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UARSessionConfig")
 @:include("ARSessionConfig.h")
+@:structAccess
 extern class ARSessionConfig extends DataAsset {
 	public var bGenerateMeshDataFromTrackedGeometry: Bool;
 	public var bGenerateCollisionForMeshData: Bool;
@@ -84,6 +85,8 @@ extern class ARSessionConfig extends DataAsset {
 	public function GetCandidateImageList(): cpp.Reference<TArray<cpp.Star<ARCandidateImage>>>;
 	public function AddCandidateObject(CandidateObject: cpp.Star<ARCandidateObject>): Void;
 	public function AddCandidateImage(NewCandidateImage: cpp.Star<ARCandidateImage>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

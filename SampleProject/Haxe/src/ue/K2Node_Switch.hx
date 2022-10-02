@@ -3,10 +3,13 @@ package ue;
 
 @:native("UK2Node_Switch")
 @:include("K2Node_Switch.h")
+@:structAccess
 extern class K2Node_Switch extends K2Node {
 	public var bHasDefaultPin: Bool;
 	public var FunctionName: FName;
 	public var FunctionClass: TSubclassOf<Object>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

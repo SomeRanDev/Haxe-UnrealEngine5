@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnAssetPreImport_Dyn__PythonCallable")
+@:structAccess
 extern class OnAssetPreImport_Dyn__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

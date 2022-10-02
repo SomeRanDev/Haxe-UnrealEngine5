@@ -3,8 +3,12 @@ package ue;
 
 @:native("FAnimNode_LinkedInputPose")
 @:include("Animation/AnimNode_LinkedInputPose.h")
+@:structAccess
 extern class AnimNode_LinkedInputPose extends AnimNode_Base {
 	public var Name: FName;
 	public var Graph: FName;
 	public var InputPose: PoseLink;
+
+	@:native("FAnimNode_LinkedInputPose") public function new();
+	@:native("FAnimNode_LinkedInputPose") public static function make(Name: FName, Graph: FName, InputPose: PoseLink): AnimNode_LinkedInputPose ;
 }

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UGameplayTaskResource")
 @:include("GameplayTaskResource.h")
+@:structAccess
 extern class GameplayTaskResource extends Object {
 	public var ManualResourceID: cpp.Int32;
 	public var AutoResourceID: cpp.Int8;
 	public var bManuallySetID: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

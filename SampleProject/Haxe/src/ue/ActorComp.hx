@@ -3,6 +3,7 @@ package ue;
 
 @:native("UActorComponent")
 @:include("Components/ActorComponent.h")
+@:structAccess
 extern class ActorComp extends Object {
 	public var PrimaryComponentTick: ActorComponentTickFunction;
 	public var ComponentTags: TArray<FName>;
@@ -50,6 +51,8 @@ extern class ActorComp extends Object {
 	public function AddTickPrerequisiteComponent(PrerequisiteComponent: cpp.Star<ActorComp>): Void;
 	public function AddTickPrerequisiteActor(PrerequisiteActor: cpp.Star<Actor>): Void;
 	public function Activate(bReset: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsComponentTickEnabled, IsBeingDestroyed, IsActive, GetOwner, GetComponentTickInterval, ComponentHasTag)

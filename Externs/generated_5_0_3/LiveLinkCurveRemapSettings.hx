@@ -3,8 +3,11 @@ package ue;
 
 @:native("ULiveLinkCurveRemapSettings")
 @:include("LiveLinkCurveRemapSettings.h")
+@:structAccess
 extern class LiveLinkCurveRemapSettings extends LiveLinkSourceSettings {
 	public var CurveConversionSettings: LiveLinkCurveConversionSettings;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

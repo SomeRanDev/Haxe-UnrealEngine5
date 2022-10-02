@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UMulticastDelegatePropertyWrapper")
+@:structAccess
 extern class MulticastDelegatePropertyWrapper extends PropertyWrapper {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

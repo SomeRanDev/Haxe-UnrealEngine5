@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraDataInterfaceParticleRead")
 @:include("NiagaraDataInterfaceParticleRead.h")
+@:structAccess
 extern class NiagaraDataInterfaceParticleRead extends NiagaraDataInterfaceRWBase {
 	public var EmitterName: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

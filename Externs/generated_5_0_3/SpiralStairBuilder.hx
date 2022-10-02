@@ -3,6 +3,7 @@ package ue;
 
 @:native("USpiralStairBuilder")
 @:include("Builders/SpiralStairBuilder.h")
+@:structAccess
 extern class SpiralStairBuilder extends EditorBrushBuilder {
 	public var InnerRadius: cpp.Int32;
 	public var StepWidth: cpp.Int32;
@@ -14,6 +15,8 @@ extern class SpiralStairBuilder extends EditorBrushBuilder {
 	public var SlopedCeiling: Bool;
 	public var SlopedFloor: Bool;
 	public var CounterClockwise: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

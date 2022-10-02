@@ -3,6 +3,7 @@ package ue;
 
 @:native("UK2Node_CallFunction")
 @:include("K2Node_CallFunction.h")
+@:structAccess
 extern class K2Node_CallFunction extends K2Node {
 	public var bIsPureFunc: Bool;
 	public var bIsConstFunc: Bool;
@@ -13,6 +14,8 @@ extern class K2Node_CallFunction extends K2Node {
 	public var FunctionReference: MemberReference;
 	public var CallFunctionName_DEPRECATED: FName;
 	public var CallFunctionClass_DEPRECATED: TSubclassOf<Object>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

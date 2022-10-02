@@ -3,8 +3,12 @@ package ue;
 
 @:native("FRigVMMemoryStatistics")
 @:include("RigVMCore/RigVMStatistics.h")
+@:structAccess
 extern class RigVMMemoryStatistics {
 	public var RegisterCount: cpp.Int32;
 	public var DataBytes: cpp.Int32;
 	public var TotalBytes: cpp.Int32;
+
+	@:native("FRigVMMemoryStatistics") public function new();
+	@:native("FRigVMMemoryStatistics") public static function make(RegisterCount: cpp.Int32, DataBytes: cpp.Int32, TotalBytes: cpp.Int32): RigVMMemoryStatistics ;
 }

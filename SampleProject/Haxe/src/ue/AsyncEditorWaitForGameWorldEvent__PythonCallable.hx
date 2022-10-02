@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UAsyncEditorWaitForGameWorldEvent__PythonCallable")
+@:structAccess
 extern class AsyncEditorWaitForGameWorldEvent__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

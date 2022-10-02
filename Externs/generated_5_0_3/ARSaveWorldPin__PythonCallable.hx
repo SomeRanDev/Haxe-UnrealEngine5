@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UARSaveWorldPin__PythonCallable")
+@:structAccess
 extern class ARSaveWorldPin__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

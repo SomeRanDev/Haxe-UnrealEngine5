@@ -3,7 +3,10 @@ package ue;
 
 @:native("USpatializationPluginSourceSettingsBase")
 @:include("IAudioExtensionPlugin.h")
+@:structAccess
 extern class SpatializationPluginSourceSettingsBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

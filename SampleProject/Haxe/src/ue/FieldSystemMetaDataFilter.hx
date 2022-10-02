@@ -3,12 +3,15 @@ package ue;
 
 @:native("UFieldSystemMetaDataFilter")
 @:include("Field/FieldSystemObjects.h")
+@:structAccess
 extern class FieldSystemMetaDataFilter extends FieldSystemMetaData {
 	public var FilterType: EFieldFilterType;
 	public var ObjectType: EFieldObjectType;
 	public var PositionType: EFieldPositionType;
 
 	public function SetMetaDataFilterType(FilterType: EFieldFilterType, ObjectType: EFieldObjectType, PositionType: EFieldPositionType): cpp.Reference<cpp.Star<FieldSystemMetaDataFilter>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

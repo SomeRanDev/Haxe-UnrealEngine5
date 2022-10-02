@@ -3,8 +3,12 @@ package ue;
 
 @:native("FFilterOptionPerAxis")
 @:include("Constraint.h")
+@:structAccess
 extern class FilterOptionPerAxis {
 	public var bX: Bool;
 	public var bY: Bool;
 	public var bZ: Bool;
+
+	@:native("FFilterOptionPerAxis") public function new();
+	@:native("FFilterOptionPerAxis") public static function make(bX: Bool, bY: Bool, bZ: Bool): FilterOptionPerAxis ;
 }

@@ -3,11 +3,14 @@ package ue;
 
 @:native("UGizmoConstantFrameAxisSource")
 @:include("BaseGizmos/AxisSources.h")
+@:structAccess
 extern class GizmoConstantFrameAxisSource extends Object {
 	public var Origin: Vector;
 	public var Direction: Vector;
 	public var TangentX: Vector;
 	public var TangentY: Vector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

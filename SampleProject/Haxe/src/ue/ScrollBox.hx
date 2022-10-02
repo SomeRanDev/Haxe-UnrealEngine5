@@ -3,6 +3,7 @@ package ue;
 
 @:native("UScrollBox")
 @:include("Components/ScrollBox.h")
+@:structAccess
 extern class ScrollBox extends PanelWidget {
 	public var WidgetStyle: ScrollBoxStyle;
 	public var WidgetBarStyle: ScrollBarStyle;
@@ -45,6 +46,8 @@ extern class ScrollBox extends PanelWidget {
 	public function GetScrollOffsetOfEnd(): cpp.Reference<cpp.Float32>;
 	public function GetScrollOffset(): cpp.Reference<cpp.Float32>;
 	public function EndInertialScrolling(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetViewOffsetFraction, GetScrollOffsetOfEnd, GetScrollOffset)

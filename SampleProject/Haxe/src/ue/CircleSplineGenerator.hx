@@ -3,12 +3,15 @@ package ue;
 
 @:native("UCircleSplineGenerator")
 @:include("SplineGeneratorPanel.h")
+@:structAccess
 extern class CircleSplineGenerator extends SplineGeneratorBase {
 	public var NumberOfPoints: cpp.Int32;
 	public var Radius: cpp.Float32;
 	public var bReverseDir: Bool;
 	public var bKeepFirstKeyTangent: Bool;
 	public var bBranchRight: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

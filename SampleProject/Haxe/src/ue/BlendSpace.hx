@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBlendSpace")
 @:include("Animation/BlendSpace.h")
+@:structAccess
 extern class BlendSpace extends AnimationAsset {
 	public var bRotationBlendInMeshSpace: Bool;
 	public var InterpolationParam: InterpolationParameter;
@@ -22,6 +23,8 @@ extern class BlendSpace extends AnimationAsset {
 	public var BlendParameters: BlendParameter;
 	public var AxisToScaleAnimation: EBlendSpaceAxis;
 	public var DimensionIndices: TArray<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

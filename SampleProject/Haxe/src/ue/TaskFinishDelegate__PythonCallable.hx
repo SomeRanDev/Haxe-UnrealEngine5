@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UTaskFinishDelegate__PythonCallable")
+@:structAccess
 extern class TaskFinishDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

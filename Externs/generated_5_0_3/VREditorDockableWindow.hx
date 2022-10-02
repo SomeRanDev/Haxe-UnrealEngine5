@@ -3,6 +3,7 @@ package ue;
 
 @:native("AVREditorDockableWindow")
 @:include("UI/VREditorDockableWindow.h")
+@:structAccess
 extern class VREditorDockableWindow extends VREditorFloatingUI {
 	public var DockButtonMeshComponent: cpp.Star<StaticMeshComp>;
 	public var SelectionBarMeshComponent: cpp.Star<StaticMeshComp>;
@@ -13,6 +14,8 @@ extern class VREditorDockableWindow extends VREditorFloatingUI {
 	public var CloseButtonMID: cpp.Star<MaterialInstanceDynamic>;
 	public var CloseButtonTranslucentMID: cpp.Star<MaterialInstanceDynamic>;
 	public var DragOperationComponent: cpp.Star<ViewportDragOperationComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

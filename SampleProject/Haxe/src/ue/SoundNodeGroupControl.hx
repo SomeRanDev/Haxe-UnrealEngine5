@@ -3,8 +3,11 @@ package ue;
 
 @:native("USoundNodeGroupControl")
 @:include("Sound/SoundNodeGroupControl.h")
+@:structAccess
 extern class SoundNodeGroupControl extends SoundNode {
 	public var GroupSizes: TArray<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

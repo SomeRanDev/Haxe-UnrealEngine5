@@ -3,6 +3,10 @@ package ue;
 
 @:native("FAIDataProviderBoolValue")
 @:include("DataProviders/AIDataProvider.h")
+@:structAccess
 extern class AIDataProviderBoolValue extends AIDataProviderTypedValue {
 	public var DefaultValue: Bool;
+
+	@:native("FAIDataProviderBoolValue") public function new();
+	@:native("FAIDataProviderBoolValue") public static function make(DefaultValue: Bool): AIDataProviderBoolValue ;
 }

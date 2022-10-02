@@ -3,6 +3,7 @@ package ue;
 
 @:native("UInteractiveToolsContext")
 @:include("InteractiveToolsContext.h")
+@:structAccess
 extern class InteractiveToolsContext extends Object {
 	public var InputRouter: cpp.Star<InputRouter>;
 	public var TargetManager: cpp.Star<ToolTargetManager>;
@@ -10,6 +11,8 @@ extern class InteractiveToolsContext extends Object {
 	public var GizmoManager: cpp.Star<InteractiveGizmoManager>;
 	public var ContextObjectStore: cpp.Star<ContextObjectStore>;
 	public var ToolManagerClass: TSoftClassPtr<Class>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

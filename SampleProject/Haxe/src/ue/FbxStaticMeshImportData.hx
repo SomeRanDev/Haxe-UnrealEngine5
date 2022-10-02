@@ -3,6 +3,7 @@ package ue;
 
 @:native("UFbxStaticMeshImportData")
 @:include("Factories/FbxStaticMeshImportData.h")
+@:structAccess
 extern class FbxStaticMeshImportData extends FbxMeshImportData {
 	public var StaticMeshLODGroup: FName;
 	public var VertexColorImportOption: EVertexColorImportOption;
@@ -15,6 +16,8 @@ extern class FbxStaticMeshImportData extends FbxMeshImportData {
 	public var bAutoGenerateCollision: Bool;
 	public var bCombineMeshes: Bool;
 	public var DistanceFieldResolutionScale: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

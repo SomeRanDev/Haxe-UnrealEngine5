@@ -3,8 +3,12 @@ package ue;
 
 @:native("FStatColorMapping")
 @:include("Engine/Engine.h")
+@:structAccess
 extern class StatColorMapping {
 	public var StatName: FString;
 	public var ColorMap: TArray<StatColorMapEntry>;
 	public var DisableBlend: Bool;
+
+	@:native("FStatColorMapping") public function new();
+	@:native("FStatColorMapping") public static function make(StatName: FString, ColorMap: TArray<StatColorMapEntry>, DisableBlend: Bool): StatColorMapping ;
 }

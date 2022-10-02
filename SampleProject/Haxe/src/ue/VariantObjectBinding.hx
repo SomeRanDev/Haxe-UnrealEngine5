@@ -3,12 +3,15 @@ package ue;
 
 @:native("UVariantObjectBinding")
 @:include("VariantObjectBinding.h")
+@:structAccess
 extern class VariantObjectBinding extends Object {
 	public var CachedActorLabel: FString;
 	public var ObjectPtr: SoftObjectPath;
 	public var LazyObjectPtr: TLazyObjectPtr<Object>;
 	public var CapturedProperties: TArray<cpp.Star<PropertyValue>>;
 	public var FunctionCallers: TArray<FunctionCaller>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

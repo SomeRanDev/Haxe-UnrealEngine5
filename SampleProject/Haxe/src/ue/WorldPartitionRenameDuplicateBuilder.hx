@@ -3,8 +3,11 @@ package ue;
 
 @:native("UWorldPartitionRenameDuplicateBuilder")
 @:include("WorldPartition/WorldPartitionRenameDuplicateBuilder.h")
+@:structAccess
 extern class WorldPartitionRenameDuplicateBuilder extends WorldPartitionBuilder {
 	public var DuplicatedObjects: TMap<cpp.Star<Object>, cpp.Star<Object>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

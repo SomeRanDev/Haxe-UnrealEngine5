@@ -3,7 +3,11 @@ package ue;
 
 @:native("FAnimNode_RandomPlayer")
 @:include("AnimNodes/AnimNode_RandomPlayer.h")
+@:structAccess
 extern class AnimNode_RandomPlayer extends AnimNode_Base {
 	public var Entries: TArray<RandomPlayerSequenceEntry>;
 	public var bShuffleMode: Bool;
+
+	@:native("FAnimNode_RandomPlayer") public function new();
+	@:native("FAnimNode_RandomPlayer") public static function make(Entries: TArray<RandomPlayerSequenceEntry>, bShuffleMode: Bool): AnimNode_RandomPlayer ;
 }

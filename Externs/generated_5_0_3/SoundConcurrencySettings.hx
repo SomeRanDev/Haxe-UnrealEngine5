@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSoundConcurrencySettings")
 @:include("Sound/SoundConcurrency.h")
+@:structAccess
 extern class SoundConcurrencySettings {
 	public var MaxCount: cpp.Int32;
 	public var bLimitToOwner: Bool;
@@ -14,4 +15,6 @@ extern class SoundConcurrencySettings {
 	public var bVolumeScaleCanRelease: Bool;
 	public var VolumeScaleReleaseTime: cpp.Float32;
 	public var VoiceStealReleaseTime: cpp.Float32;
+
+	@:native("FSoundConcurrencySettings") public function new();
 }

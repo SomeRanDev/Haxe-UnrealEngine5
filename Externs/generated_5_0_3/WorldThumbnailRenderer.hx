@@ -3,11 +3,14 @@ package ue;
 
 @:native("UWorldThumbnailRenderer")
 @:include("ThumbnailRendering/WorldThumbnailRenderer.h")
+@:structAccess
 extern class WorldThumbnailRenderer extends DefaultSizedThumbnailRenderer {
 	public var GlobalOrbitPitchOffset: cpp.Float32;
 	public var GlobalOrbitYawOffset: cpp.Float32;
 	public var bUseUnlitScene: Bool;
 	public var bAllowWorldThumbnails: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

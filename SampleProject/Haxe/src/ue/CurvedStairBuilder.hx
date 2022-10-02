@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCurvedStairBuilder")
 @:include("Builders/CurvedStairBuilder.h")
+@:structAccess
 extern class CurvedStairBuilder extends EditorBrushBuilder {
 	public var InnerRadius: cpp.Int32;
 	public var StepHeight: cpp.Int32;
@@ -12,6 +13,8 @@ extern class CurvedStairBuilder extends EditorBrushBuilder {
 	public var AddToFirstStep: cpp.Int32;
 	public var GroupName: FName;
 	public var CounterClockwise: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

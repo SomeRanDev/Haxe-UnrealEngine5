@@ -3,5 +3,7 @@ package ue;
 
 @:native("FMovieSceneEvalTemplatePtr")
 @:include("Evaluation/MovieSceneEvalTemplate.h")
+@:structAccess
 extern class MovieSceneEvalTemplatePtr {
+	@:native("FMovieSceneEvalTemplatePtr") public function new();
 }

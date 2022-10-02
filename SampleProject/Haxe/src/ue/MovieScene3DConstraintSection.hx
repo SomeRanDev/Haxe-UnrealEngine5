@@ -3,12 +3,15 @@ package ue;
 
 @:native("UMovieScene3DConstraintSection")
 @:include("Sections/MovieScene3DConstraintSection.h")
+@:structAccess
 extern class MovieScene3DConstraintSection extends MovieSceneSection {
 	public var ConstraintId_DEPRECATED: Guid;
 	public var ConstraintBindingID: MovieSceneObjectBindingID;
 
 	public function SetConstraintBindingID(InConstraintBindingID: cpp.Reference<MovieSceneObjectBindingID>): Void;
 	public function GetConstraintBindingID(): cpp.Reference<MovieSceneObjectBindingID>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetConstraintBindingID)

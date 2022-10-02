@@ -3,6 +3,7 @@ package ue;
 
 @:native("FGameplayDebuggerInputConfig")
 @:include("GameplayDebuggerConfig.h")
+@:structAccess
 extern class GameplayDebuggerInputConfig {
 	public var ConfigName: FString;
 	public var Key: Key;
@@ -10,4 +11,6 @@ extern class GameplayDebuggerInputConfig {
 	public var bModCtrl: Bool;
 	public var bModAlt: Bool;
 	public var bModCmd: Bool;
+
+	@:native("FGameplayDebuggerInputConfig") public function new();
 }

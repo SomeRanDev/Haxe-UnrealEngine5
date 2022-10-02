@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimationCurveIdentifierExtensions")
 @:include("Animation/AnimData/CurveIdentifier.h")
+@:structAccess
 extern class AnimationCurveIdentifierExtensions extends BlueprintFunctionLibrary {
 	public function IsValid(Identifier: cpp.Reference<AnimationCurveIdentifier>): cpp.Reference<Bool>;
 	public function GetType(Identifier: cpp.Reference<AnimationCurveIdentifier>): cpp.Reference<ERawCurveTrackTypes>;
@@ -11,6 +12,8 @@ extern class AnimationCurveIdentifierExtensions extends BlueprintFunctionLibrary
 	public function GetCurveIdentifiers(InSkeleton: cpp.Star<Skeleton>, CurveType: ERawCurveTrackTypes): cpp.Reference<TArray<AnimationCurveIdentifier>>;
 	public function GetCurveIdentifier(InSkeleton: cpp.Star<Skeleton>, Name: FName, CurveType: ERawCurveTrackTypes): cpp.Reference<AnimationCurveIdentifier>;
 	public function FindCurveIdentifier(InSkeleton: cpp.Star<Skeleton.ConstSkeleton>, Name: FName, CurveType: ERawCurveTrackTypes): cpp.Reference<AnimationCurveIdentifier>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

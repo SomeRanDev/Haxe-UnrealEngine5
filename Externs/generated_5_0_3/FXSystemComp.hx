@@ -3,6 +3,7 @@ package ue;
 
 @:native("UFXSystemComponent")
 @:include("Particles/ParticleSystemComponent.h")
+@:structAccess
 extern class FXSystemComp extends PrimitiveComp {
 	public function SetVectorParameter(ParameterName: FName, Param: Vector): Void;
 	public function SetUseAutoManageAttachment(bAutoManage: Bool): Void;
@@ -15,6 +16,8 @@ extern class FXSystemComp extends PrimitiveComp {
 	public function SetActorParameter(ParameterName: FName, Param: cpp.Star<Actor>): Void;
 	public function ReleaseToPool(): Void;
 	public function GetFXSystemAsset(): cpp.Reference<cpp.Star<FXSystemAsset>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetFXSystemAsset)

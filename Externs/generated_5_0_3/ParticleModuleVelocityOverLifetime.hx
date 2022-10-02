@@ -3,9 +3,12 @@ package ue;
 
 @:native("UParticleModuleVelocityOverLifetime")
 @:include("Particles/Velocity/ParticleModuleVelocityOverLifetime.h")
+@:structAccess
 extern class ParticleModuleVelocityOverLifetime extends ParticleModuleVelocityBase {
 	public var VelOverLife: RawDistributionVector;
 	public var Absolute: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

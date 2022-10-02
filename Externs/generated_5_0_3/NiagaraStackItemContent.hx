@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraStackItemContent")
 @:include("ViewModels/Stack/NiagaraStackItem.h")
+@:structAccess
 extern class NiagaraStackItemContent extends NiagaraStackEntry {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

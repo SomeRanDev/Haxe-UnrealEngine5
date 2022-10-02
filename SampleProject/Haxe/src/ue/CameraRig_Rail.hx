@@ -3,6 +3,7 @@ package ue;
 
 @:native("ACameraRig_Rail")
 @:include("CameraRig_Rail.h")
+@:structAccess
 extern class CameraRig_Rail extends Actor {
 	public var CurrentPositionOnRail: cpp.Float32;
 	public var bLockOrientationToRail: Bool;
@@ -17,6 +18,8 @@ extern class CameraRig_Rail extends Actor {
 	public var PreviewMesh_Mount: cpp.Star<StaticMeshComp>;
 
 	public function GetRailSplineComponent(): cpp.Reference<cpp.Star<SplineComp>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

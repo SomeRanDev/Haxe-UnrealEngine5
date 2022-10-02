@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UForEachActorIteratorSignature__PythonCallable")
+@:structAccess
 extern class ForEachActorIteratorSignature__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

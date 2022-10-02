@@ -3,8 +3,11 @@ package ue;
 
 @:native("APartitionActor")
 @:include("ActorPartition/PartitionActor.h")
+@:structAccess
 extern class PartitionActor extends Actor {
 	public var GridSize: cpp.UInt32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

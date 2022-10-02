@@ -3,11 +3,14 @@ package ue;
 
 @:native("UTransformProxy")
 @:include("BaseGizmos/TransformProxy.h")
+@:structAccess
 extern class TransformProxy extends Object {
 	public var bRotatePerObject: Bool;
 	public var bSetPivotMode: Bool;
 	public var SharedTransform: Transform;
 	public var InitialSharedTransform: Transform;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

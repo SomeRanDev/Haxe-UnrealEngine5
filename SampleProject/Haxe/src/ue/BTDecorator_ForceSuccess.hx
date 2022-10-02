@@ -3,7 +3,10 @@ package ue;
 
 @:native("UBTDecorator_ForceSuccess")
 @:include("BehaviorTree/Decorators/BTDecorator_ForceSuccess.h")
+@:structAccess
 extern class BTDecorator_ForceSuccess extends BTDecorator {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

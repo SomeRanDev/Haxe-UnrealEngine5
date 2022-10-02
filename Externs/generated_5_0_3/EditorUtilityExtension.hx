@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UEditorUtilityExtension")
+@:structAccess
 extern class EditorUtilityExtension extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

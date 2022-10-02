@@ -3,6 +3,7 @@ package ue;
 
 @:native("USequencerSettings")
 @:include("SequencerSettings.h")
+@:structAccess
 extern class SequencerSettings extends Object {
 	public var AutoChangeMode: EAutoChangeMode;
 	public var AllowEditsMode: EAllowEditsMode;
@@ -55,6 +56,8 @@ extern class SequencerSettings extends Object {
 	public var TrajectoryPathCap: cpp.UInt32;
 	public var FrameNumberDisplayFormat: EFrameNumberDisplayFormats;
 	public var MovieRendererName: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

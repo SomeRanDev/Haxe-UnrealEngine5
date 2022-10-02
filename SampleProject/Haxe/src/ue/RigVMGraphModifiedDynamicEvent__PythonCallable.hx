@@ -2,7 +2,10 @@
 package ue;
 
 @:native("URigVMGraphModifiedDynamicEvent__PythonCallable")
+@:structAccess
 extern class RigVMGraphModifiedDynamicEvent__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

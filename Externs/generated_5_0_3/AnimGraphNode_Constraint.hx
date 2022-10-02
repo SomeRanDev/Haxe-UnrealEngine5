@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_Constraint")
 @:include("AnimGraphNode_Constraint.h")
+@:structAccess
 extern class AnimGraphNode_Constraint extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_Constraint;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UAudioCurveSourceComponent")
 @:include("AudioCurveSourceComponent.h")
+@:structAccess
 extern class AudioCurveSourceComp extends AudioComp {
 	public var CurveSourceBindingName: FName;
 	public var CurveSyncOffset: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

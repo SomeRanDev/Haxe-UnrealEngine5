@@ -3,8 +3,11 @@ package ue;
 
 @:native("UDEPRECATED_GeometryCacheTrack_TransformAnimation")
 @:include("GeometryCacheTrackTransformAnimation.h")
+@:structAccess
 extern class GeometryCacheTrack_TransformAnimation extends GeometryCacheTrack {
 	public function SetMesh(NewMeshData: cpp.Reference<GeometryCacheMeshData>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

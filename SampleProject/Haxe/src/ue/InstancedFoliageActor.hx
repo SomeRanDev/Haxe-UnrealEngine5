@@ -3,9 +3,12 @@ package ue;
 
 @:native("AInstancedFoliageActor")
 @:include("InstancedFoliageActor.h")
+@:structAccess
 extern class InstancedFoliageActor extends ISMPartitionActor {
 	public function RemoveAllInstances(WorldContextObject: cpp.Star<Object>, InFoliageType: cpp.Star<FoliageType>): Void;
 	public function AddInstances(WorldContextObject: cpp.Star<Object>, InFoliageType: cpp.Star<FoliageType>, InTransforms: cpp.Reference<TArray<Transform>>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

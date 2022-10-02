@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimGraphNode_LinkedAnimGraphBase")
 @:include("AnimGraphNode_LinkedAnimGraphBase.h")
+@:structAccess
 extern class AnimGraphNode_LinkedAnimGraphBase extends AnimGraphNode_CustomProperty {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

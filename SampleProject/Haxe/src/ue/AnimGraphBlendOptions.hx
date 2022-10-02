@@ -3,7 +3,11 @@ package ue;
 
 @:native("FAnimGraphBlendOptions")
 @:include("Animation/AnimClassInterface.h")
+@:structAccess
 extern class AnimGraphBlendOptions {
 	public var BlendInTime: cpp.Float32;
 	public var BlendOutTime: cpp.Float32;
+
+	@:native("FAnimGraphBlendOptions") public function new();
+	@:native("FAnimGraphBlendOptions") public static function make(BlendInTime: cpp.Float32, BlendOutTime: cpp.Float32): AnimGraphBlendOptions ;
 }

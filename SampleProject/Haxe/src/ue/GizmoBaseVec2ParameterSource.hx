@@ -3,7 +3,10 @@ package ue;
 
 @:native("UGizmoBaseVec2ParameterSource")
 @:include("BaseGizmos/ParameterSourcesVec2.h")
+@:structAccess
 extern class GizmoBaseVec2ParameterSource extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

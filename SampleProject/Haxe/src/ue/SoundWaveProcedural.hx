@@ -3,7 +3,10 @@ package ue;
 
 @:native("USoundWaveProcedural")
 @:include("Sound/SoundWaveProcedural.h")
+@:structAccess
 extern class SoundWaveProcedural extends SoundWave {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

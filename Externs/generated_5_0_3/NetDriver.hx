@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNetDriver")
 @:include("Engine/NetDriver.h")
+@:structAccess
 extern class NetDriver extends Object {
 	public var NetConnectionClassName: FString;
 	public var ReplicationDriverClassName: FString;
@@ -33,6 +34,8 @@ extern class NetDriver extends Object {
 	public var ChannelDefinitionMap: TMap<FName, ChannelDefinition>;
 	public var ActorChannelPool: TArray<cpp.Star<Channel>>;
 	public var ReplicationDriver: cpp.Star<ReplicationDriver>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

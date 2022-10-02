@@ -3,7 +3,11 @@ package ue;
 
 @:native("FNiagaraDebugHUDVariable")
 @:include("NiagaraDebuggerCommon.h")
+@:structAccess
 extern class NiagaraDebugHUDVariable {
 	public var bEnabled: Bool;
 	public var Name: FString;
+
+	@:native("FNiagaraDebugHUDVariable") public function new();
+	@:native("FNiagaraDebugHUDVariable") public static function make(bEnabled: Bool, Name: FString): NiagaraDebugHUDVariable ;
 }

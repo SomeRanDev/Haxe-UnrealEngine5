@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_GetNumEnumEntries")
 @:include("K2Node_GetNumEnumEntries.h")
+@:structAccess
 extern class K2Node_GetNumEnumEntries extends K2Node {
 	public var Enum: cpp.Star<Enum>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

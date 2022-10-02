@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULiveLinkFrameTranslator")
 @:include("LiveLinkFrameTranslator.h")
+@:structAccess
 extern class LiveLinkFrameTranslator extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

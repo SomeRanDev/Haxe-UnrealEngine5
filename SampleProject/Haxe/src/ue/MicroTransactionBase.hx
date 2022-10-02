@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMicroTransactionBase")
 @:include("Engine/MicroTransactionBase.h")
+@:structAccess
 extern class MicroTransactionBase extends PlatformInterfaceBase {
 	public var AvailableProducts: TArray<PurchaseInfo>;
 	public var LastError: FString;
 	public var LastErrorSolution: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

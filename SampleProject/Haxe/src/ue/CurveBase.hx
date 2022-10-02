@@ -3,12 +3,15 @@ package ue;
 
 @:native("UCurveBase")
 @:include("Curves/CurveBase.h")
+@:structAccess
 extern class CurveBase extends Object {
 	public var AssetImportData: cpp.Star<AssetImportData>;
 	public var ImportPath_DEPRECATED: FString;
 
 	public function GetValueRange(MinValue: cpp.Reference<cpp.Float32>, MaxValue: cpp.Reference<cpp.Float32>): Void;
 	public function GetTimeRange(MinTime: cpp.Reference<cpp.Float32>, MaxTime: cpp.Reference<cpp.Float32>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetValueRange, GetTimeRange)

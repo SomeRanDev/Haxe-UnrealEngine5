@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneControlRigParameterSection")
 @:include("Sequencer/MovieSceneControlRigParameterSection.h")
+@:structAccess
 extern class MovieSceneControlRigParameterSection extends MovieSceneParameterSection {
 	public var ControlRig: cpp.Star<ControlRig>;
 	public var ControlRigClass: TSubclassOf<ControlRig>;
@@ -13,6 +14,8 @@ extern class MovieSceneControlRigParameterSection extends MovieSceneParameterSec
 	public var EnumParameterNamesAndCurves: TArray<EnumParameterNameAndCurve>;
 	public var IntegerParameterNamesAndCurves: TArray<IntegerParameterNameAndCurve>;
 	public var SpaceChannels: TArray<SpaceControlNameAndChannel>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

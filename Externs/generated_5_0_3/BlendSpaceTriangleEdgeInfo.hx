@@ -3,9 +3,13 @@ package ue;
 
 @:native("FBlendSpaceTriangleEdgeInfo")
 @:include("Animation/BlendSpace.h")
+@:structAccess
 extern class BlendSpaceTriangleEdgeInfo {
 	public var Normal: Vector2D;
 	public var NeighbourTriangleIndex: cpp.Int32;
 	public var AdjacentPerimeterTriangleIndices: cpp.Int32;
 	public var AdjacentPerimeterVertexIndices: cpp.Int32;
+
+	@:native("FBlendSpaceTriangleEdgeInfo") public function new();
+	@:native("FBlendSpaceTriangleEdgeInfo") public static function make(Normal: Vector2D, NeighbourTriangleIndex: cpp.Int32, AdjacentPerimeterTriangleIndices: cpp.Int32, AdjacentPerimeterVertexIndices: cpp.Int32): BlendSpaceTriangleEdgeInfo ;
 }

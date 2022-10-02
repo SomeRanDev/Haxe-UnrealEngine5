@@ -3,9 +3,12 @@ package ue;
 
 @:native("UDefaultLevelSequenceInstanceData")
 @:include("DefaultLevelSequenceInstanceData.h")
+@:structAccess
 extern class DefaultLevelSequenceInstanceData extends Object {
 	public var TransformOriginActor: cpp.Star<Actor>;
 	public var TransformOrigin: Transform;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

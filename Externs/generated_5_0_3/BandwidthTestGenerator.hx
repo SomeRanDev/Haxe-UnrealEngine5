@@ -3,6 +3,10 @@ package ue;
 
 @:native("FBandwidthTestGenerator")
 @:include("Net/BandwidthTestActor.h")
+@:structAccess
 extern class BandwidthTestGenerator {
 	public var ReplicatedBuffers: TArray<BandwidthTestItem>;
+
+	@:native("FBandwidthTestGenerator") public function new();
+	@:native("FBandwidthTestGenerator") public static function make(ReplicatedBuffers: TArray<BandwidthTestItem>): BandwidthTestGenerator ;
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraComponentRendererProperties")
 @:include("NiagaraComponentRendererProperties.h")
+@:structAccess
 extern class NiagaraComponentRendererProperties extends NiagaraRendererProperties {
 	public var ComponentType: TSubclassOf<SceneComp>;
 	public var ComponentCountLimit: cpp.UInt32;
@@ -15,6 +16,8 @@ extern class NiagaraComponentRendererProperties extends NiagaraRendererPropertie
 	public var RendererVisibility: cpp.Int32;
 	public var TemplateComponent: cpp.Star<SceneComp>;
 	public var PropertyBindings: TArray<NiagaraComponentPropertyBinding>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

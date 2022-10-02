@@ -3,9 +3,12 @@ package ue;
 
 @:native("UBlendSpaceFactory1D")
 @:include("Factories/BlendSpaceFactory1D.h")
+@:structAccess
 extern class BlendSpaceFactory1D extends Factory {
 	public var TargetSkeleton: cpp.Star<Skeleton>;
 	public var PreviewSkeletalMesh: cpp.Star<SkeletalMesh>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

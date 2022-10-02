@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDatasmithLightComponentTemplate")
 @:include("ObjectTemplates/DatasmithLightComponentTemplate.h")
+@:structAccess
 extern class DatasmithLightComponentTemplate extends DatasmithObjectTemplate {
 	public var bVisible: Bool;
 	public var CastShadows: Bool;
@@ -14,6 +15,8 @@ extern class DatasmithLightComponentTemplate extends DatasmithObjectTemplate {
 	public var LightColor: LinearColor;
 	public var LightFunctionMaterial: cpp.Star<MaterialInterface>;
 	public var IESTexture: cpp.Star<TextureLightProfile>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

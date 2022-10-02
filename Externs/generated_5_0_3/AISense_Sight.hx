@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAISense_Sight")
 @:include("Perception/AISense_Sight.h")
+@:structAccess
 extern class AISense_Sight extends AISense {
 	public var MaxTracesPerTick: cpp.Int32;
 	public var MinQueriesPerTimeSliceCheck: cpp.Int32;
@@ -10,6 +11,8 @@ extern class AISense_Sight extends AISense {
 	public var HighImportanceQueryDistanceThreshold: cpp.Float32;
 	public var MaxQueryImportance: cpp.Float32;
 	public var SightLimitQueryImportance: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

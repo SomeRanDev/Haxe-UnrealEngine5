@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraSpriteRendererProperties")
 @:include("NiagaraSpriteRendererProperties.h")
+@:structAccess
 extern class NiagaraSpriteRendererProperties extends NiagaraRendererProperties {
 	public var Material: cpp.Star<MaterialInterface>;
 	public var SourceMode: ENiagaraRendererSourceDataMode;
@@ -58,6 +59,8 @@ extern class NiagaraSpriteRendererProperties extends NiagaraRendererProperties {
 	public var BoundingMode: ESubUVBoundingVertexCount;
 	public var OpacitySourceMode: EOpacitySourceMode;
 	public var AlphaThreshold: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

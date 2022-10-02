@@ -3,10 +3,14 @@ package ue;
 
 @:native("FHairSimulationSettings")
 @:include("GroomAssetPhysics.h")
+@:structAccess
 extern class HairSimulationSettings {
 	public var bOverrideSettings: Bool;
 	public var SimulationSetup: HairSimulationSetup;
 	public var SolverSettings: HairSimulationSolver;
 	public var ExternalForces: HairSimulationForces;
 	public var MaterialConstraints: HairSimulationConstraints;
+
+	@:native("FHairSimulationSettings") public function new();
+	@:native("FHairSimulationSettings") public static function make(bOverrideSettings: Bool, SimulationSetup: HairSimulationSetup, SolverSettings: HairSimulationSolver, ExternalForces: HairSimulationForces, MaterialConstraints: HairSimulationConstraints): HairSimulationSettings ;
 }

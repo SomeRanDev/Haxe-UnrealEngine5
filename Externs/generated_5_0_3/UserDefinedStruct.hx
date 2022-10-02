@@ -3,12 +3,15 @@ package ue;
 
 @:native("UUserDefinedStruct")
 @:include("Engine/UserDefinedStruct.h")
+@:structAccess
 extern class UserDefinedStruct extends ScriptStruct {
 	public var PrimaryStruct: TWeakObjectPtr<UserDefinedStruct>;
 	public var ErrorMessage: FString;
 	public var EditorData: cpp.Star<Object>;
 	public var Status: EUserDefinedStructureStatus;
 	public var Guid: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

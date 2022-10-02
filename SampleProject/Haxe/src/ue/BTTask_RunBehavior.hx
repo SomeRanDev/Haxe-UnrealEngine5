@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBTTask_RunBehavior")
 @:include("BehaviorTree/Tasks/BTTask_RunBehavior.h")
+@:structAccess
 extern class BTTask_RunBehavior extends BTTaskNode {
 	public var BehaviorAsset: cpp.Star<BehaviorTree>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

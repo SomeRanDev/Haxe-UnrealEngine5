@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGizmoBaseObject")
 @:include("EditorGizmos/GizmoBaseObject.h")
+@:structAccess
 extern class GizmoBaseObject extends Object {
 	public var LocalToWorldTransform: Transform;
 	public var Material: cpp.Star<MaterialInterface>;
@@ -26,6 +27,8 @@ extern class GizmoBaseObject extends Object {
 	public function GetHoverState(): cpp.Reference<Bool>;
 	public function GetGizmoScale(): cpp.Reference<cpp.Float32>;
 	public function GetCurrentMaterial(): cpp.Reference<cpp.Star<MaterialInterface>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

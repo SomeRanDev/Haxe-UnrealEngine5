@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UConstraintBrokenSignature__PythonCallable")
+@:structAccess
 extern class ConstraintBrokenSignature__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

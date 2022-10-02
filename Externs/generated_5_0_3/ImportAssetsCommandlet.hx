@@ -3,9 +3,12 @@ package ue;
 
 @:native("UImportAssetsCommandlet")
 @:include("Commandlets/ImportAssetsCommandlet.h")
+@:structAccess
 extern class ImportAssetsCommandlet extends Commandlet {
 	public var GlobalImportData: cpp.Star<AutomatedAssetImportData>;
 	public var ImportDataList: TArray<cpp.Star<AutomatedAssetImportData>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMovieSceneHierarchicalBiasSystem")
 @:include("Systems/MovieSceneHierarchicalBiasSystem.h")
+@:structAccess
 extern class MovieSceneHierarchicalBiasSystem extends MovieSceneEntityInstantiatorSystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

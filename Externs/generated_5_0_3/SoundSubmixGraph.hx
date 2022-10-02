@@ -3,9 +3,12 @@ package ue;
 
 @:native("USoundSubmixGraph")
 @:include("SoundSubmixGraph/SoundSubmixGraph.h")
+@:structAccess
 extern class SoundSubmixGraph extends EdGraph {
 	public var RootSoundSubmix: cpp.Star<SoundSubmixBase>;
 	public var StaleRoots: TArray<cpp.Star<SoundSubmixBase>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

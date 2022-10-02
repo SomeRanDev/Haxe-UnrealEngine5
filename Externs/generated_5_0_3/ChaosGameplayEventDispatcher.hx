@@ -3,10 +3,13 @@ package ue;
 
 @:native("UChaosGameplayEventDispatcher")
 @:include("Chaos/ChaosGameplayEventDispatcher.h")
+@:structAccess
 extern class ChaosGameplayEventDispatcher extends ChaosEventListenerComp {
 	public var CollisionEventRegistrations: TMap<cpp.Star<PrimitiveComp>, ChaosHandlerSet>;
 	public var BreakEventRegistrations: TMap<cpp.Star<PrimitiveComp>, BreakEventCallbackWrapper>;
 	public var RemovalEventRegistrations: TMap<cpp.Star<PrimitiveComp>, RemovalEventCallbackWrapper>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

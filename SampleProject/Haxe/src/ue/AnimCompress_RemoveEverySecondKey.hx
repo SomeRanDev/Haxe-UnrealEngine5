@@ -3,9 +3,12 @@ package ue;
 
 @:native("UAnimCompress_RemoveEverySecondKey")
 @:include("Animation/AnimCompress_RemoveEverySecondKey.h")
+@:structAccess
 extern class AnimCompress_RemoveEverySecondKey extends AnimCompress {
 	public var MinKeys: cpp.Int32;
 	public var bStartAtSecondKey: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

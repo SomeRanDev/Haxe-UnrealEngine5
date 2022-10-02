@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBlueprintPropertyContainerTestObject")
 @:include("Editor/PropertyEditorTestObject.h")
+@:structAccess
 extern class BlueprintPropertyContainerTestObject extends Object {
 	public var Array: TArray<cpp.Star<BlueprintPropertyTestObject>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

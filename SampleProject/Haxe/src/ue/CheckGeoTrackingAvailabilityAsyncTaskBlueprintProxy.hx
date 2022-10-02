@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy")
 @:include("ARGeoTrackingSupport.h")
+@:structAccess
 extern class CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy extends ARBaseAsyncTaskBlueprintProxy {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(Bool, FString) -> Void>;
 	public var OnFailed: HaxeMulticastSparseDelegateProperty<(Bool, FString) -> Void>;
@@ -10,6 +11,8 @@ extern class CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy extends ARBaseA
 	public function GeoTrackingAvailabilityDelegate__DelegateSignature(bIsAvailable: Bool, Error: FString): Void;
 	public function CheckGeoTrackingAvailabilityAtLocation(WorldContextObject: cpp.Star<Object>, Longitude: cpp.Float32, Latitude: cpp.Float32): cpp.Reference<cpp.Star<CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy>>;
 	public function CheckGeoTrackingAvailability(WorldContextObject: cpp.Star<Object>): cpp.Reference<cpp.Star<CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

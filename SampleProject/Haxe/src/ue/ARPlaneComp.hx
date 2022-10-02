@@ -3,6 +3,7 @@ package ue;
 
 @:native("UARPlaneComponent")
 @:include("ARComponent.h")
+@:structAccess
 extern class ARPlaneComp extends ARComp {
 	public var ReplicatedPayload: ARPlaneUpdatePayload;
 
@@ -12,6 +13,8 @@ extern class ARPlaneComp extends ARComp {
 	public function ReceiveUpdate(Payload: cpp.Reference<ARPlaneUpdatePayload>): Void;
 	public function ReceiveAdd(Payload: cpp.Reference<ARPlaneUpdatePayload>): Void;
 	public function GetObjectClassificationDebugColors(): cpp.Reference<TMap<EARObjectClassification, LinearColor>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

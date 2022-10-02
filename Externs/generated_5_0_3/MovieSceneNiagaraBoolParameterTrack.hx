@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMovieSceneNiagaraBoolParameterTrack")
 @:include("MovieScene/Parameters/MovieSceneNiagaraBoolParameterTrack.h")
+@:structAccess
 extern class MovieSceneNiagaraBoolParameterTrack extends MovieSceneNiagaraParameterTrack {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

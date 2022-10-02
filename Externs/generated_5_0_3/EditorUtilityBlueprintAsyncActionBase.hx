@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEditorUtilityBlueprintAsyncActionBase")
 @:include("EditorUtilityLibrary.h")
+@:structAccess
 extern class EditorUtilityBlueprintAsyncActionBase extends BlueprintAsyncActionBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

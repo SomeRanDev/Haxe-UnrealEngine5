@@ -3,9 +3,12 @@ package ue;
 
 @:native("UParticleModuleRotationOverLifetime")
 @:include("Particles/Rotation/ParticleModuleRotationOverLifetime.h")
+@:structAccess
 extern class ParticleModuleRotationOverLifetime extends ParticleModuleRotationBase {
 	public var RotationOverLife: RawDistributionFloat;
 	public var Scale: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

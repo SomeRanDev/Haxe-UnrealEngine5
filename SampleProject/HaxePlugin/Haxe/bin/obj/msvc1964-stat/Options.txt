@@ -1,0 +1,4 @@
+hxcpp_api_level=400
+hxcpp_smart_strings=1
+scriptable=1
+hxcpp=Z:/Haxe/haxe/lib/hxcpp/4,2,1/

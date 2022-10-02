@@ -3,12 +3,15 @@ package ue;
 
 @:native("UMaterialExpressionVectorNoise")
 @:include("Materials/MaterialExpressionVectorNoise.h")
+@:structAccess
 extern class MaterialExpressionVectorNoise extends MaterialExpression {
 	public var Position: ExpressionInput;
 	public var NoiseFunction: EVectorNoiseFunction;
 	public var Quality: cpp.Int32;
 	public var bTiling: Bool;
 	public var TileSize: cpp.UInt32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

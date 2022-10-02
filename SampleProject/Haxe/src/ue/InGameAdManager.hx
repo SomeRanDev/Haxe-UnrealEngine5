@@ -3,10 +3,13 @@ package ue;
 
 @:native("UInGameAdManager")
 @:include("Engine/InGameAdManager.h")
+@:structAccess
 extern class InGameAdManager extends PlatformInterfaceBase {
 	public var bShouldPauseWhileAdOpen: Bool;
 	public var ClickedBannerDelegates: TArray<HaxeDelegateProperty<() -> Void>>;
 	public var ClosedAdDelegates: TArray<HaxeDelegateProperty<() -> Void>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

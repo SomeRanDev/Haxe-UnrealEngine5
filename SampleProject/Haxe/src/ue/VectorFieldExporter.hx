@@ -3,7 +3,10 @@ package ue;
 
 @:native("UVectorFieldExporter")
 @:include("Exporters/VectorFieldExporter.h")
+@:structAccess
 extern class VectorFieldExporter extends Exporter {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

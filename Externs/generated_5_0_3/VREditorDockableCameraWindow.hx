@@ -3,7 +3,10 @@ package ue;
 
 @:native("AVREditorDockableCameraWindow")
 @:include("UI/VREditorDockableCameraWindow.h")
+@:structAccess
 extern class VREditorDockableCameraWindow extends VREditorDockableWindow {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

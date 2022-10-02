@@ -3,11 +3,14 @@ package ue;
 
 @:native("UWmfMediaSettings")
 @:include("WmfMediaSettings.h")
+@:structAccess
 extern class WmfMediaSettings extends Object {
 	public var AllowNonStandardCodecs: Bool;
 	public var LowLatency: Bool;
 	public var NativeAudioOut: Bool;
 	public var HardwareAcceleratedVideoDecoding: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

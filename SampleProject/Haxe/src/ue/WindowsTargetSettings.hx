@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWindowsTargetSettings")
 @:include("WindowsTargetSettings.h")
+@:structAccess
 extern class WindowsTargetSettings extends Object {
 	public var Compiler: ECompilerVersion;
 	public var TargetedRHIs: TArray<FString>;
@@ -28,6 +29,8 @@ extern class WindowsTargetSettings extends Object {
 	public var CompressionQualityModifier: cpp.Float32;
 	public var AutoStreamingThreshold: cpp.Float32;
 	public var SoundCueCookQualityIndex: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

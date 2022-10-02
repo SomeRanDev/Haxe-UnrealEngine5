@@ -3,6 +3,10 @@ package ue;
 
 @:native("FTransformBaseConstraint")
 @:include("Animation/Rig.h")
+@:structAccess
 extern class TransformBaseConstraint {
 	public var TransformConstraints: TArray<RigTransformConstraint>;
+
+	@:native("FTransformBaseConstraint") public function new();
+	@:native("FTransformBaseConstraint") public static function make(TransformConstraints: TArray<RigTransformConstraint>): TransformBaseConstraint ;
 }

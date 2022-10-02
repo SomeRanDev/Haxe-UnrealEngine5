@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWorldPartitionEditorSpatialHash")
 @:include("WorldPartition/WorldPartitionEditorSpatialHash.h")
+@:structAccess
 extern class WorldPartitionEditorSpatialHash extends WorldPartitionEditorHash {
 	public var CellSize: cpp.Int32;
 	public var WantedCellSize: cpp.Int32;
@@ -11,6 +12,8 @@ extern class WorldPartitionEditorSpatialHash extends WorldPartitionEditorHash {
 	public var WorldImage: SoftObjectPath;
 	public var WorldImageTopLeftW: Vector2D;
 	public var WorldImageBottomRightW: Vector2D;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnLowPowerModeDelegate__PythonCallable")
+@:structAccess
 extern class OnLowPowerModeDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

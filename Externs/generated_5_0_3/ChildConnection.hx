@@ -3,8 +3,11 @@ package ue;
 
 @:native("UChildConnection")
 @:include("Engine/ChildConnection.h")
+@:structAccess
 extern class ChildConnection extends NetConnection {
 	public var Parent: cpp.Star<NetConnection>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

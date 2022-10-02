@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEnvQueryGenerator_Cone")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_Cone.h")
+@:structAccess
 extern class EnvQueryGenerator_Cone extends EnvQueryGenerator_ProjectedPoints {
 	public var AlignedPointsDistance: AIDataProviderFloatValue;
 	public var ConeDegrees: AIDataProviderFloatValue;
@@ -10,6 +11,8 @@ extern class EnvQueryGenerator_Cone extends EnvQueryGenerator_ProjectedPoints {
 	public var Range: AIDataProviderFloatValue;
 	public var CenterActor: TSubclassOf<EnvQueryContext>;
 	public var bIncludeContextLocation: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

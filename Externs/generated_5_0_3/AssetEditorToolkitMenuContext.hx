@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAssetEditorToolkitMenuContext")
 @:include("Toolkits/AssetEditorToolkitMenuContext.h")
+@:structAccess
 extern class AssetEditorToolkitMenuContext extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

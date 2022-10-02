@@ -3,6 +3,10 @@ package ue;
 
 @:native("FRawDistribution")
 @:include("Distributions/Distribution.h")
+@:structAccess
 extern class RawDistribution {
 	public var Table: DistributionLookupTable;
+
+	@:native("FRawDistribution") public function new();
+	@:native("FRawDistribution") public static function make(Table: DistributionLookupTable): RawDistribution ;
 }

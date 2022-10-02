@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBackgroundBlur")
 @:include("Components/BackgroundBlur.h")
+@:structAccess
 extern class BackgroundBlur extends ContentWidget {
 	public var Padding: Margin;
 	public var HorizontalAlignment: EHorizontalAlignment;
@@ -22,6 +23,8 @@ extern class BackgroundBlur extends ContentWidget {
 	public function SetBlurStrength(InStrength: cpp.Float32): Void;
 	public function SetBlurRadius(InBlurRadius: cpp.Int32): Void;
 	public function SetApplyAlphaToBlur(bInApplyAlphaToBlur: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

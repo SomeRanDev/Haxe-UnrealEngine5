@@ -3,7 +3,10 @@ package ue;
 
 @:native("UResavePackagesCommandlet")
 @:include("Commandlets/ResavePackagesCommandlet.h")
+@:structAccess
 extern class ResavePackagesCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

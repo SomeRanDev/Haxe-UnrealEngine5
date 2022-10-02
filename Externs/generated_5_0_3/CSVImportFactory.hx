@@ -3,9 +3,12 @@ package ue;
 
 @:native("UCSVImportFactory")
 @:include("Factories/CSVImportFactory.h")
+@:structAccess
 extern class CSVImportFactory extends Factory {
 	public var AutomatedImportSettings: CSVImportSettings;
 	public var DataTableImportOptions: cpp.Star<DataTable>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

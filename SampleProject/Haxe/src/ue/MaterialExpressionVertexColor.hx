@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionVertexColor")
 @:include("Materials/MaterialExpressionVertexColor.h")
+@:structAccess
 extern class MaterialExpressionVertexColor extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

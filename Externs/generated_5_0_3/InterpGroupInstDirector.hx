@@ -3,7 +3,10 @@ package ue;
 
 @:native("UInterpGroupInstDirector")
 @:include("Matinee/InterpGroupInstDirector.h")
+@:structAccess
 extern class InterpGroupInstDirector extends InterpGroupInst {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

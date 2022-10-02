@@ -3,6 +3,7 @@ package ue;
 
 @:native("ALandscapeProxy")
 @:include("LandscapeProxy.h")
+@:structAccess
 extern class LandscapeProxy extends PartitionActor {
 	public var SplineComponent: cpp.Star<LandscapeSplinesComp>;
 	public var LandscapeGuid: Guid;
@@ -90,6 +91,8 @@ extern class LandscapeProxy extends PartitionActor {
 	public function EditorApplySpline(InSplineComponent: cpp.Star<SplineComp>, StartWidth: cpp.Float32, EndWidth: cpp.Float32, StartSideFalloff: cpp.Float32, EndSideFalloff: cpp.Float32, StartRoll: cpp.Float32, EndRoll: cpp.Float32, NumSubdivisions: cpp.Int32, bRaiseHeights: Bool, bLowerHeights: Bool, PaintLayer: cpp.Star<LandscapeLayerInfoObject>, EditLayerName: FName): Void;
 	public function ChangeLODDistanceFactor(InLODDistanceFactor: cpp.Float32): Void;
 	public function ChangeComponentScreenSizeToUseSubSections(InComponentScreenSizeToUseSubSections: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraRibbonUVSettings")
 @:include("NiagaraRibbonRendererProperties.h")
+@:structAccess
 extern class NiagaraRibbonUVSettings {
 	public var DistributionMode: ENiagaraRibbonUVDistributionMode;
 	public var LeadingEdgeMode: ENiagaraRibbonUVEdgeMode;
@@ -12,4 +13,6 @@ extern class NiagaraRibbonUVSettings {
 	public var Scale: Vector2D;
 	public var bEnablePerParticleUOverride: Bool;
 	public var bEnablePerParticleVRangeOverride: Bool;
+
+	@:native("FNiagaraRibbonUVSettings") public function new();
 }

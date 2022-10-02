@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNetFaultConfig")
 @:include("Net/NetConnectionFaultRecovery.h")
+@:structAccess
 extern class NetFaultConfig extends EscalationManagerConfig {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

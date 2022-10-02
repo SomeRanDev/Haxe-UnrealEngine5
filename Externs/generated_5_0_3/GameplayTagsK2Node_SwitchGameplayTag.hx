@@ -3,9 +3,12 @@ package ue;
 
 @:native("UGameplayTagsK2Node_SwitchGameplayTag")
 @:include("GameplayTagsK2Node_SwitchGameplayTag.h")
+@:structAccess
 extern class GameplayTagsK2Node_SwitchGameplayTag extends K2Node_Switch {
 	public var PinTags: TArray<GameplayTag>;
 	public var PinNames: TArray<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

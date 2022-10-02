@@ -3,6 +3,7 @@ package ue;
 
 @:native("UARFaceGeometry")
 @:include("ARTrackable.h")
+@:structAccess
 extern class ARFaceGeometry extends ARTrackedGeometry {
 	public var LookAtTarget: Vector;
 	public var bIsTracked: Bool;
@@ -14,6 +15,8 @@ extern class ARFaceGeometry extends ARTrackedGeometry {
 	public function GetLocalSpaceEyeTransform(Eye: EAREye): cpp.Reference<Transform>;
 	public function GetBlendShapeValue(BlendShape: EARFaceBlendShape): cpp.Reference<cpp.Float32>;
 	public function GetBlendShapes(): cpp.Reference<TMap<EARFaceBlendShape, cpp.Float32>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetWorldSpaceEyeTransform, GetLocalSpaceEyeTransform, GetBlendShapeValue, GetBlendShapes)

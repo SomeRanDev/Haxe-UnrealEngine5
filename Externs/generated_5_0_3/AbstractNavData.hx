@@ -3,7 +3,10 @@ package ue;
 
 @:native("AAbstractNavData")
 @:include("AbstractNavData.h")
+@:structAccess
 extern class AbstractNavData extends NavigationData {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

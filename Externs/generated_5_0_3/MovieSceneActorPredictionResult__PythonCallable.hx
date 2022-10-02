@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UMovieSceneActorPredictionResult__PythonCallable")
+@:structAccess
 extern class MovieSceneActorPredictionResult__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

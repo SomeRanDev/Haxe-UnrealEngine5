@@ -3,7 +3,11 @@ package ue;
 
 @:native("FNiagaraMeshMaterialOverride")
 @:include("NiagaraMeshRendererProperties.h")
+@:structAccess
 extern class NiagaraMeshMaterialOverride {
 	public var ExplicitMat: cpp.Star<MaterialInterface>;
 	public var UserParamBinding: NiagaraUserParameterBinding;
+
+	@:native("FNiagaraMeshMaterialOverride") public function new();
+	@:native("FNiagaraMeshMaterialOverride") public static function make(ExplicitMat: cpp.Star<MaterialInterface>, UserParamBinding: NiagaraUserParameterBinding): NiagaraMeshMaterialOverride ;
 }

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMirrorTableFindReplaceExpressions")
 @:include("Factories/MirrorDataTableFactory.h")
+@:structAccess
 extern class MirrorTableFindReplaceExpressions extends Object {
 	public var FindReplaceExpressions: TArray<MirrorFindReplaceExpression>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

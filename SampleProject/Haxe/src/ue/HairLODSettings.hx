@@ -3,6 +3,7 @@ package ue;
 
 @:native("FHairLODSettings")
 @:include("GroomAssetInterpolation.h")
+@:structAccess
 extern class HairLODSettings {
 	public var CurveDecimation: cpp.Float32;
 	public var VertexDecimation: cpp.Float32;
@@ -14,4 +15,6 @@ extern class HairLODSettings {
 	public var BindingType: EGroomBindingType;
 	public var Simulation: EGroomOverrideType;
 	public var GlobalInterpolation: EGroomOverrideType;
+
+	@:native("FHairLODSettings") public function new();
 }

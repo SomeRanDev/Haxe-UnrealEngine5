@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNiagaraDataInterfaceTexture")
 @:include("NiagaraDataInterfaceTexture.h")
+@:structAccess
 extern class NiagaraDataInterfaceTexture extends NiagaraDataInterface {
 	public var Texture: cpp.Star<Texture>;
 	public var TextureUserParameter: NiagaraUserParameterBinding;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAIDataProvider")
 @:include("DataProviders/AIDataProvider.h")
+@:structAccess
 extern class AIDataProvider extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

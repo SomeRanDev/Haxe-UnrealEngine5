@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCameraShakeSourceComponent")
 @:include("Camera/CameraShakeSourceComponent.h")
+@:structAccess
 extern class CameraShakeSourceComp extends SceneComp {
 	public var Attenuation: ECameraShakeAttenuation;
 	public var InnerAttenuationRadius: cpp.Float32;
@@ -17,6 +18,8 @@ extern class CameraShakeSourceComp extends SceneComp {
 	public function StartCameraShake(InCameraShake: TSubclassOf<CameraShakeBase>, Scale: cpp.Float32, PlaySpace: ECameraShakePlaySpace, UserPlaySpaceRot: Rotator): Void;
 	public function Start(): Void;
 	public function GetAttenuationFactor(Location: cpp.Reference<Vector>): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetAttenuationFactor)

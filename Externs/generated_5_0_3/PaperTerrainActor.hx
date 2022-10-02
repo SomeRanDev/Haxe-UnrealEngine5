@@ -3,10 +3,13 @@ package ue;
 
 @:native("APaperTerrainActor")
 @:include("PaperTerrainActor.h")
+@:structAccess
 extern class PaperTerrainActor extends Actor {
 	public var DummyRoot: cpp.Star<SceneComp>;
 	public var SplineComponent: cpp.Star<PaperTerrainSplineComp>;
 	public var RenderComponent: cpp.Star<PaperTerrainComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

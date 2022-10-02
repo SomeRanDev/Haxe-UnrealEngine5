@@ -3,12 +3,15 @@ package ue;
 
 @:native("ULoudnessAnalyzer")
 @:include("Loudness.h")
+@:structAccess
 extern class LoudnessAnalyzer extends AudioAnalyzer {
 	public var Settings: cpp.Star<LoudnessSettings>;
 	public var OnOverallLoudnessResults: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<LoudnessResults>>) -> Void>;
 	public var OnPerChannelLoudnessResults: HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<TArray<LoudnessResults>>) -> Void>;
 	public var OnLatestOverallLoudnessResults: HaxeMulticastSparseDelegateProperty<(cpp.Reference<LoudnessResults>) -> Void>;
 	public var OnLatestPerChannelLoudnessResults: HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<LoudnessResults>) -> Void>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

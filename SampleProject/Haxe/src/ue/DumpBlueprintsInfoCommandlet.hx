@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDumpBlueprintsInfoCommandlet")
 @:include("Commandlets/DumpBlueprintsInfoCommandlet.h")
+@:structAccess
 extern class DumpBlueprintsInfoCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

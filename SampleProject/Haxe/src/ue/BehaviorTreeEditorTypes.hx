@@ -3,7 +3,10 @@ package ue;
 
 @:native("UBehaviorTreeEditorTypes")
 @:include("BehaviorTreeEditorTypes.h")
+@:structAccess
 extern class BehaviorTreeEditorTypes extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("USynthSound")
 @:include("Components/SynthComponent.h")
+@:structAccess
 extern class SynthSound extends SoundWaveProcedural {
 	public var OwningSynthComponent: cpp.Star<SynthComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

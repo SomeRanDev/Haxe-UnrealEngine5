@@ -3,6 +3,7 @@ package ue;
 
 @:native("FStaticParameterSet")
 @:include("StaticParameterSet.h")
+@:structAccess
 extern class StaticParameterSet {
 	public var StaticSwitchParameters: TArray<StaticSwitchParameter>;
 	public var StaticComponentMaskParameters: TArray<StaticComponentMaskParameter>;
@@ -10,4 +11,6 @@ extern class StaticParameterSet {
 	public var MaterialLayers: MaterialLayersFunctions;
 	public var bHasMaterialLayers: Bool;
 	public var MaterialLayersParameters_DEPRECATED: TArray<StaticMaterialLayersParameter>;
+
+	@:native("FStaticParameterSet") public function new();
 }

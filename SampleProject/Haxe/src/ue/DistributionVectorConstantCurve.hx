@@ -3,10 +3,13 @@ package ue;
 
 @:native("UDistributionVectorConstantCurve")
 @:include("Distributions/DistributionVectorConstantCurve.h")
+@:structAccess
 extern class DistributionVectorConstantCurve extends DistributionVector {
 	public var ConstantCurve: InterpCurveVector;
 	public var bLockAxes: Bool;
 	public var LockedAxes: EDistributionVectorLockFlags;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

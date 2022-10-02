@@ -3,9 +3,12 @@ package ue;
 
 @:native("UActorChannel")
 @:include("Engine/ActorChannel.h")
+@:structAccess
 extern class ActorChannel extends Channel {
 	public var Actor: cpp.Star<Actor>;
 	public var CreateSubObjects: TArray<cpp.Star<Object>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

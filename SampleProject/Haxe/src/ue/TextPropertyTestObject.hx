@@ -3,10 +3,13 @@ package ue;
 
 @:native("UTextPropertyTestObject")
 @:include("Tests/TextPropertyTestObject.h")
+@:structAccess
 extern class TextPropertyTestObject extends Object {
 	public var DefaultedText: FText;
 	public var UndefaultedText: FText;
 	public var TransientText: FText;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

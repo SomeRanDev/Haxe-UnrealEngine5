@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULandscapeComponent")
 @:include("LandscapeComponent.h")
+@:structAccess
 extern class LandscapeComp extends PrimitiveComp {
 	public var SectionBaseX: cpp.Int32;
 	public var SectionBaseY: cpp.Int32;
@@ -63,6 +64,8 @@ extern class LandscapeComp extends PrimitiveComp {
 	public function GetMaterialInstanceDynamic(InIndex: cpp.Int32): cpp.Reference<cpp.Star<MaterialInstanceDynamic>>;
 	public function EditorGetPaintLayerWeightByNameAtLocation(InLocation: cpp.Reference<Vector>, InPaintLayerName: FName): cpp.Reference<cpp.Float32>;
 	public function EditorGetPaintLayerWeightAtLocation(InLocation: cpp.Reference<Vector>, PaintLayer: cpp.Star<LandscapeLayerInfoObject>): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetMaterialInstanceDynamic)

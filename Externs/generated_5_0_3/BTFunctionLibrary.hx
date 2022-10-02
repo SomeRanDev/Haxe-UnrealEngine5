@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBTFunctionLibrary")
 @:include("BehaviorTree/BTFunctionLibrary.h")
+@:structAccess
 extern class BTFunctionLibrary extends BlueprintFunctionLibrary {
 	public function StopUsingExternalEvent(NodeOwner: cpp.Star<BTNode>): Void;
 	public function StartUsingExternalEvent(NodeOwner: cpp.Star<BTNode>, OwningActor: cpp.Star<Actor>): Void;
@@ -31,6 +32,8 @@ extern class BTFunctionLibrary extends BlueprintFunctionLibrary {
 	public function GetBlackboardValueAsActor(NodeOwner: cpp.Star<BTNode>, Key: cpp.Reference<BlackboardKeySelector>): cpp.Reference<cpp.Star<Actor>>;
 	public function ClearBlackboardValueAsVector(NodeOwner: cpp.Star<BTNode>, Key: cpp.Reference<BlackboardKeySelector>): Void;
 	public function ClearBlackboardValue(NodeOwner: cpp.Star<BTNode>, Key: cpp.Reference<BlackboardKeySelector>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

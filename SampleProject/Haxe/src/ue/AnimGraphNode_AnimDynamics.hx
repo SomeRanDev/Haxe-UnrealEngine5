@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimGraphNode_AnimDynamics")
 @:include("AnimGraphNode_AnimDynamics.h")
+@:structAccess
 extern class AnimGraphNode_AnimDynamics extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_AnimDynamics;
 	public var bPreviewLive: Bool;
@@ -12,6 +13,8 @@ extern class AnimGraphNode_AnimDynamics extends AnimGraphNode_SkeletalControlBas
 	public var bShowSphericalLimit: Bool;
 	public var bShowCollisionSpheres: Bool;
 	public var LastPreviewComponent: cpp.Star<SkeletalMeshComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

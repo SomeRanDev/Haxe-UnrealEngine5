@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimDataModel")
 @:include("Animation/AnimData/AnimDataModel.h")
+@:structAccess
 extern class AnimDataModel extends Object {
 	public var BracketCounter: cpp.Int32;
 	public var ModifiedEventDynamic: HaxeMulticastSparseDelegateProperty<(EAnimDataModelNotifyType, cpp.Star<AnimDataModel>, cpp.Reference<AnimDataModelNotifPayload>) -> Void>;
@@ -33,6 +34,8 @@ extern class AnimDataModel extends Object {
 	public function GetBoneTrackByIndex(TrackIndex: cpp.Int32): cpp.Reference<BoneAnimationTrack>;
 	public function GetBoneAnimationTracks(): cpp.Reference<TArray<BoneAnimationTrack>>;
 	public function GetAnimationSequence(): cpp.Reference<cpp.Star<AnimSequence>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

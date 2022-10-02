@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_PlayAnimationTimeRange")
 @:include("Nodes/K2Node_PlayAnimation.h")
+@:structAccess
 extern class K2Node_PlayAnimationTimeRange extends K2Node_BaseAsyncTask {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

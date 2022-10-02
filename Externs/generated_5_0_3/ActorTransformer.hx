@@ -3,7 +3,10 @@ package ue;
 
 @:native("UActorTransformer")
 @:include("ActorTransformer.h")
+@:structAccess
 extern class ActorTransformer extends ViewportTransformer {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

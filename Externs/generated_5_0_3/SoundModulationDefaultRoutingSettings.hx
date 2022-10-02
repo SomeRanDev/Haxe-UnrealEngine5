@@ -3,9 +3,13 @@ package ue;
 
 @:native("FSoundModulationDefaultRoutingSettings")
 @:include("Sound/SoundModulationDestination.h")
+@:structAccess
 extern class SoundModulationDefaultRoutingSettings extends SoundModulationDefaultSettings {
 	public var VolumeRouting: EModulationRouting;
 	public var PitchRouting: EModulationRouting;
 	public var HighpassRouting: EModulationRouting;
 	public var LowpassRouting: EModulationRouting;
+
+	@:native("FSoundModulationDefaultRoutingSettings") public function new();
+	@:native("FSoundModulationDefaultRoutingSettings") public static function make(VolumeRouting: EModulationRouting, PitchRouting: EModulationRouting, HighpassRouting: EModulationRouting, LowpassRouting: EModulationRouting): SoundModulationDefaultRoutingSettings ;
 }

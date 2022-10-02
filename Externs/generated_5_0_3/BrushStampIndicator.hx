@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBrushStampIndicator")
 @:include("BaseGizmos/BrushStampIndicator.h")
+@:structAccess
 extern class BrushStampIndicator extends InteractiveGizmo {
 	public var bVisible: Bool;
 	public var BrushRadius: cpp.Float32;
@@ -19,6 +20,8 @@ extern class BrushStampIndicator extends InteractiveGizmo {
 	public var SecondaryLineThickness: cpp.Float32;
 	public var SecondaryLineColor: LinearColor;
 	public var AttachedComponent: cpp.Star<PrimitiveComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,12 @@ package ue;
 
 @:native("FHLODISMComponentDesc")
 @:include("HLOD/HLODProxyDesc.h")
+@:structAccess
 extern class HLODISMComponentDesc {
 	public var StaticMesh: cpp.Star<StaticMesh>;
 	public var Material: cpp.Star<MaterialInterface>;
 	public var Instances: TArray<Transform>;
+
+	@:native("FHLODISMComponentDesc") public function new();
+	@:native("FHLODISMComponentDesc") public static function make(StaticMesh: cpp.Star<StaticMesh>, Material: cpp.Star<MaterialInterface>, Instances: TArray<Transform>): HLODISMComponentDesc ;
 }

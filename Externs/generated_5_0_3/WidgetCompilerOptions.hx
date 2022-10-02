@@ -3,9 +3,13 @@ package ue;
 
 @:native("FWidgetCompilerOptions")
 @:include("UMGEditorProjectSettings.h")
+@:structAccess
 extern class WidgetCompilerOptions {
 	public var bAllowBlueprintTick: Bool;
 	public var bAllowBlueprintPaint: Bool;
 	public var PropertyBindingRule: EPropertyBindingPermissionLevel;
 	public var Rules: TArray<TSoftClassPtr<Class>>;
+
+	@:native("FWidgetCompilerOptions") public function new();
+	@:native("FWidgetCompilerOptions") public static function make(bAllowBlueprintTick: Bool, bAllowBlueprintPaint: Bool, PropertyBindingRule: EPropertyBindingPermissionLevel, Rules: TArray<TSoftClassPtr<Class>>): WidgetCompilerOptions ;
 }

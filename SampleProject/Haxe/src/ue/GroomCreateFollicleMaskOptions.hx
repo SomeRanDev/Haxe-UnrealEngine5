@@ -3,10 +3,13 @@ package ue;
 
 @:native("UGroomCreateFollicleMaskOptions")
 @:include("GroomCreateFollicleMaskOptions.h")
+@:structAccess
 extern class GroomCreateFollicleMaskOptions extends Object {
 	public var Resolution: cpp.Int32;
 	public var RootRadius: cpp.Int32;
 	public var Grooms: TArray<FollicleMaskOptions>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

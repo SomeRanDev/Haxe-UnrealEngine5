@@ -3,6 +3,7 @@ package ue;
 
 @:native("UExpandableArea")
 @:include("Components/ExpandableArea.h")
+@:structAccess
 extern class ExpandableArea extends Widget {
 	public var Style: ExpandableAreaStyle;
 	public var BorderBrush: SlateBrush;
@@ -18,6 +19,8 @@ extern class ExpandableArea extends Widget {
 	public function SetIsExpanded_Animated(IsExpanded: Bool): Void;
 	public function SetIsExpanded(IsExpanded: Bool): Void;
 	public function GetIsExpanded(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetIsExpanded)

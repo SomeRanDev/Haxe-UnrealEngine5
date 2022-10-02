@@ -3,9 +3,13 @@ package ue;
 
 @:native("FSoundModulationDefaultSettings")
 @:include("Sound/SoundModulationDestination.h")
+@:structAccess
 extern class SoundModulationDefaultSettings {
 	public var VolumeModulationDestination: SoundModulationDestinationSettings;
 	public var PitchModulationDestination: SoundModulationDestinationSettings;
 	public var HighpassModulationDestination: SoundModulationDestinationSettings;
 	public var LowpassModulationDestination: SoundModulationDestinationSettings;
+
+	@:native("FSoundModulationDefaultSettings") public function new();
+	@:native("FSoundModulationDefaultSettings") public static function make(VolumeModulationDestination: SoundModulationDestinationSettings, PitchModulationDestination: SoundModulationDestinationSettings, HighpassModulationDestination: SoundModulationDestinationSettings, LowpassModulationDestination: SoundModulationDestinationSettings): SoundModulationDefaultSettings ;
 }

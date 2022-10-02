@@ -3,8 +3,11 @@ package ue;
 
 @:native("UInterpTrackInstEvent")
 @:include("Matinee/InterpTrackInstEvent.h")
+@:structAccess
 extern class InterpTrackInstEvent extends InterpTrackInst {
 	public var LastUpdatePosition: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

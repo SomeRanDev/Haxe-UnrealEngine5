@@ -3,8 +3,11 @@ package ue;
 
 @:native("UVREditorAutoScaler")
 @:include("Teleporter/VREditorAutoScaler.h")
+@:structAccess
 extern class VREditorAutoScaler extends Object {
 	public var VRMode: cpp.Star<VREditorMode>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

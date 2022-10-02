@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraDataInterfaceUObjectPropertyReader")
 @:include("DataInterface/NiagaraDataInterfaceUObjectPropertyReader.h")
+@:structAccess
 extern class NiagaraDataInterfaceUObjectPropertyReader extends NiagaraDataInterface {
 	public var UObjectParameterBinding: NiagaraUserParameterBinding;
 	public var PropertyRemap: TArray<NiagaraUObjectPropertyReaderRemap>;
@@ -10,6 +11,8 @@ extern class NiagaraDataInterfaceUObjectPropertyReader extends NiagaraDataInterf
 	public var SourceActorComponentClass: TSubclassOf<Object>;
 
 	public function SetUObjectReaderPropertyRemap(NiagaraComponent: cpp.Star<NiagaraComp>, UserParameterName: FName, GraphName: FName, RemapName: FName): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

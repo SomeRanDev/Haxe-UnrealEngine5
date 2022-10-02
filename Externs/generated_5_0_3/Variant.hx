@@ -3,6 +3,7 @@ package ue;
 
 @:native("UVariant")
 @:include("Variant.h")
+@:structAccess
 extern class Variant extends Object {
 	public var Dependencies: TArray<VariantDependency>;
 	public var DisplayText_DEPRECATED: FText;
@@ -27,6 +28,8 @@ extern class Variant extends Object {
 	public function GetActor(ActorIndex: cpp.Int32): cpp.Reference<cpp.Star<Actor>>;
 	public function DeleteDependency(Index: cpp.Int32): Void;
 	public function AddDependency(Dependency: cpp.Reference<VariantDependency>): cpp.Reference<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetDisplayText)

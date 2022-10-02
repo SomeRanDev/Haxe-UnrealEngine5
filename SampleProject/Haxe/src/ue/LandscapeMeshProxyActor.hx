@@ -3,8 +3,11 @@ package ue;
 
 @:native("ALandscapeMeshProxyActor")
 @:include("LandscapeMeshProxyActor.h")
+@:structAccess
 extern class LandscapeMeshProxyActor extends Actor {
 	public var LandscapeMeshProxyComponent: cpp.Star<LandscapeMeshProxyComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

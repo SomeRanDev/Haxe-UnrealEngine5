@@ -3,8 +3,11 @@ package ue;
 
 @:native("USkeletalMeshSimplificationSettings")
 @:include("Engine/SkeletalMeshSimplificationSettings.h")
+@:structAccess
 extern class SkeletalMeshSimplificationSettings extends DeveloperSettings {
 	public var SkeletalMeshReductionModuleName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

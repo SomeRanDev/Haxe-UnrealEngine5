@@ -3,7 +3,10 @@ package ue;
 
 @:native("USMInstanceElementAssetDataInterface")
 @:include("Elements/SMInstance/SMInstanceElementAssetDataInterface.h")
+@:structAccess
 extern class SMInstanceElementAssetDataInterface extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

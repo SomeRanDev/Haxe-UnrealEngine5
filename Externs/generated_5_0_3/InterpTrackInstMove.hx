@@ -3,9 +3,12 @@ package ue;
 
 @:native("UInterpTrackInstMove")
 @:include("Matinee/InterpTrackInstMove.h")
+@:structAccess
 extern class InterpTrackInstMove extends InterpTrackInst {
 	public var ResetLocation: Vector;
 	public var ResetRotation: Rotator;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

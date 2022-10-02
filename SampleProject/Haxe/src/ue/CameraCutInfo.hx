@@ -3,7 +3,11 @@ package ue;
 
 @:native("FCameraCutInfo")
 @:include("Matinee/MatineeActor.h")
+@:structAccess
 extern class CameraCutInfo {
 	public var Location: Vector;
 	public var TimeStamp: cpp.Float32;
+
+	@:native("FCameraCutInfo") public function new();
+	@:native("FCameraCutInfo") public static function make(Location: Vector, TimeStamp: cpp.Float32): CameraCutInfo ;
 }

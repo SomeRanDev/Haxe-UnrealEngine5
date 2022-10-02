@@ -3,6 +3,7 @@ package ue;
 
 @:native("UK2Node_Event")
 @:include("K2Node_Event.h")
+@:structAccess
 extern class K2Node_Event extends K2Node_EditablePinBase {
 	public var EventSignatureName_DEPRECATED: FName;
 	public var EventSignatureClass_DEPRECATED: TSubclassOf<Object>;
@@ -11,6 +12,8 @@ extern class K2Node_Event extends K2Node_EditablePinBase {
 	public var bInternalEvent: Bool;
 	public var CustomFunctionName: FName;
 	public var FunctionFlags: cpp.UInt32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

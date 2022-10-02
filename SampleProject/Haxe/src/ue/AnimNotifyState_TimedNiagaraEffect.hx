@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimNotifyState_TimedNiagaraEffect")
 @:include("AnimNotifyState_TimedNiagaraEffect.h")
+@:structAccess
 extern class AnimNotifyState_TimedNiagaraEffect extends AnimNotifyState {
 	public var Template: cpp.Star<NiagaraSystem>;
 	public var SocketName: FName;
@@ -11,6 +12,8 @@ extern class AnimNotifyState_TimedNiagaraEffect extends AnimNotifyState {
 	public var bDestroyAtEnd: Bool;
 
 	public function GetSpawnedEffect(MeshComp: cpp.Star<MeshComp>): cpp.Reference<cpp.Star<FXSystemComp>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetSpawnedEffect)

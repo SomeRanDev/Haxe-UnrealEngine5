@@ -3,6 +3,7 @@ package ue;
 
 @:native("UARLifeCycleComponent")
 @:include("ARLifeCycleComponent.h")
+@:structAccess
 extern class ARLifeCycleComp extends SceneComp {
 	public var OnARActorSpawnedDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Star<Class>, Guid, cpp.Star<ARActor>) -> Void>;
 	public var OnARActorToBeDestroyedDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARActor>) -> Void>;
@@ -11,6 +12,8 @@ extern class ARLifeCycleComp extends SceneComp {
 	public function ServerDestroyARActor(Actor: cpp.Star<ARActor>): Void;
 	public function InstanceARActorToBeDestroyedDelegate__DelegateSignature(Actor: cpp.Star<ARActor>): Void;
 	public function InstanceARActorSpawnedDelegate__DelegateSignature(ComponentClass: cpp.Star<Class>, NativeID: Guid, SpawnedActor: cpp.Star<ARActor>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

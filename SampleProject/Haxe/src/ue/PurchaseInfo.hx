@@ -3,9 +3,13 @@ package ue;
 
 @:native("FPurchaseInfo")
 @:include("Engine/MicroTransactionBase.h")
+@:structAccess
 extern class PurchaseInfo {
 	public var Identifier: FString;
 	public var DisplayName: FString;
 	public var DisplayDescription: FString;
 	public var DisplayPrice: FString;
+
+	@:native("FPurchaseInfo") public function new();
+	@:native("FPurchaseInfo") public static function make(Identifier: FString, DisplayName: FString, DisplayDescription: FString, DisplayPrice: FString): PurchaseInfo ;
 }

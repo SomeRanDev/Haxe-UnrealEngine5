@@ -3,6 +3,7 @@ package ue;
 
 @:native("URendererSettings")
 @:include("Engine/RendererSettings.h")
+@:structAccess
 extern class RendererSettings extends DeveloperSettings {
 	public var bMobileDisableVertexFog: Bool;
 	public var MaxMobileCascades: cpp.Int32;
@@ -133,6 +134,8 @@ extern class RendererSettings extends DeveloperSettings {
 	public var VisualizeCalibrationColorMaterialPath: SoftObjectPath;
 	public var VisualizeCalibrationCustomMaterialPath: SoftObjectPath;
 	public var VisualizeCalibrationGrayscaleMaterialPath: SoftObjectPath;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

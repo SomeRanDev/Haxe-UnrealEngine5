@@ -3,8 +3,12 @@ package ue;
 
 @:native("FTemplateMapInfoOverride")
 @:include("GameMapsSettings.h")
+@:structAccess
 extern class TemplateMapInfoOverride {
 	public var Thumbnail: SoftObjectPath;
 	public var Map: SoftObjectPath;
 	public var DisplayName: FText;
+
+	@:native("FTemplateMapInfoOverride") public function new();
+	@:native("FTemplateMapInfoOverride") public static function make(Thumbnail: SoftObjectPath, Map: SoftObjectPath, DisplayName: FText): TemplateMapInfoOverride ;
 }

@@ -3,6 +3,10 @@ package ue;
 
 @:native("FReplicatedStaticActorDestructionInfo")
 @:include("Engine/Level.h")
+@:structAccess
 extern class ReplicatedStaticActorDestructionInfo {
 	public var ObjClass: TSubclassOf<Object>;
+
+	@:native("FReplicatedStaticActorDestructionInfo") public function new();
+	@:native("FReplicatedStaticActorDestructionInfo") public static function make(ObjClass: TSubclassOf<Object>): ReplicatedStaticActorDestructionInfo ;
 }

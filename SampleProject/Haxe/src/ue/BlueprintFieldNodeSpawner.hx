@@ -3,10 +3,13 @@ package ue;
 
 @:native("UBlueprintFieldNodeSpawner")
 @:include("BlueprintFieldNodeSpawner.h")
+@:structAccess
 extern class BlueprintFieldNodeSpawner extends BlueprintNodeSpawner {
 	public var OwnerClass: TSubclassOf<Object>;
 	public var Field: cpp.Star<Field>;
 	public var Property: TFieldPath<FProperty>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

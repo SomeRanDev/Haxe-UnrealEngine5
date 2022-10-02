@@ -3,6 +3,7 @@ package ue;
 
 @:native("FComboBoxStyle")
 @:include("Styling/SlateTypes.h")
+@:structAccess
 extern class ComboBoxStyle extends SlateWidgetStyle {
 	public var ComboButtonStyle: ComboButtonStyle;
 	public var PressedSlateSound: SlateSound;
@@ -11,4 +12,6 @@ extern class ComboBoxStyle extends SlateWidgetStyle {
 	public var MenuRowPadding: Margin;
 	public var PressedSound_DEPRECATED: FName;
 	public var SelectionChangeSound_DEPRECATED: FName;
+
+	@:native("FComboBoxStyle") public function new();
 }

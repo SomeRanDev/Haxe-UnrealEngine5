@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModule")
 @:include("Particles/ParticleModule.h")
+@:structAccess
 extern class ParticleModule extends Object {
 	public var bSpawnModule: Bool;
 	public var bUpdateModule: Bool;
@@ -18,6 +19,8 @@ extern class ParticleModule extends Object {
 	public var bRequiresLoopingNotification: Bool;
 	public var LODValidity: cpp.UInt8;
 	public var ModuleEditorColor: Color;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

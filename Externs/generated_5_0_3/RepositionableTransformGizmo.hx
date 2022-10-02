@@ -3,8 +3,11 @@ package ue;
 
 @:native("URepositionableTransformGizmo")
 @:include("BaseGizmos/RepositionableTransformGizmo.h")
+@:structAccess
 extern class RepositionableTransformGizmo extends CombinedTransformGizmo {
 	public var RepositionStateTarget: cpp.Star<GizmoTransformChangeStateTarget>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

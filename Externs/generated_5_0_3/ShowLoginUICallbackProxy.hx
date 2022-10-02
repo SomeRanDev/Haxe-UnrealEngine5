@@ -3,11 +3,14 @@ package ue;
 
 @:native("UShowLoginUICallbackProxy")
 @:include("ShowLoginUICallbackProxy.h")
+@:structAccess
 extern class ShowLoginUICallbackProxy extends BlueprintAsyncActionBase {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerController>) -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerController>) -> Void>;
 
 	public function ShowExternalLoginUI(WorldContextObject: cpp.Star<Object>, InPlayerController: cpp.Star<PlayerController>): cpp.Reference<cpp.Star<ShowLoginUICallbackProxy>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

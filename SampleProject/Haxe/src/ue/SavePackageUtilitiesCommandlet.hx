@@ -3,7 +3,10 @@ package ue;
 
 @:native("USavePackageUtilitiesCommandlet")
 @:include("Commandlets/SavePackageUtilitiesCommandlet.h")
+@:structAccess
 extern class SavePackageUtilitiesCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraPlatformSetCVarCondition")
 @:include("NiagaraPlatformSet.h")
+@:structAccess
 extern class NiagaraPlatformSetCVarCondition {
 	public var CVarName: FName;
 	public var Value: Bool;
@@ -14,4 +15,6 @@ extern class NiagaraPlatformSetCVarCondition {
 	public var bUseMaxInt: Bool;
 	public var bUseMinFloat: Bool;
 	public var bUseMaxFloat: Bool;
+
+	@:native("FNiagaraPlatformSetCVarCondition") public function new();
 }

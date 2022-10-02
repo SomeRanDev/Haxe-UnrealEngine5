@@ -2,10 +2,13 @@
 package ue;
 
 @:native("UABP_Quinn_C")
+@:structAccess
 extern class ABP_Quinn_C extends ABP_Manny_C {
 	public var UberGraphFrame: PointerToUberGraphFrame;
 
 	public function ExecuteUbergraph_ABP_Quinn(EntryPoint: cpp.Int32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

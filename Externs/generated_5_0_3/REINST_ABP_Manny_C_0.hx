@@ -2,6 +2,7 @@
 package ue;
 
 @:native("UREINST_ABP_Manny_C_0")
+@:structAccess
 extern class REINST_ABP_Manny_C_0 extends AnimInstance {
 	public var UberGraphFrame: PointerToUberGraphFrame;
 	public var __AnimBlueprintMutables: AnimBlueprintGeneratedMutableData;
@@ -48,86 +49,89 @@ extern class REINST_ABP_Manny_C_0 extends AnimInstance {
 	public function BlueprintUpdateAnimation(DeltaTimeX: cpp.Float32): Void;
 	public function BlueprintInitializeAnimation(): Void;
 	public function ExecuteUbergraph_ABP_Manny(EntryPoint: cpp.Int32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()
+@:nativeGen
 abstract ConstREINST_ABP_Manny_C_0(REINST_ABP_Manny_C_0) from REINST_ABP_Manny_C_0 {
-	public var UberGraphFrame(get, never): PointerToUberGraphFrame;
+	public extern var UberGraphFrame(get, never): PointerToUberGraphFrame;
 	public inline extern function get_UberGraphFrame(): PointerToUberGraphFrame return this.UberGraphFrame;
-	public var __AnimBlueprintMutables(get, never): AnimBlueprintGeneratedMutableData;
+	public extern var __AnimBlueprintMutables(get, never): AnimBlueprintGeneratedMutableData;
 	public inline extern function get___AnimBlueprintMutables(): AnimBlueprintGeneratedMutableData return this.__AnimBlueprintMutables;
-	public var AnimBlueprintExtension_PropertyAccess(get, never): AnimSubsystemInstance;
+	public extern var AnimBlueprintExtension_PropertyAccess(get, never): AnimSubsystemInstance;
 	public inline extern function get_AnimBlueprintExtension_PropertyAccess(): AnimSubsystemInstance return this.AnimBlueprintExtension_PropertyAccess;
-	public var AnimBlueprintExtension_Base(get, never): AnimSubsystemInstance;
+	public extern var AnimBlueprintExtension_Base(get, never): AnimSubsystemInstance;
 	public inline extern function get_AnimBlueprintExtension_Base(): AnimSubsystemInstance return this.AnimBlueprintExtension_Base;
-	public var AnimGraphNode_Root(get, never): AnimNode_Root;
+	public extern var AnimGraphNode_Root(get, never): AnimNode_Root;
 	public inline extern function get_AnimGraphNode_Root(): AnimNode_Root return this.AnimGraphNode_Root;
-	public var AnimGraphNode_TransitionResult_7(get, never): AnimNode_TransitionResult;
+	public extern var AnimGraphNode_TransitionResult_7(get, never): AnimNode_TransitionResult;
 	public inline extern function get_AnimGraphNode_TransitionResult_7(): AnimNode_TransitionResult return this.AnimGraphNode_TransitionResult_7;
-	public var AnimGraphNode_TransitionResult_6(get, never): AnimNode_TransitionResult;
+	public extern var AnimGraphNode_TransitionResult_6(get, never): AnimNode_TransitionResult;
 	public inline extern function get_AnimGraphNode_TransitionResult_6(): AnimNode_TransitionResult return this.AnimGraphNode_TransitionResult_6;
-	public var AnimGraphNode_BlendSpacePlayer(get, never): AnimNode_BlendSpacePlayer;
+	public extern var AnimGraphNode_BlendSpacePlayer(get, never): AnimNode_BlendSpacePlayer;
 	public inline extern function get_AnimGraphNode_BlendSpacePlayer(): AnimNode_BlendSpacePlayer return this.AnimGraphNode_BlendSpacePlayer;
-	public var AnimGraphNode_StateResult_5(get, never): AnimNode_StateResult;
+	public extern var AnimGraphNode_StateResult_5(get, never): AnimNode_StateResult;
 	public inline extern function get_AnimGraphNode_StateResult_5(): AnimNode_StateResult return this.AnimGraphNode_StateResult_5;
-	public var AnimGraphNode_SequencePlayer_3(get, never): AnimNode_SequencePlayer;
+	public extern var AnimGraphNode_SequencePlayer_3(get, never): AnimNode_SequencePlayer;
 	public inline extern function get_AnimGraphNode_SequencePlayer_3(): AnimNode_SequencePlayer return this.AnimGraphNode_SequencePlayer_3;
-	public var AnimGraphNode_StateResult_4(get, never): AnimNode_StateResult;
+	public extern var AnimGraphNode_StateResult_4(get, never): AnimNode_StateResult;
 	public inline extern function get_AnimGraphNode_StateResult_4(): AnimNode_StateResult return this.AnimGraphNode_StateResult_4;
-	public var AnimGraphNode_StateMachine_1(get, never): AnimNode_StateMachine;
+	public extern var AnimGraphNode_StateMachine_1(get, never): AnimNode_StateMachine;
 	public inline extern function get_AnimGraphNode_StateMachine_1(): AnimNode_StateMachine return this.AnimGraphNode_StateMachine_1;
-	public var AnimGraphNode_SaveCachedPose(get, never): AnimNode_SaveCachedPose;
+	public extern var AnimGraphNode_SaveCachedPose(get, never): AnimNode_SaveCachedPose;
 	public inline extern function get_AnimGraphNode_SaveCachedPose(): AnimNode_SaveCachedPose return this.AnimGraphNode_SaveCachedPose;
-	public var AnimGraphNode_TransitionResult_5(get, never): AnimNode_TransitionResult;
+	public extern var AnimGraphNode_TransitionResult_5(get, never): AnimNode_TransitionResult;
 	public inline extern function get_AnimGraphNode_TransitionResult_5(): AnimNode_TransitionResult return this.AnimGraphNode_TransitionResult_5;
-	public var AnimGraphNode_TransitionResult_4(get, never): AnimNode_TransitionResult;
+	public extern var AnimGraphNode_TransitionResult_4(get, never): AnimNode_TransitionResult;
 	public inline extern function get_AnimGraphNode_TransitionResult_4(): AnimNode_TransitionResult return this.AnimGraphNode_TransitionResult_4;
-	public var AnimGraphNode_TransitionResult_3(get, never): AnimNode_TransitionResult;
+	public extern var AnimGraphNode_TransitionResult_3(get, never): AnimNode_TransitionResult;
 	public inline extern function get_AnimGraphNode_TransitionResult_3(): AnimNode_TransitionResult return this.AnimGraphNode_TransitionResult_3;
-	public var AnimGraphNode_TransitionResult_2(get, never): AnimNode_TransitionResult;
+	public extern var AnimGraphNode_TransitionResult_2(get, never): AnimNode_TransitionResult;
 	public inline extern function get_AnimGraphNode_TransitionResult_2(): AnimNode_TransitionResult return this.AnimGraphNode_TransitionResult_2;
-	public var AnimGraphNode_TransitionResult_1(get, never): AnimNode_TransitionResult;
+	public extern var AnimGraphNode_TransitionResult_1(get, never): AnimNode_TransitionResult;
 	public inline extern function get_AnimGraphNode_TransitionResult_1(): AnimNode_TransitionResult return this.AnimGraphNode_TransitionResult_1;
-	public var AnimGraphNode_TransitionResult(get, never): AnimNode_TransitionResult;
+	public extern var AnimGraphNode_TransitionResult(get, never): AnimNode_TransitionResult;
 	public inline extern function get_AnimGraphNode_TransitionResult(): AnimNode_TransitionResult return this.AnimGraphNode_TransitionResult;
-	public var AnimGraphNode_ApplyAdditive(get, never): AnimNode_ApplyAdditive;
+	public extern var AnimGraphNode_ApplyAdditive(get, never): AnimNode_ApplyAdditive;
 	public inline extern function get_AnimGraphNode_ApplyAdditive(): AnimNode_ApplyAdditive return this.AnimGraphNode_ApplyAdditive;
-	public var AnimGraphNode_UseCachedPose_1(get, never): AnimNode_UseCachedPose;
+	public extern var AnimGraphNode_UseCachedPose_1(get, never): AnimNode_UseCachedPose;
 	public inline extern function get_AnimGraphNode_UseCachedPose_1(): AnimNode_UseCachedPose return this.AnimGraphNode_UseCachedPose_1;
-	public var AnimGraphNode_SequencePlayer_2(get, never): AnimNode_SequencePlayer;
+	public extern var AnimGraphNode_SequencePlayer_2(get, never): AnimNode_SequencePlayer;
 	public inline extern function get_AnimGraphNode_SequencePlayer_2(): AnimNode_SequencePlayer return this.AnimGraphNode_SequencePlayer_2;
-	public var AnimGraphNode_StateResult_3(get, never): AnimNode_StateResult;
+	public extern var AnimGraphNode_StateResult_3(get, never): AnimNode_StateResult;
 	public inline extern function get_AnimGraphNode_StateResult_3(): AnimNode_StateResult return this.AnimGraphNode_StateResult_3;
-	public var AnimGraphNode_SequencePlayer_1(get, never): AnimNode_SequencePlayer;
+	public extern var AnimGraphNode_SequencePlayer_1(get, never): AnimNode_SequencePlayer;
 	public inline extern function get_AnimGraphNode_SequencePlayer_1(): AnimNode_SequencePlayer return this.AnimGraphNode_SequencePlayer_1;
-	public var AnimGraphNode_StateResult_2(get, never): AnimNode_StateResult;
+	public extern var AnimGraphNode_StateResult_2(get, never): AnimNode_StateResult;
 	public inline extern function get_AnimGraphNode_StateResult_2(): AnimNode_StateResult return this.AnimGraphNode_StateResult_2;
-	public var AnimGraphNode_SequencePlayer(get, never): AnimNode_SequencePlayer;
+	public extern var AnimGraphNode_SequencePlayer(get, never): AnimNode_SequencePlayer;
 	public inline extern function get_AnimGraphNode_SequencePlayer(): AnimNode_SequencePlayer return this.AnimGraphNode_SequencePlayer;
-	public var AnimGraphNode_StateResult_1(get, never): AnimNode_StateResult;
+	public extern var AnimGraphNode_StateResult_1(get, never): AnimNode_StateResult;
 	public inline extern function get_AnimGraphNode_StateResult_1(): AnimNode_StateResult return this.AnimGraphNode_StateResult_1;
-	public var AnimGraphNode_UseCachedPose(get, never): AnimNode_UseCachedPose;
+	public extern var AnimGraphNode_UseCachedPose(get, never): AnimNode_UseCachedPose;
 	public inline extern function get_AnimGraphNode_UseCachedPose(): AnimNode_UseCachedPose return this.AnimGraphNode_UseCachedPose;
-	public var AnimGraphNode_StateResult(get, never): AnimNode_StateResult;
+	public extern var AnimGraphNode_StateResult(get, never): AnimNode_StateResult;
 	public inline extern function get_AnimGraphNode_StateResult(): AnimNode_StateResult return this.AnimGraphNode_StateResult;
-	public var AnimGraphNode_StateMachine(get, never): AnimNode_StateMachine;
+	public extern var AnimGraphNode_StateMachine(get, never): AnimNode_StateMachine;
 	public inline extern function get_AnimGraphNode_StateMachine(): AnimNode_StateMachine return this.AnimGraphNode_StateMachine;
-	public var AnimGraphNode_Slot(get, never): AnimNode_Slot;
+	public extern var AnimGraphNode_Slot(get, never): AnimNode_Slot;
 	public inline extern function get_AnimGraphNode_Slot(): AnimNode_Slot return this.AnimGraphNode_Slot;
-	public var AnimGraphNode_ControlRig(get, never): AnimNode_ControlRig;
+	public extern var AnimGraphNode_ControlRig(get, never): AnimNode_ControlRig;
 	public inline extern function get_AnimGraphNode_ControlRig(): AnimNode_ControlRig return this.AnimGraphNode_ControlRig;
-	public var __CustomProperty_ShouldDoIKTrace_385011E94C94F6DE70691192D3E0622C(get, never): Bool;
+	public extern var __CustomProperty_ShouldDoIKTrace_385011E94C94F6DE70691192D3E0622C(get, never): Bool;
 	public inline extern function get___CustomProperty_ShouldDoIKTrace_385011E94C94F6DE70691192D3E0622C(): Bool return this.__CustomProperty_ShouldDoIKTrace_385011E94C94F6DE70691192D3E0622C;
-	public var Character(get, never): cpp.Star<Character.ConstCharacter>;
+	public extern var Character(get, never): cpp.Star<Character.ConstCharacter>;
 	public inline extern function get_Character(): cpp.Star<Character.ConstCharacter> return this.Character;
-	public var MovementComponent(get, never): cpp.Star<CharacterMovementComp.ConstCharacterMovementComp>;
+	public extern var MovementComponent(get, never): cpp.Star<CharacterMovementComp.ConstCharacterMovementComp>;
 	public inline extern function get_MovementComponent(): cpp.Star<CharacterMovementComp.ConstCharacterMovementComp> return this.MovementComponent;
-	public var Velocity(get, never): Vector;
+	public extern var Velocity(get, never): Vector;
 	public inline extern function get_Velocity(): Vector return this.Velocity;
-	public var GroundSpeed(get, never): cpp.Float64;
+	public extern var GroundSpeed(get, never): cpp.Float64;
 	public inline extern function get_GroundSpeed(): cpp.Float64 return this.GroundSpeed;
-	public var ShouldMove(get, never): Bool;
+	public extern var ShouldMove(get, never): Bool;
 	public inline extern function get_ShouldMove(): Bool return this.ShouldMove;
-	public var IsFalling(get, never): Bool;
+	public extern var IsFalling(get, never): Bool;
 	public inline extern function get_IsFalling(): Bool return this.IsFalling;
 }

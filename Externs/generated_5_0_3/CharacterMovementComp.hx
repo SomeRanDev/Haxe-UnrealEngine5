@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCharacterMovementComponent")
 @:include("GameFramework/CharacterMovementComponent.h")
+@:structAccess
 extern class CharacterMovementComp extends PawnMovementComp {
 	public var CharacterOwner: cpp.Star<Character>;
 	public var GravityScale: cpp.Float32;
@@ -200,6 +201,8 @@ extern class CharacterMovementComp extends PawnMovementComp {
 	public function CalcVelocity(DeltaTime: cpp.Float32, Friction: cpp.Float32, bFluid: Bool, BrakingDeceleration: cpp.Float32): Void;
 	public function AddImpulse(Impulse: Vector, bVelocityChange: Bool): Void;
 	public function AddForce(Force: Vector): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

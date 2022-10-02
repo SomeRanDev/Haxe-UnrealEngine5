@@ -3,8 +3,12 @@ package ue;
 
 @:native("FVariantDependency")
 @:include("Variant.h")
+@:structAccess
 extern class VariantDependency {
 	public var VariantSet: TSoftObjectPtr<VariantSet>;
 	public var Variant: TSoftObjectPtr<Variant>;
 	public var bEnabled: Bool;
+
+	@:native("FVariantDependency") public function new();
+	@:native("FVariantDependency") public static function make(VariantSet: TSoftObjectPtr<VariantSet>, Variant: TSoftObjectPtr<Variant>, bEnabled: Bool): VariantDependency ;
 }

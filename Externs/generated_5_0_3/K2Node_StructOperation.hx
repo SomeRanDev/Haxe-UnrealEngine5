@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_StructOperation")
 @:include("K2Node_StructOperation.h")
+@:structAccess
 extern class K2Node_StructOperation extends K2Node_Variable {
 	public var StructType: cpp.Star<ScriptStruct>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

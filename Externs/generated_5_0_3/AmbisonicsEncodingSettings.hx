@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAmbisonicsEncodingSettings")
 @:include("SoundFields.h")
+@:structAccess
 extern class AmbisonicsEncodingSettings extends SoundfieldEncodingSettingsBase {
 	public var AmbisonicsOrder: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

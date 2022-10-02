@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleTypeDataRibbon")
 @:include("Particles/TypeData/ParticleModuleTypeDataRibbon.h")
+@:structAccess
 extern class ParticleModuleTypeDataRibbon extends ParticleModuleTypeDataBase {
 	public var MaxTessellationBetweenParticles: cpp.Int32;
 	public var SheetsPerTrail: cpp.Int32;
@@ -24,6 +25,8 @@ extern class ParticleModuleTypeDataRibbon extends ParticleModuleTypeDataBase {
 	public var DistanceTessellationStepSize: cpp.Float32;
 	public var bEnableTangentDiffInterpScale: Bool;
 	public var TangentTessellationScalar: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

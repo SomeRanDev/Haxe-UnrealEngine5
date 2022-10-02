@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnAudioPlaybackPercent__PythonCallable")
+@:structAccess
 extern class OnAudioPlaybackPercent__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

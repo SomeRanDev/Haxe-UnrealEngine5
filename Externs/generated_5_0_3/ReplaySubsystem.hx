@@ -3,6 +3,7 @@ package ue;
 
 @:native("UReplaySubsystem")
 @:include("ReplaySubsystem.h")
+@:structAccess
 extern class ReplaySubsystem extends GameInstanceSubsystem {
 	public var bLoadDefaultMapOnStop: Bool;
 
@@ -11,6 +12,8 @@ extern class ReplaySubsystem extends GameInstanceSubsystem {
 	public function IsPlaying(): cpp.Reference<Bool>;
 	public function GetReplayCurrentTime(): cpp.Reference<cpp.Float32>;
 	public function GetActiveReplayName(): cpp.Reference<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsRecording, IsPlaying, GetReplayCurrentTime, GetActiveReplayName)

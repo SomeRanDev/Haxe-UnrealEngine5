@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraEditorDataBase")
 @:include("NiagaraEditorDataBase.h")
+@:structAccess
 extern class NiagaraEditorDataBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

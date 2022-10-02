@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEditorSettings")
 @:include("Settings/EditorSettings.h")
+@:structAccess
 extern class EditorSettings extends Object {
 	public var GlobalLocalDDCPath: DirectoryPath;
 	public var GlobalSharedDDCPath: DirectoryPath;
@@ -22,6 +23,8 @@ extern class EditorSettings extends Object {
 	public var CompletedSurveys: TArray<Guid>;
 	public var InProgressSurveys: TArray<Guid>;
 	public var AutoScalabilityWorkScaleAmount: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

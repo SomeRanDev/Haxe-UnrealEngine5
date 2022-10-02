@@ -3,6 +3,10 @@ package ue;
 
 @:native("FCollisionProfileName")
 @:include("Engine/CollisionProfile.h")
+@:structAccess
 extern class CollisionProfileName {
 	public var Name: FName;
+
+	@:native("FCollisionProfileName") public function new();
+	@:native("FCollisionProfileName") public static function make(Name: FName): CollisionProfileName ;
 }

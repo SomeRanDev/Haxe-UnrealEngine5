@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraGlobalBudgetScaling")
 @:include("NiagaraEffectType.h")
+@:structAccess
 extern class NiagaraGlobalBudgetScaling {
 	public var bCullByGlobalBudget: Bool;
 	public var bScaleMaxDistanceByGlobalBudgetUse: Bool;
@@ -12,4 +13,6 @@ extern class NiagaraGlobalBudgetScaling {
 	public var MaxDistanceScaleByGlobalBudgetUse: NiagaraLinearRamp;
 	public var MaxInstanceCountScaleByGlobalBudgetUse: NiagaraLinearRamp;
 	public var MaxSystemInstanceCountScaleByGlobalBudgetUse: NiagaraLinearRamp;
+
+	@:native("FNiagaraGlobalBudgetScaling") public function new();
 }

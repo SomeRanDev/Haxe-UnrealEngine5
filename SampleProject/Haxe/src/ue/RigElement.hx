@@ -3,7 +3,11 @@ package ue;
 
 @:native("FRigElement")
 @:include("Rigs/RigHierarchyDefines.h")
+@:structAccess
 extern class RigElement {
 	public var Name: FName;
 	public var Index: cpp.Int32;
+
+	@:native("FRigElement") public function new();
+	@:native("FRigElement") public static function make(Name: FName, Index: cpp.Int32): RigElement ;
 }

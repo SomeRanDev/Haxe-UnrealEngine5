@@ -3,9 +3,13 @@ package ue;
 
 @:native("FNiagaraDebugHudTextOptions")
 @:include("NiagaraDebuggerCommon.h")
+@:structAccess
 extern class NiagaraDebugHudTextOptions {
 	public var Font: ENiagaraDebugHudFont;
 	public var HorizontalAlignment: ENiagaraDebugHudHAlign;
 	public var VerticalAlignment: ENiagaraDebugHudVAlign;
 	public var ScreenOffset: Vector2D;
+
+	@:native("FNiagaraDebugHudTextOptions") public function new();
+	@:native("FNiagaraDebugHudTextOptions") public static function make(Font: ENiagaraDebugHudFont, HorizontalAlignment: ENiagaraDebugHudHAlign, VerticalAlignment: ENiagaraDebugHudVAlign, ScreenOffset: Vector2D): NiagaraDebugHudTextOptions ;
 }

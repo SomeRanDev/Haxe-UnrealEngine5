@@ -3,8 +3,11 @@ package ue;
 
 @:native("UVOIPStatics")
 @:include("Net/VoiceConfig.h")
+@:structAccess
 extern class VOIPStatics extends BlueprintFunctionLibrary {
 	public function SetMicThreshold(InThreshold: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

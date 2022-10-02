@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNullAudioCaptureProtocol")
 @:include("Protocols/AudioCaptureProtocol.h")
+@:structAccess
 extern class NullAudioCaptureProtocol extends MovieSceneAudioCaptureProtocolBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

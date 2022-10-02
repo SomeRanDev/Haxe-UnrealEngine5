@@ -3,9 +3,12 @@ package ue;
 
 @:native("UInterpTrackLinearColorBase")
 @:include("Matinee/InterpTrackLinearColorBase.h")
+@:structAccess
 extern class InterpTrackLinearColorBase extends InterpTrack {
 	public var LinearColorTrack: InterpCurveLinearColor;
 	public var CurveTension: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

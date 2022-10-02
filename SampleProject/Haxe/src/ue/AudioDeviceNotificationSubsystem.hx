@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAudioDeviceNotificationSubsystem")
 @:include("AudioDeviceNotificationSubsystem.h")
+@:structAccess
 extern class AudioDeviceNotificationSubsystem extends EngineSubsystem {
 	public var DefaultCaptureDeviceChanged: HaxeMulticastSparseDelegateProperty<(EAudioDeviceChangedRole, FString) -> Void>;
 	public var DefaultRenderDeviceChanged: HaxeMulticastSparseDelegateProperty<(EAudioDeviceChangedRole, FString) -> Void>;
@@ -10,6 +11,8 @@ extern class AudioDeviceNotificationSubsystem extends EngineSubsystem {
 	public var DeviceRemoved: HaxeMulticastSparseDelegateProperty<(FString) -> Void>;
 	public var DeviceStateChanged: HaxeMulticastSparseDelegateProperty<(FString, EAudioDeviceChangedState) -> Void>;
 	public var DeviceSwitched: HaxeMulticastSparseDelegateProperty<(FString) -> Void>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

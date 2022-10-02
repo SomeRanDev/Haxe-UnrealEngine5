@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionSpeedTree")
 @:include("Materials/MaterialExpressionSpeedTree.h")
+@:structAccess
 extern class MaterialExpressionSpeedTree extends MaterialExpression {
 	public var GeometryInput: ExpressionInput;
 	public var WindInput: ExpressionInput;
@@ -13,6 +14,8 @@ extern class MaterialExpressionSpeedTree extends MaterialExpression {
 	public var LODType: ESpeedTreeLODType;
 	public var BillboardThreshold: cpp.Float32;
 	public var bAccurateWindVelocities: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

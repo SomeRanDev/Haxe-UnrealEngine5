@@ -3,6 +3,7 @@ package ue;
 
 @:native("UARImageComponent")
 @:include("ARComponent.h")
+@:structAccess
 extern class ARImageComp extends ARComp {
 	public var ReplicatedPayload: ARImageUpdatePayload;
 
@@ -10,6 +11,8 @@ extern class ARImageComp extends ARComp {
 	public function ServerUpdatePayload(NewPayload: cpp.Reference<ARImageUpdatePayload>): Void;
 	public function ReceiveUpdate(Payload: cpp.Reference<ARImageUpdatePayload>): Void;
 	public function ReceiveAdd(Payload: cpp.Reference<ARImageUpdatePayload>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

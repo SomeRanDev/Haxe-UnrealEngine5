@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDatasmithOptionsBase")
 @:include("DatasmithImportOptions.h")
+@:structAccess
 extern class DatasmithOptionsBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

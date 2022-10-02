@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULocalLightComponent")
 @:include("Components/LocalLightComponent.h")
+@:structAccess
 extern class LocalLightComp extends LightComp {
 	public var IntensityUnits: ELightUnits;
 	public var Radius_DEPRECATED: cpp.Float32;
@@ -12,6 +13,8 @@ extern class LocalLightComp extends LightComp {
 	public function SetIntensityUnits(NewIntensityUnits: ELightUnits): Void;
 	public function SetAttenuationRadius(NewRadius: cpp.Float32): Void;
 	public function GetUnitsConversionFactor(SrcUnits: ELightUnits, TargetUnits: ELightUnits, CosHalfConeAngle: cpp.Float32): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

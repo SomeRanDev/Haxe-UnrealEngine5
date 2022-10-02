@@ -3,6 +3,7 @@ package ue;
 
 @:native("FClothPhysicalMeshData")
 @:include("ClothPhysicalMeshData.h")
+@:structAccess
 extern class ClothPhysicalMeshData {
 	public var Vertices: TArray<Vector3f>;
 	public var Normals: TArray<Vector3f>;
@@ -20,4 +21,6 @@ extern class ClothPhysicalMeshData {
 	public var BackstopDistances_DEPRECATED: TArray<cpp.Float32>;
 	public var BackstopRadiuses_DEPRECATED: TArray<cpp.Float32>;
 	public var AnimDriveMultipliers_DEPRECATED: TArray<cpp.Float32>;
+
+	@:native("FClothPhysicalMeshData") public function new();
 }

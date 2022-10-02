@@ -3,9 +3,13 @@ package ue;
 
 @:native("FMovieSceneEvaluationTemplate")
 @:include("Evaluation/MovieSceneEvaluationTemplate.h")
+@:structAccess
 extern class MovieSceneEvaluationTemplate {
 	public var Tracks: TMap<MovieSceneTrackIdentifier, MovieSceneEvaluationTrack>;
 	public var SequenceSignature: Guid;
 	public var TemplateSerialNumber: MovieSceneEvaluationTemplateSerialNumber;
 	public var TemplateLedger: MovieSceneTemplateGenerationLedger;
+
+	@:native("FMovieSceneEvaluationTemplate") public function new();
+	@:native("FMovieSceneEvaluationTemplate") public static function make(Tracks: TMap<MovieSceneTrackIdentifier, MovieSceneEvaluationTrack>, SequenceSignature: Guid, TemplateSerialNumber: MovieSceneEvaluationTemplateSerialNumber, TemplateLedger: MovieSceneTemplateGenerationLedger): MovieSceneEvaluationTemplate ;
 }

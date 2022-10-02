@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnAsyncCaptureSceneComplete__PythonCallable")
+@:structAccess
 extern class OnAsyncCaptureSceneComplete__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

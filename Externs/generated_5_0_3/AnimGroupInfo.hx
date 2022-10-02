@@ -3,7 +3,11 @@ package ue;
 
 @:native("FAnimGroupInfo")
 @:include("Animation/AnimBlueprint.h")
+@:structAccess
 extern class AnimGroupInfo {
 	public var Name: FName;
 	public var Color: LinearColor;
+
+	@:native("FAnimGroupInfo") public function new();
+	@:native("FAnimGroupInfo") public static function make(Name: FName, Color: LinearColor): AnimGroupInfo ;
 }

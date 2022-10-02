@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_RotationMultiplier")
 @:include("AnimGraphNode_RotationMultiplier.h")
+@:structAccess
 extern class AnimGraphNode_RotationMultiplier extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_RotationMultiplier;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

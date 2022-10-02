@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULandscapeHeightfieldCollisionComponent")
 @:include("LandscapeHeightfieldCollisionComponent.h")
+@:structAccess
 extern class LandscapeHeightfieldCollisionComp extends PrimitiveComp {
 	public var ComponentLayerInfos: TArray<cpp.Star<LandscapeLayerInfoObject>>;
 	public var SectionBaseX: cpp.Int32;
@@ -18,6 +19,8 @@ extern class LandscapeHeightfieldCollisionComp extends PrimitiveComp {
 	public var CookedPhysicalMaterials: TArray<cpp.Star<PhysicalMaterial>>;
 
 	public function GetRenderComponent(): cpp.Reference<cpp.Star<LandscapeComp>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetRenderComponent)

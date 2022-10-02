@@ -3,7 +3,10 @@ package ue;
 
 @:native("AHaxeForUnrealGameMode")
 @:include("HaxeForUnrealGameMode.h")
+@:structAccess
 extern class HaxeForUnrealGameMode extends GameModeBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

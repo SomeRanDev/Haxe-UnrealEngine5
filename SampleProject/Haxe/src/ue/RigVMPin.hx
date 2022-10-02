@@ -3,6 +3,7 @@ package ue;
 
 @:native("URigVMPin")
 @:include("RigVMModel/RigVMPin.h")
+@:structAccess
 extern class RigVMPin extends Object {
 	public var DisplayName: FName;
 	public var Direction: ERigVMPinDirection;
@@ -62,6 +63,8 @@ extern class RigVMPin extends Object {
 	public function GetArraySize(): cpp.Reference<cpp.Int32>;
 	public function GetArrayElementCppType(): cpp.Reference<FString>;
 	public function FindSubPin(InPinPath: FString): cpp.Reference<cpp.Star<RigVMPin>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

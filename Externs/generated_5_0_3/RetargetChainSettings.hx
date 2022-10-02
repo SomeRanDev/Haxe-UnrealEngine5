@@ -3,6 +3,7 @@ package ue;
 
 @:native("URetargetChainSettings")
 @:include("Retargeter/IKRetargeter.h")
+@:structAccess
 extern class RetargetChainSettings extends Object {
 	public var SourceChain: FName;
 	public var TargetChain: FName;
@@ -18,6 +19,8 @@ extern class RetargetChainSettings extends Object {
 	public var Extension: cpp.Float32;
 	public var MatchSourceVelocity: cpp.Float32;
 	public var VelocityThreshold: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

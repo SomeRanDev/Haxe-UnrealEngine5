@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAudioMixerCommandlet")
 @:include("Commandlets/AudioMixerCommandlet.h")
+@:structAccess
 extern class AudioMixerCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UInputVectorAxisDelegateBinding")
 @:include("Engine/InputVectorAxisDelegateBinding.h")
+@:structAccess
 extern class InputVectorAxisDelegateBinding extends InputAxisKeyDelegateBinding {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimMetaData")
 @:include("Animation/AnimMetaData.h")
+@:structAccess
 extern class AnimMetaData extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

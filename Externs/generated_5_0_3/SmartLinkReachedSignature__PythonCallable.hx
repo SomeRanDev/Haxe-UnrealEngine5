@@ -2,7 +2,10 @@
 package ue;
 
 @:native("USmartLinkReachedSignature__PythonCallable")
+@:structAccess
 extern class SmartLinkReachedSignature__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

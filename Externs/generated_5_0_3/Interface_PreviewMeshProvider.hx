@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UInterface_PreviewMeshProvider")
+@:structAccess
 extern class Interface_PreviewMeshProvider extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

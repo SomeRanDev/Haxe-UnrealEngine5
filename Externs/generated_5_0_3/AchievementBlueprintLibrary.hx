@@ -3,9 +3,12 @@ package ue;
 
 @:native("UAchievementBlueprintLibrary")
 @:include("AchievementBlueprintLibrary.h")
+@:structAccess
 extern class AchievementBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function GetCachedAchievementProgress(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, AchievementID: FName, bFoundID: cpp.Reference<Bool>, Progress: cpp.Reference<cpp.Float32>): Void;
 	public function GetCachedAchievementDescription(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, AchievementID: FName, bFoundID: cpp.Reference<Bool>, Title: cpp.Reference<FText>, LockedDescription: cpp.Reference<FText>, UnlockedDescription: cpp.Reference<FText>, bHidden: cpp.Reference<Bool>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

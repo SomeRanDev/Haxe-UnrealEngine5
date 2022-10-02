@@ -3,7 +3,10 @@ package ue;
 
 @:native("USlateTypes")
 @:include("Styling/SlateTypes.h")
+@:structAccess
 extern class SlateTypes extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

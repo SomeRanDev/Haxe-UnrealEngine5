@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionSetMaterialAttributes")
 @:include("Materials/MaterialExpressionSetMaterialAttributes.h")
+@:structAccess
 extern class MaterialExpressionSetMaterialAttributes extends MaterialExpression {
 	public var Inputs: TArray<ExpressionInput>;
 	public var AttributeSetTypes: TArray<Guid>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

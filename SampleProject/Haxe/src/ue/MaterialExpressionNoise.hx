@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionNoise")
 @:include("Materials/MaterialExpressionNoise.h")
+@:structAccess
 extern class MaterialExpressionNoise extends MaterialExpression {
 	public var Position: ExpressionInput;
 	public var FilterWidth: ExpressionInput;
@@ -16,6 +17,8 @@ extern class MaterialExpressionNoise extends MaterialExpression {
 	public var LevelScale: cpp.Float32;
 	public var bTiling: Bool;
 	public var RepeatSize: cpp.UInt32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

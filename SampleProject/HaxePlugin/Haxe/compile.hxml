@@ -1,0 +1,11 @@
+-cp src
+
+Main
+Test
+
+-D scriptable
+-D static_link
+-D ABI=-MD
+-D HXCPP_M64
+
+-cpp bin

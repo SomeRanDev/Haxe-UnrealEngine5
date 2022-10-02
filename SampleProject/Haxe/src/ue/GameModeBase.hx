@@ -3,6 +3,7 @@ package ue;
 
 @:native("AGameModeBase")
 @:include("GameFramework/GameModeBase.h")
+@:structAccess
 extern class GameModeBase extends Info {
 	public var OptionsString: FString;
 	public var GameSessionClass: TSubclassOf<GameSession>;
@@ -51,6 +52,8 @@ extern class GameModeBase extends Info {
 	public function ChoosePlayerStart(Player: cpp.Star<Controller>): cpp.Reference<cpp.Star<Actor>>;
 	public function ChangeName(Controller: cpp.Star<Controller>, NewName: FString, bNameChange: Bool): Void;
 	public function CanSpectate(Viewer: cpp.Star<PlayerController>, ViewTarget: cpp.Star<PlayerState>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(MustSpectate, HasMatchStarted, HasMatchEnded)

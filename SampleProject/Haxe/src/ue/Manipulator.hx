@@ -3,9 +3,12 @@ package ue;
 
 @:native("AManipulator")
 @:include("Manipulator.h")
+@:structAccess
 extern class Manipulator extends Actor {
 	public var AssociatedComponent: cpp.Star<SceneComp>;
 	public var StaticMeshComponent: cpp.Star<StaticMeshComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

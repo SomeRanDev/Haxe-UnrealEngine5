@@ -3,11 +3,14 @@ package ue;
 
 @:native("UDemoNetDriver")
 @:include("Engine/DemoNetDriver.h")
+@:structAccess
 extern class DemoNetDriver extends NetDriver {
 	public var RollbackNetStartupActors: TMap<FString, RollbackNetStartupActorInfo>;
 	public var CheckpointSaveMaxMSPerFrame: cpp.Float32;
 	public var MulticastRecordOptions: TArray<MulticastRecordOptions>;
 	public var SpectatorControllers: TArray<cpp.Star<PlayerController>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

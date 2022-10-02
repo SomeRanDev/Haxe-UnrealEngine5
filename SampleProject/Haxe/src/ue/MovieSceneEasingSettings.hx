@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMovieSceneEasingSettings")
 @:include("MovieSceneSection.h")
+@:structAccess
 extern class MovieSceneEasingSettings {
 	public var AutoEaseInDuration: cpp.Int32;
 	public var AutoEaseOutDuration: cpp.Int32;
@@ -16,4 +17,6 @@ extern class MovieSceneEasingSettings {
 	public var AutoEaseOutTime_DEPRECATED: cpp.Float32;
 	public var ManualEaseInTime_DEPRECATED: cpp.Float32;
 	public var ManualEaseOutTime_DEPRECATED: cpp.Float32;
+
+	@:native("FMovieSceneEasingSettings") public function new();
 }

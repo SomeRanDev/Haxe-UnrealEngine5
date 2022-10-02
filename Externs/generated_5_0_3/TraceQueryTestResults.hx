@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTraceQueryTestResults")
 @:include("TraceQueryTestResults.h")
+@:structAccess
 extern class TraceQueryTestResults extends Object {
 	public var ChannelResults: TraceQueryTestResultsInner;
 	public var ObjectResults: TraceQueryTestResultsInner;
@@ -10,6 +11,8 @@ extern class TraceQueryTestResults extends Object {
 	public var BatchOptions: TraceChannelTestBatchOptions;
 
 	public function ToString(): cpp.Reference<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

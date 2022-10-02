@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAssetExportTask")
 @:include("AssetExportTask.h")
+@:structAccess
 extern class AssetExportTask extends Object {
 	public var Object: cpp.Star<Object>;
 	public var Exporter: cpp.Star<Exporter>;
@@ -16,6 +17,8 @@ extern class AssetExportTask extends Object {
 	public var IgnoreObjectList: TArray<cpp.Star<Object>>;
 	public var Options: cpp.Star<Object>;
 	public var Errors: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

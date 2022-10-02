@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAIPerceptionStimuliSourceComponent")
 @:include("Perception/AIPerceptionStimuliSourceComponent.h")
+@:structAccess
 extern class AIPerceptionStimuliSourceComp extends ActorComp {
 	public var bAutoRegisterAsSource: Bool;
 	public var RegisterAsSourceForSenses: TArray<TSubclassOf<AISense>>;
@@ -11,6 +12,8 @@ extern class AIPerceptionStimuliSourceComp extends ActorComp {
 	public function UnregisterFromPerceptionSystem(): Void;
 	public function RegisterWithPerceptionSystem(): Void;
 	public function RegisterForSense(SenseClass: TSubclassOf<AISense>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

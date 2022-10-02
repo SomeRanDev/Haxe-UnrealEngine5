@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBrushBinding")
 @:include("Binding/BrushBinding.h")
+@:structAccess
 extern class BrushBinding extends PropertyBinding {
 	public function GetValue(): cpp.Reference<SlateBrush>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetValue)

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCanvasRenderTarget2D")
 @:include("Engine/CanvasRenderTarget2D.h")
+@:structAccess
 extern class CanvasRenderTarget2D extends TextureRenderTarget2D {
 	public var OnCanvasRenderTargetUpdate: HaxeMulticastSparseDelegateProperty<(cpp.Star<Canvas>, cpp.Int32, cpp.Int32) -> Void>;
 	public var World: TWeakObjectPtr<World>;
@@ -12,6 +13,8 @@ extern class CanvasRenderTarget2D extends TextureRenderTarget2D {
 	public function ReceiveUpdate(Canvas: cpp.Star<Canvas>, Width: cpp.Int32, Height: cpp.Int32): Void;
 	public function GetSize(Width: cpp.Reference<cpp.Int32>, Height: cpp.Reference<cpp.Int32>): Void;
 	public function CreateCanvasRenderTarget2D(WorldContextObject: cpp.Star<Object>, CanvasRenderTarget2DClass: TSubclassOf<CanvasRenderTarget2D>, Width: cpp.Int32, Height: cpp.Int32): cpp.Reference<cpp.Star<CanvasRenderTarget2D>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

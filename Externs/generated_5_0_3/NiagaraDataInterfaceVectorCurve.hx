@@ -3,10 +3,13 @@ package ue;
 
 @:native("UNiagaraDataInterfaceVectorCurve")
 @:include("NiagaraDataInterfaceVectorCurve.h")
+@:structAccess
 extern class NiagaraDataInterfaceVectorCurve extends NiagaraDataInterfaceCurveBase {
 	public var XCurve: RichCurve;
 	public var YCurve: RichCurve;
 	public var ZCurve: RichCurve;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

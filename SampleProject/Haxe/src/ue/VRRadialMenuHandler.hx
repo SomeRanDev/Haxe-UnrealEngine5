@@ -3,7 +3,10 @@ package ue;
 
 @:native("UVRRadialMenuHandler")
 @:include("UI/VRRadialMenuHandler.h")
+@:structAccess
 extern class VRRadialMenuHandler extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

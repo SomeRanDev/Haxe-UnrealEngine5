@@ -3,10 +3,13 @@ package ue;
 
 @:native("UAnimCompress_RemoveTrivialKeys")
 @:include("Animation/AnimCompress_RemoveTrivialKeys.h")
+@:structAccess
 extern class AnimCompress_RemoveTrivialKeys extends AnimCompress {
 	public var MaxPosDiff: cpp.Float32;
 	public var MaxAngleDiff: cpp.Float32;
 	public var MaxScaleDiff: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

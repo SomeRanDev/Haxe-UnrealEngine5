@@ -3,6 +3,7 @@ package ue;
 
 @:native("FParticleSysParam")
 @:include("Particles/ParticleSystemComponent.h")
+@:structAccess
 extern class ParticleSysParam {
 	public var Name: FName;
 	public var ParamType: EParticleSysParamType;
@@ -13,4 +14,6 @@ extern class ParticleSysParam {
 	public var Color: Color;
 	public var Actor: cpp.Star<Actor>;
 	public var Material: cpp.Star<MaterialInterface>;
+
+	@:native("FParticleSysParam") public function new();
 }

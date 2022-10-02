@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnChaosPhysicsCollision__PythonCallable")
+@:structAccess
 extern class OnChaosPhysicsCollision__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UPinnedCommandListSettings")
 @:include("PinnedCommandListSettings.h")
+@:structAccess
 extern class PinnedCommandListSettings extends Object {
 	public var Contexts: TArray<PinnedCommandListContext>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

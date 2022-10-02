@@ -3,10 +3,13 @@ package ue;
 
 @:native("UControlRigSequence")
 @:include("Sequencer/ControlRigSequence.h")
+@:structAccess
 extern class ControlRigSequence extends LevelSequence {
 	public var LastExportedToAnimationSequence: TSoftObjectPtr<AnimSequence>;
 	public var LastExportedUsingSkeletalMesh: TSoftObjectPtr<SkeletalMesh>;
 	public var LastExportedFrameRate: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAssetRegistryImpl")
 @:include("AssetRegistry.h")
+@:structAccess
 extern class AssetRegistryImpl extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

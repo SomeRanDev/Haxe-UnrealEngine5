@@ -3,12 +3,15 @@ package ue;
 
 @:native("APhysicsVolume")
 @:include("GameFramework/PhysicsVolume.h")
+@:structAccess
 extern class PhysicsVolume extends Volume {
 	public var TerminalVelocity: cpp.Float32;
 	public var Priority: cpp.Int32;
 	public var FluidFriction: cpp.Float32;
 	public var bWaterVolume: Bool;
 	public var bPhysicsOnContact: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

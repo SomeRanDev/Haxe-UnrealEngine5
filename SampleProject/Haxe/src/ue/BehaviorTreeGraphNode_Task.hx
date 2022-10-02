@@ -3,7 +3,10 @@ package ue;
 
 @:native("UBehaviorTreeGraphNode_Task")
 @:include("BehaviorTreeGraphNode_Task.h")
+@:structAccess
 extern class BehaviorTreeGraphNode_Task extends BehaviorTreeGraphNode {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

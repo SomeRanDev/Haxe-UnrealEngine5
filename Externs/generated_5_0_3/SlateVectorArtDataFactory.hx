@@ -3,7 +3,10 @@ package ue;
 
 @:native("USlateVectorArtDataFactory")
 @:include("SlateVectorArtDataFactory.h")
+@:structAccess
 extern class SlateVectorArtDataFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionSphericalParticleOpacity")
 @:include("Materials/MaterialExpressionSphericalParticleOpacity.h")
+@:structAccess
 extern class MaterialExpressionSphericalParticleOpacity extends MaterialExpression {
 	public var Density: ExpressionInput;
 	public var ConstantDensity: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

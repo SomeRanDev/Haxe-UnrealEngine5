@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMovieSceneSequencePlaybackParams")
 @:include("MovieSceneSequencePlayer.h")
+@:structAccess
 extern class MovieSceneSequencePlaybackParams {
 	public var Frame: FrameTime;
 	public var Time: cpp.Float32;
@@ -10,4 +11,6 @@ extern class MovieSceneSequencePlaybackParams {
 	public var PositionType: EMovieScenePositionType;
 	public var UpdateMethod: EUpdatePositionMethod;
 	public var bHasJumped: Bool;
+
+	@:native("FMovieSceneSequencePlaybackParams") public function new();
 }

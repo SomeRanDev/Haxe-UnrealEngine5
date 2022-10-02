@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULocalMessage")
 @:include("GameFramework/LocalMessage.h")
+@:structAccess
 extern class LocalMessage extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

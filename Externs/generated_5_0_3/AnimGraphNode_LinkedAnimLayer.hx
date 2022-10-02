@@ -3,9 +3,12 @@ package ue;
 
 @:native("UAnimGraphNode_LinkedAnimLayer")
 @:include("AnimGraphNode_LinkedAnimLayer.h")
+@:structAccess
 extern class AnimGraphNode_LinkedAnimLayer extends AnimGraphNode_LinkedAnimGraphBase {
 	public var Node: AnimNode_LinkedAnimLayer;
 	public var InterfaceGuid: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

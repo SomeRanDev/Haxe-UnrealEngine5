@@ -3,9 +3,12 @@ package ue;
 
 @:native("UK2Node_DoOnceMultiInput")
 @:include("K2Node_DoOnceMultiInput.h")
+@:structAccess
 extern class K2Node_DoOnceMultiInput extends K2Node {
 	public var NumAdditionalInputs: cpp.Int32;
 	public var DataNode: cpp.Star<K2Node_TemporaryVariable>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

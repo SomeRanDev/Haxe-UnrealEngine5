@@ -3,10 +3,13 @@ package ue;
 
 @:native("USceneThumbnailInfo")
 @:include("ThumbnailRendering/SceneThumbnailInfo.h")
+@:structAccess
 extern class SceneThumbnailInfo extends ThumbnailInfo {
 	public var OrbitPitch: cpp.Float32;
 	public var OrbitYaw: cpp.Float32;
 	public var OrbitZoom: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

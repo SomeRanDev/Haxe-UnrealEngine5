@@ -3,6 +3,10 @@ package ue;
 
 @:native("FMovieSceneEvaluationHookEventContainer")
 @:include("EntitySystem/MovieSceneEvaluationHookSystem.h")
+@:structAccess
 extern class MovieSceneEvaluationHookEventContainer {
 	public var Events: TArray<MovieSceneEvaluationHookEvent>;
+
+	@:native("FMovieSceneEvaluationHookEventContainer") public function new();
+	@:native("FMovieSceneEvaluationHookEventContainer") public static function make(Events: TArray<MovieSceneEvaluationHookEvent>): MovieSceneEvaluationHookEventContainer ;
 }

@@ -3,7 +3,11 @@ package ue;
 
 @:native("FNiagaraPropagatedVariable")
 @:include("NiagaraNodeFunctionCall.h")
+@:structAccess
 extern class NiagaraPropagatedVariable {
 	public var SwitchParameter: NiagaraVariable;
 	public var PropagatedName: FString;
+
+	@:native("FNiagaraPropagatedVariable") public function new();
+	@:native("FNiagaraPropagatedVariable") public static function make(SwitchParameter: NiagaraVariable, PropagatedName: FString): NiagaraPropagatedVariable ;
 }

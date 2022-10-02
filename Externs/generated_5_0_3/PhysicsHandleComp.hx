@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPhysicsHandleComponent")
 @:include("PhysicsEngine/PhysicsHandleComponent.h")
+@:structAccess
 extern class PhysicsHandleComp extends ActorComp {
 	public var GrabbedComponent: cpp.Star<PrimitiveComp>;
 	public var bSoftAngularConstraint: Bool;
@@ -28,6 +29,8 @@ extern class PhysicsHandleComp extends ActorComp {
 	public function GrabComponent(Component: cpp.Star<PrimitiveComp>, InBoneName: FName, GrabLocation: Vector, bConstrainRotation: Bool): Void;
 	public function GetTargetLocationAndRotation(TargetLocation: cpp.Reference<Vector>, TargetRotation: cpp.Reference<Rotator>): Void;
 	public function GetGrabbedComponent(): cpp.Reference<cpp.Star<PrimitiveComp>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetTargetLocationAndRotation, GetGrabbedComponent)

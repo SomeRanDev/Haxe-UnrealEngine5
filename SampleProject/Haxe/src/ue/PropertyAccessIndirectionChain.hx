@@ -3,8 +3,12 @@ package ue;
 
 @:native("FPropertyAccessIndirectionChain")
 @:include("PropertyAccess.h")
+@:structAccess
 extern class PropertyAccessIndirectionChain {
 	public var Property: TFieldPath<FProperty>;
 	public var IndirectionStartIndex: cpp.Int32;
 	public var IndirectionEndIndex: cpp.Int32;
+
+	@:native("FPropertyAccessIndirectionChain") public function new();
+	@:native("FPropertyAccessIndirectionChain") public static function make(Property: TFieldPath<FProperty>, IndirectionStartIndex: cpp.Int32, IndirectionEndIndex: cpp.Int32): PropertyAccessIndirectionChain ;
 }

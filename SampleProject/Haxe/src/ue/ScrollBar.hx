@@ -3,6 +3,7 @@ package ue;
 
 @:native("UScrollBar")
 @:include("Components/ScrollBar.h")
+@:structAccess
 extern class ScrollBar extends Widget {
 	public var WidgetStyle: ScrollBarStyle;
 	public var Style_DEPRECATED: cpp.Star<SlateWidgetStyleAsset>;
@@ -13,6 +14,8 @@ extern class ScrollBar extends Widget {
 	public var Padding: Margin;
 
 	public function SetState(InOffsetFraction: cpp.Float32, InThumbSizeFraction: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

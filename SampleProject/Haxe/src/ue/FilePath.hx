@@ -3,6 +3,10 @@ package ue;
 
 @:native("FFilePath")
 @:include("UObject/NoExportTypes.h")
+@:structAccess
 extern class FilePath {
 	public var FilePath: FString;
+
+	@:native("FFilePath") public function new();
+	@:native("FFilePath") public static function make(FilePath: FString): FilePath ;
 }

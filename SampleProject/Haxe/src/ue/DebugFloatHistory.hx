@@ -3,10 +3,14 @@ package ue;
 
 @:native("FDebugFloatHistory")
 @:include("Engine/EngineTypes.h")
+@:structAccess
 extern class DebugFloatHistory {
 	public var Samples: TArray<cpp.Float32>;
 	public var MaxSamples: cpp.Int32;
 	public var MinValue: cpp.Float32;
 	public var MaxValue: cpp.Float32;
 	public var bAutoAdjustMinMax: Bool;
+
+	@:native("FDebugFloatHistory") public function new();
+	@:native("FDebugFloatHistory") public static function make(Samples: TArray<cpp.Float32>, MaxSamples: cpp.Int32, MinValue: cpp.Float32, MaxValue: cpp.Float32, bAutoAdjustMinMax: Bool): DebugFloatHistory ;
 }

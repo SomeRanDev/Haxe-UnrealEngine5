@@ -3,7 +3,10 @@ package ue;
 
 @:native("UBrushStampIndicatorBuilder")
 @:include("BaseGizmos/BrushStampIndicator.h")
+@:structAccess
 extern class BrushStampIndicatorBuilder extends InteractiveGizmoBuilder {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

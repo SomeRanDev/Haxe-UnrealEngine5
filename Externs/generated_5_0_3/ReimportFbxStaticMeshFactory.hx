@@ -3,7 +3,10 @@ package ue;
 
 @:native("UReimportFbxStaticMeshFactory")
 @:include("Factories/ReimportFbxStaticMeshFactory.h")
+@:structAccess
 extern class ReimportFbxStaticMeshFactory extends FbxFactory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

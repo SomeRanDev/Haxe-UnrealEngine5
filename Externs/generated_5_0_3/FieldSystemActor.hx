@@ -3,8 +3,11 @@ package ue;
 
 @:native("AFieldSystemActor")
 @:include("Field/FieldSystemActor.h")
+@:structAccess
 extern class FieldSystemActor extends Actor {
 	public var FieldSystemComponent: cpp.Star<FieldSystemComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

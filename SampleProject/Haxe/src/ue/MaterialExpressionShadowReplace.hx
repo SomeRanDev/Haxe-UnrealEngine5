@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionShadowReplace")
 @:include("Materials/MaterialExpressionShadowReplace.h")
+@:structAccess
 extern class MaterialExpressionShadowReplace extends MaterialExpression {
 	public var Default: ExpressionInput;
 	public var Shadow: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

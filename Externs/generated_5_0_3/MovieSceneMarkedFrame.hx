@@ -3,9 +3,13 @@ package ue;
 
 @:native("FMovieSceneMarkedFrame")
 @:include("MovieScene.h")
+@:structAccess
 extern class MovieSceneMarkedFrame {
 	public var FrameNumber: FrameNumber;
 	public var Label: FString;
 	public var Color: LinearColor;
 	public var bIsDeterminismFence: Bool;
+
+	@:native("FMovieSceneMarkedFrame") public function new();
+	@:native("FMovieSceneMarkedFrame") public static function make(FrameNumber: FrameNumber, Label: FString, Color: LinearColor, bIsDeterminismFence: Bool): MovieSceneMarkedFrame ;
 }

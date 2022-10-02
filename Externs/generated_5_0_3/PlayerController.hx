@@ -3,6 +3,7 @@ package ue;
 
 @:native("APlayerController")
 @:include("GameFramework/PlayerController.h")
+@:structAccess
 extern class PlayerController extends Controller {
 	public var Player: cpp.Star<Player>;
 	public var AcknowledgedPawn: cpp.Star<Pawn>;
@@ -206,6 +207,8 @@ extern class PlayerController extends Controller {
 	public function AddRollInput(Val: cpp.Float32): Void;
 	public function AddPitchInput(Val: cpp.Float32): Void;
 	public function ActivateTouchInterface(NewTouchInterface: cpp.Star<TouchInterface>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

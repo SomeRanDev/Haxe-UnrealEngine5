@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimNotify_PlayMontageNotify")
 @:include("AnimNotifies/AnimNotify_PlayMontageNotify.h")
+@:structAccess
 extern class AnimNotify_PlayMontageNotify extends AnimNotify {
 	public var NotifyName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("ANavigationGraphNode")
 @:include("NavGraph/NavigationGraphNode.h")
+@:structAccess
 extern class NavigationGraphNode extends Actor {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

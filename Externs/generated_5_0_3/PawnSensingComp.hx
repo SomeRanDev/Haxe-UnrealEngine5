@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPawnSensingComponent")
 @:include("Perception/PawnSensingComponent.h")
+@:structAccess
 extern class PawnSensingComp extends ActorComp {
 	public var HearingThreshold: cpp.Float32;
 	public var LOSHearingThreshold: cpp.Float32;
@@ -25,6 +26,8 @@ extern class PawnSensingComp extends ActorComp {
 	public function HearNoiseDelegate__DelegateSignature(Instigator: cpp.Star<Pawn>, Location: cpp.Reference<Vector>, Volume: cpp.Float32): Void;
 	public function GetPeripheralVisionCosine(): cpp.Reference<cpp.Float32>;
 	public function GetPeripheralVisionAngle(): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetPeripheralVisionCosine, GetPeripheralVisionAngle)

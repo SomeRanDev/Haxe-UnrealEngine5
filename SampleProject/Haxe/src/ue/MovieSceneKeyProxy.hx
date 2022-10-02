@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UMovieSceneKeyProxy")
+@:structAccess
 extern class MovieSceneKeyProxy extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

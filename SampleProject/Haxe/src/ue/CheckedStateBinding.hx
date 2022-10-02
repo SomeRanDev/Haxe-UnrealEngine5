@@ -3,8 +3,11 @@ package ue;
 
 @:native("UCheckedStateBinding")
 @:include("Binding/CheckedStateBinding.h")
+@:structAccess
 extern class CheckedStateBinding extends PropertyBinding {
 	public function GetValue(): cpp.Reference<ECheckBoxState>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetValue)

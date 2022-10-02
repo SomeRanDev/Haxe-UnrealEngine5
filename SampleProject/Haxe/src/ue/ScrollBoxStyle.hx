@@ -3,10 +3,14 @@ package ue;
 
 @:native("FScrollBoxStyle")
 @:include("Styling/SlateTypes.h")
+@:structAccess
 extern class ScrollBoxStyle extends SlateWidgetStyle {
 	public var BarThickness: cpp.Float32;
 	public var TopShadowBrush: SlateBrush;
 	public var BottomShadowBrush: SlateBrush;
 	public var LeftShadowBrush: SlateBrush;
 	public var RightShadowBrush: SlateBrush;
+
+	@:native("FScrollBoxStyle") public function new();
+	@:native("FScrollBoxStyle") public static function make(BarThickness: cpp.Float32, TopShadowBrush: SlateBrush, BottomShadowBrush: SlateBrush, LeftShadowBrush: SlateBrush, RightShadowBrush: SlateBrush): ScrollBoxStyle ;
 }

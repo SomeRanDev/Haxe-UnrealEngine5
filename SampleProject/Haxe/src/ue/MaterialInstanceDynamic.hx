@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialInstanceDynamic")
 @:include("Materials/MaterialInstanceDynamic.h")
+@:structAccess
 extern class MaterialInstanceDynamic extends MaterialInstance {
 	public function SetVectorParameterValueByInfo(ParameterInfo: cpp.Reference<MaterialParameterInfo>, Value: LinearColor): Void;
 	public function SetVectorParameterValue(ParameterName: FName, Value: LinearColor): Void;
@@ -23,6 +24,8 @@ extern class MaterialInstanceDynamic extends MaterialInstance {
 	public function K2_CopyMaterialInstanceParameters(Source: cpp.Star<MaterialInterface>, bQuickParametersOnly: Bool): Void;
 	public function CopyParameterOverrides(MaterialInstance: cpp.Star<MaterialInstance>): Void;
 	public function CopyInterpParameters(Source: cpp.Star<MaterialInstance>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

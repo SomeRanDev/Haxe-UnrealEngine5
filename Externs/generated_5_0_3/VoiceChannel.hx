@@ -3,7 +3,10 @@ package ue;
 
 @:native("UVoiceChannel")
 @:include("Engine/VoiceChannel.h")
+@:structAccess
 extern class VoiceChannel extends Channel {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

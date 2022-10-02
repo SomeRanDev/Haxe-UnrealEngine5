@@ -3,9 +3,13 @@ package ue;
 
 @:native("FHairCardsTextureSettings")
 @:include("GroomAssetCards.h")
+@:structAccess
 extern class HairCardsTextureSettings {
 	public var AtlasMaxResolution: cpp.Int32;
 	public var PixelPerCentimeters: cpp.Int32;
 	public var LengthTextureCount: cpp.Int32;
 	public var DensityTextureCount: cpp.Int32;
+
+	@:native("FHairCardsTextureSettings") public function new();
+	@:native("FHairCardsTextureSettings") public static function make(AtlasMaxResolution: cpp.Int32, PixelPerCentimeters: cpp.Int32, LengthTextureCount: cpp.Int32, DensityTextureCount: cpp.Int32): HairCardsTextureSettings ;
 }

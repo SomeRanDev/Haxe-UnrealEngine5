@@ -3,9 +3,12 @@ package ue;
 
 @:native("UPlatformMediaSource")
 @:include("PlatformMediaSource.h")
+@:structAccess
 extern class PlatformMediaSource extends MediaSource {
 	public var PlatformMediaSources: TMap<FString, cpp.Star<MediaSource>>;
 	public var MediaSource: cpp.Star<MediaSource>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

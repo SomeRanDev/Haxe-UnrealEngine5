@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAutomationControllerSettings")
 @:include("AutomationControllerSettings.h")
+@:structAccess
 extern class AutomationControllerSettings extends Object {
 	public var Groups: TArray<AutomatedTestGroup>;
 	public var bSuppressLogErrors: Bool;
@@ -13,6 +14,8 @@ extern class AutomationControllerSettings extends Object {
 	public var GameInstanceLostTimerSeconds: cpp.Float32;
 	public var TelemetryDirectory: FString;
 	public var bResetTelemetryStorageOnNewSession: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("USlateBrushThumbnailRenderer")
 @:include("ThumbnailRendering/SlateBrushThumbnailRenderer.h")
+@:structAccess
 extern class SlateBrushThumbnailRenderer extends DefaultSizedThumbnailRenderer {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

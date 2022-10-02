@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionConstantBiasScale")
 @:include("Materials/MaterialExpressionConstantBiasScale.h")
+@:structAccess
 extern class MaterialExpressionConstantBiasScale extends MaterialExpression {
 	public var Input: ExpressionInput;
 	public var Bias: cpp.Float32;
 	public var Scale: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

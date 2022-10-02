@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimStreamable")
 @:include("Animation/AnimStreamable.h")
+@:structAccess
 extern class AnimStreamable extends AnimSequenceBase {
 	public var NumberOfKeys: cpp.Int32;
 	public var Interpolation: EAnimInterpolationType;
@@ -19,6 +20,8 @@ extern class AnimStreamable extends AnimSequenceBase {
 	public var RootMotionRootLock: ERootMotionRootLock;
 	public var bForceRootLock: Bool;
 	public var bUseNormalizedRootMotionScale: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

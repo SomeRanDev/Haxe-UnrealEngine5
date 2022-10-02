@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMultiClickSequenceInputBehavior")
 @:include("BaseBehaviors/MultiClickSequenceInputBehavior.h")
+@:structAccess
 extern class MultiClickSequenceInputBehavior extends AnyButtonInputBehavior {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

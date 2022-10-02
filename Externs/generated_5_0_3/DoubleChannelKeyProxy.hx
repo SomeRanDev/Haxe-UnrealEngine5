@@ -3,9 +3,12 @@ package ue;
 
 @:native("UDoubleChannelKeyProxy")
 @:include("Channels/DoubleChannelKeyProxy.h")
+@:structAccess
 extern class DoubleChannelKeyProxy extends Object {
 	public var Time: FrameNumber;
 	public var Value: MovieSceneDoubleValue;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

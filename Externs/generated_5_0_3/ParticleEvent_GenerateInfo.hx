@@ -3,6 +3,7 @@ package ue;
 
 @:native("FParticleEvent_GenerateInfo")
 @:include("Particles/Event/ParticleModuleEventGenerator.h")
+@:structAccess
 extern class ParticleEvent_GenerateInfo {
 	public var Type: EParticleEventType;
 	public var Frequency: cpp.Int32;
@@ -13,4 +14,6 @@ extern class ParticleEvent_GenerateInfo {
 	public var bUseOrbitOffset: Bool;
 	public var CustomName: FName;
 	public var ParticleModuleEventsToSendToGame: TArray<cpp.Star<ParticleModuleEventSendToGame>>;
+
+	@:native("FParticleEvent_GenerateInfo") public function new();
 }

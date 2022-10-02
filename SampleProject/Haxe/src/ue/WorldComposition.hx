@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWorldComposition")
 @:include("Engine/WorldComposition.h")
+@:structAccess
 extern class WorldComposition extends Object {
 	public var TilesStreaming: TArray<cpp.Star<LevelStreaming>>;
 	public var TilesStreamingTimeThreshold: cpp.Float64;
@@ -10,6 +11,8 @@ extern class WorldComposition extends Object {
 	public var bRebaseOriginIn3DSpace: Bool;
 	public var bLockTilesLocation: Bool;
 	public var RebaseOriginDistance: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,11 +3,14 @@ package ue;
 
 @:native("APhysicsConstraintActor")
 @:include("PhysicsEngine/PhysicsConstraintActor.h")
+@:structAccess
 extern class PhysicsConstraintActor extends RigidBodyBase {
 	public var ConstraintComp: cpp.Star<PhysicsConstraintComp>;
 	public var ConstraintActor1_DEPRECATED: cpp.Star<Actor>;
 	public var ConstraintActor2_DEPRECATED: cpp.Star<Actor>;
 	public var bDisableCollision_DEPRECATED: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

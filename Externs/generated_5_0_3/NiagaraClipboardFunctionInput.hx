@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraClipboardFunctionInput")
 @:include("NiagaraClipboard.h")
+@:structAccess
 extern class NiagaraClipboardFunctionInput extends Object {
 	public var InputName: FName;
 	public var InputType: NiagaraTypeDefinition;
@@ -14,6 +15,8 @@ extern class NiagaraClipboardFunctionInput extends Object {
 	public var Data: cpp.Star<NiagaraDataInterface>;
 	public var Expression: FString;
 	public var Dynamic: cpp.Star<NiagaraClipboardFunction>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionPerInstanceCustomData3Vector")
 @:include("Materials/MaterialExpressionPerInstanceCustomData.h")
+@:structAccess
 extern class MaterialExpressionPerInstanceCustomData3Vector extends MaterialExpression {
 	public var DefaultValue: ExpressionInput;
 	public var ConstDefaultValue: LinearColor;
 	public var DataIndex: cpp.UInt32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

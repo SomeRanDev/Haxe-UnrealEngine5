@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UNavRelevantInterface")
+@:structAccess
 extern class NavRelevantInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

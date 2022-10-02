@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSubmixEffectDynamicsProcessorSettings")
 @:include("SubmixEffects/AudioMixerSubmixEffectDynamicsProcessor.h")
+@:structAccess
 extern class SubmixEffectDynamicsProcessorSettings {
 	public var DynamicsProcessorType: ESubmixEffectDynamicsProcessorType;
 	public var PeakMode: ESubmixEffectDynamicsPeakMode;
@@ -25,4 +26,6 @@ extern class SubmixEffectDynamicsProcessorSettings {
 	public var OutputGainDb: cpp.Float32;
 	public var KeyHighshelf: SubmixEffectDynamicProcessorFilterSettings;
 	public var KeyLowshelf: SubmixEffectDynamicProcessorFilterSettings;
+
+	@:native("FSubmixEffectDynamicsProcessorSettings") public function new();
 }

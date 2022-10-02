@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UNodeMappingProviderInterface")
+@:structAccess
 extern class NodeMappingProviderInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UImportLocalizedDialogueCommandlet")
 @:include("Commandlets/ImportLocalizedDialogueCommandlet.h")
+@:structAccess
 extern class ImportLocalizedDialogueCommandlet extends GatherTextCommandletBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

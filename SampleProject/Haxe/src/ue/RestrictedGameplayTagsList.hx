@@ -3,9 +3,12 @@ package ue;
 
 @:native("URestrictedGameplayTagsList")
 @:include("GameplayTagsSettings.h")
+@:structAccess
 extern class RestrictedGameplayTagsList extends Object {
 	public var ConfigFileName: FString;
 	public var RestrictedGameplayTagList: TArray<RestrictedGameplayTagTableRow>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

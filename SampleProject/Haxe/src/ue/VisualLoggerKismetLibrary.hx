@@ -3,6 +3,7 @@ package ue;
 
 @:native("UVisualLoggerKismetLibrary")
 @:include("VisualLogger/VisualLoggerKismetLibrary.h")
+@:structAccess
 extern class VisualLoggerKismetLibrary extends BlueprintFunctionLibrary {
 	public function RedirectVislog(SourceOwner: cpp.Star<Object>, DestinationOwner: cpp.Star<Object>): Void;
 	public function LogText(WorldContextObject: cpp.Star<Object>, Text: FString, LogCategory: FName, bAddToMessageLog: Bool): Void;
@@ -10,6 +11,8 @@ extern class VisualLoggerKismetLibrary extends BlueprintFunctionLibrary {
 	public function LogLocation(WorldContextObject: cpp.Star<Object>, Location: Vector, Text: FString, ObjectColor: LinearColor, Radius: cpp.Float32, LogCategory: FName, bAddToMessageLog: Bool): Void;
 	public function LogBox(WorldContextObject: cpp.Star<Object>, BoxShape: Box, Text: FString, ObjectColor: LinearColor, LogCategory: FName, bAddToMessageLog: Bool): Void;
 	public function EnableRecording(bEnabled: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

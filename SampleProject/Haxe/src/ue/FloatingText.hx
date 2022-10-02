@@ -3,6 +3,7 @@ package ue;
 
 @:native("AFloatingText")
 @:include("VREditorFloatingText.h")
+@:structAccess
 extern class FloatingText extends Actor {
 	public var SceneComponent: cpp.Star<SceneComp>;
 	public var FirstLineComponent: cpp.Star<StaticMeshComp>;
@@ -13,6 +14,8 @@ extern class FloatingText extends Actor {
 	public var TranslucentTextMaterial: cpp.Star<MaterialInterface>;
 	public var LineMaterial: cpp.Star<MaterialInterface>;
 	public var LineMaterialMID: cpp.Star<MaterialInstanceDynamic>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UDatasmithPostProcessVolumeTemplate")
 @:include("ObjectTemplates/DatasmithPostProcessVolumeTemplate.h")
+@:structAccess
 extern class DatasmithPostProcessVolumeTemplate extends DatasmithObjectTemplate {
 	public var Settings: DatasmithPostProcessSettingsTemplate;
 	public var bEnabled: Bool;
 	public var bUnbound: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

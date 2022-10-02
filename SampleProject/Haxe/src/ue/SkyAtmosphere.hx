@@ -3,9 +3,12 @@ package ue;
 
 @:native("ASkyAtmosphere")
 @:include("Components/SkyAtmosphereComponent.h")
+@:structAccess
 extern class SkyAtmosphere extends Info {
 	public var SkyAtmosphereComponent: cpp.Star<SkyAtmosphereComp>;
 	public var ArrowComponent: cpp.Star<ArrowComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

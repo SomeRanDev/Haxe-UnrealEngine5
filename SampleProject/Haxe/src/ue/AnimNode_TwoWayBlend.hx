@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_TwoWayBlend")
 @:include("AnimNodes/AnimNode_TwoWayBlend.h")
+@:structAccess
 extern class AnimNode_TwoWayBlend extends AnimNode_Base {
 	public var A: PoseLink;
 	public var B: PoseLink;
@@ -14,4 +15,6 @@ extern class AnimNode_TwoWayBlend extends AnimNode_Base {
 	public var AlphaBoolBlend: InputAlphaBoolBlend;
 	public var AlphaCurveName: FName;
 	public var AlphaScaleBiasClamp: InputScaleBiasClamp;
+
+	@:native("FAnimNode_TwoWayBlend") public function new();
 }

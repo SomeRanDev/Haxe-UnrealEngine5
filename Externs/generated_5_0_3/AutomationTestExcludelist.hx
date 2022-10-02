@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAutomationTestExcludelist")
 @:include("AutomationTestExcludelist.h")
+@:structAccess
 extern class AutomationTestExcludelist extends Object {
 	public var ExcludeTest: TArray<AutomationTestExcludelistEntry>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

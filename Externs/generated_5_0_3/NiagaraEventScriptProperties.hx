@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraEventScriptProperties")
 @:include("NiagaraEmitter.h")
+@:structAccess
 extern class NiagaraEventScriptProperties extends NiagaraEmitterScriptProperties {
 	public var ExecutionMode: EScriptExecutionMode;
 	public var SpawnNumber: cpp.UInt32;
@@ -11,4 +12,6 @@ extern class NiagaraEventScriptProperties extends NiagaraEmitterScriptProperties
 	public var SourceEventName: FName;
 	public var bRandomSpawnNumber: Bool;
 	public var MinSpawnNumber: cpp.UInt32;
+
+	@:native("FNiagaraEventScriptProperties") public function new();
 }

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNetPushModelHelpers")
 @:include("Net/NetPushModelHelpers.h")
+@:structAccess
 extern class NetPushModelHelpers extends BlueprintFunctionLibrary {
 	public function MarkPropertyDirtyFromRepIndex(Object: cpp.Star<Object>, RepIndex: cpp.Int32, PropertyName: FName): Void;
 	public function MarkPropertyDirty(Object: cpp.Star<Object>, PropertyName: FName): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UGatherTextFromAssetsCommandlet")
 @:include("Commandlets/GatherTextFromAssetsCommandlet.h")
+@:structAccess
 extern class GatherTextFromAssetsCommandlet extends GatherTextCommandletBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

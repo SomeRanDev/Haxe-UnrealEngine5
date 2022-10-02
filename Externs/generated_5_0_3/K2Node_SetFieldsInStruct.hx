@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_SetFieldsInStruct")
 @:include("K2Node_SetFieldsInStruct.h")
+@:structAccess
 extern class K2Node_SetFieldsInStruct extends K2Node_MakeStruct {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

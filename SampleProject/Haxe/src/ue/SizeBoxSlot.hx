@@ -3,6 +3,7 @@ package ue;
 
 @:native("USizeBoxSlot")
 @:include("Components/SizeBoxSlot.h")
+@:structAccess
 extern class SizeBoxSlot extends PanelSlot {
 	public var Padding: Margin;
 	public var HorizontalAlignment: EHorizontalAlignment;
@@ -11,6 +12,8 @@ extern class SizeBoxSlot extends PanelSlot {
 	public function SetVerticalAlignment(InVerticalAlignment: EVerticalAlignment): Void;
 	public function SetPadding(InPadding: Margin): Void;
 	public function SetHorizontalAlignment(InHorizontalAlignment: EHorizontalAlignment): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULevelEditorContextMenuContext")
 @:include("LevelEditorMenuContext.h")
+@:structAccess
 extern class LevelEditorContextMenuContext extends Object {
 	public var ContextType: ELevelEditorMenuContext;
 	public var CurrentSelection: cpp.Star<TypedElementSelectionSet>;
@@ -11,6 +12,8 @@ extern class LevelEditorContextMenuContext extends Object {
 	public var HitProxyActor: cpp.Star<Actor>;
 
 	public function GetScriptHitProxyElement(): cpp.Reference<ScriptTypedElementHandle>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

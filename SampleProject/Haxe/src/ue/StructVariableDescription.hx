@@ -3,6 +3,7 @@ package ue;
 
 @:native("FStructVariableDescription")
 @:include("UserDefinedStructure/UserDefinedStructEditorData.h")
+@:structAccess
 extern class StructVariableDescription {
 	public var VarName: FName;
 	public var VarGuid: Guid;
@@ -23,4 +24,6 @@ extern class StructVariableDescription {
 	public var bEnable3dWidget: Bool;
 	public var CurrentDefaultValue: FString;
 	public var ToolTip: FString;
+
+	@:native("FStructVariableDescription") public function new();
 }

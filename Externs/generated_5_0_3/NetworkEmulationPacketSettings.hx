@@ -3,8 +3,12 @@ package ue;
 
 @:native("FNetworkEmulationPacketSettings")
 @:include("Settings/LevelEditorPlayNetworkEmulationSettings.h")
+@:structAccess
 extern class NetworkEmulationPacketSettings {
 	public var MinLatency: cpp.Int32;
 	public var MaxLatency: cpp.Int32;
 	public var PacketLossPercentage: cpp.Int32;
+
+	@:native("FNetworkEmulationPacketSettings") public function new();
+	@:native("FNetworkEmulationPacketSettings") public static function make(MinLatency: cpp.Int32, MaxLatency: cpp.Int32, PacketLossPercentage: cpp.Int32): NetworkEmulationPacketSettings ;
 }

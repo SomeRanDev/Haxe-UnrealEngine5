@@ -3,9 +3,12 @@ package ue;
 
 @:native("UK2Node_TunnelBoundary")
 @:include("K2Node_TunnelBoundary.h")
+@:structAccess
 extern class K2Node_TunnelBoundary extends K2Node {
 	public var BaseName: FName;
 	public var TunnelBoundaryType: ETunnelBoundaryType;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

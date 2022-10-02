@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimationStateMachineSchema")
 @:include("AnimationStateMachineSchema.h")
+@:structAccess
 extern class AnimationStateMachineSchema extends EdGraphSchema {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

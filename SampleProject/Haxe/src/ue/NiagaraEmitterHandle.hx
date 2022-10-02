@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraEmitterHandle")
 @:include("NiagaraEmitterHandle.h")
+@:structAccess
 extern class NiagaraEmitterHandle {
 	public var Id: Guid;
 	public var IdName: FName;
@@ -12,4 +13,6 @@ extern class NiagaraEmitterHandle {
 	public var LastMergedSource_DEPRECATED: cpp.Star<NiagaraEmitter>;
 	public var bIsolated: Bool;
 	public var Instance: cpp.Star<NiagaraEmitter>;
+
+	@:native("FNiagaraEmitterHandle") public function new();
 }

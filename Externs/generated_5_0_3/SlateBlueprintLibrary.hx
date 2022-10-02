@@ -3,6 +3,7 @@ package ue;
 
 @:native("USlateBlueprintLibrary")
 @:include("Blueprint/SlateBlueprintLibrary.h")
+@:structAccess
 extern class SlateBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function TransformVectorLocalToAbsolute(Geometry: cpp.Reference<Geometry>, LocalVector: Vector2D): cpp.Reference<Vector2D>;
 	public function TransformVectorAbsoluteToLocal(Geometry: cpp.Reference<Geometry>, AbsoluteVector: Vector2D): cpp.Reference<Vector2D>;
@@ -20,6 +21,8 @@ extern class SlateBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function EqualEqual_SlateBrush(A: cpp.Reference<SlateBrush>, B: cpp.Reference<SlateBrush>): cpp.Reference<Bool>;
 	public function AbsoluteToViewport(WorldContextObject: cpp.Star<Object>, AbsoluteDesktopCoordinate: Vector2D, PixelPosition: cpp.Reference<Vector2D>, ViewportPosition: cpp.Reference<Vector2D>): Void;
 	public function AbsoluteToLocal(Geometry: cpp.Reference<Geometry>, AbsoluteCoordinate: Vector2D): cpp.Reference<Vector2D>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

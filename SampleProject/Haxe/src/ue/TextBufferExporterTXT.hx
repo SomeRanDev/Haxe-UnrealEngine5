@@ -3,7 +3,10 @@ package ue;
 
 @:native("UTextBufferExporterTXT")
 @:include("Exporters/TextBufferExporterTXT.h")
+@:structAccess
 extern class TextBufferExporterTXT extends Exporter {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

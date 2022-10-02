@@ -3,11 +3,14 @@ package ue;
 
 @:native("UEnvQueryGenerator_ActorsOfClass")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_ActorsOfClass.h")
+@:structAccess
 extern class EnvQueryGenerator_ActorsOfClass extends EnvQueryGenerator {
 	public var SearchedActorClass: TSubclassOf<Actor>;
 	public var GenerateOnlyActorsInRadius: AIDataProviderBoolValue;
 	public var SearchRadius: AIDataProviderFloatValue;
 	public var SearchCenter: TSubclassOf<EnvQueryContext>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,10 @@ package ue;
 
 @:native("FHeightmapData")
 @:include("LandscapeComponent.h")
+@:structAccess
 extern class HeightmapData {
 	public var Texture: cpp.Star<Texture2D>;
+
+	@:native("FHeightmapData") public function new();
+	@:native("FHeightmapData") public static function make(Texture: cpp.Star<Texture2D>): HeightmapData ;
 }

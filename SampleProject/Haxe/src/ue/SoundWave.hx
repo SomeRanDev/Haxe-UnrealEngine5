@@ -3,6 +3,7 @@ package ue;
 
 @:native("USoundWave")
 @:include("Sound/SoundWave.h")
+@:structAccess
 extern class SoundWave extends SoundBase {
 	public var CompressionQuality: cpp.Int32;
 	public var StreamingPriority: cpp.Int32;
@@ -55,6 +56,8 @@ extern class SoundWave extends SoundBase {
 
 	public function SetSoundAssetCompressionType(InSoundAssetCompressionType: ESoundAssetCompressionType): Void;
 	public function GetSoundAssetCompressionType(): cpp.Reference<ESoundAssetCompressionType>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetSoundAssetCompressionType)

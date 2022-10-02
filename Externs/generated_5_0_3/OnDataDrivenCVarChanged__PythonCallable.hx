@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnDataDrivenCVarChanged__PythonCallable")
+@:structAccess
 extern class OnDataDrivenCVarChanged__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

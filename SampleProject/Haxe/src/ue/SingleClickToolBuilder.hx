@@ -3,7 +3,10 @@ package ue;
 
 @:native("USingleClickToolBuilder")
 @:include("BaseTools/SingleClickTool.h")
+@:structAccess
 extern class SingleClickToolBuilder extends InteractiveToolBuilder {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

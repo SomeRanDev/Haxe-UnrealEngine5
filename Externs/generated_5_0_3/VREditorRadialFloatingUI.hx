@@ -3,11 +3,14 @@ package ue;
 
 @:native("AVREditorRadialFloatingUI")
 @:include("UI/VREditorRadialFloatingUI.h")
+@:structAccess
 extern class VREditorRadialFloatingUI extends VREditorBaseActor {
 	public var WidgetComponents: TArray<cpp.Star<VREditorWidgetComp>>;
 	public var WindowMeshComponent: cpp.Star<StaticMeshComp>;
 	public var ArrowMeshComponent: cpp.Star<StaticMeshComp>;
 	public var CentralWidgetComponent: cpp.Star<VREditorWidgetComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

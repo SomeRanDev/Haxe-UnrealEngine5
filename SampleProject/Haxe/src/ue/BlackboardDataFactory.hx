@@ -3,7 +3,10 @@ package ue;
 
 @:native("UBlackboardDataFactory")
 @:include("BlackboardDataFactory.h")
+@:structAccess
 extern class BlackboardDataFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

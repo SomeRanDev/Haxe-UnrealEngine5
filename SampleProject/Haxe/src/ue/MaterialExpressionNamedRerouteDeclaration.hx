@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionNamedRerouteDeclaration")
 @:include("Materials/MaterialExpressionNamedReroute.h")
+@:structAccess
 extern class MaterialExpressionNamedRerouteDeclaration extends MaterialExpressionNamedRerouteBase {
 	public var Input: ExpressionInput;
 	public var Name: FName;
 	public var NodeColor: LinearColor;
 	public var VariableGuid: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

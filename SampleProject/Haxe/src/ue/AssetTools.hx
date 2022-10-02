@@ -2,6 +2,7 @@
 package ue;
 
 @:native("UAssetTools")
+@:structAccess
 extern class AssetTools extends Interface {
 	public function RenameReferencingSoftObjectPaths(PackagesToCheck: TArray<cpp.Star<Package>>, AssetRedirectorMap: cpp.Reference<TMap<SoftObjectPath, SoftObjectPath>>): Void;
 	public function RenameAssetsWithDialog(AssetsAndNames: cpp.Reference<TArray<AssetRenameData>>, bAutoCheckout: Bool): cpp.Reference<EAssetRenameResult>;
@@ -19,6 +20,8 @@ extern class AssetTools extends Interface {
 	public function CreateUniqueAssetName(InBasePackageName: FString, InSuffix: FString, OutPackageName: cpp.Reference<FString>, OutAssetName: cpp.Reference<FString>): Void;
 	public function CreateAssetWithDialog(AssetName: FString, PackagePath: FString, AssetClass: cpp.Star<Class>, Factory: cpp.Star<Factory>, CallingContext: FName, bCallConfigureProperties: Bool): cpp.Reference<cpp.Star<Object>>;
 	public function CreateAsset(AssetName: FString, PackagePath: FString, AssetClass: cpp.Star<Class>, Factory: cpp.Star<Factory>, CallingContext: FName): cpp.Reference<cpp.Star<Object>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

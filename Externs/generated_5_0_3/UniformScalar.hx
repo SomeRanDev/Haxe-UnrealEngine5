@@ -3,10 +3,13 @@ package ue;
 
 @:native("UUniformScalar")
 @:include("Field/FieldSystemObjects.h")
+@:structAccess
 extern class UniformScalar extends FieldNodeFloat {
 	public var Magnitude: cpp.Float32;
 
 	public function SetUniformScalar(Magnitude: cpp.Float32): cpp.Reference<cpp.Star<UniformScalar>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

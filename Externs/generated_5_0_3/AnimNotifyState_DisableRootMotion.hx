@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimNotifyState_DisableRootMotion")
 @:include("Animation/AnimNotifies/AnimNotifyState_DisableRootMotion.h")
+@:structAccess
 extern class AnimNotifyState_DisableRootMotion extends AnimNotifyState {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

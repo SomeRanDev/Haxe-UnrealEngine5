@@ -3,11 +3,14 @@ package ue;
 
 @:native("UEnvQueryGenerator_Composite")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_Composite.h")
+@:structAccess
 extern class EnvQueryGenerator_Composite extends EnvQueryGenerator {
 	public var Generators: TArray<cpp.Star<EnvQueryGenerator>>;
 	public var bAllowDifferentItemTypes: Bool;
 	public var bHasMatchingItemType: Bool;
 	public var ForcedItemType: TSubclassOf<EnvQueryItemType>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

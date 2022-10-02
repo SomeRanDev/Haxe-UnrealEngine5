@@ -3,6 +3,7 @@ package ue;
 
 @:native("FGroomAnimationInfo")
 @:include("GroomCacheData.h")
+@:structAccess
 extern class GroomAnimationInfo {
 	public var NumFrames: cpp.UInt32;
 	public var SecondsPerFrame: cpp.Float32;
@@ -12,4 +13,6 @@ extern class GroomAnimationInfo {
 	public var StartFrame: cpp.Int32;
 	public var EndFrame: cpp.Int32;
 	public var Attributes: EGroomCacheAttributes;
+
+	@:native("FGroomAnimationInfo") public function new();
 }

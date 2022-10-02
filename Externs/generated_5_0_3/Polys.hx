@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPolys")
 @:include("Engine/Polys.h")
+@:structAccess
 extern class Polys extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

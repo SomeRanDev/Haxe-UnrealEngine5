@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMovieSceneSpawnSection")
 @:include("Sections/MovieSceneSpawnSection.h")
+@:structAccess
 extern class MovieSceneSpawnSection extends MovieSceneBoolSection {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

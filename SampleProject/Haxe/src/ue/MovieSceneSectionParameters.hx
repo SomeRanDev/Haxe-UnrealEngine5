@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMovieSceneSectionParameters")
 @:include("Evaluation/MovieSceneSectionParameters.h")
+@:structAccess
 extern class MovieSceneSectionParameters {
 	public var StartFrameOffset: FrameNumber;
 	public var bCanLoop: Bool;
@@ -13,4 +14,6 @@ extern class MovieSceneSectionParameters {
 	public var StartOffset_DEPRECATED: cpp.Float32;
 	public var PrerollTime_DEPRECATED: cpp.Float32;
 	public var PostrollTime_DEPRECATED: cpp.Float32;
+
+	@:native("FMovieSceneSectionParameters") public function new();
 }

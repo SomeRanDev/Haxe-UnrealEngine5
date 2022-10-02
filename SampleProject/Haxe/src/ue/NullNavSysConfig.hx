@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNullNavSysConfig")
 @:include("AI/NavigationSystemConfig.h")
+@:structAccess
 extern class NullNavSysConfig extends NavigationSystemConfig {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

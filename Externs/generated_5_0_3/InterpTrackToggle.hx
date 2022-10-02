@@ -3,6 +3,7 @@ package ue;
 
 @:native("UInterpTrackToggle")
 @:include("Matinee/InterpTrackToggle.h")
+@:structAccess
 extern class InterpTrackToggle extends InterpTrack {
 	public var ToggleTrack: TArray<ToggleTrackKey>;
 	public var bActivateSystemEachUpdate: Bool;
@@ -10,6 +11,8 @@ extern class InterpTrackToggle extends InterpTrack {
 	public var bFireEventsWhenForwards: Bool;
 	public var bFireEventsWhenBackwards: Bool;
 	public var bFireEventsWhenJumpingForwards: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

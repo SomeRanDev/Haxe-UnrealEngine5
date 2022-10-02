@@ -3,6 +3,7 @@ package ue;
 
 @:native("UClothingAssetCommon")
 @:include("ClothingAsset.h")
+@:structAccess
 extern class ClothingAssetCommon extends ClothingAssetBase {
 	public var PhysicsAsset: cpp.Star<PhysicsAsset>;
 	public var ClothConfigs: TMap<FName, cpp.Star<ClothConfigBase>>;
@@ -17,6 +18,8 @@ extern class ClothingAssetCommon extends ClothingAssetBase {
 	public var ReferenceBoneIndex: cpp.Int32;
 	public var CustomData: cpp.Star<ClothingAssetCustomData>;
 	public var ClothConfig_DEPRECATED: ClothConfig_Legacy;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

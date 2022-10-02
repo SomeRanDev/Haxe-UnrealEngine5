@@ -3,9 +3,12 @@ package ue;
 
 @:native("UBTTask_Wait")
 @:include("BehaviorTree/Tasks/BTTask_Wait.h")
+@:structAccess
 extern class BTTask_Wait extends BTTaskNode {
 	public var WaitTime: cpp.Float32;
 	public var RandomDeviation: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

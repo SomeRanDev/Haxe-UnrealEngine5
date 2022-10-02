@@ -3,7 +3,11 @@ package ue;
 
 @:native("FTextFilterKeyValueHandlerEntry")
 @:include("Private/TextFilterKeyValueHandlers.h")
+@:structAccess
 extern class TextFilterKeyValueHandlerEntry {
 	public var Key: FName;
 	public var HandlerClass: TSoftClassPtr<Class>;
+
+	@:native("FTextFilterKeyValueHandlerEntry") public function new();
+	@:native("FTextFilterKeyValueHandlerEntry") public static function make(Key: FName, HandlerClass: TSoftClassPtr<Class>): TextFilterKeyValueHandlerEntry ;
 }

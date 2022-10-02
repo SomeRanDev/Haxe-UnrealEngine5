@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAsyncActionLoadPrimaryAssetBase")
 @:include("AsyncActionLoadPrimaryAsset.h")
+@:structAccess
 extern class AsyncActionLoadPrimaryAssetBase extends BlueprintAsyncActionBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

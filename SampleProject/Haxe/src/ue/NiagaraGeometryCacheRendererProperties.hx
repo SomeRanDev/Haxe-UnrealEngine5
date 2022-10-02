@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraGeometryCacheRendererProperties")
 @:include("NiagaraGeometryCacheRendererProperties.h")
+@:structAccess
 extern class NiagaraGeometryCacheRendererProperties extends NiagaraRendererProperties {
 	public var GeometryCaches: TArray<NiagaraGeometryCacheReference>;
 	public var bIsLooping: Bool;
@@ -16,6 +17,8 @@ extern class NiagaraGeometryCacheRendererProperties extends NiagaraRendererPrope
 	public var RendererVisibilityTagBinding: NiagaraVariableAttributeBinding;
 	public var RendererVisibility: cpp.Int32;
 	public var bAssignComponentsOnParticleID: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

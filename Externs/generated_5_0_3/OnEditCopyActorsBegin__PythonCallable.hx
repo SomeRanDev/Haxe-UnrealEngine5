@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnEditCopyActorsBegin__PythonCallable")
+@:structAccess
 extern class OnEditCopyActorsBegin__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

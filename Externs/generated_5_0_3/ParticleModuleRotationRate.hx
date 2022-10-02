@@ -3,8 +3,11 @@ package ue;
 
 @:native("UParticleModuleRotationRate")
 @:include("Particles/RotationRate/ParticleModuleRotationRate.h")
+@:structAccess
 extern class ParticleModuleRotationRate extends ParticleModuleRotationRateBase {
 	public var StartRotationRate: RawDistributionFloat;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UStaticMeshComponent")
 @:include("Components/StaticMeshComponent.h")
+@:structAccess
 extern class StaticMeshComp extends MeshComp {
 	public var ForcedLodModel: cpp.Int32;
 	public var PreviousLODLevel_DEPRECATED: cpp.Int32;
@@ -51,6 +52,8 @@ extern class StaticMeshComp extends MeshComp {
 	public function SetDistanceFieldSelfShadowBias(NewValue: cpp.Float32): Void;
 	public function OnRep_StaticMesh(OldStaticMesh: cpp.Star<StaticMesh>): Void;
 	public function GetLocalBounds(Min: cpp.Reference<Vector>, Max: cpp.Reference<Vector>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetLocalBounds)

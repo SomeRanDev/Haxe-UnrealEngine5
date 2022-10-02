@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraDataInterfaceCurveBase")
 @:include("NiagaraDataInterfaceCurveBase.h")
+@:structAccess
 extern class NiagaraDataInterfaceCurveBase extends NiagaraDataInterface {
 	public var ShaderLUT: TArray<cpp.Float32>;
 	public var LUTMinTime: cpp.Float32;
@@ -17,6 +18,8 @@ extern class NiagaraDataInterfaceCurveBase extends NiagaraDataInterface {
 	public var OptimizeThreshold: cpp.Float32;
 	public var ExposedName: FName;
 	public var ExposedTexture: cpp.Star<Texture2D>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

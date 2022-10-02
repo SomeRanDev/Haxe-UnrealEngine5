@@ -3,7 +3,11 @@ package ue;
 
 @:native("FAutomatedTestGroup")
 @:include("AutomationControllerSettings.h")
+@:structAccess
 extern class AutomatedTestGroup {
 	public var Name: FString;
 	public var Filters: TArray<AutomatedTestFilter>;
+
+	@:native("FAutomatedTestGroup") public function new();
+	@:native("FAutomatedTestGroup") public static function make(Name: FString, Filters: TArray<AutomatedTestFilter>): AutomatedTestGroup ;
 }

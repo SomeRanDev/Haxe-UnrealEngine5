@@ -3,12 +3,15 @@ package ue;
 
 @:native("UFoliageInstancedStaticMeshComponent")
 @:include("FoliageInstancedStaticMeshComponent.h")
+@:structAccess
 extern class FoliageInstancedStaticMeshComp extends HierarchicalInstancedStaticMeshComp {
 	public var OnInstanceTakePointDamage: HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Float32, cpp.Star<Controller>, Vector, Vector, cpp.Star<DamageType.ConstDamageType>, cpp.Star<Actor>) -> Void>;
 	public var OnInstanceTakeRadialDamage: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.Int32>>, cpp.Reference<TArray<cpp.Float32>>, cpp.Star<Controller>, Vector, cpp.Float32, cpp.Star<DamageType.ConstDamageType>, cpp.Star<Actor>) -> Void>;
 	public var bEnableDiscardOnLoad: Bool;
 	public var FoliageHiddenEditorViews: cpp.UInt64;
 	public var GenerationGuid: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

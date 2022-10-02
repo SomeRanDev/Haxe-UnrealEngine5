@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSplinePoint")
 @:include("Components/SplineComponent.h")
+@:structAccess
 extern class SplinePoint {
 	public var InputKey: cpp.Float32;
 	public var Position: Vector;
@@ -11,4 +12,6 @@ extern class SplinePoint {
 	public var Rotation: Rotator;
 	public var Scale: Vector;
 	public var Type: ESplinePointType;
+
+	@:native("FSplinePoint") public function new();
 }

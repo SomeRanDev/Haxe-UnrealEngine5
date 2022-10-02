@@ -3,6 +3,7 @@ package ue;
 
 @:native("UIKRig_FBIKEffector")
 @:include("Solvers/IKRig_PBIKSolver.h")
+@:structAccess
 extern class IKRig_FBIKEffector extends Object {
 	public var GoalName: FName;
 	public var BoneName: FName;
@@ -10,6 +11,8 @@ extern class IKRig_FBIKEffector extends Object {
 	public var PullChainAlpha: cpp.Float32;
 	public var PinRotation: cpp.Float32;
 	public var IndexInSolver: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

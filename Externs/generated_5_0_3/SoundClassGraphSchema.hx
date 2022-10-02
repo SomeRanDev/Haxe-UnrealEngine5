@@ -3,7 +3,10 @@ package ue;
 
 @:native("USoundClassGraphSchema")
 @:include("SoundClassGraph/SoundClassGraphSchema.h")
+@:structAccess
 extern class SoundClassGraphSchema extends EdGraphSchema {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

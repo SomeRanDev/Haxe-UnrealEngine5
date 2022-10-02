@@ -3,6 +3,7 @@ package ue;
 
 @:native("FTouchInputControl")
 @:include("GameFramework/TouchInterface.h")
+@:structAccess
 extern class TouchInputControl {
 	public var Image1: cpp.Star<Texture2D>;
 	public var Image2: cpp.Star<Texture2D>;
@@ -13,4 +14,6 @@ extern class TouchInputControl {
 	public var InputScale: Vector2D;
 	public var MainInputKey: Key;
 	public var AltInputKey: Key;
+
+	@:native("FTouchInputControl") public function new();
 }

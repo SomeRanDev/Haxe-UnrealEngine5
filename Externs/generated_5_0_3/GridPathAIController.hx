@@ -3,7 +3,10 @@ package ue;
 
 @:native("AGridPathAIController")
 @:include("GridPathAIController.h")
+@:structAccess
 extern class GridPathAIController extends AIController {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

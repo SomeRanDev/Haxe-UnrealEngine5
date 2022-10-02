@@ -3,6 +3,7 @@ package ue;
 
 @:native("UControlRigEditorSettings")
 @:include("Settings/ControlRigSettings.h")
+@:structAccess
 extern class ControlRigEditorSettings extends DeveloperSettings {
 	public var bAutoLinkMutableNodes: Bool;
 	public var bResetControlsOnCompile: Bool;
@@ -24,6 +25,8 @@ extern class ControlRigEditorSettings extends DeveloperSettings {
 	public var NodeSnippet_8: FString;
 	public var NodeSnippet_9: FString;
 	public var NodeSnippet_0: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UPhysicsThrusterComponent")
 @:include("PhysicsEngine/PhysicsThrusterComponent.h")
+@:structAccess
 extern class PhysicsThrusterComp extends SceneComp {
 	public var ThrustStrength: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

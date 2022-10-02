@@ -3,8 +3,11 @@ package ue;
 
 @:native("UShadowMapTexture2D")
 @:include("Engine/ShadowMapTexture2D.h")
+@:structAccess
 extern class ShadowMapTexture2D extends Texture2D {
 	public var ShadowmapFlags: EShadowMapFlags;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

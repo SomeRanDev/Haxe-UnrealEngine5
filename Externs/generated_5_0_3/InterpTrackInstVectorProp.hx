@@ -3,8 +3,11 @@ package ue;
 
 @:native("UInterpTrackInstVectorProp")
 @:include("Matinee/InterpTrackInstVectorProp.h")
+@:structAccess
 extern class InterpTrackInstVectorProp extends InterpTrackInstProperty {
 	public var ResetVector: Vector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

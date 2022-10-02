@@ -3,7 +3,11 @@ package ue;
 
 @:native("FSoundDebugEntry")
 @:include("Sound/AudioSettings.h")
+@:structAccess
 extern class SoundDebugEntry {
 	public var DebugName: FName;
 	public var Sound: SoftObjectPath;
+
+	@:native("FSoundDebugEntry") public function new();
+	@:native("FSoundDebugEntry") public static function make(DebugName: FName, Sound: SoftObjectPath): SoundDebugEntry ;
 }

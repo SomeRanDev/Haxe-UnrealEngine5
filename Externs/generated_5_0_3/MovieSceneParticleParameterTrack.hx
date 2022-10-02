@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneParticleParameterTrack")
 @:include("Tracks/MovieSceneParticleParameterTrack.h")
+@:structAccess
 extern class MovieSceneParticleParameterTrack extends MovieSceneNameableTrack {
 	public var Sections: TArray<cpp.Star<MovieSceneSection>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

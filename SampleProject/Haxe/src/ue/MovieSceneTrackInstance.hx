@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMovieSceneTrackInstance")
 @:include("EntitySystem/TrackInstance/MovieSceneTrackInstance.h")
+@:structAccess
 extern class MovieSceneTrackInstance extends Object {
 	public var AnimatedObject: cpp.Star<Object>;
 	public var bIsMasterTrackInstance: Bool;
 	public var PrivateLinker: cpp.Star<MovieSceneEntitySystemLinker>;
 	public var Inputs: TArray<MovieSceneTrackInstanceInput>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

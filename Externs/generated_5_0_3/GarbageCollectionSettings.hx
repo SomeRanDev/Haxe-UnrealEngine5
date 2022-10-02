@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGarbageCollectionSettings")
 @:include("Engine/CoreSettings.h")
+@:structAccess
 extern class GarbageCollectionSettings extends DeveloperSettings {
 	public var TimeBetweenPurgingPendingKillObjects: cpp.Float32;
 	public var FlushStreamingOnGC: Bool;
@@ -23,6 +24,8 @@ extern class GarbageCollectionSettings extends DeveloperSettings {
 	public var SizeOfPermanentObjectPool: cpp.Int32;
 	public var MaxObjectsInGame: cpp.Int32;
 	public var MaxObjectsInEditor: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWorldPartition")
 @:include("WorldPartition/WorldPartition.h")
+@:structAccess
 extern class WorldPartition extends ActorDescContainer {
 	public var EditorHash: cpp.Star<WorldPartitionEditorHash>;
 	public var WorldPartitionStreamingPolicyClass: TSubclassOf<WorldPartitionStreamingPolicy>;
@@ -11,6 +12,8 @@ extern class WorldPartition extends ActorDescContainer {
 	public var RuntimeHash: cpp.Star<WorldPartitionRuntimeHash>;
 	public var DefaultHLODLayer: cpp.Star<HLODLayer>;
 	public var StreamingPolicy: cpp.Star<WorldPartitionStreamingPolicy>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

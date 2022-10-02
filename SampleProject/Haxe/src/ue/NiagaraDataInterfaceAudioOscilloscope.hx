@@ -3,10 +3,13 @@ package ue;
 
 @:native("UNiagaraDataInterfaceAudioOscilloscope")
 @:include("NiagaraDataInterfaceAudioOscilloscope.h")
+@:structAccess
 extern class NiagaraDataInterfaceAudioOscilloscope extends NiagaraDataInterface {
 	public var Submix: cpp.Star<SoundSubmix>;
 	public var Resolution: cpp.Int32;
 	public var ScopeInMilliseconds: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

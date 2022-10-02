@@ -3,6 +3,7 @@ package ue;
 
 @:native("UK2Node_InputKey")
 @:include("K2Node_InputKey.h")
+@:structAccess
 extern class K2Node_InputKey extends K2Node {
 	public var InputKey: Key;
 	public var bConsumeInput: Bool;
@@ -12,6 +13,8 @@ extern class K2Node_InputKey extends K2Node {
 	public var bAlt: Bool;
 	public var bShift: Bool;
 	public var bCommand: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

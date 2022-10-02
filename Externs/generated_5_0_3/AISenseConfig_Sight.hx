@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAISenseConfig_Sight")
 @:include("Perception/AISenseConfig_Sight.h")
+@:structAccess
 extern class AISenseConfig_Sight extends AISenseConfig {
 	public var Implementation: TSubclassOf<AISense_Sight>;
 	public var SightRadius: cpp.Float32;
@@ -12,6 +13,8 @@ extern class AISenseConfig_Sight extends AISenseConfig {
 	public var AutoSuccessRangeFromLastSeenLocation: cpp.Float32;
 	public var PointOfViewBackwardOffset: cpp.Float32;
 	public var NearClippingRadius: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

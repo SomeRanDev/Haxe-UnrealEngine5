@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMeterSettings")
 @:include("Meter.h")
+@:structAccess
 extern class MeterSettings extends AudioSynesthesiaSettings {
 	public var AnalysisPeriod: cpp.Float32;
 	public var PeakMode: EMeterPeakType;
@@ -10,6 +11,8 @@ extern class MeterSettings extends AudioSynesthesiaSettings {
 	public var MeterReleaseTime: cpp.Int32;
 	public var PeakHoldTime: cpp.Int32;
 	public var ClippingThreshold: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

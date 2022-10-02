@@ -3,9 +3,12 @@ package ue;
 
 @:native("UFXSystemAsset")
 @:include("Particles/ParticleSystem.h")
+@:structAccess
 extern class FXSystemAsset extends Object {
 	public var MaxPoolSize: cpp.UInt32;
 	public var PoolPrimeSize: cpp.UInt32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

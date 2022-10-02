@@ -3,8 +3,11 @@ package ue;
 
 @:native("UParticleModuleVelocityInheritParent")
 @:include("Particles/Velocity/ParticleModuleVelocityInheritParent.h")
+@:structAccess
 extern class ParticleModuleVelocityInheritParent extends ParticleModuleVelocityBase {
 	public var Scale: RawDistributionVector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

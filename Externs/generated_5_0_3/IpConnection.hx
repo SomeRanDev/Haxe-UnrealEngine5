@@ -3,8 +3,11 @@ package ue;
 
 @:native("UIpConnection")
 @:include("IpConnection.h")
+@:structAccess
 extern class IpConnection extends NetConnection {
 	public var SocketErrorDisconnectDelay: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

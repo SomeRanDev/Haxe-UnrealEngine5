@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_MakeDynamicAdditive")
 @:include("AnimGraphNode_MakeDynamicAdditive.h")
+@:structAccess
 extern class AnimGraphNode_MakeDynamicAdditive extends AnimGraphNode_Base {
 	public var Node: AnimNode_MakeDynamicAdditive;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

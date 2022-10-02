@@ -3,8 +3,12 @@ package ue;
 
 @:native("FTransform")
 @:include("UObject/NoExportTypes.h")
+@:structAccess
 extern class Transform {
 	public var Rotation: Quat;
 	public var Translation: Vector;
 	public var Scale3D: Vector;
+
+	@:native("FTransform") public function new();
+	@:native("FTransform") public static function make(Rotation: Quat, Translation: Vector, Scale3D: Vector): Transform ;
 }

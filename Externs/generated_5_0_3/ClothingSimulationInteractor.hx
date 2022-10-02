@@ -3,6 +3,7 @@ package ue;
 
 @:native("UClothingSimulationInteractor")
 @:include("ClothingSimulationInteractor.h")
+@:structAccess
 extern class ClothingSimulationInteractor extends Object {
 	public var ClothingInteractors: TMap<FName, cpp.Star<ClothingInteractor>>;
 
@@ -21,6 +22,8 @@ extern class ClothingSimulationInteractor extends Object {
 	public function EnableGravityOverride(InVector: cpp.Reference<Vector>): Void;
 	public function DisableGravityOverride(): Void;
 	public function ClothConfigUpdated(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetSimulationTime, GetNumSubsteps, GetNumKinematicParticles, GetNumIterations, GetNumDynamicParticles, GetNumCloths, GetClothingInteractor)

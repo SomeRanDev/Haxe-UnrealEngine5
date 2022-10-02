@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleBeamModifier")
 @:include("Particles/Beam/ParticleModuleBeamModifier.h")
+@:structAccess
 extern class ParticleModuleBeamModifier extends ParticleModuleBeamBase {
 	public var ModifierType: BeamModifierType;
 	public var PositionOptions: BeamModifierOptions;
@@ -12,6 +13,8 @@ extern class ParticleModuleBeamModifier extends ParticleModuleBeamBase {
 	public var bAbsoluteTangent: Bool;
 	public var StrengthOptions: BeamModifierOptions;
 	public var Strength: RawDistributionFloat;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

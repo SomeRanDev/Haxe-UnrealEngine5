@@ -3,6 +3,7 @@ package ue;
 
 @:native("ALandscapeGizmoActiveActor")
 @:include("LandscapeGizmoActiveActor.h")
+@:structAccess
 extern class LandscapeGizmoActiveActor extends LandscapeGizmoActor {
 	public var DataType: ELandscapeGizmoType;
 	public var GizmoTexture: cpp.Star<Texture2D>;
@@ -21,6 +22,8 @@ extern class LandscapeGizmoActiveActor extends LandscapeGizmoActor {
 	public var LayerInfos: TArray<cpp.Star<LandscapeLayerInfoObject>>;
 	public var bSnapToLandscapeGrid: Bool;
 	public var UnsnappedRotation: Rotator;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

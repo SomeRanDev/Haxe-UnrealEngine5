@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraDataInterfaceCurlNoise")
 @:include("NiagaraDataInterfaceCurlNoise.h")
+@:structAccess
 extern class NiagaraDataInterfaceCurlNoise extends NiagaraDataInterface {
 	public var Seed: cpp.UInt32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

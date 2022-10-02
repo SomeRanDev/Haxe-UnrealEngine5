@@ -2,6 +2,7 @@
 package ue;
 
 @:native("UAssetRegistry")
+@:structAccess
 extern class AssetRegistry extends Interface {
 	public function WaitForPackage(PackageName: FString): Void;
 	public function WaitForCompletion(): Void;
@@ -27,6 +28,8 @@ extern class AssetRegistry extends Interface {
 	public function GetAssetByObjectPath(ObjectPath: FName, bIncludeOnlyOnDiskAssets: Bool): cpp.Reference<AssetData>;
 	public function GetAllCachedPaths(OutPathList: cpp.Reference<TArray<FString>>): Void;
 	public function GetAllAssets(OutAssetData: cpp.Reference<TArray<AssetData>>, bIncludeOnlyOnDiskAssets: Bool): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionDistanceFieldGradient")
 @:include("Materials/MaterialExpressionDistanceFieldGradient.h")
+@:structAccess
 extern class MaterialExpressionDistanceFieldGradient extends MaterialExpression {
 	public var Position: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

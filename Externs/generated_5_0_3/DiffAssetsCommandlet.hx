@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDiffAssetsCommandlet")
 @:include("Commandlets/DiffAssetsCommandlet.h")
+@:structAccess
 extern class DiffAssetsCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

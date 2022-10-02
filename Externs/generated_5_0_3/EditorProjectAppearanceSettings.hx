@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEditorProjectAppearanceSettings")
 @:include("Settings/EditorProjectSettings.h")
+@:structAccess
 extern class EditorProjectAppearanceSettings extends DeveloperSettings {
 	public var bDisplayUnits: Bool;
 	public var bDisplayUnitsOnComponentTransforms: Bool;
@@ -17,6 +18,8 @@ extern class EditorProjectAppearanceSettings extends DeveloperSettings {
 	public var ReferenceViewerDefaultMaxSearchBreadth: cpp.Int32;
 	public var UnitDisplay_DEPRECATED: EUnitDisplay;
 	public var DefaultInputUnits_DEPRECATED: EDefaultLocationUnit;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

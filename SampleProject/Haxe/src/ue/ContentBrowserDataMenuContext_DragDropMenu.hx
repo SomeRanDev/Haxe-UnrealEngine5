@@ -3,11 +3,14 @@ package ue;
 
 @:native("UContentBrowserDataMenuContext_DragDropMenu")
 @:include("ContentBrowserDataMenuContexts.h")
+@:structAccess
 extern class ContentBrowserDataMenuContext_DragDropMenu extends Object {
 	public var DropTargetItem: ContentBrowserItem;
 	public var DraggedItems: TArray<ContentBrowserItem>;
 	public var bCanMove: Bool;
 	public var bCanCopy: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

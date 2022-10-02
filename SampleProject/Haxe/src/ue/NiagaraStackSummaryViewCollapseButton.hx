@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraStackSummaryViewCollapseButton")
 @:include("ViewModels/Stack/NiagaraStackEmitterSettingsGroup.h")
+@:structAccess
 extern class NiagaraStackSummaryViewCollapseButton extends NiagaraStackEntry {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

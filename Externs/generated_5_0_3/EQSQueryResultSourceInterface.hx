@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UEQSQueryResultSourceInterface")
+@:structAccess
 extern class EQSQueryResultSourceInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

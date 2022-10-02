@@ -3,6 +3,10 @@ package ue;
 
 @:native("FMaterialAttributesInput")
 @:include("Materials/MaterialExpression.h")
+@:structAccess
 extern class MaterialAttributesInput extends ExpressionInput {
 	public var PropertyConnectedBitmask: cpp.Int32;
+
+	@:native("FMaterialAttributesInput") public function new();
+	@:native("FMaterialAttributesInput") public static function make(PropertyConnectedBitmask: cpp.Int32): MaterialAttributesInput ;
 }

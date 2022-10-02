@@ -3,6 +3,7 @@ package ue;
 
 @:native("AAIController")
 @:include("AIController.h")
+@:structAccess
 extern class AIController extends Controller {
 	public var bStartAILogicOnPossess: Bool;
 	public var bStopAILogicOnUnposses: Bool;
@@ -41,6 +42,8 @@ extern class AIController extends Controller {
 	public function GetFocalPoint(): cpp.Reference<Vector>;
 	public function GetAIPerceptionComponent(): cpp.Reference<cpp.Star<AIPerceptionComp>>;
 	public function ClaimTaskResource(ResourceClass: TSubclassOf<GameplayTaskResource>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(HasPartialPath, GetPathFollowingComponent, GetMoveStatus, GetImmediateMoveDestination, GetFocusActor, GetFocalPointOnActor, GetFocalPoint)

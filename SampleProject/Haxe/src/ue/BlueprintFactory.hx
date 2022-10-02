@@ -3,9 +3,12 @@ package ue;
 
 @:native("UBlueprintFactory")
 @:include("Factories/BlueprintFactory.h")
+@:structAccess
 extern class BlueprintFactory extends Factory {
 	public var ParentClass: TSubclassOf<Object>;
 	public var bSkipClassPicker: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

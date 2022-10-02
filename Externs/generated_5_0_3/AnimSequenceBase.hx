@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimSequenceBase")
 @:include("Animation/AnimSequenceBase.h")
+@:structAccess
 extern class AnimSequenceBase extends AnimationAsset {
 	public var Notifies: TArray<AnimNotifyEvent>;
 	public var SequenceLength: cpp.Float32;
@@ -11,6 +12,8 @@ extern class AnimSequenceBase extends AnimationAsset {
 	public var AnimNotifyTracks: TArray<AnimNotifyTrack>;
 	public var DataModel: cpp.Star<AnimDataModel>;
 	public var Controller: AnimationDataController;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

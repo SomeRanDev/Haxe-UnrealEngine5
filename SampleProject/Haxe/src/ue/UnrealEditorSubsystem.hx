@@ -3,11 +3,14 @@ package ue;
 
 @:native("UUnrealEditorSubsystem")
 @:include("Subsystems/UnrealEditorSubsystem.h")
+@:structAccess
 extern class UnrealEditorSubsystem extends EditorSubsystem {
 	public function SetLevelViewportCameraInfo(CameraLocation: Vector, CameraRotation: Rotator): Void;
 	public function GetLevelViewportCameraInfo(CameraLocation: cpp.Reference<Vector>, CameraRotation: cpp.Reference<Rotator>): cpp.Reference<Bool>;
 	public function GetGameWorld(): cpp.Reference<cpp.Star<World>>;
 	public function GetEditorWorld(): cpp.Reference<cpp.Star<World>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

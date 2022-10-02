@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAISystem")
 @:include("AISystem.h")
+@:structAccess
 extern class AISystem extends AISystemBase {
 	public var PerceptionSystemClassName: SoftClassPath;
 	public var HotSpotManagerClassName: SoftClassPath;
@@ -29,6 +30,8 @@ extern class AISystem extends AISystemBase {
 
 	public function AILoggingVerbose(): Void;
 	public function AIIgnorePlayers(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

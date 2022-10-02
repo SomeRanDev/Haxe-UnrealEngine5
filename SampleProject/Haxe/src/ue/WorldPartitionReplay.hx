@@ -3,8 +3,11 @@ package ue;
 
 @:native("AWorldPartitionReplay")
 @:include("WorldPartition/WorldPartitionReplay.h")
+@:structAccess
 extern class WorldPartitionReplay extends Actor {
 	public var StreamingSourceNames: TArray<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

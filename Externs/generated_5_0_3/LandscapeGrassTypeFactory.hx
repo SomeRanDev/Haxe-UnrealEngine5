@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULandscapeGrassTypeFactory")
 @:include("LandscapeGrassTypeFactory.h")
+@:structAccess
 extern class LandscapeGrassTypeFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

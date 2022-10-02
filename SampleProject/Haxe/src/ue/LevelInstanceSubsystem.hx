@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULevelInstanceSubsystem")
 @:include("LevelInstance/LevelInstanceSubsystem.h")
+@:structAccess
 extern class LevelInstanceSubsystem extends WorldSubsystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

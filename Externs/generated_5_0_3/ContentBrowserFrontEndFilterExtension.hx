@@ -3,7 +3,10 @@ package ue;
 
 @:native("UContentBrowserFrontEndFilterExtension")
 @:include("ContentBrowserFrontEndFilterExtension.h")
+@:structAccess
 extern class ContentBrowserFrontEndFilterExtension extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

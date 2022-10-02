@@ -3,6 +3,7 @@ package ue;
 
 @:native("UUserDefinedCaptureProtocol")
 @:include("Protocols/UserDefinedCaptureProtocol.h")
+@:structAccess
 extern class UserDefinedCaptureProtocol extends MovieSceneImageCaptureProtocolBase {
 	public var World: cpp.Star<World>;
 
@@ -22,6 +23,8 @@ extern class UserDefinedCaptureProtocol extends MovieSceneImageCaptureProtocolBa
 	public function OnBeginFinalize(): Void;
 	public function GetCurrentFrameMetrics(): cpp.Reference<FrameMetrics>;
 	public function GenerateFilename(InFrameMetrics: cpp.Reference<FrameMetrics>): cpp.Reference<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(OnCanFinalize, GetCurrentFrameMetrics, GenerateFilename)

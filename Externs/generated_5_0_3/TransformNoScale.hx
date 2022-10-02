@@ -3,7 +3,11 @@ package ue;
 
 @:native("FTransformNoScale")
 @:include("TransformNoScale.h")
+@:structAccess
 extern class TransformNoScale {
 	public var Location: Vector;
 	public var Rotation: Quat;
+
+	@:native("FTransformNoScale") public function new();
+	@:native("FTransformNoScale") public static function make(Location: Vector, Rotation: Quat): TransformNoScale ;
 }

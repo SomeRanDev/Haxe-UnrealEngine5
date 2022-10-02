@@ -3,7 +3,10 @@ package ue;
 
 @:native("UBehaviorTreeFactory")
 @:include("BehaviorTreeFactory.h")
+@:structAccess
 extern class BehaviorTreeFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

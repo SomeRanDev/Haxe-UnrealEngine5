@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULoudnessNRT")
 @:include("LoudnessNRT.h")
+@:structAccess
 extern class LoudnessNRT extends AudioSynesthesiaNRT {
 	public var Settings: cpp.Star<LoudnessNRTSettings>;
 
@@ -10,6 +11,8 @@ extern class LoudnessNRT extends AudioSynesthesiaNRT {
 	public function GetNormalizedChannelLoudnessAtTime(InSeconds: cpp.Float32, InChannel: cpp.Int32, OutLoudness: cpp.Reference<cpp.Float32>): Void;
 	public function GetLoudnessAtTime(InSeconds: cpp.Float32, OutLoudness: cpp.Reference<cpp.Float32>): Void;
 	public function GetChannelLoudnessAtTime(InSeconds: cpp.Float32, InChannel: cpp.Int32, OutLoudness: cpp.Reference<cpp.Float32>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetNormalizedLoudnessAtTime, GetNormalizedChannelLoudnessAtTime, GetLoudnessAtTime, GetChannelLoudnessAtTime)

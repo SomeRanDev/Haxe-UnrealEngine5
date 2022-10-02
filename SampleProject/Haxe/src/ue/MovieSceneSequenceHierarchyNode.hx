@@ -3,7 +3,11 @@ package ue;
 
 @:native("FMovieSceneSequenceHierarchyNode")
 @:include("Evaluation/MovieSceneSequenceHierarchy.h")
+@:structAccess
 extern class MovieSceneSequenceHierarchyNode {
 	public var ParentID: MovieSceneSequenceID;
 	public var Children: TArray<MovieSceneSequenceID>;
+
+	@:native("FMovieSceneSequenceHierarchyNode") public function new();
+	@:native("FMovieSceneSequenceHierarchyNode") public static function make(ParentID: MovieSceneSequenceID, Children: TArray<MovieSceneSequenceID>): MovieSceneSequenceHierarchyNode ;
 }

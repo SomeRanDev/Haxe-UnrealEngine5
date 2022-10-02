@@ -3,6 +3,7 @@ package ue;
 
 @:native("UARComponent")
 @:include("ARComponent.h")
+@:structAccess
 extern class ARComp extends SceneComp {
 	public var NativeID: Guid;
 	public var bUseDefaultReplication: Bool;
@@ -16,6 +17,8 @@ extern class ARComp extends SceneComp {
 	public function ReceiveRemove(): Void;
 	public function OnRep_Payload(): Void;
 	public function GetMRMesh(): cpp.Reference<cpp.Star<MRMeshComp>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

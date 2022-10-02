@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleCollision")
 @:include("Particles/Collision/ParticleModuleCollision.h")
+@:structAccess
 extern class ParticleModuleCollision extends ParticleModuleCollisionBase {
 	public var DampingFactor: RawDistributionVector;
 	public var DampingFactorRotation: RawDistributionVector;
@@ -21,6 +22,8 @@ extern class ParticleModuleCollision extends ParticleModuleCollisionBase {
 	public var bCollideOnlyIfVisible: Bool;
 	public var bIgnoreSourceActor: Bool;
 	public var MaxCollisionDistance: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UAnimStateAliasNode")
 @:include("AnimStateAliasNode.h")
+@:structAccess
 extern class AnimStateAliasNode extends AnimStateNodeBase {
 	public var bGlobalAlias: Bool;
 	public var StateAliasName: FString;
 	public var AliasedStateNodes: TSet<TWeakObjectPtr<AnimStateNodeBase>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

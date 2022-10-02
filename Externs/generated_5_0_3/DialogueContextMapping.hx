@@ -3,9 +3,13 @@ package ue;
 
 @:native("FDialogueContextMapping")
 @:include("Sound/DialogueWave.h")
+@:structAccess
 extern class DialogueContextMapping {
 	public var Context: DialogueContext;
 	public var SoundWave: cpp.Star<SoundWave>;
 	public var LocalizationKeyFormat: FString;
 	public var Proxy: cpp.Star<DialogueSoundWaveProxy>;
+
+	@:native("FDialogueContextMapping") public function new();
+	@:native("FDialogueContextMapping") public static function make(Context: DialogueContext, SoundWave: cpp.Star<SoundWave>, LocalizationKeyFormat: FString, Proxy: cpp.Star<DialogueSoundWaveProxy>): DialogueContextMapping ;
 }

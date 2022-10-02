@@ -3,6 +3,7 @@ package ue;
 
 @:native("FHairGroupInfo")
 @:include("GroomAsset.h")
+@:structAccess
 extern class HairGroupInfo {
 	public var GroupID: cpp.Int32;
 	public var GroupName: FName;
@@ -12,4 +13,6 @@ extern class HairGroupInfo {
 	public var NumGuideVertices: cpp.Int32;
 	public var MaxCurveLength: cpp.Float32;
 	public var MaxImportedWidth: cpp.Float32;
+
+	@:native("FHairGroupInfo") public function new();
 }

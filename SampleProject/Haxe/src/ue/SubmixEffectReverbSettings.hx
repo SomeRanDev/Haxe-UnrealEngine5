@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSubmixEffectReverbSettings")
 @:include("SubmixEffects/AudioMixerSubmixEffectReverb.h")
+@:structAccess
 extern class SubmixEffectReverbSettings {
 	public var bBypassEarlyReflections: Bool;
 	public var ReflectionsDelay: cpp.Float32;
@@ -20,4 +21,6 @@ extern class SubmixEffectReverbSettings {
 	public var WetLevel: cpp.Float32;
 	public var DryLevel: cpp.Float32;
 	public var bBypass: Bool;
+
+	@:native("FSubmixEffectReverbSettings") public function new();
 }

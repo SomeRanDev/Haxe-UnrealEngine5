@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGizmoCircleComponent")
 @:include("BaseGizmos/GizmoCircleComponent.h")
+@:structAccess
 extern class GizmoCircleComp extends GizmoBaseComp {
 	public var Normal: Vector;
 	public var Radius: cpp.Float32;
@@ -11,6 +12,8 @@ extern class GizmoCircleComp extends GizmoBaseComp {
 	public var bViewAligned: Bool;
 	public var bDrawFullCircle: Bool;
 	public var bOnlyAllowFrontFacingHits: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

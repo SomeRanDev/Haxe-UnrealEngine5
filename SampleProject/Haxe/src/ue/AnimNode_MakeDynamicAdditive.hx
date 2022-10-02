@@ -3,8 +3,12 @@ package ue;
 
 @:native("FAnimNode_MakeDynamicAdditive")
 @:include("AnimNodes/AnimNode_MakeDynamicAdditive.h")
+@:structAccess
 extern class AnimNode_MakeDynamicAdditive extends AnimNode_Base {
 	public var Base: PoseLink;
 	public var Additive: PoseLink;
 	public var bMeshSpaceAdditive: Bool;
+
+	@:native("FAnimNode_MakeDynamicAdditive") public function new();
+	@:native("FAnimNode_MakeDynamicAdditive") public static function make(Base: PoseLink, Additive: PoseLink, bMeshSpaceAdditive: Bool): AnimNode_MakeDynamicAdditive ;
 }

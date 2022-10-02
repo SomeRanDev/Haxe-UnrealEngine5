@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNavArea_LowHeight")
 @:include("NavAreas/NavArea_LowHeight.h")
+@:structAccess
 extern class NavArea_LowHeight extends NavArea {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("USoundNodeBranch")
 @:include("Sound/SoundNodeBranch.h")
+@:structAccess
 extern class SoundNodeBranch extends SoundNode {
 	public var BoolParameterName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

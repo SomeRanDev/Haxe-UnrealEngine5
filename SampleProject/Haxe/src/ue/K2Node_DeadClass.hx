@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_DeadClass")
 @:include("K2Node_DeadClass.h")
+@:structAccess
 extern class K2Node_DeadClass extends K2Node {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

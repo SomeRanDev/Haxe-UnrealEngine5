@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDistributionVectorParameterBase")
 @:include("Distributions/DistributionVectorParameterBase.h")
+@:structAccess
 extern class DistributionVectorParameterBase extends DistributionVectorConstant {
 	public var ParameterName: FName;
 	public var MinInput: Vector;
@@ -10,6 +11,8 @@ extern class DistributionVectorParameterBase extends DistributionVectorConstant 
 	public var MinOutput: Vector;
 	public var MaxOutput: Vector;
 	public var ParamModes: DistributionParamMode;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

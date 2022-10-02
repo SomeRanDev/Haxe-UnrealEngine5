@@ -3,10 +3,13 @@ package ue;
 
 @:native("UInterpTrackFloatAnimBPParam")
 @:include("Matinee/InterpTrackFloatAnimBPParam.h")
+@:structAccess
 extern class InterpTrackFloatAnimBPParam extends InterpTrackFloatBase {
 	public var AnimBlueprintClass: TSubclassOf<Object>;
 	public var AnimClass: TSubclassOf<AnimInstance>;
 	public var ParamName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

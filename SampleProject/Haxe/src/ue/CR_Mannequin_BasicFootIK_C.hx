@@ -2,6 +2,7 @@
 package ue;
 
 @:native("UCR_Mannequin_BasicFootIK_C")
+@:structAccess
 extern class CR_Mannequin_BasicFootIK_C extends ControlRig {
 	public var ZOffset_L_Target: cpp.Float64;
 	public var ZOffset_R_Target: cpp.Float64;
@@ -9,6 +10,8 @@ extern class CR_Mannequin_BasicFootIK_C extends ControlRig {
 	public var ZOffset_R: cpp.Float64;
 	public var ZOffset_Pelvis: cpp.Float64;
 	public var ShouldDoIKTrace: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimPreviewAttacheInstance")
 @:include("AnimPreviewAttacheInstance.h")
+@:structAccess
 extern class AnimPreviewAttacheInstance extends AnimInstance {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

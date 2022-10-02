@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialInstance")
 @:include("Materials/MaterialInstance.h")
+@:structAccess
 extern class MaterialInstance extends MaterialInterface {
 	public var PhysMaterial: cpp.Star<PhysicalMaterial>;
 	public var PhysicalMaterialMap: cpp.Star<PhysicalMaterial>;
@@ -20,6 +21,8 @@ extern class MaterialInstance extends MaterialInterface {
 	public var ReferencedTextureGuids: TArray<Guid>;
 	public var StaticParameters: StaticParameterSet;
 	public var bSavedCachedData_DEPRECATED: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

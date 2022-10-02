@@ -3,9 +3,12 @@ package ue;
 
 @:native("UK2Node_CreateDelegate")
 @:include("K2Node_CreateDelegate.h")
+@:structAccess
 extern class K2Node_CreateDelegate extends K2Node {
 	public var SelectedFunctionName: FName;
 	public var SelectedFunctionGuid: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

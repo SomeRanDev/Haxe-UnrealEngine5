@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEdGraphNode_Comment")
 @:include("EdGraphNode_Comment.h")
+@:structAccess
 extern class EdGraphNode_Comment extends EdGraphNode {
 	public var CommentColor: LinearColor;
 	public var FontSize: cpp.Int32;
@@ -10,6 +11,8 @@ extern class EdGraphNode_Comment extends EdGraphNode {
 	public var bColorCommentBubble: Bool;
 	public var MoveMode: ECommentBoxMode;
 	public var CommentDepth: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

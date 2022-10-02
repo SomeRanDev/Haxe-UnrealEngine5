@@ -3,7 +3,11 @@ package ue;
 
 @:native("FInterpControlPoint")
 @:include("Components/InterpToMovementComponent.h")
+@:structAccess
 extern class InterpControlPoint {
 	public var PositionControlPoint: Vector;
 	public var bPositionIsRelative: Bool;
+
+	@:native("FInterpControlPoint") public function new();
+	@:native("FInterpControlPoint") public static function make(PositionControlPoint: Vector, bPositionIsRelative: Bool): InterpControlPoint ;
 }

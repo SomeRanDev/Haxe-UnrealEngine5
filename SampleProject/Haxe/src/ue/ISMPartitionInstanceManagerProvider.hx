@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UISMPartitionInstanceManagerProvider")
+@:structAccess
 extern class ISMPartitionInstanceManagerProvider extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

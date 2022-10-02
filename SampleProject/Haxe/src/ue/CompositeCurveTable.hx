@@ -3,9 +3,12 @@ package ue;
 
 @:native("UCompositeCurveTable")
 @:include("Engine/CompositeCurveTable.h")
+@:structAccess
 extern class CompositeCurveTable extends CurveTable {
 	public var ParentTables: TArray<cpp.Star<CurveTable>>;
 	public var OldParentTables: TArray<cpp.Star<CurveTable>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

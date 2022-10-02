@@ -3,6 +3,10 @@ package ue;
 
 @:native("FEditorPropertyPath")
 @:include("WidgetBlueprint.h")
+@:structAccess
 extern class EditorPropertyPath {
 	public var Segments: TArray<EditorPropertyPathSegment>;
+
+	@:native("FEditorPropertyPath") public function new();
+	@:native("FEditorPropertyPath") public static function make(Segments: TArray<EditorPropertyPathSegment>): EditorPropertyPath ;
 }

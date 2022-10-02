@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneEnumSection")
 @:include("Sections/MovieSceneEnumSection.h")
+@:structAccess
 extern class MovieSceneEnumSection extends MovieSceneSection {
 	public var EnumCurve: MovieSceneByteChannel;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

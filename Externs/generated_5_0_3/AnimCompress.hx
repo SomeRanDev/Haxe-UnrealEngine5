@@ -3,11 +3,14 @@ package ue;
 
 @:native("UAnimCompress")
 @:include("Animation/AnimCompress.h")
+@:structAccess
 extern class AnimCompress extends AnimBoneCompressionCodec {
 	public var bNeedsSkeleton: Bool;
 	public var TranslationCompressionFormat: AnimationCompressionFormat;
 	public var RotationCompressionFormat: AnimationCompressionFormat;
 	public var ScaleCompressionFormat: AnimationCompressionFormat;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

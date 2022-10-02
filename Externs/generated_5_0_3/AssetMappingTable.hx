@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAssetMappingTable")
 @:include("Animation/AssetMappingTable.h")
+@:structAccess
 extern class AssetMappingTable extends Object {
 	public var MappedAssets: TArray<AssetMapping>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

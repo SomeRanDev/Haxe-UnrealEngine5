@@ -3,7 +3,11 @@ package ue;
 
 @:native("FLevelSequenceCameraSettings")
 @:include("LevelSequencePlayer.h")
+@:structAccess
 extern class LevelSequenceCameraSettings {
 	public var bOverrideAspectRatioAxisConstraint: Bool;
 	public var AspectRatioAxisConstraint: EAspectRatioAxisConstraint;
+
+	@:native("FLevelSequenceCameraSettings") public function new();
+	@:native("FLevelSequenceCameraSettings") public static function make(bOverrideAspectRatioAxisConstraint: Bool, AspectRatioAxisConstraint: EAspectRatioAxisConstraint): LevelSequenceCameraSettings ;
 }

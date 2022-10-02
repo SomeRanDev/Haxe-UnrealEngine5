@@ -3,10 +3,13 @@ package ue;
 
 @:native("UPlaneReflectionCaptureComponent")
 @:include("Components/PlaneReflectionCaptureComponent.h")
+@:structAccess
 extern class PlaneReflectionCaptureComp extends ReflectionCaptureComp {
 	public var InfluenceRadiusScale: cpp.Float32;
 	public var PreviewInfluenceRadius: cpp.Star<DrawSphereComp>;
 	public var PreviewCaptureBox: cpp.Star<BoxComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

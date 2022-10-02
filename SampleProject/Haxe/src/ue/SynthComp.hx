@@ -3,6 +3,7 @@ package ue;
 
 @:native("USynthComponent")
 @:include("Components/SynthComponent.h")
+@:structAccess
 extern class SynthComp extends SceneComp {
 	public var bAutoDestroy: Bool;
 	public var bStopWhenOwnerDestroyed: Bool;
@@ -38,6 +39,8 @@ extern class SynthComp extends SceneComp {
 	public function SetLowPassFilterFrequency(InLowPassFilterFrequency: cpp.Float32): Void;
 	public function SetLowPassFilterEnabled(InLowPassFilterEnabled: Bool): Void;
 	public function IsPlaying(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsPlaying)

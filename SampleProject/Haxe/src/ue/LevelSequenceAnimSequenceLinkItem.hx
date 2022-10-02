@@ -3,6 +3,7 @@ package ue;
 
 @:native("FLevelSequenceAnimSequenceLinkItem")
 @:include("LevelSequenceAnimSequenceLink.h")
+@:structAccess
 extern class LevelSequenceAnimSequenceLinkItem {
 	public var SkelTrackGuid: Guid;
 	public var PathToAnimSequence: SoftObjectPath;
@@ -11,4 +12,6 @@ extern class LevelSequenceAnimSequenceLinkItem {
 	public var bExportAttributeCurves: Bool;
 	public var bExportMaterialCurves: Bool;
 	public var bRecordInWorldSpace: Bool;
+
+	@:native("FLevelSequenceAnimSequenceLinkItem") public function new();
 }

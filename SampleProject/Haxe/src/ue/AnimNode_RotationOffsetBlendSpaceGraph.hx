@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_RotationOffsetBlendSpaceGraph")
 @:include("AnimNodes/AnimNode_RotationOffsetBlendSpaceGraph.h")
+@:structAccess
 extern class AnimNode_RotationOffsetBlendSpaceGraph extends AnimNode_BlendSpaceGraphBase {
 	public var BasePose: PoseLink;
 	public var LODThreshold: cpp.Int32;
@@ -13,4 +14,6 @@ extern class AnimNode_RotationOffsetBlendSpaceGraph extends AnimNode_BlendSpaceG
 	public var AlphaScaleBiasClamp: InputScaleBiasClamp;
 	public var AlphaInputType: EAnimAlphaInputType;
 	public var bAlphaBoolEnabled: Bool;
+
+	@:native("FAnimNode_RotationOffsetBlendSpaceGraph") public function new();
 }

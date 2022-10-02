@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraEmitterEditorData")
 @:include("NiagaraEmitterEditorData.h")
+@:structAccess
 extern class NiagaraEmitterEditorData extends NiagaraEditorDataBase {
 	public var StackEditorData: cpp.Star<NiagaraStackEditorData>;
 	public var PlaybackRangeMin: cpp.Float32;
@@ -10,6 +11,8 @@ extern class NiagaraEmitterEditorData extends NiagaraEditorDataBase {
 	public var bShowSummaryView: Bool;
 	public var SummaryViewFunctionInputMetadata: TMap<FunctionInputSummaryViewKey, FunctionInputSummaryViewMetadata>;
 	public var SummarySections: TArray<NiagaraStackSection>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

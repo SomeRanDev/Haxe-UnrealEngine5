@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionWorldPosition")
 @:include("Materials/MaterialExpressionWorldPosition.h")
+@:structAccess
 extern class MaterialExpressionWorldPosition extends MaterialExpression {
 	public var WorldPositionShaderOffset: EWorldPositionIncludedOffsets;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,11 @@ package ue;
 
 @:native("FSkeletalMeshSamplingBuiltData")
 @:include("Engine/SkeletalMeshSampling.h")
+@:structAccess
 extern class SkeletalMeshSamplingBuiltData {
 	public var WholeMeshBuiltData: TArray<SkeletalMeshSamplingLODBuiltData>;
 	public var RegionBuiltData: TArray<SkeletalMeshSamplingRegionBuiltData>;
+
+	@:native("FSkeletalMeshSamplingBuiltData") public function new();
+	@:native("FSkeletalMeshSamplingBuiltData") public static function make(WholeMeshBuiltData: TArray<SkeletalMeshSamplingLODBuiltData>, RegionBuiltData: TArray<SkeletalMeshSamplingRegionBuiltData>): SkeletalMeshSamplingBuiltData ;
 }

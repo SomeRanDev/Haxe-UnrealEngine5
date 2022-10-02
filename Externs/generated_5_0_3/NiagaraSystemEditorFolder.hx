@@ -3,10 +3,13 @@ package ue;
 
 @:native("UNiagaraSystemEditorFolder")
 @:include("NiagaraSystemEditorData.h")
+@:structAccess
 extern class NiagaraSystemEditorFolder extends Object {
 	public var FolderName: FName;
 	public var ChildFolders: TArray<cpp.Star<NiagaraSystemEditorFolder>>;
 	public var ChildEmitterHandleIds: TArray<Guid>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

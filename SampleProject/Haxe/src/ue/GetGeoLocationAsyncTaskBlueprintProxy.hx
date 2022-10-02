@@ -3,12 +3,15 @@ package ue;
 
 @:native("UGetGeoLocationAsyncTaskBlueprintProxy")
 @:include("ARGeoTrackingSupport.h")
+@:structAccess
 extern class GetGeoLocationAsyncTaskBlueprintProxy extends ARBaseAsyncTaskBlueprintProxy {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(cpp.Float32, cpp.Float32, cpp.Float32, FString) -> Void>;
 	public var OnFailed: HaxeMulticastSparseDelegateProperty<(cpp.Float32, cpp.Float32, cpp.Float32, FString) -> Void>;
 
 	public function GetGeoLocationDelegate__DelegateSignature(Longitude: cpp.Float32, Latitude: cpp.Float32, Altitude: cpp.Float32, Error: FString): Void;
 	public function GetGeoLocationAtWorldPosition(WorldContextObject: cpp.Star<Object>, WorldPosition: cpp.Reference<Vector>): cpp.Reference<cpp.Star<GetGeoLocationAsyncTaskBlueprintProxy>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

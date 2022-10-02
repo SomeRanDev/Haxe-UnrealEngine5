@@ -3,6 +3,10 @@ package ue;
 
 @:native("FFrameNumber")
 @:include("UObject/NoExportTypes.h")
+@:structAccess
 extern class FrameNumber {
 	public var Value: cpp.Int32;
+
+	@:native("FFrameNumber") public function new();
+	@:native("FFrameNumber") public static function make(Value: cpp.Int32): FrameNumber ;
 }

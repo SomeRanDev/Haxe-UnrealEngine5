@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAxisPositionGizmo")
 @:include("BaseGizmos/AxisPositionGizmo.h")
+@:structAccess
 extern class AxisPositionGizmo extends InteractiveGizmo {
 	public var AxisSource: GizmoAxisSource;
 	public var ParameterSource: GizmoFloatParameterSource;
@@ -19,6 +20,8 @@ extern class AxisPositionGizmo extends InteractiveGizmo {
 	public var InteractionStartParameter: cpp.Float32;
 	public var InteractionCurParameter: cpp.Float32;
 	public var ParameterSign: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

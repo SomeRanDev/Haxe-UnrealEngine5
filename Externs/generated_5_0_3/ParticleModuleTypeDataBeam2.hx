@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleTypeDataBeam2")
 @:include("Particles/TypeData/ParticleModuleTypeDataBeam2.h")
+@:structAccess
 extern class ParticleModuleTypeDataBeam2 extends ParticleModuleTypeDataBase {
 	public var BeamMethod: EBeam2Method;
 	public var TextureTile: cpp.Int32;
@@ -22,6 +23,8 @@ extern class ParticleModuleTypeDataBeam2 extends ParticleModuleTypeDataBase {
 	public var RenderDirectLine: Bool;
 	public var RenderLines: Bool;
 	public var RenderTessellation: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

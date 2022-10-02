@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraSignificanceHandlerDistance")
 @:include("NiagaraEffectType.h")
+@:structAccess
 extern class NiagaraSignificanceHandlerDistance extends NiagaraSignificanceHandler {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UInputTouchDelegateBinding")
 @:include("Engine/InputTouchDelegateBinding.h")
+@:structAccess
 extern class InputTouchDelegateBinding extends InputDelegateBinding {
 	public var InputTouchDelegateBindings: TArray<BlueprintInputTouchDelegateBinding>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

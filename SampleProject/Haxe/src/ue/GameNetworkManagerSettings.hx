@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGameNetworkManagerSettings")
 @:include("GameNetworkManagerSettings.h")
+@:structAccess
 extern class GameNetworkManagerSettings extends Object {
 	public var MinDynamicBandwidth: cpp.Int32;
 	public var MaxDynamicBandwidth: cpp.Int32;
@@ -15,6 +16,8 @@ extern class GameNetworkManagerSettings extends Object {
 	public var PercentMissingForTxStandby: cpp.Float32;
 	public var PercentForBadPing: cpp.Float32;
 	public var JoinInProgressStandbyWaitTime: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

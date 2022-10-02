@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UPropertyWrapper")
+@:structAccess
 extern class PropertyWrapper extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

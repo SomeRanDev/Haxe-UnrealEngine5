@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPawnNoiseEmitterComponent")
 @:include("Components/PawnNoiseEmitterComponent.h")
+@:structAccess
 extern class PawnNoiseEmitterComp extends ActorComp {
 	public var bAIPerceptionSystemCompatibilityMode: Bool;
 	public var LastRemoteNoisePosition: Vector;
@@ -13,6 +14,8 @@ extern class PawnNoiseEmitterComp extends ActorComp {
 	public var LastLocalNoiseTime: cpp.Float32;
 
 	public function MakeNoise(NoiseMaker: cpp.Star<Actor>, Loudness: cpp.Float32, NoiseLocation: cpp.Reference<Vector>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

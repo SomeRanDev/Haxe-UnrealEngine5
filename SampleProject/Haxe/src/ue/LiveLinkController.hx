@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULiveLinkController")
 @:include("LiveLinkController.h")
+@:structAccess
 extern class LiveLinkController extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

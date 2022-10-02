@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNiagaraNodeSelect")
 @:include("NiagaraNodeSelect.h")
+@:structAccess
 extern class NiagaraNodeSelect extends NiagaraNodeUsageSelector {
 	public var SelectorPinType: NiagaraTypeDefinition;
 	public var SelectorPinGuid: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

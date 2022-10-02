@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEnvironmentQueryGraphNode")
 @:include("EnvironmentQueryGraphNode.h")
+@:structAccess
 extern class EnvironmentQueryGraphNode extends AIGraphNode {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

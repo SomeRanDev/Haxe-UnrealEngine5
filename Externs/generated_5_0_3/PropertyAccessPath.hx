@@ -3,7 +3,11 @@ package ue;
 
 @:native("FPropertyAccessPath")
 @:include("PropertyAccess.h")
+@:structAccess
 extern class PropertyAccessPath {
 	public var PathSegmentStartIndex: cpp.Int32;
 	public var PathSegmentCount: cpp.Int32;
+
+	@:native("FPropertyAccessPath") public function new();
+	@:native("FPropertyAccessPath") public static function make(PathSegmentStartIndex: cpp.Int32, PathSegmentCount: cpp.Int32): PropertyAccessPath ;
 }

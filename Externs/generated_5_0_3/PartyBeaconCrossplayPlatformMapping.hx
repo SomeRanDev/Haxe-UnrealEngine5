@@ -3,7 +3,11 @@ package ue;
 
 @:native("FPartyBeaconCrossplayPlatformMapping")
 @:include("PartyBeaconState.h")
+@:structAccess
 extern class PartyBeaconCrossplayPlatformMapping {
 	public var PlatformName: FString;
 	public var PlatformType: FString;
+
+	@:native("FPartyBeaconCrossplayPlatformMapping") public function new();
+	@:native("FPartyBeaconCrossplayPlatformMapping") public static function make(PlatformName: FString, PlatformType: FString): PartyBeaconCrossplayPlatformMapping ;
 }

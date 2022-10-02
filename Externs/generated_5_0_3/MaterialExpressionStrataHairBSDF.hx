@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionStrataHairBSDF")
 @:include("Materials/MaterialExpressionStrata.h")
+@:structAccess
 extern class MaterialExpressionStrataHairBSDF extends MaterialExpressionStrataBSDF {
 	public var BaseColor: ExpressionInput;
 	public var Scatter: ExpressionInput;
@@ -11,6 +12,8 @@ extern class MaterialExpressionStrataHairBSDF extends MaterialExpressionStrataBS
 	public var Backlit: ExpressionInput;
 	public var Tangent: ExpressionInput;
 	public var EmissiveColor: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

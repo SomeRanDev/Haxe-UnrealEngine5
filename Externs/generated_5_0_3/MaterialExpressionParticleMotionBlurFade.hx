@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionParticleMotionBlurFade")
 @:include("Materials/MaterialExpressionParticleMotionBlurFade.h")
+@:structAccess
 extern class MaterialExpressionParticleMotionBlurFade extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

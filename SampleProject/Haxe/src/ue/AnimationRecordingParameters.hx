@@ -3,11 +3,14 @@ package ue;
 
 @:native("UAnimationRecordingParameters")
 @:include("AnimationRecorderParameters.h")
+@:structAccess
 extern class AnimationRecordingParameters extends Object {
 	public var SampleFrameRate: FrameRate;
 	public var bEndAfterDuration: Bool;
 	public var MaximumDurationSeconds: cpp.Float32;
 	public var SampleRate: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

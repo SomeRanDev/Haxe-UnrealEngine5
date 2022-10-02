@@ -3,12 +3,15 @@ package ue;
 
 @:native("UMovieSceneNiagaraSystemSpawnSection")
 @:include("MovieScene/MovieSceneNiagaraSystemSpawnSection.h")
+@:structAccess
 extern class MovieSceneNiagaraSystemSpawnSection extends MovieSceneSection {
 	public var SectionStartBehavior: ENiagaraSystemSpawnSectionStartBehavior;
 	public var SectionEvaluateBehavior: ENiagaraSystemSpawnSectionEvaluateBehavior;
 	public var SectionEndBehavior: ENiagaraSystemSpawnSectionEndBehavior;
 	public var AgeUpdateMode: ENiagaraAgeUpdateMode;
 	public var bAllowScalability: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

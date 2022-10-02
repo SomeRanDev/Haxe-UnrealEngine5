@@ -3,6 +3,7 @@ package ue;
 
 @:native("URuntimeVirtualTextureComponent")
 @:include("Components/RuntimeVirtualTextureComponent.h")
+@:structAccess
 extern class RuntimeVirtualTextureComp extends SceneComp {
 	public var BoundsAlignActor: TSoftObjectPtr<Actor>;
 	public var bSetBoundsButton: Bool;
@@ -19,6 +20,8 @@ extern class RuntimeVirtualTextureComp extends SceneComp {
 	public var bBuildDebugStreamingMips: Bool;
 
 	public function Invalidate(WorldBounds: cpp.Reference<BoxSphereBounds>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

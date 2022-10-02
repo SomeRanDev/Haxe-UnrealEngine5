@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMovieSceneColorSection")
 @:include("Sections/MovieSceneColorSection.h")
+@:structAccess
 extern class MovieSceneColorSection extends MovieSceneSection {
 	public var RedCurve: MovieSceneFloatChannel;
 	public var GreenCurve: MovieSceneFloatChannel;
 	public var BlueCurve: MovieSceneFloatChannel;
 	public var AlphaCurve: MovieSceneFloatChannel;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

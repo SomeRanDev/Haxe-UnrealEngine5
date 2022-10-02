@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNiagaraDataInterfaceGrid2DCollectionReader")
 @:include("NiagaraDataInterfaceGrid2DCollectionReader.h")
+@:structAccess
 extern class NiagaraDataInterfaceGrid2DCollectionReader extends NiagaraDataInterfaceGrid2DCollection {
 	public var EmitterName: FString;
 	public var DIName: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

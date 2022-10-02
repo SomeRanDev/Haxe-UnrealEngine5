@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraBaselineController")
 @:include("NiagaraPerfBaseline.h")
+@:structAccess
 extern class NiagaraBaselineController extends Object {
 	public var TestDuration: cpp.Float32;
 	public var EffectType: cpp.Star<NiagaraEffectType>;
@@ -14,6 +15,8 @@ extern class NiagaraBaselineController extends Object {
 	public function OnEndTest(Stats: NiagaraPerfBaselineStats): Void;
 	public function OnBeginTest(): Void;
 	public function GetSystem(): cpp.Reference<cpp.Star<NiagaraSystem>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

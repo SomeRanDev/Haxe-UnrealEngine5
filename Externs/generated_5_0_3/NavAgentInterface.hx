@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UNavAgentInterface")
+@:structAccess
 extern class NavAgentInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

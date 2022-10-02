@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULevelVariantSets")
 @:include("LevelVariantSets.h")
+@:structAccess
 extern class LevelVariantSets extends Object {
 	public var DirectorBlueprint: cpp.Star<Object>;
 	public var DirectorClass: TSubclassOf<Object>;
@@ -11,6 +12,8 @@ extern class LevelVariantSets extends Object {
 	public function GetVariantSetByName(VariantSetName: FString): cpp.Reference<cpp.Star<VariantSet>>;
 	public function GetVariantSet(VariantSetIndex: cpp.Int32): cpp.Reference<cpp.Star<VariantSet>>;
 	public function GetNumVariantSets(): cpp.Reference<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

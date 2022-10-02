@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraCurveSelectionViewModel")
 @:include("ViewModels/NiagaraCurveSelectionViewModel.h")
+@:structAccess
 extern class NiagaraCurveSelectionViewModel extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

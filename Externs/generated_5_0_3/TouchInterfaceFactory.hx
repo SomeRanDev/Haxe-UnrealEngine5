@@ -3,7 +3,10 @@ package ue;
 
 @:native("UTouchInterfaceFactory")
 @:include("Factories/TouchInterfaceFactory.h")
+@:structAccess
 extern class TouchInterfaceFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraStackSystemPropertiesGroup")
 @:include("ViewModels/Stack/NiagaraStackSystemSettingsGroup.h")
+@:structAccess
 extern class NiagaraStackSystemPropertiesGroup extends NiagaraStackItemGroup {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

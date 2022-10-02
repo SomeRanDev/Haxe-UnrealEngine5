@@ -3,6 +3,7 @@ package ue;
 
 @:native("UVectorFieldComponent")
 @:include("Components/VectorFieldComponent.h")
+@:structAccess
 extern class VectorFieldComp extends PrimitiveComp {
 	public var VectorField: cpp.Star<VectorField>;
 	public var Intensity: cpp.Float32;
@@ -10,6 +11,8 @@ extern class VectorFieldComp extends PrimitiveComp {
 	public var bPreviewVectorField: Bool;
 
 	public function SetIntensity(NewIntensity: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

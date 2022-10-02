@@ -3,7 +3,10 @@ package ue;
 
 @:native("UCachedAnalysisProperties")
 @:include("BlendSpaceAnalysis.h")
+@:structAccess
 extern class CachedAnalysisProperties extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

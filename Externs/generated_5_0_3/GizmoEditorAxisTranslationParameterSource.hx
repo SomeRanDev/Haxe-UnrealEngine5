@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGizmoEditorAxisTranslationParameterSource")
 @:include("EditorGizmos/EditorParameterToTransformAdapters.h")
+@:structAccess
 extern class GizmoEditorAxisTranslationParameterSource extends GizmoBaseFloatParameterSource {
 	public var AxisSource: GizmoAxisSource;
 	public var Parameter: cpp.Float32;
@@ -11,6 +12,8 @@ extern class GizmoEditorAxisTranslationParameterSource extends GizmoBaseFloatPar
 	public var CurTranslationOrigin: Vector;
 	public var LastPivotLocation: Vector;
 	public var LastSnappedLocation: Vector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

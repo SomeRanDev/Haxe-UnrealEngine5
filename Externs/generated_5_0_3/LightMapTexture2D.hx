@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULightMapTexture2D")
 @:include("Engine/LightMapTexture2D.h")
+@:structAccess
 extern class LightMapTexture2D extends Texture2D {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

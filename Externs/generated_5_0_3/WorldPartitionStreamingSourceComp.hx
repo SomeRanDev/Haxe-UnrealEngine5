@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWorldPartitionStreamingSourceComponent")
 @:include("Components/WorldPartitionStreamingSourceComponent.h")
+@:structAccess
 extern class WorldPartitionStreamingSourceComp extends ActorComp {
 	public var DefaultVisualizerLoadingRange: cpp.Float32;
 	public var TargetGrid: FName;
@@ -17,6 +18,8 @@ extern class WorldPartitionStreamingSourceComp extends ActorComp {
 	public function IsStreamingCompleted(): cpp.Reference<Bool>;
 	public function EnableStreamingSource(): Void;
 	public function DisableStreamingSource(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsStreamingSourceEnabled, IsStreamingCompleted)

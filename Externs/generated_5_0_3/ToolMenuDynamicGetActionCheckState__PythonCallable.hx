@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UToolMenuDynamicGetActionCheckState__PythonCallable")
+@:structAccess
 extern class ToolMenuDynamicGetActionCheckState__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

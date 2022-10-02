@@ -3,7 +3,10 @@ package ue;
 
 @:native("URuntimeVirtualTextureFactory")
 @:include("RuntimeVirtualTextureFactory.h")
+@:structAccess
 extern class RuntimeVirtualTextureFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

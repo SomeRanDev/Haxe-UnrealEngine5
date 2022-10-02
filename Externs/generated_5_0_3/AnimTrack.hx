@@ -3,6 +3,10 @@ package ue;
 
 @:native("FAnimTrack")
 @:include("Animation/AnimCompositeBase.h")
+@:structAccess
 extern class AnimTrack {
 	public var AnimSegments: TArray<AnimSegment>;
+
+	@:native("FAnimTrack") public function new();
+	@:native("FAnimTrack") public static function make(AnimSegments: TArray<AnimSegment>): AnimTrack ;
 }

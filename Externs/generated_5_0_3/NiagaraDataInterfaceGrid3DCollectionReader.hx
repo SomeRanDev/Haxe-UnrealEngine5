@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNiagaraDataInterfaceGrid3DCollectionReader")
 @:include("NiagaraDataInterfaceGrid3DCollectionReader.h")
+@:structAccess
 extern class NiagaraDataInterfaceGrid3DCollectionReader extends NiagaraDataInterfaceGrid3DCollection {
 	public var EmitterName: FString;
 	public var DIName: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

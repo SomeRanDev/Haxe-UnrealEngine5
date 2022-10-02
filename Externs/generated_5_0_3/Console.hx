@@ -3,11 +3,14 @@ package ue;
 
 @:native("UConsole")
 @:include("Engine/Console.h")
+@:structAccess
 extern class Console extends Object {
 	public var ConsoleTargetPlayer: cpp.Star<LocalPlayer>;
 	public var DefaultTexture_Black: cpp.Star<Texture2D>;
 	public var DefaultTexture_White: cpp.Star<Texture2D>;
 	public var HistoryBuffer: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

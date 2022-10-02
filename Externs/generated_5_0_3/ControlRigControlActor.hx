@@ -3,6 +3,7 @@ package ue;
 
 @:native("AControlRigControlActor")
 @:include("ControlRigControlActor.h")
+@:structAccess
 extern class ControlRigControlActor extends Actor {
 	public var ActorToTrack: cpp.Star<Actor>;
 	public var ControlRigClass: TSubclassOf<ControlRig>;
@@ -21,6 +22,8 @@ extern class ControlRigControlActor extends Actor {
 
 	public function Refresh(): Void;
 	public function Clear(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

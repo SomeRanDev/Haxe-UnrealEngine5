@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionSceneTexture")
 @:include("Materials/MaterialExpressionSceneTexture.h")
+@:structAccess
 extern class MaterialExpressionSceneTexture extends MaterialExpression {
 	public var Coordinates: ExpressionInput;
 	public var SceneTextureId: ESceneTextureId;
 	public var bFiltered: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

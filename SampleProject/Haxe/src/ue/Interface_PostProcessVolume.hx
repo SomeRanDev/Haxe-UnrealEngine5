@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UInterface_PostProcessVolume")
+@:structAccess
 extern class Interface_PostProcessVolume extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

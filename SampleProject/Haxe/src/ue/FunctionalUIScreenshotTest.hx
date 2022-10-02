@@ -3,12 +3,15 @@ package ue;
 
 @:native("AFunctionalUIScreenshotTest")
 @:include("FunctionalUIScreenshotTest.h")
+@:structAccess
 extern class FunctionalUIScreenshotTest extends ScreenshotFunctionalTestBase {
 	public var WidgetClass: TSubclassOf<UserWidget>;
 	public var SpawnedWidget: cpp.Star<UserWidget>;
 	public var WidgetLocation: EWidgetTestAppearLocation;
 	public var ScreenshotRT: cpp.Star<TextureRenderTarget2D>;
 	public var bHideDebugCanvas: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

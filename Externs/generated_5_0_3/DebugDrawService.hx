@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDebugDrawService")
 @:include("Debug/DebugDrawService.h")
+@:structAccess
 extern class DebugDrawService extends BlueprintFunctionLibrary {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

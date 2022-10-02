@@ -3,8 +3,12 @@ package ue;
 
 @:native("FDropNoteInfo")
 @:include("Engine/Engine.h")
+@:structAccess
 extern class DropNoteInfo {
 	public var Location: Vector;
 	public var Rotation: Rotator;
 	public var Comment: FString;
+
+	@:native("FDropNoteInfo") public function new();
+	@:native("FDropNoteInfo") public static function make(Location: Vector, Rotation: Rotator, Comment: FString): DropNoteInfo ;
 }

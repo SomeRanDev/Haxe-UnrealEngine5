@@ -3,8 +3,11 @@ package ue;
 
 @:native("UUndoHistorySettings")
 @:include("Classes/UndoHistorySettings.h")
+@:structAccess
 extern class UndoHistorySettings extends Object {
 	public var bShowTransactionDetails: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

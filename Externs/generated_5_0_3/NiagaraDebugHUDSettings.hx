@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraDebugHUDSettings")
 @:include("NiagaraDebuggerCommon.h")
+@:structAccess
 extern class NiagaraDebugHUDSettings extends Object {
 	public var Data: NiagaraDebugHUDSettingsData;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UFieldNodeBase")
 @:include("Field/FieldSystemObjects.h")
+@:structAccess
 extern class FieldNodeBase extends ActorComp {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

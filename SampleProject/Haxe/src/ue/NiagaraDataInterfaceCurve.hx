@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraDataInterfaceCurve")
 @:include("NiagaraDataInterfaceCurve.h")
+@:structAccess
 extern class NiagaraDataInterfaceCurve extends NiagaraDataInterfaceCurveBase {
 	public var Curve: RichCurve;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

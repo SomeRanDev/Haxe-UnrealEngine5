@@ -3,6 +3,7 @@ package ue;
 
 @:native("UVRNotificationsComponent")
 @:include("VRNotificationsComponent.h")
+@:structAccess
 extern class VRNotificationsComp extends ActorComp {
 	public var HMDTrackingInitializingAndNeedsHMDToBeTrackedDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var HMDTrackingInitializedDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
@@ -15,6 +16,8 @@ extern class VRNotificationsComp extends ActorComp {
 	public var VRControllerRecenteredDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
 	public function VRNotificationsDelegate__DelegateSignature(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FPhysicalAnimationData")
 @:include("PhysicsEngine/PhysicalAnimationComponent.h")
+@:structAccess
 extern class PhysicalAnimationData {
 	public var BodyName: FName;
 	public var bIsLocalSimulation: Bool;
@@ -12,4 +13,6 @@ extern class PhysicalAnimationData {
 	public var VelocityStrength: cpp.Float32;
 	public var MaxLinearForce: cpp.Float32;
 	public var MaxAngularForce: cpp.Float32;
+
+	@:native("FPhysicalAnimationData") public function new();
 }

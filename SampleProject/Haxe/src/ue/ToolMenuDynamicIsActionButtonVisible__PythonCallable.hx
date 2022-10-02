@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UToolMenuDynamicIsActionButtonVisible__PythonCallable")
+@:structAccess
 extern class ToolMenuDynamicIsActionButtonVisible__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UComboBoxString")
 @:include("Components/ComboBoxString.h")
+@:structAccess
 extern class ComboBoxString extends Widget {
 	public var DefaultOptions: TArray<FString>;
 	public var SelectedOption: FString;
@@ -34,6 +35,8 @@ extern class ComboBoxString extends Widget {
 	public function ClearSelection(): Void;
 	public function ClearOptions(): Void;
 	public function AddOption(Option: FString): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsOpen, GetSelectedOption, GetSelectedIndex, GetOptionCount, GetOptionAtIndex, FindOptionIndex)

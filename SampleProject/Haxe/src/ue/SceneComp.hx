@@ -3,6 +3,7 @@ package ue;
 
 @:native("USceneComponent")
 @:include("Components/SceneComponent.h")
+@:structAccess
 extern class SceneComp extends ActorComp {
 	public var PhysicsVolume: TWeakObjectPtr<PhysicsVolume>;
 	public var AttachParent: cpp.Star<SceneComp>;
@@ -95,6 +96,97 @@ extern class SceneComp extends ActorComp {
 	public function GetAllSocketNames(): cpp.Reference<TArray<FName>>;
 	public function DoesSocketExist(InSocketName: FName): cpp.Reference<Bool>;
 	public function DetachFromParent(bMaintainWorldPosition: Bool, bCallModify: Bool): Void;
+	@:const public function GetComponentLocation(): Vector;
+	@:const public function GetComponentRotation(): Rotator;
+	@:const public function GetComponentQuat(): Quat;
+	@:const public function GetComponentScale(): Vector;
+	@:const public function GetComponentToWorld(): cpp.Reference<Transform>;
+	@:const public function GetComponentTransform(): cpp.Reference<Transform>;
+	@:const public function GetRelativeLocation(): Vector;
+	@:const public function GetRelativeLocation_DirectMutable(): cpp.Reference<Vector>;
+	@:const public function GetRelativeRotation(): Rotator;
+	@:const public function GetRelativeRotation_DirectMutable(): cpp.Reference<Rotator>;
+	@:const public function GetRelativeQuat_DirectMutable(): cpp.Reference<Quat>;
+	@:const public function GetRelativeScale3D(): Vector;
+	@:const public function GetRelativeScale3D_DirectMutable(): cpp.Reference<Vector>;
+	public overload function SetRelativeLocation(NewLocation: Vector): Void;
+	public overload function SetRelativeLocation(NewLocation: Vector, bSweep: Bool): Void;
+	public overload function SetRelativeLocation(NewLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void;
+	public overload function SetRelativeLocation(NewLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void;
+	public overload function SetRelativeRotation(NewRotation: Rotator): Void;
+	public overload function SetRelativeRotation(NewRotation: Rotator, bSweep: Bool): Void;
+	public overload function SetRelativeRotation(NewRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void;
+	public overload function SetRelativeRotation(NewRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void;
+	public overload function SetRelativeRotation(NewRotation: cpp.Reference<Quat>): Void;
+	public overload function SetRelativeRotation(NewRotation: cpp.Reference<Quat>, bSweep: Bool): Void;
+	public overload function SetRelativeRotation(NewRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void;
+	public overload function SetRelativeRotation(NewRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void;
+	public overload function SetRelativeTransform(NewTransform: cpp.Reference<Transform>): Void;
+	public overload function SetRelativeTransform(NewTransform: cpp.Reference<Transform>, bSweep: Bool): Void;
+	public overload function SetRelativeTransform(NewTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void;
+	public overload function SetRelativeTransform(NewTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void;
+	public overload function AddRelativeLocation(DeltaLocation: Vector): Void;
+	public overload function AddRelativeLocation(DeltaLocation: Vector, bSweep: Bool): Void;
+	public overload function AddRelativeLocation(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void;
+	public overload function AddRelativeLocation(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void;
+	public overload function AddRelativeRotation(DeltaRotation: Rotator): Void;
+	public overload function AddRelativeRotation(DeltaRotation: Rotator, bSweep: Bool): Void;
+	public overload function AddRelativeRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void;
+	public overload function AddRelativeRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void;
+	public overload function AddRelativeRotation(DeltaRotation: cpp.Reference<Quat>): Void;
+	public overload function AddRelativeRotation(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool): Void;
+	public overload function AddRelativeRotation(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void;
+	public overload function AddRelativeRotation(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void;
+	public overload function AddLocalOffset(DeltaLocation: Vector): Void;
+	public overload function AddLocalOffset(DeltaLocation: Vector, bSweep: Bool): Void;
+	public overload function AddLocalOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void;
+	public overload function AddLocalOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void;
+	public overload function AddLocalRotation(DeltaRotation: Rotator): Void;
+	public overload function AddLocalRotation(DeltaRotation: Rotator, bSweep: Bool): Void;
+	public overload function AddLocalRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void;
+	public overload function AddLocalRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void;
+	public overload function AddLocalRotation(DeltaRotation: cpp.Reference<Quat>): Void;
+	public overload function AddLocalRotation(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool): Void;
+	public overload function AddLocalRotation(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void;
+	public overload function AddLocalRotation(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void;
+	public overload function AddLocalTransform(DeltaTransform: cpp.Reference<Transform>): Void;
+	public overload function AddLocalTransform(DeltaTransform: cpp.Reference<Transform>, bSweep: Bool): Void;
+	public overload function AddLocalTransform(DeltaTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void;
+	public overload function AddLocalTransform(DeltaTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void;
+	public overload function SetWorldLocation(NewLocation: Vector): Void;
+	public overload function SetWorldLocation(NewLocation: Vector, bSweep: Bool): Void;
+	public overload function SetWorldLocation(NewLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void;
+	public overload function SetWorldLocation(NewLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void;
+	public overload function SetWorldRotation(NewRotation: Rotator): Void;
+	public overload function SetWorldRotation(NewRotation: Rotator, bSweep: Bool): Void;
+	public overload function SetWorldRotation(NewRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void;
+	public overload function SetWorldRotation(NewRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void;
+	public overload function SetWorldRotation(NewRotation: cpp.Reference<Quat>): Void;
+	public overload function SetWorldRotation(NewRotation: cpp.Reference<Quat>, bSweep: Bool): Void;
+	public overload function SetWorldRotation(NewRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void;
+	public overload function SetWorldRotation(NewRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void;
+	public overload function SetWorldTransform(NewTransform: cpp.Reference<Transform>): Void;
+	public overload function SetWorldTransform(NewTransform: cpp.Reference<Transform>, bSweep: Bool): Void;
+	public overload function SetWorldTransform(NewTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void;
+	public overload function SetWorldTransform(NewTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void;
+	public overload function AddWorldOffset(DeltaLocation: Vector): Void;
+	public overload function AddWorldOffset(DeltaLocation: Vector, bSweep: Bool): Void;
+	public overload function AddWorldOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void;
+	public overload function AddWorldOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void;
+	public overload function AddWorldRotation(DeltaRotation: Rotator): Void;
+	public overload function AddWorldRotation(DeltaRotation: Rotator, bSweep: Bool): Void;
+	public overload function AddWorldRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void;
+	public overload function AddWorldRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void;
+	public overload function AddWorldRotation(DeltaRotation: cpp.Reference<Quat>): Void;
+	public overload function AddWorldRotation(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool): Void;
+	public overload function AddWorldRotation(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void;
+	public overload function AddWorldRotation(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void;
+	public overload function AddWorldTransform(DeltaTransform: cpp.Reference<Transform>): Void;
+	public overload function AddWorldTransform(DeltaTransform: cpp.Reference<Transform>, bSweep: Bool): Void;
+	public overload function AddWorldTransform(DeltaTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void;
+	public overload function AddWorldTransform(DeltaTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

@@ -3,9 +3,13 @@ package ue;
 
 @:native("FNiagaraModuleDependency")
 @:include("NiagaraScript.h")
+@:structAccess
 extern class NiagaraModuleDependency {
 	public var Id: FName;
 	public var Type: ENiagaraModuleDependencyType;
 	public var ScriptConstraint: ENiagaraModuleDependencyScriptConstraint;
 	public var Description: FText;
+
+	@:native("FNiagaraModuleDependency") public function new();
+	@:native("FNiagaraModuleDependency") public static function make(Id: FName, Type: ENiagaraModuleDependencyType, ScriptConstraint: ENiagaraModuleDependencyScriptConstraint, Description: FText): NiagaraModuleDependency ;
 }

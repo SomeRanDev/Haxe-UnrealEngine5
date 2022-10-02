@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNavLinkCustomComponent")
 @:include("NavLinkCustomComponent.h")
+@:structAccess
 extern class NavLinkCustomComp extends NavRelevantComp {
 	public var NavLinkUserId: cpp.UInt32;
 	public var EnabledAreaClass: TSubclassOf<NavArea>;
@@ -21,6 +22,8 @@ extern class NavLinkCustomComp extends NavRelevantComp {
 	public var BroadcastRadius: cpp.Float32;
 	public var BroadcastInterval: cpp.Float32;
 	public var BroadcastChannel: ECollisionChannel;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FHitResult")
 @:include("Engine/EngineTypes.h")
+@:structAccess
 extern class HitResult {
 	public var FaceIndex: cpp.Int32;
 	public var Time: cpp.Float32;
@@ -24,4 +25,6 @@ extern class HitResult {
 	public var Component: TWeakObjectPtr<PrimitiveComp>;
 	public var BoneName: FName;
 	public var MyBoneName: FName;
+
+	@:native("FHitResult") public function new();
 }

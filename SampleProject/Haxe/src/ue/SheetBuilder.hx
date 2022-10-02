@@ -3,6 +3,7 @@ package ue;
 
 @:native("USheetBuilder")
 @:include("Builders/SheetBuilder.h")
+@:structAccess
 extern class SheetBuilder extends EditorBrushBuilder {
 	public var X: cpp.Int32;
 	public var Y: cpp.Int32;
@@ -10,6 +11,8 @@ extern class SheetBuilder extends EditorBrushBuilder {
 	public var YSegments: cpp.Int32;
 	public var Axis: ESheetAxis;
 	public var GroupName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

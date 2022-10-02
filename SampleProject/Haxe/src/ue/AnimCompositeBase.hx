@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimCompositeBase")
 @:include("Animation/AnimCompositeBase.h")
+@:structAccess
 extern class AnimCompositeBase extends AnimSequenceBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

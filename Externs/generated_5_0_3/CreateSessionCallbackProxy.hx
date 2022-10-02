@@ -3,11 +3,14 @@ package ue;
 
 @:native("UCreateSessionCallbackProxy")
 @:include("CreateSessionCallbackProxy.h")
+@:structAccess
 extern class CreateSessionCallbackProxy extends OnlineBlueprintCallProxyBase {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
 	public function CreateSession(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, PublicConnections: cpp.Int32, bUseLAN: Bool): cpp.Reference<cpp.Star<CreateSessionCallbackProxy>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

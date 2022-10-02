@@ -3,11 +3,14 @@ package ue;
 
 @:native("UBTDecorator_TagCooldown")
 @:include("BehaviorTree/Decorators/BTDecorator_TagCooldown.h")
+@:structAccess
 extern class BTDecorator_TagCooldown extends BTDecorator {
 	public var CooldownTag: GameplayTag;
 	public var CooldownDuration: cpp.Float32;
 	public var bAddToExistingDuration: Bool;
 	public var bActivatesCooldown: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

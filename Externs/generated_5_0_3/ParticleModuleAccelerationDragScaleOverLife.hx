@@ -3,9 +3,12 @@ package ue;
 
 @:native("UParticleModuleAccelerationDragScaleOverLife")
 @:include("Particles/Acceleration/ParticleModuleAccelerationDragScaleOverLife.h")
+@:structAccess
 extern class ParticleModuleAccelerationDragScaleOverLife extends ParticleModuleAccelerationBase {
 	public var DragScale_DEPRECATED: cpp.Star<DistributionFloat>;
 	public var DragScaleRaw: RawDistributionFloat;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

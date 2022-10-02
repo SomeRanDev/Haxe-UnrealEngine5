@@ -2,7 +2,10 @@
 package ue;
 
 @:native("ULevelSequenceMetaData")
+@:structAccess
 extern class LevelSequenceMetaData extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

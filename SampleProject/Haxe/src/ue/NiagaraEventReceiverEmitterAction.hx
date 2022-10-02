@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraEventReceiverEmitterAction")
 @:include("NiagaraEvents.h")
+@:structAccess
 extern class NiagaraEventReceiverEmitterAction extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

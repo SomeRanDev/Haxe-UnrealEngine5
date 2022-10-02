@@ -3,9 +3,12 @@ package ue;
 
 @:native("USquareSplineGenerator")
 @:include("SplineGeneratorPanel.h")
+@:structAccess
 extern class SquareSplineGenerator extends SplineGeneratorBase {
 	public var Length: cpp.Float32;
 	public var bBranchRight: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

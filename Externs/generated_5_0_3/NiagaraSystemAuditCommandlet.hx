@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraSystemAuditCommandlet")
 @:include("Commandlets/NiagaraSystemAuditCommandlet.h")
+@:structAccess
 extern class NiagaraSystemAuditCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

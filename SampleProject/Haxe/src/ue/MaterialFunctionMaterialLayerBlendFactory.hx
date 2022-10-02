@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialFunctionMaterialLayerBlendFactory")
 @:include("Factories/MaterialFunctionMaterialLayerBlendFactory.h")
+@:structAccess
 extern class MaterialFunctionMaterialLayerBlendFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

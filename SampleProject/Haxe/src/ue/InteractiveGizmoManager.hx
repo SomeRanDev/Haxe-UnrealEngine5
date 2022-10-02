@@ -3,9 +3,12 @@ package ue;
 
 @:native("UInteractiveGizmoManager")
 @:include("InteractiveGizmoManager.h")
+@:structAccess
 extern class InteractiveGizmoManager extends Object {
 	public var ActiveGizmos: TArray<ActiveGizmo>;
 	public var GizmoBuilders: TMap<FString, cpp.Star<InteractiveGizmoBuilder>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPolysExporterOBJ")
 @:include("Exporters/PolysExporterOBJ.h")
+@:structAccess
 extern class PolysExporterOBJ extends Exporter {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

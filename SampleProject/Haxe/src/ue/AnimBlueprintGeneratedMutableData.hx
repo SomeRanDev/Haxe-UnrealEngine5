@@ -2,6 +2,10 @@
 package ue;
 
 @:native("FAnimBlueprintGeneratedMutableData")
+@:structAccess
 extern class AnimBlueprintGeneratedMutableData extends AnimBlueprintMutableData {
-	public var __FloatProperty: cpp.Float32;
+	public var FloatProperty: cpp.Float32;
+
+	@:native("FAnimBlueprintGeneratedMutableData") public function new();
+	@:native("FAnimBlueprintGeneratedMutableData") public static function make(FloatProperty: cpp.Float32): AnimBlueprintGeneratedMutableData ;
 }

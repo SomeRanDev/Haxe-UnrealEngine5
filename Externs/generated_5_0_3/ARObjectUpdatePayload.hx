@@ -3,6 +3,10 @@ package ue;
 
 @:native("FARObjectUpdatePayload")
 @:include("ARComponent.h")
+@:structAccess
 extern class ARObjectUpdatePayload {
 	public var WorldTransform: Transform;
+
+	@:native("FARObjectUpdatePayload") public function new();
+	@:native("FARObjectUpdatePayload") public static function make(WorldTransform: Transform): ARObjectUpdatePayload ;
 }

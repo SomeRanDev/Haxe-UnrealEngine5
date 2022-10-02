@@ -3,8 +3,11 @@ package ue;
 
 @:native("UPhysicsAssetGenerationSettings")
 @:include("PhysicsAssetGenerationSettings.h")
+@:structAccess
 extern class PhysicsAssetGenerationSettings extends Object {
 	public var CreateParams: PhysAssetCreateParams;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

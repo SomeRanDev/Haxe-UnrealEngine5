@@ -3,12 +3,15 @@ package ue;
 
 @:native("UAREnvironmentCaptureProbe")
 @:include("ARTrackable.h")
+@:structAccess
 extern class AREnvironmentCaptureProbe extends ARTrackedGeometry {
 	public var Extent: Vector;
 	public var EnvironmentCaptureTexture: cpp.Star<AREnvironmentCaptureProbeTexture>;
 
 	public function GetExtent(): cpp.Reference<Vector>;
 	public function GetEnvironmentCaptureTexture(): cpp.Reference<cpp.Star<AREnvironmentCaptureProbeTexture>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetExtent)

@@ -1,0 +1,25 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "HaxeCompatibility",
+	"Description": "Makes Haxe/C++ output work.",
+	"Category": "Other",
+	"CreatedBy": "Robert Borghese",
+	"CreatedByURL": "https://github.com/RobertBorghese",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "HaxeCompatibility",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"WhitelistPlatforms": ["Win64"]
+		}
+	]
+}

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UPrimaryDataAsset")
 @:include("Engine/DataAsset.h")
+@:structAccess
 extern class PrimaryDataAsset extends DataAsset {
 	public var AssetBundleData: AssetBundleData;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

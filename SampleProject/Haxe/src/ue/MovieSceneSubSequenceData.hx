@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMovieSceneSubSequenceData")
 @:include("Evaluation/MovieSceneSequenceHierarchy.h")
+@:structAccess
 extern class MovieSceneSubSequenceData {
 	public var Sequence: SoftObjectPath;
 	public var OuterToInnerTransform: MovieSceneSequenceTransform;
@@ -24,4 +25,6 @@ extern class MovieSceneSubSequenceData {
 	public var InstanceData: MovieSceneSequenceInstanceDataPtr;
 	public var SectionPath: FName;
 	public var SubSectionSignature: Guid;
+
+	@:native("FMovieSceneSubSequenceData") public function new();
 }

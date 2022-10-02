@@ -3,9 +3,12 @@ package ue;
 
 @:native("UAutomationEditorTask")
 @:include("AutomationBlueprintFunctionLibrary.h")
+@:structAccess
 extern class AutomationEditorTask extends Object {
 	public function IsValidTask(): cpp.Reference<Bool>;
 	public function IsTaskDone(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsValidTask, IsTaskDone)

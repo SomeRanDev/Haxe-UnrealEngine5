@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMaterialStatistics")
 @:include("MaterialEditingLibrary.h")
+@:structAccess
 extern class MaterialStatistics {
 	public var NumVertexShaderInstructions: cpp.Int32;
 	public var NumPixelShaderInstructions: cpp.Int32;
@@ -12,4 +13,6 @@ extern class MaterialStatistics {
 	public var NumVirtualTextureSamples: cpp.Int32;
 	public var NumUVScalars: cpp.Int32;
 	public var NumInterpolatorScalars: cpp.Int32;
+
+	@:native("FMaterialStatistics") public function new();
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPhysicalAnimationComponent")
 @:include("PhysicsEngine/PhysicalAnimationComponent.h")
+@:structAccess
 extern class PhysicalAnimationComp extends ActorComp {
 	public var StrengthMultiplyer: cpp.Float32;
 	public var SkeletalMeshComponent: cpp.Star<SkeletalMeshComp>;
@@ -13,6 +14,8 @@ extern class PhysicalAnimationComp extends ActorComp {
 	public function ApplyPhysicalAnimationSettingsBelow(BodyName: FName, PhysicalAnimationData: cpp.Reference<PhysicalAnimationData>, bIncludeSelf: Bool): Void;
 	public function ApplyPhysicalAnimationSettings(BodyName: FName, PhysicalAnimationData: cpp.Reference<PhysicalAnimationData>): Void;
 	public function ApplyPhysicalAnimationProfileBelow(BodyName: FName, ProfileName: FName, bIncludeSelf: Bool, bClearNotFound: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetBodyTargetTransform)

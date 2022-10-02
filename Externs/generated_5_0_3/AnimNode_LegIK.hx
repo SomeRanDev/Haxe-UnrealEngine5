@@ -3,8 +3,12 @@ package ue;
 
 @:native("FAnimNode_LegIK")
 @:include("BoneControllers/AnimNode_LegIK.h")
+@:structAccess
 extern class AnimNode_LegIK extends AnimNode_SkeletalControlBase {
 	public var ReachPrecision: cpp.Float32;
 	public var MaxIterations: cpp.Int32;
 	public var LegsDefinition: TArray<AnimLegIKDefinition>;
+
+	@:native("FAnimNode_LegIK") public function new();
+	@:native("FAnimNode_LegIK") public static function make(ReachPrecision: cpp.Float32, MaxIterations: cpp.Int32, LegsDefinition: TArray<AnimLegIKDefinition>): AnimNode_LegIK ;
 }

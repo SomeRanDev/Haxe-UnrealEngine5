@@ -3,7 +3,10 @@ package ue;
 
 @:native("UWorldPartitionEditorHash")
 @:include("WorldPartition/WorldPartitionEditorHash.h")
+@:structAccess
 extern class WorldPartitionEditorHash extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

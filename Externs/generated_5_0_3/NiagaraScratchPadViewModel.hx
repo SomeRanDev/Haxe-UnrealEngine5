@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraScratchPadViewModel")
 @:include("ViewModels/NiagaraScratchPadViewModel.h")
+@:structAccess
 extern class NiagaraScratchPadViewModel extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

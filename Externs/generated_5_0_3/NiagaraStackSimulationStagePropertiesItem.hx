@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraStackSimulationStagePropertiesItem")
 @:include("ViewModels/Stack/NiagaraStackSimulationStageGroup.h")
+@:structAccess
 extern class NiagaraStackSimulationStagePropertiesItem extends NiagaraStackItem {
 	public var SimulationStageObject: cpp.Star<NiagaraStackObject>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

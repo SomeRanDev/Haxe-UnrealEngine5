@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBTService_BlueprintBase")
 @:include("BehaviorTree/Services/BTService_BlueprintBase.h")
+@:structAccess
 extern class BTService_BlueprintBase extends BTService {
 	public var AIOwner: cpp.Star<AIController>;
 	public var ActorOwner: cpp.Star<Actor>;
@@ -19,6 +20,8 @@ extern class BTService_BlueprintBase extends BTService {
 	public function ReceiveActivationAI(OwnerController: cpp.Star<AIController>, ControlledPawn: cpp.Star<Pawn>): Void;
 	public function ReceiveActivation(OwnerActor: cpp.Star<Actor>): Void;
 	public function IsServiceActive(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsServiceActive)

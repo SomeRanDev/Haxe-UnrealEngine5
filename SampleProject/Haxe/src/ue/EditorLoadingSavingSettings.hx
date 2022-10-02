@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEditorLoadingSavingSettings")
 @:include("Settings/EditorLoadingSavingSettings.h")
+@:structAccess
 extern class EditorLoadingSavingSettings extends Object {
 	public var LoadLevelAtStartup: ELoadLevelAtStartup;
 	public var bForceCompilationAtStartup: Bool;
@@ -31,6 +32,8 @@ extern class EditorLoadingSavingSettings extends Object {
 	public var bSCCAutoAddNewFiles: Bool;
 	public var bSCCUseGlobalSettings: Bool;
 	public var TextDiffToolPath: FilePath;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

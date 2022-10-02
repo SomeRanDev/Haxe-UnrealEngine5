@@ -3,6 +3,7 @@ package ue;
 
 @:native("USpinBox")
 @:include("Components/SpinBox.h")
+@:structAccess
 extern class SpinBox extends Widget {
 	public var Value: cpp.Float32;
 	public var ValueDelegate: HaxeDelegateProperty<() -> Void>;
@@ -58,6 +59,8 @@ extern class SpinBox extends Widget {
 	public function ClearMinSliderValue(): Void;
 	public function ClearMaxValue(): Void;
 	public function ClearMaxSliderValue(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetValue, GetMinValue, GetMinSliderValue, GetMinFractionalDigits, GetMaxValue, GetMaxSliderValue, GetMaxFractionalDigits, GetDelta, GetAlwaysUsesDeltaSnap)

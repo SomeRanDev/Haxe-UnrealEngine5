@@ -3,11 +3,14 @@ package ue;
 
 @:native("UGameplayDebuggerLocalController")
 @:include("GameplayDebuggerLocalController.h")
+@:structAccess
 extern class GameplayDebuggerLocalController extends Object {
 	public var CachedReplicator: cpp.Star<GameplayDebuggerCategoryReplicator>;
 	public var CachedPlayerManager: cpp.Star<GameplayDebuggerPlayerManager>;
 	public var DebugActorCandidate: cpp.Star<Actor>;
 	public var HUDFont: cpp.Star<Font>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

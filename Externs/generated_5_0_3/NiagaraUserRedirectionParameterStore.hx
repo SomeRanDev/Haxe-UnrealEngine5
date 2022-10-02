@@ -3,6 +3,10 @@ package ue;
 
 @:native("FNiagaraUserRedirectionParameterStore")
 @:include("NiagaraUserRedirectionParameterStore.h")
+@:structAccess
 extern class NiagaraUserRedirectionParameterStore extends NiagaraParameterStore {
 	public var UserParameterRedirects: TMap<NiagaraVariable, NiagaraVariable>;
+
+	@:native("FNiagaraUserRedirectionParameterStore") public function new();
+	@:native("FNiagaraUserRedirectionParameterStore") public static function make(UserParameterRedirects: TMap<NiagaraVariable, NiagaraVariable>): NiagaraUserRedirectionParameterStore ;
 }

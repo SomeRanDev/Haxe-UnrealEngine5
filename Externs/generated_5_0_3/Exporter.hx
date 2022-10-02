@@ -3,6 +3,7 @@ package ue;
 
 @:native("UExporter")
 @:include("Exporters/Exporter.h")
+@:structAccess
 extern class Exporter extends Object {
 	public var SupportedClass: TSubclassOf<Object>;
 	public var ExportRootScope: cpp.Star<Object>;
@@ -18,6 +19,8 @@ extern class Exporter extends Object {
 	public function ScriptRunAssetExportTask(Task: cpp.Star<AssetExportTask>): cpp.Reference<Bool>;
 	public function RunAssetExportTasks(ExportTasks: cpp.Reference<TArray<cpp.Star<AssetExportTask>>>): cpp.Reference<Bool>;
 	public function RunAssetExportTask(Task: cpp.Star<AssetExportTask>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

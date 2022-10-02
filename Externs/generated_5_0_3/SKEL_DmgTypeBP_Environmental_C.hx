@@ -2,8 +2,11 @@
 package ue;
 
 @:native("USKEL_DmgTypeBP_Environmental_C")
+@:structAccess
 extern class SKEL_DmgTypeBP_Environmental_C extends DamageType {
 	public var UberGraphFrame: PointerToUberGraphFrame;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

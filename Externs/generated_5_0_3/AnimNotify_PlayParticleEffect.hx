@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimNotify_PlayParticleEffect")
 @:include("Animation/AnimNotifies/AnimNotify_PlayParticleEffect.h")
+@:structAccess
 extern class AnimNotify_PlayParticleEffect extends AnimNotify {
 	public var PSTemplate: cpp.Star<ParticleSystem>;
 	public var LocationOffset: Vector;
@@ -10,6 +11,8 @@ extern class AnimNotify_PlayParticleEffect extends AnimNotify {
 	public var Scale: Vector;
 	public var Attached: Bool;
 	public var SocketName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

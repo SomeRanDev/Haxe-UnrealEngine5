@@ -3,8 +3,11 @@ package ue;
 
 @:native("USingleSelectionTool")
 @:include("SingleSelectionTool.h")
+@:structAccess
 extern class SingleSelectionTool extends InteractiveTool {
 	public var Target: cpp.Star<ToolTarget>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

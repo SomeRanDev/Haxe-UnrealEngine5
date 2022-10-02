@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialFunctionInstanceFactory")
 @:include("Factories/MaterialFunctionInstanceFactory.h")
+@:structAccess
 extern class MaterialFunctionInstanceFactory extends Factory {
 	public var InitialParent: cpp.Star<MaterialFunctionInterface>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

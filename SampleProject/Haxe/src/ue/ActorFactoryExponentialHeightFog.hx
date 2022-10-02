@@ -3,7 +3,10 @@ package ue;
 
 @:native("UActorFactoryExponentialHeightFog")
 @:include("ActorFactories/ActorFactoryExponentialHeightFog.h")
+@:structAccess
 extern class ActorFactoryExponentialHeightFog extends ActorFactory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

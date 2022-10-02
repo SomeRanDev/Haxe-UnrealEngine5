@@ -3,9 +3,12 @@ package ue;
 
 @:native("UConfigHierarchyPropertyView")
 @:include("ConfigPropertyHelper.h")
+@:structAccess
 extern class ConfigHierarchyPropertyView extends Object {
 	public var EditProperty: TFieldPath<FProperty>;
 	public var ConfigFilePropertyObjects: TArray<cpp.Star<PropertyConfigFileDisplayRow>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FLightmassWorldInfoSettings")
 @:include("GameFramework/WorldSettings.h")
+@:structAccess
 extern class LightmassWorldInfoSettings {
 	public var StaticLightingLevelScale: cpp.Float32;
 	public var NumIndirectLightingBounces: cpp.Int32;
@@ -28,4 +29,6 @@ extern class LightmassWorldInfoSettings {
 	public var OcclusionExponent: cpp.Float32;
 	public var FullyOccludedSamplesFraction: cpp.Float32;
 	public var MaxOcclusionDistance: cpp.Float32;
+
+	@:native("FLightmassWorldInfoSettings") public function new();
 }

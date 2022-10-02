@@ -3,7 +3,10 @@ package ue;
 
 @:native("USingleKeyCaptureBehavior")
 @:include("BaseBehaviors/SingleKeyCaptureBehavior.h")
+@:structAccess
 extern class SingleKeyCaptureBehavior extends InputBehavior {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

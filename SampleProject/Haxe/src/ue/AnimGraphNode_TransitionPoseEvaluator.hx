@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_TransitionPoseEvaluator")
 @:include("AnimGraphNode_TransitionPoseEvaluator.h")
+@:structAccess
 extern class AnimGraphNode_TransitionPoseEvaluator extends AnimGraphNode_Base {
 	public var Node: AnimNode_TransitionPoseEvaluator;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

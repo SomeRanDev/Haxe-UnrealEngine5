@@ -3,9 +3,12 @@ package ue;
 
 @:native("AHierarchicalLODVolume")
 @:include("HierarchicalLODVolume.h")
+@:structAccess
 extern class HierarchicalLODVolume extends Volume {
 	public var bIncludeOverlappingActors: Bool;
 	public var ApplyOnlyToSpecificHLODLevels: TArray<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("ASkeletalMeshActor")
 @:include("Animation/SkeletalMeshActor.h")
+@:structAccess
 extern class SkeletalMeshActor extends Actor {
 	public var bShouldDoAnimNotifies: Bool;
 	public var bWakeOnLevelStart_DEPRECATED: Bool;
@@ -16,6 +17,8 @@ extern class SkeletalMeshActor extends Actor {
 	public function OnRep_ReplicatedMesh(): Void;
 	public function OnRep_ReplicatedMaterial1(): Void;
 	public function OnRep_ReplicatedMaterial0(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

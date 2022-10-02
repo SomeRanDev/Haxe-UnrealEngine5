@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBlueprintEditorLibrary")
 @:include("BlueprintEditorLibrary.h")
+@:structAccess
 extern class BlueprintEditorLibrary extends BlueprintFunctionLibrary {
 	public function UpgradeOperatorNodes(Blueprint: cpp.Star<Blueprint>): Void;
 	public function ReplaceVariableReferences(Blueprint: cpp.Star<Blueprint>, OldVarName: FName, NewVarName: FName): Void;
@@ -18,6 +19,8 @@ extern class BlueprintEditorLibrary extends BlueprintFunctionLibrary {
 	public function FindEventGraph(Blueprint: cpp.Star<Blueprint>): cpp.Reference<cpp.Star<EdGraph>>;
 	public function CompileBlueprint(Blueprint: cpp.Star<Blueprint>): Void;
 	public function AddFunctionGraph(Blueprint: cpp.Star<Blueprint>, FuncName: FString): cpp.Reference<cpp.Star<EdGraph>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

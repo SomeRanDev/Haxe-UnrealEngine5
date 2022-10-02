@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialEditorMeshComponent")
 @:include("MaterialEditor/MaterialEditorMeshComponent.h")
+@:structAccess
 extern class MaterialEditorMeshComp extends StaticMeshComp {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

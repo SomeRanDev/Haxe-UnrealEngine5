@@ -3,8 +3,12 @@ package ue;
 
 @:native("FBlueprintComponentChangedPropertyInfo")
 @:include("Engine/BlueprintGeneratedClass.h")
+@:structAccess
 extern class BlueprintComponentChangedPropertyInfo {
 	public var PropertyName: FName;
 	public var ArrayIndex: cpp.Int32;
 	public var PropertyScope: cpp.Star<Struct>;
+
+	@:native("FBlueprintComponentChangedPropertyInfo") public function new();
+	@:native("FBlueprintComponentChangedPropertyInfo") public static function make(PropertyName: FName, ArrayIndex: cpp.Int32, PropertyScope: cpp.Star<Struct>): BlueprintComponentChangedPropertyInfo ;
 }

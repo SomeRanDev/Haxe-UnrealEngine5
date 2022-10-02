@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_ResetRoot")
 @:include("AnimGraphNode_ResetRoot.h")
+@:structAccess
 extern class AnimGraphNode_ResetRoot extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_ResetRoot;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("USubmixEffectDynamicsProcessorPreset")
 @:include("SubmixEffects/AudioMixerSubmixEffectDynamicsProcessor.h")
+@:structAccess
 extern class SubmixEffectDynamicsProcessorPreset extends SoundEffectSubmixPreset {
 	public var Settings: SubmixEffectDynamicsProcessorSettings;
 
@@ -10,6 +11,8 @@ extern class SubmixEffectDynamicsProcessorPreset extends SoundEffectSubmixPreset
 	public function SetExternalSubmix(Submix: cpp.Star<SoundSubmix>): Void;
 	public function SetAudioBus(AudioBus: cpp.Star<AudioBus>): Void;
 	public function ResetKey(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

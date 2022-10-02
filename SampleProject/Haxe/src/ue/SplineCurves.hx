@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSplineCurves")
 @:include("Components/SplineComponent.h")
+@:structAccess
 extern class SplineCurves {
 	public var Position: InterpCurveVector;
 	public var Rotation: InterpCurveQuat;
@@ -10,4 +11,6 @@ extern class SplineCurves {
 	public var ReparamTable: InterpCurveFloat;
 	public var Metadata_DEPRECATED: cpp.Star<SplineMetadata>;
 	public var Version: cpp.UInt32;
+
+	@:native("FSplineCurves") public function new();
 }

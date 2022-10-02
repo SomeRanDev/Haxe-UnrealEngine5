@@ -3,12 +3,15 @@ package ue;
 
 @:native("UMaterialExpressionFresnel")
 @:include("Materials/MaterialExpressionFresnel.h")
+@:structAccess
 extern class MaterialExpressionFresnel extends MaterialExpression {
 	public var ExponentIn: ExpressionInput;
 	public var Exponent: cpp.Float32;
 	public var BaseReflectFractionIn: ExpressionInput;
 	public var BaseReflectFraction: cpp.Float32;
 	public var Normal: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

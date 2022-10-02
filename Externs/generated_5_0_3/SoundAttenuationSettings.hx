@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSoundAttenuationSettings")
 @:include("Sound/SoundAttenuation.h")
+@:structAccess
 extern class SoundAttenuationSettings extends BaseAttenuationSettings {
 	public var bAttenuate: Bool;
 	public var bSpatialize: Bool;
@@ -66,4 +67,6 @@ extern class SoundAttenuationSettings extends BaseAttenuationSettings {
 	public var ManualPriorityAttenuation: cpp.Float32;
 	public var CustomPriorityAttenuationCurve: RuntimeFloatCurve;
 	public var PluginSettings: SoundAttenuationPluginSettings;
+
+	@:native("FSoundAttenuationSettings") public function new();
 }

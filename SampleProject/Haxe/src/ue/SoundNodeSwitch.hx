@@ -3,8 +3,11 @@ package ue;
 
 @:native("USoundNodeSwitch")
 @:include("Sound/SoundNodeSwitch.h")
+@:structAccess
 extern class SoundNodeSwitch extends SoundNode {
 	public var IntParameterName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionLandscapePhysicalMaterialOutput")
 @:include("Materials/MaterialExpressionLandscapePhysicalMaterialOutput.h")
+@:structAccess
 extern class MaterialExpressionLandscapePhysicalMaterialOutput extends MaterialExpressionCustomOutput {
 	public var Inputs: TArray<PhysicalMaterialInput>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

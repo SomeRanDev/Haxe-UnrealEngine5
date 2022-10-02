@@ -3,8 +3,11 @@ package ue;
 
 @:native("UEditableTextWidgetStyle")
 @:include("Framework/Styling/EditableTextWidgetStyle.h")
+@:structAccess
 extern class EditableTextWidgetStyle extends SlateWidgetStyleContainerBase {
 	public var EditableTextStyle: EditableTextStyle;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

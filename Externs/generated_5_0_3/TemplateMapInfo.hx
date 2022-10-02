@@ -3,10 +3,14 @@ package ue;
 
 @:native("FTemplateMapInfo")
 @:include("Editor/UnrealEdEngine.h")
+@:structAccess
 extern class TemplateMapInfo {
 	public var ThumbnailTexture: TSoftObjectPtr<Texture2D>;
 	public var Thumbnail: SoftObjectPath;
 	public var Map: SoftObjectPath;
 	public var DisplayName: FText;
 	public var Category: FString;
+
+	@:native("FTemplateMapInfo") public function new();
+	@:native("FTemplateMapInfo") public static function make(ThumbnailTexture: TSoftObjectPtr<Texture2D>, Thumbnail: SoftObjectPath, Map: SoftObjectPath, DisplayName: FText, Category: FString): TemplateMapInfo ;
 }

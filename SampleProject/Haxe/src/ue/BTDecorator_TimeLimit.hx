@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBTDecorator_TimeLimit")
 @:include("BehaviorTree/Decorators/BTDecorator_TimeLimit.h")
+@:structAccess
 extern class BTDecorator_TimeLimit extends BTDecorator {
 	public var TimeLimit: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

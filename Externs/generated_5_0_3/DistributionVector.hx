@@ -3,10 +3,13 @@ package ue;
 
 @:native("UDistributionVector")
 @:include("Distributions/DistributionVector.h")
+@:structAccess
 extern class DistributionVector extends Distribution {
 	public var bCanBeBaked: Bool;
 	public var bIsDirty: Bool;
 	public var bBakedDataSuccesfully: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

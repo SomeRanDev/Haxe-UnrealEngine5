@@ -3,5 +3,7 @@ package ue;
 
 @:native("FGeometryCacheMeshData")
 @:include("GeometryCacheMeshData.h")
+@:structAccess
 extern class GeometryCacheMeshData {
+	@:native("FGeometryCacheMeshData") public function new();
 }

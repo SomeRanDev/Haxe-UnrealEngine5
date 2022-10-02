@@ -3,6 +3,7 @@ package ue;
 
 @:native("UImportSubsystem")
 @:include("Subsystems/ImportSubsystem.h")
+@:structAccess
 extern class ImportSubsystem extends EditorSubsystem {
 	public var OnAssetPreImport_BP: HaxeMulticastSparseDelegateProperty<(cpp.Star<Factory>, cpp.Star<Class>, cpp.Star<Object>, cpp.Reference<FName>, FString) -> Void>;
 	public var OnAssetPostImport_BP: HaxeMulticastSparseDelegateProperty<(cpp.Star<Factory>, cpp.Star<Object>) -> Void>;
@@ -13,6 +14,8 @@ extern class ImportSubsystem extends EditorSubsystem {
 	public function OnAssetPreImport_Dyn__DelegateSignature(InFactory: cpp.Star<Factory>, InClass: cpp.Star<Class>, InParent: cpp.Star<Object>, Name: cpp.Reference<FName>, Type: FString): Void;
 	public function OnAssetPostLODImport_Dyn__DelegateSignature(InObject: cpp.Star<Object>, InLODIndex: cpp.Int32): Void;
 	public function OnAssetPostImport_Dyn__DelegateSignature(InFactory: cpp.Star<Factory>, InCreatedObject: cpp.Star<Object>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,10 @@ package ue;
 
 @:native("FEnvQueryInstanceCache")
 @:include("EnvironmentQuery/EnvQueryManager.h")
+@:structAccess
 extern class EnvQueryInstanceCache {
 	public var Template: cpp.Star<EnvQuery>;
+
+	@:native("FEnvQueryInstanceCache") public function new();
+	@:native("FEnvQueryInstanceCache") public static function make(Template: cpp.Star<EnvQuery>): EnvQueryInstanceCache ;
 }

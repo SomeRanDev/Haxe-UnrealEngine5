@@ -3,6 +3,7 @@ package ue;
 
 @:native("UARTrackedGeometry")
 @:include("ARTrackable.h")
+@:structAccess
 extern class ARTrackedGeometry extends Object {
 	public var UniqueId: Guid;
 	public var LocalToTrackingTransform: Transform;
@@ -25,6 +26,8 @@ extern class ARTrackedGeometry extends Object {
 	public function GetLastUpdateTimestamp(): cpp.Reference<cpp.Float32>;
 	public function GetLastUpdateFrameNumber(): cpp.Reference<cpp.Int32>;
 	public function GetDebugName(): cpp.Reference<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

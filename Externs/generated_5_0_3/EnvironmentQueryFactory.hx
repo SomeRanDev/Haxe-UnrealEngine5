@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEnvironmentQueryFactory")
 @:include("EnvironmentQueryFactory.h")
+@:structAccess
 extern class EnvironmentQueryFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

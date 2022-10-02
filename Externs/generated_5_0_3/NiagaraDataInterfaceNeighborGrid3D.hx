@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraDataInterfaceNeighborGrid3D")
 @:include("NiagaraDataInterfaceNeighborGrid3D.h")
+@:structAccess
 extern class NiagaraDataInterfaceNeighborGrid3D extends NiagaraDataInterfaceGrid3D {
 	public var MaxNeighborsPerCell: cpp.UInt32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

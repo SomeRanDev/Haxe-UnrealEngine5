@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneBindingOverrides")
 @:include("MovieSceneBindingOverrides.h")
+@:structAccess
 extern class MovieSceneBindingOverrides extends Object {
 	public var BindingData: TArray<MovieSceneBindingOverrideData>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

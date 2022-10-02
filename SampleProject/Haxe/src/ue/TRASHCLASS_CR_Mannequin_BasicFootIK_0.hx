@@ -2,9 +2,13 @@
 package ue;
 
 @:native("UTRASHCLASS_CR_Mannequin_BasicFootIK_0")
+@:structAccess
 extern class TRASHCLASS_CR_Mannequin_BasicFootIK_0 {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()
+@:nativeGen
 abstract ConstTRASHCLASS_CR_Mannequin_BasicFootIK_0(TRASHCLASS_CR_Mannequin_BasicFootIK_0) from TRASHCLASS_CR_Mannequin_BasicFootIK_0 {
 }

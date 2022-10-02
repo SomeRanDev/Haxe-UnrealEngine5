@@ -3,8 +3,11 @@ package ue;
 
 @:native("UEditorWorldExtension")
 @:include("EditorWorldExtension.h")
+@:structAccess
 extern class EditorWorldExtension extends Object {
 	public var ExtensionActors: TArray<EditorWorldExtensionActorData>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

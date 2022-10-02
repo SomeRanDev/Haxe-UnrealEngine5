@@ -3,10 +3,13 @@ package ue;
 
 @:native("UAnimCurveCompressionCodec_CompressedRichCurve")
 @:include("Animation/AnimCurveCompressionCodec_CompressedRichCurve.h")
+@:structAccess
 extern class AnimCurveCompressionCodec_CompressedRichCurve extends AnimCurveCompressionCodec {
 	public var MaxCurveError: cpp.Float32;
 	public var UseAnimSequenceSampleRate: Bool;
 	public var ErrorSampleRate: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

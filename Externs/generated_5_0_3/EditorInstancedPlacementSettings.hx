@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEditorInstancedPlacementSettings")
 @:include("Instances/EditorPlacementSettings.h")
+@:structAccess
 extern class EditorInstancedPlacementSettings extends InstancedPlacemenClientSettings {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

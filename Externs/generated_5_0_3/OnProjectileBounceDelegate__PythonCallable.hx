@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnProjectileBounceDelegate__PythonCallable")
+@:structAccess
 extern class OnProjectileBounceDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

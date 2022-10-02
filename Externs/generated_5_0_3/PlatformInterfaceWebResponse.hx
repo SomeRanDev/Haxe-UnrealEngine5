@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPlatformInterfaceWebResponse")
 @:include("Engine/PlatformInterfaceWebResponse.h")
+@:structAccess
 extern class PlatformInterfaceWebResponse extends Object {
 	public var OriginalURL: FString;
 	public var ResponseCode: cpp.Int32;
@@ -13,6 +14,8 @@ extern class PlatformInterfaceWebResponse extends Object {
 	public function GetNumHeaders(): cpp.Reference<cpp.Int32>;
 	public function GetHeaderValue(HeaderName: FString): cpp.Reference<FString>;
 	public function GetHeader(HeaderIndex: cpp.Int32, Header: cpp.Reference<FString>, Value: cpp.Reference<FString>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionDepthFade")
 @:include("Materials/MaterialExpressionDepthFade.h")
+@:structAccess
 extern class MaterialExpressionDepthFade extends MaterialExpression {
 	public var InOpacity: ExpressionInput;
 	public var FadeDistance: ExpressionInput;
 	public var OpacityDefault: cpp.Float32;
 	public var FadeDistanceDefault: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

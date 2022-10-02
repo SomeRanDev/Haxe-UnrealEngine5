@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMovieSceneNameableTrack")
 @:include("MovieSceneNameableTrack.h")
+@:structAccess
 extern class MovieSceneNameableTrack extends MovieSceneTrack {
 	public var DisplayName: FText;
 	public var TrackRowDisplayNames: TArray<FText>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FPreviewSceneProfile")
 @:include("AssetViewerSettings.h")
+@:structAccess
 extern class PreviewSceneProfile {
 	public var ProfileName: FString;
 	public var bSharedProfile: Bool;
@@ -22,4 +23,6 @@ extern class PreviewSceneProfile {
 	public var LightingRigRotation: cpp.Float32;
 	public var RotationSpeed: cpp.Float32;
 	public var DirectionalLightRotation: Rotator;
+
+	@:native("FPreviewSceneProfile") public function new();
 }

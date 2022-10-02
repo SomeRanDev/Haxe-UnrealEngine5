@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBlueprintEditorProjectSettings")
 @:include("Settings/BlueprintEditorProjectSettings.h")
+@:structAccess
 extern class BlueprintEditorProjectSettings extends DeveloperSettings {
 	public var bForceAllDependenciesToRecompile: Bool;
 	public var bValidateUnloadedSoftActorReferences: Bool;
@@ -12,6 +13,8 @@ extern class BlueprintEditorProjectSettings extends DeveloperSettings {
 	public var DisabledCompilerMessagesExceptEditor: TArray<FName>;
 	public var DisabledCompilerMessages: TArray<FName>;
 	public var BaseClassesToAllowRecompilingDuringPlayInEditor: TArray<TSoftClassPtr<Class>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

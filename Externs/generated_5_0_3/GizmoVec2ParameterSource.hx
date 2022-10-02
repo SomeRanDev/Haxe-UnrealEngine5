@@ -2,11 +2,14 @@
 package ue;
 
 @:native("UGizmoVec2ParameterSource")
+@:structAccess
 extern class GizmoVec2ParameterSource extends Interface {
 	public function SetParameter(NewValue: cpp.Reference<Vector2D>): Void;
 	public function GetParameter(): cpp.Reference<Vector2D>;
 	public function EndModify(): Void;
 	public function BeginModify(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetParameter)

@@ -3,7 +3,11 @@ package ue;
 
 @:native("FIntegralKey")
 @:include("Curves/IntegralCurve.h")
+@:structAccess
 extern class IntegralKey {
 	public var Time: cpp.Float32;
 	public var Value: cpp.Int32;
+
+	@:native("FIntegralKey") public function new();
+	@:native("FIntegralKey") public static function make(Time: cpp.Float32, Value: cpp.Int32): IntegralKey ;
 }

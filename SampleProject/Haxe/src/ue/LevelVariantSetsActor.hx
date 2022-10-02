@@ -3,6 +3,7 @@ package ue;
 
 @:native("ALevelVariantSetsActor")
 @:include("LevelVariantSetsActor.h")
+@:structAccess
 extern class LevelVariantSetsActor extends Actor {
 	public var LevelVariantSets: SoftObjectPath;
 	public var DirectorInstances: TMap<TSubclassOf<Object>, cpp.Star<LevelVariantSetsFunctionDirector>>;
@@ -11,6 +12,8 @@ extern class LevelVariantSetsActor extends Actor {
 	public function SwitchOnVariantByIndex(VariantSetIndex: cpp.Int32, VariantIndex: cpp.Int32): cpp.Reference<Bool>;
 	public function SetLevelVariantSets(InVariantSets: cpp.Star<LevelVariantSets>): Void;
 	public function GetLevelVariantSets(bLoad: Bool): cpp.Reference<cpp.Star<LevelVariantSets>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

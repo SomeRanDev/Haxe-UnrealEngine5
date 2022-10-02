@@ -3,9 +3,12 @@ package ue;
 
 @:native("UParticleModuleAcceleration")
 @:include("Particles/Acceleration/ParticleModuleAcceleration.h")
+@:structAccess
 extern class ParticleModuleAcceleration extends ParticleModuleAccelerationBase {
 	public var Acceleration: RawDistributionVector;
 	public var bApplyOwnerScale: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

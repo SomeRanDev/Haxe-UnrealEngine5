@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAsyncImageExport")
 @:include("AsyncImageExport.h")
+@:structAccess
 extern class AsyncImageExport extends BlueprintAsyncActionBase {
 	public var Complete: HaxeMulticastSparseDelegateProperty<(Bool) -> Void>;
 	public var TextureToExport: cpp.Star<Texture>;
@@ -10,6 +11,8 @@ extern class AsyncImageExport extends BlueprintAsyncActionBase {
 	public var TargetFile: FString;
 
 	public function ExportImageAsync(Texture: cpp.Star<Texture>, OutputFile: FString, Quality: cpp.Int32): cpp.Reference<cpp.Star<AsyncImageExport>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

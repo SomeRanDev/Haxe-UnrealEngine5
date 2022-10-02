@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULevelEditorMenuContext")
 @:include("LevelEditorMenuContext.h")
+@:structAccess
 extern class LevelEditorMenuContext extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

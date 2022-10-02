@@ -3,10 +3,13 @@ package ue;
 
 @:native("UBTTask_RunBehaviorDynamic")
 @:include("BehaviorTree/Tasks/BTTask_RunBehaviorDynamic.h")
+@:structAccess
 extern class BTTask_RunBehaviorDynamic extends BTTaskNode {
 	public var InjectionTag: GameplayTag;
 	public var DefaultBehaviorAsset: cpp.Star<BehaviorTree>;
 	public var BehaviorAsset: cpp.Star<BehaviorTree>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,5 +3,7 @@ package ue;
 
 @:native("FAnimSubsystemInstance_NodeRelevancy")
 @:include("Animation/AnimSubsystem_NodeRelevancy.h")
+@:structAccess
 extern class AnimSubsystemInstance_NodeRelevancy extends AnimSubsystemInstance {
+	@:native("FAnimSubsystemInstance_NodeRelevancy") public function new();
 }

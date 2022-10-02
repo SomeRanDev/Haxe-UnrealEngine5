@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimCompress_LeastDestructive")
 @:include("Animation/AnimCompress_LeastDestructive.h")
+@:structAccess
 extern class AnimCompress_LeastDestructive extends AnimCompress_BitwiseCompressOnly {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

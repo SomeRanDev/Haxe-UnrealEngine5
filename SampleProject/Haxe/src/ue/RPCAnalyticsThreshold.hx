@@ -3,8 +3,12 @@ package ue;
 
 @:native("FRPCAnalyticsThreshold")
 @:include("Private/Net/RPCDoSDetectionConfig.h")
+@:structAccess
 extern class RPCAnalyticsThreshold {
 	public var RPC: FName;
 	public var CountPerSec: cpp.Int32;
 	public var TimePerSec: cpp.Float64;
+
+	@:native("FRPCAnalyticsThreshold") public function new();
+	@:native("FRPCAnalyticsThreshold") public static function make(RPC: FName, CountPerSec: cpp.Int32, TimePerSec: cpp.Float64): RPCAnalyticsThreshold ;
 }

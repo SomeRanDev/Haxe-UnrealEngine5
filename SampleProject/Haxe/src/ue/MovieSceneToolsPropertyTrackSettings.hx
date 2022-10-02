@@ -3,7 +3,11 @@ package ue;
 
 @:native("FMovieSceneToolsPropertyTrackSettings")
 @:include("MovieSceneToolsProjectSettings.h")
+@:structAccess
 extern class MovieSceneToolsPropertyTrackSettings {
 	public var ComponentName: FString;
 	public var PropertyName: FString;
+
+	@:native("FMovieSceneToolsPropertyTrackSettings") public function new();
+	@:native("FMovieSceneToolsPropertyTrackSettings") public static function make(ComponentName: FString, PropertyName: FString): MovieSceneToolsPropertyTrackSettings ;
 }

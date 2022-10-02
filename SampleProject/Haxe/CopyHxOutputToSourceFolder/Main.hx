@@ -15,52 +15,114 @@ function main() {
 	// The folder name for the Haxe/C++ output
 	final hxcppOutputFolder = "output";
 
-	// Get list of classes so we know which .cpp/.h to copy
-	final classListText = sys.io.File.getContent(Compiler.getDefine("ClassListFilePath"));
-	final classes = classListText.split("\n");
-
 	// Get destination folder
 	final projectName = Compiler.getDefine("ProjectName");
 	final outputFolder = "HaxeOutput";
 	final destination = "../Source/" + projectName + "/" + outputFolder + "/";
 
-	// Create destination folder if necessary
+	// List of files we don't want to copy to the UE source folder.
+	final fileFilters = ["__lib__.cpp"];
+
+	// Source file content prepend
+	final sourcePrepend = "#pragma warning(disable: 4458)\n";
+
+	// Create the destination folder if necessary.
 	if(!sys.FileSystem.exists(destination)) {
 		sys.FileSystem.createDirectory(destination);
 	}
 
-	// We need to keep track of existing files
-	// After everything, any existing files that we don't want anymore will be delketed
-	final existingFiles = sys.FileSystem.readDirectory(destination);
+	// We need to keep track of existing files.
+	// After everything, any existing files that we don't want anymore will be deleted.
+	final existingFiles = recursiveReadDirectory(destination);
 
-	// Iterate through all the classes we want to copy and copy them if a .cpp/.h exists
-	for(clsName in classes) {
-		final headerName = clsName + ".h";
-		final headerLoc = hxcppOutputFolder + "/include/" + headerName;
-		if(sys.FileSystem.exists(headerLoc)) {
-			sys.io.File.copy(headerLoc, destination + headerName);
-			if(existingFiles.contains(headerName)) {
-				existingFiles.remove(headerName);
+	// Whenever we copy a file, we remove the copied file from our list of existing files.
+	function copy(src, dest) {
+		if(existingFiles.contains(dest)) {
+			existingFiles.remove(dest);
+		}
+		safeCopy(src, dest);
+	}
+
+	// Get list of the files that are output from Haxe/C++
+	final outputHeaders = recursiveReadDirectory(hxcppOutputFolder + "/include");
+	final outputSources = recursiveReadDirectory(hxcppOutputFolder + "/src");
+
+	// Iterate through every source file.
+	// We want to find source + header pairs so the proper includes can be added.
+	for(sourceFile in outputSources) {
+		final path = new haxe.io.Path(sourceFile);
+		final sourceFileName = path.file + "." + path.ext;
+		final relativeDir = path.dir.substring((hxcppOutputFolder + "/src").length);
+		final header = hxcppOutputFolder + "/include" + relativeDir + "/" + path.file + ".h";
+
+		// Unreal forces source files to include their header file at the top no matter what.
+		// So we're doing it here.
+		if(sys.FileSystem.exists(header) && outputHeaders.contains(header)) {
+			var cppContent = sys.io.File.getContent(sourceFile);
+			final includePath = (relativeDir.length > 0 ? (relativeDir.substring(1) + "/") : "") + path.file;
+			cppContent = (sourcePrepend + "#include \"" + includePath + ".h\"\n\n" + cppContent);
+			sys.io.File.saveContent(sourceFile, cppContent);
+
+			// If we process the header file here, we don't need to do it later.
+			outputHeaders.remove(header);
+
+			// Copy header file to UE Source destination
+			final headerFileName = path.file + ".h";
+			if(!fileFilters.contains(headerFileName)) {
+				copy(header, destination + "include" + relativeDir + "/" + headerFileName);
 			}
+		} else {
+			var cppContent = sys.io.File.getContent(sourceFile);
+			cppContent = (sourcePrepend + "\n" + cppContent);
+			sys.io.File.saveContent(sourceFile, cppContent);
 		}
 
-		final sourceName = clsName + ".cpp";
-		final sourceLoc = hxcppOutputFolder + "/src/" + sourceName;
-		if(sys.FileSystem.exists(sourceLoc)) {
-			final destFile = destination + sourceName;
-			sys.io.File.copy(sourceLoc, destFile);
+		// Copy source file to UE Source destination
+		if(!fileFilters.contains(sourceFileName)) {
+			copy(sourceFile, destination + "src" + relativeDir + "/" + sourceFileName);
+		}
+	}
 
-			// Unreal forces source files to include their header file at the top no matter what
-			// So we're doing it here
-			if(sys.FileSystem.exists(headerLoc)) {
-				var cppContent = sys.io.File.getContent(destFile);
-				cppContent = ("#include \"" + headerName + "\"\n\n" + cppContent);
-				sys.io.File.saveContent(destFile, cppContent);
-			}
+	// Copy all header files that did not have a source file to go along with it.
+	for(headerFile in outputHeaders) {
+		final path = new haxe.io.Path(headerFile);
+		final relativeDir = path.dir.substring(hxcppOutputFolder.length + 1);
+		final fileName = path.file + "." + path.ext;
+		if(!fileFilters.contains(fileName)) {
+			copy(headerFile, destination + relativeDir + "/" + fileName);
+		}
+	}
 
-			if(existingFiles.contains(sourceName)) {
-				existingFiles.remove(sourceName);
+	// Let's go ahead and delete all the other files that were in the output folder
+	// that did not get replaced by new files. This way if a previous Haxe compilation
+	// generated a file that the new compilation did not generate, the old file will not remain.
+	for(unusedFile in existingFiles) {
+		sys.FileSystem.deleteFile(unusedFile);
+	}
+}
+
+// This calls "sys.io.File.copy", but it will work even if the destination directory does not exist.
+function safeCopy(source: String, destination: String) {
+	final path = new haxe.io.Path(destination);
+	if(!sys.FileSystem.exists(path.dir)) {
+		sys.FileSystem.createDirectory(path.dir);
+	}
+	sys.io.File.copy(source, destination);
+}
+
+// Returns a list of all files from the directory and its sub-directories.
+function recursiveReadDirectory(directory: String) {
+	var result = [];
+	if(sys.FileSystem.exists(directory)) {
+		for(file in sys.FileSystem.readDirectory(directory)) {
+			var path = haxe.io.Path.join([directory, file]);
+			if(!sys.FileSystem.isDirectory(path)) {
+				result.push(path);
+			} else {
+				var directory = haxe.io.Path.addTrailingSlash(path);
+				result = result.concat(recursiveReadDirectory(directory));
 			}
 		}
 	}
+	return result;
 }

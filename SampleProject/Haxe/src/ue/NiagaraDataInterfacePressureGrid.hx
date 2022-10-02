@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraDataInterfacePressureGrid")
 @:include("Niagara/NiagaraDataInterfacePressureGrid.h")
+@:structAccess
 extern class NiagaraDataInterfacePressureGrid extends NiagaraDataInterfaceVelocityGrid {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

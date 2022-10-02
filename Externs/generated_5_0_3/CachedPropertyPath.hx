@@ -3,7 +3,11 @@ package ue;
 
 @:native("FCachedPropertyPath")
 @:include("PropertyPathHelpers.h")
+@:structAccess
 extern class CachedPropertyPath {
 	public var Segments: TArray<PropertyPathSegment>;
 	public var CachedFunction: cpp.Star<Function>;
+
+	@:native("FCachedPropertyPath") public function new();
+	@:native("FCachedPropertyPath") public static function make(Segments: TArray<PropertyPathSegment>, CachedFunction: cpp.Star<Function>): CachedPropertyPath ;
 }

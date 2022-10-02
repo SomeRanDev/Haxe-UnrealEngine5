@@ -3,7 +3,10 @@ package ue;
 
 @:native("AParticleEventManager")
 @:include("Particles/ParticleEventManager.h")
+@:structAccess
 extern class ParticleEventManager extends Actor {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("USkeletalMeshLODSettings")
 @:include("Engine/SkeletalMeshLODSettings.h")
+@:structAccess
 extern class SkeletalMeshLODSettings extends DataAsset {
 	public var MinLod: PerPlatformInt;
 	public var DisableBelowMinLodStripping: PerPlatformBool;
@@ -11,6 +12,8 @@ extern class SkeletalMeshLODSettings extends DataAsset {
 	public var MaxNumStreamedLODs: PerPlatformInt;
 	public var MaxNumOptionalLODs: PerPlatformInt;
 	public var LODGroups: TArray<SkeletalMeshLODGroupSettings>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

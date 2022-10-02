@@ -3,6 +3,7 @@ package ue;
 
 @:native("UKismetStringTableLibrary")
 @:include("Kismet/KismetStringTableLibrary.h")
+@:structAccess
 extern class KismetStringTableLibrary extends BlueprintFunctionLibrary {
 	public function IsRegisteredTableId(TableId: FName): cpp.Reference<Bool>;
 	public function IsRegisteredTableEntry(TableId: FName, Key: FString): cpp.Reference<Bool>;
@@ -12,6 +13,8 @@ extern class KismetStringTableLibrary extends BlueprintFunctionLibrary {
 	public function GetRegisteredStringTables(): cpp.Reference<TArray<FName>>;
 	public function GetMetaDataIdsFromStringTableEntry(TableId: FName, Key: FString): cpp.Reference<TArray<FName>>;
 	public function GetKeysFromStringTable(TableId: FName): cpp.Reference<TArray<FString>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

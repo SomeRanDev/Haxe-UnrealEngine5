@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialMergeOptions")
 @:include("MaterialOptions.h")
+@:structAccess
 extern class MaterialMergeOptions extends Object {
 	public var Method: EMaterialBakeMethod;
 	public var BlendMode: EBlendMode;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

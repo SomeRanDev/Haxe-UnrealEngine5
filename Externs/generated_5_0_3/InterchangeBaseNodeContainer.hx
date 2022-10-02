@@ -3,6 +3,7 @@ package ue;
 
 @:native("UInterchangeBaseNodeContainer")
 @:include("Nodes/InterchangeBaseNodeContainer.h")
+@:structAccess
 extern class InterchangeBaseNodeContainer extends Object {
 	public var Nodes: TMap<FString, cpp.Star<InterchangeBaseNode>>;
 
@@ -17,6 +18,8 @@ extern class InterchangeBaseNodeContainer extends Object {
 	public function GetNodeChildren(NodeUniqueID: FString, ChildIndex: cpp.Int32): cpp.Reference<cpp.Star<InterchangeBaseNode>>;
 	public function GetNode(NodeUniqueID: FString): cpp.Reference<cpp.Star<InterchangeBaseNode>>;
 	public function AddNode(Node: cpp.Star<InterchangeBaseNode>): cpp.Reference<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsNodeUidValid, GetRoots, GetNodes, GetNodeChildrenUids, GetNodeChildrenCount)

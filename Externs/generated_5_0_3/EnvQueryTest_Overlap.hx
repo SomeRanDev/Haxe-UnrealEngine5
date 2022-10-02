@@ -3,8 +3,11 @@ package ue;
 
 @:native("UEnvQueryTest_Overlap")
 @:include("EnvironmentQuery/Tests/EnvQueryTest_Overlap.h")
+@:structAccess
 extern class EnvQueryTest_Overlap extends EnvQueryTest {
 	public var OverlapData: EnvOverlapData;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

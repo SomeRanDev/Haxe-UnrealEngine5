@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMeshNaniteSettings")
 @:include("Engine/EngineTypes.h")
+@:structAccess
 extern class MeshNaniteSettings {
 	public var bEnabled: Bool;
 	public var PositionPrecision: cpp.Int32;
@@ -11,4 +12,6 @@ extern class MeshNaniteSettings {
 	public var TrimRelativeError: cpp.Float32;
 	public var FallbackPercentTriangles: cpp.Float32;
 	public var FallbackRelativeError: cpp.Float32;
+
+	@:native("FMeshNaniteSettings") public function new();
 }

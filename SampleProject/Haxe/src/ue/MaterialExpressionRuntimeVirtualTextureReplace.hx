@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionRuntimeVirtualTextureReplace")
 @:include("Materials/MaterialExpressionRuntimeVirtualTextureReplace.h")
+@:structAccess
 extern class MaterialExpressionRuntimeVirtualTextureReplace extends MaterialExpression {
 	public var Default: ExpressionInput;
 	public var VirtualTextureOutput: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

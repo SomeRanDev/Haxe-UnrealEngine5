@@ -3,8 +3,11 @@ package ue;
 
 @:native("UFbxSceneImportData")
 @:include("Factories/FbxSceneImportData.h")
+@:structAccess
 extern class FbxSceneImportData extends Object {
 	public var SourceFbxFile: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

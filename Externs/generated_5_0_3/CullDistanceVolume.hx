@@ -3,9 +3,12 @@ package ue;
 
 @:native("ACullDistanceVolume")
 @:include("Engine/CullDistanceVolume.h")
+@:structAccess
 extern class CullDistanceVolume extends Volume {
 	public var CullDistances: TArray<CullDistanceSizePair>;
 	public var bEnabled: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

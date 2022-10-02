@@ -3,8 +3,11 @@ package ue;
 
 @:native("UReimportTextureFactory")
 @:include("Factories/ReimportTextureFactory.h")
+@:structAccess
 extern class ReimportTextureFactory extends TextureFactory {
 	public var pOriginalTex: cpp.Star<Texture>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

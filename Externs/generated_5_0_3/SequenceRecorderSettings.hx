@@ -3,6 +3,7 @@ package ue;
 
 @:native("USequenceRecorderSettings")
 @:include("SequenceRecorderSettings.h")
+@:structAccess
 extern class SequenceRecorderSettings extends Object {
 	public var bCreateLevelSequence: Bool;
 	public var bImmersiveMode: Bool;
@@ -30,6 +31,8 @@ extern class SequenceRecorderSettings extends Object {
 	public var ClassesAndPropertiesToRecord: TArray<PropertiesToRecordForClass>;
 	public var ActorsAndPropertiesToRecord: TArray<PropertiesToRecordForActorClass>;
 	public var PerActorSettings: TArray<SettingsForActorClass>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

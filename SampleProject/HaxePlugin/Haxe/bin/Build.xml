@@ -1,0 +1,820 @@
+<xml>
+<set name="HXCPP_API_LEVEL" value="400" />
+<files id="haxe">
+<compilerflag value="-Iinclude"/>
+  <file name="src/sys/thread/Tls.cpp" >
+   <depend name="include/sys/thread/Tls.h"/>
+  </file>
+  <file name="src/sys/thread/_Thread/HaxeThread.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/sys/thread/Deque.h"/>
+   <depend name="include/sys/thread/EventLoop.h"/>
+   <depend name="include/sys/thread/Mutex.h"/>
+   <depend name="include/sys/thread/_Thread/HaxeThread.h"/>
+  </file>
+  <file name="src/sys/thread/_Thread/Thread_Impl_.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/sys/thread/Deque.h"/>
+   <depend name="include/sys/thread/EventLoop.h"/>
+   <depend name="include/sys/thread/NoEventLoopException.h"/>
+   <depend name="include/sys/thread/_Thread/HaxeThread.h"/>
+   <depend name="include/sys/thread/_Thread/Thread_Impl_.h"/>
+  </file>
+  <file name="src/sys/thread/NoEventLoopException.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/sys/thread/NoEventLoopException.h"/>
+  </file>
+  <file name="src/sys/thread/Mutex.cpp" >
+   <depend name="include/sys/thread/Mutex.h"/>
+  </file>
+  <file name="src/sys/thread/Lock.cpp" >
+   <depend name="include/sys/thread/Lock.h"/>
+  </file>
+  <file name="src/sys/thread/_EventLoop/RegularEvent.cpp" >
+   <depend name="include/sys/thread/_EventLoop/RegularEvent.h"/>
+  </file>
+  <file name="src/sys/thread/EventLoop.cpp" >
+   <depend name="include/Sys.h"/>
+   <depend name="include/sys/thread/EventLoop.h"/>
+   <depend name="include/sys/thread/Lock.h"/>
+   <depend name="include/sys/thread/Mutex.h"/>
+   <depend name="include/sys/thread/_EventLoop/RegularEvent.h"/>
+  </file>
+  <file name="src/sys/thread/Deque.cpp" >
+   <depend name="include/sys/thread/Deque.h"/>
+  </file>
+  <file name="src/sys/ssl/Socket.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/Type.h"/>
+   <depend name="include/cpp/Lib.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Input.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+   <depend name="include/sys/net/Host.h"/>
+   <depend name="include/sys/net/Socket.h"/>
+   <depend name="include/sys/ssl/Certificate.h"/>
+   <depend name="include/sys/ssl/Key.h"/>
+   <depend name="include/sys/ssl/Socket.h"/>
+   <depend name="include/sys/ssl/_Socket/SocketInput.h"/>
+   <depend name="include/sys/ssl/_Socket/SocketOutput.h"/>
+  </file>
+  <file name="src/sys/ssl/_Socket/SocketOutput.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+   <depend name="include/sys/net/Socket.h"/>
+   <depend name="include/sys/ssl/Socket.h"/>
+   <depend name="include/sys/ssl/_Socket/SocketOutput.h"/>
+  </file>
+  <file name="src/sys/ssl/_Socket/SocketInput.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Eof.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Input.h"/>
+   <depend name="include/sys/net/Socket.h"/>
+   <depend name="include/sys/ssl/Socket.h"/>
+   <depend name="include/sys/ssl/_Socket/SocketInput.h"/>
+  </file>
+  <file name="src/sys/ssl/Key.cpp" >
+   <depend name="include/cpp/Lib.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/sys/io/File.h"/>
+   <depend name="include/sys/ssl/Key.h"/>
+  </file>
+  <file name="src/sys/ssl/Digest.cpp" >
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/sys/ssl/Digest.h"/>
+   <depend name="include/sys/ssl/Key.h"/>
+  </file>
+  <file name="src/sys/ssl/Certificate.cpp" >
+   <depend name="include/Date.h"/>
+   <depend name="include/Sys.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/sys/FileSystem.h"/>
+   <depend name="include/sys/ssl/Certificate.h"/>
+  </file>
+  <file name="src/sys/net/UdpSocket.cpp" >
+   <depend name="include/Reflect.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/Type.h"/>
+   <depend name="include/cpp/Lib.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+   <depend name="include/haxe/io/Eof.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Input.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+   <depend name="include/sys/net/Address.h"/>
+   <depend name="include/sys/net/Host.h"/>
+   <depend name="include/sys/net/Socket.h"/>
+   <depend name="include/sys/net/UdpSocket.h"/>
+   <depend name="include/sys/net/_Socket/SocketInput.h"/>
+   <depend name="include/sys/net/_Socket/SocketOutput.h"/>
+  </file>
+  <file name="src/sys/net/Socket.cpp" >
+   <depend name="include/Reflect.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/Type.h"/>
+   <depend name="include/cpp/Lib.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+   <depend name="include/haxe/io/Input.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+   <depend name="include/sys/net/Host.h"/>
+   <depend name="include/sys/net/Socket.h"/>
+   <depend name="include/sys/net/_Socket/SocketInput.h"/>
+   <depend name="include/sys/net/_Socket/SocketOutput.h"/>
+  </file>
+  <file name="src/sys/net/_Socket/SocketOutput.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Eof.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+   <depend name="include/sys/net/_Socket/SocketOutput.h"/>
+  </file>
+  <file name="src/sys/net/_Socket/SocketInput.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Eof.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Input.h"/>
+   <depend name="include/sys/net/_Socket/SocketInput.h"/>
+  </file>
+  <file name="src/sys/net/Host.cpp" >
+   <depend name="include/sys/net/Host.h"/>
+  </file>
+  <file name="src/sys/net/Address.cpp" >
+   <depend name="include/sys/net/Address.h"/>
+  </file>
+  <file name="src/sys/io/Process.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Input.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+   <depend name="include/sys/io/Process.h"/>
+   <depend name="include/sys/io/_Process/Stdin.h"/>
+   <depend name="include/sys/io/_Process/Stdout.h"/>
+  </file>
+  <file name="src/sys/io/_Process/Stdout.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Eof.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Input.h"/>
+   <depend name="include/sys/io/_Process/Stdout.h"/>
+  </file>
+  <file name="src/sys/io/_Process/Stdin.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Eof.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+   <depend name="include/sys/io/_Process/Stdin.h"/>
+  </file>
+  <file name="src/sys/io/File.cpp" >
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/sys/io/File.h"/>
+  </file>
+  <file name="src/sys/db/Sqlite.cpp" >
+   <depend name="include/sys/db/Connection.h"/>
+   <depend name="include/sys/db/Sqlite.h"/>
+   <depend name="include/sys/db/_Sqlite/SqliteConnection.h"/>
+  </file>
+  <file name="src/sys/db/_Sqlite/SqliteResultSet.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/ds/List.h"/>
+   <depend name="include/haxe/exceptions/NotImplementedException.h"/>
+   <depend name="include/haxe/exceptions/PosException.h"/>
+   <depend name="include/sys/db/ResultSet.h"/>
+   <depend name="include/sys/db/_Sqlite/SqliteResultSet.h"/>
+  </file>
+  <file name="src/sys/db/_Sqlite/SqliteConnection.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/StringTools.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/sys/db/Connection.h"/>
+   <depend name="include/sys/db/ResultSet.h"/>
+   <depend name="include/sys/db/_Sqlite/SqliteConnection.h"/>
+   <depend name="include/sys/db/_Sqlite/SqliteResultSet.h"/>
+  </file>
+  <file name="src/sys/db/Mysql.cpp" >
+   <depend name="include/cpp/Lib.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/sys/db/Connection.h"/>
+   <depend name="include/sys/db/Mysql.h"/>
+   <depend name="include/sys/db/_Mysql/D.h"/>
+   <depend name="include/sys/db/_Mysql/MysqlConnection.h"/>
+  </file>
+  <file name="src/sys/db/_Mysql/MysqlConnection.cpp" >
+   <depend name="include/Date.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/sys/db/Connection.h"/>
+   <depend name="include/sys/db/ResultSet.h"/>
+   <depend name="include/sys/db/_Mysql/D.h"/>
+   <depend name="include/sys/db/_Mysql/MysqlConnection.h"/>
+   <depend name="include/sys/db/_Mysql/MysqlResultSet.h"/>
+  </file>
+  <file name="src/sys/db/_Mysql/MysqlResultSet.cpp" >
+   <depend name="include/haxe/ds/List.h"/>
+   <depend name="include/sys/db/ResultSet.h"/>
+   <depend name="include/sys/db/_Mysql/D.h"/>
+   <depend name="include/sys/db/_Mysql/MysqlResultSet.h"/>
+  </file>
+  <file name="src/sys/db/ResultSet.cpp" >
+   <depend name="include/sys/db/ResultSet.h"/>
+  </file>
+  <file name="src/sys/db/_Mysql/D.cpp" >
+   <depend name="include/Date.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/sys/db/_Mysql/D.h"/>
+  </file>
+  <file name="src/sys/db/Connection.cpp" >
+   <depend name="include/sys/db/Connection.h"/>
+  </file>
+  <file name="src/sys/FileSystem.cpp" >
+   <depend name="include/Date.h"/>
+   <depend name="include/Sys.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Path.h"/>
+   <depend name="include/sys/FileSystem.h"/>
+  </file>
+  <file name="src/haxe/zip/Uncompress.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/BytesBuffer.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/zip/FlushMode.h"/>
+   <depend name="include/haxe/zip/Uncompress.h"/>
+  </file>
+  <file name="src/haxe/zip/FlushMode.cpp" >
+   <depend name="include/haxe/zip/FlushMode.h"/>
+  </file>
+  <file name="src/haxe/zip/Compress.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/zip/Compress.h"/>
+   <depend name="include/haxe/zip/FlushMode.h"/>
+  </file>
+  <file name="src/haxe/xml/Printer.cpp" >
+   <depend name="include/EReg.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/StringTools.h"/>
+   <depend name="include/Xml.h"/>
+   <depend name="include/_Xml/XmlType_Impl_.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/xml/Printer.h"/>
+  </file>
+  <file name="src/haxe/xml/Parser.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/Xml.h"/>
+   <depend name="include/_Xml/XmlType_Impl_.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/haxe/xml/Parser.h"/>
+   <depend name="include/haxe/xml/XmlParserException.h"/>
+  </file>
+  <file name="src/haxe/xml/XmlParserException.cpp" >
+   <depend name="include/Type.h"/>
+   <depend name="include/haxe/xml/XmlParserException.h"/>
+  </file>
+  <file name="src/haxe/iterators/MapKeyValueIterator.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/iterators/MapKeyValueIterator.h"/>
+  </file>
+  <file name="src/haxe/iterators/HashMapKeyValueIterator.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/IntMap.h"/>
+   <depend name="include/haxe/ds/_HashMap/HashMapData.h"/>
+   <depend name="include/haxe/iterators/HashMapKeyValueIterator.h"/>
+  </file>
+  <file name="src/haxe/io/StringInput.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/BytesInput.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+   <depend name="include/haxe/io/Eof.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Input.h"/>
+   <depend name="include/haxe/io/StringInput.h"/>
+  </file>
+  <file name="src/haxe/io/Path.cpp" >
+   <depend name="include/EReg.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/StringTools.h"/>
+   <depend name="include/haxe/io/Path.h"/>
+  </file>
+  <file name="src/haxe/io/FPHelper.cpp" >
+   <depend name="include/haxe/io/FPHelper.h"/>
+  </file>
+  <file name="src/haxe/io/Error.cpp" >
+   <depend name="include/haxe/io/Error.h"/>
+  </file>
+  <file name="src/haxe/io/Eof.cpp" >
+   <depend name="include/haxe/io/Eof.h"/>
+  </file>
+  <file name="src/haxe/io/Encoding.cpp" >
+   <depend name="include/haxe/io/Encoding.h"/>
+  </file>
+  <file name="src/haxe/io/BytesOutput.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/BytesBuffer.h"/>
+   <depend name="include/haxe/io/BytesOutput.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+  </file>
+  <file name="src/haxe/io/Output.cpp" >
+   <depend name="include/haxe/io/Output.h"/>
+  </file>
+  <file name="src/haxe/io/BytesInput.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/BytesInput.h"/>
+   <depend name="include/haxe/io/Eof.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Input.h"/>
+  </file>
+  <file name="src/haxe/io/BytesBuffer.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/BytesBuffer.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/FPHelper.h"/>
+  </file>
+  <file name="src/haxe/io/BufferInput.cpp" >
+   <depend name="include/haxe/io/BufferInput.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Input.h"/>
+  </file>
+  <file name="src/haxe/io/Input.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/exceptions/NotImplementedException.h"/>
+   <depend name="include/haxe/exceptions/PosException.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Eof.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Input.h"/>
+  </file>
+  <file name="src/haxe/format/JsonPrinter.cpp" >
+   <depend name="include/Date.h"/>
+   <depend name="include/Reflect.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/StringTools.h"/>
+   <depend name="include/Type.h"/>
+   <depend name="include/ValueType.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/haxe/format/JsonPrinter.h"/>
+  </file>
+  <file name="src/haxe/format/JsonParser.cpp" >
+   <depend name="include/Reflect.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/format/JsonParser.h"/>
+  </file>
+  <file name="src/haxe/exceptions/NotImplementedException.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/exceptions/NotImplementedException.h"/>
+   <depend name="include/haxe/exceptions/PosException.h"/>
+  </file>
+  <file name="src/haxe/exceptions/PosException.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/exceptions/PosException.h"/>
+  </file>
+  <file name="src/haxe/ds/WeakMap.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/WeakMap.h"/>
+   <depend name="include/haxe/iterators/ArrayIterator.h"/>
+   <depend name="include/haxe/iterators/MapKeyValueIterator.h"/>
+  </file>
+  <file name="src/haxe/ds/StringMap.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/haxe/iterators/ArrayIterator.h"/>
+   <depend name="include/haxe/iterators/MapKeyValueIterator.h"/>
+  </file>
+  <file name="src/haxe/ds/ObjectMap.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/ObjectMap.h"/>
+   <depend name="include/haxe/iterators/ArrayIterator.h"/>
+   <depend name="include/haxe/iterators/MapKeyValueIterator.h"/>
+  </file>
+  <file name="src/haxe/ds/_List/ListNode.cpp" >
+   <depend name="include/haxe/ds/_List/ListNode.h"/>
+  </file>
+  <file name="src/haxe/ds/List.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/haxe/ds/List.h"/>
+   <depend name="include/haxe/ds/_List/ListNode.h"/>
+  </file>
+  <file name="src/haxe/ds/IntMap.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/IntMap.h"/>
+   <depend name="include/haxe/iterators/ArrayIterator.h"/>
+   <depend name="include/haxe/iterators/MapKeyValueIterator.h"/>
+  </file>
+  <file name="src/haxe/ds/_HashMap/HashMapData.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/IntMap.h"/>
+   <depend name="include/haxe/ds/_HashMap/HashMapData.h"/>
+  </file>
+  <file name="src/haxe/ds/_HashMap/HashMap_Impl_.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/IntMap.h"/>
+   <depend name="include/haxe/ds/_HashMap/HashMapData.h"/>
+   <depend name="include/haxe/ds/_HashMap/HashMap_Impl_.h"/>
+   <depend name="include/haxe/iterators/HashMapKeyValueIterator.h"/>
+  </file>
+  <file name="src/haxe/ds/GenericStack.cpp" >
+   <depend name="include/haxe/ds/GenericCell.h"/>
+   <depend name="include/haxe/ds/GenericStack.h"/>
+   <depend name="include/haxe/ds/_GenericStack/GenericStackIterator.h"/>
+  </file>
+  <file name="src/haxe/ds/_GenericStack/GenericStackIterator.cpp" >
+   <depend name="include/haxe/ds/GenericCell.h"/>
+   <depend name="include/haxe/ds/_GenericStack/GenericStackIterator.h"/>
+  </file>
+  <file name="src/haxe/ds/GenericCell.cpp" >
+   <depend name="include/haxe/ds/GenericCell.h"/>
+  </file>
+  <file name="src/haxe/ds/EnumValueMap.cpp" >
+   <depend name="include/Reflect.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/Type.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/BalancedTree.h"/>
+   <depend name="include/haxe/ds/EnumValueMap.h"/>
+   <depend name="include/haxe/ds/TreeNode.h"/>
+   <depend name="include/haxe/iterators/ArrayIterator.h"/>
+   <depend name="include/haxe/iterators/MapKeyValueIterator.h"/>
+  </file>
+  <file name="src/haxe/ds/TreeNode.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/ds/TreeNode.h"/>
+  </file>
+  <file name="src/haxe/ds/BalancedTree.cpp" >
+   <depend name="include/Reflect.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/BalancedTree.h"/>
+   <depend name="include/haxe/ds/TreeNode.h"/>
+   <depend name="include/haxe/iterators/ArrayIterator.h"/>
+   <depend name="include/haxe/iterators/MapKeyValueIterator.h"/>
+  </file>
+  <file name="src/haxe/ds/ArraySort.cpp" >
+   <depend name="include/haxe/ds/ArraySort.h"/>
+  </file>
+  <file name="src/haxe/crypto/Sha256.cpp" >
+   <depend name="include/StringTools.h"/>
+   <depend name="include/haxe/crypto/Sha256.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+  </file>
+  <file name="src/haxe/crypto/Sha1.cpp" >
+   <depend name="include/StringTools.h"/>
+   <depend name="include/haxe/crypto/Sha1.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+  </file>
+  <file name="src/haxe/crypto/Md5.cpp" >
+   <depend name="include/haxe/crypto/Md5.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+  </file>
+  <file name="src/haxe/crypto/Hmac.cpp" >
+   <depend name="include/haxe/crypto/HashMethod.h"/>
+   <depend name="include/haxe/crypto/Hmac.h"/>
+   <depend name="include/haxe/crypto/Md5.h"/>
+   <depend name="include/haxe/crypto/Sha1.h"/>
+   <depend name="include/haxe/crypto/Sha256.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/BytesBuffer.h"/>
+  </file>
+  <file name="src/haxe/crypto/HashMethod.cpp" >
+   <depend name="include/haxe/crypto/HashMethod.h"/>
+  </file>
+  <file name="src/haxe/crypto/Crc32.cpp" >
+   <depend name="include/haxe/crypto/Crc32.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+  </file>
+  <file name="src/haxe/crypto/BaseCode.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/crypto/BaseCode.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+  </file>
+  <file name="src/haxe/crypto/Base64.cpp" >
+   <depend name="include/haxe/crypto/Base64.h"/>
+   <depend name="include/haxe/crypto/BaseCode.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+  </file>
+  <file name="src/haxe/io/Bytes.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+  </file>
+  <file name="src/haxe/crypto/Adler32.cpp" >
+   <depend name="include/StringTools.h"/>
+   <depend name="include/haxe/crypto/Adler32.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Input.h"/>
+  </file>
+  <file name="src/haxe/ValueException.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/ValueException.h"/>
+  </file>
+  <file name="src/haxe/Utf8.cpp" >
+   <depend name="include/haxe/Utf8.h"/>
+  </file>
+  <file name="src/haxe/_Unserializer/NullResolver.cpp" >
+   <depend name="include/haxe/_Unserializer/NullResolver.h"/>
+  </file>
+  <file name="src/haxe/Unserializer.cpp" >
+   <depend name="include/Date.h"/>
+   <depend name="include/Reflect.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/StringTools.h"/>
+   <depend name="include/Type.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/Unserializer.h"/>
+   <depend name="include/haxe/_Unserializer/DefaultResolver.h"/>
+   <depend name="include/haxe/_Unserializer/NullResolver.h"/>
+   <depend name="include/haxe/ds/IntMap.h"/>
+   <depend name="include/haxe/ds/List.h"/>
+   <depend name="include/haxe/ds/ObjectMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+  </file>
+  <file name="src/haxe/_Unserializer/DefaultResolver.cpp" >
+   <depend name="include/Type.h"/>
+   <depend name="include/haxe/_Unserializer/DefaultResolver.h"/>
+  </file>
+  <file name="src/haxe/Template.cpp" >
+   <depend name="include/EReg.h"/>
+   <depend name="include/Reflect.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/Template.h"/>
+   <depend name="include/haxe/_Template/TemplateExpr.h"/>
+   <depend name="include/haxe/ds/List.h"/>
+   <depend name="include/haxe/ds/_List/ListNode.h"/>
+   <depend name="include/haxe/iterators/ArrayIterator.h"/>
+  </file>
+  <file name="src/haxe/iterators/ArrayIterator.cpp" >
+   <depend name="include/haxe/iterators/ArrayIterator.h"/>
+  </file>
+  <file name="src/haxe/_Template/TemplateExpr.cpp" >
+   <depend name="include/haxe/_Template/TemplateExpr.h"/>
+   <depend name="include/haxe/ds/List.h"/>
+  </file>
+  <file name="src/haxe/Serializer.cpp" >
+   <depend name="include/Date.h"/>
+   <depend name="include/Reflect.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/StringTools.h"/>
+   <depend name="include/Type.h"/>
+   <depend name="include/ValueType.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/Serializer.h"/>
+   <depend name="include/haxe/ds/IntMap.h"/>
+   <depend name="include/haxe/ds/List.h"/>
+   <depend name="include/haxe/ds/ObjectMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/haxe/ds/_List/ListNode.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+  </file>
+  <file name="src/haxe/Resource.cpp" >
+   <depend name="include/haxe/Resource.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+  </file>
+  <file name="src/haxe/NativeStackTrace.cpp" >
+   <depend name="include/haxe/NativeStackTrace.h"/>
+  </file>
+  <file name="src/haxe/Log.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/Log.h"/>
+  </file>
+  <file name="src/haxe/Json.cpp" >
+   <depend name="include/haxe/Json.h"/>
+   <depend name="include/haxe/format/JsonParser.h"/>
+   <depend name="include/haxe/format/JsonPrinter.h"/>
+  </file>
+  <file name="src/haxe/Exception.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/NativeStackTrace.h"/>
+   <depend name="include/haxe/ValueException.h"/>
+  </file>
+  <file name="src/haxe/IMap.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+  </file>
+  <file name="src/cpp/vm/WeakRef.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/cpp/vm/WeakRef.h"/>
+  </file>
+  <file name="src/cpp/vm/Unsafe.cpp" >
+   <depend name="include/cpp/vm/Unsafe.h"/>
+  </file>
+  <file name="src/cpp/vm/Profiler.cpp" >
+   <depend name="include/cpp/vm/Profiler.h"/>
+  </file>
+  <file name="src/cpp/vm/Gc.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/cpp/vm/Gc.h"/>
+  </file>
+  <file name="src/cpp/vm/ExecutionTrace.cpp" >
+   <depend name="include/cpp/vm/ExecutionTrace.h"/>
+  </file>
+  <file name="src/cpp/vm/Debugger.cpp" >
+   <depend name="include/cpp/vm/Debugger.h"/>
+   <depend name="include/cpp/vm/Parameter.h"/>
+   <depend name="include/cpp/vm/StackFrame.h"/>
+   <depend name="include/cpp/vm/ThreadInfo.h"/>
+  </file>
+  <file name="src/cpp/vm/ThreadInfo.cpp" >
+   <depend name="include/cpp/vm/StackFrame.h"/>
+   <depend name="include/cpp/vm/ThreadInfo.h"/>
+  </file>
+  <file name="src/cpp/vm/StackFrame.cpp" >
+   <depend name="include/cpp/vm/Parameter.h"/>
+   <depend name="include/cpp/vm/StackFrame.h"/>
+  </file>
+  <file name="src/cpp/vm/Parameter.cpp" >
+   <depend name="include/cpp/vm/Parameter.h"/>
+  </file>
+  <file name="src/cpp/Lib.cpp" >
+   <depend name="include/cpp/Lib.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+  </file>
+  <file name="src/cpp/_Int64/Int64_Impl_.cpp" >
+   <depend name="include/cpp/_Int64/Int64_Impl_.h"/>
+  </file>
+  <file name="src/cpp/Finalizable.cpp" >
+   <depend name="include/cpp/Finalizable.h"/>
+  </file>
+  <file name="src/Xml.cpp" >
+   <depend name="include/Xml.h"/>
+   <depend name="include/_Xml/XmlType_Impl_.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/haxe/iterators/ArrayIterator.h"/>
+   <depend name="include/haxe/xml/Parser.h"/>
+   <depend name="include/haxe/xml/Printer.h"/>
+  </file>
+  <file name="src/_Xml/XmlType_Impl_.cpp" >
+   <depend name="include/_Xml/XmlType_Impl_.h"/>
+  </file>
+  <file name="src/Type.cpp" >
+   <depend name="include/Reflect.h"/>
+   <depend name="include/Type.h"/>
+   <depend name="include/ValueType.h"/>
+  </file>
+  <file name="src/ValueType.cpp" >
+   <depend name="include/ValueType.h"/>
+  </file>
+  <file name="src/TestCppiaThing.cpp" >
+   <depend name="include/TestCppiaThing.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/sys/io/File.h"/>
+  </file>
+  <file name="src/Sys.cpp" >
+   <depend name="include/Sys.h"/>
+  </file>
+  <file name="src/StringTools.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/StringTools.h"/>
+  </file>
+  <file name="src/StringBuf.cpp" >
+   <depend name="include/StringBuf.h"/>
+  </file>
+  <file name="src/Std.cpp" >
+   <depend name="include/Std.h"/>
+  </file>
+  <file name="src/Reflect.cpp" >
+   <depend name="include/Reflect.h"/>
+   <depend name="include/haxe/Exception.h"/>
+  </file>
+  <file name="src/_Main/Main_Fields_.cpp" >
+   <depend name="include/_Main/Main_Fields_.h"/>
+   <depend name="include/haxe/Log.h"/>
+  </file>
+  <file name="src/Lambda.cpp" >
+   <depend name="include/Lambda.h"/>
+   <depend name="include/haxe/ds/List.h"/>
+  </file>
+  <file name="src/EReg.cpp" >
+   <depend name="include/EReg.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/haxe/Exception.h"/>
+  </file>
+  <file name="src/DateTools.cpp" >
+   <depend name="include/Date.h"/>
+   <depend name="include/DateTools.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/StringTools.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/exceptions/NotImplementedException.h"/>
+   <depend name="include/haxe/exceptions/PosException.h"/>
+  </file>
+  <file name="src/Date.cpp" >
+   <depend name="include/Date.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/Exception.h"/>
+  </file>
+  <file name="src/__boot__.cpp" >
+   <depend name="include/haxe/zip/FlushMode.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+   <depend name="include/haxe/crypto/HashMethod.h"/>
+   <depend name="include/haxe/_Template/TemplateExpr.h"/>
+   <depend name="include/ValueType.h"/>
+   <depend name="include/sys/thread/Tls.h"/>
+   <depend name="include/sys/thread/_Thread/HaxeThread.h"/>
+   <depend name="include/sys/ssl/Socket.h"/>
+   <depend name="include/sys/ssl/Key.h"/>
+   <depend name="include/sys/ssl/Certificate.h"/>
+   <depend name="include/sys/net/Host.h"/>
+   <depend name="include/sys/db/_Mysql/MysqlConnection.h"/>
+   <depend name="include/haxe/xml/Parser.h"/>
+   <depend name="include/haxe/crypto/Base64.h"/>
+   <depend name="include/haxe/Unserializer.h"/>
+   <depend name="include/haxe/Template.h"/>
+   <depend name="include/haxe/Serializer.h"/>
+   <depend name="include/haxe/Log.h"/>
+   <depend name="include/cpp/vm/Gc.h"/>
+   <depend name="include/cpp/vm/Debugger.h"/>
+   <depend name="include/cpp/vm/ThreadInfo.h"/>
+   <depend name="include/Xml.h"/>
+   <depend name="include/_Xml/XmlType_Impl_.h"/>
+   <depend name="include/EReg.h"/>
+   <depend name="include/DateTools.h"/>
+  </file>
+  <file name="src/__files__.cpp" if='HXCPP_DEBUGGER'>
+  </file>
+   <file name="${HXCPP}/src/hx/NoFiles.cpp" unless="HXCPP_DEBUGGER" />
+  <file name="src/__resources__.cpp" >
+  </file>
+</files>
+<files id="__lib__">
+<compilerflag value="-Iinclude"/>
+  <file name="src/__lib__.cpp" >
+  </file>
+</files>
+<files id="__main__">
+<compilerflag value="-Iinclude"/>
+  <file name="src/__main__.cpp" >
+  </file>
+</files>
+<files id="__resources__">
+</files>
+<files id="__externs__">
+<file name="Z:/Desktop/GithubProjects/Haxe-UnrealEngine5/SampleProject/HaxePlugin/Haxe/ExportHaxe.cpp" />
+</files>
+<set name="HAXE_OUTPUT" value="output" />
+<include name="${HXCPP}/build-tool/BuildCommon.xml"/>
+<include name="${HXCPP}/src/hx/libs/regexp/Build.xml"/>
+<include name="${HXCPP}/src/hx/libs/std/Build.xml"/>
+<include name="${HXCPP}/src/hx/libs/std/Build.xml"/>
+<include name="${HXCPP}/src/hx/libs/std/Build.xml"/>
+<include name="${HXCPP}/src/hx/libs/ssl/Build.xml"/>
+<include name="${HXCPP}/src/hx/libs/std/Build.xml"/>
+<include name="${HXCPP}/src/hx/libs/zlib/Build.xml" />
+<include name="${HXCPP}/src/hx/libs/zlib/Build.xml"/>
+<include name="${HXCPP}/src/hx/libs/std/Build.xml"/>
+<include name="${HXCPP}/src/hx/libs/mysql/Build.xml"/>
+<include name="${HXCPP}/src/hx/libs/sqlite/Build.xml"/>
+<error value="Hxcpp is out of date - please update" unlessApi="400" />
+</xml>

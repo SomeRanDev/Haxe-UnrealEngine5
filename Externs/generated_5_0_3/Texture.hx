@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTexture")
 @:include("Engine/Texture.h")
+@:structAccess
 extern class Texture extends StreamableRenderAsset {
 	public var Source: TextureSource;
 	public var LightingGuid: Guid;
@@ -55,6 +56,8 @@ extern class Texture extends StreamableRenderAsset {
 	public var bNotOfflineProcessed: Bool;
 	public var bAsyncResourceReleaseHasBeenStarted: Bool;
 	public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

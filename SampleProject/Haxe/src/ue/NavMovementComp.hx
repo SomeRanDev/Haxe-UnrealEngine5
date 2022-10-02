@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNavMovementComponent")
 @:include("GameFramework/NavMovementComponent.h")
+@:structAccess
 extern class NavMovementComp extends MovementComp {
 	public var NavAgentProps: NavAgentProperties;
 	public var FixedPathBrakingDistance: cpp.Float32;
@@ -19,6 +20,8 @@ extern class NavMovementComp extends MovementComp {
 	public function IsFlying(): cpp.Reference<Bool>;
 	public function IsFalling(): cpp.Reference<Bool>;
 	public function IsCrouching(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsSwimming, IsMovingOnGround, IsFlying, IsFalling, IsCrouching)

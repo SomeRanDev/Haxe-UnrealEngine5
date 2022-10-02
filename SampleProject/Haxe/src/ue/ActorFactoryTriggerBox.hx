@@ -3,7 +3,10 @@ package ue;
 
 @:native("UActorFactoryTriggerBox")
 @:include("ActorFactories/ActorFactoryTriggerBox.h")
+@:structAccess
 extern class ActorFactoryTriggerBox extends ActorFactory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

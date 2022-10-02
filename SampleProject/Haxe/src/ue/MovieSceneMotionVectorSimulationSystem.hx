@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMovieSceneMotionVectorSimulationSystem")
 @:include("Systems/MovieSceneMotionVectorSimulationSystem.h")
+@:structAccess
 extern class MovieSceneMotionVectorSimulationSystem extends MovieSceneEntitySystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

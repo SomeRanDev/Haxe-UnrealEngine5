@@ -3,9 +3,12 @@ package ue;
 
 @:native("ALevelBounds")
 @:include("Engine/LevelBounds.h")
+@:structAccess
 extern class LevelBounds extends Actor {
 	public var BoxComponent: cpp.Star<BoxComp>;
 	public var bAutoUpdateBounds: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UForceFeedbackEffect")
 @:include("GameFramework/ForceFeedbackEffect.h")
+@:structAccess
 extern class ForceFeedbackEffect extends Object {
 	public var ChannelDetails: TArray<ForceFeedbackChannelDetails>;
 	public var Duration: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("USceneSnappingManager")
 @:include("SceneQueries/SceneSnappingManager.h")
+@:structAccess
 extern class SceneSnappingManager extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

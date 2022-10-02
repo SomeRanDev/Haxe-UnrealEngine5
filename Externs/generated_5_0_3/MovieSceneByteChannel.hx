@@ -3,10 +3,14 @@ package ue;
 
 @:native("FMovieSceneByteChannel")
 @:include("Channels/MovieSceneByteChannel.h")
+@:structAccess
 extern class MovieSceneByteChannel extends MovieSceneChannel {
 	public var Times: TArray<FrameNumber>;
 	public var DefaultValue: cpp.UInt8;
 	public var bHasDefaultValue: Bool;
 	public var Values: TArray<cpp.UInt8>;
 	public var Enum: cpp.Star<Enum>;
+
+	@:native("FMovieSceneByteChannel") public function new();
+	@:native("FMovieSceneByteChannel") public static function make(Times: TArray<FrameNumber>, DefaultValue: cpp.UInt8, bHasDefaultValue: Bool, Values: TArray<cpp.UInt8>, Enum: cpp.Star<Enum>): MovieSceneByteChannel ;
 }

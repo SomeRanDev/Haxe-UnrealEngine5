@@ -3,10 +3,13 @@ package ue;
 
 @:native("UNavigationQueryFilter")
 @:include("NavFilters/NavigationQueryFilter.h")
+@:structAccess
 extern class NavigationQueryFilter extends Object {
 	public var Areas: TArray<NavigationFilterArea>;
 	public var IncludeFlags: NavigationFilterFlags;
 	public var ExcludeFlags: NavigationFilterFlags;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

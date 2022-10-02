@@ -3,9 +3,12 @@ package ue;
 
 @:native("UBlueprintEventNodeSpawner")
 @:include("BlueprintEventNodeSpawner.h")
+@:structAccess
 extern class BlueprintEventNodeSpawner extends BlueprintNodeSpawner {
 	public var EventFunc: cpp.Star<Function>;
 	public var CustomEventName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

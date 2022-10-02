@@ -3,11 +3,14 @@ package ue;
 
 @:native("UParticleModuleLocationPrimitiveTriangle")
 @:include("Particles/Location/ParticleModuleLocationPrimitiveTriangle.h")
+@:structAccess
 extern class ParticleModuleLocationPrimitiveTriangle extends ParticleModuleLocationBase {
 	public var StartOffset: RawDistributionVector;
 	public var Height: RawDistributionFloat;
 	public var Angle: RawDistributionFloat;
 	public var Thickness: RawDistributionFloat;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

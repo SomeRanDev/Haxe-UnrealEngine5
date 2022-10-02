@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneCameraShakeSourceTriggerSection")
 @:include("Sections/MovieSceneCameraShakeSourceTriggerSection.h")
+@:structAccess
 extern class MovieSceneCameraShakeSourceTriggerSection extends MovieSceneSection {
 	public var Channel: MovieSceneCameraShakeSourceTriggerChannel;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

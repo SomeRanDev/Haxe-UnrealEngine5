@@ -3,9 +3,13 @@ package ue;
 
 @:native("FLevelViewportInfo")
 @:include("Engine/World.h")
+@:structAccess
 extern class LevelViewportInfo {
 	public var CamPosition: Vector;
 	public var CamRotation: Rotator;
 	public var CamOrthoZoom: cpp.Float32;
 	public var CamUpdated: Bool;
+
+	@:native("FLevelViewportInfo") public function new();
+	@:native("FLevelViewportInfo") public static function make(CamPosition: Vector, CamRotation: Rotator, CamOrthoZoom: cpp.Float32, CamUpdated: Bool): LevelViewportInfo ;
 }

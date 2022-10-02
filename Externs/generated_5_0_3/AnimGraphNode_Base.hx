@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimGraphNode_Base")
 @:include("AnimGraphNode_Base.h")
+@:structAccess
 extern class AnimGraphNode_Base extends K2Node {
 	public var ShowPinForProperties: TArray<OptionalPinFromProperty>;
 	public var PropertyBindings: TMap<FName, AnimGraphNodePropertyBinding>;
@@ -12,6 +13,8 @@ extern class AnimGraphNode_Base extends K2Node {
 	public var BecomeRelevantFunction: MemberReference;
 	public var UpdateFunction: MemberReference;
 	public var Tag: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

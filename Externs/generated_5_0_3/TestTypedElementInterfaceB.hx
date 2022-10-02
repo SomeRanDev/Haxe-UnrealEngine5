@@ -2,8 +2,11 @@
 package ue;
 
 @:native("UTestTypedElementInterfaceB")
+@:structAccess
 extern class TestTypedElementInterfaceB extends Interface {
 	public function MarkAsTested(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

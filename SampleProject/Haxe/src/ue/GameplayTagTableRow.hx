@@ -3,7 +3,11 @@ package ue;
 
 @:native("FGameplayTagTableRow")
 @:include("GameplayTagsManager.h")
+@:structAccess
 extern class GameplayTagTableRow extends TableRowBase {
 	public var Tag: FName;
 	public var DevComment: FString;
+
+	@:native("FGameplayTagTableRow") public function new();
+	@:native("FGameplayTagTableRow") public static function make(Tag: FName, DevComment: FString): GameplayTagTableRow ;
 }

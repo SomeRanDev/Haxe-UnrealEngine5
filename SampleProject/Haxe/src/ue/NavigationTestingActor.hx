@@ -3,6 +3,7 @@ package ue;
 
 @:native("ANavigationTestingActor")
 @:include("NavigationTestingActor.h")
+@:structAccess
 extern class NavigationTestingActor extends Actor {
 	public var CapsuleComponent: cpp.Star<CapsuleComp>;
 	public var EdRenderComp: cpp.Star<NavTestRenderingComp>;
@@ -36,6 +37,8 @@ extern class NavigationTestingActor extends Actor {
 	public var FilterClass: TSubclassOf<NavigationQueryFilter>;
 	public var ShowStepIndex: cpp.Int32;
 	public var OffsetFromCornersDistance: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

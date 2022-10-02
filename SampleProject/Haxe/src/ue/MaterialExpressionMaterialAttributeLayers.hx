@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionMaterialAttributeLayers")
 @:include("Materials/MaterialExpressionMaterialAttributeLayers.h")
+@:structAccess
 extern class MaterialExpressionMaterialAttributeLayers extends MaterialExpression {
 	public var Input: MaterialAttributesInput;
 	public var DefaultLayers: MaterialLayersFunctions;
@@ -11,6 +12,8 @@ extern class MaterialExpressionMaterialAttributeLayers extends MaterialExpressio
 	public var BlendCallers: TArray<cpp.Star<MaterialExpressionMaterialFunctionCall>>;
 	public var NumActiveBlendCallers: cpp.Int32;
 	public var bIsLayerGraphBuilt: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

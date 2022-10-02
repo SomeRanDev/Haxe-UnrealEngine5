@@ -3,9 +3,12 @@ package ue;
 
 @:native("UDeviceProfileManager")
 @:include("DeviceProfiles/DeviceProfileManager.h")
+@:structAccess
 extern class DeviceProfileManager extends Object {
 	public var Profiles: TArray<cpp.Star<DeviceProfile>>;
 	public var BackupProfiles: TArray<cpp.Star<DeviceProfile>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

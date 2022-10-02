@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UScriptStruct")
+@:structAccess
 extern class ScriptStruct extends Struct {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

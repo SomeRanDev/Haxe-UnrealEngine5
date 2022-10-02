@@ -3,6 +3,7 @@ package ue;
 
 @:native("UVOIPTalker")
 @:include("Net/VoiceConfig.h")
+@:structAccess
 extern class VOIPTalker extends ActorComp {
 	public var Settings: VoiceSettings;
 
@@ -11,6 +12,8 @@ extern class VOIPTalker extends ActorComp {
 	public function CreateTalkerForPlayer(OwningState: cpp.Star<PlayerState>): cpp.Reference<cpp.Star<VOIPTalker>>;
 	public function BPOnTalkingEnd(): Void;
 	public function BPOnTalkingBegin(AudioComponent: cpp.Star<AudioComp>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

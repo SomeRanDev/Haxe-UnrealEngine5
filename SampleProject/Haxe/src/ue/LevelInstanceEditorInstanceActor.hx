@@ -3,7 +3,10 @@ package ue;
 
 @:native("ALevelInstanceEditorInstanceActor")
 @:include("LevelInstance/LevelInstanceEditorInstanceActor.h")
+@:structAccess
 extern class LevelInstanceEditorInstanceActor extends Actor {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

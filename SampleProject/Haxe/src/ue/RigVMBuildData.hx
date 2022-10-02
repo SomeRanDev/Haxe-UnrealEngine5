@@ -3,8 +3,11 @@ package ue;
 
 @:native("URigVMBuildData")
 @:include("RigVMModel/RigVMBuildData.h")
+@:structAccess
 extern class RigVMBuildData extends Object {
 	public var FunctionReferences: TMap<TSoftObjectPtr<RigVMLibraryNode>, RigVMFunctionReferenceArray>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

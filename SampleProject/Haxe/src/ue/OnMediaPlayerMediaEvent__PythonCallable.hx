@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnMediaPlayerMediaEvent__PythonCallable")
+@:structAccess
 extern class OnMediaPlayerMediaEvent__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UEditorUtilityBlueprintFactory")
 @:include("EditorUtilityBlueprintFactory.h")
+@:structAccess
 extern class EditorUtilityBlueprintFactory extends Factory {
 	public var ParentClass: TSubclassOf<Object>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,12 +3,15 @@ package ue;
 
 @:native("UTextureRenderTargetCube")
 @:include("Engine/TextureRenderTargetCube.h")
+@:structAccess
 extern class TextureRenderTargetCube extends TextureRenderTarget {
 	public var SizeX: cpp.Int32;
 	public var ClearColor: LinearColor;
 	public var OverrideFormat: EPixelFormat;
 	public var bHDR: Bool;
 	public var bForceLinearGamma: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

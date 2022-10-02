@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSliderStyle")
 @:include("Styling/SlateTypes.h")
+@:structAccess
 extern class SliderStyle extends SlateWidgetStyle {
 	public var NormalBarImage: SlateBrush;
 	public var HoveredBarImage: SlateBrush;
@@ -11,4 +12,6 @@ extern class SliderStyle extends SlateWidgetStyle {
 	public var HoveredThumbImage: SlateBrush;
 	public var DisabledThumbImage: SlateBrush;
 	public var BarThickness: cpp.Float32;
+
+	@:native("FSliderStyle") public function new();
 }

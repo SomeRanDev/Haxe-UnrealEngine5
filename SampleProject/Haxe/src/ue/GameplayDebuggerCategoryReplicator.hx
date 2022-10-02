@@ -3,6 +3,7 @@ package ue;
 
 @:native("AGameplayDebuggerCategoryReplicator")
 @:include("GameplayDebuggerCategoryReplicator.h")
+@:structAccess
 extern class GameplayDebuggerCategoryReplicator extends Actor {
 	public var OwnerPC: cpp.Star<PlayerController>;
 	public var bIsEnabled: Bool;
@@ -17,6 +18,8 @@ extern class GameplayDebuggerCategoryReplicator extends Actor {
 	public function ServerSetCategoryEnabled(CategoryId: cpp.Int32, bEnable: Bool): Void;
 	public function ServerSendExtensionInputEvent(ExtensionId: cpp.Int32, HandlerId: cpp.Int32): Void;
 	public function ServerSendCategoryInputEvent(CategoryId: cpp.Int32, HandlerId: cpp.Int32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

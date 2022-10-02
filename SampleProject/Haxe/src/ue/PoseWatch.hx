@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPoseWatch")
 @:include("Engine/PoseWatch.h")
+@:structAccess
 extern class PoseWatch extends Object {
 	public var Node: TWeakObjectPtr<EdGraphNode>;
 	public var bDeleteOnDeselection: Bool;
@@ -11,6 +12,8 @@ extern class PoseWatch extends Object {
 	public var Color: Color;
 	public var Label: FText;
 	public var Parent: TWeakObjectPtr<PoseWatchFolder>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

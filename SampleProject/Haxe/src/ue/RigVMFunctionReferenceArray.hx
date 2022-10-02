@@ -3,6 +3,10 @@ package ue;
 
 @:native("FRigVMFunctionReferenceArray")
 @:include("RigVMModel/RigVMBuildData.h")
+@:structAccess
 extern class RigVMFunctionReferenceArray {
 	public var FunctionReferences: TArray<TSoftObjectPtr<RigVMFunctionReferenceNode>>;
+
+	@:native("FRigVMFunctionReferenceArray") public function new();
+	@:native("FRigVMFunctionReferenceArray") public static function make(FunctionReferences: TArray<TSoftObjectPtr<RigVMFunctionReferenceNode>>): RigVMFunctionReferenceArray ;
 }

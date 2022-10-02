@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMeshMergingSettings")
 @:include("Engine/MeshMerging.h")
+@:structAccess
 extern class MeshMergingSettings {
 	public var TargetLightMapResolution: cpp.Int32;
 	public var OutputUVs: EUVOutput;
@@ -34,4 +35,6 @@ extern class MeshMergingSettings {
 	public var bExportSpecularMap_DEPRECATED: Bool;
 	public var MergedMaterialAtlasResolution_DEPRECATED: cpp.Int32;
 	public var ExportSpecificLOD_DEPRECATED: cpp.Int32;
+
+	@:native("FMeshMergingSettings") public function new();
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWorldPartitionRuntimeLevelStreamingCell")
 @:include("WorldPartition/WorldPartitionRuntimeLevelStreamingCell.h")
+@:structAccess
 extern class WorldPartitionRuntimeLevelStreamingCell extends WorldPartitionRuntimeSpatialHashCell {
 	public var Packages: TArray<WorldPartitionRuntimeCellObjectMapping>;
 	public var ActorFolders: TSet<Guid>;
@@ -10,6 +11,8 @@ extern class WorldPartitionRuntimeLevelStreamingCell extends WorldPartitionRunti
 
 	public function OnLevelShown(): Void;
 	public function OnLevelHidden(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

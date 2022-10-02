@@ -3,6 +3,7 @@ package ue;
 
 @:native("UProgressBar")
 @:include("Components/ProgressBar.h")
+@:structAccess
 extern class ProgressBar extends Widget {
 	public var WidgetStyle: ProgressBarStyle;
 	public var Style_DEPRECATED: cpp.Star<SlateWidgetStyleAsset>;
@@ -21,6 +22,8 @@ extern class ProgressBar extends Widget {
 	public function SetPercent(InPercent: cpp.Float32): Void;
 	public function SetIsMarquee(InbIsMarquee: Bool): Void;
 	public function SetFillColorAndOpacity(InColor: LinearColor): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

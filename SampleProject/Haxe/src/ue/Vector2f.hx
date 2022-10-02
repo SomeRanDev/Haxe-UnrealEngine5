@@ -3,7 +3,11 @@ package ue;
 
 @:native("FVector2f")
 @:include("UObject/NoExportTypes.h")
+@:structAccess
 extern class Vector2f {
 	public var X: cpp.Float32;
 	public var Y: cpp.Float32;
+
+	@:native("FVector2f") public function new();
+	@:native("FVector2f") public static function make(X: cpp.Float32, Y: cpp.Float32): Vector2f ;
 }

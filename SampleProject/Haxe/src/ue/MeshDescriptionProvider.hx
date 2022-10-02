@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UMeshDescriptionProvider")
+@:structAccess
 extern class MeshDescriptionProvider extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UWidgetSlotPair")
 @:include("Utility/WidgetSlotPair.h")
+@:structAccess
 extern class WidgetSlotPair extends Object {
 	public var WidgetName: FName;
 	public var SlotPropertyNames: TArray<FName>;
 	public var SlotPropertyValues: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

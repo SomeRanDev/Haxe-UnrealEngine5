@@ -3,6 +3,7 @@ package ue;
 
 @:native("FRichCurveKey")
 @:include("Curves/RichCurve.h")
+@:structAccess
 extern class RichCurveKey {
 	public var InterpMode: ERichCurveInterpMode;
 	public var TangentMode: ERichCurveTangentMode;
@@ -13,4 +14,6 @@ extern class RichCurveKey {
 	public var ArriveTangentWeight: cpp.Float32;
 	public var LeaveTangent: cpp.Float32;
 	public var LeaveTangentWeight: cpp.Float32;
+
+	@:native("FRichCurveKey") public function new();
 }

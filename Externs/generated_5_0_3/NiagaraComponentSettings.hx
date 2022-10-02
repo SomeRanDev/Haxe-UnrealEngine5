@@ -3,12 +3,15 @@ package ue;
 
 @:native("UNiagaraComponentSettings")
 @:include("NiagaraComponentSettings.h")
+@:structAccess
 extern class NiagaraComponentSettings extends Object {
 	public var SuppressActivationList: TSet<FName>;
 	public var ForceAutoPooolingList: TSet<FName>;
 	public var SuppressEmitterList: TSet<NiagaraEmitterNameSettingsRef>;
 	public var GPUEmitterAllowList: TSet<NiagaraEmitterNameSettingsRef>;
 	public var GpuDataInterfaceDenyList: TSet<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

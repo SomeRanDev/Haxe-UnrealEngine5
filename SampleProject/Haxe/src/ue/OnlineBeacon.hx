@@ -3,10 +3,13 @@ package ue;
 
 @:native("AOnlineBeacon")
 @:include("OnlineBeacon.h")
+@:structAccess
 extern class OnlineBeacon extends Actor {
 	public var BeaconConnectionInitialTimeout: cpp.Float32;
 	public var BeaconConnectionTimeout: cpp.Float32;
 	public var NetDriver: cpp.Star<NetDriver>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

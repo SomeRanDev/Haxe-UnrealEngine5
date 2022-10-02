@@ -3,6 +3,10 @@ package ue;
 
 @:native("FWeightedBlendables")
 @:include("Engine/Scene.h")
+@:structAccess
 extern class WeightedBlendables {
 	public var Array: TArray<WeightedBlendable>;
+
+	@:native("FWeightedBlendables") public function new();
+	@:native("FWeightedBlendables") public static function make(Array: TArray<WeightedBlendable>): WeightedBlendables ;
 }

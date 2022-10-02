@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleSpawnPerUnit")
 @:include("Particles/Spawn/ParticleModuleSpawnPerUnit.h")
+@:structAccess
 extern class ParticleModuleSpawnPerUnit extends ParticleModuleSpawnBase {
 	public var UnitScalar: cpp.Float32;
 	public var MovementTolerance: cpp.Float32;
@@ -12,6 +13,8 @@ extern class ParticleModuleSpawnPerUnit extends ParticleModuleSpawnBase {
 	public var bIgnoreMovementAlongX: Bool;
 	public var bIgnoreMovementAlongY: Bool;
 	public var bIgnoreMovementAlongZ: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

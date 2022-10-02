@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTimelineTemplate")
 @:include("Engine/TimelineTemplate.h")
+@:structAccess
 extern class TimelineTemplate extends Object {
 	public var TimelineLength: cpp.Float32;
 	public var LengthMode: ETimelineLengthMode;
@@ -22,6 +23,8 @@ extern class TimelineTemplate extends Object {
 	public var UpdateFunctionName: FName;
 	public var FinishedFunctionName: FName;
 	public var TrackDisplayOrder: TArray<TTTrackId>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

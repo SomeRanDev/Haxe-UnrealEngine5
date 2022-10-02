@@ -3,6 +3,10 @@ package ue;
 
 @:native("FClothCollisionPrim_SphereConnection")
 @:include("ClothCollisionPrim.h")
+@:structAccess
 extern class ClothCollisionPrim_SphereConnection {
 	public var SphereIndices: cpp.Int32;
+
+	@:native("FClothCollisionPrim_SphereConnection") public function new();
+	@:native("FClothCollisionPrim_SphereConnection") public static function make(SphereIndices: cpp.Int32): ClothCollisionPrim_SphereConnection ;
 }

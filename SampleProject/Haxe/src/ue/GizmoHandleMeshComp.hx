@@ -3,7 +3,10 @@ package ue;
 
 @:native("UGizmoHandleMeshComponent")
 @:include("VIGizmoHandleMeshComponent.h")
+@:structAccess
 extern class GizmoHandleMeshComp extends StaticMeshComp {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

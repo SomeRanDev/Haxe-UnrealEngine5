@@ -3,5 +3,7 @@ package ue;
 
 @:native("FMovieSceneEvaluationFieldEntityTree")
 @:include("Evaluation/MovieSceneEvaluationField.h")
+@:structAccess
 extern class MovieSceneEvaluationFieldEntityTree {
+	@:native("FMovieSceneEvaluationFieldEntityTree") public function new();
 }

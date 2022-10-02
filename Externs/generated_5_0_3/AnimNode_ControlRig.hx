@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_ControlRig")
 @:include("AnimNode_ControlRig.h")
+@:structAccess
 extern class AnimNode_ControlRig extends AnimNode_ControlRigBase {
 	public var ControlRigClass: TSubclassOf<ControlRig>;
 	public var ControlRig: cpp.Star<ControlRig>;
@@ -17,4 +18,6 @@ extern class AnimNode_ControlRig extends AnimNode_ControlRigBase {
 	public var InputMapping: TMap<FName, FName>;
 	public var OutputMapping: TMap<FName, FName>;
 	public var LODThreshold: cpp.Int32;
+
+	@:native("FAnimNode_ControlRig") public function new();
 }

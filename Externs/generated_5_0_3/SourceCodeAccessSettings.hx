@@ -3,8 +3,11 @@ package ue;
 
 @:native("USourceCodeAccessSettings")
 @:include("SourceCodeAccessSettings.h")
+@:structAccess
 extern class SourceCodeAccessSettings extends Object {
 	public var PreferredAccessor: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

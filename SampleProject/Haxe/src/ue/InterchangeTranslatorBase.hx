@@ -3,9 +3,12 @@ package ue;
 
 @:native("UInterchangeTranslatorBase")
 @:include("InterchangeTranslatorBase.h")
+@:structAccess
 extern class InterchangeTranslatorBase extends Object {
 	public var Results: cpp.Star<InterchangeResultsContainer>;
 	public var SourceData: cpp.Star<InterchangeSourceData>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

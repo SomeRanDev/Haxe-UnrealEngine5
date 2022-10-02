@@ -3,8 +3,12 @@ package ue;
 
 @:native("FRigVMInstruction")
 @:include("RigVMCore/RigVMByteCode.h")
+@:structAccess
 extern class RigVMInstruction {
 	public var ByteCodeIndex: cpp.UInt64;
 	public var OpCode: ERigVMOpCode;
 	public var OperandAlignment: cpp.UInt8;
+
+	@:native("FRigVMInstruction") public function new();
+	@:native("FRigVMInstruction") public static function make(ByteCodeIndex: cpp.UInt64, OpCode: ERigVMOpCode, OperandAlignment: cpp.UInt8): RigVMInstruction ;
 }

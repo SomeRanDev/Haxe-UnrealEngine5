@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionAntialiasedTextureMask")
 @:include("Materials/MaterialExpressionAntialiasedTextureMask.h")
+@:structAccess
 extern class MaterialExpressionAntialiasedTextureMask extends MaterialExpressionTextureSampleParameter2D {
 	public var Threshold: cpp.Float32;
 	public var Channel: ETextureColorChannel;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

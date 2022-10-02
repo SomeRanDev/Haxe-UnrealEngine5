@@ -3,8 +3,11 @@ package ue;
 
 @:native("UOverlay")
 @:include("Components/Overlay.h")
+@:structAccess
 extern class Overlay extends PanelWidget {
 	public function AddChildToOverlay(Content: cpp.Star<Widget>): cpp.Reference<cpp.Star<OverlaySlot>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

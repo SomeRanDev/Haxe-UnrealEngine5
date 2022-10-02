@@ -3,9 +3,13 @@ package ue;
 
 @:native("FSubTrackGroup")
 @:include("Matinee/InterpTrack.h")
+@:structAccess
 extern class SubTrackGroup {
 	public var GroupName: FString;
 	public var TrackIndices: TArray<cpp.Int32>;
 	public var bIsCollapsed: Bool;
 	public var bIsSelected: Bool;
+
+	@:native("FSubTrackGroup") public function new();
+	@:native("FSubTrackGroup") public static function make(GroupName: FString, TrackIndices: TArray<cpp.Int32>, bIsCollapsed: Bool, bIsSelected: Bool): SubTrackGroup ;
 }

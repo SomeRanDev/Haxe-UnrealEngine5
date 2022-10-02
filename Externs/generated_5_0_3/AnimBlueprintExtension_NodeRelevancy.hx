@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimBlueprintExtension_NodeRelevancy")
 @:include("AnimBlueprintExtension_NodeRelevancy.h")
+@:structAccess
 extern class AnimBlueprintExtension_NodeRelevancy extends AnimBlueprintExtension {
 	public var Subsystem: AnimSubsystemInstance_NodeRelevancy;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

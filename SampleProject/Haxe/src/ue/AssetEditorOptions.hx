@@ -3,7 +3,11 @@ package ue;
 
 @:native("FAssetEditorOptions")
 @:include("Preferences/PersonaOptions.h")
+@:structAccess
 extern class AssetEditorOptions {
 	public var Context: FName;
 	public var ViewportConfigs: ViewportConfigOptions;
+
+	@:native("FAssetEditorOptions") public function new();
+	@:native("FAssetEditorOptions") public static function make(Context: FName, ViewportConfigs: ViewportConfigOptions): AssetEditorOptions ;
 }

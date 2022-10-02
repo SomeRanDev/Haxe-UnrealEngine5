@@ -3,8 +3,11 @@ package ue;
 
 @:native("AInfo")
 @:include("GameFramework/Info.h")
+@:structAccess
 extern class Info extends Actor {
 	public var SpriteComponent: cpp.Star<BillboardComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTileView")
 @:include("Components/TileView.h")
+@:structAccess
 extern class TileView extends ListView {
 	public var EntryHeight: cpp.Float32;
 	public var EntryWidth: cpp.Float32;
@@ -13,6 +14,8 @@ extern class TileView extends ListView {
 	public function SetEntryHeight(NewHeight: cpp.Float32): Void;
 	public function GetEntryWidth(): cpp.Reference<cpp.Float32>;
 	public function GetEntryHeight(): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetEntryWidth, GetEntryHeight)

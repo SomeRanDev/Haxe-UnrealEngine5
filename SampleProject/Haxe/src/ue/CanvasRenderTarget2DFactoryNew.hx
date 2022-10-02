@@ -3,10 +3,13 @@ package ue;
 
 @:native("UCanvasRenderTarget2DFactoryNew")
 @:include("Factories/CanvasRenderTarget2DFactoryNew.h")
+@:structAccess
 extern class CanvasRenderTarget2DFactoryNew extends Factory {
 	public var Width: cpp.Int32;
 	public var Height: cpp.Int32;
 	public var Format: cpp.UInt8;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

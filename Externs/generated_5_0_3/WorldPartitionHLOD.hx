@@ -3,6 +3,7 @@ package ue;
 
 @:native("AWorldPartitionHLOD")
 @:include("WorldPartition/HLOD/HLODActor.h")
+@:structAccess
 extern class WorldPartitionHLOD extends Actor {
 	public var HLODSubActors: TArray<HLODSubActor>;
 	public var SubActorsHLODLayer: cpp.Star<HLODLayer>;
@@ -16,6 +17,8 @@ extern class WorldPartitionHLOD extends Actor {
 	public var bRequireWarmup: Bool;
 	public var SourceCell_DEPRECATED: TSoftObjectPtr<WorldPartitionRuntimeCell>;
 	public var SourceCellName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

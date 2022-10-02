@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraParameterStore")
 @:include("NiagaraParameterStore.h")
+@:structAccess
 extern class NiagaraParameterStore {
 	public var Owner: cpp.Star<Object>;
 	public var ParameterOffsets: TMap<NiagaraVariable, cpp.Int32>;
@@ -13,4 +14,6 @@ extern class NiagaraParameterStore {
 	public var OriginalPositionData: TArray<NiagaraPositionSource>;
 	public var DebugName: FString;
 	public var ParameterGuidMapping: TMap<NiagaraVariable, Guid>;
+
+	@:native("FNiagaraParameterStore") public function new();
 }

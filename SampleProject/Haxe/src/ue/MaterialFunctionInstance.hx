@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialFunctionInstance")
 @:include("Materials/MaterialFunctionInstance.h")
+@:structAccess
 extern class MaterialFunctionInstance extends MaterialFunctionInterface {
 	public var Parent: cpp.Star<MaterialFunctionInterface>;
 	public var Base: cpp.Star<MaterialFunctionInterface>;
@@ -15,6 +16,8 @@ extern class MaterialFunctionInstance extends MaterialFunctionInterface {
 	public var StaticComponentMaskParameterValues: TArray<StaticComponentMaskParameter>;
 	public var RuntimeVirtualTextureParameterValues: TArray<RuntimeVirtualTextureParameterValue>;
 	public var PreviewMaterial: cpp.Star<MaterialInstanceConstant>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

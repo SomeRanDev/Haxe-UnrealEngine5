@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnVisibilityChangedEvent__PythonCallable")
+@:structAccess
 extern class OnVisibilityChangedEvent__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

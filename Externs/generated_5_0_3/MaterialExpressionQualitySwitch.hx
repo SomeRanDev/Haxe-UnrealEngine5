@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionQualitySwitch")
 @:include("Materials/MaterialExpressionQualitySwitch.h")
+@:structAccess
 extern class MaterialExpressionQualitySwitch extends MaterialExpression {
 	public var Default: ExpressionInput;
 	public var Inputs: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

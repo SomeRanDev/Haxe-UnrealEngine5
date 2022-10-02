@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBTDecorator_BlueprintBase")
 @:include("BehaviorTree/Decorators/BTDecorator_BlueprintBase.h")
+@:structAccess
 extern class BTDecorator_BlueprintBase extends BTDecorator {
 	public var AIOwner: cpp.Star<AIController>;
 	public var ActorOwner: cpp.Star<Actor>;
@@ -26,6 +27,8 @@ extern class BTDecorator_BlueprintBase extends BTDecorator {
 	public function PerformConditionCheck(OwnerActor: cpp.Star<Actor>): cpp.Reference<Bool>;
 	public function IsDecoratorObserverActive(): cpp.Reference<Bool>;
 	public function IsDecoratorExecutionActive(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsDecoratorObserverActive, IsDecoratorExecutionActive)

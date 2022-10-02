@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTextureRenderTargetVolume")
 @:include("Engine/TextureRenderTargetVolume.h")
+@:structAccess
 extern class TextureRenderTargetVolume extends TextureRenderTarget {
 	public var SizeX: cpp.Int32;
 	public var SizeY: cpp.Int32;
@@ -11,6 +12,8 @@ extern class TextureRenderTargetVolume extends TextureRenderTarget {
 	public var OverrideFormat: EPixelFormat;
 	public var bHDR: Bool;
 	public var bForceLinearGamma: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMovieSceneCaptureSettings")
 @:include("MovieSceneCaptureSettings.h")
+@:structAccess
 extern class MovieSceneCaptureSettings {
 	public var OutputDirectory: DirectoryPath;
 	public var GameModeOverride: TSubclassOf<GameModeBase>;
@@ -25,4 +26,6 @@ extern class MovieSceneCaptureSettings {
 	public var bShowHUD: Bool;
 	public var bUsePathTracer: Bool;
 	public var PathTracerSamplePerPixel: cpp.Int32;
+
+	@:native("FMovieSceneCaptureSettings") public function new();
 }

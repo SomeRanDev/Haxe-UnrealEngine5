@@ -3,9 +3,12 @@ package ue;
 
 @:native("UTextureLightProfile")
 @:include("Engine/TextureLightProfile.h")
+@:structAccess
 extern class TextureLightProfile extends Texture2D {
 	public var Brightness: cpp.Float32;
 	public var TextureMultiplier: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

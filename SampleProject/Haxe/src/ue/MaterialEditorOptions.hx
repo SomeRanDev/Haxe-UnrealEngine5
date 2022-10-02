@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialEditorOptions")
 @:include("Preferences/MaterialEditorOptions.h")
+@:structAccess
 extern class MaterialEditorOptions extends Object {
 	public var bShowGrid: Bool;
 	public var bHideUnusedConnectorsSetting: Bool;
@@ -13,6 +14,8 @@ extern class MaterialEditorOptions extends Object {
 	public var bAlwaysRefreshAllPreviews: Bool;
 	public var bUseUnsortedMenus: Bool;
 	public var FavoriteExpressions: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

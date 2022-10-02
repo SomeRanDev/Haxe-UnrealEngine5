@@ -3,7 +3,11 @@ package ue;
 
 @:native("FCullDistanceSizePair")
 @:include("Engine/CullDistanceVolume.h")
+@:structAccess
 extern class CullDistanceSizePair {
 	public var Size: cpp.Float32;
 	public var CullDistance: cpp.Float32;
+
+	@:native("FCullDistanceSizePair") public function new();
+	@:native("FCullDistanceSizePair") public static function make(Size: cpp.Float32, CullDistance: cpp.Float32): CullDistanceSizePair ;
 }

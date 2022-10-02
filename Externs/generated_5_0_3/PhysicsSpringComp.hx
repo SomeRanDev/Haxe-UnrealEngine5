@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPhysicsSpringComponent")
 @:include("PhysicsEngine/PhysicsSpringComponent.h")
+@:structAccess
 extern class PhysicsSpringComp extends SceneComp {
 	public var SpringStiffness: cpp.Float32;
 	public var SpringDamping: cpp.Float32;
@@ -16,6 +17,8 @@ extern class PhysicsSpringComp extends SceneComp {
 	public function GetSpringDirection(): cpp.Reference<Vector>;
 	public function GetSpringCurrentEndPoint(): cpp.Reference<Vector>;
 	public function GetNormalizedCompressionScalar(): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetSpringRestingPoint, GetSpringDirection, GetSpringCurrentEndPoint, GetNormalizedCompressionScalar)

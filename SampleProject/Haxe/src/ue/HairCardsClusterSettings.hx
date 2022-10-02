@@ -3,8 +3,12 @@ package ue;
 
 @:native("FHairCardsClusterSettings")
 @:include("GroomAssetCards.h")
+@:structAccess
 extern class HairCardsClusterSettings {
 	public var ClusterDecimation: cpp.Float32;
 	public var Type: EHairCardsClusterType;
 	public var bUseGuide: Bool;
+
+	@:native("FHairCardsClusterSettings") public function new();
+	@:native("FHairCardsClusterSettings") public static function make(ClusterDecimation: cpp.Float32, Type: EHairCardsClusterType, bUseGuide: Bool): HairCardsClusterSettings ;
 }

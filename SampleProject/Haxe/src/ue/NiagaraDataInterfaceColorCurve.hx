@@ -3,11 +3,14 @@ package ue;
 
 @:native("UNiagaraDataInterfaceColorCurve")
 @:include("NiagaraDataInterfaceColorCurve.h")
+@:structAccess
 extern class NiagaraDataInterfaceColorCurve extends NiagaraDataInterfaceCurveBase {
 	public var RedCurve: RichCurve;
 	public var GreenCurve: RichCurve;
 	public var BlueCurve: RichCurve;
 	public var AlphaCurve: RichCurve;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

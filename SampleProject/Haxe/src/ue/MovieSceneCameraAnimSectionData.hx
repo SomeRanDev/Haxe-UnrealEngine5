@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMovieSceneCameraAnimSectionData")
 @:include("Sections/MovieSceneCameraAnimSection.h")
+@:structAccess
 extern class MovieSceneCameraAnimSectionData {
 	public var CameraAnim: cpp.Star<CameraAnim>;
 	public var PlayRate: cpp.Float32;
@@ -10,4 +11,6 @@ extern class MovieSceneCameraAnimSectionData {
 	public var BlendInTime: cpp.Float32;
 	public var BlendOutTime: cpp.Float32;
 	public var bLooping: Bool;
+
+	@:native("FMovieSceneCameraAnimSectionData") public function new();
 }

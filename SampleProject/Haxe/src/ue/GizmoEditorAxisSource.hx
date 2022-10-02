@@ -3,9 +3,12 @@ package ue;
 
 @:native("UGizmoEditorAxisSource")
 @:include("EditorGizmos/EditorAxisSources.h")
+@:structAccess
 extern class GizmoEditorAxisSource extends Object {
 	public var AxisIndex: cpp.Int32;
 	public var bLocalAxes: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

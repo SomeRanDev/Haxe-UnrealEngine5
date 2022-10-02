@@ -3,9 +3,12 @@ package ue;
 
 @:native("UHudSettings")
 @:include("HudSettings.h")
+@:structAccess
 extern class HudSettings extends Object {
 	public var bShowHUD: Bool;
 	public var DebugDisplay: TArray<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

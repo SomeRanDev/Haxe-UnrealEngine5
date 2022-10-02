@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTextureFactory")
 @:include("Factories/TextureFactory.h")
+@:structAccess
 extern class TextureFactory extends Factory {
 	public var NoCompression: Bool;
 	public var NoAlpha: Bool;
@@ -29,6 +30,8 @@ extern class TextureFactory extends Factory {
 	public var bUseHashAsGuid: Bool;
 	public var UdimRegexPattern: FString;
 	public var ColorSpaceMode: ETextureSourceColorSpace;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

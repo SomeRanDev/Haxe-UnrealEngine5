@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UGetSlateVisibility__PythonCallable")
+@:structAccess
 extern class GetSlateVisibility__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

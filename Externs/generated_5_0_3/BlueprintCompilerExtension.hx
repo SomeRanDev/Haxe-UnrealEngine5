@@ -3,7 +3,10 @@ package ue;
 
 @:native("UBlueprintCompilerExtension")
 @:include("BlueprintCompilerExtension.h")
+@:structAccess
 extern class BlueprintCompilerExtension extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,11 @@ package ue;
 
 @:native("FRigLocalAndGlobalTransform")
 @:include("Rigs/RigHierarchyElements.h")
+@:structAccess
 extern class RigLocalAndGlobalTransform {
 	public var Local: RigComputedTransform;
 	public var Global: RigComputedTransform;
+
+	@:native("FRigLocalAndGlobalTransform") public function new();
+	@:native("FRigLocalAndGlobalTransform") public static function make(Local: RigComputedTransform, Global: RigComputedTransform): RigLocalAndGlobalTransform ;
 }

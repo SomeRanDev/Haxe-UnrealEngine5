@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDatasmithScene")
 @:include("DatasmithScene.h")
+@:structAccess
 extern class DatasmithScene extends Object {
 	public var AssetImportData: cpp.Star<DatasmithSceneImportData>;
 	public var BulkDataVersion: cpp.Int32;
@@ -13,6 +14,8 @@ extern class DatasmithScene extends Object {
 	public var LevelSequences: TMap<FName, TSoftObjectPtr<LevelSequence>>;
 	public var LevelVariantSets: TMap<FName, TSoftObjectPtr<LevelVariantSets>>;
 	public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

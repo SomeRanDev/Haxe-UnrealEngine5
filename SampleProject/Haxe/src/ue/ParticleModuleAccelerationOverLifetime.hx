@@ -3,8 +3,11 @@ package ue;
 
 @:native("UParticleModuleAccelerationOverLifetime")
 @:include("Particles/Acceleration/ParticleModuleAccelerationOverLifetime.h")
+@:structAccess
 extern class ParticleModuleAccelerationOverLifetime extends ParticleModuleAccelerationBase {
 	public var AccelOverLife: RawDistributionVector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,11 +3,14 @@ package ue;
 
 @:native("ALevelStreamingVolume")
 @:include("Engine/LevelStreamingVolume.h")
+@:structAccess
 extern class LevelStreamingVolume extends Volume {
 	public var StreamingLevelNames: TArray<FName>;
 	public var bEditorPreVisOnly: Bool;
 	public var bDisabled: Bool;
 	public var StreamingUsage: EStreamingVolumeUsage;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

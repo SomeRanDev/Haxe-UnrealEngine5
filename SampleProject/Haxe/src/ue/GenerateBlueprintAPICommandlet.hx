@@ -3,7 +3,10 @@ package ue;
 
 @:native("UGenerateBlueprintAPICommandlet")
 @:include("Commandlets/GenerateBlueprintAPICommandlet.h")
+@:structAccess
 extern class GenerateBlueprintAPICommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

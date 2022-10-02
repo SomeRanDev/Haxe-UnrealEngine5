@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionStrataVolumetricFogCloudBSDF")
 @:include("Materials/MaterialExpressionStrata.h")
+@:structAccess
 extern class MaterialExpressionStrataVolumetricFogCloudBSDF extends MaterialExpressionStrataBSDF {
 	public var Albedo: ExpressionInput;
 	public var Extinction: ExpressionInput;
 	public var EmissiveColor: ExpressionInput;
 	public var AmbientOcclusion: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

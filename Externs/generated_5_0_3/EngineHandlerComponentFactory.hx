@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEngineHandlerComponentFactory")
 @:include("PacketHandlers/EngineHandlerComponentFactory.h")
+@:structAccess
 extern class EngineHandlerComponentFactory extends HandlerComponentFactory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

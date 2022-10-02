@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimationSharingManager")
 @:include("AnimationSharingManager.h")
+@:structAccess
 extern class AnimationSharingManager extends Object {
 	public var Skeletons: TArray<cpp.Star<Skeleton>>;
 	public var PerSkeletonData: TArray<cpp.Star<AnimSharingInstance>>;
@@ -11,6 +12,8 @@ extern class AnimationSharingManager extends Object {
 	public function GetAnimationSharingManager(WorldContextObject: cpp.Star<Object>): cpp.Reference<cpp.Star<AnimationSharingManager>>;
 	public function CreateAnimationSharingManager(WorldContextObject: cpp.Star<Object>, Setup: cpp.Star<AnimationSharingSetup.ConstAnimationSharingSetup>): cpp.Reference<Bool>;
 	public function AnimationSharingEnabled(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UAnimGraphNode_TwoBoneIK")
 @:include("AnimGraphNode_TwoBoneIK.h")
+@:structAccess
 extern class AnimGraphNode_TwoBoneIK extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_TwoBoneIK;
 	public var bEnableDebugDraw: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

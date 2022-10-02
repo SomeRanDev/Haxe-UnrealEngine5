@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimExecutionContextLibrary")
 @:include("AnimExecutionContextLibrary.h")
+@:structAccess
 extern class AnimExecutionContextLibrary extends BlueprintFunctionLibrary {
 	public function Prototype_ThreadSafeAnimUpdateCall(Context: cpp.Reference<AnimUpdateContext>, Node: cpp.Reference<AnimNodeReference>): Void;
 	public function Prototype_ThreadSafeAnimNodeCall(Context: cpp.Reference<AnimExecutionContext>, Node: cpp.Reference<AnimNodeReference>): Void;
@@ -14,6 +15,8 @@ extern class AnimExecutionContextLibrary extends BlueprintFunctionLibrary {
 	public function ConvertToPoseContext(Context: cpp.Reference<AnimExecutionContext>, Result: cpp.Reference<EAnimExecutionContextConversionResult>): cpp.Reference<AnimPoseContext>;
 	public function ConvertToInitializationContext(Context: cpp.Reference<AnimExecutionContext>, Result: cpp.Reference<EAnimExecutionContextConversionResult>): cpp.Reference<AnimInitializationContext>;
 	public function ConvertToComponentSpacePoseContext(Context: cpp.Reference<AnimExecutionContext>, Result: cpp.Reference<EAnimExecutionContextConversionResult>): cpp.Reference<AnimComponentSpacePoseContext>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

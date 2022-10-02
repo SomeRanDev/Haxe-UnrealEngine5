@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionCameraPositionWS")
 @:include("Materials/MaterialExpressionCameraPositionWS.h")
+@:structAccess
 extern class MaterialExpressionCameraPositionWS extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

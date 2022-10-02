@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMovieSceneNodeGroup")
 @:include("MovieScene.h")
+@:structAccess
 extern class MovieSceneNodeGroup extends Object {
 	public var Name: FName;
 	public var Nodes: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

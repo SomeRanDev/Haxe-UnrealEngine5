@@ -3,10 +3,14 @@ package ue;
 
 @:native("FCameraPreviewInfo")
 @:include("Matinee/InterpGroupCamera.h")
+@:structAccess
 extern class CameraPreviewInfo {
 	public var PawnClass: TSubclassOf<Pawn>;
 	public var AnimSeq: cpp.Star<AnimSequence>;
 	public var Location: Vector;
 	public var Rotation: Rotator;
 	public var PawnInst: cpp.Star<Pawn>;
+
+	@:native("FCameraPreviewInfo") public function new();
+	@:native("FCameraPreviewInfo") public static function make(PawnClass: TSubclassOf<Pawn>, AnimSeq: cpp.Star<AnimSequence>, Location: Vector, Rotation: Rotator, PawnInst: cpp.Star<Pawn>): CameraPreviewInfo ;
 }

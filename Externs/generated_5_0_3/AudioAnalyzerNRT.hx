@@ -3,11 +3,14 @@ package ue;
 
 @:native("UAudioAnalyzerNRT")
 @:include("AudioAnalyzerNRT.h")
+@:structAccess
 extern class AudioAnalyzerNRT extends AudioAnalyzerAssetBase {
 	public var Sound: cpp.Star<SoundWave>;
 	public var DurationInSeconds: cpp.Float32;
 
 	public function AnalyzeAudio(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

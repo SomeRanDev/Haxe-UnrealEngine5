@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEllipseSplineGenerator")
 @:include("SplineGeneratorPanel.h")
+@:structAccess
 extern class EllipseSplineGenerator extends SplineGeneratorBase {
 	public var NumberOfPoints: cpp.Int32;
 	public var Length: cpp.Float32;
@@ -10,6 +11,8 @@ extern class EllipseSplineGenerator extends SplineGeneratorBase {
 	public var bReverseDir: Bool;
 	public var bKeepFirstKeyTangent: Bool;
 	public var bBranchRight: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

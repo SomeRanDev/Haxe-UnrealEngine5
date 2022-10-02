@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPopulateDialogueWaveFromCharacterSheetCommandlet")
 @:include("Commandlets/PopulateDialogueWaveFromCharacterSheetCommandlet.h")
+@:structAccess
 extern class PopulateDialogueWaveFromCharacterSheetCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

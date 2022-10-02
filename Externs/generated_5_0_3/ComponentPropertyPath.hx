@@ -3,8 +3,12 @@ package ue;
 
 @:native("FComponentPropertyPath")
 @:include("ComponentVisualizer.h")
+@:structAccess
 extern class ComponentPropertyPath {
 	public var ParentOwningActor: TWeakObjectPtr<Actor>;
 	public var LastResortComponentPtr: TWeakObjectPtr<ActorComp>;
 	public var PropertyChain: TArray<PropertyNameAndIndex>;
+
+	@:native("FComponentPropertyPath") public function new();
+	@:native("FComponentPropertyPath") public static function make(ParentOwningActor: TWeakObjectPtr<Actor>, LastResortComponentPtr: TWeakObjectPtr<ActorComp>, PropertyChain: TArray<PropertyNameAndIndex>): ComponentPropertyPath ;
 }

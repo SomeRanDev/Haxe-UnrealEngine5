@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEnvQueryItemType_VectorBase")
 @:include("EnvironmentQuery/Items/EnvQueryItemType_VectorBase.h")
+@:structAccess
 extern class EnvQueryItemType_VectorBase extends EnvQueryItemType {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FBakedAnimationState")
 @:include("Animation/AnimStateMachineTypes.h")
+@:structAccess
 extern class BakedAnimationState {
 	public var StateName: FName;
 	public var Transitions: TArray<BakedStateExitTransition>;
@@ -15,4 +16,6 @@ extern class BakedAnimationState {
 	public var PlayerNodeIndices: TArray<cpp.Int32>;
 	public var LayerNodeIndices: TArray<cpp.Int32>;
 	public var bAlwaysResetOnEntry: Bool;
+
+	@:native("FBakedAnimationState") public function new();
 }

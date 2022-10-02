@@ -3,6 +3,7 @@ package ue;
 
 @:native("UFbxTestPlan")
 @:include("Tests/FbxAutomationCommon.h")
+@:structAccess
 extern class FbxTestPlan extends Object {
 	public var TestPlanName: FString;
 	public var Action: EFBXTestPlanActionType;
@@ -10,6 +11,8 @@ extern class FbxTestPlan extends Object {
 	public var bDeleteFolderAssets: Bool;
 	public var ExpectedResult: TArray<FbxTestPlanExpectedResult>;
 	public var ImportUI: cpp.Star<FbxImportUI>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

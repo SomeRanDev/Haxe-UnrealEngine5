@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialEditorInstanceConstant")
 @:include("MaterialEditor/MaterialEditorInstanceConstant.h")
+@:structAccess
 extern class MaterialEditorInstanceConstant extends Object {
 	public var PhysMaterial: cpp.Star<PhysicalMaterial>;
 	public var Parent: cpp.Star<MaterialInterface>;
@@ -21,6 +22,8 @@ extern class MaterialEditorInstanceConstant extends Object {
 	public var bUseOldStyleMICEditorGroups: Bool;
 	public var StoredLayerPreviews: TArray<cpp.Star<MaterialInstanceConstant>>;
 	public var StoredBlendPreviews: TArray<cpp.Star<MaterialInstanceConstant>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

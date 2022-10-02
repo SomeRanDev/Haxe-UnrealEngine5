@@ -3,11 +3,14 @@ package ue;
 
 @:native("UARSaveWorldAsyncTaskBlueprintProxy")
 @:include("ARBlueprintProxy.h")
+@:structAccess
 extern class ARSaveWorldAsyncTaskBlueprintProxy extends ARBaseAsyncTaskBlueprintProxy {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.UInt8>>) -> Void>;
 	public var OnFailed: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.UInt8>>) -> Void>;
 
 	public function ARSaveWorld(WorldContextObject: cpp.Star<Object>): cpp.Reference<cpp.Star<ARSaveWorldAsyncTaskBlueprintProxy>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

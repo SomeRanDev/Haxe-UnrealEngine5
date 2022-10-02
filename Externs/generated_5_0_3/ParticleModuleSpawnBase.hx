@@ -3,9 +3,12 @@ package ue;
 
 @:native("UParticleModuleSpawnBase")
 @:include("Particles/Spawn/ParticleModuleSpawnBase.h")
+@:structAccess
 extern class ParticleModuleSpawnBase extends ParticleModule {
 	public var bProcessSpawnRate: Bool;
 	public var bProcessBurstList: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

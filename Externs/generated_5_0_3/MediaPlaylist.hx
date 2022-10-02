@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMediaPlaylist")
 @:include("MediaPlaylist.h")
+@:structAccess
 extern class MediaPlaylist extends Object {
 	public var Items: TArray<cpp.Star<MediaSource>>;
 
@@ -18,6 +19,8 @@ extern class MediaPlaylist extends Object {
 	public function AddUrl(Url: FString): cpp.Reference<Bool>;
 	public function AddFile(FilePath: FString): cpp.Reference<Bool>;
 	public function Add(MediaSource: cpp.Star<MediaSource>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

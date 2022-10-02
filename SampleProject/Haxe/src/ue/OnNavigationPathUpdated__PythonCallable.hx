@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnNavigationPathUpdated__PythonCallable")
+@:structAccess
 extern class OnNavigationPathUpdated__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

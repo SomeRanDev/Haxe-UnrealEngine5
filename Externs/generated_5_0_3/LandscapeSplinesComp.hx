@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULandscapeSplinesComponent")
 @:include("LandscapeSplinesComponent.h")
+@:structAccess
 extern class LandscapeSplinesComp extends PrimitiveComp {
 	public var SplineResolution: cpp.Float32;
 	public var SplineColor: Color;
@@ -15,6 +16,8 @@ extern class LandscapeSplinesComp extends PrimitiveComp {
 	public var CookedForeignMeshComponents: TArray<cpp.Star<MeshComp>>;
 
 	public function GetSplineMeshComponents(): cpp.Reference<TArray<cpp.Star<SplineMeshComp>>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

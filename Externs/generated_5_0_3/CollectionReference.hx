@@ -3,6 +3,10 @@ package ue;
 
 @:native("FCollectionReference")
 @:include("Engine/EngineTypes.h")
+@:structAccess
 extern class CollectionReference {
 	public var CollectionName: FName;
+
+	@:native("FCollectionReference") public function new();
+	@:native("FCollectionReference") public static function make(CollectionName: FName): CollectionReference ;
 }

@@ -3,10 +3,13 @@ package ue;
 
 @:native("APackedLevelActor")
 @:include("PackedLevelActor/PackedLevelActor.h")
+@:structAccess
 extern class PackedLevelActor extends LevelInstance {
 	public var BlueprintAsset: TSoftObjectPtr<Blueprint>;
 	public var PackedBPDependencies: TArray<TSoftObjectPtr<Blueprint>>;
 	public var PackedVersion: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

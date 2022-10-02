@@ -3,7 +3,11 @@ package ue;
 
 @:native("FIKRetargetPose")
 @:include("Retargeter/IKRetargeter.h")
+@:structAccess
 extern class IKRetargetPose {
 	public var RootTranslationOffset: Vector;
 	public var BoneRotationOffsets: TMap<FName, Quat>;
+
+	@:native("FIKRetargetPose") public function new();
+	@:native("FIKRetargetPose") public static function make(RootTranslationOffset: Vector, BoneRotationOffsets: TMap<FName, Quat>): IKRetargetPose ;
 }

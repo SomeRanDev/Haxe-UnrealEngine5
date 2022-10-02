@@ -3,8 +3,11 @@ package ue;
 
 @:native("UWidgetAnimationDelegateBinding")
 @:include("Animation/WidgetAnimationDelegateBinding.h")
+@:structAccess
 extern class WidgetAnimationDelegateBinding extends DynamicBlueprintBinding {
 	public var WidgetAnimationDelegateBindings: TArray<BlueprintWidgetAnimationDelegateBinding>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

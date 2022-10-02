@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSkeletalMaterial")
 @:include("Engine/SkeletalMesh.h")
+@:structAccess
 extern class SkeletalMaterial {
 	public var MaterialInterface: cpp.Star<MaterialInterface>;
 	public var MaterialSlotName: FName;
@@ -10,4 +11,6 @@ extern class SkeletalMaterial {
 	public var bRecomputeTangent_DEPRECATED: Bool;
 	public var ImportedMaterialSlotName: FName;
 	public var UVChannelData: MeshUVChannelInfo;
+
+	@:native("FSkeletalMaterial") public function new();
 }

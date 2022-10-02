@@ -3,6 +3,10 @@ package ue;
 
 @:native("FLandscapeLayerBrush")
 @:include("Landscape.h")
+@:structAccess
 extern class LandscapeLayerBrush {
 	public var BlueprintBrush: cpp.Star<LandscapeBlueprintBrushBase>;
+
+	@:native("FLandscapeLayerBrush") public function new();
+	@:native("FLandscapeLayerBrush") public static function make(BlueprintBrush: cpp.Star<LandscapeBlueprintBrushBase>): LandscapeLayerBrush ;
 }

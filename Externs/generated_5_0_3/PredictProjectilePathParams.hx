@@ -3,6 +3,7 @@ package ue;
 
 @:native("FPredictProjectilePathParams")
 @:include("Kismet/GameplayStaticsTypes.h")
+@:structAccess
 extern class PredictProjectilePathParams {
 	public var StartLocation: Vector;
 	public var LaunchVelocity: Vector;
@@ -18,4 +19,6 @@ extern class PredictProjectilePathParams {
 	public var DrawDebugType: EDrawDebugTrace;
 	public var DrawDebugTime: cpp.Float32;
 	public var bTraceComplex: Bool;
+
+	@:native("FPredictProjectilePathParams") public function new();
 }

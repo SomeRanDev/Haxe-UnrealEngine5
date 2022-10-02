@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnProjectileStopDelegate__PythonCallable")
+@:structAccess
 extern class OnProjectileStopDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

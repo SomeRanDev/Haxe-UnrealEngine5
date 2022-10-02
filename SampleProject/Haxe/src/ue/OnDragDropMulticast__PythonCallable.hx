@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnDragDropMulticast__PythonCallable")
+@:structAccess
 extern class OnDragDropMulticast__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

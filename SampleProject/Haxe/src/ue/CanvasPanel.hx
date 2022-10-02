@@ -3,8 +3,11 @@ package ue;
 
 @:native("UCanvasPanel")
 @:include("Components/CanvasPanel.h")
+@:structAccess
 extern class CanvasPanel extends PanelWidget {
 	public function AddChildToCanvas(Content: cpp.Star<Widget>): cpp.Reference<cpp.Star<CanvasPanelSlot>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

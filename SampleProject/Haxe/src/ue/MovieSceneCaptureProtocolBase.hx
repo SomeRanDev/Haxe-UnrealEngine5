@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMovieSceneCaptureProtocolBase")
 @:include("MovieSceneCaptureProtocolBase.h")
+@:structAccess
 extern class MovieSceneCaptureProtocolBase extends Object {
 	public var State: EMovieSceneCaptureProtocolState;
 
 	public function IsCapturing(): cpp.Reference<Bool>;
 	public function GetState(): cpp.Reference<EMovieSceneCaptureProtocolState>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsCapturing, GetState)

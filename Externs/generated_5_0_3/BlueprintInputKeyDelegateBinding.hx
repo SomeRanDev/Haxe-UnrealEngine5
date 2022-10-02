@@ -3,8 +3,12 @@ package ue;
 
 @:native("FBlueprintInputKeyDelegateBinding")
 @:include("Engine/InputKeyDelegateBinding.h")
+@:structAccess
 extern class BlueprintInputKeyDelegateBinding extends BlueprintInputDelegateBinding {
 	public var InputChord: InputChord;
 	public var InputKeyEvent: EInputEvent;
 	public var FunctionNameToBind: FName;
+
+	@:native("FBlueprintInputKeyDelegateBinding") public function new();
+	@:native("FBlueprintInputKeyDelegateBinding") public static function make(InputChord: InputChord, InputKeyEvent: EInputEvent, FunctionNameToBind: FName): BlueprintInputKeyDelegateBinding ;
 }

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UTextureCube")
 @:include("Engine/TextureCube.h")
+@:structAccess
 extern class TextureCube extends Texture {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

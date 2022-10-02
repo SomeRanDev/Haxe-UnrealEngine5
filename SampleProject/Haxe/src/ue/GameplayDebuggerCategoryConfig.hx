@@ -3,6 +3,7 @@ package ue;
 
 @:native("FGameplayDebuggerCategoryConfig")
 @:include("GameplayDebuggerConfig.h")
+@:structAccess
 extern class GameplayDebuggerCategoryConfig {
 	public var CategoryName: FString;
 	public var SlotIdx: cpp.Int32;
@@ -11,4 +12,6 @@ extern class GameplayDebuggerCategoryConfig {
 	public var Hidden: EGameplayDebuggerOverrideMode;
 	public var bOverrideSlotIdx: Bool;
 	public var InputHandlers: TArray<GameplayDebuggerInputConfig>;
+
+	@:native("FGameplayDebuggerCategoryConfig") public function new();
 }

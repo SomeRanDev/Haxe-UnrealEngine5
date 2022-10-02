@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPaperTerrainComponent")
 @:include("PaperTerrainComponent.h")
+@:structAccess
 extern class PaperTerrainComp extends PrimitiveComp {
 	public var TerrainMaterial: cpp.Star<PaperTerrainMaterial>;
 	public var bClosedSpline: Bool;
@@ -17,6 +18,8 @@ extern class PaperTerrainComp extends PrimitiveComp {
 	public var CachedBodySetup: cpp.Star<BodySetup>;
 
 	public function SetTerrainColor(NewColor: LinearColor): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UTexAlignerBox")
 @:include("TexAligner/TexAlignerBox.h")
+@:structAccess
 extern class TexAlignerBox extends TexAligner {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

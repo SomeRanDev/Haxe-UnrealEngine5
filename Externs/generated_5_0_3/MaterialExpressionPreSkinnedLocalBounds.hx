@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionPreSkinnedLocalBounds")
 @:include("Materials/MaterialExpressionPreSkinnedLocalBounds.h")
+@:structAccess
 extern class MaterialExpressionPreSkinnedLocalBounds extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

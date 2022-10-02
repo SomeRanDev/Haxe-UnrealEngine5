@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBTTask_WaitBlackboardTime")
 @:include("BehaviorTree/Tasks/BTTask_WaitBlackboardTime.h")
+@:structAccess
 extern class BTTask_WaitBlackboardTime extends BTTask_Wait {
 	public var BlackboardKey: BlackboardKeySelector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

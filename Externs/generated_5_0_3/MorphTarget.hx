@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMorphTarget")
 @:include("Animation/MorphTarget.h")
+@:structAccess
 extern class MorphTarget extends Object {
 	public var BaseSkelMesh: cpp.Star<SkeletalMesh>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,11 +3,14 @@ package ue;
 
 @:native("USoundClass")
 @:include("Sound/SoundClass.h")
+@:structAccess
 extern class SoundClass extends Object {
 	public var Properties: SoundClassProperties;
 	public var ChildClasses: TArray<cpp.Star<SoundClass>>;
 	public var PassiveSoundMixModifiers: TArray<PassiveSoundMixModifier>;
 	public var ParentClass: cpp.Star<SoundClass>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

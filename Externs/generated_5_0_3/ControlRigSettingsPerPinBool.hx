@@ -3,6 +3,10 @@ package ue;
 
 @:native("FControlRigSettingsPerPinBool")
 @:include("Settings/ControlRigSettings.h")
+@:structAccess
 extern class ControlRigSettingsPerPinBool {
 	public var Values: TMap<FString, Bool>;
+
+	@:native("FControlRigSettingsPerPinBool") public function new();
+	@:native("FControlRigSettingsPerPinBool") public static function make(Values: TMap<FString, Bool>): ControlRigSettingsPerPinBool ;
 }

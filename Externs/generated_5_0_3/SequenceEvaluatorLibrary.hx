@@ -3,6 +3,7 @@ package ue;
 
 @:native("USequenceEvaluatorLibrary")
 @:include("SequenceEvaluatorLibrary.h")
+@:structAccess
 extern class SequenceEvaluatorLibrary extends BlueprintFunctionLibrary {
 	public function SetSequenceWithInertialBlending(UpdateContext: cpp.Reference<AnimUpdateContext>, SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>, Sequence: cpp.Star<AnimSequenceBase>, BlendTime: cpp.Float32): cpp.Reference<SequenceEvaluatorReference>;
 	public function SetSequence(SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>, Sequence: cpp.Star<AnimSequenceBase>): cpp.Reference<SequenceEvaluatorReference>;
@@ -12,6 +13,8 @@ extern class SequenceEvaluatorLibrary extends BlueprintFunctionLibrary {
 	public function ConvertToSequenceEvaluatorPure(Node: cpp.Reference<AnimNodeReference>, SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>, Result: cpp.Reference<Bool>): Void;
 	public function ConvertToSequenceEvaluator(Node: cpp.Reference<AnimNodeReference>, Result: cpp.Reference<EAnimNodeReferenceConversionResult>): cpp.Reference<SequenceEvaluatorReference>;
 	public function AdvanceTime(UpdateContext: cpp.Reference<AnimUpdateContext>, SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>, PlayRate: cpp.Float32): cpp.Reference<SequenceEvaluatorReference>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

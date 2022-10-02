@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCameraShakeBase")
 @:include("Camera/CameraShakeBase.h")
+@:structAccess
 extern class CameraShakeBase extends Object {
 	public var bSingleInstance: Bool;
 	public var ShakeScale: cpp.Float32;
@@ -11,6 +12,8 @@ extern class CameraShakeBase extends Object {
 
 	public function SetRootShakePattern(InPattern: cpp.Star<CameraShakePattern>): Void;
 	public function GetRootShakePattern(): cpp.Reference<cpp.Star<CameraShakePattern>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetRootShakePattern)

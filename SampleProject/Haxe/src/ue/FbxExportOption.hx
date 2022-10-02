@@ -3,6 +3,7 @@ package ue;
 
 @:native("UFbxExportOption")
 @:include("Exporters/FbxExportOption.h")
+@:structAccess
 extern class FbxExportOption extends Object {
 	public var FbxExportCompatibility: EFbxExportCompatibility;
 	public var bASCII: Bool;
@@ -14,6 +15,8 @@ extern class FbxExportOption extends Object {
 	public var bExportPreviewMesh: Bool;
 	public var MapSkeletalMotionToRoot: Bool;
 	public var bExportLocalTime: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

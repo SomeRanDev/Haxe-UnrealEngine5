@@ -3,6 +3,7 @@ package ue;
 
 @:native("FDataDrivenConsoleVariable")
 @:include("DataDrivenCVars/DataDrivenCVars.h")
+@:structAccess
 extern class DataDrivenConsoleVariable {
 	public var Type: FDataDrivenCVarType;
 	public var Name: FString;
@@ -10,4 +11,6 @@ extern class DataDrivenConsoleVariable {
 	public var DefaultValueFloat: cpp.Float32;
 	public var DefaultValueInt: cpp.Int32;
 	public var DefaultValueBool: Bool;
+
+	@:native("FDataDrivenConsoleVariable") public function new();
 }

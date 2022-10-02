@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEdGraphNode")
 @:include("EdGraph/EdGraphNode.h")
+@:structAccess
 extern class EdGraphNode extends Object {
 	public var DeprecatedPins: TArray<cpp.Star<EdGraphPin_Deprecated>>;
 	public var NodePosX: cpp.Int32;
@@ -25,6 +26,8 @@ extern class EdGraphNode extends Object {
 	public var ErrorType: cpp.Int32;
 	public var ErrorMsg: FString;
 	public var NodeGuid: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

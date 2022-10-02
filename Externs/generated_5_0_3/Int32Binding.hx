@@ -3,8 +3,11 @@ package ue;
 
 @:native("UInt32Binding")
 @:include("Binding/Int32Binding.h")
+@:structAccess
 extern class Int32Binding extends PropertyBinding {
 	public function GetValue(): cpp.Reference<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetValue)

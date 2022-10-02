@@ -3,9 +3,12 @@ package ue;
 
 @:native("UParticleModuleMeshRotation")
 @:include("Particles/Rotation/ParticleModuleMeshRotation.h")
+@:structAccess
 extern class ParticleModuleMeshRotation extends ParticleModuleRotationBase {
 	public var StartRotation: RawDistributionVector;
 	public var bInheritParent: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

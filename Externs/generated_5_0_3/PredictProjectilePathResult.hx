@@ -3,8 +3,12 @@ package ue;
 
 @:native("FPredictProjectilePathResult")
 @:include("Kismet/GameplayStaticsTypes.h")
+@:structAccess
 extern class PredictProjectilePathResult {
 	public var PathData: TArray<PredictProjectilePathPointData>;
 	public var LastTraceDestination: PredictProjectilePathPointData;
 	public var HitResult: HitResult;
+
+	@:native("FPredictProjectilePathResult") public function new();
+	@:native("FPredictProjectilePathResult") public static function make(PathData: TArray<PredictProjectilePathPointData>, LastTraceDestination: PredictProjectilePathPointData, HitResult: HitResult): PredictProjectilePathResult ;
 }

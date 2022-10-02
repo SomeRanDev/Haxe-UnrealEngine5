@@ -3,9 +3,12 @@ package ue;
 
 @:native("URig")
 @:include("Animation/Rig.h")
+@:structAccess
 extern class Rig extends Object {
 	public var TransformBases: TArray<TransformBase>;
 	public var Nodes: TArray<Node>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

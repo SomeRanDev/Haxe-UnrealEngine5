@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_InAppPurchaseRestore2")
 @:include("K2Node_InAppPurchaseRestore2.h")
+@:structAccess
 extern class K2Node_InAppPurchaseRestore2 extends K2Node_BaseAsyncTask {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

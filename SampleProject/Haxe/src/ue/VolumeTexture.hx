@@ -3,11 +3,14 @@ package ue;
 
 @:native("UVolumeTexture")
 @:include("Engine/VolumeTexture.h")
+@:structAccess
 extern class VolumeTexture extends Texture {
 	public var Source2DTexture: cpp.Star<Texture2D>;
 	public var SourceLightingGuid: Guid;
 	public var Source2DTileSizeX: cpp.Int32;
 	public var Source2DTileSizeY: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

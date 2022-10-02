@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMouseCursorInteractor")
 @:include("MouseCursorInteractor.h")
+@:structAccess
 extern class MouseCursorInteractor extends ViewportInteractor {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

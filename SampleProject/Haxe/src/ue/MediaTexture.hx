@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMediaTexture")
 @:include("MediaTexture.h")
+@:structAccess
 extern class MediaTexture extends Texture {
 	public var AddressX: TextureAddress;
 	public var AddressY: TextureAddress;
@@ -23,6 +24,8 @@ extern class MediaTexture extends Texture {
 	public function GetMediaPlayer(): cpp.Reference<cpp.Star<MediaPlayer>>;
 	public function GetHeight(): cpp.Reference<cpp.Int32>;
 	public function GetAspectRatio(): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetWidth, GetTextureNumMips, GetMediaPlayer, GetHeight, GetAspectRatio)

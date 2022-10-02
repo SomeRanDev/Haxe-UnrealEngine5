@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULinearStairBuilder")
 @:include("Builders/LinearStairBuilder.h")
+@:structAccess
 extern class LinearStairBuilder extends EditorBrushBuilder {
 	public var StepLength: cpp.Int32;
 	public var StepHeight: cpp.Int32;
@@ -10,6 +11,8 @@ extern class LinearStairBuilder extends EditorBrushBuilder {
 	public var NumSteps: cpp.Int32;
 	public var AddToFirstStep: cpp.Int32;
 	public var GroupName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UFixConflictingLocalizationKeysCommandlet")
 @:include("Commandlets/FixConflictingLocalizationKeys.h")
+@:structAccess
 extern class FixConflictingLocalizationKeysCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

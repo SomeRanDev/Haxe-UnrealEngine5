@@ -3,9 +3,12 @@ package ue;
 
 @:native("UBlendSpace1D")
 @:include("Animation/BlendSpace1D.h")
+@:structAccess
 extern class BlendSpace1D extends BlendSpace {
 	public var bDisplayEditorVertically_DEPRECATED: Bool;
 	public var bScaleAnimation: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

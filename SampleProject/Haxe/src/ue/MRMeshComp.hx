@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMRMeshComponent")
 @:include("MRMeshComponent.h")
+@:structAccess
 extern class MRMeshComp extends PrimitiveComp {
 	public var Material: cpp.Star<MaterialInterface>;
 	public var WireframeMaterial: cpp.Star<MaterialInterface>;
@@ -22,6 +23,8 @@ extern class MRMeshComp extends PrimitiveComp {
 	public function GetEnableMeshOcclusion(): cpp.Reference<Bool>;
 	public function ForceNavMeshUpdate(): Void;
 	public function Clear(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsConnected, GetWireframeColor, GetUseWireframe, GetEnableMeshOcclusion)

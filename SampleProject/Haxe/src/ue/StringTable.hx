@@ -3,7 +3,10 @@ package ue;
 
 @:native("UStringTable")
 @:include("Internationalization/StringTable.h")
+@:structAccess
 extern class StringTable extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

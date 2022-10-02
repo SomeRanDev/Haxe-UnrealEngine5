@@ -3,5 +3,7 @@ package ue;
 
 @:native("FBlueprintSessionResult")
 @:include("FindSessionsCallbackProxy.h")
+@:structAccess
 extern class BlueprintSessionResult {
+	@:native("FBlueprintSessionResult") public function new();
 }

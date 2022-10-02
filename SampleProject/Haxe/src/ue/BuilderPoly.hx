@@ -3,9 +3,13 @@ package ue;
 
 @:native("FBuilderPoly")
 @:include("Engine/BrushBuilder.h")
+@:structAccess
 extern class BuilderPoly {
 	public var VertexIndices: TArray<cpp.Int32>;
 	public var Direction: cpp.Int32;
 	public var ItemName: FName;
 	public var PolyFlags: cpp.Int32;
+
+	@:native("FBuilderPoly") public function new();
+	@:native("FBuilderPoly") public static function make(VertexIndices: TArray<cpp.Int32>, Direction: cpp.Int32, ItemName: FName, PolyFlags: cpp.Int32): BuilderPoly ;
 }

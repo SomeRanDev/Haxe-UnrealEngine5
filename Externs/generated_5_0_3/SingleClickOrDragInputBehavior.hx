@@ -3,9 +3,12 @@ package ue;
 
 @:native("USingleClickOrDragInputBehavior")
 @:include("BaseBehaviors/SingleClickOrDragBehavior.h")
+@:structAccess
 extern class SingleClickOrDragInputBehavior extends AnyButtonInputBehavior {
 	public var bBeginDragIfClickTargetNotHit: Bool;
 	public var ClickDistanceThreshold: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

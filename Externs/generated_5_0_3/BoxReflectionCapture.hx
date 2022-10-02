@@ -3,7 +3,10 @@ package ue;
 
 @:native("ABoxReflectionCapture")
 @:include("Engine/BoxReflectionCapture.h")
+@:structAccess
 extern class BoxReflectionCapture extends ReflectionCapture {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

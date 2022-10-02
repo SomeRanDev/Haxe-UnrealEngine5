@@ -3,6 +3,7 @@ package ue;
 
 @:native("URigVMParameterNode")
 @:include("RigVMModel/Nodes/RigVMParameterNode.h")
+@:structAccess
 extern class RigVMParameterNode extends RigVMNode {
 	public function IsInput(): cpp.Reference<Bool>;
 	public function GetParameterName(): cpp.Reference<FName>;
@@ -10,6 +11,8 @@ extern class RigVMParameterNode extends RigVMNode {
 	public function GetDefaultValue(): cpp.Reference<FString>;
 	public function GetCPPTypeObject(): cpp.Reference<cpp.Star<Object>>;
 	public function GetCPPType(): cpp.Reference<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsInput, GetParameterName, GetParameterDescription, GetDefaultValue, GetCPPTypeObject, GetCPPType)

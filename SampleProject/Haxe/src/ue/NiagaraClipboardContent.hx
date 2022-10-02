@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraClipboardContent")
 @:include("NiagaraClipboard.h")
+@:structAccess
 extern class NiagaraClipboardContent extends Object {
 	public var Functions: TArray<cpp.Star<NiagaraClipboardFunction>>;
 	public var FunctionInputs: TArray<cpp.Star<NiagaraClipboardFunctionInput>>;
@@ -11,6 +12,8 @@ extern class NiagaraClipboardContent extends Object {
 	public var ScriptVariables: TArray<NiagaraClipboardScriptVariable>;
 	public var ExportedNodes: FString;
 	public var bFixupPasteIndexForScriptDependenciesInStack: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

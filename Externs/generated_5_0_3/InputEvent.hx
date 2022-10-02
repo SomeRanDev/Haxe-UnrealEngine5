@@ -3,5 +3,7 @@ package ue;
 
 @:native("FInputEvent")
 @:include("Input/Events.h")
+@:structAccess
 extern class InputEvent {
+	@:native("FInputEvent") public function new();
 }

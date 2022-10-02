@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleRequired")
 @:include("Particles/ParticleModuleRequired.h")
+@:structAccess
 extern class ParticleModuleRequired extends ParticleModule {
 	public var Material: cpp.Star<MaterialInterface>;
 	public var MinFacingCameraBlendDistance: cpp.Float32;
@@ -50,6 +51,8 @@ extern class ParticleModuleRequired extends ParticleModule {
 	public var EmitterDurationLow: cpp.Float32;
 	public var NormalsCylinderDirection: Vector;
 	public var NamedMaterialOverrides: TArray<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

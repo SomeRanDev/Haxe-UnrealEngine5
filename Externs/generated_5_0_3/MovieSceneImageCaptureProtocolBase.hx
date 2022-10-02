@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMovieSceneImageCaptureProtocolBase")
 @:include("MovieSceneCaptureProtocolBase.h")
+@:structAccess
 extern class MovieSceneImageCaptureProtocolBase extends MovieSceneCaptureProtocolBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

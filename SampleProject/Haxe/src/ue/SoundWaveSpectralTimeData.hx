@@ -3,7 +3,11 @@ package ue;
 
 @:native("FSoundWaveSpectralTimeData")
 @:include("Sound/SoundWave.h")
+@:structAccess
 extern class SoundWaveSpectralTimeData {
 	public var Data: TArray<SoundWaveSpectralDataEntry>;
 	public var TimeSec: cpp.Float32;
+
+	@:native("FSoundWaveSpectralTimeData") public function new();
+	@:native("FSoundWaveSpectralTimeData") public static function make(Data: TArray<SoundWaveSpectralDataEntry>, TimeSec: cpp.Float32): SoundWaveSpectralTimeData ;
 }

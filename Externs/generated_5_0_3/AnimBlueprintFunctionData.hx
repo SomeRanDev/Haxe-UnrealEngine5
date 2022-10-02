@@ -3,8 +3,12 @@ package ue;
 
 @:native("FAnimBlueprintFunctionData")
 @:include("Animation/AnimClassData.h")
+@:structAccess
 extern class AnimBlueprintFunctionData {
 	public var OutputPoseNodeProperty: TFieldPath<FStructProperty>;
 	public var InputPoseNodeProperties: TArray<TFieldPath<FStructProperty>>;
 	public var InputProperties: TArray<TFieldPath<FProperty>>;
+
+	@:native("FAnimBlueprintFunctionData") public function new();
+	@:native("FAnimBlueprintFunctionData") public static function make(OutputPoseNodeProperty: TFieldPath<FStructProperty>, InputPoseNodeProperties: TArray<TFieldPath<FStructProperty>>, InputProperties: TArray<TFieldPath<FProperty>>): AnimBlueprintFunctionData ;
 }

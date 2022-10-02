@@ -3,6 +3,7 @@ package ue;
 
 @:native("URetainerBox")
 @:include("Components/RetainerBox.h")
+@:structAccess
 extern class RetainerBox extends ContentWidget {
 	public var bRetainRender: Bool;
 	public var RenderOnInvalidation: Bool;
@@ -18,6 +19,8 @@ extern class RetainerBox extends ContentWidget {
 	public function SetEffectMaterial(EffectMaterial: cpp.Star<MaterialInterface>): Void;
 	public function RequestRender(): Void;
 	public function GetEffectMaterial(): cpp.Reference<cpp.Star<MaterialInstanceDynamic>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetEffectMaterial)

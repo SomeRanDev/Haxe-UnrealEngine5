@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimSet")
 @:include("Animation/AnimSet.h")
+@:structAccess
 extern class AnimSet extends Object {
 	public var bAnimRotationOnly: Bool;
 	public var TrackBoneNames: TArray<FName>;
@@ -14,6 +15,8 @@ extern class AnimSet extends Object {
 	public var ForceMeshTranslationBoneNames: TArray<FName>;
 	public var PreviewSkelMeshName: FName;
 	public var BestRatioSkelMeshName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

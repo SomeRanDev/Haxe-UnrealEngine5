@@ -3,10 +3,13 @@ package ue;
 
 @:native("UAnimNotifyStateMachineInspectionLibrary")
 @:include("Animation/AnimNotifyStateMachineInspectionLibrary.h")
+@:structAccess
 extern class AnimNotifyStateMachineInspectionLibrary extends BlueprintFunctionLibrary {
 	public function IsTriggeredByStateMachine(EventReference: cpp.Reference<AnimNotifyEventReference>, AnimInstance: cpp.Star<AnimInstance>, StateMachineName: FName): cpp.Reference<Bool>;
 	public function IsTriggeredByStateInStateMachine(EventReference: cpp.Reference<AnimNotifyEventReference>, AnimInstance: cpp.Star<AnimInstance>, StateMachineName: FName, StateName: FName): cpp.Reference<Bool>;
 	public function IsTriggeredByState(EventReference: cpp.Reference<AnimNotifyEventReference>, AnimInstance: cpp.Star<AnimInstance>, StateName: FName): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

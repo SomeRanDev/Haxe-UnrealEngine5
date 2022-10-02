@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionStrataWeight")
 @:include("Materials/MaterialExpressionStrata.h")
+@:structAccess
 extern class MaterialExpressionStrataWeight extends MaterialExpressionStrataBSDF {
 	public var A: ExpressionInput;
 	public var Weight: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

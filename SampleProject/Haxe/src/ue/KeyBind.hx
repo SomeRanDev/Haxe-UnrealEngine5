@@ -3,6 +3,7 @@ package ue;
 
 @:native("FKeyBind")
 @:include("GameFramework/PlayerInput.h")
+@:structAccess
 extern class KeyBind {
 	public var Key: Key;
 	public var Command: FString;
@@ -15,4 +16,6 @@ extern class KeyBind {
 	public var bIgnoreAlt: Bool;
 	public var bIgnoreCmd: Bool;
 	public var bDisabled: Bool;
+
+	@:native("FKeyBind") public function new();
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("AGameState")
 @:include("GameFramework/GameState.h")
+@:structAccess
 extern class GameState extends GameStateBase {
 	public var MatchState: FName;
 	public var PreviousMatchState: FName;
@@ -10,6 +11,8 @@ extern class GameState extends GameStateBase {
 
 	public function OnRep_MatchState(): Void;
 	public function OnRep_ElapsedTime(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

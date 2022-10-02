@@ -3,7 +3,10 @@ package ue;
 
 @:native("UCompressAnimationsCommandlet")
 @:include("Commandlets/CompressAnimationsCommandlet.h")
+@:structAccess
 extern class CompressAnimationsCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

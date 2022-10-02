@@ -3,6 +3,7 @@ package ue;
 
 @:native("UQuartzSubsystem")
 @:include("Quartz/QuartzSubsystem.h")
+@:structAccess
 extern class QuartzSubsystem extends TickableWorldSubsystem {
 	public function IsQuartzEnabled(): cpp.Reference<Bool>;
 	public function IsClockRunning(WorldContextObject: cpp.Star<Object.ConstObject>, ClockName: FName): cpp.Reference<Bool>;
@@ -23,6 +24,8 @@ extern class QuartzSubsystem extends TickableWorldSubsystem {
 	public function DeleteClockByName(WorldContextObject: cpp.Star<Object.ConstObject>, ClockName: FName): Void;
 	public function DeleteClockByHandle(WorldContextObject: cpp.Star<Object.ConstObject>, InClockHandle: cpp.Reference<cpp.Star<QuartzClockHandle>>): Void;
 	public function CreateNewClock(WorldContextObject: cpp.Star<Object.ConstObject>, ClockName: FName, InSettings: QuartzClockSettings, bOverrideSettingsIfClockExists: Bool, bUseAudioEngineClockManager: Bool): cpp.Reference<cpp.Star<QuartzClockHandle>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

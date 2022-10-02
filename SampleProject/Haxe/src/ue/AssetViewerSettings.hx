@@ -3,9 +3,12 @@ package ue;
 
 @:native("UAssetViewerSettings")
 @:include("AssetViewerSettings.h")
+@:structAccess
 extern class AssetViewerSettings extends Object {
 	public var Profiles: TArray<PreviewSceneProfile>;
 	public var bFakeConfigValue_HACK: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

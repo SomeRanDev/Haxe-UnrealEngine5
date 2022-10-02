@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCameraModifier")
 @:include("Camera/CameraModifier.h")
+@:structAccess
 extern class CameraModifier extends Object {
 	public var bDebug: Bool;
 	public var bExclusive: Bool;
@@ -19,6 +20,8 @@ extern class CameraModifier extends Object {
 	public function DisableModifier(bImmediate: Bool): Void;
 	public function BlueprintModifyPostProcess(DeltaTime: cpp.Float32, PostProcessBlendWeight: cpp.Reference<cpp.Float32>, PostProcessSettings: cpp.Reference<PostProcessSettings>): Void;
 	public function BlueprintModifyCamera(DeltaTime: cpp.Float32, ViewLocation: Vector, ViewRotation: Rotator, FOV: cpp.Float32, NewViewLocation: cpp.Reference<Vector>, NewViewRotation: cpp.Reference<Rotator>, NewFOV: cpp.Reference<cpp.Float32>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsDisabled, GetViewTarget)

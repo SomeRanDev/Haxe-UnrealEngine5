@@ -3,8 +3,11 @@ package ue;
 
 @:native("USpectatorPawnMovement")
 @:include("GameFramework/SpectatorPawnMovement.h")
+@:structAccess
 extern class SpectatorPawnMovement extends FloatingPawnMovement {
 	public var bIgnoreTimeDilation: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

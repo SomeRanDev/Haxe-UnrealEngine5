@@ -3,7 +3,10 @@ package ue;
 
 @:native("UContentBrowserFilterListContext")
 @:include("ContentBrowserMenuContexts.h")
+@:structAccess
 extern class ContentBrowserFilterListContext extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

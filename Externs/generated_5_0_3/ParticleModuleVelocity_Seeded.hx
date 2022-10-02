@@ -3,8 +3,11 @@ package ue;
 
 @:native("UParticleModuleVelocity_Seeded")
 @:include("Particles/Velocity/ParticleModuleVelocity_Seeded.h")
+@:structAccess
 extern class ParticleModuleVelocity_Seeded extends ParticleModuleVelocity {
 	public var RandomSeedInfo: ParticleRandomSeedInfo;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

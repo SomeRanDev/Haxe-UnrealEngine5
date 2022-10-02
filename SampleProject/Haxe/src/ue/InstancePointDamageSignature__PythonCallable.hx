@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UInstancePointDamageSignature__PythonCallable")
+@:structAccess
 extern class InstancePointDamageSignature__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

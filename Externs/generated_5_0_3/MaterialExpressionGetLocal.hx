@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionGetLocal")
 @:include("Materials/MaterialExpressionGetLocal.h")
+@:structAccess
 extern class MaterialExpressionGetLocal extends MaterialExpression {
 	public var LocalName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

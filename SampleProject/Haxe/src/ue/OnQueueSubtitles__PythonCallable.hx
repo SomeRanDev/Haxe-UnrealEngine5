@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnQueueSubtitles__PythonCallable")
+@:structAccess
 extern class OnQueueSubtitles__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("USceneCaptureComponent")
 @:include("Components/SceneCaptureComponent.h")
+@:structAccess
 extern class SceneCaptureComp extends SceneComp {
 	public var PrimitiveRenderMode: ESceneCapturePrimitiveRenderMode;
 	public var CaptureSource: ESceneCaptureSource;
@@ -30,6 +31,8 @@ extern class SceneCaptureComp extends SceneComp {
 	public function HideActorComponents(InActor: cpp.Star<Actor>, bIncludeFromChildActors: Bool): Void;
 	public function ClearShowOnlyComponents(): Void;
 	public function ClearHiddenComponents(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

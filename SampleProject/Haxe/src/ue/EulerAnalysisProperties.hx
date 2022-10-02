@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEulerAnalysisProperties")
 @:include("BlendSpaceAnalysis.h")
+@:structAccess
 extern class EulerAnalysisProperties extends AnalysisProperties {
 	public var FunctionAxis: EAnalysisEulerAxis;
 	public var BoneSocket: BoneSocketTarget;
@@ -14,6 +15,8 @@ extern class EulerAnalysisProperties extends AnalysisProperties {
 	public var CharacterUpAxis: EAnalysisLinearAxis;
 	public var StartTimeFraction: cpp.Float32;
 	public var EndTimeFraction: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

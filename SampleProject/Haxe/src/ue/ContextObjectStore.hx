@@ -3,8 +3,11 @@ package ue;
 
 @:native("UContextObjectStore")
 @:include("ContextObjectStore.h")
+@:structAccess
 extern class ContextObjectStore extends Object {
 	public var ContextObjects: TArray<cpp.Star<Object>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

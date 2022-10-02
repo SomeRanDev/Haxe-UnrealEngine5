@@ -3,8 +3,12 @@ package ue;
 
 @:native("FBoneNode")
 @:include("Animation/Skeleton.h")
+@:structAccess
 extern class BoneNode {
 	public var Name_DEPRECATED: FName;
 	public var ParentIndex_DEPRECATED: cpp.Int32;
 	public var TranslationRetargetingMode: EBoneTranslationRetargetingMode;
+
+	@:native("FBoneNode") public function new();
+	@:native("FBoneNode") public static function make(Name_DEPRECATED: FName, ParentIndex_DEPRECATED: cpp.Int32, TranslationRetargetingMode: EBoneTranslationRetargetingMode): BoneNode ;
 }

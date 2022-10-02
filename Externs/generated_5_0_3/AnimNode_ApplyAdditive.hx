@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_ApplyAdditive")
 @:include("AnimNodes/AnimNode_ApplyAdditive.h")
+@:structAccess
 extern class AnimNode_ApplyAdditive extends AnimNode_Base {
 	public var Base: PoseLink;
 	public var Additive: PoseLink;
@@ -14,4 +15,6 @@ extern class AnimNode_ApplyAdditive extends AnimNode_Base {
 	public var AlphaScaleBiasClamp: InputScaleBiasClamp;
 	public var AlphaInputType: EAnimAlphaInputType;
 	public var bAlphaBoolEnabled: Bool;
+
+	@:native("FAnimNode_ApplyAdditive") public function new();
 }

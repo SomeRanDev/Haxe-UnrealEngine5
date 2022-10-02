@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UEnumProperty")
+@:structAccess
 extern class EnumProperty extends Property {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

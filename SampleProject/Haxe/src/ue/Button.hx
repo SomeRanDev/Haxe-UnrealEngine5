@@ -3,6 +3,7 @@ package ue;
 
 @:native("UButton")
 @:include("Components/Button.h")
+@:structAccess
 extern class Button extends ContentWidget {
 	public var Style_DEPRECATED: cpp.Star<SlateWidgetStyleAsset>;
 	public var WidgetStyle: ButtonStyle;
@@ -25,6 +26,8 @@ extern class Button extends ContentWidget {
 	public function SetClickMethod(InClickMethod: EButtonClickMethod): Void;
 	public function SetBackgroundColor(InBackgroundColor: LinearColor): Void;
 	public function IsPressed(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsPressed)

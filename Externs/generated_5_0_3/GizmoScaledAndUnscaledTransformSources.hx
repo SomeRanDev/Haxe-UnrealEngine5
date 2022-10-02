@@ -3,9 +3,12 @@ package ue;
 
 @:native("UGizmoScaledAndUnscaledTransformSources")
 @:include("BaseGizmos/TransformSources.h")
+@:structAccess
 extern class GizmoScaledAndUnscaledTransformSources extends GizmoBaseTransformSource {
 	public var ScaledTransformSource: GizmoTransformSource;
 	public var UnscaledTransformSource: GizmoTransformSource;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,12 +3,15 @@ package ue;
 
 @:native("UMaterialFunctionInterface")
 @:include("Materials/MaterialFunctionInterface.h")
+@:structAccess
 extern class MaterialFunctionInterface extends Object {
 	public var StateId: Guid;
 	public var MaterialFunctionUsage: EMaterialFunctionUsage;
 	public var CombinedInputTypes: cpp.UInt32;
 	public var CombinedOutputTypes: cpp.UInt32;
 	public var ThumbnailInfo: cpp.Star<ThumbnailInfo>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

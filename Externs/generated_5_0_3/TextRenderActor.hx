@@ -3,9 +3,12 @@ package ue;
 
 @:native("ATextRenderActor")
 @:include("Engine/TextRenderActor.h")
+@:structAccess
 extern class TextRenderActor extends Actor {
 	public var TextRender: cpp.Star<TextRenderComp>;
 	public var SpriteComponent: cpp.Star<BillboardComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

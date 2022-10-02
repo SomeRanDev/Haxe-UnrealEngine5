@@ -3,7 +3,11 @@ package ue;
 
 @:native("FAnimPhysPlanarLimit")
 @:include("BoneControllers/AnimNode_AnimDynamics.h")
+@:structAccess
 extern class AnimPhysPlanarLimit {
 	public var DrivingBone: BoneReference;
 	public var PlaneTransform: Transform;
+
+	@:native("FAnimPhysPlanarLimit") public function new();
+	@:native("FAnimPhysPlanarLimit") public static function make(DrivingBone: BoneReference, PlaneTransform: Transform): AnimPhysPlanarLimit ;
 }

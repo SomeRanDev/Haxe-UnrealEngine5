@@ -3,6 +3,7 @@ package ue;
 
 @:native("UFbxAnimSequenceImportData")
 @:include("Factories/FbxAnimSequenceImportData.h")
+@:structAccess
 extern class FbxAnimSequenceImportData extends FbxAssetImportData {
 	public var bImportMeshesInBoneHierarchy: Bool;
 	public var AnimationLength: EFBXAnimationLengthImportType;
@@ -22,6 +23,8 @@ extern class FbxAnimSequenceImportData extends FbxAssetImportData {
 	public var bDeleteExistingMorphTargetCurves: Bool;
 	public var bDoNotImportCurveWithZero: Bool;
 	public var bPreserveLocalTransform: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

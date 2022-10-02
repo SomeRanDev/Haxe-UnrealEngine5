@@ -3,9 +3,12 @@ package ue;
 
 @:native("UAnimBlueprintExtension_BlendSpaceGraph")
 @:include("AnimBlueprintExtension_BlendSpaceGraph.h")
+@:structAccess
 extern class AnimBlueprintExtension_BlendSpaceGraph extends AnimBlueprintExtension {
 	public var Class: TSubclassOf<Object>;
 	public var Subsystem: AnimSubsystem_BlendSpaceGraph;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

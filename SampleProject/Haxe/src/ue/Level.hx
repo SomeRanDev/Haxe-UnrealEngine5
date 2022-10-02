@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULevel")
 @:include("Engine/Level.h")
+@:structAccess
 extern class Level extends Object {
 	public var ActorsModifiedForPIE: TMap<FName, cpp.Star<Actor>>;
 	public var bUseExternalActors: Bool;
@@ -48,6 +49,8 @@ extern class Level extends Object {
 	public var bUseActorFolders: Bool;
 	public var ActorFolders: TMap<Guid, cpp.Star<ActorFolder>>;
 	public var LoadedExternalActorFolders: TArray<cpp.Star<ActorFolder>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UCurveLinearColorThumbnailRenderer")
 @:include("ThumbnailRendering/CurveLinearColorThumbnailRenderer.h")
+@:structAccess
 extern class CurveLinearColorThumbnailRenderer extends ThumbnailRenderer {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

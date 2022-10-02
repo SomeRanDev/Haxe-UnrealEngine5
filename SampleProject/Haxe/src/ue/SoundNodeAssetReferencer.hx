@@ -3,7 +3,10 @@ package ue;
 
 @:native("USoundNodeAssetReferencer")
 @:include("Sound/SoundNodeAssetReferencer.h")
+@:structAccess
 extern class SoundNodeAssetReferencer extends SoundNode {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

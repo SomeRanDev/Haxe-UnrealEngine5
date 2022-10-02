@@ -3,6 +3,7 @@ package ue;
 
 @:native("FVersionedNiagaraScriptData")
 @:include("NiagaraScript.h")
+@:structAccess
 extern class VersionedNiagaraScriptData {
 	public var Version: NiagaraAssetVersion;
 	public var VersionChangeDescription: FText;
@@ -32,4 +33,6 @@ extern class VersionedNiagaraScriptData {
 	public var ScriptAsset: FilePath;
 	public var ParameterDefinitionsSubscriptions: TArray<ParameterDefinitionsSubscription>;
 	public var Source: cpp.Star<NiagaraScriptSourceBase>;
+
+	@:native("FVersionedNiagaraScriptData") public function new();
 }

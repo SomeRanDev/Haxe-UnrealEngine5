@@ -3,6 +3,7 @@ package ue;
 
 @:native("UProjectPackagingSettings")
 @:include("Settings/ProjectPackagingSettings.h")
+@:structAccess
 extern class ProjectPackagingSettings extends Object {
 	public var Build: EProjectPackagingBuild;
 	public var BuildConfiguration: EProjectPackagingBuildConfigurations;
@@ -77,6 +78,8 @@ extern class ProjectPackagingSettings extends Object {
 	public var PerPlatformBuildConfig: TMap<FName, EProjectPackagingBuildConfigurations>;
 	public var PerPlatformTargetFlavorName: TMap<FName, FName>;
 	public var PerPlatformBuildTarget: TMap<FName, FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

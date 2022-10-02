@@ -3,6 +3,10 @@ package ue;
 
 @:native("FNiagaraParameters")
 @:include("NiagaraParameters.h")
+@:structAccess
 extern class NiagaraParameters {
 	public var Parameters: TArray<NiagaraVariable>;
+
+	@:native("FNiagaraParameters") public function new();
+	@:native("FNiagaraParameters") public static function make(Parameters: TArray<NiagaraVariable>): NiagaraParameters ;
 }

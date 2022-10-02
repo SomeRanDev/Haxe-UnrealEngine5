@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UGameplayTaskSpawnActorDelegate__PythonCallable")
+@:structAccess
 extern class GameplayTaskSpawnActorDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

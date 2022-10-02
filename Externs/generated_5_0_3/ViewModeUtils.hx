@@ -3,7 +3,10 @@ package ue;
 
 @:native("UViewModeUtils")
 @:include("Engine/EngineBaseTypes.h")
+@:structAccess
 extern class ViewModeUtils extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

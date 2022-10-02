@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UAIPerceptionListenerInterface")
+@:structAccess
 extern class AIPerceptionListenerInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

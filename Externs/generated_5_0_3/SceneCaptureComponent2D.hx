@@ -3,6 +3,7 @@ package ue;
 
 @:native("USceneCaptureComponent2D")
 @:include("Components/SceneCaptureComponent2D.h")
+@:structAccess
 extern class SceneCaptureComponent2D extends SceneCaptureComp {
 	public var ProjectionType: ECameraProjectionMode;
 	public var FOVAngle: cpp.Float32;
@@ -29,6 +30,8 @@ extern class SceneCaptureComponent2D extends SceneCaptureComp {
 	public function RemoveBlendable(InBlendableObject: BlendableInterface): Void;
 	public function CaptureScene(): Void;
 	public function AddOrUpdateBlendable(InBlendableObject: BlendableInterface, InWeight: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

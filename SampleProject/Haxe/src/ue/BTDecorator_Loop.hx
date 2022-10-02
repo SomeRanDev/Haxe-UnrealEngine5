@@ -3,10 +3,13 @@ package ue;
 
 @:native("UBTDecorator_Loop")
 @:include("BehaviorTree/Decorators/BTDecorator_Loop.h")
+@:structAccess
 extern class BTDecorator_Loop extends BTDecorator {
 	public var NumLoops: cpp.Int32;
 	public var bInfiniteLoop: Bool;
 	public var InfiniteLoopTimeoutTime: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,10 +3,13 @@ package ue;
 
 @:native("APrecomputedVisibilityOverrideVolume")
 @:include("Lightmass/PrecomputedVisibilityOverrideVolume.h")
+@:structAccess
 extern class PrecomputedVisibilityOverrideVolume extends Volume {
 	public var OverrideVisibleActors: TArray<cpp.Star<Actor>>;
 	public var OverrideInvisibleActors: TArray<cpp.Star<Actor>>;
 	public var OverrideInvisibleLevels: TArray<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

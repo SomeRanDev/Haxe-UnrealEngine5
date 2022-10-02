@@ -3,6 +3,7 @@ package ue;
 
 @:native("ANiagaraLensEffectBase")
 @:include("NiagaraLensEffectBase.h")
+@:structAccess
 extern class NiagaraLensEffectBase extends NiagaraActor {
 	public var DesiredRelativeTransform: Transform;
 	public var BaseAuthoredFOV: cpp.Float32;
@@ -10,6 +11,8 @@ extern class NiagaraLensEffectBase extends NiagaraActor {
 	public var bResetWhenRetriggered: Bool;
 	public var EmittersToTreatAsSame: TArray<TSubclassOf<Actor>>;
 	public var OwningCameraManager: cpp.Star<PlayerCameraManager>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

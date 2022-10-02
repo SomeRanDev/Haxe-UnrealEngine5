@@ -3,7 +3,10 @@ package ue;
 
 @:native("UTextFilterValueHandler")
 @:include("TextFilterValueHandler.h")
+@:structAccess
 extern class TextFilterValueHandler extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

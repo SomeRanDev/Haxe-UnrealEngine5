@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UMetaData")
+@:structAccess
 extern class MetaData extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,11 +3,14 @@ package ue;
 
 @:native("UHardwareTargetingSettings")
 @:include("HardwareTargetingSettings.h")
+@:structAccess
 extern class HardwareTargetingSettings extends Object {
 	public var TargetedHardwareClass: EHardwareClass;
 	public var AppliedTargetedHardwareClass: EHardwareClass;
 	public var DefaultGraphicsPerformance: EGraphicsPreset;
 	public var AppliedDefaultGraphicsPerformance: EGraphicsPreset;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,5 +3,7 @@ package ue;
 
 @:native("FUniqueNetIdWrapper")
 @:include("Online/CoreOnline.h")
+@:structAccess
 extern class UniqueNetIdWrapper {
+	@:native("FUniqueNetIdWrapper") public function new();
 }

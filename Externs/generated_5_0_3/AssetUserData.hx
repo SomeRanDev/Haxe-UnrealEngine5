@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAssetUserData")
 @:include("Engine/AssetUserData.h")
+@:structAccess
 extern class AssetUserData extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

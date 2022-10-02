@@ -3,10 +3,13 @@ package ue;
 
 @:native("UInterpTrackParticleReplay")
 @:include("Matinee/InterpTrackParticleReplay.h")
+@:structAccess
 extern class InterpTrackParticleReplay extends InterpTrack {
 	public var TrackKeys: TArray<ParticleReplayTrackKey>;
 	public var bIsCapturingReplay: Bool;
 	public var FixedTimeStep: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

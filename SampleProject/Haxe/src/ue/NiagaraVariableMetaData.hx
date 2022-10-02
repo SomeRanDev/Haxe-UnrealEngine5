@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraVariableMetaData")
 @:include("NiagaraTypes.h")
+@:structAccess
 extern class NiagaraVariableMetaData {
 	public var Description: FText;
 	public var CategoryName: FText;
@@ -23,4 +24,6 @@ extern class NiagaraVariableMetaData {
 	public var VariableGuid: Guid;
 	public var bIsStaticSwitch_DEPRECATED: Bool;
 	public var StaticSwitchDefaultValue_DEPRECATED: cpp.Int32;
+
+	@:native("FNiagaraVariableMetaData") public function new();
 }

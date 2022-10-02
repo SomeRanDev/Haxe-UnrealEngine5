@@ -3,8 +3,11 @@ package ue;
 
 @:native("USoundNodeConcatenator")
 @:include("Sound/SoundNodeConcatenator.h")
+@:structAccess
 extern class SoundNodeConcatenator extends SoundNode {
 	public var InputVolume: TArray<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

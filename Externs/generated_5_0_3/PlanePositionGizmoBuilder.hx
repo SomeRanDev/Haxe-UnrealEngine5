@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPlanePositionGizmoBuilder")
 @:include("BaseGizmos/PlanePositionGizmo.h")
+@:structAccess
 extern class PlanePositionGizmoBuilder extends InteractiveGizmoBuilder {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

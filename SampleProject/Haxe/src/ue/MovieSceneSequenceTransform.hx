@@ -3,7 +3,11 @@ package ue;
 
 @:native("FMovieSceneSequenceTransform")
 @:include("Evaluation/MovieSceneSequenceTransform.h")
+@:structAccess
 extern class MovieSceneSequenceTransform {
 	public var LinearTransform: MovieSceneTimeTransform;
 	public var NestedTransforms: TArray<MovieSceneNestedSequenceTransform>;
+
+	@:native("FMovieSceneSequenceTransform") public function new();
+	@:native("FMovieSceneSequenceTransform") public static function make(LinearTransform: MovieSceneTimeTransform, NestedTransforms: TArray<MovieSceneNestedSequenceTransform>): MovieSceneSequenceTransform ;
 }

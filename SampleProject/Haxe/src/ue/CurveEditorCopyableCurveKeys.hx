@@ -3,12 +3,15 @@ package ue;
 
 @:native("UCurveEditorCopyableCurveKeys")
 @:include("CurveEditorCopyBuffer.h")
+@:structAccess
 extern class CurveEditorCopyableCurveKeys extends Object {
 	public var KeyPositions: TArray<KeyPosition>;
 	public var KeyAttributes: TArray<KeyAttributes>;
 	public var ShortDisplayName: FString;
 	public var LongDisplayName: FString;
 	public var IntentionName: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

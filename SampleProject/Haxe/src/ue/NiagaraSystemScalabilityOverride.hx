@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraSystemScalabilityOverride")
 @:include("NiagaraEffectType.h")
+@:structAccess
 extern class NiagaraSystemScalabilityOverride extends NiagaraSystemScalabilitySettings {
 	public var bOverrideDistanceSettings: Bool;
 	public var bOverrideInstanceCountSettings: Bool;
@@ -10,4 +11,6 @@ extern class NiagaraSystemScalabilityOverride extends NiagaraSystemScalabilitySe
 	public var bOverrideTimeSinceRendererSettings: Bool;
 	public var bOverrideGlobalBudgetScalingSettings: Bool;
 	public var bOverrideCullProxySettings: Bool;
+
+	@:native("FNiagaraSystemScalabilityOverride") public function new();
 }

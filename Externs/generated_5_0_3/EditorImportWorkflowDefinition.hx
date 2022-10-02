@@ -3,7 +3,11 @@ package ue;
 
 @:native("FEditorImportWorkflowDefinition")
 @:include("Tests/AutomationTestSettings.h")
+@:structAccess
 extern class EditorImportWorkflowDefinition {
 	public var ImportFilePath: FilePath;
 	public var FactorySettings: TArray<ImportFactorySettingValues>;
+
+	@:native("FEditorImportWorkflowDefinition") public function new();
+	@:native("FEditorImportWorkflowDefinition") public static function make(ImportFilePath: FilePath, FactorySettings: TArray<ImportFactorySettingValues>): EditorImportWorkflowDefinition ;
 }

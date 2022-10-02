@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnExpandableAreaExpansionChanged__PythonCallable")
+@:structAccess
 extern class OnExpandableAreaExpansionChanged__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

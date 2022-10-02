@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionTextureProperty")
 @:include("Materials/MaterialExpressionTextureProperty.h")
+@:structAccess
 extern class MaterialExpressionTextureProperty extends MaterialExpression {
 	public var TextureObject: ExpressionInput;
 	public var Property: EMaterialExposedTextureProperty;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCubeBuilder")
 @:include("Builders/CubeBuilder.h")
+@:structAccess
 extern class CubeBuilder extends EditorBrushBuilder {
 	public var X: cpp.Float32;
 	public var Y: cpp.Float32;
@@ -11,6 +12,8 @@ extern class CubeBuilder extends EditorBrushBuilder {
 	public var GroupName: FName;
 	public var Hollow: Bool;
 	public var Tessellated: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

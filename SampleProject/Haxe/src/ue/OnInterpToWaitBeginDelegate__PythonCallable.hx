@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnInterpToWaitBeginDelegate__PythonCallable")
+@:structAccess
 extern class OnInterpToWaitBeginDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

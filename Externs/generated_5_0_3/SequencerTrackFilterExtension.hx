@@ -3,7 +3,10 @@ package ue;
 
 @:native("USequencerTrackFilterExtension")
 @:include("SequencerTrackFilterExtension.h")
+@:structAccess
 extern class SequencerTrackFilterExtension extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

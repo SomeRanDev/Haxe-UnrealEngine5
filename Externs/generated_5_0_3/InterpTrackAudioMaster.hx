@@ -3,7 +3,10 @@ package ue;
 
 @:native("UInterpTrackAudioMaster")
 @:include("Matinee/InterpTrackAudioMaster.h")
+@:structAccess
 extern class InterpTrackAudioMaster extends InterpTrackVectorBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

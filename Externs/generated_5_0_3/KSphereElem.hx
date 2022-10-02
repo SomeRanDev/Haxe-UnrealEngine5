@@ -3,8 +3,12 @@ package ue;
 
 @:native("FKSphereElem")
 @:include("PhysicsEngine/SphereElem.h")
+@:structAccess
 extern class KSphereElem extends KShapeElem {
 	public var TM_DEPRECATED: Matrix;
 	public var Center: Vector;
 	public var Radius: cpp.Float32;
+
+	@:native("FKSphereElem") public function new();
+	@:native("FKSphereElem") public static function make(TM_DEPRECATED: Matrix, Center: Vector, Radius: cpp.Float32): KSphereElem ;
 }

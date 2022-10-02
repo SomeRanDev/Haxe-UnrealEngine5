@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialEditorMenuContext")
 @:include("MaterialEditorContext.h")
+@:structAccess
 extern class MaterialEditorMenuContext extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

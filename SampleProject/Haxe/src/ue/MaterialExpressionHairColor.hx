@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionHairColor")
 @:include("Materials/MaterialExpressionHairColor.h")
+@:structAccess
 extern class MaterialExpressionHairColor extends MaterialExpression {
 	public var Melanin: ExpressionInput;
 	public var Redness: ExpressionInput;
 	public var DyeColor: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

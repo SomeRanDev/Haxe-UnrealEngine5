@@ -3,9 +3,12 @@ package ue;
 
 @:native("ANiagaraPerfBaselineActor")
 @:include("NiagaraPerfBaseline.h")
+@:structAccess
 extern class NiagaraPerfBaselineActor extends Actor {
 	public var Controller: cpp.Star<NiagaraBaselineController>;
 	public var Label: cpp.Star<TextRenderComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

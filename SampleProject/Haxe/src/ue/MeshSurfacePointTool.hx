@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMeshSurfacePointTool")
 @:include("BaseTools/MeshSurfacePointTool.h")
+@:structAccess
 extern class MeshSurfacePointTool extends SingleSelectionTool {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

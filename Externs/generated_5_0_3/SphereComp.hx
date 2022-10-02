@@ -3,6 +3,7 @@ package ue;
 
 @:native("USphereComponent")
 @:include("Components/SphereComponent.h")
+@:structAccess
 extern class SphereComp extends ShapeComp {
 	public var SphereRadius: cpp.Float32;
 
@@ -10,6 +11,8 @@ extern class SphereComp extends ShapeComp {
 	public function GetUnscaledSphereRadius(): cpp.Reference<cpp.Float32>;
 	public function GetShapeScale(): cpp.Reference<cpp.Float32>;
 	public function GetScaledSphereRadius(): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetUnscaledSphereRadius, GetShapeScale, GetScaledSphereRadius)

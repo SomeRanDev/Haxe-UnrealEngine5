@@ -3,9 +3,12 @@ package ue;
 
 @:native("UPreviewMeshCollection")
 @:include("Engine/PreviewMeshCollection.h")
+@:structAccess
 extern class PreviewMeshCollection extends DataAsset {
 	public var Skeleton: cpp.Star<Skeleton>;
 	public var SkeletalMeshes: TArray<PreviewMeshCollectionEntry>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

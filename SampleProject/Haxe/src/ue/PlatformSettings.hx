@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPlatformSettings")
 @:include("Engine/PlatformSettings.h")
+@:structAccess
 extern class PlatformSettings extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

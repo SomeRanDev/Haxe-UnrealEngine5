@@ -3,8 +3,11 @@ package ue;
 
 @:native("ULODInfoUILayout")
 @:include("LODInfoUILayout.h")
+@:structAccess
 extern class LODInfoUILayout extends Object {
 	public var LODInfo: SkeletalMeshLODInfo;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

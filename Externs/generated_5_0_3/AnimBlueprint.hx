@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimBlueprint")
 @:include("Animation/AnimBlueprint.h")
+@:structAccess
 extern class AnimBlueprint extends Blueprint {
 	public var TargetSkeleton: cpp.Star<Skeleton>;
 	public var Groups: TArray<AnimGroupInfo>;
@@ -16,6 +17,8 @@ extern class AnimBlueprint extends Blueprint {
 	public var PreviewAnimationBlueprint: TSoftObjectPtr<AnimBlueprint>;
 	public var PreviewAnimationBlueprintApplicationMethod: EPreviewAnimationBlueprintApplicationMethod;
 	public var PreviewAnimationBlueprintTag: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UUserObjectListEntryLibrary")
 @:include("Blueprint/IUserObjectListEntry.h")
+@:structAccess
 extern class UserObjectListEntryLibrary extends BlueprintFunctionLibrary {
 	public function GetListItemObject(UserObjectListEntry: UserObjectListEntry): cpp.Reference<cpp.Star<Object>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

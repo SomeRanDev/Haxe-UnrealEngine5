@@ -3,8 +3,12 @@ package ue;
 
 @:native("FPassiveSoundMixModifier")
 @:include("Sound/SoundClass.h")
+@:structAccess
 extern class PassiveSoundMixModifier {
 	public var SoundMix: cpp.Star<SoundMix>;
 	public var MinVolumeThreshold: cpp.Float32;
 	public var MaxVolumeThreshold: cpp.Float32;
+
+	@:native("FPassiveSoundMixModifier") public function new();
+	@:native("FPassiveSoundMixModifier") public static function make(SoundMix: cpp.Star<SoundMix>, MinVolumeThreshold: cpp.Float32, MaxVolumeThreshold: cpp.Float32): PassiveSoundMixModifier ;
 }

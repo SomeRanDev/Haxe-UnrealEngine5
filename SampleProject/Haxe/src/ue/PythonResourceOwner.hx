@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UPythonResourceOwner")
+@:structAccess
 extern class PythonResourceOwner extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

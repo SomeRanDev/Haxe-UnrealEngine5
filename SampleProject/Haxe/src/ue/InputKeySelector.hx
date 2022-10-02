@@ -3,6 +3,7 @@ package ue;
 
 @:native("UInputKeySelector")
 @:include("Components/InputKeySelector.h")
+@:structAccess
 extern class InputKeySelector extends Widget {
 	public var WidgetStyle: ButtonStyle;
 	public var TextStyle: TextBlockStyle;
@@ -28,6 +29,8 @@ extern class InputKeySelector extends Widget {
 	public function OnKeySelected__DelegateSignature(SelectedKey: InputChord): Void;
 	public function OnIsSelectingKeyChanged__DelegateSignature(): Void;
 	public function GetIsSelectingKey(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetIsSelectingKey)

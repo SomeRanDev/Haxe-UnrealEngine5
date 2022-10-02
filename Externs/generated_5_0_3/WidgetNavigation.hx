@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWidgetNavigation")
 @:include("Blueprint/WidgetNavigation.h")
+@:structAccess
 extern class WidgetNavigation extends Object {
 	public var Up: WidgetNavigationData;
 	public var Down: WidgetNavigationData;
@@ -10,6 +11,8 @@ extern class WidgetNavigation extends Object {
 	public var Right: WidgetNavigationData;
 	public var Next: WidgetNavigationData;
 	public var Previous: WidgetNavigationData;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

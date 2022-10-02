@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraParameterCollectionFactoryNew")
 @:include("NiagaraParameterCollectionFactoryNew.h")
+@:structAccess
 extern class NiagaraParameterCollectionFactoryNew extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

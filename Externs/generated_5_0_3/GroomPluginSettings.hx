@@ -3,8 +3,11 @@ package ue;
 
 @:native("UGroomPluginSettings")
 @:include("GroomPluginSettings.h")
+@:structAccess
 extern class GroomPluginSettings extends Object {
 	public var GroomCacheLookAheadBuffer: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

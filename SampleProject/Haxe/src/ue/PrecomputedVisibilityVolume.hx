@@ -3,7 +3,10 @@ package ue;
 
 @:native("APrecomputedVisibilityVolume")
 @:include("Lightmass/PrecomputedVisibilityVolume.h")
+@:structAccess
 extern class PrecomputedVisibilityVolume extends Volume {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

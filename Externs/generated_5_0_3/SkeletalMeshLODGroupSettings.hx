@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSkeletalMeshLODGroupSettings")
 @:include("Engine/SkeletalMeshLODSettings.h")
+@:structAccess
 extern class SkeletalMeshLODGroupSettings {
 	public var ScreenSize: PerPlatformFloat;
 	public var LODHysteresis: cpp.Float32;
@@ -13,4 +14,6 @@ extern class SkeletalMeshLODGroupSettings {
 	public var WeightOfPrioritization: cpp.Float32;
 	public var BakePose: cpp.Star<AnimSequence>;
 	public var ReductionSettings: SkeletalMeshOptimizationSettings;
+
+	@:native("FSkeletalMeshLODGroupSettings") public function new();
 }

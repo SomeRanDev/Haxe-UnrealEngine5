@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMeshSurfacePointToolBuilder")
 @:include("BaseTools/MeshSurfacePointTool.h")
+@:structAccess
 extern class MeshSurfacePointToolBuilder extends InteractiveToolWithToolTargetsBuilder {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

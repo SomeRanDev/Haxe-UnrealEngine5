@@ -3,6 +3,7 @@ package ue;
 
 @:native("FControlRigComponentMappedElement")
 @:include("ControlRigComponent.h")
+@:structAccess
 extern class ControlRigComponentMappedElement {
 	public var ComponentReference: ComponentReference;
 	public var TransformIndex: cpp.Int32;
@@ -16,4 +17,6 @@ extern class ControlRigComponentMappedElement {
 	public var SceneComponent: cpp.Star<SceneComp>;
 	public var ElementIndex: cpp.Int32;
 	public var SubIndex: cpp.Int32;
+
+	@:native("FControlRigComponentMappedElement") public function new();
 }

@@ -3,9 +3,12 @@ package ue;
 
 @:native("APlayerStart")
 @:include("GameFramework/PlayerStart.h")
+@:structAccess
 extern class PlayerStart extends NavigationObjectBase {
 	public var PlayerStartTag: FName;
 	public var ArrowComponent: cpp.Star<ArrowComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

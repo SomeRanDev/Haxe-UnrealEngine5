@@ -3,10 +3,13 @@ package ue;
 
 @:native("UK2Node_FunctionTerminator")
 @:include("K2Node_FunctionTerminator.h")
+@:structAccess
 extern class K2Node_FunctionTerminator extends K2Node_EditablePinBase {
 	public var FunctionReference: MemberReference;
 	public var SignatureClass_DEPRECATED: TSubclassOf<Object>;
 	public var SignatureName_DEPRECATED: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

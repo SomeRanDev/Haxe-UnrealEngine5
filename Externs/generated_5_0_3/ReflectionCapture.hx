@@ -3,10 +3,13 @@ package ue;
 
 @:native("AReflectionCapture")
 @:include("Engine/ReflectionCapture.h")
+@:structAccess
 extern class ReflectionCapture extends Actor {
 	public var CaptureComponent: cpp.Star<ReflectionCaptureComp>;
 	public var SpriteComponent: cpp.Star<BillboardComp>;
 	public var CaptureOffsetComponent: cpp.Star<BillboardComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UReimportFbxAnimSequenceFactory")
 @:include("Factories/ReimportFbxAnimSequenceFactory.h")
+@:structAccess
 extern class ReimportFbxAnimSequenceFactory extends FbxFactory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

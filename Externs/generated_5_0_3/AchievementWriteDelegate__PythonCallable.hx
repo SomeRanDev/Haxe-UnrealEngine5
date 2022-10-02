@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UAchievementWriteDelegate__PythonCallable")
+@:structAccess
 extern class AchievementWriteDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

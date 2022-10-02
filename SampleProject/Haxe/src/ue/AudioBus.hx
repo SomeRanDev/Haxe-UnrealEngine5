@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAudioBus")
 @:include("Sound/AudioBus.h")
+@:structAccess
 extern class AudioBus extends Object {
 	public var AudioBusChannels: EAudioBusChannels;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

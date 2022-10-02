@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMovieSceneFloatChannel")
 @:include("Channels/MovieSceneFloatChannel.h")
+@:structAccess
 extern class MovieSceneFloatChannel extends MovieSceneChannel {
 	public var PreInfinityExtrap: ERichCurveExtrapolation;
 	public var PostInfinityExtrap: ERichCurveExtrapolation;
@@ -13,4 +14,6 @@ extern class MovieSceneFloatChannel extends MovieSceneChannel {
 	public var KeyHandles: MovieSceneKeyHandleMap;
 	public var TickResolution: FrameRate;
 	public var bShowCurve: Bool;
+
+	@:native("FMovieSceneFloatChannel") public function new();
 }

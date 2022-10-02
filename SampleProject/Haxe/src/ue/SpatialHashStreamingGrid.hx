@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSpatialHashStreamingGrid")
 @:include("WorldPartition/WorldPartitionRuntimeSpatialHash.h")
+@:structAccess
 extern class SpatialHashStreamingGrid {
 	public var GridName: FName;
 	public var Origin: Vector;
@@ -14,4 +15,6 @@ extern class SpatialHashStreamingGrid {
 	public var WorldBounds: Box;
 	public var bClientOnlyVisible: Bool;
 	public var HLODLayer: cpp.Star<HLODLayer>;
+
+	@:native("FSpatialHashStreamingGrid") public function new();
 }

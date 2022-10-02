@@ -3,5 +3,7 @@ package ue;
 
 @:native("FCameraAnimationHandle")
 @:include("CameraAnimationCameraModifier.h")
+@:structAccess
 extern class CameraAnimationHandle {
+	@:native("FCameraAnimationHandle") public function new();
 }

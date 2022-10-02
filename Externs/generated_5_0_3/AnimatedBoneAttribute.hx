@@ -3,7 +3,11 @@ package ue;
 
 @:native("FAnimatedBoneAttribute")
 @:include("Animation/AnimData/AnimDataModel.h")
+@:structAccess
 extern class AnimatedBoneAttribute {
 	public var Identifier: AnimationAttributeIdentifier;
 	public var Curve: AttributeCurve;
+
+	@:native("FAnimatedBoneAttribute") public function new();
+	@:native("FAnimatedBoneAttribute") public static function make(Identifier: AnimationAttributeIdentifier, Curve: AttributeCurve): AnimatedBoneAttribute ;
 }

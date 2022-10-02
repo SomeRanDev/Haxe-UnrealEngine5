@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPythonGeneratedClass")
 @:include("PyWrapperObject.h")
+@:structAccess
 extern class PythonGeneratedClass extends Class {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

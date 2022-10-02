@@ -3,8 +3,11 @@ package ue;
 
 @:native("UTextureRenderTarget")
 @:include("Engine/TextureRenderTarget.h")
+@:structAccess
 extern class TextureRenderTarget extends Texture {
 	public var TargetGamma: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTypedElementListLibrary")
 @:include("Elements/Framework/TypedElementListLibrary.h")
+@:structAccess
 extern class TypedElementListLibrary extends Object {
 	public function Shrink(ElementList: ScriptTypedElementListProxy): Void;
 	public function Reset(ElementList: ScriptTypedElementListProxy): Void;
@@ -24,6 +25,8 @@ extern class TypedElementListLibrary extends Object {
 	public function AppendList(ElementList: ScriptTypedElementListProxy, OtherElementList: ScriptTypedElementListProxy): Void;
 	public function Append(ElementList: ScriptTypedElementListProxy, ElementHandles: cpp.Reference<TArray<ScriptTypedElementHandle>>): Void;
 	public function Add(ElementList: ScriptTypedElementListProxy, ElementHandle: cpp.Reference<ScriptTypedElementHandle>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

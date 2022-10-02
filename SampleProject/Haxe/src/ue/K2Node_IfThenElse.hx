@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_IfThenElse")
 @:include("K2Node_IfThenElse.h")
+@:structAccess
 extern class K2Node_IfThenElse extends K2Node {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

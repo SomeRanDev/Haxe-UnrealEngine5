@@ -3,8 +3,11 @@ package ue;
 
 @:native("UDEditorDoubleVectorParameterValue")
 @:include("MaterialEditor/DEditorDoubleVectorParameterValue.h")
+@:structAccess
 extern class DEditorDoubleVectorParameterValue extends DEditorParameterValue {
 	public var ParameterValue: Vector4d;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

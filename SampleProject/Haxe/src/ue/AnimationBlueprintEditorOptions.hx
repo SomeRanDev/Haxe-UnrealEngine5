@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimationBlueprintEditorOptions")
 @:include("Preferences/AnimationBlueprintEditorOptions.h")
+@:structAccess
 extern class AnimationBlueprintEditorOptions extends Object {
 	public var bHideUnrelatedNodes: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

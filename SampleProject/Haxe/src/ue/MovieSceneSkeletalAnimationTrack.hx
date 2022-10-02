@@ -3,12 +3,15 @@ package ue;
 
 @:native("UMovieSceneSkeletalAnimationTrack")
 @:include("Tracks/MovieSceneSkeletalAnimationTrack.h")
+@:structAccess
 extern class MovieSceneSkeletalAnimationTrack extends MovieSceneNameableTrack {
 	public var AnimationSections: TArray<cpp.Star<MovieSceneSection>>;
 	public var bUseLegacySectionIndexBlend: Bool;
 	public var RootMotionParams: MovieSceneSkeletalAnimRootMotionTrackParams;
 	public var bBlendFirstChildOfRoot: Bool;
 	public var bShowRootMotionTrail: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UTireType")
 @:include("Vehicles/TireType.h")
+@:structAccess
 extern class TireType extends DataAsset {
 	public var FrictionScale: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

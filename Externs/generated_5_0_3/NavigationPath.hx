@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNavigationPath")
 @:include("NavigationPath.h")
+@:structAccess
 extern class NavigationPath extends Object {
 	public var PathUpdatedNotifier: HaxeMulticastSparseDelegateProperty<(cpp.Star<NavigationPath>, ENavPathEvent) -> Void>;
 	public var PathPoints: TArray<Vector>;
@@ -16,6 +17,8 @@ extern class NavigationPath extends Object {
 	public function GetDebugString(): cpp.Reference<FString>;
 	public function EnableRecalculationOnInvalidation(DoRecalculation: ENavigationOptionFlag): Void;
 	public function EnableDebugDrawing(bShouldDrawDebugData: Bool, PathColor: LinearColor): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsValid, IsStringPulled, IsPartial, GetPathLength, GetPathCost, GetDebugString)

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimStateMachineTypes")
 @:include("Animation/AnimStateMachineTypes.h")
+@:structAccess
 extern class AnimStateMachineTypes extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

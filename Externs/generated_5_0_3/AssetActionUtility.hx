@@ -3,9 +3,12 @@ package ue;
 
 @:native("UAssetActionUtility")
 @:include("AssetActionUtility.h")
+@:structAccess
 extern class AssetActionUtility extends EditorUtilityObject {
 	public function IsActionForBlueprints(): cpp.Reference<Bool>;
 	public function GetSupportedClass(): cpp.Reference<cpp.Star<Class>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsActionForBlueprints, GetSupportedClass)

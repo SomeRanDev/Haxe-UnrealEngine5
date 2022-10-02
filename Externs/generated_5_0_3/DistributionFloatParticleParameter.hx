@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDistributionFloatParticleParameter")
 @:include("Distributions/DistributionFloatParticleParameter.h")
+@:structAccess
 extern class DistributionFloatParticleParameter extends DistributionFloatParameterBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

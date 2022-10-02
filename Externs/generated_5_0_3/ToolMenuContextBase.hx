@@ -3,7 +3,10 @@ package ue;
 
 @:native("UToolMenuContextBase")
 @:include("ToolMenuContext.h")
+@:structAccess
 extern class ToolMenuContextBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

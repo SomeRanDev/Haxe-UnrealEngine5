@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEditorUtilityLibrary")
 @:include("EditorUtilityLibrary.h")
+@:structAccess
 extern class EditorUtilityLibrary extends BlueprintFunctionLibrary {
 	public function RenameAsset(Asset: cpp.Star<Object>, NewName: FString): Void;
 	public function GetSelectionSet(): cpp.Reference<TArray<cpp.Star<Actor>>>;
@@ -12,6 +13,8 @@ extern class EditorUtilityLibrary extends BlueprintFunctionLibrary {
 	public function GetSelectedAssetData(): cpp.Reference<TArray<AssetData>>;
 	public function GetCurrentContentBrowserPath(OutPath: cpp.Reference<FString>): cpp.Reference<Bool>;
 	public function GetActorReference(PathToActor: FString): cpp.Reference<cpp.Star<Actor>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

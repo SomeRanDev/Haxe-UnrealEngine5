@@ -3,9 +3,12 @@ package ue;
 
 @:native("UGroomImportOptions")
 @:include("GroomImportOptions.h")
+@:structAccess
 extern class GroomImportOptions extends Object {
 	public var ConversionSettings: GroomConversionSettings;
 	public var InterpolationSettings: TArray<HairGroupsInterpolation>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

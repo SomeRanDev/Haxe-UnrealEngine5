@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPreviewMaterial")
 @:include("MaterialEditor/PreviewMaterial.h")
+@:structAccess
 extern class PreviewMaterial extends Material {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

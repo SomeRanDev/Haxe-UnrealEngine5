@@ -3,6 +3,10 @@ package ue;
 
 @:native("FBandwidthTestItem")
 @:include("Net/BandwidthTestActor.h")
+@:structAccess
 extern class BandwidthTestItem {
 	public var Kilobyte: TArray<cpp.UInt8>;
+
+	@:native("FBandwidthTestItem") public function new();
+	@:native("FBandwidthTestItem") public static function make(Kilobyte: TArray<cpp.UInt8>): BandwidthTestItem ;
 }

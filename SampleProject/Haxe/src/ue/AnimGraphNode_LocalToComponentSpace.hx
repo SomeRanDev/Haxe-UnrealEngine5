@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_LocalToComponentSpace")
 @:include("AnimGraphNode_LocalToComponentSpace.h")
+@:structAccess
 extern class AnimGraphNode_LocalToComponentSpace extends AnimGraphNode_Base {
 	public var Node: AnimNode_ConvertLocalToComponentSpace;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

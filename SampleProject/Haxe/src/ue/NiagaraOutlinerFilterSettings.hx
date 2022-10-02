@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraOutlinerFilterSettings")
 @:include("Private/NiagaraOutliner.h")
+@:structAccess
 extern class NiagaraOutlinerFilterSettings {
 	public var bFilterBySystemExecutionState: Bool;
 	public var bFilterByEmitterExecutionState: Bool;
@@ -12,4 +13,6 @@ extern class NiagaraOutlinerFilterSettings {
 	public var EmitterExecutionState: ENiagaraExecutionState;
 	public var EmitterSimTarget: ENiagaraSimTarget;
 	public var bSystemCullState: Bool;
+
+	@:native("FNiagaraOutlinerFilterSettings") public function new();
 }

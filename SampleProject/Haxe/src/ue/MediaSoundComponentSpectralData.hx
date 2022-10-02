@@ -3,7 +3,11 @@ package ue;
 
 @:native("FMediaSoundComponentSpectralData")
 @:include("MediaSoundComponent.h")
+@:structAccess
 extern class MediaSoundComponentSpectralData {
 	public var FrequencyHz: cpp.Float32;
 	public var Magnitude: cpp.Float32;
+
+	@:native("FMediaSoundComponentSpectralData") public function new();
+	@:native("FMediaSoundComponentSpectralData") public static function make(FrequencyHz: cpp.Float32, Magnitude: cpp.Float32): MediaSoundComponentSpectralData ;
 }

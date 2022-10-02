@@ -3,10 +3,14 @@ package ue;
 
 @:native("FHairGroupsRendering")
 @:include("GroomAssetRendering.h")
+@:structAccess
 extern class HairGroupsRendering {
 	public var MaterialSlotName: FName;
 	public var Material: cpp.Star<MaterialInterface>;
 	public var GeometrySettings: HairGeometrySettings;
 	public var ShadowSettings: HairShadowSettings;
 	public var AdvancedSettings: HairAdvancedRenderingSettings;
+
+	@:native("FHairGroupsRendering") public function new();
+	@:native("FHairGroupsRendering") public static function make(MaterialSlotName: FName, Material: cpp.Star<MaterialInterface>, GeometrySettings: HairGeometrySettings, ShadowSettings: HairShadowSettings, AdvancedSettings: HairAdvancedRenderingSettings): HairGroupsRendering ;
 }

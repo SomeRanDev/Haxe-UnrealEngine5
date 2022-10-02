@@ -3,11 +3,14 @@ package ue;
 
 @:native("UNiagaraParameterDefinitions")
 @:include("NiagaraParameterDefinitions.h")
+@:structAccess
 extern class NiagaraParameterDefinitions extends NiagaraParameterDefinitionsBase {
 	public var bPromoteToTopInAddMenus: Bool;
 	public var MenuSortOrder: cpp.Int32;
 	public var ScriptVariables: TArray<cpp.Star<NiagaraScriptVariable>>;
 	public var ExternalParameterDefinitionsSubscriptions: TArray<ParameterDefinitionsBindingNameSubscription>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

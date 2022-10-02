@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_ApplyLimits")
 @:include("AnimGraphNode_ApplyLimits.h")
+@:structAccess
 extern class AnimGraphNode_ApplyLimits extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_ApplyLimits;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

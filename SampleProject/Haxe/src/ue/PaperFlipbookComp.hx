@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPaperFlipbookComponent")
 @:include("PaperFlipbookComponent.h")
+@:structAccess
 extern class PaperFlipbookComp extends MeshComp {
 	public var SourceFlipbook: cpp.Star<PaperFlipbook>;
 	public var Material_DEPRECATED: cpp.Star<MaterialInterface>;
@@ -40,6 +41,8 @@ extern class PaperFlipbookComp extends MeshComp {
 	public function GetFlipbookLength(): cpp.Reference<cpp.Float32>;
 	public function GetFlipbookFramerate(): cpp.Reference<cpp.Float32>;
 	public function GetFlipbook(): cpp.Reference<cpp.Star<PaperFlipbook>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

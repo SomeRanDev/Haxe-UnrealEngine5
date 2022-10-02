@@ -3,7 +3,10 @@ package ue;
 
 @:native("UARBaseAsyncTaskBlueprintProxy")
 @:include("ARBlueprintProxy.h")
+@:structAccess
 extern class ARBaseAsyncTaskBlueprintProxy extends BlueprintAsyncActionBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

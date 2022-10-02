@@ -3,6 +3,7 @@ package ue;
 
 @:native("ADecalActor")
 @:include("Engine/DecalActor.h")
+@:structAccess
 extern class DecalActor extends Actor {
 	public var Decal: cpp.Star<DecalComp>;
 	public var ArrowComponent: cpp.Star<ArrowComp>;
@@ -12,6 +13,8 @@ extern class DecalActor extends Actor {
 	public function SetDecalMaterial(NewDecalMaterial: cpp.Star<MaterialInterface>): Void;
 	public function GetDecalMaterial(): cpp.Reference<cpp.Star<MaterialInterface>>;
 	public function CreateDynamicMaterialInstance(): cpp.Reference<cpp.Star<MaterialInstanceDynamic>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetDecalMaterial)

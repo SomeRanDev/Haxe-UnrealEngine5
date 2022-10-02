@@ -3,7 +3,10 @@ package ue;
 
 @:native("USoundConcurrencyFactory")
 @:include("Factories/SoundConcurrencyFactory.h")
+@:structAccess
 extern class SoundConcurrencyFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

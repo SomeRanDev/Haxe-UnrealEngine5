@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_PoseBlendNode")
 @:include("AnimGraphNode_PoseBlendNode.h")
+@:structAccess
 extern class AnimGraphNode_PoseBlendNode extends AnimGraphNode_PoseHandler {
 	public var Node: AnimNode_PoseBlendNode;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

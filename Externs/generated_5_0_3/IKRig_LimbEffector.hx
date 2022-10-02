@@ -3,9 +3,12 @@ package ue;
 
 @:native("UIKRig_LimbEffector")
 @:include("Solvers/IKRig_LimbSolver.h")
+@:structAccess
 extern class IKRig_LimbEffector extends Object {
 	public var GoalName: FName;
 	public var BoneName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

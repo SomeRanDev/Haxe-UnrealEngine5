@@ -3,11 +3,14 @@ package ue;
 
 @:native("UVREditorPlacement")
 @:include("VREditorPlacement.h")
+@:structAccess
 extern class VREditorPlacement extends Object {
 	public var VRMode: cpp.Star<VREditorMode>;
 	public var ViewportWorldInteraction: cpp.Star<ViewportWorldInteraction>;
 	public var FloatingUIAssetDraggedFrom: cpp.Star<WidgetComp>;
 	public var PlacingMaterialOrTextureAsset: cpp.Star<Object>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

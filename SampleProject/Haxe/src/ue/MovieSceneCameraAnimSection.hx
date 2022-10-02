@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneCameraAnimSection")
 @:include("Sections/MovieSceneCameraAnimSection.h")
+@:structAccess
 extern class MovieSceneCameraAnimSection extends MovieSceneSection {
 	public var AnimData: MovieSceneCameraAnimSectionData;
 	public var CameraAnim_DEPRECATED: cpp.Star<CameraAnim>;
@@ -11,6 +12,8 @@ extern class MovieSceneCameraAnimSection extends MovieSceneSection {
 	public var BlendInTime_DEPRECATED: cpp.Float32;
 	public var BlendOutTime_DEPRECATED: cpp.Float32;
 	public var bLooping_DEPRECATED: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

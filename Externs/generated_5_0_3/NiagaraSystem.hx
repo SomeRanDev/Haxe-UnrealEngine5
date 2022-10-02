@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraSystem")
 @:include("NiagaraSystem.h")
+@:structAccess
 extern class NiagaraSystem extends FXSystemAsset {
 	public var ThumbnailImage: cpp.Star<Texture2D>;
 	public var ThumbnailImageOutOfDate: Bool;
@@ -70,6 +71,8 @@ extern class NiagaraSystem extends FXSystemAsset {
 	public var bNeedsGPUContextInitForDataInterfaces: Bool;
 	public var UserDINamesReadInSystemScripts: TArray<FName>;
 	public var MessageKeyToMessageMap: TMap<Guid, cpp.Star<NiagaraMessageDataBase>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

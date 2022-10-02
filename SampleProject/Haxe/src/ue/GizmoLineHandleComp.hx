@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGizmoLineHandleComponent")
 @:include("BaseGizmos/GizmoLineHandleComponent.h")
+@:structAccess
 extern class GizmoLineHandleComp extends GizmoBaseComp {
 	public var Normal: Vector;
 	public var HandleSize: cpp.Float32;
@@ -10,6 +11,8 @@ extern class GizmoLineHandleComp extends GizmoBaseComp {
 	public var Direction: Vector;
 	public var Length: cpp.Float32;
 	public var bImageScale: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

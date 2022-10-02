@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAutomatedAssetImportData")
 @:include("AutomatedAssetImportData.h")
+@:structAccess
 extern class AutomatedAssetImportData extends Object {
 	public var GroupName: FString;
 	public var Filenames: TArray<FString>;
@@ -12,6 +13,8 @@ extern class AutomatedAssetImportData extends Object {
 	public var bSkipReadOnly: Bool;
 	public var Factory: cpp.Star<Factory>;
 	public var LevelToLoad: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

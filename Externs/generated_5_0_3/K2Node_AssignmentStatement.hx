@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_AssignmentStatement")
 @:include("K2Node_AssignmentStatement.h")
+@:structAccess
 extern class K2Node_AssignmentStatement extends K2Node {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAIDamageEvent")
 @:include("Perception/AISense_Damage.h")
+@:structAccess
 extern class AIDamageEvent {
 	public var Amount: cpp.Float32;
 	public var Location: Vector;
@@ -10,4 +11,6 @@ extern class AIDamageEvent {
 	public var DamagedActor: cpp.Star<Actor>;
 	public var Instigator: cpp.Star<Actor>;
 	public var Tag: FName;
+
+	@:native("FAIDamageEvent") public function new();
 }

@@ -3,12 +3,15 @@ package ue;
 
 @:native("UK2Node_Tunnel")
 @:include("K2Node_Tunnel.h")
+@:structAccess
 extern class K2Node_Tunnel extends K2Node_EditablePinBase {
 	public var OutputSourceNode: cpp.Star<K2Node_Tunnel>;
 	public var InputSinkNode: cpp.Star<K2Node_Tunnel>;
 	public var bCanHaveInputs: Bool;
 	public var bCanHaveOutputs: Bool;
 	public var MetaData: KismetUserDeclaredFunctionMetadata;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UBasicOverlays")
 @:include("BasicOverlays.h")
+@:structAccess
 extern class BasicOverlays extends Overlays {
 	public var Overlays: TArray<OverlayItem>;
 	public var AssetImportData: cpp.Star<AssetImportData>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,12 @@ package ue;
 
 @:native("FHairMaterialConstraints")
 @:include("GroomAssetPhysics.h")
+@:structAccess
 extern class HairMaterialConstraints {
 	public var BendConstraint: HairBendConstraint;
 	public var StretchConstraint: HairStretchConstraint;
 	public var CollisionConstraint: HairCollisionConstraint;
+
+	@:native("FHairMaterialConstraints") public function new();
+	@:native("FHairMaterialConstraints") public static function make(BendConstraint: HairBendConstraint, StretchConstraint: HairStretchConstraint, CollisionConstraint: HairCollisionConstraint): HairMaterialConstraints ;
 }

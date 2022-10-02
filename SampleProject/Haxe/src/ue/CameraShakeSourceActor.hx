@@ -3,8 +3,11 @@ package ue;
 
 @:native("ACameraShakeSourceActor")
 @:include("Camera/CameraShakeSourceActor.h")
+@:structAccess
 extern class CameraShakeSourceActor extends Actor {
 	public var CameraShakeSourceComponent: cpp.Star<CameraShakeSourceComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

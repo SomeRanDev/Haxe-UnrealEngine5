@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSimulationStageMetaData")
 @:include("NiagaraScriptBase.h")
+@:structAccess
 extern class SimulationStageMetaData {
 	public var SimulationStageName: FName;
 	public var EnabledBinding: FName;
@@ -18,4 +19,6 @@ extern class SimulationStageMetaData {
 	public var NumIterationsBinding: FName;
 	public var GpuDispatchType: ENiagaraGpuDispatchType;
 	public var GpuDispatchNumThreads: IntVector;
+
+	@:native("FSimulationStageMetaData") public function new();
 }

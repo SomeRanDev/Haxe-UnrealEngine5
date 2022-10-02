@@ -3,8 +3,11 @@ package ue;
 
 @:native("UParticleModuleLocationPrimitiveSphere")
 @:include("Particles/Location/ParticleModuleLocationPrimitiveSphere.h")
+@:structAccess
 extern class ParticleModuleLocationPrimitiveSphere extends ParticleModuleLocationPrimitiveBase {
 	public var StartRadius: RawDistributionFloat;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

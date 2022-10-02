@@ -3,8 +3,11 @@ package ue;
 
 @:native("UGizmoObjectTransformChangeStateTarget")
 @:include("EditorGizmos/GizmoObjectStateTargets.h")
+@:structAccess
 extern class GizmoObjectTransformChangeStateTarget extends Object {
 	public var TransactionManager: ToolContextTransactionProvider;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

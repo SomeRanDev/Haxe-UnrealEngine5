@@ -3,11 +3,14 @@ package ue;
 
 @:native("UNiagaraDataInterfaceVectorField")
 @:include("NiagaraDataInterfaceVectorField.h")
+@:structAccess
 extern class NiagaraDataInterfaceVectorField extends NiagaraDataInterface {
 	public var Field: cpp.Star<VectorField>;
 	public var bTileX: Bool;
 	public var bTileY: Bool;
 	public var bTileZ: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_BlendBoneByChannel")
 @:include("AnimNodes/AnimNode_BlendBoneByChannel.h")
+@:structAccess
 extern class AnimNode_BlendBoneByChannel extends AnimNode_Base {
 	public var A: PoseLink;
 	public var B: PoseLink;
@@ -10,4 +11,6 @@ extern class AnimNode_BlendBoneByChannel extends AnimNode_Base {
 	public var Alpha: cpp.Float32;
 	public var AlphaScaleBias: InputScaleBias;
 	public var TransformsSpace: EBoneControlSpace;
+
+	@:native("FAnimNode_BlendBoneByChannel") public function new();
 }

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraDataInterfaceArrayColor")
 @:include("NiagaraDataInterfaceArrayFloat.h")
+@:structAccess
 extern class NiagaraDataInterfaceArrayColor extends NiagaraDataInterfaceArray {
 	public var ColorData: TArray<LinearColor>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

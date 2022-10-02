@@ -3,12 +3,15 @@ package ue;
 
 @:native("UEnvQueryGenerator_PerceivedActors")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_PerceivedActors.h")
+@:structAccess
 extern class EnvQueryGenerator_PerceivedActors extends EnvQueryGenerator {
 	public var AllowedActorClass: TSubclassOf<Actor>;
 	public var SearchRadius: AIDataProviderFloatValue;
 	public var ListenerContext: TSubclassOf<EnvQueryContext>;
 	public var SenseToUse: TSubclassOf<AISense>;
 	public var bIncludeKnownActors: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

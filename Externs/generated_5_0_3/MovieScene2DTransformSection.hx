@@ -3,12 +3,15 @@ package ue;
 
 @:native("UMovieScene2DTransformSection")
 @:include("Animation/MovieScene2DTransformSection.h")
+@:structAccess
 extern class MovieScene2DTransformSection extends MovieSceneSection {
 	public var TransformMask: MovieScene2DTransformMask;
 	public var Translation: MovieSceneFloatChannel;
 	public var Rotation: MovieSceneFloatChannel;
 	public var Scale: MovieSceneFloatChannel;
 	public var Shear: MovieSceneFloatChannel;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

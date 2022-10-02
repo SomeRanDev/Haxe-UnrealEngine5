@@ -3,7 +3,10 @@ package ue;
 
 @:native("UForceFeedbackEffectFactory")
 @:include("Factories/ForceFeedbackEffectFactory.h")
+@:structAccess
 extern class ForceFeedbackEffectFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("ULevelScriptBlueprint")
 @:include("Engine/LevelScriptBlueprint.h")
+@:structAccess
 extern class LevelScriptBlueprint extends Blueprint {
 	public var FriendlyName: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

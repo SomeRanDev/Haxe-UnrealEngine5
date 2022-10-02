@@ -3,9 +3,12 @@ package ue;
 
 @:native("UInterpTrackInstProperty")
 @:include("Matinee/InterpTrackInstProperty.h")
+@:structAccess
 extern class InterpTrackInstProperty extends InterpTrackInst {
 	public var InterpProperty: TFieldPath<FProperty>;
 	public var PropertyOuterObjectInst: cpp.Star<Object>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

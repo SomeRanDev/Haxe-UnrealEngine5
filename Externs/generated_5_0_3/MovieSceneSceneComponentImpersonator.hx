@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UMovieSceneSceneComponentImpersonator")
+@:structAccess
 extern class MovieSceneSceneComponentImpersonator extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

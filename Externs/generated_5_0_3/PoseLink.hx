@@ -3,5 +3,7 @@ package ue;
 
 @:native("FPoseLink")
 @:include("Animation/AnimNodeBase.h")
+@:structAccess
 extern class PoseLink extends PoseLinkBase {
+	@:native("FPoseLink") public function new();
 }

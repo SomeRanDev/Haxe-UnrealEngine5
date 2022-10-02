@@ -3,7 +3,11 @@ package ue;
 
 @:native("FNodeItem")
 @:include("Animation/NodeMappingProviderInterface.h")
+@:structAccess
 extern class NodeItem {
 	public var ParentName: FName;
 	public var Transform: Transform;
+
+	@:native("FNodeItem") public function new();
+	@:native("FNodeItem") public static function make(ParentName: FName, Transform: Transform): NodeItem ;
 }

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_GetDataTableRow")
 @:include("K2Node_GetDataTableRow.h")
+@:structAccess
 extern class K2Node_GetDataTableRow extends K2Node {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

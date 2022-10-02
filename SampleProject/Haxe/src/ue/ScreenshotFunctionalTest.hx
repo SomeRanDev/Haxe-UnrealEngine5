@@ -3,8 +3,11 @@ package ue;
 
 @:native("AScreenshotFunctionalTest")
 @:include("ScreenshotFunctionalTest.h")
+@:structAccess
 extern class ScreenshotFunctionalTest extends ScreenshotFunctionalTestBase {
 	public var bCameraCutOnScreenshotPrep: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

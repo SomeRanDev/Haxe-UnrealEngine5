@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneEventRepeaterSection")
 @:include("Sections/MovieSceneEventRepeaterSection.h")
+@:structAccess
 extern class MovieSceneEventRepeaterSection extends MovieSceneEventSectionBase {
 	public var Event: MovieSceneEvent;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

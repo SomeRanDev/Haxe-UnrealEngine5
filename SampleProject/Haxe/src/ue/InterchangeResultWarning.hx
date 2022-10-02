@@ -3,7 +3,10 @@ package ue;
 
 @:native("UInterchangeResultWarning")
 @:include("InterchangeResult.h")
+@:structAccess
 extern class InterchangeResultWarning extends InterchangeResult {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

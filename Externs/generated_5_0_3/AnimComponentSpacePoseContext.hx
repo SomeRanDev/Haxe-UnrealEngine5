@@ -3,5 +3,7 @@ package ue;
 
 @:native("FAnimComponentSpacePoseContext")
 @:include("Animation/AnimExecutionContext.h")
+@:structAccess
 extern class AnimComponentSpacePoseContext extends AnimExecutionContext {
+	@:native("FAnimComponentSpacePoseContext") public function new();
 }

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UARTextureCameraImage")
 @:include("ARTextures.h")
+@:structAccess
 extern class ARTextureCameraImage extends ARTexture {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

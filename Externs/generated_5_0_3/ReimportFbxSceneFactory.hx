@@ -3,8 +3,11 @@ package ue;
 
 @:native("UReimportFbxSceneFactory")
 @:include("Factories/ReimportFbxSceneFactory.h")
+@:structAccess
 extern class ReimportFbxSceneFactory extends FbxSceneImportFactory {
 	public function ScriptReimportHelper(Obj: cpp.Star<Object>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

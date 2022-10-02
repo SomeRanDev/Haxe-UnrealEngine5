@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UCrowdAgentInterface")
+@:structAccess
 extern class CrowdAgentInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

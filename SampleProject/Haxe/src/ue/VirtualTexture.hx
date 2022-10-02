@@ -3,7 +3,10 @@ package ue;
 
 @:native("UVirtualTexture")
 @:include("VT/VirtualTexture.h")
+@:structAccess
 extern class VirtualTexture extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

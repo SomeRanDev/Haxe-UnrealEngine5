@@ -3,7 +3,10 @@ package ue;
 
 @:native("UTestCameraShake")
 @:include("Tests/CameraShakeTestObjects.h")
+@:structAccess
 extern class TestCameraShake extends CameraShakeBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

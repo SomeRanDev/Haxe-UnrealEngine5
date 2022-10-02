@@ -2,7 +2,10 @@
 package ue;
 
 @:native("ULODSyncInterface")
+@:structAccess
 extern class LODSyncInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

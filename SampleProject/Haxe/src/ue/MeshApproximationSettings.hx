@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMeshApproximationSettings")
 @:include("Engine/MeshMerging.h")
+@:structAccess
 extern class MeshApproximationSettings {
 	public var OutputType: EMeshApproximationType;
 	public var ApproximationAccuracy: cpp.Float32;
@@ -44,4 +45,6 @@ extern class MeshApproximationSettings {
 	public var bEnableParallelBaking: Bool;
 	public var bPrintDebugMessages: Bool;
 	public var bEmitFullDebugMesh: Bool;
+
+	@:native("FMeshApproximationSettings") public function new();
 }

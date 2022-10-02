@@ -3,10 +3,13 @@ package ue;
 
 @:native("UBlackboardKeyType_Enum")
 @:include("BehaviorTree/Blackboard/BlackboardKeyType_Enum.h")
+@:structAccess
 extern class BlackboardKeyType_Enum extends BlackboardKeyType {
 	public var EnumType: cpp.Star<Enum>;
 	public var EnumName: FString;
 	public var bIsEnumNameValid: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

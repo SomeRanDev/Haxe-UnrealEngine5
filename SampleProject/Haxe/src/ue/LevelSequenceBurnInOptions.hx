@@ -3,12 +3,15 @@ package ue;
 
 @:native("ULevelSequenceBurnInOptions")
 @:include("LevelSequenceActor.h")
+@:structAccess
 extern class LevelSequenceBurnInOptions extends Object {
 	public var bUseBurnIn: Bool;
 	public var BurnInClass: SoftClassPath;
 	public var Settings: cpp.Star<LevelSequenceBurnInInitSettings>;
 
 	public function SetBurnIn(InBurnInClass: SoftClassPath): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

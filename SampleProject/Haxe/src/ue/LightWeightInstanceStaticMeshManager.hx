@@ -3,6 +3,7 @@ package ue;
 
 @:native("ALightWeightInstanceStaticMeshManager")
 @:include("GameFramework/LightWeightInstanceStaticMeshManager.h")
+@:structAccess
 extern class LightWeightInstanceStaticMeshManager extends LightWeightInstanceManager {
 	public var StaticMesh: TSoftObjectPtr<StaticMesh>;
 	public var InstancedStaticMeshComponent: cpp.Star<HierarchicalInstancedStaticMeshComp>;
@@ -10,6 +11,8 @@ extern class LightWeightInstanceStaticMeshManager extends LightWeightInstanceMan
 	public var DataIndicesToRenderingIndices: TArray<cpp.Int32>;
 
 	public function OnRep_StaticMesh(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMovieSceneUserThumbnailSettings")
 @:include("MovieSceneToolsUserSettings.h")
+@:structAccess
 extern class MovieSceneUserThumbnailSettings extends Object {
 	public var bDrawThumbnails: Bool;
 	public var bDrawSingleThumbnails: Bool;
 	public var ThumbnailSize: IntPoint;
 	public var Quality: EThumbnailQuality;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

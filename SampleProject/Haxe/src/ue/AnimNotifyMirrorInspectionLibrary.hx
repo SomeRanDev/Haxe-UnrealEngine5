@@ -3,9 +3,12 @@ package ue;
 
 @:native("UAnimNotifyMirrorInspectionLibrary")
 @:include("Animation/AnimNotifyMirrorInspectionLibrary.h")
+@:structAccess
 extern class AnimNotifyMirrorInspectionLibrary extends BlueprintFunctionLibrary {
 	public function IsTriggeredByMirroredAnimation(EventReference: cpp.Reference<AnimNotifyEventReference>): cpp.Reference<Bool>;
 	public function GetMirrorDataTable(EventReference: cpp.Reference<AnimNotifyEventReference>): cpp.Reference<cpp.Star<MirrorDataTable.ConstMirrorDataTable>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

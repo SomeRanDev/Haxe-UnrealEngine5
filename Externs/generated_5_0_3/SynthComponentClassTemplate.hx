@@ -3,7 +3,10 @@ package ue;
 
 @:native("USynthComponentClassTemplate")
 @:include("SoundClassTemplates.h")
+@:structAccess
 extern class SynthComponentClassTemplate extends ClassTemplate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

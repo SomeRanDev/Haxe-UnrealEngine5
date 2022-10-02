@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPersonaPreviewSceneDescription")
 @:include("PersonaPreviewSceneDescription.h")
+@:structAccess
 extern class PersonaPreviewSceneDescription extends Object {
 	public var PreviewController: TSubclassOf<PersonaPreviewSceneController>;
 	public var PreviewControllerInstance: cpp.Star<PersonaPreviewSceneController>;
@@ -13,6 +14,8 @@ extern class PersonaPreviewSceneDescription extends Object {
 	public var LinkedAnimGraphTag: FName;
 	public var AdditionalMeshes: TSoftObjectPtr<DataAsset>;
 	public var DefaultAdditionalMeshes: cpp.Star<PreviewMeshCollection>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

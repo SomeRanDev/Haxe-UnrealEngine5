@@ -3,10 +3,14 @@ package ue;
 
 @:native("FMeterResults")
 @:include("Meter.h")
+@:structAccess
 extern class MeterResults {
 	public var TimeSeconds: cpp.Float32;
 	public var MeterValue: cpp.Float32;
 	public var PeakValue: cpp.Float32;
 	public var NumSamplesClipping: cpp.Int32;
 	public var ClippingValue: cpp.Float32;
+
+	@:native("FMeterResults") public function new();
+	@:native("FMeterResults") public static function make(TimeSeconds: cpp.Float32, MeterValue: cpp.Float32, PeakValue: cpp.Float32, NumSamplesClipping: cpp.Int32, ClippingValue: cpp.Float32): MeterResults ;
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULevelEditorMiscSettings")
 @:include("Settings/LevelEditorMiscSettings.h")
+@:structAccess
 extern class LevelEditorMiscSettings extends DeveloperSettings {
 	public var bAutoApplyLightingEnable: Bool;
 	public var bBSPAutoUpdate: Bool;
@@ -22,6 +23,8 @@ extern class LevelEditorMiscSettings extends DeveloperSettings {
 	public var PercentageThresholdForPrompt: cpp.Float32;
 	public var MinimumBoundsForCheckingSize: Vector;
 	public var EditorScreenshotSaveDirectory: DirectoryPath;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

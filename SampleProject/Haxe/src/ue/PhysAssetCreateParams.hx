@@ -3,6 +3,7 @@ package ue;
 
 @:native("FPhysAssetCreateParams")
 @:include("PhysicsAssetUtils.h")
+@:structAccess
 extern class PhysAssetCreateParams {
 	public var MinBoneSize: cpp.Float32;
 	public var MinWeldSize: cpp.Float32;
@@ -16,4 +17,6 @@ extern class PhysAssetCreateParams {
 	public var AngularConstraintMode: EAngularConstraintMotion;
 	public var HullCount: cpp.Int32;
 	public var MaxHullVerts: cpp.Int32;
+
+	@:native("FPhysAssetCreateParams") public function new();
 }

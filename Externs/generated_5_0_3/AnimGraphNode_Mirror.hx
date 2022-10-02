@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_Mirror")
 @:include("AnimGraphNode_Mirror.h")
+@:structAccess
 extern class AnimGraphNode_Mirror extends AnimGraphNode_Base {
 	public var Node: AnimNode_Mirror;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

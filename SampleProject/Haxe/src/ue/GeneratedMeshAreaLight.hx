@@ -3,7 +3,10 @@ package ue;
 
 @:native("AGeneratedMeshAreaLight")
 @:include("Engine/GeneratedMeshAreaLight.h")
+@:structAccess
 extern class GeneratedMeshAreaLight extends SpotLight {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

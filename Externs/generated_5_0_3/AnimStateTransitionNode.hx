@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimStateTransitionNode")
 @:include("AnimStateTransitionNode.h")
+@:structAccess
 extern class AnimStateTransitionNode extends AnimStateNodeBase {
 	public var BoundGraph: cpp.Star<EdGraph>;
 	public var CustomTransitionGraph: cpp.Star<EdGraph>;
@@ -27,6 +28,8 @@ extern class AnimStateTransitionNode extends AnimStateNodeBase {
 	public var SharedCrossfadeName: FString;
 	public var SharedCrossfadeGuid: Guid;
 	public var SharedCrossfadeIdx: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

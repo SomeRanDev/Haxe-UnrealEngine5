@@ -3,7 +3,10 @@ package ue;
 
 @:native("UChaosSolver")
 @:include("Chaos/ChaosSolver.h")
+@:structAccess
 extern class ChaosSolver extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

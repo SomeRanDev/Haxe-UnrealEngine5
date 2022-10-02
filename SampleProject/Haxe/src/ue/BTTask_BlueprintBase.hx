@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBTTask_BlueprintBase")
 @:include("BehaviorTree/Tasks/BTTask_BlueprintBase.h")
+@:structAccess
 extern class BTTask_BlueprintBase extends BTTaskNode {
 	public var AIOwner: cpp.Star<AIController>;
 	public var ActorOwner: cpp.Star<Actor>;
@@ -22,6 +23,8 @@ extern class BTTask_BlueprintBase extends BTTaskNode {
 	public function IsTaskAborting(): cpp.Reference<Bool>;
 	public function FinishExecute(bSuccess: Bool): Void;
 	public function FinishAbort(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsTaskExecuting, IsTaskAborting)

@@ -3,12 +3,15 @@ package ue;
 
 @:native("UUnrealEdOptions")
 @:include("Preferences/UnrealEdOptions.h")
+@:structAccess
 extern class UnrealEdOptions extends Object {
 	public var EditorCategories: TArray<EditorCommandCategory>;
 	public var EditorCommands: TArray<EditorCommand>;
 	public var EditorKeyBindings: cpp.Star<UnrealEdKeyBindings>;
 	public var bExpandClassPickerClassList: Bool;
 	public var NewAssetDefaultClasses: TArray<ClassPickerDefaults>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,13 @@ package ue;
 
 @:native("FHairShadowSettings")
 @:include("GroomAssetRendering.h")
+@:structAccess
 extern class HairShadowSettings {
 	public var HairShadowDensity: cpp.Float32;
 	public var HairRaytracingRadiusScale: cpp.Float32;
 	public var bUseHairRaytracingGeometry: Bool;
 	public var bVoxelize: Bool;
+
+	@:native("FHairShadowSettings") public function new();
+	@:native("FHairShadowSettings") public static function make(HairShadowDensity: cpp.Float32, HairRaytracingRadiusScale: cpp.Float32, bUseHairRaytracingGeometry: Bool, bVoxelize: Bool): HairShadowSettings ;
 }

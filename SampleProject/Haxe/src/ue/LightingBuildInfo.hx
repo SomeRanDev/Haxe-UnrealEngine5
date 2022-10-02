@@ -3,6 +3,7 @@ package ue;
 
 @:native("ULightingBuildInfo")
 @:include("LightingBuildInfo.h")
+@:structAccess
 extern class LightingBuildInfo extends Object {
 	public var Object: TWeakObjectPtr<Object>;
 	public var LightingTime: cpp.Float32;
@@ -10,6 +11,8 @@ extern class LightingBuildInfo extends Object {
 	public var UnmappedTexelsMemory: cpp.Float32;
 	public var TotalTexelMemory: cpp.Float32;
 	public var LevelName: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

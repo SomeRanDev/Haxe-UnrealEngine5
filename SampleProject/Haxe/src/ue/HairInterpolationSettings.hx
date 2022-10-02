@@ -3,6 +3,7 @@ package ue;
 
 @:native("FHairInterpolationSettings")
 @:include("GroomAssetInterpolation.h")
+@:structAccess
 extern class HairInterpolationSettings {
 	public var bOverrideGuides: Bool;
 	public var HairToGuideDensity: cpp.Float32;
@@ -10,4 +11,6 @@ extern class HairInterpolationSettings {
 	public var InterpolationDistance: EHairInterpolationWeight;
 	public var bRandomizeGuide: Bool;
 	public var bUseUniqueGuide: Bool;
+
+	@:native("FHairInterpolationSettings") public function new();
 }

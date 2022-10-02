@@ -3,8 +3,12 @@ package ue;
 
 @:native("FRotator")
 @:include("UObject/NoExportTypes.h")
+@:structAccess
 extern class Rotator {
 	public var Pitch: cpp.Float64;
 	public var Yaw: cpp.Float64;
 	public var Roll: cpp.Float64;
+
+	@:native("FRotator") public function new();
+	@:native("FRotator") public static function make(Pitch: cpp.Float64, Yaw: cpp.Float64, Roll: cpp.Float64): Rotator ;
 }

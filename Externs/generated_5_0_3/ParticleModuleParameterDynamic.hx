@@ -3,10 +3,13 @@ package ue;
 
 @:native("UParticleModuleParameterDynamic")
 @:include("Particles/Parameter/ParticleModuleParameterDynamic.h")
+@:structAccess
 extern class ParticleModuleParameterDynamic extends ParticleModuleParameterBase {
 	public var DynamicParams: TArray<EmitterDynamicParameter>;
 	public var UpdateFlags: cpp.Int32;
 	public var bUsesVelocity: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

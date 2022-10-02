@@ -3,6 +3,7 @@ package ue;
 
 @:native("FToolMenuSection")
 @:include("ToolMenuSection.h")
+@:structAccess
 extern class ToolMenuSection {
 	public var Name: FName;
 	public var Owner: ToolMenuOwner;
@@ -10,4 +11,6 @@ extern class ToolMenuSection {
 	public var InsertPosition: ToolMenuInsert;
 	public var Context: ToolMenuContext;
 	public var ToolMenuSectionDynamic: cpp.Star<ToolMenuSectionDynamic>;
+
+	@:native("FToolMenuSection") public function new();
 }

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UVREditorWidgetComponent")
 @:include("VREditorWidgetComponent.h")
+@:structAccess
 extern class VREditorWidgetComp extends WidgetComp {
 	public var DrawingPolicy: EVREditorWidgetDrawingPolicy;
 	public var bIsHovering: Bool;
 	public var bHasEverDrawn: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAISenseEvent_Hearing")
 @:include("Perception/AISenseEvent_Hearing.h")
+@:structAccess
 extern class AISenseEvent_Hearing extends AISenseEvent {
 	public var Event: AINoiseEvent;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

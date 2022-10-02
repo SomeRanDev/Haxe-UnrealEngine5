@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDatasmithImportOptions")
 @:include("DatasmithImportOptions.h")
+@:structAccess
 extern class DatasmithImportOptions extends DatasmithOptionsBase {
 	public var SearchPackagePolicy: EDatasmithImportSearchPackagePolicy;
 	public var MaterialConflictPolicy: EDatasmithImportAssetConflictPolicy;
@@ -17,6 +18,8 @@ extern class DatasmithImportOptions extends DatasmithOptionsBase {
 	public var FileName: FString;
 	public var FilePath: FString;
 	public var SourceUri: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

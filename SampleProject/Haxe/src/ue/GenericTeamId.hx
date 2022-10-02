@@ -3,6 +3,10 @@ package ue;
 
 @:native("FGenericTeamId")
 @:include("GenericTeamAgentInterface.h")
+@:structAccess
 extern class GenericTeamId {
 	public var TeamID: cpp.UInt8;
+
+	@:native("FGenericTeamId") public function new();
+	@:native("FGenericTeamId") public static function make(TeamID: cpp.UInt8): GenericTeamId ;
 }

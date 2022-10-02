@@ -3,6 +3,7 @@ package ue;
 
 @:native("FHairGroupsCardsSourceDescription")
 @:include("GroomAssetCards.h")
+@:structAccess
 extern class HairGroupsCardsSourceDescription {
 	public var Material: cpp.Star<MaterialInterface>;
 	public var MaterialSlotName: FName;
@@ -16,4 +17,6 @@ extern class HairGroupsCardsSourceDescription {
 	public var LODIndex: cpp.Int32;
 	public var CardsInfo: HairGroupCardsInfo;
 	public var ImportedMeshKey: FString;
+
+	@:native("FHairGroupsCardsSourceDescription") public function new();
 }

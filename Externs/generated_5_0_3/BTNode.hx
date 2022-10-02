@@ -3,10 +3,13 @@ package ue;
 
 @:native("UBTNode")
 @:include("BehaviorTree/BTNode.h")
+@:structAccess
 extern class BTNode extends Object {
 	public var NodeName: FString;
 	public var TreeAsset: cpp.Star<BehaviorTree>;
 	public var ParentNode: cpp.Star<BTCompositeNode>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

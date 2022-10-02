@@ -3,7 +3,10 @@ package ue;
 
 @:native("UGizmoViewContext")
 @:include("BaseGizmos/GizmoViewContext.h")
+@:structAccess
 extern class GizmoViewContext extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

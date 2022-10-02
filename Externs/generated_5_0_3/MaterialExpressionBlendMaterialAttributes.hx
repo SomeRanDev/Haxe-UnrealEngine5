@@ -3,12 +3,15 @@ package ue;
 
 @:native("UMaterialExpressionBlendMaterialAttributes")
 @:include("Materials/MaterialExpressionBlendMaterialAttributes.h")
+@:structAccess
 extern class MaterialExpressionBlendMaterialAttributes extends MaterialExpression {
 	public var A: MaterialAttributesInput;
 	public var B: MaterialAttributesInput;
 	public var Alpha: ExpressionInput;
 	public var PixelAttributeBlendType: EMaterialAttributeBlend;
 	public var VertexAttributeBlendType: EMaterialAttributeBlend;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

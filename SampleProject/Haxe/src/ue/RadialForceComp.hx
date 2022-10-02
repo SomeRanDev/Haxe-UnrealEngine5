@@ -3,6 +3,7 @@ package ue;
 
 @:native("URadialForceComponent")
 @:include("PhysicsEngine/RadialForceComponent.h")
+@:structAccess
 extern class RadialForceComp extends SceneComp {
 	public var Radius: cpp.Float32;
 	public var Falloff: ERadialImpulseFalloff;
@@ -16,6 +17,8 @@ extern class RadialForceComp extends SceneComp {
 	public function RemoveObjectTypeToAffect(ObjectType: EObjectTypeQuery): Void;
 	public function FireImpulse(): Void;
 	public function AddObjectTypeToAffect(ObjectType: EObjectTypeQuery): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

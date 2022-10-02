@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPluginCommandlet")
 @:include("Commandlets/PluginCommandlet.h")
+@:structAccess
 extern class PluginCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

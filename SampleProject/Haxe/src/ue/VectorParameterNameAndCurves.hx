@@ -3,9 +3,13 @@ package ue;
 
 @:native("FVectorParameterNameAndCurves")
 @:include("Sections/MovieSceneParameterSection.h")
+@:structAccess
 extern class VectorParameterNameAndCurves {
 	public var ParameterName: FName;
 	public var XCurve: MovieSceneFloatChannel;
 	public var YCurve: MovieSceneFloatChannel;
 	public var ZCurve: MovieSceneFloatChannel;
+
+	@:native("FVectorParameterNameAndCurves") public function new();
+	@:native("FVectorParameterNameAndCurves") public static function make(ParameterName: FName, XCurve: MovieSceneFloatChannel, YCurve: MovieSceneFloatChannel, ZCurve: MovieSceneFloatChannel): VectorParameterNameAndCurves ;
 }

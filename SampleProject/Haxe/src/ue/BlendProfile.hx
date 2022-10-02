@@ -3,10 +3,13 @@ package ue;
 
 @:native("UBlendProfile")
 @:include("Animation/BlendProfile.h")
+@:structAccess
 extern class BlendProfile extends Object {
 	public var OwningSkeleton: cpp.Star<Skeleton>;
 	public var ProfileEntries: TArray<BlendProfileBoneEntry>;
 	public var Mode: EBlendProfileMode;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

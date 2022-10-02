@@ -3,11 +3,14 @@ package ue;
 
 @:native("UParticleModuleKillHeight")
 @:include("Particles/Kill/ParticleModuleKillHeight.h")
+@:structAccess
 extern class ParticleModuleKillHeight extends ParticleModuleKillBase {
 	public var Height: RawDistributionFloat;
 	public var bAbsolute: Bool;
 	public var bFloor: Bool;
 	public var bApplyPSysScale: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

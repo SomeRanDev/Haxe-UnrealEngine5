@@ -3,10 +3,13 @@ package ue;
 
 @:native("USoundNodeWavePlayer")
 @:include("Sound/SoundNodeWavePlayer.h")
+@:structAccess
 extern class SoundNodeWavePlayer extends SoundNodeAssetReferencer {
 	public var SoundWaveAssetPtr: TSoftObjectPtr<SoundWave>;
 	public var SoundWave: cpp.Star<SoundWave>;
 	public var bLooping: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

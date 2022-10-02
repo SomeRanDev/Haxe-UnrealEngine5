@@ -3,7 +3,10 @@ package ue;
 
 @:native("URigVMSelectNode")
 @:include("RigVMModel/Nodes/RigVMSelectNode.h")
+@:structAccess
 extern class RigVMSelectNode extends RigVMNode {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

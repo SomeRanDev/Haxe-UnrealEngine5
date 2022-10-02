@@ -3,7 +3,10 @@ package ue;
 
 @:native("UWorldFolders")
 @:include("WorldFolders.h")
+@:structAccess
 extern class WorldFolders extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

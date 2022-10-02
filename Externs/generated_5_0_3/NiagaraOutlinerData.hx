@@ -3,6 +3,10 @@ package ue;
 
 @:native("FNiagaraOutlinerData")
 @:include("NiagaraDebuggerCommon.h")
+@:structAccess
 extern class NiagaraOutlinerData {
 	public var WorldData: TMap<FString, NiagaraOutlinerWorldData>;
+
+	@:native("FNiagaraOutlinerData") public function new();
+	@:native("FNiagaraOutlinerData") public static function make(WorldData: TMap<FString, NiagaraOutlinerWorldData>): NiagaraOutlinerData ;
 }

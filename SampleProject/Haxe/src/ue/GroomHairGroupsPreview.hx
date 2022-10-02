@@ -3,8 +3,11 @@ package ue;
 
 @:native("UGroomHairGroupsPreview")
 @:include("GroomImportOptions.h")
+@:structAccess
 extern class GroomHairGroupsPreview extends Object {
 	public var Groups: TArray<GroomHairGroupPreview>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

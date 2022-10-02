@@ -3,11 +3,14 @@ package ue;
 
 @:native("UTextureRenderTarget2DArrayFactoryNew")
 @:include("Factories/TextureRenderTarget2DArrayFactoryNew.h")
+@:structAccess
 extern class TextureRenderTarget2DArrayFactoryNew extends Factory {
 	public var Width: cpp.Int32;
 	public var Height: cpp.Int32;
 	public var Slices: cpp.Int32;
 	public var Format: cpp.UInt8;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

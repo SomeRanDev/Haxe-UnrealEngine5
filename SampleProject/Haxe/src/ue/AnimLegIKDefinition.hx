@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimLegIKDefinition")
 @:include("BoneControllers/AnimNode_LegIK.h")
+@:structAccess
 extern class AnimLegIKDefinition {
 	public var IKFootBone: BoneReference;
 	public var FKFootBone: BoneReference;
@@ -12,4 +13,6 @@ extern class AnimLegIKDefinition {
 	public var HingeRotationAxis: EAxis;
 	public var bEnableRotationLimit: Bool;
 	public var bEnableKneeTwistCorrection: Bool;
+
+	@:native("FAnimLegIKDefinition") public function new();
 }

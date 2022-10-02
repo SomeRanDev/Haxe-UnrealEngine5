@@ -3,6 +3,7 @@ package ue;
 
 @:native("USubUVAnimation")
 @:include("Particles/SubUVAnimation.h")
+@:structAccess
 extern class SubUVAnimation extends Object {
 	public var SubUVTexture: cpp.Star<Texture2D>;
 	public var SubImages_Horizontal: cpp.Int32;
@@ -10,6 +11,8 @@ extern class SubUVAnimation extends Object {
 	public var BoundingMode: ESubUVBoundingVertexCount;
 	public var OpacitySourceMode: EOpacitySourceMode;
 	public var AlphaThreshold: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialParameterCollectionInstance")
 @:include("Materials/MaterialParameterCollectionInstance.h")
+@:structAccess
 extern class MaterialParameterCollectionInstance extends Object {
 	public var Collection: cpp.Star<MaterialParameterCollection>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

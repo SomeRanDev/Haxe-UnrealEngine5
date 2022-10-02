@@ -3,9 +3,13 @@ package ue;
 
 @:native("FMargin")
 @:include("Layout/Margin.h")
+@:structAccess
 extern class Margin {
 	public var Left: cpp.Float32;
 	public var Top: cpp.Float32;
 	public var Right: cpp.Float32;
 	public var Bottom: cpp.Float32;
+
+	@:native("FMargin") public function new();
+	@:native("FMargin") public static function make(Left: cpp.Float32, Top: cpp.Float32, Right: cpp.Float32, Bottom: cpp.Float32): Margin ;
 }

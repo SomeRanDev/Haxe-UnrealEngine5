@@ -3,10 +3,13 @@ package ue;
 
 @:native("UInstancedPlacemenClientSettings")
 @:include("Instances/InstancedPlacementClientInfo.h")
+@:structAccess
 extern class InstancedPlacemenClientSettings extends Object {
 	public var UpdateGuid: Guid;
 	public var ObjectPath: SoftObjectPath;
 	public var InstancedComponentSettings: ISMComponentDescriptor;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UPhysicalMaterialMaskFactory")
 @:include("Factories/PhysicalMaterialMaskFactory.h")
+@:structAccess
 extern class PhysicalMaterialMaskFactory extends Factory {
 	public var PhysicalMaterialMaskClass: TSubclassOf<PhysicalMaterialMask>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

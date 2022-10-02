@@ -3,9 +3,12 @@ package ue;
 
 @:native("UDefaultSizedThumbnailRenderer")
 @:include("ThumbnailRendering/DefaultSizedThumbnailRenderer.h")
+@:structAccess
 extern class DefaultSizedThumbnailRenderer extends ThumbnailRenderer {
 	public var DefaultSizeX: cpp.Int32;
 	public var DefaultSizeY: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

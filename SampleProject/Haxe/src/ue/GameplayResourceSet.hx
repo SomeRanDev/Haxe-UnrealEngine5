@@ -3,5 +3,7 @@ package ue;
 
 @:native("FGameplayResourceSet")
 @:include("GameplayTask.h")
+@:structAccess
 extern class GameplayResourceSet {
+	@:native("FGameplayResourceSet") public function new();
 }

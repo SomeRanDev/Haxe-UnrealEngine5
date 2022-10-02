@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBTService_DefaultFocus")
 @:include("BehaviorTree/Services/BTService_DefaultFocus.h")
+@:structAccess
 extern class BTService_DefaultFocus extends BTService_BlackboardBase {
 	public var FocusPriority: cpp.UInt8;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

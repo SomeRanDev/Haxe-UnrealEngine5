@@ -3,6 +3,7 @@ package ue;
 
 @:native("AFunctionalAITestBase")
 @:include("FunctionalAITest.h")
+@:structAccess
 extern class FunctionalAITestBase extends FunctionalTest {
 	public var SpawnLocationRandomizationRange: cpp.Float32;
 	public var SpawnedPawns: TArray<cpp.Star<Pawn>>;
@@ -17,6 +18,8 @@ extern class FunctionalAITestBase extends FunctionalTest {
 	public var bDebugNavMeshOnTimeout: Bool;
 
 	public function IsOneOfSpawnedPawns(Actor: cpp.Star<Actor>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

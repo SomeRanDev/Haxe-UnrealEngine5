@@ -3,8 +3,11 @@ package ue;
 
 @:native("UGenlockedFixedRateCustomTimeStep")
 @:include("GenlockedFixedRateCustomTimeStep.h")
+@:structAccess
 extern class GenlockedFixedRateCustomTimeStep extends GenlockedCustomTimeStep {
 	public var FrameRate: FrameRate;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

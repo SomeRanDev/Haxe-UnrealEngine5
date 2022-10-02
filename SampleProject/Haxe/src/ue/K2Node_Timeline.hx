@@ -3,6 +3,7 @@ package ue;
 
 @:native("UK2Node_Timeline")
 @:include("K2Node_Timeline.h")
+@:structAccess
 extern class K2Node_Timeline extends K2Node {
 	public var TimelineName: FName;
 	public var bAutoPlay: Bool;
@@ -10,6 +11,8 @@ extern class K2Node_Timeline extends K2Node {
 	public var bLoop: Bool;
 	public var bReplicated: Bool;
 	public var bIgnoreTimeDilation: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

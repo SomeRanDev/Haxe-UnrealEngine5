@@ -3,7 +3,10 @@ package ue;
 
 @:native("USimulatedClientNetConnection")
 @:include("Engine/NetConnection.h")
+@:structAccess
 extern class SimulatedClientNetConnection extends NetConnection {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

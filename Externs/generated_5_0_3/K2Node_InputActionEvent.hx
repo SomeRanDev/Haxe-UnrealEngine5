@@ -3,12 +3,15 @@ package ue;
 
 @:native("UK2Node_InputActionEvent")
 @:include("K2Node_InputActionEvent.h")
+@:structAccess
 extern class K2Node_InputActionEvent extends K2Node_Event {
 	public var InputActionName: FName;
 	public var InputKeyEvent: EInputEvent;
 	public var bConsumeInput: Bool;
 	public var bExecuteWhenPaused: Bool;
 	public var bOverrideParentBinding: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

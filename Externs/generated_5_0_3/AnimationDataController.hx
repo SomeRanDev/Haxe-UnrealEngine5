@@ -2,6 +2,7 @@
 package ue;
 
 @:native("UAnimationDataController")
+@:structAccess
 extern class AnimationDataController extends Interface {
 	public function UpdateCurveNamesFromSkeleton(Skeleton: cpp.Star<Skeleton.ConstSkeleton>, SupportedCurveType: ERawCurveTrackTypes, bShouldTransact: Bool): Void;
 	public function SetTransformCurveKeys(CurveId: cpp.Reference<AnimationCurveIdentifier>, TransformValues: cpp.Reference<TArray<Transform>>, TimeKeys: cpp.Reference<TArray<cpp.Float32>>, bShouldTransact: Bool): cpp.Reference<Bool>;
@@ -39,6 +40,8 @@ extern class AnimationDataController extends Interface {
 	public function AddCurve(CurveId: cpp.Reference<AnimationCurveIdentifier>, CurveFlags: cpp.Int32, bShouldTransact: Bool): cpp.Reference<Bool>;
 	public function AddBoneTrack(BoneName: FName, bShouldTransact: Bool): cpp.Reference<cpp.Int32>;
 	public function AddAttribute(AttributeIdentifier: cpp.Reference<AnimationAttributeIdentifier>, bShouldTransact: Bool): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

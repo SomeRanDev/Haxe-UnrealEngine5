@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnGetItemChildrenDynamic__PythonCallable")
+@:structAccess
 extern class OnGetItemChildrenDynamic__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

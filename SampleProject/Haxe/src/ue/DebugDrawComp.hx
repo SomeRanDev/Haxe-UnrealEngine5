@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDebugDrawComponent")
 @:include("Debug/DebugDrawComponent.h")
+@:structAccess
 extern class DebugDrawComp extends PrimitiveComp {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,11 @@ package ue;
 
 @:native("FNamedEmitterMaterial")
 @:include("Particles/ParticleSystem.h")
+@:structAccess
 extern class NamedEmitterMaterial {
 	public var Name: FName;
 	public var Material: cpp.Star<MaterialInterface>;
+
+	@:native("FNamedEmitterMaterial") public function new();
+	@:native("FNamedEmitterMaterial") public static function make(Name: FName, Material: cpp.Star<MaterialInterface>): NamedEmitterMaterial ;
 }

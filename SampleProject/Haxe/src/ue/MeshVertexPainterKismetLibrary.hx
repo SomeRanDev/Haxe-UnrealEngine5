@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMeshVertexPainterKismetLibrary")
 @:include("MeshVertexPainter/MeshVertexPainterKismetLibrary.h")
+@:structAccess
 extern class MeshVertexPainterKismetLibrary extends BlueprintFunctionLibrary {
 	public function RemovePaintedVertices(StaticMeshComponent: cpp.Star<StaticMeshComp>): Void;
 	public function PaintVerticesSingleColor(StaticMeshComponent: cpp.Star<StaticMeshComp>, FillColor: cpp.Reference<LinearColor>, bConvertToSRGB: Bool): Void;
 	public function PaintVerticesLerpAlongAxis(StaticMeshComponent: cpp.Star<StaticMeshComp>, StartColor: cpp.Reference<LinearColor>, EndColor: cpp.Reference<LinearColor>, Axis: EVertexPaintAxis, bConvertToSRGB: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

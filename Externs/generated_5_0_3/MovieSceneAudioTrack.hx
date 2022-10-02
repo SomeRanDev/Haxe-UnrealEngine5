@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMovieSceneAudioTrack")
 @:include("Tracks/MovieSceneAudioTrack.h")
+@:structAccess
 extern class MovieSceneAudioTrack extends MovieSceneNameableTrack {
 	public var AudioSections: TArray<cpp.Star<MovieSceneSection>>;
 	public var RowHeight: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGameplayTask")
 @:include("GameplayTask.h")
+@:structAccess
 extern class GameplayTask extends Object {
 	public var InstanceName: FName;
 	public var ResourceOverlapPolicy: ETaskResourceOverlapPolicy;
@@ -11,6 +12,8 @@ extern class GameplayTask extends Object {
 	public function ReadyForActivation(): Void;
 	public function GenericGameplayTaskDelegate__DelegateSignature(): Void;
 	public function EndTask(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

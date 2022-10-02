@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionPixelDepth")
 @:include("Materials/MaterialExpressionPixelDepth.h")
+@:structAccess
 extern class MaterialExpressionPixelDepth extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

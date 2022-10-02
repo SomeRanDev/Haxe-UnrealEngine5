@@ -3,7 +3,11 @@ package ue;
 
 @:native("FGameplayDebuggerDebugActor")
 @:include("GameplayDebuggerCategoryReplicator.h")
+@:structAccess
 extern class GameplayDebuggerDebugActor {
 	public var ActorName: FName;
 	public var SyncCounter: cpp.Int32;
+
+	@:native("FGameplayDebuggerDebugActor") public function new();
+	@:native("FGameplayDebuggerDebugActor") public static function make(ActorName: FName, SyncCounter: cpp.Int32): GameplayDebuggerDebugActor ;
 }

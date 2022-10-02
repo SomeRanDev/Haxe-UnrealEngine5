@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleTypeDataAnimTrail")
 @:include("Particles/TypeData/ParticleModuleTypeDataAnimTrail.h")
+@:structAccess
 extern class ParticleModuleTypeDataAnimTrail extends ParticleModuleTypeDataBase {
 	public var bDeadTrailsOnDeactivate: Bool;
 	public var bEnablePreviousTangentRecalculation: Bool;
@@ -11,6 +12,8 @@ extern class ParticleModuleTypeDataAnimTrail extends ParticleModuleTypeDataBase 
 	public var DistanceTessellationStepSize: cpp.Float32;
 	public var TangentTessellationStepSize: cpp.Float32;
 	public var WidthTessellationStepSize: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

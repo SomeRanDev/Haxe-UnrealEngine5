@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_TwoWayBlend")
 @:include("AnimGraphNode_TwoWayBlend.h")
+@:structAccess
 extern class AnimGraphNode_TwoWayBlend extends AnimGraphNode_Base {
 	public var BlendNode: AnimNode_TwoWayBlend;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,12 +3,15 @@ package ue;
 
 @:native("ULevelSequenceBurnIn")
 @:include("LevelSequenceBurnIn.h")
+@:structAccess
 extern class LevelSequenceBurnIn extends UserWidget {
 	public var FrameInformation: LevelSequencePlayerSnapshot;
 	public var LevelSequenceActor: cpp.Star<LevelSequenceActor>;
 
 	public function SetSettings(InSettings: cpp.Star<Object>): Void;
 	public function GetSettingsClass(): cpp.Reference<TSubclassOf<LevelSequenceBurnInInitSettings>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetSettingsClass)

@@ -3,7 +3,11 @@ package ue;
 
 @:native("FPrimaryAssetId")
 @:include("UObject/NoExportTypes.h")
+@:structAccess
 extern class PrimaryAssetId {
 	public var PrimaryAssetType: PrimaryAssetType;
 	public var PrimaryAssetName: FName;
+
+	@:native("FPrimaryAssetId") public function new();
+	@:native("FPrimaryAssetId") public static function make(PrimaryAssetType: PrimaryAssetType, PrimaryAssetName: FName): PrimaryAssetId ;
 }

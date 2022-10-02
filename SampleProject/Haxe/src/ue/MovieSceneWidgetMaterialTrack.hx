@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMovieSceneWidgetMaterialTrack")
 @:include("Animation/MovieSceneWidgetMaterialTrack.h")
+@:structAccess
 extern class MovieSceneWidgetMaterialTrack extends MovieSceneMaterialTrack {
 	public var BrushPropertyNamePath: TArray<FName>;
 	public var TrackName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

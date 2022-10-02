@@ -3,10 +3,13 @@ package ue;
 
 @:native("ACineCameraActor")
 @:include("CineCameraActor.h")
+@:structAccess
 extern class CineCameraActor extends CameraActor {
 	public var LookatTrackingSettings: CameraLookatTrackingSettings;
 
 	public function GetCineCameraComponent(): cpp.Reference<cpp.Star<CineCameraComp>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetCineCameraComponent)

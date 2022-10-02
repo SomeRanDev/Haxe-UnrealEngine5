@@ -3,8 +3,12 @@ package ue;
 
 @:native("FLocalizationCompilationSettings")
 @:include("LocalizationTargetTypes.h")
+@:structAccess
 extern class LocalizationCompilationSettings {
 	public var SkipSourceCheck: Bool;
 	public var ValidateFormatPatterns: Bool;
 	public var ValidateSafeWhitespace: Bool;
+
+	@:native("FLocalizationCompilationSettings") public function new();
+	@:native("FLocalizationCompilationSettings") public static function make(SkipSourceCheck: Bool, ValidateFormatPatterns: Bool, ValidateSafeWhitespace: Bool): LocalizationCompilationSettings ;
 }

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNiagaraDataInterfaceSimpleCounter")
 @:include("DataInterface/NiagaraDataInterfaceSimpleCounter.h")
+@:structAccess
 extern class NiagaraDataInterfaceSimpleCounter extends NiagaraDataInterface {
 	public var GpuSyncMode: ENiagaraGpuSyncMode;
 	public var InitialValue: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

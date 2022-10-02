@@ -3,6 +3,7 @@ package ue;
 
 @:native("UStreamableRenderAsset")
 @:include("Engine/StreamableRenderAsset.h")
+@:structAccess
 extern class StreamableRenderAsset extends Object {
 	public var ForceMipLevelsToBeResidentTimestamp: cpp.Float64;
 	public var NumCinematicMipLevels: cpp.Int32;
@@ -17,6 +18,8 @@ extern class StreamableRenderAsset extends Object {
 	public var bUseCinematicMipLevels: Bool;
 
 	public function SetForceMipLevelsToBeResident(Seconds: cpp.Float32, CinematicLODGroupMask: cpp.Int32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

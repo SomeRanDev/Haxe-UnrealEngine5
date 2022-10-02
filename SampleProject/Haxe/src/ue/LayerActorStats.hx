@@ -3,7 +3,11 @@ package ue;
 
 @:native("FLayerActorStats")
 @:include("Layers/Layer.h")
+@:structAccess
 extern class LayerActorStats {
 	public var Type: TSubclassOf<Object>;
 	public var Total: cpp.Int32;
+
+	@:native("FLayerActorStats") public function new();
+	@:native("FLayerActorStats") public static function make(Type: TSubclassOf<Object>, Total: cpp.Int32): LayerActorStats ;
 }

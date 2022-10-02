@@ -3,7 +3,10 @@ package ue;
 
 @:native("UCompositeCurveTableFactory")
 @:include("Factories/CompositeCurveTableFactory.h")
+@:structAccess
 extern class CompositeCurveTableFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

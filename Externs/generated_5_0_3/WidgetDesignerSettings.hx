@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWidgetDesignerSettings")
 @:include("Settings/WidgetDesignerSettings.h")
+@:structAccess
 extern class WidgetDesignerSettings extends DeveloperSettings {
 	public var GridSnapEnabled: Bool;
 	public var GridSnapSize: cpp.Int32;
@@ -13,6 +14,8 @@ extern class WidgetDesignerSettings extends DeveloperSettings {
 	public var CreateOnCompile: EDisplayOnCompile;
 	public var DismissOnCompile: EDisplayOnCompile;
 	public var Favorites: cpp.Star<WidgetPaletteFavorites>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

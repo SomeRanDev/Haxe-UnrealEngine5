@@ -3,7 +3,11 @@ package ue;
 
 @:native("FSpaceControlNameAndChannel")
 @:include("Sequencer/MovieSceneControlRigParameterSection.h")
+@:structAccess
 extern class SpaceControlNameAndChannel {
 	public var ControlName: FName;
 	public var SpaceCurve: MovieSceneControlRigSpaceChannel;
+
+	@:native("FSpaceControlNameAndChannel") public function new();
+	@:native("FSpaceControlNameAndChannel") public static function make(ControlName: FName, SpaceCurve: MovieSceneControlRigSpaceChannel): SpaceControlNameAndChannel ;
 }

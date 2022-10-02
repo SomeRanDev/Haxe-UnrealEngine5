@@ -3,10 +3,13 @@ package ue;
 
 @:native("UInteractiveToolManager")
 @:include("InteractiveToolManager.h")
+@:structAccess
 extern class InteractiveToolManager extends Object {
 	public var ActiveLeftTool: cpp.Star<InteractiveTool>;
 	public var ActiveRightTool: cpp.Star<InteractiveTool>;
 	public var ToolBuilders: TMap<FString, cpp.Star<InteractiveToolBuilder>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

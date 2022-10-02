@@ -3,9 +3,12 @@ package ue;
 
 @:native("UInteractiveToolPropertySet")
 @:include("InteractiveTool.h")
+@:structAccess
 extern class InteractiveToolPropertySet extends Object {
 	public var CachedPropertiesMap: TMap<FString, cpp.Star<InteractiveToolPropertySet>>;
 	public var bIsPropertySetEnabled: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

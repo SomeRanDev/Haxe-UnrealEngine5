@@ -3,10 +3,13 @@ package ue;
 
 @:native("URectangleSplineGenerator")
 @:include("SplineGeneratorPanel.h")
+@:structAccess
 extern class RectangleSplineGenerator extends SplineGeneratorBase {
 	public var Length: cpp.Float32;
 	public var Width: cpp.Float32;
 	public var bBranchRight: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

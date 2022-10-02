@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionTemporalSobol")
 @:include("Materials/MaterialExpressionTemporalSobol.h")
+@:structAccess
 extern class MaterialExpressionTemporalSobol extends MaterialExpression {
 	public var Index: ExpressionInput;
 	public var Seed: ExpressionInput;
 	public var ConstIndex: cpp.UInt32;
 	public var ConstSeed: Vector2D;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

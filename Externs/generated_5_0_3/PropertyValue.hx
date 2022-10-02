@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPropertyValue")
 @:include("PropertyValue.h")
+@:structAccess
 extern class PropertyValue extends Object {
 	public var Properties_DEPRECATED: TArray<TFieldPath<FProperty>>;
 	public var PropertyIndices_DEPRECATED: TArray<cpp.Int32>;
@@ -19,6 +20,8 @@ extern class PropertyValue extends Object {
 	public function HasRecordedData(): cpp.Reference<Bool>;
 	public function GetPropertyTooltip(): cpp.Reference<FText>;
 	public function GetFullDisplayString(): cpp.Reference<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(HasRecordedData, GetPropertyTooltip, GetFullDisplayString)

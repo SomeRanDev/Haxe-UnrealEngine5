@@ -3,6 +3,7 @@ package ue;
 
 @:native("AARSharedWorldGameMode")
 @:include("ARSharedWorldGameMode.h")
+@:structAccess
 extern class ARSharedWorldGameMode extends GameMode {
 	public var BufferSizePerChunk: cpp.Int32;
 
@@ -10,6 +11,8 @@ extern class ARSharedWorldGameMode extends GameMode {
 	public function SetARWorldSharingIsReady(): Void;
 	public function SetARSharedWorldData(ARWorldData: TArray<cpp.UInt8>): Void;
 	public function GetARSharedWorldGameState(): cpp.Reference<cpp.Star<ARSharedWorldGameState>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

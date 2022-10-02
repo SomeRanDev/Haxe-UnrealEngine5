@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UComponentOnInputTouchBeginSignature__PythonCallable")
+@:structAccess
 extern class ComponentOnInputTouchBeginSignature__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

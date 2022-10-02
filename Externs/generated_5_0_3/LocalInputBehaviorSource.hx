@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULocalInputBehaviorSource")
 @:include("InputBehaviorSet.h")
+@:structAccess
 extern class LocalInputBehaviorSource extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

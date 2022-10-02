@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBTTask_MoveTo")
 @:include("BehaviorTree/Tasks/BTTask_MoveTo.h")
+@:structAccess
 extern class BTTask_MoveTo extends BTTask_BlackboardBase {
 	public var AcceptableRadius: cpp.Float32;
 	public var FilterClass: TSubclassOf<NavigationQueryFilter>;
@@ -16,6 +17,8 @@ extern class BTTask_MoveTo extends BTTask_BlackboardBase {
 	public var bReachTestIncludesGoalRadius: Bool;
 	public var bStopOnOverlap: Bool;
 	public var bStopOnOverlapNeedsUpdate: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

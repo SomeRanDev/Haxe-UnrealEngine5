@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_LinkedAnimGraph")
 @:include("Animation/AnimNode_LinkedAnimGraph.h")
+@:structAccess
 extern class AnimNode_LinkedAnimGraph extends AnimNode_CustomProperty {
 	public var InputPoses: TArray<PoseLink>;
 	public var InputPoseNames: TArray<FName>;
@@ -10,4 +11,6 @@ extern class AnimNode_LinkedAnimGraph extends AnimNode_CustomProperty {
 	public var Tag_DEPRECATED: FName;
 	public var bReceiveNotifiesFromLinkedInstances: Bool;
 	public var bPropagateNotifiesToLinkedInstances: Bool;
+
+	@:native("FAnimNode_LinkedAnimGraph") public function new();
 }

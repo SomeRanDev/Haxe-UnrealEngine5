@@ -3,6 +3,7 @@ package ue;
 
 @:native("UKismetInternationalizationLibrary")
 @:include("Kismet/KismetInternationalizationLibrary.h")
+@:structAccess
 extern class KismetInternationalizationLibrary extends BlueprintFunctionLibrary {
 	public function SetCurrentLocale(Culture: FString, SaveToConfig: Bool): cpp.Reference<Bool>;
 	public function SetCurrentLanguageAndLocale(Culture: FString, SaveToConfig: Bool): cpp.Reference<Bool>;
@@ -18,6 +19,8 @@ extern class KismetInternationalizationLibrary extends BlueprintFunctionLibrary 
 	public function GetCurrentAssetGroupCulture(AssetGroup: FName): cpp.Reference<FString>;
 	public function GetCultureDisplayName(Culture: FString, Localized: Bool): cpp.Reference<FString>;
 	public function ClearCurrentAssetGroupCulture(AssetGroup: FName, SaveToConfig: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

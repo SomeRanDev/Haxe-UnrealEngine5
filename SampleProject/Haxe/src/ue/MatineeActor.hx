@@ -3,6 +3,7 @@ package ue;
 
 @:native("AMatineeActor")
 @:include("Matinee/MatineeActor.h")
+@:structAccess
 extern class MatineeActor extends Actor {
 	public var MatineeData: cpp.Star<InterpData>;
 	public var MatineeControllerName: FName;
@@ -48,6 +49,8 @@ extern class MatineeActor extends Actor {
 	public function Pause(): Void;
 	public function EnableGroupByName(GroupName: FString, bEnable: Bool): Void;
 	public function ChangePlaybackDirection(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

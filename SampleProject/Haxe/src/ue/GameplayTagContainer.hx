@@ -3,7 +3,11 @@ package ue;
 
 @:native("FGameplayTagContainer")
 @:include("GameplayTagContainer.h")
+@:structAccess
 extern class GameplayTagContainer {
 	public var GameplayTags: TArray<GameplayTag>;
 	public var ParentTags: TArray<GameplayTag>;
+
+	@:native("FGameplayTagContainer") public function new();
+	@:native("FGameplayTagContainer") public static function make(GameplayTags: TArray<GameplayTag>, ParentTags: TArray<GameplayTag>): GameplayTagContainer ;
 }

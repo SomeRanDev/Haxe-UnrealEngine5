@@ -3,6 +3,7 @@ package ue;
 
 @:native("UInputSettings")
 @:include("GameFramework/InputSettings.h")
+@:structAccess
 extern class InputSettings extends Object {
 	public var AxisConfig: TArray<InputAxisConfigEntry>;
 	public var bAltEnterTogglesFullscreen: Bool;
@@ -44,6 +45,8 @@ extern class InputSettings extends Object {
 	public function ForceRebuildKeymaps(): Void;
 	public function AddAxisMapping(KeyMapping: cpp.Reference<InputAxisKeyMapping>, bForceRebuildKeymaps: Bool): Void;
 	public function AddActionMapping(KeyMapping: cpp.Reference<InputActionKeyMapping>, bForceRebuildKeymaps: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetAxisNames, GetAxisMappingByName, GetActionNames, GetActionMappingByName)

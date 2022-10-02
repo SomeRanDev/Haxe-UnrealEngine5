@@ -3,8 +3,11 @@ package ue;
 
 @:native("UDataValidationSettings")
 @:include("EditorValidatorSubsystem.h")
+@:structAccess
 extern class DataValidationSettings extends Object {
 	public var bValidateOnSave: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

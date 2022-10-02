@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleEmitter")
 @:include("Particles/ParticleEmitter.h")
+@:structAccess
 extern class ParticleEmitter extends Object {
 	public var EmitterName: FName;
 	public var SubUVDataOffset: cpp.Int32;
@@ -23,6 +24,8 @@ extern class ParticleEmitter extends Object {
 	public var QualityLevelSpawnRateScale: cpp.Float32;
 	public var DetailModeBitmask: cpp.UInt32;
 	public var DetailModeDisplay: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

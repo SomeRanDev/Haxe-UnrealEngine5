@@ -3,9 +3,12 @@ package ue;
 
 @:native("UEditorInteractiveGizmoSubsystem")
 @:include("EditorInteractiveGizmoSubsystem.h")
+@:structAccess
 extern class EditorInteractiveGizmoSubsystem extends EditorSubsystem {
 	public var TransformGizmoBuilder: cpp.Star<InteractiveGizmoBuilder>;
 	public var Registry: cpp.Star<EditorInteractiveGizmoRegistry>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

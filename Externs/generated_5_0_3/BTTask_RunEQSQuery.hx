@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBTTask_RunEQSQuery")
 @:include("BehaviorTree/Tasks/BTTask_RunEQSQuery.h")
+@:structAccess
 extern class BTTask_RunEQSQuery extends BTTask_BlackboardBase {
 	public var QueryTemplate: cpp.Star<EnvQuery>;
 	public var QueryParams: TArray<EnvNamedValue>;
@@ -12,6 +13,8 @@ extern class BTTask_RunEQSQuery extends BTTask_BlackboardBase {
 	public var bUseBBKey: Bool;
 	public var EQSRequest: EQSParametrizedQueryExecutionRequest;
 	public var bUpdateBBOnFail: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

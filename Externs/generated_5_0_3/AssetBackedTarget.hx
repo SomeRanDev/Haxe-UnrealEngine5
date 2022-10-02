@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UAssetBackedTarget")
+@:structAccess
 extern class AssetBackedTarget extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

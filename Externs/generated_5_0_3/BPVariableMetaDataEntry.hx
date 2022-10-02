@@ -3,7 +3,11 @@ package ue;
 
 @:native("FBPVariableMetaDataEntry")
 @:include("Engine/Blueprint.h")
+@:structAccess
 extern class BPVariableMetaDataEntry {
 	public var DataKey: FName;
 	public var DataValue: FString;
+
+	@:native("FBPVariableMetaDataEntry") public function new();
+	@:native("FBPVariableMetaDataEntry") public static function make(DataKey: FName, DataValue: FString): BPVariableMetaDataEntry ;
 }

@@ -3,7 +3,10 @@ package ue;
 
 @:native("USceneOutlinerMenuContext")
 @:include("SceneOutlinerMenuContext.h")
+@:structAccess
 extern class SceneOutlinerMenuContext extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

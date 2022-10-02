@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGridPanel")
 @:include("Components/GridPanel.h")
+@:structAccess
 extern class GridPanel extends PanelWidget {
 	public var ColumnFill: TArray<cpp.Float32>;
 	public var RowFill: TArray<cpp.Float32>;
@@ -10,6 +11,8 @@ extern class GridPanel extends PanelWidget {
 	public function SetRowFill(ColumnIndex: cpp.Int32, Coefficient: cpp.Float32): Void;
 	public function SetColumnFill(ColumnIndex: cpp.Int32, Coefficient: cpp.Float32): Void;
 	public function AddChildToGrid(Content: cpp.Star<Widget>, InRow: cpp.Int32, InColumn: cpp.Int32): cpp.Reference<cpp.Star<GridSlot>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

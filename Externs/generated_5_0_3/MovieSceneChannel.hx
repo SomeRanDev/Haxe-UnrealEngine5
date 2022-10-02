@@ -3,5 +3,7 @@ package ue;
 
 @:native("FMovieSceneChannel")
 @:include("Channels/MovieSceneChannel.h")
+@:structAccess
 extern class MovieSceneChannel {
+	@:native("FMovieSceneChannel") public function new();
 }

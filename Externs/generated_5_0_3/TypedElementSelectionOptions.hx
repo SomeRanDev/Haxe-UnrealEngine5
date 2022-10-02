@@ -3,10 +3,14 @@ package ue;
 
 @:native("FTypedElementSelectionOptions")
 @:include("Elements/Interfaces/TypedElementSelectionInterface.h")
+@:structAccess
 extern class TypedElementSelectionOptions {
 	public var bAllowHidden: Bool;
 	public var bAllowGroups: Bool;
 	public var bAllowLegacyNotifications: Bool;
 	public var bWarnIfLocked: Bool;
 	public var ChildElementInclusionMethod: ETypedElementChildInclusionMethod;
+
+	@:native("FTypedElementSelectionOptions") public function new();
+	@:native("FTypedElementSelectionOptions") public static function make(bAllowHidden: Bool, bAllowGroups: Bool, bAllowLegacyNotifications: Bool, bWarnIfLocked: Bool, ChildElementInclusionMethod: ETypedElementChildInclusionMethod): TypedElementSelectionOptions ;
 }

@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UFlipbookFinishedPlaySignature__PythonCallable")
+@:structAccess
 extern class FlipbookFinishedPlaySignature__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

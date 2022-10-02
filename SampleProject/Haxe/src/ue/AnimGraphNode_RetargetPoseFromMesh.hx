@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_RetargetPoseFromMesh")
 @:include("AnimGraphNode_RetargetPoseFromMesh.h")
+@:structAccess
 extern class AnimGraphNode_RetargetPoseFromMesh extends AnimGraphNode_Base {
 	public var Node: AnimNode_RetargetPoseFromMesh;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

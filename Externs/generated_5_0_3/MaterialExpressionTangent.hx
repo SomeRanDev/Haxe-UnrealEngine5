@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionTangent")
 @:include("Materials/MaterialExpressionTangent.h")
+@:structAccess
 extern class MaterialExpressionTangent extends MaterialExpression {
 	public var Input: ExpressionInput;
 	public var Period: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

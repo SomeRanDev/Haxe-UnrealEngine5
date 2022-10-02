@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPawnAction")
 @:include("Actions/PawnAction.h")
+@:structAccess
 extern class PawnAction extends Object {
 	public var ChildAction: cpp.Star<PawnAction>;
 	public var ParentAction: cpp.Star<PawnAction>;
@@ -17,6 +18,8 @@ extern class PawnAction extends Object {
 	public function GetActionPriority(): cpp.Reference<EAIRequestPriority>;
 	public function Finish(WithResult: EPawnActionResult): Void;
 	public function CreateActionInstance(WorldContextObject: cpp.Star<Object>, ActionClass: TSubclassOf<PawnAction>): cpp.Reference<cpp.Star<PawnAction>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

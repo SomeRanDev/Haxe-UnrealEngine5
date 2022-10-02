@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEngineSubsystem")
 @:include("Subsystems/EngineSubsystem.h")
+@:structAccess
 extern class EngineSubsystem extends DynamicSubsystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

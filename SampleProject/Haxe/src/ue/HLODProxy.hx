@@ -3,10 +3,13 @@ package ue;
 
 @:native("UHLODProxy")
 @:include("Engine/HLODProxy.h")
+@:structAccess
 extern class HLODProxy extends Object {
 	public var OwningMap: TSoftObjectPtr<World>;
 	public var ProxyMeshes: TArray<HLODProxyMesh>;
 	public var HLODActors: TMap<cpp.Star<HLODProxyDesc>, HLODProxyMesh>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

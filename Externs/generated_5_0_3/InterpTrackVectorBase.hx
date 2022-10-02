@@ -3,9 +3,12 @@ package ue;
 
 @:native("UInterpTrackVectorBase")
 @:include("Matinee/InterpTrackVectorBase.h")
+@:structAccess
 extern class InterpTrackVectorBase extends InterpTrack {
 	public var VectorTrack: InterpCurveVector;
 	public var CurveTension: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

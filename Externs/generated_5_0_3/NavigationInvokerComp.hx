@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNavigationInvokerComponent")
 @:include("NavigationInvokerComponent.h")
+@:structAccess
 extern class NavigationInvokerComp extends ActorComp {
 	public var TileGenerationRadius: cpp.Float32;
 	public var TileRemovalRadius: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UEnvQueryGenerator_ProjectedPoints")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_ProjectedPoints.h")
+@:structAccess
 extern class EnvQueryGenerator_ProjectedPoints extends EnvQueryGenerator {
 	public var ProjectionData: EnvTraceData;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

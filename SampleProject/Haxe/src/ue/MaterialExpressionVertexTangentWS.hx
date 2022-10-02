@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionVertexTangentWS")
 @:include("Materials/MaterialExpressionVertexTangentWS.h")
+@:structAccess
 extern class MaterialExpressionVertexTangentWS extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

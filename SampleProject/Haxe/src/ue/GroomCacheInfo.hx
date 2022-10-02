@@ -3,8 +3,12 @@ package ue;
 
 @:native("FGroomCacheInfo")
 @:include("GroomCacheData.h")
+@:structAccess
 extern class GroomCacheInfo {
 	public var Version: cpp.Int32;
 	public var Type: EGroomCacheType;
 	public var AnimationInfo: GroomAnimationInfo;
+
+	@:native("FGroomCacheInfo") public function new();
+	@:native("FGroomCacheInfo") public static function make(Version: cpp.Int32, Type: EGroomCacheType, AnimationInfo: GroomAnimationInfo): GroomCacheInfo ;
 }

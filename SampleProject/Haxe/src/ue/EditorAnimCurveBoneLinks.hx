@@ -3,10 +3,13 @@ package ue;
 
 @:native("UEditorAnimCurveBoneLinks")
 @:include("Animation/EditorAnimCurveBoneLinks.h")
+@:structAccess
 extern class EditorAnimCurveBoneLinks extends Object {
 	public var CurveName: SmartName;
 	public var ConnectedBones: TArray<BoneReference>;
 	public var MaxLOD: cpp.UInt8;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

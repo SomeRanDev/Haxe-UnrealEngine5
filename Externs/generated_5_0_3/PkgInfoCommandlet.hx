@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPkgInfoCommandlet")
 @:include("Commandlets/PkgInfoCommandlet.h")
+@:structAccess
 extern class PkgInfoCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

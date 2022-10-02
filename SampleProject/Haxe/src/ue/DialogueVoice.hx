@@ -3,10 +3,13 @@ package ue;
 
 @:native("UDialogueVoice")
 @:include("Sound/DialogueVoice.h")
+@:structAccess
 extern class DialogueVoice extends Object {
 	public var Gender: EGrammaticalGender;
 	public var Plurality: EGrammaticalNumber;
 	public var LocalizationGUID: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

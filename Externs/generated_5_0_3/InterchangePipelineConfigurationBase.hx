@@ -3,8 +3,11 @@ package ue;
 
 @:native("UInterchangePipelineConfigurationBase")
 @:include("InterchangePipelineConfigurationBase.h")
+@:structAccess
 extern class InterchangePipelineConfigurationBase extends Object {
 	public function ScriptedShowPipelineConfigurationDialog(): cpp.Reference<EInterchangePipelineConfigurationDialogResult>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

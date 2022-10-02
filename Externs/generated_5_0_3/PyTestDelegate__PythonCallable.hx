@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UPyTestDelegate__PythonCallable")
+@:structAccess
 extern class PyTestDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("USlateThemeManager")
 @:include("Styling/StyleColors.h")
+@:structAccess
 extern class SlateThemeManager extends Object {
 	public var CurrentThemeId: Guid;
 	public var ActiveColors: StyleColorList;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

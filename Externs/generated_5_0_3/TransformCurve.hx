@@ -3,8 +3,12 @@ package ue;
 
 @:native("FTransformCurve")
 @:include("Animation/AnimCurveTypes.h")
+@:structAccess
 extern class TransformCurve extends AnimCurveBase {
 	public var TranslationCurve: VectorCurve;
 	public var RotationCurve: VectorCurve;
 	public var ScaleCurve: VectorCurve;
+
+	@:native("FTransformCurve") public function new();
+	@:native("FTransformCurve") public static function make(TranslationCurve: VectorCurve, RotationCurve: VectorCurve, ScaleCurve: VectorCurve): TransformCurve ;
 }

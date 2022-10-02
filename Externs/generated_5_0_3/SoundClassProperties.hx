@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSoundClassProperties")
 @:include("Sound/SoundClass.h")
+@:structAccess
 extern class SoundClassProperties {
 	public var Volume: cpp.Float32;
 	public var Pitch: cpp.Float32;
@@ -24,4 +25,6 @@ extern class SoundClassProperties {
 	public var OutputTarget: EAudioOutputTarget;
 	public var LoadingBehavior: ESoundWaveLoadingBehavior;
 	public var DefaultSubmix: cpp.Star<SoundSubmix>;
+
+	@:native("FSoundClassProperties") public function new();
 }

@@ -2,7 +2,10 @@
 package ue;
 
 @:native("URVOAvoidanceInterface")
+@:structAccess
 extern class RVOAvoidanceInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

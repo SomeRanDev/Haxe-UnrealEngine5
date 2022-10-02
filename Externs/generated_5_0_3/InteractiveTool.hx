@@ -3,9 +3,12 @@ package ue;
 
 @:native("UInteractiveTool")
 @:include("InteractiveTool.h")
+@:structAccess
 extern class InteractiveTool extends Object {
 	public var InputBehaviors: cpp.Star<InputBehaviorSet>;
 	public var ToolPropertyObjects: TArray<cpp.Star<Object>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

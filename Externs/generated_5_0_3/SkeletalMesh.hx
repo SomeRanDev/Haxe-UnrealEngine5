@@ -3,6 +3,7 @@ package ue;
 
 @:native("USkeletalMesh")
 @:include("Engine/SkeletalMesh.h")
+@:structAccess
 extern class SkeletalMesh extends StreamableRenderAsset {
 	public var MeshEditorDataObject: cpp.Star<SkeletalMeshEditorData>;
 	public var Skeleton: cpp.Star<Skeleton>;
@@ -82,6 +83,8 @@ extern class SkeletalMesh extends StreamableRenderAsset {
 	public function FindSocketInfo(InSocketName: FName, OutTransform: cpp.Reference<Transform>, OutBoneIndex: cpp.Reference<cpp.Int32>, OutIndex: cpp.Reference<cpp.Int32>): cpp.Reference<cpp.Star<SkeletalMeshSocket>>;
 	public function FindSocketAndIndex(InSocketName: FName, OutIndex: cpp.Reference<cpp.Int32>): cpp.Reference<cpp.Star<SkeletalMeshSocket>>;
 	public function FindSocket(InSocketName: FName): cpp.Reference<cpp.Star<SkeletalMeshSocket>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

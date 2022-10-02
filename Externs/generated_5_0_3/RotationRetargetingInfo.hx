@@ -3,6 +3,7 @@ package ue;
 
 @:native("FRotationRetargetingInfo")
 @:include("CommonAnimationTypes.h")
+@:structAccess
 extern class RotationRetargetingInfo {
 	public var bEnabled: Bool;
 	public var Source: Transform;
@@ -19,4 +20,6 @@ extern class RotationRetargetingInfo {
 	public var bFlipEasing: Bool;
 	public var EasingWeight: cpp.Float32;
 	public var bClamp: Bool;
+
+	@:native("FRotationRetargetingInfo") public function new();
 }

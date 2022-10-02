@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_CopyPoseFromMesh")
 @:include("AnimGraphNode_CopyPoseFromMesh.h")
+@:structAccess
 extern class AnimGraphNode_CopyPoseFromMesh extends AnimGraphNode_Base {
 	public var Node: AnimNode_CopyPoseFromMesh;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

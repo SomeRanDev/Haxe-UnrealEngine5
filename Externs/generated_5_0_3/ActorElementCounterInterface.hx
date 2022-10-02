@@ -3,7 +3,10 @@ package ue;
 
 @:native("UActorElementCounterInterface")
 @:include("Elements/Actor/ActorElementCounterInterface.h")
+@:structAccess
 extern class ActorElementCounterInterface extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

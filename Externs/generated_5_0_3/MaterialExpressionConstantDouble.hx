@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionConstantDouble")
 @:include("Materials/MaterialExpressionGenericConstant.h")
+@:structAccess
 extern class MaterialExpressionConstantDouble extends MaterialExpressionGenericConstant {
 	public var Value: cpp.Float64;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("AVREditorBaseActor")
 @:include("VREditorBaseActor.h")
+@:structAccess
 extern class VREditorBaseActor extends Actor {
 	public var VRMode: cpp.Star<VREditorMode>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

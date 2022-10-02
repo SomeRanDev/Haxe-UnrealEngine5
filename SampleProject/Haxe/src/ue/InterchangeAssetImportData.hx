@@ -3,6 +3,7 @@ package ue;
 
 @:native("UInterchangeAssetImportData")
 @:include("InterchangeAssetImportData.h")
+@:structAccess
 extern class InterchangeAssetImportData extends AssetImportData {
 	public var NodeContainer: cpp.Star<InterchangeBaseNodeContainer>;
 	public var NodeUniqueID: FString;
@@ -11,6 +12,8 @@ extern class InterchangeAssetImportData extends AssetImportData {
 	public function ScriptGetFirstFilename(): cpp.Reference<FString>;
 	public function ScriptExtractFilenames(): cpp.Reference<TArray<FString>>;
 	public function ScriptExtractDisplayLabels(): cpp.Reference<TArray<FString>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(ScriptGetFirstFilename, ScriptExtractFilenames, ScriptExtractDisplayLabels)

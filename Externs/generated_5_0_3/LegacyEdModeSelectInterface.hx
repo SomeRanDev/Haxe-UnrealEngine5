@@ -2,7 +2,10 @@
 package ue;
 
 @:native("ULegacyEdModeSelectInterface")
+@:structAccess
 extern class LegacyEdModeSelectInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UUnrealPakCommandlet")
 @:include("Commandlets/UnrealPakCommandlet.h")
+@:structAccess
 extern class UnrealPakCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

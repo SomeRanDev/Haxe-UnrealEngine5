@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimNotify_PlayNiagaraEffect")
 @:include("AnimNotify_PlayNiagaraEffect.h")
+@:structAccess
 extern class AnimNotify_PlayNiagaraEffect extends AnimNotify {
 	public var Template: cpp.Star<NiagaraSystem>;
 	public var LocationOffset: Vector;
@@ -13,6 +14,8 @@ extern class AnimNotify_PlayNiagaraEffect extends AnimNotify {
 	public var SocketName: FName;
 
 	public function GetSpawnedEffect(): cpp.Reference<cpp.Star<FXSystemComp>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetSpawnedEffect)

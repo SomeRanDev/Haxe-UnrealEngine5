@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UAssetEditorContextInterface")
+@:structAccess
 extern class AssetEditorContextInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

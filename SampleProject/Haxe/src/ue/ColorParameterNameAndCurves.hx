@@ -3,10 +3,14 @@ package ue;
 
 @:native("FColorParameterNameAndCurves")
 @:include("Sections/MovieSceneParameterSection.h")
+@:structAccess
 extern class ColorParameterNameAndCurves {
 	public var ParameterName: FName;
 	public var RedCurve: MovieSceneFloatChannel;
 	public var GreenCurve: MovieSceneFloatChannel;
 	public var BlueCurve: MovieSceneFloatChannel;
 	public var AlphaCurve: MovieSceneFloatChannel;
+
+	@:native("FColorParameterNameAndCurves") public function new();
+	@:native("FColorParameterNameAndCurves") public static function make(ParameterName: FName, RedCurve: MovieSceneFloatChannel, GreenCurve: MovieSceneFloatChannel, BlueCurve: MovieSceneFloatChannel, AlphaCurve: MovieSceneFloatChannel): ColorParameterNameAndCurves ;
 }

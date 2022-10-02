@@ -3,9 +3,12 @@ package ue;
 
 @:native("URigVMFunctionReferenceNode")
 @:include("RigVMModel/Nodes/RigVMFunctionReferenceNode.h")
+@:structAccess
 extern class RigVMFunctionReferenceNode extends RigVMLibraryNode {
 	public var ReferencedNodePtr: TSoftObjectPtr<RigVMLibraryNode>;
 	public var VariableMap: TMap<FName, FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

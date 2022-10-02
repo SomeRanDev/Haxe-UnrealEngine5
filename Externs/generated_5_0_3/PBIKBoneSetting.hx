@@ -3,6 +3,7 @@ package ue;
 
 @:native("FPBIKBoneSetting")
 @:include("PBIK_Shared.h")
+@:structAccess
 extern class PBIKBoneSetting {
 	public var Bone: FName;
 	public var RotationStiffness: cpp.Float32;
@@ -18,4 +19,6 @@ extern class PBIKBoneSetting {
 	public var MaxZ: cpp.Float32;
 	public var bUsePreferredAngles: Bool;
 	public var PreferredAngles: Vector;
+
+	@:native("FPBIKBoneSetting") public function new();
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWorldPartitionConvertCommandlet")
 @:include("Commandlets/WorldPartitionConvertCommandlet.h")
+@:structAccess
 extern class WorldPartitionConvertCommandlet extends Commandlet {
 	public var EditorHashClass: TSubclassOf<WorldPartitionEditorHash>;
 	public var RuntimeHashClass: TSubclassOf<WorldPartitionRuntimeHash>;
@@ -16,6 +17,8 @@ extern class WorldPartitionConvertCommandlet extends Commandlet {
 	public var HLODLayersForActorClasses: TArray<HLODLayerActorMapping>;
 	public var HLODLayers: TMap<FString, cpp.Star<HLODLayer>>;
 	public var LandscapeGridSize: cpp.UInt32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

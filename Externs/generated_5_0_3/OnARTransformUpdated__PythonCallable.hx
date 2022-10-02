@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnARTransformUpdated__PythonCallable")
+@:structAccess
 extern class OnARTransformUpdated__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

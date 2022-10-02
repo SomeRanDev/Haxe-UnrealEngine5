@@ -3,5 +3,7 @@ package ue;
 
 @:native("FMotionEvent")
 @:include("Input/Events.h")
+@:structAccess
 extern class MotionEvent extends InputEvent {
+	@:native("FMotionEvent") public function new();
 }

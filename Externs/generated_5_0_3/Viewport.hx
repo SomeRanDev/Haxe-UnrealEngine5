@@ -3,6 +3,7 @@ package ue;
 
 @:native("UViewport")
 @:include("Components/Viewport.h")
+@:structAccess
 extern class Viewport extends ContentWidget {
 	public var BackgroundColor: LinearColor;
 
@@ -12,6 +13,8 @@ extern class Viewport extends ContentWidget {
 	public function GetViewRotation(): cpp.Reference<Rotator>;
 	public function GetViewportWorld(): cpp.Reference<cpp.Star<World>>;
 	public function GetViewLocation(): cpp.Reference<Vector>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetViewRotation, GetViewportWorld, GetViewLocation)

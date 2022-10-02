@@ -3,8 +3,12 @@ package ue;
 
 @:native("FPropertyPathSegment")
 @:include("PropertyPathHelpers.h")
+@:structAccess
 extern class PropertyPathSegment {
 	public var Name: FName;
 	public var ArrayIndex: cpp.Int32;
 	public var Struct: cpp.Star<Struct>;
+
+	@:native("FPropertyPathSegment") public function new();
+	@:native("FPropertyPathSegment") public static function make(Name: FName, ArrayIndex: cpp.Int32, Struct: cpp.Star<Struct>): PropertyPathSegment ;
 }

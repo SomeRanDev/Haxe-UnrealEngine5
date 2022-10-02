@@ -3,11 +3,14 @@ package ue;
 
 @:native("UUniformVector")
 @:include("Field/FieldSystemObjects.h")
+@:structAccess
 extern class UniformVector extends FieldNodeVector {
 	public var Magnitude: cpp.Float32;
 	public var Direction: Vector;
 
 	public function SetUniformVector(Magnitude: cpp.Float32, Direction: Vector): cpp.Reference<cpp.Star<UniformVector>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

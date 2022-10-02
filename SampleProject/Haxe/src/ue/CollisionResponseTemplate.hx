@@ -3,6 +3,7 @@ package ue;
 
 @:native("FCollisionResponseTemplate")
 @:include("Engine/CollisionProfile.h")
+@:structAccess
 extern class CollisionResponseTemplate {
 	public var Name: FName;
 	public var CollisionEnabled: ECollisionEnabled;
@@ -10,4 +11,6 @@ extern class CollisionResponseTemplate {
 	public var ObjectTypeName: FName;
 	public var CustomResponses: TArray<ResponseChannel>;
 	public var HelpMessage: FString;
+
+	@:native("FCollisionResponseTemplate") public function new();
 }

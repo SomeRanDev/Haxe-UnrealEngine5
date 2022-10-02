@@ -3,7 +3,11 @@ package ue;
 
 @:native("FARPoseUpdatePayload")
 @:include("ARComponent.h")
+@:structAccess
 extern class ARPoseUpdatePayload {
 	public var WorldTransform: Transform;
 	public var JointTransforms: TArray<Transform>;
+
+	@:native("FARPoseUpdatePayload") public function new();
+	@:native("FARPoseUpdatePayload") public static function make(WorldTransform: Transform, JointTransforms: TArray<Transform>): ARPoseUpdatePayload ;
 }

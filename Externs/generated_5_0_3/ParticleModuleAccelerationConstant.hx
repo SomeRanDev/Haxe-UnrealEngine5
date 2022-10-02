@@ -3,8 +3,11 @@ package ue;
 
 @:native("UParticleModuleAccelerationConstant")
 @:include("Particles/Acceleration/ParticleModuleAccelerationConstant.h")
+@:structAccess
 extern class ParticleModuleAccelerationConstant extends ParticleModuleAccelerationBase {
 	public var Acceleration: Vector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

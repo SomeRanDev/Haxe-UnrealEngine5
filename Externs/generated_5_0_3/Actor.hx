@@ -3,6 +3,7 @@ package ue;
 
 @:native("AActor")
 @:include("GameFramework/Actor.h")
+@:structAccess
 extern class Actor extends Object {
 	public var PrimaryActorTick: ActorTickFunction;
 	public var bNetTemporary: Bool;
@@ -254,6 +255,72 @@ extern class Actor extends Object {
 	public function AddComponentByClass(Class: TSubclassOf<ActorComp>, bManualAttachment: Bool, RelativeTransform: cpp.Reference<Transform>, bDeferredFinish: Bool): cpp.Reference<cpp.Star<ActorComp>>;
 	public function AddComponent(TemplateName: FName, bManualAttachment: Bool, RelativeTransform: cpp.Reference<Transform>, ComponentTemplateContext: cpp.Star<Object.ConstObject>, bDeferredFinish: Bool): cpp.Reference<cpp.Star<ActorComp>>;
 	public function ActorHasTag(Tag: FName): cpp.Reference<Bool>;
+	public function BeginPlay(): Void;
+	public function Tick(DeltaTime: cpp.Float32): Void;
+	public function PreRegisterAllComponents(): Void;
+	public function PostRegisterAllComponents(): Void;
+	public function PostActorCreated(): Void;
+	public function OnConstruction(Transform: cpp.Reference<Transform>): Void;
+	public function PreInitializeComponents(): Void;
+	public function PostInitializeComponents(): Void;
+	public function Destroyed(): Void;
+	public function DestroyNetworkActorHandled(): Bool;
+	public function EndPlay(): Void;
+	public function SetActorLocation(NewLocation: Vector, bSweep: Bool = false, OutSweepHitResult: cpp.Star<HitResult> = null, Teleport: ETeleportType = ETeleportType.None): Bool;
+	public overload function SetActorRotation(NewRotation: Rotator, Teleport: ETeleportType = ETeleportType.None): Bool;
+	public overload function SetActorRotation(@:const NewRotation: cpp.Reference<Quat>, Teleport: ETeleportType = ETeleportType.None): Bool;
+	public overload function SetActorLocationAndRotation(NewLocation: Vector, NewRotation: Rotator, bSweep: Bool = false, OutSweepHitResult: cpp.Star<HitResult> = null, Teleport: ETeleportType = ETeleportType.None): Bool;
+	public overload function SetActorLocationAndRotation(NewLocation: Vector, @:const NewRotation: cpp.Reference<Quat>, bSweep: Bool = false, OutSweepHitResult: cpp.Star<HitResult> = null, Teleport: ETeleportType = ETeleportType.None): Bool;
+	public function SetActorTransform(@:const NewTransform: cpp.Reference<Transform>, bSweep: Bool = false, OutSweepHitResult: cpp.Star<HitResult> = null, Teleport: ETeleportType = ETeleportType.None): Bool;
+	public function AddActorWorldOffset(DeltaLocation: Vector, bSweep: Bool = false, OutSweepHitResult: cpp.Star<HitResult> = null, Teleport: ETeleportType = ETeleportType.None): Void;
+	public overload function AddActorWorldRotation(DeltaRotation: Rotator, bSweep: Bool = false, OutSweepHitResult: cpp.Star<HitResult> = null, Teleport: ETeleportType = ETeleportType.None): Void;
+	public overload function AddActorWorldRotation(@:const DeltaRotation: cpp.Reference<Quat>, bSweep: Bool = false, OutSweepHitResult: cpp.Star<HitResult> = null, Teleport: ETeleportType = ETeleportType.None): Void;
+	public function AddActorWorldTransform(@:const DeltaTransform: cpp.Reference<Transform>, bSweep: Bool = false, OutSweepHitResult: cpp.Star<HitResult> = null, Teleport: ETeleportType = ETeleportType.None): Void;
+	public function AddActorWorldTransformKeepScale(@:const DeltaTransform: cpp.Reference<Transform>, bSweep: Bool = false, OutSweepHitResult: cpp.Star<HitResult> = null, Teleport: ETeleportType = ETeleportType.None): Void;
+	public function AddActorLocalOffset(DeltaLocation: Vector, bSweep: Bool = false, OutSweepHitResult: cpp.Star<HitResult> = null, Teleport: ETeleportType = ETeleportType.None): Void;
+	public overload function AddActorLocalRotation(DeltaRotation: Rotator, bSweep: Bool = false, OutSweepHitResult: cpp.Star<HitResult> = null, Teleport: ETeleportType = ETeleportType.None): Void;
+	public overload function AddActorLocalRotation(@:const DeltaRotation: cpp.Reference<Quat>, bSweep: Bool = false, OutSweepHitResult: cpp.Star<HitResult> = null, Teleport: ETeleportType = ETeleportType.None): Void;
+	public function AddActorLocalTransform(@:const DeltaTransform: cpp.Reference<Transform>, bSweep: Bool = false, OutSweepHitResult: cpp.Star<HitResult> = null, Teleport: ETeleportType = ETeleportType.None): Void;
+	public function SetActorRelativeLocation(NewRelativeLocation: Vector, bSweep: Bool = false, OutSweepHitResult: cpp.Star<HitResult> = null, Teleport: ETeleportType = ETeleportType.None): Void;
+	public overload function SetActorRelativeRotation(NewRelativeRotation: Rotator, bSweep: Bool = false, OutSweepHitResult: cpp.Star<HitResult> = null, Teleport: ETeleportType = ETeleportType.None): Void;
+	public overload function SetActorRelativeRotation(@:const NewRelativeRotation: cpp.Reference<Quat>, bSweep: Bool = false, OutSweepHitResult: cpp.Star<HitResult> = null, Teleport: ETeleportType = ETeleportType.None): Void;
+	public function SetActorRelativeTransform(@:const NewRelativeTransform: cpp.Reference<Transform>, bSweep: Bool = false, OutSweepHitResult: cpp.Star<HitResult> = null, Teleport: ETeleportType = ETeleportType.None): Void;
+	@:const public function GetActorLocation(): Vector;
+	@:const public function GetActorNameOrLabel(): cpp.Reference<FString>;
+	@:const public function GetActorQuat(): Quat;
+	@:const public function GetActorRotation(): Rotator;
+	@:const public function GetActorScale(): Vector;
+	@:const public function GetActorTransform(): cpp.Reference<Transform>;
+	@:const public function GetAutoDestroyWhenFinished(): Bool;
+	@:const public function GetIsReplicated(): Bool;
+	@:const public function GetIsSpatiallyLoaded(): Bool;
+	@:const public function GetLastRenderTime(): cpp.Float32;
+	@:const public function GetPivotOffset(): Vector;
+	@:const public function GetPlacementExtent(): Vector;
+	@:const public function GetWorld(): cpp.Star<World>;
+	@:const public function HasActiveCameraComponent(): Bool;
+	@:const public function HasActivePawnControlCameraComponent(): Bool;
+	@:const public function HasActorBegunPlay(): Bool;
+	@:const public function IsActorBeginningPlay(): Bool;
+	@:const public function IsActorBeginningPlayFromLevelStreaming(): Bool;
+	@:const public function IsActorInitialized(): Bool;
+	@:const public function IsActorLabelEditable(): Bool;
+	@:const public function IsActorOrSelectionParentSelected(): Bool;
+	@:const public function IsLevelBoundsRelevant(): Bool;
+	@:const public function IsListedInSceneOutliner(): Bool;
+	@:const public function IsLockLocation(): Bool;
+	@:const public function IsNetStartupActor(): Bool;
+	@:const public function IsRootComponentCollisionRegistered(): Bool;
+	@:const public function IsRootComponentMovable(): Bool;
+	@:const public function IsRootComponentStatic(): Bool;
+	@:const public function IsRootComponentStationary(): Bool;
+	@:const public function IsRunningUserConstructionScript(): Bool;
+	@:const public function IsSelectionChild(): Bool;
+	@:const public function IsSelectionParentOfAttachedActors(): Bool;
+	@:const public function IsUserManaged(): Bool;
+	@:const public function IsValidForDataLayer(): Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

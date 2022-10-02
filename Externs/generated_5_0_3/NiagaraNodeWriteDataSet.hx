@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraNodeWriteDataSet")
 @:include("NiagaraNodeWriteDataSet.h")
+@:structAccess
 extern class NiagaraNodeWriteDataSet extends NiagaraNodeDataSetBase {
 	public var EventName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULandscapeGizmoRenderComponent")
 @:include("LandscapeGizmoRenderComponent.h")
+@:structAccess
 extern class LandscapeGizmoRenderComp extends PrimitiveComp {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

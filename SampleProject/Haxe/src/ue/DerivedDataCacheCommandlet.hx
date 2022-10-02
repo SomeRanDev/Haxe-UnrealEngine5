@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDerivedDataCacheCommandlet")
 @:include("Commandlets/DerivedDataCacheCommandlet.h")
+@:structAccess
 extern class DerivedDataCacheCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

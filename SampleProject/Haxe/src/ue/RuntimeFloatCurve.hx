@@ -3,7 +3,11 @@ package ue;
 
 @:native("FRuntimeFloatCurve")
 @:include("Curves/CurveFloat.h")
+@:structAccess
 extern class RuntimeFloatCurve {
 	public var EditorCurveData: RichCurve;
 	public var ExternalCurve: cpp.Star<CurveFloat>;
+
+	@:native("FRuntimeFloatCurve") public function new();
+	@:native("FRuntimeFloatCurve") public static function make(EditorCurveData: RichCurve, ExternalCurve: cpp.Star<CurveFloat>): RuntimeFloatCurve ;
 }

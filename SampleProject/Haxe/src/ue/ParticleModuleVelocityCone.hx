@@ -3,10 +3,13 @@ package ue;
 
 @:native("UParticleModuleVelocityCone")
 @:include("Particles/Velocity/ParticleModuleVelocityCone.h")
+@:structAccess
 extern class ParticleModuleVelocityCone extends ParticleModuleVelocityBase {
 	public var Angle: RawDistributionFloat;
 	public var Velocity: RawDistributionFloat;
 	public var Direction: Vector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FKBoxElem")
 @:include("PhysicsEngine/BoxElem.h")
+@:structAccess
 extern class KBoxElem extends KShapeElem {
 	public var TM_DEPRECATED: Matrix;
 	public var Orientation_DEPRECATED: Quat;
@@ -11,4 +12,6 @@ extern class KBoxElem extends KShapeElem {
 	public var X: cpp.Float32;
 	public var Y: cpp.Float32;
 	public var Z: cpp.Float32;
+
+	@:native("FKBoxElem") public function new();
 }

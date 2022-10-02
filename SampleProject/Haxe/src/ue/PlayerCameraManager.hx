@@ -3,6 +3,7 @@ package ue;
 
 @:native("APlayerCameraManager")
 @:include("Camera/PlayerCameraManager.h")
+@:structAccess
 extern class PlayerCameraManager extends Actor {
 	public var PCOwner: cpp.Star<PlayerController>;
 	public var TransformComponent: cpp.Star<SceneComp>;
@@ -75,6 +76,8 @@ extern class PlayerCameraManager extends Actor {
 	public function AddNewCameraModifier(ModifierClass: TSubclassOf<CameraModifier>): cpp.Reference<cpp.Star<CameraModifier>>;
 	public function AddGenericCameraLensEffect(LensEffectEmitterClass: TSubclassOf<Actor>): cpp.Reference<CameraLensEffectInterface>;
 	public function AddCameraLensEffect(LensEffectEmitterClass: TSubclassOf<EmitterCameraLensEffectBase>): cpp.Reference<cpp.Star<EmitterCameraLensEffectBase>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetOwningPlayerController, GetFOVAngle, GetCameraRotation, GetCameraLocation)

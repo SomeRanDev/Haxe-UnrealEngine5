@@ -3,8 +3,12 @@ package ue;
 
 @:native("FISMComponentData")
 @:include("ISMPartition/ISMComponentData.h")
+@:structAccess
 extern class ISMComponentData {
 	public var Instances: TArray<ISMComponentInstance>;
 	public var ClientInstances: TArray<ISMClientData>;
 	public var Component: cpp.Star<InstancedStaticMeshComp>;
+
+	@:native("FISMComponentData") public function new();
+	@:native("FISMComponentData") public static function make(Instances: TArray<ISMComponentInstance>, ClientInstances: TArray<ISMClientData>, Component: cpp.Star<InstancedStaticMeshComp>): ISMComponentData ;
 }

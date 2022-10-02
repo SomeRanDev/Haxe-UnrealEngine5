@@ -3,8 +3,11 @@ package ue;
 
 @:native("UFontImportOptions")
 @:include("Engine/FontImportOptions.h")
+@:structAccess
 extern class FontImportOptions extends Object {
 	public var Data: FontImportOptionsData;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

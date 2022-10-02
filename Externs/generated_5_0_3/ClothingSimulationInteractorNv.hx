@@ -3,8 +3,11 @@ package ue;
 
 @:native("UClothingSimulationInteractorNv")
 @:include("ClothingSimulationInteractorNv.h")
+@:structAccess
 extern class ClothingSimulationInteractorNv extends ClothingSimulationInteractor {
 	public function SetAnimDriveDamperStiffness(InStiffness: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

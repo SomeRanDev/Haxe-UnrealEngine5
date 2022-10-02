@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBoneMaskFilter")
 @:include("Animation/AnimData/BoneMaskFilter.h")
+@:structAccess
 extern class BoneMaskFilter extends Object {
 	public var BlendPoses: TArray<InputBlendPose>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

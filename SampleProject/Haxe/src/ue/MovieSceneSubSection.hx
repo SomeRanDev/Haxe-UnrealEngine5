@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneSubSection")
 @:include("Sections/MovieSceneSubSection.h")
+@:structAccess
 extern class MovieSceneSubSection extends MovieSceneSection {
 	public var Parameters: MovieSceneSectionParameters;
 	public var StartOffset_DEPRECATED: cpp.Float32;
@@ -13,6 +14,8 @@ extern class MovieSceneSubSection extends MovieSceneSection {
 
 	public function SetSequence(Sequence: cpp.Star<MovieSceneSequence>): Void;
 	public function GetSequence(): cpp.Reference<cpp.Star<MovieSceneSequence>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetSequence)

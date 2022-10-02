@@ -3,7 +3,11 @@ package ue;
 
 @:native("FEventPayload")
 @:include("Sections/MovieSceneEventSection.h")
+@:structAccess
 extern class EventPayload {
 	public var EventName: FName;
 	public var Parameters: MovieSceneEventParameters;
+
+	@:native("FEventPayload") public function new();
+	@:native("FEventPayload") public static function make(EventName: FName, Parameters: MovieSceneEventParameters): EventPayload ;
 }

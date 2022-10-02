@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnTimelineFloat__PythonCallable")
+@:structAccess
 extern class OnTimelineFloat__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

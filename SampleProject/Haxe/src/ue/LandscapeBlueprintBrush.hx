@@ -3,7 +3,10 @@ package ue;
 
 @:native("ALandscapeBlueprintBrush")
 @:include("LandscapeBlueprintBrush.h")
+@:structAccess
 extern class LandscapeBlueprintBrush extends LandscapeBlueprintBrushBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

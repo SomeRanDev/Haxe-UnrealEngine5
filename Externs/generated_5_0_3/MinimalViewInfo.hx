@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMinimalViewInfo")
 @:include("Camera/CameraTypes.h")
+@:structAccess
 extern class MinimalViewInfo {
 	public var Location: Vector;
 	public var Rotation: Rotator;
@@ -18,4 +19,6 @@ extern class MinimalViewInfo {
 	public var PostProcessBlendWeight: cpp.Float32;
 	public var PostProcessSettings: PostProcessSettings;
 	public var OffCenterProjectionOffset: Vector2D;
+
+	@:native("FMinimalViewInfo") public function new();
 }

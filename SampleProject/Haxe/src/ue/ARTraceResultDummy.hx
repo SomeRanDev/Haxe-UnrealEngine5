@@ -3,7 +3,10 @@ package ue;
 
 @:native("UARTraceResultDummy")
 @:include("ARTraceResult.h")
+@:structAccess
 extern class ARTraceResultDummy extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

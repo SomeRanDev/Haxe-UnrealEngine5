@@ -3,8 +3,11 @@ package ue;
 
 @:native("USubsurfaceProfile")
 @:include("Engine/SubsurfaceProfile.h")
+@:structAccess
 extern class SubsurfaceProfile extends Object {
 	public var Settings: SubsurfaceProfileStruct;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

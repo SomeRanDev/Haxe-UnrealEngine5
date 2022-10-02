@@ -3,9 +3,12 @@ package ue;
 
 @:native("AAtmosphericFog")
 @:include("Atmosphere/AtmosphericFog.h")
+@:structAccess
 extern class AtmosphericFog extends Info {
 	public var AtmosphericFogComponent: cpp.Star<AtmosphericFogComp>;
 	public var ArrowComponent: cpp.Star<ArrowComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

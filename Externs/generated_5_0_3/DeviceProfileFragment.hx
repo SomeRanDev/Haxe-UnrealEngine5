@@ -3,8 +3,11 @@ package ue;
 
 @:native("UDeviceProfileFragment")
 @:include("DeviceProfiles/DeviceProfileFragment.h")
+@:structAccess
 extern class DeviceProfileFragment extends Object {
 	public var CVars: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

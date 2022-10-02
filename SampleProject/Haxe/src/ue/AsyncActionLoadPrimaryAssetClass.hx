@@ -3,10 +3,13 @@ package ue;
 
 @:native("UAsyncActionLoadPrimaryAssetClass")
 @:include("AsyncActionLoadPrimaryAsset.h")
+@:structAccess
 extern class AsyncActionLoadPrimaryAssetClass extends AsyncActionLoadPrimaryAssetBase {
 	public var Completed: HaxeMulticastSparseDelegateProperty<(TSubclassOf<Object>) -> Void>;
 
 	public function AsyncLoadPrimaryAssetClass(WorldContextObject: cpp.Star<Object>, PrimaryAsset: PrimaryAssetId, LoadBundles: cpp.Reference<TArray<FName>>): cpp.Reference<cpp.Star<AsyncActionLoadPrimaryAssetClass>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,11 +3,14 @@ package ue;
 
 @:native("USubmixEffectReverbPreset")
 @:include("SubmixEffects/AudioMixerSubmixEffectReverb.h")
+@:structAccess
 extern class SubmixEffectReverbPreset extends SoundEffectSubmixPreset {
 	public var Settings: SubmixEffectReverbSettings;
 
 	public function SetSettingsWithReverbEffect(InReverbEffect: cpp.Star<ReverbEffect.ConstReverbEffect>, WetLevel: cpp.Float32, DryLevel: cpp.Float32): Void;
 	public function SetSettings(InSettings: cpp.Reference<SubmixEffectReverbSettings>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

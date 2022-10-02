@@ -3,10 +3,14 @@ package ue;
 
 @:native("FCustomizedToolMenu")
 @:include("Framework/MultiBox/ToolMenuBase.h")
+@:structAccess
 extern class CustomizedToolMenu {
 	public var Name: FName;
 	public var Entries: TMap<FName, CustomizedToolMenuEntry>;
 	public var Sections: TMap<FName, CustomizedToolMenuSection>;
 	public var EntryOrder: TMap<FName, CustomizedToolMenuNameArray>;
 	public var SectionOrder: TArray<FName>;
+
+	@:native("FCustomizedToolMenu") public function new();
+	@:native("FCustomizedToolMenu") public static function make(Name: FName, Entries: TMap<FName, CustomizedToolMenuEntry>, Sections: TMap<FName, CustomizedToolMenuSection>, EntryOrder: TMap<FName, CustomizedToolMenuNameArray>, SectionOrder: TArray<FName>): CustomizedToolMenu ;
 }

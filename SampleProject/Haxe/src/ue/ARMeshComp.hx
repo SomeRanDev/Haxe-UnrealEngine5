@@ -3,12 +3,15 @@ package ue;
 
 @:native("UARMeshComponent")
 @:include("ARComponent.h")
+@:structAccess
 extern class ARMeshComp extends ARComp {
 	public var ReplicatedPayload: ARMeshUpdatePayload;
 
 	public function ServerUpdatePayload(NewPayload: cpp.Reference<ARMeshUpdatePayload>): Void;
 	public function ReceiveUpdate(Payload: cpp.Reference<ARMeshUpdatePayload>): Void;
 	public function ReceiveAdd(Payload: cpp.Reference<ARMeshUpdatePayload>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

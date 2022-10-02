@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionComposite")
 @:include("Materials/MaterialExpressionComposite.h")
+@:structAccess
 extern class MaterialExpressionComposite extends MaterialExpression {
 	public var SubgraphName: FString;
 	public var InputExpressions: cpp.Star<MaterialExpressionPinBase>;
 	public var OutputExpressions: cpp.Star<MaterialExpressionPinBase>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

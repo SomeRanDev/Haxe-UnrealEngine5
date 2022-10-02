@@ -3,11 +3,14 @@ package ue;
 
 @:native("UNiagaraNodeUsageSelector")
 @:include("NiagaraNodeUsageSelector.h")
+@:structAccess
 extern class NiagaraNodeUsageSelector extends NiagaraNodeWithDynamicPins {
 	public var OutputVars: TArray<NiagaraVariable>;
 	public var OutputVarGuids: TArray<Guid>;
 	public var SelectorGuid: Guid;
 	public var NumOptionsPerVariable: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

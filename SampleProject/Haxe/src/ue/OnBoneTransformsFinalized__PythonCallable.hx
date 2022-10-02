@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnBoneTransformsFinalized__PythonCallable")
+@:structAccess
 extern class OnBoneTransformsFinalized__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,11 +3,14 @@ package ue;
 
 @:native("USoundNodeModulator")
 @:include("Sound/SoundNodeModulator.h")
+@:structAccess
 extern class SoundNodeModulator extends SoundNode {
 	public var PitchMin: cpp.Float32;
 	public var PitchMax: cpp.Float32;
 	public var VolumeMin: cpp.Float32;
 	public var VolumeMax: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

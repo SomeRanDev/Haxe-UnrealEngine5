@@ -3,6 +3,10 @@ package ue;
 
 @:native("FIndexedCurve")
 @:include("Curves/IndexedCurve.h")
+@:structAccess
 extern class IndexedCurve {
 	public var KeyHandlesToIndices: KeyHandleMap;
+
+	@:native("FIndexedCurve") public function new();
+	@:native("FIndexedCurve") public static function make(KeyHandlesToIndices: KeyHandleMap): IndexedCurve ;
 }

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UVideoCaptureProtocol")
 @:include("Protocols/VideoCaptureProtocol.h")
+@:structAccess
 extern class VideoCaptureProtocol extends FrameGrabberProtocol {
 	public var bUseCompression: Bool;
 	public var CompressionQuality: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

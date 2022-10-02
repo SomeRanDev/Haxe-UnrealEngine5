@@ -3,6 +3,7 @@ package ue;
 
 @:native("URigVMGraph")
 @:include("RigVMModel/RigVMGraph.h")
+@:structAccess
 extern class RigVMGraph extends Object {
 	public var Nodes: TArray<cpp.Star<RigVMNode>>;
 	public var Links: TArray<cpp.Star<RigVMLink>>;
@@ -34,6 +35,8 @@ extern class RigVMGraph extends Object {
 	public function FindNodeByName(InNodeName: cpp.Reference<FName>): cpp.Reference<cpp.Star<RigVMNode>>;
 	public function FindNode(InNodePath: FString): cpp.Reference<cpp.Star<RigVMNode>>;
 	public function FindLink(InLinkPinPathRepresentation: FString): cpp.Reference<cpp.Star<RigVMLink>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

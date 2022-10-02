@@ -3,6 +3,7 @@ package ue;
 
 @:native("UIKRetargeter")
 @:include("Retargeter/IKRetargeter.h")
+@:structAccess
 extern class IKRetargeter extends Object {
 	public var SourceIKRigAsset: cpp.Star<IKRigDefinition>;
 	public var TargetIKRigAsset: cpp.Star<IKRigDefinition>;
@@ -19,6 +20,8 @@ extern class IKRetargeter extends Object {
 	public var ChainMapping_DEPRECATED: TArray<RetargetChainMap>;
 	public var ChainSettings: TArray<cpp.Star<RetargetChainSettings>>;
 	public var CurrentRetargetPose: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

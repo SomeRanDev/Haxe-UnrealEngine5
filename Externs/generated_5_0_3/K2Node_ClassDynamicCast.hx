@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_ClassDynamicCast")
 @:include("K2Node_ClassDynamicCast.h")
+@:structAccess
 extern class K2Node_ClassDynamicCast extends K2Node_DynamicCast {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

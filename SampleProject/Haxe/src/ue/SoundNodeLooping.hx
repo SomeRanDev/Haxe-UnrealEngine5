@@ -3,9 +3,12 @@ package ue;
 
 @:native("USoundNodeLooping")
 @:include("Sound/SoundNodeLooping.h")
+@:structAccess
 extern class SoundNodeLooping extends SoundNode {
 	public var LoopCount: cpp.Int32;
 	public var bLoopIndefinitely: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

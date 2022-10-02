@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMeshSimplificationSettings")
 @:include("Engine/MeshSimplificationSettings.h")
+@:structAccess
 extern class MeshSimplificationSettings extends DeveloperSettings {
 	public var MeshReductionModuleName: FName;
 	public var bMeshReductionBackwardCompatible: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

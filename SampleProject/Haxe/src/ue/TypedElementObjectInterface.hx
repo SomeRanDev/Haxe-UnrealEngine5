@@ -2,9 +2,12 @@
 package ue;
 
 @:native("UTypedElementObjectInterface")
+@:structAccess
 extern class TypedElementObjectInterface extends Interface {
 	public function GetObjectClass(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): cpp.Reference<cpp.Star<Class>>;
 	public function GetObject(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): cpp.Reference<cpp.Star<Object>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

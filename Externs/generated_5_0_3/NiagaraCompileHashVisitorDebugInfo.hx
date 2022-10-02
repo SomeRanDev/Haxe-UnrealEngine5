@@ -3,8 +3,12 @@ package ue;
 
 @:native("FNiagaraCompileHashVisitorDebugInfo")
 @:include("NiagaraTypes.h")
+@:structAccess
 extern class NiagaraCompileHashVisitorDebugInfo {
 	public var Object: FString;
 	public var PropertyKeys: TArray<FString>;
 	public var PropertyValues: TArray<FString>;
+
+	@:native("FNiagaraCompileHashVisitorDebugInfo") public function new();
+	@:native("FNiagaraCompileHashVisitorDebugInfo") public static function make(Object: FString, PropertyKeys: TArray<FString>, PropertyValues: TArray<FString>): NiagaraCompileHashVisitorDebugInfo ;
 }

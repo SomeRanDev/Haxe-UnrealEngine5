@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraNamespaceMetadata")
 @:include("NiagaraEditorSettings.h")
+@:structAccess
 extern class NiagaraNamespaceMetadata {
 	public var Namespaces: TArray<FName>;
 	public var RequiredNamespaceModifier: FName;
@@ -15,4 +16,6 @@ extern class NiagaraNamespaceMetadata {
 	public var OptionalNamespaceModifiers: TArray<FName>;
 	public var Options: TArray<ENiagaraNamespaceMetadataOptions>;
 	public var Guid: Guid;
+
+	@:native("FNiagaraNamespaceMetadata") public function new();
 }

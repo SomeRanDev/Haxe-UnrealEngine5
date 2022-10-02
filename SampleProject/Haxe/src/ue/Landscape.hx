@@ -3,6 +3,7 @@ package ue;
 
 @:native("ALandscape")
 @:include("Landscape.h")
+@:structAccess
 extern class Landscape extends LandscapeProxy {
 	public var bCanHaveLayersContent: Bool;
 	public var LandscapeSplinesTargetLayerGuid: Guid;
@@ -16,6 +17,8 @@ extern class Landscape extends LandscapeProxy {
 	public var WasCompilingShaders: Bool;
 	public var LayerContentUpdateModes: cpp.UInt32;
 	public var bSplineLayerUpdateRequested: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

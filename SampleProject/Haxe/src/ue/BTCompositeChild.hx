@@ -3,9 +3,13 @@ package ue;
 
 @:native("FBTCompositeChild")
 @:include("BehaviorTree/BTCompositeNode.h")
+@:structAccess
 extern class BTCompositeChild {
 	public var ChildComposite: cpp.Star<BTCompositeNode>;
 	public var ChildTask: cpp.Star<BTTaskNode>;
 	public var Decorators: TArray<cpp.Star<BTDecorator>>;
 	public var DecoratorOps: TArray<BTDecoratorLogic>;
+
+	@:native("FBTCompositeChild") public function new();
+	@:native("FBTCompositeChild") public static function make(ChildComposite: cpp.Star<BTCompositeNode>, ChildTask: cpp.Star<BTTaskNode>, Decorators: TArray<cpp.Star<BTDecorator>>, DecoratorOps: TArray<BTDecoratorLogic>): BTCompositeChild ;
 }

@@ -3,12 +3,15 @@ package ue;
 
 @:native("UARTrackedImage")
 @:include("ARTrackable.h")
+@:structAccess
 extern class ARTrackedImage extends ARTrackedGeometry {
 	public var DetectedImage: cpp.Star<ARCandidateImage>;
 	public var EstimatedSize: Vector2D;
 
 	public function GetEstimateSize(): cpp.Reference<Vector2D>;
 	public function GetDetectedImage(): cpp.Reference<cpp.Star<ARCandidateImage>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetDetectedImage)

@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UComponentWakeSignature__PythonCallable")
+@:structAccess
 extern class ComponentWakeSignature__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

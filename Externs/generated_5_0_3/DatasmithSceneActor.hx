@@ -3,9 +3,12 @@ package ue;
 
 @:native("ADatasmithSceneActor")
 @:include("DatasmithSceneActor.h")
+@:structAccess
 extern class DatasmithSceneActor extends Actor {
 	public var Scene: cpp.Star<DatasmithScene>;
 	public var RelatedActors: TMap<FName, TSoftObjectPtr<Actor>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("ASpectatorPawn")
 @:include("GameFramework/SpectatorPawn.h")
+@:structAccess
 extern class SpectatorPawn extends DefaultPawn {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

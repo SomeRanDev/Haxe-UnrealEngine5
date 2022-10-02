@@ -3,10 +3,13 @@ package ue;
 
 @:native("AIntervalGizmoActor")
 @:include("BaseGizmos/IntervalGizmo.h")
+@:structAccess
 extern class IntervalGizmoActor extends GizmoActor {
 	public var UpIntervalComponent: cpp.Star<GizmoLineHandleComp>;
 	public var DownIntervalComponent: cpp.Star<GizmoLineHandleComp>;
 	public var ForwardIntervalComponent: cpp.Star<GizmoLineHandleComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

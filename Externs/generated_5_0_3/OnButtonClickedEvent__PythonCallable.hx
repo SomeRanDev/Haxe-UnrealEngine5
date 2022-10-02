@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnButtonClickedEvent__PythonCallable")
+@:structAccess
 extern class OnButtonClickedEvent__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

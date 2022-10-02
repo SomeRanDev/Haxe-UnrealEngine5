@@ -3,8 +3,12 @@ package ue;
 
 @:native("FVector2DParameterNameAndCurves")
 @:include("Sections/MovieSceneParameterSection.h")
+@:structAccess
 extern class Vector2DParameterNameAndCurves {
 	public var ParameterName: FName;
 	public var XCurve: MovieSceneFloatChannel;
 	public var YCurve: MovieSceneFloatChannel;
+
+	@:native("FVector2DParameterNameAndCurves") public function new();
+	@:native("FVector2DParameterNameAndCurves") public static function make(ParameterName: FName, XCurve: MovieSceneFloatChannel, YCurve: MovieSceneFloatChannel): Vector2DParameterNameAndCurves ;
 }

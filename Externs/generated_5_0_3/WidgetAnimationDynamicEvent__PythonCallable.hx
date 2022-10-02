@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UWidgetAnimationDynamicEvent__PythonCallable")
+@:structAccess
 extern class WidgetAnimationDynamicEvent__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

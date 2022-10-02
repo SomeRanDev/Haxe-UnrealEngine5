@@ -3,8 +3,11 @@ package ue;
 
 @:native("USequencerExportTask")
 @:include("SequencerExportTask.h")
+@:structAccess
 extern class SequencerExportTask extends AssetExportTask {
 	public var SequencerContext: cpp.Star<Object>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

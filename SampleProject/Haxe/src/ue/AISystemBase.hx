@@ -3,10 +3,13 @@ package ue;
 
 @:native("UAISystemBase")
 @:include("AI/AISystemBase.h")
+@:structAccess
 extern class AISystemBase extends Object {
 	public var AISystemClassName: SoftClassPath;
 	public var AISystemModuleName: FName;
 	public var bInstantiateAISystemOnClient: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

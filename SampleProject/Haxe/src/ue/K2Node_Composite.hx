@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_Composite")
 @:include("K2Node_Composite.h")
+@:structAccess
 extern class K2Node_Composite extends K2Node_Tunnel {
 	public var BoundGraph: cpp.Star<EdGraph>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,12 +3,15 @@ package ue;
 
 @:native("UAudioAnalyzer")
 @:include("AudioAnalyzer.h")
+@:structAccess
 extern class AudioAnalyzer extends Object {
 	public var AudioBus: cpp.Star<AudioBus>;
 	public var AudioAnalyzerSubsystem: cpp.Star<AudioAnalyzerSubsystem>;
 
 	public function StopAnalyzing(WorldContextObject: cpp.Star<Object.ConstObject>): Void;
 	public function StartAnalyzing(WorldContextObject: cpp.Star<Object.ConstObject>, AudioBusToAnalyze: cpp.Star<AudioBus>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

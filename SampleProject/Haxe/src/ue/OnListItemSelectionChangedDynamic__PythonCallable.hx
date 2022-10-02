@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnListItemSelectionChangedDynamic__PythonCallable")
+@:structAccess
 extern class OnListItemSelectionChangedDynamic__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

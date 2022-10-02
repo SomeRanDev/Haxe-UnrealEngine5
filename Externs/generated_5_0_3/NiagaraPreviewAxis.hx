@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNiagaraPreviewAxis")
 @:include("NiagaraPreviewGrid.h")
+@:structAccess
 extern class NiagaraPreviewAxis extends Object {
 	public function Num(): cpp.Reference<cpp.Int32>;
 	public function ApplyToPreview(PreviewComponent: cpp.Star<NiagaraComp>, PreviewIndex: cpp.Int32, bIsXAxis: Bool, OutLabelText: cpp.Reference<FString>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

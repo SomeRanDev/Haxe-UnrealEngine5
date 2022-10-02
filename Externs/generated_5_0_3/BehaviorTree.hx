@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBehaviorTree")
 @:include("BehaviorTree/BehaviorTree.h")
+@:structAccess
 extern class BehaviorTree extends Object {
 	public var RootNode: cpp.Star<BTCompositeNode>;
 	public var BTGraph: cpp.Star<EdGraph>;
@@ -10,6 +11,8 @@ extern class BehaviorTree extends Object {
 	public var BlackboardAsset: cpp.Star<BlackboardData>;
 	public var RootDecorators: TArray<cpp.Star<BTDecorator>>;
 	public var RootDecoratorOps: TArray<BTDecoratorLogic>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

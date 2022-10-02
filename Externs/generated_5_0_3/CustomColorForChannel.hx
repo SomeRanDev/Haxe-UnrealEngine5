@@ -3,8 +3,12 @@ package ue;
 
 @:native("FCustomColorForChannel")
 @:include("CurveEditorSettings.h")
+@:structAccess
 extern class CustomColorForChannel {
 	public var Object: TSoftClassPtr<Class>;
 	public var PropertyName: FString;
 	public var Color: LinearColor;
+
+	@:native("FCustomColorForChannel") public function new();
+	@:native("FCustomColorForChannel") public static function make(Object: TSoftClassPtr<Class>, PropertyName: FString, Color: LinearColor): CustomColorForChannel ;
 }

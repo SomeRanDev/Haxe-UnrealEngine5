@@ -3,6 +3,7 @@ package ue;
 
 @:native("FCollisionResponseContainer")
 @:include("Engine/EngineTypes.h")
+@:structAccess
 extern class CollisionResponseContainer {
 	public var WorldStatic: ECollisionResponse;
 	public var WorldDynamic: ECollisionResponse;
@@ -36,4 +37,6 @@ extern class CollisionResponseContainer {
 	public var GameTraceChannel16: ECollisionResponse;
 	public var GameTraceChannel17: ECollisionResponse;
 	public var GameTraceChannel18: ECollisionResponse;
+
+	@:native("FCollisionResponseContainer") public function new();
 }

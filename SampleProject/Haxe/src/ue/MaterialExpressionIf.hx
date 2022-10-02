@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionIf")
 @:include("Materials/MaterialExpressionIf.h")
+@:structAccess
 extern class MaterialExpressionIf extends MaterialExpression {
 	public var A: ExpressionInput;
 	public var B: ExpressionInput;
@@ -12,6 +13,8 @@ extern class MaterialExpressionIf extends MaterialExpression {
 	public var EqualsThreshold: cpp.Float32;
 	public var ConstB: cpp.Float32;
 	public var ConstAEqualsB_DEPRECATED: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("ALandscapeBlueprintBrushBase")
 @:include("LandscapeBlueprintBrushBase.h")
+@:structAccess
 extern class LandscapeBlueprintBrushBase extends Actor {
 	public var OwningLandscape: cpp.Star<Landscape>;
 	public var AffectHeightmap: Bool;
@@ -14,6 +15,8 @@ extern class LandscapeBlueprintBrushBase extends Actor {
 	public function Render(InIsHeightmap: Bool, InCombinedResult: cpp.Star<TextureRenderTarget2D>, InWeightmapLayerName: cpp.Reference<FName>): cpp.Reference<cpp.Star<TextureRenderTarget2D>>;
 	public function Initialize(InLandscapeTransform: cpp.Reference<Transform>, InLandscapeSize: cpp.Reference<IntPoint>, InLandscapeRenderTargetSize: cpp.Reference<IntPoint>): Void;
 	public function GetBlueprintRenderDependencies(OutStreamableAssets: cpp.Reference<TArray<cpp.Star<Object>>>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

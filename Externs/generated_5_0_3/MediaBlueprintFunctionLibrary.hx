@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMediaBlueprintFunctionLibrary")
 @:include("Misc/MediaBlueprintFunctionLibrary.h")
+@:structAccess
 extern class MediaBlueprintFunctionLibrary extends BlueprintFunctionLibrary {
 	public function EnumerateWebcamCaptureDevices(OutDevices: cpp.Reference<TArray<MediaCaptureDevice>>, Filter: cpp.Int32): Void;
 	public function EnumerateVideoCaptureDevices(OutDevices: cpp.Reference<TArray<MediaCaptureDevice>>, Filter: cpp.Int32): Void;
 	public function EnumerateAudioCaptureDevices(OutDevices: cpp.Reference<TArray<MediaCaptureDevice>>, Filter: cpp.Int32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,11 +3,14 @@ package ue;
 
 @:native("UPoseWatchFolder")
 @:include("Engine/PoseWatch.h")
+@:structAccess
 extern class PoseWatchFolder extends Object {
 	public var Label: FText;
 	public var Parent: TWeakObjectPtr<PoseWatchFolder>;
 	public var bIsVisible: Bool;
 	public var bIsExpanded: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

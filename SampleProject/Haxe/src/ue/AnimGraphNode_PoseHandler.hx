@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAnimGraphNode_PoseHandler")
 @:include("AnimGraphNode_PoseHandler.h")
+@:structAccess
 extern class AnimGraphNode_PoseHandler extends AnimGraphNode_AssetPlayerBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

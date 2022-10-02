@@ -3,10 +3,13 @@ package ue;
 
 @:native("USequenceRecorderBlueprintLibrary")
 @:include("SequenceRecorderBlueprintLibrary.h")
+@:structAccess
 extern class SequenceRecorderBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function StopRecordingSequence(): Void;
 	public function StartRecordingSequence(ActorsToRecord: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
 	public function IsRecordingSequence(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

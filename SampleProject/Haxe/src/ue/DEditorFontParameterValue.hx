@@ -3,8 +3,11 @@ package ue;
 
 @:native("UDEditorFontParameterValue")
 @:include("MaterialEditor/DEditorFontParameterValue.h")
+@:structAccess
 extern class DEditorFontParameterValue extends DEditorParameterValue {
 	public var ParameterValue: DFontParameters;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

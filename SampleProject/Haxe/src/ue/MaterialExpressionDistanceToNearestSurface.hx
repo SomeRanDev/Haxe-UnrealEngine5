@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionDistanceToNearestSurface")
 @:include("Materials/MaterialExpressionDistanceToNearestSurface.h")
+@:structAccess
 extern class MaterialExpressionDistanceToNearestSurface extends MaterialExpression {
 	public var Position: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

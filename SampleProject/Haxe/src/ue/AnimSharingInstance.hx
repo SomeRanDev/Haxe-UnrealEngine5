@@ -3,12 +3,15 @@ package ue;
 
 @:native("UAnimSharingInstance")
 @:include("AnimationSharingManager.h")
+@:structAccess
 extern class AnimSharingInstance extends Object {
 	public var RegisteredActors: TArray<cpp.Star<Actor>>;
 	public var StateProcessor: cpp.Star<AnimationSharingStateProcessor>;
 	public var UsedAnimationSequences: TArray<cpp.Star<AnimSequence>>;
 	public var StateEnum: cpp.Star<Enum>;
 	public var SharingActor: cpp.Star<Actor>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

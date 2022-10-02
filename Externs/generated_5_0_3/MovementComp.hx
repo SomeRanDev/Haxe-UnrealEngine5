@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovementComponent")
 @:include("GameFramework/MovementComponent.h")
+@:structAccess
 extern class MovementComp extends ActorComp {
 	public var UpdatedComponent: cpp.Star<SceneComp>;
 	public var UpdatedPrimitive: cpp.Star<PrimitiveComp>;
@@ -39,6 +40,8 @@ extern class MovementComp extends ActorComp {
 	public function ConstrainNormalToPlane(Normal: Vector): cpp.Reference<Vector>;
 	public function ConstrainLocationToPlane(Location: Vector): cpp.Reference<Vector>;
 	public function ConstrainDirectionToPlane(Direction: Vector): cpp.Reference<Vector>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

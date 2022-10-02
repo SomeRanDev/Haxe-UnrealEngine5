@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionRuntimeVirtualTextureSampleParameter")
 @:include("Materials/MaterialExpressionRuntimeVirtualTextureSampleParameter.h")
+@:structAccess
 extern class MaterialExpressionRuntimeVirtualTextureSampleParameter extends MaterialExpressionRuntimeVirtualTextureSample {
 	public var ParameterName: FName;
 	public var ExpressionGUID: Guid;
 	public var Group: FName;
 	public var SortPriority: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

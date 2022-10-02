@@ -3,8 +3,11 @@ package ue;
 
 @:native("ASequenceRecorderGroup")
 @:include("SequenceRecorderActorGroup.h")
+@:structAccess
 extern class SequenceRecorderGroup extends Actor {
 	public var ActorGroups: TArray<cpp.Star<SequenceRecorderActorGroup>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneGroomCacheSection")
 @:include("MovieSceneGroomCacheSection.h")
+@:structAccess
 extern class MovieSceneGroomCacheSection extends MovieSceneSection {
 	public var Params: MovieSceneGroomCacheParams;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

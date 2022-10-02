@@ -3,6 +3,7 @@ package ue;
 
 @:native("UChaosClothSharedSimConfig")
 @:include("ChaosCloth/ChaosClothConfig.h")
+@:structAccess
 extern class ChaosClothSharedSimConfig extends ClothSharedConfigCommon {
 	public var IterationCount: cpp.Int32;
 	public var MaxIterationCount: cpp.Int32;
@@ -16,6 +17,8 @@ extern class ChaosClothSharedSimConfig extends ClothSharedConfigCommon {
 	public var Gravity_DEPRECATED: Vector;
 	public var bUseLocalSpaceSimulation: Bool;
 	public var bUseXPBDConstraints: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

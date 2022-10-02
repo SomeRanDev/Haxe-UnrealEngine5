@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnMontageBlendingOutStartedMCDelegate__PythonCallable")
+@:structAccess
 extern class OnMontageBlendingOutStartedMCDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

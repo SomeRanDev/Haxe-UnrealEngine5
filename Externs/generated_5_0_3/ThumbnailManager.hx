@@ -3,6 +3,7 @@ package ue;
 
 @:native("UThumbnailManager")
 @:include("ThumbnailRendering/ThumbnailManager.h")
+@:structAccess
 extern class ThumbnailManager extends Object {
 	public var NotSupported: ThumbnailRenderingInfo;
 	public var EditorCube: cpp.Star<StaticMesh>;
@@ -15,6 +16,8 @@ extern class ThumbnailManager extends Object {
 	public var CheckerboardTexture: cpp.Star<Texture2D>;
 	public var RenderableThumbnailTypes: TArray<ThumbnailRenderingInfo>;
 	public var ThumbnailManagerClassName: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

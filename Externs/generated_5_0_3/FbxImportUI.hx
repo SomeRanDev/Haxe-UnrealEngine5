@@ -3,6 +3,7 @@ package ue;
 
 @:native("UFbxImportUI")
 @:include("Factories/FbxImportUI.h")
+@:structAccess
 extern class FbxImportUI extends Object {
 	public var bIsObjImport: Bool;
 	public var OriginalImportType: EFBXImportType;
@@ -45,6 +46,8 @@ extern class FbxImportUI extends Object {
 	public var AnimEndFrame: FString;
 
 	public function ResetToDefault(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

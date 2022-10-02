@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleBeamTarget")
 @:include("Particles/Beam/ParticleModuleBeamTarget.h")
+@:structAccess
 extern class ParticleModuleBeamTarget extends ParticleModuleBeamBase {
 	public var TargetMethod: Beam2SourceTargetMethod;
 	public var TargetName: FName;
@@ -15,6 +16,8 @@ extern class ParticleModuleBeamTarget extends ParticleModuleBeamBase {
 	public var TargetStrength: RawDistributionFloat;
 	public var bLockTargetStength: Bool;
 	public var LockRadius: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

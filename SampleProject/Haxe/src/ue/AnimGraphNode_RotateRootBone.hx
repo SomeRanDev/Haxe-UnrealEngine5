@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_RotateRootBone")
 @:include("AnimGraphNode_RotateRootBone.h")
+@:structAccess
 extern class AnimGraphNode_RotateRootBone extends AnimGraphNode_Base {
 	public var Node: AnimNode_RotateRootBone;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

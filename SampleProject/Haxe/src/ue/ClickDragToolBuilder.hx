@@ -3,7 +3,10 @@ package ue;
 
 @:native("UClickDragToolBuilder")
 @:include("BaseTools/ClickDragTool.h")
+@:structAccess
 extern class ClickDragToolBuilder extends InteractiveToolBuilder {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,10 +3,13 @@ package ue;
 
 @:native("ASceneCaptureCube")
 @:include("Engine/SceneCaptureCube.h")
+@:structAccess
 extern class SceneCaptureCube extends SceneCapture {
 	public var CaptureComponentCube: cpp.Star<SceneCaptureComponentCube>;
 
 	public function OnInterpToggle(bEnable: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

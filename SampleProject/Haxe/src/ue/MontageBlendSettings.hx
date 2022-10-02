@@ -3,8 +3,12 @@ package ue;
 
 @:native("FMontageBlendSettings")
 @:include("Animation/AnimMontage.h")
+@:structAccess
 extern class MontageBlendSettings {
 	public var BlendProfile: cpp.Star<BlendProfile>;
 	public var Blend: AlphaBlendArgs;
 	public var BlendMode: EMontageBlendMode;
+
+	@:native("FMontageBlendSettings") public function new();
+	@:native("FMontageBlendSettings") public static function make(BlendProfile: cpp.Star<BlendProfile>, Blend: AlphaBlendArgs, BlendMode: EMontageBlendMode): MontageBlendSettings ;
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNotifyEvent")
 @:include("Animation/AnimTypes.h")
+@:structAccess
 extern class AnimNotifyEvent extends AnimLinkableElement {
 	public var DisplayTime_DEPRECATED: cpp.Float32;
 	public var TriggerTimeOffset: cpp.Float32;
@@ -23,4 +24,6 @@ extern class AnimNotifyEvent extends AnimLinkableElement {
 	public var NotifyColor: Color;
 	public var Guid: Guid;
 	public var TrackIndex: cpp.Int32;
+
+	@:native("FAnimNotifyEvent") public function new();
 }

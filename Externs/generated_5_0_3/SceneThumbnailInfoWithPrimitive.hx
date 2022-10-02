@@ -3,10 +3,13 @@ package ue;
 
 @:native("USceneThumbnailInfoWithPrimitive")
 @:include("ThumbnailRendering/SceneThumbnailInfoWithPrimitive.h")
+@:structAccess
 extern class SceneThumbnailInfoWithPrimitive extends SceneThumbnailInfo {
 	public var PrimitiveType: EThumbnailPrimType;
 	public var PreviewMesh: SoftObjectPath;
 	public var bUserModifiedShape: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

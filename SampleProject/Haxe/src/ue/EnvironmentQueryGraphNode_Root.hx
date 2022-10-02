@@ -3,9 +3,12 @@ package ue;
 
 @:native("UEnvironmentQueryGraphNode_Root")
 @:include("EnvironmentQueryGraphNode_Root.h")
+@:structAccess
 extern class EnvironmentQueryGraphNode_Root extends EnvironmentQueryGraphNode {
 	public var DebugMessages: TArray<FString>;
 	public var bHasDebugError: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

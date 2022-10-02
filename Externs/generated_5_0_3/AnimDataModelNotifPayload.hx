@@ -3,5 +3,7 @@ package ue;
 
 @:native("FAnimDataModelNotifPayload")
 @:include("Animation/AnimData/AnimDataNotifications.h")
+@:structAccess
 extern class AnimDataModelNotifPayload {
+	@:native("FAnimDataModelNotifPayload") public function new();
 }

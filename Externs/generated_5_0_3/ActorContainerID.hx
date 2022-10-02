@@ -3,6 +3,10 @@ package ue;
 
 @:native("FActorContainerID")
 @:include("WorldPartition/WorldPartitionActorCluster.h")
+@:structAccess
 extern class ActorContainerID {
 	public var ID: cpp.UInt64;
+
+	@:native("FActorContainerID") public function new();
+	@:native("FActorContainerID") public static function make(ID: cpp.UInt64): ActorContainerID ;
 }

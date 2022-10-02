@@ -3,6 +3,7 @@ package ue;
 
 @:native("AAmbientSound")
 @:include("Sound/AmbientSound.h")
+@:structAccess
 extern class AmbientSound extends Actor {
 	public var AudioComponent: cpp.Star<AudioComp>;
 
@@ -11,6 +12,8 @@ extern class AmbientSound extends Actor {
 	public function FadeOut(FadeOutDuration: cpp.Float32, FadeVolumeLevel: cpp.Float32): Void;
 	public function FadeIn(FadeInDuration: cpp.Float32, FadeVolumeLevel: cpp.Float32): Void;
 	public function AdjustVolume(AdjustVolumeDuration: cpp.Float32, AdjustVolumeLevel: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

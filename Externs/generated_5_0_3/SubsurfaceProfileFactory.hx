@@ -3,7 +3,10 @@ package ue;
 
 @:native("USubsurfaceProfileFactory")
 @:include("Factories/SubsurfaceProfileFactory.h")
+@:structAccess
 extern class SubsurfaceProfileFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

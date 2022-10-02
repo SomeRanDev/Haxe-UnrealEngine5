@@ -3,11 +3,14 @@ package ue;
 
 @:native("UGizmoBoxObject")
 @:include("EditorGizmos/GizmoBoxObject.h")
+@:structAccess
 extern class GizmoBoxObject extends GizmoBaseObject {
 	public var Dimensions: Vector;
 	public var UpDirection: Vector;
 	public var SideDirection: Vector;
 	public var Offset: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

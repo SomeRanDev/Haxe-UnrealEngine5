@@ -3,7 +3,11 @@ package ue;
 
 @:native("FTTTrackId")
 @:include("Engine/TimelineTemplate.h")
+@:structAccess
 extern class TTTrackId {
 	public var TrackType: cpp.Int32;
 	public var TrackIndex: cpp.Int32;
+
+	@:native("FTTTrackId") public function new();
+	@:native("FTTTrackId") public static function make(TrackType: cpp.Int32, TrackIndex: cpp.Int32): TTTrackId ;
 }

@@ -3,8 +3,11 @@ package ue;
 
 @:native("ULocationServicesImpl")
 @:include("LocationServicesImpl.h")
+@:structAccess
 extern class LocationServicesImpl extends Object {
 	public var OnLocationChanged: HaxeMulticastSparseDelegateProperty<(LocationServicesData) -> Void>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

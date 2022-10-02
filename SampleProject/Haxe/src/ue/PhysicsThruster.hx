@@ -3,9 +3,12 @@ package ue;
 
 @:native("APhysicsThruster")
 @:include("PhysicsEngine/PhysicsThruster.h")
+@:structAccess
 extern class PhysicsThruster extends RigidBodyBase {
 	public var ThrusterComponent: cpp.Star<PhysicsThrusterComp>;
 	public var ArrowComponent: cpp.Star<ArrowComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionVertexInterpolator")
 @:include("Materials/MaterialExpressionVertexInterpolator.h")
+@:structAccess
 extern class MaterialExpressionVertexInterpolator extends MaterialExpressionCustomOutput {
 	public var Input: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

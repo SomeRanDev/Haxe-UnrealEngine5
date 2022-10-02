@@ -3,9 +3,13 @@ package ue;
 
 @:native("FMovieSceneEvaluationField")
 @:include("Evaluation/MovieSceneEvaluationField.h")
+@:structAccess
 extern class MovieSceneEvaluationField {
 	public var Signature: Guid;
 	public var Ranges: TArray<MovieSceneFrameRange>;
 	public var Groups: TArray<MovieSceneEvaluationGroup>;
 	public var MetaData: TArray<MovieSceneEvaluationMetaData>;
+
+	@:native("FMovieSceneEvaluationField") public function new();
+	@:native("FMovieSceneEvaluationField") public static function make(Signature: Guid, Ranges: TArray<MovieSceneFrameRange>, Groups: TArray<MovieSceneEvaluationGroup>, MetaData: TArray<MovieSceneEvaluationMetaData>): MovieSceneEvaluationField ;
 }

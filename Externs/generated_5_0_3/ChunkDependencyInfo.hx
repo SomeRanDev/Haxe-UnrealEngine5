@@ -3,8 +3,11 @@ package ue;
 
 @:native("UChunkDependencyInfo")
 @:include("Commandlets/ChunkDependencyInfo.h")
+@:structAccess
 extern class ChunkDependencyInfo extends Object {
 	public var DependencyArray: TArray<ChunkDependency>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

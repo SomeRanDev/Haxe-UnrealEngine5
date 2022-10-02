@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UMoveTaskCompletedSignature__PythonCallable")
+@:structAccess
 extern class MoveTaskCompletedSignature__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

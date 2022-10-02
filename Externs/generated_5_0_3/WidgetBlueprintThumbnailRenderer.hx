@@ -3,7 +3,10 @@ package ue;
 
 @:native("UWidgetBlueprintThumbnailRenderer")
 @:include("WidgetBlueprintThumbnailRenderer.h")
+@:structAccess
 extern class WidgetBlueprintThumbnailRenderer extends DefaultSizedThumbnailRenderer {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

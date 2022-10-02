@@ -3,11 +3,14 @@ package ue;
 
 @:native("UNiagaraDataInterfaceAudioSpectrum")
 @:include("NiagaraDataInterfaceAudioSpectrum.h")
+@:structAccess
 extern class NiagaraDataInterfaceAudioSpectrum extends NiagaraDataInterfaceAudioSubmix {
 	public var Resolution: cpp.Int32;
 	public var MinimumFrequency: cpp.Float32;
 	public var MaximumFrequency: cpp.Float32;
 	public var NoiseFloorDb: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

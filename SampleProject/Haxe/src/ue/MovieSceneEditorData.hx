@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMovieSceneEditorData")
 @:include("MovieScene.h")
+@:structAccess
 extern class MovieSceneEditorData {
 	public var ExpansionStates: TMap<FString, MovieSceneExpansionState>;
 	public var PinnedNodes: TArray<FString>;
@@ -13,4 +14,6 @@ extern class MovieSceneEditorData {
 	public var MarkedFrames_DEPRECATED: TSet<FrameNumber>;
 	public var WorkingRange_DEPRECATED: FloatRange;
 	public var ViewRange_DEPRECATED: FloatRange;
+
+	@:native("FMovieSceneEditorData") public function new();
 }

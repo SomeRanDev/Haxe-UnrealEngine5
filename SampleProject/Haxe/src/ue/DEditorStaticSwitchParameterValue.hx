@@ -3,8 +3,11 @@ package ue;
 
 @:native("UDEditorStaticSwitchParameterValue")
 @:include("MaterialEditor/DEditorStaticSwitchParameterValue.h")
+@:structAccess
 extern class DEditorStaticSwitchParameterValue extends DEditorParameterValue {
 	public var ParameterValue: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

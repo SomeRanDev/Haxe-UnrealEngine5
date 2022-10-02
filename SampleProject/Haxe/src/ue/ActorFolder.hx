@@ -3,12 +3,15 @@ package ue;
 
 @:native("UActorFolder")
 @:include("ActorFolder.h")
+@:structAccess
 extern class ActorFolder extends Object {
 	public var ParentFolderGuid: Guid;
 	public var FolderGuid: Guid;
 	public var FolderLabel: FString;
 	public var bFolderInitiallyExpanded: Bool;
 	public var bIsDeleted: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

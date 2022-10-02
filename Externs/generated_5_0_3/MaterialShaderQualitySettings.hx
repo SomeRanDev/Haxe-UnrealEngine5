@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialShaderQualitySettings")
 @:include("MaterialShaderQualitySettings.h")
+@:structAccess
 extern class MaterialShaderQualitySettings extends Object {
 	public var ForwardSettingMap: TMap<FName, cpp.Star<ShaderPlatformQualitySettings>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

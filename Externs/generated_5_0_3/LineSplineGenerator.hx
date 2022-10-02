@@ -3,11 +3,14 @@ package ue;
 
 @:native("ULineSplineGenerator")
 @:include("SplineGeneratorPanel.h")
+@:structAccess
 extern class LineSplineGenerator extends SplineGeneratorBase {
 	public var NumberOfPoints: cpp.Int32;
 	public var Length: cpp.Float32;
 	public var bEnableUpToNextPoint: Bool;
 	public var bUpToNextPoint: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

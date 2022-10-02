@@ -3,9 +3,12 @@ package ue;
 
 @:native("UWorldPartitionLevelStreamingPolicy")
 @:include("WorldPartition/WorldPartitionLevelStreamingPolicy.h")
+@:structAccess
 extern class WorldPartitionLevelStreamingPolicy extends WorldPartitionStreamingPolicy {
 	public var ActorToCellRemapping: TMap<FName, FName>;
 	public var SubObjectsToCellRemapping: TMap<FName, FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UCrowdManagerBase")
 @:include("CrowdManagerBase.h")
+@:structAccess
 extern class CrowdManagerBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

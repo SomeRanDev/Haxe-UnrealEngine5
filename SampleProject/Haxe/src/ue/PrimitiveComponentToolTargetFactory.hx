@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPrimitiveComponentToolTargetFactory")
 @:include("ToolTargets/PrimitiveComponentToolTarget.h")
+@:structAccess
 extern class PrimitiveComponentToolTargetFactory extends ToolTargetFactory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

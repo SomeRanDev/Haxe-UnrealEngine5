@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UComponentBeginOverlapSignature__PythonCallable")
+@:structAccess
 extern class ComponentBeginOverlapSignature__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

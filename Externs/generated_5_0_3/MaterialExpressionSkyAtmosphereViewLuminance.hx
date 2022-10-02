@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionSkyAtmosphereViewLuminance")
 @:include("Materials/MaterialExpressionSkyAtmosphereViewLuminance.h")
+@:structAccess
 extern class MaterialExpressionSkyAtmosphereViewLuminance extends MaterialExpression {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimStateNode")
 @:include("AnimStateNode.h")
+@:structAccess
 extern class AnimStateNode extends AnimStateNodeBase {
 	public var BoundGraph: cpp.Star<EdGraph>;
 	public var StateType: EAnimStateType;
@@ -10,6 +11,8 @@ extern class AnimStateNode extends AnimStateNodeBase {
 	public var StateLeft: AnimNotifyEvent;
 	public var StateFullyBlended: AnimNotifyEvent;
 	public var bAlwaysResetOnEntry: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

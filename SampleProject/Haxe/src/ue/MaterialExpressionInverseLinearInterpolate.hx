@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionInverseLinearInterpolate")
 @:include("Materials/MaterialExpressionInverseLinearInterpolate.h")
+@:structAccess
 extern class MaterialExpressionInverseLinearInterpolate extends MaterialExpression {
 	public var A: ExpressionInput;
 	public var B: ExpressionInput;
@@ -11,6 +12,8 @@ extern class MaterialExpressionInverseLinearInterpolate extends MaterialExpressi
 	public var ConstB: cpp.Float32;
 	public var ConstValue: cpp.Float32;
 	public var bClampResult: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

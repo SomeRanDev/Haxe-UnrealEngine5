@@ -3,10 +3,13 @@ package ue;
 
 @:native("UPIEPreviewSettings")
 @:include("PIEPreviewSettings.h")
+@:structAccess
 extern class PIEPreviewSettings extends Object {
 	public var WindowPosX: cpp.Int32;
 	public var WindowPosY: cpp.Int32;
 	public var WindowScalingFactor: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

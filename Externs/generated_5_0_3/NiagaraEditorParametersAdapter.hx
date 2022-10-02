@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraEditorParametersAdapter")
 @:include("NiagaraEditorData.h")
+@:structAccess
 extern class NiagaraEditorParametersAdapter extends NiagaraEditorParametersAdapterBase {
 	public var EditorOnlyScriptVars: TArray<cpp.Star<NiagaraScriptVariable>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

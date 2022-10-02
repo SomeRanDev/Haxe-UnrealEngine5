@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UFloatProperty")
+@:structAccess
 extern class FloatProperty extends NumericProperty {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

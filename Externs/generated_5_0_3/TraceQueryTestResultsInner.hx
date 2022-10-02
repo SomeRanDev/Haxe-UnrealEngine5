@@ -3,9 +3,13 @@ package ue;
 
 @:native("FTraceQueryTestResultsInner")
 @:include("TraceQueryTestResults.h")
+@:structAccess
 extern class TraceQueryTestResultsInner {
 	public var LineResults: TraceQueryTestResultsInnerMost;
 	public var SphereResults: TraceQueryTestResultsInnerMost;
 	public var CapsuleResults: TraceQueryTestResultsInnerMost;
 	public var BoxResults: TraceQueryTestResultsInnerMost;
+
+	@:native("FTraceQueryTestResultsInner") public function new();
+	@:native("FTraceQueryTestResultsInner") public static function make(LineResults: TraceQueryTestResultsInnerMost, SphereResults: TraceQueryTestResultsInnerMost, CapsuleResults: TraceQueryTestResultsInnerMost, BoxResults: TraceQueryTestResultsInnerMost): TraceQueryTestResultsInner ;
 }

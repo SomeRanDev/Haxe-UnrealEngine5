@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnAudioFadeChangeSignature__PythonCallable")
+@:structAccess
 extern class OnAudioFadeChangeSignature__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

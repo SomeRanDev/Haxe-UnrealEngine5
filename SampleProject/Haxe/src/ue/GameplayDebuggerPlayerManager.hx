@@ -3,10 +3,13 @@ package ue;
 
 @:native("AGameplayDebuggerPlayerManager")
 @:include("GameplayDebuggerPlayerManager.h")
+@:structAccess
 extern class GameplayDebuggerPlayerManager extends Actor {
 	public var PlayerData: TArray<GameplayDebuggerPlayerData>;
 	public var PendingRegistrations: TArray<cpp.Star<GameplayDebuggerCategoryReplicator>>;
 	public var EditorWorldData: GameplayDebuggerPlayerData;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

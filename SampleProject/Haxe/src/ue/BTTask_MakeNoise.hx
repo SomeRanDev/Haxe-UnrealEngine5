@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBTTask_MakeNoise")
 @:include("BehaviorTree/Tasks/BTTask_MakeNoise.h")
+@:structAccess
 extern class BTTask_MakeNoise extends BTTaskNode {
 	public var Loudnes: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

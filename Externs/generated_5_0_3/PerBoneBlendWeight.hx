@@ -3,7 +3,11 @@ package ue;
 
 @:native("FPerBoneBlendWeight")
 @:include("Animation/AnimTypes.h")
+@:structAccess
 extern class PerBoneBlendWeight {
 	public var SourceIndex: cpp.Int32;
 	public var BlendWeight: cpp.Float32;
+
+	@:native("FPerBoneBlendWeight") public function new();
+	@:native("FPerBoneBlendWeight") public static function make(SourceIndex: cpp.Int32, BlendWeight: cpp.Float32): PerBoneBlendWeight ;
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FLevelEditorViewportInstanceSettings")
 @:include("Settings/LevelEditorViewportSettings.h")
+@:structAccess
 extern class LevelEditorViewportInstanceSettings {
 	public var ViewportType: ELevelViewportType;
 	public var PerspViewModeIndex: EViewModeIndex;
@@ -22,4 +23,6 @@ extern class LevelEditorViewportInstanceSettings {
 	public var bShowOnScreenStats: Bool;
 	public var EnabledStats: TArray<FString>;
 	public var bShowFullToolbar: Bool;
+
+	@:native("FLevelEditorViewportInstanceSettings") public function new();
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UApplicationLifecycleComponent")
 @:include("Components/ApplicationLifecycleComponent.h")
+@:structAccess
 extern class ApplicationLifecycleComp extends ActorComp {
 	public var ApplicationWillDeactivateDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var ApplicationHasReactivatedDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
@@ -18,6 +19,8 @@ extern class ApplicationLifecycleComp extends ActorComp {
 	public function OnLowPowerModeDelegate__DelegateSignature(bInLowPowerMode: Bool): Void;
 	public function ApplicationStartupArgumentsDelegate__DelegateSignature(StartupArguments: cpp.Reference<TArray<FString>>): Void;
 	public function ApplicationLifetimeDelegate__DelegateSignature(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

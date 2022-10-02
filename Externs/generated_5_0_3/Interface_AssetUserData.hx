@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UInterface_AssetUserData")
+@:structAccess
 extern class Interface_AssetUserData extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

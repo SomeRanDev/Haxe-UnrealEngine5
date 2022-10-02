@@ -3,7 +3,10 @@ package ue;
 
 @:native("USubsurfaceProfileRenderer")
 @:include("ThumbnailRendering/SubsurfaceProfileRenderer.h")
+@:structAccess
 extern class SubsurfaceProfileRenderer extends TextureThumbnailRenderer {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

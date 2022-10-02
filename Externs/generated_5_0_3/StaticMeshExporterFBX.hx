@@ -3,7 +3,10 @@ package ue;
 
 @:native("UStaticMeshExporterFBX")
 @:include("Exporters/StaticMeshExporterFBX.h")
+@:structAccess
 extern class StaticMeshExporterFBX extends ExporterFBX {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,11 @@ package ue;
 
 @:native("FInterpGroupActorInfo")
 @:include("Matinee/MatineeActor.h")
+@:structAccess
 extern class InterpGroupActorInfo {
 	public var ObjectName: FName;
 	public var Actors: TArray<cpp.Star<Actor>>;
+
+	@:native("FInterpGroupActorInfo") public function new();
+	@:native("FInterpGroupActorInfo") public static function make(ObjectName: FName, Actors: TArray<cpp.Star<Actor>>): InterpGroupActorInfo ;
 }

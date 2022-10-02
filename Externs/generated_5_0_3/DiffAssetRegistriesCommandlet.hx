@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDiffAssetRegistriesCommandlet")
 @:include("Commandlets/DiffAssetRegistriesCommandlet.h")
+@:structAccess
 extern class DiffAssetRegistriesCommandlet extends Commandlet {
 	public var AssetRegistrySearchPath: TArray<FString>;
 	public var P4Repository: FString;
@@ -11,6 +12,8 @@ extern class DiffAssetRegistriesCommandlet extends Commandlet {
 	public var P4GameBasePath: FString;
 	public var P4GameAssetPath: FString;
 	public var RegexBranchCL: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

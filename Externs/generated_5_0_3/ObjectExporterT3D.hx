@@ -3,7 +3,10 @@ package ue;
 
 @:native("UObjectExporterT3D")
 @:include("Exporters/ObjectExporterT3D.h")
+@:structAccess
 extern class ObjectExporterT3D extends Exporter {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

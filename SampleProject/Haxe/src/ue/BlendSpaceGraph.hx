@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBlendSpaceGraph")
 @:include("BlendSpaceGraph.h")
+@:structAccess
 extern class BlendSpaceGraph extends EdGraph {
 	public var BlendSpace: cpp.Star<BlendSpace>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

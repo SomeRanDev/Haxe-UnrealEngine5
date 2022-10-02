@@ -3,8 +3,11 @@ package ue;
 
 @:native("UCheckBoxStyleAsset")
 @:include("Slate/CheckboxStyleAsset.h")
+@:structAccess
 extern class CheckBoxStyleAsset extends Object {
 	public var CheckBoxStyle: CheckBoxStyle;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

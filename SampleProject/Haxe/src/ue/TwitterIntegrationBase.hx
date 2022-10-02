@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTwitterIntegrationBase")
 @:include("Engine/TwitterIntegrationBase.h")
+@:structAccess
 extern class TwitterIntegrationBase extends PlatformInterfaceBase {
 	public function TwitterRequest(URL: FString, ParamKeysAndValues: cpp.Reference<TArray<FString>>, RequestMethod: ETwitterRequestMethod, AccountIndex: cpp.Int32): cpp.Reference<Bool>;
 	public function ShowTweetUI(InitialMessage: FString, URL: FString, Picture: FString): cpp.Reference<Bool>;
@@ -11,6 +12,8 @@ extern class TwitterIntegrationBase extends PlatformInterfaceBase {
 	public function GetAccountName(AccountIndex: cpp.Int32): cpp.Reference<FString>;
 	public function CanShowTweetUI(): cpp.Reference<Bool>;
 	public function AuthorizeAccounts(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UParticleModulePivotOffset")
 @:include("Particles/Modules/Location/ParticleModulePivotOffset.h")
+@:structAccess
 extern class ParticleModulePivotOffset extends ParticleModuleLocationBase {
 	public var PivotOffset: Vector2D;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

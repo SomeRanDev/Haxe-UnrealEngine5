@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWindDirectionalSourceComponent")
 @:include("Components/WindDirectionalSourceComponent.h")
+@:structAccess
 extern class WindDirectionalSourceComp extends SceneComp {
 	public var Strength: cpp.Float32;
 	public var Speed: cpp.Float32;
@@ -17,6 +18,8 @@ extern class WindDirectionalSourceComp extends SceneComp {
 	public function SetRadius(InNewRadius: cpp.Float32): Void;
 	public function SetMinimumGustAmount(InNewMinGust: cpp.Float32): Void;
 	public function SetMaximumGustAmount(InNewMaxGust: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

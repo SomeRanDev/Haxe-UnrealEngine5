@@ -3,6 +3,7 @@ package ue;
 
 @:native("UFbxSceneImportFactory")
 @:include("Factories/FbxSceneImportFactory.h")
+@:structAccess
 extern class FbxSceneImportFactory extends SceneImportFactory {
 	public var SceneImportOptions: cpp.Star<FbxSceneImportOptions>;
 	public var SceneImportOptionsStaticMesh: cpp.Star<FbxSceneImportOptionsStaticMesh>;
@@ -12,6 +13,8 @@ extern class FbxSceneImportFactory extends SceneImportFactory {
 	public var AnimSequenceImportData: cpp.Star<FbxAnimSequenceImportData>;
 	public var TextureImportData: cpp.Star<FbxTextureImportData>;
 	public var ReimportData: cpp.Star<FbxSceneImportData>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

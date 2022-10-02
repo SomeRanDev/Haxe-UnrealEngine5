@@ -3,8 +3,11 @@ package ue;
 
 @:native("UControlRigPoseProjectSettings")
 @:include("Tools/ControlRigPoseProjectSettings.h")
+@:structAccess
 extern class ControlRigPoseProjectSettings extends Object {
 	public var RootSaveDirs: TArray<DirectoryPath>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

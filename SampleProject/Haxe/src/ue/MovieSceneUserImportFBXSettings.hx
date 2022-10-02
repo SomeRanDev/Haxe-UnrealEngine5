@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneUserImportFBXSettings")
 @:include("MovieSceneToolsUserSettings.h")
+@:structAccess
 extern class MovieSceneUserImportFBXSettings extends Object {
 	public var bMatchByNameOnly: Bool;
 	public var bForceFrontXAxis: Bool;
@@ -12,6 +13,8 @@ extern class MovieSceneUserImportFBXSettings extends Object {
 	public var bReplaceTransformTrack: Bool;
 	public var bReduceKeys: Bool;
 	public var ReduceKeysTolerance: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

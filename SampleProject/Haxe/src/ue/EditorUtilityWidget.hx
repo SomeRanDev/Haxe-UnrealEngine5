@@ -3,12 +3,15 @@ package ue;
 
 @:native("UEditorUtilityWidget")
 @:include("EditorUtilityWidget.h")
+@:structAccess
 extern class EditorUtilityWidget extends UserWidget {
 	public var HelpText: FString;
 	public var bAlwaysReregisterWithWindowsMenu: Bool;
 	public var bAutoRunDefaultAction: Bool;
 
 	public function Run(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

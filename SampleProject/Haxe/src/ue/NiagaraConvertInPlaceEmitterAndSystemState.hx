@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraConvertInPlaceEmitterAndSystemState")
 @:include("NiagaraConvertInPlaceEmitterAndSystemState.h")
+@:structAccess
 extern class NiagaraConvertInPlaceEmitterAndSystemState extends NiagaraConvertInPlaceUtilityBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

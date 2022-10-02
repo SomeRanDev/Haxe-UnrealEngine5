@@ -3,5 +3,7 @@ package ue;
 
 @:native("FAssetImportInfo")
 @:include("EditorFramework/AssetImportData.h")
+@:structAccess
 extern class AssetImportInfo {
+	@:native("FAssetImportInfo") public function new();
 }

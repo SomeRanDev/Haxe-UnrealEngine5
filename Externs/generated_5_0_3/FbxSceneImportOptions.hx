@@ -3,6 +3,7 @@ package ue;
 
 @:native("UFbxSceneImportOptions")
 @:include("Factories/FbxSceneImportOptions.h")
+@:structAccess
 extern class FbxSceneImportOptions extends Object {
 	public var bCreateContentFolderHierarchy: Bool;
 	public var bImportAsDynamic: Bool;
@@ -16,6 +17,8 @@ extern class FbxSceneImportOptions extends Object {
 	public var bImportStaticMeshLODs: Bool;
 	public var bImportSkeletalMeshLODs: Bool;
 	public var bInvertNormalMaps: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

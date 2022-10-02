@@ -3,8 +3,11 @@ package ue;
 
 @:native("UDebugCameraControllerSettings")
 @:include("Engine/DebugCameraControllerSettings.h")
+@:structAccess
 extern class DebugCameraControllerSettings extends DeveloperSettings {
 	public var CycleViewModes: TArray<DebugCameraControllerSettingsViewModeIndex>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("ATestBeaconClient")
 @:include("TestBeaconClient.h")
+@:structAccess
 extern class TestBeaconClient extends OnlineBeaconClient {
 	public function ServerPong(): Void;
 	public function ClientPing(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

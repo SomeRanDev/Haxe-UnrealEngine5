@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMRMeshBodyHolder")
 @:include("MRMeshComponent.h")
+@:structAccess
 extern class MRMeshBodyHolder extends Object {
 	public var BodySetup: cpp.Star<BodySetup>;
 	public var BodyInstance: BodyInstance;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

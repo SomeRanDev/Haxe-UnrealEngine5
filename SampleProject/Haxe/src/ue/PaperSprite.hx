@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPaperSprite")
 @:include("PaperSprite.h")
+@:structAccess
 extern class PaperSprite extends Object {
 	public var OriginInSourceImageBeforeTrimming: Vector2D;
 	public var SourceImageDimensionBeforeTrimming: Vector2D;
@@ -32,6 +33,8 @@ extern class PaperSprite extends Object {
 	public var AtlasGroup: cpp.Star<PaperSpriteAtlas>;
 	public var AlternateMaterialSplitIndex: cpp.Int32;
 	public var BakedRenderData: TArray<Vector4>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

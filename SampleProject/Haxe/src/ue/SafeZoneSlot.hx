@@ -3,12 +3,15 @@ package ue;
 
 @:native("USafeZoneSlot")
 @:include("Components/SafeZoneSlot.h")
+@:structAccess
 extern class SafeZoneSlot extends PanelSlot {
 	public var bIsTitleSafe: Bool;
 	public var SafeAreaScale: Margin;
 	public var HAlign: EHorizontalAlignment;
 	public var VAlign: EVerticalAlignment;
 	public var Padding: Margin;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

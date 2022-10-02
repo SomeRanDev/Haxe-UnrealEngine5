@@ -3,8 +3,11 @@ package ue;
 
 @:native("UEnvQueryGenerator_CurrentLocation")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_CurrentLocation.h")
+@:structAccess
 extern class EnvQueryGenerator_CurrentLocation extends EnvQueryGenerator {
 	public var QueryContext: TSubclassOf<EnvQueryContext>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

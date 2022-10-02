@@ -3,7 +3,10 @@ package ue;
 
 @:native("UImageSequenceProtocol_PNG")
 @:include("Protocols/ImageSequenceProtocol.h")
+@:structAccess
 extern class ImageSequenceProtocol_PNG extends CompressedImageSequenceProtocol {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

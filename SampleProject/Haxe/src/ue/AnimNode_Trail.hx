@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_Trail")
 @:include("BoneControllers/AnimNode_Trail.h")
+@:structAccess
 extern class AnimNode_Trail extends AnimNode_SkeletalControlBase {
 	public var TrailBone: BoneReference;
 	public var ChainLength: cpp.Int32;
@@ -31,4 +32,6 @@ extern class AnimNode_Trail extends AnimNode_SkeletalControlBase {
 	public var BaseJoint: BoneReference;
 	public var TrailBoneRotationBlendAlpha_DEPRECATED: cpp.Float32;
 	public var LastBoneRotationAnimAlphaBlend: cpp.Float32;
+
+	@:native("FAnimNode_Trail") public function new();
 }

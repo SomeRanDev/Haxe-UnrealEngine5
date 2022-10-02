@@ -3,11 +3,14 @@ package ue;
 
 @:native("UNavigationSystemConfig")
 @:include("AI/NavigationSystemConfig.h")
+@:structAccess
 extern class NavigationSystemConfig extends Object {
 	public var NavigationSystemClass: SoftClassPath;
 	public var SupportedAgentsMask: NavAgentSelector;
 	public var DefaultAgentName: FName;
 	public var bIsOverriden: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

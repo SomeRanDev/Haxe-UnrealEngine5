@@ -3,7 +3,10 @@ package ue;
 
 @:native("UScalableSphereGizmoInputBehavior")
 @:include("BaseGizmos/ScalableSphereGizmo.h")
+@:structAccess
 extern class ScalableSphereGizmoInputBehavior extends AnyButtonInputBehavior {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

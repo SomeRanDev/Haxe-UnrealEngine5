@@ -2,6 +2,7 @@
 package ue;
 
 @:native("UABP_Manny_C")
+@:structAccess
 extern class ABP_Manny_C extends AnimInstance {
 	public var UberGraphFrame: PointerToUberGraphFrame;
 	public var __AnimBlueprintMutables: AnimBlueprintGeneratedMutableData;
@@ -48,6 +49,8 @@ extern class ABP_Manny_C extends AnimInstance {
 	public function BlueprintUpdateAnimation(DeltaTimeX: cpp.Float32): Void;
 	public function BlueprintInitializeAnimation(): Void;
 	public function ExecuteUbergraph_ABP_Manny(EntryPoint: cpp.Int32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

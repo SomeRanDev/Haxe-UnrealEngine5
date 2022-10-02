@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEnvQueryGenerator_BlueprintBase")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_BlueprintBase.h")
+@:structAccess
 extern class EnvQueryGenerator_BlueprintBase extends EnvQueryGenerator {
 	public var GeneratorsActionDescription: FText;
 	public var Context: TSubclassOf<EnvQueryContext>;
@@ -12,6 +13,8 @@ extern class EnvQueryGenerator_BlueprintBase extends EnvQueryGenerator {
 	public function DoItemGeneration(ContextLocations: cpp.Reference<TArray<Vector>>): Void;
 	public function AddGeneratedVector(GeneratedVector: Vector): Void;
 	public function AddGeneratedActor(GeneratedActor: cpp.Star<Actor>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetQuerier, DoItemGeneration, AddGeneratedVector, AddGeneratedActor)

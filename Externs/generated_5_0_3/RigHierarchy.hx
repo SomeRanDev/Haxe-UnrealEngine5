@@ -3,6 +3,7 @@ package ue;
 
 @:native("URigHierarchy")
 @:include("Rigs/RigHierarchy.h")
+@:structAccess
 extern class RigHierarchy extends Object {
 	public var TopologyVersion: cpp.UInt16;
 	public var bEnableDirtyPropagation: Bool;
@@ -100,6 +101,8 @@ extern class RigHierarchy extends Object {
 	public function CopyPose(InHierarchy: cpp.Star<RigHierarchy>, bCurrent: Bool, bInitial: Bool): Void;
 	public function CopyHierarchy(InHierarchy: cpp.Star<RigHierarchy>): Void;
 	public function Contains_ForBlueprint(InKey: RigElementKey): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UARLightEstimate")
 @:include("ARLightEstimate.h")
+@:structAccess
 extern class ARLightEstimate extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

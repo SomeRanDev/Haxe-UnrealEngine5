@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPIEPreviewDeviceSpecification")
 @:include("PIEPreviewDeviceSpecification.h")
+@:structAccess
 extern class PIEPreviewDeviceSpecification extends Object {
 	public var PreviewDeviceType: EPIEPreviewDeviceType;
 	public var GPUFamily: FString;
@@ -15,6 +16,8 @@ extern class PIEPreviewDeviceSpecification extends Object {
 	public var UsingHoudini: Bool;
 	public var Hardware: FString;
 	public var Chipset: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,10 +3,13 @@ package ue;
 
 @:native("ABaseTransformGizmo")
 @:include("VIBaseTransformGizmo.h")
+@:structAccess
 extern class BaseTransformGizmo extends Actor {
 	public var SceneComponent: cpp.Star<SceneComp>;
 	public var AllHandleGroups: TArray<cpp.Star<GizmoHandleGroup>>;
 	public var WorldInteraction: cpp.Star<ViewportWorldInteraction>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

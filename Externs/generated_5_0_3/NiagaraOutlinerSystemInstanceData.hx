@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraOutlinerSystemInstanceData")
 @:include("NiagaraDebuggerCommon.h")
+@:structAccess
 extern class NiagaraOutlinerSystemInstanceData {
 	public var ComponentName: FString;
 	public var Emitters: TArray<NiagaraOutlinerEmitterInstanceData>;
@@ -21,4 +22,6 @@ extern class NiagaraOutlinerSystemInstanceData {
 	public var bRequiresEarlyViewData: Bool;
 	public var bRequiresViewUniformBuffer: Bool;
 	public var bRequiresRayTracingScene: Bool;
+
+	@:native("FNiagaraOutlinerSystemInstanceData") public function new();
 }

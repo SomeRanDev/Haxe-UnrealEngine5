@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_LeaderboardQuery")
 @:include("K2Node_LeaderboardQuery.h")
+@:structAccess
 extern class K2Node_LeaderboardQuery extends K2Node_BaseAsyncTask {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

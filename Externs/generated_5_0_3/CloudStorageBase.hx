@@ -3,9 +3,12 @@ package ue;
 
 @:native("UCloudStorageBase")
 @:include("Engine/CloudStorageBase.h")
+@:structAccess
 extern class CloudStorageBase extends PlatformInterfaceBase {
 	public var LocalCloudFiles: TArray<FString>;
 	public var bSuppressDelegateCalls: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

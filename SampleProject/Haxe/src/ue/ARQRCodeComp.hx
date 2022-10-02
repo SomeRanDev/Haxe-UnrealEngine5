@@ -3,6 +3,7 @@ package ue;
 
 @:native("UARQRCodeComponent")
 @:include("ARComponent.h")
+@:structAccess
 extern class ARQRCodeComp extends ARComp {
 	public var ReplicatedPayload: ARQRCodeUpdatePayload;
 
@@ -10,6 +11,8 @@ extern class ARQRCodeComp extends ARComp {
 	public function ServerUpdatePayload(NewPayload: cpp.Reference<ARQRCodeUpdatePayload>): Void;
 	public function ReceiveUpdate(Payload: cpp.Reference<ARQRCodeUpdatePayload>): Void;
 	public function ReceiveAdd(Payload: cpp.Reference<ARQRCodeUpdatePayload>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

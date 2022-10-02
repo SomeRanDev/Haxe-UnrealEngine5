@@ -3,5 +3,7 @@ package ue;
 
 @:native("FForceFeedbackAttenuationSettings")
 @:include("GameFramework/ForceFeedbackAttenuation.h")
+@:structAccess
 extern class ForceFeedbackAttenuationSettings extends BaseAttenuationSettings {
+	@:native("FForceFeedbackAttenuationSettings") public function new();
 }

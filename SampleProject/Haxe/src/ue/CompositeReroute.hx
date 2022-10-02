@@ -3,7 +3,11 @@ package ue;
 
 @:native("FCompositeReroute")
 @:include("Materials/MaterialExpressionPinBase.h")
+@:structAccess
 extern class CompositeReroute {
 	public var Name: FName;
 	public var Expression: cpp.Star<MaterialExpressionReroute>;
+
+	@:native("FCompositeReroute") public function new();
+	@:native("FCompositeReroute") public static function make(Name: FName, Expression: cpp.Star<MaterialExpressionReroute>): CompositeReroute ;
 }

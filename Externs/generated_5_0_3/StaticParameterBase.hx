@@ -3,8 +3,12 @@ package ue;
 
 @:native("FStaticParameterBase")
 @:include("StaticParameterSet.h")
+@:structAccess
 extern class StaticParameterBase {
 	public var ParameterInfo: MaterialParameterInfo;
 	public var bOverride: Bool;
 	public var ExpressionGUID: Guid;
+
+	@:native("FStaticParameterBase") public function new();
+	@:native("FStaticParameterBase") public static function make(ParameterInfo: MaterialParameterInfo, bOverride: Bool, ExpressionGUID: Guid): StaticParameterBase ;
 }

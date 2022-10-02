@@ -3,7 +3,11 @@ package ue;
 
 @:native("FRetargetDefinition")
 @:include("IKRigDefinition.h")
+@:structAccess
 extern class RetargetDefinition {
 	public var RootBone: FName;
 	public var BoneChains: TArray<BoneChain>;
+
+	@:native("FRetargetDefinition") public function new();
+	@:native("FRetargetDefinition") public static function make(RootBone: FName, BoneChains: TArray<BoneChain>): RetargetDefinition ;
 }

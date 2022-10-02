@@ -3,7 +3,10 @@ package ue;
 
 @:native("AEditorUtilityCamera")
 @:include("EditorUtilityCamera.h")
+@:structAccess
 extern class EditorUtilityCamera extends CameraActor {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

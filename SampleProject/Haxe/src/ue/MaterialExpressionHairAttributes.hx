@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionHairAttributes")
 @:include("Materials/MaterialExpressionHairAttributes.h")
+@:structAccess
 extern class MaterialExpressionHairAttributes extends MaterialExpression {
 	public var bUseTangentSpace: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

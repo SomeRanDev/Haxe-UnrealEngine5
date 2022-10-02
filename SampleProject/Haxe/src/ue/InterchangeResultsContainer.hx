@@ -3,8 +3,11 @@ package ue;
 
 @:native("UInterchangeResultsContainer")
 @:include("InterchangeResultsContainer.h")
+@:structAccess
 extern class InterchangeResultsContainer extends Object {
 	public var Results: TArray<cpp.Star<InterchangeResult>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

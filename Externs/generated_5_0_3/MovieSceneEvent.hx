@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMovieSceneEvent")
 @:include("Channels/MovieSceneEvent.h")
+@:structAccess
 extern class MovieSceneEvent {
 	public var Ptrs: MovieSceneEventPtrs;
 	public var PayloadVariables: TMap<FName, MovieSceneEventPayloadVariable>;
@@ -12,4 +13,6 @@ extern class MovieSceneEvent {
 	public var GraphGuid_DEPRECATED: Guid;
 	public var NodeGuid_DEPRECATED: Guid;
 	public var FunctionEntry_DEPRECATED: TWeakObjectPtr<Object>;
+
+	@:native("FMovieSceneEvent") public function new();
 }

@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UInteractiveToolCameraFocusAPI")
+@:structAccess
 extern class InteractiveToolCameraFocusAPI extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

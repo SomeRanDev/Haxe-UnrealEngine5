@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULevelExporterSTL")
 @:include("Exporters/LevelExporterSTL.h")
+@:structAccess
 extern class LevelExporterSTL extends Exporter {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

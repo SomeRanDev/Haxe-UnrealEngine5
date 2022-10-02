@@ -3,7 +3,10 @@ package ue;
 
 @:native("UCookGlobalShadersDeviceHelperBase")
 @:include("Commandlets/CookGlobalShadersCommandlet.h")
+@:structAccess
 extern class CookGlobalShadersDeviceHelperBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

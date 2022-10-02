@@ -3,6 +3,7 @@ package ue;
 
 @:native("UFontFace")
 @:include("Engine/FontFace.h")
+@:structAccess
 extern class FontFace extends Object {
 	public var SourceFilename: FString;
 	public var Hinting: EFontHinting;
@@ -10,6 +11,8 @@ extern class FontFace extends Object {
 	public var LayoutMethod: EFontLayoutMethod;
 	public var FontFaceData_DEPRECATED: TArray<cpp.UInt8>;
 	public var SubFaces: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraNodeFunctionCall")
 @:include("NiagaraNodeFunctionCall.h")
+@:structAccess
 extern class NiagaraNodeFunctionCall extends NiagaraNodeWithDynamicPins {
 	public var FunctionScript: cpp.Star<NiagaraScript>;
 	public var SelectedScriptVersion: Guid;
@@ -20,6 +21,8 @@ extern class NiagaraNodeFunctionCall extends NiagaraNodeWithDynamicPins {
 	public var MessageKeyToMessageMap: TMap<Guid, cpp.Star<NiagaraMessageData>>;
 	public var StackMessages: TArray<NiagaraStackMessage>;
 	public var BoundPinNames: TMap<Guid, FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,13 @@ package ue;
 
 @:native("FNavigationSegmentLink")
 @:include("AI/Navigation/NavLinkDefinition.h")
+@:structAccess
 extern class NavigationSegmentLink extends NavigationLinkBase {
 	public var LeftStart: Vector;
 	public var LeftEnd: Vector;
 	public var RightStart: Vector;
 	public var RightEnd: Vector;
+
+	@:native("FNavigationSegmentLink") public function new();
+	@:native("FNavigationSegmentLink") public static function make(LeftStart: Vector, LeftEnd: Vector, RightStart: Vector, RightEnd: Vector): NavigationSegmentLink ;
 }

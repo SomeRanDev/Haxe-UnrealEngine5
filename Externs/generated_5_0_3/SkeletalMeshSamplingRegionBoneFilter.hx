@@ -3,8 +3,12 @@ package ue;
 
 @:native("FSkeletalMeshSamplingRegionBoneFilter")
 @:include("Engine/SkeletalMeshSampling.h")
+@:structAccess
 extern class SkeletalMeshSamplingRegionBoneFilter {
 	public var BoneName: FName;
 	public var bIncludeOrExclude: Bool;
 	public var bApplyToChildren: Bool;
+
+	@:native("FSkeletalMeshSamplingRegionBoneFilter") public function new();
+	@:native("FSkeletalMeshSamplingRegionBoneFilter") public static function make(BoneName: FName, bIncludeOrExclude: Bool, bApplyToChildren: Bool): SkeletalMeshSamplingRegionBoneFilter ;
 }

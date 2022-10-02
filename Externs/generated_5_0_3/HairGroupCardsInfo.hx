@@ -3,7 +3,11 @@ package ue;
 
 @:native("FHairGroupCardsInfo")
 @:include("GroomAssetCards.h")
+@:structAccess
 extern class HairGroupCardsInfo {
 	public var NumCards: cpp.Int32;
 	public var NumCardVertices: cpp.Int32;
+
+	@:native("FHairGroupCardsInfo") public function new();
+	@:native("FHairGroupCardsInfo") public static function make(NumCards: cpp.Int32, NumCardVertices: cpp.Int32): HairGroupCardsInfo ;
 }

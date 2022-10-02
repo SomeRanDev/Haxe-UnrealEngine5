@@ -3,7 +3,11 @@ package ue;
 
 @:native("FResponseChannel")
 @:include("Engine/EngineTypes.h")
+@:structAccess
 extern class ResponseChannel {
 	public var Channel: FName;
 	public var Response: ECollisionResponse;
+
+	@:native("FResponseChannel") public function new();
+	@:native("FResponseChannel") public static function make(Channel: FName, Response: ECollisionResponse): ResponseChannel ;
 }

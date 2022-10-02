@@ -3,6 +3,7 @@ package ue;
 
 @:native("UScaleBox")
 @:include("Components/ScaleBox.h")
+@:structAccess
 extern class ScaleBox extends ContentWidget {
 	public var Stretch: EStretch;
 	public var StretchDirection: EStretchDirection;
@@ -13,6 +14,8 @@ extern class ScaleBox extends ContentWidget {
 	public function SetStretchDirection(InStretchDirection: EStretchDirection): Void;
 	public function SetStretch(InStretch: EStretch): Void;
 	public function SetIgnoreInheritedScale(bInIgnoreInheritedScale: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNativeWidgetHost")
 @:include("Components/NativeWidgetHost.h")
+@:structAccess
 extern class NativeWidgetHost extends Widget {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

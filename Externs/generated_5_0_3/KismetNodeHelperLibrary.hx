@@ -3,6 +3,7 @@ package ue;
 
 @:native("UKismetNodeHelperLibrary")
 @:include("Kismet/KismetNodeHelperLibrary.h")
+@:structAccess
 extern class KismetNodeHelperLibrary extends BlueprintFunctionLibrary {
 	public function MarkBit(Data: cpp.Reference<cpp.Int32>, Index: cpp.Int32): Void;
 	public function HasUnmarkedBit(Data: cpp.Int32, NumBits: cpp.Int32): cpp.Reference<Bool>;
@@ -17,6 +18,8 @@ extern class KismetNodeHelperLibrary extends BlueprintFunctionLibrary {
 	public function ClearBit(Data: cpp.Reference<cpp.Int32>, Index: cpp.Int32): Void;
 	public function ClearAllBits(Data: cpp.Reference<cpp.Int32>): Void;
 	public function BitIsMarked(Data: cpp.Int32, Index: cpp.Int32): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UCrashReportsPrivacySettings")
 @:include("Analytics/CrashReportsPrivacySettings.h")
+@:structAccess
 extern class CrashReportsPrivacySettings extends Object {
 	public var bSendUnattendedBugReports: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionTransformPosition")
 @:include("Materials/MaterialExpressionTransformPosition.h")
+@:structAccess
 extern class MaterialExpressionTransformPosition extends MaterialExpression {
 	public var Input: ExpressionInput;
 	public var TransformSourceType: EMaterialPositionTransformSource;
 	public var TransformType: EMaterialPositionTransformSource;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

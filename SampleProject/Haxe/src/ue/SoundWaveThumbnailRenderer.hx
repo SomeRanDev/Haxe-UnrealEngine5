@@ -3,7 +3,10 @@ package ue;
 
 @:native("USoundWaveThumbnailRenderer")
 @:include("ThumbnailRendering/SoundWaveThumbnailRenderer.h")
+@:structAccess
 extern class SoundWaveThumbnailRenderer extends DefaultSizedThumbnailRenderer {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

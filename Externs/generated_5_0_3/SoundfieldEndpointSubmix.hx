@@ -3,6 +3,7 @@ package ue;
 
 @:native("USoundfieldEndpointSubmix")
 @:include("Sound/SoundSubmix.h")
+@:structAccess
 extern class SoundfieldEndpointSubmix extends SoundSubmixBase {
 	public var SoundfieldEndpointType: FName;
 	public var EndpointSettingsClass: TSubclassOf<AudioEndpointSettingsBase>;
@@ -10,6 +11,8 @@ extern class SoundfieldEndpointSubmix extends SoundSubmixBase {
 	public var EncodingSettingsClass: TSubclassOf<SoundfieldEncodingSettingsBase>;
 	public var EncodingSettings: cpp.Star<SoundfieldEncodingSettingsBase>;
 	public var SoundfieldEffectChain: TArray<cpp.Star<SoundfieldEffectBase>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

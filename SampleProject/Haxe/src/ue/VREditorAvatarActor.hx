@@ -3,6 +3,7 @@ package ue;
 
 @:native("AVREditorAvatarActor")
 @:include("VREditorAvatarActor.h")
+@:structAccess
 extern class VREditorAvatarActor extends Actor {
 	public var HeadMeshComponent: cpp.Star<StaticMeshComp>;
 	public var WorldMovementGridMeshComponent: cpp.Star<StaticMeshComp>;
@@ -19,6 +20,8 @@ extern class VREditorAvatarActor extends Actor {
 	public var TranslucentCurrentUserScaleMID: cpp.Star<MaterialInstanceDynamic>;
 	public var PostProcessComponent: cpp.Star<PostProcessComp>;
 	public var VRMode: cpp.Star<VREditorMode>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

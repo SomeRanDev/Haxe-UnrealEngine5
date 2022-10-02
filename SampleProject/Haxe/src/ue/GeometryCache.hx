@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGeometryCache")
 @:include("GeometryCache.h")
+@:structAccess
 extern class GeometryCache extends Object {
 	public var AssetImportData: cpp.Star<AssetImportData>;
 	public var ThumbnailInfo: cpp.Star<ThumbnailInfo>;
@@ -11,6 +12,8 @@ extern class GeometryCache extends Object {
 	public var StartFrame: cpp.Int32;
 	public var EndFrame: cpp.Int32;
 	public var Hash: cpp.UInt64;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

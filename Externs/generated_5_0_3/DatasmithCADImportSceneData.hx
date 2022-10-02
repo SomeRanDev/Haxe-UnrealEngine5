@@ -3,8 +3,11 @@ package ue;
 
 @:native("UDatasmithCADImportSceneData")
 @:include("DatasmithAssetImportData.h")
+@:structAccess
 extern class DatasmithCADImportSceneData extends DatasmithSceneImportData {
 	public var TessellationOptions: DatasmithTessellationOptions;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

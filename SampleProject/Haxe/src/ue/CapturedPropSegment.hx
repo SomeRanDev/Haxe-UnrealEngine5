@@ -3,8 +3,12 @@ package ue;
 
 @:native("FCapturedPropSegment")
 @:include("PropertyValue.h")
+@:structAccess
 extern class CapturedPropSegment {
 	public var PropertyName: FString;
 	public var PropertyIndex: cpp.Int32;
 	public var ComponentName: FString;
+
+	@:native("FCapturedPropSegment") public function new();
+	@:native("FCapturedPropSegment") public static function make(PropertyName: FString, PropertyIndex: cpp.Int32, ComponentName: FString): CapturedPropSegment ;
 }

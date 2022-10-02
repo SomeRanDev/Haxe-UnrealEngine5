@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNavAreaMeta_SwitchByAgent")
 @:include("NavAreas/NavAreaMeta_SwitchByAgent.h")
+@:structAccess
 extern class NavAreaMeta_SwitchByAgent extends NavAreaMeta {
 	public var Agent0Area: TSubclassOf<NavArea>;
 	public var Agent1Area: TSubclassOf<NavArea>;
@@ -20,6 +21,8 @@ extern class NavAreaMeta_SwitchByAgent extends NavAreaMeta {
 	public var Agent13Area: TSubclassOf<NavArea>;
 	public var Agent14Area: TSubclassOf<NavArea>;
 	public var Agent15Area: TSubclassOf<NavArea>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

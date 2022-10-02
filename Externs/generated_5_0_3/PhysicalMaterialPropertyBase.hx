@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDEPRECATED_PhysicalMaterialPropertyBase")
 @:include("PhysicalMaterials/PhysicalMaterialPropertyBase.h")
+@:structAccess
 extern class PhysicalMaterialPropertyBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

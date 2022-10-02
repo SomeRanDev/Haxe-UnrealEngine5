@@ -3,6 +3,7 @@ package ue;
 
 @:native("UVectorFieldStatic")
 @:include("VectorField/VectorFieldStatic.h")
+@:structAccess
 extern class VectorFieldStatic extends VectorField {
 	public var SizeX: cpp.Int32;
 	public var SizeY: cpp.Int32;
@@ -10,6 +11,8 @@ extern class VectorFieldStatic extends VectorField {
 	public var bAllowCPUAccess: Bool;
 	public var SourceFilePath_DEPRECATED: FString;
 	public var AssetImportData: cpp.Star<AssetImportData>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

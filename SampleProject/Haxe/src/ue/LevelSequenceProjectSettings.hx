@@ -3,11 +3,14 @@ package ue;
 
 @:native("ULevelSequenceProjectSettings")
 @:include("LevelSequenceProjectSettings.h")
+@:structAccess
 extern class LevelSequenceProjectSettings extends DeveloperSettings {
 	public var bDefaultLockEngineToDisplayRate: Bool;
 	public var DefaultDisplayRate: FString;
 	public var DefaultTickResolution: FString;
 	public var DefaultClockSource: EUpdateClockSource;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

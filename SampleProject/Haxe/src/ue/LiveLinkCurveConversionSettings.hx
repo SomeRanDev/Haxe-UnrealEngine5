@@ -3,6 +3,10 @@ package ue;
 
 @:native("FLiveLinkCurveConversionSettings")
 @:include("LiveLinkCurveRemapSettings.h")
+@:structAccess
 extern class LiveLinkCurveConversionSettings {
 	public var CurveConversionAssetMap: TMap<FString, SoftObjectPath>;
+
+	@:native("FLiveLinkCurveConversionSettings") public function new();
+	@:native("FLiveLinkCurveConversionSettings") public static function make(CurveConversionAssetMap: TMap<FString, SoftObjectPath>): LiveLinkCurveConversionSettings ;
 }

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UComboBox")
 @:include("Components/ComboBox.h")
+@:structAccess
 extern class ComboBox extends Widget {
 	public var Items: TArray<cpp.Star<Object>>;
 	public var OnGenerateWidgetEvent: HaxeDelegateProperty<(cpp.Star<Object>) -> Void>;
 	public var bIsFocusable: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

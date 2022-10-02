@@ -3,8 +3,12 @@ package ue;
 
 @:native("FNiagaraBoundParameter")
 @:include("NiagaraParameterStore.h")
+@:structAccess
 extern class NiagaraBoundParameter {
 	public var Parameter: NiagaraVariable;
 	public var SrcOffset: cpp.Int32;
 	public var DestOffset: cpp.Int32;
+
+	@:native("FNiagaraBoundParameter") public function new();
+	@:native("FNiagaraBoundParameter") public static function make(Parameter: NiagaraVariable, SrcOffset: cpp.Int32, DestOffset: cpp.Int32): NiagaraBoundParameter ;
 }

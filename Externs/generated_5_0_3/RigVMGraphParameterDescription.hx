@@ -3,10 +3,14 @@ package ue;
 
 @:native("FRigVMGraphParameterDescription")
 @:include("RigVMModel/Nodes/RigVMParameterNode.h")
+@:structAccess
 extern class RigVMGraphParameterDescription {
 	public var Name: FName;
 	public var bIsInput: Bool;
 	public var CPPType: FString;
 	public var CPPTypeObject: cpp.Star<Object>;
 	public var DefaultValue: FString;
+
+	@:native("FRigVMGraphParameterDescription") public function new();
+	@:native("FRigVMGraphParameterDescription") public static function make(Name: FName, bIsInput: Bool, CPPType: FString, CPPTypeObject: cpp.Star<Object>, DefaultValue: FString): RigVMGraphParameterDescription ;
 }

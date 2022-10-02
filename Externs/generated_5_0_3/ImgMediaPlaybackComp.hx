@@ -3,9 +3,12 @@ package ue;
 
 @:native("UImgMediaPlaybackComponent")
 @:include("Unreal/ImgMediaPlaybackComponent.h")
+@:structAccess
 extern class ImgMediaPlaybackComp extends ActorComp {
 	public var Width: cpp.Float32;
 	public var LODBias: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

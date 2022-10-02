@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_TwoBoneIK")
 @:include("BoneControllers/AnimNode_TwoBoneIK.h")
+@:structAccess
 extern class AnimNode_TwoBoneIK extends AnimNode_SkeletalControlBase {
 	public var IKBone: BoneReference;
 	public var StartStretchRatio: cpp.Float32;
@@ -22,4 +23,6 @@ extern class AnimNode_TwoBoneIK extends AnimNode_SkeletalControlBase {
 	public var bTakeRotationFromEffectorSpace: Bool;
 	public var bMaintainEffectorRelRot: Bool;
 	public var bAllowTwist: Bool;
+
+	@:native("FAnimNode_TwoBoneIK") public function new();
 }

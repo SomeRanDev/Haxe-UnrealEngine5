@@ -3,9 +3,13 @@ package ue;
 
 @:native("FGoomBindingGroupInfo")
 @:include("GroomBindingAsset.h")
+@:structAccess
 extern class GoomBindingGroupInfo {
 	public var RenRootCount: cpp.Int32;
 	public var RenLODCount: cpp.Int32;
 	public var SimRootCount: cpp.Int32;
 	public var SimLODCount: cpp.Int32;
+
+	@:native("FGoomBindingGroupInfo") public function new();
+	@:native("FGoomBindingGroupInfo") public static function make(RenRootCount: cpp.Int32, RenLODCount: cpp.Int32, SimRootCount: cpp.Int32, SimLODCount: cpp.Int32): GoomBindingGroupInfo ;
 }

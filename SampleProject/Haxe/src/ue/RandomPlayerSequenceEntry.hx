@@ -3,6 +3,7 @@ package ue;
 
 @:native("FRandomPlayerSequenceEntry")
 @:include("AnimNodes/AnimNode_RandomPlayer.h")
+@:structAccess
 extern class RandomPlayerSequenceEntry {
 	public var Sequence: cpp.Star<AnimSequence>;
 	public var ChanceToPlay: cpp.Float32;
@@ -11,4 +12,6 @@ extern class RandomPlayerSequenceEntry {
 	public var MinPlayRate: cpp.Float32;
 	public var MaxPlayRate: cpp.Float32;
 	public var BlendIn: AlphaBlend;
+
+	@:native("FRandomPlayerSequenceEntry") public function new();
 }

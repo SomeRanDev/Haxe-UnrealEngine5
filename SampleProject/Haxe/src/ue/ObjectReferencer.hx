@@ -3,8 +3,11 @@ package ue;
 
 @:native("UObjectReferencer")
 @:include("Engine/ObjectReferencer.h")
+@:structAccess
 extern class ObjectReferencer extends Object {
 	public var ReferencedObjects: TArray<cpp.Star<Object>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

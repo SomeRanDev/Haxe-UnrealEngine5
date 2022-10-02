@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimationTransitionBetweenStates")
 @:include("Animation/AnimStateMachineTypes.h")
+@:structAccess
 extern class AnimationTransitionBetweenStates extends AnimationStateBase {
 	public var PreviousState: cpp.Int32;
 	public var NextState: cpp.Int32;
@@ -14,4 +15,6 @@ extern class AnimationTransitionBetweenStates extends AnimationStateBase {
 	public var CustomCurve: cpp.Star<CurveFloat>;
 	public var BlendProfile: cpp.Star<BlendProfile>;
 	public var LogicType: ETransitionLogicType;
+
+	@:native("FAnimationTransitionBetweenStates") public function new();
 }

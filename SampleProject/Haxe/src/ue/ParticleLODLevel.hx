@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleLODLevel")
 @:include("Particles/ParticleLODLevel.h")
+@:structAccess
 extern class ParticleLODLevel extends Object {
 	public var Level: cpp.Int32;
 	public var bEnabled: Bool;
@@ -18,6 +19,8 @@ extern class ParticleLODLevel extends Object {
 	public var EventReceiverModules: TArray<cpp.Star<ParticleModuleEventReceiverBase>>;
 	public var ConvertedModules: Bool;
 	public var PeakActiveParticles: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

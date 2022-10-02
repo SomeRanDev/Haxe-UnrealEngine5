@@ -3,7 +3,11 @@ package ue;
 
 @:native("FNiagaraStatScope")
 @:include("NiagaraCommon.h")
+@:structAccess
 extern class NiagaraStatScope {
 	public var FullName: FName;
 	public var FriendlyName: FName;
+
+	@:native("FNiagaraStatScope") public function new();
+	@:native("FNiagaraStatScope") public static function make(FullName: FName, FriendlyName: FName): NiagaraStatScope ;
 }

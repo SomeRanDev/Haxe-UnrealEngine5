@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEditorTransformGizmoBuilder")
 @:include("EditorGizmos/EditorTransformGizmo.h")
+@:structAccess
 extern class EditorTransformGizmoBuilder extends InteractiveGizmoBuilder {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

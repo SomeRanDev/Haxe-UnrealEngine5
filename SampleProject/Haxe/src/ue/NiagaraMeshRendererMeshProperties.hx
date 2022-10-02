@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraMeshRendererMeshProperties")
 @:include("NiagaraMeshRendererProperties.h")
+@:structAccess
 extern class NiagaraMeshRendererMeshProperties {
 	public var Mesh: cpp.Star<StaticMesh>;
 	public var UserParamBinding: NiagaraUserParameterBinding;
@@ -10,4 +11,6 @@ extern class NiagaraMeshRendererMeshProperties {
 	public var Rotation: Rotator;
 	public var PivotOffset: Vector;
 	public var PivotOffsetSpace: ENiagaraMeshPivotOffsetSpace;
+
+	@:native("FNiagaraMeshRendererMeshProperties") public function new();
 }

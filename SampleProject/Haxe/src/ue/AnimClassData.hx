@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimClassData")
 @:include("Animation/AnimClassData.h")
+@:structAccess
 extern class AnimClassData extends Object {
 	public var BakedStateMachines: TArray<BakedAnimationStateMachine>;
 	public var TargetSkeleton: cpp.Star<Skeleton>;
@@ -20,6 +21,8 @@ extern class AnimClassData extends Object {
 	public var GraphNameAssetPlayers: TMap<FName, GraphAssetPlayerInformation>;
 	public var SyncGroupNames: TArray<FName>;
 	public var GraphBlendOptions: TMap<FName, AnimGraphBlendOptions>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

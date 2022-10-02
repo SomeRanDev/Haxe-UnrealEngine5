@@ -2,10 +2,13 @@
 package ue;
 
 @:native("UUserListEntry")
+@:structAccess
 extern class UserListEntry extends Interface {
 	public function BP_OnItemSelectionChanged(bIsSelected: Bool): Void;
 	public function BP_OnItemExpansionChanged(bIsExpanded: Bool): Void;
 	public function BP_OnEntryReleased(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

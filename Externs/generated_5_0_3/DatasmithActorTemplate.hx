@@ -3,9 +3,12 @@ package ue;
 
 @:native("UDatasmithActorTemplate")
 @:include("ObjectTemplates/DatasmithActorTemplate.h")
+@:structAccess
 extern class DatasmithActorTemplate extends DatasmithObjectTemplate {
 	public var Layers: TSet<FName>;
 	public var Tags: TSet<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

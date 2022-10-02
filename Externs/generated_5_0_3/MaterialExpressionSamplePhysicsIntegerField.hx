@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionSamplePhysicsIntegerField")
 @:include("Materials/MaterialExpressionSamplePhysicsField.h")
+@:structAccess
 extern class MaterialExpressionSamplePhysicsIntegerField extends MaterialExpression {
 	public var WorldPosition: ExpressionInput;
 	public var FieldTarget: EFieldIntegerType;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

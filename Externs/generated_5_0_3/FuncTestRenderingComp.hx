@@ -3,7 +3,10 @@ package ue;
 
 @:native("UFuncTestRenderingComponent")
 @:include("FuncTestRenderingComponent.h")
+@:structAccess
 extern class FuncTestRenderingComp extends PrimitiveComp {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

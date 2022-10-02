@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPhysicsSettings")
 @:include("PhysicsEngine/PhysicsSettings.h")
+@:structAccess
 extern class PhysicsSettings extends PhysicsSettingsCore {
 	public var PhysicErrorCorrection: RigidBodyErrorCorrection;
 	public var LockedAxis_DEPRECATED: ESettingsLockedAxis;
@@ -31,6 +32,8 @@ extern class PhysicsSettings extends PhysicsSettingsCore {
 	public var DefaultBroadphaseSettings: BroadphaseSettings;
 	public var MinDeltaVelocityForHitEvents: cpp.Float32;
 	public var ChaosSettings: ChaosPhysicsSettings;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

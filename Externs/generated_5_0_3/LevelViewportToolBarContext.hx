@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULevelViewportToolBarContext")
 @:include("LevelEditorMenuContext.h")
+@:structAccess
 extern class LevelViewportToolBarContext extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

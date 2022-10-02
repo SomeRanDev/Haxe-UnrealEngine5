@@ -2,8 +2,11 @@
 package ue;
 
 @:native("UNiagaraParticleCallbackHandler")
+@:structAccess
 extern class NiagaraParticleCallbackHandler extends Interface {
 	public function ReceiveParticleData(Data: cpp.Reference<TArray<BasicParticleData>>, NiagaraSystem: cpp.Star<NiagaraSystem>, SimulationPositionOffset: cpp.Reference<Vector>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleBeamNoise")
 @:include("Particles/Beam/ParticleModuleBeamNoise.h")
+@:structAccess
 extern class ParticleModuleBeamNoise extends ParticleModuleBeamBase {
 	public var bLowFreq_Enabled: Bool;
 	public var Frequency: cpp.Int32;
@@ -24,6 +25,8 @@ extern class ParticleModuleBeamNoise extends ParticleModuleBeamBase {
 	public var FrequencyDistance: cpp.Float32;
 	public var bApplyNoiseScale: Bool;
 	public var NoiseScale: RawDistributionFloat;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

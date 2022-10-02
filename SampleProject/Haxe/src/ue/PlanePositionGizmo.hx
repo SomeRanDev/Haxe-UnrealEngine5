@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPlanePositionGizmo")
 @:include("BaseGizmos/PlanePositionGizmo.h")
+@:structAccess
 extern class PlanePositionGizmo extends InteractiveGizmo {
 	public var AxisSource: GizmoAxisSource;
 	public var ParameterSource: GizmoVec2ParameterSource;
@@ -22,6 +23,8 @@ extern class PlanePositionGizmo extends InteractiveGizmo {
 	public var InteractionStartParameter: Vector2D;
 	public var InteractionCurParameter: Vector2D;
 	public var ParameterSigns: Vector2D;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

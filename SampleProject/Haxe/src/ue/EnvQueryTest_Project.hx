@@ -3,8 +3,11 @@ package ue;
 
 @:native("UEnvQueryTest_Project")
 @:include("EnvironmentQuery/Tests/EnvQueryTest_Project.h")
+@:structAccess
 extern class EnvQueryTest_Project extends EnvQueryTest {
 	public var ProjectionData: EnvTraceData;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

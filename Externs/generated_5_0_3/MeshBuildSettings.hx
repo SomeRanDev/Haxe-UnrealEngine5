@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMeshBuildSettings")
 @:include("Engine/EngineTypes.h")
+@:structAccess
 extern class MeshBuildSettings {
 	public var bUseMikkTSpace: Bool;
 	public var bRecomputeNormals: Bool;
@@ -25,4 +26,6 @@ extern class MeshBuildSettings {
 	public var DistanceFieldBias_DEPRECATED: cpp.Float32;
 	public var DistanceFieldReplacementMesh: cpp.Star<StaticMesh>;
 	public var MaxLumenMeshCards: cpp.Int32;
+
+	@:native("FMeshBuildSettings") public function new();
 }

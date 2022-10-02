@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_BoneDrivenController")
 @:include("BoneControllers/AnimNode_BoneDrivenController.h")
+@:structAccess
 extern class AnimNode_BoneDrivenController extends AnimNode_SkeletalControlBase {
 	public var SourceBone: BoneReference;
 	public var DrivingCurve: cpp.Star<CurveFloat>;
@@ -27,4 +28,6 @@ extern class AnimNode_BoneDrivenController extends AnimNode_SkeletalControlBase 
 	public var bAffectTargetScaleX: Bool;
 	public var bAffectTargetScaleY: Bool;
 	public var bAffectTargetScaleZ: Bool;
+
+	@:native("FAnimNode_BoneDrivenController") public function new();
 }

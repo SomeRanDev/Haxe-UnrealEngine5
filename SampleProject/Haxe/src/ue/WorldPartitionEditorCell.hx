@@ -3,7 +3,10 @@ package ue;
 
 @:native("UWorldPartitionEditorCell")
 @:include("WorldPartition/WorldPartitionEditorCell.h")
+@:structAccess
 extern class WorldPartitionEditorCell extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

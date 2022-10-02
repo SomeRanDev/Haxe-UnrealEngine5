@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_ConvertAsset")
 @:include("K2Node_ConvertAsset.h")
+@:structAccess
 extern class K2Node_ConvertAsset extends K2Node {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

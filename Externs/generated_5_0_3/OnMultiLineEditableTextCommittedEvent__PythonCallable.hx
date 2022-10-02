@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnMultiLineEditableTextCommittedEvent__PythonCallable")
+@:structAccess
 extern class OnMultiLineEditableTextCommittedEvent__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

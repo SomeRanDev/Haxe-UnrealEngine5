@@ -3,6 +3,10 @@ package ue;
 
 @:native("FRigSpaceHierarchy")
 @:include("Rigs/RigSpaceHierarchy.h")
+@:structAccess
 extern class RigSpaceHierarchy {
 	public var Spaces: TArray<RigSpace>;
+
+	@:native("FRigSpaceHierarchy") public function new();
+	@:native("FRigSpaceHierarchy") public static function make(Spaces: TArray<RigSpace>): RigSpaceHierarchy ;
 }

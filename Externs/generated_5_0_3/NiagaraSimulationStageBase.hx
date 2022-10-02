@@ -3,10 +3,13 @@ package ue;
 
 @:native("UNiagaraSimulationStageBase")
 @:include("NiagaraSimulationStageBase.h")
+@:structAccess
 extern class NiagaraSimulationStageBase extends NiagaraMergeable {
 	public var Script: cpp.Star<NiagaraScript>;
 	public var SimulationStageName: FName;
 	public var bEnabled: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

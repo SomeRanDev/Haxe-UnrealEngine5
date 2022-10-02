@@ -3,8 +3,12 @@ package ue;
 
 @:native("FTraceQueryTestNames")
 @:include("TraceQueryTestResults.h")
+@:structAccess
 extern class TraceQueryTestNames {
 	public var ComponentName: FName;
 	public var PhysicalMaterialName: FName;
 	public var ActorName: FName;
+
+	@:native("FTraceQueryTestNames") public function new();
+	@:native("FTraceQueryTestNames") public static function make(ComponentName: FName, PhysicalMaterialName: FName, ActorName: FName): TraceQueryTestNames ;
 }

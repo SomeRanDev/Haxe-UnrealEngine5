@@ -3,10 +3,13 @@ package ue;
 
 @:native("UK2Node_TransitionRuleGetter")
 @:include("K2Node_TransitionRuleGetter.h")
+@:structAccess
 extern class K2Node_TransitionRuleGetter extends K2Node {
 	public var GetterType: ETransitionGetter;
 	public var AssociatedAnimAssetPlayerNode: cpp.Star<AnimGraphNode_Base>;
 	public var AssociatedStateNode: cpp.Star<AnimStateNode>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UDatasmithCommonTessellationOptions")
 @:include("DatasmithImportOptions.h")
+@:structAccess
 extern class DatasmithCommonTessellationOptions extends DatasmithOptionsBase {
 	public var Options: DatasmithTessellationOptions;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

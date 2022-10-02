@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULevelVariantSetsFunctionDirector")
 @:include("LevelVariantSetsFunctionDirector.h")
+@:structAccess
 extern class LevelVariantSetsFunctionDirector extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

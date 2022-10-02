@@ -3,8 +3,11 @@ package ue;
 
 @:native("UInterpTrackLinearColorProp")
 @:include("Matinee/InterpTrackLinearColorProp.h")
+@:structAccess
 extern class InterpTrackLinearColorProp extends InterpTrackLinearColorBase {
 	public var PropertyName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UDistributionFloatUniform")
 @:include("Distributions/DistributionFloatUniform.h")
+@:structAccess
 extern class DistributionFloatUniform extends DistributionFloat {
 	public var Min: cpp.Float32;
 	public var Max: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

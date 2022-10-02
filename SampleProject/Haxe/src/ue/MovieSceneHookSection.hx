@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMovieSceneHookSection")
 @:include("Sections/MovieSceneHookSection.h")
+@:structAccess
 extern class MovieSceneHookSection extends MovieSceneSection {
 	public var bRequiresRangedHook: Bool;
 	public var bRequiresTriggerHooks: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

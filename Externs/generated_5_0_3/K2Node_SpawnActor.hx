@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_SpawnActor")
 @:include("K2Node_SpawnActor.h")
+@:structAccess
 extern class K2Node_SpawnActor extends K2Node {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

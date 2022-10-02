@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimPhysConstraintSetup")
 @:include("BoneControllers/AnimNode_AnimDynamics.h")
+@:structAccess
 extern class AnimPhysConstraintSetup {
 	public var LinearXLimitType: AnimPhysLinearConstraintType;
 	public var LinearYLimitType: AnimPhysLinearConstraintType;
@@ -19,4 +20,6 @@ extern class AnimPhysConstraintSetup {
 	public var AngularLimitsMin: Vector;
 	public var AngularLimitsMax: Vector;
 	public var AngularTarget: Vector;
+
+	@:native("FAnimPhysConstraintSetup") public function new();
 }

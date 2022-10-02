@@ -3,6 +3,7 @@ package ue;
 
 @:native("USequencePlayerLibrary")
 @:include("SequencePlayerLibrary.h")
+@:structAccess
 extern class SequencePlayerLibrary extends BlueprintFunctionLibrary {
 	public function SetStartPosition(SequencePlayer: cpp.Reference<SequencePlayerReference>, StartPosition: cpp.Float32): cpp.Reference<SequencePlayerReference>;
 	public function SetSequenceWithInertialBlending(UpdateContext: cpp.Reference<AnimUpdateContext>, SequencePlayer: cpp.Reference<SequencePlayerReference>, Sequence: cpp.Star<AnimSequenceBase>, BlendTime: cpp.Float32): cpp.Reference<SequencePlayerReference>;
@@ -17,6 +18,8 @@ extern class SequencePlayerLibrary extends BlueprintFunctionLibrary {
 	public function GetAccumulatedTime(SequencePlayer: cpp.Reference<SequencePlayerReference>): cpp.Reference<cpp.Float32>;
 	public function ConvertToSequencePlayerPure(Node: cpp.Reference<AnimNodeReference>, SequencePlayer: cpp.Reference<SequencePlayerReference>, Result: cpp.Reference<Bool>): Void;
 	public function ConvertToSequencePlayer(Node: cpp.Reference<AnimNodeReference>, Result: cpp.Reference<EAnimNodeReferenceConversionResult>): cpp.Reference<SequencePlayerReference>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

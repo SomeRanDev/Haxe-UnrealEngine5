@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPivotScaleGizmoHandleGroup")
 @:include("Gizmo/VIPivotTransformGizmo.h")
+@:structAccess
 extern class PivotScaleGizmoHandleGroup extends AxisGizmoHandleGroup {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

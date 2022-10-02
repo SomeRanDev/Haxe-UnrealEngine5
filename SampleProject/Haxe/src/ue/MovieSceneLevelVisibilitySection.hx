@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneLevelVisibilitySection")
 @:include("Sections/MovieSceneLevelVisibilitySection.h")
+@:structAccess
 extern class MovieSceneLevelVisibilitySection extends MovieSceneSection {
 	public var Visibility: ELevelVisibility;
 	public var LevelNames: TArray<FName>;
@@ -11,6 +12,8 @@ extern class MovieSceneLevelVisibilitySection extends MovieSceneSection {
 	public function SetLevelNames(InLevelNames: cpp.Reference<TArray<FName>>): Void;
 	public function GetVisibility(): cpp.Reference<ELevelVisibility>;
 	public function GetLevelNames(): cpp.Reference<TArray<FName>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetVisibility, GetLevelNames)

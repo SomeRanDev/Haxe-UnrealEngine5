@@ -3,6 +3,7 @@ package ue;
 
 @:native("FHairSimulationConstraints")
 @:include("GroomAssetPhysics.h")
+@:structAccess
 extern class HairSimulationConstraints {
 	public var BendDamping: cpp.Float32;
 	public var BendStiffness: cpp.Float32;
@@ -12,4 +13,6 @@ extern class HairSimulationConstraints {
 	public var KineticFriction: cpp.Float32;
 	public var StrandsViscosity: cpp.Float32;
 	public var CollisionRadius: cpp.Float32;
+
+	@:native("FHairSimulationConstraints") public function new();
 }

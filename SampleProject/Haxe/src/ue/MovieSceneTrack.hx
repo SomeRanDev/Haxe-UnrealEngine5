@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneTrack")
 @:include("MovieSceneTrack.h")
+@:structAccess
 extern class MovieSceneTrack extends MovieSceneSignedObject {
 	public var EvalOptions: MovieSceneTrackEvalOptions;
 	public var DisplayOptions: MovieSceneTrackDisplayOptions;
@@ -15,6 +16,8 @@ extern class MovieSceneTrack extends MovieSceneSignedObject {
 	public var TrackTint: Color;
 	public var SortingOrder: cpp.Int32;
 	public var bSupportsDefaultSections: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

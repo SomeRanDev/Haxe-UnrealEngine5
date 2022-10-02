@@ -3,6 +3,7 @@ package ue;
 
 @:native("AServerStatReplicator")
 @:include("Engine/ServerStatReplicator.h")
+@:structAccess
 extern class ServerStatReplicator extends Info {
 	public var bUpdateStatNet: Bool;
 	public var bOverwriteClientStats: Bool;
@@ -53,6 +54,8 @@ extern class ServerStatReplicator extends Info {
 	public var NetGUIDOutRate: cpp.UInt32;
 	public var NetGUIDInRate: cpp.UInt32;
 	public var NetSaturated: cpp.UInt32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

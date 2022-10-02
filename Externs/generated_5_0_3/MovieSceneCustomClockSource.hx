@@ -2,11 +2,14 @@
 package ue;
 
 @:native("UMovieSceneCustomClockSource")
+@:structAccess
 extern class MovieSceneCustomClockSource extends Interface {
 	public function OnTick(DeltaSeconds: cpp.Float32, InPlayRate: cpp.Float32): Void;
 	public function OnStopPlaying(InStopTime: cpp.Reference<QualifiedFrameTime>): Void;
 	public function OnStartPlaying(InStartTime: cpp.Reference<QualifiedFrameTime>): Void;
 	public function OnRequestCurrentTime(InCurrentTime: cpp.Reference<QualifiedFrameTime>, InPlayRate: cpp.Float32): cpp.Reference<FrameTime>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

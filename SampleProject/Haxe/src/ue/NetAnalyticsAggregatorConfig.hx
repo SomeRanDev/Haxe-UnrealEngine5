@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNetAnalyticsAggregatorConfig")
 @:include("Net/Core/Analytics/NetAnalyticsAggregatorConfig.h")
+@:structAccess
 extern class NetAnalyticsAggregatorConfig extends Object {
 	public var NetAnalyticsData: TArray<NetAnalyticsDataConfig>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

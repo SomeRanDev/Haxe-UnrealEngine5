@@ -3,6 +3,7 @@ package ue;
 
 @:native("FMaterialInput")
 @:include("Materials/Material.h")
+@:structAccess
 extern class MaterialInput {
 	public var Expression: cpp.Star<MaterialExpression>;
 	public var OutputIndex: cpp.Int32;
@@ -13,4 +14,6 @@ extern class MaterialInput {
 	public var MaskB: cpp.Int32;
 	public var MaskA: cpp.Int32;
 	public var ExpressionName: FName;
+
+	@:native("FMaterialInput") public function new();
 }

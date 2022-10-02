@@ -3,5 +3,7 @@ package ue;
 
 @:native("FGameplayDebuggerNetPack")
 @:include("GameplayDebuggerCategoryReplicator.h")
+@:structAccess
 extern class GameplayDebuggerNetPack {
+	@:native("FGameplayDebuggerNetPack") public function new();
 }

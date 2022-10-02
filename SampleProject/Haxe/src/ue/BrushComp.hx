@@ -3,10 +3,13 @@ package ue;
 
 @:native("UBrushComponent")
 @:include("Components/BrushComponent.h")
+@:structAccess
 extern class BrushComp extends PrimitiveComp {
 	public var Brush: cpp.Star<Model>;
 	public var BrushBodySetup: cpp.Star<BodySetup>;
 	public var PrePivot_DEPRECATED: Vector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

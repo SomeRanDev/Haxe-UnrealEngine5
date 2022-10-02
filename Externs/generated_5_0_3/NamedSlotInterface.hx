@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UNamedSlotInterface")
+@:structAccess
 extern class NamedSlotInterface extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

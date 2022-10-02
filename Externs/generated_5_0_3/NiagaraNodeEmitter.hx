@@ -3,11 +3,14 @@ package ue;
 
 @:native("UNiagaraNodeEmitter")
 @:include("NiagaraNodeEmitter.h")
+@:structAccess
 extern class NiagaraNodeEmitter extends NiagaraNodeWithDynamicPins {
 	public var OwnerSystem: cpp.Star<NiagaraSystem>;
 	public var EmitterHandleId: Guid;
 	public var DisplayName: FText;
 	public var ScriptType: ENiagaraScriptUsage;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

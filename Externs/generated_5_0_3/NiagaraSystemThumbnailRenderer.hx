@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNiagaraSystemThumbnailRenderer")
 @:include("NiagaraThumbnailRenderer.h")
+@:structAccess
 extern class NiagaraSystemThumbnailRenderer extends NiagaraThumbnailRendererBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

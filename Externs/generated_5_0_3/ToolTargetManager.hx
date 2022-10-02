@@ -3,8 +3,11 @@ package ue;
 
 @:native("UToolTargetManager")
 @:include("ToolTargetManager.h")
+@:structAccess
 extern class ToolTargetManager extends Object {
 	public var Factories: TArray<cpp.Star<ToolTargetFactory>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

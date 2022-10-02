@@ -3,11 +3,14 @@ package ue;
 
 @:native("USoundSourceBus")
 @:include("Sound/SoundSourceBus.h")
+@:structAccess
 extern class SoundSourceBus extends SoundWave {
 	public var SourceBusChannels: ESourceBusChannels;
 	public var SourceBusDuration: cpp.Float32;
 	public var AudioBus: cpp.Star<AudioBus>;
 	public var bAutoDeactivateWhenSilent: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

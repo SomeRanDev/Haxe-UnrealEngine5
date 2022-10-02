@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMirrorDataTableFactory")
 @:include("Factories/MirrorDataTableFactory.h")
+@:structAccess
 extern class MirrorDataTableFactory extends Factory {
 	public var Struct: cpp.Star<ScriptStruct>;
 	public var Skeleton: cpp.Star<Skeleton>;
 	public var MirrorFindReplaceExpressions: cpp.Star<MirrorTableFindReplaceExpressions>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UKeyAsModifierInputBehavior")
 @:include("BaseBehaviors/KeyAsModifierInputBehavior.h")
+@:structAccess
 extern class KeyAsModifierInputBehavior extends InputBehavior {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,12 @@ package ue;
 
 @:native("FAnimNode_CallFunction")
 @:include("AnimNodes/AnimNode_CallFunction.h")
+@:structAccess
 extern class AnimNode_CallFunction extends AnimNode_Base {
 	public var Source: PoseLink;
 	public var Function: AnimNodeFunctionRef;
 	public var CallSite: EAnimFunctionCallSite;
+
+	@:native("FAnimNode_CallFunction") public function new();
+	@:native("FAnimNode_CallFunction") public static function make(Source: PoseLink, Function: AnimNodeFunctionRef, CallSite: EAnimFunctionCallSite): AnimNode_CallFunction ;
 }

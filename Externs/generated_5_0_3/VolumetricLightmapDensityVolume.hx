@@ -3,8 +3,11 @@ package ue;
 
 @:native("AVolumetricLightmapDensityVolume")
 @:include("Lightmass/VolumetricLightmapDensityVolume.h")
+@:structAccess
 extern class VolumetricLightmapDensityVolume extends Volume {
 	public var AllowedMipLevelRange: Int32Interval;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UProceduralFoliageTile")
 @:include("ProceduralFoliageTile.h")
+@:structAccess
 extern class ProceduralFoliageTile extends Object {
 	public var FoliageSpawner: cpp.Star<ProceduralFoliageSpawner>;
 	public var InstancesArray: TArray<ProceduralFoliageInstance>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

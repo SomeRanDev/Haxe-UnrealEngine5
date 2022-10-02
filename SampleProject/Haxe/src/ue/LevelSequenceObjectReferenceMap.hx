@@ -3,5 +3,7 @@ package ue;
 
 @:native("FLevelSequenceObjectReferenceMap")
 @:include("LevelSequenceLegacyObjectReference.h")
+@:structAccess
 extern class LevelSequenceObjectReferenceMap {
+	@:native("FLevelSequenceObjectReferenceMap") public function new();
 }

@@ -3,8 +3,11 @@ package ue;
 
 @:native("USlateWidgetStyleAssetFactory")
 @:include("Factories/SlateWidgetStyleAssetFactory.h")
+@:structAccess
 extern class SlateWidgetStyleAssetFactory extends Factory {
 	public var StyleType: TSubclassOf<SlateWidgetStyleContainerBase>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

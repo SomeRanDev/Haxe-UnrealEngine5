@@ -3,10 +3,13 @@ package ue;
 
 @:native("UIKRig_SetTransformEffector")
 @:include("Solvers/IKRig_SetTransform.h")
+@:structAccess
 extern class IKRig_SetTransformEffector extends Object {
 	public var bEnablePosition: Bool;
 	public var bEnableRotation: Bool;
 	public var Alpha: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

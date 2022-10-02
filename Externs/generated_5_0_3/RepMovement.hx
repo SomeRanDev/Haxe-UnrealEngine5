@@ -3,6 +3,7 @@ package ue;
 
 @:native("FRepMovement")
 @:include("Engine/EngineTypes.h")
+@:structAccess
 extern class RepMovement {
 	public var LinearVelocity: Vector;
 	public var AngularVelocity: Vector;
@@ -13,4 +14,6 @@ extern class RepMovement {
 	public var LocationQuantizationLevel: EVectorQuantization;
 	public var VelocityQuantizationLevel: EVectorQuantization;
 	public var RotationQuantizationLevel: ERotatorQuantization;
+
+	@:native("FRepMovement") public function new();
 }

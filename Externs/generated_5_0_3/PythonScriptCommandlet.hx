@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPythonScriptCommandlet")
 @:include("PythonScriptCommandlet.h")
+@:structAccess
 extern class PythonScriptCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

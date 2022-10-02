@@ -3,12 +3,15 @@ package ue;
 
 @:native("UEnvQueryTest_Pathfinding")
 @:include("EnvironmentQuery/Tests/EnvQueryTest_Pathfinding.h")
+@:structAccess
 extern class EnvQueryTest_Pathfinding extends EnvQueryTest {
 	public var TestMode: EEnvTestPathfinding;
 	public var Context: TSubclassOf<EnvQueryContext>;
 	public var PathFromContext: AIDataProviderBoolValue;
 	public var SkipUnreachable: AIDataProviderBoolValue;
 	public var FilterClass: TSubclassOf<NavigationQueryFilter>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

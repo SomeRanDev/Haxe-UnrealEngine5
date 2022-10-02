@@ -3,7 +3,11 @@ package ue;
 
 @:native("FBPComponentClassOverride")
 @:include("Engine/BlueprintGeneratedClass.h")
+@:structAccess
 extern class BPComponentClassOverride {
 	public var ComponentName: FName;
 	public var ComponentClass: TSubclassOf<Object>;
+
+	@:native("FBPComponentClassOverride") public function new();
+	@:native("FBPComponentClassOverride") public static function make(ComponentName: FName, ComponentClass: TSubclassOf<Object>): BPComponentClassOverride ;
 }

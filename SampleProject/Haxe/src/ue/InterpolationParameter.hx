@@ -3,9 +3,13 @@ package ue;
 
 @:native("FInterpolationParameter")
 @:include("Animation/BlendSpace.h")
+@:structAccess
 extern class InterpolationParameter {
 	public var InterpolationTime: cpp.Float32;
 	public var DampingRatio: cpp.Float32;
 	public var MaxSpeed: cpp.Float32;
 	public var InterpolationType: EFilterInterpolationType;
+
+	@:native("FInterpolationParameter") public function new();
+	@:native("FInterpolationParameter") public static function make(InterpolationTime: cpp.Float32, DampingRatio: cpp.Float32, MaxSpeed: cpp.Float32, InterpolationType: EFilterInterpolationType): InterpolationParameter ;
 }

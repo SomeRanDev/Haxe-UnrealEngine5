@@ -3,6 +3,7 @@ package ue;
 
 @:native("USplineComponent")
 @:include("Components/SplineComponent.h")
+@:structAccess
 extern class SplineComp extends PrimitiveComp {
 	public var SplineCurves: SplineCurves;
 	public var SplineInfo_DEPRECATED: InterpCurveVector;
@@ -129,6 +130,8 @@ extern class SplineComp extends PrimitiveComp {
 	public function AddSplineLocalPoint(Position: cpp.Reference<Vector>): Void;
 	public function AddPoints(Points: cpp.Reference<TArray<SplinePoint>>, bUpdateSpline: Bool): Void;
 	public function AddPoint(Point: cpp.Reference<SplinePoint>, bUpdateSpline: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_ScaleChainLength")
 @:include("AnimGraphNode_ScaleChainLength.h")
+@:structAccess
 extern class AnimGraphNode_ScaleChainLength extends AnimGraphNode_Base {
 	public var Node: AnimNode_ScaleChainLength;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

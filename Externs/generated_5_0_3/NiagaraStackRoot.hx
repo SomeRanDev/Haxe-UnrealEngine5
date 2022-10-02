@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraStackRoot")
 @:include("ViewModels/Stack/NiagaraStackRoot.h")
+@:structAccess
 extern class NiagaraStackRoot extends NiagaraStackEntry {
 	public var SystemPropertiesGroup: cpp.Star<NiagaraStackSystemPropertiesGroup>;
 	public var SystemUserParametersGroup: cpp.Star<NiagaraStackSystemUserParametersGroup>;
@@ -16,6 +17,8 @@ extern class NiagaraStackRoot extends NiagaraStackEntry {
 	public var ParticleUpdateGroup: cpp.Star<NiagaraStackScriptItemGroup>;
 	public var RenderGroup: cpp.Star<NiagaraStackRenderItemGroup>;
 	public var SummaryCollapseButton: cpp.Star<NiagaraStackSummaryViewCollapseButton>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

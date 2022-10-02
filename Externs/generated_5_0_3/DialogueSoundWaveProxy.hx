@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDialogueSoundWaveProxy")
 @:include("Sound/DialogueSoundWaveProxy.h")
+@:structAccess
 extern class DialogueSoundWaveProxy extends SoundBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

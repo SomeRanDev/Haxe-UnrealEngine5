@@ -3,7 +3,11 @@ package ue;
 
 @:native("FAutoCompleteCommand")
 @:include("ConsoleSettings.h")
+@:structAccess
 extern class AutoCompleteCommand {
 	public var Command: FString;
 	public var Desc: FString;
+
+	@:native("FAutoCompleteCommand") public function new();
+	@:native("FAutoCompleteCommand") public static function make(Command: FString, Desc: FString): AutoCompleteCommand ;
 }

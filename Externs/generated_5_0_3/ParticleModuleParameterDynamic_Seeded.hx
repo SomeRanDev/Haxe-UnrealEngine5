@@ -3,8 +3,11 @@ package ue;
 
 @:native("UParticleModuleParameterDynamic_Seeded")
 @:include("Particles/Parameter/ParticleModuleParameterDynamic_Seeded.h")
+@:structAccess
 extern class ParticleModuleParameterDynamic_Seeded extends ParticleModuleParameterDynamic {
 	public var RandomSeedInfo: ParticleRandomSeedInfo;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

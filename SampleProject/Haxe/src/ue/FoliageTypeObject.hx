@@ -3,9 +3,13 @@ package ue;
 
 @:native("FFoliageTypeObject")
 @:include("FoliageTypeObject.h")
+@:structAccess
 extern class FoliageTypeObject {
 	public var FoliageTypeObject: cpp.Star<Object>;
 	public var TypeInstance: cpp.Star<FoliageType>;
 	public var bIsAsset: Bool;
 	public var Type_DEPRECATED: TSubclassOf<FoliageType_InstancedStaticMesh>;
+
+	@:native("FFoliageTypeObject") public function new();
+	@:native("FFoliageTypeObject") public static function make(FoliageTypeObject: cpp.Star<Object>, TypeInstance: cpp.Star<FoliageType>, bIsAsset: Bool, Type_DEPRECATED: TSubclassOf<FoliageType_InstancedStaticMesh>): FoliageTypeObject ;
 }

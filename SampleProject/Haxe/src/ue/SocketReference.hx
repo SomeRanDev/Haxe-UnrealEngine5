@@ -3,6 +3,10 @@ package ue;
 
 @:native("FSocketReference")
 @:include("Animation/BoneSocketReference.h")
+@:structAccess
 extern class SocketReference {
 	public var SocketName: FName;
+
+	@:native("FSocketReference") public function new();
+	@:native("FSocketReference") public static function make(SocketName: FName): SocketReference ;
 }

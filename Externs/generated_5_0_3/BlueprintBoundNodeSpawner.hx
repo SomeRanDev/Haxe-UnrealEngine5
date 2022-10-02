@@ -3,7 +3,10 @@ package ue;
 
 @:native("UBlueprintBoundNodeSpawner")
 @:include("BlueprintBoundNodeSpawner.h")
+@:structAccess
 extern class BlueprintBoundNodeSpawner extends BlueprintNodeSpawner {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

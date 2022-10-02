@@ -3,6 +3,7 @@ package ue;
 
 @:native("UQuartzClockHandle")
 @:include("Quartz/AudioMixerClockHandle.h")
+@:structAccess
 extern class QuartzClockHandle extends Object {
 	public function UnsubscribeFromTimeDivision(WorldContextObject: cpp.Star<Object.ConstObject>, InQuantizationBoundary: EQuartzCommandQuantization, ClockHandle: cpp.Reference<cpp.Star<QuartzClockHandle>>): Void;
 	public function UnsubscribeFromAllTimeDivisions(WorldContextObject: cpp.Star<Object.ConstObject>, ClockHandle: cpp.Reference<cpp.Star<QuartzClockHandle>>): Void;
@@ -29,6 +30,8 @@ extern class QuartzClockHandle extends Object {
 	public function GetDurationOfQuantizationTypeInSeconds(WorldContextObject: cpp.Star<Object.ConstObject>, QuantizationType: cpp.Reference<EQuartzCommandQuantization>, Multiplier: cpp.Float32): cpp.Reference<cpp.Float32>;
 	public function GetCurrentTimestamp(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Reference<QuartzTransportTimeStamp>;
 	public function GetBeatsPerMinute(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetTicksPerSecond, GetThirtySecondNotesPerMinute, GetSecondsPerTick, GetMillisecondsPerTick, GetBeatsPerMinute)

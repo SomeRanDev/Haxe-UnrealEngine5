@@ -3,6 +3,7 @@ package ue;
 
 @:native("URuntimeVirtualTexture")
 @:include("VT/RuntimeVirtualTexture.h")
+@:structAccess
 extern class RuntimeVirtualTexture extends Object {
 	public var TileCount: cpp.Int32;
 	public var TileSize: cpp.Int32;
@@ -25,6 +26,8 @@ extern class RuntimeVirtualTexture extends Object {
 	public function GetTileBorderSize(): cpp.Reference<cpp.Int32>;
 	public function GetSize(): cpp.Reference<cpp.Int32>;
 	public function GetPageTableSize(): cpp.Reference<cpp.Int32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetTileSize, GetTileCount, GetTileBorderSize, GetSize, GetPageTableSize)

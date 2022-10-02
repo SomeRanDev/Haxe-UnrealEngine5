@@ -3,7 +3,10 @@ package ue;
 
 @:native("UInteractionMechanic")
 @:include("InteractionMechanic.h")
+@:structAccess
 extern class InteractionMechanic extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

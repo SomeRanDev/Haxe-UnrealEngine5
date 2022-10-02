@@ -3,11 +3,14 @@ package ue;
 
 @:native("UARTexture")
 @:include("ARTextures.h")
+@:structAccess
 extern class ARTexture extends Texture {
 	public var TextureType: EARTextureType;
 	public var Timestamp: cpp.Float32;
 	public var ExternalTextureGuid: Guid;
 	public var Size: Vector2D;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

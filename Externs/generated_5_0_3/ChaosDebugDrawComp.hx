@@ -3,7 +3,10 @@ package ue;
 
 @:native("UChaosDebugDrawComponent")
 @:include("Chaos/ChaosDebugDrawComponent.h")
+@:structAccess
 extern class ChaosDebugDrawComp extends ActorComp {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

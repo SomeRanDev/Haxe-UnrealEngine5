@@ -3,8 +3,12 @@ package ue;
 
 @:native("FPaperTileMetadata")
 @:include("PaperTileSet.h")
+@:structAccess
 extern class PaperTileMetadata {
 	public var UserDataName: FName;
 	public var CollisionData: SpriteGeometryCollection;
 	public var TerrainMembership: cpp.UInt8;
+
+	@:native("FPaperTileMetadata") public function new();
+	@:native("FPaperTileMetadata") public static function make(UserDataName: FName, CollisionData: SpriteGeometryCollection, TerrainMembership: cpp.UInt8): PaperTileMetadata ;
 }

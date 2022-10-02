@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPhysicsConstraintTemplate")
 @:include("PhysicsEngine/PhysicsConstraintTemplate.h")
+@:structAccess
 extern class PhysicsConstraintTemplate extends Object {
 	public var DefaultInstance: ConstraintInstance;
 	public var ProfileHandles: TArray<PhysicsConstraintProfileHandle>;
@@ -42,6 +43,8 @@ extern class PhysicsConstraintTemplate extends Object {
 	public var TwistLimitDamping_DEPRECATED: cpp.Float32;
 	public var bAngularBreakable_DEPRECATED: Bool;
 	public var AngularBreakThreshold_DEPRECATED: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

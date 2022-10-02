@@ -3,7 +3,10 @@ package ue;
 
 @:native("UWidgetCompilerRule")
 @:include("WidgetCompilerRule.h")
+@:structAccess
 extern class WidgetCompilerRule extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

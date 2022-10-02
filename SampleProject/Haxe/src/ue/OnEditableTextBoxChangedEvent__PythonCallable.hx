@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnEditableTextBoxChangedEvent__PythonCallable")
+@:structAccess
 extern class OnEditableTextBoxChangedEvent__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDataValidationCommandlet")
 @:include("DataValidationCommandlet.h")
+@:structAccess
 extern class DataValidationCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UTextureEncodingUserSettings")
 @:include("TextureEncodingSettings.h")
+@:structAccess
 extern class TextureEncodingUserSettings extends DeveloperSettings {
 	public var ForceEncodeSpeed: ETextureEncodeSpeedOverride;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAutoReimportManager")
 @:include("AutoReimport/AutoReimportManager.h")
+@:structAccess
 extern class AutoReimportManager extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

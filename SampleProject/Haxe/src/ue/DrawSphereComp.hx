@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDrawSphereComponent")
 @:include("Components/DrawSphereComponent.h")
+@:structAccess
 extern class DrawSphereComp extends SphereComp {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

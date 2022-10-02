@@ -3,6 +3,7 @@ package ue;
 
 @:native("UVerticalBoxSlot")
 @:include("Components/VerticalBoxSlot.h")
+@:structAccess
 extern class VerticalBoxSlot extends PanelSlot {
 	public var Size: SlateChildSize;
 	public var Padding: Margin;
@@ -13,6 +14,8 @@ extern class VerticalBoxSlot extends PanelSlot {
 	public function SetSize(InSize: SlateChildSize): Void;
 	public function SetPadding(InPadding: Margin): Void;
 	public function SetHorizontalAlignment(InHorizontalAlignment: EHorizontalAlignment): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

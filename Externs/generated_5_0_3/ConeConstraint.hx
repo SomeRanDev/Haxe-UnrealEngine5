@@ -3,9 +3,13 @@ package ue;
 
 @:native("FConeConstraint")
 @:include("PhysicsEngine/ConstraintTypes.h")
+@:structAccess
 extern class ConeConstraint extends ConstraintBaseParams {
 	public var Swing1LimitDegrees: cpp.Float32;
 	public var Swing2LimitDegrees: cpp.Float32;
 	public var Swing1Motion: EAngularConstraintMotion;
 	public var Swing2Motion: EAngularConstraintMotion;
+
+	@:native("FConeConstraint") public function new();
+	@:native("FConeConstraint") public static function make(Swing1LimitDegrees: cpp.Float32, Swing2LimitDegrees: cpp.Float32, Swing1Motion: EAngularConstraintMotion, Swing2Motion: EAngularConstraintMotion): ConeConstraint ;
 }

@@ -2,9 +2,12 @@
 package ue;
 
 @:native("UGizmoStateTarget")
+@:structAccess
 extern class GizmoStateTarget extends Interface {
 	public function EndUpdate(): Void;
 	public function BeginUpdate(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

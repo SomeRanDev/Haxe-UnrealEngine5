@@ -3,6 +3,7 @@ package ue;
 
 @:native("FConstraintInstance")
 @:include("PhysicsEngine/ConstraintInstance.h")
+@:structAccess
 extern class ConstraintInstance extends ConstraintInstanceBase {
 	public var JointName: FName;
 	public var ConstraintBone1: FName;
@@ -72,4 +73,6 @@ extern class ConstraintInstance extends ConstraintInstanceBase {
 	public var AngularDriveSpring_DEPRECATED: cpp.Float32;
 	public var AngularDriveDamping_DEPRECATED: cpp.Float32;
 	public var AngularDriveForceLimit_DEPRECATED: cpp.Float32;
+
+	@:native("FConstraintInstance") public function new();
 }

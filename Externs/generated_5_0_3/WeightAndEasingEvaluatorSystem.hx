@@ -3,7 +3,10 @@ package ue;
 
 @:native("UWeightAndEasingEvaluatorSystem")
 @:include("Systems/WeightAndEasingEvaluatorSystem.h")
+@:structAccess
 extern class WeightAndEasingEvaluatorSystem extends MovieSceneEntitySystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

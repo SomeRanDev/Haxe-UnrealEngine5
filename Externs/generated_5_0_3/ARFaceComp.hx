@@ -3,6 +3,7 @@ package ue;
 
 @:native("UARFaceComponent")
 @:include("ARComponent.h")
+@:structAccess
 extern class ARFaceComp extends ARComp {
 	public var TransformSetting: EARFaceTransformMixing;
 	public var bUpdateVertexNormal: Bool;
@@ -13,6 +14,8 @@ extern class ARFaceComp extends ARComp {
 	public function ServerUpdatePayload(NewPayload: cpp.Reference<ARFaceUpdatePayload>): Void;
 	public function ReceiveUpdate(Payload: cpp.Reference<ARFaceUpdatePayload>): Void;
 	public function ReceiveAdd(Payload: cpp.Reference<ARFaceUpdatePayload>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

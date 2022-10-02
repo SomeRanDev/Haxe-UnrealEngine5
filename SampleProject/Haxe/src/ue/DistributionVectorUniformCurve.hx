@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDistributionVectorUniformCurve")
 @:include("Distributions/DistributionVectorUniformCurve.h")
+@:structAccess
 extern class DistributionVectorUniformCurve extends DistributionVector {
 	public var ConstantCurve: InterpCurveTwoVectors;
 	public var bLockAxes1: Bool;
@@ -10,6 +11,8 @@ extern class DistributionVectorUniformCurve extends DistributionVector {
 	public var LockedAxes: EDistributionVectorLockFlags;
 	public var MirrorFlags: EDistributionVectorMirrorFlags;
 	public var bUseExtremes: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

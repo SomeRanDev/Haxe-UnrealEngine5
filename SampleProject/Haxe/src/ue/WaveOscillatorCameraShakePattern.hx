@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWaveOscillatorCameraShakePattern")
 @:include("WaveOscillatorCameraShakePattern.h")
+@:structAccess
 extern class WaveOscillatorCameraShakePattern extends SimpleCameraShakePattern {
 	public var LocationAmplitudeMultiplier: cpp.Float32;
 	public var LocationFrequencyMultiplier: cpp.Float32;
@@ -15,6 +16,8 @@ extern class WaveOscillatorCameraShakePattern extends SimpleCameraShakePattern {
 	public var Yaw: WaveOscillator;
 	public var Roll: WaveOscillator;
 	public var FOV: WaveOscillator;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

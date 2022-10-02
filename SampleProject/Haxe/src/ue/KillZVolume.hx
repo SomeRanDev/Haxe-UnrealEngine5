@@ -3,7 +3,10 @@ package ue;
 
 @:native("AKillZVolume")
 @:include("GameFramework/KillZVolume.h")
+@:structAccess
 extern class KillZVolume extends PhysicsVolume {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

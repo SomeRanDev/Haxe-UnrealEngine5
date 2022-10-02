@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTimecodeProvider")
 @:include("Engine/TimecodeProvider.h")
+@:structAccess
 extern class TimecodeProvider extends Object {
 	public var FrameDelay: cpp.Float32;
 
@@ -14,6 +15,8 @@ extern class TimecodeProvider extends Object {
 	public function GetDelayedQualifiedFrameTime(): cpp.Reference<QualifiedFrameTime>;
 	public function FetchTimecode(OutFrameTime: cpp.Reference<QualifiedFrameTime>): cpp.Reference<Bool>;
 	public function FetchAndUpdate(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetTimecode, GetSynchronizationState, GetQualifiedFrameTime, GetFrameRate, GetDelayedTimecode, GetDelayedQualifiedFrameTime)

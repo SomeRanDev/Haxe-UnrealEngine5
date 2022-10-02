@@ -3,8 +3,12 @@ package ue;
 
 @:native("FBranchingPointMarker")
 @:include("Animation/AnimMontage.h")
+@:structAccess
 extern class BranchingPointMarker {
 	public var NotifyIndex: cpp.Int32;
 	public var TriggerTime: cpp.Float32;
 	public var NotifyEventType: EAnimNotifyEventType;
+
+	@:native("FBranchingPointMarker") public function new();
+	@:native("FBranchingPointMarker") public static function make(NotifyIndex: cpp.Int32, TriggerTime: cpp.Float32, NotifyEventType: EAnimNotifyEventType): BranchingPointMarker ;
 }

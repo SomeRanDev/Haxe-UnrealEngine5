@@ -3,10 +3,13 @@ package ue;
 
 @:native("UParticleModuleLocation")
 @:include("Particles/Location/ParticleModuleLocation.h")
+@:structAccess
 extern class ParticleModuleLocation extends ParticleModuleLocationBase {
 	public var StartLocation: RawDistributionVector;
 	public var DistributeOverNPoints: cpp.Float32;
 	public var DistributeThreshold: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

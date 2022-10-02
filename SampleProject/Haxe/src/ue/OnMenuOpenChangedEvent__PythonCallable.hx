@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnMenuOpenChangedEvent__PythonCallable")
+@:structAccess
 extern class OnMenuOpenChangedEvent__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UNiagaraNodeStaticSwitch")
 @:include("NiagaraNodeStaticSwitch.h")
+@:structAccess
 extern class NiagaraNodeStaticSwitch extends NiagaraNodeUsageSelector {
 	public var InputParameterName: FName;
 	public var SwitchTypeData: StaticSwitchTypeData;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

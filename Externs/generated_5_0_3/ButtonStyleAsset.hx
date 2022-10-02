@@ -3,8 +3,11 @@ package ue;
 
 @:native("UButtonStyleAsset")
 @:include("Slate/ButtonStyleAsset.h")
+@:structAccess
 extern class ButtonStyleAsset extends Object {
 	public var ButtonStyle: ButtonStyle;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

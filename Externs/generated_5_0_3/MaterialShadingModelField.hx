@@ -3,6 +3,10 @@ package ue;
 
 @:native("FMaterialShadingModelField")
 @:include("Engine/EngineTypes.h")
+@:structAccess
 extern class MaterialShadingModelField {
 	public var ShadingModelField: cpp.UInt16;
+
+	@:native("FMaterialShadingModelField") public function new();
+	@:native("FMaterialShadingModelField") public static function make(ShadingModelField: cpp.UInt16): MaterialShadingModelField ;
 }

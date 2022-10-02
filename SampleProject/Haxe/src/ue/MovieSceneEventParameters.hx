@@ -3,5 +3,7 @@ package ue;
 
 @:native("FMovieSceneEventParameters")
 @:include("Sections/MovieSceneEventSection.h")
+@:structAccess
 extern class MovieSceneEventParameters {
+	@:native("FMovieSceneEventParameters") public function new();
 }

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UActorComponentInstanceDataTransientOuter")
 @:include("ComponentInstanceDataCache.h")
+@:structAccess
 extern class ActorComponentInstanceDataTransientOuter extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

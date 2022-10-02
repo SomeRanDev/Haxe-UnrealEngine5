@@ -3,6 +3,7 @@ package ue;
 
 @:native("UFoliageType")
 @:include("FoliageType.h")
+@:structAccess
 extern class FoliageType extends Object {
 	public var UpdateGuid: Guid;
 	public var Density: cpp.Float32;
@@ -122,6 +123,8 @@ extern class FoliageType extends Object {
 	public var MinGroundSlope_DEPRECATED: cpp.Float32;
 	public var MinScale_DEPRECATED: cpp.Float32;
 	public var MaxScale_DEPRECATED: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

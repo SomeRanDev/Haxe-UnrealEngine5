@@ -3,6 +3,7 @@ package ue;
 
 @:native("USequenceCameraShakePattern")
 @:include("SequenceCameraShake.h")
+@:structAccess
 extern class SequenceCameraShakePattern extends CameraShakePattern {
 	public var Sequence: cpp.Star<CameraAnimationSequence>;
 	public var PlayRate: cpp.Float32;
@@ -13,6 +14,8 @@ extern class SequenceCameraShakePattern extends CameraShakePattern {
 	public var bRandomSegment: Bool;
 	public var Player: cpp.Star<CameraAnimationSequencePlayer>;
 	public var CameraStandIn: cpp.Star<CameraAnimationSequenceCameraStandIn>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

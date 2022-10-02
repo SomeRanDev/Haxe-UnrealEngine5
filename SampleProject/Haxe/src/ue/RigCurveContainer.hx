@@ -3,6 +3,10 @@ package ue;
 
 @:native("FRigCurveContainer")
 @:include("Rigs/RigCurveContainer.h")
+@:structAccess
 extern class RigCurveContainer {
 	public var Curves: TArray<RigCurve>;
+
+	@:native("FRigCurveContainer") public function new();
+	@:native("FRigCurveContainer") public static function make(Curves: TArray<RigCurve>): RigCurveContainer ;
 }

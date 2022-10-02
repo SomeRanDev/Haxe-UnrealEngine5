@@ -3,7 +3,10 @@ package ue;
 
 @:native("UBTComposite_Selector")
 @:include("BehaviorTree/Composites/BTComposite_Selector.h")
+@:structAccess
 extern class BTComposite_Selector extends BTCompositeNode {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

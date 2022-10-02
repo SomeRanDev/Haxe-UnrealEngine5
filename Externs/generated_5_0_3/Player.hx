@@ -3,11 +3,14 @@ package ue;
 
 @:native("UPlayer")
 @:include("Engine/Player.h")
+@:structAccess
 extern class Player extends Object {
 	public var PlayerController: cpp.Star<PlayerController>;
 	public var CurrentNetSpeed: cpp.Int32;
 	public var ConfiguredInternetSpeed: cpp.Int32;
 	public var ConfiguredLanSpeed: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

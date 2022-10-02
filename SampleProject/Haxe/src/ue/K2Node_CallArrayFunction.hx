@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_CallArrayFunction")
 @:include("K2Node_CallArrayFunction.h")
+@:structAccess
 extern class K2Node_CallArrayFunction extends K2Node_CallFunction {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

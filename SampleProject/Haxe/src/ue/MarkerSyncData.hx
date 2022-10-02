@@ -3,6 +3,10 @@ package ue;
 
 @:native("FMarkerSyncData")
 @:include("Animation/AnimTypes.h")
+@:structAccess
 extern class MarkerSyncData {
 	public var AuthoredSyncMarkers: TArray<AnimSyncMarker>;
+
+	@:native("FMarkerSyncData") public function new();
+	@:native("FMarkerSyncData") public static function make(AuthoredSyncMarkers: TArray<AnimSyncMarker>): MarkerSyncData ;
 }

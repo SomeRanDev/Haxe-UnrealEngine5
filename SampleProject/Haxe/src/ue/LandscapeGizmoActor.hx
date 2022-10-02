@@ -3,6 +3,7 @@ package ue;
 
 @:native("ALandscapeGizmoActor")
 @:include("LandscapeGizmoActor.h")
+@:structAccess
 extern class LandscapeGizmoActor extends Actor {
 	public var Width: cpp.Float32;
 	public var Height: cpp.Float32;
@@ -12,6 +13,8 @@ extern class LandscapeGizmoActor extends Actor {
 	public var RelativeScaleZ: cpp.Float32;
 	public var TargetLandscapeInfo: cpp.Star<LandscapeInfo>;
 	public var SpriteComponent: cpp.Star<BillboardComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

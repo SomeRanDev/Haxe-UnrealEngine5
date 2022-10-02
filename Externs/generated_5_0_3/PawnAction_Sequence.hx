@@ -3,10 +3,13 @@ package ue;
 
 @:native("UPawnAction_Sequence")
 @:include("Actions/PawnAction_Sequence.h")
+@:structAccess
 extern class PawnAction_Sequence extends PawnAction {
 	public var ActionSequence: TArray<cpp.Star<PawnAction>>;
 	public var ChildFailureHandlingMode: EPawnActionFailHandling;
 	public var RecentActionCopy: cpp.Star<PawnAction>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

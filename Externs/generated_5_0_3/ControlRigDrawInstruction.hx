@@ -3,6 +3,7 @@ package ue;
 
 @:native("FControlRigDrawInstruction")
 @:include("Drawing/ControlRigDrawInstruction.h")
+@:structAccess
 extern class ControlRigDrawInstruction {
 	public var Name: FName;
 	public var PrimitiveType: EControlRigDrawSettings;
@@ -10,4 +11,6 @@ extern class ControlRigDrawInstruction {
 	public var Color: LinearColor;
 	public var Thickness: cpp.Float32;
 	public var Transform: Transform;
+
+	@:native("FControlRigDrawInstruction") public function new();
 }

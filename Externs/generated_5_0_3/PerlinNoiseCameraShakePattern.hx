@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPerlinNoiseCameraShakePattern")
 @:include("PerlinNoiseCameraShakePattern.h")
+@:structAccess
 extern class PerlinNoiseCameraShakePattern extends SimpleCameraShakePattern {
 	public var LocationAmplitudeMultiplier: cpp.Float32;
 	public var LocationFrequencyMultiplier: cpp.Float32;
@@ -15,6 +16,8 @@ extern class PerlinNoiseCameraShakePattern extends SimpleCameraShakePattern {
 	public var Yaw: PerlinNoiseShaker;
 	public var Roll: PerlinNoiseShaker;
 	public var FOV: PerlinNoiseShaker;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

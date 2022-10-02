@@ -3,9 +3,12 @@ package ue;
 
 @:native("UTextureRenderTargetCubeFactoryNew")
 @:include("Factories/TextureRenderTargetCubeFactoryNew.h")
+@:structAccess
 extern class TextureRenderTargetCubeFactoryNew extends Factory {
 	public var Width: cpp.Int32;
 	public var Format: cpp.UInt8;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

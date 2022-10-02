@@ -3,6 +3,7 @@ package ue;
 
 @:native("AGameStateBase")
 @:include("GameFramework/GameStateBase.h")
+@:structAccess
 extern class GameStateBase extends Info {
 	public var GameModeClass: TSubclassOf<GameModeBase>;
 	public var AuthorityGameMode: cpp.Star<GameModeBase>;
@@ -23,6 +24,8 @@ extern class GameStateBase extends Info {
 	public function GetServerWorldTimeSeconds(): cpp.Reference<cpp.Float32>;
 	public function GetPlayerStartTime(Controller: cpp.Star<Controller>): cpp.Reference<cpp.Float32>;
 	public function GetPlayerRespawnDelay(Controller: cpp.Star<Controller>): cpp.Reference<cpp.Float32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(HasMatchStarted, HasMatchEnded, HasBegunPlay, GetServerWorldTimeSeconds, GetPlayerStartTime, GetPlayerRespawnDelay)

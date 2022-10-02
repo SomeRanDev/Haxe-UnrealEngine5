@@ -3,9 +3,12 @@ package ue;
 
 @:native("UBehaviorTreeDecoratorGraphNode_Decorator")
 @:include("BehaviorTreeDecoratorGraphNode_Decorator.h")
+@:structAccess
 extern class BehaviorTreeDecoratorGraphNode_Decorator extends BehaviorTreeDecoratorGraphNode {
 	public var NodeInstance: cpp.Star<Object>;
 	public var ClassData: GraphNodeClassData;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

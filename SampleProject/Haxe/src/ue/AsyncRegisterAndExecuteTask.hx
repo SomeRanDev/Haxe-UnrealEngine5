@@ -3,10 +3,13 @@ package ue;
 
 @:native("UAsyncRegisterAndExecuteTask")
 @:include("AsyncRegisterAndExecuteTask.h")
+@:structAccess
 extern class AsyncRegisterAndExecuteTask extends BlueprintAsyncActionBase {
 	public var OnFinished: HaxeMulticastSparseDelegateProperty<(cpp.Star<EditorUtilityTask>) -> Void>;
 
 	public function RegisterAndExecuteTask(Task: cpp.Star<EditorUtilityTask>, OptionalParentTask: cpp.Star<EditorUtilityTask>): cpp.Reference<cpp.Star<AsyncRegisterAndExecuteTask>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

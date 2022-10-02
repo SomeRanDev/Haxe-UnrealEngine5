@@ -3,8 +3,11 @@ package ue;
 
 @:native("UExportTextContainer")
 @:include("Exporters/ExportTextContainer.h")
+@:structAccess
 extern class ExportTextContainer extends Object {
 	public var ExportText: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

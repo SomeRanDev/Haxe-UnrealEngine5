@@ -3,7 +3,10 @@ package ue;
 
 @:native("UVisualLoggerExtension")
 @:include("VisualLoggerExtension.h")
+@:structAccess
 extern class VisualLoggerExtension extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

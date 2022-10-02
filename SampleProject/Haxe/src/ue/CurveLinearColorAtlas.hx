@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCurveLinearColorAtlas")
 @:include("Curves/CurveLinearColorAtlas.h")
+@:structAccess
 extern class CurveLinearColorAtlas extends Texture2D {
 	public var bIsDirty: Bool;
 	public var TextureSize: cpp.UInt32;
@@ -14,6 +15,8 @@ extern class CurveLinearColorAtlas extends Texture2D {
 	public var CachedColorAdjustments: CurveAtlasColorAdjustments;
 
 	public function GetCurvePosition(InCurve: cpp.Star<CurveLinearColor>, Position: cpp.Reference<cpp.Float32>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

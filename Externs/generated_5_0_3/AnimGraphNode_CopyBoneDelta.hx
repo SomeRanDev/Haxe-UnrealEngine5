@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_CopyBoneDelta")
 @:include("AnimGraphNode_CopyBoneDelta.h")
+@:structAccess
 extern class AnimGraphNode_CopyBoneDelta extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_CopyBoneDelta;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

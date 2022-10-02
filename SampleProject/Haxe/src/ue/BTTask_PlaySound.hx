@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBTTask_PlaySound")
 @:include("BehaviorTree/Tasks/BTTask_PlaySound.h")
+@:structAccess
 extern class BTTask_PlaySound extends BTTaskNode {
 	public var SoundToPlay: cpp.Star<SoundCue>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

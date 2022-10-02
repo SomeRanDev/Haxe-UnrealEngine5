@@ -3,6 +3,7 @@ package ue;
 
 @:native("UKismetMathLibrary")
 @:include("Kismet/KismetMathLibrary.h")
+@:structAccess
 extern class KismetMathLibrary extends BlueprintFunctionLibrary {
 	public function Xor_IntInt(A: cpp.Int32, B: cpp.Int32): cpp.Reference<cpp.Int32>;
 	public function Xor_Int64Int64(A: cpp.Int64, B: cpp.Int64): cpp.Reference<cpp.Int64>;
@@ -709,6 +710,8 @@ extern class KismetMathLibrary extends BlueprintFunctionLibrary {
 	public function Abs_Int64(A: cpp.Int64): cpp.Reference<cpp.Int64>;
 	public function Abs_Int(A: cpp.Int32): cpp.Reference<cpp.Int32>;
 	public function Abs(A: cpp.Float64): cpp.Reference<cpp.Float64>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

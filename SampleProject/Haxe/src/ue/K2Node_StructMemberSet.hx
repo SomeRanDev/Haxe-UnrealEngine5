@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_StructMemberSet")
 @:include("K2Node_StructMemberSet.h")
+@:structAccess
 extern class K2Node_StructMemberSet extends K2Node_StructOperation {
 	public var ShowPinForProperties: TArray<OptionalPinFromProperty>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

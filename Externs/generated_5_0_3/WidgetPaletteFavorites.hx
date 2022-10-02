@@ -3,8 +3,11 @@ package ue;
 
 @:native("UWidgetPaletteFavorites")
 @:include("WidgetPaletteFavorites.h")
+@:structAccess
 extern class WidgetPaletteFavorites extends Object {
 	public var Favorites: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

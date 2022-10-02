@@ -3,10 +3,13 @@ package ue;
 
 @:native("UGameSessionSettings")
 @:include("GameSessionSettings.h")
+@:structAccess
 extern class GameSessionSettings extends Object {
 	public var MaxSpectators: cpp.Int32;
 	public var MaxPlayers: cpp.Int32;
 	public var bRequiresPushToTalk: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

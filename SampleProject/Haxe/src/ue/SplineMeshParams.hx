@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSplineMeshParams")
 @:include("Components/SplineMeshComponent.h")
+@:structAccess
 extern class SplineMeshParams {
 	public var StartPos: Vector;
 	public var StartTangent: Vector;
@@ -14,4 +15,6 @@ extern class SplineMeshParams {
 	public var EndTangent: Vector;
 	public var EndRoll: cpp.Float32;
 	public var EndOffset: Vector2D;
+
+	@:native("FSplineMeshParams") public function new();
 }

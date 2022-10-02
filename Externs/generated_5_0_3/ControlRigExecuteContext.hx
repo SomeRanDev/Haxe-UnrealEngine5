@@ -3,5 +3,7 @@ package ue;
 
 @:native("FControlRigExecuteContext")
 @:include("ControlRigDefines.h")
+@:structAccess
 extern class ControlRigExecuteContext extends RigVMExecuteContext {
+	@:native("FControlRigExecuteContext") public function new();
 }

@@ -3,12 +3,15 @@ package ue;
 
 @:native("UNiagaraDataInterfaceGrid3D")
 @:include("NiagaraDataInterfaceRW.h")
+@:structAccess
 extern class NiagaraDataInterfaceGrid3D extends NiagaraDataInterfaceRWBase {
 	public var NumCells: IntVector;
 	public var CellSize: cpp.Float32;
 	public var NumCellsMaxAxis: cpp.Int32;
 	public var SetResolutionMethod: ESetResolutionMethod;
 	public var WorldBBoxSize: Vector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDistributionFloatParameterBase")
 @:include("Distributions/DistributionFloatParameterBase.h")
+@:structAccess
 extern class DistributionFloatParameterBase extends DistributionFloatConstant {
 	public var ParameterName: FName;
 	public var MinInput: cpp.Float32;
@@ -10,6 +11,8 @@ extern class DistributionFloatParameterBase extends DistributionFloatConstant {
 	public var MinOutput: cpp.Float32;
 	public var MaxOutput: cpp.Float32;
 	public var ParamMode: DistributionParamMode;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

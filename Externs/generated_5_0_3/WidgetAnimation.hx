@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWidgetAnimation")
 @:include("Animation/WidgetAnimation.h")
+@:structAccess
 extern class WidgetAnimation extends MovieSceneSequence {
 	public var OnAnimationStarted_DEPRECATED: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnAnimationFinished_DEPRECATED: HaxeMulticastSparseDelegateProperty<() -> Void>;
@@ -19,6 +20,8 @@ extern class WidgetAnimation extends MovieSceneSequence {
 	public function GetEndTime(): cpp.Reference<cpp.Float32>;
 	public function BindToAnimationStarted(Widget: cpp.Star<UserWidget>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
 	public function BindToAnimationFinished(Widget: cpp.Star<UserWidget>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetStartTime, GetEndTime)

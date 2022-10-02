@@ -3,8 +3,11 @@ package ue;
 
 @:native("UQuickActionMenuContext")
 @:include("LevelEditorMenuContext.h")
+@:structAccess
 extern class QuickActionMenuContext extends Object {
 	public var CurrentSelection: cpp.Star<TypedElementSelectionSet>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

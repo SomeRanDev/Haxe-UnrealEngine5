@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnAsyncHandleSaveGame__PythonCallable")
+@:structAccess
 extern class OnAsyncHandleSaveGame__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

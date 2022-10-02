@@ -3,9 +3,12 @@ package ue;
 
 @:native("UInterpTrackVectorMaterialParam")
 @:include("Matinee/InterpTrackVectorMaterialParam.h")
+@:structAccess
 extern class InterpTrackVectorMaterialParam extends InterpTrackVectorBase {
 	public var TargetMaterials: TArray<cpp.Star<MaterialInterface>>;
 	public var ParamName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

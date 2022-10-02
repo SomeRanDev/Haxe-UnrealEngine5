@@ -3,10 +3,14 @@ package ue;
 
 @:native("FBlueprintCallableFunctionRedirect")
 @:include("EdGraphSchema_K2.h")
+@:structAccess
 extern class BlueprintCallableFunctionRedirect {
 	public var ClassName: FString;
 	public var OldFunctionName: FString;
 	public var NewFunctionName: FString;
 	public var BlueprintParamName: FString;
 	public var ClassParamName: FString;
+
+	@:native("FBlueprintCallableFunctionRedirect") public function new();
+	@:native("FBlueprintCallableFunctionRedirect") public static function make(ClassName: FString, OldFunctionName: FString, NewFunctionName: FString, BlueprintParamName: FString, ClassParamName: FString): BlueprintCallableFunctionRedirect ;
 }

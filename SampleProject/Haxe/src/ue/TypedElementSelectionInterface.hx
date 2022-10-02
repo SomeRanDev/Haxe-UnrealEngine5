@@ -2,6 +2,7 @@
 package ue;
 
 @:native("UTypedElementSelectionInterface")
+@:structAccess
 extern class TypedElementSelectionInterface extends Interface {
 	public function SelectElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionSet: ScriptTypedElementListProxy, InSelectionOptions: cpp.Reference<TypedElementSelectionOptions>): cpp.Reference<Bool>;
 	public function IsElementSelected(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionSet: ScriptTypedElementListProxy, InSelectionOptions: cpp.Reference<TypedElementIsSelectedOptions>): cpp.Reference<Bool>;
@@ -10,6 +11,8 @@ extern class TypedElementSelectionInterface extends Interface {
 	public function CanSelectElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionOptions: cpp.Reference<TypedElementSelectionOptions>): cpp.Reference<Bool>;
 	public function CanDeselectElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionOptions: cpp.Reference<TypedElementSelectionOptions>): cpp.Reference<Bool>;
 	public function AllowSelectionModifiers(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionSet: ScriptTypedElementListProxy): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

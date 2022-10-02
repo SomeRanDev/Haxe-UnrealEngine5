@@ -3,8 +3,11 @@ package ue;
 
 @:native("ULocalFilterPresetContainer")
 @:include("FilterPresets.h")
+@:structAccess
 extern class LocalFilterPresetContainer extends Object {
 	public var UserPresets: TArray<FilterData>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

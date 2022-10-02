@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAISubsystem")
 @:include("AISubsystem.h")
+@:structAccess
 extern class AISubsystem extends Object {
 	public var AISystem: cpp.Star<AISystem>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

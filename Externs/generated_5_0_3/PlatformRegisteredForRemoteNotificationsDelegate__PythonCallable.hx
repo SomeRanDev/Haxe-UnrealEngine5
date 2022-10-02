@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UPlatformRegisteredForRemoteNotificationsDelegate__PythonCallable")
+@:structAccess
 extern class PlatformRegisteredForRemoteNotificationsDelegate__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

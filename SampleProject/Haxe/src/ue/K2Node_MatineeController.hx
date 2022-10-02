@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_MatineeController")
 @:include("K2Node_MatineeController.h")
+@:structAccess
 extern class K2Node_MatineeController extends K2Node {
 	public var MatineeActor: cpp.Star<MatineeActor>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

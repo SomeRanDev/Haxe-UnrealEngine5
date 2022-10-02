@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAudioGenerator")
 @:include("Generators/AudioGenerator.h")
+@:structAccess
 extern class AudioGenerator extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

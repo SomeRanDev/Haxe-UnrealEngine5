@@ -3,8 +3,12 @@ package ue;
 
 @:native("FBlueprintEditorPromotionSettings")
 @:include("Tests/AutomationTestSettings.h")
+@:structAccess
 extern class BlueprintEditorPromotionSettings {
 	public var FirstMeshPath: FilePath;
 	public var SecondMeshPath: FilePath;
 	public var DefaultParticleAsset: FilePath;
+
+	@:native("FBlueprintEditorPromotionSettings") public function new();
+	@:native("FBlueprintEditorPromotionSettings") public static function make(FirstMeshPath: FilePath, SecondMeshPath: FilePath, DefaultParticleAsset: FilePath): BlueprintEditorPromotionSettings ;
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UStaticMeshLightingInfo")
 @:include("StaticMeshLightingInfo.h")
+@:structAccess
 extern class StaticMeshLightingInfo extends Object {
 	public var StaticMeshActor: TWeakObjectPtr<Actor>;
 	public var StaticMesh: TWeakObjectPtr<StaticMesh>;
@@ -18,6 +19,8 @@ extern class StaticMeshLightingInfo extends Object {
 	public var VertexShadowMapMemoryUsage: cpp.Float32;
 	public var ShadowMapLightCount: cpp.Int32;
 	public var LightmapTextureNames: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,10 @@ package ue;
 
 @:native("FPooledCameraShakes")
 @:include("Camera/CameraModifier_CameraShake.h")
+@:structAccess
 extern class PooledCameraShakes {
 	public var PooledShakes: TArray<cpp.Star<CameraShakeBase>>;
+
+	@:native("FPooledCameraShakes") public function new();
+	@:native("FPooledCameraShakes") public static function make(PooledShakes: TArray<cpp.Star<CameraShakeBase>>): PooledCameraShakes ;
 }

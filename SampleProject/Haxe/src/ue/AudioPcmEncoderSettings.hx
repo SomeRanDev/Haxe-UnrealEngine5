@@ -3,8 +3,11 @@ package ue;
 
 @:native("UAudioPcmEncoderSettings")
 @:include("PcmCodec.h")
+@:structAccess
 extern class AudioPcmEncoderSettings extends AudioCodecEncoderSettings {
 	public var BitDepthConversion: EPcmBitDepthConversion;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

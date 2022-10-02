@@ -3,9 +3,12 @@ package ue;
 
 @:native("UParticleModuleVectorFieldRotation")
 @:include("Particles/VectorField/ParticleModuleVectorFieldRotation.h")
+@:structAccess
 extern class ParticleModuleVectorFieldRotation extends ParticleModuleVectorFieldBase {
 	public var MinInitialRotation: Vector;
 	public var MaxInitialRotation: Vector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UGCObjectReferencer")
+@:structAccess
 extern class GCObjectReferencer extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

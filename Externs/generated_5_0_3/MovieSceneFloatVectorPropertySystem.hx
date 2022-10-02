@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMovieSceneFloatVectorPropertySystem")
 @:include("Systems/MovieSceneVectorPropertySystem.h")
+@:structAccess
 extern class MovieSceneFloatVectorPropertySystem extends MovieScenePropertySystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

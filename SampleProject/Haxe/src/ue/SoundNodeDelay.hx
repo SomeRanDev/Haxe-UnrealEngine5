@@ -3,9 +3,12 @@ package ue;
 
 @:native("USoundNodeDelay")
 @:include("Sound/SoundNodeDelay.h")
+@:structAccess
 extern class SoundNodeDelay extends SoundNode {
 	public var DelayMin: cpp.Float32;
 	public var DelayMax: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

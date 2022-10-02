@@ -3,6 +3,7 @@ package ue;
 
 @:native("UIKRigEffectorGoal")
 @:include("IKRigDefinition.h")
+@:structAccess
 extern class IKRigEffectorGoal extends Object {
 	public var GoalName: FName;
 	public var BoneName: FName;
@@ -15,6 +16,8 @@ extern class IKRigEffectorGoal extends Object {
 	public var ThicknessMultiplier: cpp.Float32;
 	public var bExposePosition: Bool;
 	public var bExposeRotation: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

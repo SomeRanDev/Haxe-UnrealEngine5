@@ -3,12 +3,15 @@ package ue;
 
 @:native("UXRLoadingScreenFunctionLibrary")
 @:include("XRLoadingScreenFunctionLibrary.h")
+@:structAccess
 extern class XRLoadingScreenFunctionLibrary extends BlueprintFunctionLibrary {
 	public function ShowLoadingScreen(): Void;
 	public function SetLoadingScreen(Texture: cpp.Star<Texture>, Scale: Vector2D, Offset: Vector, bShowLoadingMovie: Bool, bShowOnSet: Bool): Void;
 	public function HideLoadingScreen(): Void;
 	public function ClearLoadingScreenSplashes(): Void;
 	public function AddLoadingScreenSplash(Texture: cpp.Star<Texture>, Translation: Vector, Rotation: Rotator, Size: Vector2D, DeltaRotation: Rotator, bClearBeforeAdd: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_CopyBoneDelta")
 @:include("BoneControllers/AnimNode_CopyBoneDelta.h")
+@:structAccess
 extern class AnimNode_CopyBoneDelta extends AnimNode_SkeletalControlBase {
 	public var SourceBone: BoneReference;
 	public var TargetBone: BoneReference;
@@ -13,4 +14,6 @@ extern class AnimNode_CopyBoneDelta extends AnimNode_SkeletalControlBase {
 	public var TranslationMultiplier: cpp.Float32;
 	public var RotationMultiplier: cpp.Float32;
 	public var ScaleMultiplier: cpp.Float32;
+
+	@:native("FAnimNode_CopyBoneDelta") public function new();
 }

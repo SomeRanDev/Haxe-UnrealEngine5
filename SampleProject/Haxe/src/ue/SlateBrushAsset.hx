@@ -3,8 +3,11 @@ package ue;
 
 @:native("USlateBrushAsset")
 @:include("Slate/SlateBrushAsset.h")
+@:structAccess
 extern class SlateBrushAsset extends Object {
 	public var Brush: SlateBrush;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

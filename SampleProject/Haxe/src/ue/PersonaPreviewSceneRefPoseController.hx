@@ -3,8 +3,11 @@ package ue;
 
 @:native("UPersonaPreviewSceneRefPoseController")
 @:include("PersonaPreviewSceneRefPoseController.h")
+@:structAccess
 extern class PersonaPreviewSceneRefPoseController extends PersonaPreviewSceneController {
 	public var bResetBoneTransforms: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

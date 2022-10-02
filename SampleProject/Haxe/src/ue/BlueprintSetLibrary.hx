@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBlueprintSetLibrary")
 @:include("Kismet/BlueprintSetLibrary.h")
+@:structAccess
 extern class BlueprintSetLibrary extends BlueprintFunctionLibrary {
 	public function SetSetPropertyByName(Object: cpp.Star<Object>, PropertyName: FName, Value: cpp.Reference<TSet<cpp.Int32>>): Void;
 	public function Set_Union(A: cpp.Reference<TSet<cpp.Int32>>, B: cpp.Reference<TSet<cpp.Int32>>, Result: cpp.Reference<TSet<cpp.Int32>>): Void;
@@ -18,6 +19,8 @@ extern class BlueprintSetLibrary extends BlueprintFunctionLibrary {
 	public function Set_Clear(TargetSet: cpp.Reference<TSet<cpp.Int32>>): Void;
 	public function Set_AddItems(TargetSet: cpp.Reference<TSet<cpp.Int32>>, NewItems: cpp.Reference<TArray<cpp.Int32>>): Void;
 	public function Set_Add(TargetSet: cpp.Reference<TSet<cpp.Int32>>, NewItem: cpp.Reference<cpp.Int32>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

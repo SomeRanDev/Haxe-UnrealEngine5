@@ -3,7 +3,10 @@ package ue;
 
 @:native("UReimportDataTableFactory")
 @:include("Factories/ReimportDataTableFactory.h")
+@:structAccess
 extern class ReimportDataTableFactory extends CSVImportFactory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

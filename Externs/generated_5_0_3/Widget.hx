@@ -3,6 +3,7 @@ package ue;
 
 @:native("UWidget")
 @:include("Components/Widget.h")
+@:structAccess
 extern class Widget extends Visual {
 	public var Slot: cpp.Star<PanelSlot>;
 	public var bIsEnabledDelegate: HaxeDelegateProperty<() -> Void>;
@@ -107,6 +108,8 @@ extern class Widget extends Visual {
 	public function GenerateWidgetForObject__DelegateSignature(Item: cpp.Star<Object>): cpp.Reference<cpp.Star<Widget>>;
 	public function ForceVolatile(bForce: Bool): Void;
 	public function ForceLayoutPrepass(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

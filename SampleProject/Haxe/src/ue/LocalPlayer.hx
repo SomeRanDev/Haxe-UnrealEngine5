@@ -3,12 +3,15 @@ package ue;
 
 @:native("ULocalPlayer")
 @:include("Engine/LocalPlayer.h")
+@:structAccess
 extern class LocalPlayer extends Player {
 	public var ViewportClient: cpp.Star<GameViewportClient>;
 	public var AspectRatioAxisConstraint: EAspectRatioAxisConstraint;
 	public var PendingLevelPlayerControllerClass: TSubclassOf<PlayerController>;
 	public var bSentSplitJoin: Bool;
 	public var ControllerId: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

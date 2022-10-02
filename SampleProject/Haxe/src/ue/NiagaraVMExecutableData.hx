@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraVMExecutableData")
 @:include("NiagaraScript.h")
+@:structAccess
 extern class NiagaraVMExecutableData {
 	public var ByteCode: NiagaraVMExecutableByteCode;
 	public var OptimizedByteCode: NiagaraVMExecutableByteCode;
@@ -38,4 +39,6 @@ extern class NiagaraVMExecutableData {
 	public var LastCompileEvents: TArray<NiagaraCompileEvent>;
 	public var bReadsSignificanceIndex: Bool;
 	public var bNeedsGPUContextInit: Bool;
+
+	@:native("FNiagaraVMExecutableData") public function new();
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieSceneCameraCutSection")
 @:include("Sections/MovieSceneCameraCutSection.h")
+@:structAccess
 extern class MovieSceneCameraCutSection extends MovieSceneSection {
 	public var bLockPreviousCamera: Bool;
 	public var CameraGuid_DEPRECATED: Guid;
@@ -13,6 +14,8 @@ extern class MovieSceneCameraCutSection extends MovieSceneSection {
 
 	public function SetCameraBindingID(InCameraBindingID: cpp.Reference<MovieSceneObjectBindingID>): Void;
 	public function GetCameraBindingID(): cpp.Reference<MovieSceneObjectBindingID>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetCameraBindingID)

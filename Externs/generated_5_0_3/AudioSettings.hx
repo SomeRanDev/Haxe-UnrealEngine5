@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAudioSettings")
 @:include("Sound/AudioSettings.h")
+@:structAccess
 extern class AudioSettings extends DeveloperSettings {
 	public var DefaultSoundClassName: SoftObjectPath;
 	public var DefaultMediaSoundClassName: SoftObjectPath;
@@ -31,6 +32,8 @@ extern class AudioSettings extends DeveloperSettings {
 	public var DefaultSoundClass: cpp.Star<SoundClass>;
 	public var DefaultMediaSoundClass: cpp.Star<SoundClass>;
 	public var DefaultSoundConcurrency: cpp.Star<SoundConcurrency>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

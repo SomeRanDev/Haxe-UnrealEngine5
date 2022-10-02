@@ -3,8 +3,11 @@ package ue;
 
 @:native("UEditorSubsystemBlueprintLibrary")
 @:include("Subsystems/EditorSubsystemBlueprintLibrary.h")
+@:structAccess
 extern class EditorSubsystemBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function GetEditorSubsystem(Class: TSubclassOf<EditorSubsystem>): cpp.Reference<cpp.Star<EditorSubsystem>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

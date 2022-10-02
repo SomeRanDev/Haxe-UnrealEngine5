@@ -3,10 +3,13 @@ package ue;
 
 @:native("URigVMEnumNode")
 @:include("RigVMModel/Nodes/RigVMEnumNode.h")
+@:structAccess
 extern class RigVMEnumNode extends RigVMNode {
 	public function GetEnum(): cpp.Reference<cpp.Star<Enum>>;
 	public function GetCPPTypeObject(): cpp.Reference<cpp.Star<Object>>;
 	public function GetCPPType(): cpp.Reference<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetEnum, GetCPPTypeObject, GetCPPType)

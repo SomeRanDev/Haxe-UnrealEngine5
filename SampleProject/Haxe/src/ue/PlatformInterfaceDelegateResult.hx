@@ -3,7 +3,11 @@ package ue;
 
 @:native("FPlatformInterfaceDelegateResult")
 @:include("Engine/PlatformInterfaceBase.h")
+@:structAccess
 extern class PlatformInterfaceDelegateResult {
 	public var bSuccessful: Bool;
 	public var Data: PlatformInterfaceData;
+
+	@:native("FPlatformInterfaceDelegateResult") public function new();
+	@:native("FPlatformInterfaceDelegateResult") public static function make(bSuccessful: Bool, Data: PlatformInterfaceData): PlatformInterfaceDelegateResult ;
 }

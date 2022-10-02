@@ -3,8 +3,11 @@ package ue;
 
 @:native("ALandscapeStreamingProxy")
 @:include("LandscapeStreamingProxy.h")
+@:structAccess
 extern class LandscapeStreamingProxy extends LandscapeProxy {
 	public var LandscapeActor: TLazyObjectPtr<Landscape>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

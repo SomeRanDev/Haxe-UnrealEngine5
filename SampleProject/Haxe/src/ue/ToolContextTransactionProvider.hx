@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UToolContextTransactionProvider")
+@:structAccess
 extern class ToolContextTransactionProvider extends Interface {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

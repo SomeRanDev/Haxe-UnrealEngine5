@@ -3,5 +3,7 @@ package ue;
 
 @:native("FQuaternionSpringState")
 @:include("Kismet/KismetMathLibrary.h")
+@:structAccess
 extern class QuaternionSpringState {
+	@:native("FQuaternionSpringState") public function new();
 }

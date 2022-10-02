@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMovieScene3DPathSection")
 @:include("Sections/MovieScene3DPathSection.h")
+@:structAccess
 extern class MovieScene3DPathSection extends MovieScene3DConstraintSection {
 	public var TimingCurve: MovieSceneFloatChannel;
 	public var FrontAxisEnum: MovieScene3DPathSection_Axis;
@@ -10,6 +11,8 @@ extern class MovieScene3DPathSection extends MovieScene3DConstraintSection {
 	public var bFollow: Bool;
 	public var bReverse: Bool;
 	public var bForceUpright: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

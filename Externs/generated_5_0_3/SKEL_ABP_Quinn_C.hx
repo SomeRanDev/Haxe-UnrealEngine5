@@ -2,10 +2,13 @@
 package ue;
 
 @:native("USKEL_ABP_Quinn_C")
+@:structAccess
 extern class SKEL_ABP_Quinn_C extends SKEL_ABP_Manny_C {
 	public var UberGraphFrame: PointerToUberGraphFrame;
 
 	public function BlueprintUpdateAnimation(DeltaTimeX: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

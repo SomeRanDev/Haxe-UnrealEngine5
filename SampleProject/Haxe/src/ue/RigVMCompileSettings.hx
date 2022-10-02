@@ -3,6 +3,7 @@ package ue;
 
 @:native("FRigVMCompileSettings")
 @:include("RigVMCompiler/RigVMCompiler.h")
+@:structAccess
 extern class RigVMCompileSettings {
 	public var SurpressInfoMessages: Bool;
 	public var SurpressWarnings: Bool;
@@ -11,4 +12,6 @@ extern class RigVMCompileSettings {
 	public var IsPreprocessorPhase: Bool;
 	public var ASTSettings: RigVMParserASTSettings;
 	public var SetupNodeInstructionIndex: Bool;
+
+	@:native("FRigVMCompileSettings") public function new();
 }

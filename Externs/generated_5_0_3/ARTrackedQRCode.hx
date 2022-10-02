@@ -3,9 +3,12 @@ package ue;
 
 @:native("UARTrackedQRCode")
 @:include("ARTrackable.h")
+@:structAccess
 extern class ARTrackedQRCode extends ARTrackedImage {
 	public var QRCode: FString;
 	public var Version: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

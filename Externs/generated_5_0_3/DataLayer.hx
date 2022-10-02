@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDataLayer")
 @:include("WorldPartition/DataLayer/DataLayer.h")
+@:structAccess
 extern class DataLayer extends Object {
 	public var bIsInitiallyActive_DEPRECATED: Bool;
 	public var bIsVisible: Bool;
@@ -29,6 +30,8 @@ extern class DataLayer extends Object {
 	public function GetDebugColor(): cpp.Reference<Color>;
 	public function GetDataLayerLabel(): cpp.Reference<FName>;
 	public function Equals(ActorDataLayer: cpp.Reference<ActorDataLayer>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

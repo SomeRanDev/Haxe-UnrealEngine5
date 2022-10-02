@@ -3,7 +3,11 @@ package ue;
 
 @:native("FExposureSettings")
 @:include("Engine/EngineBaseTypes.h")
+@:structAccess
 extern class ExposureSettings {
 	public var FixedEV100: cpp.Float32;
 	public var bFixed: Bool;
+
+	@:native("FExposureSettings") public function new();
+	@:native("FExposureSettings") public static function make(FixedEV100: cpp.Float32, bFixed: Bool): ExposureSettings ;
 }

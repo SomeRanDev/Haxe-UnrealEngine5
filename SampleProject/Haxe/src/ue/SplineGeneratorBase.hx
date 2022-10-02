@@ -3,8 +3,11 @@ package ue;
 
 @:native("USplineGeneratorBase")
 @:include("SplineGeneratorPanel.h")
+@:structAccess
 extern class SplineGeneratorBase extends Object {
 	public var ShapeAddMode: EShapeAddMode;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

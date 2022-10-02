@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNavLinkTrivial")
 @:include("NavLinkTrivial.h")
+@:structAccess
 extern class NavLinkTrivial extends NavLinkDefinition {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

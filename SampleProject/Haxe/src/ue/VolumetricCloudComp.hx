@@ -3,6 +3,7 @@ package ue;
 
 @:native("UVolumetricCloudComponent")
 @:include("Components/VolumetricCloudComponent.h")
+@:structAccess
 extern class VolumetricCloudComp extends SceneComp {
 	public var LayerBottomAltitude: cpp.Float32;
 	public var LayerHeight: cpp.Float32;
@@ -39,6 +40,8 @@ extern class VolumetricCloudComp extends SceneComp {
 	public function SetLayerBottomAltitude(NewValue: cpp.Float32): Void;
 	public function SetGroundAlbedo(NewValue: Color): Void;
 	public function SetbUsePerSampleAtmosphericLightTransmittance(NewValue: Bool): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

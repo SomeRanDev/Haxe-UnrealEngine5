@@ -3,9 +3,13 @@ package ue;
 
 @:native("FLinearColor")
 @:include("UObject/NoExportTypes.h")
+@:structAccess
 extern class LinearColor {
 	public var R: cpp.Float32;
 	public var G: cpp.Float32;
 	public var B: cpp.Float32;
 	public var A: cpp.Float32;
+
+	@:native("FLinearColor") public function new();
+	@:native("FLinearColor") public static function make(R: cpp.Float32, G: cpp.Float32, B: cpp.Float32, A: cpp.Float32): LinearColor ;
 }

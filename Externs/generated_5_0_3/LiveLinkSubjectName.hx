@@ -3,6 +3,10 @@ package ue;
 
 @:native("FLiveLinkSubjectName")
 @:include("LiveLinkTypes.h")
+@:structAccess
 extern class LiveLinkSubjectName {
 	public var Name: FName;
+
+	@:native("FLiveLinkSubjectName") public function new();
+	@:native("FLiveLinkSubjectName") public static function make(Name: FName): LiveLinkSubjectName ;
 }

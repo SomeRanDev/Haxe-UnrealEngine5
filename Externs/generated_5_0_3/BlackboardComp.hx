@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBlackboardComponent")
 @:include("BehaviorTree/BlackboardComponent.h")
+@:structAccess
 extern class BlackboardComp extends ActorComp {
 	public var BrainComp: cpp.Star<BrainComp>;
 	public var DefaultBlackboardAsset: cpp.Star<BlackboardData>;
@@ -33,6 +34,8 @@ extern class BlackboardComp extends ActorComp {
 	public function GetRotationFromEntry(KeyName: cpp.Reference<FName>, ResultRotation: cpp.Reference<Rotator>): cpp.Reference<Bool>;
 	public function GetLocationFromEntry(KeyName: cpp.Reference<FName>, ResultLocation: cpp.Reference<Vector>): cpp.Reference<Bool>;
 	public function ClearValue(KeyName: cpp.Reference<FName>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

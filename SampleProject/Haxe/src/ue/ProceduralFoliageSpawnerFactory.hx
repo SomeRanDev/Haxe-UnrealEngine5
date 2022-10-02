@@ -3,7 +3,10 @@ package ue;
 
 @:native("UProceduralFoliageSpawnerFactory")
 @:include("ProceduralFoliageSpawnerFactory.h")
+@:structAccess
 extern class ProceduralFoliageSpawnerFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

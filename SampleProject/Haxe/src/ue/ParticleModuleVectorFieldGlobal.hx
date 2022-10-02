@@ -3,10 +3,13 @@ package ue;
 
 @:native("UParticleModuleVectorFieldGlobal")
 @:include("Particles/VectorField/ParticleModuleVectorFieldGlobal.h")
+@:structAccess
 extern class ParticleModuleVectorFieldGlobal extends ParticleModuleVectorFieldBase {
 	public var bOverrideGlobalVectorFieldTightness: Bool;
 	public var GlobalVectorFieldScale: cpp.Float32;
 	public var GlobalVectorFieldTightness: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

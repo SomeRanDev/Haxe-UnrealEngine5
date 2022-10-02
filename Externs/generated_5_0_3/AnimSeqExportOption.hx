@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimSeqExportOption")
 @:include("Exporters/AnimSeqExportOption.h")
+@:structAccess
 extern class AnimSeqExportOption extends Object {
 	public var bExportTransforms: Bool;
 	public var bExportMorphTargets: Bool;
@@ -12,6 +13,8 @@ extern class AnimSeqExportOption extends Object {
 	public var bEvaluateAllSkeletalMeshComponents: Bool;
 	public var WarmUpFrames: FrameNumber;
 	public var DelayBeforeStart: FrameNumber;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,13 @@ package ue;
 
 @:native("FLocalizationExportingSettings")
 @:include("LocalizationTargetTypes.h")
+@:structAccess
 extern class LocalizationExportingSettings {
 	public var CollapseMode: ELocalizedTextCollapseMode;
 	public var POFormat: EPortableObjectFormat;
 	public var ShouldPersistCommentsOnExport: Bool;
 	public var ShouldAddSourceLocationsAsComments: Bool;
+
+	@:native("FLocalizationExportingSettings") public function new();
+	@:native("FLocalizationExportingSettings") public static function make(CollapseMode: ELocalizedTextCollapseMode, POFormat: EPortableObjectFormat, ShouldPersistCommentsOnExport: Bool, ShouldAddSourceLocationsAsComments: Bool): LocalizationExportingSettings ;
 }

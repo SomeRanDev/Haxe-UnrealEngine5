@@ -3,11 +3,14 @@ package ue;
 
 @:native("URigVMPrototypeNode")
 @:include("RigVMModel/Nodes/RigVMPrototypeNode.h")
+@:structAccess
 extern class RigVMPrototypeNode extends RigVMNode {
 	public var PrototypeNotation: FName;
 	public var SupportedTypesCache: TMap<FString, Bool>;
 
 	public function GetNotation(): cpp.Reference<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetNotation)

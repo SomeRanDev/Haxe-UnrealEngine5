@@ -3,8 +3,11 @@ package ue;
 
 @:native("UGridPathFollowingComponent")
 @:include("Navigation/GridPathFollowingComponent.h")
+@:structAccess
 extern class GridPathFollowingComp extends PathFollowingComp {
 	public var GridManager: cpp.Star<NavLocalGridManager>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

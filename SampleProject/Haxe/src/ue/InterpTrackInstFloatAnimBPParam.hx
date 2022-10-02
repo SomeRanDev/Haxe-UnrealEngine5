@@ -3,9 +3,12 @@ package ue;
 
 @:native("UInterpTrackInstFloatAnimBPParam")
 @:include("Matinee/InterpTrackInstFloatAnimBPParam.h")
+@:structAccess
 extern class InterpTrackInstFloatAnimBPParam extends InterpTrackInst {
 	public var AnimScriptInstance: cpp.Star<AnimInstance>;
 	public var ResetFloat: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

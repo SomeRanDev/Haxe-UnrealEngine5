@@ -3,6 +3,7 @@ package ue;
 
 @:native("UNiagaraScript")
 @:include("NiagaraScript.h")
+@:structAccess
 extern class NiagaraScript extends NiagaraScriptBase {
 	public var Usage: ENiagaraScriptUsage;
 	public var UsageId: Guid;
@@ -42,6 +43,8 @@ extern class NiagaraScript extends NiagaraScriptBase {
 	public var CachedDefaultDataInterfaces: TArray<NiagaraScriptDataInterfaceInfo>;
 
 	public function RaiseOnGPUCompilationComplete(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

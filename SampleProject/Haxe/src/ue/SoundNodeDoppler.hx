@@ -3,10 +3,13 @@ package ue;
 
 @:native("USoundNodeDoppler")
 @:include("Sound/SoundNodeDoppler.h")
+@:structAccess
 extern class SoundNodeDoppler extends SoundNode {
 	public var DopplerIntensity: cpp.Float32;
 	public var bUseSmoothing: Bool;
 	public var SmoothingInterpSpeed: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

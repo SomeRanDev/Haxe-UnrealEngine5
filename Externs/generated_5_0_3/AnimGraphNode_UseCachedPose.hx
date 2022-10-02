@@ -3,10 +3,13 @@ package ue;
 
 @:native("UAnimGraphNode_UseCachedPose")
 @:include("AnimGraphNode_UseCachedPose.h")
+@:structAccess
 extern class AnimGraphNode_UseCachedPose extends AnimGraphNode_Base {
 	public var Node: AnimNode_UseCachedPose;
 	public var SaveCachedPoseNode: TWeakObjectPtr<AnimGraphNode_SaveCachedPose>;
 	public var NameOfCache: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

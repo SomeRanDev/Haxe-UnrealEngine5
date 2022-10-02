@@ -3,10 +3,13 @@ package ue;
 
 @:native("UK2Node_GetInputAxisKeyValue")
 @:include("K2Node_GetInputAxisKeyValue.h")
+@:structAccess
 extern class K2Node_GetInputAxisKeyValue extends K2Node_CallFunction {
 	public var InputAxisKey: Key;
 	public var bConsumeInput: Bool;
 	public var bExecuteWhenPaused: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

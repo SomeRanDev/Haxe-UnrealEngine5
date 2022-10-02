@@ -3,11 +3,14 @@ package ue;
 
 @:native("UK2Node_CustomEvent")
 @:include("K2Node_CustomEvent.h")
+@:structAccess
 extern class K2Node_CustomEvent extends K2Node_Event {
 	public var DeprecationMessage: FString;
 	public var bIsDeprecated: Bool;
 	public var bCallInEditor: Bool;
 	public var MetaData: KismetUserDeclaredFunctionMetadata;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

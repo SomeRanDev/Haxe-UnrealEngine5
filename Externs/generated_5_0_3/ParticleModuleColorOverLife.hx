@@ -3,10 +3,13 @@ package ue;
 
 @:native("UParticleModuleColorOverLife")
 @:include("Particles/Color/ParticleModuleColorOverLife.h")
+@:structAccess
 extern class ParticleModuleColorOverLife extends ParticleModuleColorBase {
 	public var ColorOverLife: RawDistributionVector;
 	public var AlphaOverLife: RawDistributionFloat;
 	public var bClampAlpha: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

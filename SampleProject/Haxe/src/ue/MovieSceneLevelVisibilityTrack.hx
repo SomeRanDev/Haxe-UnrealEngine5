@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneLevelVisibilityTrack")
 @:include("Tracks/MovieSceneLevelVisibilityTrack.h")
+@:structAccess
 extern class MovieSceneLevelVisibilityTrack extends MovieSceneNameableTrack {
 	public var Sections: TArray<cpp.Star<MovieSceneSection>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

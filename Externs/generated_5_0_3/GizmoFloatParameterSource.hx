@@ -2,11 +2,14 @@
 package ue;
 
 @:native("UGizmoFloatParameterSource")
+@:structAccess
 extern class GizmoFloatParameterSource extends Interface {
 	public function SetParameter(NewValue: cpp.Float32): Void;
 	public function GetParameter(): cpp.Reference<cpp.Float32>;
 	public function EndModify(): Void;
 	public function BeginModify(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetParameter)

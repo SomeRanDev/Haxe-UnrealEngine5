@@ -3,12 +3,15 @@ package ue;
 
 @:native("UAchievementQueryCallbackProxy")
 @:include("AchievementQueryCallbackProxy.h")
+@:structAccess
 extern class AchievementQueryCallbackProxy extends OnlineBlueprintCallProxyBase {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
 	public function CacheAchievements(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>): cpp.Reference<cpp.Star<AchievementQueryCallbackProxy>>;
 	public function CacheAchievementDescriptions(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>): cpp.Reference<cpp.Star<AchievementQueryCallbackProxy>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

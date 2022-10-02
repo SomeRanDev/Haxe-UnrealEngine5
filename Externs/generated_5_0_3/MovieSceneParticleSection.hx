@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneParticleSection")
 @:include("Sections/MovieSceneParticleSection.h")
+@:structAccess
 extern class MovieSceneParticleSection extends MovieSceneSection {
 	public var ParticleKeys: MovieSceneParticleChannel;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNamedSlot")
 @:include("Components/NamedSlot.h")
+@:structAccess
 extern class NamedSlot extends ContentWidget {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

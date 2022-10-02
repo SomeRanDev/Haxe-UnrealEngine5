@@ -3,7 +3,10 @@ package ue;
 
 @:native("URigVMIfNode")
 @:include("RigVMModel/Nodes/RigVMIfNode.h")
+@:structAccess
 extern class RigVMIfNode extends RigVMNode {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

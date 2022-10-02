@@ -3,11 +3,14 @@ package ue;
 
 @:native("UTypedElementHandleLibrary")
 @:include("Elements/Framework/TypedElementHandle.h")
+@:structAccess
 extern class TypedElementHandleLibrary extends Object {
 	public function Release(ElementHandle: cpp.Reference<ScriptTypedElementHandle>): Void;
 	public function NotEqual(LHS: cpp.Reference<ScriptTypedElementHandle>, RHS: cpp.Reference<ScriptTypedElementHandle>): cpp.Reference<Bool>;
 	public function IsSet(ElementHandle: cpp.Reference<ScriptTypedElementHandle>): cpp.Reference<Bool>;
 	public function Equal(LHS: cpp.Reference<ScriptTypedElementHandle>, RHS: cpp.Reference<ScriptTypedElementHandle>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,11 +3,14 @@ package ue;
 
 @:native("APointLight")
 @:include("Engine/PointLight.h")
+@:structAccess
 extern class PointLight extends Light {
 	public var PointLightComponent: cpp.Star<PointLightComp>;
 
 	public function SetRadius(NewRadius: cpp.Float32): Void;
 	public function SetLightFalloffExponent(NewLightFalloffExponent: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

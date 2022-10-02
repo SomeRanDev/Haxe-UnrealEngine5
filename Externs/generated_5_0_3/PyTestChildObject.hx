@@ -3,7 +3,10 @@ package ue;
 
 @:native("UPyTestChildObject")
 @:include("PyTest.h")
+@:structAccess
 extern class PyTestChildObject extends PyTestObject {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

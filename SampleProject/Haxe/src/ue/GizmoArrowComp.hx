@@ -3,11 +3,14 @@ package ue;
 
 @:native("UGizmoArrowComponent")
 @:include("BaseGizmos/GizmoArrowComponent.h")
+@:structAccess
 extern class GizmoArrowComp extends GizmoBaseComp {
 	public var Direction: Vector;
 	public var Gap: cpp.Float32;
 	public var Length: cpp.Float32;
 	public var Thickness: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,11 @@ package ue;
 
 @:native("FLaunchOnTestSettings")
 @:include("Tests/AutomationTestSettings.h")
+@:structAccess
 extern class LaunchOnTestSettings {
 	public var LaunchOnTestmap: FilePath;
 	public var DeviceID: FString;
+
+	@:native("FLaunchOnTestSettings") public function new();
+	@:native("FLaunchOnTestSettings") public static function make(LaunchOnTestmap: FilePath, DeviceID: FString): LaunchOnTestSettings ;
 }

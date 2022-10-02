@@ -3,8 +3,12 @@ package ue;
 
 @:native("FLightmassLightSettings")
 @:include("Engine/EngineTypes.h")
+@:structAccess
 extern class LightmassLightSettings {
 	public var IndirectLightingSaturation: cpp.Float32;
 	public var ShadowExponent: cpp.Float32;
 	public var bUseAreaShadowsForStationaryLight: Bool;
+
+	@:native("FLightmassLightSettings") public function new();
+	@:native("FLightmassLightSettings") public static function make(IndirectLightingSaturation: cpp.Float32, ShadowExponent: cpp.Float32, bUseAreaShadowsForStationaryLight: Bool): LightmassLightSettings ;
 }

@@ -3,7 +3,11 @@ package ue;
 
 @:native("FVMFunctionSpecifier")
 @:include("NiagaraCommon.h")
+@:structAccess
 extern class VMFunctionSpecifier {
 	public var Key: FName;
 	public var Value: FName;
+
+	@:native("FVMFunctionSpecifier") public function new();
+	@:native("FVMFunctionSpecifier") public static function make(Key: FName, Value: FName): VMFunctionSpecifier ;
 }

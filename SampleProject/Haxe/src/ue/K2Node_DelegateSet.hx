@@ -3,9 +3,12 @@ package ue;
 
 @:native("UK2Node_DelegateSet")
 @:include("K2Node_DelegateSet.h")
+@:structAccess
 extern class K2Node_DelegateSet extends K2Node {
 	public var DelegatePropertyName: FName;
 	public var DelegatePropertyClass: TSubclassOf<Object>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FCrowdAvoidanceConfig")
 @:include("Navigation/CrowdManager.h")
+@:structAccess
 extern class CrowdAvoidanceConfig {
 	public var VelocityBias: cpp.Float32;
 	public var DesiredVelocityWeight: cpp.Float32;
@@ -14,4 +15,6 @@ extern class CrowdAvoidanceConfig {
 	public var AdaptiveDivisions: cpp.UInt8;
 	public var AdaptiveRings: cpp.UInt8;
 	public var AdaptiveDepth: cpp.UInt8;
+
+	@:native("FCrowdAvoidanceConfig") public function new();
 }

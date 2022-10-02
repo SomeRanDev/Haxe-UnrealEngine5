@@ -3,9 +3,13 @@ package ue;
 
 @:native("FHairGroupsPhysics")
 @:include("GroomAssetPhysics.h")
+@:structAccess
 extern class HairGroupsPhysics {
 	public var SolverSettings: HairSolverSettings;
 	public var ExternalForces: HairExternalForces;
 	public var MaterialConstraints: HairMaterialConstraints;
 	public var StrandsParameters: HairStrandsParameters;
+
+	@:native("FHairGroupsPhysics") public function new();
+	@:native("FHairGroupsPhysics") public static function make(SolverSettings: HairSolverSettings, ExternalForces: HairExternalForces, MaterialConstraints: HairMaterialConstraints, StrandsParameters: HairStrandsParameters): HairGroupsPhysics ;
 }

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UInterpTrackAnimControl")
 @:include("Matinee/InterpTrackAnimControl.h")
+@:structAccess
 extern class InterpTrackAnimControl extends InterpTrackFloatBase {
 	public var SlotName: FName;
 	public var AnimSeqs: TArray<AnimControlTrackKey>;
 	public var bSkipAnimNotifiers: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

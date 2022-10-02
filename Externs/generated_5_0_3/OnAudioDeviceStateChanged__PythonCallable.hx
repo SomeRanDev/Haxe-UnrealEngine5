@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnAudioDeviceStateChanged__PythonCallable")
+@:structAccess
 extern class OnAudioDeviceStateChanged__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UBTService_BlackboardBase")
 @:include("BehaviorTree/Services/BTService_BlackboardBase.h")
+@:structAccess
 extern class BTService_BlackboardBase extends BTService {
 	public var BlackboardKey: BlackboardKeySelector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

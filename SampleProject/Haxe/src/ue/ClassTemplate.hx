@@ -3,8 +3,11 @@ package ue;
 
 @:native("UClassTemplate")
 @:include("ClassTemplateEditorSubsystem.h")
+@:structAccess
 extern class ClassTemplate extends Object {
 	public var GeneratedBaseClass: TSubclassOf<Object>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

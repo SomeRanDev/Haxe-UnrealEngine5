@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionNamedRerouteBase")
 @:include("Materials/MaterialExpressionNamedReroute.h")
+@:structAccess
 extern class MaterialExpressionNamedRerouteBase extends MaterialExpressionRerouteBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("UAnimationSharingSetup")
 @:include("AnimationSharingSetup.h")
+@:structAccess
 extern class AnimationSharingSetup extends Object {
 	public var SkeletonSetups: TArray<PerSkeletonAnimationSharingSetup>;
 	public var ScalabilitySettings: AnimationSharingScalability;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

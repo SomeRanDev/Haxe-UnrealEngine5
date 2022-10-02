@@ -3,6 +3,7 @@ package ue;
 
 @:native("USlateVectorArtData")
 @:include("Slate/SlateVectorArtData.h")
+@:structAccess
 extern class SlateVectorArtData extends Object {
 	public var MeshAsset: cpp.Star<StaticMesh>;
 	public var SourceMaterial: cpp.Star<MaterialInterface>;
@@ -11,6 +12,8 @@ extern class SlateVectorArtData extends Object {
 	public var Material: cpp.Star<MaterialInterface>;
 	public var ExtentMin: Vector2D;
 	public var ExtentMax: Vector2D;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

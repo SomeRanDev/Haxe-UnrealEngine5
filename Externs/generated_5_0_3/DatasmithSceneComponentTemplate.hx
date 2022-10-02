@@ -3,12 +3,15 @@ package ue;
 
 @:native("UDatasmithSceneComponentTemplate")
 @:include("ObjectTemplates/DatasmithSceneComponentTemplate.h")
+@:structAccess
 extern class DatasmithSceneComponentTemplate extends DatasmithObjectTemplate {
 	public var RelativeTransform: Transform;
 	public var Mobility: EComponentMobility;
 	public var AttachParent: TSoftObjectPtr<SceneComp>;
 	public var bVisible: Bool;
 	public var Tags: TSet<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,10 @@ package ue;
 
 @:native("FRigTransformElement")
 @:include("Rigs/RigHierarchyElements.h")
+@:structAccess
 extern class RigTransformElement extends RigBaseElement {
 	public var Pose: RigCurrentAndInitialTransform;
+
+	@:native("FRigTransformElement") public function new();
+	@:native("FRigTransformElement") public static function make(Pose: RigCurrentAndInitialTransform): RigTransformElement ;
 }

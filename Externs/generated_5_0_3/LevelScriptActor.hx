@@ -3,6 +3,7 @@ package ue;
 
 @:native("ALevelScriptActor")
 @:include("Engine/LevelScriptActor.h")
+@:structAccess
 extern class LevelScriptActor extends Actor {
 	public var bInputEnabled: Bool;
 
@@ -10,6 +11,8 @@ extern class LevelScriptActor extends Actor {
 	public function SetCinematicMode(bCinematicMode: Bool, bHidePlayer: Bool, bAffectsHUD: Bool, bAffectsMovement: Bool, bAffectsTurning: Bool): Void;
 	public function RemoteEvent(EventName: FName): cpp.Reference<Bool>;
 	public function LevelReset(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

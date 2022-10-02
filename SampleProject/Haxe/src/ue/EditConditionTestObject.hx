@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEditConditionTestObject")
 @:include("EditConditionParserTests.h")
+@:structAccess
 extern class EditConditionTestObject extends Object {
 	public var BoolProperty: Bool;
 	public var EnumProperty: EditConditionTestEnum;
@@ -13,6 +14,8 @@ extern class EditConditionTestObject extends Object {
 	public var UObjectPtr: cpp.Star<Object>;
 	public var SoftClassPtr: TSoftClassPtr<Class>;
 	public var WeakObjectPtr: TWeakObjectPtr<Object>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

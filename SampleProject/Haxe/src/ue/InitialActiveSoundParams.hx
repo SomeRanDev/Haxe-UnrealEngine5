@@ -3,8 +3,11 @@ package ue;
 
 @:native("UInitialActiveSoundParams")
 @:include("Components/AudioComponent.h")
+@:structAccess
 extern class InitialActiveSoundParams extends Object {
 	public var AudioParams: TArray<AudioParameter>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UFont")
 @:include("Engine/Font.h")
+@:structAccess
 extern class Font extends Object {
 	public var FontCacheType: EFontCacheType;
 	public var Characters: TArray<FontCharacter>;
@@ -20,6 +21,8 @@ extern class Font extends Object {
 	public var LegacyFontSize: cpp.Int32;
 	public var LegacyFontName: FName;
 	public var CompositeFont: CompositeFont;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

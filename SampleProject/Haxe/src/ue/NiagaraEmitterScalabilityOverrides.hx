@@ -3,6 +3,10 @@ package ue;
 
 @:native("FNiagaraEmitterScalabilityOverrides")
 @:include("NiagaraEffectType.h")
+@:structAccess
 extern class NiagaraEmitterScalabilityOverrides {
 	public var Overrides: TArray<NiagaraEmitterScalabilityOverride>;
+
+	@:native("FNiagaraEmitterScalabilityOverrides") public function new();
+	@:native("FNiagaraEmitterScalabilityOverrides") public static function make(Overrides: TArray<NiagaraEmitterScalabilityOverride>): NiagaraEmitterScalabilityOverrides ;
 }

@@ -3,11 +3,14 @@ package ue;
 
 @:native("UAnimGraphNode_BlendSpaceGraphBase")
 @:include("AnimGraphNode_BlendSpaceGraphBase.h")
+@:structAccess
 extern class AnimGraphNode_BlendSpaceGraphBase extends AnimGraphNode_Base {
 	public var BlendSpace: cpp.Star<BlendSpace>;
 	public var BlendSpaceClass: TSubclassOf<BlendSpace>;
 	public var BlendSpaceGraph: cpp.Star<BlendSpaceGraph>;
 	public var Graphs: TArray<cpp.Star<EdGraph>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

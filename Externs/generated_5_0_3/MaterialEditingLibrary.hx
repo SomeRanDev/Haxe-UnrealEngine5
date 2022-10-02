@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialEditingLibrary")
 @:include("MaterialEditingLibrary.h")
+@:structAccess
 extern class MaterialEditingLibrary extends BlueprintFunctionLibrary {
 	public function UpdateMaterialInstance(Instance: cpp.Star<MaterialInstanceConstant>): Void;
 	public function UpdateMaterialFunction(MaterialFunction: cpp.Star<MaterialFunctionInterface>, PreviewMaterial: cpp.Star<Material>): Void;
@@ -52,6 +53,8 @@ extern class MaterialEditingLibrary extends BlueprintFunctionLibrary {
 	public function ConnectMaterialProperty(FromExpression: cpp.Star<MaterialExpression>, FromOutputName: FString, Property: EMaterialProperty): cpp.Reference<Bool>;
 	public function ConnectMaterialExpressions(FromExpression: cpp.Star<MaterialExpression>, FromOutputName: FString, ToExpression: cpp.Star<MaterialExpression>, ToInputName: FString): cpp.Reference<Bool>;
 	public function ClearAllMaterialInstanceParameters(Instance: cpp.Star<MaterialInstanceConstant>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

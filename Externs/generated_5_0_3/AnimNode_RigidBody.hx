@@ -3,6 +3,7 @@ package ue;
 
 @:native("FAnimNode_RigidBody")
 @:include("BoneControllers/AnimNode_RigidBody.h")
+@:structAccess
 extern class AnimNode_RigidBody extends AnimNode_SkeletalControlBase {
 	public var OverridePhysicsAsset: cpp.Star<PhysicsAsset>;
 	public var OverrideWorldGravity: Vector;
@@ -24,4 +25,6 @@ extern class AnimNode_RigidBody extends AnimNode_SkeletalControlBase {
 	public var WorldSpaceMinimumScale: cpp.Float32;
 	public var EvaluationResetTime: cpp.Float32;
 	public var bComponentSpaceSimulation_DEPRECATED: Bool;
+
+	@:native("FAnimNode_RigidBody") public function new();
 }

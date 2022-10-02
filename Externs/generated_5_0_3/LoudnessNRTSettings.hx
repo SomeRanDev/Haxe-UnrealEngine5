@@ -3,12 +3,15 @@ package ue;
 
 @:native("ULoudnessNRTSettings")
 @:include("LoudnessNRT.h")
+@:structAccess
 extern class LoudnessNRTSettings extends AudioSynesthesiaNRTSettings {
 	public var AnalysisPeriod: cpp.Float32;
 	public var MinimumFrequency: cpp.Float32;
 	public var MaximumFrequency: cpp.Float32;
 	public var CurveType: ELoudnessNRTCurveTypeEnum;
 	public var NoiseFloorDb: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

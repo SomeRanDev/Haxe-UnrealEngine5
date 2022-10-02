@@ -3,10 +3,13 @@ package ue;
 
 @:native("UBTDecorator_CompareBBEntries")
 @:include("BehaviorTree/Decorators/BTDecorator_CompareBBEntries.h")
+@:structAccess
 extern class BTDecorator_CompareBBEntries extends BTDecorator {
 	public var Operator: EBlackBoardEntryComparison;
 	public var BlackboardKeyA: BlackboardKeySelector;
 	public var BlackboardKeyB: BlackboardKeySelector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

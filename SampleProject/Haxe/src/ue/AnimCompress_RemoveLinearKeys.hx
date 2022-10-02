@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimCompress_RemoveLinearKeys")
 @:include("Animation/AnimCompress_RemoveLinearKeys.h")
+@:structAccess
 extern class AnimCompress_RemoveLinearKeys extends AnimCompress {
 	public var MaxPosDiff: cpp.Float32;
 	public var MaxAngleDiff: cpp.Float32;
@@ -13,6 +14,8 @@ extern class AnimCompress_RemoveLinearKeys extends AnimCompress {
 	public var ParentKeyScale: cpp.Float32;
 	public var bRetarget: Bool;
 	public var bActuallyFilterLinearKeys: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

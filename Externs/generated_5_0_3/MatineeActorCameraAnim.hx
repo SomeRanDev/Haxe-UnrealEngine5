@@ -3,8 +3,11 @@ package ue;
 
 @:native("AMatineeActorCameraAnim")
 @:include("Matinee/MatineeActorCameraAnim.h")
+@:structAccess
 extern class MatineeActorCameraAnim extends MatineeActor {
 	public var CameraAnim: cpp.Star<CameraAnim>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

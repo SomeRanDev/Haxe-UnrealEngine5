@@ -3,7 +3,10 @@ package ue;
 
 @:native("AFunctionalTestLevelScript")
 @:include("FunctionalTestLevelScript.h")
+@:structAccess
 extern class FunctionalTestLevelScript extends LevelScriptActor {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

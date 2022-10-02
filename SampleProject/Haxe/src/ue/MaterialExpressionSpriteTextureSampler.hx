@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionSpriteTextureSampler")
 @:include("MaterialExpressionSpriteTextureSampler.h")
+@:structAccess
 extern class MaterialExpressionSpriteTextureSampler extends MaterialExpressionTextureSampleParameter2D {
 	public var bSampleAdditionalTextures: Bool;
 	public var AdditionalSlotIndex: cpp.Int32;
 	public var SlotDisplayName: FText;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

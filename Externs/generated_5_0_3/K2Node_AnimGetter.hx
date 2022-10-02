@@ -3,6 +3,7 @@ package ue;
 
 @:native("UK2Node_AnimGetter")
 @:include("K2Node_AnimGetter.h")
+@:structAccess
 extern class K2Node_AnimGetter extends K2Node_CallFunction {
 	public var SourceNode: cpp.Star<AnimGraphNode_Base>;
 	public var SourceStateNode: cpp.Star<AnimStateNodeBase>;
@@ -10,6 +11,8 @@ extern class K2Node_AnimGetter extends K2Node_CallFunction {
 	public var SourceAnimBlueprint: cpp.Star<AnimBlueprint>;
 	public var CachedTitle: FText;
 	public var Contexts: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

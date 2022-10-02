@@ -3,8 +3,12 @@ package ue;
 
 @:native("FWeightmapData")
 @:include("LandscapeComponent.h")
+@:structAccess
 extern class WeightmapData {
 	public var Textures: TArray<cpp.Star<Texture2D>>;
 	public var LayerAllocations: TArray<WeightmapLayerAllocationInfo>;
 	public var TextureUsages: TArray<cpp.Star<LandscapeWeightmapUsage>>;
+
+	@:native("FWeightmapData") public function new();
+	@:native("FWeightmapData") public static function make(Textures: TArray<cpp.Star<Texture2D>>, LayerAllocations: TArray<WeightmapLayerAllocationInfo>, TextureUsages: TArray<cpp.Star<LandscapeWeightmapUsage>>): WeightmapData ;
 }

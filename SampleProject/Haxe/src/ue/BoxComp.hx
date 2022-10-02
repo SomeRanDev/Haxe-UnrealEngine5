@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBoxComponent")
 @:include("Components/BoxComponent.h")
+@:structAccess
 extern class BoxComp extends ShapeComp {
 	public var BoxExtent: Vector;
 	public var LineThickness: cpp.Float32;
@@ -10,6 +11,8 @@ extern class BoxComp extends ShapeComp {
 	public function SetBoxExtent(InBoxExtent: Vector, bUpdateOverlaps: Bool): Void;
 	public function GetUnscaledBoxExtent(): cpp.Reference<Vector>;
 	public function GetScaledBoxExtent(): cpp.Reference<Vector>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetUnscaledBoxExtent, GetScaledBoxExtent)

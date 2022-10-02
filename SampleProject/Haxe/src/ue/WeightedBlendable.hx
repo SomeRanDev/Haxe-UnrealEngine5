@@ -3,7 +3,11 @@ package ue;
 
 @:native("FWeightedBlendable")
 @:include("Engine/Scene.h")
+@:structAccess
 extern class WeightedBlendable {
 	public var Weight: cpp.Float32;
 	public var Object: cpp.Star<Object>;
+
+	@:native("FWeightedBlendable") public function new();
+	@:native("FWeightedBlendable") public static function make(Weight: cpp.Float32, Object: cpp.Star<Object>): WeightedBlendable ;
 }

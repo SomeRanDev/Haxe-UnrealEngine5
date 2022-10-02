@@ -3,8 +3,11 @@ package ue;
 
 @:native("UEdGraphSchema_K2")
 @:include("EdGraphSchema_K2.h")
+@:structAccess
 extern class EdGraphSchema_K2 extends EdGraphSchema {
 	public var EditoronlyBPFunctionRedirects: TArray<BlueprintCallableFunctionRedirect>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,12 @@ package ue;
 
 @:native("FInAppPurchaseRestoreInfo2")
 @:include("InAppPurchaseRestoreCallbackProxy2.h")
+@:structAccess
 extern class InAppPurchaseRestoreInfo2 {
 	public var ItemName: FString;
 	public var ItemId: FString;
 	public var ValidationInfo: FString;
+
+	@:native("FInAppPurchaseRestoreInfo2") public function new();
+	@:native("FInAppPurchaseRestoreInfo2") public static function make(ItemName: FString, ItemId: FString, ValidationInfo: FString): InAppPurchaseRestoreInfo2 ;
 }

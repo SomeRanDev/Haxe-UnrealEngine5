@@ -3,6 +3,7 @@ package ue;
 
 @:native("UVREditorInteractor")
 @:include("VREditorInteractor.h")
+@:structAccess
 extern class VREditorInteractor extends ViewportInteractor {
 	public var bIsUndoRedoSwipeEnabled: Bool;
 	public var MotionControllerComponent: cpp.Star<MotionControllerComp>;
@@ -43,6 +44,8 @@ extern class VREditorInteractor extends ViewportInteractor {
 	public function GetControllerType(): cpp.Reference<EControllerType>;
 	public function GetControllerSide(): cpp.Reference<EControllerHand>;
 	public function GetControllerHandSide(): cpp.Reference<FName>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UDatasmithAreaLightActorTemplate")
 @:include("ObjectTemplates/DatasmithAreaLightActorTemplate.h")
+@:structAccess
 extern class DatasmithAreaLightActorTemplate extends DatasmithObjectTemplate {
 	public var LightType: EDatasmithAreaLightActorType;
 	public var LightShape: EDatasmithAreaLightActorShape;
@@ -18,6 +19,8 @@ extern class DatasmithAreaLightActorTemplate extends DatasmithObjectTemplate {
 	public var SourceRadius: cpp.Float32;
 	public var SourceLength: cpp.Float32;
 	public var AttenuationRadius: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

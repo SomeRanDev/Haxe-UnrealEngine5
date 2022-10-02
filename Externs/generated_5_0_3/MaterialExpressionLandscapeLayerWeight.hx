@@ -3,12 +3,15 @@ package ue;
 
 @:native("UMaterialExpressionLandscapeLayerWeight")
 @:include("Materials/MaterialExpressionLandscapeLayerWeight.h")
+@:structAccess
 extern class MaterialExpressionLandscapeLayerWeight extends MaterialExpression {
 	public var Base: ExpressionInput;
 	public var Layer: ExpressionInput;
 	public var ParameterName: FName;
 	public var PreviewWeight: cpp.Float32;
 	public var ConstBase: Vector;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

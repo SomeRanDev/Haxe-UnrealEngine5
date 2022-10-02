@@ -3,10 +3,13 @@ package ue;
 
 @:native("UBookMark")
 @:include("Engine/BookMark.h")
+@:structAccess
 extern class BookMark extends BookmarkBase {
 	public var Location: Vector;
 	public var Rotation: Rotator;
 	public var HiddenLevels: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

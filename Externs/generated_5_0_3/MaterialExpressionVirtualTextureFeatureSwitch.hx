@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionVirtualTextureFeatureSwitch")
 @:include("Materials/MaterialExpressionVirtualTextureFeatureSwitch.h")
+@:structAccess
 extern class MaterialExpressionVirtualTextureFeatureSwitch extends MaterialExpression {
 	public var No: ExpressionInput;
 	public var Yes: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

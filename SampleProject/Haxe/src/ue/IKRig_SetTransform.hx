@@ -3,10 +3,13 @@ package ue;
 
 @:native("UIKRig_SetTransform")
 @:include("Solvers/IKRig_SetTransform.h")
+@:structAccess
 extern class IKRig_SetTransform extends IKRigSolver {
 	public var Goal: FName;
 	public var RootBone: FName;
 	public var Effector: cpp.Star<IKRig_SetTransformEffector>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

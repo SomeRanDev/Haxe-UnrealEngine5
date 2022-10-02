@@ -3,8 +3,11 @@ package ue;
 
 @:native("ULightmassPortalComponent")
 @:include("Components/LightmassPortalComponent.h")
+@:structAccess
 extern class LightmassPortalComp extends SceneComp {
 	public var PreviewBox: cpp.Star<BoxComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UCameraAnimationSequenceSubsystem")
 @:include("CameraAnimationSequenceSubsystem.h")
+@:structAccess
 extern class CameraAnimationSequenceSubsystem extends WorldSubsystem {
 	public var Linker: cpp.Star<MovieSceneEntitySystemLinker>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

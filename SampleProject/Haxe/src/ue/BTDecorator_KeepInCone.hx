@@ -3,12 +3,15 @@ package ue;
 
 @:native("UBTDecorator_KeepInCone")
 @:include("BehaviorTree/Decorators/BTDecorator_KeepInCone.h")
+@:structAccess
 extern class BTDecorator_KeepInCone extends BTDecorator {
 	public var ConeHalfAngle: cpp.Float32;
 	public var ConeOrigin: BlackboardKeySelector;
 	public var Observed: BlackboardKeySelector;
 	public var bUseSelfAsOrigin: Bool;
 	public var bUseSelfAsObserved: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

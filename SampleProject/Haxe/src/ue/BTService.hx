@@ -3,11 +3,14 @@ package ue;
 
 @:native("UBTService")
 @:include("BehaviorTree/BTService.h")
+@:structAccess
 extern class BTService extends BTAuxiliaryNode {
 	public var Interval: cpp.Float32;
 	public var RandomDeviation: cpp.Float32;
 	public var bCallTickOnSearchStart: Bool;
 	public var bRestartTimerOnEachActivation: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

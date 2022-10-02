@@ -3,12 +3,15 @@ package ue;
 
 @:native("UEditorPerformanceProjectSettings")
 @:include("Settings/EditorProjectSettings.h")
+@:structAccess
 extern class EditorPerformanceProjectSettings extends DeveloperSettings {
 	public var RealtimeScreenPercentageMode: EScreenPercentageMode;
 	public var NonRealtimeScreenPercentageMode: EScreenPercentageMode;
 	public var ManualScreenPercentage: cpp.Float32;
 	public var MinViewportRenderingResolution: cpp.Int32;
 	public var MaxViewportRenderingResolution: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FQuartzQuantizationBoundary")
 @:include("Sound/QuartzQuantizationUtilities.h")
+@:structAccess
 extern class QuartzQuantizationBoundary {
 	public var Quantization: EQuartzCommandQuantization;
 	public var Multiplier: cpp.Float32;
@@ -11,4 +12,6 @@ extern class QuartzQuantizationBoundary {
 	public var bCancelCommandIfClockIsNotRunning: Bool;
 	public var bResetClockOnQueued: Bool;
 	public var bResumeClockOnQueued: Bool;
+
+	@:native("FQuartzQuantizationBoundary") public function new();
 }

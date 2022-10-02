@@ -3,7 +3,10 @@ package ue;
 
 @:native("UNavTestRenderingComponent")
 @:include("NavMesh/NavTestRenderingComponent.h")
+@:structAccess
 extern class NavTestRenderingComp extends DebugDrawComp {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

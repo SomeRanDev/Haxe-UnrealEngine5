@@ -3,7 +3,10 @@ package ue;
 
 @:native("UOcclusionPluginSourceSettingsBase")
 @:include("IAudioExtensionPlugin.h")
+@:structAccess
 extern class OcclusionPluginSourceSettingsBase extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

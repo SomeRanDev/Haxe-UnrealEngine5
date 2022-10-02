@@ -3,10 +3,13 @@ package ue;
 
 @:native("UMovieSceneFadeSection")
 @:include("Sections/MovieSceneFadeSection.h")
+@:structAccess
 extern class MovieSceneFadeSection extends MovieSceneSection {
 	public var FloatCurve: MovieSceneFloatChannel;
 	public var FadeColor: LinearColor;
 	public var bFadeAudio: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,10 @@ package ue;
 
 @:native("FActorRecordingSettings")
 @:include("ActorRecordingSettings.h")
+@:structAccess
 extern class ActorRecordingSettings {
 	public var Settings: TArray<cpp.Star<Object>>;
+
+	@:native("FActorRecordingSettings") public function new();
+	@:native("FActorRecordingSettings") public static function make(Settings: TArray<cpp.Star<Object>>): ActorRecordingSettings ;
 }

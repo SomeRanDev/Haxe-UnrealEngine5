@@ -3,6 +3,7 @@ package ue;
 
 @:native("UEditorPerProjectUserSettings")
 @:include("Editor/EditorPerProjectUserSettings.h")
+@:structAccess
 extern class EditorPerProjectUserSettings extends Object {
 	public var bDisplayUIExtensionPoints: Bool;
 	public var bDisplayDocumentationLink: Bool;
@@ -43,6 +44,8 @@ extern class EditorPerProjectUserSettings extends Object {
 	public var bPreviewFeatureLevelActive: Bool;
 	public var bPreviewFeatureLevelWasDefault: Bool;
 	public var PreviewDeviceProfileName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

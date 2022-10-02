@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnlineTurnBasedMatchResult__PythonCallable")
+@:structAccess
 extern class OnlineTurnBasedMatchResult__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

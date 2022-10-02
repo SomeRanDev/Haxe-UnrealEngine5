@@ -3,9 +3,12 @@ package ue;
 
 @:native("UK2Node_CastByteToEnum")
 @:include("K2Node_CastByteToEnum.h")
+@:structAccess
 extern class K2Node_CastByteToEnum extends K2Node {
 	public var Enum: cpp.Star<Enum>;
 	public var bSafe: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

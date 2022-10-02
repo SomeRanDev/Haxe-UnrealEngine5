@@ -3,9 +3,12 @@ package ue;
 
 @:native("UGizmoComponentWorldTransformSource")
 @:include("BaseGizmos/TransformSources.h")
+@:structAccess
 extern class GizmoComponentWorldTransformSource extends GizmoBaseTransformSource {
 	public var Component: cpp.Star<SceneComp>;
 	public var bModifyComponentOnTransform: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

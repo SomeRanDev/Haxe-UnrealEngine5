@@ -3,6 +3,7 @@ package ue;
 
 @:native("ACharacter")
 @:include("GameFramework/Character.h")
+@:structAccess
 extern class Character extends Pawn {
 	public var Mesh: cpp.Star<SkeletalMeshComp>;
 	public var CharacterMovement: cpp.Star<CharacterMovementComp>;
@@ -92,6 +93,8 @@ extern class Character extends Pawn {
 	public function CanJump(): cpp.Reference<Bool>;
 	public function CanCrouch(): cpp.Reference<Bool>;
 	public function CacheInitialMeshOffset(MeshRelativeLocation: Vector, MeshRelativeRotation: Rotator): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

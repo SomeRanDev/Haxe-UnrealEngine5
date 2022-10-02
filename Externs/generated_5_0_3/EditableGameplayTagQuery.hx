@@ -3,10 +3,13 @@ package ue;
 
 @:native("UEditableGameplayTagQuery")
 @:include("GameplayTagContainer.h")
+@:structAccess
 extern class EditableGameplayTagQuery extends Object {
 	public var UserDescription: FString;
 	public var RootExpression: cpp.Star<EditableGameplayTagQueryExpression>;
 	public var TagQueryExportText_Helper: GameplayTagQuery;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

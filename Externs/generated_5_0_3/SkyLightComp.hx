@@ -3,6 +3,7 @@ package ue;
 
 @:native("USkyLightComponent")
 @:include("Components/SkyLightComponent.h")
+@:structAccess
 extern class SkyLightComp extends LightComponentBase {
 	public var bRealTimeCapture: Bool;
 	public var SourceType: ESkyLightSourceType;
@@ -38,6 +39,8 @@ extern class SkyLightComp extends LightComponentBase {
 	public function SetCubemapBlend(SourceCubemap: cpp.Star<TextureCube>, DestinationCubemap: cpp.Star<TextureCube>, InBlendFraction: cpp.Float32): Void;
 	public function SetCubemap(NewCubemap: cpp.Star<TextureCube>): Void;
 	public function RecaptureSky(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

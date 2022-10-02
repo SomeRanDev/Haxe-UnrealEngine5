@@ -3,10 +3,13 @@ package ue;
 
 @:native("UParticleModuleCameraOffset")
 @:include("Particles/Camera/ParticleModuleCameraOffset.h")
+@:structAccess
 extern class ParticleModuleCameraOffset extends ParticleModuleCameraBase {
 	public var CameraOffset: RawDistributionFloat;
 	public var bSpawnTimeOnly: Bool;
 	public var UpdateMethod: EParticleCameraOffsetUpdateMethod;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

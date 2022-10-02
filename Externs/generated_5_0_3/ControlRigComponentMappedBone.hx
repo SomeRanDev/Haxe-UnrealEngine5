@@ -3,7 +3,11 @@ package ue;
 
 @:native("FControlRigComponentMappedBone")
 @:include("ControlRigComponent.h")
+@:structAccess
 extern class ControlRigComponentMappedBone {
 	public var Source: FName;
 	public var Target: FName;
+
+	@:native("FControlRigComponentMappedBone") public function new();
+	@:native("FControlRigComponentMappedBone") public static function make(Source: FName, Target: FName): ControlRigComponentMappedBone ;
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAutomationPerformaceHelper")
 @:include("FunctionalTest.h")
+@:structAccess
 extern class AutomationPerformaceHelper extends Object {
 	public function WriteLogFile(CaptureDir: FString, CaptureExtension: FString): Void;
 	public function TriggerGPUTraceIfRecordFallsBelowBudget(): Void;
@@ -22,6 +23,8 @@ extern class AutomationPerformaceHelper extends Object {
 	public function BeginStatsFile(RecordName: FString): Void;
 	public function BeginRecordingBaseline(RecordName: FString): Void;
 	public function BeginRecording(RecordName: FString, InGPUBudget: cpp.Float32, InRenderThreadBudget: cpp.Float32, InGameThreadBudget: cpp.Float32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsRecording, IsCurrentRecordWithinRenderThreadBudget, IsCurrentRecordWithinGPUBudget, IsCurrentRecordWithinGameThreadBudget)

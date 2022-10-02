@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMovieSceneSequenceTickManager")
 @:include("MovieSceneSequenceTickManager.h")
+@:structAccess
 extern class MovieSceneSequenceTickManager extends Object {
 	public var SequenceActors: TArray<MovieSceneSequenceActorPointers>;
 	public var Linker: cpp.Star<MovieSceneEntitySystemLinker>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

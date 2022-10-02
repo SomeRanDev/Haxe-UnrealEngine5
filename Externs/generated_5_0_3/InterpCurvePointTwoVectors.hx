@@ -3,10 +3,14 @@ package ue;
 
 @:native("FInterpCurvePointTwoVectors")
 @:include("UObject/NoExportTypes.h")
+@:structAccess
 extern class InterpCurvePointTwoVectors {
 	public var InVal: cpp.Float32;
 	public var OutVal: TwoVectors;
 	public var ArriveTangent: TwoVectors;
 	public var LeaveTangent: TwoVectors;
 	public var InterpMode: EInterpCurveMode;
+
+	@:native("FInterpCurvePointTwoVectors") public function new();
+	@:native("FInterpCurvePointTwoVectors") public static function make(InVal: cpp.Float32, OutVal: TwoVectors, ArriveTangent: TwoVectors, LeaveTangent: TwoVectors, InterpMode: EInterpCurveMode): InterpCurvePointTwoVectors ;
 }

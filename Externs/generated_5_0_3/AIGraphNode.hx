@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAIGraphNode")
 @:include("AIGraphNode.h")
+@:structAccess
 extern class AIGraphNode extends EdGraphNode {
 	public var ClassData: GraphNodeClassData;
 	public var NodeInstance: cpp.Star<Object>;
@@ -12,6 +13,8 @@ extern class AIGraphNode extends EdGraphNode {
 	public var bIsReadOnly: Bool;
 	public var bIsSubNode: Bool;
 	public var ErrorMessage: FString;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

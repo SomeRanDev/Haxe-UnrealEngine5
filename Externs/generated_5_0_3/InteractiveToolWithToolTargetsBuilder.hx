@@ -3,7 +3,10 @@ package ue;
 
 @:native("UInteractiveToolWithToolTargetsBuilder")
 @:include("InteractiveToolBuilder.h")
+@:structAccess
 extern class InteractiveToolWithToolTargetsBuilder extends InteractiveToolBuilder {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

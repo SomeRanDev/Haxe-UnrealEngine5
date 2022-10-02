@@ -3,9 +3,13 @@ package ue;
 
 @:native("FClothCollisionData")
 @:include("ClothCollisionData.h")
+@:structAccess
 extern class ClothCollisionData {
 	public var Spheres: TArray<ClothCollisionPrim_Sphere>;
 	public var SphereConnections: TArray<ClothCollisionPrim_SphereConnection>;
 	public var Convexes: TArray<ClothCollisionPrim_Convex>;
 	public var Boxes: TArray<ClothCollisionPrim_Box>;
+
+	@:native("FClothCollisionData") public function new();
+	@:native("FClothCollisionData") public static function make(Spheres: TArray<ClothCollisionPrim_Sphere>, SphereConnections: TArray<ClothCollisionPrim_SphereConnection>, Convexes: TArray<ClothCollisionPrim_Convex>, Boxes: TArray<ClothCollisionPrim_Box>): ClothCollisionData ;
 }

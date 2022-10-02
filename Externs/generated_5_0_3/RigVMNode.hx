@@ -3,6 +3,7 @@ package ue;
 
 @:native("URigVMNode")
 @:include("RigVMModel/RigVMNode.h")
+@:structAccess
 extern class RigVMNode extends Object {
 	public var NodeTitle: FString;
 	public var Position: Vector2D;
@@ -51,6 +52,8 @@ extern class RigVMNode extends Object {
 	public function GetAllPinsRecursively(): cpp.Reference<TArray<cpp.Star<RigVMPin>>>;
 	public function FindPin(InPinPath: FString): cpp.Reference<cpp.Star<RigVMPin>>;
 	public function ExecutionIsHaltedAtThisNode(): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(

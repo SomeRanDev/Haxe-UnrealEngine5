@@ -3,6 +3,7 @@ package ue;
 
 @:native("UStereoLayerComponent")
 @:include("Components/StereoLayerComponent.h")
+@:structAccess
 extern class StereoLayerComp extends SceneComp {
 	public var bLiveTexture: Bool;
 	public var bSupportsDepth: Bool;
@@ -33,6 +34,8 @@ extern class StereoLayerComp extends SceneComp {
 	public function GetQuadSize(): cpp.Reference<Vector2D>;
 	public function GetPriority(): cpp.Reference<cpp.Int32>;
 	public function GetLeftTexture(): cpp.Reference<cpp.Star<Texture>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetUVRect, GetTexture, GetQuadSize, GetPriority, GetLeftTexture)

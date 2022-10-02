@@ -3,7 +3,10 @@ package ue;
 
 @:native("UEdModeDefault")
 @:include("Tools/DefaultEdMode.h")
+@:structAccess
 extern class EdModeDefault extends BaseLegacyWidgetEdMode {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

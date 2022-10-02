@@ -3,7 +3,11 @@ package ue;
 
 @:native("FBoolTrackKey")
 @:include("Matinee/InterpTrackBoolProp.h")
+@:structAccess
 extern class BoolTrackKey {
 	public var Time: cpp.Float32;
 	public var Value: Bool;
+
+	@:native("FBoolTrackKey") public function new();
+	@:native("FBoolTrackKey") public static function make(Time: cpp.Float32, Value: Bool): BoolTrackKey ;
 }

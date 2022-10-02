@@ -3,7 +3,10 @@ package ue;
 
 @:native("UDEPRECATED_LegacyPyTestObject")
 @:include("PyTest.h")
+@:structAccess
 extern class LegacyPyTestObject extends PyTestObject {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

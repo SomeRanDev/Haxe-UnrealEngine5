@@ -3,8 +3,11 @@ package ue;
 
 @:native("UDataDrivenConsoleVariableSettings")
 @:include("DataDrivenCVars/DataDrivenCVars.h")
+@:structAccess
 extern class DataDrivenConsoleVariableSettings extends DeveloperSettings {
 	public var CVarsArray: TArray<DataDrivenConsoleVariable>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

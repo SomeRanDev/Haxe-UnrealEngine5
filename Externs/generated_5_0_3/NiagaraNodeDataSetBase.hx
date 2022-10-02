@@ -3,11 +3,14 @@ package ue;
 
 @:native("UNiagaraNodeDataSetBase")
 @:include("NiagaraNodeDataSetBase.h")
+@:structAccess
 extern class NiagaraNodeDataSetBase extends NiagaraNode {
 	public var DataSet: NiagaraDataSetID;
 	public var Variables: TArray<NiagaraVariable>;
 	public var VariableFriendlyNames: TArray<FString>;
 	public var ExternalStructAsset: cpp.Star<Struct>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

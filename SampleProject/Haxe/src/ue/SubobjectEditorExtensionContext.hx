@@ -3,7 +3,10 @@ package ue;
 
 @:native("USubobjectEditorExtensionContext")
 @:include("SubobjectEditorExtensionContext.h")
+@:structAccess
 extern class SubobjectEditorExtensionContext extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

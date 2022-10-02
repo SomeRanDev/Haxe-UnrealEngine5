@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleBeamSource")
 @:include("Particles/Beam/ParticleModuleBeamSource.h")
+@:structAccess
 extern class ParticleModuleBeamSource extends ParticleModuleBeamBase {
 	public var SourceMethod: Beam2SourceTargetMethod;
 	public var SourceName: FName;
@@ -14,6 +15,8 @@ extern class ParticleModuleBeamSource extends ParticleModuleBeamBase {
 	public var bLockSourceTangent: Bool;
 	public var SourceStrength: RawDistributionFloat;
 	public var bLockSourceStength: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

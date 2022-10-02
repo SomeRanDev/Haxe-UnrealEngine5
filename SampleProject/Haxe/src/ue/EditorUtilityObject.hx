@@ -3,8 +3,11 @@ package ue;
 
 @:native("UEditorUtilityObject")
 @:include("EditorUtilityObject.h")
+@:structAccess
 extern class EditorUtilityObject extends Object {
 	public function Run(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

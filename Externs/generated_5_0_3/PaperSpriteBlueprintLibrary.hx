@@ -3,8 +3,11 @@ package ue;
 
 @:native("UPaperSpriteBlueprintLibrary")
 @:include("PaperSpriteBlueprintLibrary.h")
+@:structAccess
 extern class PaperSpriteBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function MakeBrushFromSprite(Sprite: cpp.Star<PaperSprite>, Width: cpp.Int32, Height: cpp.Int32): cpp.Reference<SlateBrush>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

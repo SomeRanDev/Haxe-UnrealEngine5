@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleLocationBoneSocket")
 @:include("Particles/Location/ParticleModuleLocationBoneSocket.h")
+@:structAccess
 extern class ParticleModuleLocationBoneSocket extends ParticleModuleLocationBase {
 	public var SourceType: ELocationBoneSocketSource;
 	public var UniversalOffset: Vector;
@@ -15,6 +16,8 @@ extern class ParticleModuleLocationBoneSocket extends ParticleModuleLocationBase
 	public var SkelMeshActorParamName: FName;
 	public var NumPreSelectedIndices: cpp.Int32;
 	public var EditorSkelMesh: cpp.Star<SkeletalMesh>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UByteProperty")
+@:structAccess
 extern class ByteProperty extends NumericProperty {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

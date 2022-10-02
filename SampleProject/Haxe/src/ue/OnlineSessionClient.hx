@@ -3,9 +3,12 @@ package ue;
 
 @:native("UOnlineSessionClient")
 @:include("OnlineSessionClient.h")
+@:structAccess
 extern class OnlineSessionClient extends OnlineSession {
 	public var bIsFromInvite: Bool;
 	public var bHandlingDisconnect: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

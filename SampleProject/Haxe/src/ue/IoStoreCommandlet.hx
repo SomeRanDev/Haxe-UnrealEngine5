@@ -3,7 +3,10 @@ package ue;
 
 @:native("UIoStoreCommandlet")
 @:include("Commandlets/IoStoreCommandlet.h")
+@:structAccess
 extern class IoStoreCommandlet extends Commandlet {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

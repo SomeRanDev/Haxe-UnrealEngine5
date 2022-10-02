@@ -3,9 +3,13 @@ package ue;
 
 @:native("FDatasmithStaticMeshImportOptions")
 @:include("DatasmithImportOptions.h")
+@:structAccess
 extern class DatasmithStaticMeshImportOptions {
 	public var MinLightmapResolution: EDatasmithImportLightmapMin;
 	public var MaxLightmapResolution: EDatasmithImportLightmapMax;
 	public var bGenerateLightmapUVs: Bool;
 	public var bRemoveDegenerates: Bool;
+
+	@:native("FDatasmithStaticMeshImportOptions") public function new();
+	@:native("FDatasmithStaticMeshImportOptions") public static function make(MinLightmapResolution: EDatasmithImportLightmapMin, MaxLightmapResolution: EDatasmithImportLightmapMax, bGenerateLightmapUVs: Bool, bRemoveDegenerates: Bool): DatasmithStaticMeshImportOptions ;
 }

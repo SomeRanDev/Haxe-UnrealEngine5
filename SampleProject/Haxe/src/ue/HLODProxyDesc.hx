@@ -3,6 +3,7 @@ package ue;
 
 @:native("UHLODProxyDesc")
 @:include("HLOD/HLODProxyDesc.h")
+@:structAccess
 extern class HLODProxyDesc extends Object {
 	public var SubActors: TArray<FName>;
 	public var StaticMesh: cpp.Star<StaticMesh>;
@@ -20,6 +21,8 @@ extern class HLODProxyDesc extends Object {
 	public var Location: Vector;
 	public var HLODBakingTransform: Transform;
 	public var SubHLODDescs: TArray<TSoftObjectPtr<HLODProxyDesc>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

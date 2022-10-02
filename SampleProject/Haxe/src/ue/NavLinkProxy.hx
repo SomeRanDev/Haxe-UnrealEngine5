@@ -3,6 +3,7 @@ package ue;
 
 @:native("ANavLinkProxy")
 @:include("Navigation/NavLinkProxy.h")
+@:structAccess
 extern class NavLinkProxy extends Actor {
 	public var PointLinks: TArray<NavigationLink>;
 	public var SegmentLinks: TArray<NavigationSegmentLink>;
@@ -18,6 +19,8 @@ extern class NavLinkProxy extends Actor {
 	public function IsSmartLinkEnabled(): cpp.Reference<Bool>;
 	public function HasMovingAgents(): cpp.Reference<Bool>;
 	public function CopyEndPointsFromSimpleLinkToSmartLink(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(IsSmartLinkEnabled, HasMovingAgents)

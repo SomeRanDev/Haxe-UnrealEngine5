@@ -3,12 +3,15 @@ package ue;
 
 @:native("UAITask_MoveTo")
 @:include("Tasks/AITask_MoveTo.h")
+@:structAccess
 extern class AITask_MoveTo extends AITask {
 	public var OnRequestFailed: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnMoveFinished: HaxeMulticastSparseDelegateProperty<(EPathFollowingResult, cpp.Star<AIController>) -> Void>;
 	public var MoveRequest: AIMoveRequest;
 
 	public function AIMoveTo(Controller: cpp.Star<AIController>, GoalLocation: Vector, GoalActor: cpp.Star<Actor>, AcceptanceRadius: cpp.Float32, StopOnOverlap: EAIOptionFlag, AcceptPartialPath: EAIOptionFlag, bUsePathfinding: Bool, bLockAILogic: Bool, bUseContinuosGoalTracking: Bool, ProjectGoalOnNavigation: EAIOptionFlag): cpp.Reference<cpp.Star<AITask_MoveTo>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

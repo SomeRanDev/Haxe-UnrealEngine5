@@ -3,7 +3,11 @@ package ue;
 
 @:native("FTwistConstraint")
 @:include("PhysicsEngine/ConstraintTypes.h")
+@:structAccess
 extern class TwistConstraint extends ConstraintBaseParams {
 	public var TwistLimitDegrees: cpp.Float32;
 	public var TwistMotion: EAngularConstraintMotion;
+
+	@:native("FTwistConstraint") public function new();
+	@:native("FTwistConstraint") public static function make(TwistLimitDegrees: cpp.Float32, TwistMotion: EAngularConstraintMotion): TwistConstraint ;
 }

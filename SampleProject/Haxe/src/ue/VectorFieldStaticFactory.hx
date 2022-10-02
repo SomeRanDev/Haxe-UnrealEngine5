@@ -3,7 +3,10 @@ package ue;
 
 @:native("UVectorFieldStaticFactory")
 @:include("Factories/VectorFieldStaticFactory.h")
+@:structAccess
 extern class VectorFieldStaticFactory extends Factory {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

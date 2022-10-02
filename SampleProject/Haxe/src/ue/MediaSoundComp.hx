@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMediaSoundComponent")
 @:include("MediaSoundComponent.h")
+@:structAccess
 extern class MediaSoundComp extends SynthComp {
 	public var Channels: EMediaSoundChannels;
 	public var DynamicRateAdjustment: Bool;
@@ -20,6 +21,8 @@ extern class MediaSoundComp extends SynthComp {
 	public function GetMediaPlayer(): cpp.Reference<cpp.Star<MediaPlayer>>;
 	public function GetEnvelopeValue(): cpp.Reference<cpp.Float32>;
 	public function BP_GetAttenuationSettingsToApply(OutAttenuationSettings: cpp.Reference<SoundAttenuationSettings>): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetMediaPlayer, GetEnvelopeValue)

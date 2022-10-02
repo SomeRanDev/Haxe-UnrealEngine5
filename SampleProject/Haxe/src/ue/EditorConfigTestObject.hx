@@ -3,11 +3,14 @@ package ue;
 
 @:native("UEditorConfigTestObject")
 @:include("Tests/EditorConfigTests.h")
+@:structAccess
 extern class EditorConfigTestObject extends Object {
 	public var Object: cpp.Star<Object>;
 	public var SoftObjectPath: SoftObjectPath;
 	public var Struct: EditorConfigTestStruct;
 	public var Number: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,9 +3,12 @@ package ue;
 
 @:native("ATriggerBase")
 @:include("Engine/TriggerBase.h")
+@:structAccess
 extern class TriggerBase extends Actor {
 	public var CollisionComponent: cpp.Star<ShapeComp>;
 	public var SpriteComponent: cpp.Star<BillboardComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,7 +3,10 @@ package ue;
 
 @:native("UMovieSceneBaseValueEvaluatorSystem")
 @:include("Systems/MovieSceneBaseValueEvaluatorSystem.h")
+@:structAccess
 extern class MovieSceneBaseValueEvaluatorSystem extends MovieSceneEntitySystem {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

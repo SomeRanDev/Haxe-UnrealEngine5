@@ -3,6 +3,7 @@ package ue;
 
 @:native("UAnimationSettings")
 @:include("Animation/AnimationSettings.h")
+@:structAccess
 extern class AnimationSettings extends DeveloperSettings {
 	public var CompressCommandletVersion: cpp.Int32;
 	public var KeyEndEffectorsMatchNameArray: TArray<FString>;
@@ -22,6 +23,8 @@ extern class AnimationSettings extends DeveloperSettings {
 	public var MirrorFindReplaceExpressions: TArray<MirrorFindReplaceExpression>;
 
 	public function GetBoneCustomAttributeNamesToImport(): cpp.Reference<TArray<FString>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetBoneCustomAttributeNamesToImport)

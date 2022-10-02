@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UOnMockDataMeshTrackerUpdated__PythonCallable")
+@:structAccess
 extern class OnMockDataMeshTrackerUpdated__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

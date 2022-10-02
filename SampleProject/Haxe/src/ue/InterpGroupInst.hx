@@ -3,10 +3,13 @@ package ue;
 
 @:native("UInterpGroupInst")
 @:include("Matinee/InterpGroupInst.h")
+@:structAccess
 extern class InterpGroupInst extends Object {
 	public var Group: cpp.Star<InterpGroup>;
 	public var GroupActor: cpp.Star<Actor>;
 	public var TrackInst: TArray<cpp.Star<InterpTrackInst>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

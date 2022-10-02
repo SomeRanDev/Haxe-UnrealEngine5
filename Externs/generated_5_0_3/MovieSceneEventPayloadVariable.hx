@@ -3,6 +3,10 @@ package ue;
 
 @:native("FMovieSceneEventPayloadVariable")
 @:include("Channels/MovieSceneEvent.h")
+@:structAccess
 extern class MovieSceneEventPayloadVariable {
 	public var Value: FString;
+
+	@:native("FMovieSceneEventPayloadVariable") public function new();
+	@:native("FMovieSceneEventPayloadVariable") public static function make(Value: FString): MovieSceneEventPayloadVariable ;
 }

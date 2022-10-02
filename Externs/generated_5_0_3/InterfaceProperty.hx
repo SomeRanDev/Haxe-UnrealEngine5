@@ -2,7 +2,10 @@
 package ue;
 
 @:native("UInterfaceProperty")
+@:structAccess
 extern class InterfaceProperty extends Property {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

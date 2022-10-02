@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionLandscapeGrassOutput")
 @:include("Materials/MaterialExpressionLandscapeGrassOutput.h")
+@:structAccess
 extern class MaterialExpressionLandscapeGrassOutput extends MaterialExpressionCustomOutput {
 	public var GrassTypes: TArray<GrassInput>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

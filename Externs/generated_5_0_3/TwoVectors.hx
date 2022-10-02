@@ -3,7 +3,11 @@ package ue;
 
 @:native("FTwoVectors")
 @:include("UObject/NoExportTypes.h")
+@:structAccess
 extern class TwoVectors {
 	public var v1: Vector;
 	public var v2: Vector;
+
+	@:native("FTwoVectors") public function new();
+	@:native("FTwoVectors") public static function make(v1: Vector, v2: Vector): TwoVectors ;
 }

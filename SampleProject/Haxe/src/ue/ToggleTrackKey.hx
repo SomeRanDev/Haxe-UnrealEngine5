@@ -3,7 +3,11 @@ package ue;
 
 @:native("FToggleTrackKey")
 @:include("Matinee/InterpTrackToggle.h")
+@:structAccess
 extern class ToggleTrackKey {
 	public var Time: cpp.Float32;
 	public var ToggleAction: ETrackToggleAction;
+
+	@:native("FToggleTrackKey") public function new();
+	@:native("FToggleTrackKey") public static function make(Time: cpp.Float32, ToggleAction: ETrackToggleAction): ToggleTrackKey ;
 }

@@ -3,8 +3,11 @@ package ue;
 
 @:native("UK2Node_MakeContainer")
 @:include("K2Node_MakeContainer.h")
+@:structAccess
 extern class K2Node_MakeContainer extends K2Node {
 	public var NumInputs: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

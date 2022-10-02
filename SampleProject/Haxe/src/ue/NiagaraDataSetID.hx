@@ -3,7 +3,11 @@ package ue;
 
 @:native("FNiagaraDataSetID")
 @:include("NiagaraCommon.h")
+@:structAccess
 extern class NiagaraDataSetID {
 	public var Name: FName;
 	public var Type: ENiagaraDataSetType;
+
+	@:native("FNiagaraDataSetID") public function new();
+	@:native("FNiagaraDataSetID") public static function make(Name: FName, Type: ENiagaraDataSetType): NiagaraDataSetID ;
 }

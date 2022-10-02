@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleLocationSkelVertSurface")
 @:include("Particles/Location/ParticleModuleLocationSkelVertSurface.h")
+@:structAccess
 extern class ParticleModuleLocationSkelVertSurface extends ParticleModuleLocationBase {
 	public var SourceType: ELocationSkelVertSurfaceSource;
 	public var UniversalOffset: Vector;
@@ -21,6 +22,8 @@ extern class ParticleModuleLocationSkelVertSurface extends ParticleModuleLocatio
 	public var bInheritVertexColor: Bool;
 	public var bInheritUV: Bool;
 	public var InheritUVChannel: cpp.UInt32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

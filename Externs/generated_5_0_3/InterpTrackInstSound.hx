@@ -3,9 +3,12 @@ package ue;
 
 @:native("UInterpTrackInstSound")
 @:include("Matinee/InterpTrackInstSound.h")
+@:structAccess
 extern class InterpTrackInstSound extends InterpTrackInst {
 	public var LastUpdatePosition: cpp.Float32;
 	public var PlayAudioComp: cpp.Star<AudioComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

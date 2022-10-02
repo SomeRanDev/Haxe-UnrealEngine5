@@ -3,11 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionSingleLayerWaterMaterialOutput")
 @:include("Materials/MaterialExpressionSingleLayerWaterMaterialOutput.h")
+@:structAccess
 extern class MaterialExpressionSingleLayerWaterMaterialOutput extends MaterialExpressionCustomOutput {
 	public var ScatteringCoefficients: ExpressionInput;
 	public var AbsorptionCoefficients: ExpressionInput;
 	public var PhaseG: ExpressionInput;
 	public var ColorScaleBehindWater: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

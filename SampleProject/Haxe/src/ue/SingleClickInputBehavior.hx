@@ -3,8 +3,11 @@ package ue;
 
 @:native("USingleClickInputBehavior")
 @:include("BaseBehaviors/SingleClickBehavior.h")
+@:structAccess
 extern class SingleClickInputBehavior extends AnyButtonInputBehavior {
 	public var HitTestOnRelease: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

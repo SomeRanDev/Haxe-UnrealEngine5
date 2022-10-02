@@ -3,5 +3,7 @@ package ue;
 
 @:native("FBrushStampData")
 @:include("BaseTools/BaseBrushTool.h")
+@:structAccess
 extern class BrushStampData {
+	@:native("FBrushStampData") public function new();
 }

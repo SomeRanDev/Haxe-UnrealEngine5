@@ -3,6 +3,7 @@ package ue;
 
 @:native("UInterchangePipelineBase")
 @:include("InterchangePipelineBase.h")
+@:structAccess
 extern class InterchangePipelineBase extends Object {
 	public var Results: cpp.Star<InterchangeResultsContainer>;
 
@@ -10,6 +11,8 @@ extern class InterchangePipelineBase extends Object {
 	public function ScriptedExecutePostImportPipeline(BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, NodeKey: FString, CreatedAsset: cpp.Star<Object>, bIsAReimport: Bool): cpp.Reference<Bool>;
 	public function ScriptedExecuteExportPipeline(BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer>): cpp.Reference<Bool>;
 	public function ScriptedCanExecuteOnAnyThread(PipelineTask: EInterchangePipelineTask): cpp.Reference<Bool>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

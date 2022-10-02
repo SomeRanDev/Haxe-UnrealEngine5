@@ -2,7 +2,10 @@
 package ue;
 
 @:native("ULevelStreamingVisibilityStatus__PythonCallable")
+@:structAccess
 extern class LevelStreamingVisibilityStatus__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

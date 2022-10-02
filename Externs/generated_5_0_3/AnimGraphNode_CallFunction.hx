@@ -3,10 +3,13 @@ package ue;
 
 @:native("UAnimGraphNode_CallFunction")
 @:include("AnimGraphNode_CallFunction.h")
+@:structAccess
 extern class AnimGraphNode_CallFunction extends AnimGraphNode_Base {
 	public var InnerGraph: cpp.Star<EdGraph>;
 	public var CallFunctionPrototype: cpp.Star<K2Node_CallFunction>;
 	public var Node: AnimNode_CallFunction;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

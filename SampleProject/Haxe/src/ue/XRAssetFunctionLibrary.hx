@@ -3,9 +3,12 @@ package ue;
 
 @:native("UXRAssetFunctionLibrary")
 @:include("XRAssetFunctionLibrary.h")
+@:structAccess
 extern class XRAssetFunctionLibrary extends BlueprintFunctionLibrary {
 	public function AddNamedDeviceVisualizationComponentBlocking(Target: cpp.Star<Actor>, SystemName: FName, DeviceName: FName, bManualAttachment: Bool, RelativeTransform: cpp.Reference<Transform>, XRDeviceId: cpp.Reference<XRDeviceId>): cpp.Reference<cpp.Star<PrimitiveComp>>;
 	public function AddDeviceVisualizationComponentBlocking(Target: cpp.Star<Actor>, XRDeviceId: cpp.Reference<XRDeviceId>, bManualAttachment: Bool, RelativeTransform: cpp.Reference<Transform>): cpp.Reference<cpp.Star<PrimitiveComp>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,10 +3,13 @@ package ue;
 
 @:native("UDatasmithAssetImportData")
 @:include("DatasmithAssetImportData.h")
+@:structAccess
 extern class DatasmithAssetImportData extends AssetImportData {
 	public var AssetImportOptions: DatasmithAssetImportOptions;
 	public var AdditionalData: TArray<cpp.Star<DatasmithAdditionalData>>;
 	public var DatasmithImportInfo: DatasmithImportInfo;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("USceneCaptureComponentCube")
 @:include("Components/SceneCaptureComponentCube.h")
+@:structAccess
 extern class SceneCaptureComponentCube extends SceneCaptureComp {
 	public var TextureTarget: cpp.Star<TextureRenderTargetCube>;
 	public var bCaptureRotation: Bool;
@@ -12,6 +13,8 @@ extern class SceneCaptureComponentCube extends SceneCaptureComp {
 	public var IPD: cpp.Float32;
 
 	public function CaptureScene(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

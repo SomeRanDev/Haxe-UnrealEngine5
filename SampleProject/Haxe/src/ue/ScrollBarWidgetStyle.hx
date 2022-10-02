@@ -3,8 +3,11 @@ package ue;
 
 @:native("UScrollBarWidgetStyle")
 @:include("Framework/Styling/ScrollBarWidgetStyle.h")
+@:structAccess
 extern class ScrollBarWidgetStyle extends SlateWidgetStyleContainerBase {
 	public var ScrollBarStyle: ScrollBarStyle;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

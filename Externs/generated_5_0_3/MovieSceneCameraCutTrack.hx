@@ -3,9 +3,12 @@ package ue;
 
 @:native("UMovieSceneCameraCutTrack")
 @:include("Tracks/MovieSceneCameraCutTrack.h")
+@:structAccess
 extern class MovieSceneCameraCutTrack extends MovieSceneNameableTrack {
 	public var bCanBlend: Bool;
 	public var Sections: TArray<cpp.Star<MovieSceneSection>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

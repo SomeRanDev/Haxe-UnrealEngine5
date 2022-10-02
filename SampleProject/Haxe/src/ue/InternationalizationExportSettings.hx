@@ -3,6 +3,7 @@ package ue;
 
 @:native("UInternationalizationExportSettings")
 @:include("InternationalizationExportSettings.h")
+@:structAccess
 extern class InternationalizationExportSettings extends Object {
 	public var CulturesToGenerate: TArray<FString>;
 	public var CommandletClass: FString;
@@ -14,6 +15,8 @@ extern class InternationalizationExportSettings extends Object {
 	public var bExportLoc: Bool;
 	public var bImportLoc: Bool;
 	public var bUseCultureDirectory: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

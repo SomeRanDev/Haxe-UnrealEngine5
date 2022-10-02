@@ -3,10 +3,14 @@ package ue;
 
 @:native("FPreviewBackgroundSettings")
 @:include("MaterialEditorSettings.h")
+@:structAccess
 extern class PreviewBackgroundSettings {
 	public var bShowBorder: Bool;
 	public var BorderColor: Color;
 	public var BackgroundType: EBackgroundType;
 	public var BackgroundColor: Color;
 	public var Checkerboard: CheckerboardSettings;
+
+	@:native("FPreviewBackgroundSettings") public function new();
+	@:native("FPreviewBackgroundSettings") public static function make(bShowBorder: Bool, BorderColor: Color, BackgroundType: EBackgroundType, BackgroundColor: Color, Checkerboard: CheckerboardSettings): PreviewBackgroundSettings ;
 }

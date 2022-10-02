@@ -3,6 +3,7 @@ package ue;
 
 @:native("UBrushBaseProperties")
 @:include("BaseTools/BaseBrushTool.h")
+@:structAccess
 extern class BrushBaseProperties extends InteractiveToolPropertySet {
 	public var BrushSize: cpp.Float32;
 	public var bSpecifyRadius: Bool;
@@ -11,6 +12,8 @@ extern class BrushBaseProperties extends InteractiveToolPropertySet {
 	public var BrushFalloffAmount: cpp.Float32;
 	public var bShowStrength: Bool;
 	public var bShowFalloff: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

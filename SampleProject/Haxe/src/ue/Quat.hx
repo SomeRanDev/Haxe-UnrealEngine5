@@ -3,9 +3,13 @@ package ue;
 
 @:native("FQuat")
 @:include("UObject/NoExportTypes.h")
+@:structAccess
 extern class Quat {
 	public var X: cpp.Float64;
 	public var Y: cpp.Float64;
 	public var Z: cpp.Float64;
 	public var W: cpp.Float64;
+
+	@:native("FQuat") public function new();
+	@:native("FQuat") public static function make(X: cpp.Float64, Y: cpp.Float64, Z: cpp.Float64, W: cpp.Float64): Quat ;
 }

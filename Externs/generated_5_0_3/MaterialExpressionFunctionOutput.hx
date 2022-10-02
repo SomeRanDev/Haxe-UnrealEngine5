@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionFunctionOutput")
 @:include("Materials/MaterialExpressionFunctionOutput.h")
+@:structAccess
 extern class MaterialExpressionFunctionOutput extends MaterialExpression {
 	public var OutputName: FName;
 	public var Description: FString;
@@ -10,6 +11,8 @@ extern class MaterialExpressionFunctionOutput extends MaterialExpression {
 	public var A: ExpressionInput;
 	public var bLastPreviewed: Bool;
 	public var Id: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

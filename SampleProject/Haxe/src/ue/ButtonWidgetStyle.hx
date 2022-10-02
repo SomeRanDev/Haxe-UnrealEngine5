@@ -3,8 +3,11 @@ package ue;
 
 @:native("UButtonWidgetStyle")
 @:include("Framework/Styling/ButtonWidgetStyle.h")
+@:structAccess
 extern class ButtonWidgetStyle extends SlateWidgetStyleContainerBase {
 	public var ButtonStyle: ButtonStyle;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

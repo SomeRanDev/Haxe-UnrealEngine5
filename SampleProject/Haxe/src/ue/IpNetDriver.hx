@@ -3,6 +3,7 @@ package ue;
 
 @:native("UIpNetDriver")
 @:include("IpNetDriver.h")
+@:structAccess
 extern class IpNetDriver extends NetDriver {
 	public var LogPortUnreach: Bool;
 	public var AllowPlayerPortUnreach: Bool;
@@ -14,6 +15,8 @@ extern class IpNetDriver extends NetDriver {
 	public var MaxSecondsInReceive: cpp.Float64;
 	public var NbPacketsBetweenReceiveTimeTest: cpp.Int32;
 	public var ResolutionConnectionTimeout: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("FCameraAnimationParams")
 @:include("CameraAnimationCameraModifier.h")
+@:structAccess
 extern class CameraAnimationParams {
 	public var PlayRate: cpp.Float32;
 	public var Scale: cpp.Float32;
@@ -15,4 +16,6 @@ extern class CameraAnimationParams {
 	public var DurationOverride: cpp.Float32;
 	public var PlaySpace: ECameraAnimationPlaySpace;
 	public var UserPlaySpaceRot: Rotator;
+
+	@:native("FCameraAnimationParams") public function new();
 }

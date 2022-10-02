@@ -3,9 +3,12 @@ package ue;
 
 @:native("UInterpCurveEdSetup")
 @:include("Engine/InterpCurveEdSetup.h")
+@:structAccess
 extern class InterpCurveEdSetup extends Object {
 	public var Tabs: TArray<CurveEdTab>;
 	public var ActiveTab: cpp.Int32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

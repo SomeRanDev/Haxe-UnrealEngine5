@@ -3,7 +3,11 @@ package ue;
 
 @:native("FMovieSceneNestedSequenceTransform")
 @:include("Evaluation/MovieSceneSequenceTransform.h")
+@:structAccess
 extern class MovieSceneNestedSequenceTransform {
 	public var LinearTransform: MovieSceneTimeTransform;
 	public var Warping: MovieSceneTimeWarping;
+
+	@:native("FMovieSceneNestedSequenceTransform") public function new();
+	@:native("FMovieSceneNestedSequenceTransform") public static function make(LinearTransform: MovieSceneTimeTransform, Warping: MovieSceneTimeWarping): MovieSceneNestedSequenceTransform ;
 }

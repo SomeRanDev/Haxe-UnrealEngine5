@@ -3,6 +3,7 @@ package ue;
 
 @:native("FClothConfig_Legacy")
 @:include("ClothConfig_Legacy.h")
+@:structAccess
 extern class ClothConfig_Legacy {
 	public var WindMethod: EClothingWindMethod_Legacy;
 	public var VerticalConstraintConfig: ClothConstraintSetup_Legacy;
@@ -31,4 +32,6 @@ extern class ClothConfig_Legacy {
 	public var CollisionThickness: cpp.Float32;
 	public var AnimDriveSpringStiffness: cpp.Float32;
 	public var AnimDriveDamperStiffness: cpp.Float32;
+
+	@:native("FClothConfig_Legacy") public function new();
 }

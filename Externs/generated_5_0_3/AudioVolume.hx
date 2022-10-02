@@ -3,6 +3,7 @@ package ue;
 
 @:native("AAudioVolume")
 @:include("Sound/AudioVolume.h")
+@:structAccess
 extern class AudioVolume extends Volume {
 	public var Priority: cpp.Float32;
 	public var bEnabled: Bool;
@@ -18,6 +19,8 @@ extern class AudioVolume extends Volume {
 	public function SetInteriorSettings(NewInteriorSettings: cpp.Reference<InteriorSettings>): Void;
 	public function SetEnabled(bNewEnabled: Bool): Void;
 	public function OnRep_bEnabled(): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

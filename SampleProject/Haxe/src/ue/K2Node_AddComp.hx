@@ -3,10 +3,13 @@ package ue;
 
 @:native("UK2Node_AddComponent")
 @:include("K2Node_AddComponent.h")
+@:structAccess
 extern class K2Node_AddComp extends K2Node_CallFunction {
 	public var bHasExposedVariable: Bool;
 	public var TemplateBlueprint: FString;
 	public var TemplateType: TSubclassOf<Object>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

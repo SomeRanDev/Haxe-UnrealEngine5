@@ -3,9 +3,13 @@ package ue;
 
 @:native("FAIDynamicParam")
 @:include("EnvironmentQuery/EnvQueryTypes.h")
+@:structAccess
 extern class AIDynamicParam {
 	public var ParamName: FName;
 	public var ParamType: EAIParamType;
 	public var Value: cpp.Float32;
 	public var BBKey: BlackboardKeySelector;
+
+	@:native("FAIDynamicParam") public function new();
+	@:native("FAIDynamicParam") public static function make(ParamName: FName, ParamType: EAIParamType, Value: cpp.Float32, BBKey: BlackboardKeySelector): AIDynamicParam ;
 }

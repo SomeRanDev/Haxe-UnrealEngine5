@@ -3,7 +3,10 @@ package ue;
 
 @:native("UTestPhaseComponent")
 @:include("TestPhaseComponent.h")
+@:structAccess
 extern class TestPhaseComp extends SceneComp {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

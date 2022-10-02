@@ -2,7 +2,10 @@
 package ue;
 
 @:native("USimpleListItemEventDynamic__PythonCallable")
+@:structAccess
 extern class SimpleListItemEventDynamic__PythonCallable extends PythonCallableForDelegate {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

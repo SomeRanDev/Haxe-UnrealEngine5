@@ -3,7 +3,11 @@ package ue;
 
 @:native("FPaperFlipbookKeyFrame")
 @:include("PaperFlipbook.h")
+@:structAccess
 extern class PaperFlipbookKeyFrame {
 	public var Sprite: cpp.Star<PaperSprite>;
 	public var FrameRun: cpp.Int32;
+
+	@:native("FPaperFlipbookKeyFrame") public function new();
+	@:native("FPaperFlipbookKeyFrame") public static function make(Sprite: cpp.Star<PaperSprite>, FrameRun: cpp.Int32): PaperFlipbookKeyFrame ;
 }

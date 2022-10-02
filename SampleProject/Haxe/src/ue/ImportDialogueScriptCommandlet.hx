@@ -3,7 +3,10 @@ package ue;
 
 @:native("UImportDialogueScriptCommandlet")
 @:include("Commandlets/ImportDialogueScriptCommandlet.h")
+@:structAccess
 extern class ImportDialogueScriptCommandlet extends GatherTextCommandletBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

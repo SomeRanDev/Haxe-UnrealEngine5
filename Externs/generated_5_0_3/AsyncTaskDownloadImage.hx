@@ -3,11 +3,14 @@ package ue;
 
 @:native("UAsyncTaskDownloadImage")
 @:include("Blueprint/AsyncTaskDownloadImage.h")
+@:structAccess
 extern class AsyncTaskDownloadImage extends BlueprintAsyncActionBase {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(cpp.Star<Texture2DDynamic>) -> Void>;
 	public var OnFail: HaxeMulticastSparseDelegateProperty<(cpp.Star<Texture2DDynamic>) -> Void>;
 
 	public function DownloadImage(URL: FString): cpp.Reference<cpp.Star<AsyncTaskDownloadImage>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

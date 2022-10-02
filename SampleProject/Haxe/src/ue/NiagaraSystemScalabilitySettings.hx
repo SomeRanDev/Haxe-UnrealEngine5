@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraSystemScalabilitySettings")
 @:include("NiagaraEffectType.h")
+@:structAccess
 extern class NiagaraSystemScalabilitySettings {
 	public var Platforms: NiagaraPlatformSet;
 	public var bCullByDistance: Bool;
@@ -16,4 +17,6 @@ extern class NiagaraSystemScalabilitySettings {
 	public var CullProxyMode: ENiagaraCullProxyMode;
 	public var MaxSystemProxies: cpp.Int32;
 	public var BudgetScaling: NiagaraGlobalBudgetScaling;
+
+	@:native("FNiagaraSystemScalabilitySettings") public function new();
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UTextLayoutWidget")
 @:include("Components/TextWidgetTypes.h")
+@:structAccess
 extern class TextLayoutWidget extends Widget {
 	public var ShapedTextOptions: ShapedTextOptions;
 	public var Justification: ETextJustify;
@@ -13,6 +14,8 @@ extern class TextLayoutWidget extends Widget {
 	public var LineHeightPercentage: cpp.Float32;
 
 	public function SetJustification(InJustification: ETextJustify): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

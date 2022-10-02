@@ -3,6 +3,7 @@ package ue;
 
 @:native("AGameSession")
 @:include("GameFramework/GameSession.h")
+@:structAccess
 extern class GameSession extends Info {
 	public var MaxSpectators: cpp.Int32;
 	public var MaxPlayers: cpp.Int32;
@@ -10,6 +11,8 @@ extern class GameSession extends Info {
 	public var MaxSplitscreensPerConnection: cpp.UInt8;
 	public var bRequiresPushToTalk: Bool;
 	public var SessionName: FName;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

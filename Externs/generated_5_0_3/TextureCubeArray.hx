@@ -3,8 +3,11 @@ package ue;
 
 @:native("UTextureCubeArray")
 @:include("Engine/TextureCubeArray.h")
+@:structAccess
 extern class TextureCubeArray extends Texture {
 	public var SourceTextures: TArray<cpp.Star<TextureCube>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

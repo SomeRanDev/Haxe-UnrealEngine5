@@ -3,7 +3,10 @@ package ue;
 
 @:native("UControlRigAnimInstance")
 @:include("ControlRigAnimInstance.h")
+@:structAccess
 extern class ControlRigAnimInstance extends AnimInstance {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

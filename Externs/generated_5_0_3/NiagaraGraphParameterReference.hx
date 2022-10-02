@@ -3,8 +3,12 @@ package ue;
 
 @:native("FNiagaraGraphParameterReference")
 @:include("NiagaraGraph.h")
+@:structAccess
 extern class NiagaraGraphParameterReference {
 	public var Key: Guid;
 	public var Value: TWeakObjectPtr<Object>;
 	public var bIsUserFacing: Bool;
+
+	@:native("FNiagaraGraphParameterReference") public function new();
+	@:native("FNiagaraGraphParameterReference") public static function make(Key: Guid, Value: TWeakObjectPtr<Object>, bIsUserFacing: Bool): NiagaraGraphParameterReference ;
 }

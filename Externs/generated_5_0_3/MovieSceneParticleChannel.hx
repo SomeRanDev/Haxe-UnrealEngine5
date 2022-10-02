@@ -3,5 +3,7 @@ package ue;
 
 @:native("FMovieSceneParticleChannel")
 @:include("Sections/MovieSceneParticleSection.h")
+@:structAccess
 extern class MovieSceneParticleChannel extends MovieSceneByteChannel {
+	@:native("FMovieSceneParticleChannel") public function new();
 }

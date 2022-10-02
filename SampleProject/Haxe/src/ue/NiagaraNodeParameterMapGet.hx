@@ -3,8 +3,11 @@ package ue;
 
 @:native("UNiagaraNodeParameterMapGet")
 @:include("NiagaraNodeParameterMapGet.h")
+@:structAccess
 extern class NiagaraNodeParameterMapGet extends NiagaraNodeParameterMapBase {
 	public var PinOutputToPinDefaultPersistentId: TMap<Guid, Guid>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

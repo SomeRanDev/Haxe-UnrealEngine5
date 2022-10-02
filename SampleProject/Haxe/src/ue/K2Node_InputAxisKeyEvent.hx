@@ -3,11 +3,14 @@ package ue;
 
 @:native("UK2Node_InputAxisKeyEvent")
 @:include("K2Node_InputAxisKeyEvent.h")
+@:structAccess
 extern class K2Node_InputAxisKeyEvent extends K2Node_Event {
 	public var AxisKey: Key;
 	public var bConsumeInput: Bool;
 	public var bExecuteWhenPaused: Bool;
 	public var bOverrideParentBinding: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

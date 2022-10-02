@@ -3,6 +3,7 @@ package ue;
 
 @:native("UScalableSphereGizmo")
 @:include("BaseGizmos/ScalableSphereGizmo.h")
+@:structAccess
 extern class ScalableSphereGizmo extends InteractiveGizmo {
 	public var HitErrorThreshold: cpp.Float32;
 	public var TransactionDescription: FText;
@@ -14,6 +15,8 @@ extern class ScalableSphereGizmo extends InteractiveGizmo {
 	public var DragStartWorldPosition: Vector;
 	public var DragCurrentPositionProjected: Vector;
 	public var InteractionStartParameter: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

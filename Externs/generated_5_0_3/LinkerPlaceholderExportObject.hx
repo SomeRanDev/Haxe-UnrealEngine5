@@ -2,7 +2,10 @@
 package ue;
 
 @:native("ULinkerPlaceholderExportObject")
+@:structAccess
 extern class LinkerPlaceholderExportObject extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

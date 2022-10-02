@@ -3,7 +3,10 @@ package ue;
 
 @:native("ULevelStreamingLevelInstanceEditor")
 @:include("LevelInstance/LevelInstanceEditorLevelStreaming.h")
+@:structAccess
 extern class LevelStreamingLevelInstanceEditor extends LevelStreamingAlwaysLoaded {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

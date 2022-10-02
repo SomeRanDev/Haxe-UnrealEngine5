@@ -3,10 +3,13 @@ package ue;
 
 @:native("UFieldSystemMetaDataProcessingResolution")
 @:include("Field/FieldSystemObjects.h")
+@:structAccess
 extern class FieldSystemMetaDataProcessingResolution extends FieldSystemMetaData {
 	public var ResolutionType: EFieldResolutionType;
 
 	public function SetMetaDataaProcessingResolutionType(ResolutionType: EFieldResolutionType): cpp.Reference<cpp.Star<FieldSystemMetaDataProcessingResolution>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,8 +3,12 @@ package ue;
 
 @:native("FFoliageVertexColorChannelMask")
 @:include("FoliageType.h")
+@:structAccess
 extern class FoliageVertexColorChannelMask {
 	public var UseMask: Bool;
 	public var MaskThreshold: cpp.Float32;
 	public var InvertMask: Bool;
+
+	@:native("FFoliageVertexColorChannelMask") public function new();
+	@:native("FFoliageVertexColorChannelMask") public static function make(UseMask: Bool, MaskThreshold: cpp.Float32, InvertMask: Bool): FoliageVertexColorChannelMask ;
 }

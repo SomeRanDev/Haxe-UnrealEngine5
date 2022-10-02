@@ -3,6 +3,7 @@ package ue;
 
 @:native("UPaperTileMapComponent")
 @:include("PaperTileMapComponent.h")
+@:structAccess
 extern class PaperTileMapComp extends MeshComp {
 	public var MapWidth_DEPRECATED: cpp.Int32;
 	public var MapHeight_DEPRECATED: cpp.Int32;
@@ -40,6 +41,8 @@ extern class PaperTileMapComp extends MeshComp {
 	public function GetLayerColor(Layer: cpp.Int32): cpp.Reference<LinearColor>;
 	public function CreateNewTileMap(MapWidth: cpp.Int32, MapHeight: cpp.Int32, TileWidth: cpp.Int32, TileHeight: cpp.Int32, PixelsPerUnrealUnit: cpp.Float32, bCreateLayer: Bool): Void;
 	public function AddNewLayer(): cpp.Reference<cpp.Star<PaperTileLayer>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(OwnsTileMap, GetTilePolygon, GetTileMapColor, GetTileCornerPosition, GetTileCenterPosition, GetTile, GetLayerColor)

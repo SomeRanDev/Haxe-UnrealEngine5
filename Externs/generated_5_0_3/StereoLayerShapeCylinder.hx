@@ -3,6 +3,7 @@ package ue;
 
 @:native("UStereoLayerShapeCylinder")
 @:include("Components/StereoLayerComponent.h")
+@:structAccess
 extern class StereoLayerShapeCylinder extends StereoLayerShape {
 	public var Radius: cpp.Float32;
 	public var OverlayArc: cpp.Float32;
@@ -11,6 +12,8 @@ extern class StereoLayerShapeCylinder extends StereoLayerShape {
 	public function SetRadius(InRadius: cpp.Float32): Void;
 	public function SetOverlayArc(InOverlayArc: cpp.Float32): Void;
 	public function SetHeight(InHeight: cpp.Int32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

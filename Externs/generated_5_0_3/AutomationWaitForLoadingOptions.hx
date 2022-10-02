@@ -3,6 +3,10 @@ package ue;
 
 @:native("FAutomationWaitForLoadingOptions")
 @:include("AutomationBlueprintFunctionLibrary.h")
+@:structAccess
 extern class AutomationWaitForLoadingOptions {
 	public var WaitForReplicationToSettle: Bool;
+
+	@:native("FAutomationWaitForLoadingOptions") public function new();
+	@:native("FAutomationWaitForLoadingOptions") public static function make(WaitForReplicationToSettle: Bool): AutomationWaitForLoadingOptions ;
 }

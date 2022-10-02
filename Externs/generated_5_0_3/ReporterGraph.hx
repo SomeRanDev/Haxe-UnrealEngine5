@@ -3,7 +3,10 @@ package ue;
 
 @:native("UReporterGraph")
 @:include("Debug/ReporterGraph.h")
+@:structAccess
 extern class ReporterGraph extends ReporterBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

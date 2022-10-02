@@ -3,9 +3,12 @@ package ue;
 
 @:native("UParticleModuleAccelerationDrag")
 @:include("Particles/Acceleration/ParticleModuleAccelerationDrag.h")
+@:structAccess
 extern class ParticleModuleAccelerationDrag extends ParticleModuleAccelerationBase {
 	public var DragCoefficient_DEPRECATED: cpp.Star<DistributionFloat>;
 	public var DragCoefficientRaw: RawDistributionFloat;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

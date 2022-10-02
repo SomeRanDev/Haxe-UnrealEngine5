@@ -3,6 +3,7 @@ package ue;
 
 @:native("UGameViewportClient")
 @:include("Engine/GameViewportClient.h")
+@:structAccess
 extern class GameViewportClient extends ScriptViewportClient {
 	public var ViewportConsole: cpp.Star<Console>;
 	public var DebugProperties: TArray<DebugDisplayProperty>;
@@ -13,6 +14,8 @@ extern class GameViewportClient extends ScriptViewportClient {
 	public function SSSwapControllers(): Void;
 	public function ShowTitleSafeArea(): Void;
 	public function SetConsoleTarget(PlayerIndex: cpp.Int32): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

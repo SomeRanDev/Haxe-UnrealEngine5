@@ -3,8 +3,11 @@ package ue;
 
 @:native("UChaosSolverSettings")
 @:include("Chaos/ChaosSolverSettings.h")
+@:structAccess
 extern class ChaosSolverSettings extends DeveloperSettings {
 	public var DefaultChaosSolverActorClass: SoftClassPath;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

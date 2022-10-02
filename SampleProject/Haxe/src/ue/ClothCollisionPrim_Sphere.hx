@@ -3,8 +3,12 @@ package ue;
 
 @:native("FClothCollisionPrim_Sphere")
 @:include("ClothCollisionPrim.h")
+@:structAccess
 extern class ClothCollisionPrim_Sphere {
 	public var BoneIndex: cpp.Int32;
 	public var Radius: cpp.Float32;
 	public var LocalPosition: Vector;
+
+	@:native("FClothCollisionPrim_Sphere") public function new();
+	@:native("FClothCollisionPrim_Sphere") public static function make(BoneIndex: cpp.Int32, Radius: cpp.Float32, LocalPosition: Vector): ClothCollisionPrim_Sphere ;
 }

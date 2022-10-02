@@ -3,9 +3,12 @@ package ue;
 
 @:native("UInterpFilter_Classes")
 @:include("Matinee/InterpFilter_Classes.h")
+@:structAccess
 extern class InterpFilter_Classes extends InterpFilter {
 	public var ClassToFilterBy: TSubclassOf<Object>;
 	public var TrackClasses: TArray<TSubclassOf<Object>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

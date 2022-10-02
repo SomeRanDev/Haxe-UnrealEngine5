@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMotionTrackedDeviceFunctionLibrary")
 @:include("MotionTrackedDeviceFunctionLibrary.h")
+@:structAccess
 extern class MotionTrackedDeviceFunctionLibrary extends BlueprintFunctionLibrary {
 	public function SetIsControllerMotionTrackingEnabledByDefault(Enable: Bool): Void;
 	public function IsMotionTrackingEnabledForSource(PlayerIndex: cpp.Int32, SourceName: FName): cpp.Reference<Bool>;
@@ -22,6 +23,8 @@ extern class MotionTrackedDeviceFunctionLibrary extends BlueprintFunctionLibrary
 	public function DisableMotionTrackingOfControllersForPlayer(PlayerIndex: cpp.Int32): Void;
 	public function DisableMotionTrackingOfAllControllers(): Void;
 	public function DisableMotionTrackingForComponent(MotionControllerComponent: cpp.Star<MotionControllerComp.ConstMotionControllerComp>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

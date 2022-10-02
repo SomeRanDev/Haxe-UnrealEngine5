@@ -3,9 +3,12 @@ package ue;
 
 @:native("ULandscapeWeightmapUsage")
 @:include("LandscapeWeightmapUsage.h")
+@:structAccess
 extern class LandscapeWeightmapUsage extends Object {
 	public var ChannelUsage: cpp.Star<LandscapeComp>;
 	public var LayerGuid: Guid;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

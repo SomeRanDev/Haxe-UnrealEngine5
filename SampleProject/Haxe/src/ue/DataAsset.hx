@@ -3,8 +3,11 @@ package ue;
 
 @:native("UDataAsset")
 @:include("Engine/DataAsset.h")
+@:structAccess
 extern class DataAsset extends Object {
 	public var NativeClass: TSubclassOf<DataAsset>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

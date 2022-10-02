@@ -3,9 +3,12 @@ package ue;
 
 @:native("UCompositeDataTable")
 @:include("Engine/CompositeDataTable.h")
+@:structAccess
 extern class CompositeDataTable extends DataTable {
 	public var ParentTables: TArray<cpp.Star<DataTable>>;
 	public var OldParentTables: TArray<cpp.Star<DataTable>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

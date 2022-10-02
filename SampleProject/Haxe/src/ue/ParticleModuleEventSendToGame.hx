@@ -3,7 +3,10 @@ package ue;
 
 @:native("UParticleModuleEventSendToGame")
 @:include("Particles/Event/ParticleModuleEventSendToGame.h")
+@:structAccess
 extern class ParticleModuleEventSendToGame extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

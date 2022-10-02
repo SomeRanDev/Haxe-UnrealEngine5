@@ -3,6 +3,7 @@ package ue;
 
 @:native("UIKRigDefinition")
 @:include("IKRigDefinition.h")
+@:structAccess
 extern class IKRigDefinition extends Object {
 	public var DrawBones: Bool;
 	public var BoneSize: cpp.Float32;
@@ -15,6 +16,8 @@ extern class IKRigDefinition extends Object {
 	public var Goals: TArray<cpp.Star<IKRigEffectorGoal>>;
 	public var Solvers: TArray<cpp.Star<IKRigSolver>>;
 	public var RetargetDefinition: RetargetDefinition;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

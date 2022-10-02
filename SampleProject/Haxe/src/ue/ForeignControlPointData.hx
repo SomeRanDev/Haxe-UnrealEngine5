@@ -3,8 +3,12 @@ package ue;
 
 @:native("FForeignControlPointData")
 @:include("LandscapeSplinesComponent.h")
+@:structAccess
 extern class ForeignControlPointData {
 	public var ModificationKey: Guid;
 	public var MeshComponent: cpp.Star<ControlPointMeshComp>;
 	public var Identifier: TLazyObjectPtr<LandscapeSplineControlPoint>;
+
+	@:native("FForeignControlPointData") public function new();
+	@:native("FForeignControlPointData") public static function make(ModificationKey: Guid, MeshComponent: cpp.Star<ControlPointMeshComp>, Identifier: TLazyObjectPtr<LandscapeSplineControlPoint>): ForeignControlPointData ;
 }

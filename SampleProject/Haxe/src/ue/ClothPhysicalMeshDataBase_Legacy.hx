@@ -3,6 +3,7 @@ package ue;
 
 @:native("UClothPhysicalMeshDataBase_Legacy")
 @:include("ClothPhysicalMeshDataBase_Legacy.h")
+@:structAccess
 extern class ClothPhysicalMeshDataBase_Legacy extends Object {
 	public var Vertices: TArray<Vector3f>;
 	public var Normals: TArray<Vector3f>;
@@ -13,6 +14,8 @@ extern class ClothPhysicalMeshDataBase_Legacy extends Object {
 	public var NumFixedVerts: cpp.Int32;
 	public var MaxBoneWeights: cpp.Int32;
 	public var SelfCollisionIndices: TArray<cpp.UInt32>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

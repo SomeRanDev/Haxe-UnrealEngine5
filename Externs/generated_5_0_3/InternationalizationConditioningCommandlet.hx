@@ -3,7 +3,10 @@ package ue;
 
 @:native("UInternationalizationConditioningCommandlet")
 @:include("Commandlets/InternationalizationConditioningCommandlet.h")
+@:structAccess
 extern class InternationalizationConditioningCommandlet extends GatherTextCommandletBase {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

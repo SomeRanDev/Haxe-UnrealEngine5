@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMovieSceneEntitySystemLinker")
 @:include("EntitySystem/MovieSceneEntitySystemLinker.h")
+@:structAccess
 extern class MovieSceneEntitySystemLinker extends Object {
 	public var SystemGraph: MovieSceneEntitySystemGraph;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

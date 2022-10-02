@@ -3,11 +3,14 @@ package ue;
 
 @:native("ASpectatorBeaconHost")
 @:include("SpectatorBeaconHost.h")
+@:structAccess
 extern class SpectatorBeaconHost extends OnlineBeaconHostObject {
 	public var State: cpp.Star<SpectatorBeaconState>;
 	public var bLogoutOnSessionTimeout: Bool;
 	public var SessionTimeoutSecs: cpp.Float32;
 	public var TravelSessionTimeoutSecs: cpp.Float32;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

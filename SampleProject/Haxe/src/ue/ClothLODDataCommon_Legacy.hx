@@ -3,11 +3,14 @@ package ue;
 
 @:native("UClothLODDataCommon_Legacy")
 @:include("ClothLODData_Legacy.h")
+@:structAccess
 extern class ClothLODDataCommon_Legacy extends Object {
 	public var PhysicalMeshData_DEPRECATED: cpp.Star<ClothPhysicalMeshDataBase_Legacy>;
 	public var ClothPhysicalMeshData: ClothPhysicalMeshData;
 	public var CollisionData: ClothCollisionData;
 	public var ParameterMasks: TArray<PointWeightMap>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

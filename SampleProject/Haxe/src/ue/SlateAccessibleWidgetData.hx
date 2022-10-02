@@ -3,6 +3,7 @@ package ue;
 
 @:native("USlateAccessibleWidgetData")
 @:include("Components/SlateWrapperTypes.h")
+@:structAccess
 extern class SlateAccessibleWidgetData extends Object {
 	public var bCanChildrenBeAccessible: Bool;
 	public var AccessibleBehavior: ESlateAccessibleBehavior;
@@ -13,6 +14,8 @@ extern class SlateAccessibleWidgetData extends Object {
 	public var AccessibleSummaryTextDelegate: HaxeDelegateProperty<() -> Void>;
 
 	public function GetText__DelegateSignature(): cpp.Reference<FText>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

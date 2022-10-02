@@ -3,10 +3,13 @@ package ue;
 
 @:native("UInputRouter")
 @:include("InputRouter.h")
+@:structAccess
 extern class InputRouter extends Object {
 	public var bAutoInvalidateOnHover: Bool;
 	public var bAutoInvalidateOnCapture: Bool;
 	public var ActiveInputBehaviors: cpp.Star<InputBehaviorSet>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

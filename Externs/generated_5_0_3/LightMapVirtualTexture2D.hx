@@ -3,8 +3,11 @@ package ue;
 
 @:native("ULightMapVirtualTexture2D")
 @:include("VT/LightmapVirtualTexture.h")
+@:structAccess
 extern class LightMapVirtualTexture2D extends Texture2D {
 	public var TypeToLayer: TArray<cpp.Int8>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

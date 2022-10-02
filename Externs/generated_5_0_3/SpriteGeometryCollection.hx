@@ -3,6 +3,7 @@ package ue;
 
 @:native("FSpriteGeometryCollection")
 @:include("SpriteEditorOnlyTypes.h")
+@:structAccess
 extern class SpriteGeometryCollection {
 	public var Shapes: TArray<SpriteGeometryShape>;
 	public var GeometryType: ESpritePolygonMode;
@@ -12,4 +13,6 @@ extern class SpriteGeometryCollection {
 	public var AlphaThreshold: cpp.Float32;
 	public var DetailAmount: cpp.Float32;
 	public var SimplifyEpsilon: cpp.Float32;
+
+	@:native("FSpriteGeometryCollection") public function new();
 }

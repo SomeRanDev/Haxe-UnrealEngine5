@@ -3,7 +3,11 @@ package ue;
 
 @:native("FHapticFeedbackDetails_Curve")
 @:include("Haptics/HapticFeedbackEffect_Curve.h")
+@:structAccess
 extern class HapticFeedbackDetails_Curve {
 	public var Frequency: RuntimeFloatCurve;
 	public var Amplitude: RuntimeFloatCurve;
+
+	@:native("FHapticFeedbackDetails_Curve") public function new();
+	@:native("FHapticFeedbackDetails_Curve") public static function make(Frequency: RuntimeFloatCurve, Amplitude: RuntimeFloatCurve): HapticFeedbackDetails_Curve ;
 }

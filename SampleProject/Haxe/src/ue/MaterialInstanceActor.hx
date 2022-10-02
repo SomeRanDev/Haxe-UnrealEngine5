@@ -3,8 +3,11 @@ package ue;
 
 @:native("AMaterialInstanceActor")
 @:include("Materials/MaterialInstanceActor.h")
+@:structAccess
 extern class MaterialInstanceActor extends Actor {
 	public var TargetActors: TArray<cpp.Star<Actor>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

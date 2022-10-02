@@ -3,6 +3,10 @@ package ue;
 
 @:native("FAITestSpawnSet")
 @:include("FunctionalAITest.h")
+@:structAccess
 extern class AITestSpawnSet extends AITestSpawnSetBase {
 	public var SpawnInfoContainer: TArray<AITestSpawnInfo>;
+
+	@:native("FAITestSpawnSet") public function new();
+	@:native("FAITestSpawnSet") public static function make(SpawnInfoContainer: TArray<AITestSpawnInfo>): AITestSpawnSet ;
 }

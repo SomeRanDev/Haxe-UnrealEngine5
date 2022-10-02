@@ -3,5 +3,7 @@ package ue;
 
 @:native("FISMClientInstanceManagerData")
 @:include("ISMPartition/ISMPartitionInstanceManager.h")
+@:structAccess
 extern class ISMClientInstanceManagerData {
+	@:native("FISMClientInstanceManagerData") public function new();
 }

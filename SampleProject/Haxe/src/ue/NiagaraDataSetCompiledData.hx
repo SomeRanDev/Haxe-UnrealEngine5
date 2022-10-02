@@ -3,6 +3,7 @@ package ue;
 
 @:native("FNiagaraDataSetCompiledData")
 @:include("NiagaraDataSet.h")
+@:structAccess
 extern class NiagaraDataSetCompiledData {
 	public var Variables: TArray<NiagaraVariable>;
 	public var VariableLayouts: TArray<NiagaraVariableLayoutInfo>;
@@ -12,4 +13,6 @@ extern class NiagaraDataSetCompiledData {
 	public var TotalHalfComponents: cpp.UInt32;
 	public var bRequiresPersistentIDs: Bool;
 	public var SimTarget: ENiagaraSimTarget;
+
+	@:native("FNiagaraDataSetCompiledData") public function new();
 }

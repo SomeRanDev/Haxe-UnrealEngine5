@@ -3,7 +3,11 @@ package ue;
 
 @:native("FCaptureResolution")
 @:include("MovieSceneCaptureSettings.h")
+@:structAccess
 extern class CaptureResolution {
 	public var ResX: cpp.Int32;
 	public var ResY: cpp.Int32;
+
+	@:native("FCaptureResolution") public function new();
+	@:native("FCaptureResolution") public static function make(ResX: cpp.Int32, ResY: cpp.Int32): CaptureResolution ;
 }

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UCineCameraComponent")
 @:include("CineCameraComponent.h")
+@:structAccess
 extern class CineCameraComp extends CameraComp {
 	public var FilmbackSettings_DEPRECATED: CameraFilmbackSettings;
 	public var Filmback: CameraFilmbackSettings;
@@ -34,6 +35,8 @@ extern class CineCameraComp extends CameraComp {
 	public function GetFilmbackPresetsCopy(): cpp.Reference<TArray<NamedFilmbackPreset>>;
 	public function GetFilmbackPresetName(): cpp.Reference<FString>;
 	public function GetDefaultFilmbackPresetName(): cpp.Reference<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(GetVerticalFieldOfView, GetLensPresetName, GetHorizontalFieldOfView, GetFilmbackPresetName, GetDefaultFilmbackPresetName)

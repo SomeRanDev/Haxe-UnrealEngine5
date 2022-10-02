@@ -3,6 +3,7 @@ package ue;
 
 @:native("UKismetSystemLibrary")
 @:include("Kismet/KismetSystemLibrary.h")
+@:structAccess
 extern class KismetSystemLibrary extends BlueprintFunctionLibrary {
 	public function UnregisterForRemoteNotifications(): Void;
 	public function UnloadPrimaryAssetList(PrimaryAssetIdList: cpp.Reference<TArray<PrimaryAssetId>>): Void;
@@ -268,6 +269,8 @@ extern class KismetSystemLibrary extends BlueprintFunctionLibrary {
 	public function BoxOverlapActors(WorldContextObject: cpp.Star<Object.ConstObject>, BoxPos: Vector, BoxExtent: Vector, ObjectTypes: cpp.Reference<TArray<EObjectTypeQuery>>, ActorClassFilter: cpp.Star<Class>, ActorsToIgnore: cpp.Reference<TArray<cpp.Star<Actor>>>, OutActors: cpp.Reference<TArray<cpp.Star<Actor>>>): cpp.Reference<Bool>;
 	public function BeginTransaction(Context: FString, Description: FText, PrimaryObject: cpp.Star<Object>): cpp.Reference<cpp.Int32>;
 	public function AddFloatHistorySample(Value: cpp.Float32, FloatHistory: cpp.Reference<DebugFloatHistory>): cpp.Reference<DebugFloatHistory>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

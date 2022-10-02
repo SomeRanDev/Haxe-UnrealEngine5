@@ -3,6 +3,7 @@ package ue;
 
 @:native("UClothConfigNv")
 @:include("ClothConfigNv.h")
+@:structAccess
 extern class ClothConfigNv extends ClothConfigCommon {
 	public var ClothingWindMethod: EClothingWindMethodNv;
 	public var VerticalConstraint: ClothConstraintSetupNv;
@@ -36,6 +37,8 @@ extern class ClothConfigNv extends ClothConfigCommon {
 	public var HorizontalConstraintConfig_DEPRECATED: ClothConstraintSetup_Legacy;
 	public var BendConstraintConfig_DEPRECATED: ClothConstraintSetup_Legacy;
 	public var ShearConstraintConfig_DEPRECATED: ClothConstraintSetup_Legacy;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

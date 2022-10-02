@@ -3,9 +3,12 @@ package ue;
 
 @:native("AVectorFieldVolume")
 @:include("VectorField/VectorFieldVolume.h")
+@:structAccess
 extern class VectorFieldVolume extends Actor {
 	public var VectorFieldComponent: cpp.Star<VectorFieldComp>;
 	public var SpriteComponent: cpp.Star<BillboardComp>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

@@ -3,6 +3,7 @@ package ue;
 
 @:native("UMatineeCameraShake")
 @:include("MatineeCameraShake.h")
+@:structAccess
 extern class MatineeCameraShake extends CameraShakeBase {
 	public var OscillationDuration: cpp.Float32;
 	public var OscillationBlendInTime: cpp.Float32;
@@ -28,6 +29,8 @@ extern class MatineeCameraShake extends CameraShakeBase {
 	public function ReceivePlayShake(Scale: cpp.Float32): Void;
 	public function ReceiveIsFinished(): cpp.Reference<Bool>;
 	public function BlueprintUpdateCameraShake(DeltaTime: cpp.Float32, Alpha: cpp.Float32, POV: cpp.Reference<MinimalViewInfo>, ModifiedPOV: cpp.Reference<MinimalViewInfo>): Void;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward(ReceiveIsFinished)

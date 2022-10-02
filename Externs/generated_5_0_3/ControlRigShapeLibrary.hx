@@ -3,11 +3,14 @@ package ue;
 
 @:native("UControlRigShapeLibrary")
 @:include("ControlRigGizmoLibrary.h")
+@:structAccess
 extern class ControlRigShapeLibrary extends Object {
 	public var DefaultShape: ControlRigShapeDefinition;
 	public var DefaultMaterial: TSoftObjectPtr<Material>;
 	public var MaterialColorParameter: FName;
 	public var Shapes: TArray<ControlRigShapeDefinition>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

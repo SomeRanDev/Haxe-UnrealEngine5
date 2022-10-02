@@ -3,7 +3,10 @@ package ue;
 
 @:native("UAudioLinkSettingsAbstract")
 @:include("AudioLinkSettingsAbstract.h")
+@:structAccess
 extern class AudioLinkSettingsAbstract extends Object {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

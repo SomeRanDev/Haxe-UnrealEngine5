@@ -3,8 +3,11 @@ package ue;
 
 @:native("UEscalationManagerConfig")
 @:include("Net/Core/Connection/EscalationStates.h")
+@:structAccess
 extern class EscalationManagerConfig extends StatePerObjectConfig {
 	public var EscalationSeverity: TArray<FString>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

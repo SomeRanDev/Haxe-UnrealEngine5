@@ -3,8 +3,11 @@ package ue;
 
 @:native("UModeManagerInteractiveToolsContext")
 @:include("EdModeInteractiveToolsContext.h")
+@:structAccess
 extern class ModeManagerInteractiveToolsContext extends EditorInteractiveToolsContext {
 	public var EdModeToolsContexts: TArray<cpp.Star<EdModeInteractiveToolsContext>>;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

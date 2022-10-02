@@ -3,7 +3,10 @@ package ue;
 
 @:native("UK2Node_AddComponentByClass")
 @:include("K2Node_AddComponentByClass.h")
+@:structAccess
 extern class K2Node_AddComponentByClass extends K2Node_ConstructObjectFromClass {
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

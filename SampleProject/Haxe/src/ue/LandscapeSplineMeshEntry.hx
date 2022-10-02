@@ -3,6 +3,7 @@ package ue;
 
 @:native("FLandscapeSplineMeshEntry")
 @:include("LandscapeSplineSegment.h")
+@:structAccess
 extern class LandscapeSplineMeshEntry {
 	public var Mesh: cpp.Star<StaticMesh>;
 	public var MaterialOverrides: TArray<cpp.Star<MaterialInterface>>;
@@ -13,4 +14,6 @@ extern class LandscapeSplineMeshEntry {
 	public var Orientation_DEPRECATED: LandscapeSplineMeshOrientation;
 	public var ForwardAxis: ESplineMeshAxis;
 	public var UpAxis: ESplineMeshAxis;
+
+	@:native("FLandscapeSplineMeshEntry") public function new();
 }

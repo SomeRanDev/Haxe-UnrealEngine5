@@ -3,6 +3,7 @@ package ue;
 
 @:native("FPlatformInterfaceData")
 @:include("Engine/PlatformInterfaceBase.h")
+@:structAccess
 extern class PlatformInterfaceData {
 	public var DataName: FName;
 	public var Type: EPlatformInterfaceDataType;
@@ -10,4 +11,6 @@ extern class PlatformInterfaceData {
 	public var FloatValue: cpp.Float32;
 	public var StringValue: FString;
 	public var ObjectValue: cpp.Star<Object>;
+
+	@:native("FPlatformInterfaceData") public function new();
 }

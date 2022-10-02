@@ -3,6 +3,7 @@ package ue;
 
 @:native("UParticleModuleAttractorPoint")
 @:include("Particles/Attractor/ParticleModuleAttractorPoint.h")
+@:structAccess
 extern class ParticleModuleAttractorPoint extends ParticleModuleAttractorBase {
 	public var Position: RawDistributionVector;
 	public var Range: RawDistributionFloat;
@@ -17,6 +18,8 @@ extern class ParticleModuleAttractorPoint extends ParticleModuleAttractorBase {
 	public var Negative_X: Bool;
 	public var Negative_Y: Bool;
 	public var Negative_Z: Bool;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()

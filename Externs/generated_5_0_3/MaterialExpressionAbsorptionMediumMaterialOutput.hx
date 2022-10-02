@@ -3,8 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionAbsorptionMediumMaterialOutput")
 @:include("Materials/MaterialExpressionAbsorptionMediumMaterialOutput.h")
+@:structAccess
 extern class MaterialExpressionAbsorptionMediumMaterialOutput extends MaterialExpressionCustomOutput {
 	public var TransmittanceColor: ExpressionInput;
+
+	public static function StaticClass(): cpp.Star<Class>;
 }
 
 @:forward()
