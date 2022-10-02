@@ -11,6 +11,7 @@ haxe compile.hxml
 ```
 
 ### Build Plugin
+* Edit HaxePlugin/Build.bat to change `%UNREAL_DIR%` to Unreal Engine directory and `%SAMPLEPROJECT_DIR%` to the absolute directory of the Unreal project.
 ```
 cd HaxePlugin
 Build.bat
@@ -23,7 +24,7 @@ haxe compile.hxml
 ```
 
 ### Open/Compile UE Project
-Simply hit the compile button in Unreal and you're good to go!
+* Simply hit the compile button in Unreal and you're good to go!
 
-(May also need to "check" the plugin ON in the editor as well).
+* (May also need to "check" the plugin ON in the editor as well).
 
