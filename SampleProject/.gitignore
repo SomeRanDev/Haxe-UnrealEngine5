@@ -2,12 +2,15 @@
 Source/HaxeProject/HaxeOutput/
 Haxe/output/
 Haxe/CopyHxOutputToSourceFolder/Classes.txt
+HaxePlugin/Haxe/bin/
 
 # No need to recommit bindings
 Haxe/src/ue/
 
 # Personal components of the project I do not wish to commit yet
 Haxe/build.bat
+
+# This is built using "HaxePlugin"
 Plugins/HaxeCompatibility
 
 # Visual Studio 2015 user specific files
