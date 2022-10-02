@@ -9,6 +9,7 @@ Haxe/src/ue/
 
 # Personal components of the project I do not wish to commit yet
 Haxe/build.bat
+HaxePlugin/PersonalBuild.bat
 
 # This is built using "HaxePlugin"
 Plugins/HaxeCompatibility
