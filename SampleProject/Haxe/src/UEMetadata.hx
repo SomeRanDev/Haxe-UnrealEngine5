@@ -249,6 +249,7 @@ class UEMetadata {
 		}
 
 		final originalName = field.name;
+		var access = field.access.concat([]);
 		if(field.access != null && field.access.contains(AOverride)) {
 			field.access.remove(AOverride);
 		}
@@ -271,7 +272,7 @@ class UEMetadata {
 				},
 				args: funData.args
 			}),
-			access: [AOverride]
+			access: access
 		};
 
 		/*
