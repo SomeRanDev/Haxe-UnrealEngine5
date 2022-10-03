@@ -12,16 +12,6 @@ class UEMetadata {
 	// Store the package name we're focusing on
 	static var packageName: String;
 
-	// OBSOLETE
-	// Store list of classes in our package.
-	// We use this later to know which .cpp/.h files to copy into Unreal's Source folder.
-	// static var nativeClassNames: Array<String> = [];
-
-	// OBSOLETE
-	// This is the text file that will store a the files listed in "nativeClassNames"
-	// This file is read in another process for copying the correct .cpp/.h files
-	// static var classOutputFile: Null<String>;
-
 	// A quick refernce to a "Position" so we don't need to make a new one
 	// everytime we need to create an Expr or MetadataEntry.
 	static var nopos: Position;
@@ -32,13 +22,6 @@ class UEMetadata {
 		// Store the package name we are focused on
 		UEMetadata.packageName = packageName;
 
-		// OBSOLETE
-		// If there is a "ClassListFilePath" definition, set "classOutputFile" to it
-		// final classListDefine = Context.defined("ClassListFilePath") ? Context.definedValue("ClassListFilePath") : null;
-		// if(classListDefine != null) {
-		// 	UEMetadata.classOutputFile = classListDefine;
-		// }
-
 		// Generate nopos
 		nopos = Context.makePosition({
 			min: 0, max: 100, file: "Another World"
@@ -46,22 +29,7 @@ class UEMetadata {
 
 		// Call "onBuild" for every member in our package
 		Compiler.addGlobalMetadata(packageName, "@:build(UEMetadata.onBuild())");
-
-		// OBSOLETE
-		// If an output filename is provided, set up "onComplete" to save it later
-		// if(classListDefine != null) {
-		//	Context.onGenerate(onComplete);
-		// }
 	}
-
-	// OBSOLETE
-	// Called on Context.onGenerate
-	// public static function onComplete(types: Array<haxe.macro.Type>) {
-		// Save all the nativeClassNames to be used in different process
-	//	if(classOutputFile != null) {
-	//		sys.io.File.saveContent(classOutputFile, nativeClassNames.join("\n"));
-	//	}
-	//}
 
 	// Called as @:build macro for every type in our package
 	public static function onBuild(): Array<Field> {
@@ -144,10 +112,6 @@ class UEMetadata {
 		for(extra in extraFields) {
 			fields.push(extra);
 		}
-
-		// Store native class name so we know which ones to copy from our
-		// Haxe/C++ ouput into Unreal's Source folder
-		nativeClassNames.push(nativeName);
 
 		// fields metadata may have been modified, so return them
 		return fields;

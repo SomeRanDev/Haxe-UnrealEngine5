@@ -9,7 +9,7 @@ import haxe.iterators.ArrayKeyValueIterator;
 @:structAccess
 class TArrayHX<T> {
 	public extern function Num(): Int;
-	public extern function Append(other: Array<T>): Void;
+	public extern function Append(other: TArrayHX<T>): Void;
 	public extern function Pop(): T;
 	public extern function Push(Item: T): Void;
 	public extern function Remove(Item: T): Int;
@@ -26,7 +26,7 @@ class TArrayHX<T> {
 	public extern function At(Index: Int): T;
 
 	@:native("operator=")
-	public extern function ReplaceSelf(Other: Array<T>): cpp.Reference<Array<T>>;
+	public extern function ReplaceSelf(Other: TArrayHX<T>): cpp.Reference<TArrayHX<T>>;
 
 	public var length(get, null):Int;
 
@@ -37,7 +37,7 @@ class TArrayHX<T> {
 	@:native("TArray")
 	public function new(): Void {}
 
-	public function concat(a: Array<T>): Array<T> {
+	public function concat(a: TArrayHX<T>): TArrayHX<T> {
 		final result = this;
 		result.Append(a);
 		return result;
@@ -57,7 +57,7 @@ class TArrayHX<T> {
 	}
 
 	public function reverse(): Void {
-		final result = new Array<T>();
+		final result = new TArrayHX<T>();
 		var i = get_length() - 1;
 		while(i >= 0) {
 			result.push(At(i));
@@ -67,13 +67,13 @@ class TArrayHX<T> {
 	}
 
 	public function shift(): Null<T> {
-		if(get_length() == 0) throw "No elements Haxe-UnrealEngine, Array.hx: \"shift\" function";
+		if(get_length() == 0) throw "No elements Haxe-UnrealEngine, TArrayHX.hx: \"shift\" function";
 		final result = At(0);
 		RemoveAt(0);
 		return result;
 	}
 
-	public function slice(pos: Int, end: Int = -1): Array<T> {
+	public function slice(pos: Int, end: Int = -1): TArrayHX<T> {
 		final size = end == -1 ? get_length() - pos : end - pos;
 		return untyped __cpp__("TArray(TArrayView({0}).Slice({1}, {2}))", this, pos, size);
 	}
@@ -82,7 +82,7 @@ class TArrayHX<T> {
 		Sort();
 	}
 
-	public function splice(pos: Int, len: Int): Array<T> {
+	public function splice(pos: Int, len: Int): TArrayHX<T> {
 		var counter = len;
 		while(counter-- > 0) {
 			RemoveAt(pos);
@@ -120,7 +120,7 @@ class TArrayHX<T> {
 		return FindLast(x);
 	}
 
-	public function copy(): Array<T> {
+	public function copy(): TArrayHX<T> {
 		return untyped __cpp__("TArray({0})", this);
 	}
 
@@ -132,16 +132,16 @@ class TArrayHX<T> {
 		return new ArrayKeyValueIterator(this);
 	}
 
-	@:runtime public inline function map<S>(f: T->S): Array<S> {
-		final result = new Array<S>();
+	@:runtime public inline function map<S>(f: T->S): TArrayHX<S> {
+		final result = new TArrayHX<S>();
 		for (v in this) {
 			result.push(f(v));
 		}
 		return result;
 	}
 
-	@:runtime public inline function filter(f:T->Bool): Array<T> {
-		final result = new Array<T>();
+	@:runtime public inline function filter(f:T->Bool): TArrayHX<T> {
+		final result = new TArrayHX<T>();
 		for (v in this) {
 			if(f(v)) {
 				result.push(v);
@@ -154,7 +154,7 @@ class TArrayHX<T> {
 		SetNum(len, true);
 	}
 
-	public function toArray(): Array<T> {
+	public function toArray(): TArrayHX<T> {
 		return this;
 	}
 }
