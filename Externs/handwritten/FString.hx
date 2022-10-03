@@ -6,7 +6,7 @@ package ue;
 @:include("Containers/UnrealString.h")
 extern class IFString {
 	@:native("FString")
-	public static function fromConstCharStar(ccs: cpp.ConstCharStar);
+	public static function fromConstCharStar(ccs: cpp.ConstCharStar): FString;
 }
 
 @:nativeGen

@@ -43,6 +43,19 @@
 
 
 
+// ------------------------------------------------------------------------------------
+// * THE METADATA TO GENERATE
+// Depending on how you use the externs, you may want to use metadata that affects
+// Haxe directly, or custom metadata that are later customized using macros.
+// ------------------------------------------------------------------------------------
+
+#ifndef INCLUDE_META
+
+#define INCLUDE_META FString("@:include")
+
+#endif
+
+
 
 // ------------------------------------------------------------------------------------
 // * EXTRA EXTERN CLASS
@@ -525,7 +538,7 @@ void ConvertUEnumToHaxe(UEnum* e) {
 
 	auto includePath = e->GetMetaData(TEXT("ModuleRelativePath"));
 	if(!includePath.IsEmpty()) {
-		haxeSource += "@:include(\"" + includePath.Replace(TEXT("Classes/"), TEXT("")).Replace(TEXT("Public/"), TEXT("")) + "\")\n";
+		haxeSource += INCLUDE_META + "(\"" + includePath.Replace(TEXT("Classes/"), TEXT("")).Replace(TEXT("Public/"), TEXT("")) + "\")\n";
 	}
 
 	haxeSource += "extern enum " + cppName + " {\n";
@@ -554,7 +567,7 @@ void ConvertUStructToHaxe(UStruct* s) {
 
 	auto includePath = s->GetMetaData(TEXT("ModuleRelativePath"));
 	if(!includePath.IsEmpty()) {
-		haxeSource += "@:include(\"" + includePath.Replace(TEXT("Classes/"), TEXT("")).Replace(TEXT("Public/"), TEXT("")) + "\")\n";
+		haxeSource += INCLUDE_META + "(\"" + includePath.Replace(TEXT("Classes/"), TEXT("")).Replace(TEXT("Public/"), TEXT("")) + "\")\n";
 	}
 
 	haxeSource += "@:structAccess\n";
@@ -628,7 +641,7 @@ void ConvertUClassToHaxe(UClass* cls) {
 	FString haxeSource = GetHeader();
 	haxeSource += "@:native(\"" + cppName + "\")\n";
 	if(!headerPath.IsEmpty()) {
-		haxeSource += "@:include(\"" + headerPath + "\")\n";
+		haxeSource += INCLUDE_META + "(\"" + headerPath + "\")\n";
 	}
 	haxeSource += "@:structAccess\n";
 	if(hasExtraExterns) {
@@ -942,7 +955,6 @@ void SetupExtraExterns() {
 	USceneComponent.AddFunc("public overload function AddWorldOffset(DeltaLocation: Vector, bSweep: Bool): Void");
 	USceneComponent.AddFunc("public overload function AddWorldOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
 	USceneComponent.AddFunc("public overload function AddWorldOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
-	USceneComponent.AddFunc("public overload function AddWorldOffset(DeltaLocation: Vector): Void");
 	USceneComponent.AddFunc("public overload function AddWorldRotation(DeltaRotation: Rotator): Void");
 	USceneComponent.AddFunc("public overload function AddWorldRotation(DeltaRotation: Rotator, bSweep: Bool): Void");
 	USceneComponent.AddFunc("public overload function AddWorldRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
@@ -964,7 +976,7 @@ void SaveExtraExtern(ExtraExtern& extraExtern) {
 	FString haxeSource = GetHeader();
 	haxeSource += "@:native(\"" + extraExtern.CppName + "\")\n";
 	if(extraExtern.Include.IsSet()) {
-		haxeSource += "@:include(\"" + extraExtern.Include.GetValue() + "\")\n";
+		haxeSource += INCLUDE_META + "(\"" + extraExtern.Include.GetValue() + "\")\n";
 	}
 	haxeSource += "@:structAccess\n";
 	for(auto& meta : extraExtern.Meta) {
