@@ -2,47 +2,54 @@ package game;
 
 import ue.*;
 
-using ue_helpers.StringHelpers; // .TEXT() and .CSTR()
+using ue_helpers.StringHelpers; // .TEXT()
 
-@:cppFileCode("void __boot_all();")
 class MyActor extends Actor {
+	// All UE classes are assumed to be value types.
+	// To specify they are pointers, cpp.Star should be used.
 	@:uprop var Root: cpp.Star<SceneComp>;
 
+	// Most Haxe API should work.
+	// No doubt bugs will appear in the future for stuff I haven't tested
 	var testMap: Map<String, cpp.Star<SceneComp>>;
 
 	@:ueExport
 	public function new() {
+		// Unfortunately, a little work needs to be done for the CreateDefaultSubobject to work like in C++
+		// For now, you need to provide the StaticClass in the second argument and "cast" the result.
 		Root = cast CreateDefaultSubobject("TestRoot".TEXT(), SceneComp.StaticClass());
 
+		// Required for Tick function
 		PrimaryActorTick.bCanEverTick = true;
 	}
 
 	@:ueExport
 	override function BeginPlay() {
+		// super.BeginPlay must ALWAYS be included.
+		// Maybe this should be automated with macro??
 		super.BeginPlay();
 
-		untyped __cpp__("__boot_all()");
-
+		// Just testing Haxe-based data structures
 		testMap = [];
-		testMap.set("test", Root);
+		testMap["test"] = Root;
 
-		var source = sys.io.File.getBytes("Z:/Desktop/cppiatest/bin/script.cppia");
-		var module = cpp.cppia.Module.fromData(source.getData());
-		module.boot();
-		final cls = module.resolveClass("Test");
+		// Testing Haxe-exclusive methods
+		doThing("HELLO WORLD!");
 
-		//final test = { a: function() { trace("dyn call " + 543231); } };
-		Reflect.callMethod(cls, Reflect.getProperty(cls, "bla"), []);
-
+		// Testing trace
 		trace("begin play!!!");
 	}
 
+	// This function does not need @:ueExport since it is not called from C++
+	// BeginPlay and Tick are called by Unreal, so they require @:ueExport
 	function doThing(s: String) {
+		Root.AddLocalRotation(Rotator.make(100, 0, 0));
+		trace("Did thing with string: " + s);
 	}
 
 	@:ueExport
 	override function Tick(DeltaTime: cpp.Float64) {
+		// Once again, testing Haxe-based data structures
 		testMap["test"].AddWorldOffset(Vector.make(DeltaTime, 0, 0));
-		//Root.Add(Vector.make(0, 1, 0));
 	}
 }
