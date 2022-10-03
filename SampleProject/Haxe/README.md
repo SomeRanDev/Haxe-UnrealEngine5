@@ -14,9 +14,9 @@ This file is the main file for the Haxe project. It performs two processes. The 
 
 As described above, this folder contains a single `Main.hx` script that copies certain .cpp/.h from the Haxe/C++ output into the Unreal project's Source folder. In order to know which files to copy, it uses a text file that is generated using macros in the Haxe project. This text file simply lists all the classes in the "game" package of the Haxe project.
 
-## hxcpp-Unreal
+## hxcpp-include
 
-This is a custom version of hxcpp. hxcpp is a small library that is required to compile the C++ output from Haxe. Unfortunately, it comes packaged with a bunch of stuff that causes some errors in Unreal, and it has an unnecessary garbage collector. To resolve these issues, a custom version of hxcpp has been created. This version defines everything needed for the Haxe/C++ output to compile, but does so without implementing a garbage collector. In addition, std classes like `String`, `Array`, and `Map` now use Unreal's variations (`FString`, `TArray`, `TMap`, etc.).
+This is a slightly modified version of hxcpp's include folder. Some changes were made to comply with Unreal's much more strict error flags.
 
 ## src/UEMetadata.hx
 
