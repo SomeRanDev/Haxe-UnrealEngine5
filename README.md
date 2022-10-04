@@ -19,18 +19,15 @@ using ue_helpers.StringHelpers;
 class MyActor extends Actor {
 	// All UE classes are assumed to be value types.
 	// To specify they are pointers, cpp.Star should be used.
-	@:uprop
+	@:uprop(BlueprintReadWrite)
 	var Root: cpp.Star<SceneComp>;
 	
-	// Any function that may be called from C++ needs to be "exported"
-	@:ueExport
 	public function new() {
 		// CreateDefaultSubobject a little cluncky atm since Haxe doesn't support C++ template args
 		Root = cast CreateDefaultSubobject("TestRoot".TEXT(), SceneComp.StaticClass());
 		PrimaryActorTick.bCanEverTick = true;
 	}
-	
-	@:ueExport
+
 	override function BeginPlay() {
 		super.BeginPlay();
 		
@@ -38,9 +35,13 @@ class MyActor extends Actor {
 		trace("Beginning the game!");
 	}
 
-	@:ueExport
 	override function Tick(DeltaTime: cpp.Float64) {
 		Root.AddWorldOffset(Vector.make(DeltaTime, 0, 0));
+	}
+	
+	@:ufunc(BlueprintCallable)
+	public function printNumber(num: Int) {
+		trace("Number is: " + Std.string(num));
 	}
 }
 ```
