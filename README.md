@@ -57,7 +57,7 @@ The sample project is set up for Windows users and builds for 64 bit. Though set
 Unreal.hx specifically feels difficult to work with since everything is so intertwined. The auto-generated externs have special metadata which require the macro system to parse and function, there's a variety of complicated systems to make cppia and delegates work, etc. It's great when there's an active team maintaining it, but now it's just become a mess too complicated for idiots like me to figure out for themselves. This project aims to hopefully prevent such compleity issues by splitting things into bite-sized, modular pieces.
 
 ## Is there CPPIA support?
-Not at the moment. I'm sure it's possible to make happen in the future, but unlikely. I've tried to add it in all the obvious ways, but it never really works out. From what I can tell, adding CPPIA support would require an insane amount of work; so much so it'd just be easier to port [Unreal.hx](https://github.com/proletariatgames/unreal.hx). Trust me, I would love more than anything for such a feature to exist, but it's simply outside what I'm capable of at the moment. 
+~~Not at the moment. I'm sure it's possible to make happen in the future, but unlikely. I've tried to add it in all the obvious ways, but it never really works out. From what I can tell, adding CPPIA support would require an insane amount of work; so much so it'd just be easier to port [Unreal.hx](https://github.com/proletariatgames/unreal.hx). Trust me, I would love more than anything for such a feature to exist, but it's simply outside what I'm capable of at the moment.~~ Well, I slept on it, and I have one more idea I can try to make it work. I'm focusing on it now, so we'll see how it goes.
 
 # License
 
