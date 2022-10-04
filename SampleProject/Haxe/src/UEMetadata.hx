@@ -7,6 +7,13 @@ import haxe.macro.Context;
 import haxe.macro.Expr;
 import haxe.macro.Type.ClassType;
 
+// Enum used to tracking whether a class extends from AActor, UObject, or neither.
+enum abstract UnrealClassType(Int) {
+	var None = 0;
+	var UObject = 1;
+	var Actor = 2;
+}
+
 // Ok, let's go
 class UEMetadata {
 	// Store the package name we're focusing on
@@ -46,6 +53,13 @@ class UEMetadata {
 
 	// If the @:build macro has a valid ClassType, it used this function to process everything
 	static function onClassBuild(fields: Array<Field>, cls: ClassType): Array<Field> {
+		// Get UClass type
+		final uclsType = checkUnrealClassType(cls);
+
+		// If the class doesn't extend from UObject, ignore it
+		if(uclsType == None) {
+			return fields;
+		}
 
 		// Find any existing @:native metadata
 		var nativeName = getNativeName(cls);
@@ -54,7 +68,7 @@ class UEMetadata {
 		nativeName = {
 			// handleUClass adds "UCLASS()" attribute to the C++ output if
 			// the @:uclass meta is used or if extending from UObject
-			var newNativeName = handleUClass(cls, nativeName);
+			var newNativeName = handleUClass(cls, nativeName, uclsType);
 			newNativeName != null ? newNativeName : nativeName;
 		}
 
@@ -83,18 +97,26 @@ class UEMetadata {
 			final isFunc = switch(f.kind) { case FFun(_): true; case _: false; }
 
 			// Convert @:uprop to UPROPERTY, throw an error if the field isn't a variable
-			if(convertMetadataToNativePrepend(f, ":uprop", "UPROPERTY")) {
+			final uPropMeta = convertMetadataToNativePrepend(f, ":uprop", "UPROPERTY");
+			if(uPropMeta != null) {
 				if(isFunc) {
 					Context.error("Cannot use @:uprop on field that is not variable.", f.pos);
+				} else {
+					if(f.meta == null) f.meta = [];
+					f.meta.push(uPropMeta);
 				}
 			}
 
 			// Convert @:ufunc to UFUNCTION, throw an error if the field isn't a function
-			if(convertMetadataToNativePrepend(f, ":ufunc", "UFUNCTION")) {
+			final uFuncMeta = convertMetadataToNativePrepend(f, ":ufunc", "UFUNCTION");
+			if(uFuncMeta != null) {
 				if(!isFunc) {
 					Context.error("Cannot use @:ufunc on field that is not function.", f.pos);
 				} else {
-					// All UFUNCTION functions must be Unreal callable
+					// All UFUNCTIONs must be callable from C++
+					// Note: exporting the field replaces it with a new one,
+					//       so the "uFuncMeta" is added to the replacement instead of here.
+					if(f.meta == null) f.meta = [];
 					f.meta.push({ name: ":ueExport", params: [], pos: nopos });
 				}
 			}
@@ -104,6 +126,11 @@ class UEMetadata {
 				final newField = processUEExportMeta(f);
 				if(newField != null) {
 					extraFields.push(newField);
+
+					// The UFUNCTION meta be on the replacement field
+					if(uFuncMeta != null) {
+						newField.meta.push(uFuncMeta);
+					}
 				}
 			}
 		}
@@ -137,10 +164,9 @@ class UEMetadata {
 		}
 	}
 
-	// handleUClass adds "UCLASS()" attribute to the C++ output if the @:uclass meta is used or if extending from UObject
-	static function handleUClass(cls: ClassType, nativeName: Null<String>) {
+	// Checks if the class extends from UObject, AActor, or neither.
+	static function checkUnrealClassType(cls: ClassType): UnrealClassType {
 		final uclassMeta = cls.meta.extract(":uclass");
-
 		var isActor = false;
 		var isUObject = uclassMeta.length > 0;
 		var superCls = cls;
@@ -161,7 +187,18 @@ class UEMetadata {
 			superCls = sc;
 		}
 
+		return if(isActor) Actor;
+		else if(isUObject) UObject;
+		else None;
+	}
+
+	// handleUClass adds "UCLASS()" attribute to the C++ output if the @:uclass meta is used or if extending from UObject
+	static function handleUClass(cls: ClassType, nativeName: Null<String>, uclsType: UnrealClassType) {
+		final isUObject = uclsType != None;
+		final isActor = uclsType == Actor;
+
 		if(isUObject) {
+			final uclassMeta = cls.meta.extract(":uclass");
 			final paramsString = if(uclassMeta.length > 0 && uclassMeta[0].params != null) {
 				uclassMeta[0].params.map(p -> haxe.macro.ExprTools.toString(p)).join(", ");
 			} else {
@@ -190,7 +227,7 @@ class UEMetadata {
 	}
 
 	// Replaces an arbitrary metadata on a Field into a "native" Unreal attribute using @:headerDefinitionPrepend
-	static function convertMetadataToNativePrepend(field: Field, metaName: String, nativePrependName: String): Bool {
+	static function convertMetadataToNativePrepend(field: Field, metaName: String, nativePrependName: String): Null<MetadataEntry> {
 		var metadata = null;
 		if(field.meta != null) {
 			for(m in field.meta) {
@@ -202,7 +239,7 @@ class UEMetadata {
 		}
 
 		if(metadata == null) {
-			return false;
+			return null;
 		}
 
 		final paramsString = if(metadata.params != null) {
@@ -217,16 +254,28 @@ class UEMetadata {
 			nativePrependName + "()";
 		}
 
-		if(field.meta == null) field.meta = [];
-		field.meta.push({ name: ":headerDefinitionPrepend", params: [macro $v{cppAttr}], pos: nopos });
-
-		return true;
+		return { name: ":headerDefinitionPrepend", params: [macro $v{cppAttr}], pos: nopos };
 	}
 
 	// Process @:ueExport meta
 	static function processUEExportMeta(field: Field): Null<Field> {
 		var shouldExport = false;
-		if(field.meta != null) {
+		
+		// UObject descendant constructors should always be exported
+		if(field.name == "new") {
+			shouldExport = true;
+		}
+
+		// If this method overrides a method from an "extern" class, we export it regardless
+		if(!shouldExport) {
+			final isOverride = field.access != null && field.access.contains(AOverride);
+			if(isOverride && checkExternSuperClassesForMethod(Context.getLocalClass().get(), field.name)) {
+				shouldExport = true;
+			}
+		}
+		
+		// Check for @:ueExport metadata
+		if(!shouldExport && field.meta != null) {
 			for(m in field.meta) {
 				if(m.name == ":ueExport") {
 					shouldExport = true;
@@ -235,6 +284,7 @@ class UEMetadata {
 			}
 		}
 
+		// Do nothing if we do not need to export
 		if(!shouldExport) {
 			return null;
 		}
@@ -244,10 +294,12 @@ class UEMetadata {
 			case _: null;
 		}
 
+		// Only functions will be passed, but just in case...
 		if(funData == null) {
 			return null;
 		}
 
+		// Modify this function into a "Haxe" callable form
 		final originalName = field.name;
 		var access = field.access.concat([]);
 		if(field.access != null && field.access.contains(AOverride)) {
@@ -255,6 +307,9 @@ class UEMetadata {
 		}
 		field.name = "uehx_" + originalName;
 
+		// Generate a new function field that can be called from C++.
+		// It sets everything up properly for Haxe/C++ output to be executed,
+		// then calls the original version of this function.
 		final aliasCallText = field.name + "(" + funData.args.map(a -> a.name).join(", ") + ")";
 		final aliasCallExpr = Context.parse(aliasCallText, nopos);
 
@@ -272,27 +327,37 @@ class UEMetadata {
 				},
 				args: funData.args
 			}),
-			access: access
+			access: access,
+			meta: []
 		};
+	}
 
-		/*
-		final exprCopy = {
-			expr: expr.expr,
-			pos: expr.pos
-		};
-
-
-
-		final newExpr = macro {
-			untyped __cpp__("int top = 99");
-			untyped __cpp__("::hx::SetTopOfStack(&top, true)");
-			$i{field.name}();
-			untyped __cpp__("::hx::SetTopOfStack((int*)0, true)");
+	// This function checks a class's extern super classes for a method of a specific name.
+	// We need this since a function that's overridden from a C++ class may be called from C++.
+	// Thus we treat the function like it has @:ueExport metadata on it.
+	//
+	// Technically, this should only be done for C++ methods marked with "virtual", but
+	// there's no way to check this for that here at the moment. It's a pretty niche
+	// scenario, and the detriment for labeling something @:ueExport that doesn't need to be
+	// is pretty low, so it'll stay like this for the time being.
+	static function checkExternSuperClassesForMethod(cls: ClassType, fieldName: String): Bool {
+		if(cls.superClass == null) {
+			return false;
 		}
 
-		expr.expr = newExpr.expr;*/
+		final superCls = cls.superClass.t.get();
 
-		//return true;
+		if(superCls.isExtern) {
+			final fields = superCls.fields.get();
+			for(f in fields) {
+				final isMethod = switch(f.kind) { case FMethod(_): true; case _: false; }
+				if(isMethod && f.name == fieldName) {
+					return true;
+				}
+			}
+		}
+
+		return checkExternSuperClassesForMethod(superCls, fieldName);
 	}
 }
 
