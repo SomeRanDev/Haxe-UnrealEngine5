@@ -47,7 +47,7 @@ class MyActor extends Actor {
 ```
 
 ## Installation
-Download the `SampleProject` folder in this project and copy its contents into a fresh Unreal Engine project of a supported version (v5.0.3 supported atm). Follow the instructions in `SampleProject/README.md` to learn how to set things up. You pretty much just need to compile the Haxe code in the `HaxePlugin` folder, build the plugin, and you're good to go.
+Download the `SampleProject` folder in this project and copy its contents into a fresh Unreal Engine project of a supported version (v5.0.3 supported atm). Follow the instructions in `SampleProject/README.md` to learn how to set things up. You pretty much just need to compile the Haxe code in the `Haxe/HaxeStaticLib` folder and you're good to go.
 
 The sample project is set up for Windows users and builds for 64 bit. Though setting things up for other platforms shouldn't be too difficult, just change all the `.Build.cs` to use `.a` libraries instead of `.lib`, and change the `HX_WINDOWS` definition to whatever platform definition is used in Haxe.
 
