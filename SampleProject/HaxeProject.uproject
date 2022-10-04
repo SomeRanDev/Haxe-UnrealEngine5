@@ -8,6 +8,11 @@
 			"Name": "HaxeProject",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "HaxeCompatibility",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
 		}
 	],
 	"Plugins": [
@@ -17,10 +22,6 @@
 			"TargetAllowList": [
 				"Editor"
 			]
-		},
-		{
-			"Name": "HaxeCompatibility",
-			"Enabled": true
 		}
 	]
 }

@@ -1,0 +1,60 @@
+using System;
+using System.IO;
+using UnrealBuildTool;
+
+public class HaxeCompatibility: ModuleRules {
+	public HaxeCompatibility(ReadOnlyTargetRules Target): base(Target) {
+		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+
+		bUseRTTI = true;
+
+		// ========================================================================================
+		// * INCLUDE PATHS
+		// ========================================================================================
+		Console.WriteLine(ModuleDirectory);
+		PublicIncludePaths.AddRange(new string[] {
+			System.IO.Path.GetFullPath(
+				System.IO.Path.Combine(ModuleDirectory, "../../Haxe/hxcpp-include")
+			),
+			System.IO.Path.GetFullPath(
+				System.IO.Path.Combine(ModuleDirectory, "HaxeOutput/include")
+			),
+			System.IO.Path.GetFullPath(
+				System.IO.Path.Combine(ModuleDirectory, "HaxeOutput")
+			)
+		});
+
+		// ========================================================================================
+		// * MODULES
+		// ========================================================================================
+		PublicDependencyModuleNames.AddRange(new string[] {
+			"Core",
+			"CoreUObject",
+			"Engine",
+			"InputCore"
+		});
+
+		PrivateDependencyModuleNames.AddRange(new string[] {  });
+
+		// ========================================================================================
+		// * DEFINITIONS
+		// ========================================================================================
+		PublicDefinitions.AddRange(new string[] {
+			"HXCPP_API_LEVEL=430",
+			"HX_WINDOWS",
+			"HXCPP_M64",
+			"HXCPP_VISIT_ALLOCS",
+			"HX_SMART_STRINGS",
+			"_CRT_SECURE_NO_DEPRECATE",
+			"_ALLOW_MSC_VER_MISMATCH",
+			"_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH"
+		});
+
+		// ========================================================================================
+		// * LIBRARIES
+		// ========================================================================================
+		PublicAdditionalLibraries.AddRange( new string[] {
+			Path.Combine(ModuleDirectory, "../../Haxe/HaxeStaticLib/bin/liboutput.lib"),
+		});
+	}
+}

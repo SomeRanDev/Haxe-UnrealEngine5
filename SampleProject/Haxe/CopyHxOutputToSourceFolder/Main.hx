@@ -7,18 +7,14 @@ import haxe.macro.Compiler;
 //
 // Copies some of the C++ output our Haxe project makes and places it
 // in the Source folder for our Unreal Engine project.
-// 
-// The classes we copy are decided in Haxe's compile-time macros and saved
-// into the text file dictated by -D ClassListFilePath
 // ========================================================================
 function main() {
 	// The folder name for the Haxe/C++ output
 	final hxcppOutputFolder = "output";
 
 	// Get destination folder
-	final projectName = Compiler.getDefine("ProjectName");
 	final outputFolder = "HaxeOutput";
-	final destination = "../Source/" + projectName + "/" + outputFolder + "/";
+	final destination = "../Source/HaxeCompatibility/" + outputFolder + "/";
 
 	// List of files we don't want to copy to the UE source folder.
 	final fileFilters = ["__lib__.cpp"];

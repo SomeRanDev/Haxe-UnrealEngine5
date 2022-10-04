@@ -2,29 +2,29 @@
 
 This is a sample project to act as a working example of Haxe for Unreal Engine 5.
 
+
+## Making Sample Project Work
 To compile this project, follow these steps!
 
-### 1) Compile Plugin's Haxe Lib
+### 1) Compile HxCpp Static Lib
 ```
-cd HaxePlugin/Haxe
+cd Haxe/HaxeStaticLib
 haxe compile.hxml
 ```
 
-### 2) Build Plugin
-* Edit `HaxePlugin/Build.bat` to change `%UNREAL_DIR%` to Unreal Engine directory and `%SAMPLEPROJECT_DIR%` to the absolute directory of the Unreal project.
-```
-cd HaxePlugin
-Build.bat
-```
-
-### 3) Compile Main Project Haxe
+### 2) Compile Main Project Haxe
 ```
 cd Haxe
 haxe compile.hxml
 ```
 
-### 4) Open/Compile UE Project
+### 3) Open/Compile UE Project
 * Simply hit the compile button in Unreal and you're good to go!
 
-_(May also need to "check" the plugin ON in the editor as well)._
 
+## Adding Haxe to Existing Project
+To add Haxe to your own Unreal project, copy the `Haxe` and `Source/HaxeCompatibility` folders into your project.
+
+Next, add the "HaxeCompatibility" module to your `Source/PROJECTNAME.Target.cs` and `Source/PROJECTNAMEEditor.Target.cs` files. Refer to the `Source/HaxeProject.Target.cs` and `Source/HaxeProjectEditor.Target.cs` files for examples.
+
+Finally, open your project's `.uproject` file in a text editor and add the "HaxeCompatibility" module to the "Modules" list. Refer to the `SampleProject/HaxeProject.uproject` for an example.

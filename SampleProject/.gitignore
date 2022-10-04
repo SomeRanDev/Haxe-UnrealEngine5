@@ -1,8 +1,10 @@
 # Haxe C++ output
 Source/HaxeProject/HaxeOutput/
+Source/HaxeCompatibility/HaxeOutput/
 Haxe/output/
 Haxe/CopyHxOutputToSourceFolder/Classes.txt
 HaxePlugin/Haxe/bin/
+Haxe/HaxeStaticLib/bin/
 
 # No need to recommit bindings
 Haxe/src/ue/

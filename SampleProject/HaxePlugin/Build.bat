@@ -1,1 +1,0 @@
-"%UNREAL_DIR%/Engine/Build/BatchFiles/RunUAT.bat" BuildPlugin -Platform=Win64 -Plugin="%SAMPLEPROJECT_DIR%/HaxePlugin/HaxeCompatibility.uplugin" -Package="%SAMPLEPROJECT_DIR%/Plugins/HaxeCompatibility" -Rocket -noturnkeyvariables
