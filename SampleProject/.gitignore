@@ -17,7 +17,7 @@ HaxePlugin/PersonalBuild.bat
 Plugins/HaxeCompatibility
 
 # Temporary File of Class List for Renaming Files
-Haxe/CopyHxOutputToSourceFolder/UObjectClassList.txt
+Haxe/BuildScripts/UObjectClassList.txt
 
 # Visual Studio 2015 user specific files
 .vs/

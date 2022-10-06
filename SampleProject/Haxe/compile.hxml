@@ -1,10 +1,29 @@
 # ---------------------------------------------
+# * Setup Global Defines
+# ---------------------------------------------
+
+-D UObjectClassListPath=BuildScripts/UObjectClassList.txt
+
+# ---------------------------------------------
+# * Delete Output Folder If Exists
+# ---------------------------------------------
+
+--each
+
+# Script is stored in "BuildScripts"
+-cp BuildScripts
+
+# Call "DeleteHxOutputIfExists.hx" main function
+-main DeleteHxOutputIfExists
+
+# Interpret this Haxe script
+--interp
+
+# ---------------------------------------------
 # * Compile Haxe Project
 # ---------------------------------------------
 
--D UObjectClassListPath=CopyHxOutputToSourceFolder/UObjectClassList.txt
-
---each
+--next
 
 # Set Haxe source code folder
 -cp src
@@ -33,11 +52,11 @@ game
 
 --next
 
-# Script is stored in "CopyHxOutputToSourceFolder"
--cp CopyHxOutputToSourceFolder
+# Script is stored in "BuildScripts"
+-cp BuildScripts
 
-# Call script main function
--main Main
+# Call "CopyHxOutputToSourceFolder.hx" main function
+-main CopyHxOutputToSourceFolder
 
 # Interpret this Haxe script
 --interp
