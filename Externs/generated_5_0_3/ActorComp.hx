@@ -51,6 +51,11 @@ extern class ActorComp extends Object {
 	public function AddTickPrerequisiteComponent(PrerequisiteComponent: cpp.Star<ActorComp>): Void;
 	public function AddTickPrerequisiteActor(PrerequisiteActor: cpp.Star<Actor>): Void;
 	public function Activate(bReset: Bool): Void;
+	public function BeginPlay(): Void;
+	public function EndPlay(Reason: EEndPlayReason): Void;
+	public function InitializeComponent(): Void;
+	public function UninitializeComponent(): Void;
+	public function TickComponent(DeltaTime: cpp.Float32, TickType: ELevelTick, ThisTickFunction: cpp.Star<FActorComponentTickFunction>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
