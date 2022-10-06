@@ -8,6 +8,9 @@ public class HaxeCompatibility: ModuleRules {
 
 		bUseRTTI = true;
 
+		// Disable shadow variable errors
+		bEnableShadowVariableWarnings = false;
+
 		// ========================================================================================
 		// * INCLUDE PATHS
 		// ========================================================================================
