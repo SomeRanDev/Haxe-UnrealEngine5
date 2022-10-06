@@ -1,9 +1,7 @@
 package;
 
-function main() {
-	trace(ExportHaxe.add(324, 554));
-}
-
+// This code is kept around for testing purposes.
+// If you wish to expose your own custom C++ code, it can be done here.
 @:keep
 @:include('./../ExportHaxe.h')
 @:sourceFile('./../ExportHaxe.cpp')
@@ -14,7 +12,4 @@ extern class ExportHaxe {
 
 	@:native('sayHello')
 	static function sayHello(message: cpp.ConstCharStar): Void;
-
-	@:native("__boot_all")
-	static function BootAll(): Void;
 }
