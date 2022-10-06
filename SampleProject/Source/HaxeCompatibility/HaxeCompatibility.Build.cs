@@ -8,8 +8,11 @@ public class HaxeCompatibility: ModuleRules {
 
 		bUseRTTI = true;
 
-		// Disable shadow variable errors
+		#if UE_5_0_OR_LATER
+		ShadowVariableWarningLevel = WarningLevel.Warning;
+		#else
 		bEnableShadowVariableWarnings = false;
+		#endif
 
 		// ========================================================================================
 		// * INCLUDE PATHS

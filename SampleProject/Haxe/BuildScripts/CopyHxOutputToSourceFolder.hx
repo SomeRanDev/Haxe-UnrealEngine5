@@ -29,7 +29,7 @@ function main() {
 	final fileFilters = ["__lib__.cpp"];
 
 	// C++ error codes placed here will be disabled for Haxe/C++ output
-	final errorsToDisable = [4456, 4458];
+	final errorsToDisable = [];//[4456, 4458];
 	final disableErrorCode = errorsToDisable.map(code -> "#pragma warning(disable: " + Std.string(code) + ")").join("\n");
 
 	// Source file content prepend
