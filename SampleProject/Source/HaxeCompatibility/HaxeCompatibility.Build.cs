@@ -43,7 +43,6 @@ public class HaxeCompatibility: ModuleRules {
 		// ========================================================================================
 		PublicDefinitions.AddRange(new string[] {
 			"HXCPP_API_LEVEL=430",
-			"HX_WINDOWS",
 			"HXCPP_M64",
 			"HXCPP_VISIT_ALLOCS",
 			"HX_SMART_STRINGS",
@@ -51,6 +50,11 @@ public class HaxeCompatibility: ModuleRules {
 			"_ALLOW_MSC_VER_MISMATCH",
 			"_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH"
 		});
+		
+		if (Target.Platform == UnrealTargetPlatform.Win32 || Target.Platform == UnrealTargetPlatform.Win64)
+    	{
+			PublicDefinitions.Add("HX_WINDOWS");
+		}
 
 		// ========================================================================================
 		// * LIBRARIES
