@@ -103,7 +103,7 @@ class HXCPP_EXTERN_CLASS_ATTRIBUTES EnumBase_obj : public hx::Object
       inline ::Dynamic _hx_getParamI(int inId) { return _hx_getFixed()[inId]; }
       inline int _hx_getParamCount() { return mFixedFields; }
       // Alias for _hx_getParamI
-      Dynamic __GetItem(int inIndex) const;
+      //Dynamic __GetItem(int inIndex) const;
 
       // For legacy
       inline String __Tag() const { return _hx_tag; }
