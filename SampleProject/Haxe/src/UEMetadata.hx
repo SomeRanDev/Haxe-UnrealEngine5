@@ -105,6 +105,10 @@ class UEMetadata {
 		// Remove Haxe/C++ output class prepend content
 		addMeta(cls, ":headerClassNamePrepend");
 
+		// We rename the filename of the include to remove the Unreal prefix,
+		// so we need to make sure Haxe knows this too.
+		cls.meta.add(":include", [macro $v{cls.name + ".h"}], nopos);
+
 		// Unreal requires "<CLASS>.generated.h"
 		final generatedInclude = cls.name + ".generated.h";
 		cls.meta.add(":headerInclude", [macro $v{generatedInclude}], nopos);
