@@ -8,9 +8,18 @@ import haxe.macro.Compiler;
 // Copies some of the C++ output our Haxe project makes and places it
 // in the Source folder for our Unreal Engine project.
 // ========================================================================
+
 function main() {
 	// The folder name for the Haxe/C++ output
 	final hxcppOutputFolder = "output";
+
+	// List of UObject descendants that are compiled from Haxe
+	final uclassListPath = Compiler.getDefine("UObjectClassListPath");
+	final uclassListArray = sys.io.File.getContent(uclassListPath).split("\n").map(cls -> cls.split("|"));
+	final uclassReference: Map<String, String> = [];
+	for(cls in uclassListArray) {
+		uclassReference[cls[0]] = cls[1];
+	}
 
 	// Get destination folder
 	final outputFolder = "HaxeOutput";
@@ -19,8 +28,12 @@ function main() {
 	// List of files we don't want to copy to the UE source folder.
 	final fileFilters = ["__lib__.cpp"];
 
+	// C++ error codes placed here will be disabled for Haxe/C++ output
+	final errorsToDisable = [4456, 4458];
+	final disableErrorCode = errorsToDisable.map(code -> "#pragma warning(disable: " + Std.string(code) + ")").join("\n");
+
 	// Source file content prepend
-	final sourcePrepend = "#pragma warning(disable: 4458)\n";
+	final sourcePrepend = disableErrorCode + "\n";
 
 	// Create the destination folder if necessary.
 	if(!sys.FileSystem.exists(destination)) {
@@ -47,7 +60,7 @@ function main() {
 	// We want to find source + header pairs so the proper includes can be added.
 	for(sourceFile in outputSources) {
 		final path = new haxe.io.Path(sourceFile);
-		final sourceFileName = path.file + "." + path.ext;
+		final convertedFileName = convertClassName(path.file, uclassReference);
 		final relativeDir = path.dir.substring((hxcppOutputFolder + "/src").length);
 		final header = hxcppOutputFolder + "/include" + relativeDir + "/" + path.file + ".h";
 
@@ -55,7 +68,7 @@ function main() {
 		// So we're doing it here.
 		if(sys.FileSystem.exists(header) && outputHeaders.contains(header)) {
 			var cppContent = sys.io.File.getContent(sourceFile);
-			final includePath = (relativeDir.length > 0 ? (relativeDir.substring(1) + "/") : "") + path.file;
+			final includePath = (relativeDir.length > 0 ? (relativeDir.substring(1) + "/") : "") + convertedFileName;
 			cppContent = (sourcePrepend + "#include \"" + includePath + ".h\"\n\n" + cppContent);
 			sys.io.File.saveContent(sourceFile, cppContent);
 
@@ -63,7 +76,7 @@ function main() {
 			outputHeaders.remove(header);
 
 			// Copy header file to UE Source destination
-			final headerFileName = path.file + ".h";
+			final headerFileName = convertedFileName + ".h";
 			if(!fileFilters.contains(headerFileName)) {
 				copy(header, destination + "include" + relativeDir + "/" + headerFileName);
 			}
@@ -74,6 +87,7 @@ function main() {
 		}
 
 		// Copy source file to UE Source destination
+		final sourceFileName = convertedFileName + "." + path.ext;
 		if(!fileFilters.contains(sourceFileName)) {
 			copy(sourceFile, destination + "src" + relativeDir + "/" + sourceFileName);
 		}
@@ -83,7 +97,7 @@ function main() {
 	for(headerFile in outputHeaders) {
 		final path = new haxe.io.Path(headerFile);
 		final relativeDir = path.dir.substring(hxcppOutputFolder.length + 1);
-		final fileName = path.file + "." + path.ext;
+		final fileName = convertClassName(path.file, uclassReference) + "." + path.ext;
 		if(!fileFilters.contains(fileName)) {
 			copy(headerFile, destination + relativeDir + "/" + fileName);
 		}
@@ -95,6 +109,13 @@ function main() {
 	for(unusedFile in existingFiles) {
 		sys.FileSystem.deleteFile(unusedFile);
 	}
+}
+
+function convertClassName(clsName: String, uclassReference: Map<String, String>): String {
+	if(uclassReference.exists(clsName)) {
+		return uclassReference[clsName];
+	}
+	return clsName;
 }
 
 // This calls "sys.io.File.copy", but it will work even if the destination directory does not exist.

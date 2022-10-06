@@ -19,15 +19,20 @@ class UEMetadata {
 	// Store the package name we're focusing on
 	static var packageName: String;
 
+	// The list of UObject class file name conversions
+	static var uclassList: Array<Array<String>>;
+
 	// A quick refernce to a "Position" so we don't need to make a new one
 	// everytime we need to create an Expr or MetadataEntry.
 	static var nopos: Position;
 
 	// This function is called in the compile.hxml
 	public static function init(packageName: String) {
-
 		// Store the package name we are focused on
 		UEMetadata.packageName = packageName;
+
+		// Store list UObject descendants' original and new file names
+		uclassList = [];
 
 		// Generate nopos
 		nopos = Context.makePosition({
@@ -36,6 +41,18 @@ class UEMetadata {
 
 		// Call "onBuild" for every member in our package
 		Compiler.addGlobalMetadata(packageName, "@:build(UEMetadata.onBuild())");
+
+		// Setup our onAfterGenerate callback
+		if(Context.defined("UObjectClassListPath")) {
+			Context.onAfterGenerate(saveClassList);
+		}
+	}
+
+	// After generating classes, save the old/new file names to convert in "copy" process
+	static function saveClassList() {
+		final filePath = Context.definedValue("UObjectClassListPath");
+		final fileContent = uclassList.map(pair -> pair.join("|")).join("\n");
+		sys.io.File.saveContent(filePath, fileContent);
 	}
 
 	// Called as @:build macro for every type in our package
@@ -72,6 +89,10 @@ class UEMetadata {
 			newNativeName != null ? newNativeName : nativeName;
 		}
 
+		// Store native and original name so we can ensure file is named
+		// after the un-prefixed class name later.
+		uclassList.push([nativeName, cls.name]);
+
 		// Add @:nativeGen for cleaner, non-reflective output
 		addMeta(cls, ":nativeGen");
 
@@ -85,7 +106,7 @@ class UEMetadata {
 		addMeta(cls, ":headerClassNamePrepend");
 
 		// Unreal requires "<CLASS>.generated.h"
-		final generatedInclude = nativeName + ".generated.h";
+		final generatedInclude = cls.name + ".generated.h";
 		cls.meta.add(":headerInclude", [macro $v{generatedInclude}], nopos);
 
 		// Any extra fields we want to add afterward are collected here
@@ -212,15 +233,25 @@ class UEMetadata {
 			}
 			cls.meta.add(":headerDefinitionPrepend", [macro $v{cppAttr}], nopos);
 
-			// GENERATED_BODY() required for UClasses
-			cls.meta.add(":headerClassCode", [macro "GENERATED_BODY()"], nopos);
-
 			// Generate an Unreal compliant name based on whether extending from UObject or AActor
 			if(nativeName == null) {
 				final newNativeName = isActor ? ("A" + cls.name) : ("U" + cls.name);
 				cls.meta.add(":native", [macro $v{newNativeName}], nopos);
-				return newNativeName;
+				nativeName = newNativeName;
 			}
+
+			{
+				// This string is used as the argument for @:headerClassCode
+				var headerClassCode = "public:\n";
+
+				// GENERATED_BODY() required for UClasses
+				headerClassCode += "\tGENERATED_BODY()\n";
+				
+				// Apply @:headerClassCode
+				cls.meta.add(":headerClassCode", [macro $v{headerClassCode}], nopos);
+			}
+
+			return nativeName;
 		}
 
 		return null;

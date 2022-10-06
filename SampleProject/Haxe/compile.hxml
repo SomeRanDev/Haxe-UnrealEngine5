@@ -2,6 +2,8 @@
 # * Compile Haxe Project
 # ---------------------------------------------
 
+-D UObjectClassListPath=CopyHxOutputToSourceFolder/UObjectClassList.txt
+
 --each
 
 # Set Haxe source code folder
