@@ -875,6 +875,17 @@ void SetupExtraExterns() {
 	ExtraExterns.Add("Actor", AActor);
 
 	// ----------------------
+	// * UActorComponent
+	// ----------------------
+	ExtraExtern UActorComponent("ActorComp", "UActorComponent", FString("Object"), FString("Components/ActorComponent.h"));
+	UActorComponent.AddFunc("public function BeginPlay(): Void");
+	UActorComponent.AddFunc("public function EndPlay(Reason: EEndPlayReason): Void");
+	UActorComponent.AddFunc("public function InitializeComponent(): Void");
+	UActorComponent.AddFunc("public function UninitializeComponent(): Void");
+	UActorComponent.AddFunc("public function TickComponent(DeltaTime: cpp.Float32, TickType: ELevelTick, ThisTickFunction: cpp.Star<FActorComponentTickFunction>): Void");
+	ExtraExterns.Add("ActorComponent", UActorComponent);
+
+	// ----------------------
 	// * USceneComponent
 	// ----------------------
 	ExtraExtern USceneComponent("SceneComp", "USceneComponent", FString("ActorComp"), FString("Components/SceneComponent.h"));
