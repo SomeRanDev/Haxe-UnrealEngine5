@@ -8,6 +8,8 @@ public class HaxeCompatibility: ModuleRules {
 
 		bUseRTTI = true;
 
+		ShadowVariableWarningLevel = WarningLevel.Warning;
+
 		// ========================================================================================
 		// * INCLUDE PATHS
 		// ========================================================================================
