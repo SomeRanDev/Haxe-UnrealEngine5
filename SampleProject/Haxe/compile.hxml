@@ -10,8 +10,13 @@
 # We do not want the Haxe compiler to compile the C++ for us
 -D no-compilation
 
+#-lib hscript
+
 # Handle Unreal metadata in Haxe
 --macro UEMetadata.init("game")
+
+# Handle Unreal macro conflicts
+--macro UEMacroConflictFixer.init()
 
 # Ensure our "game" package is compiled
 game
