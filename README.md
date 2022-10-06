@@ -19,18 +19,15 @@ using ue_helpers.StringHelpers;
 class MyActor extends Actor {
 	// All UE classes are assumed to be value types.
 	// To specify they are pointers, cpp.Star should be used.
-	@:uprop
+	@:uprop(BlueprintReadWrite)
 	var Root: cpp.Star<SceneComp>;
 	
-	// Any function that may be called from C++ needs to be "exported"
-	@:ueExport
 	public function new() {
 		// CreateDefaultSubobject a little cluncky atm since Haxe doesn't support C++ template args
 		Root = cast CreateDefaultSubobject("TestRoot".TEXT(), SceneComp.StaticClass());
 		PrimaryActorTick.bCanEverTick = true;
 	}
-	
-	@:ueExport
+
 	override function BeginPlay() {
 		super.BeginPlay();
 		
@@ -38,15 +35,19 @@ class MyActor extends Actor {
 		trace("Beginning the game!");
 	}
 
-	@:ueExport
 	override function Tick(DeltaTime: cpp.Float64) {
 		Root.AddWorldOffset(Vector.make(DeltaTime, 0, 0));
+	}
+	
+	@:ufunc(BlueprintCallable)
+	public function printNumber(num: Int) {
+		trace("Number is: " + Std.string(num));
 	}
 }
 ```
 
 ## Installation
-Download the `SampleProject` folder in this project and copy its contents into a fresh Unreal Engine project of a supported version (v5.0.3 supported atm). Follow the instructions in `SampleProject/README.md` to learn how to set things up. You pretty much just need to compile the Haxe code in the `HaxePlugin` folder, build the plugin, and you're good to go.
+Download the `SampleProject` folder in this project and copy its contents into a fresh Unreal Engine project of a supported version (v5.0.3 supported atm). Follow the instructions in `SampleProject/README.md` to learn how to set things up. You pretty much just need to compile the Haxe code in the `Haxe/HaxeStaticLib` folder and you're good to go.
 
 The sample project is set up for Windows users and builds for 64 bit. Though setting things up for other platforms shouldn't be too difficult, just change all the `.Build.cs` to use `.a` libraries instead of `.lib`, and change the `HX_WINDOWS` definition to whatever platform definition is used in Haxe.
 
@@ -56,7 +57,7 @@ The sample project is set up for Windows users and builds for 64 bit. Though set
 Unreal.hx specifically feels difficult to work with since everything is so intertwined. The auto-generated externs have special metadata which require the macro system to parse and function, there's a variety of complicated systems to make cppia and delegates work, etc. It's great when there's an active team maintaining it, but now it's just become a mess too complicated for idiots like me to figure out for themselves. This project aims to hopefully prevent such compleity issues by splitting things into bite-sized, modular pieces.
 
 ## Is there CPPIA support?
-Not at the moment. I'm sure it's possible to make happen in the future, but unlikely. I've tried to add it in all the obvious ways, but it never really works out. From what I can tell, adding CPPIA support would require an insane amount of work; so much so it'd just be easier to port [Unreal.hx](https://github.com/proletariatgames/unreal.hx). Trust me, I would love more than anything for such a feature to exist, but it's simply outside what I'm capable of at the moment. 
+~~Not at the moment. I'm sure it's possible to make happen in the future, but unlikely. I've tried to add it in all the obvious ways, but it never really works out. From what I can tell, adding CPPIA support would require an insane amount of work; so much so it'd just be easier to port [Unreal.hx](https://github.com/proletariatgames/unreal.hx). Trust me, I would love more than anything for such a feature to exist, but it's simply outside what I'm capable of at the moment.~~ Well, I slept on it, and I have one more idea I can try to make it work. I'm focusing on it now, so we'll see how it goes.
 
 # License
 
