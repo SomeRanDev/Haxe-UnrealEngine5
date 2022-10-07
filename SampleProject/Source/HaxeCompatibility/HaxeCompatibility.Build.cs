@@ -54,11 +54,16 @@ public class HaxeCompatibility: ModuleRules {
 			"_ALLOW_MSC_VER_MISMATCH",
 			"_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH"
 		});
-		
-		if (Target.Platform == UnrealTargetPlatform.Win32 || Target.Platform == UnrealTargetPlatform.Win64)
-    	{
+
+		#if UE_5_0_OR_LATER
+		if(Target.Platform == UnrealTargetPlatform.Win64) {
 			PublicDefinitions.Add("HX_WINDOWS");
 		}
+		#else
+		if(Target.Platform == UnrealTargetPlatform.Win32 || Target.Platform == UnrealTargetPlatform.Win64) {
+			PublicDefinitions.Add("HX_WINDOWS");
+		}
+		#endif
 
 		// ========================================================================================
 		// * LIBRARIES
