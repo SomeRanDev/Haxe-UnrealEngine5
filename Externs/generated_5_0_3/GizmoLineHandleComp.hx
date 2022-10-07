@@ -31,3 +31,22 @@ abstract ConstGizmoLineHandleComp(GizmoLineHandleComp) from GizmoLineHandleComp 
 	public extern var bImageScale(get, never): Bool;
 	public inline extern function get_bImageScale(): Bool return this.bImageScale;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoLineHandleComp*")
+abstract GizmoLineHandleCompPtr(cpp.Star<GizmoLineHandleComp>) from cpp.Star<GizmoLineHandleComp> to cpp.Star<GizmoLineHandleComp>{
+	@:from
+	public static extern inline function fromValue(v: GizmoLineHandleComp): GizmoLineHandleCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoLineHandleComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

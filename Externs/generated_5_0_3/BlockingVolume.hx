@@ -13,3 +13,22 @@ extern class BlockingVolume extends Volume {
 @:nativeGen
 abstract ConstBlockingVolume(BlockingVolume) from BlockingVolume {
 }
+
+@:forward
+@:nativeGen
+@:native("BlockingVolume*")
+abstract BlockingVolumePtr(cpp.Star<BlockingVolume>) from cpp.Star<BlockingVolume> to cpp.Star<BlockingVolume>{
+	@:from
+	public static extern inline function fromValue(v: BlockingVolume): BlockingVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlockingVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

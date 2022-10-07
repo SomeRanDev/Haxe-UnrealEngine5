@@ -16,3 +16,22 @@ abstract ConstGizmoTransformProxyTransformSource(GizmoTransformProxyTransformSou
 	public extern var Proxy(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
 	public inline extern function get_Proxy(): cpp.Star<TransformProxy.ConstTransformProxy> return this.Proxy;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoTransformProxyTransformSource*")
+abstract GizmoTransformProxyTransformSourcePtr(cpp.Star<GizmoTransformProxyTransformSource>) from cpp.Star<GizmoTransformProxyTransformSource> to cpp.Star<GizmoTransformProxyTransformSource>{
+	@:from
+	public static extern inline function fromValue(v: GizmoTransformProxyTransformSource): GizmoTransformProxyTransformSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoTransformProxyTransformSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

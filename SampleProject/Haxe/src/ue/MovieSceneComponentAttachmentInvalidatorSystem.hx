@@ -13,3 +13,22 @@ extern class MovieSceneComponentAttachmentInvalidatorSystem extends MovieSceneEn
 @:nativeGen
 abstract ConstMovieSceneComponentAttachmentInvalidatorSystem(MovieSceneComponentAttachmentInvalidatorSystem) from MovieSceneComponentAttachmentInvalidatorSystem {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneComponentAttachmentInvalidatorSystem*")
+abstract MovieSceneComponentAttachmentInvalidatorSystemPtr(cpp.Star<MovieSceneComponentAttachmentInvalidatorSystem>) from cpp.Star<MovieSceneComponentAttachmentInvalidatorSystem> to cpp.Star<MovieSceneComponentAttachmentInvalidatorSystem>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneComponentAttachmentInvalidatorSystem): MovieSceneComponentAttachmentInvalidatorSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneComponentAttachmentInvalidatorSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

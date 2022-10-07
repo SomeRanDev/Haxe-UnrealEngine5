@@ -17,3 +17,21 @@ abstract ConstREINST_ABP_Quinn_C_1(REINST_ABP_Quinn_C_1) from REINST_ABP_Quinn_C
 	public extern var UberGraphFrame(get, never): PointerToUberGraphFrame;
 	public inline extern function get_UberGraphFrame(): PointerToUberGraphFrame return this.UberGraphFrame;
 }
+
+@:forward
+@:nativeGen
+@:native("REINST_ABP_Quinn_C_1*")abstract REINST_ABP_Quinn_C_1Ptr(cpp.Star<REINST_ABP_Quinn_C_1>) from cpp.Star<REINST_ABP_Quinn_C_1> to cpp.Star<REINST_ABP_Quinn_C_1>{
+	@:from
+	public static extern inline function fromValue(v: REINST_ABP_Quinn_C_1): REINST_ABP_Quinn_C_1Ptr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): REINST_ABP_Quinn_C_1 {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete() {
+		return untyped __cpp__("delete ({0})", this);
+	}
+}

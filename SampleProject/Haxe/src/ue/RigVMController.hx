@@ -141,3 +141,22 @@ abstract ConstRigVMController(RigVMController) from RigVMController {
 	public extern var ActionStack(get, never): cpp.Star<RigVMActionStack.ConstRigVMActionStack>;
 	public inline extern function get_ActionStack(): cpp.Star<RigVMActionStack.ConstRigVMActionStack> return this.ActionStack;
 }
+
+@:forward
+@:nativeGen
+@:native("RigVMController*")
+abstract RigVMControllerPtr(cpp.Star<RigVMController>) from cpp.Star<RigVMController> to cpp.Star<RigVMController>{
+	@:from
+	public static extern inline function fromValue(v: RigVMController): RigVMControllerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVMController {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

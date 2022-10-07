@@ -13,3 +13,22 @@ extern class DummyEndpointSettings extends AudioEndpointSettingsBase {
 @:nativeGen
 abstract ConstDummyEndpointSettings(DummyEndpointSettings) from DummyEndpointSettings {
 }
+
+@:forward
+@:nativeGen
+@:native("DummyEndpointSettings*")
+abstract DummyEndpointSettingsPtr(cpp.Star<DummyEndpointSettings>) from cpp.Star<DummyEndpointSettings> to cpp.Star<DummyEndpointSettings>{
+	@:from
+	public static extern inline function fromValue(v: DummyEndpointSettings): DummyEndpointSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DummyEndpointSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstInterpTrackVectorProp(InterpTrackVectorProp) from InterpTrackVecto
 	public extern var PropertyName(get, never): FName;
 	public inline extern function get_PropertyName(): FName return this.PropertyName;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackVectorProp*")
+abstract InterpTrackVectorPropPtr(cpp.Star<InterpTrackVectorProp>) from cpp.Star<InterpTrackVectorProp> to cpp.Star<InterpTrackVectorProp>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackVectorProp): InterpTrackVectorPropPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackVectorProp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

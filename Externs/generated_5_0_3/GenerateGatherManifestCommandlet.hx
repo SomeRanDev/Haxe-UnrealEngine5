@@ -13,3 +13,22 @@ extern class GenerateGatherManifestCommandlet extends GatherTextCommandletBase {
 @:nativeGen
 abstract ConstGenerateGatherManifestCommandlet(GenerateGatherManifestCommandlet) from GenerateGatherManifestCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("GenerateGatherManifestCommandlet*")
+abstract GenerateGatherManifestCommandletPtr(cpp.Star<GenerateGatherManifestCommandlet>) from cpp.Star<GenerateGatherManifestCommandlet> to cpp.Star<GenerateGatherManifestCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: GenerateGatherManifestCommandlet): GenerateGatherManifestCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GenerateGatherManifestCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

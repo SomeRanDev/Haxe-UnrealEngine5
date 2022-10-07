@@ -30,3 +30,22 @@ abstract ConstAISense_Blueprint(AISense_Blueprint) from AISense_Blueprint {
 	public extern var UnprocessedEvents(get, never): TArray<cpp.Star<AISenseEvent.ConstAISenseEvent>>;
 	public inline extern function get_UnprocessedEvents(): TArray<cpp.Star<AISenseEvent.ConstAISenseEvent>> return this.UnprocessedEvents;
 }
+
+@:forward
+@:nativeGen
+@:native("AISense_Blueprint*")
+abstract AISense_BlueprintPtr(cpp.Star<AISense_Blueprint>) from cpp.Star<AISense_Blueprint> to cpp.Star<AISense_Blueprint>{
+	@:from
+	public static extern inline function fromValue(v: AISense_Blueprint): AISense_BlueprintPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AISense_Blueprint {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

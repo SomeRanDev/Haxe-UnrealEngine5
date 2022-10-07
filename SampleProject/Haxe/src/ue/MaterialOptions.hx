@@ -31,3 +31,22 @@ abstract ConstMaterialOptions(MaterialOptions) from MaterialOptions {
 	public extern var TextureCoordinateIndex(get, never): cpp.Int32;
 	public inline extern function get_TextureCoordinateIndex(): cpp.Int32 return this.TextureCoordinateIndex;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialOptions*")
+abstract MaterialOptionsPtr(cpp.Star<MaterialOptions>) from cpp.Star<MaterialOptions> to cpp.Star<MaterialOptions>{
+	@:from
+	public static extern inline function fromValue(v: MaterialOptions): MaterialOptionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialOptions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

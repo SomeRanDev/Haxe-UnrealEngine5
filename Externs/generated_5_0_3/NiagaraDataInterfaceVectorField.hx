@@ -25,3 +25,22 @@ abstract ConstNiagaraDataInterfaceVectorField(NiagaraDataInterfaceVectorField) f
 	public extern var bTileZ(get, never): Bool;
 	public inline extern function get_bTileZ(): Bool return this.bTileZ;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceVectorField*")
+abstract NiagaraDataInterfaceVectorFieldPtr(cpp.Star<NiagaraDataInterfaceVectorField>) from cpp.Star<NiagaraDataInterfaceVectorField> to cpp.Star<NiagaraDataInterfaceVectorField>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceVectorField): NiagaraDataInterfaceVectorFieldPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceVectorField {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -27,3 +27,22 @@ abstract ConstEnvQueryGenerator_BlueprintBase(EnvQueryGenerator_BlueprintBase) f
 	public extern var GeneratedItemType(get, never): TSubclassOf<EnvQueryItemType.ConstEnvQueryItemType>;
 	public inline extern function get_GeneratedItemType(): TSubclassOf<EnvQueryItemType.ConstEnvQueryItemType> return this.GeneratedItemType;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryGenerator_BlueprintBase*")
+abstract EnvQueryGenerator_BlueprintBasePtr(cpp.Star<EnvQueryGenerator_BlueprintBase>) from cpp.Star<EnvQueryGenerator_BlueprintBase> to cpp.Star<EnvQueryGenerator_BlueprintBase>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryGenerator_BlueprintBase): EnvQueryGenerator_BlueprintBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryGenerator_BlueprintBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

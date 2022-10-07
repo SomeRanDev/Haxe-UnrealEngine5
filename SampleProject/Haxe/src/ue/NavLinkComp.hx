@@ -16,3 +16,22 @@ abstract ConstNavLinkComp(NavLinkComp) from NavLinkComp {
 	public extern var Links(get, never): TArray<NavigationLink>;
 	public inline extern function get_Links(): TArray<NavigationLink> return this.Links;
 }
+
+@:forward
+@:nativeGen
+@:native("NavLinkComp*")
+abstract NavLinkCompPtr(cpp.Star<NavLinkComp>) from cpp.Star<NavLinkComp> to cpp.Star<NavLinkComp>{
+	@:from
+	public static extern inline function fromValue(v: NavLinkComp): NavLinkCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavLinkComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

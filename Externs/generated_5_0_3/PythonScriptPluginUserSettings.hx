@@ -19,3 +19,22 @@ abstract ConstPythonScriptPluginUserSettings(PythonScriptPluginUserSettings) fro
 	public extern var bEnableContentBrowserIntegration(get, never): Bool;
 	public inline extern function get_bEnableContentBrowserIntegration(): Bool return this.bEnableContentBrowserIntegration;
 }
+
+@:forward
+@:nativeGen
+@:native("PythonScriptPluginUserSettings*")
+abstract PythonScriptPluginUserSettingsPtr(cpp.Star<PythonScriptPluginUserSettings>) from cpp.Star<PythonScriptPluginUserSettings> to cpp.Star<PythonScriptPluginUserSettings>{
+	@:from
+	public static extern inline function fromValue(v: PythonScriptPluginUserSettings): PythonScriptPluginUserSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PythonScriptPluginUserSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -15,3 +15,22 @@ extern class GameplayTask_ClaimResource extends GameplayTask {
 @:nativeGen
 abstract ConstGameplayTask_ClaimResource(GameplayTask_ClaimResource) from GameplayTask_ClaimResource {
 }
+
+@:forward
+@:nativeGen
+@:native("GameplayTask_ClaimResource*")
+abstract GameplayTask_ClaimResourcePtr(cpp.Star<GameplayTask_ClaimResource>) from cpp.Star<GameplayTask_ClaimResource> to cpp.Star<GameplayTask_ClaimResource>{
+	@:from
+	public static extern inline function fromValue(v: GameplayTask_ClaimResource): GameplayTask_ClaimResourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameplayTask_ClaimResource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

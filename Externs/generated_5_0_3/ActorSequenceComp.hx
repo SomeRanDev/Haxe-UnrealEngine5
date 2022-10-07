@@ -22,3 +22,22 @@ abstract ConstActorSequenceComp(ActorSequenceComp) from ActorSequenceComp {
 	public extern var SequencePlayer(get, never): cpp.Star<ActorSequencePlayer.ConstActorSequencePlayer>;
 	public inline extern function get_SequencePlayer(): cpp.Star<ActorSequencePlayer.ConstActorSequencePlayer> return this.SequencePlayer;
 }
+
+@:forward
+@:nativeGen
+@:native("ActorSequenceComp*")
+abstract ActorSequenceCompPtr(cpp.Star<ActorSequenceComp>) from cpp.Star<ActorSequenceComp> to cpp.Star<ActorSequenceComp>{
+	@:from
+	public static extern inline function fromValue(v: ActorSequenceComp): ActorSequenceCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorSequenceComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

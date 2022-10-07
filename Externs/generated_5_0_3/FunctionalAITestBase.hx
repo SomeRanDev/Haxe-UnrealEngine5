@@ -48,3 +48,22 @@ abstract ConstFunctionalAITestBase(FunctionalAITestBase) from FunctionalAITestBa
 	public extern var bDebugNavMeshOnTimeout(get, never): Bool;
 	public inline extern function get_bDebugNavMeshOnTimeout(): Bool return this.bDebugNavMeshOnTimeout;
 }
+
+@:forward
+@:nativeGen
+@:native("FunctionalAITestBase*")
+abstract FunctionalAITestBasePtr(cpp.Star<FunctionalAITestBase>) from cpp.Star<FunctionalAITestBase> to cpp.Star<FunctionalAITestBase>{
+	@:from
+	public static extern inline function fromValue(v: FunctionalAITestBase): FunctionalAITestBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FunctionalAITestBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

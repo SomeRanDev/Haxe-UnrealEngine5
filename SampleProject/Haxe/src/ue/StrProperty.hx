@@ -12,3 +12,22 @@ extern class StrProperty extends Property {
 @:nativeGen
 abstract ConstStrProperty(StrProperty) from StrProperty {
 }
+
+@:forward
+@:nativeGen
+@:native("StrProperty*")
+abstract StrPropertyPtr(cpp.Star<StrProperty>) from cpp.Star<StrProperty> to cpp.Star<StrProperty>{
+	@:from
+	public static extern inline function fromValue(v: StrProperty): StrPropertyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): StrProperty {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class ActorElementDetailsInterface extends Object {
 @:nativeGen
 abstract ConstActorElementDetailsInterface(ActorElementDetailsInterface) from ActorElementDetailsInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorElementDetailsInterface*")
+abstract ActorElementDetailsInterfacePtr(cpp.Star<ActorElementDetailsInterface>) from cpp.Star<ActorElementDetailsInterface> to cpp.Star<ActorElementDetailsInterface>{
+	@:from
+	public static extern inline function fromValue(v: ActorElementDetailsInterface): ActorElementDetailsInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorElementDetailsInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

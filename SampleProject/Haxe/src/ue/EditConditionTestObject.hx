@@ -40,3 +40,22 @@ abstract ConstEditConditionTestObject(EditConditionTestObject) from EditConditio
 	public extern var WeakObjectPtr(get, never): TWeakObjectPtr<Object.ConstObject>;
 	public inline extern function get_WeakObjectPtr(): TWeakObjectPtr<Object.ConstObject> return this.WeakObjectPtr;
 }
+
+@:forward
+@:nativeGen
+@:native("EditConditionTestObject*")
+abstract EditConditionTestObjectPtr(cpp.Star<EditConditionTestObject>) from cpp.Star<EditConditionTestObject> to cpp.Star<EditConditionTestObject>{
+	@:from
+	public static extern inline function fromValue(v: EditConditionTestObject): EditConditionTestObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditConditionTestObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

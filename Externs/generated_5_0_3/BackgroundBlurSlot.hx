@@ -26,3 +26,22 @@ abstract ConstBackgroundBlurSlot(BackgroundBlurSlot) from BackgroundBlurSlot {
 	public extern var VerticalAlignment(get, never): EVerticalAlignment;
 	public inline extern function get_VerticalAlignment(): EVerticalAlignment return this.VerticalAlignment;
 }
+
+@:forward
+@:nativeGen
+@:native("BackgroundBlurSlot*")
+abstract BackgroundBlurSlotPtr(cpp.Star<BackgroundBlurSlot>) from cpp.Star<BackgroundBlurSlot> to cpp.Star<BackgroundBlurSlot>{
+	@:from
+	public static extern inline function fromValue(v: BackgroundBlurSlot): BackgroundBlurSlotPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BackgroundBlurSlot {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

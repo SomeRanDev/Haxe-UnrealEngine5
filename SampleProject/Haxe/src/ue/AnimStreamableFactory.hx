@@ -19,3 +19,22 @@ abstract ConstAnimStreamableFactory(AnimStreamableFactory) from AnimStreamableFa
 	public extern var SourceAnimation(get, never): cpp.Star<AnimSequence.ConstAnimSequence>;
 	public inline extern function get_SourceAnimation(): cpp.Star<AnimSequence.ConstAnimSequence> return this.SourceAnimation;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimStreamableFactory*")
+abstract AnimStreamableFactoryPtr(cpp.Star<AnimStreamableFactory>) from cpp.Star<AnimStreamableFactory> to cpp.Star<AnimStreamableFactory>{
+	@:from
+	public static extern inline function fromValue(v: AnimStreamableFactory): AnimStreamableFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimStreamableFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

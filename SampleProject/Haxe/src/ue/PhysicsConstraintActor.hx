@@ -25,3 +25,22 @@ abstract ConstPhysicsConstraintActor(PhysicsConstraintActor) from PhysicsConstra
 	public extern var bDisableCollision_DEPRECATED(get, never): Bool;
 	public inline extern function get_bDisableCollision_DEPRECATED(): Bool return this.bDisableCollision_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("PhysicsConstraintActor*")
+abstract PhysicsConstraintActorPtr(cpp.Star<PhysicsConstraintActor>) from cpp.Star<PhysicsConstraintActor> to cpp.Star<PhysicsConstraintActor>{
+	@:from
+	public static extern inline function fromValue(v: PhysicsConstraintActor): PhysicsConstraintActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhysicsConstraintActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

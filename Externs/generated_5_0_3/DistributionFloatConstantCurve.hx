@@ -16,3 +16,22 @@ abstract ConstDistributionFloatConstantCurve(DistributionFloatConstantCurve) fro
 	public extern var ConstantCurve(get, never): InterpCurveFloat;
 	public inline extern function get_ConstantCurve(): InterpCurveFloat return this.ConstantCurve;
 }
+
+@:forward
+@:nativeGen
+@:native("DistributionFloatConstantCurve*")
+abstract DistributionFloatConstantCurvePtr(cpp.Star<DistributionFloatConstantCurve>) from cpp.Star<DistributionFloatConstantCurve> to cpp.Star<DistributionFloatConstantCurve>{
+	@:from
+	public static extern inline function fromValue(v: DistributionFloatConstantCurve): DistributionFloatConstantCurvePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DistributionFloatConstantCurve {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -31,3 +31,22 @@ abstract ConstDatasmithCineCameraComponentTemplate(DatasmithCineCameraComponentT
 	public extern var PostProcessSettings(get, never): DatasmithPostProcessSettingsTemplate;
 	public inline extern function get_PostProcessSettings(): DatasmithPostProcessSettingsTemplate return this.PostProcessSettings;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithCineCameraComponentTemplate*")
+abstract DatasmithCineCameraComponentTemplatePtr(cpp.Star<DatasmithCineCameraComponentTemplate>) from cpp.Star<DatasmithCineCameraComponentTemplate> to cpp.Star<DatasmithCineCameraComponentTemplate>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithCineCameraComponentTemplate): DatasmithCineCameraComponentTemplatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithCineCameraComponentTemplate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

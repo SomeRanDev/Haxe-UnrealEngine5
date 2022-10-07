@@ -13,3 +13,22 @@ extern class ParticleSystemFactoryNew extends Factory {
 @:nativeGen
 abstract ConstParticleSystemFactoryNew(ParticleSystemFactoryNew) from ParticleSystemFactoryNew {
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleSystemFactoryNew*")
+abstract ParticleSystemFactoryNewPtr(cpp.Star<ParticleSystemFactoryNew>) from cpp.Star<ParticleSystemFactoryNew> to cpp.Star<ParticleSystemFactoryNew>{
+	@:from
+	public static extern inline function fromValue(v: ParticleSystemFactoryNew): ParticleSystemFactoryNewPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleSystemFactoryNew {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

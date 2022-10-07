@@ -13,3 +13,22 @@ extern class NavLinkRenderingComp extends PrimitiveComp {
 @:nativeGen
 abstract ConstNavLinkRenderingComp(NavLinkRenderingComp) from NavLinkRenderingComp {
 }
+
+@:forward
+@:nativeGen
+@:native("NavLinkRenderingComp*")
+abstract NavLinkRenderingCompPtr(cpp.Star<NavLinkRenderingComp>) from cpp.Star<NavLinkRenderingComp> to cpp.Star<NavLinkRenderingComp>{
+	@:from
+	public static extern inline function fromValue(v: NavLinkRenderingComp): NavLinkRenderingCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavLinkRenderingComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

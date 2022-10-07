@@ -49,3 +49,22 @@ abstract ConstInterpData(InterpData) from InterpData {
 	public extern var AllEventNames(get, never): TArray<FName>;
 	public inline extern function get_AllEventNames(): TArray<FName> return this.AllEventNames;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpData*")
+abstract InterpDataPtr(cpp.Star<InterpData>) from cpp.Star<InterpData> to cpp.Star<InterpData>{
+	@:from
+	public static extern inline function fromValue(v: InterpData): InterpDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

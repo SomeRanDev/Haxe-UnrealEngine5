@@ -16,3 +16,22 @@ abstract ConstGroomHairGroupsPreview(GroomHairGroupsPreview) from GroomHairGroup
 	public extern var Groups(get, never): TArray<GroomHairGroupPreview>;
 	public inline extern function get_Groups(): TArray<GroomHairGroupPreview> return this.Groups;
 }
+
+@:forward
+@:nativeGen
+@:native("GroomHairGroupsPreview*")
+abstract GroomHairGroupsPreviewPtr(cpp.Star<GroomHairGroupsPreview>) from cpp.Star<GroomHairGroupsPreview> to cpp.Star<GroomHairGroupsPreview>{
+	@:from
+	public static extern inline function fromValue(v: GroomHairGroupsPreview): GroomHairGroupsPreviewPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GroomHairGroupsPreview {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -55,3 +55,22 @@ abstract ConstParticleModule(ParticleModule) from ParticleModule {
 	public extern var ModuleEditorColor(get, never): Color;
 	public inline extern function get_ModuleEditorColor(): Color return this.ModuleEditorColor;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModule*")
+abstract ParticleModulePtr(cpp.Star<ParticleModule>) from cpp.Star<ParticleModule> to cpp.Star<ParticleModule>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModule): ParticleModulePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModule {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

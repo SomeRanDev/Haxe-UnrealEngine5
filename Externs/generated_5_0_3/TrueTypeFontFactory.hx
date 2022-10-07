@@ -22,3 +22,22 @@ abstract ConstTrueTypeFontFactory(TrueTypeFontFactory) from TrueTypeFontFactory 
 	public extern var bFontSelected(get, never): Bool;
 	public inline extern function get_bFontSelected(): Bool return this.bFontSelected;
 }
+
+@:forward
+@:nativeGen
+@:native("TrueTypeFontFactory*")
+abstract TrueTypeFontFactoryPtr(cpp.Star<TrueTypeFontFactory>) from cpp.Star<TrueTypeFontFactory> to cpp.Star<TrueTypeFontFactory>{
+	@:from
+	public static extern inline function fromValue(v: TrueTypeFontFactory): TrueTypeFontFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TrueTypeFontFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

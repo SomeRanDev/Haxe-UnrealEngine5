@@ -31,3 +31,22 @@ abstract ConstWorldComposition(WorldComposition) from WorldComposition {
 	public extern var RebaseOriginDistance(get, never): cpp.Float32;
 	public inline extern function get_RebaseOriginDistance(): cpp.Float32 return this.RebaseOriginDistance;
 }
+
+@:forward
+@:nativeGen
+@:native("WorldComposition*")
+abstract WorldCompositionPtr(cpp.Star<WorldComposition>) from cpp.Star<WorldComposition> to cpp.Star<WorldComposition>{
+	@:from
+	public static extern inline function fromValue(v: WorldComposition): WorldCompositionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldComposition {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

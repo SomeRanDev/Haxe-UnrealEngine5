@@ -16,3 +16,22 @@ abstract ConstDebugCameraControllerSettings(DebugCameraControllerSettings) from 
 	public extern var CycleViewModes(get, never): TArray<DebugCameraControllerSettingsViewModeIndex>;
 	public inline extern function get_CycleViewModes(): TArray<DebugCameraControllerSettingsViewModeIndex> return this.CycleViewModes;
 }
+
+@:forward
+@:nativeGen
+@:native("DebugCameraControllerSettings*")
+abstract DebugCameraControllerSettingsPtr(cpp.Star<DebugCameraControllerSettings>) from cpp.Star<DebugCameraControllerSettings> to cpp.Star<DebugCameraControllerSettings>{
+	@:from
+	public static extern inline function fromValue(v: DebugCameraControllerSettings): DebugCameraControllerSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DebugCameraControllerSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

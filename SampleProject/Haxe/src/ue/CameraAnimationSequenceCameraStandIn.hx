@@ -46,3 +46,22 @@ abstract ConstCameraAnimationSequenceCameraStandIn(CameraAnimationSequenceCamera
 	public extern var CurrentFocusDistance(get, never): cpp.Float32;
 	public inline extern function get_CurrentFocusDistance(): cpp.Float32 return this.CurrentFocusDistance;
 }
+
+@:forward
+@:nativeGen
+@:native("CameraAnimationSequenceCameraStandIn*")
+abstract CameraAnimationSequenceCameraStandInPtr(cpp.Star<CameraAnimationSequenceCameraStandIn>) from cpp.Star<CameraAnimationSequenceCameraStandIn> to cpp.Star<CameraAnimationSequenceCameraStandIn>{
+	@:from
+	public static extern inline function fromValue(v: CameraAnimationSequenceCameraStandIn): CameraAnimationSequenceCameraStandInPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CameraAnimationSequenceCameraStandIn {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

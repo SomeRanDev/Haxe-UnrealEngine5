@@ -28,3 +28,22 @@ abstract ConstEnvQueryGenerator_PerceivedActors(EnvQueryGenerator_PerceivedActor
 	public extern var bIncludeKnownActors(get, never): Bool;
 	public inline extern function get_bIncludeKnownActors(): Bool return this.bIncludeKnownActors;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryGenerator_PerceivedActors*")
+abstract EnvQueryGenerator_PerceivedActorsPtr(cpp.Star<EnvQueryGenerator_PerceivedActors>) from cpp.Star<EnvQueryGenerator_PerceivedActors> to cpp.Star<EnvQueryGenerator_PerceivedActors>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryGenerator_PerceivedActors): EnvQueryGenerator_PerceivedActorsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryGenerator_PerceivedActors {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

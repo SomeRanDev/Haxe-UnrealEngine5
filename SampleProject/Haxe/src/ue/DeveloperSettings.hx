@@ -13,3 +13,22 @@ extern class DeveloperSettings extends Object {
 @:nativeGen
 abstract ConstDeveloperSettings(DeveloperSettings) from DeveloperSettings {
 }
+
+@:forward
+@:nativeGen
+@:native("DeveloperSettings*")
+abstract DeveloperSettingsPtr(cpp.Star<DeveloperSettings>) from cpp.Star<DeveloperSettings> to cpp.Star<DeveloperSettings>{
+	@:from
+	public static extern inline function fromValue(v: DeveloperSettings): DeveloperSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DeveloperSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

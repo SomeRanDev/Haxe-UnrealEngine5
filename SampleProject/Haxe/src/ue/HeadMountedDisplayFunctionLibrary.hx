@@ -58,3 +58,22 @@ extern class HeadMountedDisplayFunctionLibrary extends BlueprintFunctionLibrary 
 @:nativeGen
 abstract ConstHeadMountedDisplayFunctionLibrary(HeadMountedDisplayFunctionLibrary) from HeadMountedDisplayFunctionLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("HeadMountedDisplayFunctionLibrary*")
+abstract HeadMountedDisplayFunctionLibraryPtr(cpp.Star<HeadMountedDisplayFunctionLibrary>) from cpp.Star<HeadMountedDisplayFunctionLibrary> to cpp.Star<HeadMountedDisplayFunctionLibrary>{
+	@:from
+	public static extern inline function fromValue(v: HeadMountedDisplayFunctionLibrary): HeadMountedDisplayFunctionLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): HeadMountedDisplayFunctionLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

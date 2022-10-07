@@ -13,3 +13,22 @@ extern class RuntimeVirtualTextureFactory extends Factory {
 @:nativeGen
 abstract ConstRuntimeVirtualTextureFactory(RuntimeVirtualTextureFactory) from RuntimeVirtualTextureFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("RuntimeVirtualTextureFactory*")
+abstract RuntimeVirtualTextureFactoryPtr(cpp.Star<RuntimeVirtualTextureFactory>) from cpp.Star<RuntimeVirtualTextureFactory> to cpp.Star<RuntimeVirtualTextureFactory>{
+	@:from
+	public static extern inline function fromValue(v: RuntimeVirtualTextureFactory): RuntimeVirtualTextureFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RuntimeVirtualTextureFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -43,3 +43,22 @@ abstract ConstPythonScriptPluginSettings(PythonScriptPluginSettings) from Python
 	public extern var RemoteExecutionMulticastTtl(get, never): cpp.UInt8;
 	public inline extern function get_RemoteExecutionMulticastTtl(): cpp.UInt8 return this.RemoteExecutionMulticastTtl;
 }
+
+@:forward
+@:nativeGen
+@:native("PythonScriptPluginSettings*")
+abstract PythonScriptPluginSettingsPtr(cpp.Star<PythonScriptPluginSettings>) from cpp.Star<PythonScriptPluginSettings> to cpp.Star<PythonScriptPluginSettings>{
+	@:from
+	public static extern inline function fromValue(v: PythonScriptPluginSettings): PythonScriptPluginSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PythonScriptPluginSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

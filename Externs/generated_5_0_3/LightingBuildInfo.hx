@@ -31,3 +31,22 @@ abstract ConstLightingBuildInfo(LightingBuildInfo) from LightingBuildInfo {
 	public extern var LevelName(get, never): FString;
 	public inline extern function get_LevelName(): FString return this.LevelName;
 }
+
+@:forward
+@:nativeGen
+@:native("LightingBuildInfo*")
+abstract LightingBuildInfoPtr(cpp.Star<LightingBuildInfo>) from cpp.Star<LightingBuildInfo> to cpp.Star<LightingBuildInfo>{
+	@:from
+	public static extern inline function fromValue(v: LightingBuildInfo): LightingBuildInfoPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LightingBuildInfo {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

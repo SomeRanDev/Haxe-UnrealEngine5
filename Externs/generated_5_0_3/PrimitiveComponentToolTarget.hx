@@ -13,3 +13,22 @@ extern class PrimitiveComponentToolTarget extends ToolTarget {
 @:nativeGen
 abstract ConstPrimitiveComponentToolTarget(PrimitiveComponentToolTarget) from PrimitiveComponentToolTarget {
 }
+
+@:forward
+@:nativeGen
+@:native("PrimitiveComponentToolTarget*")
+abstract PrimitiveComponentToolTargetPtr(cpp.Star<PrimitiveComponentToolTarget>) from cpp.Star<PrimitiveComponentToolTarget> to cpp.Star<PrimitiveComponentToolTarget>{
+	@:from
+	public static extern inline function fromValue(v: PrimitiveComponentToolTarget): PrimitiveComponentToolTargetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PrimitiveComponentToolTarget {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

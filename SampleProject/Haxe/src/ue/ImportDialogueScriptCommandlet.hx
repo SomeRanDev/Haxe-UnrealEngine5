@@ -13,3 +13,22 @@ extern class ImportDialogueScriptCommandlet extends GatherTextCommandletBase {
 @:nativeGen
 abstract ConstImportDialogueScriptCommandlet(ImportDialogueScriptCommandlet) from ImportDialogueScriptCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("ImportDialogueScriptCommandlet*")
+abstract ImportDialogueScriptCommandletPtr(cpp.Star<ImportDialogueScriptCommandlet>) from cpp.Star<ImportDialogueScriptCommandlet> to cpp.Star<ImportDialogueScriptCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: ImportDialogueScriptCommandlet): ImportDialogueScriptCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ImportDialogueScriptCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

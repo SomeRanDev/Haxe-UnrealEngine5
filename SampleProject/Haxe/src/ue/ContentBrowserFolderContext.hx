@@ -25,3 +25,22 @@ abstract ConstContentBrowserFolderContext(ContentBrowserFolderContext) from Cont
 	public extern var NumClassPaths(get, never): cpp.Int32;
 	public inline extern function get_NumClassPaths(): cpp.Int32 return this.NumClassPaths;
 }
+
+@:forward
+@:nativeGen
+@:native("ContentBrowserFolderContext*")
+abstract ContentBrowserFolderContextPtr(cpp.Star<ContentBrowserFolderContext>) from cpp.Star<ContentBrowserFolderContext> to cpp.Star<ContentBrowserFolderContext>{
+	@:from
+	public static extern inline function fromValue(v: ContentBrowserFolderContext): ContentBrowserFolderContextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ContentBrowserFolderContext {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

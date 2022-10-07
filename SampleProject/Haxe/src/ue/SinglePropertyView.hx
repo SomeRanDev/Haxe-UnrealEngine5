@@ -24,3 +24,22 @@ abstract ConstSinglePropertyView(SinglePropertyView) from SinglePropertyView {
 	public extern var NameOverride(get, never): FText;
 	public inline extern function get_NameOverride(): FText return this.NameOverride;
 }
+
+@:forward
+@:nativeGen
+@:native("SinglePropertyView*")
+abstract SinglePropertyViewPtr(cpp.Star<SinglePropertyView>) from cpp.Star<SinglePropertyView> to cpp.Star<SinglePropertyView>{
+	@:from
+	public static extern inline function fromValue(v: SinglePropertyView): SinglePropertyViewPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SinglePropertyView {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

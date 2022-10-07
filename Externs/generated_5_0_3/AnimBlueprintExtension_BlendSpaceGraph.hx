@@ -19,3 +19,22 @@ abstract ConstAnimBlueprintExtension_BlendSpaceGraph(AnimBlueprintExtension_Blen
 	public extern var Subsystem(get, never): AnimSubsystem_BlendSpaceGraph;
 	public inline extern function get_Subsystem(): AnimSubsystem_BlendSpaceGraph return this.Subsystem;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimBlueprintExtension_BlendSpaceGraph*")
+abstract AnimBlueprintExtension_BlendSpaceGraphPtr(cpp.Star<AnimBlueprintExtension_BlendSpaceGraph>) from cpp.Star<AnimBlueprintExtension_BlendSpaceGraph> to cpp.Star<AnimBlueprintExtension_BlendSpaceGraph>{
+	@:from
+	public static extern inline function fromValue(v: AnimBlueprintExtension_BlendSpaceGraph): AnimBlueprintExtension_BlendSpaceGraphPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimBlueprintExtension_BlendSpaceGraph {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

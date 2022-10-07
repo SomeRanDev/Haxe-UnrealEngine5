@@ -15,3 +15,22 @@ extern class TypedElementRegistry extends Object {
 @:nativeGen
 abstract ConstTypedElementRegistry(TypedElementRegistry) from TypedElementRegistry {
 }
+
+@:forward
+@:nativeGen
+@:native("TypedElementRegistry*")
+abstract TypedElementRegistryPtr(cpp.Star<TypedElementRegistry>) from cpp.Star<TypedElementRegistry> to cpp.Star<TypedElementRegistry>{
+	@:from
+	public static extern inline function fromValue(v: TypedElementRegistry): TypedElementRegistryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TypedElementRegistry {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

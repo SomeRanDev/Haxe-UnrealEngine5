@@ -12,3 +12,22 @@ extern class MovieSceneTrackTemplateProducer extends Interface {
 @:nativeGen
 abstract ConstMovieSceneTrackTemplateProducer(MovieSceneTrackTemplateProducer) from MovieSceneTrackTemplateProducer {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneTrackTemplateProducer*")
+abstract MovieSceneTrackTemplateProducerPtr(cpp.Star<MovieSceneTrackTemplateProducer>) from cpp.Star<MovieSceneTrackTemplateProducer> to cpp.Star<MovieSceneTrackTemplateProducer>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneTrackTemplateProducer): MovieSceneTrackTemplateProducerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneTrackTemplateProducer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

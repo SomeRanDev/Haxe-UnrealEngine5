@@ -13,3 +13,22 @@ extern class ParticleModuleCollisionBase extends ParticleModule {
 @:nativeGen
 abstract ConstParticleModuleCollisionBase(ParticleModuleCollisionBase) from ParticleModuleCollisionBase {
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleCollisionBase*")
+abstract ParticleModuleCollisionBasePtr(cpp.Star<ParticleModuleCollisionBase>) from cpp.Star<ParticleModuleCollisionBase> to cpp.Star<ParticleModuleCollisionBase>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleCollisionBase): ParticleModuleCollisionBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleCollisionBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

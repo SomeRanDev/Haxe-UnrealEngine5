@@ -13,3 +13,22 @@ extern class ParticleModuleVectorFieldBase extends ParticleModule {
 @:nativeGen
 abstract ConstParticleModuleVectorFieldBase(ParticleModuleVectorFieldBase) from ParticleModuleVectorFieldBase {
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleVectorFieldBase*")
+abstract ParticleModuleVectorFieldBasePtr(cpp.Star<ParticleModuleVectorFieldBase>) from cpp.Star<ParticleModuleVectorFieldBase> to cpp.Star<ParticleModuleVectorFieldBase>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleVectorFieldBase): ParticleModuleVectorFieldBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleVectorFieldBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

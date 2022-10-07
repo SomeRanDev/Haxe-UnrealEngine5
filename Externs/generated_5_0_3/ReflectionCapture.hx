@@ -22,3 +22,22 @@ abstract ConstReflectionCapture(ReflectionCapture) from ReflectionCapture {
 	public extern var CaptureOffsetComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
 	public inline extern function get_CaptureOffsetComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.CaptureOffsetComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("ReflectionCapture*")
+abstract ReflectionCapturePtr(cpp.Star<ReflectionCapture>) from cpp.Star<ReflectionCapture> to cpp.Star<ReflectionCapture>{
+	@:from
+	public static extern inline function fromValue(v: ReflectionCapture): ReflectionCapturePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ReflectionCapture {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

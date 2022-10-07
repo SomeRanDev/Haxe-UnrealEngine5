@@ -14,3 +14,22 @@ extern class LeaderboardBlueprintLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstLeaderboardBlueprintLibrary(LeaderboardBlueprintLibrary) from LeaderboardBlueprintLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("LeaderboardBlueprintLibrary*")
+abstract LeaderboardBlueprintLibraryPtr(cpp.Star<LeaderboardBlueprintLibrary>) from cpp.Star<LeaderboardBlueprintLibrary> to cpp.Star<LeaderboardBlueprintLibrary>{
+	@:from
+	public static extern inline function fromValue(v: LeaderboardBlueprintLibrary): LeaderboardBlueprintLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LeaderboardBlueprintLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

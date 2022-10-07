@@ -24,3 +24,22 @@ abstract ConstAnimNotifyState_TimedNiagaraEffectAdvanced(AnimNotifyState_TimedNi
 	public extern var AnimCurves(get, never): TArray<CurveParameterPair>;
 	public inline extern function get_AnimCurves(): TArray<CurveParameterPair> return this.AnimCurves;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimNotifyState_TimedNiagaraEffectAdvanced*")
+abstract AnimNotifyState_TimedNiagaraEffectAdvancedPtr(cpp.Star<AnimNotifyState_TimedNiagaraEffectAdvanced>) from cpp.Star<AnimNotifyState_TimedNiagaraEffectAdvanced> to cpp.Star<AnimNotifyState_TimedNiagaraEffectAdvanced>{
+	@:from
+	public static extern inline function fromValue(v: AnimNotifyState_TimedNiagaraEffectAdvanced): AnimNotifyState_TimedNiagaraEffectAdvancedPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimNotifyState_TimedNiagaraEffectAdvanced {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

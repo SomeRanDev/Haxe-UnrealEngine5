@@ -25,3 +25,22 @@ abstract ConstAnimNotifyState(AnimNotifyState) from AnimNotifyState {
 	public extern var bShouldFireInEditor(get, never): Bool;
 	public inline extern function get_bShouldFireInEditor(): Bool return this.bShouldFireInEditor;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimNotifyState*")
+abstract AnimNotifyStatePtr(cpp.Star<AnimNotifyState>) from cpp.Star<AnimNotifyState> to cpp.Star<AnimNotifyState>{
+	@:from
+	public static extern inline function fromValue(v: AnimNotifyState): AnimNotifyStatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimNotifyState {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

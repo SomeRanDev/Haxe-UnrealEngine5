@@ -13,3 +13,22 @@ extern class AnimSequenceThumbnailRenderer extends DefaultSizedThumbnailRenderer
 @:nativeGen
 abstract ConstAnimSequenceThumbnailRenderer(AnimSequenceThumbnailRenderer) from AnimSequenceThumbnailRenderer {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimSequenceThumbnailRenderer*")
+abstract AnimSequenceThumbnailRendererPtr(cpp.Star<AnimSequenceThumbnailRenderer>) from cpp.Star<AnimSequenceThumbnailRenderer> to cpp.Star<AnimSequenceThumbnailRenderer>{
+	@:from
+	public static extern inline function fromValue(v: AnimSequenceThumbnailRenderer): AnimSequenceThumbnailRendererPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimSequenceThumbnailRenderer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

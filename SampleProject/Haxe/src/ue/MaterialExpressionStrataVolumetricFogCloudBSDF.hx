@@ -25,3 +25,22 @@ abstract ConstMaterialExpressionStrataVolumetricFogCloudBSDF(MaterialExpressionS
 	public extern var AmbientOcclusion(get, never): ExpressionInput;
 	public inline extern function get_AmbientOcclusion(): ExpressionInput return this.AmbientOcclusion;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionStrataVolumetricFogCloudBSDF*")
+abstract MaterialExpressionStrataVolumetricFogCloudBSDFPtr(cpp.Star<MaterialExpressionStrataVolumetricFogCloudBSDF>) from cpp.Star<MaterialExpressionStrataVolumetricFogCloudBSDF> to cpp.Star<MaterialExpressionStrataVolumetricFogCloudBSDF>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionStrataVolumetricFogCloudBSDF): MaterialExpressionStrataVolumetricFogCloudBSDFPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionStrataVolumetricFogCloudBSDF {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

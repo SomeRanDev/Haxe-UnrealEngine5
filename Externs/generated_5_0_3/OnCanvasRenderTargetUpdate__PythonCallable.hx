@@ -12,3 +12,22 @@ extern class OnCanvasRenderTargetUpdate__PythonCallable extends PythonCallableFo
 @:nativeGen
 abstract ConstOnCanvasRenderTargetUpdate__PythonCallable(OnCanvasRenderTargetUpdate__PythonCallable) from OnCanvasRenderTargetUpdate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnCanvasRenderTargetUpdate__PythonCallable*")
+abstract OnCanvasRenderTargetUpdate__PythonCallablePtr(cpp.Star<OnCanvasRenderTargetUpdate__PythonCallable>) from cpp.Star<OnCanvasRenderTargetUpdate__PythonCallable> to cpp.Star<OnCanvasRenderTargetUpdate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnCanvasRenderTargetUpdate__PythonCallable): OnCanvasRenderTargetUpdate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnCanvasRenderTargetUpdate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

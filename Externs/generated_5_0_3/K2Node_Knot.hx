@@ -13,3 +13,22 @@ extern class K2Node_Knot extends K2Node {
 @:nativeGen
 abstract ConstK2Node_Knot(K2Node_Knot) from K2Node_Knot {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_Knot*")
+abstract K2Node_KnotPtr(cpp.Star<K2Node_Knot>) from cpp.Star<K2Node_Knot> to cpp.Star<K2Node_Knot>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_Knot): K2Node_KnotPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_Knot {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

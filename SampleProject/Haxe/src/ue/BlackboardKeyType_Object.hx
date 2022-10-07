@@ -16,3 +16,22 @@ abstract ConstBlackboardKeyType_Object(BlackboardKeyType_Object) from Blackboard
 	public extern var BaseClass(get, never): TSubclassOf<Object.ConstObject>;
 	public inline extern function get_BaseClass(): TSubclassOf<Object.ConstObject> return this.BaseClass;
 }
+
+@:forward
+@:nativeGen
+@:native("BlackboardKeyType_Object*")
+abstract BlackboardKeyType_ObjectPtr(cpp.Star<BlackboardKeyType_Object>) from cpp.Star<BlackboardKeyType_Object> to cpp.Star<BlackboardKeyType_Object>{
+	@:from
+	public static extern inline function fromValue(v: BlackboardKeyType_Object): BlackboardKeyType_ObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlackboardKeyType_Object {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

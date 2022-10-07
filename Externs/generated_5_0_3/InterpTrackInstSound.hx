@@ -19,3 +19,22 @@ abstract ConstInterpTrackInstSound(InterpTrackInstSound) from InterpTrackInstSou
 	public extern var PlayAudioComp(get, never): cpp.Star<AudioComp.ConstAudioComp>;
 	public inline extern function get_PlayAudioComp(): cpp.Star<AudioComp.ConstAudioComp> return this.PlayAudioComp;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackInstSound*")
+abstract InterpTrackInstSoundPtr(cpp.Star<InterpTrackInstSound>) from cpp.Star<InterpTrackInstSound> to cpp.Star<InterpTrackInstSound>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackInstSound): InterpTrackInstSoundPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackInstSound {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

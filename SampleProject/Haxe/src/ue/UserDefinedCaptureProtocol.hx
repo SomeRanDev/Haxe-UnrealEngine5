@@ -33,3 +33,22 @@ abstract ConstUserDefinedCaptureProtocol(UserDefinedCaptureProtocol) from UserDe
 	public extern var World(get, never): cpp.Star<World.ConstWorld>;
 	public inline extern function get_World(): cpp.Star<World.ConstWorld> return this.World;
 }
+
+@:forward
+@:nativeGen
+@:native("UserDefinedCaptureProtocol*")
+abstract UserDefinedCaptureProtocolPtr(cpp.Star<UserDefinedCaptureProtocol>) from cpp.Star<UserDefinedCaptureProtocol> to cpp.Star<UserDefinedCaptureProtocol>{
+	@:from
+	public static extern inline function fromValue(v: UserDefinedCaptureProtocol): UserDefinedCaptureProtocolPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UserDefinedCaptureProtocol {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

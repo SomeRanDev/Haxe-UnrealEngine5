@@ -16,3 +16,22 @@ abstract ConstAISense_Touch(AISense_Touch) from AISense_Touch {
 	public extern var RegisteredEvents(get, never): TArray<AITouchEvent>;
 	public inline extern function get_RegisteredEvents(): TArray<AITouchEvent> return this.RegisteredEvents;
 }
+
+@:forward
+@:nativeGen
+@:native("AISense_Touch*")
+abstract AISense_TouchPtr(cpp.Star<AISense_Touch>) from cpp.Star<AISense_Touch> to cpp.Star<AISense_Touch>{
+	@:from
+	public static extern inline function fromValue(v: AISense_Touch): AISense_TouchPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AISense_Touch {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

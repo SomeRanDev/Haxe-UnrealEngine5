@@ -25,3 +25,22 @@ abstract ConstBTDecorator_TagCooldown(BTDecorator_TagCooldown) from BTDecorator_
 	public extern var bActivatesCooldown(get, never): Bool;
 	public inline extern function get_bActivatesCooldown(): Bool return this.bActivatesCooldown;
 }
+
+@:forward
+@:nativeGen
+@:native("BTDecorator_TagCooldown*")
+abstract BTDecorator_TagCooldownPtr(cpp.Star<BTDecorator_TagCooldown>) from cpp.Star<BTDecorator_TagCooldown> to cpp.Star<BTDecorator_TagCooldown>{
+	@:from
+	public static extern inline function fromValue(v: BTDecorator_TagCooldown): BTDecorator_TagCooldownPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTDecorator_TagCooldown {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

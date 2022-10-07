@@ -13,3 +13,22 @@ extern class AdvancedCopyCustomization extends Object {
 @:nativeGen
 abstract ConstAdvancedCopyCustomization(AdvancedCopyCustomization) from AdvancedCopyCustomization {
 }
+
+@:forward
+@:nativeGen
+@:native("AdvancedCopyCustomization*")
+abstract AdvancedCopyCustomizationPtr(cpp.Star<AdvancedCopyCustomization>) from cpp.Star<AdvancedCopyCustomization> to cpp.Star<AdvancedCopyCustomization>{
+	@:from
+	public static extern inline function fromValue(v: AdvancedCopyCustomization): AdvancedCopyCustomizationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AdvancedCopyCustomization {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

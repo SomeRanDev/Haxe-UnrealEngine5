@@ -22,3 +22,22 @@ abstract ConstMoviePlayerSettings(MoviePlayerSettings) from MoviePlayerSettings 
 	public extern var StartupMovies(get, never): TArray<FString>;
 	public inline extern function get_StartupMovies(): TArray<FString> return this.StartupMovies;
 }
+
+@:forward
+@:nativeGen
+@:native("MoviePlayerSettings*")
+abstract MoviePlayerSettingsPtr(cpp.Star<MoviePlayerSettings>) from cpp.Star<MoviePlayerSettings> to cpp.Star<MoviePlayerSettings>{
+	@:from
+	public static extern inline function fromValue(v: MoviePlayerSettings): MoviePlayerSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MoviePlayerSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -47,3 +47,22 @@ abstract ConstViewportInteractor(ViewportInteractor) from ViewportInteractor {
 	public extern var OtherInteractor(get, never): cpp.Star<ViewportInteractor.ConstViewportInteractor>;
 	public inline extern function get_OtherInteractor(): cpp.Star<ViewportInteractor.ConstViewportInteractor> return this.OtherInteractor;
 }
+
+@:forward
+@:nativeGen
+@:native("ViewportInteractor*")
+abstract ViewportInteractorPtr(cpp.Star<ViewportInteractor>) from cpp.Star<ViewportInteractor> to cpp.Star<ViewportInteractor>{
+	@:from
+	public static extern inline function fromValue(v: ViewportInteractor): ViewportInteractorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ViewportInteractor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

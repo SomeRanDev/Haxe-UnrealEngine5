@@ -12,3 +12,22 @@ extern class OnHoveredWidgetChanged__PythonCallable extends PythonCallableForDel
 @:nativeGen
 abstract ConstOnHoveredWidgetChanged__PythonCallable(OnHoveredWidgetChanged__PythonCallable) from OnHoveredWidgetChanged__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnHoveredWidgetChanged__PythonCallable*")
+abstract OnHoveredWidgetChanged__PythonCallablePtr(cpp.Star<OnHoveredWidgetChanged__PythonCallable>) from cpp.Star<OnHoveredWidgetChanged__PythonCallable> to cpp.Star<OnHoveredWidgetChanged__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnHoveredWidgetChanged__PythonCallable): OnHoveredWidgetChanged__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnHoveredWidgetChanged__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

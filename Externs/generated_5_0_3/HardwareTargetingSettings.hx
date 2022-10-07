@@ -25,3 +25,22 @@ abstract ConstHardwareTargetingSettings(HardwareTargetingSettings) from Hardware
 	public extern var AppliedDefaultGraphicsPerformance(get, never): EGraphicsPreset;
 	public inline extern function get_AppliedDefaultGraphicsPerformance(): EGraphicsPreset return this.AppliedDefaultGraphicsPerformance;
 }
+
+@:forward
+@:nativeGen
+@:native("HardwareTargetingSettings*")
+abstract HardwareTargetingSettingsPtr(cpp.Star<HardwareTargetingSettings>) from cpp.Star<HardwareTargetingSettings> to cpp.Star<HardwareTargetingSettings>{
+	@:from
+	public static extern inline function fromValue(v: HardwareTargetingSettings): HardwareTargetingSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): HardwareTargetingSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -14,3 +14,22 @@ extern class GeometryCacheTrack_TransformGroupAnimation extends GeometryCacheTra
 @:nativeGen
 abstract ConstGeometryCacheTrack_TransformGroupAnimation(GeometryCacheTrack_TransformGroupAnimation) from GeometryCacheTrack_TransformGroupAnimation {
 }
+
+@:forward
+@:nativeGen
+@:native("GeometryCacheTrack_TransformGroupAnimation*")
+abstract GeometryCacheTrack_TransformGroupAnimationPtr(cpp.Star<GeometryCacheTrack_TransformGroupAnimation>) from cpp.Star<GeometryCacheTrack_TransformGroupAnimation> to cpp.Star<GeometryCacheTrack_TransformGroupAnimation>{
+	@:from
+	public static extern inline function fromValue(v: GeometryCacheTrack_TransformGroupAnimation): GeometryCacheTrack_TransformGroupAnimationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GeometryCacheTrack_TransformGroupAnimation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

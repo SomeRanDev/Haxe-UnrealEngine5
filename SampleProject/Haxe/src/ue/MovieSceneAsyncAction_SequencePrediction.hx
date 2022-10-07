@@ -30,3 +30,22 @@ abstract ConstMovieSceneAsyncAction_SequencePrediction(MovieSceneAsyncAction_Seq
 	public extern var SceneComponent(get, never): cpp.Star<SceneComp.ConstSceneComp>;
 	public inline extern function get_SceneComponent(): cpp.Star<SceneComp.ConstSceneComp> return this.SceneComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneAsyncAction_SequencePrediction*")
+abstract MovieSceneAsyncAction_SequencePredictionPtr(cpp.Star<MovieSceneAsyncAction_SequencePrediction>) from cpp.Star<MovieSceneAsyncAction_SequencePrediction> to cpp.Star<MovieSceneAsyncAction_SequencePrediction>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneAsyncAction_SequencePrediction): MovieSceneAsyncAction_SequencePredictionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneAsyncAction_SequencePrediction {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

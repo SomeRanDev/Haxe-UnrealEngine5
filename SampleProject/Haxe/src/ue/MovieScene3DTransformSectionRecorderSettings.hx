@@ -16,3 +16,22 @@ abstract ConstMovieScene3DTransformSectionRecorderSettings(MovieScene3DTransform
 	public extern var bRecordTransforms(get, never): Bool;
 	public inline extern function get_bRecordTransforms(): Bool return this.bRecordTransforms;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieScene3DTransformSectionRecorderSettings*")
+abstract MovieScene3DTransformSectionRecorderSettingsPtr(cpp.Star<MovieScene3DTransformSectionRecorderSettings>) from cpp.Star<MovieScene3DTransformSectionRecorderSettings> to cpp.Star<MovieScene3DTransformSectionRecorderSettings>{
+	@:from
+	public static extern inline function fromValue(v: MovieScene3DTransformSectionRecorderSettings): MovieScene3DTransformSectionRecorderSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieScene3DTransformSectionRecorderSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

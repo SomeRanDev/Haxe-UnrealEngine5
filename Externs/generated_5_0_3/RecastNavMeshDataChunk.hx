@@ -13,3 +13,22 @@ extern class RecastNavMeshDataChunk extends NavigationDataChunk {
 @:nativeGen
 abstract ConstRecastNavMeshDataChunk(RecastNavMeshDataChunk) from RecastNavMeshDataChunk {
 }
+
+@:forward
+@:nativeGen
+@:native("RecastNavMeshDataChunk*")
+abstract RecastNavMeshDataChunkPtr(cpp.Star<RecastNavMeshDataChunk>) from cpp.Star<RecastNavMeshDataChunk> to cpp.Star<RecastNavMeshDataChunk>{
+	@:from
+	public static extern inline function fromValue(v: RecastNavMeshDataChunk): RecastNavMeshDataChunkPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RecastNavMeshDataChunk {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

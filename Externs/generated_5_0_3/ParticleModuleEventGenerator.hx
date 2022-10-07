@@ -16,3 +16,22 @@ abstract ConstParticleModuleEventGenerator(ParticleModuleEventGenerator) from Pa
 	public extern var Events(get, never): TArray<ParticleEvent_GenerateInfo>;
 	public inline extern function get_Events(): TArray<ParticleEvent_GenerateInfo> return this.Events;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleEventGenerator*")
+abstract ParticleModuleEventGeneratorPtr(cpp.Star<ParticleModuleEventGenerator>) from cpp.Star<ParticleModuleEventGenerator> to cpp.Star<ParticleModuleEventGenerator>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleEventGenerator): ParticleModuleEventGeneratorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleEventGenerator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

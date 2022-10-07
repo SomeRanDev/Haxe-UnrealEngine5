@@ -37,3 +37,22 @@ abstract ConstBlueprintEditorProjectSettings(BlueprintEditorProjectSettings) fro
 	public extern var BaseClassesToAllowRecompilingDuringPlayInEditor(get, never): TArray<TSoftClassPtr<Class.ConstClass>>;
 	public inline extern function get_BaseClassesToAllowRecompilingDuringPlayInEditor(): TArray<TSoftClassPtr<Class.ConstClass>> return this.BaseClassesToAllowRecompilingDuringPlayInEditor;
 }
+
+@:forward
+@:nativeGen
+@:native("BlueprintEditorProjectSettings*")
+abstract BlueprintEditorProjectSettingsPtr(cpp.Star<BlueprintEditorProjectSettings>) from cpp.Star<BlueprintEditorProjectSettings> to cpp.Star<BlueprintEditorProjectSettings>{
+	@:from
+	public static extern inline function fromValue(v: BlueprintEditorProjectSettings): BlueprintEditorProjectSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlueprintEditorProjectSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -37,3 +37,22 @@ abstract ConstFbxSceneImportFactory(FbxSceneImportFactory) from FbxSceneImportFa
 	public extern var ReimportData(get, never): cpp.Star<FbxSceneImportData.ConstFbxSceneImportData>;
 	public inline extern function get_ReimportData(): cpp.Star<FbxSceneImportData.ConstFbxSceneImportData> return this.ReimportData;
 }
+
+@:forward
+@:nativeGen
+@:native("FbxSceneImportFactory*")
+abstract FbxSceneImportFactoryPtr(cpp.Star<FbxSceneImportFactory>) from cpp.Star<FbxSceneImportFactory> to cpp.Star<FbxSceneImportFactory>{
+	@:from
+	public static extern inline function fromValue(v: FbxSceneImportFactory): FbxSceneImportFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FbxSceneImportFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

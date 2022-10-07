@@ -28,3 +28,22 @@ abstract ConstEnvQueryTest_Pathfinding(EnvQueryTest_Pathfinding) from EnvQueryTe
 	public extern var FilterClass(get, never): TSubclassOf<NavigationQueryFilter.ConstNavigationQueryFilter>;
 	public inline extern function get_FilterClass(): TSubclassOf<NavigationQueryFilter.ConstNavigationQueryFilter> return this.FilterClass;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryTest_Pathfinding*")
+abstract EnvQueryTest_PathfindingPtr(cpp.Star<EnvQueryTest_Pathfinding>) from cpp.Star<EnvQueryTest_Pathfinding> to cpp.Star<EnvQueryTest_Pathfinding>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryTest_Pathfinding): EnvQueryTest_PathfindingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryTest_Pathfinding {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

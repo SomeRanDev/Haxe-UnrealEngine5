@@ -25,3 +25,22 @@ abstract ConstLevelEditor2DSettings(LevelEditor2DSettings) from LevelEditor2DSet
 	public extern var SnapLayers(get, never): TArray<Mode2DLayer>;
 	public inline extern function get_SnapLayers(): TArray<Mode2DLayer> return this.SnapLayers;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelEditor2DSettings*")
+abstract LevelEditor2DSettingsPtr(cpp.Star<LevelEditor2DSettings>) from cpp.Star<LevelEditor2DSettings> to cpp.Star<LevelEditor2DSettings>{
+	@:from
+	public static extern inline function fromValue(v: LevelEditor2DSettings): LevelEditor2DSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelEditor2DSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

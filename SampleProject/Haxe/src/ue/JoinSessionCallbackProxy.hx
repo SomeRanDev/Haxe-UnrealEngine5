@@ -21,3 +21,22 @@ abstract ConstJoinSessionCallbackProxy(JoinSessionCallbackProxy) from JoinSessio
 	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnFailure;
 }
+
+@:forward
+@:nativeGen
+@:native("JoinSessionCallbackProxy*")
+abstract JoinSessionCallbackProxyPtr(cpp.Star<JoinSessionCallbackProxy>) from cpp.Star<JoinSessionCallbackProxy> to cpp.Star<JoinSessionCallbackProxy>{
+	@:from
+	public static extern inline function fromValue(v: JoinSessionCallbackProxy): JoinSessionCallbackProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): JoinSessionCallbackProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

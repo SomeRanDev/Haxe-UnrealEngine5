@@ -16,3 +16,22 @@ abstract ConstVolumeTextureFactory(VolumeTextureFactory) from VolumeTextureFacto
 	public extern var InitialTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
 	public inline extern function get_InitialTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.InitialTexture;
 }
+
+@:forward
+@:nativeGen
+@:native("VolumeTextureFactory*")
+abstract VolumeTextureFactoryPtr(cpp.Star<VolumeTextureFactory>) from cpp.Star<VolumeTextureFactory> to cpp.Star<VolumeTextureFactory>{
+	@:from
+	public static extern inline function fromValue(v: VolumeTextureFactory): VolumeTextureFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VolumeTextureFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

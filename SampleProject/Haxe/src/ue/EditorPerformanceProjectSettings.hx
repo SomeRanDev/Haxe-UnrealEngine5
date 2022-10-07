@@ -28,3 +28,22 @@ abstract ConstEditorPerformanceProjectSettings(EditorPerformanceProjectSettings)
 	public extern var MaxViewportRenderingResolution(get, never): cpp.Int32;
 	public inline extern function get_MaxViewportRenderingResolution(): cpp.Int32 return this.MaxViewportRenderingResolution;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorPerformanceProjectSettings*")
+abstract EditorPerformanceProjectSettingsPtr(cpp.Star<EditorPerformanceProjectSettings>) from cpp.Star<EditorPerformanceProjectSettings> to cpp.Star<EditorPerformanceProjectSettings>{
+	@:from
+	public static extern inline function fromValue(v: EditorPerformanceProjectSettings): EditorPerformanceProjectSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorPerformanceProjectSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

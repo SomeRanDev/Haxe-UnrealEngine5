@@ -71,3 +71,22 @@ abstract ConstToolMenu(ToolMenu) from ToolMenu {
 	public extern var SubMenuSourceEntryName(get, never): FName;
 	public inline extern function get_SubMenuSourceEntryName(): FName return this.SubMenuSourceEntryName;
 }
+
+@:forward
+@:nativeGen
+@:native("ToolMenu*")
+abstract ToolMenuPtr(cpp.Star<ToolMenu>) from cpp.Star<ToolMenu> to cpp.Star<ToolMenu>{
+	@:from
+	public static extern inline function fromValue(v: ToolMenu): ToolMenuPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ToolMenu {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

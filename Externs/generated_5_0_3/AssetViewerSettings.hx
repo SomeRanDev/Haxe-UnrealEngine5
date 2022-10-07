@@ -19,3 +19,22 @@ abstract ConstAssetViewerSettings(AssetViewerSettings) from AssetViewerSettings 
 	public extern var bFakeConfigValue_HACK(get, never): Bool;
 	public inline extern function get_bFakeConfigValue_HACK(): Bool return this.bFakeConfigValue_HACK;
 }
+
+@:forward
+@:nativeGen
+@:native("AssetViewerSettings*")
+abstract AssetViewerSettingsPtr(cpp.Star<AssetViewerSettings>) from cpp.Star<AssetViewerSettings> to cpp.Star<AssetViewerSettings>{
+	@:from
+	public static extern inline function fromValue(v: AssetViewerSettings): AssetViewerSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AssetViewerSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

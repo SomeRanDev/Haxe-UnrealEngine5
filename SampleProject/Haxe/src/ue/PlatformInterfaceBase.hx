@@ -16,3 +16,22 @@ abstract ConstPlatformInterfaceBase(PlatformInterfaceBase) from PlatformInterfac
 	public extern var AllDelegates(get, never): TArray<DelegateArray>;
 	public inline extern function get_AllDelegates(): TArray<DelegateArray> return this.AllDelegates;
 }
+
+@:forward
+@:nativeGen
+@:native("PlatformInterfaceBase*")
+abstract PlatformInterfaceBasePtr(cpp.Star<PlatformInterfaceBase>) from cpp.Star<PlatformInterfaceBase> to cpp.Star<PlatformInterfaceBase>{
+	@:from
+	public static extern inline function fromValue(v: PlatformInterfaceBase): PlatformInterfaceBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PlatformInterfaceBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

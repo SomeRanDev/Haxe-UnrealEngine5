@@ -13,3 +13,22 @@ extern class ImportLocalizedDialogueCommandlet extends GatherTextCommandletBase 
 @:nativeGen
 abstract ConstImportLocalizedDialogueCommandlet(ImportLocalizedDialogueCommandlet) from ImportLocalizedDialogueCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("ImportLocalizedDialogueCommandlet*")
+abstract ImportLocalizedDialogueCommandletPtr(cpp.Star<ImportLocalizedDialogueCommandlet>) from cpp.Star<ImportLocalizedDialogueCommandlet> to cpp.Star<ImportLocalizedDialogueCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: ImportLocalizedDialogueCommandlet): ImportLocalizedDialogueCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ImportLocalizedDialogueCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

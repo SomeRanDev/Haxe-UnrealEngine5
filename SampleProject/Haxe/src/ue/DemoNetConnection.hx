@@ -13,3 +13,22 @@ extern class DemoNetConnection extends NetConnection {
 @:nativeGen
 abstract ConstDemoNetConnection(DemoNetConnection) from DemoNetConnection {
 }
+
+@:forward
+@:nativeGen
+@:native("DemoNetConnection*")
+abstract DemoNetConnectionPtr(cpp.Star<DemoNetConnection>) from cpp.Star<DemoNetConnection> to cpp.Star<DemoNetConnection>{
+	@:from
+	public static extern inline function fromValue(v: DemoNetConnection): DemoNetConnectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DemoNetConnection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

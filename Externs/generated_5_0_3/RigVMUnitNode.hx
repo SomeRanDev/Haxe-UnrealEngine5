@@ -23,3 +23,22 @@ abstract ConstRigVMUnitNode(RigVMUnitNode) from RigVMUnitNode {
 	public extern var MethodName(get, never): FName;
 	public inline extern function get_MethodName(): FName return this.MethodName;
 }
+
+@:forward
+@:nativeGen
+@:native("RigVMUnitNode*")
+abstract RigVMUnitNodePtr(cpp.Star<RigVMUnitNode>) from cpp.Star<RigVMUnitNode> to cpp.Star<RigVMUnitNode>{
+	@:from
+	public static extern inline function fromValue(v: RigVMUnitNode): RigVMUnitNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVMUnitNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

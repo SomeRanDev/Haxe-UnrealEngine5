@@ -16,3 +16,22 @@ abstract ConstEnvQueryGenerator_ProjectedPoints(EnvQueryGenerator_ProjectedPoint
 	public extern var ProjectionData(get, never): EnvTraceData;
 	public inline extern function get_ProjectionData(): EnvTraceData return this.ProjectionData;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryGenerator_ProjectedPoints*")
+abstract EnvQueryGenerator_ProjectedPointsPtr(cpp.Star<EnvQueryGenerator_ProjectedPoints>) from cpp.Star<EnvQueryGenerator_ProjectedPoints> to cpp.Star<EnvQueryGenerator_ProjectedPoints>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryGenerator_ProjectedPoints): EnvQueryGenerator_ProjectedPointsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryGenerator_ProjectedPoints {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

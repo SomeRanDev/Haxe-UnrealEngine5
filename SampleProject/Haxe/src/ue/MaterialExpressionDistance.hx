@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionDistance(MaterialExpressionDistance) from Materi
 	public extern var B(get, never): ExpressionInput;
 	public inline extern function get_B(): ExpressionInput return this.B;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionDistance*")
+abstract MaterialExpressionDistancePtr(cpp.Star<MaterialExpressionDistance>) from cpp.Star<MaterialExpressionDistance> to cpp.Star<MaterialExpressionDistance>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionDistance): MaterialExpressionDistancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionDistance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

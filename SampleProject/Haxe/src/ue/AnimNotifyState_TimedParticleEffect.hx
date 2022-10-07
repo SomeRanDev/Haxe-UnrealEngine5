@@ -34,3 +34,22 @@ abstract ConstAnimNotifyState_TimedParticleEffect(AnimNotifyState_TimedParticleE
 	public extern var PreviousSocketNames(get, never): TArray<FName>;
 	public inline extern function get_PreviousSocketNames(): TArray<FName> return this.PreviousSocketNames;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimNotifyState_TimedParticleEffect*")
+abstract AnimNotifyState_TimedParticleEffectPtr(cpp.Star<AnimNotifyState_TimedParticleEffect>) from cpp.Star<AnimNotifyState_TimedParticleEffect> to cpp.Star<AnimNotifyState_TimedParticleEffect>{
+	@:from
+	public static extern inline function fromValue(v: AnimNotifyState_TimedParticleEffect): AnimNotifyState_TimedParticleEffectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimNotifyState_TimedParticleEffect {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

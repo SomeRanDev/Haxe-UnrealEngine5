@@ -12,3 +12,22 @@ extern class InterfaceProperty extends Property {
 @:nativeGen
 abstract ConstInterfaceProperty(InterfaceProperty) from InterfaceProperty {
 }
+
+@:forward
+@:nativeGen
+@:native("InterfaceProperty*")
+abstract InterfacePropertyPtr(cpp.Star<InterfaceProperty>) from cpp.Star<InterfaceProperty> to cpp.Star<InterfaceProperty>{
+	@:from
+	public static extern inline function fromValue(v: InterfaceProperty): InterfacePropertyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterfaceProperty {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

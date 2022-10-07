@@ -55,3 +55,22 @@ abstract ConstAutomatedLevelSequenceCapture(AutomatedLevelSequenceCapture) from 
 	public extern var LevelSequenceActor(get, never): TWeakObjectPtr<LevelSequenceActor.ConstLevelSequenceActor>;
 	public inline extern function get_LevelSequenceActor(): TWeakObjectPtr<LevelSequenceActor.ConstLevelSequenceActor> return this.LevelSequenceActor;
 }
+
+@:forward
+@:nativeGen
+@:native("AutomatedLevelSequenceCapture*")
+abstract AutomatedLevelSequenceCapturePtr(cpp.Star<AutomatedLevelSequenceCapture>) from cpp.Star<AutomatedLevelSequenceCapture> to cpp.Star<AutomatedLevelSequenceCapture>{
+	@:from
+	public static extern inline function fromValue(v: AutomatedLevelSequenceCapture): AutomatedLevelSequenceCapturePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AutomatedLevelSequenceCapture {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

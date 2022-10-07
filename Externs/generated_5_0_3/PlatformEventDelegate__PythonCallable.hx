@@ -12,3 +12,22 @@ extern class PlatformEventDelegate__PythonCallable extends PythonCallableForDele
 @:nativeGen
 abstract ConstPlatformEventDelegate__PythonCallable(PlatformEventDelegate__PythonCallable) from PlatformEventDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("PlatformEventDelegate__PythonCallable*")
+abstract PlatformEventDelegate__PythonCallablePtr(cpp.Star<PlatformEventDelegate__PythonCallable>) from cpp.Star<PlatformEventDelegate__PythonCallable> to cpp.Star<PlatformEventDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: PlatformEventDelegate__PythonCallable): PlatformEventDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PlatformEventDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -58,3 +58,22 @@ abstract ConstSCS_Node(SCS_Node) from SCS_Node {
 	public extern var InternalVariableName(get, never): FName;
 	public inline extern function get_InternalVariableName(): FName return this.InternalVariableName;
 }
+
+@:forward
+@:nativeGen
+@:native("SCS_Node*")
+abstract SCS_NodePtr(cpp.Star<SCS_Node>) from cpp.Star<SCS_Node> to cpp.Star<SCS_Node>{
+	@:from
+	public static extern inline function fromValue(v: SCS_Node): SCS_NodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SCS_Node {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

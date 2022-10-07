@@ -12,3 +12,22 @@ extern class Function extends Struct {
 @:nativeGen
 abstract ConstFunction(Function) from Function {
 }
+
+@:forward
+@:nativeGen
+@:native("Function*")
+abstract FunctionPtr(cpp.Star<Function>) from cpp.Star<Function> to cpp.Star<Function>{
+	@:from
+	public static extern inline function fromValue(v: Function): FunctionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Function {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

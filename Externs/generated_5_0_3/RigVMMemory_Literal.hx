@@ -126,3 +126,22 @@ abstract ConstRigVMMemory_Literal(RigVMMemory_Literal) from RigVMMemory_Literal 
 	public extern var PBIK_Debug__Const(get, never): PBIKDebug;
 	public inline extern function get_PBIK_Debug__Const(): PBIKDebug return this.PBIK_Debug__Const;
 }
+
+@:forward
+@:nativeGen
+@:native("RigVMMemory_Literal*")
+abstract RigVMMemory_LiteralPtr(cpp.Star<RigVMMemory_Literal>) from cpp.Star<RigVMMemory_Literal> to cpp.Star<RigVMMemory_Literal>{
+	@:from
+	public static extern inline function fromValue(v: RigVMMemory_Literal): RigVMMemory_LiteralPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVMMemory_Literal {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

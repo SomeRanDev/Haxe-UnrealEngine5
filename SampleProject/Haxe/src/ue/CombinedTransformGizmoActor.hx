@@ -61,3 +61,22 @@ abstract ConstCombinedTransformGizmoActor(CombinedTransformGizmoActor) from Comb
 	public extern var PlaneScaleXY(get, never): cpp.Star<PrimitiveComp.ConstPrimitiveComp>;
 	public inline extern function get_PlaneScaleXY(): cpp.Star<PrimitiveComp.ConstPrimitiveComp> return this.PlaneScaleXY;
 }
+
+@:forward
+@:nativeGen
+@:native("CombinedTransformGizmoActor*")
+abstract CombinedTransformGizmoActorPtr(cpp.Star<CombinedTransformGizmoActor>) from cpp.Star<CombinedTransformGizmoActor> to cpp.Star<CombinedTransformGizmoActor>{
+	@:from
+	public static extern inline function fromValue(v: CombinedTransformGizmoActor): CombinedTransformGizmoActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CombinedTransformGizmoActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

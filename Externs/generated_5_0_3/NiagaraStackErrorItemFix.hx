@@ -13,3 +13,22 @@ extern class NiagaraStackErrorItemFix extends NiagaraStackEntry {
 @:nativeGen
 abstract ConstNiagaraStackErrorItemFix(NiagaraStackErrorItemFix) from NiagaraStackErrorItemFix {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackErrorItemFix*")
+abstract NiagaraStackErrorItemFixPtr(cpp.Star<NiagaraStackErrorItemFix>) from cpp.Star<NiagaraStackErrorItemFix> to cpp.Star<NiagaraStackErrorItemFix>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackErrorItemFix): NiagaraStackErrorItemFixPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackErrorItemFix {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

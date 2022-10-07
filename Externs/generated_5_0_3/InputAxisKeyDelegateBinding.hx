@@ -16,3 +16,22 @@ abstract ConstInputAxisKeyDelegateBinding(InputAxisKeyDelegateBinding) from Inpu
 	public extern var InputAxisKeyDelegateBindings(get, never): TArray<BlueprintInputAxisKeyDelegateBinding>;
 	public inline extern function get_InputAxisKeyDelegateBindings(): TArray<BlueprintInputAxisKeyDelegateBinding> return this.InputAxisKeyDelegateBindings;
 }
+
+@:forward
+@:nativeGen
+@:native("InputAxisKeyDelegateBinding*")
+abstract InputAxisKeyDelegateBindingPtr(cpp.Star<InputAxisKeyDelegateBinding>) from cpp.Star<InputAxisKeyDelegateBinding> to cpp.Star<InputAxisKeyDelegateBinding>{
+	@:from
+	public static extern inline function fromValue(v: InputAxisKeyDelegateBinding): InputAxisKeyDelegateBindingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InputAxisKeyDelegateBinding {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

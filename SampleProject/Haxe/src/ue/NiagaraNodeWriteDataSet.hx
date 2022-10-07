@@ -16,3 +16,22 @@ abstract ConstNiagaraNodeWriteDataSet(NiagaraNodeWriteDataSet) from NiagaraNodeW
 	public extern var EventName(get, never): FName;
 	public inline extern function get_EventName(): FName return this.EventName;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraNodeWriteDataSet*")
+abstract NiagaraNodeWriteDataSetPtr(cpp.Star<NiagaraNodeWriteDataSet>) from cpp.Star<NiagaraNodeWriteDataSet> to cpp.Star<NiagaraNodeWriteDataSet>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraNodeWriteDataSet): NiagaraNodeWriteDataSetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraNodeWriteDataSet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class EnvQueryContext_Querier extends EnvQueryContext {
 @:nativeGen
 abstract ConstEnvQueryContext_Querier(EnvQueryContext_Querier) from EnvQueryContext_Querier {
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryContext_Querier*")
+abstract EnvQueryContext_QuerierPtr(cpp.Star<EnvQueryContext_Querier>) from cpp.Star<EnvQueryContext_Querier> to cpp.Star<EnvQueryContext_Querier>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryContext_Querier): EnvQueryContext_QuerierPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryContext_Querier {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

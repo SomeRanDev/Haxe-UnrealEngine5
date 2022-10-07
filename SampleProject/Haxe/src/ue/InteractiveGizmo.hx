@@ -16,3 +16,22 @@ abstract ConstInteractiveGizmo(InteractiveGizmo) from InteractiveGizmo {
 	public extern var InputBehaviors(get, never): cpp.Star<InputBehaviorSet.ConstInputBehaviorSet>;
 	public inline extern function get_InputBehaviors(): cpp.Star<InputBehaviorSet.ConstInputBehaviorSet> return this.InputBehaviors;
 }
+
+@:forward
+@:nativeGen
+@:native("InteractiveGizmo*")
+abstract InteractiveGizmoPtr(cpp.Star<InteractiveGizmo>) from cpp.Star<InteractiveGizmo> to cpp.Star<InteractiveGizmo>{
+	@:from
+	public static extern inline function fromValue(v: InteractiveGizmo): InteractiveGizmoPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InteractiveGizmo {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

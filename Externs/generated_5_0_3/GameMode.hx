@@ -60,3 +60,22 @@ abstract ConstGameMode(GameMode) from GameMode {
 	public extern var bHandleDedicatedServerReplays(get, never): Bool;
 	public inline extern function get_bHandleDedicatedServerReplays(): Bool return this.bHandleDedicatedServerReplays;
 }
+
+@:forward
+@:nativeGen
+@:native("GameMode*")
+abstract GameModePtr(cpp.Star<GameMode>) from cpp.Star<GameMode> to cpp.Star<GameMode>{
+	@:from
+	public static extern inline function fromValue(v: GameMode): GameModePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameMode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

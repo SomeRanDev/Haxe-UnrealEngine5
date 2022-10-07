@@ -19,3 +19,22 @@ abstract ConstOnlineSessionClient(OnlineSessionClient) from OnlineSessionClient 
 	public extern var bHandlingDisconnect(get, never): Bool;
 	public inline extern function get_bHandlingDisconnect(): Bool return this.bHandlingDisconnect;
 }
+
+@:forward
+@:nativeGen
+@:native("OnlineSessionClient*")
+abstract OnlineSessionClientPtr(cpp.Star<OnlineSessionClient>) from cpp.Star<OnlineSessionClient> to cpp.Star<OnlineSessionClient>{
+	@:from
+	public static extern inline function fromValue(v: OnlineSessionClient): OnlineSessionClientPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnlineSessionClient {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

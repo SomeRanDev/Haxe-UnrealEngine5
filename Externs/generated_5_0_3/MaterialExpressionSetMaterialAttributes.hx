@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionSetMaterialAttributes(MaterialExpressionSetMater
 	public extern var AttributeSetTypes(get, never): TArray<Guid>;
 	public inline extern function get_AttributeSetTypes(): TArray<Guid> return this.AttributeSetTypes;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionSetMaterialAttributes*")
+abstract MaterialExpressionSetMaterialAttributesPtr(cpp.Star<MaterialExpressionSetMaterialAttributes>) from cpp.Star<MaterialExpressionSetMaterialAttributes> to cpp.Star<MaterialExpressionSetMaterialAttributes>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionSetMaterialAttributes): MaterialExpressionSetMaterialAttributesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionSetMaterialAttributes {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

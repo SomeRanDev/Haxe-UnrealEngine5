@@ -16,3 +16,22 @@ abstract ConstMatineeActorCameraAnim(MatineeActorCameraAnim) from MatineeActorCa
 	public extern var CameraAnim(get, never): cpp.Star<CameraAnim.ConstCameraAnim>;
 	public inline extern function get_CameraAnim(): cpp.Star<CameraAnim.ConstCameraAnim> return this.CameraAnim;
 }
+
+@:forward
+@:nativeGen
+@:native("MatineeActorCameraAnim*")
+abstract MatineeActorCameraAnimPtr(cpp.Star<MatineeActorCameraAnim>) from cpp.Star<MatineeActorCameraAnim> to cpp.Star<MatineeActorCameraAnim>{
+	@:from
+	public static extern inline function fromValue(v: MatineeActorCameraAnim): MatineeActorCameraAnimPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MatineeActorCameraAnim {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

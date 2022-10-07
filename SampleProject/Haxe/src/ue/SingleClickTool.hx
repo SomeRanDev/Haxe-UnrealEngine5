@@ -13,3 +13,22 @@ extern class SingleClickTool extends InteractiveTool {
 @:nativeGen
 abstract ConstSingleClickTool(SingleClickTool) from SingleClickTool {
 }
+
+@:forward
+@:nativeGen
+@:native("SingleClickTool*")
+abstract SingleClickToolPtr(cpp.Star<SingleClickTool>) from cpp.Star<SingleClickTool> to cpp.Star<SingleClickTool>{
+	@:from
+	public static extern inline function fromValue(v: SingleClickTool): SingleClickToolPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SingleClickTool {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

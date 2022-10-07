@@ -30,3 +30,22 @@ abstract ConstTileView(TileView) from TileView {
 	public extern var bWrapHorizontalNavigation(get, never): Bool;
 	public inline extern function get_bWrapHorizontalNavigation(): Bool return this.bWrapHorizontalNavigation;
 }
+
+@:forward
+@:nativeGen
+@:native("TileView*")
+abstract TileViewPtr(cpp.Star<TileView>) from cpp.Star<TileView> to cpp.Star<TileView>{
+	@:from
+	public static extern inline function fromValue(v: TileView): TileViewPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TileView {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

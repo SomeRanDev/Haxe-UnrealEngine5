@@ -15,3 +15,22 @@ extern class AnimationAttributeIdentifierExtensions extends BlueprintFunctionLib
 @:nativeGen
 abstract ConstAnimationAttributeIdentifierExtensions(AnimationAttributeIdentifierExtensions) from AnimationAttributeIdentifierExtensions {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationAttributeIdentifierExtensions*")
+abstract AnimationAttributeIdentifierExtensionsPtr(cpp.Star<AnimationAttributeIdentifierExtensions>) from cpp.Star<AnimationAttributeIdentifierExtensions> to cpp.Star<AnimationAttributeIdentifierExtensions>{
+	@:from
+	public static extern inline function fromValue(v: AnimationAttributeIdentifierExtensions): AnimationAttributeIdentifierExtensionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationAttributeIdentifierExtensions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

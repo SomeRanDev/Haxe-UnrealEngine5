@@ -19,3 +19,22 @@ abstract ConstPanelSlot(PanelSlot) from PanelSlot {
 	public extern var Content(get, never): cpp.Star<Widget.ConstWidget>;
 	public inline extern function get_Content(): cpp.Star<Widget.ConstWidget> return this.Content;
 }
+
+@:forward
+@:nativeGen
+@:native("PanelSlot*")
+abstract PanelSlotPtr(cpp.Star<PanelSlot>) from cpp.Star<PanelSlot> to cpp.Star<PanelSlot>{
+	@:from
+	public static extern inline function fromValue(v: PanelSlot): PanelSlotPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PanelSlot {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

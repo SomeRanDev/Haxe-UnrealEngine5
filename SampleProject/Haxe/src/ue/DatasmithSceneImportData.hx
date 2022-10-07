@@ -19,3 +19,22 @@ abstract ConstDatasmithSceneImportData(DatasmithSceneImportData) from DatasmithS
 	public extern var DatasmithImportInfo(get, never): DatasmithImportInfo;
 	public inline extern function get_DatasmithImportInfo(): DatasmithImportInfo return this.DatasmithImportInfo;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithSceneImportData*")
+abstract DatasmithSceneImportDataPtr(cpp.Star<DatasmithSceneImportData>) from cpp.Star<DatasmithSceneImportData> to cpp.Star<DatasmithSceneImportData>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithSceneImportData): DatasmithSceneImportDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithSceneImportData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

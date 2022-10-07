@@ -16,3 +16,22 @@ abstract ConstControlPointMeshActor(ControlPointMeshActor) from ControlPointMesh
 	public extern var ControlPointMeshComponent(get, never): cpp.Star<ControlPointMeshComp.ConstControlPointMeshComp>;
 	public inline extern function get_ControlPointMeshComponent(): cpp.Star<ControlPointMeshComp.ConstControlPointMeshComp> return this.ControlPointMeshComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("ControlPointMeshActor*")
+abstract ControlPointMeshActorPtr(cpp.Star<ControlPointMeshActor>) from cpp.Star<ControlPointMeshActor> to cpp.Star<ControlPointMeshActor>{
+	@:from
+	public static extern inline function fromValue(v: ControlPointMeshActor): ControlPointMeshActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ControlPointMeshActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

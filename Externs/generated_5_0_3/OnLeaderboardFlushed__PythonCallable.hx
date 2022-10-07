@@ -12,3 +12,22 @@ extern class OnLeaderboardFlushed__PythonCallable extends PythonCallableForDeleg
 @:nativeGen
 abstract ConstOnLeaderboardFlushed__PythonCallable(OnLeaderboardFlushed__PythonCallable) from OnLeaderboardFlushed__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnLeaderboardFlushed__PythonCallable*")
+abstract OnLeaderboardFlushed__PythonCallablePtr(cpp.Star<OnLeaderboardFlushed__PythonCallable>) from cpp.Star<OnLeaderboardFlushed__PythonCallable> to cpp.Star<OnLeaderboardFlushed__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnLeaderboardFlushed__PythonCallable): OnLeaderboardFlushed__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnLeaderboardFlushed__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstEnvQueryTest_Project(EnvQueryTest_Project) from EnvQueryTest_Proje
 	public extern var ProjectionData(get, never): EnvTraceData;
 	public inline extern function get_ProjectionData(): EnvTraceData return this.ProjectionData;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryTest_Project*")
+abstract EnvQueryTest_ProjectPtr(cpp.Star<EnvQueryTest_Project>) from cpp.Star<EnvQueryTest_Project> to cpp.Star<EnvQueryTest_Project>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryTest_Project): EnvQueryTest_ProjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryTest_Project {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

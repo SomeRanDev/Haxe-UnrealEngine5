@@ -37,3 +37,22 @@ abstract ConstK2Node_InputKey(K2Node_InputKey) from K2Node_InputKey {
 	public extern var bCommand(get, never): Bool;
 	public inline extern function get_bCommand(): Bool return this.bCommand;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_InputKey*")
+abstract K2Node_InputKeyPtr(cpp.Star<K2Node_InputKey>) from cpp.Star<K2Node_InputKey> to cpp.Star<K2Node_InputKey>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_InputKey): K2Node_InputKeyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_InputKey {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

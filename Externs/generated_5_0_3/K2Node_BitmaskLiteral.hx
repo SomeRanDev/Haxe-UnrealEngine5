@@ -16,3 +16,22 @@ abstract ConstK2Node_BitmaskLiteral(K2Node_BitmaskLiteral) from K2Node_BitmaskLi
 	public extern var BitflagsEnum(get, never): cpp.Star<Enum.ConstEnum>;
 	public inline extern function get_BitflagsEnum(): cpp.Star<Enum.ConstEnum> return this.BitflagsEnum;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_BitmaskLiteral*")
+abstract K2Node_BitmaskLiteralPtr(cpp.Star<K2Node_BitmaskLiteral>) from cpp.Star<K2Node_BitmaskLiteral> to cpp.Star<K2Node_BitmaskLiteral>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_BitmaskLiteral): K2Node_BitmaskLiteralPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_BitmaskLiteral {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

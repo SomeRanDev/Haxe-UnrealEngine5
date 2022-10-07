@@ -22,3 +22,22 @@ abstract ConstLayer(Layer) from Layer {
 	public extern var ActorStats(get, never): TArray<LayerActorStats>;
 	public inline extern function get_ActorStats(): TArray<LayerActorStats> return this.ActorStats;
 }
+
+@:forward
+@:nativeGen
+@:native("Layer*")
+abstract LayerPtr(cpp.Star<Layer>) from cpp.Star<Layer> to cpp.Star<Layer>{
+	@:from
+	public static extern inline function fromValue(v: Layer): LayerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Layer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

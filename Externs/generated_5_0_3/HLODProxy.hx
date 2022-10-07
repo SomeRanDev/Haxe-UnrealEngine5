@@ -22,3 +22,22 @@ abstract ConstHLODProxy(HLODProxy) from HLODProxy {
 	public extern var HLODActors(get, never): TMap<cpp.Star<HLODProxyDesc.ConstHLODProxyDesc>, HLODProxyMesh>;
 	public inline extern function get_HLODActors(): TMap<cpp.Star<HLODProxyDesc.ConstHLODProxyDesc>, HLODProxyMesh> return this.HLODActors;
 }
+
+@:forward
+@:nativeGen
+@:native("HLODProxy*")
+abstract HLODProxyPtr(cpp.Star<HLODProxy>) from cpp.Star<HLODProxy> to cpp.Star<HLODProxy>{
+	@:from
+	public static extern inline function fromValue(v: HLODProxy): HLODProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): HLODProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

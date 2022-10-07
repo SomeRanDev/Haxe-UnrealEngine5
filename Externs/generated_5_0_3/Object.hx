@@ -19,3 +19,22 @@ extern class Object extends ObjectBaseUtility {
 @:nativeGen
 abstract ConstObject(Object) from Object {
 }
+
+@:forward
+@:nativeGen
+@:native("Object*")
+abstract ObjectPtr(cpp.Star<Object>) from cpp.Star<Object> to cpp.Star<Object>{
+	@:from
+	public static extern inline function fromValue(v: Object): ObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Object {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

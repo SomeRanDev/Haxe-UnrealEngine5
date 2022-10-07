@@ -13,3 +13,22 @@ extern class ActorInstanceHandleInterface extends Object {
 @:nativeGen
 abstract ConstActorInstanceHandleInterface(ActorInstanceHandleInterface) from ActorInstanceHandleInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorInstanceHandleInterface*")
+abstract ActorInstanceHandleInterfacePtr(cpp.Star<ActorInstanceHandleInterface>) from cpp.Star<ActorInstanceHandleInterface> to cpp.Star<ActorInstanceHandleInterface>{
+	@:from
+	public static extern inline function fromValue(v: ActorInstanceHandleInterface): ActorInstanceHandleInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorInstanceHandleInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

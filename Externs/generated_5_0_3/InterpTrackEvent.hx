@@ -28,3 +28,22 @@ abstract ConstInterpTrackEvent(InterpTrackEvent) from InterpTrackEvent {
 	public extern var bUseCustomEventName(get, never): Bool;
 	public inline extern function get_bUseCustomEventName(): Bool return this.bUseCustomEventName;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackEvent*")
+abstract InterpTrackEventPtr(cpp.Star<InterpTrackEvent>) from cpp.Star<InterpTrackEvent> to cpp.Star<InterpTrackEvent>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackEvent): InterpTrackEventPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackEvent {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

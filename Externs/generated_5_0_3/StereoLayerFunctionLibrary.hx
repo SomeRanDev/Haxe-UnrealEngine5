@@ -17,3 +17,22 @@ extern class StereoLayerFunctionLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstStereoLayerFunctionLibrary(StereoLayerFunctionLibrary) from StereoLayerFunctionLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("StereoLayerFunctionLibrary*")
+abstract StereoLayerFunctionLibraryPtr(cpp.Star<StereoLayerFunctionLibrary>) from cpp.Star<StereoLayerFunctionLibrary> to cpp.Star<StereoLayerFunctionLibrary>{
+	@:from
+	public static extern inline function fromValue(v: StereoLayerFunctionLibrary): StereoLayerFunctionLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): StereoLayerFunctionLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

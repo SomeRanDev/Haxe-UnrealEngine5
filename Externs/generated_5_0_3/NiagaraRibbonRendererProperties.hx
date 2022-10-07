@@ -163,3 +163,22 @@ abstract ConstNiagaraRibbonRendererProperties(NiagaraRibbonRendererProperties) f
 	public extern var PrevRibbonTwistBinding(get, never): NiagaraVariableAttributeBinding;
 	public inline extern function get_PrevRibbonTwistBinding(): NiagaraVariableAttributeBinding return this.PrevRibbonTwistBinding;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraRibbonRendererProperties*")
+abstract NiagaraRibbonRendererPropertiesPtr(cpp.Star<NiagaraRibbonRendererProperties>) from cpp.Star<NiagaraRibbonRendererProperties> to cpp.Star<NiagaraRibbonRendererProperties>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraRibbonRendererProperties): NiagaraRibbonRendererPropertiesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraRibbonRendererProperties {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

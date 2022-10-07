@@ -16,3 +16,22 @@ abstract ConstExportTextContainer(ExportTextContainer) from ExportTextContainer 
 	public extern var ExportText(get, never): FString;
 	public inline extern function get_ExportText(): FString return this.ExportText;
 }
+
+@:forward
+@:nativeGen
+@:native("ExportTextContainer*")
+abstract ExportTextContainerPtr(cpp.Star<ExportTextContainer>) from cpp.Star<ExportTextContainer> to cpp.Star<ExportTextContainer>{
+	@:from
+	public static extern inline function fromValue(v: ExportTextContainer): ExportTextContainerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ExportTextContainer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

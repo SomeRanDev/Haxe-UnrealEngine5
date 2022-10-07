@@ -43,3 +43,22 @@ abstract ConstNiagaraClipboardFunctionInput(NiagaraClipboardFunctionInput) from 
 	public extern var Dynamic(get, never): cpp.Star<NiagaraClipboardFunction.ConstNiagaraClipboardFunction>;
 	public inline extern function get_Dynamic(): cpp.Star<NiagaraClipboardFunction.ConstNiagaraClipboardFunction> return this.Dynamic;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraClipboardFunctionInput*")
+abstract NiagaraClipboardFunctionInputPtr(cpp.Star<NiagaraClipboardFunctionInput>) from cpp.Star<NiagaraClipboardFunctionInput> to cpp.Star<NiagaraClipboardFunctionInput>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraClipboardFunctionInput): NiagaraClipboardFunctionInputPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraClipboardFunctionInput {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

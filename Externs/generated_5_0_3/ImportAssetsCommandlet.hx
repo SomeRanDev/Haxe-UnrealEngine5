@@ -19,3 +19,22 @@ abstract ConstImportAssetsCommandlet(ImportAssetsCommandlet) from ImportAssetsCo
 	public extern var ImportDataList(get, never): TArray<cpp.Star<AutomatedAssetImportData.ConstAutomatedAssetImportData>>;
 	public inline extern function get_ImportDataList(): TArray<cpp.Star<AutomatedAssetImportData.ConstAutomatedAssetImportData>> return this.ImportDataList;
 }
+
+@:forward
+@:nativeGen
+@:native("ImportAssetsCommandlet*")
+abstract ImportAssetsCommandletPtr(cpp.Star<ImportAssetsCommandlet>) from cpp.Star<ImportAssetsCommandlet> to cpp.Star<ImportAssetsCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: ImportAssetsCommandlet): ImportAssetsCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ImportAssetsCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

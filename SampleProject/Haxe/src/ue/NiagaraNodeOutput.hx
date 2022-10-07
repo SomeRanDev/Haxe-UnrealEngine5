@@ -25,3 +25,22 @@ abstract ConstNiagaraNodeOutput(NiagaraNodeOutput) from NiagaraNodeOutput {
 	public extern var ScriptTypeIndex_DEPRECATED(get, never): cpp.Int32;
 	public inline extern function get_ScriptTypeIndex_DEPRECATED(): cpp.Int32 return this.ScriptTypeIndex_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraNodeOutput*")
+abstract NiagaraNodeOutputPtr(cpp.Star<NiagaraNodeOutput>) from cpp.Star<NiagaraNodeOutput> to cpp.Star<NiagaraNodeOutput>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraNodeOutput): NiagaraNodeOutputPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraNodeOutput {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

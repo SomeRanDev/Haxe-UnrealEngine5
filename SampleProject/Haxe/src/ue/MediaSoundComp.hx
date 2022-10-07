@@ -39,3 +39,22 @@ abstract ConstMediaSoundComp(MediaSoundComp) from MediaSoundComp {
 	public extern var MediaPlayer(get, never): cpp.Star<MediaPlayer.ConstMediaPlayer>;
 	public inline extern function get_MediaPlayer(): cpp.Star<MediaPlayer.ConstMediaPlayer> return this.MediaPlayer;
 }
+
+@:forward
+@:nativeGen
+@:native("MediaSoundComp*")
+abstract MediaSoundCompPtr(cpp.Star<MediaSoundComp>) from cpp.Star<MediaSoundComp> to cpp.Star<MediaSoundComp>{
+	@:from
+	public static extern inline function fromValue(v: MediaSoundComp): MediaSoundCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MediaSoundComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

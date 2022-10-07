@@ -13,3 +13,22 @@ extern class HLODSubsystem extends WorldSubsystem {
 @:nativeGen
 abstract ConstHLODSubsystem(HLODSubsystem) from HLODSubsystem {
 }
+
+@:forward
+@:nativeGen
+@:native("HLODSubsystem*")
+abstract HLODSubsystemPtr(cpp.Star<HLODSubsystem>) from cpp.Star<HLODSubsystem> to cpp.Star<HLODSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: HLODSubsystem): HLODSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): HLODSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

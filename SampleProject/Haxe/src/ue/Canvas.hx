@@ -69,3 +69,22 @@ abstract ConstCanvas(Canvas) from Canvas {
 	public extern var ReporterGraph(get, never): cpp.Star<ReporterGraph.ConstReporterGraph>;
 	public inline extern function get_ReporterGraph(): cpp.Star<ReporterGraph.ConstReporterGraph> return this.ReporterGraph;
 }
+
+@:forward
+@:nativeGen
+@:native("Canvas*")
+abstract CanvasPtr(cpp.Star<Canvas>) from cpp.Star<Canvas> to cpp.Star<Canvas>{
+	@:from
+	public static extern inline function fromValue(v: Canvas): CanvasPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Canvas {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

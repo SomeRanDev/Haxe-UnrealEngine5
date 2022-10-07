@@ -19,3 +19,22 @@ abstract ConstARTrackedQRCode(ARTrackedQRCode) from ARTrackedQRCode {
 	public extern var Version(get, never): cpp.Int32;
 	public inline extern function get_Version(): cpp.Int32 return this.Version;
 }
+
+@:forward
+@:nativeGen
+@:native("ARTrackedQRCode*")
+abstract ARTrackedQRCodePtr(cpp.Star<ARTrackedQRCode>) from cpp.Star<ARTrackedQRCode> to cpp.Star<ARTrackedQRCode>{
+	@:from
+	public static extern inline function fromValue(v: ARTrackedQRCode): ARTrackedQRCodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARTrackedQRCode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

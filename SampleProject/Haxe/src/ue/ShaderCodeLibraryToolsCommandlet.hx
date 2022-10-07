@@ -13,3 +13,22 @@ extern class ShaderCodeLibraryToolsCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstShaderCodeLibraryToolsCommandlet(ShaderCodeLibraryToolsCommandlet) from ShaderCodeLibraryToolsCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("ShaderCodeLibraryToolsCommandlet*")
+abstract ShaderCodeLibraryToolsCommandletPtr(cpp.Star<ShaderCodeLibraryToolsCommandlet>) from cpp.Star<ShaderCodeLibraryToolsCommandlet> to cpp.Star<ShaderCodeLibraryToolsCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: ShaderCodeLibraryToolsCommandlet): ShaderCodeLibraryToolsCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ShaderCodeLibraryToolsCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

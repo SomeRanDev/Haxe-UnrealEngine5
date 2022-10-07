@@ -19,3 +19,22 @@ abstract ConstK2Node_CastByteToEnum(K2Node_CastByteToEnum) from K2Node_CastByteT
 	public extern var bSafe(get, never): Bool;
 	public inline extern function get_bSafe(): Bool return this.bSafe;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_CastByteToEnum*")
+abstract K2Node_CastByteToEnumPtr(cpp.Star<K2Node_CastByteToEnum>) from cpp.Star<K2Node_CastByteToEnum> to cpp.Star<K2Node_CastByteToEnum>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_CastByteToEnum): K2Node_CastByteToEnumPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_CastByteToEnum {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

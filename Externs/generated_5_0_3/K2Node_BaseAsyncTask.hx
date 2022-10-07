@@ -25,3 +25,22 @@ abstract ConstK2Node_BaseAsyncTask(K2Node_BaseAsyncTask) from K2Node_BaseAsyncTa
 	public extern var ProxyActivateFunctionName(get, never): FName;
 	public inline extern function get_ProxyActivateFunctionName(): FName return this.ProxyActivateFunctionName;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_BaseAsyncTask*")
+abstract K2Node_BaseAsyncTaskPtr(cpp.Star<K2Node_BaseAsyncTask>) from cpp.Star<K2Node_BaseAsyncTask> to cpp.Star<K2Node_BaseAsyncTask>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_BaseAsyncTask): K2Node_BaseAsyncTaskPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_BaseAsyncTask {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

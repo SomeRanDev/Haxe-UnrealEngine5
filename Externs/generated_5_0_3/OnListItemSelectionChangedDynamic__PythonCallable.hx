@@ -12,3 +12,22 @@ extern class OnListItemSelectionChangedDynamic__PythonCallable extends PythonCal
 @:nativeGen
 abstract ConstOnListItemSelectionChangedDynamic__PythonCallable(OnListItemSelectionChangedDynamic__PythonCallable) from OnListItemSelectionChangedDynamic__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnListItemSelectionChangedDynamic__PythonCallable*")
+abstract OnListItemSelectionChangedDynamic__PythonCallablePtr(cpp.Star<OnListItemSelectionChangedDynamic__PythonCallable>) from cpp.Star<OnListItemSelectionChangedDynamic__PythonCallable> to cpp.Star<OnListItemSelectionChangedDynamic__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnListItemSelectionChangedDynamic__PythonCallable): OnListItemSelectionChangedDynamic__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnListItemSelectionChangedDynamic__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

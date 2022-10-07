@@ -25,3 +25,22 @@ abstract ConstEnvQueryTest_Dot(EnvQueryTest_Dot) from EnvQueryTest_Dot {
 	public extern var bAbsoluteValue(get, never): Bool;
 	public inline extern function get_bAbsoluteValue(): Bool return this.bAbsoluteValue;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryTest_Dot*")
+abstract EnvQueryTest_DotPtr(cpp.Star<EnvQueryTest_Dot>) from cpp.Star<EnvQueryTest_Dot> to cpp.Star<EnvQueryTest_Dot>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryTest_Dot): EnvQueryTest_DotPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryTest_Dot {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

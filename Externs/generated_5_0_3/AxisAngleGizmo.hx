@@ -55,3 +55,22 @@ abstract ConstAxisAngleGizmo(AxisAngleGizmo) from AxisAngleGizmo {
 	public extern var InteractionCurAngle(get, never): cpp.Float32;
 	public inline extern function get_InteractionCurAngle(): cpp.Float32 return this.InteractionCurAngle;
 }
+
+@:forward
+@:nativeGen
+@:native("AxisAngleGizmo*")
+abstract AxisAngleGizmoPtr(cpp.Star<AxisAngleGizmo>) from cpp.Star<AxisAngleGizmo> to cpp.Star<AxisAngleGizmo>{
+	@:from
+	public static extern inline function fromValue(v: AxisAngleGizmo): AxisAngleGizmoPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AxisAngleGizmo {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

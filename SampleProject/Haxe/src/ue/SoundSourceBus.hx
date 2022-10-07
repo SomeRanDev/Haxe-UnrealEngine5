@@ -25,3 +25,22 @@ abstract ConstSoundSourceBus(SoundSourceBus) from SoundSourceBus {
 	public extern var bAutoDeactivateWhenSilent(get, never): Bool;
 	public inline extern function get_bAutoDeactivateWhenSilent(): Bool return this.bAutoDeactivateWhenSilent;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundSourceBus*")
+abstract SoundSourceBusPtr(cpp.Star<SoundSourceBus>) from cpp.Star<SoundSourceBus> to cpp.Star<SoundSourceBus>{
+	@:from
+	public static extern inline function fromValue(v: SoundSourceBus): SoundSourceBusPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundSourceBus {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

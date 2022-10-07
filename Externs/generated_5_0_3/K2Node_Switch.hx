@@ -22,3 +22,22 @@ abstract ConstK2Node_Switch(K2Node_Switch) from K2Node_Switch {
 	public extern var FunctionClass(get, never): TSubclassOf<Object.ConstObject>;
 	public inline extern function get_FunctionClass(): TSubclassOf<Object.ConstObject> return this.FunctionClass;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_Switch*")
+abstract K2Node_SwitchPtr(cpp.Star<K2Node_Switch>) from cpp.Star<K2Node_Switch> to cpp.Star<K2Node_Switch>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_Switch): K2Node_SwitchPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_Switch {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

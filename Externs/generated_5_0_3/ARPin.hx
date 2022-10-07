@@ -42,3 +42,22 @@ abstract ConstARPin(ARPin) from ARPin {
 	public extern var OnARTransformUpdated(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<Transform>) -> Void>;
 	public inline extern function get_OnARTransformUpdated(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<Transform>) -> Void> return this.OnARTransformUpdated;
 }
+
+@:forward
+@:nativeGen
+@:native("ARPin*")
+abstract ARPinPtr(cpp.Star<ARPin>) from cpp.Star<ARPin> to cpp.Star<ARPin>{
+	@:from
+	public static extern inline function fromValue(v: ARPin): ARPinPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARPin {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

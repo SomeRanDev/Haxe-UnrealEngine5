@@ -27,3 +27,22 @@ abstract ConstOperatorField(OperatorField) from OperatorField {
 	public extern var Operation(get, never): EFieldOperationType;
 	public inline extern function get_Operation(): EFieldOperationType return this.Operation;
 }
+
+@:forward
+@:nativeGen
+@:native("OperatorField*")
+abstract OperatorFieldPtr(cpp.Star<OperatorField>) from cpp.Star<OperatorField> to cpp.Star<OperatorField>{
+	@:from
+	public static extern inline function fromValue(v: OperatorField): OperatorFieldPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OperatorField {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

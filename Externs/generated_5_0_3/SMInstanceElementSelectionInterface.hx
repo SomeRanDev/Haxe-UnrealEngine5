@@ -13,3 +13,22 @@ extern class SMInstanceElementSelectionInterface extends Object {
 @:nativeGen
 abstract ConstSMInstanceElementSelectionInterface(SMInstanceElementSelectionInterface) from SMInstanceElementSelectionInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("SMInstanceElementSelectionInterface*")
+abstract SMInstanceElementSelectionInterfacePtr(cpp.Star<SMInstanceElementSelectionInterface>) from cpp.Star<SMInstanceElementSelectionInterface> to cpp.Star<SMInstanceElementSelectionInterface>{
+	@:from
+	public static extern inline function fromValue(v: SMInstanceElementSelectionInterface): SMInstanceElementSelectionInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SMInstanceElementSelectionInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

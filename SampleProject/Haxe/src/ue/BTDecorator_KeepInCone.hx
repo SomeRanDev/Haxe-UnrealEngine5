@@ -28,3 +28,22 @@ abstract ConstBTDecorator_KeepInCone(BTDecorator_KeepInCone) from BTDecorator_Ke
 	public extern var bUseSelfAsObserved(get, never): Bool;
 	public inline extern function get_bUseSelfAsObserved(): Bool return this.bUseSelfAsObserved;
 }
+
+@:forward
+@:nativeGen
+@:native("BTDecorator_KeepInCone*")
+abstract BTDecorator_KeepInConePtr(cpp.Star<BTDecorator_KeepInCone>) from cpp.Star<BTDecorator_KeepInCone> to cpp.Star<BTDecorator_KeepInCone>{
+	@:from
+	public static extern inline function fromValue(v: BTDecorator_KeepInCone): BTDecorator_KeepInConePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTDecorator_KeepInCone {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

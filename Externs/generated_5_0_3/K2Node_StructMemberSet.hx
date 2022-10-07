@@ -16,3 +16,22 @@ abstract ConstK2Node_StructMemberSet(K2Node_StructMemberSet) from K2Node_StructM
 	public extern var ShowPinForProperties(get, never): TArray<OptionalPinFromProperty>;
 	public inline extern function get_ShowPinForProperties(): TArray<OptionalPinFromProperty> return this.ShowPinForProperties;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_StructMemberSet*")
+abstract K2Node_StructMemberSetPtr(cpp.Star<K2Node_StructMemberSet>) from cpp.Star<K2Node_StructMemberSet> to cpp.Star<K2Node_StructMemberSet>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_StructMemberSet): K2Node_StructMemberSetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_StructMemberSet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

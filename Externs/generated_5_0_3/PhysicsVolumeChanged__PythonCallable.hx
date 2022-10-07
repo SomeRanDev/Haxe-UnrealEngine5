@@ -12,3 +12,22 @@ extern class PhysicsVolumeChanged__PythonCallable extends PythonCallableForDeleg
 @:nativeGen
 abstract ConstPhysicsVolumeChanged__PythonCallable(PhysicsVolumeChanged__PythonCallable) from PhysicsVolumeChanged__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("PhysicsVolumeChanged__PythonCallable*")
+abstract PhysicsVolumeChanged__PythonCallablePtr(cpp.Star<PhysicsVolumeChanged__PythonCallable>) from cpp.Star<PhysicsVolumeChanged__PythonCallable> to cpp.Star<PhysicsVolumeChanged__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: PhysicsVolumeChanged__PythonCallable): PhysicsVolumeChanged__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhysicsVolumeChanged__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

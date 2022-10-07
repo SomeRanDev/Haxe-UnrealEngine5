@@ -19,3 +19,22 @@ abstract ConstUMGSequenceTickManager(UMGSequenceTickManager) from UMGSequenceTic
 	public extern var Linker(get, never): cpp.Star<MovieSceneEntitySystemLinker.ConstMovieSceneEntitySystemLinker>;
 	public inline extern function get_Linker(): cpp.Star<MovieSceneEntitySystemLinker.ConstMovieSceneEntitySystemLinker> return this.Linker;
 }
+
+@:forward
+@:nativeGen
+@:native("UMGSequenceTickManager*")
+abstract UMGSequenceTickManagerPtr(cpp.Star<UMGSequenceTickManager>) from cpp.Star<UMGSequenceTickManager> to cpp.Star<UMGSequenceTickManager>{
+	@:from
+	public static extern inline function fromValue(v: UMGSequenceTickManager): UMGSequenceTickManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UMGSequenceTickManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

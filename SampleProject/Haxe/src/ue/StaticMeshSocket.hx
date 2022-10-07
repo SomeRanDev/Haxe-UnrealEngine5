@@ -34,3 +34,22 @@ abstract ConstStaticMeshSocket(StaticMeshSocket) from StaticMeshSocket {
 	public extern var bSocketCreatedAtImport(get, never): Bool;
 	public inline extern function get_bSocketCreatedAtImport(): Bool return this.bSocketCreatedAtImport;
 }
+
+@:forward
+@:nativeGen
+@:native("StaticMeshSocket*")
+abstract StaticMeshSocketPtr(cpp.Star<StaticMeshSocket>) from cpp.Star<StaticMeshSocket> to cpp.Star<StaticMeshSocket>{
+	@:from
+	public static extern inline function fromValue(v: StaticMeshSocket): StaticMeshSocketPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): StaticMeshSocket {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

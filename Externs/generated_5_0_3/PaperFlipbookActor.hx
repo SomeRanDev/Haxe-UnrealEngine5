@@ -16,3 +16,22 @@ abstract ConstPaperFlipbookActor(PaperFlipbookActor) from PaperFlipbookActor {
 	public extern var RenderComponent(get, never): cpp.Star<PaperFlipbookComp.ConstPaperFlipbookComp>;
 	public inline extern function get_RenderComponent(): cpp.Star<PaperFlipbookComp.ConstPaperFlipbookComp> return this.RenderComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("PaperFlipbookActor*")
+abstract PaperFlipbookActorPtr(cpp.Star<PaperFlipbookActor>) from cpp.Star<PaperFlipbookActor> to cpp.Star<PaperFlipbookActor>{
+	@:from
+	public static extern inline function fromValue(v: PaperFlipbookActor): PaperFlipbookActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PaperFlipbookActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

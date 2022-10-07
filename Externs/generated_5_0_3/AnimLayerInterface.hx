@@ -12,3 +12,22 @@ extern class AnimLayerInterface extends Interface {
 @:nativeGen
 abstract ConstAnimLayerInterface(AnimLayerInterface) from AnimLayerInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimLayerInterface*")
+abstract AnimLayerInterfacePtr(cpp.Star<AnimLayerInterface>) from cpp.Star<AnimLayerInterface> to cpp.Star<AnimLayerInterface>{
+	@:from
+	public static extern inline function fromValue(v: AnimLayerInterface): AnimLayerInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimLayerInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class OnBoneTransformsFinalized__PythonCallable extends PythonCallableFor
 @:nativeGen
 abstract ConstOnBoneTransformsFinalized__PythonCallable(OnBoneTransformsFinalized__PythonCallable) from OnBoneTransformsFinalized__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnBoneTransformsFinalized__PythonCallable*")
+abstract OnBoneTransformsFinalized__PythonCallablePtr(cpp.Star<OnBoneTransformsFinalized__PythonCallable>) from cpp.Star<OnBoneTransformsFinalized__PythonCallable> to cpp.Star<OnBoneTransformsFinalized__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnBoneTransformsFinalized__PythonCallable): OnBoneTransformsFinalized__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnBoneTransformsFinalized__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

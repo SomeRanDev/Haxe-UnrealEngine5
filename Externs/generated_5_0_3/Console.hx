@@ -25,3 +25,22 @@ abstract ConstConsole(Console) from Console {
 	public extern var HistoryBuffer(get, never): TArray<FString>;
 	public inline extern function get_HistoryBuffer(): TArray<FString> return this.HistoryBuffer;
 }
+
+@:forward
+@:nativeGen
+@:native("Console*")
+abstract ConsolePtr(cpp.Star<Console>) from cpp.Star<Console> to cpp.Star<Console>{
+	@:from
+	public static extern inline function fromValue(v: Console): ConsolePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Console {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

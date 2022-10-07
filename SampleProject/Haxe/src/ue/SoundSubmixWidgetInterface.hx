@@ -13,3 +13,22 @@ extern class SoundSubmixWidgetInterface extends Interface {
 @:nativeGen
 abstract ConstSoundSubmixWidgetInterface(SoundSubmixWidgetInterface) from SoundSubmixWidgetInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("SoundSubmixWidgetInterface*")
+abstract SoundSubmixWidgetInterfacePtr(cpp.Star<SoundSubmixWidgetInterface>) from cpp.Star<SoundSubmixWidgetInterface> to cpp.Star<SoundSubmixWidgetInterface>{
+	@:from
+	public static extern inline function fromValue(v: SoundSubmixWidgetInterface): SoundSubmixWidgetInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundSubmixWidgetInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

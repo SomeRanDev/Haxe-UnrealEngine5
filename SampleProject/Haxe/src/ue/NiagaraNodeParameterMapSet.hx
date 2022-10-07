@@ -13,3 +13,22 @@ extern class NiagaraNodeParameterMapSet extends NiagaraNodeParameterMapBase {
 @:nativeGen
 abstract ConstNiagaraNodeParameterMapSet(NiagaraNodeParameterMapSet) from NiagaraNodeParameterMapSet {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraNodeParameterMapSet*")
+abstract NiagaraNodeParameterMapSetPtr(cpp.Star<NiagaraNodeParameterMapSet>) from cpp.Star<NiagaraNodeParameterMapSet> to cpp.Star<NiagaraNodeParameterMapSet>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraNodeParameterMapSet): NiagaraNodeParameterMapSetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraNodeParameterMapSet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

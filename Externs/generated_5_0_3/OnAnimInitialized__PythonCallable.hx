@@ -12,3 +12,22 @@ extern class OnAnimInitialized__PythonCallable extends PythonCallableForDelegate
 @:nativeGen
 abstract ConstOnAnimInitialized__PythonCallable(OnAnimInitialized__PythonCallable) from OnAnimInitialized__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnAnimInitialized__PythonCallable*")
+abstract OnAnimInitialized__PythonCallablePtr(cpp.Star<OnAnimInitialized__PythonCallable>) from cpp.Star<OnAnimInitialized__PythonCallable> to cpp.Star<OnAnimInitialized__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnAnimInitialized__PythonCallable): OnAnimInitialized__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnAnimInitialized__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -103,3 +103,22 @@ abstract ConstPhysicsAssetEditorOptions(PhysicsAssetEditorOptions) from PhysicsA
 	public extern var bResetClothWhenSimulating(get, never): Bool;
 	public inline extern function get_bResetClothWhenSimulating(): Bool return this.bResetClothWhenSimulating;
 }
+
+@:forward
+@:nativeGen
+@:native("PhysicsAssetEditorOptions*")
+abstract PhysicsAssetEditorOptionsPtr(cpp.Star<PhysicsAssetEditorOptions>) from cpp.Star<PhysicsAssetEditorOptions> to cpp.Star<PhysicsAssetEditorOptions>{
+	@:from
+	public static extern inline function fromValue(v: PhysicsAssetEditorOptions): PhysicsAssetEditorOptionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhysicsAssetEditorOptions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

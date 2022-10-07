@@ -19,3 +19,22 @@ abstract ConstNiagaraDataInterface2DArrayTexture(NiagaraDataInterface2DArrayText
 	public extern var TextureUserParameter(get, never): NiagaraUserParameterBinding;
 	public inline extern function get_TextureUserParameter(): NiagaraUserParameterBinding return this.TextureUserParameter;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterface2DArrayTexture*")
+abstract NiagaraDataInterface2DArrayTexturePtr(cpp.Star<NiagaraDataInterface2DArrayTexture>) from cpp.Star<NiagaraDataInterface2DArrayTexture> to cpp.Star<NiagaraDataInterface2DArrayTexture>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterface2DArrayTexture): NiagaraDataInterface2DArrayTexturePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterface2DArrayTexture {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -24,3 +24,22 @@ abstract ConstNoiseField(NoiseField) from NoiseField {
 	public extern var Transform(get, never): Transform;
 	public inline extern function get_Transform(): Transform return this.Transform;
 }
+
+@:forward
+@:nativeGen
+@:native("NoiseField*")
+abstract NoiseFieldPtr(cpp.Star<NoiseField>) from cpp.Star<NoiseField> to cpp.Star<NoiseField>{
+	@:from
+	public static extern inline function fromValue(v: NoiseField): NoiseFieldPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NoiseField {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

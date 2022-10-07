@@ -109,3 +109,22 @@ abstract ConstExponentialHeightFogComp(ExponentialHeightFogComp) from Exponentia
 	public extern var bOverrideLightColorsWithFogInscatteringColors(get, never): Bool;
 	public inline extern function get_bOverrideLightColorsWithFogInscatteringColors(): Bool return this.bOverrideLightColorsWithFogInscatteringColors;
 }
+
+@:forward
+@:nativeGen
+@:native("ExponentialHeightFogComp*")
+abstract ExponentialHeightFogCompPtr(cpp.Star<ExponentialHeightFogComp>) from cpp.Star<ExponentialHeightFogComp> to cpp.Star<ExponentialHeightFogComp>{
+	@:from
+	public static extern inline function fromValue(v: ExponentialHeightFogComp): ExponentialHeightFogCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ExponentialHeightFogComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -25,3 +25,22 @@ abstract ConstMaterialExpressionDivide(MaterialExpressionDivide) from MaterialEx
 	public extern var ConstB(get, never): cpp.Float32;
 	public inline extern function get_ConstB(): cpp.Float32 return this.ConstB;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionDivide*")
+abstract MaterialExpressionDividePtr(cpp.Star<MaterialExpressionDivide>) from cpp.Star<MaterialExpressionDivide> to cpp.Star<MaterialExpressionDivide>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionDivide): MaterialExpressionDividePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionDivide {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

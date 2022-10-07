@@ -16,3 +16,22 @@ abstract ConstNiagaraDataInterfaceDebugDraw(NiagaraDataInterfaceDebugDraw) from 
 	public extern var OverrideMaxLineInstances(get, never): cpp.UInt32;
 	public inline extern function get_OverrideMaxLineInstances(): cpp.UInt32 return this.OverrideMaxLineInstances;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceDebugDraw*")
+abstract NiagaraDataInterfaceDebugDrawPtr(cpp.Star<NiagaraDataInterfaceDebugDraw>) from cpp.Star<NiagaraDataInterfaceDebugDraw> to cpp.Star<NiagaraDataInterfaceDebugDraw>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceDebugDraw): NiagaraDataInterfaceDebugDrawPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceDebugDraw {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

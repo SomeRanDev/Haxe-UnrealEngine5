@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionRound(MaterialExpressionRound) from MaterialExpr
 	public extern var Input(get, never): ExpressionInput;
 	public inline extern function get_Input(): ExpressionInput return this.Input;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionRound*")
+abstract MaterialExpressionRoundPtr(cpp.Star<MaterialExpressionRound>) from cpp.Star<MaterialExpressionRound> to cpp.Star<MaterialExpressionRound>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionRound): MaterialExpressionRoundPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionRound {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

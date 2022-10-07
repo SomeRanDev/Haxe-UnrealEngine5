@@ -19,3 +19,22 @@ abstract ConstDistributionFloat(DistributionFloat) from DistributionFloat {
 	public extern var bBakedDataSuccesfully(get, never): Bool;
 	public inline extern function get_bBakedDataSuccesfully(): Bool return this.bBakedDataSuccesfully;
 }
+
+@:forward
+@:nativeGen
+@:native("DistributionFloat*")
+abstract DistributionFloatPtr(cpp.Star<DistributionFloat>) from cpp.Star<DistributionFloat> to cpp.Star<DistributionFloat>{
+	@:from
+	public static extern inline function fromValue(v: DistributionFloat): DistributionFloatPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DistributionFloat {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

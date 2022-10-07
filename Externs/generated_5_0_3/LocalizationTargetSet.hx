@@ -16,3 +16,22 @@ abstract ConstLocalizationTargetSet(LocalizationTargetSet) from LocalizationTarg
 	public extern var TargetObjects(get, never): TArray<cpp.Star<LocalizationTarget.ConstLocalizationTarget>>;
 	public inline extern function get_TargetObjects(): TArray<cpp.Star<LocalizationTarget.ConstLocalizationTarget>> return this.TargetObjects;
 }
+
+@:forward
+@:nativeGen
+@:native("LocalizationTargetSet*")
+abstract LocalizationTargetSetPtr(cpp.Star<LocalizationTargetSet>) from cpp.Star<LocalizationTargetSet> to cpp.Star<LocalizationTargetSet>{
+	@:from
+	public static extern inline function fromValue(v: LocalizationTargetSet): LocalizationTargetSetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LocalizationTargetSet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

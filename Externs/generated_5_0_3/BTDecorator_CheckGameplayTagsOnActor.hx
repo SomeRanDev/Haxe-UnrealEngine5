@@ -25,3 +25,22 @@ abstract ConstBTDecorator_CheckGameplayTagsOnActor(BTDecorator_CheckGameplayTags
 	public extern var CachedDescription(get, never): FString;
 	public inline extern function get_CachedDescription(): FString return this.CachedDescription;
 }
+
+@:forward
+@:nativeGen
+@:native("BTDecorator_CheckGameplayTagsOnActor*")
+abstract BTDecorator_CheckGameplayTagsOnActorPtr(cpp.Star<BTDecorator_CheckGameplayTagsOnActor>) from cpp.Star<BTDecorator_CheckGameplayTagsOnActor> to cpp.Star<BTDecorator_CheckGameplayTagsOnActor>{
+	@:from
+	public static extern inline function fromValue(v: BTDecorator_CheckGameplayTagsOnActor): BTDecorator_CheckGameplayTagsOnActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTDecorator_CheckGameplayTagsOnActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

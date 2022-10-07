@@ -49,3 +49,22 @@ abstract ConstSoundCue(SoundCue) from SoundCue {
 	public extern var bHasPlayWhenSilent(get, never): Bool;
 	public inline extern function get_bHasPlayWhenSilent(): Bool return this.bHasPlayWhenSilent;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundCue*")
+abstract SoundCuePtr(cpp.Star<SoundCue>) from cpp.Star<SoundCue> to cpp.Star<SoundCue>{
+	@:from
+	public static extern inline function fromValue(v: SoundCue): SoundCuePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundCue {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -18,3 +18,22 @@ abstract ConstSpacer(Spacer) from Spacer {
 	public extern var Size(get, never): Vector2D;
 	public inline extern function get_Size(): Vector2D return this.Size;
 }
+
+@:forward
+@:nativeGen
+@:native("Spacer*")
+abstract SpacerPtr(cpp.Star<Spacer>) from cpp.Star<Spacer> to cpp.Star<Spacer>{
+	@:from
+	public static extern inline function fromValue(v: Spacer): SpacerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Spacer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -25,3 +25,22 @@ abstract ConstNiagaraDataInterfaceAudioSpectrum(NiagaraDataInterfaceAudioSpectru
 	public extern var NoiseFloorDb(get, never): cpp.Float32;
 	public inline extern function get_NoiseFloorDb(): cpp.Float32 return this.NoiseFloorDb;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceAudioSpectrum*")
+abstract NiagaraDataInterfaceAudioSpectrumPtr(cpp.Star<NiagaraDataInterfaceAudioSpectrum>) from cpp.Star<NiagaraDataInterfaceAudioSpectrum> to cpp.Star<NiagaraDataInterfaceAudioSpectrum>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceAudioSpectrum): NiagaraDataInterfaceAudioSpectrumPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceAudioSpectrum {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

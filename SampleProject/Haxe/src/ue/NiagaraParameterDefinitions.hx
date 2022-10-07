@@ -25,3 +25,22 @@ abstract ConstNiagaraParameterDefinitions(NiagaraParameterDefinitions) from Niag
 	public extern var ExternalParameterDefinitionsSubscriptions(get, never): TArray<ParameterDefinitionsBindingNameSubscription>;
 	public inline extern function get_ExternalParameterDefinitionsSubscriptions(): TArray<ParameterDefinitionsBindingNameSubscription> return this.ExternalParameterDefinitionsSubscriptions;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraParameterDefinitions*")
+abstract NiagaraParameterDefinitionsPtr(cpp.Star<NiagaraParameterDefinitions>) from cpp.Star<NiagaraParameterDefinitions> to cpp.Star<NiagaraParameterDefinitions>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraParameterDefinitions): NiagaraParameterDefinitionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraParameterDefinitions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

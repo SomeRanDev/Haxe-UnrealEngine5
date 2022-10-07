@@ -25,3 +25,22 @@ abstract ConstDatasmithPointLightComponentTemplate(DatasmithPointLightComponentT
 	public extern var AttenuationRadius(get, never): cpp.Float32;
 	public inline extern function get_AttenuationRadius(): cpp.Float32 return this.AttenuationRadius;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithPointLightComponentTemplate*")
+abstract DatasmithPointLightComponentTemplatePtr(cpp.Star<DatasmithPointLightComponentTemplate>) from cpp.Star<DatasmithPointLightComponentTemplate> to cpp.Star<DatasmithPointLightComponentTemplate>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithPointLightComponentTemplate): DatasmithPointLightComponentTemplatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithPointLightComponentTemplate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -18,3 +18,22 @@ abstract ConstAutoDestroySubsystem(AutoDestroySubsystem) from AutoDestroySubsyst
 	public extern var ActorsToPoll(get, never): TArray<cpp.Star<Actor.ConstActor>>;
 	public inline extern function get_ActorsToPoll(): TArray<cpp.Star<Actor.ConstActor>> return this.ActorsToPoll;
 }
+
+@:forward
+@:nativeGen
+@:native("AutoDestroySubsystem*")
+abstract AutoDestroySubsystemPtr(cpp.Star<AutoDestroySubsystem>) from cpp.Star<AutoDestroySubsystem> to cpp.Star<AutoDestroySubsystem>{
+	@:from
+	public static extern inline function fromValue(v: AutoDestroySubsystem): AutoDestroySubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AutoDestroySubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

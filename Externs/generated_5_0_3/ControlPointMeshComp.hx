@@ -19,3 +19,22 @@ abstract ConstControlPointMeshComp(ControlPointMeshComp) from ControlPointMeshCo
 	public extern var VirtualTextureMainPassMaxDrawDistance(get, never): cpp.Float32;
 	public inline extern function get_VirtualTextureMainPassMaxDrawDistance(): cpp.Float32 return this.VirtualTextureMainPassMaxDrawDistance;
 }
+
+@:forward
+@:nativeGen
+@:native("ControlPointMeshComp*")
+abstract ControlPointMeshCompPtr(cpp.Star<ControlPointMeshComp>) from cpp.Star<ControlPointMeshComp> to cpp.Star<ControlPointMeshComp>{
+	@:from
+	public static extern inline function fromValue(v: ControlPointMeshComp): ControlPointMeshCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ControlPointMeshComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

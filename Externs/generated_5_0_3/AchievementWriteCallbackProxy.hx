@@ -21,3 +21,22 @@ abstract ConstAchievementWriteCallbackProxy(AchievementWriteCallbackProxy) from 
 	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32) -> Void>;
 	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32) -> Void> return this.OnFailure;
 }
+
+@:forward
+@:nativeGen
+@:native("AchievementWriteCallbackProxy*")
+abstract AchievementWriteCallbackProxyPtr(cpp.Star<AchievementWriteCallbackProxy>) from cpp.Star<AchievementWriteCallbackProxy> to cpp.Star<AchievementWriteCallbackProxy>{
+	@:from
+	public static extern inline function fromValue(v: AchievementWriteCallbackProxy): AchievementWriteCallbackProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AchievementWriteCallbackProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

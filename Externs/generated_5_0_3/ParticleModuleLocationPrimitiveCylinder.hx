@@ -25,3 +25,22 @@ abstract ConstParticleModuleLocationPrimitiveCylinder(ParticleModuleLocationPrim
 	public extern var HeightAxis(get, never): CylinderHeightAxis;
 	public inline extern function get_HeightAxis(): CylinderHeightAxis return this.HeightAxis;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleLocationPrimitiveCylinder*")
+abstract ParticleModuleLocationPrimitiveCylinderPtr(cpp.Star<ParticleModuleLocationPrimitiveCylinder>) from cpp.Star<ParticleModuleLocationPrimitiveCylinder> to cpp.Star<ParticleModuleLocationPrimitiveCylinder>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleLocationPrimitiveCylinder): ParticleModuleLocationPrimitiveCylinderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleLocationPrimitiveCylinder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

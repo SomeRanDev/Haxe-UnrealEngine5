@@ -12,3 +12,22 @@ extern class LevelStreamingVisibilityStatus__PythonCallable extends PythonCallab
 @:nativeGen
 abstract ConstLevelStreamingVisibilityStatus__PythonCallable(LevelStreamingVisibilityStatus__PythonCallable) from LevelStreamingVisibilityStatus__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("LevelStreamingVisibilityStatus__PythonCallable*")
+abstract LevelStreamingVisibilityStatus__PythonCallablePtr(cpp.Star<LevelStreamingVisibilityStatus__PythonCallable>) from cpp.Star<LevelStreamingVisibilityStatus__PythonCallable> to cpp.Star<LevelStreamingVisibilityStatus__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: LevelStreamingVisibilityStatus__PythonCallable): LevelStreamingVisibilityStatus__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelStreamingVisibilityStatus__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

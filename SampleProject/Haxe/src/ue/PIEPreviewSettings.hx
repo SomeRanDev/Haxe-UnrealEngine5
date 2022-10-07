@@ -22,3 +22,22 @@ abstract ConstPIEPreviewSettings(PIEPreviewSettings) from PIEPreviewSettings {
 	public extern var WindowScalingFactor(get, never): cpp.Float32;
 	public inline extern function get_WindowScalingFactor(): cpp.Float32 return this.WindowScalingFactor;
 }
+
+@:forward
+@:nativeGen
+@:native("PIEPreviewSettings*")
+abstract PIEPreviewSettingsPtr(cpp.Star<PIEPreviewSettings>) from cpp.Star<PIEPreviewSettings> to cpp.Star<PIEPreviewSettings>{
+	@:from
+	public static extern inline function fromValue(v: PIEPreviewSettings): PIEPreviewSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PIEPreviewSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

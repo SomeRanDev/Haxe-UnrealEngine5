@@ -12,3 +12,22 @@ extern class UInt64Property extends NumericProperty {
 @:nativeGen
 abstract ConstUInt64Property(UInt64Property) from UInt64Property {
 }
+
+@:forward
+@:nativeGen
+@:native("UInt64Property*")
+abstract UInt64PropertyPtr(cpp.Star<UInt64Property>) from cpp.Star<UInt64Property> to cpp.Star<UInt64Property>{
+	@:from
+	public static extern inline function fromValue(v: UInt64Property): UInt64PropertyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UInt64Property {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

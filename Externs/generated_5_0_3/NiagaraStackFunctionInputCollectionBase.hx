@@ -13,3 +13,22 @@ extern class NiagaraStackFunctionInputCollectionBase extends NiagaraStackItemCon
 @:nativeGen
 abstract ConstNiagaraStackFunctionInputCollectionBase(NiagaraStackFunctionInputCollectionBase) from NiagaraStackFunctionInputCollectionBase {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackFunctionInputCollectionBase*")
+abstract NiagaraStackFunctionInputCollectionBasePtr(cpp.Star<NiagaraStackFunctionInputCollectionBase>) from cpp.Star<NiagaraStackFunctionInputCollectionBase> to cpp.Star<NiagaraStackFunctionInputCollectionBase>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackFunctionInputCollectionBase): NiagaraStackFunctionInputCollectionBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackFunctionInputCollectionBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

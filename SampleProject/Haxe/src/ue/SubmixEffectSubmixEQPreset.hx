@@ -18,3 +18,22 @@ abstract ConstSubmixEffectSubmixEQPreset(SubmixEffectSubmixEQPreset) from Submix
 	public extern var Settings(get, never): SubmixEffectSubmixEQSettings;
 	public inline extern function get_Settings(): SubmixEffectSubmixEQSettings return this.Settings;
 }
+
+@:forward
+@:nativeGen
+@:native("SubmixEffectSubmixEQPreset*")
+abstract SubmixEffectSubmixEQPresetPtr(cpp.Star<SubmixEffectSubmixEQPreset>) from cpp.Star<SubmixEffectSubmixEQPreset> to cpp.Star<SubmixEffectSubmixEQPreset>{
+	@:from
+	public static extern inline function fromValue(v: SubmixEffectSubmixEQPreset): SubmixEffectSubmixEQPresetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SubmixEffectSubmixEQPreset {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

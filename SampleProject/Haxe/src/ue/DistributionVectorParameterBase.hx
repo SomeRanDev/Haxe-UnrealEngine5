@@ -31,3 +31,22 @@ abstract ConstDistributionVectorParameterBase(DistributionVectorParameterBase) f
 	public extern var ParamModes(get, never): DistributionParamMode;
 	public inline extern function get_ParamModes(): DistributionParamMode return this.ParamModes;
 }
+
+@:forward
+@:nativeGen
+@:native("DistributionVectorParameterBase*")
+abstract DistributionVectorParameterBasePtr(cpp.Star<DistributionVectorParameterBase>) from cpp.Star<DistributionVectorParameterBase> to cpp.Star<DistributionVectorParameterBase>{
+	@:from
+	public static extern inline function fromValue(v: DistributionVectorParameterBase): DistributionVectorParameterBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DistributionVectorParameterBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

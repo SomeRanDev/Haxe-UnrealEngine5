@@ -65,3 +65,22 @@ abstract ConstGameMapsSettings(GameMapsSettings) from GameMapsSettings {
 	public extern var GameModeClassAliases(get, never): TArray<GameModeName>;
 	public inline extern function get_GameModeClassAliases(): TArray<GameModeName> return this.GameModeClassAliases;
 }
+
+@:forward
+@:nativeGen
+@:native("GameMapsSettings*")
+abstract GameMapsSettingsPtr(cpp.Star<GameMapsSettings>) from cpp.Star<GameMapsSettings> to cpp.Star<GameMapsSettings>{
+	@:from
+	public static extern inline function fromValue(v: GameMapsSettings): GameMapsSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameMapsSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

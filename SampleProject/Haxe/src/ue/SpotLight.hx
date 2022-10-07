@@ -22,3 +22,22 @@ abstract ConstSpotLight(SpotLight) from SpotLight {
 	public extern var ArrowComponent(get, never): cpp.Star<ArrowComp.ConstArrowComp>;
 	public inline extern function get_ArrowComponent(): cpp.Star<ArrowComp.ConstArrowComp> return this.ArrowComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("SpotLight*")
+abstract SpotLightPtr(cpp.Star<SpotLight>) from cpp.Star<SpotLight> to cpp.Star<SpotLight>{
+	@:from
+	public static extern inline function fromValue(v: SpotLight): SpotLightPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SpotLight {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

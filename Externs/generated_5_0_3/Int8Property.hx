@@ -12,3 +12,22 @@ extern class Int8Property extends NumericProperty {
 @:nativeGen
 abstract ConstInt8Property(Int8Property) from Int8Property {
 }
+
+@:forward
+@:nativeGen
+@:native("Int8Property*")
+abstract Int8PropertyPtr(cpp.Star<Int8Property>) from cpp.Star<Int8Property> to cpp.Star<Int8Property>{
+	@:from
+	public static extern inline function fromValue(v: Int8Property): Int8PropertyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Int8Property {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

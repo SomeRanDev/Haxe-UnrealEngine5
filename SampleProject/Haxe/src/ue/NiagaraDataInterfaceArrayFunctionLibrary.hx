@@ -49,3 +49,22 @@ extern class NiagaraDataInterfaceArrayFunctionLibrary extends BlueprintFunctionL
 @:nativeGen
 abstract ConstNiagaraDataInterfaceArrayFunctionLibrary(NiagaraDataInterfaceArrayFunctionLibrary) from NiagaraDataInterfaceArrayFunctionLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceArrayFunctionLibrary*")
+abstract NiagaraDataInterfaceArrayFunctionLibraryPtr(cpp.Star<NiagaraDataInterfaceArrayFunctionLibrary>) from cpp.Star<NiagaraDataInterfaceArrayFunctionLibrary> to cpp.Star<NiagaraDataInterfaceArrayFunctionLibrary>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceArrayFunctionLibrary): NiagaraDataInterfaceArrayFunctionLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceArrayFunctionLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

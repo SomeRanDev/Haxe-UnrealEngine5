@@ -13,3 +13,22 @@ extern class AssetEditorToolkitMenuContext extends Object {
 @:nativeGen
 abstract ConstAssetEditorToolkitMenuContext(AssetEditorToolkitMenuContext) from AssetEditorToolkitMenuContext {
 }
+
+@:forward
+@:nativeGen
+@:native("AssetEditorToolkitMenuContext*")
+abstract AssetEditorToolkitMenuContextPtr(cpp.Star<AssetEditorToolkitMenuContext>) from cpp.Star<AssetEditorToolkitMenuContext> to cpp.Star<AssetEditorToolkitMenuContext>{
+	@:from
+	public static extern inline function fromValue(v: AssetEditorToolkitMenuContext): AssetEditorToolkitMenuContextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AssetEditorToolkitMenuContext {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

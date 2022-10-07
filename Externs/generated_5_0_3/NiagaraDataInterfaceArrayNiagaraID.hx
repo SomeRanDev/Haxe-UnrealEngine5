@@ -16,3 +16,22 @@ abstract ConstNiagaraDataInterfaceArrayNiagaraID(NiagaraDataInterfaceArrayNiagar
 	public extern var IntData(get, never): TArray<NiagaraID>;
 	public inline extern function get_IntData(): TArray<NiagaraID> return this.IntData;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceArrayNiagaraID*")
+abstract NiagaraDataInterfaceArrayNiagaraIDPtr(cpp.Star<NiagaraDataInterfaceArrayNiagaraID>) from cpp.Star<NiagaraDataInterfaceArrayNiagaraID> to cpp.Star<NiagaraDataInterfaceArrayNiagaraID>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceArrayNiagaraID): NiagaraDataInterfaceArrayNiagaraIDPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceArrayNiagaraID {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

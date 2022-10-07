@@ -34,3 +34,22 @@ abstract ConstParticleModuleTypeDataAnimTrail(ParticleModuleTypeDataAnimTrail) f
 	public extern var WidthTessellationStepSize(get, never): cpp.Float32;
 	public inline extern function get_WidthTessellationStepSize(): cpp.Float32 return this.WidthTessellationStepSize;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleTypeDataAnimTrail*")
+abstract ParticleModuleTypeDataAnimTrailPtr(cpp.Star<ParticleModuleTypeDataAnimTrail>) from cpp.Star<ParticleModuleTypeDataAnimTrail> to cpp.Star<ParticleModuleTypeDataAnimTrail>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleTypeDataAnimTrail): ParticleModuleTypeDataAnimTrailPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleTypeDataAnimTrail {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

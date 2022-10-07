@@ -19,3 +19,22 @@ abstract ConstInterpTrackMoveAxis(InterpTrackMoveAxis) from InterpTrackMoveAxis 
 	public extern var LookupTrack(get, never): InterpLookupTrack;
 	public inline extern function get_LookupTrack(): InterpLookupTrack return this.LookupTrack;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackMoveAxis*")
+abstract InterpTrackMoveAxisPtr(cpp.Star<InterpTrackMoveAxis>) from cpp.Star<InterpTrackMoveAxis> to cpp.Star<InterpTrackMoveAxis>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackMoveAxis): InterpTrackMoveAxisPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackMoveAxis {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

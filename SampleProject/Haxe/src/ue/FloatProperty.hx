@@ -12,3 +12,22 @@ extern class FloatProperty extends NumericProperty {
 @:nativeGen
 abstract ConstFloatProperty(FloatProperty) from FloatProperty {
 }
+
+@:forward
+@:nativeGen
+@:native("FloatProperty*")
+abstract FloatPropertyPtr(cpp.Star<FloatProperty>) from cpp.Star<FloatProperty> to cpp.Star<FloatProperty>{
+	@:from
+	public static extern inline function fromValue(v: FloatProperty): FloatPropertyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FloatProperty {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

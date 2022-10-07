@@ -29,3 +29,22 @@ abstract ConstMediaPlaylist(MediaPlaylist) from MediaPlaylist {
 	public extern var Items(get, never): TArray<cpp.Star<MediaSource.ConstMediaSource>>;
 	public inline extern function get_Items(): TArray<cpp.Star<MediaSource.ConstMediaSource>> return this.Items;
 }
+
+@:forward
+@:nativeGen
+@:native("MediaPlaylist*")
+abstract MediaPlaylistPtr(cpp.Star<MediaPlaylist>) from cpp.Star<MediaPlaylist> to cpp.Star<MediaPlaylist>{
+	@:from
+	public static extern inline function fromValue(v: MediaPlaylist): MediaPlaylistPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MediaPlaylist {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -32,3 +32,22 @@ abstract ConstMovieSceneSequence(MovieSceneSequence) from MovieSceneSequence {
 	public extern var SequenceFlags(get, never): EMovieSceneSequenceFlags;
 	public inline extern function get_SequenceFlags(): EMovieSceneSequenceFlags return this.SequenceFlags;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneSequence*")
+abstract MovieSceneSequencePtr(cpp.Star<MovieSceneSequence>) from cpp.Star<MovieSceneSequence> to cpp.Star<MovieSceneSequence>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneSequence): MovieSceneSequencePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneSequence {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

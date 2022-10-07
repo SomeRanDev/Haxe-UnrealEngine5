@@ -40,3 +40,22 @@ abstract ConstWorldPartitionRuntimeCell(WorldPartitionRuntimeCell) from WorldPar
 	public extern var bBlockOnSlowLoading(get, never): Bool;
 	public inline extern function get_bBlockOnSlowLoading(): Bool return this.bBlockOnSlowLoading;
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionRuntimeCell*")
+abstract WorldPartitionRuntimeCellPtr(cpp.Star<WorldPartitionRuntimeCell>) from cpp.Star<WorldPartitionRuntimeCell> to cpp.Star<WorldPartitionRuntimeCell>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionRuntimeCell): WorldPartitionRuntimeCellPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionRuntimeCell {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

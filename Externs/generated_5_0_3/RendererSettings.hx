@@ -400,3 +400,22 @@ abstract ConstRendererSettings(RendererSettings) from RendererSettings {
 	public extern var VisualizeCalibrationGrayscaleMaterialPath(get, never): SoftObjectPath;
 	public inline extern function get_VisualizeCalibrationGrayscaleMaterialPath(): SoftObjectPath return this.VisualizeCalibrationGrayscaleMaterialPath;
 }
+
+@:forward
+@:nativeGen
+@:native("RendererSettings*")
+abstract RendererSettingsPtr(cpp.Star<RendererSettings>) from cpp.Star<RendererSettings> to cpp.Star<RendererSettings>{
+	@:from
+	public static extern inline function fromValue(v: RendererSettings): RendererSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RendererSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

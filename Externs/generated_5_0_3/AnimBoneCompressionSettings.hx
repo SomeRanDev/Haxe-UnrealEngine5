@@ -22,3 +22,22 @@ abstract ConstAnimBoneCompressionSettings(AnimBoneCompressionSettings) from Anim
 	public extern var bForceBelowThreshold(get, never): Bool;
 	public inline extern function get_bForceBelowThreshold(): Bool return this.bForceBelowThreshold;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimBoneCompressionSettings*")
+abstract AnimBoneCompressionSettingsPtr(cpp.Star<AnimBoneCompressionSettings>) from cpp.Star<AnimBoneCompressionSettings> to cpp.Star<AnimBoneCompressionSettings>{
+	@:from
+	public static extern inline function fromValue(v: AnimBoneCompressionSettings): AnimBoneCompressionSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimBoneCompressionSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

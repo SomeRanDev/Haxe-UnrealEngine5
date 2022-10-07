@@ -22,3 +22,22 @@ abstract ConstMaterialExpressionDynamicParameter(MaterialExpressionDynamicParame
 	public extern var ParameterIndex(get, never): cpp.UInt32;
 	public inline extern function get_ParameterIndex(): cpp.UInt32 return this.ParameterIndex;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionDynamicParameter*")
+abstract MaterialExpressionDynamicParameterPtr(cpp.Star<MaterialExpressionDynamicParameter>) from cpp.Star<MaterialExpressionDynamicParameter> to cpp.Star<MaterialExpressionDynamicParameter>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionDynamicParameter): MaterialExpressionDynamicParameterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionDynamicParameter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

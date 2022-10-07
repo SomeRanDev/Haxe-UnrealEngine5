@@ -13,3 +13,22 @@ extern class NiagaraStackSummaryViewCollapseButton extends NiagaraStackEntry {
 @:nativeGen
 abstract ConstNiagaraStackSummaryViewCollapseButton(NiagaraStackSummaryViewCollapseButton) from NiagaraStackSummaryViewCollapseButton {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackSummaryViewCollapseButton*")
+abstract NiagaraStackSummaryViewCollapseButtonPtr(cpp.Star<NiagaraStackSummaryViewCollapseButton>) from cpp.Star<NiagaraStackSummaryViewCollapseButton> to cpp.Star<NiagaraStackSummaryViewCollapseButton>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackSummaryViewCollapseButton): NiagaraStackSummaryViewCollapseButtonPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackSummaryViewCollapseButton {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

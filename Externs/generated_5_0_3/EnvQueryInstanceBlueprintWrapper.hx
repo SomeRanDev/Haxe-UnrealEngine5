@@ -33,3 +33,22 @@ abstract ConstEnvQueryInstanceBlueprintWrapper(EnvQueryInstanceBlueprintWrapper)
 	public extern var OnQueryFinishedEvent(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<EnvQueryInstanceBlueprintWrapper.ConstEnvQueryInstanceBlueprintWrapper>, EEnvQueryStatus) -> Void>;
 	public inline extern function get_OnQueryFinishedEvent(): HaxeMulticastSparseDelegateProperty<(cpp.Star<EnvQueryInstanceBlueprintWrapper.ConstEnvQueryInstanceBlueprintWrapper>, EEnvQueryStatus) -> Void> return this.OnQueryFinishedEvent;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryInstanceBlueprintWrapper*")
+abstract EnvQueryInstanceBlueprintWrapperPtr(cpp.Star<EnvQueryInstanceBlueprintWrapper>) from cpp.Star<EnvQueryInstanceBlueprintWrapper> to cpp.Star<EnvQueryInstanceBlueprintWrapper>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryInstanceBlueprintWrapper): EnvQueryInstanceBlueprintWrapperPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryInstanceBlueprintWrapper {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

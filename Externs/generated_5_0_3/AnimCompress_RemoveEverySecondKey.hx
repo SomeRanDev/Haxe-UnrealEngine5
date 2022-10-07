@@ -19,3 +19,22 @@ abstract ConstAnimCompress_RemoveEverySecondKey(AnimCompress_RemoveEverySecondKe
 	public extern var bStartAtSecondKey(get, never): Bool;
 	public inline extern function get_bStartAtSecondKey(): Bool return this.bStartAtSecondKey;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimCompress_RemoveEverySecondKey*")
+abstract AnimCompress_RemoveEverySecondKeyPtr(cpp.Star<AnimCompress_RemoveEverySecondKey>) from cpp.Star<AnimCompress_RemoveEverySecondKey> to cpp.Star<AnimCompress_RemoveEverySecondKey>{
+	@:from
+	public static extern inline function fromValue(v: AnimCompress_RemoveEverySecondKey): AnimCompress_RemoveEverySecondKeyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimCompress_RemoveEverySecondKey {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

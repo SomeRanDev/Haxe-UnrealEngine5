@@ -148,3 +148,22 @@ abstract ConstChaosClothConfig(ChaosClothConfig) from ChaosClothConfig {
 	public extern var StrainLimitingStiffness_DEPRECATED(get, never): cpp.Float32;
 	public inline extern function get_StrainLimitingStiffness_DEPRECATED(): cpp.Float32 return this.StrainLimitingStiffness_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("ChaosClothConfig*")
+abstract ChaosClothConfigPtr(cpp.Star<ChaosClothConfig>) from cpp.Star<ChaosClothConfig> to cpp.Star<ChaosClothConfig>{
+	@:from
+	public static extern inline function fromValue(v: ChaosClothConfig): ChaosClothConfigPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ChaosClothConfig {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

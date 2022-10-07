@@ -18,3 +18,22 @@ abstract ConstRandomVector(RandomVector) from RandomVector {
 	public extern var Magnitude(get, never): cpp.Float32;
 	public inline extern function get_Magnitude(): cpp.Float32 return this.Magnitude;
 }
+
+@:forward
+@:nativeGen
+@:native("RandomVector*")
+abstract RandomVectorPtr(cpp.Star<RandomVector>) from cpp.Star<RandomVector> to cpp.Star<RandomVector>{
+	@:from
+	public static extern inline function fromValue(v: RandomVector): RandomVectorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RandomVector {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

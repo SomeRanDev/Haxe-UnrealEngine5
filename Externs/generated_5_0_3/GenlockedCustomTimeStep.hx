@@ -13,3 +13,22 @@ extern class GenlockedCustomTimeStep extends FixedFrameRateCustomTimeStep {
 @:nativeGen
 abstract ConstGenlockedCustomTimeStep(GenlockedCustomTimeStep) from GenlockedCustomTimeStep {
 }
+
+@:forward
+@:nativeGen
+@:native("GenlockedCustomTimeStep*")
+abstract GenlockedCustomTimeStepPtr(cpp.Star<GenlockedCustomTimeStep>) from cpp.Star<GenlockedCustomTimeStep> to cpp.Star<GenlockedCustomTimeStep>{
+	@:from
+	public static extern inline function fromValue(v: GenlockedCustomTimeStep): GenlockedCustomTimeStepPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GenlockedCustomTimeStep {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

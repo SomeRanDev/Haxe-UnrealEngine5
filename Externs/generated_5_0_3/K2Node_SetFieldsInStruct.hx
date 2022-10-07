@@ -13,3 +13,22 @@ extern class K2Node_SetFieldsInStruct extends K2Node_MakeStruct {
 @:nativeGen
 abstract ConstK2Node_SetFieldsInStruct(K2Node_SetFieldsInStruct) from K2Node_SetFieldsInStruct {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_SetFieldsInStruct*")
+abstract K2Node_SetFieldsInStructPtr(cpp.Star<K2Node_SetFieldsInStruct>) from cpp.Star<K2Node_SetFieldsInStruct> to cpp.Star<K2Node_SetFieldsInStruct>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_SetFieldsInStruct): K2Node_SetFieldsInStructPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_SetFieldsInStruct {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

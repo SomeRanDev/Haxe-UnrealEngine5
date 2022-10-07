@@ -22,3 +22,22 @@ abstract ConstCurveEditorCopyBuffer(CurveEditorCopyBuffer) from CurveEditorCopyB
 	public extern var bAbsolutePosition(get, never): Bool;
 	public inline extern function get_bAbsolutePosition(): Bool return this.bAbsolutePosition;
 }
+
+@:forward
+@:nativeGen
+@:native("CurveEditorCopyBuffer*")
+abstract CurveEditorCopyBufferPtr(cpp.Star<CurveEditorCopyBuffer>) from cpp.Star<CurveEditorCopyBuffer> to cpp.Star<CurveEditorCopyBuffer>{
+	@:from
+	public static extern inline function fromValue(v: CurveEditorCopyBuffer): CurveEditorCopyBufferPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CurveEditorCopyBuffer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

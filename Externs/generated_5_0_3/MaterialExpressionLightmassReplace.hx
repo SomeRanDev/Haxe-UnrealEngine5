@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionLightmassReplace(MaterialExpressionLightmassRepl
 	public extern var Lightmass(get, never): ExpressionInput;
 	public inline extern function get_Lightmass(): ExpressionInput return this.Lightmass;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionLightmassReplace*")
+abstract MaterialExpressionLightmassReplacePtr(cpp.Star<MaterialExpressionLightmassReplace>) from cpp.Star<MaterialExpressionLightmassReplace> to cpp.Star<MaterialExpressionLightmassReplace>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionLightmassReplace): MaterialExpressionLightmassReplacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionLightmassReplace {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

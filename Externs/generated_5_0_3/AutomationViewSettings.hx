@@ -40,3 +40,22 @@ abstract ConstAutomationViewSettings(AutomationViewSettings) from AutomationView
 	public extern var Bloom(get, never): Bool;
 	public inline extern function get_Bloom(): Bool return this.Bloom;
 }
+
+@:forward
+@:nativeGen
+@:native("AutomationViewSettings*")
+abstract AutomationViewSettingsPtr(cpp.Star<AutomationViewSettings>) from cpp.Star<AutomationViewSettings> to cpp.Star<AutomationViewSettings>{
+	@:from
+	public static extern inline function fromValue(v: AutomationViewSettings): AutomationViewSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AutomationViewSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

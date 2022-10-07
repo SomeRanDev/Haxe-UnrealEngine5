@@ -12,3 +12,22 @@ extern class EQSQueryResultSourceInterface extends Interface {
 @:nativeGen
 abstract ConstEQSQueryResultSourceInterface(EQSQueryResultSourceInterface) from EQSQueryResultSourceInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("EQSQueryResultSourceInterface*")
+abstract EQSQueryResultSourceInterfacePtr(cpp.Star<EQSQueryResultSourceInterface>) from cpp.Star<EQSQueryResultSourceInterface> to cpp.Star<EQSQueryResultSourceInterface>{
+	@:from
+	public static extern inline function fromValue(v: EQSQueryResultSourceInterface): EQSQueryResultSourceInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EQSQueryResultSourceInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

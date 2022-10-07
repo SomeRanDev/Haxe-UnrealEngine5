@@ -21,3 +21,22 @@ abstract ConstARSaveWorldAsyncTaskBlueprintProxy(ARSaveWorldAsyncTaskBlueprintPr
 	public extern var OnFailed(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.UInt8>>) -> Void>;
 	public inline extern function get_OnFailed(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.UInt8>>) -> Void> return this.OnFailed;
 }
+
+@:forward
+@:nativeGen
+@:native("ARSaveWorldAsyncTaskBlueprintProxy*")
+abstract ARSaveWorldAsyncTaskBlueprintProxyPtr(cpp.Star<ARSaveWorldAsyncTaskBlueprintProxy>) from cpp.Star<ARSaveWorldAsyncTaskBlueprintProxy> to cpp.Star<ARSaveWorldAsyncTaskBlueprintProxy>{
+	@:from
+	public static extern inline function fromValue(v: ARSaveWorldAsyncTaskBlueprintProxy): ARSaveWorldAsyncTaskBlueprintProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARSaveWorldAsyncTaskBlueprintProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

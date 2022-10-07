@@ -24,3 +24,22 @@ abstract ConstDynamicEntryBox(DynamicEntryBox) from DynamicEntryBox {
 	public extern var EntryWidgetClass(get, never): TSubclassOf<UserWidget.ConstUserWidget>;
 	public inline extern function get_EntryWidgetClass(): TSubclassOf<UserWidget.ConstUserWidget> return this.EntryWidgetClass;
 }
+
+@:forward
+@:nativeGen
+@:native("DynamicEntryBox*")
+abstract DynamicEntryBoxPtr(cpp.Star<DynamicEntryBox>) from cpp.Star<DynamicEntryBox> to cpp.Star<DynamicEntryBox>{
+	@:from
+	public static extern inline function fromValue(v: DynamicEntryBox): DynamicEntryBoxPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DynamicEntryBox {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

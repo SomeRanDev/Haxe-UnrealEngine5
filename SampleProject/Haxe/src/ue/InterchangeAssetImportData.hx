@@ -26,3 +26,22 @@ abstract ConstInterchangeAssetImportData(InterchangeAssetImportData) from Interc
 	public extern var Pipelines(get, never): TArray<cpp.Star<InterchangePipelineBase.ConstInterchangePipelineBase>>;
 	public inline extern function get_Pipelines(): TArray<cpp.Star<InterchangePipelineBase.ConstInterchangePipelineBase>> return this.Pipelines;
 }
+
+@:forward
+@:nativeGen
+@:native("InterchangeAssetImportData*")
+abstract InterchangeAssetImportDataPtr(cpp.Star<InterchangeAssetImportData>) from cpp.Star<InterchangeAssetImportData> to cpp.Star<InterchangeAssetImportData>{
+	@:from
+	public static extern inline function fromValue(v: InterchangeAssetImportData): InterchangeAssetImportDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterchangeAssetImportData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

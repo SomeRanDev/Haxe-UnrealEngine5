@@ -16,3 +16,22 @@ abstract ConstInterpTrackInstDirector(InterpTrackInstDirector) from InterpTrackI
 	public extern var OldViewTarget(get, never): cpp.Star<Actor.ConstActor>;
 	public inline extern function get_OldViewTarget(): cpp.Star<Actor.ConstActor> return this.OldViewTarget;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackInstDirector*")
+abstract InterpTrackInstDirectorPtr(cpp.Star<InterpTrackInstDirector>) from cpp.Star<InterpTrackInstDirector> to cpp.Star<InterpTrackInstDirector>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackInstDirector): InterpTrackInstDirectorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackInstDirector {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

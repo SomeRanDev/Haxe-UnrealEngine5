@@ -50,3 +50,22 @@ abstract ConstGridSlot(GridSlot) from GridSlot {
 	public extern var Nudge(get, never): Vector2D;
 	public inline extern function get_Nudge(): Vector2D return this.Nudge;
 }
+
+@:forward
+@:nativeGen
+@:native("GridSlot*")
+abstract GridSlotPtr(cpp.Star<GridSlot>) from cpp.Star<GridSlot> to cpp.Star<GridSlot>{
+	@:from
+	public static extern inline function fromValue(v: GridSlot): GridSlotPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GridSlot {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

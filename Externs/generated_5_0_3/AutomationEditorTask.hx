@@ -15,3 +15,22 @@ extern class AutomationEditorTask extends Object {
 @:nativeGen
 abstract ConstAutomationEditorTask(AutomationEditorTask) from AutomationEditorTask {
 }
+
+@:forward
+@:nativeGen
+@:native("AutomationEditorTask*")
+abstract AutomationEditorTaskPtr(cpp.Star<AutomationEditorTask>) from cpp.Star<AutomationEditorTask> to cpp.Star<AutomationEditorTask>{
+	@:from
+	public static extern inline function fromValue(v: AutomationEditorTask): AutomationEditorTaskPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AutomationEditorTask {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

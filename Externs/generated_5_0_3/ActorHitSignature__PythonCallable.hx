@@ -12,3 +12,22 @@ extern class ActorHitSignature__PythonCallable extends PythonCallableForDelegate
 @:nativeGen
 abstract ConstActorHitSignature__PythonCallable(ActorHitSignature__PythonCallable) from ActorHitSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorHitSignature__PythonCallable*")
+abstract ActorHitSignature__PythonCallablePtr(cpp.Star<ActorHitSignature__PythonCallable>) from cpp.Star<ActorHitSignature__PythonCallable> to cpp.Star<ActorHitSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ActorHitSignature__PythonCallable): ActorHitSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorHitSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

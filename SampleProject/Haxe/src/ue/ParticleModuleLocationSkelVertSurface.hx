@@ -64,3 +64,22 @@ abstract ConstParticleModuleLocationSkelVertSurface(ParticleModuleLocationSkelVe
 	public extern var InheritUVChannel(get, never): cpp.UInt32;
 	public inline extern function get_InheritUVChannel(): cpp.UInt32 return this.InheritUVChannel;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleLocationSkelVertSurface*")
+abstract ParticleModuleLocationSkelVertSurfacePtr(cpp.Star<ParticleModuleLocationSkelVertSurface>) from cpp.Star<ParticleModuleLocationSkelVertSurface> to cpp.Star<ParticleModuleLocationSkelVertSurface>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleLocationSkelVertSurface): ParticleModuleLocationSkelVertSurfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleLocationSkelVertSurface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

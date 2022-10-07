@@ -13,3 +13,22 @@ extern class TemplateSequencePropertyScalingInstantiatorSystem extends MovieScen
 @:nativeGen
 abstract ConstTemplateSequencePropertyScalingInstantiatorSystem(TemplateSequencePropertyScalingInstantiatorSystem) from TemplateSequencePropertyScalingInstantiatorSystem {
 }
+
+@:forward
+@:nativeGen
+@:native("TemplateSequencePropertyScalingInstantiatorSystem*")
+abstract TemplateSequencePropertyScalingInstantiatorSystemPtr(cpp.Star<TemplateSequencePropertyScalingInstantiatorSystem>) from cpp.Star<TemplateSequencePropertyScalingInstantiatorSystem> to cpp.Star<TemplateSequencePropertyScalingInstantiatorSystem>{
+	@:from
+	public static extern inline function fromValue(v: TemplateSequencePropertyScalingInstantiatorSystem): TemplateSequencePropertyScalingInstantiatorSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TemplateSequencePropertyScalingInstantiatorSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

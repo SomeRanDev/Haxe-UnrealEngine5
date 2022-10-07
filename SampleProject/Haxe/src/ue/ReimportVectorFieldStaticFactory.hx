@@ -13,3 +13,22 @@ extern class ReimportVectorFieldStaticFactory extends VectorFieldStaticFactory {
 @:nativeGen
 abstract ConstReimportVectorFieldStaticFactory(ReimportVectorFieldStaticFactory) from ReimportVectorFieldStaticFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("ReimportVectorFieldStaticFactory*")
+abstract ReimportVectorFieldStaticFactoryPtr(cpp.Star<ReimportVectorFieldStaticFactory>) from cpp.Star<ReimportVectorFieldStaticFactory> to cpp.Star<ReimportVectorFieldStaticFactory>{
+	@:from
+	public static extern inline function fromValue(v: ReimportVectorFieldStaticFactory): ReimportVectorFieldStaticFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ReimportVectorFieldStaticFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

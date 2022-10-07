@@ -15,3 +15,22 @@ extern class NetPushModelHelpers extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstNetPushModelHelpers(NetPushModelHelpers) from NetPushModelHelpers {
 }
+
+@:forward
+@:nativeGen
+@:native("NetPushModelHelpers*")
+abstract NetPushModelHelpersPtr(cpp.Star<NetPushModelHelpers>) from cpp.Star<NetPushModelHelpers> to cpp.Star<NetPushModelHelpers>{
+	@:from
+	public static extern inline function fromValue(v: NetPushModelHelpers): NetPushModelHelpersPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NetPushModelHelpers {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

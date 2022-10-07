@@ -16,3 +16,22 @@ abstract ConstSpatialHashRuntimeGridInfo(SpatialHashRuntimeGridInfo) from Spatia
 	public extern var GridSettings(get, never): SpatialHashRuntimeGrid;
 	public inline extern function get_GridSettings(): SpatialHashRuntimeGrid return this.GridSettings;
 }
+
+@:forward
+@:nativeGen
+@:native("SpatialHashRuntimeGridInfo*")
+abstract SpatialHashRuntimeGridInfoPtr(cpp.Star<SpatialHashRuntimeGridInfo>) from cpp.Star<SpatialHashRuntimeGridInfo> to cpp.Star<SpatialHashRuntimeGridInfo>{
+	@:from
+	public static extern inline function fromValue(v: SpatialHashRuntimeGridInfo): SpatialHashRuntimeGridInfoPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SpatialHashRuntimeGridInfo {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

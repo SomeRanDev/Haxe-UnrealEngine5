@@ -13,3 +13,22 @@ extern class AnimBlueprintExtension_CachedPose extends AnimBlueprintExtension {
 @:nativeGen
 abstract ConstAnimBlueprintExtension_CachedPose(AnimBlueprintExtension_CachedPose) from AnimBlueprintExtension_CachedPose {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimBlueprintExtension_CachedPose*")
+abstract AnimBlueprintExtension_CachedPosePtr(cpp.Star<AnimBlueprintExtension_CachedPose>) from cpp.Star<AnimBlueprintExtension_CachedPose> to cpp.Star<AnimBlueprintExtension_CachedPose>{
+	@:from
+	public static extern inline function fromValue(v: AnimBlueprintExtension_CachedPose): AnimBlueprintExtension_CachedPosePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimBlueprintExtension_CachedPose {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

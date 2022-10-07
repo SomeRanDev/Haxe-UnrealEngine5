@@ -32,3 +32,22 @@ extern class MaterialInstanceDynamic extends MaterialInstance {
 @:nativeGen
 abstract ConstMaterialInstanceDynamic(MaterialInstanceDynamic) from MaterialInstanceDynamic {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialInstanceDynamic*")
+abstract MaterialInstanceDynamicPtr(cpp.Star<MaterialInstanceDynamic>) from cpp.Star<MaterialInstanceDynamic> to cpp.Star<MaterialInstanceDynamic>{
+	@:from
+	public static extern inline function fromValue(v: MaterialInstanceDynamic): MaterialInstanceDynamicPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialInstanceDynamic {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

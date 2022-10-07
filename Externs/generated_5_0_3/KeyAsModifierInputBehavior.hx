@@ -13,3 +13,22 @@ extern class KeyAsModifierInputBehavior extends InputBehavior {
 @:nativeGen
 abstract ConstKeyAsModifierInputBehavior(KeyAsModifierInputBehavior) from KeyAsModifierInputBehavior {
 }
+
+@:forward
+@:nativeGen
+@:native("KeyAsModifierInputBehavior*")
+abstract KeyAsModifierInputBehaviorPtr(cpp.Star<KeyAsModifierInputBehavior>) from cpp.Star<KeyAsModifierInputBehavior> to cpp.Star<KeyAsModifierInputBehavior>{
+	@:from
+	public static extern inline function fromValue(v: KeyAsModifierInputBehavior): KeyAsModifierInputBehaviorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): KeyAsModifierInputBehavior {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -37,3 +37,22 @@ abstract ConstAnimGraphNode_Base(AnimGraphNode_Base) from AnimGraphNode_Base {
 	public extern var Tag(get, never): FName;
 	public inline extern function get_Tag(): FName return this.Tag;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_Base*")
+abstract AnimGraphNode_BasePtr(cpp.Star<AnimGraphNode_Base>) from cpp.Star<AnimGraphNode_Base> to cpp.Star<AnimGraphNode_Base>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_Base): AnimGraphNode_BasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_Base {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

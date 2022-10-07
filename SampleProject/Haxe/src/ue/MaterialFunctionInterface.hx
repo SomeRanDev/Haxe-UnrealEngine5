@@ -28,3 +28,22 @@ abstract ConstMaterialFunctionInterface(MaterialFunctionInterface) from Material
 	public extern var ThumbnailInfo(get, never): cpp.Star<ThumbnailInfo.ConstThumbnailInfo>;
 	public inline extern function get_ThumbnailInfo(): cpp.Star<ThumbnailInfo.ConstThumbnailInfo> return this.ThumbnailInfo;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialFunctionInterface*")
+abstract MaterialFunctionInterfacePtr(cpp.Star<MaterialFunctionInterface>) from cpp.Star<MaterialFunctionInterface> to cpp.Star<MaterialFunctionInterface>{
+	@:from
+	public static extern inline function fromValue(v: MaterialFunctionInterface): MaterialFunctionInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialFunctionInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

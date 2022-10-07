@@ -25,3 +25,22 @@ abstract ConstNiagaraDataInterfaceExport(NiagaraDataInterfaceExport) from Niagar
 	public extern var GPUAllocationPerParticleSize(get, never): cpp.Float32;
 	public inline extern function get_GPUAllocationPerParticleSize(): cpp.Float32 return this.GPUAllocationPerParticleSize;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceExport*")
+abstract NiagaraDataInterfaceExportPtr(cpp.Star<NiagaraDataInterfaceExport>) from cpp.Star<NiagaraDataInterfaceExport> to cpp.Star<NiagaraDataInterfaceExport>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceExport): NiagaraDataInterfaceExportPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceExport {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

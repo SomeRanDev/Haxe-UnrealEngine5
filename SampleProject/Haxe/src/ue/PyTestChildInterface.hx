@@ -13,3 +13,22 @@ extern class PyTestChildInterface extends PyTestInterface {
 @:nativeGen
 abstract ConstPyTestChildInterface(PyTestChildInterface) from PyTestChildInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("PyTestChildInterface*")
+abstract PyTestChildInterfacePtr(cpp.Star<PyTestChildInterface>) from cpp.Star<PyTestChildInterface> to cpp.Star<PyTestChildInterface>{
+	@:from
+	public static extern inline function fromValue(v: PyTestChildInterface): PyTestChildInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PyTestChildInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

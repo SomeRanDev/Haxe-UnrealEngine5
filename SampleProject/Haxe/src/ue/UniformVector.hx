@@ -21,3 +21,22 @@ abstract ConstUniformVector(UniformVector) from UniformVector {
 	public extern var Direction(get, never): Vector;
 	public inline extern function get_Direction(): Vector return this.Direction;
 }
+
+@:forward
+@:nativeGen
+@:native("UniformVector*")
+abstract UniformVectorPtr(cpp.Star<UniformVector>) from cpp.Star<UniformVector> to cpp.Star<UniformVector>{
+	@:from
+	public static extern inline function fromValue(v: UniformVector): UniformVectorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UniformVector {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

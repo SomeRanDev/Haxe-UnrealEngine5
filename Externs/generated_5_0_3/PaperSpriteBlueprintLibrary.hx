@@ -14,3 +14,22 @@ extern class PaperSpriteBlueprintLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstPaperSpriteBlueprintLibrary(PaperSpriteBlueprintLibrary) from PaperSpriteBlueprintLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("PaperSpriteBlueprintLibrary*")
+abstract PaperSpriteBlueprintLibraryPtr(cpp.Star<PaperSpriteBlueprintLibrary>) from cpp.Star<PaperSpriteBlueprintLibrary> to cpp.Star<PaperSpriteBlueprintLibrary>{
+	@:from
+	public static extern inline function fromValue(v: PaperSpriteBlueprintLibrary): PaperSpriteBlueprintLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PaperSpriteBlueprintLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

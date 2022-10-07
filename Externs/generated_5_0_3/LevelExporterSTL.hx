@@ -13,3 +13,22 @@ extern class LevelExporterSTL extends Exporter {
 @:nativeGen
 abstract ConstLevelExporterSTL(LevelExporterSTL) from LevelExporterSTL {
 }
+
+@:forward
+@:nativeGen
+@:native("LevelExporterSTL*")
+abstract LevelExporterSTLPtr(cpp.Star<LevelExporterSTL>) from cpp.Star<LevelExporterSTL> to cpp.Star<LevelExporterSTL>{
+	@:from
+	public static extern inline function fromValue(v: LevelExporterSTL): LevelExporterSTLPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelExporterSTL {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

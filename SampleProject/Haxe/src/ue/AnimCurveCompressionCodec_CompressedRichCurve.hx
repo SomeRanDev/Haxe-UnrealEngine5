@@ -22,3 +22,22 @@ abstract ConstAnimCurveCompressionCodec_CompressedRichCurve(AnimCurveCompression
 	public extern var ErrorSampleRate(get, never): cpp.Float32;
 	public inline extern function get_ErrorSampleRate(): cpp.Float32 return this.ErrorSampleRate;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimCurveCompressionCodec_CompressedRichCurve*")
+abstract AnimCurveCompressionCodec_CompressedRichCurvePtr(cpp.Star<AnimCurveCompressionCodec_CompressedRichCurve>) from cpp.Star<AnimCurveCompressionCodec_CompressedRichCurve> to cpp.Star<AnimCurveCompressionCodec_CompressedRichCurve>{
+	@:from
+	public static extern inline function fromValue(v: AnimCurveCompressionCodec_CompressedRichCurve): AnimCurveCompressionCodec_CompressedRichCurvePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimCurveCompressionCodec_CompressedRichCurve {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

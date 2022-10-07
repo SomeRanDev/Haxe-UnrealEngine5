@@ -13,3 +13,22 @@ extern class LiveLinkFrameInterpolationProcessor extends Object {
 @:nativeGen
 abstract ConstLiveLinkFrameInterpolationProcessor(LiveLinkFrameInterpolationProcessor) from LiveLinkFrameInterpolationProcessor {
 }
+
+@:forward
+@:nativeGen
+@:native("LiveLinkFrameInterpolationProcessor*")
+abstract LiveLinkFrameInterpolationProcessorPtr(cpp.Star<LiveLinkFrameInterpolationProcessor>) from cpp.Star<LiveLinkFrameInterpolationProcessor> to cpp.Star<LiveLinkFrameInterpolationProcessor>{
+	@:from
+	public static extern inline function fromValue(v: LiveLinkFrameInterpolationProcessor): LiveLinkFrameInterpolationProcessorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LiveLinkFrameInterpolationProcessor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

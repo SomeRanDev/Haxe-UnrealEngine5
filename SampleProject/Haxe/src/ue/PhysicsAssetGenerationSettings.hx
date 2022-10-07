@@ -16,3 +16,22 @@ abstract ConstPhysicsAssetGenerationSettings(PhysicsAssetGenerationSettings) fro
 	public extern var CreateParams(get, never): PhysAssetCreateParams;
 	public inline extern function get_CreateParams(): PhysAssetCreateParams return this.CreateParams;
 }
+
+@:forward
+@:nativeGen
+@:native("PhysicsAssetGenerationSettings*")
+abstract PhysicsAssetGenerationSettingsPtr(cpp.Star<PhysicsAssetGenerationSettings>) from cpp.Star<PhysicsAssetGenerationSettings> to cpp.Star<PhysicsAssetGenerationSettings>{
+	@:from
+	public static extern inline function fromValue(v: PhysicsAssetGenerationSettings): PhysicsAssetGenerationSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhysicsAssetGenerationSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

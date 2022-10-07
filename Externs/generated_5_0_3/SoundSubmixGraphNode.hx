@@ -19,3 +19,22 @@ abstract ConstSoundSubmixGraphNode(SoundSubmixGraphNode) from SoundSubmixGraphNo
 	public extern var SubmixNodeUserWidget(get, never): cpp.Star<UserWidget.ConstUserWidget>;
 	public inline extern function get_SubmixNodeUserWidget(): cpp.Star<UserWidget.ConstUserWidget> return this.SubmixNodeUserWidget;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundSubmixGraphNode*")
+abstract SoundSubmixGraphNodePtr(cpp.Star<SoundSubmixGraphNode>) from cpp.Star<SoundSubmixGraphNode> to cpp.Star<SoundSubmixGraphNode>{
+	@:from
+	public static extern inline function fromValue(v: SoundSubmixGraphNode): SoundSubmixGraphNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundSubmixGraphNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

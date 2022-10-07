@@ -13,3 +13,22 @@ extern class PhysicsFieldComp extends SceneComp {
 @:nativeGen
 abstract ConstPhysicsFieldComp(PhysicsFieldComp) from PhysicsFieldComp {
 }
+
+@:forward
+@:nativeGen
+@:native("PhysicsFieldComp*")
+abstract PhysicsFieldCompPtr(cpp.Star<PhysicsFieldComp>) from cpp.Star<PhysicsFieldComp> to cpp.Star<PhysicsFieldComp>{
+	@:from
+	public static extern inline function fromValue(v: PhysicsFieldComp): PhysicsFieldCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhysicsFieldComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

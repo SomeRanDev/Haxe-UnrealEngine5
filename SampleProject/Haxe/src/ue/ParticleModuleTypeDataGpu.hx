@@ -25,3 +25,22 @@ abstract ConstParticleModuleTypeDataGpu(ParticleModuleTypeDataGpu) from Particle
 	public extern var bClearExistingParticlesOnInit(get, never): Bool;
 	public inline extern function get_bClearExistingParticlesOnInit(): Bool return this.bClearExistingParticlesOnInit;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleTypeDataGpu*")
+abstract ParticleModuleTypeDataGpuPtr(cpp.Star<ParticleModuleTypeDataGpu>) from cpp.Star<ParticleModuleTypeDataGpu> to cpp.Star<ParticleModuleTypeDataGpu>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleTypeDataGpu): ParticleModuleTypeDataGpuPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleTypeDataGpu {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

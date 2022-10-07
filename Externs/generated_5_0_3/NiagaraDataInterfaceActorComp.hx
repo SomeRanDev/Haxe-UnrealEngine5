@@ -22,3 +22,22 @@ abstract ConstNiagaraDataInterfaceActorComp(NiagaraDataInterfaceActorComp) from 
 	public extern var ActorOrComponentParameter(get, never): NiagaraUserParameterBinding;
 	public inline extern function get_ActorOrComponentParameter(): NiagaraUserParameterBinding return this.ActorOrComponentParameter;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceActorComp*")
+abstract NiagaraDataInterfaceActorCompPtr(cpp.Star<NiagaraDataInterfaceActorComp>) from cpp.Star<NiagaraDataInterfaceActorComp> to cpp.Star<NiagaraDataInterfaceActorComp>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceActorComp): NiagaraDataInterfaceActorCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceActorComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

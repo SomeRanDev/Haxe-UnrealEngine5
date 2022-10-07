@@ -22,3 +22,22 @@ abstract ConstAnimGraphNode_CallFunction(AnimGraphNode_CallFunction) from AnimGr
 	public extern var Node(get, never): AnimNode_CallFunction;
 	public inline extern function get_Node(): AnimNode_CallFunction return this.Node;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_CallFunction*")
+abstract AnimGraphNode_CallFunctionPtr(cpp.Star<AnimGraphNode_CallFunction>) from cpp.Star<AnimGraphNode_CallFunction> to cpp.Star<AnimGraphNode_CallFunction>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_CallFunction): AnimGraphNode_CallFunctionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_CallFunction {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

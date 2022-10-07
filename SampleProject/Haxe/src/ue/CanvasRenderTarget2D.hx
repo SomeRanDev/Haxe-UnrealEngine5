@@ -27,3 +27,22 @@ abstract ConstCanvasRenderTarget2D(CanvasRenderTarget2D) from CanvasRenderTarget
 	public extern var bShouldClearRenderTargetOnReceiveUpdate(get, never): Bool;
 	public inline extern function get_bShouldClearRenderTargetOnReceiveUpdate(): Bool return this.bShouldClearRenderTargetOnReceiveUpdate;
 }
+
+@:forward
+@:nativeGen
+@:native("CanvasRenderTarget2D*")
+abstract CanvasRenderTarget2DPtr(cpp.Star<CanvasRenderTarget2D>) from cpp.Star<CanvasRenderTarget2D> to cpp.Star<CanvasRenderTarget2D>{
+	@:from
+	public static extern inline function fromValue(v: CanvasRenderTarget2D): CanvasRenderTarget2DPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CanvasRenderTarget2D {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

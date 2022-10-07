@@ -31,3 +31,22 @@ abstract ConstWidgetBlueprintGeneratedClass(WidgetBlueprintGeneratedClass) from 
 	public extern var NamedSlots(get, never): TArray<FName>;
 	public inline extern function get_NamedSlots(): TArray<FName> return this.NamedSlots;
 }
+
+@:forward
+@:nativeGen
+@:native("WidgetBlueprintGeneratedClass*")
+abstract WidgetBlueprintGeneratedClassPtr(cpp.Star<WidgetBlueprintGeneratedClass>) from cpp.Star<WidgetBlueprintGeneratedClass> to cpp.Star<WidgetBlueprintGeneratedClass>{
+	@:from
+	public static extern inline function fromValue(v: WidgetBlueprintGeneratedClass): WidgetBlueprintGeneratedClassPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WidgetBlueprintGeneratedClass {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

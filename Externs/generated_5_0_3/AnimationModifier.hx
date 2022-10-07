@@ -28,3 +28,22 @@ abstract ConstAnimationModifier(AnimationModifier) from AnimationModifier {
 	public extern var PreviouslyAppliedModifier(get, never): cpp.Star<AnimationModifier.ConstAnimationModifier>;
 	public inline extern function get_PreviouslyAppliedModifier(): cpp.Star<AnimationModifier.ConstAnimationModifier> return this.PreviouslyAppliedModifier;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationModifier*")
+abstract AnimationModifierPtr(cpp.Star<AnimationModifier>) from cpp.Star<AnimationModifier> to cpp.Star<AnimationModifier>{
+	@:from
+	public static extern inline function fromValue(v: AnimationModifier): AnimationModifierPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationModifier {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

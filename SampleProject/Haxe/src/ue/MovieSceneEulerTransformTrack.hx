@@ -13,3 +13,22 @@ extern class MovieSceneEulerTransformTrack extends MovieScenePropertyTrack {
 @:nativeGen
 abstract ConstMovieSceneEulerTransformTrack(MovieSceneEulerTransformTrack) from MovieSceneEulerTransformTrack {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneEulerTransformTrack*")
+abstract MovieSceneEulerTransformTrackPtr(cpp.Star<MovieSceneEulerTransformTrack>) from cpp.Star<MovieSceneEulerTransformTrack> to cpp.Star<MovieSceneEulerTransformTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneEulerTransformTrack): MovieSceneEulerTransformTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneEulerTransformTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -34,3 +34,22 @@ abstract ConstParticleModuleOrbit(ParticleModuleOrbit) from ParticleModuleOrbit 
 	public extern var RotationRateOptions(get, never): OrbitOptions;
 	public inline extern function get_RotationRateOptions(): OrbitOptions return this.RotationRateOptions;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleOrbit*")
+abstract ParticleModuleOrbitPtr(cpp.Star<ParticleModuleOrbit>) from cpp.Star<ParticleModuleOrbit> to cpp.Star<ParticleModuleOrbit>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleOrbit): ParticleModuleOrbitPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleOrbit {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

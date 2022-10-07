@@ -54,3 +54,22 @@ abstract ConstNiagaraPreviewGrid(NiagaraPreviewGrid) from NiagaraPreviewGrid {
 	public extern var ArrowComponent(get, never): cpp.Star<ArrowComp.ConstArrowComp>;
 	public inline extern function get_ArrowComponent(): cpp.Star<ArrowComp.ConstArrowComp> return this.ArrowComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraPreviewGrid*")
+abstract NiagaraPreviewGridPtr(cpp.Star<NiagaraPreviewGrid>) from cpp.Star<NiagaraPreviewGrid> to cpp.Star<NiagaraPreviewGrid>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraPreviewGrid): NiagaraPreviewGridPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraPreviewGrid {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

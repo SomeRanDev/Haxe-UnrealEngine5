@@ -16,3 +16,22 @@ abstract ConstUnrealEdKeyBindings(UnrealEdKeyBindings) from UnrealEdKeyBindings 
 	public extern var KeyBindings(get, never): TArray<EditorKeyBinding>;
 	public inline extern function get_KeyBindings(): TArray<EditorKeyBinding> return this.KeyBindings;
 }
+
+@:forward
+@:nativeGen
+@:native("UnrealEdKeyBindings*")
+abstract UnrealEdKeyBindingsPtr(cpp.Star<UnrealEdKeyBindings>) from cpp.Star<UnrealEdKeyBindings> to cpp.Star<UnrealEdKeyBindings>{
+	@:from
+	public static extern inline function fromValue(v: UnrealEdKeyBindings): UnrealEdKeyBindingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UnrealEdKeyBindings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

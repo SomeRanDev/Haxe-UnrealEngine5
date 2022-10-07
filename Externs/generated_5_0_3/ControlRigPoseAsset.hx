@@ -24,3 +24,22 @@ abstract ConstControlRigPoseAsset(ControlRigPoseAsset) from ControlRigPoseAsset 
 	public extern var Pose(get, never): ControlRigControlPose;
 	public inline extern function get_Pose(): ControlRigControlPose return this.Pose;
 }
+
+@:forward
+@:nativeGen
+@:native("ControlRigPoseAsset*")
+abstract ControlRigPoseAssetPtr(cpp.Star<ControlRigPoseAsset>) from cpp.Star<ControlRigPoseAsset> to cpp.Star<ControlRigPoseAsset>{
+	@:from
+	public static extern inline function fromValue(v: ControlRigPoseAsset): ControlRigPoseAssetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ControlRigPoseAsset {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

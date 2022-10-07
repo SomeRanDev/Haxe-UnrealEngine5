@@ -57,3 +57,22 @@ abstract ConstInteractiveFoliageActor(InteractiveFoliageActor) from InteractiveF
 	public extern var Mass(get, never): cpp.Float32;
 	public inline extern function get_Mass(): cpp.Float32 return this.Mass;
 }
+
+@:forward
+@:nativeGen
+@:native("InteractiveFoliageActor*")
+abstract InteractiveFoliageActorPtr(cpp.Star<InteractiveFoliageActor>) from cpp.Star<InteractiveFoliageActor> to cpp.Star<InteractiveFoliageActor>{
+	@:from
+	public static extern inline function fromValue(v: InteractiveFoliageActor): InteractiveFoliageActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InteractiveFoliageActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

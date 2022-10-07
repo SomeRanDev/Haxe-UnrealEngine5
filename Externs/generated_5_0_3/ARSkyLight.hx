@@ -18,3 +18,22 @@ abstract ConstARSkyLight(ARSkyLight) from ARSkyLight {
 	public extern var CaptureProbe(get, never): cpp.Star<AREnvironmentCaptureProbe.ConstAREnvironmentCaptureProbe>;
 	public inline extern function get_CaptureProbe(): cpp.Star<AREnvironmentCaptureProbe.ConstAREnvironmentCaptureProbe> return this.CaptureProbe;
 }
+
+@:forward
+@:nativeGen
+@:native("ARSkyLight*")
+abstract ARSkyLightPtr(cpp.Star<ARSkyLight>) from cpp.Star<ARSkyLight> to cpp.Star<ARSkyLight>{
+	@:from
+	public static extern inline function fromValue(v: ARSkyLight): ARSkyLightPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARSkyLight {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class LevelStreamingLevelInstanceEditor extends LevelStreamingAlwaysLoade
 @:nativeGen
 abstract ConstLevelStreamingLevelInstanceEditor(LevelStreamingLevelInstanceEditor) from LevelStreamingLevelInstanceEditor {
 }
+
+@:forward
+@:nativeGen
+@:native("LevelStreamingLevelInstanceEditor*")
+abstract LevelStreamingLevelInstanceEditorPtr(cpp.Star<LevelStreamingLevelInstanceEditor>) from cpp.Star<LevelStreamingLevelInstanceEditor> to cpp.Star<LevelStreamingLevelInstanceEditor>{
+	@:from
+	public static extern inline function fromValue(v: LevelStreamingLevelInstanceEditor): LevelStreamingLevelInstanceEditorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelStreamingLevelInstanceEditor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

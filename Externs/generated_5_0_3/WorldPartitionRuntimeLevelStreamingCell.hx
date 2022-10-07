@@ -25,3 +25,22 @@ abstract ConstWorldPartitionRuntimeLevelStreamingCell(WorldPartitionRuntimeLevel
 	public extern var LevelStreaming(get, never): cpp.Star<WorldPartitionLevelStreamingDynamic.ConstWorldPartitionLevelStreamingDynamic>;
 	public inline extern function get_LevelStreaming(): cpp.Star<WorldPartitionLevelStreamingDynamic.ConstWorldPartitionLevelStreamingDynamic> return this.LevelStreaming;
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionRuntimeLevelStreamingCell*")
+abstract WorldPartitionRuntimeLevelStreamingCellPtr(cpp.Star<WorldPartitionRuntimeLevelStreamingCell>) from cpp.Star<WorldPartitionRuntimeLevelStreamingCell> to cpp.Star<WorldPartitionRuntimeLevelStreamingCell>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionRuntimeLevelStreamingCell): WorldPartitionRuntimeLevelStreamingCellPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionRuntimeLevelStreamingCell {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

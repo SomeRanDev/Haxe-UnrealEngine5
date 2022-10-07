@@ -12,3 +12,22 @@ extern class OnInterpToStopDelegate__PythonCallable extends PythonCallableForDel
 @:nativeGen
 abstract ConstOnInterpToStopDelegate__PythonCallable(OnInterpToStopDelegate__PythonCallable) from OnInterpToStopDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnInterpToStopDelegate__PythonCallable*")
+abstract OnInterpToStopDelegate__PythonCallablePtr(cpp.Star<OnInterpToStopDelegate__PythonCallable>) from cpp.Star<OnInterpToStopDelegate__PythonCallable> to cpp.Star<OnInterpToStopDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnInterpToStopDelegate__PythonCallable): OnInterpToStopDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnInterpToStopDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

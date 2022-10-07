@@ -13,3 +13,22 @@ extern class CookGlobalShadersDeviceHelperStaged extends CookGlobalShadersDevice
 @:nativeGen
 abstract ConstCookGlobalShadersDeviceHelperStaged(CookGlobalShadersDeviceHelperStaged) from CookGlobalShadersDeviceHelperStaged {
 }
+
+@:forward
+@:nativeGen
+@:native("CookGlobalShadersDeviceHelperStaged*")
+abstract CookGlobalShadersDeviceHelperStagedPtr(cpp.Star<CookGlobalShadersDeviceHelperStaged>) from cpp.Star<CookGlobalShadersDeviceHelperStaged> to cpp.Star<CookGlobalShadersDeviceHelperStaged>{
+	@:from
+	public static extern inline function fromValue(v: CookGlobalShadersDeviceHelperStaged): CookGlobalShadersDeviceHelperStagedPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CookGlobalShadersDeviceHelperStaged {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

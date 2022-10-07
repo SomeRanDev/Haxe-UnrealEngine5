@@ -22,3 +22,22 @@ abstract ConstGizmoAxisIntervalParameterSource(GizmoAxisIntervalParameterSource)
 	public extern var MaxParameter(get, never): cpp.Float32;
 	public inline extern function get_MaxParameter(): cpp.Float32 return this.MaxParameter;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoAxisIntervalParameterSource*")
+abstract GizmoAxisIntervalParameterSourcePtr(cpp.Star<GizmoAxisIntervalParameterSource>) from cpp.Star<GizmoAxisIntervalParameterSource> to cpp.Star<GizmoAxisIntervalParameterSource>{
+	@:from
+	public static extern inline function fromValue(v: GizmoAxisIntervalParameterSource): GizmoAxisIntervalParameterSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoAxisIntervalParameterSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

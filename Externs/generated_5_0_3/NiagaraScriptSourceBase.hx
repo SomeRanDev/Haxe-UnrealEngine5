@@ -13,3 +13,22 @@ extern class NiagaraScriptSourceBase extends Object {
 @:nativeGen
 abstract ConstNiagaraScriptSourceBase(NiagaraScriptSourceBase) from NiagaraScriptSourceBase {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraScriptSourceBase*")
+abstract NiagaraScriptSourceBasePtr(cpp.Star<NiagaraScriptSourceBase>) from cpp.Star<NiagaraScriptSourceBase> to cpp.Star<NiagaraScriptSourceBase>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraScriptSourceBase): NiagaraScriptSourceBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraScriptSourceBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

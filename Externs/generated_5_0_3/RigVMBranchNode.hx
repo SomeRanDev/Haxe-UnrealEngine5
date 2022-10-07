@@ -13,3 +13,22 @@ extern class RigVMBranchNode extends RigVMNode {
 @:nativeGen
 abstract ConstRigVMBranchNode(RigVMBranchNode) from RigVMBranchNode {
 }
+
+@:forward
+@:nativeGen
+@:native("RigVMBranchNode*")
+abstract RigVMBranchNodePtr(cpp.Star<RigVMBranchNode>) from cpp.Star<RigVMBranchNode> to cpp.Star<RigVMBranchNode>{
+	@:from
+	public static extern inline function fromValue(v: RigVMBranchNode): RigVMBranchNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVMBranchNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

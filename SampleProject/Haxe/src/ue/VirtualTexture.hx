@@ -13,3 +13,22 @@ extern class VirtualTexture extends Object {
 @:nativeGen
 abstract ConstVirtualTexture(VirtualTexture) from VirtualTexture {
 }
+
+@:forward
+@:nativeGen
+@:native("VirtualTexture*")
+abstract VirtualTexturePtr(cpp.Star<VirtualTexture>) from cpp.Star<VirtualTexture> to cpp.Star<VirtualTexture>{
+	@:from
+	public static extern inline function fromValue(v: VirtualTexture): VirtualTexturePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VirtualTexture {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

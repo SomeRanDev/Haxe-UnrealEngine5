@@ -12,3 +12,22 @@ extern class NavRelevantInterface extends Interface {
 @:nativeGen
 abstract ConstNavRelevantInterface(NavRelevantInterface) from NavRelevantInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("NavRelevantInterface*")
+abstract NavRelevantInterfacePtr(cpp.Star<NavRelevantInterface>) from cpp.Star<NavRelevantInterface> to cpp.Star<NavRelevantInterface>{
+	@:from
+	public static extern inline function fromValue(v: NavRelevantInterface): NavRelevantInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavRelevantInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

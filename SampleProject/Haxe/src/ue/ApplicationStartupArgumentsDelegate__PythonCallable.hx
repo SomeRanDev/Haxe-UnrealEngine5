@@ -12,3 +12,22 @@ extern class ApplicationStartupArgumentsDelegate__PythonCallable extends PythonC
 @:nativeGen
 abstract ConstApplicationStartupArgumentsDelegate__PythonCallable(ApplicationStartupArgumentsDelegate__PythonCallable) from ApplicationStartupArgumentsDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ApplicationStartupArgumentsDelegate__PythonCallable*")
+abstract ApplicationStartupArgumentsDelegate__PythonCallablePtr(cpp.Star<ApplicationStartupArgumentsDelegate__PythonCallable>) from cpp.Star<ApplicationStartupArgumentsDelegate__PythonCallable> to cpp.Star<ApplicationStartupArgumentsDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ApplicationStartupArgumentsDelegate__PythonCallable): ApplicationStartupArgumentsDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ApplicationStartupArgumentsDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

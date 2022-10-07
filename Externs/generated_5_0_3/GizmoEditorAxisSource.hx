@@ -19,3 +19,22 @@ abstract ConstGizmoEditorAxisSource(GizmoEditorAxisSource) from GizmoEditorAxisS
 	public extern var bLocalAxes(get, never): Bool;
 	public inline extern function get_bLocalAxes(): Bool return this.bLocalAxes;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoEditorAxisSource*")
+abstract GizmoEditorAxisSourcePtr(cpp.Star<GizmoEditorAxisSource>) from cpp.Star<GizmoEditorAxisSource> to cpp.Star<GizmoEditorAxisSource>{
+	@:from
+	public static extern inline function fromValue(v: GizmoEditorAxisSource): GizmoEditorAxisSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoEditorAxisSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

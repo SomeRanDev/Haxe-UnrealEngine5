@@ -19,3 +19,22 @@ abstract ConstRestrictedGameplayTagsList(RestrictedGameplayTagsList) from Restri
 	public extern var RestrictedGameplayTagList(get, never): TArray<RestrictedGameplayTagTableRow>;
 	public inline extern function get_RestrictedGameplayTagList(): TArray<RestrictedGameplayTagTableRow> return this.RestrictedGameplayTagList;
 }
+
+@:forward
+@:nativeGen
+@:native("RestrictedGameplayTagsList*")
+abstract RestrictedGameplayTagsListPtr(cpp.Star<RestrictedGameplayTagsList>) from cpp.Star<RestrictedGameplayTagsList> to cpp.Star<RestrictedGameplayTagsList>{
+	@:from
+	public static extern inline function fromValue(v: RestrictedGameplayTagsList): RestrictedGameplayTagsListPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RestrictedGameplayTagsList {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

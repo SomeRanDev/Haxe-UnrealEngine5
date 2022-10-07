@@ -25,3 +25,22 @@ abstract ConstAnimSharingTransitionInstance(AnimSharingTransitionInstance) from 
 	public extern var bBlendBool(get, never): Bool;
 	public inline extern function get_bBlendBool(): Bool return this.bBlendBool;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimSharingTransitionInstance*")
+abstract AnimSharingTransitionInstancePtr(cpp.Star<AnimSharingTransitionInstance>) from cpp.Star<AnimSharingTransitionInstance> to cpp.Star<AnimSharingTransitionInstance>{
+	@:from
+	public static extern inline function fromValue(v: AnimSharingTransitionInstance): AnimSharingTransitionInstancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimSharingTransitionInstance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

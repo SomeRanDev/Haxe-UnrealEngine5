@@ -22,3 +22,22 @@ abstract ConstInterpTrackAnimControl(InterpTrackAnimControl) from InterpTrackAni
 	public extern var bSkipAnimNotifiers(get, never): Bool;
 	public inline extern function get_bSkipAnimNotifiers(): Bool return this.bSkipAnimNotifiers;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackAnimControl*")
+abstract InterpTrackAnimControlPtr(cpp.Star<InterpTrackAnimControl>) from cpp.Star<InterpTrackAnimControl> to cpp.Star<InterpTrackAnimControl>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackAnimControl): InterpTrackAnimControlPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackAnimControl {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

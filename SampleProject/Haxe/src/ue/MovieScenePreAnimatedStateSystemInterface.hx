@@ -12,3 +12,22 @@ extern class MovieScenePreAnimatedStateSystemInterface extends Interface {
 @:nativeGen
 abstract ConstMovieScenePreAnimatedStateSystemInterface(MovieScenePreAnimatedStateSystemInterface) from MovieScenePreAnimatedStateSystemInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieScenePreAnimatedStateSystemInterface*")
+abstract MovieScenePreAnimatedStateSystemInterfacePtr(cpp.Star<MovieScenePreAnimatedStateSystemInterface>) from cpp.Star<MovieScenePreAnimatedStateSystemInterface> to cpp.Star<MovieScenePreAnimatedStateSystemInterface>{
+	@:from
+	public static extern inline function fromValue(v: MovieScenePreAnimatedStateSystemInterface): MovieScenePreAnimatedStateSystemInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieScenePreAnimatedStateSystemInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

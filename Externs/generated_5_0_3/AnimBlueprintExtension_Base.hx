@@ -16,3 +16,22 @@ abstract ConstAnimBlueprintExtension_Base(AnimBlueprintExtension_Base) from Anim
 	public extern var Subsystem(get, never): AnimSubsystem_Base;
 	public inline extern function get_Subsystem(): AnimSubsystem_Base return this.Subsystem;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimBlueprintExtension_Base*")
+abstract AnimBlueprintExtension_BasePtr(cpp.Star<AnimBlueprintExtension_Base>) from cpp.Star<AnimBlueprintExtension_Base> to cpp.Star<AnimBlueprintExtension_Base>{
+	@:from
+	public static extern inline function fromValue(v: AnimBlueprintExtension_Base): AnimBlueprintExtension_BasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimBlueprintExtension_Base {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class SMInstanceElementAssetDataInterface extends Object {
 @:nativeGen
 abstract ConstSMInstanceElementAssetDataInterface(SMInstanceElementAssetDataInterface) from SMInstanceElementAssetDataInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("SMInstanceElementAssetDataInterface*")
+abstract SMInstanceElementAssetDataInterfacePtr(cpp.Star<SMInstanceElementAssetDataInterface>) from cpp.Star<SMInstanceElementAssetDataInterface> to cpp.Star<SMInstanceElementAssetDataInterface>{
+	@:from
+	public static extern inline function fromValue(v: SMInstanceElementAssetDataInterface): SMInstanceElementAssetDataInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SMInstanceElementAssetDataInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

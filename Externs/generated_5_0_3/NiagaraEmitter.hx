@@ -169,3 +169,22 @@ abstract ConstNiagaraEmitter(NiagaraEmitter) from NiagaraEmitter {
 	public extern var MessageKeyToMessageMap(get, never): TMap<Guid, cpp.Star<NiagaraMessageDataBase.ConstNiagaraMessageDataBase>>;
 	public inline extern function get_MessageKeyToMessageMap(): TMap<Guid, cpp.Star<NiagaraMessageDataBase.ConstNiagaraMessageDataBase>> return this.MessageKeyToMessageMap;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraEmitter*")
+abstract NiagaraEmitterPtr(cpp.Star<NiagaraEmitter>) from cpp.Star<NiagaraEmitter> to cpp.Star<NiagaraEmitter>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraEmitter): NiagaraEmitterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraEmitter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class ActorComponentInstanceDataTransientOuter extends Object {
 @:nativeGen
 abstract ConstActorComponentInstanceDataTransientOuter(ActorComponentInstanceDataTransientOuter) from ActorComponentInstanceDataTransientOuter {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorComponentInstanceDataTransientOuter*")
+abstract ActorComponentInstanceDataTransientOuterPtr(cpp.Star<ActorComponentInstanceDataTransientOuter>) from cpp.Star<ActorComponentInstanceDataTransientOuter> to cpp.Star<ActorComponentInstanceDataTransientOuter>{
+	@:from
+	public static extern inline function fromValue(v: ActorComponentInstanceDataTransientOuter): ActorComponentInstanceDataTransientOuterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorComponentInstanceDataTransientOuter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

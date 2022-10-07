@@ -19,3 +19,22 @@ abstract ConstDoubleChannelKeyProxy(DoubleChannelKeyProxy) from DoubleChannelKey
 	public extern var Value(get, never): MovieSceneDoubleValue;
 	public inline extern function get_Value(): MovieSceneDoubleValue return this.Value;
 }
+
+@:forward
+@:nativeGen
+@:native("DoubleChannelKeyProxy*")
+abstract DoubleChannelKeyProxyPtr(cpp.Star<DoubleChannelKeyProxy>) from cpp.Star<DoubleChannelKeyProxy> to cpp.Star<DoubleChannelKeyProxy>{
+	@:from
+	public static extern inline function fromValue(v: DoubleChannelKeyProxy): DoubleChannelKeyProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DoubleChannelKeyProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

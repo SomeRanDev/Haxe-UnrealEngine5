@@ -46,3 +46,22 @@ abstract ConstConstantQNRTSettings(ConstantQNRTSettings) from ConstantQNRTSettin
 	public extern var NoiseFloorDb(get, never): cpp.Float32;
 	public inline extern function get_NoiseFloorDb(): cpp.Float32 return this.NoiseFloorDb;
 }
+
+@:forward
+@:nativeGen
+@:native("ConstantQNRTSettings*")
+abstract ConstantQNRTSettingsPtr(cpp.Star<ConstantQNRTSettings>) from cpp.Star<ConstantQNRTSettings> to cpp.Star<ConstantQNRTSettings>{
+	@:from
+	public static extern inline function fromValue(v: ConstantQNRTSettings): ConstantQNRTSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ConstantQNRTSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

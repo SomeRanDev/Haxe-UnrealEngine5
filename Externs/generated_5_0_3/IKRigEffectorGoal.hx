@@ -46,3 +46,22 @@ abstract ConstIKRigEffectorGoal(IKRigEffectorGoal) from IKRigEffectorGoal {
 	public extern var bExposeRotation(get, never): Bool;
 	public inline extern function get_bExposeRotation(): Bool return this.bExposeRotation;
 }
+
+@:forward
+@:nativeGen
+@:native("IKRigEffectorGoal*")
+abstract IKRigEffectorGoalPtr(cpp.Star<IKRigEffectorGoal>) from cpp.Star<IKRigEffectorGoal> to cpp.Star<IKRigEffectorGoal>{
+	@:from
+	public static extern inline function fromValue(v: IKRigEffectorGoal): IKRigEffectorGoalPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IKRigEffectorGoal {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

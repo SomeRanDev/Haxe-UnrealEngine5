@@ -49,3 +49,22 @@ abstract ConstWorldPartitionHLOD(WorldPartitionHLOD) from WorldPartitionHLOD {
 	public extern var SourceCellName(get, never): FName;
 	public inline extern function get_SourceCellName(): FName return this.SourceCellName;
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionHLOD*")
+abstract WorldPartitionHLODPtr(cpp.Star<WorldPartitionHLOD>) from cpp.Star<WorldPartitionHLOD> to cpp.Star<WorldPartitionHLOD>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionHLOD): WorldPartitionHLODPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionHLOD {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

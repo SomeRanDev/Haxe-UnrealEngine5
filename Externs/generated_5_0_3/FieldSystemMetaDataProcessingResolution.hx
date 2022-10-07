@@ -18,3 +18,22 @@ abstract ConstFieldSystemMetaDataProcessingResolution(FieldSystemMetaDataProcess
 	public extern var ResolutionType(get, never): EFieldResolutionType;
 	public inline extern function get_ResolutionType(): EFieldResolutionType return this.ResolutionType;
 }
+
+@:forward
+@:nativeGen
+@:native("FieldSystemMetaDataProcessingResolution*")
+abstract FieldSystemMetaDataProcessingResolutionPtr(cpp.Star<FieldSystemMetaDataProcessingResolution>) from cpp.Star<FieldSystemMetaDataProcessingResolution> to cpp.Star<FieldSystemMetaDataProcessingResolution>{
+	@:from
+	public static extern inline function fromValue(v: FieldSystemMetaDataProcessingResolution): FieldSystemMetaDataProcessingResolutionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FieldSystemMetaDataProcessingResolution {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

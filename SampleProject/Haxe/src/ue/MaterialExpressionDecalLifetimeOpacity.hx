@@ -13,3 +13,22 @@ extern class MaterialExpressionDecalLifetimeOpacity extends MaterialExpression {
 @:nativeGen
 abstract ConstMaterialExpressionDecalLifetimeOpacity(MaterialExpressionDecalLifetimeOpacity) from MaterialExpressionDecalLifetimeOpacity {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionDecalLifetimeOpacity*")
+abstract MaterialExpressionDecalLifetimeOpacityPtr(cpp.Star<MaterialExpressionDecalLifetimeOpacity>) from cpp.Star<MaterialExpressionDecalLifetimeOpacity> to cpp.Star<MaterialExpressionDecalLifetimeOpacity>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionDecalLifetimeOpacity): MaterialExpressionDecalLifetimeOpacityPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionDecalLifetimeOpacity {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class AssetUserData extends Object {
 @:nativeGen
 abstract ConstAssetUserData(AssetUserData) from AssetUserData {
 }
+
+@:forward
+@:nativeGen
+@:native("AssetUserData*")
+abstract AssetUserDataPtr(cpp.Star<AssetUserData>) from cpp.Star<AssetUserData> to cpp.Star<AssetUserData>{
+	@:from
+	public static extern inline function fromValue(v: AssetUserData): AssetUserDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AssetUserData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -25,3 +25,22 @@ abstract ConstAnimGraphNode_LinkedInputPose(AnimGraphNode_LinkedInputPose) from 
 	public extern var InputPoseIndex(get, never): cpp.Int32;
 	public inline extern function get_InputPoseIndex(): cpp.Int32 return this.InputPoseIndex;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_LinkedInputPose*")
+abstract AnimGraphNode_LinkedInputPosePtr(cpp.Star<AnimGraphNode_LinkedInputPose>) from cpp.Star<AnimGraphNode_LinkedInputPose> to cpp.Star<AnimGraphNode_LinkedInputPose>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_LinkedInputPose): AnimGraphNode_LinkedInputPosePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_LinkedInputPose {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

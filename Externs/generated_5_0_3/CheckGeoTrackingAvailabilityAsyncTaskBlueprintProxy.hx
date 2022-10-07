@@ -23,3 +23,22 @@ abstract ConstCheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy(CheckGeoTracki
 	public extern var OnFailed(get, never): HaxeMulticastSparseDelegateProperty<(Bool, FString) -> Void>;
 	public inline extern function get_OnFailed(): HaxeMulticastSparseDelegateProperty<(Bool, FString) -> Void> return this.OnFailed;
 }
+
+@:forward
+@:nativeGen
+@:native("CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy*")
+abstract CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxyPtr(cpp.Star<CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy>) from cpp.Star<CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy> to cpp.Star<CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy>{
+	@:from
+	public static extern inline function fromValue(v: CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy): CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

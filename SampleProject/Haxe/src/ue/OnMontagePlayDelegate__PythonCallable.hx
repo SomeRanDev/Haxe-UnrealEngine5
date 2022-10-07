@@ -12,3 +12,22 @@ extern class OnMontagePlayDelegate__PythonCallable extends PythonCallableForDele
 @:nativeGen
 abstract ConstOnMontagePlayDelegate__PythonCallable(OnMontagePlayDelegate__PythonCallable) from OnMontagePlayDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnMontagePlayDelegate__PythonCallable*")
+abstract OnMontagePlayDelegate__PythonCallablePtr(cpp.Star<OnMontagePlayDelegate__PythonCallable>) from cpp.Star<OnMontagePlayDelegate__PythonCallable> to cpp.Star<OnMontagePlayDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnMontagePlayDelegate__PythonCallable): OnMontagePlayDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnMontagePlayDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

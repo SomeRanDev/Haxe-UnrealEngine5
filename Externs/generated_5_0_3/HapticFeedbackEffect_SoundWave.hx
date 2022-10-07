@@ -16,3 +16,22 @@ abstract ConstHapticFeedbackEffect_SoundWave(HapticFeedbackEffect_SoundWave) fro
 	public extern var SoundWave(get, never): cpp.Star<SoundWave.ConstSoundWave>;
 	public inline extern function get_SoundWave(): cpp.Star<SoundWave.ConstSoundWave> return this.SoundWave;
 }
+
+@:forward
+@:nativeGen
+@:native("HapticFeedbackEffect_SoundWave*")
+abstract HapticFeedbackEffect_SoundWavePtr(cpp.Star<HapticFeedbackEffect_SoundWave>) from cpp.Star<HapticFeedbackEffect_SoundWave> to cpp.Star<HapticFeedbackEffect_SoundWave>{
+	@:from
+	public static extern inline function fromValue(v: HapticFeedbackEffect_SoundWave): HapticFeedbackEffect_SoundWavePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): HapticFeedbackEffect_SoundWave {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

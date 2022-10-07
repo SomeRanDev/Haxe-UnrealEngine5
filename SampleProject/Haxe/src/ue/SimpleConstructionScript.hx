@@ -28,3 +28,22 @@ abstract ConstSimpleConstructionScript(SimpleConstructionScript) from SimpleCons
 	public extern var ActorComponentNodes_DEPRECATED(get, never): TArray<cpp.Star<SCS_Node.ConstSCS_Node>>;
 	public inline extern function get_ActorComponentNodes_DEPRECATED(): TArray<cpp.Star<SCS_Node.ConstSCS_Node>> return this.ActorComponentNodes_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("SimpleConstructionScript*")
+abstract SimpleConstructionScriptPtr(cpp.Star<SimpleConstructionScript>) from cpp.Star<SimpleConstructionScript> to cpp.Star<SimpleConstructionScript>{
+	@:from
+	public static extern inline function fromValue(v: SimpleConstructionScript): SimpleConstructionScriptPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SimpleConstructionScript {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

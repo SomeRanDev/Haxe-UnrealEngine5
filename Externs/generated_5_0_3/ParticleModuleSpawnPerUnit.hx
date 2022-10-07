@@ -37,3 +37,22 @@ abstract ConstParticleModuleSpawnPerUnit(ParticleModuleSpawnPerUnit) from Partic
 	public extern var bIgnoreMovementAlongZ(get, never): Bool;
 	public inline extern function get_bIgnoreMovementAlongZ(): Bool return this.bIgnoreMovementAlongZ;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleSpawnPerUnit*")
+abstract ParticleModuleSpawnPerUnitPtr(cpp.Star<ParticleModuleSpawnPerUnit>) from cpp.Star<ParticleModuleSpawnPerUnit> to cpp.Star<ParticleModuleSpawnPerUnit>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleSpawnPerUnit): ParticleModuleSpawnPerUnitPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleSpawnPerUnit {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

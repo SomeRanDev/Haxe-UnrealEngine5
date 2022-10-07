@@ -28,3 +28,22 @@ abstract ConstPhysicalMaterialMask(PhysicalMaterialMask) from PhysicalMaterialMa
 	public extern var AddressY(get, never): TextureAddress;
 	public inline extern function get_AddressY(): TextureAddress return this.AddressY;
 }
+
+@:forward
+@:nativeGen
+@:native("PhysicalMaterialMask*")
+abstract PhysicalMaterialMaskPtr(cpp.Star<PhysicalMaterialMask>) from cpp.Star<PhysicalMaterialMask> to cpp.Star<PhysicalMaterialMask>{
+	@:from
+	public static extern inline function fromValue(v: PhysicalMaterialMask): PhysicalMaterialMaskPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhysicalMaterialMask {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

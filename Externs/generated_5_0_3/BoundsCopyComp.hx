@@ -40,3 +40,22 @@ abstract ConstBoundsCopyComp(BoundsCopyComp) from BoundsCopyComp {
 	public extern var bCopyZBounds(get, never): Bool;
 	public inline extern function get_bCopyZBounds(): Bool return this.bCopyZBounds;
 }
+
+@:forward
+@:nativeGen
+@:native("BoundsCopyComp*")
+abstract BoundsCopyCompPtr(cpp.Star<BoundsCopyComp>) from cpp.Star<BoundsCopyComp> to cpp.Star<BoundsCopyComp>{
+	@:from
+	public static extern inline function fromValue(v: BoundsCopyComp): BoundsCopyCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BoundsCopyComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

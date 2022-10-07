@@ -12,3 +12,22 @@ extern class MovieSceneValueDecomposer extends Interface {
 @:nativeGen
 abstract ConstMovieSceneValueDecomposer(MovieSceneValueDecomposer) from MovieSceneValueDecomposer {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneValueDecomposer*")
+abstract MovieSceneValueDecomposerPtr(cpp.Star<MovieSceneValueDecomposer>) from cpp.Star<MovieSceneValueDecomposer> to cpp.Star<MovieSceneValueDecomposer>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneValueDecomposer): MovieSceneValueDecomposerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneValueDecomposer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

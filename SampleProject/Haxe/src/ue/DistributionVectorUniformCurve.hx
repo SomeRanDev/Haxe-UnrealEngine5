@@ -31,3 +31,22 @@ abstract ConstDistributionVectorUniformCurve(DistributionVectorUniformCurve) fro
 	public extern var bUseExtremes(get, never): Bool;
 	public inline extern function get_bUseExtremes(): Bool return this.bUseExtremes;
 }
+
+@:forward
+@:nativeGen
+@:native("DistributionVectorUniformCurve*")
+abstract DistributionVectorUniformCurvePtr(cpp.Star<DistributionVectorUniformCurve>) from cpp.Star<DistributionVectorUniformCurve> to cpp.Star<DistributionVectorUniformCurve>{
+	@:from
+	public static extern inline function fromValue(v: DistributionVectorUniformCurve): DistributionVectorUniformCurvePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DistributionVectorUniformCurve {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

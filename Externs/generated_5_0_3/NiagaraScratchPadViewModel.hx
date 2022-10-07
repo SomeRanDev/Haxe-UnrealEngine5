@@ -13,3 +13,22 @@ extern class NiagaraScratchPadViewModel extends Object {
 @:nativeGen
 abstract ConstNiagaraScratchPadViewModel(NiagaraScratchPadViewModel) from NiagaraScratchPadViewModel {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraScratchPadViewModel*")
+abstract NiagaraScratchPadViewModelPtr(cpp.Star<NiagaraScratchPadViewModel>) from cpp.Star<NiagaraScratchPadViewModel> to cpp.Star<NiagaraScratchPadViewModel>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraScratchPadViewModel): NiagaraScratchPadViewModelPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraScratchPadViewModel {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

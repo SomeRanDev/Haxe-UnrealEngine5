@@ -13,3 +13,22 @@ extern class MovieSceneCameraCutTrackInstance extends MovieSceneTrackInstance {
 @:nativeGen
 abstract ConstMovieSceneCameraCutTrackInstance(MovieSceneCameraCutTrackInstance) from MovieSceneCameraCutTrackInstance {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneCameraCutTrackInstance*")
+abstract MovieSceneCameraCutTrackInstancePtr(cpp.Star<MovieSceneCameraCutTrackInstance>) from cpp.Star<MovieSceneCameraCutTrackInstance> to cpp.Star<MovieSceneCameraCutTrackInstance>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneCameraCutTrackInstance): MovieSceneCameraCutTrackInstancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneCameraCutTrackInstance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

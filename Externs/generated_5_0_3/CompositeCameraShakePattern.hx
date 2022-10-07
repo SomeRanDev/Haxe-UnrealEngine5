@@ -16,3 +16,22 @@ abstract ConstCompositeCameraShakePattern(CompositeCameraShakePattern) from Comp
 	public extern var ChildPatterns(get, never): TArray<cpp.Star<CameraShakePattern.ConstCameraShakePattern>>;
 	public inline extern function get_ChildPatterns(): TArray<cpp.Star<CameraShakePattern.ConstCameraShakePattern>> return this.ChildPatterns;
 }
+
+@:forward
+@:nativeGen
+@:native("CompositeCameraShakePattern*")
+abstract CompositeCameraShakePatternPtr(cpp.Star<CompositeCameraShakePattern>) from cpp.Star<CompositeCameraShakePattern> to cpp.Star<CompositeCameraShakePattern>{
+	@:from
+	public static extern inline function fromValue(v: CompositeCameraShakePattern): CompositeCameraShakePatternPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CompositeCameraShakePattern {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class OnAudioVirtualizationChanged__PythonCallable extends PythonCallable
 @:nativeGen
 abstract ConstOnAudioVirtualizationChanged__PythonCallable(OnAudioVirtualizationChanged__PythonCallable) from OnAudioVirtualizationChanged__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnAudioVirtualizationChanged__PythonCallable*")
+abstract OnAudioVirtualizationChanged__PythonCallablePtr(cpp.Star<OnAudioVirtualizationChanged__PythonCallable>) from cpp.Star<OnAudioVirtualizationChanged__PythonCallable> to cpp.Star<OnAudioVirtualizationChanged__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnAudioVirtualizationChanged__PythonCallable): OnAudioVirtualizationChanged__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnAudioVirtualizationChanged__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -21,3 +21,22 @@ abstract ConstInAppPurchaseRestoreCallbackProxy(InAppPurchaseRestoreCallbackProx
 	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(EInAppPurchaseState, cpp.Reference<TArray<InAppPurchaseRestoreInfo>>) -> Void>;
 	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(EInAppPurchaseState, cpp.Reference<TArray<InAppPurchaseRestoreInfo>>) -> Void> return this.OnFailure;
 }
+
+@:forward
+@:nativeGen
+@:native("InAppPurchaseRestoreCallbackProxy*")
+abstract InAppPurchaseRestoreCallbackProxyPtr(cpp.Star<InAppPurchaseRestoreCallbackProxy>) from cpp.Star<InAppPurchaseRestoreCallbackProxy> to cpp.Star<InAppPurchaseRestoreCallbackProxy>{
+	@:from
+	public static extern inline function fromValue(v: InAppPurchaseRestoreCallbackProxy): InAppPurchaseRestoreCallbackProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InAppPurchaseRestoreCallbackProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

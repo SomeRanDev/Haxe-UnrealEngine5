@@ -16,3 +16,22 @@ abstract ConstNiagaraDataInterfaceArrayColor(NiagaraDataInterfaceArrayColor) fro
 	public extern var ColorData(get, never): TArray<LinearColor>;
 	public inline extern function get_ColorData(): TArray<LinearColor> return this.ColorData;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceArrayColor*")
+abstract NiagaraDataInterfaceArrayColorPtr(cpp.Star<NiagaraDataInterfaceArrayColor>) from cpp.Star<NiagaraDataInterfaceArrayColor> to cpp.Star<NiagaraDataInterfaceArrayColor>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceArrayColor): NiagaraDataInterfaceArrayColorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceArrayColor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

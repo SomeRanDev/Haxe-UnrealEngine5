@@ -19,3 +19,22 @@ abstract ConstFKControlRig(FKControlRig) from FKControlRig {
 	public extern var ApplyMode(get, never): EControlRigFKRigExecuteMode;
 	public inline extern function get_ApplyMode(): EControlRigFKRigExecuteMode return this.ApplyMode;
 }
+
+@:forward
+@:nativeGen
+@:native("FKControlRig*")
+abstract FKControlRigPtr(cpp.Star<FKControlRig>) from cpp.Star<FKControlRig> to cpp.Star<FKControlRig>{
+	@:from
+	public static extern inline function fromValue(v: FKControlRig): FKControlRigPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FKControlRig {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

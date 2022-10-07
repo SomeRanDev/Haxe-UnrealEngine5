@@ -24,3 +24,22 @@ abstract ConstCullingField(CullingField) from CullingField {
 	public extern var Operation(get, never): EFieldCullingOperationType;
 	public inline extern function get_Operation(): EFieldCullingOperationType return this.Operation;
 }
+
+@:forward
+@:nativeGen
+@:native("CullingField*")
+abstract CullingFieldPtr(cpp.Star<CullingField>) from cpp.Star<CullingField> to cpp.Star<CullingField>{
+	@:from
+	public static extern inline function fromValue(v: CullingField): CullingFieldPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CullingField {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

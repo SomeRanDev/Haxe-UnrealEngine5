@@ -12,3 +12,22 @@ extern class DoubleProperty extends NumericProperty {
 @:nativeGen
 abstract ConstDoubleProperty(DoubleProperty) from DoubleProperty {
 }
+
+@:forward
+@:nativeGen
+@:native("DoubleProperty*")
+abstract DoublePropertyPtr(cpp.Star<DoubleProperty>) from cpp.Star<DoubleProperty> to cpp.Star<DoubleProperty>{
+	@:from
+	public static extern inline function fromValue(v: DoubleProperty): DoublePropertyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DoubleProperty {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

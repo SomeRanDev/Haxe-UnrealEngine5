@@ -41,3 +41,22 @@ abstract ConstCapsuleComp(CapsuleComp) from CapsuleComp {
 	public extern var CapsuleHeight_DEPRECATED(get, never): cpp.Float32;
 	public inline extern function get_CapsuleHeight_DEPRECATED(): cpp.Float32 return this.CapsuleHeight_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("CapsuleComp*")
+abstract CapsuleCompPtr(cpp.Star<CapsuleComp>) from cpp.Star<CapsuleComp> to cpp.Star<CapsuleComp>{
+	@:from
+	public static extern inline function fromValue(v: CapsuleComp): CapsuleCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CapsuleComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

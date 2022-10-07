@@ -28,3 +28,22 @@ abstract ConstPaperGroupedSpriteComp(PaperGroupedSpriteComp) from PaperGroupedSp
 	public extern var PerInstanceSpriteData(get, never): TArray<SpriteInstanceData>;
 	public inline extern function get_PerInstanceSpriteData(): TArray<SpriteInstanceData> return this.PerInstanceSpriteData;
 }
+
+@:forward
+@:nativeGen
+@:native("PaperGroupedSpriteComp*")
+abstract PaperGroupedSpriteCompPtr(cpp.Star<PaperGroupedSpriteComp>) from cpp.Star<PaperGroupedSpriteComp> to cpp.Star<PaperGroupedSpriteComp>{
+	@:from
+	public static extern inline function fromValue(v: PaperGroupedSpriteComp): PaperGroupedSpriteCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PaperGroupedSpriteComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

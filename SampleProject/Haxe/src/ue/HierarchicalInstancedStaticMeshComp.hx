@@ -49,3 +49,22 @@ abstract ConstHierarchicalInstancedStaticMeshComp(HierarchicalInstancedStaticMes
 	public extern var InstanceCountToRender(get, never): cpp.Int32;
 	public inline extern function get_InstanceCountToRender(): cpp.Int32 return this.InstanceCountToRender;
 }
+
+@:forward
+@:nativeGen
+@:native("HierarchicalInstancedStaticMeshComp*")
+abstract HierarchicalInstancedStaticMeshCompPtr(cpp.Star<HierarchicalInstancedStaticMeshComp>) from cpp.Star<HierarchicalInstancedStaticMeshComp> to cpp.Star<HierarchicalInstancedStaticMeshComp>{
+	@:from
+	public static extern inline function fromValue(v: HierarchicalInstancedStaticMeshComp): HierarchicalInstancedStaticMeshCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): HierarchicalInstancedStaticMeshComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstK2Node_CommutativeAssociativeBinaryOperator(K2Node_CommutativeAsso
 	public extern var NumAdditionalInputs(get, never): cpp.Int32;
 	public inline extern function get_NumAdditionalInputs(): cpp.Int32 return this.NumAdditionalInputs;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_CommutativeAssociativeBinaryOperator*")
+abstract K2Node_CommutativeAssociativeBinaryOperatorPtr(cpp.Star<K2Node_CommutativeAssociativeBinaryOperator>) from cpp.Star<K2Node_CommutativeAssociativeBinaryOperator> to cpp.Star<K2Node_CommutativeAssociativeBinaryOperator>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_CommutativeAssociativeBinaryOperator): K2Node_CommutativeAssociativeBinaryOperatorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_CommutativeAssociativeBinaryOperator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

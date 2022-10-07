@@ -13,3 +13,22 @@ extern class AnimCurveCompressionCodec extends Object {
 @:nativeGen
 abstract ConstAnimCurveCompressionCodec(AnimCurveCompressionCodec) from AnimCurveCompressionCodec {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimCurveCompressionCodec*")
+abstract AnimCurveCompressionCodecPtr(cpp.Star<AnimCurveCompressionCodec>) from cpp.Star<AnimCurveCompressionCodec> to cpp.Star<AnimCurveCompressionCodec>{
+	@:from
+	public static extern inline function fromValue(v: AnimCurveCompressionCodec): AnimCurveCompressionCodecPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimCurveCompressionCodec {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstAssetMappingTable(AssetMappingTable) from AssetMappingTable {
 	public extern var MappedAssets(get, never): TArray<AssetMapping>;
 	public inline extern function get_MappedAssets(): TArray<AssetMapping> return this.MappedAssets;
 }
+
+@:forward
+@:nativeGen
+@:native("AssetMappingTable*")
+abstract AssetMappingTablePtr(cpp.Star<AssetMappingTable>) from cpp.Star<AssetMappingTable> to cpp.Star<AssetMappingTable>{
+	@:from
+	public static extern inline function fromValue(v: AssetMappingTable): AssetMappingTablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AssetMappingTable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

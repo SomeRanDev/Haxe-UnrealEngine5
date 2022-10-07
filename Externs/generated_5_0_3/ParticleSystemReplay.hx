@@ -16,3 +16,22 @@ abstract ConstParticleSystemReplay(ParticleSystemReplay) from ParticleSystemRepl
 	public extern var ClipIDNumber(get, never): cpp.Int32;
 	public inline extern function get_ClipIDNumber(): cpp.Int32 return this.ClipIDNumber;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleSystemReplay*")
+abstract ParticleSystemReplayPtr(cpp.Star<ParticleSystemReplay>) from cpp.Star<ParticleSystemReplay> to cpp.Star<ParticleSystemReplay>{
+	@:from
+	public static extern inline function fromValue(v: ParticleSystemReplay): ParticleSystemReplayPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleSystemReplay {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

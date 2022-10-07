@@ -12,3 +12,22 @@ extern class OnConstructEvent__PythonCallable extends PythonCallableForDelegate 
 @:nativeGen
 abstract ConstOnConstructEvent__PythonCallable(OnConstructEvent__PythonCallable) from OnConstructEvent__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnConstructEvent__PythonCallable*")
+abstract OnConstructEvent__PythonCallablePtr(cpp.Star<OnConstructEvent__PythonCallable>) from cpp.Star<OnConstructEvent__PythonCallable> to cpp.Star<OnConstructEvent__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnConstructEvent__PythonCallable): OnConstructEvent__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnConstructEvent__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

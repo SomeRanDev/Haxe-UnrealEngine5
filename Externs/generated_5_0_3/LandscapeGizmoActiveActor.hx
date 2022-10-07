@@ -64,3 +64,22 @@ abstract ConstLandscapeGizmoActiveActor(LandscapeGizmoActiveActor) from Landscap
 	public extern var UnsnappedRotation(get, never): Rotator;
 	public inline extern function get_UnsnappedRotation(): Rotator return this.UnsnappedRotation;
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeGizmoActiveActor*")
+abstract LandscapeGizmoActiveActorPtr(cpp.Star<LandscapeGizmoActiveActor>) from cpp.Star<LandscapeGizmoActiveActor> to cpp.Star<LandscapeGizmoActiveActor>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeGizmoActiveActor): LandscapeGizmoActiveActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeGizmoActiveActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

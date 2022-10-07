@@ -31,3 +31,22 @@ abstract ConstAudioDeviceNotificationSubsystem(AudioDeviceNotificationSubsystem)
 	public extern var DeviceSwitched(get, never): HaxeMulticastSparseDelegateProperty<(FString) -> Void>;
 	public inline extern function get_DeviceSwitched(): HaxeMulticastSparseDelegateProperty<(FString) -> Void> return this.DeviceSwitched;
 }
+
+@:forward
+@:nativeGen
+@:native("AudioDeviceNotificationSubsystem*")
+abstract AudioDeviceNotificationSubsystemPtr(cpp.Star<AudioDeviceNotificationSubsystem>) from cpp.Star<AudioDeviceNotificationSubsystem> to cpp.Star<AudioDeviceNotificationSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: AudioDeviceNotificationSubsystem): AudioDeviceNotificationSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AudioDeviceNotificationSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

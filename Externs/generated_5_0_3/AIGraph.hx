@@ -16,3 +16,22 @@ abstract ConstAIGraph(AIGraph) from AIGraph {
 	public extern var GraphVersion(get, never): cpp.Int32;
 	public inline extern function get_GraphVersion(): cpp.Int32 return this.GraphVersion;
 }
+
+@:forward
+@:nativeGen
+@:native("AIGraph*")
+abstract AIGraphPtr(cpp.Star<AIGraph>) from cpp.Star<AIGraph> to cpp.Star<AIGraph>{
+	@:from
+	public static extern inline function fromValue(v: AIGraph): AIGraphPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AIGraph {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class PivotScaleGizmoHandleGroup extends AxisGizmoHandleGroup {
 @:nativeGen
 abstract ConstPivotScaleGizmoHandleGroup(PivotScaleGizmoHandleGroup) from PivotScaleGizmoHandleGroup {
 }
+
+@:forward
+@:nativeGen
+@:native("PivotScaleGizmoHandleGroup*")
+abstract PivotScaleGizmoHandleGroupPtr(cpp.Star<PivotScaleGizmoHandleGroup>) from cpp.Star<PivotScaleGizmoHandleGroup> to cpp.Star<PivotScaleGizmoHandleGroup>{
+	@:from
+	public static extern inline function fromValue(v: PivotScaleGizmoHandleGroup): PivotScaleGizmoHandleGroupPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PivotScaleGizmoHandleGroup {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

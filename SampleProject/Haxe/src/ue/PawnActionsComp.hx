@@ -30,3 +30,22 @@ abstract ConstPawnActionsComp(PawnActionsComp) from PawnActionsComp {
 	public extern var CurrentAction(get, never): cpp.Star<PawnAction.ConstPawnAction>;
 	public inline extern function get_CurrentAction(): cpp.Star<PawnAction.ConstPawnAction> return this.CurrentAction;
 }
+
+@:forward
+@:nativeGen
+@:native("PawnActionsComp*")
+abstract PawnActionsCompPtr(cpp.Star<PawnActionsComp>) from cpp.Star<PawnActionsComp> to cpp.Star<PawnActionsComp>{
+	@:from
+	public static extern inline function fromValue(v: PawnActionsComp): PawnActionsCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PawnActionsComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

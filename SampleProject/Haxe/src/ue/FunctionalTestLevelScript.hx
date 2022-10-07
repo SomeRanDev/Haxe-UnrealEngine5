@@ -13,3 +13,22 @@ extern class FunctionalTestLevelScript extends LevelScriptActor {
 @:nativeGen
 abstract ConstFunctionalTestLevelScript(FunctionalTestLevelScript) from FunctionalTestLevelScript {
 }
+
+@:forward
+@:nativeGen
+@:native("FunctionalTestLevelScript*")
+abstract FunctionalTestLevelScriptPtr(cpp.Star<FunctionalTestLevelScript>) from cpp.Star<FunctionalTestLevelScript> to cpp.Star<FunctionalTestLevelScript>{
+	@:from
+	public static extern inline function fromValue(v: FunctionalTestLevelScript): FunctionalTestLevelScriptPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FunctionalTestLevelScript {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

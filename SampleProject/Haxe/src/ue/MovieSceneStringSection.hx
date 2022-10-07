@@ -16,3 +16,22 @@ abstract ConstMovieSceneStringSection(MovieSceneStringSection) from MovieSceneSt
 	public extern var StringCurve(get, never): MovieSceneStringChannel;
 	public inline extern function get_StringCurve(): MovieSceneStringChannel return this.StringCurve;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneStringSection*")
+abstract MovieSceneStringSectionPtr(cpp.Star<MovieSceneStringSection>) from cpp.Star<MovieSceneStringSection> to cpp.Star<MovieSceneStringSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneStringSection): MovieSceneStringSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneStringSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

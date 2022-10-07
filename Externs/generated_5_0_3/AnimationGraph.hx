@@ -18,3 +18,22 @@ abstract ConstAnimationGraph(AnimationGraph) from AnimationGraph {
 	public extern var BlendOptions(get, never): AnimGraphBlendOptions;
 	public inline extern function get_BlendOptions(): AnimGraphBlendOptions return this.BlendOptions;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationGraph*")
+abstract AnimationGraphPtr(cpp.Star<AnimationGraph>) from cpp.Star<AnimationGraph> to cpp.Star<AnimationGraph>{
+	@:from
+	public static extern inline function fromValue(v: AnimationGraph): AnimationGraphPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationGraph {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

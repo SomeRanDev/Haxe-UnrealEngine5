@@ -16,3 +16,22 @@ abstract ConstRichCurveKeyProxy(RichCurveKeyProxy) from RichCurveKeyProxy {
 	public extern var Value(get, never): RichCurveKey;
 	public inline extern function get_Value(): RichCurveKey return this.Value;
 }
+
+@:forward
+@:nativeGen
+@:native("RichCurveKeyProxy*")
+abstract RichCurveKeyProxyPtr(cpp.Star<RichCurveKeyProxy>) from cpp.Star<RichCurveKeyProxy> to cpp.Star<RichCurveKeyProxy>{
+	@:from
+	public static extern inline function fromValue(v: RichCurveKeyProxy): RichCurveKeyProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RichCurveKeyProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

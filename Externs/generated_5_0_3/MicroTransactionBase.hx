@@ -22,3 +22,22 @@ abstract ConstMicroTransactionBase(MicroTransactionBase) from MicroTransactionBa
 	public extern var LastErrorSolution(get, never): FString;
 	public inline extern function get_LastErrorSolution(): FString return this.LastErrorSolution;
 }
+
+@:forward
+@:nativeGen
+@:native("MicroTransactionBase*")
+abstract MicroTransactionBasePtr(cpp.Star<MicroTransactionBase>) from cpp.Star<MicroTransactionBase> to cpp.Star<MicroTransactionBase>{
+	@:from
+	public static extern inline function fromValue(v: MicroTransactionBase): MicroTransactionBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MicroTransactionBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

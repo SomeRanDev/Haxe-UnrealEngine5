@@ -19,3 +19,22 @@ abstract ConstAnimGraphNode_TwoBoneIK(AnimGraphNode_TwoBoneIK) from AnimGraphNod
 	public extern var bEnableDebugDraw(get, never): Bool;
 	public inline extern function get_bEnableDebugDraw(): Bool return this.bEnableDebugDraw;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_TwoBoneIK*")
+abstract AnimGraphNode_TwoBoneIKPtr(cpp.Star<AnimGraphNode_TwoBoneIK>) from cpp.Star<AnimGraphNode_TwoBoneIK> to cpp.Star<AnimGraphNode_TwoBoneIK>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_TwoBoneIK): AnimGraphNode_TwoBoneIKPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_TwoBoneIK {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

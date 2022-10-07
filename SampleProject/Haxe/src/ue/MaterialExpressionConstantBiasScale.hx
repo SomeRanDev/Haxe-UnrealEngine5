@@ -22,3 +22,22 @@ abstract ConstMaterialExpressionConstantBiasScale(MaterialExpressionConstantBias
 	public extern var Scale(get, never): cpp.Float32;
 	public inline extern function get_Scale(): cpp.Float32 return this.Scale;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionConstantBiasScale*")
+abstract MaterialExpressionConstantBiasScalePtr(cpp.Star<MaterialExpressionConstantBiasScale>) from cpp.Star<MaterialExpressionConstantBiasScale> to cpp.Star<MaterialExpressionConstantBiasScale>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionConstantBiasScale): MaterialExpressionConstantBiasScalePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionConstantBiasScale {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

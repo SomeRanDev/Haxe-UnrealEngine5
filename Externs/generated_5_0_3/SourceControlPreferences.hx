@@ -25,3 +25,22 @@ abstract ConstSourceControlPreferences(SourceControlPreferences) from SourceCont
 	public extern var SpecificCollectionChangelistTags(get, never): TMap<FName, FString>;
 	public inline extern function get_SpecificCollectionChangelistTags(): TMap<FName, FString> return this.SpecificCollectionChangelistTags;
 }
+
+@:forward
+@:nativeGen
+@:native("SourceControlPreferences*")
+abstract SourceControlPreferencesPtr(cpp.Star<SourceControlPreferences>) from cpp.Star<SourceControlPreferences> to cpp.Star<SourceControlPreferences>{
+	@:from
+	public static extern inline function fromValue(v: SourceControlPreferences): SourceControlPreferencesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SourceControlPreferences {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

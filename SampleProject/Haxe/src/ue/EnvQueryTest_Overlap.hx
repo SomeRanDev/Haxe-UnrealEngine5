@@ -16,3 +16,22 @@ abstract ConstEnvQueryTest_Overlap(EnvQueryTest_Overlap) from EnvQueryTest_Overl
 	public extern var OverlapData(get, never): EnvOverlapData;
 	public inline extern function get_OverlapData(): EnvOverlapData return this.OverlapData;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryTest_Overlap*")
+abstract EnvQueryTest_OverlapPtr(cpp.Star<EnvQueryTest_Overlap>) from cpp.Star<EnvQueryTest_Overlap> to cpp.Star<EnvQueryTest_Overlap>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryTest_Overlap): EnvQueryTest_OverlapPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryTest_Overlap {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

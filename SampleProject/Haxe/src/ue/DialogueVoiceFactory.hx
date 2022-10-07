@@ -13,3 +13,22 @@ extern class DialogueVoiceFactory extends Factory {
 @:nativeGen
 abstract ConstDialogueVoiceFactory(DialogueVoiceFactory) from DialogueVoiceFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("DialogueVoiceFactory*")
+abstract DialogueVoiceFactoryPtr(cpp.Star<DialogueVoiceFactory>) from cpp.Star<DialogueVoiceFactory> to cpp.Star<DialogueVoiceFactory>{
+	@:from
+	public static extern inline function fromValue(v: DialogueVoiceFactory): DialogueVoiceFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DialogueVoiceFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

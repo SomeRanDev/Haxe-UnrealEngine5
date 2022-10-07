@@ -13,3 +13,22 @@ extern class ActorFactoryVolumetricCloud extends ActorFactory {
 @:nativeGen
 abstract ConstActorFactoryVolumetricCloud(ActorFactoryVolumetricCloud) from ActorFactoryVolumetricCloud {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorFactoryVolumetricCloud*")
+abstract ActorFactoryVolumetricCloudPtr(cpp.Star<ActorFactoryVolumetricCloud>) from cpp.Star<ActorFactoryVolumetricCloud> to cpp.Star<ActorFactoryVolumetricCloud>{
+	@:from
+	public static extern inline function fromValue(v: ActorFactoryVolumetricCloud): ActorFactoryVolumetricCloudPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorFactoryVolumetricCloud {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

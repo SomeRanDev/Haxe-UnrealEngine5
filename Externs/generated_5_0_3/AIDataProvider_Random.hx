@@ -22,3 +22,22 @@ abstract ConstAIDataProvider_Random(AIDataProvider_Random) from AIDataProvider_R
 	public extern var bInteger(get, never): Bool;
 	public inline extern function get_bInteger(): Bool return this.bInteger;
 }
+
+@:forward
+@:nativeGen
+@:native("AIDataProvider_Random*")
+abstract AIDataProvider_RandomPtr(cpp.Star<AIDataProvider_Random>) from cpp.Star<AIDataProvider_Random> to cpp.Star<AIDataProvider_Random>{
+	@:from
+	public static extern inline function fromValue(v: AIDataProvider_Random): AIDataProvider_RandomPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AIDataProvider_Random {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

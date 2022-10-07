@@ -12,3 +12,22 @@ extern class OnGetItemChildrenDynamic__PythonCallable extends PythonCallableForD
 @:nativeGen
 abstract ConstOnGetItemChildrenDynamic__PythonCallable(OnGetItemChildrenDynamic__PythonCallable) from OnGetItemChildrenDynamic__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnGetItemChildrenDynamic__PythonCallable*")
+abstract OnGetItemChildrenDynamic__PythonCallablePtr(cpp.Star<OnGetItemChildrenDynamic__PythonCallable>) from cpp.Star<OnGetItemChildrenDynamic__PythonCallable> to cpp.Star<OnGetItemChildrenDynamic__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnGetItemChildrenDynamic__PythonCallable): OnGetItemChildrenDynamic__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnGetItemChildrenDynamic__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

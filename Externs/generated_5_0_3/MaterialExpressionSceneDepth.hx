@@ -25,3 +25,22 @@ abstract ConstMaterialExpressionSceneDepth(MaterialExpressionSceneDepth) from Ma
 	public extern var ConstInput(get, never): Vector2D;
 	public inline extern function get_ConstInput(): Vector2D return this.ConstInput;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionSceneDepth*")
+abstract MaterialExpressionSceneDepthPtr(cpp.Star<MaterialExpressionSceneDepth>) from cpp.Star<MaterialExpressionSceneDepth> to cpp.Star<MaterialExpressionSceneDepth>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionSceneDepth): MaterialExpressionSceneDepthPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionSceneDepth {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class TextureCubeExporterHDR extends Exporter {
 @:nativeGen
 abstract ConstTextureCubeExporterHDR(TextureCubeExporterHDR) from TextureCubeExporterHDR {
 }
+
+@:forward
+@:nativeGen
+@:native("TextureCubeExporterHDR*")
+abstract TextureCubeExporterHDRPtr(cpp.Star<TextureCubeExporterHDR>) from cpp.Star<TextureCubeExporterHDR> to cpp.Star<TextureCubeExporterHDR>{
+	@:from
+	public static extern inline function fromValue(v: TextureCubeExporterHDR): TextureCubeExporterHDRPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextureCubeExporterHDR {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

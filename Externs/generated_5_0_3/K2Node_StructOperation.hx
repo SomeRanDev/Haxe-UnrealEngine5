@@ -16,3 +16,22 @@ abstract ConstK2Node_StructOperation(K2Node_StructOperation) from K2Node_StructO
 	public extern var StructType(get, never): cpp.Star<ScriptStruct.ConstScriptStruct>;
 	public inline extern function get_StructType(): cpp.Star<ScriptStruct.ConstScriptStruct> return this.StructType;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_StructOperation*")
+abstract K2Node_StructOperationPtr(cpp.Star<K2Node_StructOperation>) from cpp.Star<K2Node_StructOperation> to cpp.Star<K2Node_StructOperation>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_StructOperation): K2Node_StructOperationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_StructOperation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

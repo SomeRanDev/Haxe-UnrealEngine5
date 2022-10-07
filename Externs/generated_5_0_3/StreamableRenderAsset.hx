@@ -48,3 +48,22 @@ abstract ConstStreamableRenderAsset(StreamableRenderAsset) from StreamableRender
 	public extern var bUseCinematicMipLevels(get, never): Bool;
 	public inline extern function get_bUseCinematicMipLevels(): Bool return this.bUseCinematicMipLevels;
 }
+
+@:forward
+@:nativeGen
+@:native("StreamableRenderAsset*")
+abstract StreamableRenderAssetPtr(cpp.Star<StreamableRenderAsset>) from cpp.Star<StreamableRenderAsset> to cpp.Star<StreamableRenderAsset>{
+	@:from
+	public static extern inline function fromValue(v: StreamableRenderAsset): StreamableRenderAssetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): StreamableRenderAsset {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

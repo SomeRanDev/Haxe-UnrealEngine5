@@ -19,3 +19,22 @@ extern class SubsystemBlueprintLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstSubsystemBlueprintLibrary(SubsystemBlueprintLibrary) from SubsystemBlueprintLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("SubsystemBlueprintLibrary*")
+abstract SubsystemBlueprintLibraryPtr(cpp.Star<SubsystemBlueprintLibrary>) from cpp.Star<SubsystemBlueprintLibrary> to cpp.Star<SubsystemBlueprintLibrary>{
+	@:from
+	public static extern inline function fromValue(v: SubsystemBlueprintLibrary): SubsystemBlueprintLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SubsystemBlueprintLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

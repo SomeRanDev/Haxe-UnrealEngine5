@@ -13,3 +13,22 @@ extern class MovieSceneDoubleVectorPropertySystem extends MovieScenePropertySyst
 @:nativeGen
 abstract ConstMovieSceneDoubleVectorPropertySystem(MovieSceneDoubleVectorPropertySystem) from MovieSceneDoubleVectorPropertySystem {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneDoubleVectorPropertySystem*")
+abstract MovieSceneDoubleVectorPropertySystemPtr(cpp.Star<MovieSceneDoubleVectorPropertySystem>) from cpp.Star<MovieSceneDoubleVectorPropertySystem> to cpp.Star<MovieSceneDoubleVectorPropertySystem>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneDoubleVectorPropertySystem): MovieSceneDoubleVectorPropertySystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneDoubleVectorPropertySystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -14,3 +14,22 @@ extern class CheckedStateBinding extends PropertyBinding {
 @:nativeGen
 abstract ConstCheckedStateBinding(CheckedStateBinding) from CheckedStateBinding {
 }
+
+@:forward
+@:nativeGen
+@:native("CheckedStateBinding*")
+abstract CheckedStateBindingPtr(cpp.Star<CheckedStateBinding>) from cpp.Star<CheckedStateBinding> to cpp.Star<CheckedStateBinding>{
+	@:from
+	public static extern inline function fromValue(v: CheckedStateBinding): CheckedStateBindingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CheckedStateBinding {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

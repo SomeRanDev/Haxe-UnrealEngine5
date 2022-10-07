@@ -16,3 +16,22 @@ abstract ConstNiagaraStackItemGroup(NiagaraStackItemGroup) from NiagaraStackItem
 	public extern var GroupFooter(get, never): cpp.Star<NiagaraStackItemGroupFooter.ConstNiagaraStackItemGroupFooter>;
 	public inline extern function get_GroupFooter(): cpp.Star<NiagaraStackItemGroupFooter.ConstNiagaraStackItemGroupFooter> return this.GroupFooter;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackItemGroup*")
+abstract NiagaraStackItemGroupPtr(cpp.Star<NiagaraStackItemGroup>) from cpp.Star<NiagaraStackItemGroup> to cpp.Star<NiagaraStackItemGroup>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackItemGroup): NiagaraStackItemGroupPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackItemGroup {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

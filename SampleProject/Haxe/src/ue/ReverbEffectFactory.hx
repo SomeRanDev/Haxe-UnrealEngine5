@@ -13,3 +13,22 @@ extern class ReverbEffectFactory extends Factory {
 @:nativeGen
 abstract ConstReverbEffectFactory(ReverbEffectFactory) from ReverbEffectFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("ReverbEffectFactory*")
+abstract ReverbEffectFactoryPtr(cpp.Star<ReverbEffectFactory>) from cpp.Star<ReverbEffectFactory> to cpp.Star<ReverbEffectFactory>{
+	@:from
+	public static extern inline function fromValue(v: ReverbEffectFactory): ReverbEffectFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ReverbEffectFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

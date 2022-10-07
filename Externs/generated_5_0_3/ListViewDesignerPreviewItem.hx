@@ -13,3 +13,22 @@ extern class ListViewDesignerPreviewItem extends Object {
 @:nativeGen
 abstract ConstListViewDesignerPreviewItem(ListViewDesignerPreviewItem) from ListViewDesignerPreviewItem {
 }
+
+@:forward
+@:nativeGen
+@:native("ListViewDesignerPreviewItem*")
+abstract ListViewDesignerPreviewItemPtr(cpp.Star<ListViewDesignerPreviewItem>) from cpp.Star<ListViewDesignerPreviewItem> to cpp.Star<ListViewDesignerPreviewItem>{
+	@:from
+	public static extern inline function fromValue(v: ListViewDesignerPreviewItem): ListViewDesignerPreviewItemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ListViewDesignerPreviewItem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

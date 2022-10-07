@@ -19,3 +19,22 @@ abstract ConstNiagaraNodeStaticSwitch(NiagaraNodeStaticSwitch) from NiagaraNodeS
 	public extern var SwitchTypeData(get, never): StaticSwitchTypeData;
 	public inline extern function get_SwitchTypeData(): StaticSwitchTypeData return this.SwitchTypeData;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraNodeStaticSwitch*")
+abstract NiagaraNodeStaticSwitchPtr(cpp.Star<NiagaraNodeStaticSwitch>) from cpp.Star<NiagaraNodeStaticSwitch> to cpp.Star<NiagaraNodeStaticSwitch>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraNodeStaticSwitch): NiagaraNodeStaticSwitchPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraNodeStaticSwitch {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class WorldPartitionFoliageBuilder extends WorldPartitionBuilder {
 @:nativeGen
 abstract ConstWorldPartitionFoliageBuilder(WorldPartitionFoliageBuilder) from WorldPartitionFoliageBuilder {
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionFoliageBuilder*")
+abstract WorldPartitionFoliageBuilderPtr(cpp.Star<WorldPartitionFoliageBuilder>) from cpp.Star<WorldPartitionFoliageBuilder> to cpp.Star<WorldPartitionFoliageBuilder>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionFoliageBuilder): WorldPartitionFoliageBuilderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionFoliageBuilder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

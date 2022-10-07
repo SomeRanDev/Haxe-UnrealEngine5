@@ -15,3 +15,22 @@ extern class LightWeightInstanceBlueprintFunctionLibrary extends BlueprintFuncti
 @:nativeGen
 abstract ConstLightWeightInstanceBlueprintFunctionLibrary(LightWeightInstanceBlueprintFunctionLibrary) from LightWeightInstanceBlueprintFunctionLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("LightWeightInstanceBlueprintFunctionLibrary*")
+abstract LightWeightInstanceBlueprintFunctionLibraryPtr(cpp.Star<LightWeightInstanceBlueprintFunctionLibrary>) from cpp.Star<LightWeightInstanceBlueprintFunctionLibrary> to cpp.Star<LightWeightInstanceBlueprintFunctionLibrary>{
+	@:from
+	public static extern inline function fromValue(v: LightWeightInstanceBlueprintFunctionLibrary): LightWeightInstanceBlueprintFunctionLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LightWeightInstanceBlueprintFunctionLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

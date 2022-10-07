@@ -13,3 +13,22 @@ extern class DistributionFloatParticleParameter extends DistributionFloatParamet
 @:nativeGen
 abstract ConstDistributionFloatParticleParameter(DistributionFloatParticleParameter) from DistributionFloatParticleParameter {
 }
+
+@:forward
+@:nativeGen
+@:native("DistributionFloatParticleParameter*")
+abstract DistributionFloatParticleParameterPtr(cpp.Star<DistributionFloatParticleParameter>) from cpp.Star<DistributionFloatParticleParameter> to cpp.Star<DistributionFloatParticleParameter>{
+	@:from
+	public static extern inline function fromValue(v: DistributionFloatParticleParameter): DistributionFloatParticleParameterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DistributionFloatParticleParameter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

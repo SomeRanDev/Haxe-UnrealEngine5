@@ -13,3 +13,22 @@ extern class K2Node_CallArrayFunction extends K2Node_CallFunction {
 @:nativeGen
 abstract ConstK2Node_CallArrayFunction(K2Node_CallArrayFunction) from K2Node_CallArrayFunction {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_CallArrayFunction*")
+abstract K2Node_CallArrayFunctionPtr(cpp.Star<K2Node_CallArrayFunction>) from cpp.Star<K2Node_CallArrayFunction> to cpp.Star<K2Node_CallArrayFunction>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_CallArrayFunction): K2Node_CallArrayFunctionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_CallArrayFunction {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

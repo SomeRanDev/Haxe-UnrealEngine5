@@ -130,3 +130,22 @@ abstract ConstEditorPerProjectUserSettings(EditorPerProjectUserSettings) from Ed
 	public extern var PreviewDeviceProfileName(get, never): FName;
 	public inline extern function get_PreviewDeviceProfileName(): FName return this.PreviewDeviceProfileName;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorPerProjectUserSettings*")
+abstract EditorPerProjectUserSettingsPtr(cpp.Star<EditorPerProjectUserSettings>) from cpp.Star<EditorPerProjectUserSettings> to cpp.Star<EditorPerProjectUserSettings>{
+	@:from
+	public static extern inline function fromValue(v: EditorPerProjectUserSettings): EditorPerProjectUserSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorPerProjectUserSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

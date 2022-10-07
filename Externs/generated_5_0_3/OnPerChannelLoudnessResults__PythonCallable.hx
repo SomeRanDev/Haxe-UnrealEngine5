@@ -12,3 +12,22 @@ extern class OnPerChannelLoudnessResults__PythonCallable extends PythonCallableF
 @:nativeGen
 abstract ConstOnPerChannelLoudnessResults__PythonCallable(OnPerChannelLoudnessResults__PythonCallable) from OnPerChannelLoudnessResults__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnPerChannelLoudnessResults__PythonCallable*")
+abstract OnPerChannelLoudnessResults__PythonCallablePtr(cpp.Star<OnPerChannelLoudnessResults__PythonCallable>) from cpp.Star<OnPerChannelLoudnessResults__PythonCallable> to cpp.Star<OnPerChannelLoudnessResults__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnPerChannelLoudnessResults__PythonCallable): OnPerChannelLoudnessResults__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnPerChannelLoudnessResults__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

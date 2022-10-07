@@ -64,3 +64,22 @@ abstract ConstNavLinkCustomComp(NavLinkCustomComp) from NavLinkCustomComp {
 	public extern var BroadcastChannel(get, never): ECollisionChannel;
 	public inline extern function get_BroadcastChannel(): ECollisionChannel return this.BroadcastChannel;
 }
+
+@:forward
+@:nativeGen
+@:native("NavLinkCustomComp*")
+abstract NavLinkCustomCompPtr(cpp.Star<NavLinkCustomComp>) from cpp.Star<NavLinkCustomComp> to cpp.Star<NavLinkCustomComp>{
+	@:from
+	public static extern inline function fromValue(v: NavLinkCustomComp): NavLinkCustomCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavLinkCustomComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -37,3 +37,22 @@ abstract ConstAISenseConfig_Sight(AISenseConfig_Sight) from AISenseConfig_Sight 
 	public extern var NearClippingRadius(get, never): cpp.Float32;
 	public inline extern function get_NearClippingRadius(): cpp.Float32 return this.NearClippingRadius;
 }
+
+@:forward
+@:nativeGen
+@:native("AISenseConfig_Sight*")
+abstract AISenseConfig_SightPtr(cpp.Star<AISenseConfig_Sight>) from cpp.Star<AISenseConfig_Sight> to cpp.Star<AISenseConfig_Sight>{
+	@:from
+	public static extern inline function fromValue(v: AISenseConfig_Sight): AISenseConfig_SightPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AISenseConfig_Sight {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

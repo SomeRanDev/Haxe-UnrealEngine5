@@ -28,3 +28,22 @@ abstract ConstFloatingPawnMovement(FloatingPawnMovement) from FloatingPawnMoveme
 	public extern var bPositionCorrected(get, never): Bool;
 	public inline extern function get_bPositionCorrected(): Bool return this.bPositionCorrected;
 }
+
+@:forward
+@:nativeGen
+@:native("FloatingPawnMovement*")
+abstract FloatingPawnMovementPtr(cpp.Star<FloatingPawnMovement>) from cpp.Star<FloatingPawnMovement> to cpp.Star<FloatingPawnMovement>{
+	@:from
+	public static extern inline function fromValue(v: FloatingPawnMovement): FloatingPawnMovementPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FloatingPawnMovement {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

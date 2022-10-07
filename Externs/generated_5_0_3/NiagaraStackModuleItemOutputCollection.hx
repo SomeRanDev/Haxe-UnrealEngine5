@@ -13,3 +13,22 @@ extern class NiagaraStackModuleItemOutputCollection extends NiagaraStackEntry {
 @:nativeGen
 abstract ConstNiagaraStackModuleItemOutputCollection(NiagaraStackModuleItemOutputCollection) from NiagaraStackModuleItemOutputCollection {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackModuleItemOutputCollection*")
+abstract NiagaraStackModuleItemOutputCollectionPtr(cpp.Star<NiagaraStackModuleItemOutputCollection>) from cpp.Star<NiagaraStackModuleItemOutputCollection> to cpp.Star<NiagaraStackModuleItemOutputCollection>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackModuleItemOutputCollection): NiagaraStackModuleItemOutputCollectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackModuleItemOutputCollection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

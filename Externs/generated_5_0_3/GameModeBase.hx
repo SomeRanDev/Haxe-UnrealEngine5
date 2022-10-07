@@ -94,3 +94,22 @@ abstract ConstGameModeBase(GameModeBase) from GameModeBase {
 	public extern var bPauseable(get, never): Bool;
 	public inline extern function get_bPauseable(): Bool return this.bPauseable;
 }
+
+@:forward
+@:nativeGen
+@:native("GameModeBase*")
+abstract GameModeBasePtr(cpp.Star<GameModeBase>) from cpp.Star<GameModeBase> to cpp.Star<GameModeBase>{
+	@:from
+	public static extern inline function fromValue(v: GameModeBase): GameModeBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameModeBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -58,3 +58,22 @@ abstract ConstBodySetup(BodySetup) from BodySetup {
 	public extern var BuildScale3D(get, never): Vector;
 	public inline extern function get_BuildScale3D(): Vector return this.BuildScale3D;
 }
+
+@:forward
+@:nativeGen
+@:native("BodySetup*")
+abstract BodySetupPtr(cpp.Star<BodySetup>) from cpp.Star<BodySetup> to cpp.Star<BodySetup>{
+	@:from
+	public static extern inline function fromValue(v: BodySetup): BodySetupPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BodySetup {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

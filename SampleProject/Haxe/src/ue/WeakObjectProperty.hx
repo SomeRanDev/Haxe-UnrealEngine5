@@ -12,3 +12,22 @@ extern class WeakObjectProperty extends ObjectPropertyBase {
 @:nativeGen
 abstract ConstWeakObjectProperty(WeakObjectProperty) from WeakObjectProperty {
 }
+
+@:forward
+@:nativeGen
+@:native("WeakObjectProperty*")
+abstract WeakObjectPropertyPtr(cpp.Star<WeakObjectProperty>) from cpp.Star<WeakObjectProperty> to cpp.Star<WeakObjectProperty>{
+	@:from
+	public static extern inline function fromValue(v: WeakObjectProperty): WeakObjectPropertyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WeakObjectProperty {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

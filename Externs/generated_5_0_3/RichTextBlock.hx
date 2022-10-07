@@ -61,3 +61,22 @@ abstract ConstRichTextBlock(RichTextBlock) from RichTextBlock {
 	public extern var InstanceDecorators(get, never): TArray<cpp.Star<RichTextBlockDecorator.ConstRichTextBlockDecorator>>;
 	public inline extern function get_InstanceDecorators(): TArray<cpp.Star<RichTextBlockDecorator.ConstRichTextBlockDecorator>> return this.InstanceDecorators;
 }
+
+@:forward
+@:nativeGen
+@:native("RichTextBlock*")
+abstract RichTextBlockPtr(cpp.Star<RichTextBlock>) from cpp.Star<RichTextBlock> to cpp.Star<RichTextBlock>{
+	@:from
+	public static extern inline function fromValue(v: RichTextBlock): RichTextBlockPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RichTextBlock {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

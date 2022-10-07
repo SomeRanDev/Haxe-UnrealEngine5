@@ -13,3 +13,22 @@ extern class ClickDragTool extends InteractiveTool {
 @:nativeGen
 abstract ConstClickDragTool(ClickDragTool) from ClickDragTool {
 }
+
+@:forward
+@:nativeGen
+@:native("ClickDragTool*")
+abstract ClickDragToolPtr(cpp.Star<ClickDragTool>) from cpp.Star<ClickDragTool> to cpp.Star<ClickDragTool>{
+	@:from
+	public static extern inline function fromValue(v: ClickDragTool): ClickDragToolPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ClickDragTool {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

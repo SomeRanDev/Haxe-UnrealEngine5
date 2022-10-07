@@ -59,3 +59,22 @@ abstract ConstListViewBase(ListViewBase) from ListViewBase {
 	public extern var EntryWidgetPool(get, never): UserWidgetPool;
 	public inline extern function get_EntryWidgetPool(): UserWidgetPool return this.EntryWidgetPool;
 }
+
+@:forward
+@:nativeGen
+@:native("ListViewBase*")
+abstract ListViewBasePtr(cpp.Star<ListViewBase>) from cpp.Star<ListViewBase> to cpp.Star<ListViewBase>{
+	@:from
+	public static extern inline function fromValue(v: ListViewBase): ListViewBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ListViewBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

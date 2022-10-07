@@ -16,3 +16,22 @@ abstract ConstCameraAnimationSequenceSubsystem(CameraAnimationSequenceSubsystem)
 	public extern var Linker(get, never): cpp.Star<MovieSceneEntitySystemLinker.ConstMovieSceneEntitySystemLinker>;
 	public inline extern function get_Linker(): cpp.Star<MovieSceneEntitySystemLinker.ConstMovieSceneEntitySystemLinker> return this.Linker;
 }
+
+@:forward
+@:nativeGen
+@:native("CameraAnimationSequenceSubsystem*")
+abstract CameraAnimationSequenceSubsystemPtr(cpp.Star<CameraAnimationSequenceSubsystem>) from cpp.Star<CameraAnimationSequenceSubsystem> to cpp.Star<CameraAnimationSequenceSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: CameraAnimationSequenceSubsystem): CameraAnimationSequenceSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CameraAnimationSequenceSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

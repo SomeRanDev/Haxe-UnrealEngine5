@@ -23,3 +23,22 @@ extern class AudioParameterConversionStatics extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstAudioParameterConversionStatics(AudioParameterConversionStatics) from AudioParameterConversionStatics {
 }
+
+@:forward
+@:nativeGen
+@:native("AudioParameterConversionStatics*")
+abstract AudioParameterConversionStaticsPtr(cpp.Star<AudioParameterConversionStatics>) from cpp.Star<AudioParameterConversionStatics> to cpp.Star<AudioParameterConversionStatics>{
+	@:from
+	public static extern inline function fromValue(v: AudioParameterConversionStatics): AudioParameterConversionStaticsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AudioParameterConversionStatics {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

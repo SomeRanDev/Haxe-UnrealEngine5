@@ -13,3 +13,22 @@ extern class SoundfieldEndpointSubmixFactory extends Factory {
 @:nativeGen
 abstract ConstSoundfieldEndpointSubmixFactory(SoundfieldEndpointSubmixFactory) from SoundfieldEndpointSubmixFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("SoundfieldEndpointSubmixFactory*")
+abstract SoundfieldEndpointSubmixFactoryPtr(cpp.Star<SoundfieldEndpointSubmixFactory>) from cpp.Star<SoundfieldEndpointSubmixFactory> to cpp.Star<SoundfieldEndpointSubmixFactory>{
+	@:from
+	public static extern inline function fromValue(v: SoundfieldEndpointSubmixFactory): SoundfieldEndpointSubmixFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundfieldEndpointSubmixFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

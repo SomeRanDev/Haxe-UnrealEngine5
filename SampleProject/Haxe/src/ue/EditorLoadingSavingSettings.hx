@@ -94,3 +94,22 @@ abstract ConstEditorLoadingSavingSettings(EditorLoadingSavingSettings) from Edit
 	public extern var TextDiffToolPath(get, never): FilePath;
 	public inline extern function get_TextDiffToolPath(): FilePath return this.TextDiffToolPath;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorLoadingSavingSettings*")
+abstract EditorLoadingSavingSettingsPtr(cpp.Star<EditorLoadingSavingSettings>) from cpp.Star<EditorLoadingSavingSettings> to cpp.Star<EditorLoadingSavingSettings>{
+	@:from
+	public static extern inline function fromValue(v: EditorLoadingSavingSettings): EditorLoadingSavingSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorLoadingSavingSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

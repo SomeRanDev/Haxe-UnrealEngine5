@@ -13,3 +13,22 @@ extern class SequencerMeshTrail extends Actor {
 @:nativeGen
 abstract ConstSequencerMeshTrail(SequencerMeshTrail) from SequencerMeshTrail {
 }
+
+@:forward
+@:nativeGen
+@:native("SequencerMeshTrail*")
+abstract SequencerMeshTrailPtr(cpp.Star<SequencerMeshTrail>) from cpp.Star<SequencerMeshTrail> to cpp.Star<SequencerMeshTrail>{
+	@:from
+	public static extern inline function fromValue(v: SequencerMeshTrail): SequencerMeshTrailPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SequencerMeshTrail {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

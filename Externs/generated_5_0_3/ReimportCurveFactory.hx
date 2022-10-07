@@ -13,3 +13,22 @@ extern class ReimportCurveFactory extends CSVImportFactory {
 @:nativeGen
 abstract ConstReimportCurveFactory(ReimportCurveFactory) from ReimportCurveFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("ReimportCurveFactory*")
+abstract ReimportCurveFactoryPtr(cpp.Star<ReimportCurveFactory>) from cpp.Star<ReimportCurveFactory> to cpp.Star<ReimportCurveFactory>{
+	@:from
+	public static extern inline function fromValue(v: ReimportCurveFactory): ReimportCurveFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ReimportCurveFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class OnEditCutActorsBegin__PythonCallable extends PythonCallableForDeleg
 @:nativeGen
 abstract ConstOnEditCutActorsBegin__PythonCallable(OnEditCutActorsBegin__PythonCallable) from OnEditCutActorsBegin__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnEditCutActorsBegin__PythonCallable*")
+abstract OnEditCutActorsBegin__PythonCallablePtr(cpp.Star<OnEditCutActorsBegin__PythonCallable>) from cpp.Star<OnEditCutActorsBegin__PythonCallable> to cpp.Star<OnEditCutActorsBegin__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnEditCutActorsBegin__PythonCallable): OnEditCutActorsBegin__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnEditCutActorsBegin__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

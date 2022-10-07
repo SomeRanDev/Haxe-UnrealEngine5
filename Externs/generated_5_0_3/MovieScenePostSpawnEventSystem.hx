@@ -13,3 +13,22 @@ extern class MovieScenePostSpawnEventSystem extends MovieSceneEventSystem {
 @:nativeGen
 abstract ConstMovieScenePostSpawnEventSystem(MovieScenePostSpawnEventSystem) from MovieScenePostSpawnEventSystem {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieScenePostSpawnEventSystem*")
+abstract MovieScenePostSpawnEventSystemPtr(cpp.Star<MovieScenePostSpawnEventSystem>) from cpp.Star<MovieScenePostSpawnEventSystem> to cpp.Star<MovieScenePostSpawnEventSystem>{
+	@:from
+	public static extern inline function fromValue(v: MovieScenePostSpawnEventSystem): MovieScenePostSpawnEventSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieScenePostSpawnEventSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

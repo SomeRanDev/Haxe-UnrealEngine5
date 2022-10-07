@@ -16,3 +16,22 @@ abstract ConstMovieSceneNodeGroupCollection(MovieSceneNodeGroupCollection) from 
 	public extern var NodeGroups(get, never): TArray<cpp.Star<MovieSceneNodeGroup.ConstMovieSceneNodeGroup>>;
 	public inline extern function get_NodeGroups(): TArray<cpp.Star<MovieSceneNodeGroup.ConstMovieSceneNodeGroup>> return this.NodeGroups;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneNodeGroupCollection*")
+abstract MovieSceneNodeGroupCollectionPtr(cpp.Star<MovieSceneNodeGroupCollection>) from cpp.Star<MovieSceneNodeGroupCollection> to cpp.Star<MovieSceneNodeGroupCollection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneNodeGroupCollection): MovieSceneNodeGroupCollectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneNodeGroupCollection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

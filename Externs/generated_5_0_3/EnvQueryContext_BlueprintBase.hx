@@ -17,3 +17,22 @@ extern class EnvQueryContext_BlueprintBase extends EnvQueryContext {
 @:nativeGen
 abstract ConstEnvQueryContext_BlueprintBase(EnvQueryContext_BlueprintBase) from EnvQueryContext_BlueprintBase {
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryContext_BlueprintBase*")
+abstract EnvQueryContext_BlueprintBasePtr(cpp.Star<EnvQueryContext_BlueprintBase>) from cpp.Star<EnvQueryContext_BlueprintBase> to cpp.Star<EnvQueryContext_BlueprintBase>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryContext_BlueprintBase): EnvQueryContext_BlueprintBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryContext_BlueprintBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class OnMultiLineEditableTextCommittedEvent__PythonCallable extends Pytho
 @:nativeGen
 abstract ConstOnMultiLineEditableTextCommittedEvent__PythonCallable(OnMultiLineEditableTextCommittedEvent__PythonCallable) from OnMultiLineEditableTextCommittedEvent__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnMultiLineEditableTextCommittedEvent__PythonCallable*")
+abstract OnMultiLineEditableTextCommittedEvent__PythonCallablePtr(cpp.Star<OnMultiLineEditableTextCommittedEvent__PythonCallable>) from cpp.Star<OnMultiLineEditableTextCommittedEvent__PythonCallable> to cpp.Star<OnMultiLineEditableTextCommittedEvent__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnMultiLineEditableTextCommittedEvent__PythonCallable): OnMultiLineEditableTextCommittedEvent__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnMultiLineEditableTextCommittedEvent__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

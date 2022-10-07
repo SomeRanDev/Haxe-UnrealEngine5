@@ -13,3 +13,22 @@ extern class InputBehavior extends Object {
 @:nativeGen
 abstract ConstInputBehavior(InputBehavior) from InputBehavior {
 }
+
+@:forward
+@:nativeGen
+@:native("InputBehavior*")
+abstract InputBehaviorPtr(cpp.Star<InputBehavior>) from cpp.Star<InputBehavior> to cpp.Star<InputBehavior>{
+	@:from
+	public static extern inline function fromValue(v: InputBehavior): InputBehaviorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InputBehavior {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class SwapSoundForDialogueInCuesCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstSwapSoundForDialogueInCuesCommandlet(SwapSoundForDialogueInCuesCommandlet) from SwapSoundForDialogueInCuesCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("SwapSoundForDialogueInCuesCommandlet*")
+abstract SwapSoundForDialogueInCuesCommandletPtr(cpp.Star<SwapSoundForDialogueInCuesCommandlet>) from cpp.Star<SwapSoundForDialogueInCuesCommandlet> to cpp.Star<SwapSoundForDialogueInCuesCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: SwapSoundForDialogueInCuesCommandlet): SwapSoundForDialogueInCuesCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SwapSoundForDialogueInCuesCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

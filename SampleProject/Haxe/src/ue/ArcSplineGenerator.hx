@@ -31,3 +31,22 @@ abstract ConstArcSplineGenerator(ArcSplineGenerator) from ArcSplineGenerator {
 	public extern var bBranchRight(get, never): Bool;
 	public inline extern function get_bBranchRight(): Bool return this.bBranchRight;
 }
+
+@:forward
+@:nativeGen
+@:native("ArcSplineGenerator*")
+abstract ArcSplineGeneratorPtr(cpp.Star<ArcSplineGenerator>) from cpp.Star<ArcSplineGenerator> to cpp.Star<ArcSplineGenerator>{
+	@:from
+	public static extern inline function fromValue(v: ArcSplineGenerator): ArcSplineGeneratorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ArcSplineGenerator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

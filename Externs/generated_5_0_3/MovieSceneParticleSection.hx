@@ -16,3 +16,22 @@ abstract ConstMovieSceneParticleSection(MovieSceneParticleSection) from MovieSce
 	public extern var ParticleKeys(get, never): MovieSceneParticleChannel;
 	public inline extern function get_ParticleKeys(): MovieSceneParticleChannel return this.ParticleKeys;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneParticleSection*")
+abstract MovieSceneParticleSectionPtr(cpp.Star<MovieSceneParticleSection>) from cpp.Star<MovieSceneParticleSection> to cpp.Star<MovieSceneParticleSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneParticleSection): MovieSceneParticleSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneParticleSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

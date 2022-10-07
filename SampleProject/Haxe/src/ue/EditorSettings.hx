@@ -67,3 +67,22 @@ abstract ConstEditorSettings(EditorSettings) from EditorSettings {
 	public extern var AutoScalabilityWorkScaleAmount(get, never): cpp.Float32;
 	public inline extern function get_AutoScalabilityWorkScaleAmount(): cpp.Float32 return this.AutoScalabilityWorkScaleAmount;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorSettings*")
+abstract EditorSettingsPtr(cpp.Star<EditorSettings>) from cpp.Star<EditorSettings> to cpp.Star<EditorSettings>{
+	@:from
+	public static extern inline function fromValue(v: EditorSettings): EditorSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class K2Node_AddDelegate extends K2Node_BaseMCDelegate {
 @:nativeGen
 abstract ConstK2Node_AddDelegate(K2Node_AddDelegate) from K2Node_AddDelegate {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_AddDelegate*")
+abstract K2Node_AddDelegatePtr(cpp.Star<K2Node_AddDelegate>) from cpp.Star<K2Node_AddDelegate> to cpp.Star<K2Node_AddDelegate>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_AddDelegate): K2Node_AddDelegatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_AddDelegate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

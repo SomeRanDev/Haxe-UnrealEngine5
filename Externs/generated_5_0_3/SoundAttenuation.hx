@@ -16,3 +16,22 @@ abstract ConstSoundAttenuation(SoundAttenuation) from SoundAttenuation {
 	public extern var Attenuation(get, never): SoundAttenuationSettings;
 	public inline extern function get_Attenuation(): SoundAttenuationSettings return this.Attenuation;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundAttenuation*")
+abstract SoundAttenuationPtr(cpp.Star<SoundAttenuation>) from cpp.Star<SoundAttenuation> to cpp.Star<SoundAttenuation>{
+	@:from
+	public static extern inline function fromValue(v: SoundAttenuation): SoundAttenuationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundAttenuation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class EditorGizmoRegistryCategoryEntry_ConditionalSelection extends Edito
 @:nativeGen
 abstract ConstEditorGizmoRegistryCategoryEntry_ConditionalSelection(EditorGizmoRegistryCategoryEntry_ConditionalSelection) from EditorGizmoRegistryCategoryEntry_ConditionalSelection {
 }
+
+@:forward
+@:nativeGen
+@:native("EditorGizmoRegistryCategoryEntry_ConditionalSelection*")
+abstract EditorGizmoRegistryCategoryEntry_ConditionalSelectionPtr(cpp.Star<EditorGizmoRegistryCategoryEntry_ConditionalSelection>) from cpp.Star<EditorGizmoRegistryCategoryEntry_ConditionalSelection> to cpp.Star<EditorGizmoRegistryCategoryEntry_ConditionalSelection>{
+	@:from
+	public static extern inline function fromValue(v: EditorGizmoRegistryCategoryEntry_ConditionalSelection): EditorGizmoRegistryCategoryEntry_ConditionalSelectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorGizmoRegistryCategoryEntry_ConditionalSelection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

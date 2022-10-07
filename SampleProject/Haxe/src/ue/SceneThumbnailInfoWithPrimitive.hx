@@ -22,3 +22,22 @@ abstract ConstSceneThumbnailInfoWithPrimitive(SceneThumbnailInfoWithPrimitive) f
 	public extern var bUserModifiedShape(get, never): Bool;
 	public inline extern function get_bUserModifiedShape(): Bool return this.bUserModifiedShape;
 }
+
+@:forward
+@:nativeGen
+@:native("SceneThumbnailInfoWithPrimitive*")
+abstract SceneThumbnailInfoWithPrimitivePtr(cpp.Star<SceneThumbnailInfoWithPrimitive>) from cpp.Star<SceneThumbnailInfoWithPrimitive> to cpp.Star<SceneThumbnailInfoWithPrimitive>{
+	@:from
+	public static extern inline function fromValue(v: SceneThumbnailInfoWithPrimitive): SceneThumbnailInfoWithPrimitivePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SceneThumbnailInfoWithPrimitive {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

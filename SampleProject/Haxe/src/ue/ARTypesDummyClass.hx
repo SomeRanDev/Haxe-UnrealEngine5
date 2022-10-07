@@ -13,3 +13,22 @@ extern class ARTypesDummyClass extends Object {
 @:nativeGen
 abstract ConstARTypesDummyClass(ARTypesDummyClass) from ARTypesDummyClass {
 }
+
+@:forward
+@:nativeGen
+@:native("ARTypesDummyClass*")
+abstract ARTypesDummyClassPtr(cpp.Star<ARTypesDummyClass>) from cpp.Star<ARTypesDummyClass> to cpp.Star<ARTypesDummyClass>{
+	@:from
+	public static extern inline function fromValue(v: ARTypesDummyClass): ARTypesDummyClassPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARTypesDummyClass {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

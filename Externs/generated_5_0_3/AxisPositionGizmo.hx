@@ -58,3 +58,22 @@ abstract ConstAxisPositionGizmo(AxisPositionGizmo) from AxisPositionGizmo {
 	public extern var ParameterSign(get, never): cpp.Float32;
 	public inline extern function get_ParameterSign(): cpp.Float32 return this.ParameterSign;
 }
+
+@:forward
+@:nativeGen
+@:native("AxisPositionGizmo*")
+abstract AxisPositionGizmoPtr(cpp.Star<AxisPositionGizmo>) from cpp.Star<AxisPositionGizmo> to cpp.Star<AxisPositionGizmo>{
+	@:from
+	public static extern inline function fromValue(v: AxisPositionGizmo): AxisPositionGizmoPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AxisPositionGizmo {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

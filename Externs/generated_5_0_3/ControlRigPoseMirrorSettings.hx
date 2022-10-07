@@ -25,3 +25,22 @@ abstract ConstControlRigPoseMirrorSettings(ControlRigPoseMirrorSettings) from Co
 	public extern var AxisToFlip(get, never): EAxis;
 	public inline extern function get_AxisToFlip(): EAxis return this.AxisToFlip;
 }
+
+@:forward
+@:nativeGen
+@:native("ControlRigPoseMirrorSettings*")
+abstract ControlRigPoseMirrorSettingsPtr(cpp.Star<ControlRigPoseMirrorSettings>) from cpp.Star<ControlRigPoseMirrorSettings> to cpp.Star<ControlRigPoseMirrorSettings>{
+	@:from
+	public static extern inline function fromValue(v: ControlRigPoseMirrorSettings): ControlRigPoseMirrorSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ControlRigPoseMirrorSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

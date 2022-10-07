@@ -12,3 +12,22 @@ extern class ComponentBeginOverlapSignature__PythonCallable extends PythonCallab
 @:nativeGen
 abstract ConstComponentBeginOverlapSignature__PythonCallable(ComponentBeginOverlapSignature__PythonCallable) from ComponentBeginOverlapSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ComponentBeginOverlapSignature__PythonCallable*")
+abstract ComponentBeginOverlapSignature__PythonCallablePtr(cpp.Star<ComponentBeginOverlapSignature__PythonCallable>) from cpp.Star<ComponentBeginOverlapSignature__PythonCallable> to cpp.Star<ComponentBeginOverlapSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ComponentBeginOverlapSignature__PythonCallable): ComponentBeginOverlapSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ComponentBeginOverlapSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstParticleModuleSpawnBase(ParticleModuleSpawnBase) from ParticleModu
 	public extern var bProcessBurstList(get, never): Bool;
 	public inline extern function get_bProcessBurstList(): Bool return this.bProcessBurstList;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleSpawnBase*")
+abstract ParticleModuleSpawnBasePtr(cpp.Star<ParticleModuleSpawnBase>) from cpp.Star<ParticleModuleSpawnBase> to cpp.Star<ParticleModuleSpawnBase>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleSpawnBase): ParticleModuleSpawnBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleSpawnBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

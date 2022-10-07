@@ -25,3 +25,22 @@ abstract ConstDemoNetDriver(DemoNetDriver) from DemoNetDriver {
 	public extern var SpectatorControllers(get, never): TArray<cpp.Star<PlayerController.ConstPlayerController>>;
 	public inline extern function get_SpectatorControllers(): TArray<cpp.Star<PlayerController.ConstPlayerController>> return this.SpectatorControllers;
 }
+
+@:forward
+@:nativeGen
+@:native("DemoNetDriver*")
+abstract DemoNetDriverPtr(cpp.Star<DemoNetDriver>) from cpp.Star<DemoNetDriver> to cpp.Star<DemoNetDriver>{
+	@:from
+	public static extern inline function fromValue(v: DemoNetDriver): DemoNetDriverPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DemoNetDriver {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

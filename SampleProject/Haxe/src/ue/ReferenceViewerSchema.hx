@@ -13,3 +13,22 @@ extern class ReferenceViewerSchema extends EdGraphSchema {
 @:nativeGen
 abstract ConstReferenceViewerSchema(ReferenceViewerSchema) from ReferenceViewerSchema {
 }
+
+@:forward
+@:nativeGen
+@:native("ReferenceViewerSchema*")
+abstract ReferenceViewerSchemaPtr(cpp.Star<ReferenceViewerSchema>) from cpp.Star<ReferenceViewerSchema> to cpp.Star<ReferenceViewerSchema>{
+	@:from
+	public static extern inline function fromValue(v: ReferenceViewerSchema): ReferenceViewerSchemaPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ReferenceViewerSchema {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

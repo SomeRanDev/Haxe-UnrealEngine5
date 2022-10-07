@@ -28,3 +28,22 @@ abstract ConstDatasmithStaticMeshTemplate(DatasmithStaticMeshTemplate) from Data
 	public extern var StaticMaterials(get, never): TArray<DatasmithStaticMaterialTemplate>;
 	public inline extern function get_StaticMaterials(): TArray<DatasmithStaticMaterialTemplate> return this.StaticMaterials;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithStaticMeshTemplate*")
+abstract DatasmithStaticMeshTemplatePtr(cpp.Star<DatasmithStaticMeshTemplate>) from cpp.Star<DatasmithStaticMeshTemplate> to cpp.Star<DatasmithStaticMeshTemplate>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithStaticMeshTemplate): DatasmithStaticMeshTemplatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithStaticMeshTemplate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

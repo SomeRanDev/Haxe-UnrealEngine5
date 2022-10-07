@@ -40,3 +40,22 @@ abstract ConstEnvQueryGenerator_Donut(EnvQueryGenerator_Donut) from EnvQueryGene
 	public extern var bDefineArc(get, never): Bool;
 	public inline extern function get_bDefineArc(): Bool return this.bDefineArc;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryGenerator_Donut*")
+abstract EnvQueryGenerator_DonutPtr(cpp.Star<EnvQueryGenerator_Donut>) from cpp.Star<EnvQueryGenerator_Donut> to cpp.Star<EnvQueryGenerator_Donut>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryGenerator_Donut): EnvQueryGenerator_DonutPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryGenerator_Donut {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

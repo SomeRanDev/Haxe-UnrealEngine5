@@ -19,3 +19,22 @@ abstract ConstBlueprintVariableNodeSpawner(BlueprintVariableNodeSpawner) from Bl
 	public extern var LocalVarDesc(get, never): BPVariableDescription;
 	public inline extern function get_LocalVarDesc(): BPVariableDescription return this.LocalVarDesc;
 }
+
+@:forward
+@:nativeGen
+@:native("BlueprintVariableNodeSpawner*")
+abstract BlueprintVariableNodeSpawnerPtr(cpp.Star<BlueprintVariableNodeSpawner>) from cpp.Star<BlueprintVariableNodeSpawner> to cpp.Star<BlueprintVariableNodeSpawner>{
+	@:from
+	public static extern inline function fromValue(v: BlueprintVariableNodeSpawner): BlueprintVariableNodeSpawnerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlueprintVariableNodeSpawner {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

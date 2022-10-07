@@ -19,3 +19,22 @@ abstract ConstFbxFactory(FbxFactory) from FbxFactory {
 	public extern var OriginalImportUI(get, never): cpp.Star<FbxImportUI.ConstFbxImportUI>;
 	public inline extern function get_OriginalImportUI(): cpp.Star<FbxImportUI.ConstFbxImportUI> return this.OriginalImportUI;
 }
+
+@:forward
+@:nativeGen
+@:native("FbxFactory*")
+abstract FbxFactoryPtr(cpp.Star<FbxFactory>) from cpp.Star<FbxFactory> to cpp.Star<FbxFactory>{
+	@:from
+	public static extern inline function fromValue(v: FbxFactory): FbxFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FbxFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstNiagaraDataInterfaceHairStrands(NiagaraDataInterfaceHairStrands) f
 	public extern var SourceActor(get, never): cpp.Star<Actor.ConstActor>;
 	public inline extern function get_SourceActor(): cpp.Star<Actor.ConstActor> return this.SourceActor;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceHairStrands*")
+abstract NiagaraDataInterfaceHairStrandsPtr(cpp.Star<NiagaraDataInterfaceHairStrands>) from cpp.Star<NiagaraDataInterfaceHairStrands> to cpp.Star<NiagaraDataInterfaceHairStrands>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceHairStrands): NiagaraDataInterfaceHairStrandsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceHairStrands {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

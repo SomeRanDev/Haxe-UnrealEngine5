@@ -16,3 +16,22 @@ abstract ConstTextBlockWidgetStyle(TextBlockWidgetStyle) from TextBlockWidgetSty
 	public extern var TextBlockStyle(get, never): TextBlockStyle;
 	public inline extern function get_TextBlockStyle(): TextBlockStyle return this.TextBlockStyle;
 }
+
+@:forward
+@:nativeGen
+@:native("TextBlockWidgetStyle*")
+abstract TextBlockWidgetStylePtr(cpp.Star<TextBlockWidgetStyle>) from cpp.Star<TextBlockWidgetStyle> to cpp.Star<TextBlockWidgetStyle>{
+	@:from
+	public static extern inline function fromValue(v: TextBlockWidgetStyle): TextBlockWidgetStylePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextBlockWidgetStyle {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

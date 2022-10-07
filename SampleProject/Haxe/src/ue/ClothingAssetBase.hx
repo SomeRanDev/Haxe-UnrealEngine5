@@ -19,3 +19,22 @@ abstract ConstClothingAssetBase(ClothingAssetBase) from ClothingAssetBase {
 	public extern var AssetGuid(get, never): Guid;
 	public inline extern function get_AssetGuid(): Guid return this.AssetGuid;
 }
+
+@:forward
+@:nativeGen
+@:native("ClothingAssetBase*")
+abstract ClothingAssetBasePtr(cpp.Star<ClothingAssetBase>) from cpp.Star<ClothingAssetBase> to cpp.Star<ClothingAssetBase>{
+	@:from
+	public static extern inline function fromValue(v: ClothingAssetBase): ClothingAssetBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ClothingAssetBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

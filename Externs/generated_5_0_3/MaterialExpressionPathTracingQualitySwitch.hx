@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionPathTracingQualitySwitch(MaterialExpressionPathT
 	public extern var PathTraced(get, never): ExpressionInput;
 	public inline extern function get_PathTraced(): ExpressionInput return this.PathTraced;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionPathTracingQualitySwitch*")
+abstract MaterialExpressionPathTracingQualitySwitchPtr(cpp.Star<MaterialExpressionPathTracingQualitySwitch>) from cpp.Star<MaterialExpressionPathTracingQualitySwitch> to cpp.Star<MaterialExpressionPathTracingQualitySwitch>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionPathTracingQualitySwitch): MaterialExpressionPathTracingQualitySwitchPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionPathTracingQualitySwitch {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

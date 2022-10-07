@@ -13,3 +13,22 @@ extern class NiagaraDataInterfaceGBuffer extends NiagaraDataInterface {
 @:nativeGen
 abstract ConstNiagaraDataInterfaceGBuffer(NiagaraDataInterfaceGBuffer) from NiagaraDataInterfaceGBuffer {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceGBuffer*")
+abstract NiagaraDataInterfaceGBufferPtr(cpp.Star<NiagaraDataInterfaceGBuffer>) from cpp.Star<NiagaraDataInterfaceGBuffer> to cpp.Star<NiagaraDataInterfaceGBuffer>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceGBuffer): NiagaraDataInterfaceGBufferPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceGBuffer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

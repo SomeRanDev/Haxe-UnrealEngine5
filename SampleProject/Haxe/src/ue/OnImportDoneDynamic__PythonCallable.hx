@@ -12,3 +12,22 @@ extern class OnImportDoneDynamic__PythonCallable extends PythonCallableForDelega
 @:nativeGen
 abstract ConstOnImportDoneDynamic__PythonCallable(OnImportDoneDynamic__PythonCallable) from OnImportDoneDynamic__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnImportDoneDynamic__PythonCallable*")
+abstract OnImportDoneDynamic__PythonCallablePtr(cpp.Star<OnImportDoneDynamic__PythonCallable>) from cpp.Star<OnImportDoneDynamic__PythonCallable> to cpp.Star<OnImportDoneDynamic__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnImportDoneDynamic__PythonCallable): OnImportDoneDynamic__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnImportDoneDynamic__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

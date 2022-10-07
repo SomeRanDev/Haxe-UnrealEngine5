@@ -12,3 +12,22 @@ extern class ARGetCandidateObjectPin__PythonCallable extends PythonCallableForDe
 @:nativeGen
 abstract ConstARGetCandidateObjectPin__PythonCallable(ARGetCandidateObjectPin__PythonCallable) from ARGetCandidateObjectPin__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ARGetCandidateObjectPin__PythonCallable*")
+abstract ARGetCandidateObjectPin__PythonCallablePtr(cpp.Star<ARGetCandidateObjectPin__PythonCallable>) from cpp.Star<ARGetCandidateObjectPin__PythonCallable> to cpp.Star<ARGetCandidateObjectPin__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ARGetCandidateObjectPin__PythonCallable): ARGetCandidateObjectPin__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARGetCandidateObjectPin__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

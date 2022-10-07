@@ -13,3 +13,22 @@ extern class SMInstanceElementEditorSelectionInterface extends SMInstanceElement
 @:nativeGen
 abstract ConstSMInstanceElementEditorSelectionInterface(SMInstanceElementEditorSelectionInterface) from SMInstanceElementEditorSelectionInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("SMInstanceElementEditorSelectionInterface*")
+abstract SMInstanceElementEditorSelectionInterfacePtr(cpp.Star<SMInstanceElementEditorSelectionInterface>) from cpp.Star<SMInstanceElementEditorSelectionInterface> to cpp.Star<SMInstanceElementEditorSelectionInterface>{
+	@:from
+	public static extern inline function fromValue(v: SMInstanceElementEditorSelectionInterface): SMInstanceElementEditorSelectionInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SMInstanceElementEditorSelectionInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

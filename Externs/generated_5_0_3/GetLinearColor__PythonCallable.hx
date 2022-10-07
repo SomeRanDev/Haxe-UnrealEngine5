@@ -12,3 +12,22 @@ extern class GetLinearColor__PythonCallable extends PythonCallableForDelegate {
 @:nativeGen
 abstract ConstGetLinearColor__PythonCallable(GetLinearColor__PythonCallable) from GetLinearColor__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("GetLinearColor__PythonCallable*")
+abstract GetLinearColor__PythonCallablePtr(cpp.Star<GetLinearColor__PythonCallable>) from cpp.Star<GetLinearColor__PythonCallable> to cpp.Star<GetLinearColor__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: GetLinearColor__PythonCallable): GetLinearColor__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GetLinearColor__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

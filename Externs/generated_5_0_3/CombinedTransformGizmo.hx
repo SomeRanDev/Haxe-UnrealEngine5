@@ -73,3 +73,22 @@ abstract ConstCombinedTransformGizmo(CombinedTransformGizmo) from CombinedTransf
 	public extern var StateTarget(get, never): cpp.Star<GizmoTransformChangeStateTarget.ConstGizmoTransformChangeStateTarget>;
 	public inline extern function get_StateTarget(): cpp.Star<GizmoTransformChangeStateTarget.ConstGizmoTransformChangeStateTarget> return this.StateTarget;
 }
+
+@:forward
+@:nativeGen
+@:native("CombinedTransformGizmo*")
+abstract CombinedTransformGizmoPtr(cpp.Star<CombinedTransformGizmo>) from cpp.Star<CombinedTransformGizmo> to cpp.Star<CombinedTransformGizmo>{
+	@:from
+	public static extern inline function fromValue(v: CombinedTransformGizmo): CombinedTransformGizmoPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CombinedTransformGizmo {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

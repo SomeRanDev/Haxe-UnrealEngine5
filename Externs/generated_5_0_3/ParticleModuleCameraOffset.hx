@@ -22,3 +22,22 @@ abstract ConstParticleModuleCameraOffset(ParticleModuleCameraOffset) from Partic
 	public extern var UpdateMethod(get, never): EParticleCameraOffsetUpdateMethod;
 	public inline extern function get_UpdateMethod(): EParticleCameraOffsetUpdateMethod return this.UpdateMethod;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleCameraOffset*")
+abstract ParticleModuleCameraOffsetPtr(cpp.Star<ParticleModuleCameraOffset>) from cpp.Star<ParticleModuleCameraOffset> to cpp.Star<ParticleModuleCameraOffset>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleCameraOffset): ParticleModuleCameraOffsetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleCameraOffset {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

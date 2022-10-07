@@ -123,3 +123,22 @@ abstract ConstProjectileMovementComp(ProjectileMovementComp) from ProjectileMove
 	public extern var InterpLocationSnapToTargetDistance(get, never): cpp.Float32;
 	public inline extern function get_InterpLocationSnapToTargetDistance(): cpp.Float32 return this.InterpLocationSnapToTargetDistance;
 }
+
+@:forward
+@:nativeGen
+@:native("ProjectileMovementComp*")
+abstract ProjectileMovementCompPtr(cpp.Star<ProjectileMovementComp>) from cpp.Star<ProjectileMovementComp> to cpp.Star<ProjectileMovementComp>{
+	@:from
+	public static extern inline function fromValue(v: ProjectileMovementComp): ProjectileMovementCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ProjectileMovementComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

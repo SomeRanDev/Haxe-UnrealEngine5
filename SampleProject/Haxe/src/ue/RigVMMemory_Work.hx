@@ -177,3 +177,22 @@ abstract ConstRigVMMemory_Work(RigVMMemory_Work) from RigVMMemory_Work {
 	public extern var PBIK_bNeedsInit(get, never): TArray<Bool>;
 	public inline extern function get_PBIK_bNeedsInit(): TArray<Bool> return this.PBIK_bNeedsInit;
 }
+
+@:forward
+@:nativeGen
+@:native("RigVMMemory_Work*")
+abstract RigVMMemory_WorkPtr(cpp.Star<RigVMMemory_Work>) from cpp.Star<RigVMMemory_Work> to cpp.Star<RigVMMemory_Work>{
+	@:from
+	public static extern inline function fromValue(v: RigVMMemory_Work): RigVMMemory_WorkPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVMMemory_Work {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

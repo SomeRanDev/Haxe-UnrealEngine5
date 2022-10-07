@@ -12,3 +12,22 @@ extern class InstanceARActorToBeDestroyedDelegate__PythonCallable extends Python
 @:nativeGen
 abstract ConstInstanceARActorToBeDestroyedDelegate__PythonCallable(InstanceARActorToBeDestroyedDelegate__PythonCallable) from InstanceARActorToBeDestroyedDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("InstanceARActorToBeDestroyedDelegate__PythonCallable*")
+abstract InstanceARActorToBeDestroyedDelegate__PythonCallablePtr(cpp.Star<InstanceARActorToBeDestroyedDelegate__PythonCallable>) from cpp.Star<InstanceARActorToBeDestroyedDelegate__PythonCallable> to cpp.Star<InstanceARActorToBeDestroyedDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: InstanceARActorToBeDestroyedDelegate__PythonCallable): InstanceARActorToBeDestroyedDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InstanceARActorToBeDestroyedDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -23,3 +23,22 @@ abstract ConstSwitchActor(SwitchActor) from SwitchActor {
 	public extern var LastSelectedOption(get, never): cpp.Int32;
 	public inline extern function get_LastSelectedOption(): cpp.Int32 return this.LastSelectedOption;
 }
+
+@:forward
+@:nativeGen
+@:native("SwitchActor*")
+abstract SwitchActorPtr(cpp.Star<SwitchActor>) from cpp.Star<SwitchActor> to cpp.Star<SwitchActor>{
+	@:from
+	public static extern inline function fromValue(v: SwitchActor): SwitchActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SwitchActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -31,3 +31,22 @@ abstract ConstMaterialExpressionClamp(MaterialExpressionClamp) from MaterialExpr
 	public extern var MaxDefault(get, never): cpp.Float32;
 	public inline extern function get_MaxDefault(): cpp.Float32 return this.MaxDefault;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionClamp*")
+abstract MaterialExpressionClampPtr(cpp.Star<MaterialExpressionClamp>) from cpp.Star<MaterialExpressionClamp> to cpp.Star<MaterialExpressionClamp>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionClamp): MaterialExpressionClampPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionClamp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

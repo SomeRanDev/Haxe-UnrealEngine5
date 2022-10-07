@@ -25,3 +25,22 @@ abstract ConstMovieSceneNiagaraEmitterTrack(MovieSceneNiagaraEmitterTrack) from 
 	public extern var SystemPath(get, never): FString;
 	public inline extern function get_SystemPath(): FString return this.SystemPath;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneNiagaraEmitterTrack*")
+abstract MovieSceneNiagaraEmitterTrackPtr(cpp.Star<MovieSceneNiagaraEmitterTrack>) from cpp.Star<MovieSceneNiagaraEmitterTrack> to cpp.Star<MovieSceneNiagaraEmitterTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneNiagaraEmitterTrack): MovieSceneNiagaraEmitterTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneNiagaraEmitterTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class PawnControllerChangedSignature__PythonCallable extends PythonCallab
 @:nativeGen
 abstract ConstPawnControllerChangedSignature__PythonCallable(PawnControllerChangedSignature__PythonCallable) from PawnControllerChangedSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("PawnControllerChangedSignature__PythonCallable*")
+abstract PawnControllerChangedSignature__PythonCallablePtr(cpp.Star<PawnControllerChangedSignature__PythonCallable>) from cpp.Star<PawnControllerChangedSignature__PythonCallable> to cpp.Star<PawnControllerChangedSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: PawnControllerChangedSignature__PythonCallable): PawnControllerChangedSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PawnControllerChangedSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

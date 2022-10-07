@@ -13,3 +13,22 @@ extern class RuntimeVirtualTextureThumbnailRenderer extends DefaultSizedThumbnai
 @:nativeGen
 abstract ConstRuntimeVirtualTextureThumbnailRenderer(RuntimeVirtualTextureThumbnailRenderer) from RuntimeVirtualTextureThumbnailRenderer {
 }
+
+@:forward
+@:nativeGen
+@:native("RuntimeVirtualTextureThumbnailRenderer*")
+abstract RuntimeVirtualTextureThumbnailRendererPtr(cpp.Star<RuntimeVirtualTextureThumbnailRenderer>) from cpp.Star<RuntimeVirtualTextureThumbnailRenderer> to cpp.Star<RuntimeVirtualTextureThumbnailRenderer>{
+	@:from
+	public static extern inline function fromValue(v: RuntimeVirtualTextureThumbnailRenderer): RuntimeVirtualTextureThumbnailRendererPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RuntimeVirtualTextureThumbnailRenderer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -73,3 +73,22 @@ abstract ConstNavArea(NavArea) from NavArea {
 	public extern var bSupportsAgent15(get, never): Bool;
 	public inline extern function get_bSupportsAgent15(): Bool return this.bSupportsAgent15;
 }
+
+@:forward
+@:nativeGen
+@:native("NavArea*")
+abstract NavAreaPtr(cpp.Star<NavArea>) from cpp.Star<NavArea> to cpp.Star<NavArea>{
+	@:from
+	public static extern inline function fromValue(v: NavArea): NavAreaPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavArea {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

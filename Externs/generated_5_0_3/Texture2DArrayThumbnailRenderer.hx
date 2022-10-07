@@ -13,3 +13,22 @@ extern class Texture2DArrayThumbnailRenderer extends TextureThumbnailRenderer {
 @:nativeGen
 abstract ConstTexture2DArrayThumbnailRenderer(Texture2DArrayThumbnailRenderer) from Texture2DArrayThumbnailRenderer {
 }
+
+@:forward
+@:nativeGen
+@:native("Texture2DArrayThumbnailRenderer*")
+abstract Texture2DArrayThumbnailRendererPtr(cpp.Star<Texture2DArrayThumbnailRenderer>) from cpp.Star<Texture2DArrayThumbnailRenderer> to cpp.Star<Texture2DArrayThumbnailRenderer>{
+	@:from
+	public static extern inline function fromValue(v: Texture2DArrayThumbnailRenderer): Texture2DArrayThumbnailRendererPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Texture2DArrayThumbnailRenderer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -211,3 +211,22 @@ abstract ConstNiagaraSystem(NiagaraSystem) from NiagaraSystem {
 	public extern var MessageKeyToMessageMap(get, never): TMap<Guid, cpp.Star<NiagaraMessageDataBase.ConstNiagaraMessageDataBase>>;
 	public inline extern function get_MessageKeyToMessageMap(): TMap<Guid, cpp.Star<NiagaraMessageDataBase.ConstNiagaraMessageDataBase>> return this.MessageKeyToMessageMap;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraSystem*")
+abstract NiagaraSystemPtr(cpp.Star<NiagaraSystem>) from cpp.Star<NiagaraSystem> to cpp.Star<NiagaraSystem>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraSystem): NiagaraSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

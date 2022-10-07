@@ -28,3 +28,22 @@ abstract ConstMaterialExpressionForLoop(MaterialExpressionForLoop) from Material
 	public extern var IndexStep(get, never): ExpressionInput;
 	public inline extern function get_IndexStep(): ExpressionInput return this.IndexStep;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionForLoop*")
+abstract MaterialExpressionForLoopPtr(cpp.Star<MaterialExpressionForLoop>) from cpp.Star<MaterialExpressionForLoop> to cpp.Star<MaterialExpressionForLoop>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionForLoop): MaterialExpressionForLoopPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionForLoop {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

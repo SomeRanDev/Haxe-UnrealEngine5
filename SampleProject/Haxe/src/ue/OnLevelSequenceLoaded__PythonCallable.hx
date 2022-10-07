@@ -12,3 +12,22 @@ extern class OnLevelSequenceLoaded__PythonCallable extends PythonCallableForDele
 @:nativeGen
 abstract ConstOnLevelSequenceLoaded__PythonCallable(OnLevelSequenceLoaded__PythonCallable) from OnLevelSequenceLoaded__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnLevelSequenceLoaded__PythonCallable*")
+abstract OnLevelSequenceLoaded__PythonCallablePtr(cpp.Star<OnLevelSequenceLoaded__PythonCallable>) from cpp.Star<OnLevelSequenceLoaded__PythonCallable> to cpp.Star<OnLevelSequenceLoaded__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnLevelSequenceLoaded__PythonCallable): OnLevelSequenceLoaded__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnLevelSequenceLoaded__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

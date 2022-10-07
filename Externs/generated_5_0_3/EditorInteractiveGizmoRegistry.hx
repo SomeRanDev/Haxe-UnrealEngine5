@@ -16,3 +16,22 @@ abstract ConstEditorInteractiveGizmoRegistry(EditorInteractiveGizmoRegistry) fro
 	public extern var GizmoCategoryMap(get, never): TMap<EEditorGizmoCategory, cpp.Star<EditorGizmoRegistryCategoryEntry.ConstEditorGizmoRegistryCategoryEntry>>;
 	public inline extern function get_GizmoCategoryMap(): TMap<EEditorGizmoCategory, cpp.Star<EditorGizmoRegistryCategoryEntry.ConstEditorGizmoRegistryCategoryEntry>> return this.GizmoCategoryMap;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorInteractiveGizmoRegistry*")
+abstract EditorInteractiveGizmoRegistryPtr(cpp.Star<EditorInteractiveGizmoRegistry>) from cpp.Star<EditorInteractiveGizmoRegistry> to cpp.Star<EditorInteractiveGizmoRegistry>{
+	@:from
+	public static extern inline function fromValue(v: EditorInteractiveGizmoRegistry): EditorInteractiveGizmoRegistryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorInteractiveGizmoRegistry {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

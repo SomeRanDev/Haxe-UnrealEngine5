@@ -13,3 +13,22 @@ extern class TexAlignerPlanar extends TexAligner {
 @:nativeGen
 abstract ConstTexAlignerPlanar(TexAlignerPlanar) from TexAlignerPlanar {
 }
+
+@:forward
+@:nativeGen
+@:native("TexAlignerPlanar*")
+abstract TexAlignerPlanarPtr(cpp.Star<TexAlignerPlanar>) from cpp.Star<TexAlignerPlanar> to cpp.Star<TexAlignerPlanar>{
+	@:from
+	public static extern inline function fromValue(v: TexAlignerPlanar): TexAlignerPlanarPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TexAlignerPlanar {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

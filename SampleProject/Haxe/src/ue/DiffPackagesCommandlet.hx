@@ -16,3 +16,22 @@ abstract ConstDiffPackagesCommandlet(DiffPackagesCommandlet) from DiffPackagesCo
 	public extern var Packages(get, never): cpp.Star<Package.ConstPackage>;
 	public inline extern function get_Packages(): cpp.Star<Package.ConstPackage> return this.Packages;
 }
+
+@:forward
+@:nativeGen
+@:native("DiffPackagesCommandlet*")
+abstract DiffPackagesCommandletPtr(cpp.Star<DiffPackagesCommandlet>) from cpp.Star<DiffPackagesCommandlet> to cpp.Star<DiffPackagesCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: DiffPackagesCommandlet): DiffPackagesCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DiffPackagesCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

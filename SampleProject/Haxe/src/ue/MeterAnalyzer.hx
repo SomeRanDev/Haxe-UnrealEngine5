@@ -28,3 +28,22 @@ abstract ConstMeterAnalyzer(MeterAnalyzer) from MeterAnalyzer {
 	public extern var OnLatestPerChannelMeterResults(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<MeterResults>) -> Void>;
 	public inline extern function get_OnLatestPerChannelMeterResults(): HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<MeterResults>) -> Void> return this.OnLatestPerChannelMeterResults;
 }
+
+@:forward
+@:nativeGen
+@:native("MeterAnalyzer*")
+abstract MeterAnalyzerPtr(cpp.Star<MeterAnalyzer>) from cpp.Star<MeterAnalyzer> to cpp.Star<MeterAnalyzer>{
+	@:from
+	public static extern inline function fromValue(v: MeterAnalyzer): MeterAnalyzerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MeterAnalyzer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

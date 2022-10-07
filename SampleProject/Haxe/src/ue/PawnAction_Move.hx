@@ -46,3 +46,22 @@ abstract ConstPawnAction_Move(PawnAction_Move) from PawnAction_Move {
 	public extern var bAbortChildActionOnPathChange(get, never): Bool;
 	public inline extern function get_bAbortChildActionOnPathChange(): Bool return this.bAbortChildActionOnPathChange;
 }
+
+@:forward
+@:nativeGen
+@:native("PawnAction_Move*")
+abstract PawnAction_MovePtr(cpp.Star<PawnAction_Move>) from cpp.Star<PawnAction_Move> to cpp.Star<PawnAction_Move>{
+	@:from
+	public static extern inline function fromValue(v: PawnAction_Move): PawnAction_MovePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PawnAction_Move {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

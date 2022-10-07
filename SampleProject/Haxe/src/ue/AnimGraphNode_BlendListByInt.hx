@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_BlendListByInt(AnimGraphNode_BlendListByInt) from An
 	public extern var Node(get, never): AnimNode_BlendListByInt;
 	public inline extern function get_Node(): AnimNode_BlendListByInt return this.Node;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_BlendListByInt*")
+abstract AnimGraphNode_BlendListByIntPtr(cpp.Star<AnimGraphNode_BlendListByInt>) from cpp.Star<AnimGraphNode_BlendListByInt> to cpp.Star<AnimGraphNode_BlendListByInt>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_BlendListByInt): AnimGraphNode_BlendListByIntPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_BlendListByInt {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

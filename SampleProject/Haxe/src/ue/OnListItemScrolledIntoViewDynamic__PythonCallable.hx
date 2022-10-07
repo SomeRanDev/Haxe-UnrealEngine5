@@ -12,3 +12,22 @@ extern class OnListItemScrolledIntoViewDynamic__PythonCallable extends PythonCal
 @:nativeGen
 abstract ConstOnListItemScrolledIntoViewDynamic__PythonCallable(OnListItemScrolledIntoViewDynamic__PythonCallable) from OnListItemScrolledIntoViewDynamic__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnListItemScrolledIntoViewDynamic__PythonCallable*")
+abstract OnListItemScrolledIntoViewDynamic__PythonCallablePtr(cpp.Star<OnListItemScrolledIntoViewDynamic__PythonCallable>) from cpp.Star<OnListItemScrolledIntoViewDynamic__PythonCallable> to cpp.Star<OnListItemScrolledIntoViewDynamic__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnListItemScrolledIntoViewDynamic__PythonCallable): OnListItemScrolledIntoViewDynamic__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnListItemScrolledIntoViewDynamic__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

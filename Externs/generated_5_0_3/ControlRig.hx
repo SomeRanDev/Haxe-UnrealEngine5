@@ -99,3 +99,22 @@ abstract ConstControlRig(ControlRig) from ControlRig {
 	public extern var bIsInDebugMode(get, never): Bool;
 	public inline extern function get_bIsInDebugMode(): Bool return this.bIsInDebugMode;
 }
+
+@:forward
+@:nativeGen
+@:native("ControlRig*")
+abstract ControlRigPtr(cpp.Star<ControlRig>) from cpp.Star<ControlRig> to cpp.Star<ControlRig>{
+	@:from
+	public static extern inline function fromValue(v: ControlRig): ControlRigPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ControlRig {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

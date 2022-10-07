@@ -49,3 +49,22 @@ abstract ConstHLODLayer(HLODLayer) from HLODLayer {
 	public extern var HLODMaterial_DEPRECATED(get, never): TSoftObjectPtr<Material.ConstMaterial>;
 	public inline extern function get_HLODMaterial_DEPRECATED(): TSoftObjectPtr<Material.ConstMaterial> return this.HLODMaterial_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("HLODLayer*")
+abstract HLODLayerPtr(cpp.Star<HLODLayer>) from cpp.Star<HLODLayer> to cpp.Star<HLODLayer>{
+	@:from
+	public static extern inline function fromValue(v: HLODLayer): HLODLayerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): HLODLayer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

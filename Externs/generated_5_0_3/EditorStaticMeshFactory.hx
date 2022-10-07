@@ -13,3 +13,22 @@ extern class EditorStaticMeshFactory extends ActorFactoryStaticMesh {
 @:nativeGen
 abstract ConstEditorStaticMeshFactory(EditorStaticMeshFactory) from EditorStaticMeshFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("EditorStaticMeshFactory*")
+abstract EditorStaticMeshFactoryPtr(cpp.Star<EditorStaticMeshFactory>) from cpp.Star<EditorStaticMeshFactory> to cpp.Star<EditorStaticMeshFactory>{
+	@:from
+	public static extern inline function fromValue(v: EditorStaticMeshFactory): EditorStaticMeshFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorStaticMeshFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

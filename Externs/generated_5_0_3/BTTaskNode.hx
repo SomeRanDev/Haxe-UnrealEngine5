@@ -19,3 +19,22 @@ abstract ConstBTTaskNode(BTTaskNode) from BTTaskNode {
 	public extern var bIgnoreRestartSelf(get, never): Bool;
 	public inline extern function get_bIgnoreRestartSelf(): Bool return this.bIgnoreRestartSelf;
 }
+
+@:forward
+@:nativeGen
+@:native("BTTaskNode*")
+abstract BTTaskNodePtr(cpp.Star<BTTaskNode>) from cpp.Star<BTTaskNode> to cpp.Star<BTTaskNode>{
+	@:from
+	public static extern inline function fromValue(v: BTTaskNode): BTTaskNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTTaskNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

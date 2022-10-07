@@ -12,3 +12,22 @@ extern class GetSlateVisibility__PythonCallable extends PythonCallableForDelegat
 @:nativeGen
 abstract ConstGetSlateVisibility__PythonCallable(GetSlateVisibility__PythonCallable) from GetSlateVisibility__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("GetSlateVisibility__PythonCallable*")
+abstract GetSlateVisibility__PythonCallablePtr(cpp.Star<GetSlateVisibility__PythonCallable>) from cpp.Star<GetSlateVisibility__PythonCallable> to cpp.Star<GetSlateVisibility__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: GetSlateVisibility__PythonCallable): GetSlateVisibility__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GetSlateVisibility__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

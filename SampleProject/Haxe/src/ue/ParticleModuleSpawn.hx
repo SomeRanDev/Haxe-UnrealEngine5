@@ -31,3 +31,22 @@ abstract ConstParticleModuleSpawn(ParticleModuleSpawn) from ParticleModuleSpawn 
 	public extern var bApplyGlobalSpawnRateScale(get, never): Bool;
 	public inline extern function get_bApplyGlobalSpawnRateScale(): Bool return this.bApplyGlobalSpawnRateScale;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleSpawn*")
+abstract ParticleModuleSpawnPtr(cpp.Star<ParticleModuleSpawn>) from cpp.Star<ParticleModuleSpawn> to cpp.Star<ParticleModuleSpawn>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleSpawn): ParticleModuleSpawnPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleSpawn {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

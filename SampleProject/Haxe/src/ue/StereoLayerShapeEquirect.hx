@@ -33,3 +33,22 @@ abstract ConstStereoLayerShapeEquirect(StereoLayerShapeEquirect) from StereoLaye
 	public extern var RightBias(get, never): Vector2D;
 	public inline extern function get_RightBias(): Vector2D return this.RightBias;
 }
+
+@:forward
+@:nativeGen
+@:native("StereoLayerShapeEquirect*")
+abstract StereoLayerShapeEquirectPtr(cpp.Star<StereoLayerShapeEquirect>) from cpp.Star<StereoLayerShapeEquirect> to cpp.Star<StereoLayerShapeEquirect>{
+	@:from
+	public static extern inline function fromValue(v: StereoLayerShapeEquirect): StereoLayerShapeEquirectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): StereoLayerShapeEquirect {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

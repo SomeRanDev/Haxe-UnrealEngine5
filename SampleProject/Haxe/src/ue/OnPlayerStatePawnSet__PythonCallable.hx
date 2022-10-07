@@ -12,3 +12,22 @@ extern class OnPlayerStatePawnSet__PythonCallable extends PythonCallableForDeleg
 @:nativeGen
 abstract ConstOnPlayerStatePawnSet__PythonCallable(OnPlayerStatePawnSet__PythonCallable) from OnPlayerStatePawnSet__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnPlayerStatePawnSet__PythonCallable*")
+abstract OnPlayerStatePawnSet__PythonCallablePtr(cpp.Star<OnPlayerStatePawnSet__PythonCallable>) from cpp.Star<OnPlayerStatePawnSet__PythonCallable> to cpp.Star<OnPlayerStatePawnSet__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnPlayerStatePawnSet__PythonCallable): OnPlayerStatePawnSet__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnPlayerStatePawnSet__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class OnQuartzCommandEventBP__PythonCallable extends PythonCallableForDel
 @:nativeGen
 abstract ConstOnQuartzCommandEventBP__PythonCallable(OnQuartzCommandEventBP__PythonCallable) from OnQuartzCommandEventBP__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnQuartzCommandEventBP__PythonCallable*")
+abstract OnQuartzCommandEventBP__PythonCallablePtr(cpp.Star<OnQuartzCommandEventBP__PythonCallable>) from cpp.Star<OnQuartzCommandEventBP__PythonCallable> to cpp.Star<OnQuartzCommandEventBP__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnQuartzCommandEventBP__PythonCallable): OnQuartzCommandEventBP__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnQuartzCommandEventBP__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

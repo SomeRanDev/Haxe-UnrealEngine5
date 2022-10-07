@@ -13,3 +13,22 @@ extern class SkeletonThumbnailRenderer extends DefaultSizedThumbnailRenderer {
 @:nativeGen
 abstract ConstSkeletonThumbnailRenderer(SkeletonThumbnailRenderer) from SkeletonThumbnailRenderer {
 }
+
+@:forward
+@:nativeGen
+@:native("SkeletonThumbnailRenderer*")
+abstract SkeletonThumbnailRendererPtr(cpp.Star<SkeletonThumbnailRenderer>) from cpp.Star<SkeletonThumbnailRenderer> to cpp.Star<SkeletonThumbnailRenderer>{
+	@:from
+	public static extern inline function fromValue(v: SkeletonThumbnailRenderer): SkeletonThumbnailRendererPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SkeletonThumbnailRenderer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

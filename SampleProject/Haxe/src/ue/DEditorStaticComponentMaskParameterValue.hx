@@ -16,3 +16,22 @@ abstract ConstDEditorStaticComponentMaskParameterValue(DEditorStaticComponentMas
 	public extern var ParameterValue(get, never): DComponentMaskParameter;
 	public inline extern function get_ParameterValue(): DComponentMaskParameter return this.ParameterValue;
 }
+
+@:forward
+@:nativeGen
+@:native("DEditorStaticComponentMaskParameterValue*")
+abstract DEditorStaticComponentMaskParameterValuePtr(cpp.Star<DEditorStaticComponentMaskParameterValue>) from cpp.Star<DEditorStaticComponentMaskParameterValue> to cpp.Star<DEditorStaticComponentMaskParameterValue>{
+	@:from
+	public static extern inline function fromValue(v: DEditorStaticComponentMaskParameterValue): DEditorStaticComponentMaskParameterValuePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DEditorStaticComponentMaskParameterValue {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstTextFilterValueHandlers(TextFilterValueHandlers) from TextFilterVa
 	public extern var TextFilterValueHandlers(get, never): TArray<TSoftClassPtr<Class.ConstClass>>;
 	public inline extern function get_TextFilterValueHandlers(): TArray<TSoftClassPtr<Class.ConstClass>> return this.TextFilterValueHandlers;
 }
+
+@:forward
+@:nativeGen
+@:native("TextFilterValueHandlers*")
+abstract TextFilterValueHandlersPtr(cpp.Star<TextFilterValueHandlers>) from cpp.Star<TextFilterValueHandlers> to cpp.Star<TextFilterValueHandlers>{
+	@:from
+	public static extern inline function fromValue(v: TextFilterValueHandlers): TextFilterValueHandlersPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextFilterValueHandlers {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

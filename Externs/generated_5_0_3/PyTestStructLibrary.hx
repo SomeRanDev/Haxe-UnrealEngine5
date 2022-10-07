@@ -19,3 +19,22 @@ extern class PyTestStructLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstPyTestStructLibrary(PyTestStructLibrary) from PyTestStructLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("PyTestStructLibrary*")
+abstract PyTestStructLibraryPtr(cpp.Star<PyTestStructLibrary>) from cpp.Star<PyTestStructLibrary> to cpp.Star<PyTestStructLibrary>{
+	@:from
+	public static extern inline function fromValue(v: PyTestStructLibrary): PyTestStructLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PyTestStructLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

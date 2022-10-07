@@ -16,3 +16,22 @@ abstract ConstNiagaraScriptSource(NiagaraScriptSource) from NiagaraScriptSource 
 	public extern var NodeGraph(get, never): cpp.Star<NiagaraGraph.ConstNiagaraGraph>;
 	public inline extern function get_NodeGraph(): cpp.Star<NiagaraGraph.ConstNiagaraGraph> return this.NodeGraph;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraScriptSource*")
+abstract NiagaraScriptSourcePtr(cpp.Star<NiagaraScriptSource>) from cpp.Star<NiagaraScriptSource> to cpp.Star<NiagaraScriptSource>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraScriptSource): NiagaraScriptSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraScriptSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

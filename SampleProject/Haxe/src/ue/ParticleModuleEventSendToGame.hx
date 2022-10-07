@@ -13,3 +13,22 @@ extern class ParticleModuleEventSendToGame extends Object {
 @:nativeGen
 abstract ConstParticleModuleEventSendToGame(ParticleModuleEventSendToGame) from ParticleModuleEventSendToGame {
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleEventSendToGame*")
+abstract ParticleModuleEventSendToGamePtr(cpp.Star<ParticleModuleEventSendToGame>) from cpp.Star<ParticleModuleEventSendToGame> to cpp.Star<ParticleModuleEventSendToGame>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleEventSendToGame): ParticleModuleEventSendToGamePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleEventSendToGame {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

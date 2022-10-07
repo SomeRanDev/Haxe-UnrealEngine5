@@ -14,3 +14,22 @@ extern class AITask_RunEQS extends AITask {
 @:nativeGen
 abstract ConstAITask_RunEQS(AITask_RunEQS) from AITask_RunEQS {
 }
+
+@:forward
+@:nativeGen
+@:native("AITask_RunEQS*")
+abstract AITask_RunEQSPtr(cpp.Star<AITask_RunEQS>) from cpp.Star<AITask_RunEQS> to cpp.Star<AITask_RunEQS>{
+	@:from
+	public static extern inline function fromValue(v: AITask_RunEQS): AITask_RunEQSPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AITask_RunEQS {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

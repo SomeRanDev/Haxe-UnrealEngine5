@@ -25,3 +25,22 @@ abstract ConstBrainComp(BrainComp) from BrainComp {
 	public extern var AIOwner(get, never): cpp.Star<AIController.ConstAIController>;
 	public inline extern function get_AIOwner(): cpp.Star<AIController.ConstAIController> return this.AIOwner;
 }
+
+@:forward
+@:nativeGen
+@:native("BrainComp*")
+abstract BrainCompPtr(cpp.Star<BrainComp>) from cpp.Star<BrainComp> to cpp.Star<BrainComp>{
+	@:from
+	public static extern inline function fromValue(v: BrainComp): BrainCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BrainComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

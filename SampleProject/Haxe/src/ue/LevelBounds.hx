@@ -19,3 +19,22 @@ abstract ConstLevelBounds(LevelBounds) from LevelBounds {
 	public extern var bAutoUpdateBounds(get, never): Bool;
 	public inline extern function get_bAutoUpdateBounds(): Bool return this.bAutoUpdateBounds;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelBounds*")
+abstract LevelBoundsPtr(cpp.Star<LevelBounds>) from cpp.Star<LevelBounds> to cpp.Star<LevelBounds>{
+	@:from
+	public static extern inline function fromValue(v: LevelBounds): LevelBoundsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelBounds {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

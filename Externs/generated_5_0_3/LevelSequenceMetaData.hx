@@ -12,3 +12,22 @@ extern class LevelSequenceMetaData extends Interface {
 @:nativeGen
 abstract ConstLevelSequenceMetaData(LevelSequenceMetaData) from LevelSequenceMetaData {
 }
+
+@:forward
+@:nativeGen
+@:native("LevelSequenceMetaData*")
+abstract LevelSequenceMetaDataPtr(cpp.Star<LevelSequenceMetaData>) from cpp.Star<LevelSequenceMetaData> to cpp.Star<LevelSequenceMetaData>{
+	@:from
+	public static extern inline function fromValue(v: LevelSequenceMetaData): LevelSequenceMetaDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelSequenceMetaData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

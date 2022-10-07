@@ -28,3 +28,22 @@ abstract ConstUnrealEdOptions(UnrealEdOptions) from UnrealEdOptions {
 	public extern var NewAssetDefaultClasses(get, never): TArray<ClassPickerDefaults>;
 	public inline extern function get_NewAssetDefaultClasses(): TArray<ClassPickerDefaults> return this.NewAssetDefaultClasses;
 }
+
+@:forward
+@:nativeGen
+@:native("UnrealEdOptions*")
+abstract UnrealEdOptionsPtr(cpp.Star<UnrealEdOptions>) from cpp.Star<UnrealEdOptions> to cpp.Star<UnrealEdOptions>{
+	@:from
+	public static extern inline function fromValue(v: UnrealEdOptions): UnrealEdOptionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UnrealEdOptions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

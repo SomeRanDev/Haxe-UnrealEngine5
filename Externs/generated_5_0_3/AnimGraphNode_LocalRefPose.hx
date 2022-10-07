@@ -13,3 +13,22 @@ extern class AnimGraphNode_LocalRefPose extends AnimGraphNode_RefPoseBase {
 @:nativeGen
 abstract ConstAnimGraphNode_LocalRefPose(AnimGraphNode_LocalRefPose) from AnimGraphNode_LocalRefPose {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_LocalRefPose*")
+abstract AnimGraphNode_LocalRefPosePtr(cpp.Star<AnimGraphNode_LocalRefPose>) from cpp.Star<AnimGraphNode_LocalRefPose> to cpp.Star<AnimGraphNode_LocalRefPose>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_LocalRefPose): AnimGraphNode_LocalRefPosePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_LocalRefPose {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

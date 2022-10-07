@@ -25,3 +25,22 @@ abstract ConstRigVMLink(RigVMLink) from RigVMLink {
 	public extern var TargetPinPath(get, never): FString;
 	public inline extern function get_TargetPinPath(): FString return this.TargetPinPath;
 }
+
+@:forward
+@:nativeGen
+@:native("RigVMLink*")
+abstract RigVMLinkPtr(cpp.Star<RigVMLink>) from cpp.Star<RigVMLink> to cpp.Star<RigVMLink>{
+	@:from
+	public static extern inline function fromValue(v: RigVMLink): RigVMLinkPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVMLink {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

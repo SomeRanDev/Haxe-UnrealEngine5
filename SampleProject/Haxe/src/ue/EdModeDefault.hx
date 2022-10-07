@@ -13,3 +13,22 @@ extern class EdModeDefault extends BaseLegacyWidgetEdMode {
 @:nativeGen
 abstract ConstEdModeDefault(EdModeDefault) from EdModeDefault {
 }
+
+@:forward
+@:nativeGen
+@:native("EdModeDefault*")
+abstract EdModeDefaultPtr(cpp.Star<EdModeDefault>) from cpp.Star<EdModeDefault> to cpp.Star<EdModeDefault>{
+	@:from
+	public static extern inline function fromValue(v: EdModeDefault): EdModeDefaultPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EdModeDefault {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

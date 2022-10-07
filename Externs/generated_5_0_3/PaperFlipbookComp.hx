@@ -74,3 +74,22 @@ abstract ConstPaperFlipbookComp(PaperFlipbookComp) from PaperFlipbookComp {
 	public extern var OnFinishedPlaying(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnFinishedPlaying(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnFinishedPlaying;
 }
+
+@:forward
+@:nativeGen
+@:native("PaperFlipbookComp*")
+abstract PaperFlipbookCompPtr(cpp.Star<PaperFlipbookComp>) from cpp.Star<PaperFlipbookComp> to cpp.Star<PaperFlipbookComp>{
+	@:from
+	public static extern inline function fromValue(v: PaperFlipbookComp): PaperFlipbookCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PaperFlipbookComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

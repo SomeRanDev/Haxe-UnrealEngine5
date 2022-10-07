@@ -13,3 +13,22 @@ extern class CameraShakePattern extends Object {
 @:nativeGen
 abstract ConstCameraShakePattern(CameraShakePattern) from CameraShakePattern {
 }
+
+@:forward
+@:nativeGen
+@:native("CameraShakePattern*")
+abstract CameraShakePatternPtr(cpp.Star<CameraShakePattern>) from cpp.Star<CameraShakePattern> to cpp.Star<CameraShakePattern>{
+	@:from
+	public static extern inline function fromValue(v: CameraShakePattern): CameraShakePatternPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CameraShakePattern {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

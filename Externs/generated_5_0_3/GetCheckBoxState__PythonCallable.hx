@@ -12,3 +12,22 @@ extern class GetCheckBoxState__PythonCallable extends PythonCallableForDelegate 
 @:nativeGen
 abstract ConstGetCheckBoxState__PythonCallable(GetCheckBoxState__PythonCallable) from GetCheckBoxState__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("GetCheckBoxState__PythonCallable*")
+abstract GetCheckBoxState__PythonCallablePtr(cpp.Star<GetCheckBoxState__PythonCallable>) from cpp.Star<GetCheckBoxState__PythonCallable> to cpp.Star<GetCheckBoxState__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: GetCheckBoxState__PythonCallable): GetCheckBoxState__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GetCheckBoxState__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -127,3 +127,22 @@ abstract ConstMatineeActor(MatineeActor) from MatineeActor {
 	public extern var OnPause(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnPause(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnPause;
 }
+
+@:forward
+@:nativeGen
+@:native("MatineeActor*")
+abstract MatineeActorPtr(cpp.Star<MatineeActor>) from cpp.Star<MatineeActor> to cpp.Star<MatineeActor>{
+	@:from
+	public static extern inline function fromValue(v: MatineeActor): MatineeActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MatineeActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

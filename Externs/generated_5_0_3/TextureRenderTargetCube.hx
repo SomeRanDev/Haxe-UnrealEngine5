@@ -28,3 +28,22 @@ abstract ConstTextureRenderTargetCube(TextureRenderTargetCube) from TextureRende
 	public extern var bForceLinearGamma(get, never): Bool;
 	public inline extern function get_bForceLinearGamma(): Bool return this.bForceLinearGamma;
 }
+
+@:forward
+@:nativeGen
+@:native("TextureRenderTargetCube*")
+abstract TextureRenderTargetCubePtr(cpp.Star<TextureRenderTargetCube>) from cpp.Star<TextureRenderTargetCube> to cpp.Star<TextureRenderTargetCube>{
+	@:from
+	public static extern inline function fromValue(v: TextureRenderTargetCube): TextureRenderTargetCubePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextureRenderTargetCube {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstForceFeedbackEffect(ForceFeedbackEffect) from ForceFeedbackEffect 
 	public extern var Duration(get, never): cpp.Float32;
 	public inline extern function get_Duration(): cpp.Float32 return this.Duration;
 }
+
+@:forward
+@:nativeGen
+@:native("ForceFeedbackEffect*")
+abstract ForceFeedbackEffectPtr(cpp.Star<ForceFeedbackEffect>) from cpp.Star<ForceFeedbackEffect> to cpp.Star<ForceFeedbackEffect>{
+	@:from
+	public static extern inline function fromValue(v: ForceFeedbackEffect): ForceFeedbackEffectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ForceFeedbackEffect {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

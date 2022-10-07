@@ -16,3 +16,22 @@ abstract ConstQuickActionMenuContext(QuickActionMenuContext) from QuickActionMen
 	public extern var CurrentSelection(get, never): cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet>;
 	public inline extern function get_CurrentSelection(): cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet> return this.CurrentSelection;
 }
+
+@:forward
+@:nativeGen
+@:native("QuickActionMenuContext*")
+abstract QuickActionMenuContextPtr(cpp.Star<QuickActionMenuContext>) from cpp.Star<QuickActionMenuContext> to cpp.Star<QuickActionMenuContext>{
+	@:from
+	public static extern inline function fromValue(v: QuickActionMenuContext): QuickActionMenuContextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): QuickActionMenuContext {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

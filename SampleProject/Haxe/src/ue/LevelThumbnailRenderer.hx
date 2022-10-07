@@ -13,3 +13,22 @@ extern class LevelThumbnailRenderer extends DefaultSizedThumbnailRenderer {
 @:nativeGen
 abstract ConstLevelThumbnailRenderer(LevelThumbnailRenderer) from LevelThumbnailRenderer {
 }
+
+@:forward
+@:nativeGen
+@:native("LevelThumbnailRenderer*")
+abstract LevelThumbnailRendererPtr(cpp.Star<LevelThumbnailRenderer>) from cpp.Star<LevelThumbnailRenderer> to cpp.Star<LevelThumbnailRenderer>{
+	@:from
+	public static extern inline function fromValue(v: LevelThumbnailRenderer): LevelThumbnailRendererPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelThumbnailRenderer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -22,3 +22,22 @@ abstract ConstGroupActor(GroupActor) from GroupActor {
 	public extern var SubGroups(get, never): TArray<cpp.Star<GroupActor.ConstGroupActor>>;
 	public inline extern function get_SubGroups(): TArray<cpp.Star<GroupActor.ConstGroupActor>> return this.SubGroups;
 }
+
+@:forward
+@:nativeGen
+@:native("GroupActor*")
+abstract GroupActorPtr(cpp.Star<GroupActor>) from cpp.Star<GroupActor> to cpp.Star<GroupActor>{
+	@:from
+	public static extern inline function fromValue(v: GroupActor): GroupActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GroupActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

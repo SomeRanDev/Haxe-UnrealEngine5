@@ -14,3 +14,22 @@ extern class UserObjectListEntryLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstUserObjectListEntryLibrary(UserObjectListEntryLibrary) from UserObjectListEntryLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("UserObjectListEntryLibrary*")
+abstract UserObjectListEntryLibraryPtr(cpp.Star<UserObjectListEntryLibrary>) from cpp.Star<UserObjectListEntryLibrary> to cpp.Star<UserObjectListEntryLibrary>{
+	@:from
+	public static extern inline function fromValue(v: UserObjectListEntryLibrary): UserObjectListEntryLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UserObjectListEntryLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

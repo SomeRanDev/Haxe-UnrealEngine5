@@ -13,3 +13,22 @@ extern class CombinedTransformGizmoBuilder extends InteractiveGizmoBuilder {
 @:nativeGen
 abstract ConstCombinedTransformGizmoBuilder(CombinedTransformGizmoBuilder) from CombinedTransformGizmoBuilder {
 }
+
+@:forward
+@:nativeGen
+@:native("CombinedTransformGizmoBuilder*")
+abstract CombinedTransformGizmoBuilderPtr(cpp.Star<CombinedTransformGizmoBuilder>) from cpp.Star<CombinedTransformGizmoBuilder> to cpp.Star<CombinedTransformGizmoBuilder>{
+	@:from
+	public static extern inline function fromValue(v: CombinedTransformGizmoBuilder): CombinedTransformGizmoBuilderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CombinedTransformGizmoBuilder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class ChaosClothingSimulationInteractor extends ClothingSimulationInterac
 @:nativeGen
 abstract ConstChaosClothingSimulationInteractor(ChaosClothingSimulationInteractor) from ChaosClothingSimulationInteractor {
 }
+
+@:forward
+@:nativeGen
+@:native("ChaosClothingSimulationInteractor*")
+abstract ChaosClothingSimulationInteractorPtr(cpp.Star<ChaosClothingSimulationInteractor>) from cpp.Star<ChaosClothingSimulationInteractor> to cpp.Star<ChaosClothingSimulationInteractor>{
+	@:from
+	public static extern inline function fromValue(v: ChaosClothingSimulationInteractor): ChaosClothingSimulationInteractorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ChaosClothingSimulationInteractor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

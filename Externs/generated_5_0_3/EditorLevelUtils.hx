@@ -22,3 +22,22 @@ extern class EditorLevelUtils extends Object {
 @:nativeGen
 abstract ConstEditorLevelUtils(EditorLevelUtils) from EditorLevelUtils {
 }
+
+@:forward
+@:nativeGen
+@:native("EditorLevelUtils*")
+abstract EditorLevelUtilsPtr(cpp.Star<EditorLevelUtils>) from cpp.Star<EditorLevelUtils> to cpp.Star<EditorLevelUtils>{
+	@:from
+	public static extern inline function fromValue(v: EditorLevelUtils): EditorLevelUtilsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorLevelUtils {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

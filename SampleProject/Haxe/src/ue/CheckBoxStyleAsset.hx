@@ -16,3 +16,22 @@ abstract ConstCheckBoxStyleAsset(CheckBoxStyleAsset) from CheckBoxStyleAsset {
 	public extern var CheckBoxStyle(get, never): CheckBoxStyle;
 	public inline extern function get_CheckBoxStyle(): CheckBoxStyle return this.CheckBoxStyle;
 }
+
+@:forward
+@:nativeGen
+@:native("CheckBoxStyleAsset*")
+abstract CheckBoxStyleAssetPtr(cpp.Star<CheckBoxStyleAsset>) from cpp.Star<CheckBoxStyleAsset> to cpp.Star<CheckBoxStyleAsset>{
+	@:from
+	public static extern inline function fromValue(v: CheckBoxStyleAsset): CheckBoxStyleAssetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CheckBoxStyleAsset {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

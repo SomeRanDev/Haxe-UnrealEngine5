@@ -13,3 +13,22 @@ extern class NiagaraStackSummaryViewObject extends NiagaraStackFunctionInputColl
 @:nativeGen
 abstract ConstNiagaraStackSummaryViewObject(NiagaraStackSummaryViewObject) from NiagaraStackSummaryViewObject {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackSummaryViewObject*")
+abstract NiagaraStackSummaryViewObjectPtr(cpp.Star<NiagaraStackSummaryViewObject>) from cpp.Star<NiagaraStackSummaryViewObject> to cpp.Star<NiagaraStackSummaryViewObject>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackSummaryViewObject): NiagaraStackSummaryViewObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackSummaryViewObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

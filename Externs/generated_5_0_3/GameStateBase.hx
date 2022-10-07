@@ -48,3 +48,22 @@ abstract ConstGameStateBase(GameStateBase) from GameStateBase {
 	public extern var ServerWorldTimeSecondsUpdateFrequency(get, never): cpp.Float32;
 	public inline extern function get_ServerWorldTimeSecondsUpdateFrequency(): cpp.Float32 return this.ServerWorldTimeSecondsUpdateFrequency;
 }
+
+@:forward
+@:nativeGen
+@:native("GameStateBase*")
+abstract GameStateBasePtr(cpp.Star<GameStateBase>) from cpp.Star<GameStateBase> to cpp.Star<GameStateBase>{
+	@:from
+	public static extern inline function fromValue(v: GameStateBase): GameStateBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameStateBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

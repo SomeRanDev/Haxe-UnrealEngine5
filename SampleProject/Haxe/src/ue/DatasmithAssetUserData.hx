@@ -19,3 +19,22 @@ abstract ConstDatasmithAssetUserData(DatasmithAssetUserData) from DatasmithAsset
 	public extern var ObjectTemplates(get, never): TMap<TSubclassOf<DatasmithObjectTemplate.ConstDatasmithObjectTemplate>, cpp.Star<DatasmithObjectTemplate.ConstDatasmithObjectTemplate>>;
 	public inline extern function get_ObjectTemplates(): TMap<TSubclassOf<DatasmithObjectTemplate.ConstDatasmithObjectTemplate>, cpp.Star<DatasmithObjectTemplate.ConstDatasmithObjectTemplate>> return this.ObjectTemplates;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithAssetUserData*")
+abstract DatasmithAssetUserDataPtr(cpp.Star<DatasmithAssetUserData>) from cpp.Star<DatasmithAssetUserData> to cpp.Star<DatasmithAssetUserData>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithAssetUserData): DatasmithAssetUserDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithAssetUserData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

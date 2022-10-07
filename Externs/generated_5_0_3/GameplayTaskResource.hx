@@ -22,3 +22,22 @@ abstract ConstGameplayTaskResource(GameplayTaskResource) from GameplayTaskResour
 	public extern var bManuallySetID(get, never): Bool;
 	public inline extern function get_bManuallySetID(): Bool return this.bManuallySetID;
 }
+
+@:forward
+@:nativeGen
+@:native("GameplayTaskResource*")
+abstract GameplayTaskResourcePtr(cpp.Star<GameplayTaskResource>) from cpp.Star<GameplayTaskResource> to cpp.Star<GameplayTaskResource>{
+	@:from
+	public static extern inline function fromValue(v: GameplayTaskResource): GameplayTaskResourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameplayTaskResource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

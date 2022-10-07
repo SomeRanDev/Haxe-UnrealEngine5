@@ -13,3 +13,22 @@ extern class MovieSceneComponentAttachmentSystem extends MovieSceneEntityInstant
 @:nativeGen
 abstract ConstMovieSceneComponentAttachmentSystem(MovieSceneComponentAttachmentSystem) from MovieSceneComponentAttachmentSystem {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneComponentAttachmentSystem*")
+abstract MovieSceneComponentAttachmentSystemPtr(cpp.Star<MovieSceneComponentAttachmentSystem>) from cpp.Star<MovieSceneComponentAttachmentSystem> to cpp.Star<MovieSceneComponentAttachmentSystem>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneComponentAttachmentSystem): MovieSceneComponentAttachmentSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneComponentAttachmentSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -26,3 +26,22 @@ abstract ConstRigVMFunctionLibrary(RigVMFunctionLibrary) from RigVMFunctionLibra
 	public extern var LocalizedFunctions(get, never): TMap<FString, cpp.Star<RigVMLibraryNode.ConstRigVMLibraryNode>>;
 	public inline extern function get_LocalizedFunctions(): TMap<FString, cpp.Star<RigVMLibraryNode.ConstRigVMLibraryNode>> return this.LocalizedFunctions;
 }
+
+@:forward
+@:nativeGen
+@:native("RigVMFunctionLibrary*")
+abstract RigVMFunctionLibraryPtr(cpp.Star<RigVMFunctionLibrary>) from cpp.Star<RigVMFunctionLibrary> to cpp.Star<RigVMFunctionLibrary>{
+	@:from
+	public static extern inline function fromValue(v: RigVMFunctionLibrary): RigVMFunctionLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVMFunctionLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

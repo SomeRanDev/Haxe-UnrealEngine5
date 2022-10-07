@@ -22,3 +22,22 @@ abstract ConstAssetGuideline(AssetGuideline) from AssetGuideline {
 	public extern var GuidelineName(get, never): FName;
 	public inline extern function get_GuidelineName(): FName return this.GuidelineName;
 }
+
+@:forward
+@:nativeGen
+@:native("AssetGuideline*")
+abstract AssetGuidelinePtr(cpp.Star<AssetGuideline>) from cpp.Star<AssetGuideline> to cpp.Star<AssetGuideline>{
+	@:from
+	public static extern inline function fromValue(v: AssetGuideline): AssetGuidelinePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AssetGuideline {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

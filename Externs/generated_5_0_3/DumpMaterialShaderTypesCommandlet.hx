@@ -13,3 +13,22 @@ extern class DumpMaterialShaderTypesCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstDumpMaterialShaderTypesCommandlet(DumpMaterialShaderTypesCommandlet) from DumpMaterialShaderTypesCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("DumpMaterialShaderTypesCommandlet*")
+abstract DumpMaterialShaderTypesCommandletPtr(cpp.Star<DumpMaterialShaderTypesCommandlet>) from cpp.Star<DumpMaterialShaderTypesCommandlet> to cpp.Star<DumpMaterialShaderTypesCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: DumpMaterialShaderTypesCommandlet): DumpMaterialShaderTypesCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DumpMaterialShaderTypesCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

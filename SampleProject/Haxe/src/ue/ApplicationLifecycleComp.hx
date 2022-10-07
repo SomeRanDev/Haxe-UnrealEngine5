@@ -45,3 +45,22 @@ abstract ConstApplicationLifecycleComp(ApplicationLifecycleComp) from Applicatio
 	public extern var OnLowPowerModeDelegate(get, never): HaxeMulticastSparseDelegateProperty<(Bool) -> Void>;
 	public inline extern function get_OnLowPowerModeDelegate(): HaxeMulticastSparseDelegateProperty<(Bool) -> Void> return this.OnLowPowerModeDelegate;
 }
+
+@:forward
+@:nativeGen
+@:native("ApplicationLifecycleComp*")
+abstract ApplicationLifecycleCompPtr(cpp.Star<ApplicationLifecycleComp>) from cpp.Star<ApplicationLifecycleComp> to cpp.Star<ApplicationLifecycleComp>{
+	@:from
+	public static extern inline function fromValue(v: ApplicationLifecycleComp): ApplicationLifecycleCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ApplicationLifecycleComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

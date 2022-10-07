@@ -19,3 +19,22 @@ abstract ConstBookMark2D(BookMark2D) from BookMark2D {
 	public extern var Location(get, never): IntPoint;
 	public inline extern function get_Location(): IntPoint return this.Location;
 }
+
+@:forward
+@:nativeGen
+@:native("BookMark2D*")
+abstract BookMark2DPtr(cpp.Star<BookMark2D>) from cpp.Star<BookMark2D> to cpp.Star<BookMark2D>{
+	@:from
+	public static extern inline function fromValue(v: BookMark2D): BookMark2DPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BookMark2D {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

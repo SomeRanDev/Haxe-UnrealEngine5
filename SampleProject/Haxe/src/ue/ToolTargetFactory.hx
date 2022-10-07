@@ -13,3 +13,22 @@ extern class ToolTargetFactory extends Object {
 @:nativeGen
 abstract ConstToolTargetFactory(ToolTargetFactory) from ToolTargetFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("ToolTargetFactory*")
+abstract ToolTargetFactoryPtr(cpp.Star<ToolTargetFactory>) from cpp.Star<ToolTargetFactory> to cpp.Star<ToolTargetFactory>{
+	@:from
+	public static extern inline function fromValue(v: ToolTargetFactory): ToolTargetFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ToolTargetFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class PkgInfoCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstPkgInfoCommandlet(PkgInfoCommandlet) from PkgInfoCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("PkgInfoCommandlet*")
+abstract PkgInfoCommandletPtr(cpp.Star<PkgInfoCommandlet>) from cpp.Star<PkgInfoCommandlet> to cpp.Star<PkgInfoCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: PkgInfoCommandlet): PkgInfoCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PkgInfoCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class AnimNotifyState_DisableRootMotion extends AnimNotifyState {
 @:nativeGen
 abstract ConstAnimNotifyState_DisableRootMotion(AnimNotifyState_DisableRootMotion) from AnimNotifyState_DisableRootMotion {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimNotifyState_DisableRootMotion*")
+abstract AnimNotifyState_DisableRootMotionPtr(cpp.Star<AnimNotifyState_DisableRootMotion>) from cpp.Star<AnimNotifyState_DisableRootMotion> to cpp.Star<AnimNotifyState_DisableRootMotion>{
+	@:from
+	public static extern inline function fromValue(v: AnimNotifyState_DisableRootMotion): AnimNotifyState_DisableRootMotionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimNotifyState_DisableRootMotion {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

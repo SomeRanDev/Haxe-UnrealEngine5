@@ -34,3 +34,22 @@ abstract ConstTextureRenderTargetVolume(TextureRenderTargetVolume) from TextureR
 	public extern var bForceLinearGamma(get, never): Bool;
 	public inline extern function get_bForceLinearGamma(): Bool return this.bForceLinearGamma;
 }
+
+@:forward
+@:nativeGen
+@:native("TextureRenderTargetVolume*")
+abstract TextureRenderTargetVolumePtr(cpp.Star<TextureRenderTargetVolume>) from cpp.Star<TextureRenderTargetVolume> to cpp.Star<TextureRenderTargetVolume>{
+	@:from
+	public static extern inline function fromValue(v: TextureRenderTargetVolume): TextureRenderTargetVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextureRenderTargetVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

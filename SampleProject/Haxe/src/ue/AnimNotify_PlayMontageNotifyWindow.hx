@@ -16,3 +16,22 @@ abstract ConstAnimNotify_PlayMontageNotifyWindow(AnimNotify_PlayMontageNotifyWin
 	public extern var NotifyName(get, never): FName;
 	public inline extern function get_NotifyName(): FName return this.NotifyName;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimNotify_PlayMontageNotifyWindow*")
+abstract AnimNotify_PlayMontageNotifyWindowPtr(cpp.Star<AnimNotify_PlayMontageNotifyWindow>) from cpp.Star<AnimNotify_PlayMontageNotifyWindow> to cpp.Star<AnimNotify_PlayMontageNotifyWindow>{
+	@:from
+	public static extern inline function fromValue(v: AnimNotify_PlayMontageNotifyWindow): AnimNotify_PlayMontageNotifyWindowPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimNotify_PlayMontageNotifyWindow {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

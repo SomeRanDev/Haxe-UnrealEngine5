@@ -13,3 +13,22 @@ extern class StabilizeLocalizationKeysCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstStabilizeLocalizationKeysCommandlet(StabilizeLocalizationKeysCommandlet) from StabilizeLocalizationKeysCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("StabilizeLocalizationKeysCommandlet*")
+abstract StabilizeLocalizationKeysCommandletPtr(cpp.Star<StabilizeLocalizationKeysCommandlet>) from cpp.Star<StabilizeLocalizationKeysCommandlet> to cpp.Star<StabilizeLocalizationKeysCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: StabilizeLocalizationKeysCommandlet): StabilizeLocalizationKeysCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): StabilizeLocalizationKeysCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

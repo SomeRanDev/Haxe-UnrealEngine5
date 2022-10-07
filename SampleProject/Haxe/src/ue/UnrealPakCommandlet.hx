@@ -13,3 +13,22 @@ extern class UnrealPakCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstUnrealPakCommandlet(UnrealPakCommandlet) from UnrealPakCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("UnrealPakCommandlet*")
+abstract UnrealPakCommandletPtr(cpp.Star<UnrealPakCommandlet>) from cpp.Star<UnrealPakCommandlet> to cpp.Star<UnrealPakCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: UnrealPakCommandlet): UnrealPakCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UnrealPakCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

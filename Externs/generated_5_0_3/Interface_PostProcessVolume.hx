@@ -12,3 +12,22 @@ extern class Interface_PostProcessVolume extends Interface {
 @:nativeGen
 abstract ConstInterface_PostProcessVolume(Interface_PostProcessVolume) from Interface_PostProcessVolume {
 }
+
+@:forward
+@:nativeGen
+@:native("Interface_PostProcessVolume*")
+abstract Interface_PostProcessVolumePtr(cpp.Star<Interface_PostProcessVolume>) from cpp.Star<Interface_PostProcessVolume> to cpp.Star<Interface_PostProcessVolume>{
+	@:from
+	public static extern inline function fromValue(v: Interface_PostProcessVolume): Interface_PostProcessVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Interface_PostProcessVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

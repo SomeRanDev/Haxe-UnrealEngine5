@@ -13,3 +13,22 @@ extern class SummarizeTraceCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstSummarizeTraceCommandlet(SummarizeTraceCommandlet) from SummarizeTraceCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("SummarizeTraceCommandlet*")
+abstract SummarizeTraceCommandletPtr(cpp.Star<SummarizeTraceCommandlet>) from cpp.Star<SummarizeTraceCommandlet> to cpp.Star<SummarizeTraceCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: SummarizeTraceCommandlet): SummarizeTraceCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SummarizeTraceCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

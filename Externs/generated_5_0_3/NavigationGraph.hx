@@ -13,3 +13,22 @@ extern class NavigationGraph extends NavigationData {
 @:nativeGen
 abstract ConstNavigationGraph(NavigationGraph) from NavigationGraph {
 }
+
+@:forward
+@:nativeGen
+@:native("NavigationGraph*")
+abstract NavigationGraphPtr(cpp.Star<NavigationGraph>) from cpp.Star<NavigationGraph> to cpp.Star<NavigationGraph>{
+	@:from
+	public static extern inline function fromValue(v: NavigationGraph): NavigationGraphPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavigationGraph {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -33,3 +33,22 @@ extern class LevelEditorSubsystem extends EditorSubsystem {
 @:nativeGen
 abstract ConstLevelEditorSubsystem(LevelEditorSubsystem) from LevelEditorSubsystem {
 }
+
+@:forward
+@:nativeGen
+@:native("LevelEditorSubsystem*")
+abstract LevelEditorSubsystemPtr(cpp.Star<LevelEditorSubsystem>) from cpp.Star<LevelEditorSubsystem> to cpp.Star<LevelEditorSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: LevelEditorSubsystem): LevelEditorSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelEditorSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

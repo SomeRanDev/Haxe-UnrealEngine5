@@ -12,3 +12,22 @@ extern class MovieSceneActorPredictionFailure__PythonCallable extends PythonCall
 @:nativeGen
 abstract ConstMovieSceneActorPredictionFailure__PythonCallable(MovieSceneActorPredictionFailure__PythonCallable) from MovieSceneActorPredictionFailure__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneActorPredictionFailure__PythonCallable*")
+abstract MovieSceneActorPredictionFailure__PythonCallablePtr(cpp.Star<MovieSceneActorPredictionFailure__PythonCallable>) from cpp.Star<MovieSceneActorPredictionFailure__PythonCallable> to cpp.Star<MovieSceneActorPredictionFailure__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneActorPredictionFailure__PythonCallable): MovieSceneActorPredictionFailure__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneActorPredictionFailure__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstAtmosphericFog(AtmosphericFog) from AtmosphericFog {
 	public extern var ArrowComponent(get, never): cpp.Star<ArrowComp.ConstArrowComp>;
 	public inline extern function get_ArrowComponent(): cpp.Star<ArrowComp.ConstArrowComp> return this.ArrowComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("AtmosphericFog*")
+abstract AtmosphericFogPtr(cpp.Star<AtmosphericFog>) from cpp.Star<AtmosphericFog> to cpp.Star<AtmosphericFog>{
+	@:from
+	public static extern inline function fromValue(v: AtmosphericFog): AtmosphericFogPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AtmosphericFog {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

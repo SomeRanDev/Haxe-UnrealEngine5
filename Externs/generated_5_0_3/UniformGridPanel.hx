@@ -27,3 +27,22 @@ abstract ConstUniformGridPanel(UniformGridPanel) from UniformGridPanel {
 	public extern var MinDesiredSlotHeight(get, never): cpp.Float32;
 	public inline extern function get_MinDesiredSlotHeight(): cpp.Float32 return this.MinDesiredSlotHeight;
 }
+
+@:forward
+@:nativeGen
+@:native("UniformGridPanel*")
+abstract UniformGridPanelPtr(cpp.Star<UniformGridPanel>) from cpp.Star<UniformGridPanel> to cpp.Star<UniformGridPanel>{
+	@:from
+	public static extern inline function fromValue(v: UniformGridPanel): UniformGridPanelPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UniformGridPanel {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

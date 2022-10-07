@@ -12,3 +12,22 @@ extern class FontProviderInterface extends Interface {
 @:nativeGen
 abstract ConstFontProviderInterface(FontProviderInterface) from FontProviderInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("FontProviderInterface*")
+abstract FontProviderInterfacePtr(cpp.Star<FontProviderInterface>) from cpp.Star<FontProviderInterface> to cpp.Star<FontProviderInterface>{
+	@:from
+	public static extern inline function fromValue(v: FontProviderInterface): FontProviderInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FontProviderInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

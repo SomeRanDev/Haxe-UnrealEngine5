@@ -16,3 +16,22 @@ abstract ConstForceFeedbackAttenuation(ForceFeedbackAttenuation) from ForceFeedb
 	public extern var Attenuation(get, never): ForceFeedbackAttenuationSettings;
 	public inline extern function get_Attenuation(): ForceFeedbackAttenuationSettings return this.Attenuation;
 }
+
+@:forward
+@:nativeGen
+@:native("ForceFeedbackAttenuation*")
+abstract ForceFeedbackAttenuationPtr(cpp.Star<ForceFeedbackAttenuation>) from cpp.Star<ForceFeedbackAttenuation> to cpp.Star<ForceFeedbackAttenuation>{
+	@:from
+	public static extern inline function fromValue(v: ForceFeedbackAttenuation): ForceFeedbackAttenuationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ForceFeedbackAttenuation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

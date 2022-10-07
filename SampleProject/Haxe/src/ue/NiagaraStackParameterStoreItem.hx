@@ -13,3 +13,22 @@ extern class NiagaraStackParameterStoreItem extends NiagaraStackItem {
 @:nativeGen
 abstract ConstNiagaraStackParameterStoreItem(NiagaraStackParameterStoreItem) from NiagaraStackParameterStoreItem {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackParameterStoreItem*")
+abstract NiagaraStackParameterStoreItemPtr(cpp.Star<NiagaraStackParameterStoreItem>) from cpp.Star<NiagaraStackParameterStoreItem> to cpp.Star<NiagaraStackParameterStoreItem>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackParameterStoreItem): NiagaraStackParameterStoreItemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackParameterStoreItem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

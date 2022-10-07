@@ -13,3 +13,22 @@ extern class DatasmithIFCSceneImportData extends DatasmithSceneImportData {
 @:nativeGen
 abstract ConstDatasmithIFCSceneImportData(DatasmithIFCSceneImportData) from DatasmithIFCSceneImportData {
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithIFCSceneImportData*")
+abstract DatasmithIFCSceneImportDataPtr(cpp.Star<DatasmithIFCSceneImportData>) from cpp.Star<DatasmithIFCSceneImportData> to cpp.Star<DatasmithIFCSceneImportData>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithIFCSceneImportData): DatasmithIFCSceneImportDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithIFCSceneImportData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class WorldPartitionEditorCell extends Object {
 @:nativeGen
 abstract ConstWorldPartitionEditorCell(WorldPartitionEditorCell) from WorldPartitionEditorCell {
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionEditorCell*")
+abstract WorldPartitionEditorCellPtr(cpp.Star<WorldPartitionEditorCell>) from cpp.Star<WorldPartitionEditorCell> to cpp.Star<WorldPartitionEditorCell>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionEditorCell): WorldPartitionEditorCellPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionEditorCell {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

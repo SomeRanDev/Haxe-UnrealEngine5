@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionTruncate(MaterialExpressionTruncate) from Materi
 	public extern var Input(get, never): ExpressionInput;
 	public inline extern function get_Input(): ExpressionInput return this.Input;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionTruncate*")
+abstract MaterialExpressionTruncatePtr(cpp.Star<MaterialExpressionTruncate>) from cpp.Star<MaterialExpressionTruncate> to cpp.Star<MaterialExpressionTruncate>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionTruncate): MaterialExpressionTruncatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionTruncate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

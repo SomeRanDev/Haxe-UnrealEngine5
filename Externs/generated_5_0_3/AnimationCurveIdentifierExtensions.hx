@@ -20,3 +20,22 @@ extern class AnimationCurveIdentifierExtensions extends BlueprintFunctionLibrary
 @:nativeGen
 abstract ConstAnimationCurveIdentifierExtensions(AnimationCurveIdentifierExtensions) from AnimationCurveIdentifierExtensions {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationCurveIdentifierExtensions*")
+abstract AnimationCurveIdentifierExtensionsPtr(cpp.Star<AnimationCurveIdentifierExtensions>) from cpp.Star<AnimationCurveIdentifierExtensions> to cpp.Star<AnimationCurveIdentifierExtensions>{
+	@:from
+	public static extern inline function fromValue(v: AnimationCurveIdentifierExtensions): AnimationCurveIdentifierExtensionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationCurveIdentifierExtensions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

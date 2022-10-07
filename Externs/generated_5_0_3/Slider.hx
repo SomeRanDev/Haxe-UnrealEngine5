@@ -81,3 +81,22 @@ abstract ConstSlider(Slider) from Slider {
 	public extern var OnValueChanged(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
 	public inline extern function get_OnValueChanged(): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void> return this.OnValueChanged;
 }
+
+@:forward
+@:nativeGen
+@:native("Slider*")
+abstract SliderPtr(cpp.Star<Slider>) from cpp.Star<Slider> to cpp.Star<Slider>{
+	@:from
+	public static extern inline function fromValue(v: Slider): SliderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Slider {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class MovieSceneHierarchicalBiasSystem extends MovieSceneEntityInstantiat
 @:nativeGen
 abstract ConstMovieSceneHierarchicalBiasSystem(MovieSceneHierarchicalBiasSystem) from MovieSceneHierarchicalBiasSystem {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneHierarchicalBiasSystem*")
+abstract MovieSceneHierarchicalBiasSystemPtr(cpp.Star<MovieSceneHierarchicalBiasSystem>) from cpp.Star<MovieSceneHierarchicalBiasSystem> to cpp.Star<MovieSceneHierarchicalBiasSystem>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneHierarchicalBiasSystem): MovieSceneHierarchicalBiasSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneHierarchicalBiasSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class ObjectElementCounterInterface extends Object {
 @:nativeGen
 abstract ConstObjectElementCounterInterface(ObjectElementCounterInterface) from ObjectElementCounterInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("ObjectElementCounterInterface*")
+abstract ObjectElementCounterInterfacePtr(cpp.Star<ObjectElementCounterInterface>) from cpp.Star<ObjectElementCounterInterface> to cpp.Star<ObjectElementCounterInterface>{
+	@:from
+	public static extern inline function fromValue(v: ObjectElementCounterInterface): ObjectElementCounterInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ObjectElementCounterInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

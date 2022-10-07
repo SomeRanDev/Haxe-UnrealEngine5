@@ -16,3 +16,22 @@ abstract ConstAnimBoneCompressionCodec(AnimBoneCompressionCodec) from AnimBoneCo
 	public extern var Description(get, never): FString;
 	public inline extern function get_Description(): FString return this.Description;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimBoneCompressionCodec*")
+abstract AnimBoneCompressionCodecPtr(cpp.Star<AnimBoneCompressionCodec>) from cpp.Star<AnimBoneCompressionCodec> to cpp.Star<AnimBoneCompressionCodec>{
+	@:from
+	public static extern inline function fromValue(v: AnimBoneCompressionCodec): AnimBoneCompressionCodecPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimBoneCompressionCodec {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

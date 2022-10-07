@@ -13,3 +13,22 @@ extern class MovieSceneGenericBoundObjectInstantiator extends MovieSceneEntityIn
 @:nativeGen
 abstract ConstMovieSceneGenericBoundObjectInstantiator(MovieSceneGenericBoundObjectInstantiator) from MovieSceneGenericBoundObjectInstantiator {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneGenericBoundObjectInstantiator*")
+abstract MovieSceneGenericBoundObjectInstantiatorPtr(cpp.Star<MovieSceneGenericBoundObjectInstantiator>) from cpp.Star<MovieSceneGenericBoundObjectInstantiator> to cpp.Star<MovieSceneGenericBoundObjectInstantiator>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneGenericBoundObjectInstantiator): MovieSceneGenericBoundObjectInstantiatorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneGenericBoundObjectInstantiator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

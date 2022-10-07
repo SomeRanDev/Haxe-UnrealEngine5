@@ -16,3 +16,22 @@ abstract ConstGridPathFollowingComp(GridPathFollowingComp) from GridPathFollowin
 	public extern var GridManager(get, never): cpp.Star<NavLocalGridManager.ConstNavLocalGridManager>;
 	public inline extern function get_GridManager(): cpp.Star<NavLocalGridManager.ConstNavLocalGridManager> return this.GridManager;
 }
+
+@:forward
+@:nativeGen
+@:native("GridPathFollowingComp*")
+abstract GridPathFollowingCompPtr(cpp.Star<GridPathFollowingComp>) from cpp.Star<GridPathFollowingComp> to cpp.Star<GridPathFollowingComp>{
+	@:from
+	public static extern inline function fromValue(v: GridPathFollowingComp): GridPathFollowingCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GridPathFollowingComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

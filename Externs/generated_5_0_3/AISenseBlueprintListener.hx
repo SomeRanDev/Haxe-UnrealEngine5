@@ -13,3 +13,22 @@ extern class AISenseBlueprintListener extends UserDefinedStruct {
 @:nativeGen
 abstract ConstAISenseBlueprintListener(AISenseBlueprintListener) from AISenseBlueprintListener {
 }
+
+@:forward
+@:nativeGen
+@:native("AISenseBlueprintListener*")
+abstract AISenseBlueprintListenerPtr(cpp.Star<AISenseBlueprintListener>) from cpp.Star<AISenseBlueprintListener> to cpp.Star<AISenseBlueprintListener>{
+	@:from
+	public static extern inline function fromValue(v: AISenseBlueprintListener): AISenseBlueprintListenerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AISenseBlueprintListener {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

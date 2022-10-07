@@ -15,3 +15,22 @@ extern class PhasedAutomationActorBase extends Actor {
 @:nativeGen
 abstract ConstPhasedAutomationActorBase(PhasedAutomationActorBase) from PhasedAutomationActorBase {
 }
+
+@:forward
+@:nativeGen
+@:native("PhasedAutomationActorBase*")
+abstract PhasedAutomationActorBasePtr(cpp.Star<PhasedAutomationActorBase>) from cpp.Star<PhasedAutomationActorBase> to cpp.Star<PhasedAutomationActorBase>{
+	@:from
+	public static extern inline function fromValue(v: PhasedAutomationActorBase): PhasedAutomationActorBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhasedAutomationActorBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

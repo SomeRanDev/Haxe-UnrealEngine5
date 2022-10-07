@@ -13,3 +13,22 @@ extern class ToolMenuBase extends Object {
 @:nativeGen
 abstract ConstToolMenuBase(ToolMenuBase) from ToolMenuBase {
 }
+
+@:forward
+@:nativeGen
+@:native("ToolMenuBase*")
+abstract ToolMenuBasePtr(cpp.Star<ToolMenuBase>) from cpp.Star<ToolMenuBase> to cpp.Star<ToolMenuBase>{
+	@:from
+	public static extern inline function fromValue(v: ToolMenuBase): ToolMenuBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ToolMenuBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

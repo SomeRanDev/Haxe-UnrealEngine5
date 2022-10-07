@@ -13,3 +13,22 @@ extern class VoiceChannel extends Channel {
 @:nativeGen
 abstract ConstVoiceChannel(VoiceChannel) from VoiceChannel {
 }
+
+@:forward
+@:nativeGen
+@:native("VoiceChannel*")
+abstract VoiceChannelPtr(cpp.Star<VoiceChannel>) from cpp.Star<VoiceChannel> to cpp.Star<VoiceChannel>{
+	@:from
+	public static extern inline function fromValue(v: VoiceChannel): VoiceChannelPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VoiceChannel {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

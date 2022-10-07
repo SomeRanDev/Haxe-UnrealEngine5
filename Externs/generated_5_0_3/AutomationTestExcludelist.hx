@@ -16,3 +16,22 @@ abstract ConstAutomationTestExcludelist(AutomationTestExcludelist) from Automati
 	public extern var ExcludeTest(get, never): TArray<AutomationTestExcludelistEntry>;
 	public inline extern function get_ExcludeTest(): TArray<AutomationTestExcludelistEntry> return this.ExcludeTest;
 }
+
+@:forward
+@:nativeGen
+@:native("AutomationTestExcludelist*")
+abstract AutomationTestExcludelistPtr(cpp.Star<AutomationTestExcludelist>) from cpp.Star<AutomationTestExcludelist> to cpp.Star<AutomationTestExcludelist>{
+	@:from
+	public static extern inline function fromValue(v: AutomationTestExcludelist): AutomationTestExcludelistPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AutomationTestExcludelist {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

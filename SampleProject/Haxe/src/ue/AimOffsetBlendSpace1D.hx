@@ -13,3 +13,22 @@ extern class AimOffsetBlendSpace1D extends BlendSpace1D {
 @:nativeGen
 abstract ConstAimOffsetBlendSpace1D(AimOffsetBlendSpace1D) from AimOffsetBlendSpace1D {
 }
+
+@:forward
+@:nativeGen
+@:native("AimOffsetBlendSpace1D*")
+abstract AimOffsetBlendSpace1DPtr(cpp.Star<AimOffsetBlendSpace1D>) from cpp.Star<AimOffsetBlendSpace1D> to cpp.Star<AimOffsetBlendSpace1D>{
+	@:from
+	public static extern inline function fromValue(v: AimOffsetBlendSpace1D): AimOffsetBlendSpace1DPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AimOffsetBlendSpace1D {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

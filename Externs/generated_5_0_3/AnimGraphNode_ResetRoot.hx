@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_ResetRoot(AnimGraphNode_ResetRoot) from AnimGraphNod
 	public extern var Node(get, never): AnimNode_ResetRoot;
 	public inline extern function get_Node(): AnimNode_ResetRoot return this.Node;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_ResetRoot*")
+abstract AnimGraphNode_ResetRootPtr(cpp.Star<AnimGraphNode_ResetRoot>) from cpp.Star<AnimGraphNode_ResetRoot> to cpp.Star<AnimGraphNode_ResetRoot>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_ResetRoot): AnimGraphNode_ResetRootPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_ResetRoot {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class SmokeTestCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstSmokeTestCommandlet(SmokeTestCommandlet) from SmokeTestCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("SmokeTestCommandlet*")
+abstract SmokeTestCommandletPtr(cpp.Star<SmokeTestCommandlet>) from cpp.Star<SmokeTestCommandlet> to cpp.Star<SmokeTestCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: SmokeTestCommandlet): SmokeTestCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SmokeTestCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

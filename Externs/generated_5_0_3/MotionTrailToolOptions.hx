@@ -61,3 +61,22 @@ abstract ConstMotionTrailToolOptions(MotionTrailToolOptions) from MotionTrailToo
 	public extern var SecondsPerMark(get, never): cpp.Float64;
 	public inline extern function get_SecondsPerMark(): cpp.Float64 return this.SecondsPerMark;
 }
+
+@:forward
+@:nativeGen
+@:native("MotionTrailToolOptions*")
+abstract MotionTrailToolOptionsPtr(cpp.Star<MotionTrailToolOptions>) from cpp.Star<MotionTrailToolOptions> to cpp.Star<MotionTrailToolOptions>{
+	@:from
+	public static extern inline function fromValue(v: MotionTrailToolOptions): MotionTrailToolOptionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MotionTrailToolOptions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

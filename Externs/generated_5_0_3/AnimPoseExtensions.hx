@@ -25,3 +25,22 @@ extern class AnimPoseExtensions extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstAnimPoseExtensions(AnimPoseExtensions) from AnimPoseExtensions {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimPoseExtensions*")
+abstract AnimPoseExtensionsPtr(cpp.Star<AnimPoseExtensions>) from cpp.Star<AnimPoseExtensions> to cpp.Star<AnimPoseExtensions>{
+	@:from
+	public static extern inline function fromValue(v: AnimPoseExtensions): AnimPoseExtensionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimPoseExtensions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

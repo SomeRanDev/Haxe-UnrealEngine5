@@ -79,3 +79,22 @@ abstract ConstViewportInteractionAssetContainer(ViewportInteractionAssetContaine
 	public extern var TranslucentTransformGizmoMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
 	public inline extern function get_TranslucentTransformGizmoMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.TranslucentTransformGizmoMaterial;
 }
+
+@:forward
+@:nativeGen
+@:native("ViewportInteractionAssetContainer*")
+abstract ViewportInteractionAssetContainerPtr(cpp.Star<ViewportInteractionAssetContainer>) from cpp.Star<ViewportInteractionAssetContainer> to cpp.Star<ViewportInteractionAssetContainer>{
+	@:from
+	public static extern inline function fromValue(v: ViewportInteractionAssetContainer): ViewportInteractionAssetContainerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ViewportInteractionAssetContainer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

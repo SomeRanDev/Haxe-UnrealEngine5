@@ -94,3 +94,22 @@ abstract ConstPhysicsSettings(PhysicsSettings) from PhysicsSettings {
 	public extern var ChaosSettings(get, never): ChaosPhysicsSettings;
 	public inline extern function get_ChaosSettings(): ChaosPhysicsSettings return this.ChaosSettings;
 }
+
+@:forward
+@:nativeGen
+@:native("PhysicsSettings*")
+abstract PhysicsSettingsPtr(cpp.Star<PhysicsSettings>) from cpp.Star<PhysicsSettings> to cpp.Star<PhysicsSettings>{
+	@:from
+	public static extern inline function fromValue(v: PhysicsSettings): PhysicsSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhysicsSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

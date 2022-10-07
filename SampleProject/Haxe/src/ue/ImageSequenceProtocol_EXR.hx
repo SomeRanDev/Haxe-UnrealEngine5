@@ -19,3 +19,22 @@ abstract ConstImageSequenceProtocol_EXR(ImageSequenceProtocol_EXR) from ImageSeq
 	public extern var CaptureGamut(get, never): EHDRCaptureGamut;
 	public inline extern function get_CaptureGamut(): EHDRCaptureGamut return this.CaptureGamut;
 }
+
+@:forward
+@:nativeGen
+@:native("ImageSequenceProtocol_EXR*")
+abstract ImageSequenceProtocol_EXRPtr(cpp.Star<ImageSequenceProtocol_EXR>) from cpp.Star<ImageSequenceProtocol_EXR> to cpp.Star<ImageSequenceProtocol_EXR>{
+	@:from
+	public static extern inline function fromValue(v: ImageSequenceProtocol_EXR): ImageSequenceProtocol_EXRPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ImageSequenceProtocol_EXR {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -28,3 +28,22 @@ abstract ConstMaterialExpressionStaticComponentMaskParameter(MaterialExpressionS
 	public extern var DefaultA(get, never): Bool;
 	public inline extern function get_DefaultA(): Bool return this.DefaultA;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionStaticComponentMaskParameter*")
+abstract MaterialExpressionStaticComponentMaskParameterPtr(cpp.Star<MaterialExpressionStaticComponentMaskParameter>) from cpp.Star<MaterialExpressionStaticComponentMaskParameter> to cpp.Star<MaterialExpressionStaticComponentMaskParameter>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionStaticComponentMaskParameter): MaterialExpressionStaticComponentMaskParameterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionStaticComponentMaskParameter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

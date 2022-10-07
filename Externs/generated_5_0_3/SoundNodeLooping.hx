@@ -19,3 +19,22 @@ abstract ConstSoundNodeLooping(SoundNodeLooping) from SoundNodeLooping {
 	public extern var bLoopIndefinitely(get, never): Bool;
 	public inline extern function get_bLoopIndefinitely(): Bool return this.bLoopIndefinitely;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundNodeLooping*")
+abstract SoundNodeLoopingPtr(cpp.Star<SoundNodeLooping>) from cpp.Star<SoundNodeLooping> to cpp.Star<SoundNodeLooping>{
+	@:from
+	public static extern inline function fromValue(v: SoundNodeLooping): SoundNodeLoopingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundNodeLooping {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

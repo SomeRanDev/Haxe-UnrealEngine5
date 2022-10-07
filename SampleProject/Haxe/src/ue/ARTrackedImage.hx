@@ -22,3 +22,22 @@ abstract ConstARTrackedImage(ARTrackedImage) from ARTrackedImage {
 	public extern var EstimatedSize(get, never): Vector2D;
 	public inline extern function get_EstimatedSize(): Vector2D return this.EstimatedSize;
 }
+
+@:forward
+@:nativeGen
+@:native("ARTrackedImage*")
+abstract ARTrackedImagePtr(cpp.Star<ARTrackedImage>) from cpp.Star<ARTrackedImage> to cpp.Star<ARTrackedImage>{
+	@:from
+	public static extern inline function fromValue(v: ARTrackedImage): ARTrackedImagePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARTrackedImage {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

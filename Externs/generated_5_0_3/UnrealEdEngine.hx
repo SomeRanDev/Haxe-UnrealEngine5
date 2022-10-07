@@ -46,3 +46,22 @@ abstract ConstUnrealEdEngine(UnrealEdEngine) from UnrealEdEngine {
 	public extern var CookServer(get, never): cpp.Star<CookOnTheFlyServer.ConstCookOnTheFlyServer>;
 	public inline extern function get_CookServer(): cpp.Star<CookOnTheFlyServer.ConstCookOnTheFlyServer> return this.CookServer;
 }
+
+@:forward
+@:nativeGen
+@:native("UnrealEdEngine*")
+abstract UnrealEdEnginePtr(cpp.Star<UnrealEdEngine>) from cpp.Star<UnrealEdEngine> to cpp.Star<UnrealEdEngine>{
+	@:from
+	public static extern inline function fromValue(v: UnrealEdEngine): UnrealEdEnginePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UnrealEdEngine {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

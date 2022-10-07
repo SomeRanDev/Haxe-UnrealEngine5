@@ -52,3 +52,22 @@ abstract ConstNetConnection(NetConnection) from NetConnection {
 	public extern var ChannelsToTick(get, never): TArray<cpp.Star<Channel.ConstChannel>>;
 	public inline extern function get_ChannelsToTick(): TArray<cpp.Star<Channel.ConstChannel>> return this.ChannelsToTick;
 }
+
+@:forward
+@:nativeGen
+@:native("NetConnection*")
+abstract NetConnectionPtr(cpp.Star<NetConnection>) from cpp.Star<NetConnection> to cpp.Star<NetConnection>{
+	@:from
+	public static extern inline function fromValue(v: NetConnection): NetConnectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NetConnection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

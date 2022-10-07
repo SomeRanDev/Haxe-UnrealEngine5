@@ -13,3 +13,22 @@ extern class MovieSceneNiagaraIntegerParameterTrack extends MovieSceneNiagaraPar
 @:nativeGen
 abstract ConstMovieSceneNiagaraIntegerParameterTrack(MovieSceneNiagaraIntegerParameterTrack) from MovieSceneNiagaraIntegerParameterTrack {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneNiagaraIntegerParameterTrack*")
+abstract MovieSceneNiagaraIntegerParameterTrackPtr(cpp.Star<MovieSceneNiagaraIntegerParameterTrack>) from cpp.Star<MovieSceneNiagaraIntegerParameterTrack> to cpp.Star<MovieSceneNiagaraIntegerParameterTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneNiagaraIntegerParameterTrack): MovieSceneNiagaraIntegerParameterTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneNiagaraIntegerParameterTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

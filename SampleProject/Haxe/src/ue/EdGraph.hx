@@ -37,3 +37,22 @@ abstract ConstEdGraph(EdGraph) from EdGraph {
 	public extern var InterfaceGuid(get, never): Guid;
 	public inline extern function get_InterfaceGuid(): Guid return this.InterfaceGuid;
 }
+
+@:forward
+@:nativeGen
+@:native("EdGraph*")
+abstract EdGraphPtr(cpp.Star<EdGraph>) from cpp.Star<EdGraph> to cpp.Star<EdGraph>{
+	@:from
+	public static extern inline function fromValue(v: EdGraph): EdGraphPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EdGraph {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

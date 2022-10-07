@@ -16,3 +16,22 @@ abstract ConstIKRigProcessor(IKRigProcessor) from IKRigProcessor {
 	public extern var Solvers(get, never): TArray<cpp.Star<IKRigSolver.ConstIKRigSolver>>;
 	public inline extern function get_Solvers(): TArray<cpp.Star<IKRigSolver.ConstIKRigSolver>> return this.Solvers;
 }
+
+@:forward
+@:nativeGen
+@:native("IKRigProcessor*")
+abstract IKRigProcessorPtr(cpp.Star<IKRigProcessor>) from cpp.Star<IKRigProcessor> to cpp.Star<IKRigProcessor>{
+	@:from
+	public static extern inline function fromValue(v: IKRigProcessor): IKRigProcessorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IKRigProcessor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

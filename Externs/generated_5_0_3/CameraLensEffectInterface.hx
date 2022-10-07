@@ -14,3 +14,22 @@ extern class CameraLensEffectInterface extends Interface {
 @:nativeGen
 abstract ConstCameraLensEffectInterface(CameraLensEffectInterface) from CameraLensEffectInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("CameraLensEffectInterface*")
+abstract CameraLensEffectInterfacePtr(cpp.Star<CameraLensEffectInterface>) from cpp.Star<CameraLensEffectInterface> to cpp.Star<CameraLensEffectInterface>{
+	@:from
+	public static extern inline function fromValue(v: CameraLensEffectInterface): CameraLensEffectInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CameraLensEffectInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

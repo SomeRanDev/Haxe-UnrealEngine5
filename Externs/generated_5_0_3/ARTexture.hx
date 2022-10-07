@@ -25,3 +25,22 @@ abstract ConstARTexture(ARTexture) from ARTexture {
 	public extern var Size(get, never): Vector2D;
 	public inline extern function get_Size(): Vector2D return this.Size;
 }
+
+@:forward
+@:nativeGen
+@:native("ARTexture*")
+abstract ARTexturePtr(cpp.Star<ARTexture>) from cpp.Star<ARTexture> to cpp.Star<ARTexture>{
+	@:from
+	public static extern inline function fromValue(v: ARTexture): ARTexturePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARTexture {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

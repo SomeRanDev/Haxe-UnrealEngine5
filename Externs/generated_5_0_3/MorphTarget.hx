@@ -16,3 +16,22 @@ abstract ConstMorphTarget(MorphTarget) from MorphTarget {
 	public extern var BaseSkelMesh(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
 	public inline extern function get_BaseSkelMesh(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.BaseSkelMesh;
 }
+
+@:forward
+@:nativeGen
+@:native("MorphTarget*")
+abstract MorphTargetPtr(cpp.Star<MorphTarget>) from cpp.Star<MorphTarget> to cpp.Star<MorphTarget>{
+	@:from
+	public static extern inline function fromValue(v: MorphTarget): MorphTargetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MorphTarget {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

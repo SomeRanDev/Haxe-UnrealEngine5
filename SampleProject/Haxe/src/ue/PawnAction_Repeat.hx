@@ -22,3 +22,22 @@ abstract ConstPawnAction_Repeat(PawnAction_Repeat) from PawnAction_Repeat {
 	public extern var ChildFailureHandlingMode(get, never): EPawnActionFailHandling;
 	public inline extern function get_ChildFailureHandlingMode(): EPawnActionFailHandling return this.ChildFailureHandlingMode;
 }
+
+@:forward
+@:nativeGen
+@:native("PawnAction_Repeat*")
+abstract PawnAction_RepeatPtr(cpp.Star<PawnAction_Repeat>) from cpp.Star<PawnAction_Repeat> to cpp.Star<PawnAction_Repeat>{
+	@:from
+	public static extern inline function fromValue(v: PawnAction_Repeat): PawnAction_RepeatPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PawnAction_Repeat {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

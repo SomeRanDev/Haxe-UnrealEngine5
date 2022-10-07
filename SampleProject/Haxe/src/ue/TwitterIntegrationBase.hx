@@ -20,3 +20,22 @@ extern class TwitterIntegrationBase extends PlatformInterfaceBase {
 @:nativeGen
 abstract ConstTwitterIntegrationBase(TwitterIntegrationBase) from TwitterIntegrationBase {
 }
+
+@:forward
+@:nativeGen
+@:native("TwitterIntegrationBase*")
+abstract TwitterIntegrationBasePtr(cpp.Star<TwitterIntegrationBase>) from cpp.Star<TwitterIntegrationBase> to cpp.Star<TwitterIntegrationBase>{
+	@:from
+	public static extern inline function fromValue(v: TwitterIntegrationBase): TwitterIntegrationBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TwitterIntegrationBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

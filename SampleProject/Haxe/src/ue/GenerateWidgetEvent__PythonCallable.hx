@@ -12,3 +12,22 @@ extern class GenerateWidgetEvent__PythonCallable extends PythonCallableForDelega
 @:nativeGen
 abstract ConstGenerateWidgetEvent__PythonCallable(GenerateWidgetEvent__PythonCallable) from GenerateWidgetEvent__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("GenerateWidgetEvent__PythonCallable*")
+abstract GenerateWidgetEvent__PythonCallablePtr(cpp.Star<GenerateWidgetEvent__PythonCallable>) from cpp.Star<GenerateWidgetEvent__PythonCallable> to cpp.Star<GenerateWidgetEvent__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: GenerateWidgetEvent__PythonCallable): GenerateWidgetEvent__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GenerateWidgetEvent__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

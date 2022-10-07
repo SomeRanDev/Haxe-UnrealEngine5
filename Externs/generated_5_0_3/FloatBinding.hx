@@ -14,3 +14,22 @@ extern class FloatBinding extends PropertyBinding {
 @:nativeGen
 abstract ConstFloatBinding(FloatBinding) from FloatBinding {
 }
+
+@:forward
+@:nativeGen
+@:native("FloatBinding*")
+abstract FloatBindingPtr(cpp.Star<FloatBinding>) from cpp.Star<FloatBinding> to cpp.Star<FloatBinding>{
+	@:from
+	public static extern inline function fromValue(v: FloatBinding): FloatBindingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FloatBinding {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

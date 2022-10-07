@@ -13,3 +13,22 @@ extern class LevelAssetEditor extends AssetEditor {
 @:nativeGen
 abstract ConstLevelAssetEditor(LevelAssetEditor) from LevelAssetEditor {
 }
+
+@:forward
+@:nativeGen
+@:native("LevelAssetEditor*")
+abstract LevelAssetEditorPtr(cpp.Star<LevelAssetEditor>) from cpp.Star<LevelAssetEditor> to cpp.Star<LevelAssetEditor>{
+	@:from
+	public static extern inline function fromValue(v: LevelAssetEditor): LevelAssetEditorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelAssetEditor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

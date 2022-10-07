@@ -19,3 +19,22 @@ extern class ARTraceResultLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstARTraceResultLibrary(ARTraceResultLibrary) from ARTraceResultLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("ARTraceResultLibrary*")
+abstract ARTraceResultLibraryPtr(cpp.Star<ARTraceResultLibrary>) from cpp.Star<ARTraceResultLibrary> to cpp.Star<ARTraceResultLibrary>{
+	@:from
+	public static extern inline function fromValue(v: ARTraceResultLibrary): ARTraceResultLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARTraceResultLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

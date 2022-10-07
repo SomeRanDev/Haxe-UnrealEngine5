@@ -13,3 +13,22 @@ extern class BTComposite_Selector extends BTCompositeNode {
 @:nativeGen
 abstract ConstBTComposite_Selector(BTComposite_Selector) from BTComposite_Selector {
 }
+
+@:forward
+@:nativeGen
+@:native("BTComposite_Selector*")
+abstract BTComposite_SelectorPtr(cpp.Star<BTComposite_Selector>) from cpp.Star<BTComposite_Selector> to cpp.Star<BTComposite_Selector>{
+	@:from
+	public static extern inline function fromValue(v: BTComposite_Selector): BTComposite_SelectorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTComposite_Selector {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

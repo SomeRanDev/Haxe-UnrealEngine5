@@ -19,3 +19,22 @@ abstract ConstK2Node_SwitchString(K2Node_SwitchString) from K2Node_SwitchString 
 	public extern var bIsCaseSensitive(get, never): Bool;
 	public inline extern function get_bIsCaseSensitive(): Bool return this.bIsCaseSensitive;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_SwitchString*")
+abstract K2Node_SwitchStringPtr(cpp.Star<K2Node_SwitchString>) from cpp.Star<K2Node_SwitchString> to cpp.Star<K2Node_SwitchString>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_SwitchString): K2Node_SwitchStringPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_SwitchString {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

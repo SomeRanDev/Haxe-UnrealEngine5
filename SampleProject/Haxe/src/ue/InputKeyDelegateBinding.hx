@@ -16,3 +16,22 @@ abstract ConstInputKeyDelegateBinding(InputKeyDelegateBinding) from InputKeyDele
 	public extern var InputKeyDelegateBindings(get, never): TArray<BlueprintInputKeyDelegateBinding>;
 	public inline extern function get_InputKeyDelegateBindings(): TArray<BlueprintInputKeyDelegateBinding> return this.InputKeyDelegateBindings;
 }
+
+@:forward
+@:nativeGen
+@:native("InputKeyDelegateBinding*")
+abstract InputKeyDelegateBindingPtr(cpp.Star<InputKeyDelegateBinding>) from cpp.Star<InputKeyDelegateBinding> to cpp.Star<InputKeyDelegateBinding>{
+	@:from
+	public static extern inline function fromValue(v: InputKeyDelegateBinding): InputKeyDelegateBindingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InputKeyDelegateBinding {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

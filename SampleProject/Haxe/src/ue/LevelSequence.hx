@@ -42,3 +42,22 @@ abstract ConstLevelSequence(LevelSequence) from LevelSequence {
 	public extern var AssetUserData(get, never): TArray<cpp.Star<AssetUserData.ConstAssetUserData>>;
 	public inline extern function get_AssetUserData(): TArray<cpp.Star<AssetUserData.ConstAssetUserData>> return this.AssetUserData;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelSequence*")
+abstract LevelSequencePtr(cpp.Star<LevelSequence>) from cpp.Star<LevelSequence> to cpp.Star<LevelSequence>{
+	@:from
+	public static extern inline function fromValue(v: LevelSequence): LevelSequencePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelSequence {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

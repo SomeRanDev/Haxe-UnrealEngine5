@@ -13,3 +13,22 @@ extern class InteractiveToolBuilder extends Object {
 @:nativeGen
 abstract ConstInteractiveToolBuilder(InteractiveToolBuilder) from InteractiveToolBuilder {
 }
+
+@:forward
+@:nativeGen
+@:native("InteractiveToolBuilder*")
+abstract InteractiveToolBuilderPtr(cpp.Star<InteractiveToolBuilder>) from cpp.Star<InteractiveToolBuilder> to cpp.Star<InteractiveToolBuilder>{
+	@:from
+	public static extern inline function fromValue(v: InteractiveToolBuilder): InteractiveToolBuilderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InteractiveToolBuilder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

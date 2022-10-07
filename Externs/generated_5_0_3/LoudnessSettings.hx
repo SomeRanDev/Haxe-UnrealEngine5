@@ -31,3 +31,22 @@ abstract ConstLoudnessSettings(LoudnessSettings) from LoudnessSettings {
 	public extern var ExpectedMaxLoudness(get, never): cpp.Float32;
 	public inline extern function get_ExpectedMaxLoudness(): cpp.Float32 return this.ExpectedMaxLoudness;
 }
+
+@:forward
+@:nativeGen
+@:native("LoudnessSettings*")
+abstract LoudnessSettingsPtr(cpp.Star<LoudnessSettings>) from cpp.Star<LoudnessSettings> to cpp.Star<LoudnessSettings>{
+	@:from
+	public static extern inline function fromValue(v: LoudnessSettings): LoudnessSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LoudnessSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

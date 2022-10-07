@@ -16,3 +16,22 @@ abstract ConstMovieSceneEntitySystemLinker(MovieSceneEntitySystemLinker) from Mo
 	public extern var SystemGraph(get, never): MovieSceneEntitySystemGraph;
 	public inline extern function get_SystemGraph(): MovieSceneEntitySystemGraph return this.SystemGraph;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneEntitySystemLinker*")
+abstract MovieSceneEntitySystemLinkerPtr(cpp.Star<MovieSceneEntitySystemLinker>) from cpp.Star<MovieSceneEntitySystemLinker> to cpp.Star<MovieSceneEntitySystemLinker>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneEntitySystemLinker): MovieSceneEntitySystemLinkerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneEntitySystemLinker {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class OnAssetPostLODImport_Dyn__PythonCallable extends PythonCallableForD
 @:nativeGen
 abstract ConstOnAssetPostLODImport_Dyn__PythonCallable(OnAssetPostLODImport_Dyn__PythonCallable) from OnAssetPostLODImport_Dyn__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnAssetPostLODImport_Dyn__PythonCallable*")
+abstract OnAssetPostLODImport_Dyn__PythonCallablePtr(cpp.Star<OnAssetPostLODImport_Dyn__PythonCallable>) from cpp.Star<OnAssetPostLODImport_Dyn__PythonCallable> to cpp.Star<OnAssetPostLODImport_Dyn__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnAssetPostLODImport_Dyn__PythonCallable): OnAssetPostLODImport_Dyn__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnAssetPostLODImport_Dyn__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -37,3 +37,22 @@ abstract ConstNiagaraDataInterfaceAudioPlayer(NiagaraDataInterfaceAudioPlayer) f
 	public extern var bOnlyActiveDuringGameplay(get, never): Bool;
 	public inline extern function get_bOnlyActiveDuringGameplay(): Bool return this.bOnlyActiveDuringGameplay;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceAudioPlayer*")
+abstract NiagaraDataInterfaceAudioPlayerPtr(cpp.Star<NiagaraDataInterfaceAudioPlayer>) from cpp.Star<NiagaraDataInterfaceAudioPlayer> to cpp.Star<NiagaraDataInterfaceAudioPlayer>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceAudioPlayer): NiagaraDataInterfaceAudioPlayerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceAudioPlayer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

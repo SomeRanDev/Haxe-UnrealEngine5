@@ -19,3 +19,22 @@ abstract ConstCSVImportFactory(CSVImportFactory) from CSVImportFactory {
 	public extern var DataTableImportOptions(get, never): cpp.Star<DataTable.ConstDataTable>;
 	public inline extern function get_DataTableImportOptions(): cpp.Star<DataTable.ConstDataTable> return this.DataTableImportOptions;
 }
+
+@:forward
+@:nativeGen
+@:native("CSVImportFactory*")
+abstract CSVImportFactoryPtr(cpp.Star<CSVImportFactory>) from cpp.Star<CSVImportFactory> to cpp.Star<CSVImportFactory>{
+	@:from
+	public static extern inline function fromValue(v: CSVImportFactory): CSVImportFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CSVImportFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

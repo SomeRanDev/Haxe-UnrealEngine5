@@ -19,3 +19,22 @@ abstract ConstK2Node_GetSequenceBinding(K2Node_GetSequenceBinding) from K2Node_G
 	public extern var Binding(get, never): MovieSceneObjectBindingID;
 	public inline extern function get_Binding(): MovieSceneObjectBindingID return this.Binding;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_GetSequenceBinding*")
+abstract K2Node_GetSequenceBindingPtr(cpp.Star<K2Node_GetSequenceBinding>) from cpp.Star<K2Node_GetSequenceBinding> to cpp.Star<K2Node_GetSequenceBinding>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_GetSequenceBinding): K2Node_GetSequenceBindingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_GetSequenceBinding {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

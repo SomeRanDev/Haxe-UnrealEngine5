@@ -25,3 +25,22 @@ abstract ConstClothPhysicalMeshDataNv_Legacy(ClothPhysicalMeshDataNv_Legacy) fro
 	public extern var AnimDriveMultipliers(get, never): TArray<cpp.Float32>;
 	public inline extern function get_AnimDriveMultipliers(): TArray<cpp.Float32> return this.AnimDriveMultipliers;
 }
+
+@:forward
+@:nativeGen
+@:native("ClothPhysicalMeshDataNv_Legacy*")
+abstract ClothPhysicalMeshDataNv_LegacyPtr(cpp.Star<ClothPhysicalMeshDataNv_Legacy>) from cpp.Star<ClothPhysicalMeshDataNv_Legacy> to cpp.Star<ClothPhysicalMeshDataNv_Legacy>{
+	@:from
+	public static extern inline function fromValue(v: ClothPhysicalMeshDataNv_Legacy): ClothPhysicalMeshDataNv_LegacyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ClothPhysicalMeshDataNv_Legacy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

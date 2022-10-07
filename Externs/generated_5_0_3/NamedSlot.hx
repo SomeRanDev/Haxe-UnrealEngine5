@@ -13,3 +13,22 @@ extern class NamedSlot extends ContentWidget {
 @:nativeGen
 abstract ConstNamedSlot(NamedSlot) from NamedSlot {
 }
+
+@:forward
+@:nativeGen
+@:native("NamedSlot*")
+abstract NamedSlotPtr(cpp.Star<NamedSlot>) from cpp.Star<NamedSlot> to cpp.Star<NamedSlot>{
+	@:from
+	public static extern inline function fromValue(v: NamedSlot): NamedSlotPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NamedSlot {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

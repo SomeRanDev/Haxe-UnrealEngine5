@@ -13,3 +13,22 @@ extern class MovieSceneMasterInstantiatorSystem extends MovieSceneEntityInstanti
 @:nativeGen
 abstract ConstMovieSceneMasterInstantiatorSystem(MovieSceneMasterInstantiatorSystem) from MovieSceneMasterInstantiatorSystem {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneMasterInstantiatorSystem*")
+abstract MovieSceneMasterInstantiatorSystemPtr(cpp.Star<MovieSceneMasterInstantiatorSystem>) from cpp.Star<MovieSceneMasterInstantiatorSystem> to cpp.Star<MovieSceneMasterInstantiatorSystem>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneMasterInstantiatorSystem): MovieSceneMasterInstantiatorSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneMasterInstantiatorSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

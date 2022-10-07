@@ -91,3 +91,22 @@ abstract ConstHUD(HUD) from HUD {
 	public extern var ShowDebugTargetActor(get, never): cpp.Star<Actor.ConstActor>;
 	public inline extern function get_ShowDebugTargetActor(): cpp.Star<Actor.ConstActor> return this.ShowDebugTargetActor;
 }
+
+@:forward
+@:nativeGen
+@:native("HUD*")
+abstract HUDPtr(cpp.Star<HUD>) from cpp.Star<HUD> to cpp.Star<HUD>{
+	@:from
+	public static extern inline function fromValue(v: HUD): HUDPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): HUD {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

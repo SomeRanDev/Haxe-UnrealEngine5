@@ -13,3 +13,22 @@ extern class ClothingSimulationFactoryNv extends ClothingSimulationFactory {
 @:nativeGen
 abstract ConstClothingSimulationFactoryNv(ClothingSimulationFactoryNv) from ClothingSimulationFactoryNv {
 }
+
+@:forward
+@:nativeGen
+@:native("ClothingSimulationFactoryNv*")
+abstract ClothingSimulationFactoryNvPtr(cpp.Star<ClothingSimulationFactoryNv>) from cpp.Star<ClothingSimulationFactoryNv> to cpp.Star<ClothingSimulationFactoryNv>{
+	@:from
+	public static extern inline function fromValue(v: ClothingSimulationFactoryNv): ClothingSimulationFactoryNvPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ClothingSimulationFactoryNv {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

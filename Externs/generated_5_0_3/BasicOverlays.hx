@@ -19,3 +19,22 @@ abstract ConstBasicOverlays(BasicOverlays) from BasicOverlays {
 	public extern var AssetImportData(get, never): cpp.Star<AssetImportData.ConstAssetImportData>;
 	public inline extern function get_AssetImportData(): cpp.Star<AssetImportData.ConstAssetImportData> return this.AssetImportData;
 }
+
+@:forward
+@:nativeGen
+@:native("BasicOverlays*")
+abstract BasicOverlaysPtr(cpp.Star<BasicOverlays>) from cpp.Star<BasicOverlays> to cpp.Star<BasicOverlays>{
+	@:from
+	public static extern inline function fromValue(v: BasicOverlays): BasicOverlaysPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BasicOverlays {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstAnimationBlendSpaceSampleGraph(AnimationBlendSpaceSampleGraph) fro
 	public extern var ResultNode(get, never): cpp.Star<AnimGraphNode_BlendSpaceSampleResult.ConstAnimGraphNode_BlendSpaceSampleResult>;
 	public inline extern function get_ResultNode(): cpp.Star<AnimGraphNode_BlendSpaceSampleResult.ConstAnimGraphNode_BlendSpaceSampleResult> return this.ResultNode;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationBlendSpaceSampleGraph*")
+abstract AnimationBlendSpaceSampleGraphPtr(cpp.Star<AnimationBlendSpaceSampleGraph>) from cpp.Star<AnimationBlendSpaceSampleGraph> to cpp.Star<AnimationBlendSpaceSampleGraph>{
+	@:from
+	public static extern inline function fromValue(v: AnimationBlendSpaceSampleGraph): AnimationBlendSpaceSampleGraphPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationBlendSpaceSampleGraph {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

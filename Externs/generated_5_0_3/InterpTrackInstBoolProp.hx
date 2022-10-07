@@ -16,3 +16,22 @@ abstract ConstInterpTrackInstBoolProp(InterpTrackInstBoolProp) from InterpTrackI
 	public extern var ResetBool(get, never): Bool;
 	public inline extern function get_ResetBool(): Bool return this.ResetBool;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackInstBoolProp*")
+abstract InterpTrackInstBoolPropPtr(cpp.Star<InterpTrackInstBoolProp>) from cpp.Star<InterpTrackInstBoolProp> to cpp.Star<InterpTrackInstBoolProp>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackInstBoolProp): InterpTrackInstBoolPropPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackInstBoolProp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

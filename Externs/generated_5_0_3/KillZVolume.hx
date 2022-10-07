@@ -13,3 +13,22 @@ extern class KillZVolume extends PhysicsVolume {
 @:nativeGen
 abstract ConstKillZVolume(KillZVolume) from KillZVolume {
 }
+
+@:forward
+@:nativeGen
+@:native("KillZVolume*")
+abstract KillZVolumePtr(cpp.Star<KillZVolume>) from cpp.Star<KillZVolume> to cpp.Star<KillZVolume>{
+	@:from
+	public static extern inline function fromValue(v: KillZVolume): KillZVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): KillZVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

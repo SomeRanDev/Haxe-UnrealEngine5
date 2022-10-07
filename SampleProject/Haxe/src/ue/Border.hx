@@ -76,3 +76,22 @@ abstract ConstBorder(Border) from Border {
 	public extern var Brush_DEPRECATED(get, never): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset>;
 	public inline extern function get_Brush_DEPRECATED(): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset> return this.Brush_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("Border*")
+abstract BorderPtr(cpp.Star<Border>) from cpp.Star<Border> to cpp.Star<Border>{
+	@:from
+	public static extern inline function fromValue(v: Border): BorderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Border {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

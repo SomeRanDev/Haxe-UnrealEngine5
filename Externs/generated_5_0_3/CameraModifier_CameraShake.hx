@@ -22,3 +22,22 @@ abstract ConstCameraModifier_CameraShake(CameraModifier_CameraShake) from Camera
 	public extern var SplitScreenShakeScale(get, never): cpp.Float32;
 	public inline extern function get_SplitScreenShakeScale(): cpp.Float32 return this.SplitScreenShakeScale;
 }
+
+@:forward
+@:nativeGen
+@:native("CameraModifier_CameraShake*")
+abstract CameraModifier_CameraShakePtr(cpp.Star<CameraModifier_CameraShake>) from cpp.Star<CameraModifier_CameraShake> to cpp.Star<CameraModifier_CameraShake>{
+	@:from
+	public static extern inline function fromValue(v: CameraModifier_CameraShake): CameraModifier_CameraShakePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CameraModifier_CameraShake {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class TestPhaseComp extends SceneComp {
 @:nativeGen
 abstract ConstTestPhaseComp(TestPhaseComp) from TestPhaseComp {
 }
+
+@:forward
+@:nativeGen
+@:native("TestPhaseComp*")
+abstract TestPhaseCompPtr(cpp.Star<TestPhaseComp>) from cpp.Star<TestPhaseComp> to cpp.Star<TestPhaseComp>{
+	@:from
+	public static extern inline function fromValue(v: TestPhaseComp): TestPhaseCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TestPhaseComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

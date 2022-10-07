@@ -13,3 +13,22 @@ extern class OcclusionPluginSourceSettingsBase extends Object {
 @:nativeGen
 abstract ConstOcclusionPluginSourceSettingsBase(OcclusionPluginSourceSettingsBase) from OcclusionPluginSourceSettingsBase {
 }
+
+@:forward
+@:nativeGen
+@:native("OcclusionPluginSourceSettingsBase*")
+abstract OcclusionPluginSourceSettingsBasePtr(cpp.Star<OcclusionPluginSourceSettingsBase>) from cpp.Star<OcclusionPluginSourceSettingsBase> to cpp.Star<OcclusionPluginSourceSettingsBase>{
+	@:from
+	public static extern inline function fromValue(v: OcclusionPluginSourceSettingsBase): OcclusionPluginSourceSettingsBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OcclusionPluginSourceSettingsBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -192,3 +192,22 @@ abstract ConstARSessionConfig(ARSessionConfig) from ARSessionConfig {
 	public extern var DefaultWireframeMeshMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
 	public inline extern function get_DefaultWireframeMeshMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.DefaultWireframeMeshMaterial;
 }
+
+@:forward
+@:nativeGen
+@:native("ARSessionConfig*")
+abstract ARSessionConfigPtr(cpp.Star<ARSessionConfig>) from cpp.Star<ARSessionConfig> to cpp.Star<ARSessionConfig>{
+	@:from
+	public static extern inline function fromValue(v: ARSessionConfig): ARSessionConfigPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARSessionConfig {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

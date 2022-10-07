@@ -16,3 +16,22 @@ abstract ConstMovieSceneObjectPropertyTrack(MovieSceneObjectPropertyTrack) from 
 	public extern var PropertyClass(get, never): TSubclassOf<Object.ConstObject>;
 	public inline extern function get_PropertyClass(): TSubclassOf<Object.ConstObject> return this.PropertyClass;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneObjectPropertyTrack*")
+abstract MovieSceneObjectPropertyTrackPtr(cpp.Star<MovieSceneObjectPropertyTrack>) from cpp.Star<MovieSceneObjectPropertyTrack> to cpp.Star<MovieSceneObjectPropertyTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneObjectPropertyTrack): MovieSceneObjectPropertyTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneObjectPropertyTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

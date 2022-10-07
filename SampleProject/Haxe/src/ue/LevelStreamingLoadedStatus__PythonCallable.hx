@@ -12,3 +12,22 @@ extern class LevelStreamingLoadedStatus__PythonCallable extends PythonCallableFo
 @:nativeGen
 abstract ConstLevelStreamingLoadedStatus__PythonCallable(LevelStreamingLoadedStatus__PythonCallable) from LevelStreamingLoadedStatus__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("LevelStreamingLoadedStatus__PythonCallable*")
+abstract LevelStreamingLoadedStatus__PythonCallablePtr(cpp.Star<LevelStreamingLoadedStatus__PythonCallable>) from cpp.Star<LevelStreamingLoadedStatus__PythonCallable> to cpp.Star<LevelStreamingLoadedStatus__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: LevelStreamingLoadedStatus__PythonCallable): LevelStreamingLoadedStatus__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelStreamingLoadedStatus__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

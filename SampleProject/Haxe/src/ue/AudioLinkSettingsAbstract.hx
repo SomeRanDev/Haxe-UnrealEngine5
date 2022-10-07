@@ -13,3 +13,22 @@ extern class AudioLinkSettingsAbstract extends Object {
 @:nativeGen
 abstract ConstAudioLinkSettingsAbstract(AudioLinkSettingsAbstract) from AudioLinkSettingsAbstract {
 }
+
+@:forward
+@:nativeGen
+@:native("AudioLinkSettingsAbstract*")
+abstract AudioLinkSettingsAbstractPtr(cpp.Star<AudioLinkSettingsAbstract>) from cpp.Star<AudioLinkSettingsAbstract> to cpp.Star<AudioLinkSettingsAbstract>{
+	@:from
+	public static extern inline function fromValue(v: AudioLinkSettingsAbstract): AudioLinkSettingsAbstractPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AudioLinkSettingsAbstract {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

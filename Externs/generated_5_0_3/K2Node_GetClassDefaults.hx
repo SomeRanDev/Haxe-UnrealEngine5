@@ -25,3 +25,22 @@ abstract ConstK2Node_GetClassDefaults(K2Node_GetClassDefaults) from K2Node_GetCl
 	public extern var bExcludeObjectArrays_DEPRECATED(get, never): Bool;
 	public inline extern function get_bExcludeObjectArrays_DEPRECATED(): Bool return this.bExcludeObjectArrays_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_GetClassDefaults*")
+abstract K2Node_GetClassDefaultsPtr(cpp.Star<K2Node_GetClassDefaults>) from cpp.Star<K2Node_GetClassDefaults> to cpp.Star<K2Node_GetClassDefaults>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_GetClassDefaults): K2Node_GetClassDefaultsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_GetClassDefaults {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

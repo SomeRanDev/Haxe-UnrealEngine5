@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionDistanceFieldsRenderingSwitch(MaterialExpression
 	public extern var Yes(get, never): ExpressionInput;
 	public inline extern function get_Yes(): ExpressionInput return this.Yes;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionDistanceFieldsRenderingSwitch*")
+abstract MaterialExpressionDistanceFieldsRenderingSwitchPtr(cpp.Star<MaterialExpressionDistanceFieldsRenderingSwitch>) from cpp.Star<MaterialExpressionDistanceFieldsRenderingSwitch> to cpp.Star<MaterialExpressionDistanceFieldsRenderingSwitch>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionDistanceFieldsRenderingSwitch): MaterialExpressionDistanceFieldsRenderingSwitchPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionDistanceFieldsRenderingSwitch {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class MaterialExpressionVertexNormalWS extends MaterialExpression {
 @:nativeGen
 abstract ConstMaterialExpressionVertexNormalWS(MaterialExpressionVertexNormalWS) from MaterialExpressionVertexNormalWS {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionVertexNormalWS*")
+abstract MaterialExpressionVertexNormalWSPtr(cpp.Star<MaterialExpressionVertexNormalWS>) from cpp.Star<MaterialExpressionVertexNormalWS> to cpp.Star<MaterialExpressionVertexNormalWS>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionVertexNormalWS): MaterialExpressionVertexNormalWSPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionVertexNormalWS {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

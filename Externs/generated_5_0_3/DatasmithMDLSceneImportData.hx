@@ -13,3 +13,22 @@ extern class DatasmithMDLSceneImportData extends DatasmithSceneImportData {
 @:nativeGen
 abstract ConstDatasmithMDLSceneImportData(DatasmithMDLSceneImportData) from DatasmithMDLSceneImportData {
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithMDLSceneImportData*")
+abstract DatasmithMDLSceneImportDataPtr(cpp.Star<DatasmithMDLSceneImportData>) from cpp.Star<DatasmithMDLSceneImportData> to cpp.Star<DatasmithMDLSceneImportData>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithMDLSceneImportData): DatasmithMDLSceneImportDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithMDLSceneImportData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

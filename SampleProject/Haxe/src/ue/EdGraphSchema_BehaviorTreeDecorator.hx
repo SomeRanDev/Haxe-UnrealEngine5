@@ -16,3 +16,22 @@ abstract ConstEdGraphSchema_BehaviorTreeDecorator(EdGraphSchema_BehaviorTreeDeco
 	public extern var PC_Boolean(get, never): FString;
 	public inline extern function get_PC_Boolean(): FString return this.PC_Boolean;
 }
+
+@:forward
+@:nativeGen
+@:native("EdGraphSchema_BehaviorTreeDecorator*")
+abstract EdGraphSchema_BehaviorTreeDecoratorPtr(cpp.Star<EdGraphSchema_BehaviorTreeDecorator>) from cpp.Star<EdGraphSchema_BehaviorTreeDecorator> to cpp.Star<EdGraphSchema_BehaviorTreeDecorator>{
+	@:from
+	public static extern inline function fromValue(v: EdGraphSchema_BehaviorTreeDecorator): EdGraphSchema_BehaviorTreeDecoratorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EdGraphSchema_BehaviorTreeDecorator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

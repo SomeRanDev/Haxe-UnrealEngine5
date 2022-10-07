@@ -18,3 +18,22 @@ abstract ConstSceneCapture2D(SceneCapture2D) from SceneCapture2D {
 	public extern var CaptureComponent2D(get, never): cpp.Star<SceneCaptureComponent2D.ConstSceneCaptureComponent2D>;
 	public inline extern function get_CaptureComponent2D(): cpp.Star<SceneCaptureComponent2D.ConstSceneCaptureComponent2D> return this.CaptureComponent2D;
 }
+
+@:forward
+@:nativeGen
+@:native("SceneCapture2D*")
+abstract SceneCapture2DPtr(cpp.Star<SceneCapture2D>) from cpp.Star<SceneCapture2D> to cpp.Star<SceneCapture2D>{
+	@:from
+	public static extern inline function fromValue(v: SceneCapture2D): SceneCapture2DPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SceneCapture2D {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

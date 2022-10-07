@@ -31,3 +31,22 @@ abstract ConstLiveLinkSubjectSettings(LiveLinkSubjectSettings) from LiveLinkSubj
 	public extern var bRebroadcastSubject(get, never): Bool;
 	public inline extern function get_bRebroadcastSubject(): Bool return this.bRebroadcastSubject;
 }
+
+@:forward
+@:nativeGen
+@:native("LiveLinkSubjectSettings*")
+abstract LiveLinkSubjectSettingsPtr(cpp.Star<LiveLinkSubjectSettings>) from cpp.Star<LiveLinkSubjectSettings> to cpp.Star<LiveLinkSubjectSettings>{
+	@:from
+	public static extern inline function fromValue(v: LiveLinkSubjectSettings): LiveLinkSubjectSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LiveLinkSubjectSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -22,3 +22,22 @@ abstract ConstDistributionVectorConstantCurve(DistributionVectorConstantCurve) f
 	public extern var LockedAxes(get, never): EDistributionVectorLockFlags;
 	public inline extern function get_LockedAxes(): EDistributionVectorLockFlags return this.LockedAxes;
 }
+
+@:forward
+@:nativeGen
+@:native("DistributionVectorConstantCurve*")
+abstract DistributionVectorConstantCurvePtr(cpp.Star<DistributionVectorConstantCurve>) from cpp.Star<DistributionVectorConstantCurve> to cpp.Star<DistributionVectorConstantCurve>{
+	@:from
+	public static extern inline function fromValue(v: DistributionVectorConstantCurve): DistributionVectorConstantCurvePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DistributionVectorConstantCurve {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

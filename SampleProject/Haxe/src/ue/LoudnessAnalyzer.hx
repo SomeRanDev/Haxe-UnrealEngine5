@@ -28,3 +28,22 @@ abstract ConstLoudnessAnalyzer(LoudnessAnalyzer) from LoudnessAnalyzer {
 	public extern var OnLatestPerChannelLoudnessResults(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<LoudnessResults>) -> Void>;
 	public inline extern function get_OnLatestPerChannelLoudnessResults(): HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<LoudnessResults>) -> Void> return this.OnLatestPerChannelLoudnessResults;
 }
+
+@:forward
+@:nativeGen
+@:native("LoudnessAnalyzer*")
+abstract LoudnessAnalyzerPtr(cpp.Star<LoudnessAnalyzer>) from cpp.Star<LoudnessAnalyzer> to cpp.Star<LoudnessAnalyzer>{
+	@:from
+	public static extern inline function fromValue(v: LoudnessAnalyzer): LoudnessAnalyzerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LoudnessAnalyzer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

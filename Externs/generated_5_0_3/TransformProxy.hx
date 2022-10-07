@@ -25,3 +25,22 @@ abstract ConstTransformProxy(TransformProxy) from TransformProxy {
 	public extern var InitialSharedTransform(get, never): Transform;
 	public inline extern function get_InitialSharedTransform(): Transform return this.InitialSharedTransform;
 }
+
+@:forward
+@:nativeGen
+@:native("TransformProxy*")
+abstract TransformProxyPtr(cpp.Star<TransformProxy>) from cpp.Star<TransformProxy> to cpp.Star<TransformProxy>{
+	@:from
+	public static extern inline function fromValue(v: TransformProxy): TransformProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TransformProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

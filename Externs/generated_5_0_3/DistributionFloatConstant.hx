@@ -16,3 +16,22 @@ abstract ConstDistributionFloatConstant(DistributionFloatConstant) from Distribu
 	public extern var Constant(get, never): cpp.Float32;
 	public inline extern function get_Constant(): cpp.Float32 return this.Constant;
 }
+
+@:forward
+@:nativeGen
+@:native("DistributionFloatConstant*")
+abstract DistributionFloatConstantPtr(cpp.Star<DistributionFloatConstant>) from cpp.Star<DistributionFloatConstant> to cpp.Star<DistributionFloatConstant>{
+	@:from
+	public static extern inline function fromValue(v: DistributionFloatConstant): DistributionFloatConstantPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DistributionFloatConstant {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class MaterialExpressionLightmapUVs extends MaterialExpression {
 @:nativeGen
 abstract ConstMaterialExpressionLightmapUVs(MaterialExpressionLightmapUVs) from MaterialExpressionLightmapUVs {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionLightmapUVs*")
+abstract MaterialExpressionLightmapUVsPtr(cpp.Star<MaterialExpressionLightmapUVs>) from cpp.Star<MaterialExpressionLightmapUVs> to cpp.Star<MaterialExpressionLightmapUVs>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionLightmapUVs): MaterialExpressionLightmapUVsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionLightmapUVs {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

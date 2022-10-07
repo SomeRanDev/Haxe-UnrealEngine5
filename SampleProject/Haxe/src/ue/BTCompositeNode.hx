@@ -22,3 +22,22 @@ abstract ConstBTCompositeNode(BTCompositeNode) from BTCompositeNode {
 	public extern var bApplyDecoratorScope(get, never): Bool;
 	public inline extern function get_bApplyDecoratorScope(): Bool return this.bApplyDecoratorScope;
 }
+
+@:forward
+@:nativeGen
+@:native("BTCompositeNode*")
+abstract BTCompositeNodePtr(cpp.Star<BTCompositeNode>) from cpp.Star<BTCompositeNode> to cpp.Star<BTCompositeNode>{
+	@:from
+	public static extern inline function fromValue(v: BTCompositeNode): BTCompositeNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTCompositeNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

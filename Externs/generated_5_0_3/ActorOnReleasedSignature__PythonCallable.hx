@@ -12,3 +12,22 @@ extern class ActorOnReleasedSignature__PythonCallable extends PythonCallableForD
 @:nativeGen
 abstract ConstActorOnReleasedSignature__PythonCallable(ActorOnReleasedSignature__PythonCallable) from ActorOnReleasedSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorOnReleasedSignature__PythonCallable*")
+abstract ActorOnReleasedSignature__PythonCallablePtr(cpp.Star<ActorOnReleasedSignature__PythonCallable>) from cpp.Star<ActorOnReleasedSignature__PythonCallable> to cpp.Star<ActorOnReleasedSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ActorOnReleasedSignature__PythonCallable): ActorOnReleasedSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorOnReleasedSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

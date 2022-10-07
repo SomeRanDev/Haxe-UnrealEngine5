@@ -22,3 +22,22 @@ abstract ConstParticleModuleColorScaleOverLife(ParticleModuleColorScaleOverLife)
 	public extern var bEmitterTime(get, never): Bool;
 	public inline extern function get_bEmitterTime(): Bool return this.bEmitterTime;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleColorScaleOverLife*")
+abstract ParticleModuleColorScaleOverLifePtr(cpp.Star<ParticleModuleColorScaleOverLife>) from cpp.Star<ParticleModuleColorScaleOverLife> to cpp.Star<ParticleModuleColorScaleOverLife>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleColorScaleOverLife): ParticleModuleColorScaleOverLifePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleColorScaleOverLife {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -25,3 +25,22 @@ abstract ConstSoundfieldSubmix(SoundfieldSubmix) from SoundfieldSubmix {
 	public extern var EncodingSettingsClass(get, never): TSubclassOf<SoundfieldEncodingSettingsBase.ConstSoundfieldEncodingSettingsBase>;
 	public inline extern function get_EncodingSettingsClass(): TSubclassOf<SoundfieldEncodingSettingsBase.ConstSoundfieldEncodingSettingsBase> return this.EncodingSettingsClass;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundfieldSubmix*")
+abstract SoundfieldSubmixPtr(cpp.Star<SoundfieldSubmix>) from cpp.Star<SoundfieldSubmix> to cpp.Star<SoundfieldSubmix>{
+	@:from
+	public static extern inline function fromValue(v: SoundfieldSubmix): SoundfieldSubmixPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundfieldSubmix {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

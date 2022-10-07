@@ -16,3 +16,22 @@ abstract ConstPhysicalMaterialMaskFactory(PhysicalMaterialMaskFactory) from Phys
 	public extern var PhysicalMaterialMaskClass(get, never): TSubclassOf<PhysicalMaterialMask.ConstPhysicalMaterialMask>;
 	public inline extern function get_PhysicalMaterialMaskClass(): TSubclassOf<PhysicalMaterialMask.ConstPhysicalMaterialMask> return this.PhysicalMaterialMaskClass;
 }
+
+@:forward
+@:nativeGen
+@:native("PhysicalMaterialMaskFactory*")
+abstract PhysicalMaterialMaskFactoryPtr(cpp.Star<PhysicalMaterialMaskFactory>) from cpp.Star<PhysicalMaterialMaskFactory> to cpp.Star<PhysicalMaterialMaskFactory>{
+	@:from
+	public static extern inline function fromValue(v: PhysicalMaterialMaskFactory): PhysicalMaterialMaskFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhysicalMaterialMaskFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

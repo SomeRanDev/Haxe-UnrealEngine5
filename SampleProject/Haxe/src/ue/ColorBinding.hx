@@ -15,3 +15,22 @@ extern class ColorBinding extends PropertyBinding {
 @:nativeGen
 abstract ConstColorBinding(ColorBinding) from ColorBinding {
 }
+
+@:forward
+@:nativeGen
+@:native("ColorBinding*")
+abstract ColorBindingPtr(cpp.Star<ColorBinding>) from cpp.Star<ColorBinding> to cpp.Star<ColorBinding>{
+	@:from
+	public static extern inline function fromValue(v: ColorBinding): ColorBindingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ColorBinding {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

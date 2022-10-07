@@ -25,3 +25,22 @@ abstract ConstWorldPartitionRuntimeSpatialHashCell(WorldPartitionRuntimeSpatialH
 	public extern var UnsavedActorsContainer(get, never): cpp.Star<ActorContainer.ConstActorContainer>;
 	public inline extern function get_UnsavedActorsContainer(): cpp.Star<ActorContainer.ConstActorContainer> return this.UnsavedActorsContainer;
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionRuntimeSpatialHashCell*")
+abstract WorldPartitionRuntimeSpatialHashCellPtr(cpp.Star<WorldPartitionRuntimeSpatialHashCell>) from cpp.Star<WorldPartitionRuntimeSpatialHashCell> to cpp.Star<WorldPartitionRuntimeSpatialHashCell>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionRuntimeSpatialHashCell): WorldPartitionRuntimeSpatialHashCellPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionRuntimeSpatialHashCell {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

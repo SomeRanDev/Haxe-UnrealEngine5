@@ -232,3 +232,22 @@ abstract ConstProjectPackagingSettings(ProjectPackagingSettings) from ProjectPac
 	public extern var PerPlatformBuildTarget(get, never): TMap<FName, FString>;
 	public inline extern function get_PerPlatformBuildTarget(): TMap<FName, FString> return this.PerPlatformBuildTarget;
 }
+
+@:forward
+@:nativeGen
+@:native("ProjectPackagingSettings*")
+abstract ProjectPackagingSettingsPtr(cpp.Star<ProjectPackagingSettings>) from cpp.Star<ProjectPackagingSettings> to cpp.Star<ProjectPackagingSettings>{
+	@:from
+	public static extern inline function fromValue(v: ProjectPackagingSettings): ProjectPackagingSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ProjectPackagingSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

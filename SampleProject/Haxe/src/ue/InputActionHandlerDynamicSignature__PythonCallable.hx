@@ -12,3 +12,22 @@ extern class InputActionHandlerDynamicSignature__PythonCallable extends PythonCa
 @:nativeGen
 abstract ConstInputActionHandlerDynamicSignature__PythonCallable(InputActionHandlerDynamicSignature__PythonCallable) from InputActionHandlerDynamicSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("InputActionHandlerDynamicSignature__PythonCallable*")
+abstract InputActionHandlerDynamicSignature__PythonCallablePtr(cpp.Star<InputActionHandlerDynamicSignature__PythonCallable>) from cpp.Star<InputActionHandlerDynamicSignature__PythonCallable> to cpp.Star<InputActionHandlerDynamicSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: InputActionHandlerDynamicSignature__PythonCallable): InputActionHandlerDynamicSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InputActionHandlerDynamicSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

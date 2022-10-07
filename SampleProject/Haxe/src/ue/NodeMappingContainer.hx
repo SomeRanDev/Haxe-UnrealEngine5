@@ -28,3 +28,22 @@ abstract ConstNodeMappingContainer(NodeMappingContainer) from NodeMappingContain
 	public extern var TargetAsset(get, never): TSoftObjectPtr<Object.ConstObject>;
 	public inline extern function get_TargetAsset(): TSoftObjectPtr<Object.ConstObject> return this.TargetAsset;
 }
+
+@:forward
+@:nativeGen
+@:native("NodeMappingContainer*")
+abstract NodeMappingContainerPtr(cpp.Star<NodeMappingContainer>) from cpp.Star<NodeMappingContainer> to cpp.Star<NodeMappingContainer>{
+	@:from
+	public static extern inline function fromValue(v: NodeMappingContainer): NodeMappingContainerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NodeMappingContainer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

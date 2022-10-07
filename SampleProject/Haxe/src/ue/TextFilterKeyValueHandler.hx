@@ -13,3 +13,22 @@ extern class TextFilterKeyValueHandler extends Object {
 @:nativeGen
 abstract ConstTextFilterKeyValueHandler(TextFilterKeyValueHandler) from TextFilterKeyValueHandler {
 }
+
+@:forward
+@:nativeGen
+@:native("TextFilterKeyValueHandler*")
+abstract TextFilterKeyValueHandlerPtr(cpp.Star<TextFilterKeyValueHandler>) from cpp.Star<TextFilterKeyValueHandler> to cpp.Star<TextFilterKeyValueHandler>{
+	@:from
+	public static extern inline function fromValue(v: TextFilterKeyValueHandler): TextFilterKeyValueHandlerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextFilterKeyValueHandler {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

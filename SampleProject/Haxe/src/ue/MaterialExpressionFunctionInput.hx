@@ -40,3 +40,22 @@ abstract ConstMaterialExpressionFunctionInput(MaterialExpressionFunctionInput) f
 	public extern var bCompilingFunctionPreview(get, never): Bool;
 	public inline extern function get_bCompilingFunctionPreview(): Bool return this.bCompilingFunctionPreview;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionFunctionInput*")
+abstract MaterialExpressionFunctionInputPtr(cpp.Star<MaterialExpressionFunctionInput>) from cpp.Star<MaterialExpressionFunctionInput> to cpp.Star<MaterialExpressionFunctionInput>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionFunctionInput): MaterialExpressionFunctionInputPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionFunctionInput {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

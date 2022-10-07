@@ -13,3 +13,22 @@ extern class BlackboardKeyType_Vector extends BlackboardKeyType {
 @:nativeGen
 abstract ConstBlackboardKeyType_Vector(BlackboardKeyType_Vector) from BlackboardKeyType_Vector {
 }
+
+@:forward
+@:nativeGen
+@:native("BlackboardKeyType_Vector*")
+abstract BlackboardKeyType_VectorPtr(cpp.Star<BlackboardKeyType_Vector>) from cpp.Star<BlackboardKeyType_Vector> to cpp.Star<BlackboardKeyType_Vector>{
+	@:from
+	public static extern inline function fromValue(v: BlackboardKeyType_Vector): BlackboardKeyType_VectorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlackboardKeyType_Vector {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

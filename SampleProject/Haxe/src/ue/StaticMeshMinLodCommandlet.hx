@@ -13,3 +13,22 @@ extern class StaticMeshMinLodCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstStaticMeshMinLodCommandlet(StaticMeshMinLodCommandlet) from StaticMeshMinLodCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("StaticMeshMinLodCommandlet*")
+abstract StaticMeshMinLodCommandletPtr(cpp.Star<StaticMeshMinLodCommandlet>) from cpp.Star<StaticMeshMinLodCommandlet> to cpp.Star<StaticMeshMinLodCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: StaticMeshMinLodCommandlet): StaticMeshMinLodCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): StaticMeshMinLodCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

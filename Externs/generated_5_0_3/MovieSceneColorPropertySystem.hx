@@ -13,3 +13,22 @@ extern class MovieSceneColorPropertySystem extends MovieScenePropertySystem {
 @:nativeGen
 abstract ConstMovieSceneColorPropertySystem(MovieSceneColorPropertySystem) from MovieSceneColorPropertySystem {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneColorPropertySystem*")
+abstract MovieSceneColorPropertySystemPtr(cpp.Star<MovieSceneColorPropertySystem>) from cpp.Star<MovieSceneColorPropertySystem> to cpp.Star<MovieSceneColorPropertySystem>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneColorPropertySystem): MovieSceneColorPropertySystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneColorPropertySystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

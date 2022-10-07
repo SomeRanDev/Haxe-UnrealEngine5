@@ -19,3 +19,22 @@ abstract ConstLandscapeWeightmapUsage(LandscapeWeightmapUsage) from LandscapeWei
 	public extern var LayerGuid(get, never): Guid;
 	public inline extern function get_LayerGuid(): Guid return this.LayerGuid;
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeWeightmapUsage*")
+abstract LandscapeWeightmapUsagePtr(cpp.Star<LandscapeWeightmapUsage>) from cpp.Star<LandscapeWeightmapUsage> to cpp.Star<LandscapeWeightmapUsage>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeWeightmapUsage): LandscapeWeightmapUsagePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeWeightmapUsage {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

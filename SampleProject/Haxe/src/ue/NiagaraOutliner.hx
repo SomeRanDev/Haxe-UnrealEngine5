@@ -22,3 +22,22 @@ abstract ConstNiagaraOutliner(NiagaraOutliner) from NiagaraOutliner {
 	public extern var Data(get, never): NiagaraOutlinerData;
 	public inline extern function get_Data(): NiagaraOutlinerData return this.Data;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraOutliner*")
+abstract NiagaraOutlinerPtr(cpp.Star<NiagaraOutliner>) from cpp.Star<NiagaraOutliner> to cpp.Star<NiagaraOutliner>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraOutliner): NiagaraOutlinerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraOutliner {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

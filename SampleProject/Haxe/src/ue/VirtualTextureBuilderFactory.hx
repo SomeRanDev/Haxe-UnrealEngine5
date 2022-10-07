@@ -13,3 +13,22 @@ extern class VirtualTextureBuilderFactory extends Factory {
 @:nativeGen
 abstract ConstVirtualTextureBuilderFactory(VirtualTextureBuilderFactory) from VirtualTextureBuilderFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("VirtualTextureBuilderFactory*")
+abstract VirtualTextureBuilderFactoryPtr(cpp.Star<VirtualTextureBuilderFactory>) from cpp.Star<VirtualTextureBuilderFactory> to cpp.Star<VirtualTextureBuilderFactory>{
+	@:from
+	public static extern inline function fromValue(v: VirtualTextureBuilderFactory): VirtualTextureBuilderFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VirtualTextureBuilderFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

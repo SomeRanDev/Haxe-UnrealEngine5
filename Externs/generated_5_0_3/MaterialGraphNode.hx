@@ -16,3 +16,22 @@ abstract ConstMaterialGraphNode(MaterialGraphNode) from MaterialGraphNode {
 	public extern var MaterialExpression(get, never): cpp.Star<MaterialExpression.ConstMaterialExpression>;
 	public inline extern function get_MaterialExpression(): cpp.Star<MaterialExpression.ConstMaterialExpression> return this.MaterialExpression;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialGraphNode*")
+abstract MaterialGraphNodePtr(cpp.Star<MaterialGraphNode>) from cpp.Star<MaterialGraphNode> to cpp.Star<MaterialGraphNode>{
+	@:from
+	public static extern inline function fromValue(v: MaterialGraphNode): MaterialGraphNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialGraphNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -22,3 +22,22 @@ abstract ConstChaosGameplayEventDispatcher(ChaosGameplayEventDispatcher) from Ch
 	public extern var RemovalEventRegistrations(get, never): TMap<cpp.Star<PrimitiveComp.ConstPrimitiveComp>, RemovalEventCallbackWrapper>;
 	public inline extern function get_RemovalEventRegistrations(): TMap<cpp.Star<PrimitiveComp.ConstPrimitiveComp>, RemovalEventCallbackWrapper> return this.RemovalEventRegistrations;
 }
+
+@:forward
+@:nativeGen
+@:native("ChaosGameplayEventDispatcher*")
+abstract ChaosGameplayEventDispatcherPtr(cpp.Star<ChaosGameplayEventDispatcher>) from cpp.Star<ChaosGameplayEventDispatcher> to cpp.Star<ChaosGameplayEventDispatcher>{
+	@:from
+	public static extern inline function fromValue(v: ChaosGameplayEventDispatcher): ChaosGameplayEventDispatcherPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ChaosGameplayEventDispatcher {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

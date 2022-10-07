@@ -16,3 +16,22 @@ abstract ConstVREditorBaseUserWidget(VREditorBaseUserWidget) from VREditorBaseUs
 	public extern var Owner(get, never): TWeakObjectPtr<VREditorFloatingUI.ConstVREditorFloatingUI>;
 	public inline extern function get_Owner(): TWeakObjectPtr<VREditorFloatingUI.ConstVREditorFloatingUI> return this.Owner;
 }
+
+@:forward
+@:nativeGen
+@:native("VREditorBaseUserWidget*")
+abstract VREditorBaseUserWidgetPtr(cpp.Star<VREditorBaseUserWidget>) from cpp.Star<VREditorBaseUserWidget> to cpp.Star<VREditorBaseUserWidget>{
+	@:from
+	public static extern inline function fromValue(v: VREditorBaseUserWidget): VREditorBaseUserWidgetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VREditorBaseUserWidget {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -15,3 +15,22 @@ extern class AnimNotifyMirrorInspectionLibrary extends BlueprintFunctionLibrary 
 @:nativeGen
 abstract ConstAnimNotifyMirrorInspectionLibrary(AnimNotifyMirrorInspectionLibrary) from AnimNotifyMirrorInspectionLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimNotifyMirrorInspectionLibrary*")
+abstract AnimNotifyMirrorInspectionLibraryPtr(cpp.Star<AnimNotifyMirrorInspectionLibrary>) from cpp.Star<AnimNotifyMirrorInspectionLibrary> to cpp.Star<AnimNotifyMirrorInspectionLibrary>{
+	@:from
+	public static extern inline function fromValue(v: AnimNotifyMirrorInspectionLibrary): AnimNotifyMirrorInspectionLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimNotifyMirrorInspectionLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

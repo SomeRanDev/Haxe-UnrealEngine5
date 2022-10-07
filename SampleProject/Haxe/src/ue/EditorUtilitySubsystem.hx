@@ -46,3 +46,22 @@ abstract ConstEditorUtilitySubsystem(EditorUtilitySubsystem) from EditorUtilityS
 	public extern var ReferencedObjects(get, never): TSet<cpp.Star<Object.ConstObject>>;
 	public inline extern function get_ReferencedObjects(): TSet<cpp.Star<Object.ConstObject>> return this.ReferencedObjects;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorUtilitySubsystem*")
+abstract EditorUtilitySubsystemPtr(cpp.Star<EditorUtilitySubsystem>) from cpp.Star<EditorUtilitySubsystem> to cpp.Star<EditorUtilitySubsystem>{
+	@:from
+	public static extern inline function fromValue(v: EditorUtilitySubsystem): EditorUtilitySubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorUtilitySubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

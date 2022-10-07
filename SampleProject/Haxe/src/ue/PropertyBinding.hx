@@ -22,3 +22,22 @@ abstract ConstPropertyBinding(PropertyBinding) from PropertyBinding {
 	public extern var DestinationProperty(get, never): FName;
 	public inline extern function get_DestinationProperty(): FName return this.DestinationProperty;
 }
+
+@:forward
+@:nativeGen
+@:native("PropertyBinding*")
+abstract PropertyBindingPtr(cpp.Star<PropertyBinding>) from cpp.Star<PropertyBinding> to cpp.Star<PropertyBinding>{
+	@:from
+	public static extern inline function fromValue(v: PropertyBinding): PropertyBindingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PropertyBinding {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

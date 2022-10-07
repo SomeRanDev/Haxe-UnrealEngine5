@@ -28,3 +28,22 @@ abstract ConstMaterialExpressionScalarParameter(MaterialExpressionScalarParamete
 	public extern var SliderMax(get, never): cpp.Float32;
 	public inline extern function get_SliderMax(): cpp.Float32 return this.SliderMax;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionScalarParameter*")
+abstract MaterialExpressionScalarParameterPtr(cpp.Star<MaterialExpressionScalarParameter>) from cpp.Star<MaterialExpressionScalarParameter> to cpp.Star<MaterialExpressionScalarParameter>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionScalarParameter): MaterialExpressionScalarParameterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionScalarParameter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -73,3 +73,22 @@ abstract ConstNiagaraSettings(NiagaraSettings) from NiagaraSettings {
 	public extern var NDICollisionQuery_AsyncGpuTraceProviderOrder(get, never): TArray<ENDICollisionQuery_AsyncGpuTraceProvider>;
 	public inline extern function get_NDICollisionQuery_AsyncGpuTraceProviderOrder(): TArray<ENDICollisionQuery_AsyncGpuTraceProvider> return this.NDICollisionQuery_AsyncGpuTraceProviderOrder;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraSettings*")
+abstract NiagaraSettingsPtr(cpp.Star<NiagaraSettings>) from cpp.Star<NiagaraSettings> to cpp.Star<NiagaraSettings>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraSettings): NiagaraSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class K2Node_DeadClass extends K2Node {
 @:nativeGen
 abstract ConstK2Node_DeadClass(K2Node_DeadClass) from K2Node_DeadClass {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_DeadClass*")
+abstract K2Node_DeadClassPtr(cpp.Star<K2Node_DeadClass>) from cpp.Star<K2Node_DeadClass> to cpp.Star<K2Node_DeadClass>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_DeadClass): K2Node_DeadClassPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_DeadClass {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

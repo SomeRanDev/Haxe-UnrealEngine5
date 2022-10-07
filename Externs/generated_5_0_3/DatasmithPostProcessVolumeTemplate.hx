@@ -22,3 +22,22 @@ abstract ConstDatasmithPostProcessVolumeTemplate(DatasmithPostProcessVolumeTempl
 	public extern var bUnbound(get, never): Bool;
 	public inline extern function get_bUnbound(): Bool return this.bUnbound;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithPostProcessVolumeTemplate*")
+abstract DatasmithPostProcessVolumeTemplatePtr(cpp.Star<DatasmithPostProcessVolumeTemplate>) from cpp.Star<DatasmithPostProcessVolumeTemplate> to cpp.Star<DatasmithPostProcessVolumeTemplate>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithPostProcessVolumeTemplate): DatasmithPostProcessVolumeTemplatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithPostProcessVolumeTemplate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

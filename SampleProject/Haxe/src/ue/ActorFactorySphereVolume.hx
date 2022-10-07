@@ -13,3 +13,22 @@ extern class ActorFactorySphereVolume extends ActorFactoryVolume {
 @:nativeGen
 abstract ConstActorFactorySphereVolume(ActorFactorySphereVolume) from ActorFactorySphereVolume {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorFactorySphereVolume*")
+abstract ActorFactorySphereVolumePtr(cpp.Star<ActorFactorySphereVolume>) from cpp.Star<ActorFactorySphereVolume> to cpp.Star<ActorFactorySphereVolume>{
+	@:from
+	public static extern inline function fromValue(v: ActorFactorySphereVolume): ActorFactorySphereVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorFactorySphereVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

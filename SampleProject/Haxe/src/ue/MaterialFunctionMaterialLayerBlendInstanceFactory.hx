@@ -13,3 +13,22 @@ extern class MaterialFunctionMaterialLayerBlendInstanceFactory extends MaterialF
 @:nativeGen
 abstract ConstMaterialFunctionMaterialLayerBlendInstanceFactory(MaterialFunctionMaterialLayerBlendInstanceFactory) from MaterialFunctionMaterialLayerBlendInstanceFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialFunctionMaterialLayerBlendInstanceFactory*")
+abstract MaterialFunctionMaterialLayerBlendInstanceFactoryPtr(cpp.Star<MaterialFunctionMaterialLayerBlendInstanceFactory>) from cpp.Star<MaterialFunctionMaterialLayerBlendInstanceFactory> to cpp.Star<MaterialFunctionMaterialLayerBlendInstanceFactory>{
+	@:from
+	public static extern inline function fromValue(v: MaterialFunctionMaterialLayerBlendInstanceFactory): MaterialFunctionMaterialLayerBlendInstanceFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialFunctionMaterialLayerBlendInstanceFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

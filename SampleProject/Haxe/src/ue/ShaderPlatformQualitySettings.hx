@@ -16,3 +16,22 @@ abstract ConstShaderPlatformQualitySettings(ShaderPlatformQualitySettings) from 
 	public extern var QualityOverrides(get, never): MaterialQualityOverrides;
 	public inline extern function get_QualityOverrides(): MaterialQualityOverrides return this.QualityOverrides;
 }
+
+@:forward
+@:nativeGen
+@:native("ShaderPlatformQualitySettings*")
+abstract ShaderPlatformQualitySettingsPtr(cpp.Star<ShaderPlatformQualitySettings>) from cpp.Star<ShaderPlatformQualitySettings> to cpp.Star<ShaderPlatformQualitySettings>{
+	@:from
+	public static extern inline function fromValue(v: ShaderPlatformQualitySettings): ShaderPlatformQualitySettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ShaderPlatformQualitySettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class ViewModeUtils extends Object {
 @:nativeGen
 abstract ConstViewModeUtils(ViewModeUtils) from ViewModeUtils {
 }
+
+@:forward
+@:nativeGen
+@:native("ViewModeUtils*")
+abstract ViewModeUtilsPtr(cpp.Star<ViewModeUtils>) from cpp.Star<ViewModeUtils> to cpp.Star<ViewModeUtils>{
+	@:from
+	public static extern inline function fromValue(v: ViewModeUtils): ViewModeUtilsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ViewModeUtils {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

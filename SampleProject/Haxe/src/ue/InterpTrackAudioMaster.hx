@@ -13,3 +13,22 @@ extern class InterpTrackAudioMaster extends InterpTrackVectorBase {
 @:nativeGen
 abstract ConstInterpTrackAudioMaster(InterpTrackAudioMaster) from InterpTrackAudioMaster {
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackAudioMaster*")
+abstract InterpTrackAudioMasterPtr(cpp.Star<InterpTrackAudioMaster>) from cpp.Star<InterpTrackAudioMaster> to cpp.Star<InterpTrackAudioMaster>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackAudioMaster): InterpTrackAudioMasterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackAudioMaster {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

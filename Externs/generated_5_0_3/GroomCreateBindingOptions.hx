@@ -34,3 +34,22 @@ abstract ConstGroomCreateBindingOptions(GroomCreateBindingOptions) from GroomCre
 	public extern var MatchingSection(get, never): cpp.Int32;
 	public inline extern function get_MatchingSection(): cpp.Int32 return this.MatchingSection;
 }
+
+@:forward
+@:nativeGen
+@:native("GroomCreateBindingOptions*")
+abstract GroomCreateBindingOptionsPtr(cpp.Star<GroomCreateBindingOptions>) from cpp.Star<GroomCreateBindingOptions> to cpp.Star<GroomCreateBindingOptions>{
+	@:from
+	public static extern inline function fromValue(v: GroomCreateBindingOptions): GroomCreateBindingOptionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GroomCreateBindingOptions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

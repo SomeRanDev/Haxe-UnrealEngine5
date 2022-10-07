@@ -26,3 +26,22 @@ abstract ConstWidgetSwitcherSlot(WidgetSwitcherSlot) from WidgetSwitcherSlot {
 	public extern var VerticalAlignment(get, never): EVerticalAlignment;
 	public inline extern function get_VerticalAlignment(): EVerticalAlignment return this.VerticalAlignment;
 }
+
+@:forward
+@:nativeGen
+@:native("WidgetSwitcherSlot*")
+abstract WidgetSwitcherSlotPtr(cpp.Star<WidgetSwitcherSlot>) from cpp.Star<WidgetSwitcherSlot> to cpp.Star<WidgetSwitcherSlot>{
+	@:from
+	public static extern inline function fromValue(v: WidgetSwitcherSlot): WidgetSwitcherSlotPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WidgetSwitcherSlot {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

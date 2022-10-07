@@ -17,3 +17,22 @@ extern class UnrealEditorSubsystem extends EditorSubsystem {
 @:nativeGen
 abstract ConstUnrealEditorSubsystem(UnrealEditorSubsystem) from UnrealEditorSubsystem {
 }
+
+@:forward
+@:nativeGen
+@:native("UnrealEditorSubsystem*")
+abstract UnrealEditorSubsystemPtr(cpp.Star<UnrealEditorSubsystem>) from cpp.Star<UnrealEditorSubsystem> to cpp.Star<UnrealEditorSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: UnrealEditorSubsystem): UnrealEditorSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UnrealEditorSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

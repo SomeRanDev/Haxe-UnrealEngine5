@@ -21,3 +21,22 @@ abstract ConstShowLoginUICallbackProxy(ShowLoginUICallbackProxy) from ShowLoginU
 	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerController.ConstPlayerController>) -> Void>;
 	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerController.ConstPlayerController>) -> Void> return this.OnFailure;
 }
+
+@:forward
+@:nativeGen
+@:native("ShowLoginUICallbackProxy*")
+abstract ShowLoginUICallbackProxyPtr(cpp.Star<ShowLoginUICallbackProxy>) from cpp.Star<ShowLoginUICallbackProxy> to cpp.Star<ShowLoginUICallbackProxy>{
+	@:from
+	public static extern inline function fromValue(v: ShowLoginUICallbackProxy): ShowLoginUICallbackProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ShowLoginUICallbackProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

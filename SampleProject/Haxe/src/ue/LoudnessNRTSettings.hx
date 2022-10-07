@@ -28,3 +28,22 @@ abstract ConstLoudnessNRTSettings(LoudnessNRTSettings) from LoudnessNRTSettings 
 	public extern var NoiseFloorDb(get, never): cpp.Float32;
 	public inline extern function get_NoiseFloorDb(): cpp.Float32 return this.NoiseFloorDb;
 }
+
+@:forward
+@:nativeGen
+@:native("LoudnessNRTSettings*")
+abstract LoudnessNRTSettingsPtr(cpp.Star<LoudnessNRTSettings>) from cpp.Star<LoudnessNRTSettings> to cpp.Star<LoudnessNRTSettings>{
+	@:from
+	public static extern inline function fromValue(v: LoudnessNRTSettings): LoudnessNRTSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LoudnessNRTSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

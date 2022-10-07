@@ -61,3 +61,22 @@ abstract ConstNiagaraNodeFunctionCall(NiagaraNodeFunctionCall) from NiagaraNodeF
 	public extern var BoundPinNames(get, never): TMap<Guid, FName>;
 	public inline extern function get_BoundPinNames(): TMap<Guid, FName> return this.BoundPinNames;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraNodeFunctionCall*")
+abstract NiagaraNodeFunctionCallPtr(cpp.Star<NiagaraNodeFunctionCall>) from cpp.Star<NiagaraNodeFunctionCall> to cpp.Star<NiagaraNodeFunctionCall>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraNodeFunctionCall): NiagaraNodeFunctionCallPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraNodeFunctionCall {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

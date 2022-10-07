@@ -33,3 +33,22 @@ abstract ConstSKEL_CR_Mannequin_BasicFootIK_C(SKEL_CR_Mannequin_BasicFootIK_C) f
 	public extern var ShouldDoIKTrace(get, never): Bool;
 	public inline extern function get_ShouldDoIKTrace(): Bool return this.ShouldDoIKTrace;
 }
+
+@:forward
+@:nativeGen
+@:native("SKEL_CR_Mannequin_BasicFootIK_C*")
+abstract SKEL_CR_Mannequin_BasicFootIK_CPtr(cpp.Star<SKEL_CR_Mannequin_BasicFootIK_C>) from cpp.Star<SKEL_CR_Mannequin_BasicFootIK_C> to cpp.Star<SKEL_CR_Mannequin_BasicFootIK_C>{
+	@:from
+	public static extern inline function fromValue(v: SKEL_CR_Mannequin_BasicFootIK_C): SKEL_CR_Mannequin_BasicFootIK_CPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SKEL_CR_Mannequin_BasicFootIK_C {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

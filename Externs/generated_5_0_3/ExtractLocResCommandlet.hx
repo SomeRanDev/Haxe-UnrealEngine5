@@ -13,3 +13,22 @@ extern class ExtractLocResCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstExtractLocResCommandlet(ExtractLocResCommandlet) from ExtractLocResCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("ExtractLocResCommandlet*")
+abstract ExtractLocResCommandletPtr(cpp.Star<ExtractLocResCommandlet>) from cpp.Star<ExtractLocResCommandlet> to cpp.Star<ExtractLocResCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: ExtractLocResCommandlet): ExtractLocResCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ExtractLocResCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

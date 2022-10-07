@@ -16,3 +16,22 @@ abstract ConstMovieSceneByteSection(MovieSceneByteSection) from MovieSceneByteSe
 	public extern var ByteCurve(get, never): MovieSceneByteChannel;
 	public inline extern function get_ByteCurve(): MovieSceneByteChannel return this.ByteCurve;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneByteSection*")
+abstract MovieSceneByteSectionPtr(cpp.Star<MovieSceneByteSection>) from cpp.Star<MovieSceneByteSection> to cpp.Star<MovieSceneByteSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneByteSection): MovieSceneByteSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneByteSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

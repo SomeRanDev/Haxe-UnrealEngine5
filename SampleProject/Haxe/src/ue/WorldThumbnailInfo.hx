@@ -19,3 +19,22 @@ abstract ConstWorldThumbnailInfo(WorldThumbnailInfo) from WorldThumbnailInfo {
 	public extern var OrthoDirection(get, never): EOrthoThumbnailDirection;
 	public inline extern function get_OrthoDirection(): EOrthoThumbnailDirection return this.OrthoDirection;
 }
+
+@:forward
+@:nativeGen
+@:native("WorldThumbnailInfo*")
+abstract WorldThumbnailInfoPtr(cpp.Star<WorldThumbnailInfo>) from cpp.Star<WorldThumbnailInfo> to cpp.Star<WorldThumbnailInfo>{
+	@:from
+	public static extern inline function fromValue(v: WorldThumbnailInfo): WorldThumbnailInfoPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldThumbnailInfo {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class OnUserClickedBanner__PythonCallable extends PythonCallableForDelega
 @:nativeGen
 abstract ConstOnUserClickedBanner__PythonCallable(OnUserClickedBanner__PythonCallable) from OnUserClickedBanner__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnUserClickedBanner__PythonCallable*")
+abstract OnUserClickedBanner__PythonCallablePtr(cpp.Star<OnUserClickedBanner__PythonCallable>) from cpp.Star<OnUserClickedBanner__PythonCallable> to cpp.Star<OnUserClickedBanner__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnUserClickedBanner__PythonCallable): OnUserClickedBanner__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnUserClickedBanner__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

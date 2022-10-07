@@ -31,3 +31,22 @@ abstract ConstVectorFieldStatic(VectorFieldStatic) from VectorFieldStatic {
 	public extern var AssetImportData(get, never): cpp.Star<AssetImportData.ConstAssetImportData>;
 	public inline extern function get_AssetImportData(): cpp.Star<AssetImportData.ConstAssetImportData> return this.AssetImportData;
 }
+
+@:forward
+@:nativeGen
+@:native("VectorFieldStatic*")
+abstract VectorFieldStaticPtr(cpp.Star<VectorFieldStatic>) from cpp.Star<VectorFieldStatic> to cpp.Star<VectorFieldStatic>{
+	@:from
+	public static extern inline function fromValue(v: VectorFieldStatic): VectorFieldStaticPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VectorFieldStatic {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

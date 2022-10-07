@@ -13,3 +13,22 @@ extern class LandscapeSubsystem extends TickableWorldSubsystem {
 @:nativeGen
 abstract ConstLandscapeSubsystem(LandscapeSubsystem) from LandscapeSubsystem {
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeSubsystem*")
+abstract LandscapeSubsystemPtr(cpp.Star<LandscapeSubsystem>) from cpp.Star<LandscapeSubsystem> to cpp.Star<LandscapeSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeSubsystem): LandscapeSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

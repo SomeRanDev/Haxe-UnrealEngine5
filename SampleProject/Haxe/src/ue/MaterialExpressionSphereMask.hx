@@ -31,3 +31,22 @@ abstract ConstMaterialExpressionSphereMask(MaterialExpressionSphereMask) from Ma
 	public extern var HardnessPercent(get, never): cpp.Float32;
 	public inline extern function get_HardnessPercent(): cpp.Float32 return this.HardnessPercent;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionSphereMask*")
+abstract MaterialExpressionSphereMaskPtr(cpp.Star<MaterialExpressionSphereMask>) from cpp.Star<MaterialExpressionSphereMask> to cpp.Star<MaterialExpressionSphereMask>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionSphereMask): MaterialExpressionSphereMaskPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionSphereMask {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

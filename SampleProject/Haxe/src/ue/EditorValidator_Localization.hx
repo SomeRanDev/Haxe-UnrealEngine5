@@ -13,3 +13,22 @@ extern class EditorValidator_Localization extends EditorValidatorBase {
 @:nativeGen
 abstract ConstEditorValidator_Localization(EditorValidator_Localization) from EditorValidator_Localization {
 }
+
+@:forward
+@:nativeGen
+@:native("EditorValidator_Localization*")
+abstract EditorValidator_LocalizationPtr(cpp.Star<EditorValidator_Localization>) from cpp.Star<EditorValidator_Localization> to cpp.Star<EditorValidator_Localization>{
+	@:from
+	public static extern inline function fromValue(v: EditorValidator_Localization): EditorValidator_LocalizationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorValidator_Localization {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

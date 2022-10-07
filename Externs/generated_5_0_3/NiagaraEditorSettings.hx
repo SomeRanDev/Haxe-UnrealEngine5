@@ -91,3 +91,22 @@ abstract ConstNiagaraEditorSettings(NiagaraEditorSettings) from NiagaraEditorSet
 	public extern var bShowEmitterExecutionOrder(get, never): Bool;
 	public inline extern function get_bShowEmitterExecutionOrder(): Bool return this.bShowEmitterExecutionOrder;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraEditorSettings*")
+abstract NiagaraEditorSettingsPtr(cpp.Star<NiagaraEditorSettings>) from cpp.Star<NiagaraEditorSettings> to cpp.Star<NiagaraEditorSettings>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraEditorSettings): NiagaraEditorSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraEditorSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

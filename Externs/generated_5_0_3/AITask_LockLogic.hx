@@ -13,3 +13,22 @@ extern class AITask_LockLogic extends AITask {
 @:nativeGen
 abstract ConstAITask_LockLogic(AITask_LockLogic) from AITask_LockLogic {
 }
+
+@:forward
+@:nativeGen
+@:native("AITask_LockLogic*")
+abstract AITask_LockLogicPtr(cpp.Star<AITask_LockLogic>) from cpp.Star<AITask_LockLogic> to cpp.Star<AITask_LockLogic>{
+	@:from
+	public static extern inline function fromValue(v: AITask_LockLogic): AITask_LockLogicPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AITask_LockLogic {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

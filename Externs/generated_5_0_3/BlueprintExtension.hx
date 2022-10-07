@@ -13,3 +13,22 @@ extern class BlueprintExtension extends Object {
 @:nativeGen
 abstract ConstBlueprintExtension(BlueprintExtension) from BlueprintExtension {
 }
+
+@:forward
+@:nativeGen
+@:native("BlueprintExtension*")
+abstract BlueprintExtensionPtr(cpp.Star<BlueprintExtension>) from cpp.Star<BlueprintExtension> to cpp.Star<BlueprintExtension>{
+	@:from
+	public static extern inline function fromValue(v: BlueprintExtension): BlueprintExtensionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlueprintExtension {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

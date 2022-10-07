@@ -28,3 +28,22 @@ abstract ConstCurveEditorCopyableCurveKeys(CurveEditorCopyableCurveKeys) from Cu
 	public extern var IntentionName(get, never): FString;
 	public inline extern function get_IntentionName(): FString return this.IntentionName;
 }
+
+@:forward
+@:nativeGen
+@:native("CurveEditorCopyableCurveKeys*")
+abstract CurveEditorCopyableCurveKeysPtr(cpp.Star<CurveEditorCopyableCurveKeys>) from cpp.Star<CurveEditorCopyableCurveKeys> to cpp.Star<CurveEditorCopyableCurveKeys>{
+	@:from
+	public static extern inline function fromValue(v: CurveEditorCopyableCurveKeys): CurveEditorCopyableCurveKeysPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CurveEditorCopyableCurveKeys {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

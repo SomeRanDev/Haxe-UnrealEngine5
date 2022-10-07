@@ -20,3 +20,22 @@ abstract ConstAREnvironmentProbeComp(AREnvironmentProbeComp) from AREnvironmentP
 	public extern var ReplicatedPayload(get, never): AREnvironmentProbeUpdatePayload;
 	public inline extern function get_ReplicatedPayload(): AREnvironmentProbeUpdatePayload return this.ReplicatedPayload;
 }
+
+@:forward
+@:nativeGen
+@:native("AREnvironmentProbeComp*")
+abstract AREnvironmentProbeCompPtr(cpp.Star<AREnvironmentProbeComp>) from cpp.Star<AREnvironmentProbeComp> to cpp.Star<AREnvironmentProbeComp>{
+	@:from
+	public static extern inline function fromValue(v: AREnvironmentProbeComp): AREnvironmentProbeCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AREnvironmentProbeComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

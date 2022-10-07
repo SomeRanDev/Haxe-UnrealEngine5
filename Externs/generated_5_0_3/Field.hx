@@ -12,3 +12,22 @@ extern class Field extends Object {
 @:nativeGen
 abstract ConstField(Field) from Field {
 }
+
+@:forward
+@:nativeGen
+@:native("Field*")
+abstract FieldPtr(cpp.Star<Field>) from cpp.Star<Field> to cpp.Star<Field>{
+	@:from
+	public static extern inline function fromValue(v: Field): FieldPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Field {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

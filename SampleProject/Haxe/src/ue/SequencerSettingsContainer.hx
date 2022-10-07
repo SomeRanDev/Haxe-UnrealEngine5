@@ -13,3 +13,22 @@ extern class SequencerSettingsContainer extends Object {
 @:nativeGen
 abstract ConstSequencerSettingsContainer(SequencerSettingsContainer) from SequencerSettingsContainer {
 }
+
+@:forward
+@:nativeGen
+@:native("SequencerSettingsContainer*")
+abstract SequencerSettingsContainerPtr(cpp.Star<SequencerSettingsContainer>) from cpp.Star<SequencerSettingsContainer> to cpp.Star<SequencerSettingsContainer>{
+	@:from
+	public static extern inline function fromValue(v: SequencerSettingsContainer): SequencerSettingsContainerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SequencerSettingsContainer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

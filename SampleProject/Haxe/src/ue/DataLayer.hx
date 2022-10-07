@@ -68,3 +68,22 @@ abstract ConstDataLayer(DataLayer) from DataLayer {
 	public extern var Children(get, never): TArray<cpp.Star<DataLayer.ConstDataLayer>>;
 	public inline extern function get_Children(): TArray<cpp.Star<DataLayer.ConstDataLayer>> return this.Children;
 }
+
+@:forward
+@:nativeGen
+@:native("DataLayer*")
+abstract DataLayerPtr(cpp.Star<DataLayer>) from cpp.Star<DataLayer> to cpp.Star<DataLayer>{
+	@:from
+	public static extern inline function fromValue(v: DataLayer): DataLayerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DataLayer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

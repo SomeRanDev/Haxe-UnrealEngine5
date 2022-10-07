@@ -19,3 +19,22 @@ abstract ConstGeometryCacheTrackStreamable(GeometryCacheTrackStreamable) from Ge
 	public extern var StartSampleTime(get, never): cpp.Float32;
 	public inline extern function get_StartSampleTime(): cpp.Float32 return this.StartSampleTime;
 }
+
+@:forward
+@:nativeGen
+@:native("GeometryCacheTrackStreamable*")
+abstract GeometryCacheTrackStreamablePtr(cpp.Star<GeometryCacheTrackStreamable>) from cpp.Star<GeometryCacheTrackStreamable> to cpp.Star<GeometryCacheTrackStreamable>{
+	@:from
+	public static extern inline function fromValue(v: GeometryCacheTrackStreamable): GeometryCacheTrackStreamablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GeometryCacheTrackStreamable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class MulticastDelegateProperty extends Property {
 @:nativeGen
 abstract ConstMulticastDelegateProperty(MulticastDelegateProperty) from MulticastDelegateProperty {
 }
+
+@:forward
+@:nativeGen
+@:native("MulticastDelegateProperty*")
+abstract MulticastDelegatePropertyPtr(cpp.Star<MulticastDelegateProperty>) from cpp.Star<MulticastDelegateProperty> to cpp.Star<MulticastDelegateProperty>{
+	@:from
+	public static extern inline function fromValue(v: MulticastDelegateProperty): MulticastDelegatePropertyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MulticastDelegateProperty {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

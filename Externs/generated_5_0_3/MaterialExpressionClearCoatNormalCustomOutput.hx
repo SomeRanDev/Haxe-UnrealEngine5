@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionClearCoatNormalCustomOutput(MaterialExpressionCl
 	public extern var Input(get, never): ExpressionInput;
 	public inline extern function get_Input(): ExpressionInput return this.Input;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionClearCoatNormalCustomOutput*")
+abstract MaterialExpressionClearCoatNormalCustomOutputPtr(cpp.Star<MaterialExpressionClearCoatNormalCustomOutput>) from cpp.Star<MaterialExpressionClearCoatNormalCustomOutput> to cpp.Star<MaterialExpressionClearCoatNormalCustomOutput>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionClearCoatNormalCustomOutput): MaterialExpressionClearCoatNormalCustomOutputPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionClearCoatNormalCustomOutput {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

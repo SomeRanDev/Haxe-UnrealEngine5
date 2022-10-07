@@ -13,3 +13,22 @@ extern class SlateWidgetStyleContainerBase extends Object {
 @:nativeGen
 abstract ConstSlateWidgetStyleContainerBase(SlateWidgetStyleContainerBase) from SlateWidgetStyleContainerBase {
 }
+
+@:forward
+@:nativeGen
+@:native("SlateWidgetStyleContainerBase*")
+abstract SlateWidgetStyleContainerBasePtr(cpp.Star<SlateWidgetStyleContainerBase>) from cpp.Star<SlateWidgetStyleContainerBase> to cpp.Star<SlateWidgetStyleContainerBase>{
+	@:from
+	public static extern inline function fromValue(v: SlateWidgetStyleContainerBase): SlateWidgetStyleContainerBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SlateWidgetStyleContainerBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

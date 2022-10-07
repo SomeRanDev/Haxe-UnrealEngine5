@@ -16,3 +16,22 @@ abstract ConstAudioCodecEncoderSettings(AudioCodecEncoderSettings) from AudioCod
 	public extern var Version(get, never): cpp.Int32;
 	public inline extern function get_Version(): cpp.Int32 return this.Version;
 }
+
+@:forward
+@:nativeGen
+@:native("AudioCodecEncoderSettings*")
+abstract AudioCodecEncoderSettingsPtr(cpp.Star<AudioCodecEncoderSettings>) from cpp.Star<AudioCodecEncoderSettings> to cpp.Star<AudioCodecEncoderSettings>{
+	@:from
+	public static extern inline function fromValue(v: AudioCodecEncoderSettings): AudioCodecEncoderSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AudioCodecEncoderSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -49,3 +49,22 @@ abstract ConstNiagaraGeometryCacheRendererProperties(NiagaraGeometryCacheRendere
 	public extern var bAssignComponentsOnParticleID(get, never): Bool;
 	public inline extern function get_bAssignComponentsOnParticleID(): Bool return this.bAssignComponentsOnParticleID;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraGeometryCacheRendererProperties*")
+abstract NiagaraGeometryCacheRendererPropertiesPtr(cpp.Star<NiagaraGeometryCacheRendererProperties>) from cpp.Star<NiagaraGeometryCacheRendererProperties> to cpp.Star<NiagaraGeometryCacheRendererProperties>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraGeometryCacheRendererProperties): NiagaraGeometryCacheRendererPropertiesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraGeometryCacheRendererProperties {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

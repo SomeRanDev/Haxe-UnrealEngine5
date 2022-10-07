@@ -16,3 +16,22 @@ abstract ConstMovieSceneEvaluationHookSystem(MovieSceneEvaluationHookSystem) fro
 	public extern var PendingEventsByRootInstance(get, never): TMap<MovieSceneEvaluationInstanceKey, MovieSceneEvaluationHookEventContainer>;
 	public inline extern function get_PendingEventsByRootInstance(): TMap<MovieSceneEvaluationInstanceKey, MovieSceneEvaluationHookEventContainer> return this.PendingEventsByRootInstance;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneEvaluationHookSystem*")
+abstract MovieSceneEvaluationHookSystemPtr(cpp.Star<MovieSceneEvaluationHookSystem>) from cpp.Star<MovieSceneEvaluationHookSystem> to cpp.Star<MovieSceneEvaluationHookSystem>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneEvaluationHookSystem): MovieSceneEvaluationHookSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneEvaluationHookSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

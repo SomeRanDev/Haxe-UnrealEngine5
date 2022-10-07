@@ -19,3 +19,22 @@ abstract ConstAnimCurveCompressionCodec_UniformlySampled(AnimCurveCompressionCod
 	public extern var SampleRate(get, never): cpp.Float32;
 	public inline extern function get_SampleRate(): cpp.Float32 return this.SampleRate;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimCurveCompressionCodec_UniformlySampled*")
+abstract AnimCurveCompressionCodec_UniformlySampledPtr(cpp.Star<AnimCurveCompressionCodec_UniformlySampled>) from cpp.Star<AnimCurveCompressionCodec_UniformlySampled> to cpp.Star<AnimCurveCompressionCodec_UniformlySampled>{
+	@:from
+	public static extern inline function fromValue(v: AnimCurveCompressionCodec_UniformlySampled): AnimCurveCompressionCodec_UniformlySampledPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimCurveCompressionCodec_UniformlySampled {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

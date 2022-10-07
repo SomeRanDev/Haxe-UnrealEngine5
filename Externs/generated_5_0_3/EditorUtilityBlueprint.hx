@@ -13,3 +13,22 @@ extern class EditorUtilityBlueprint extends Blueprint {
 @:nativeGen
 abstract ConstEditorUtilityBlueprint(EditorUtilityBlueprint) from EditorUtilityBlueprint {
 }
+
+@:forward
+@:nativeGen
+@:native("EditorUtilityBlueprint*")
+abstract EditorUtilityBlueprintPtr(cpp.Star<EditorUtilityBlueprint>) from cpp.Star<EditorUtilityBlueprint> to cpp.Star<EditorUtilityBlueprint>{
+	@:from
+	public static extern inline function fromValue(v: EditorUtilityBlueprint): EditorUtilityBlueprintPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorUtilityBlueprint {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

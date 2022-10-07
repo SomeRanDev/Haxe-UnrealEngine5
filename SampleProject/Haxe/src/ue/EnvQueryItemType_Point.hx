@@ -13,3 +13,22 @@ extern class EnvQueryItemType_Point extends EnvQueryItemType_VectorBase {
 @:nativeGen
 abstract ConstEnvQueryItemType_Point(EnvQueryItemType_Point) from EnvQueryItemType_Point {
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryItemType_Point*")
+abstract EnvQueryItemType_PointPtr(cpp.Star<EnvQueryItemType_Point>) from cpp.Star<EnvQueryItemType_Point> to cpp.Star<EnvQueryItemType_Point>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryItemType_Point): EnvQueryItemType_PointPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryItemType_Point {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

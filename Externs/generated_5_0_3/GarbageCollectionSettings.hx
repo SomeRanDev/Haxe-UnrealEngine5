@@ -70,3 +70,22 @@ abstract ConstGarbageCollectionSettings(GarbageCollectionSettings) from GarbageC
 	public extern var MaxObjectsInEditor(get, never): cpp.Int32;
 	public inline extern function get_MaxObjectsInEditor(): cpp.Int32 return this.MaxObjectsInEditor;
 }
+
+@:forward
+@:nativeGen
+@:native("GarbageCollectionSettings*")
+abstract GarbageCollectionSettingsPtr(cpp.Star<GarbageCollectionSettings>) from cpp.Star<GarbageCollectionSettings> to cpp.Star<GarbageCollectionSettings>{
+	@:from
+	public static extern inline function fromValue(v: GarbageCollectionSettings): GarbageCollectionSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GarbageCollectionSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

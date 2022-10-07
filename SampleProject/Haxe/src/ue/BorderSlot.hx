@@ -26,3 +26,22 @@ abstract ConstBorderSlot(BorderSlot) from BorderSlot {
 	public extern var VerticalAlignment(get, never): EVerticalAlignment;
 	public inline extern function get_VerticalAlignment(): EVerticalAlignment return this.VerticalAlignment;
 }
+
+@:forward
+@:nativeGen
+@:native("BorderSlot*")
+abstract BorderSlotPtr(cpp.Star<BorderSlot>) from cpp.Star<BorderSlot> to cpp.Star<BorderSlot>{
+	@:from
+	public static extern inline function fromValue(v: BorderSlot): BorderSlotPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BorderSlot {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

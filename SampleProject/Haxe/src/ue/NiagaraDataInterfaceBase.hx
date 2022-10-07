@@ -13,3 +13,22 @@ extern class NiagaraDataInterfaceBase extends NiagaraMergeable {
 @:nativeGen
 abstract ConstNiagaraDataInterfaceBase(NiagaraDataInterfaceBase) from NiagaraDataInterfaceBase {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceBase*")
+abstract NiagaraDataInterfaceBasePtr(cpp.Star<NiagaraDataInterfaceBase>) from cpp.Star<NiagaraDataInterfaceBase> to cpp.Star<NiagaraDataInterfaceBase>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceBase): NiagaraDataInterfaceBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstInterpCurveEdSetup(InterpCurveEdSetup) from InterpCurveEdSetup {
 	public extern var ActiveTab(get, never): cpp.Int32;
 	public inline extern function get_ActiveTab(): cpp.Int32 return this.ActiveTab;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpCurveEdSetup*")
+abstract InterpCurveEdSetupPtr(cpp.Star<InterpCurveEdSetup>) from cpp.Star<InterpCurveEdSetup> to cpp.Star<InterpCurveEdSetup>{
+	@:from
+	public static extern inline function fromValue(v: InterpCurveEdSetup): InterpCurveEdSetupPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpCurveEdSetup {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

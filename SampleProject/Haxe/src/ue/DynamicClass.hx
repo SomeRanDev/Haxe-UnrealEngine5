@@ -12,3 +12,22 @@ extern class DynamicClass extends Class {
 @:nativeGen
 abstract ConstDynamicClass(DynamicClass) from DynamicClass {
 }
+
+@:forward
+@:nativeGen
+@:native("DynamicClass*")
+abstract DynamicClassPtr(cpp.Star<DynamicClass>) from cpp.Star<DynamicClass> to cpp.Star<DynamicClass>{
+	@:from
+	public static extern inline function fromValue(v: DynamicClass): DynamicClassPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DynamicClass {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstSelection(Selection) from Selection {
 	public extern var ElementSelectionSet(get, never): cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet>;
 	public inline extern function get_ElementSelectionSet(): cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet> return this.ElementSelectionSet;
 }
+
+@:forward
+@:nativeGen
+@:native("Selection*")
+abstract SelectionPtr(cpp.Star<Selection>) from cpp.Star<Selection> to cpp.Star<Selection>{
+	@:from
+	public static extern inline function fromValue(v: Selection): SelectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Selection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

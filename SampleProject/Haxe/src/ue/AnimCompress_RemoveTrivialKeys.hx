@@ -22,3 +22,22 @@ abstract ConstAnimCompress_RemoveTrivialKeys(AnimCompress_RemoveTrivialKeys) fro
 	public extern var MaxScaleDiff(get, never): cpp.Float32;
 	public inline extern function get_MaxScaleDiff(): cpp.Float32 return this.MaxScaleDiff;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimCompress_RemoveTrivialKeys*")
+abstract AnimCompress_RemoveTrivialKeysPtr(cpp.Star<AnimCompress_RemoveTrivialKeys>) from cpp.Star<AnimCompress_RemoveTrivialKeys> to cpp.Star<AnimCompress_RemoveTrivialKeys>{
+	@:from
+	public static extern inline function fromValue(v: AnimCompress_RemoveTrivialKeys): AnimCompress_RemoveTrivialKeysPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimCompress_RemoveTrivialKeys {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

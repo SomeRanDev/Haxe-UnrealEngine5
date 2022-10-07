@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionMapARPassthroughCameraUV(MaterialExpressionMapAR
 	public extern var Coordinates(get, never): ExpressionInput;
 	public inline extern function get_Coordinates(): ExpressionInput return this.Coordinates;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionMapARPassthroughCameraUV*")
+abstract MaterialExpressionMapARPassthroughCameraUVPtr(cpp.Star<MaterialExpressionMapARPassthroughCameraUV>) from cpp.Star<MaterialExpressionMapARPassthroughCameraUV> to cpp.Star<MaterialExpressionMapARPassthroughCameraUV>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionMapARPassthroughCameraUV): MaterialExpressionMapARPassthroughCameraUVPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionMapARPassthroughCameraUV {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

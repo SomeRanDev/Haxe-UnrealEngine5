@@ -13,3 +13,22 @@ extern class CompileAllBlueprintsCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstCompileAllBlueprintsCommandlet(CompileAllBlueprintsCommandlet) from CompileAllBlueprintsCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("CompileAllBlueprintsCommandlet*")
+abstract CompileAllBlueprintsCommandletPtr(cpp.Star<CompileAllBlueprintsCommandlet>) from cpp.Star<CompileAllBlueprintsCommandlet> to cpp.Star<CompileAllBlueprintsCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: CompileAllBlueprintsCommandlet): CompileAllBlueprintsCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CompileAllBlueprintsCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

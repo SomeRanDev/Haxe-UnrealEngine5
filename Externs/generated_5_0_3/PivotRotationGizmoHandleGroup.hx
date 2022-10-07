@@ -31,3 +31,22 @@ abstract ConstPivotRotationGizmoHandleGroup(PivotRotationGizmoHandleGroup) from 
 	public extern var RootDeltaRotationIndicatorComponent(get, never): cpp.Star<SceneComp.ConstSceneComp>;
 	public inline extern function get_RootDeltaRotationIndicatorComponent(): cpp.Star<SceneComp.ConstSceneComp> return this.RootDeltaRotationIndicatorComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("PivotRotationGizmoHandleGroup*")
+abstract PivotRotationGizmoHandleGroupPtr(cpp.Star<PivotRotationGizmoHandleGroup>) from cpp.Star<PivotRotationGizmoHandleGroup> to cpp.Star<PivotRotationGizmoHandleGroup>{
+	@:from
+	public static extern inline function fromValue(v: PivotRotationGizmoHandleGroup): PivotRotationGizmoHandleGroupPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PivotRotationGizmoHandleGroup {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

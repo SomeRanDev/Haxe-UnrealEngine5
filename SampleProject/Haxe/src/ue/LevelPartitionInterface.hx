@@ -12,3 +12,22 @@ extern class LevelPartitionInterface extends Interface {
 @:nativeGen
 abstract ConstLevelPartitionInterface(LevelPartitionInterface) from LevelPartitionInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("LevelPartitionInterface*")
+abstract LevelPartitionInterfacePtr(cpp.Star<LevelPartitionInterface>) from cpp.Star<LevelPartitionInterface> to cpp.Star<LevelPartitionInterface>{
+	@:from
+	public static extern inline function fromValue(v: LevelPartitionInterface): LevelPartitionInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelPartitionInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -76,3 +76,22 @@ abstract ConstEdGraphNode(EdGraphNode) from EdGraphNode {
 	public extern var NodeGuid(get, never): Guid;
 	public inline extern function get_NodeGuid(): Guid return this.NodeGuid;
 }
+
+@:forward
+@:nativeGen
+@:native("EdGraphNode*")
+abstract EdGraphNodePtr(cpp.Star<EdGraphNode>) from cpp.Star<EdGraphNode> to cpp.Star<EdGraphNode>{
+	@:from
+	public static extern inline function fromValue(v: EdGraphNode): EdGraphNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EdGraphNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

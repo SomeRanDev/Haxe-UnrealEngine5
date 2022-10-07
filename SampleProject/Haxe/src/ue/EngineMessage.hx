@@ -37,3 +37,22 @@ abstract ConstEngineMessage(EngineMessage) from EngineMessage {
 	public extern var NewSpecMessage(get, never): FString;
 	public inline extern function get_NewSpecMessage(): FString return this.NewSpecMessage;
 }
+
+@:forward
+@:nativeGen
+@:native("EngineMessage*")
+abstract EngineMessagePtr(cpp.Star<EngineMessage>) from cpp.Star<EngineMessage> to cpp.Star<EngineMessage>{
+	@:from
+	public static extern inline function fromValue(v: EngineMessage): EngineMessagePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EngineMessage {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

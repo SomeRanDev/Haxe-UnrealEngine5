@@ -19,3 +19,22 @@ abstract ConstNiagaraStackEmitterSummaryItem(NiagaraStackEmitterSummaryItem) fro
 	public extern var SummaryEditorData(get, never): cpp.Star<NiagaraStackObject.ConstNiagaraStackObject>;
 	public inline extern function get_SummaryEditorData(): cpp.Star<NiagaraStackObject.ConstNiagaraStackObject> return this.SummaryEditorData;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackEmitterSummaryItem*")
+abstract NiagaraStackEmitterSummaryItemPtr(cpp.Star<NiagaraStackEmitterSummaryItem>) from cpp.Star<NiagaraStackEmitterSummaryItem> to cpp.Star<NiagaraStackEmitterSummaryItem>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackEmitterSummaryItem): NiagaraStackEmitterSummaryItemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackEmitterSummaryItem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

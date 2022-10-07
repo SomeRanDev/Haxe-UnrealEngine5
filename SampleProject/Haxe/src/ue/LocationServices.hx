@@ -20,3 +20,22 @@ extern class LocationServices extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstLocationServices(LocationServices) from LocationServices {
 }
+
+@:forward
+@:nativeGen
+@:native("LocationServices*")
+abstract LocationServicesPtr(cpp.Star<LocationServices>) from cpp.Star<LocationServices> to cpp.Star<LocationServices>{
+	@:from
+	public static extern inline function fromValue(v: LocationServices): LocationServicesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LocationServices {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

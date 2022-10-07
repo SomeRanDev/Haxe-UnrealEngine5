@@ -13,3 +13,22 @@ extern class DialogueSoundWaveProxy extends SoundBase {
 @:nativeGen
 abstract ConstDialogueSoundWaveProxy(DialogueSoundWaveProxy) from DialogueSoundWaveProxy {
 }
+
+@:forward
+@:nativeGen
+@:native("DialogueSoundWaveProxy*")
+abstract DialogueSoundWaveProxyPtr(cpp.Star<DialogueSoundWaveProxy>) from cpp.Star<DialogueSoundWaveProxy> to cpp.Star<DialogueSoundWaveProxy>{
+	@:from
+	public static extern inline function fromValue(v: DialogueSoundWaveProxy): DialogueSoundWaveProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DialogueSoundWaveProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

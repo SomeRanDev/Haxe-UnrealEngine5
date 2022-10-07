@@ -13,3 +13,22 @@ extern class StereoLayerShapeCubemap extends StereoLayerShape {
 @:nativeGen
 abstract ConstStereoLayerShapeCubemap(StereoLayerShapeCubemap) from StereoLayerShapeCubemap {
 }
+
+@:forward
+@:nativeGen
+@:native("StereoLayerShapeCubemap*")
+abstract StereoLayerShapeCubemapPtr(cpp.Star<StereoLayerShapeCubemap>) from cpp.Star<StereoLayerShapeCubemap> to cpp.Star<StereoLayerShapeCubemap>{
+	@:from
+	public static extern inline function fromValue(v: StereoLayerShapeCubemap): StereoLayerShapeCubemapPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): StereoLayerShapeCubemap {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

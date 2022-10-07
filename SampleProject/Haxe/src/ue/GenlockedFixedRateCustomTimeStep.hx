@@ -16,3 +16,22 @@ abstract ConstGenlockedFixedRateCustomTimeStep(GenlockedFixedRateCustomTimeStep)
 	public extern var FrameRate(get, never): FrameRate;
 	public inline extern function get_FrameRate(): FrameRate return this.FrameRate;
 }
+
+@:forward
+@:nativeGen
+@:native("GenlockedFixedRateCustomTimeStep*")
+abstract GenlockedFixedRateCustomTimeStepPtr(cpp.Star<GenlockedFixedRateCustomTimeStep>) from cpp.Star<GenlockedFixedRateCustomTimeStep> to cpp.Star<GenlockedFixedRateCustomTimeStep>{
+	@:from
+	public static extern inline function fromValue(v: GenlockedFixedRateCustomTimeStep): GenlockedFixedRateCustomTimeStepPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GenlockedFixedRateCustomTimeStep {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

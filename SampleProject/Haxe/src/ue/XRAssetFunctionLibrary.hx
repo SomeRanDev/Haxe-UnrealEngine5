@@ -15,3 +15,22 @@ extern class XRAssetFunctionLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstXRAssetFunctionLibrary(XRAssetFunctionLibrary) from XRAssetFunctionLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("XRAssetFunctionLibrary*")
+abstract XRAssetFunctionLibraryPtr(cpp.Star<XRAssetFunctionLibrary>) from cpp.Star<XRAssetFunctionLibrary> to cpp.Star<XRAssetFunctionLibrary>{
+	@:from
+	public static extern inline function fromValue(v: XRAssetFunctionLibrary): XRAssetFunctionLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): XRAssetFunctionLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

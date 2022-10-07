@@ -12,3 +12,22 @@ extern class AssetBackedTarget extends Interface {
 @:nativeGen
 abstract ConstAssetBackedTarget(AssetBackedTarget) from AssetBackedTarget {
 }
+
+@:forward
+@:nativeGen
+@:native("AssetBackedTarget*")
+abstract AssetBackedTargetPtr(cpp.Star<AssetBackedTarget>) from cpp.Star<AssetBackedTarget> to cpp.Star<AssetBackedTarget>{
+	@:from
+	public static extern inline function fromValue(v: AssetBackedTarget): AssetBackedTargetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AssetBackedTarget {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

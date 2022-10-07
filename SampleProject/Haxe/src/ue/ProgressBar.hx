@@ -56,3 +56,22 @@ abstract ConstProgressBar(ProgressBar) from ProgressBar {
 	public extern var FillColorAndOpacityDelegate(get, never): HaxeDelegateProperty<() -> Void>;
 	public inline extern function get_FillColorAndOpacityDelegate(): HaxeDelegateProperty<() -> Void> return this.FillColorAndOpacityDelegate;
 }
+
+@:forward
+@:nativeGen
+@:native("ProgressBar*")
+abstract ProgressBarPtr(cpp.Star<ProgressBar>) from cpp.Star<ProgressBar> to cpp.Star<ProgressBar>{
+	@:from
+	public static extern inline function fromValue(v: ProgressBar): ProgressBarPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ProgressBar {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

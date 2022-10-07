@@ -16,3 +16,22 @@ abstract ConstNiagaraCullProxyComp(NiagaraCullProxyComp) from NiagaraCullProxyCo
 	public extern var Instances(get, never): TArray<NiagaraCulledComponentInfo>;
 	public inline extern function get_Instances(): TArray<NiagaraCulledComponentInfo> return this.Instances;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraCullProxyComp*")
+abstract NiagaraCullProxyCompPtr(cpp.Star<NiagaraCullProxyComp>) from cpp.Star<NiagaraCullProxyComp> to cpp.Star<NiagaraCullProxyComp>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraCullProxyComp): NiagaraCullProxyCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraCullProxyComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

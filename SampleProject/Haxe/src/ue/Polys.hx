@@ -13,3 +13,22 @@ extern class Polys extends Object {
 @:nativeGen
 abstract ConstPolys(Polys) from Polys {
 }
+
+@:forward
+@:nativeGen
+@:native("Polys*")
+abstract PolysPtr(cpp.Star<Polys>) from cpp.Star<Polys> to cpp.Star<Polys>{
+	@:from
+	public static extern inline function fromValue(v: Polys): PolysPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Polys {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

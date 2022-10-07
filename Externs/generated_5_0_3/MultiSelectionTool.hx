@@ -16,3 +16,22 @@ abstract ConstMultiSelectionTool(MultiSelectionTool) from MultiSelectionTool {
 	public extern var Targets(get, never): TArray<cpp.Star<ToolTarget.ConstToolTarget>>;
 	public inline extern function get_Targets(): TArray<cpp.Star<ToolTarget.ConstToolTarget>> return this.Targets;
 }
+
+@:forward
+@:nativeGen
+@:native("MultiSelectionTool*")
+abstract MultiSelectionToolPtr(cpp.Star<MultiSelectionTool>) from cpp.Star<MultiSelectionTool> to cpp.Star<MultiSelectionTool>{
+	@:from
+	public static extern inline function fromValue(v: MultiSelectionTool): MultiSelectionToolPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MultiSelectionTool {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -32,3 +32,22 @@ abstract ConstPlatformInterfaceWebResponse(PlatformInterfaceWebResponse) from Pl
 	public extern var BinaryResponse(get, never): TArray<cpp.UInt8>;
 	public inline extern function get_BinaryResponse(): TArray<cpp.UInt8> return this.BinaryResponse;
 }
+
+@:forward
+@:nativeGen
+@:native("PlatformInterfaceWebResponse*")
+abstract PlatformInterfaceWebResponsePtr(cpp.Star<PlatformInterfaceWebResponse>) from cpp.Star<PlatformInterfaceWebResponse> to cpp.Star<PlatformInterfaceWebResponse>{
+	@:from
+	public static extern inline function fromValue(v: PlatformInterfaceWebResponse): PlatformInterfaceWebResponsePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PlatformInterfaceWebResponse {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

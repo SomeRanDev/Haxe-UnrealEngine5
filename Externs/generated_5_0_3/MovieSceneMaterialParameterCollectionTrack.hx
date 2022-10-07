@@ -16,3 +16,22 @@ abstract ConstMovieSceneMaterialParameterCollectionTrack(MovieSceneMaterialParam
 	public extern var MPC(get, never): cpp.Star<MaterialParameterCollection.ConstMaterialParameterCollection>;
 	public inline extern function get_MPC(): cpp.Star<MaterialParameterCollection.ConstMaterialParameterCollection> return this.MPC;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneMaterialParameterCollectionTrack*")
+abstract MovieSceneMaterialParameterCollectionTrackPtr(cpp.Star<MovieSceneMaterialParameterCollectionTrack>) from cpp.Star<MovieSceneMaterialParameterCollectionTrack> to cpp.Star<MovieSceneMaterialParameterCollectionTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneMaterialParameterCollectionTrack): MovieSceneMaterialParameterCollectionTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneMaterialParameterCollectionTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

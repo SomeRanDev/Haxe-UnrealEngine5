@@ -13,3 +13,22 @@ extern class SpatializationPluginSourceSettingsBase extends Object {
 @:nativeGen
 abstract ConstSpatializationPluginSourceSettingsBase(SpatializationPluginSourceSettingsBase) from SpatializationPluginSourceSettingsBase {
 }
+
+@:forward
+@:nativeGen
+@:native("SpatializationPluginSourceSettingsBase*")
+abstract SpatializationPluginSourceSettingsBasePtr(cpp.Star<SpatializationPluginSourceSettingsBase>) from cpp.Star<SpatializationPluginSourceSettingsBase> to cpp.Star<SpatializationPluginSourceSettingsBase>{
+	@:from
+	public static extern inline function fromValue(v: SpatializationPluginSourceSettingsBase): SpatializationPluginSourceSettingsBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SpatializationPluginSourceSettingsBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

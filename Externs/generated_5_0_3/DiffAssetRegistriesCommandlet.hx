@@ -34,3 +34,22 @@ abstract ConstDiffAssetRegistriesCommandlet(DiffAssetRegistriesCommandlet) from 
 	public extern var RegexBranchCL(get, never): FString;
 	public inline extern function get_RegexBranchCL(): FString return this.RegexBranchCL;
 }
+
+@:forward
+@:nativeGen
+@:native("DiffAssetRegistriesCommandlet*")
+abstract DiffAssetRegistriesCommandletPtr(cpp.Star<DiffAssetRegistriesCommandlet>) from cpp.Star<DiffAssetRegistriesCommandlet> to cpp.Star<DiffAssetRegistriesCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: DiffAssetRegistriesCommandlet): DiffAssetRegistriesCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DiffAssetRegistriesCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

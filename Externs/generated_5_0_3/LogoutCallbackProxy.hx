@@ -21,3 +21,22 @@ abstract ConstLogoutCallbackProxy(LogoutCallbackProxy) from LogoutCallbackProxy 
 	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerController.ConstPlayerController>) -> Void>;
 	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerController.ConstPlayerController>) -> Void> return this.OnFailure;
 }
+
+@:forward
+@:nativeGen
+@:native("LogoutCallbackProxy*")
+abstract LogoutCallbackProxyPtr(cpp.Star<LogoutCallbackProxy>) from cpp.Star<LogoutCallbackProxy> to cpp.Star<LogoutCallbackProxy>{
+	@:from
+	public static extern inline function fromValue(v: LogoutCallbackProxy): LogoutCallbackProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LogoutCallbackProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

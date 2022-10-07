@@ -19,3 +19,22 @@ abstract ConstVREditorFloatingCameraUI(VREditorFloatingCameraUI) from VREditorFl
 	public extern var LinkedActor(get, never): TWeakObjectPtr<Actor.ConstActor>;
 	public inline extern function get_LinkedActor(): TWeakObjectPtr<Actor.ConstActor> return this.LinkedActor;
 }
+
+@:forward
+@:nativeGen
+@:native("VREditorFloatingCameraUI*")
+abstract VREditorFloatingCameraUIPtr(cpp.Star<VREditorFloatingCameraUI>) from cpp.Star<VREditorFloatingCameraUI> to cpp.Star<VREditorFloatingCameraUI>{
+	@:from
+	public static extern inline function fromValue(v: VREditorFloatingCameraUI): VREditorFloatingCameraUIPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VREditorFloatingCameraUI {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

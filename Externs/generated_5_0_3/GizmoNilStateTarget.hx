@@ -13,3 +13,22 @@ extern class GizmoNilStateTarget extends Object {
 @:nativeGen
 abstract ConstGizmoNilStateTarget(GizmoNilStateTarget) from GizmoNilStateTarget {
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoNilStateTarget*")
+abstract GizmoNilStateTargetPtr(cpp.Star<GizmoNilStateTarget>) from cpp.Star<GizmoNilStateTarget> to cpp.Star<GizmoNilStateTarget>{
+	@:from
+	public static extern inline function fromValue(v: GizmoNilStateTarget): GizmoNilStateTargetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoNilStateTarget {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

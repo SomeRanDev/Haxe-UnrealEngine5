@@ -37,3 +37,22 @@ abstract ConstMaterialExpressionIf(MaterialExpressionIf) from MaterialExpression
 	public extern var ConstAEqualsB_DEPRECATED(get, never): cpp.Float32;
 	public inline extern function get_ConstAEqualsB_DEPRECATED(): cpp.Float32 return this.ConstAEqualsB_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionIf*")
+abstract MaterialExpressionIfPtr(cpp.Star<MaterialExpressionIf>) from cpp.Star<MaterialExpressionIf> to cpp.Star<MaterialExpressionIf>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionIf): MaterialExpressionIfPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionIf {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

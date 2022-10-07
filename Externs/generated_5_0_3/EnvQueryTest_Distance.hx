@@ -19,3 +19,22 @@ abstract ConstEnvQueryTest_Distance(EnvQueryTest_Distance) from EnvQueryTest_Dis
 	public extern var DistanceTo(get, never): TSubclassOf<EnvQueryContext.ConstEnvQueryContext>;
 	public inline extern function get_DistanceTo(): TSubclassOf<EnvQueryContext.ConstEnvQueryContext> return this.DistanceTo;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryTest_Distance*")
+abstract EnvQueryTest_DistancePtr(cpp.Star<EnvQueryTest_Distance>) from cpp.Star<EnvQueryTest_Distance> to cpp.Star<EnvQueryTest_Distance>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryTest_Distance): EnvQueryTest_DistancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryTest_Distance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

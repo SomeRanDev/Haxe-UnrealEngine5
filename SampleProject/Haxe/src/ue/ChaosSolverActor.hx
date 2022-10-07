@@ -76,3 +76,22 @@ abstract ConstChaosSolverActor(ChaosSolverActor) from ChaosSolverActor {
 	public extern var GameplayEventDispatcherComponent(get, never): cpp.Star<ChaosGameplayEventDispatcher.ConstChaosGameplayEventDispatcher>;
 	public inline extern function get_GameplayEventDispatcherComponent(): cpp.Star<ChaosGameplayEventDispatcher.ConstChaosGameplayEventDispatcher> return this.GameplayEventDispatcherComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("ChaosSolverActor*")
+abstract ChaosSolverActorPtr(cpp.Star<ChaosSolverActor>) from cpp.Star<ChaosSolverActor> to cpp.Star<ChaosSolverActor>{
+	@:from
+	public static extern inline function fromValue(v: ChaosSolverActor): ChaosSolverActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ChaosSolverActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

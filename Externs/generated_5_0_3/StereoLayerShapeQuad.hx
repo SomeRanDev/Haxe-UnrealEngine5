@@ -13,3 +13,22 @@ extern class StereoLayerShapeQuad extends StereoLayerShape {
 @:nativeGen
 abstract ConstStereoLayerShapeQuad(StereoLayerShapeQuad) from StereoLayerShapeQuad {
 }
+
+@:forward
+@:nativeGen
+@:native("StereoLayerShapeQuad*")
+abstract StereoLayerShapeQuadPtr(cpp.Star<StereoLayerShapeQuad>) from cpp.Star<StereoLayerShapeQuad> to cpp.Star<StereoLayerShapeQuad>{
+	@:from
+	public static extern inline function fromValue(v: StereoLayerShapeQuad): StereoLayerShapeQuadPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): StereoLayerShapeQuad {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

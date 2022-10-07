@@ -40,3 +40,22 @@ abstract ConstLandscapeGrassType(LandscapeGrassType) from LandscapeGrassType {
 	public extern var AlignToSurface_DEPRECATED(get, never): Bool;
 	public inline extern function get_AlignToSurface_DEPRECATED(): Bool return this.AlignToSurface_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeGrassType*")
+abstract LandscapeGrassTypePtr(cpp.Star<LandscapeGrassType>) from cpp.Star<LandscapeGrassType> to cpp.Star<LandscapeGrassType>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeGrassType): LandscapeGrassTypePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeGrassType {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

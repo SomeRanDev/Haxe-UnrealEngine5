@@ -22,3 +22,22 @@ abstract ConstInGameAdManager(InGameAdManager) from InGameAdManager {
 	public extern var ClosedAdDelegates(get, never): TArray<HaxeDelegateProperty<() -> Void>>;
 	public inline extern function get_ClosedAdDelegates(): TArray<HaxeDelegateProperty<() -> Void>> return this.ClosedAdDelegates;
 }
+
+@:forward
+@:nativeGen
+@:native("InGameAdManager*")
+abstract InGameAdManagerPtr(cpp.Star<InGameAdManager>) from cpp.Star<InGameAdManager> to cpp.Star<InGameAdManager>{
+	@:from
+	public static extern inline function fromValue(v: InGameAdManager): InGameAdManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InGameAdManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

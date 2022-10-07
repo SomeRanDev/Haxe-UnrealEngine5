@@ -43,3 +43,22 @@ abstract ConstMovieScene3DAttachSection(MovieScene3DAttachSection) from MovieSce
 	public extern var DetachmentScaleRule(get, never): EDetachmentRule;
 	public inline extern function get_DetachmentScaleRule(): EDetachmentRule return this.DetachmentScaleRule;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieScene3DAttachSection*")
+abstract MovieScene3DAttachSectionPtr(cpp.Star<MovieScene3DAttachSection>) from cpp.Star<MovieScene3DAttachSection> to cpp.Star<MovieScene3DAttachSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieScene3DAttachSection): MovieScene3DAttachSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieScene3DAttachSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

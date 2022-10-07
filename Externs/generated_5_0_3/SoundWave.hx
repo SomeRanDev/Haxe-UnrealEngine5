@@ -160,3 +160,22 @@ abstract ConstSoundWave(SoundWave) from SoundWave {
 	public extern var InternalCurves(get, never): cpp.Star<CurveTable.ConstCurveTable>;
 	public inline extern function get_InternalCurves(): cpp.Star<CurveTable.ConstCurveTable> return this.InternalCurves;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundWave*")
+abstract SoundWavePtr(cpp.Star<SoundWave>) from cpp.Star<SoundWave> to cpp.Star<SoundWave>{
+	@:from
+	public static extern inline function fromValue(v: SoundWave): SoundWavePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundWave {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

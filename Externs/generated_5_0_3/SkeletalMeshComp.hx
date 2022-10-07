@@ -348,3 +348,22 @@ abstract ConstSkeletalMeshComp(SkeletalMeshComp) from SkeletalMeshComp {
 	public extern var DefaultAnimatingRigOverride(get, never): TSoftObjectPtr<Object.ConstObject>;
 	public inline extern function get_DefaultAnimatingRigOverride(): TSoftObjectPtr<Object.ConstObject> return this.DefaultAnimatingRigOverride;
 }
+
+@:forward
+@:nativeGen
+@:native("SkeletalMeshComp*")
+abstract SkeletalMeshCompPtr(cpp.Star<SkeletalMeshComp>) from cpp.Star<SkeletalMeshComp> to cpp.Star<SkeletalMeshComp>{
+	@:from
+	public static extern inline function fromValue(v: SkeletalMeshComp): SkeletalMeshCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SkeletalMeshComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class EditorInteractiveGizmoSelectionBuilder extends Interface {
 @:nativeGen
 abstract ConstEditorInteractiveGizmoSelectionBuilder(EditorInteractiveGizmoSelectionBuilder) from EditorInteractiveGizmoSelectionBuilder {
 }
+
+@:forward
+@:nativeGen
+@:native("EditorInteractiveGizmoSelectionBuilder*")
+abstract EditorInteractiveGizmoSelectionBuilderPtr(cpp.Star<EditorInteractiveGizmoSelectionBuilder>) from cpp.Star<EditorInteractiveGizmoSelectionBuilder> to cpp.Star<EditorInteractiveGizmoSelectionBuilder>{
+	@:from
+	public static extern inline function fromValue(v: EditorInteractiveGizmoSelectionBuilder): EditorInteractiveGizmoSelectionBuilderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorInteractiveGizmoSelectionBuilder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

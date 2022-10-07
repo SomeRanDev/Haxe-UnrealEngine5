@@ -16,3 +16,22 @@ abstract ConstMovieSceneCameraShakeSourceTriggerTrack(MovieSceneCameraShakeSourc
 	public extern var Sections(get, never): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>>;
 	public inline extern function get_Sections(): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>> return this.Sections;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneCameraShakeSourceTriggerTrack*")
+abstract MovieSceneCameraShakeSourceTriggerTrackPtr(cpp.Star<MovieSceneCameraShakeSourceTriggerTrack>) from cpp.Star<MovieSceneCameraShakeSourceTriggerTrack> to cpp.Star<MovieSceneCameraShakeSourceTriggerTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneCameraShakeSourceTriggerTrack): MovieSceneCameraShakeSourceTriggerTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneCameraShakeSourceTriggerTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

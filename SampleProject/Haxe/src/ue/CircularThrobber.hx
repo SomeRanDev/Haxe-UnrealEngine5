@@ -35,3 +35,22 @@ abstract ConstCircularThrobber(CircularThrobber) from CircularThrobber {
 	public extern var bEnableRadius(get, never): Bool;
 	public inline extern function get_bEnableRadius(): Bool return this.bEnableRadius;
 }
+
+@:forward
+@:nativeGen
+@:native("CircularThrobber*")
+abstract CircularThrobberPtr(cpp.Star<CircularThrobber>) from cpp.Star<CircularThrobber> to cpp.Star<CircularThrobber>{
+	@:from
+	public static extern inline function fromValue(v: CircularThrobber): CircularThrobberPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CircularThrobber {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class DestructibleInterface extends Interface {
 @:nativeGen
 abstract ConstDestructibleInterface(DestructibleInterface) from DestructibleInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("DestructibleInterface*")
+abstract DestructibleInterfacePtr(cpp.Star<DestructibleInterface>) from cpp.Star<DestructibleInterface> to cpp.Star<DestructibleInterface>{
+	@:from
+	public static extern inline function fromValue(v: DestructibleInterface): DestructibleInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DestructibleInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

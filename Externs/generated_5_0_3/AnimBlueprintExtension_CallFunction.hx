@@ -13,3 +13,22 @@ extern class AnimBlueprintExtension_CallFunction extends AnimBlueprintExtension 
 @:nativeGen
 abstract ConstAnimBlueprintExtension_CallFunction(AnimBlueprintExtension_CallFunction) from AnimBlueprintExtension_CallFunction {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimBlueprintExtension_CallFunction*")
+abstract AnimBlueprintExtension_CallFunctionPtr(cpp.Star<AnimBlueprintExtension_CallFunction>) from cpp.Star<AnimBlueprintExtension_CallFunction> to cpp.Star<AnimBlueprintExtension_CallFunction>{
+	@:from
+	public static extern inline function fromValue(v: AnimBlueprintExtension_CallFunction): AnimBlueprintExtension_CallFunctionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimBlueprintExtension_CallFunction {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

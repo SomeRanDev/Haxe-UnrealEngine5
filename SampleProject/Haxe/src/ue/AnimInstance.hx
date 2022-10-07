@@ -169,3 +169,22 @@ abstract ConstAnimInstance(AnimInstance) from AnimInstance {
 	public extern var ActiveAnimNotifyEventReference(get, never): TArray<AnimNotifyEventReference>;
 	public inline extern function get_ActiveAnimNotifyEventReference(): TArray<AnimNotifyEventReference> return this.ActiveAnimNotifyEventReference;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimInstance*")
+abstract AnimInstancePtr(cpp.Star<AnimInstance>) from cpp.Star<AnimInstance> to cpp.Star<AnimInstance>{
+	@:from
+	public static extern inline function fromValue(v: AnimInstance): AnimInstancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimInstance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -22,3 +22,22 @@ abstract ConstPaperTerrainActor(PaperTerrainActor) from PaperTerrainActor {
 	public extern var RenderComponent(get, never): cpp.Star<PaperTerrainComp.ConstPaperTerrainComp>;
 	public inline extern function get_RenderComponent(): cpp.Star<PaperTerrainComp.ConstPaperTerrainComp> return this.RenderComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("PaperTerrainActor*")
+abstract PaperTerrainActorPtr(cpp.Star<PaperTerrainActor>) from cpp.Star<PaperTerrainActor> to cpp.Star<PaperTerrainActor>{
+	@:from
+	public static extern inline function fromValue(v: PaperTerrainActor): PaperTerrainActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PaperTerrainActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

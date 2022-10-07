@@ -13,3 +13,22 @@ extern class ScalableSphereGizmoBuilder extends InteractiveGizmoBuilder {
 @:nativeGen
 abstract ConstScalableSphereGizmoBuilder(ScalableSphereGizmoBuilder) from ScalableSphereGizmoBuilder {
 }
+
+@:forward
+@:nativeGen
+@:native("ScalableSphereGizmoBuilder*")
+abstract ScalableSphereGizmoBuilderPtr(cpp.Star<ScalableSphereGizmoBuilder>) from cpp.Star<ScalableSphereGizmoBuilder> to cpp.Star<ScalableSphereGizmoBuilder>{
+	@:from
+	public static extern inline function fromValue(v: ScalableSphereGizmoBuilder): ScalableSphereGizmoBuilderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ScalableSphereGizmoBuilder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -22,3 +22,22 @@ abstract ConstBlueprintComponentNodeSpawner(BlueprintComponentNodeSpawner) from 
 	public extern var ComponentAssetName(get, never): FString;
 	public inline extern function get_ComponentAssetName(): FString return this.ComponentAssetName;
 }
+
+@:forward
+@:nativeGen
+@:native("BlueprintComponentNodeSpawner*")
+abstract BlueprintComponentNodeSpawnerPtr(cpp.Star<BlueprintComponentNodeSpawner>) from cpp.Star<BlueprintComponentNodeSpawner> to cpp.Star<BlueprintComponentNodeSpawner>{
+	@:from
+	public static extern inline function fromValue(v: BlueprintComponentNodeSpawner): BlueprintComponentNodeSpawnerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlueprintComponentNodeSpawner {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

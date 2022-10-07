@@ -25,3 +25,22 @@ abstract ConstContentBrowserDataMenuContext_DragDropMenu(ContentBrowserDataMenuC
 	public extern var bCanCopy(get, never): Bool;
 	public inline extern function get_bCanCopy(): Bool return this.bCanCopy;
 }
+
+@:forward
+@:nativeGen
+@:native("ContentBrowserDataMenuContext_DragDropMenu*")
+abstract ContentBrowserDataMenuContext_DragDropMenuPtr(cpp.Star<ContentBrowserDataMenuContext_DragDropMenu>) from cpp.Star<ContentBrowserDataMenuContext_DragDropMenu> to cpp.Star<ContentBrowserDataMenuContext_DragDropMenu>{
+	@:from
+	public static extern inline function fromValue(v: ContentBrowserDataMenuContext_DragDropMenu): ContentBrowserDataMenuContext_DragDropMenuPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ContentBrowserDataMenuContext_DragDropMenu {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

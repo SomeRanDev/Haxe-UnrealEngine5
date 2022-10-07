@@ -28,3 +28,22 @@ abstract ConstPhysicsVolume(PhysicsVolume) from PhysicsVolume {
 	public extern var bPhysicsOnContact(get, never): Bool;
 	public inline extern function get_bPhysicsOnContact(): Bool return this.bPhysicsOnContact;
 }
+
+@:forward
+@:nativeGen
+@:native("PhysicsVolume*")
+abstract PhysicsVolumePtr(cpp.Star<PhysicsVolume>) from cpp.Star<PhysicsVolume> to cpp.Star<PhysicsVolume>{
+	@:from
+	public static extern inline function fromValue(v: PhysicsVolume): PhysicsVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhysicsVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstPhysicalMaterialFactoryNew(PhysicalMaterialFactoryNew) from Physic
 	public extern var PhysicalMaterialClass(get, never): TSubclassOf<PhysicalMaterial.ConstPhysicalMaterial>;
 	public inline extern function get_PhysicalMaterialClass(): TSubclassOf<PhysicalMaterial.ConstPhysicalMaterial> return this.PhysicalMaterialClass;
 }
+
+@:forward
+@:nativeGen
+@:native("PhysicalMaterialFactoryNew*")
+abstract PhysicalMaterialFactoryNewPtr(cpp.Star<PhysicalMaterialFactoryNew>) from cpp.Star<PhysicalMaterialFactoryNew> to cpp.Star<PhysicalMaterialFactoryNew>{
+	@:from
+	public static extern inline function fromValue(v: PhysicalMaterialFactoryNew): PhysicalMaterialFactoryNewPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhysicalMaterialFactoryNew {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

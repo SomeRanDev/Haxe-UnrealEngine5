@@ -19,3 +19,22 @@ abstract ConstGameplayTagsK2Node_SwitchGameplayTag(GameplayTagsK2Node_SwitchGame
 	public extern var PinNames(get, never): TArray<FName>;
 	public inline extern function get_PinNames(): TArray<FName> return this.PinNames;
 }
+
+@:forward
+@:nativeGen
+@:native("GameplayTagsK2Node_SwitchGameplayTag*")
+abstract GameplayTagsK2Node_SwitchGameplayTagPtr(cpp.Star<GameplayTagsK2Node_SwitchGameplayTag>) from cpp.Star<GameplayTagsK2Node_SwitchGameplayTag> to cpp.Star<GameplayTagsK2Node_SwitchGameplayTag>{
+	@:from
+	public static extern inline function fromValue(v: GameplayTagsK2Node_SwitchGameplayTag): GameplayTagsK2Node_SwitchGameplayTagPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameplayTagsK2Node_SwitchGameplayTag {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

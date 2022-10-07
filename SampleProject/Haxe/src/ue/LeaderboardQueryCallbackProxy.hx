@@ -21,3 +21,22 @@ abstract ConstLeaderboardQueryCallbackProxy(LeaderboardQueryCallbackProxy) from 
 	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
 	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void> return this.OnFailure;
 }
+
+@:forward
+@:nativeGen
+@:native("LeaderboardQueryCallbackProxy*")
+abstract LeaderboardQueryCallbackProxyPtr(cpp.Star<LeaderboardQueryCallbackProxy>) from cpp.Star<LeaderboardQueryCallbackProxy> to cpp.Star<LeaderboardQueryCallbackProxy>{
+	@:from
+	public static extern inline function fromValue(v: LeaderboardQueryCallbackProxy): LeaderboardQueryCallbackProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LeaderboardQueryCallbackProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

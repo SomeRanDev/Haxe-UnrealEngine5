@@ -12,3 +12,22 @@ extern class OnAssetPostImport_Dyn__PythonCallable extends PythonCallableForDele
 @:nativeGen
 abstract ConstOnAssetPostImport_Dyn__PythonCallable(OnAssetPostImport_Dyn__PythonCallable) from OnAssetPostImport_Dyn__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnAssetPostImport_Dyn__PythonCallable*")
+abstract OnAssetPostImport_Dyn__PythonCallablePtr(cpp.Star<OnAssetPostImport_Dyn__PythonCallable>) from cpp.Star<OnAssetPostImport_Dyn__PythonCallable> to cpp.Star<OnAssetPostImport_Dyn__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnAssetPostImport_Dyn__PythonCallable): OnAssetPostImport_Dyn__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnAssetPostImport_Dyn__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

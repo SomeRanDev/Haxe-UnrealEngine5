@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionSkyLightEnvMapSample(MaterialExpressionSkyLightE
 	public extern var Roughness(get, never): ExpressionInput;
 	public inline extern function get_Roughness(): ExpressionInput return this.Roughness;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionSkyLightEnvMapSample*")
+abstract MaterialExpressionSkyLightEnvMapSamplePtr(cpp.Star<MaterialExpressionSkyLightEnvMapSample>) from cpp.Star<MaterialExpressionSkyLightEnvMapSample> to cpp.Star<MaterialExpressionSkyLightEnvMapSample>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionSkyLightEnvMapSample): MaterialExpressionSkyLightEnvMapSamplePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionSkyLightEnvMapSample {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

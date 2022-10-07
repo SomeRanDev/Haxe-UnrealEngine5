@@ -22,3 +22,22 @@ abstract ConstSpotLightComp(SpotLightComp) from SpotLightComp {
 	public extern var OuterConeAngle(get, never): cpp.Float32;
 	public inline extern function get_OuterConeAngle(): cpp.Float32 return this.OuterConeAngle;
 }
+
+@:forward
+@:nativeGen
+@:native("SpotLightComp*")
+abstract SpotLightCompPtr(cpp.Star<SpotLightComp>) from cpp.Star<SpotLightComp> to cpp.Star<SpotLightComp>{
+	@:from
+	public static extern inline function fromValue(v: SpotLightComp): SpotLightCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SpotLightComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

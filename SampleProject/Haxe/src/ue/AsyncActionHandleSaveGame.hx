@@ -22,3 +22,22 @@ abstract ConstAsyncActionHandleSaveGame(AsyncActionHandleSaveGame) from AsyncAct
 	public extern var SaveGameObject(get, never): cpp.Star<SaveGame.ConstSaveGame>;
 	public inline extern function get_SaveGameObject(): cpp.Star<SaveGame.ConstSaveGame> return this.SaveGameObject;
 }
+
+@:forward
+@:nativeGen
+@:native("AsyncActionHandleSaveGame*")
+abstract AsyncActionHandleSaveGamePtr(cpp.Star<AsyncActionHandleSaveGame>) from cpp.Star<AsyncActionHandleSaveGame> to cpp.Star<AsyncActionHandleSaveGame>{
+	@:from
+	public static extern inline function fromValue(v: AsyncActionHandleSaveGame): AsyncActionHandleSaveGamePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AsyncActionHandleSaveGame {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

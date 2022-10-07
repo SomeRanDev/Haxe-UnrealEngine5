@@ -22,3 +22,22 @@ abstract ConstMaterialExpressionPower(MaterialExpressionPower) from MaterialExpr
 	public extern var ConstExponent(get, never): cpp.Float32;
 	public inline extern function get_ConstExponent(): cpp.Float32 return this.ConstExponent;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionPower*")
+abstract MaterialExpressionPowerPtr(cpp.Star<MaterialExpressionPower>) from cpp.Star<MaterialExpressionPower> to cpp.Star<MaterialExpressionPower>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionPower): MaterialExpressionPowerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionPower {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

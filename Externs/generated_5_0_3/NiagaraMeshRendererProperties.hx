@@ -157,3 +157,22 @@ abstract ConstNiagaraMeshRendererProperties(NiagaraMeshRendererProperties) from 
 	public extern var PivotOffsetSpace_DEPRECATED(get, never): ENiagaraMeshPivotOffsetSpace;
 	public inline extern function get_PivotOffsetSpace_DEPRECATED(): ENiagaraMeshPivotOffsetSpace return this.PivotOffsetSpace_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraMeshRendererProperties*")
+abstract NiagaraMeshRendererPropertiesPtr(cpp.Star<NiagaraMeshRendererProperties>) from cpp.Star<NiagaraMeshRendererProperties> to cpp.Star<NiagaraMeshRendererProperties>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraMeshRendererProperties): NiagaraMeshRendererPropertiesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraMeshRendererProperties {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

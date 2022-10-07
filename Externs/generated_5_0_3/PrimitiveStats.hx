@@ -76,3 +76,22 @@ abstract ConstPrimitiveStats(PrimitiveStats) from PrimitiveStats {
 	public extern var RadiusAvg(get, never): cpp.Float32;
 	public inline extern function get_RadiusAvg(): cpp.Float32 return this.RadiusAvg;
 }
+
+@:forward
+@:nativeGen
+@:native("PrimitiveStats*")
+abstract PrimitiveStatsPtr(cpp.Star<PrimitiveStats>) from cpp.Star<PrimitiveStats> to cpp.Star<PrimitiveStats>{
+	@:from
+	public static extern inline function fromValue(v: PrimitiveStats): PrimitiveStatsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PrimitiveStats {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

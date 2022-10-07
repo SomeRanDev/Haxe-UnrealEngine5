@@ -26,3 +26,22 @@ abstract ConstScrollBoxSlot(ScrollBoxSlot) from ScrollBoxSlot {
 	public extern var VerticalAlignment(get, never): EVerticalAlignment;
 	public inline extern function get_VerticalAlignment(): EVerticalAlignment return this.VerticalAlignment;
 }
+
+@:forward
+@:nativeGen
+@:native("ScrollBoxSlot*")
+abstract ScrollBoxSlotPtr(cpp.Star<ScrollBoxSlot>) from cpp.Star<ScrollBoxSlot> to cpp.Star<ScrollBoxSlot>{
+	@:from
+	public static extern inline function fromValue(v: ScrollBoxSlot): ScrollBoxSlotPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ScrollBoxSlot {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

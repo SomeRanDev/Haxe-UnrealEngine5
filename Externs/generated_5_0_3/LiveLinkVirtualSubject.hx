@@ -25,3 +25,22 @@ abstract ConstLiveLinkVirtualSubject(LiveLinkVirtualSubject) from LiveLinkVirtua
 	public extern var bRebroadcastSubject(get, never): Bool;
 	public inline extern function get_bRebroadcastSubject(): Bool return this.bRebroadcastSubject;
 }
+
+@:forward
+@:nativeGen
+@:native("LiveLinkVirtualSubject*")
+abstract LiveLinkVirtualSubjectPtr(cpp.Star<LiveLinkVirtualSubject>) from cpp.Star<LiveLinkVirtualSubject> to cpp.Star<LiveLinkVirtualSubject>{
+	@:from
+	public static extern inline function fromValue(v: LiveLinkVirtualSubject): LiveLinkVirtualSubjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LiveLinkVirtualSubject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

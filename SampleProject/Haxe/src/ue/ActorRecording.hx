@@ -46,3 +46,22 @@ abstract ConstActorRecording(ActorRecording) from ActorRecording {
 	public extern var ActorToRecord(get, never): TSoftObjectPtr<Actor.ConstActor>;
 	public inline extern function get_ActorToRecord(): TSoftObjectPtr<Actor.ConstActor> return this.ActorToRecord;
 }
+
+@:forward
+@:nativeGen
+@:native("ActorRecording*")
+abstract ActorRecordingPtr(cpp.Star<ActorRecording>) from cpp.Star<ActorRecording> to cpp.Star<ActorRecording>{
+	@:from
+	public static extern inline function fromValue(v: ActorRecording): ActorRecordingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorRecording {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

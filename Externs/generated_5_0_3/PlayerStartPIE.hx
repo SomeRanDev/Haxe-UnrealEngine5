@@ -13,3 +13,22 @@ extern class PlayerStartPIE extends PlayerStart {
 @:nativeGen
 abstract ConstPlayerStartPIE(PlayerStartPIE) from PlayerStartPIE {
 }
+
+@:forward
+@:nativeGen
+@:native("PlayerStartPIE*")
+abstract PlayerStartPIEPtr(cpp.Star<PlayerStartPIE>) from cpp.Star<PlayerStartPIE> to cpp.Star<PlayerStartPIE>{
+	@:from
+	public static extern inline function fromValue(v: PlayerStartPIE): PlayerStartPIEPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PlayerStartPIE {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

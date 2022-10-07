@@ -19,3 +19,22 @@ abstract ConstEnvironmentQueryGraphNode_Root(EnvironmentQueryGraphNode_Root) fro
 	public extern var bHasDebugError(get, never): Bool;
 	public inline extern function get_bHasDebugError(): Bool return this.bHasDebugError;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvironmentQueryGraphNode_Root*")
+abstract EnvironmentQueryGraphNode_RootPtr(cpp.Star<EnvironmentQueryGraphNode_Root>) from cpp.Star<EnvironmentQueryGraphNode_Root> to cpp.Star<EnvironmentQueryGraphNode_Root>{
+	@:from
+	public static extern inline function fromValue(v: EnvironmentQueryGraphNode_Root): EnvironmentQueryGraphNode_RootPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvironmentQueryGraphNode_Root {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

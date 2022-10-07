@@ -13,3 +13,22 @@ extern class MaterialExpressionParticleRelativeTime extends MaterialExpression {
 @:nativeGen
 abstract ConstMaterialExpressionParticleRelativeTime(MaterialExpressionParticleRelativeTime) from MaterialExpressionParticleRelativeTime {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionParticleRelativeTime*")
+abstract MaterialExpressionParticleRelativeTimePtr(cpp.Star<MaterialExpressionParticleRelativeTime>) from cpp.Star<MaterialExpressionParticleRelativeTime> to cpp.Star<MaterialExpressionParticleRelativeTime>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionParticleRelativeTime): MaterialExpressionParticleRelativeTimePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionParticleRelativeTime {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -14,3 +14,22 @@ extern class EditorUtilityActor extends Actor {
 @:nativeGen
 abstract ConstEditorUtilityActor(EditorUtilityActor) from EditorUtilityActor {
 }
+
+@:forward
+@:nativeGen
+@:native("EditorUtilityActor*")
+abstract EditorUtilityActorPtr(cpp.Star<EditorUtilityActor>) from cpp.Star<EditorUtilityActor> to cpp.Star<EditorUtilityActor>{
+	@:from
+	public static extern inline function fromValue(v: EditorUtilityActor): EditorUtilityActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorUtilityActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

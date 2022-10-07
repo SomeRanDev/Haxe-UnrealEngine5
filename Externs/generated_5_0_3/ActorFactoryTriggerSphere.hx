@@ -13,3 +13,22 @@ extern class ActorFactoryTriggerSphere extends ActorFactory {
 @:nativeGen
 abstract ConstActorFactoryTriggerSphere(ActorFactoryTriggerSphere) from ActorFactoryTriggerSphere {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorFactoryTriggerSphere*")
+abstract ActorFactoryTriggerSpherePtr(cpp.Star<ActorFactoryTriggerSphere>) from cpp.Star<ActorFactoryTriggerSphere> to cpp.Star<ActorFactoryTriggerSphere>{
+	@:from
+	public static extern inline function fromValue(v: ActorFactoryTriggerSphere): ActorFactoryTriggerSpherePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorFactoryTriggerSphere {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

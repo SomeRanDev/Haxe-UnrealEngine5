@@ -25,3 +25,22 @@ abstract ConstMaterialEditorSettings(MaterialEditorSettings) from MaterialEditor
 	public extern var PreviewBackground(get, never): PreviewBackgroundSettings;
 	public inline extern function get_PreviewBackground(): PreviewBackgroundSettings return this.PreviewBackground;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialEditorSettings*")
+abstract MaterialEditorSettingsPtr(cpp.Star<MaterialEditorSettings>) from cpp.Star<MaterialEditorSettings> to cpp.Star<MaterialEditorSettings>{
+	@:from
+	public static extern inline function fromValue(v: MaterialEditorSettings): MaterialEditorSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialEditorSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

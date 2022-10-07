@@ -25,3 +25,22 @@ abstract ConstMeshSelectionSet(MeshSelectionSet) from MeshSelectionSet {
 	public extern var Groups(get, never): TArray<cpp.Int32>;
 	public inline extern function get_Groups(): TArray<cpp.Int32> return this.Groups;
 }
+
+@:forward
+@:nativeGen
+@:native("MeshSelectionSet*")
+abstract MeshSelectionSetPtr(cpp.Star<MeshSelectionSet>) from cpp.Star<MeshSelectionSet> to cpp.Star<MeshSelectionSet>{
+	@:from
+	public static extern inline function fromValue(v: MeshSelectionSet): MeshSelectionSetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MeshSelectionSet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

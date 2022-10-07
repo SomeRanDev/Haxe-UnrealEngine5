@@ -28,3 +28,22 @@ abstract ConstMovieScene2DTransformSection(MovieScene2DTransformSection) from Mo
 	public extern var Shear(get, never): MovieSceneFloatChannel;
 	public inline extern function get_Shear(): MovieSceneFloatChannel return this.Shear;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieScene2DTransformSection*")
+abstract MovieScene2DTransformSectionPtr(cpp.Star<MovieScene2DTransformSection>) from cpp.Star<MovieScene2DTransformSection> to cpp.Star<MovieScene2DTransformSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieScene2DTransformSection): MovieScene2DTransformSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieScene2DTransformSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

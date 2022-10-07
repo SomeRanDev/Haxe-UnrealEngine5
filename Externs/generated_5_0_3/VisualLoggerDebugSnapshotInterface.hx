@@ -12,3 +12,22 @@ extern class VisualLoggerDebugSnapshotInterface extends Interface {
 @:nativeGen
 abstract ConstVisualLoggerDebugSnapshotInterface(VisualLoggerDebugSnapshotInterface) from VisualLoggerDebugSnapshotInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("VisualLoggerDebugSnapshotInterface*")
+abstract VisualLoggerDebugSnapshotInterfacePtr(cpp.Star<VisualLoggerDebugSnapshotInterface>) from cpp.Star<VisualLoggerDebugSnapshotInterface> to cpp.Star<VisualLoggerDebugSnapshotInterface>{
+	@:from
+	public static extern inline function fromValue(v: VisualLoggerDebugSnapshotInterface): VisualLoggerDebugSnapshotInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VisualLoggerDebugSnapshotInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class ParticleModuleLocationBase extends ParticleModule {
 @:nativeGen
 abstract ConstParticleModuleLocationBase(ParticleModuleLocationBase) from ParticleModuleLocationBase {
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleLocationBase*")
+abstract ParticleModuleLocationBasePtr(cpp.Star<ParticleModuleLocationBase>) from cpp.Star<ParticleModuleLocationBase> to cpp.Star<ParticleModuleLocationBase>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleLocationBase): ParticleModuleLocationBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleLocationBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

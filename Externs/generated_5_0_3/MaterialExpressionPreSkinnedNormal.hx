@@ -13,3 +13,22 @@ extern class MaterialExpressionPreSkinnedNormal extends MaterialExpression {
 @:nativeGen
 abstract ConstMaterialExpressionPreSkinnedNormal(MaterialExpressionPreSkinnedNormal) from MaterialExpressionPreSkinnedNormal {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionPreSkinnedNormal*")
+abstract MaterialExpressionPreSkinnedNormalPtr(cpp.Star<MaterialExpressionPreSkinnedNormal>) from cpp.Star<MaterialExpressionPreSkinnedNormal> to cpp.Star<MaterialExpressionPreSkinnedNormal>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionPreSkinnedNormal): MaterialExpressionPreSkinnedNormalPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionPreSkinnedNormal {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class BTDecorator_ReachedMoveGoal extends BTDecorator {
 @:nativeGen
 abstract ConstBTDecorator_ReachedMoveGoal(BTDecorator_ReachedMoveGoal) from BTDecorator_ReachedMoveGoal {
 }
+
+@:forward
+@:nativeGen
+@:native("BTDecorator_ReachedMoveGoal*")
+abstract BTDecorator_ReachedMoveGoalPtr(cpp.Star<BTDecorator_ReachedMoveGoal>) from cpp.Star<BTDecorator_ReachedMoveGoal> to cpp.Star<BTDecorator_ReachedMoveGoal>{
+	@:from
+	public static extern inline function fromValue(v: BTDecorator_ReachedMoveGoal): BTDecorator_ReachedMoveGoalPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTDecorator_ReachedMoveGoal {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

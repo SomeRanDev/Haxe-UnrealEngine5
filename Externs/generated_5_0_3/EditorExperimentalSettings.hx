@@ -109,3 +109,22 @@ abstract ConstEditorExperimentalSettings(EditorExperimentalSettings) from Editor
 	public extern var bLevelInstance(get, never): Bool;
 	public inline extern function get_bLevelInstance(): Bool return this.bLevelInstance;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorExperimentalSettings*")
+abstract EditorExperimentalSettingsPtr(cpp.Star<EditorExperimentalSettings>) from cpp.Star<EditorExperimentalSettings> to cpp.Star<EditorExperimentalSettings>{
+	@:from
+	public static extern inline function fromValue(v: EditorExperimentalSettings): EditorExperimentalSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorExperimentalSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

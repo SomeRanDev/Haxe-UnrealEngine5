@@ -22,3 +22,22 @@ abstract ConstBTTask_RunBehaviorDynamic(BTTask_RunBehaviorDynamic) from BTTask_R
 	public extern var BehaviorAsset(get, never): cpp.Star<BehaviorTree.ConstBehaviorTree>;
 	public inline extern function get_BehaviorAsset(): cpp.Star<BehaviorTree.ConstBehaviorTree> return this.BehaviorAsset;
 }
+
+@:forward
+@:nativeGen
+@:native("BTTask_RunBehaviorDynamic*")
+abstract BTTask_RunBehaviorDynamicPtr(cpp.Star<BTTask_RunBehaviorDynamic>) from cpp.Star<BTTask_RunBehaviorDynamic> to cpp.Star<BTTask_RunBehaviorDynamic>{
+	@:from
+	public static extern inline function fromValue(v: BTTask_RunBehaviorDynamic): BTTask_RunBehaviorDynamicPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTTask_RunBehaviorDynamic {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

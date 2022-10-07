@@ -13,3 +13,22 @@ extern class NiagaraEventReceiverEmitterAction extends Object {
 @:nativeGen
 abstract ConstNiagaraEventReceiverEmitterAction(NiagaraEventReceiverEmitterAction) from NiagaraEventReceiverEmitterAction {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraEventReceiverEmitterAction*")
+abstract NiagaraEventReceiverEmitterActionPtr(cpp.Star<NiagaraEventReceiverEmitterAction>) from cpp.Star<NiagaraEventReceiverEmitterAction> to cpp.Star<NiagaraEventReceiverEmitterAction>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraEventReceiverEmitterAction): NiagaraEventReceiverEmitterActionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraEventReceiverEmitterAction {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

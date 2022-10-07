@@ -30,3 +30,22 @@ abstract ConstImportSubsystem(ImportSubsystem) from ImportSubsystem {
 	public extern var OnAssetPostLODImport_BP(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Object.ConstObject>, cpp.Int32) -> Void>;
 	public inline extern function get_OnAssetPostLODImport_BP(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Object.ConstObject>, cpp.Int32) -> Void> return this.OnAssetPostLODImport_BP;
 }
+
+@:forward
+@:nativeGen
+@:native("ImportSubsystem*")
+abstract ImportSubsystemPtr(cpp.Star<ImportSubsystem>) from cpp.Star<ImportSubsystem> to cpp.Star<ImportSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: ImportSubsystem): ImportSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ImportSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

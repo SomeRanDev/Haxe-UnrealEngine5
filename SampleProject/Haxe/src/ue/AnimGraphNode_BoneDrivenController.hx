@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_BoneDrivenController(AnimGraphNode_BoneDrivenControl
 	public extern var Node(get, never): AnimNode_BoneDrivenController;
 	public inline extern function get_Node(): AnimNode_BoneDrivenController return this.Node;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_BoneDrivenController*")
+abstract AnimGraphNode_BoneDrivenControllerPtr(cpp.Star<AnimGraphNode_BoneDrivenController>) from cpp.Star<AnimGraphNode_BoneDrivenController> to cpp.Star<AnimGraphNode_BoneDrivenController>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_BoneDrivenController): AnimGraphNode_BoneDrivenControllerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_BoneDrivenController {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

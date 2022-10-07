@@ -13,3 +13,22 @@ extern class CookOnTheFlyServer extends Object {
 @:nativeGen
 abstract ConstCookOnTheFlyServer(CookOnTheFlyServer) from CookOnTheFlyServer {
 }
+
+@:forward
+@:nativeGen
+@:native("CookOnTheFlyServer*")
+abstract CookOnTheFlyServerPtr(cpp.Star<CookOnTheFlyServer>) from cpp.Star<CookOnTheFlyServer> to cpp.Star<CookOnTheFlyServer>{
+	@:from
+	public static extern inline function fromValue(v: CookOnTheFlyServer): CookOnTheFlyServerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CookOnTheFlyServer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

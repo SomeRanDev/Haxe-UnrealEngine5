@@ -14,3 +14,22 @@ extern class TypedElementObjectInterface extends Interface {
 @:nativeGen
 abstract ConstTypedElementObjectInterface(TypedElementObjectInterface) from TypedElementObjectInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("TypedElementObjectInterface*")
+abstract TypedElementObjectInterfacePtr(cpp.Star<TypedElementObjectInterface>) from cpp.Star<TypedElementObjectInterface> to cpp.Star<TypedElementObjectInterface>{
+	@:from
+	public static extern inline function fromValue(v: TypedElementObjectInterface): TypedElementObjectInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TypedElementObjectInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

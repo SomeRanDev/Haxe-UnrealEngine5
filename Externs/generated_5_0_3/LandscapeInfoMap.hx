@@ -13,3 +13,22 @@ extern class LandscapeInfoMap extends Object {
 @:nativeGen
 abstract ConstLandscapeInfoMap(LandscapeInfoMap) from LandscapeInfoMap {
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeInfoMap*")
+abstract LandscapeInfoMapPtr(cpp.Star<LandscapeInfoMap>) from cpp.Star<LandscapeInfoMap> to cpp.Star<LandscapeInfoMap>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeInfoMap): LandscapeInfoMapPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeInfoMap {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

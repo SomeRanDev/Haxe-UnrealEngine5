@@ -16,3 +16,22 @@ abstract ConstLandscapeMeshProxyActor(LandscapeMeshProxyActor) from LandscapeMes
 	public extern var LandscapeMeshProxyComponent(get, never): cpp.Star<LandscapeMeshProxyComp.ConstLandscapeMeshProxyComp>;
 	public inline extern function get_LandscapeMeshProxyComponent(): cpp.Star<LandscapeMeshProxyComp.ConstLandscapeMeshProxyComp> return this.LandscapeMeshProxyComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeMeshProxyActor*")
+abstract LandscapeMeshProxyActorPtr(cpp.Star<LandscapeMeshProxyActor>) from cpp.Star<LandscapeMeshProxyActor> to cpp.Star<LandscapeMeshProxyActor>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeMeshProxyActor): LandscapeMeshProxyActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeMeshProxyActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

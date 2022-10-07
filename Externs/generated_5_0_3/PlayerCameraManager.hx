@@ -156,3 +156,22 @@ abstract ConstPlayerCameraManager(PlayerCameraManager) from PlayerCameraManager 
 	public extern var ServerUpdateCameraTimeout(get, never): cpp.Float32;
 	public inline extern function get_ServerUpdateCameraTimeout(): cpp.Float32 return this.ServerUpdateCameraTimeout;
 }
+
+@:forward
+@:nativeGen
+@:native("PlayerCameraManager*")
+abstract PlayerCameraManagerPtr(cpp.Star<PlayerCameraManager>) from cpp.Star<PlayerCameraManager> to cpp.Star<PlayerCameraManager>{
+	@:from
+	public static extern inline function fromValue(v: PlayerCameraManager): PlayerCameraManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PlayerCameraManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

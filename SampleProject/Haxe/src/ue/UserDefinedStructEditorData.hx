@@ -22,3 +22,22 @@ abstract ConstUserDefinedStructEditorData(UserDefinedStructEditorData) from User
 	public extern var ToolTip(get, never): FString;
 	public inline extern function get_ToolTip(): FString return this.ToolTip;
 }
+
+@:forward
+@:nativeGen
+@:native("UserDefinedStructEditorData*")
+abstract UserDefinedStructEditorDataPtr(cpp.Star<UserDefinedStructEditorData>) from cpp.Star<UserDefinedStructEditorData> to cpp.Star<UserDefinedStructEditorData>{
+	@:from
+	public static extern inline function fromValue(v: UserDefinedStructEditorData): UserDefinedStructEditorDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UserDefinedStructEditorData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

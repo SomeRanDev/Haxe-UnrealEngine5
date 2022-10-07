@@ -17,3 +17,22 @@ extern class GroomBlueprintLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstGroomBlueprintLibrary(GroomBlueprintLibrary) from GroomBlueprintLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("GroomBlueprintLibrary*")
+abstract GroomBlueprintLibraryPtr(cpp.Star<GroomBlueprintLibrary>) from cpp.Star<GroomBlueprintLibrary> to cpp.Star<GroomBlueprintLibrary>{
+	@:from
+	public static extern inline function fromValue(v: GroomBlueprintLibrary): GroomBlueprintLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GroomBlueprintLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

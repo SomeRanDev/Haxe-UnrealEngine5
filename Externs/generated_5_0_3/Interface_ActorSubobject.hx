@@ -12,3 +12,22 @@ extern class Interface_ActorSubobject extends Interface {
 @:nativeGen
 abstract ConstInterface_ActorSubobject(Interface_ActorSubobject) from Interface_ActorSubobject {
 }
+
+@:forward
+@:nativeGen
+@:native("Interface_ActorSubobject*")
+abstract Interface_ActorSubobjectPtr(cpp.Star<Interface_ActorSubobject>) from cpp.Star<Interface_ActorSubobject> to cpp.Star<Interface_ActorSubobject>{
+	@:from
+	public static extern inline function fromValue(v: Interface_ActorSubobject): Interface_ActorSubobjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Interface_ActorSubobject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

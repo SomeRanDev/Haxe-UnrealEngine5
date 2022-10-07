@@ -73,3 +73,22 @@ abstract ConstMovieSceneSkeletalAnimationSection(MovieSceneSkeletalAnimationSect
 	public extern var bShowSkeleton(get, never): Bool;
 	public inline extern function get_bShowSkeleton(): Bool return this.bShowSkeleton;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneSkeletalAnimationSection*")
+abstract MovieSceneSkeletalAnimationSectionPtr(cpp.Star<MovieSceneSkeletalAnimationSection>) from cpp.Star<MovieSceneSkeletalAnimationSection> to cpp.Star<MovieSceneSkeletalAnimationSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneSkeletalAnimationSection): MovieSceneSkeletalAnimationSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneSkeletalAnimationSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

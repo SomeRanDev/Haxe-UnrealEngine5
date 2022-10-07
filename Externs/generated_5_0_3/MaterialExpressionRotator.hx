@@ -31,3 +31,22 @@ abstract ConstMaterialExpressionRotator(MaterialExpressionRotator) from Material
 	public extern var ConstCoordinate(get, never): cpp.UInt32;
 	public inline extern function get_ConstCoordinate(): cpp.UInt32 return this.ConstCoordinate;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionRotator*")
+abstract MaterialExpressionRotatorPtr(cpp.Star<MaterialExpressionRotator>) from cpp.Star<MaterialExpressionRotator> to cpp.Star<MaterialExpressionRotator>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionRotator): MaterialExpressionRotatorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionRotator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

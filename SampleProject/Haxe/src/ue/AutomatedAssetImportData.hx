@@ -37,3 +37,22 @@ abstract ConstAutomatedAssetImportData(AutomatedAssetImportData) from AutomatedA
 	public extern var LevelToLoad(get, never): FString;
 	public inline extern function get_LevelToLoad(): FString return this.LevelToLoad;
 }
+
+@:forward
+@:nativeGen
+@:native("AutomatedAssetImportData*")
+abstract AutomatedAssetImportDataPtr(cpp.Star<AutomatedAssetImportData>) from cpp.Star<AutomatedAssetImportData> to cpp.Star<AutomatedAssetImportData>{
+	@:from
+	public static extern inline function fromValue(v: AutomatedAssetImportData): AutomatedAssetImportDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AutomatedAssetImportData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

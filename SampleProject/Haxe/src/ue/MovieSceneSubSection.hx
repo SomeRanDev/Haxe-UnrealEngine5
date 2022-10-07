@@ -34,3 +34,22 @@ abstract ConstMovieSceneSubSection(MovieSceneSubSection) from MovieSceneSubSecti
 	public extern var SubSequence(get, never): cpp.Star<MovieSceneSequence.ConstMovieSceneSequence>;
 	public inline extern function get_SubSequence(): cpp.Star<MovieSceneSequence.ConstMovieSceneSequence> return this.SubSequence;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneSubSection*")
+abstract MovieSceneSubSectionPtr(cpp.Star<MovieSceneSubSection>) from cpp.Star<MovieSceneSubSection> to cpp.Star<MovieSceneSubSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneSubSection): MovieSceneSubSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneSubSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

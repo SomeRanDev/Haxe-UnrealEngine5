@@ -13,3 +13,22 @@ extern class HapticFeedbackEffect_Base extends Object {
 @:nativeGen
 abstract ConstHapticFeedbackEffect_Base(HapticFeedbackEffect_Base) from HapticFeedbackEffect_Base {
 }
+
+@:forward
+@:nativeGen
+@:native("HapticFeedbackEffect_Base*")
+abstract HapticFeedbackEffect_BasePtr(cpp.Star<HapticFeedbackEffect_Base>) from cpp.Star<HapticFeedbackEffect_Base> to cpp.Star<HapticFeedbackEffect_Base>{
+	@:from
+	public static extern inline function fromValue(v: HapticFeedbackEffect_Base): HapticFeedbackEffect_BasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): HapticFeedbackEffect_Base {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

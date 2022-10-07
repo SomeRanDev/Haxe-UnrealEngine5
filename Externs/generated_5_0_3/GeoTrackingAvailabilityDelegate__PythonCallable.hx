@@ -12,3 +12,22 @@ extern class GeoTrackingAvailabilityDelegate__PythonCallable extends PythonCalla
 @:nativeGen
 abstract ConstGeoTrackingAvailabilityDelegate__PythonCallable(GeoTrackingAvailabilityDelegate__PythonCallable) from GeoTrackingAvailabilityDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("GeoTrackingAvailabilityDelegate__PythonCallable*")
+abstract GeoTrackingAvailabilityDelegate__PythonCallablePtr(cpp.Star<GeoTrackingAvailabilityDelegate__PythonCallable>) from cpp.Star<GeoTrackingAvailabilityDelegate__PythonCallable> to cpp.Star<GeoTrackingAvailabilityDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: GeoTrackingAvailabilityDelegate__PythonCallable): GeoTrackingAvailabilityDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GeoTrackingAvailabilityDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

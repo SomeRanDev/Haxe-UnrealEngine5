@@ -24,3 +24,22 @@ abstract ConstAIPerceptionStimuliSourceComp(AIPerceptionStimuliSourceComp) from 
 	public extern var RegisterAsSourceForSenses(get, never): TArray<TSubclassOf<AISense.ConstAISense>>;
 	public inline extern function get_RegisterAsSourceForSenses(): TArray<TSubclassOf<AISense.ConstAISense>> return this.RegisterAsSourceForSenses;
 }
+
+@:forward
+@:nativeGen
+@:native("AIPerceptionStimuliSourceComp*")
+abstract AIPerceptionStimuliSourceCompPtr(cpp.Star<AIPerceptionStimuliSourceComp>) from cpp.Star<AIPerceptionStimuliSourceComp> to cpp.Star<AIPerceptionStimuliSourceComp>{
+	@:from
+	public static extern inline function fromValue(v: AIPerceptionStimuliSourceComp): AIPerceptionStimuliSourceCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AIPerceptionStimuliSourceComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

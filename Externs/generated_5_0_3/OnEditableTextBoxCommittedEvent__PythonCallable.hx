@@ -12,3 +12,22 @@ extern class OnEditableTextBoxCommittedEvent__PythonCallable extends PythonCalla
 @:nativeGen
 abstract ConstOnEditableTextBoxCommittedEvent__PythonCallable(OnEditableTextBoxCommittedEvent__PythonCallable) from OnEditableTextBoxCommittedEvent__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnEditableTextBoxCommittedEvent__PythonCallable*")
+abstract OnEditableTextBoxCommittedEvent__PythonCallablePtr(cpp.Star<OnEditableTextBoxCommittedEvent__PythonCallable>) from cpp.Star<OnEditableTextBoxCommittedEvent__PythonCallable> to cpp.Star<OnEditableTextBoxCommittedEvent__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnEditableTextBoxCommittedEvent__PythonCallable): OnEditableTextBoxCommittedEvent__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnEditableTextBoxCommittedEvent__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

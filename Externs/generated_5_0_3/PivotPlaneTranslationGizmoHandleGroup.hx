@@ -13,3 +13,22 @@ extern class PivotPlaneTranslationGizmoHandleGroup extends AxisGizmoHandleGroup 
 @:nativeGen
 abstract ConstPivotPlaneTranslationGizmoHandleGroup(PivotPlaneTranslationGizmoHandleGroup) from PivotPlaneTranslationGizmoHandleGroup {
 }
+
+@:forward
+@:nativeGen
+@:native("PivotPlaneTranslationGizmoHandleGroup*")
+abstract PivotPlaneTranslationGizmoHandleGroupPtr(cpp.Star<PivotPlaneTranslationGizmoHandleGroup>) from cpp.Star<PivotPlaneTranslationGizmoHandleGroup> to cpp.Star<PivotPlaneTranslationGizmoHandleGroup>{
+	@:from
+	public static extern inline function fromValue(v: PivotPlaneTranslationGizmoHandleGroup): PivotPlaneTranslationGizmoHandleGroupPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PivotPlaneTranslationGizmoHandleGroup {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

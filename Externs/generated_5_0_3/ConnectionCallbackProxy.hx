@@ -21,3 +21,22 @@ abstract ConstConnectionCallbackProxy(ConnectionCallbackProxy) from ConnectionCa
 	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
 	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void> return this.OnFailure;
 }
+
+@:forward
+@:nativeGen
+@:native("ConnectionCallbackProxy*")
+abstract ConnectionCallbackProxyPtr(cpp.Star<ConnectionCallbackProxy>) from cpp.Star<ConnectionCallbackProxy> to cpp.Star<ConnectionCallbackProxy>{
+	@:from
+	public static extern inline function fromValue(v: ConnectionCallbackProxy): ConnectionCallbackProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ConnectionCallbackProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

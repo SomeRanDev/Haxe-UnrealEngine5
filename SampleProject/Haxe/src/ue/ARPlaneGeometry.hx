@@ -34,3 +34,22 @@ abstract ConstARPlaneGeometry(ARPlaneGeometry) from ARPlaneGeometry {
 	public extern var SubsumedBy(get, never): cpp.Star<ARPlaneGeometry.ConstARPlaneGeometry>;
 	public inline extern function get_SubsumedBy(): cpp.Star<ARPlaneGeometry.ConstARPlaneGeometry> return this.SubsumedBy;
 }
+
+@:forward
+@:nativeGen
+@:native("ARPlaneGeometry*")
+abstract ARPlaneGeometryPtr(cpp.Star<ARPlaneGeometry>) from cpp.Star<ARPlaneGeometry> to cpp.Star<ARPlaneGeometry>{
+	@:from
+	public static extern inline function fromValue(v: ARPlaneGeometry): ARPlaneGeometryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARPlaneGeometry {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

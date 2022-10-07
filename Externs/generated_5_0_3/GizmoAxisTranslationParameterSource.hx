@@ -34,3 +34,22 @@ abstract ConstGizmoAxisTranslationParameterSource(GizmoAxisTranslationParameterS
 	public extern var InitialTransform(get, never): Transform;
 	public inline extern function get_InitialTransform(): Transform return this.InitialTransform;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoAxisTranslationParameterSource*")
+abstract GizmoAxisTranslationParameterSourcePtr(cpp.Star<GizmoAxisTranslationParameterSource>) from cpp.Star<GizmoAxisTranslationParameterSource> to cpp.Star<GizmoAxisTranslationParameterSource>{
+	@:from
+	public static extern inline function fromValue(v: GizmoAxisTranslationParameterSource): GizmoAxisTranslationParameterSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoAxisTranslationParameterSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

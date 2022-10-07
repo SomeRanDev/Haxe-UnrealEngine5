@@ -12,3 +12,22 @@ extern class OnQuartzMetronomeEventBP__PythonCallable extends PythonCallableForD
 @:nativeGen
 abstract ConstOnQuartzMetronomeEventBP__PythonCallable(OnQuartzMetronomeEventBP__PythonCallable) from OnQuartzMetronomeEventBP__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnQuartzMetronomeEventBP__PythonCallable*")
+abstract OnQuartzMetronomeEventBP__PythonCallablePtr(cpp.Star<OnQuartzMetronomeEventBP__PythonCallable>) from cpp.Star<OnQuartzMetronomeEventBP__PythonCallable> to cpp.Star<OnQuartzMetronomeEventBP__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnQuartzMetronomeEventBP__PythonCallable): OnQuartzMetronomeEventBP__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnQuartzMetronomeEventBP__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

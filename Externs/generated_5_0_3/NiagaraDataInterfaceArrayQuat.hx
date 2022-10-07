@@ -16,3 +16,22 @@ abstract ConstNiagaraDataInterfaceArrayQuat(NiagaraDataInterfaceArrayQuat) from 
 	public extern var QuatData(get, never): TArray<Quat>;
 	public inline extern function get_QuatData(): TArray<Quat> return this.QuatData;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceArrayQuat*")
+abstract NiagaraDataInterfaceArrayQuatPtr(cpp.Star<NiagaraDataInterfaceArrayQuat>) from cpp.Star<NiagaraDataInterfaceArrayQuat> to cpp.Star<NiagaraDataInterfaceArrayQuat>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceArrayQuat): NiagaraDataInterfaceArrayQuatPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceArrayQuat {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

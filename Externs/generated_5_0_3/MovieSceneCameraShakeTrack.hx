@@ -16,3 +16,22 @@ abstract ConstMovieSceneCameraShakeTrack(MovieSceneCameraShakeTrack) from MovieS
 	public extern var CameraShakeSections(get, never): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>>;
 	public inline extern function get_CameraShakeSections(): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>> return this.CameraShakeSections;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneCameraShakeTrack*")
+abstract MovieSceneCameraShakeTrackPtr(cpp.Star<MovieSceneCameraShakeTrack>) from cpp.Star<MovieSceneCameraShakeTrack> to cpp.Star<MovieSceneCameraShakeTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneCameraShakeTrack): MovieSceneCameraShakeTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneCameraShakeTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

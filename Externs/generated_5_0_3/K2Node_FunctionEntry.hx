@@ -28,3 +28,22 @@ abstract ConstK2Node_FunctionEntry(K2Node_FunctionEntry) from K2Node_FunctionEnt
 	public extern var ExtraFlags(get, never): cpp.Int32;
 	public inline extern function get_ExtraFlags(): cpp.Int32 return this.ExtraFlags;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_FunctionEntry*")
+abstract K2Node_FunctionEntryPtr(cpp.Star<K2Node_FunctionEntry>) from cpp.Star<K2Node_FunctionEntry> to cpp.Star<K2Node_FunctionEntry>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_FunctionEntry): K2Node_FunctionEntryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_FunctionEntry {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

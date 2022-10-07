@@ -16,3 +16,22 @@ abstract ConstCurveEditorReduceFilter(CurveEditorReduceFilter) from CurveEditorR
 	public extern var Tolerance(get, never): cpp.Float32;
 	public inline extern function get_Tolerance(): cpp.Float32 return this.Tolerance;
 }
+
+@:forward
+@:nativeGen
+@:native("CurveEditorReduceFilter*")
+abstract CurveEditorReduceFilterPtr(cpp.Star<CurveEditorReduceFilter>) from cpp.Star<CurveEditorReduceFilter> to cpp.Star<CurveEditorReduceFilter>{
+	@:from
+	public static extern inline function fromValue(v: CurveEditorReduceFilter): CurveEditorReduceFilterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CurveEditorReduceFilter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

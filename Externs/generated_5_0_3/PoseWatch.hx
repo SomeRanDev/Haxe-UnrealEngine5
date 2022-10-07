@@ -34,3 +34,22 @@ abstract ConstPoseWatch(PoseWatch) from PoseWatch {
 	public extern var Parent(get, never): TWeakObjectPtr<PoseWatchFolder.ConstPoseWatchFolder>;
 	public inline extern function get_Parent(): TWeakObjectPtr<PoseWatchFolder.ConstPoseWatchFolder> return this.Parent;
 }
+
+@:forward
+@:nativeGen
+@:native("PoseWatch*")
+abstract PoseWatchPtr(cpp.Star<PoseWatch>) from cpp.Star<PoseWatch> to cpp.Star<PoseWatch>{
+	@:from
+	public static extern inline function fromValue(v: PoseWatch): PoseWatchPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PoseWatch {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

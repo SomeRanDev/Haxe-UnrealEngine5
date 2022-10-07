@@ -19,3 +19,22 @@ abstract ConstBlueprintPropertyTestObject(BlueprintPropertyTestObject) from Blue
 	public extern var ShouldBeVisible(get, never): cpp.Int32;
 	public inline extern function get_ShouldBeVisible(): cpp.Int32 return this.ShouldBeVisible;
 }
+
+@:forward
+@:nativeGen
+@:native("BlueprintPropertyTestObject*")
+abstract BlueprintPropertyTestObjectPtr(cpp.Star<BlueprintPropertyTestObject>) from cpp.Star<BlueprintPropertyTestObject> to cpp.Star<BlueprintPropertyTestObject>{
+	@:from
+	public static extern inline function fromValue(v: BlueprintPropertyTestObject): BlueprintPropertyTestObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlueprintPropertyTestObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

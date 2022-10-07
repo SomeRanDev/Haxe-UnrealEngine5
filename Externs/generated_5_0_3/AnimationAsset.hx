@@ -43,3 +43,22 @@ abstract ConstAnimationAsset(AnimationAsset) from AnimationAsset {
 	public extern var PreviewSkeletalMesh(get, never): TSoftObjectPtr<SkeletalMesh.ConstSkeletalMesh>;
 	public inline extern function get_PreviewSkeletalMesh(): TSoftObjectPtr<SkeletalMesh.ConstSkeletalMesh> return this.PreviewSkeletalMesh;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationAsset*")
+abstract AnimationAssetPtr(cpp.Star<AnimationAsset>) from cpp.Star<AnimationAsset> to cpp.Star<AnimationAsset>{
+	@:from
+	public static extern inline function fromValue(v: AnimationAsset): AnimationAssetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationAsset {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

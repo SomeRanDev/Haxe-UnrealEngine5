@@ -27,3 +27,22 @@ abstract ConstAsyncImageExport(AsyncImageExport) from AsyncImageExport {
 	public extern var TargetFile(get, never): FString;
 	public inline extern function get_TargetFile(): FString return this.TargetFile;
 }
+
+@:forward
+@:nativeGen
+@:native("AsyncImageExport*")
+abstract AsyncImageExportPtr(cpp.Star<AsyncImageExport>) from cpp.Star<AsyncImageExport> to cpp.Star<AsyncImageExport>{
+	@:from
+	public static extern inline function fromValue(v: AsyncImageExport): AsyncImageExportPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AsyncImageExport {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

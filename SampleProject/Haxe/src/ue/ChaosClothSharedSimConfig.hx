@@ -49,3 +49,22 @@ abstract ConstChaosClothSharedSimConfig(ChaosClothSharedSimConfig) from ChaosClo
 	public extern var bUseXPBDConstraints(get, never): Bool;
 	public inline extern function get_bUseXPBDConstraints(): Bool return this.bUseXPBDConstraints;
 }
+
+@:forward
+@:nativeGen
+@:native("ChaosClothSharedSimConfig*")
+abstract ChaosClothSharedSimConfigPtr(cpp.Star<ChaosClothSharedSimConfig>) from cpp.Star<ChaosClothSharedSimConfig> to cpp.Star<ChaosClothSharedSimConfig>{
+	@:from
+	public static extern inline function fromValue(v: ChaosClothSharedSimConfig): ChaosClothSharedSimConfigPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ChaosClothSharedSimConfig {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

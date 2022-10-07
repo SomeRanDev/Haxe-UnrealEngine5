@@ -12,3 +12,22 @@ extern class PyTestMulticastDelegate__PythonCallable extends PythonCallableForDe
 @:nativeGen
 abstract ConstPyTestMulticastDelegate__PythonCallable(PyTestMulticastDelegate__PythonCallable) from PyTestMulticastDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("PyTestMulticastDelegate__PythonCallable*")
+abstract PyTestMulticastDelegate__PythonCallablePtr(cpp.Star<PyTestMulticastDelegate__PythonCallable>) from cpp.Star<PyTestMulticastDelegate__PythonCallable> to cpp.Star<PyTestMulticastDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: PyTestMulticastDelegate__PythonCallable): PyTestMulticastDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PyTestMulticastDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

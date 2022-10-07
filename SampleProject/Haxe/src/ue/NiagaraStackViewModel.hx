@@ -16,3 +16,22 @@ abstract ConstNiagaraStackViewModel(NiagaraStackViewModel) from NiagaraStackView
 	public extern var RootEntry(get, never): cpp.Star<NiagaraStackEntry.ConstNiagaraStackEntry>;
 	public inline extern function get_RootEntry(): cpp.Star<NiagaraStackEntry.ConstNiagaraStackEntry> return this.RootEntry;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackViewModel*")
+abstract NiagaraStackViewModelPtr(cpp.Star<NiagaraStackViewModel>) from cpp.Star<NiagaraStackViewModel> to cpp.Star<NiagaraStackViewModel>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackViewModel): NiagaraStackViewModelPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackViewModel {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

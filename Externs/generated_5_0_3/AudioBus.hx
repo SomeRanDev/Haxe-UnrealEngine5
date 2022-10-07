@@ -16,3 +16,22 @@ abstract ConstAudioBus(AudioBus) from AudioBus {
 	public extern var AudioBusChannels(get, never): EAudioBusChannels;
 	public inline extern function get_AudioBusChannels(): EAudioBusChannels return this.AudioBusChannels;
 }
+
+@:forward
+@:nativeGen
+@:native("AudioBus*")
+abstract AudioBusPtr(cpp.Star<AudioBus>) from cpp.Star<AudioBus> to cpp.Star<AudioBus>{
+	@:from
+	public static extern inline function fromValue(v: AudioBus): AudioBusPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AudioBus {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

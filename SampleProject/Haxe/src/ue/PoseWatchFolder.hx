@@ -25,3 +25,22 @@ abstract ConstPoseWatchFolder(PoseWatchFolder) from PoseWatchFolder {
 	public extern var bIsExpanded(get, never): Bool;
 	public inline extern function get_bIsExpanded(): Bool return this.bIsExpanded;
 }
+
+@:forward
+@:nativeGen
+@:native("PoseWatchFolder*")
+abstract PoseWatchFolderPtr(cpp.Star<PoseWatchFolder>) from cpp.Star<PoseWatchFolder> to cpp.Star<PoseWatchFolder>{
+	@:from
+	public static extern inline function fromValue(v: PoseWatchFolder): PoseWatchFolderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PoseWatchFolder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

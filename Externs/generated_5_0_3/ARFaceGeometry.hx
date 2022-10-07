@@ -33,3 +33,22 @@ abstract ConstARFaceGeometry(ARFaceGeometry) from ARFaceGeometry {
 	public extern var RightEyeTransform(get, never): Transform;
 	public inline extern function get_RightEyeTransform(): Transform return this.RightEyeTransform;
 }
+
+@:forward
+@:nativeGen
+@:native("ARFaceGeometry*")
+abstract ARFaceGeometryPtr(cpp.Star<ARFaceGeometry>) from cpp.Star<ARFaceGeometry> to cpp.Star<ARFaceGeometry>{
+	@:from
+	public static extern inline function fromValue(v: ARFaceGeometry): ARFaceGeometryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARFaceGeometry {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

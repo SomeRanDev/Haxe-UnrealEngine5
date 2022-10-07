@@ -22,3 +22,22 @@ abstract ConstNiagaraDataInterfaceRigidMeshCollisionQuery(NiagaraDataInterfaceRi
 	public extern var MaxNumPrimitives(get, never): cpp.Int32;
 	public inline extern function get_MaxNumPrimitives(): cpp.Int32 return this.MaxNumPrimitives;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceRigidMeshCollisionQuery*")
+abstract NiagaraDataInterfaceRigidMeshCollisionQueryPtr(cpp.Star<NiagaraDataInterfaceRigidMeshCollisionQuery>) from cpp.Star<NiagaraDataInterfaceRigidMeshCollisionQuery> to cpp.Star<NiagaraDataInterfaceRigidMeshCollisionQuery>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceRigidMeshCollisionQuery): NiagaraDataInterfaceRigidMeshCollisionQueryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceRigidMeshCollisionQuery {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

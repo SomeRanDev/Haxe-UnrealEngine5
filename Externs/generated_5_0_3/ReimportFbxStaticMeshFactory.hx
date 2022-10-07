@@ -13,3 +13,22 @@ extern class ReimportFbxStaticMeshFactory extends FbxFactory {
 @:nativeGen
 abstract ConstReimportFbxStaticMeshFactory(ReimportFbxStaticMeshFactory) from ReimportFbxStaticMeshFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("ReimportFbxStaticMeshFactory*")
+abstract ReimportFbxStaticMeshFactoryPtr(cpp.Star<ReimportFbxStaticMeshFactory>) from cpp.Star<ReimportFbxStaticMeshFactory> to cpp.Star<ReimportFbxStaticMeshFactory>{
+	@:from
+	public static extern inline function fromValue(v: ReimportFbxStaticMeshFactory): ReimportFbxStaticMeshFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ReimportFbxStaticMeshFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -40,3 +40,22 @@ abstract ConstCurveEdOptions(CurveEdOptions) from CurveEdOptions {
 	public extern var SelectedKeyColor(get, never): LinearColor;
 	public inline extern function get_SelectedKeyColor(): LinearColor return this.SelectedKeyColor;
 }
+
+@:forward
+@:nativeGen
+@:native("CurveEdOptions*")
+abstract CurveEdOptionsPtr(cpp.Star<CurveEdOptions>) from cpp.Star<CurveEdOptions> to cpp.Star<CurveEdOptions>{
+	@:from
+	public static extern inline function fromValue(v: CurveEdOptions): CurveEdOptionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CurveEdOptions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

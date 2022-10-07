@@ -13,3 +13,22 @@ extern class K2Node_SpawnActorFromClass extends K2Node_ConstructObjectFromClass 
 @:nativeGen
 abstract ConstK2Node_SpawnActorFromClass(K2Node_SpawnActorFromClass) from K2Node_SpawnActorFromClass {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_SpawnActorFromClass*")
+abstract K2Node_SpawnActorFromClassPtr(cpp.Star<K2Node_SpawnActorFromClass>) from cpp.Star<K2Node_SpawnActorFromClass> to cpp.Star<K2Node_SpawnActorFromClass>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_SpawnActorFromClass): K2Node_SpawnActorFromClassPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_SpawnActorFromClass {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

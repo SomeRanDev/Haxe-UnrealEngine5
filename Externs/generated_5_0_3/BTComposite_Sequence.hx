@@ -13,3 +13,22 @@ extern class BTComposite_Sequence extends BTCompositeNode {
 @:nativeGen
 abstract ConstBTComposite_Sequence(BTComposite_Sequence) from BTComposite_Sequence {
 }
+
+@:forward
+@:nativeGen
+@:native("BTComposite_Sequence*")
+abstract BTComposite_SequencePtr(cpp.Star<BTComposite_Sequence>) from cpp.Star<BTComposite_Sequence> to cpp.Star<BTComposite_Sequence>{
+	@:from
+	public static extern inline function fromValue(v: BTComposite_Sequence): BTComposite_SequencePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTComposite_Sequence {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

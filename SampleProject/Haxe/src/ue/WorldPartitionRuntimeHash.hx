@@ -13,3 +13,22 @@ extern class WorldPartitionRuntimeHash extends Object {
 @:nativeGen
 abstract ConstWorldPartitionRuntimeHash(WorldPartitionRuntimeHash) from WorldPartitionRuntimeHash {
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionRuntimeHash*")
+abstract WorldPartitionRuntimeHashPtr(cpp.Star<WorldPartitionRuntimeHash>) from cpp.Star<WorldPartitionRuntimeHash> to cpp.Star<WorldPartitionRuntimeHash>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionRuntimeHash): WorldPartitionRuntimeHashPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionRuntimeHash {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -40,3 +40,22 @@ abstract ConstPersonaPreviewSceneDescription(PersonaPreviewSceneDescription) fro
 	public extern var DefaultAdditionalMeshes(get, never): cpp.Star<PreviewMeshCollection.ConstPreviewMeshCollection>;
 	public inline extern function get_DefaultAdditionalMeshes(): cpp.Star<PreviewMeshCollection.ConstPreviewMeshCollection> return this.DefaultAdditionalMeshes;
 }
+
+@:forward
+@:nativeGen
+@:native("PersonaPreviewSceneDescription*")
+abstract PersonaPreviewSceneDescriptionPtr(cpp.Star<PersonaPreviewSceneDescription>) from cpp.Star<PersonaPreviewSceneDescription> to cpp.Star<PersonaPreviewSceneDescription>{
+	@:from
+	public static extern inline function fromValue(v: PersonaPreviewSceneDescription): PersonaPreviewSceneDescriptionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PersonaPreviewSceneDescription {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstTextureRenderTargetCubeFactoryNew(TextureRenderTargetCubeFactoryNe
 	public extern var Format(get, never): cpp.UInt8;
 	public inline extern function get_Format(): cpp.UInt8 return this.Format;
 }
+
+@:forward
+@:nativeGen
+@:native("TextureRenderTargetCubeFactoryNew*")
+abstract TextureRenderTargetCubeFactoryNewPtr(cpp.Star<TextureRenderTargetCubeFactoryNew>) from cpp.Star<TextureRenderTargetCubeFactoryNew> to cpp.Star<TextureRenderTargetCubeFactoryNew>{
+	@:from
+	public static extern inline function fromValue(v: TextureRenderTargetCubeFactoryNew): TextureRenderTargetCubeFactoryNewPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextureRenderTargetCubeFactoryNew {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

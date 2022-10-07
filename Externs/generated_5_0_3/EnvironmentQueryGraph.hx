@@ -13,3 +13,22 @@ extern class EnvironmentQueryGraph extends AIGraph {
 @:nativeGen
 abstract ConstEnvironmentQueryGraph(EnvironmentQueryGraph) from EnvironmentQueryGraph {
 }
+
+@:forward
+@:nativeGen
+@:native("EnvironmentQueryGraph*")
+abstract EnvironmentQueryGraphPtr(cpp.Star<EnvironmentQueryGraph>) from cpp.Star<EnvironmentQueryGraph> to cpp.Star<EnvironmentQueryGraph>{
+	@:from
+	public static extern inline function fromValue(v: EnvironmentQueryGraph): EnvironmentQueryGraphPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvironmentQueryGraph {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

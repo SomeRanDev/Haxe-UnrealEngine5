@@ -17,3 +17,22 @@ extern class ProceduralFoliageEditorLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstProceduralFoliageEditorLibrary(ProceduralFoliageEditorLibrary) from ProceduralFoliageEditorLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("ProceduralFoliageEditorLibrary*")
+abstract ProceduralFoliageEditorLibraryPtr(cpp.Star<ProceduralFoliageEditorLibrary>) from cpp.Star<ProceduralFoliageEditorLibrary> to cpp.Star<ProceduralFoliageEditorLibrary>{
+	@:from
+	public static extern inline function fromValue(v: ProceduralFoliageEditorLibrary): ProceduralFoliageEditorLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ProceduralFoliageEditorLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -22,3 +22,22 @@ abstract ConstAmbientSound(AmbientSound) from AmbientSound {
 	public extern var AudioComponent(get, never): cpp.Star<AudioComp.ConstAudioComp>;
 	public inline extern function get_AudioComponent(): cpp.Star<AudioComp.ConstAudioComp> return this.AudioComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("AmbientSound*")
+abstract AmbientSoundPtr(cpp.Star<AmbientSound>) from cpp.Star<AmbientSound> to cpp.Star<AmbientSound>{
+	@:from
+	public static extern inline function fromValue(v: AmbientSound): AmbientSoundPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AmbientSound {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

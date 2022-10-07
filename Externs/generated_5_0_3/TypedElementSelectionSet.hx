@@ -48,3 +48,22 @@ abstract ConstTypedElementSelectionSet(TypedElementSelectionSet) from TypedEleme
 	public extern var OnSelectionChange(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet>) -> Void>;
 	public inline extern function get_OnSelectionChange(): HaxeMulticastSparseDelegateProperty<(cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet>) -> Void> return this.OnSelectionChange;
 }
+
+@:forward
+@:nativeGen
+@:native("TypedElementSelectionSet*")
+abstract TypedElementSelectionSetPtr(cpp.Star<TypedElementSelectionSet>) from cpp.Star<TypedElementSelectionSet> to cpp.Star<TypedElementSelectionSet>{
+	@:from
+	public static extern inline function fromValue(v: TypedElementSelectionSet): TypedElementSelectionSetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TypedElementSelectionSet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

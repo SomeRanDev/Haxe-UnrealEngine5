@@ -16,3 +16,22 @@ abstract ConstMovieScene3DConstraintTrack(MovieScene3DConstraintTrack) from Movi
 	public extern var ConstraintSections(get, never): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>>;
 	public inline extern function get_ConstraintSections(): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>> return this.ConstraintSections;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieScene3DConstraintTrack*")
+abstract MovieScene3DConstraintTrackPtr(cpp.Star<MovieScene3DConstraintTrack>) from cpp.Star<MovieScene3DConstraintTrack> to cpp.Star<MovieScene3DConstraintTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieScene3DConstraintTrack): MovieScene3DConstraintTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieScene3DConstraintTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

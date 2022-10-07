@@ -16,3 +16,22 @@ abstract ConstModeManagerInteractiveToolsContext(ModeManagerInteractiveToolsCont
 	public extern var EdModeToolsContexts(get, never): TArray<cpp.Star<EdModeInteractiveToolsContext.ConstEdModeInteractiveToolsContext>>;
 	public inline extern function get_EdModeToolsContexts(): TArray<cpp.Star<EdModeInteractiveToolsContext.ConstEdModeInteractiveToolsContext>> return this.EdModeToolsContexts;
 }
+
+@:forward
+@:nativeGen
+@:native("ModeManagerInteractiveToolsContext*")
+abstract ModeManagerInteractiveToolsContextPtr(cpp.Star<ModeManagerInteractiveToolsContext>) from cpp.Star<ModeManagerInteractiveToolsContext> to cpp.Star<ModeManagerInteractiveToolsContext>{
+	@:from
+	public static extern inline function fromValue(v: ModeManagerInteractiveToolsContext): ModeManagerInteractiveToolsContextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ModeManagerInteractiveToolsContext {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

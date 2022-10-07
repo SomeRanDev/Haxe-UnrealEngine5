@@ -13,3 +13,22 @@ extern class GenerateGatherArchiveCommandlet extends GatherTextCommandletBase {
 @:nativeGen
 abstract ConstGenerateGatherArchiveCommandlet(GenerateGatherArchiveCommandlet) from GenerateGatherArchiveCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("GenerateGatherArchiveCommandlet*")
+abstract GenerateGatherArchiveCommandletPtr(cpp.Star<GenerateGatherArchiveCommandlet>) from cpp.Star<GenerateGatherArchiveCommandlet> to cpp.Star<GenerateGatherArchiveCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: GenerateGatherArchiveCommandlet): GenerateGatherArchiveCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GenerateGatherArchiveCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

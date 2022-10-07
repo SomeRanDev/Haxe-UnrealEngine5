@@ -19,3 +19,22 @@ abstract ConstCompositeDataTable(CompositeDataTable) from CompositeDataTable {
 	public extern var OldParentTables(get, never): TArray<cpp.Star<DataTable.ConstDataTable>>;
 	public inline extern function get_OldParentTables(): TArray<cpp.Star<DataTable.ConstDataTable>> return this.OldParentTables;
 }
+
+@:forward
+@:nativeGen
+@:native("CompositeDataTable*")
+abstract CompositeDataTablePtr(cpp.Star<CompositeDataTable>) from cpp.Star<CompositeDataTable> to cpp.Star<CompositeDataTable>{
+	@:from
+	public static extern inline function fromValue(v: CompositeDataTable): CompositeDataTablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CompositeDataTable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

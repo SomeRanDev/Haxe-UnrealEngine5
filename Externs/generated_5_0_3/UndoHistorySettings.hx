@@ -16,3 +16,22 @@ abstract ConstUndoHistorySettings(UndoHistorySettings) from UndoHistorySettings 
 	public extern var bShowTransactionDetails(get, never): Bool;
 	public inline extern function get_bShowTransactionDetails(): Bool return this.bShowTransactionDetails;
 }
+
+@:forward
+@:nativeGen
+@:native("UndoHistorySettings*")
+abstract UndoHistorySettingsPtr(cpp.Star<UndoHistorySettings>) from cpp.Star<UndoHistorySettings> to cpp.Star<UndoHistorySettings>{
+	@:from
+	public static extern inline function fromValue(v: UndoHistorySettings): UndoHistorySettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UndoHistorySettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

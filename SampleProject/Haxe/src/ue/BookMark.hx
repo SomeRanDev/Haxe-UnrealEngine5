@@ -22,3 +22,22 @@ abstract ConstBookMark(BookMark) from BookMark {
 	public extern var HiddenLevels(get, never): TArray<FString>;
 	public inline extern function get_HiddenLevels(): TArray<FString> return this.HiddenLevels;
 }
+
+@:forward
+@:nativeGen
+@:native("BookMark*")
+abstract BookMarkPtr(cpp.Star<BookMark>) from cpp.Star<BookMark> to cpp.Star<BookMark>{
+	@:from
+	public static extern inline function fromValue(v: BookMark): BookMarkPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BookMark {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

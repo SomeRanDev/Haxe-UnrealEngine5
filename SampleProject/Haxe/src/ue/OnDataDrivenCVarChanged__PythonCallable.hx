@@ -12,3 +12,22 @@ extern class OnDataDrivenCVarChanged__PythonCallable extends PythonCallableForDe
 @:nativeGen
 abstract ConstOnDataDrivenCVarChanged__PythonCallable(OnDataDrivenCVarChanged__PythonCallable) from OnDataDrivenCVarChanged__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnDataDrivenCVarChanged__PythonCallable*")
+abstract OnDataDrivenCVarChanged__PythonCallablePtr(cpp.Star<OnDataDrivenCVarChanged__PythonCallable>) from cpp.Star<OnDataDrivenCVarChanged__PythonCallable> to cpp.Star<OnDataDrivenCVarChanged__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnDataDrivenCVarChanged__PythonCallable): OnDataDrivenCVarChanged__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnDataDrivenCVarChanged__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

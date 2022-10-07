@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionDistanceToNearestSurface(MaterialExpressionDista
 	public extern var Position(get, never): ExpressionInput;
 	public inline extern function get_Position(): ExpressionInput return this.Position;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionDistanceToNearestSurface*")
+abstract MaterialExpressionDistanceToNearestSurfacePtr(cpp.Star<MaterialExpressionDistanceToNearestSurface>) from cpp.Star<MaterialExpressionDistanceToNearestSurface> to cpp.Star<MaterialExpressionDistanceToNearestSurface>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionDistanceToNearestSurface): MaterialExpressionDistanceToNearestSurfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionDistanceToNearestSurface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

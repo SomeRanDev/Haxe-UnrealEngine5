@@ -18,3 +18,22 @@ abstract ConstDataDrivenCVarEngineSubsystem(DataDrivenCVarEngineSubsystem) from 
 	public extern var OnDataDrivenCVarDelegate(get, never): HaxeMulticastSparseDelegateProperty<(FString) -> Void>;
 	public inline extern function get_OnDataDrivenCVarDelegate(): HaxeMulticastSparseDelegateProperty<(FString) -> Void> return this.OnDataDrivenCVarDelegate;
 }
+
+@:forward
+@:nativeGen
+@:native("DataDrivenCVarEngineSubsystem*")
+abstract DataDrivenCVarEngineSubsystemPtr(cpp.Star<DataDrivenCVarEngineSubsystem>) from cpp.Star<DataDrivenCVarEngineSubsystem> to cpp.Star<DataDrivenCVarEngineSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: DataDrivenCVarEngineSubsystem): DataDrivenCVarEngineSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DataDrivenCVarEngineSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

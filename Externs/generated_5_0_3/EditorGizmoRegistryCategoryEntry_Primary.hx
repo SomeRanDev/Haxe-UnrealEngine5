@@ -13,3 +13,22 @@ extern class EditorGizmoRegistryCategoryEntry_Primary extends EditorGizmoRegistr
 @:nativeGen
 abstract ConstEditorGizmoRegistryCategoryEntry_Primary(EditorGizmoRegistryCategoryEntry_Primary) from EditorGizmoRegistryCategoryEntry_Primary {
 }
+
+@:forward
+@:nativeGen
+@:native("EditorGizmoRegistryCategoryEntry_Primary*")
+abstract EditorGizmoRegistryCategoryEntry_PrimaryPtr(cpp.Star<EditorGizmoRegistryCategoryEntry_Primary>) from cpp.Star<EditorGizmoRegistryCategoryEntry_Primary> to cpp.Star<EditorGizmoRegistryCategoryEntry_Primary>{
+	@:from
+	public static extern inline function fromValue(v: EditorGizmoRegistryCategoryEntry_Primary): EditorGizmoRegistryCategoryEntry_PrimaryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorGizmoRegistryCategoryEntry_Primary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

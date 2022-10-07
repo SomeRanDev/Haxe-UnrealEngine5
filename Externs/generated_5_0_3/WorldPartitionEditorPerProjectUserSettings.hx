@@ -43,3 +43,22 @@ abstract ConstWorldPartitionEditorPerProjectUserSettings(WorldPartitionEditorPer
 	public extern var PerWorldEditorSettings(get, never): TMap<TSoftObjectPtr<World.ConstWorld>, WorldPartitionPerWorldSettings>;
 	public inline extern function get_PerWorldEditorSettings(): TMap<TSoftObjectPtr<World.ConstWorld>, WorldPartitionPerWorldSettings> return this.PerWorldEditorSettings;
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionEditorPerProjectUserSettings*")
+abstract WorldPartitionEditorPerProjectUserSettingsPtr(cpp.Star<WorldPartitionEditorPerProjectUserSettings>) from cpp.Star<WorldPartitionEditorPerProjectUserSettings> to cpp.Star<WorldPartitionEditorPerProjectUserSettings>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionEditorPerProjectUserSettings): WorldPartitionEditorPerProjectUserSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionEditorPerProjectUserSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

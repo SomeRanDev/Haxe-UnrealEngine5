@@ -16,3 +16,22 @@ abstract ConstMovieSceneGroomCacheSection(MovieSceneGroomCacheSection) from Movi
 	public extern var Params(get, never): MovieSceneGroomCacheParams;
 	public inline extern function get_Params(): MovieSceneGroomCacheParams return this.Params;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneGroomCacheSection*")
+abstract MovieSceneGroomCacheSectionPtr(cpp.Star<MovieSceneGroomCacheSection>) from cpp.Star<MovieSceneGroomCacheSection> to cpp.Star<MovieSceneGroomCacheSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneGroomCacheSection): MovieSceneGroomCacheSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneGroomCacheSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -22,3 +22,22 @@ abstract ConstNiagaraSystemEditorFolder(NiagaraSystemEditorFolder) from NiagaraS
 	public extern var ChildEmitterHandleIds(get, never): TArray<Guid>;
 	public inline extern function get_ChildEmitterHandleIds(): TArray<Guid> return this.ChildEmitterHandleIds;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraSystemEditorFolder*")
+abstract NiagaraSystemEditorFolderPtr(cpp.Star<NiagaraSystemEditorFolder>) from cpp.Star<NiagaraSystemEditorFolder> to cpp.Star<NiagaraSystemEditorFolder>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraSystemEditorFolder): NiagaraSystemEditorFolderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraSystemEditorFolder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

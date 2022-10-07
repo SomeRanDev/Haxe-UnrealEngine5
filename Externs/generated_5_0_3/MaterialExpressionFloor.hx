@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionFloor(MaterialExpressionFloor) from MaterialExpr
 	public extern var Input(get, never): ExpressionInput;
 	public inline extern function get_Input(): ExpressionInput return this.Input;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionFloor*")
+abstract MaterialExpressionFloorPtr(cpp.Star<MaterialExpressionFloor>) from cpp.Star<MaterialExpressionFloor> to cpp.Star<MaterialExpressionFloor>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionFloor): MaterialExpressionFloorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionFloor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

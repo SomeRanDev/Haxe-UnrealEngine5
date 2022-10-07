@@ -13,3 +13,22 @@ extern class AudioSubsystemCollectionRoot extends Object {
 @:nativeGen
 abstract ConstAudioSubsystemCollectionRoot(AudioSubsystemCollectionRoot) from AudioSubsystemCollectionRoot {
 }
+
+@:forward
+@:nativeGen
+@:native("AudioSubsystemCollectionRoot*")
+abstract AudioSubsystemCollectionRootPtr(cpp.Star<AudioSubsystemCollectionRoot>) from cpp.Star<AudioSubsystemCollectionRoot> to cpp.Star<AudioSubsystemCollectionRoot>{
+	@:from
+	public static extern inline function fromValue(v: AudioSubsystemCollectionRoot): AudioSubsystemCollectionRootPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AudioSubsystemCollectionRoot {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

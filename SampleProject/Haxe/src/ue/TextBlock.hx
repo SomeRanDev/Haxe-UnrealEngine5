@@ -73,3 +73,22 @@ abstract ConstTextBlock(TextBlock) from TextBlock {
 	public extern var bSimpleTextMode(get, never): Bool;
 	public inline extern function get_bSimpleTextMode(): Bool return this.bSimpleTextMode;
 }
+
+@:forward
+@:nativeGen
+@:native("TextBlock*")
+abstract TextBlockPtr(cpp.Star<TextBlock>) from cpp.Star<TextBlock> to cpp.Star<TextBlock>{
+	@:from
+	public static extern inline function fromValue(v: TextBlock): TextBlockPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextBlock {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

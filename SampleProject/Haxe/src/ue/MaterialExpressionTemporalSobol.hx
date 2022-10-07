@@ -25,3 +25,22 @@ abstract ConstMaterialExpressionTemporalSobol(MaterialExpressionTemporalSobol) f
 	public extern var ConstSeed(get, never): Vector2D;
 	public inline extern function get_ConstSeed(): Vector2D return this.ConstSeed;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionTemporalSobol*")
+abstract MaterialExpressionTemporalSobolPtr(cpp.Star<MaterialExpressionTemporalSobol>) from cpp.Star<MaterialExpressionTemporalSobol> to cpp.Star<MaterialExpressionTemporalSobol>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionTemporalSobol): MaterialExpressionTemporalSobolPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionTemporalSobol {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

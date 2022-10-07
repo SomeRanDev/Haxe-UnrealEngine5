@@ -13,3 +13,22 @@ extern class SubsurfaceProfileRenderer extends TextureThumbnailRenderer {
 @:nativeGen
 abstract ConstSubsurfaceProfileRenderer(SubsurfaceProfileRenderer) from SubsurfaceProfileRenderer {
 }
+
+@:forward
+@:nativeGen
+@:native("SubsurfaceProfileRenderer*")
+abstract SubsurfaceProfileRendererPtr(cpp.Star<SubsurfaceProfileRenderer>) from cpp.Star<SubsurfaceProfileRenderer> to cpp.Star<SubsurfaceProfileRenderer>{
+	@:from
+	public static extern inline function fromValue(v: SubsurfaceProfileRenderer): SubsurfaceProfileRendererPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SubsurfaceProfileRenderer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

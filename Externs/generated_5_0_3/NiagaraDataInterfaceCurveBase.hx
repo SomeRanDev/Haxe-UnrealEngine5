@@ -52,3 +52,22 @@ abstract ConstNiagaraDataInterfaceCurveBase(NiagaraDataInterfaceCurveBase) from 
 	public extern var ExposedTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
 	public inline extern function get_ExposedTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.ExposedTexture;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceCurveBase*")
+abstract NiagaraDataInterfaceCurveBasePtr(cpp.Star<NiagaraDataInterfaceCurveBase>) from cpp.Star<NiagaraDataInterfaceCurveBase> to cpp.Star<NiagaraDataInterfaceCurveBase>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceCurveBase): NiagaraDataInterfaceCurveBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceCurveBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

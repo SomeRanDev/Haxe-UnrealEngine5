@@ -52,3 +52,22 @@ abstract ConstIKRig_BodyMover(IKRig_BodyMover) from IKRig_BodyMover {
 	public extern var Effectors(get, never): TArray<cpp.Star<IKRig_BodyMoverEffector.ConstIKRig_BodyMoverEffector>>;
 	public inline extern function get_Effectors(): TArray<cpp.Star<IKRig_BodyMoverEffector.ConstIKRig_BodyMoverEffector>> return this.Effectors;
 }
+
+@:forward
+@:nativeGen
+@:native("IKRig_BodyMover*")
+abstract IKRig_BodyMoverPtr(cpp.Star<IKRig_BodyMover>) from cpp.Star<IKRig_BodyMover> to cpp.Star<IKRig_BodyMover>{
+	@:from
+	public static extern inline function fromValue(v: IKRig_BodyMover): IKRig_BodyMoverPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IKRig_BodyMover {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

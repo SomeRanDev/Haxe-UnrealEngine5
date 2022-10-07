@@ -19,3 +19,22 @@ abstract ConstDatasmithSceneActor(DatasmithSceneActor) from DatasmithSceneActor 
 	public extern var RelatedActors(get, never): TMap<FName, TSoftObjectPtr<Actor.ConstActor>>;
 	public inline extern function get_RelatedActors(): TMap<FName, TSoftObjectPtr<Actor.ConstActor>> return this.RelatedActors;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithSceneActor*")
+abstract DatasmithSceneActorPtr(cpp.Star<DatasmithSceneActor>) from cpp.Star<DatasmithSceneActor> to cpp.Star<DatasmithSceneActor>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithSceneActor): DatasmithSceneActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithSceneActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

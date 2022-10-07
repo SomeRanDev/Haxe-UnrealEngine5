@@ -13,3 +13,22 @@ extern class StretchGizmoHandleGroup extends GizmoHandleGroup {
 @:nativeGen
 abstract ConstStretchGizmoHandleGroup(StretchGizmoHandleGroup) from StretchGizmoHandleGroup {
 }
+
+@:forward
+@:nativeGen
+@:native("StretchGizmoHandleGroup*")
+abstract StretchGizmoHandleGroupPtr(cpp.Star<StretchGizmoHandleGroup>) from cpp.Star<StretchGizmoHandleGroup> to cpp.Star<StretchGizmoHandleGroup>{
+	@:from
+	public static extern inline function fromValue(v: StretchGizmoHandleGroup): StretchGizmoHandleGroupPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): StretchGizmoHandleGroup {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

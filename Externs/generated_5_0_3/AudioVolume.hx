@@ -39,3 +39,22 @@ abstract ConstAudioVolume(AudioVolume) from AudioVolume {
 	public extern var SubmixOverrideSettings(get, never): TArray<AudioVolumeSubmixOverrideSettings>;
 	public inline extern function get_SubmixOverrideSettings(): TArray<AudioVolumeSubmixOverrideSettings> return this.SubmixOverrideSettings;
 }
+
+@:forward
+@:nativeGen
+@:native("AudioVolume*")
+abstract AudioVolumePtr(cpp.Star<AudioVolume>) from cpp.Star<AudioVolume> to cpp.Star<AudioVolume>{
+	@:from
+	public static extern inline function fromValue(v: AudioVolume): AudioVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AudioVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

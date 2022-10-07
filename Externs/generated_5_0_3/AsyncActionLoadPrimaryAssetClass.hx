@@ -18,3 +18,22 @@ abstract ConstAsyncActionLoadPrimaryAssetClass(AsyncActionLoadPrimaryAssetClass)
 	public extern var Completed(get, never): HaxeMulticastSparseDelegateProperty<(TSubclassOf<Object.ConstObject>) -> Void>;
 	public inline extern function get_Completed(): HaxeMulticastSparseDelegateProperty<(TSubclassOf<Object.ConstObject>) -> Void> return this.Completed;
 }
+
+@:forward
+@:nativeGen
+@:native("AsyncActionLoadPrimaryAssetClass*")
+abstract AsyncActionLoadPrimaryAssetClassPtr(cpp.Star<AsyncActionLoadPrimaryAssetClass>) from cpp.Star<AsyncActionLoadPrimaryAssetClass> to cpp.Star<AsyncActionLoadPrimaryAssetClass>{
+	@:from
+	public static extern inline function fromValue(v: AsyncActionLoadPrimaryAssetClass): AsyncActionLoadPrimaryAssetClassPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AsyncActionLoadPrimaryAssetClass {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

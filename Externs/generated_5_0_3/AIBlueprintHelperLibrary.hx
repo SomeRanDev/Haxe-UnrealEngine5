@@ -29,3 +29,22 @@ extern class AIBlueprintHelperLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstAIBlueprintHelperLibrary(AIBlueprintHelperLibrary) from AIBlueprintHelperLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("AIBlueprintHelperLibrary*")
+abstract AIBlueprintHelperLibraryPtr(cpp.Star<AIBlueprintHelperLibrary>) from cpp.Star<AIBlueprintHelperLibrary> to cpp.Star<AIBlueprintHelperLibrary>{
+	@:from
+	public static extern inline function fromValue(v: AIBlueprintHelperLibrary): AIBlueprintHelperLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AIBlueprintHelperLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

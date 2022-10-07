@@ -39,3 +39,22 @@ abstract ConstPhysicsSpringComp(PhysicsSpringComp) from PhysicsSpringComp {
 	public extern var SpringCompression(get, never): cpp.Float32;
 	public inline extern function get_SpringCompression(): cpp.Float32 return this.SpringCompression;
 }
+
+@:forward
+@:nativeGen
+@:native("PhysicsSpringComp*")
+abstract PhysicsSpringCompPtr(cpp.Star<PhysicsSpringComp>) from cpp.Star<PhysicsSpringComp> to cpp.Star<PhysicsSpringComp>{
+	@:from
+	public static extern inline function fromValue(v: PhysicsSpringComp): PhysicsSpringCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhysicsSpringComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

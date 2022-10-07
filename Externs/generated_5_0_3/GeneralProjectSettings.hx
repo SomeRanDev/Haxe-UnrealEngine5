@@ -73,3 +73,22 @@ abstract ConstGeneralProjectSettings(GeneralProjectSettings) from GeneralProject
 	public extern var bAllowMinimize(get, never): Bool;
 	public inline extern function get_bAllowMinimize(): Bool return this.bAllowMinimize;
 }
+
+@:forward
+@:nativeGen
+@:native("GeneralProjectSettings*")
+abstract GeneralProjectSettingsPtr(cpp.Star<GeneralProjectSettings>) from cpp.Star<GeneralProjectSettings> to cpp.Star<GeneralProjectSettings>{
+	@:from
+	public static extern inline function fromValue(v: GeneralProjectSettings): GeneralProjectSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GeneralProjectSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

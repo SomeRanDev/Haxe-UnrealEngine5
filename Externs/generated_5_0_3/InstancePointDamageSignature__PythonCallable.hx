@@ -12,3 +12,22 @@ extern class InstancePointDamageSignature__PythonCallable extends PythonCallable
 @:nativeGen
 abstract ConstInstancePointDamageSignature__PythonCallable(InstancePointDamageSignature__PythonCallable) from InstancePointDamageSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("InstancePointDamageSignature__PythonCallable*")
+abstract InstancePointDamageSignature__PythonCallablePtr(cpp.Star<InstancePointDamageSignature__PythonCallable>) from cpp.Star<InstancePointDamageSignature__PythonCallable> to cpp.Star<InstancePointDamageSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: InstancePointDamageSignature__PythonCallable): InstancePointDamageSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InstancePointDamageSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

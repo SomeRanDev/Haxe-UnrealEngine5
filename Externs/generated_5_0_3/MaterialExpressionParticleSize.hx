@@ -13,3 +13,22 @@ extern class MaterialExpressionParticleSize extends MaterialExpression {
 @:nativeGen
 abstract ConstMaterialExpressionParticleSize(MaterialExpressionParticleSize) from MaterialExpressionParticleSize {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionParticleSize*")
+abstract MaterialExpressionParticleSizePtr(cpp.Star<MaterialExpressionParticleSize>) from cpp.Star<MaterialExpressionParticleSize> to cpp.Star<MaterialExpressionParticleSize>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionParticleSize): MaterialExpressionParticleSizePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionParticleSize {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -55,3 +55,22 @@ abstract ConstPhysicsHandleComp(PhysicsHandleComp) from PhysicsHandleComp {
 	public extern var InterpolationSpeed(get, never): cpp.Float32;
 	public inline extern function get_InterpolationSpeed(): cpp.Float32 return this.InterpolationSpeed;
 }
+
+@:forward
+@:nativeGen
+@:native("PhysicsHandleComp*")
+abstract PhysicsHandleCompPtr(cpp.Star<PhysicsHandleComp>) from cpp.Star<PhysicsHandleComp> to cpp.Star<PhysicsHandleComp>{
+	@:from
+	public static extern inline function fromValue(v: PhysicsHandleComp): PhysicsHandleCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhysicsHandleComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

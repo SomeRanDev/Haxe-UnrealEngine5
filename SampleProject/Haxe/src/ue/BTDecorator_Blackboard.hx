@@ -40,3 +40,22 @@ abstract ConstBTDecorator_Blackboard(BTDecorator_Blackboard) from BTDecorator_Bl
 	public extern var TextOperation(get, never): ETextKeyOperation;
 	public inline extern function get_TextOperation(): ETextKeyOperation return this.TextOperation;
 }
+
+@:forward
+@:nativeGen
+@:native("BTDecorator_Blackboard*")
+abstract BTDecorator_BlackboardPtr(cpp.Star<BTDecorator_Blackboard>) from cpp.Star<BTDecorator_Blackboard> to cpp.Star<BTDecorator_Blackboard>{
+	@:from
+	public static extern inline function fromValue(v: BTDecorator_Blackboard): BTDecorator_BlackboardPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTDecorator_Blackboard {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

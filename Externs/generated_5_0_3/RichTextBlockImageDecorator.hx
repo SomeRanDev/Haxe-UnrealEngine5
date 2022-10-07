@@ -16,3 +16,22 @@ abstract ConstRichTextBlockImageDecorator(RichTextBlockImageDecorator) from Rich
 	public extern var ImageSet(get, never): cpp.Star<DataTable.ConstDataTable>;
 	public inline extern function get_ImageSet(): cpp.Star<DataTable.ConstDataTable> return this.ImageSet;
 }
+
+@:forward
+@:nativeGen
+@:native("RichTextBlockImageDecorator*")
+abstract RichTextBlockImageDecoratorPtr(cpp.Star<RichTextBlockImageDecorator>) from cpp.Star<RichTextBlockImageDecorator> to cpp.Star<RichTextBlockImageDecorator>{
+	@:from
+	public static extern inline function fromValue(v: RichTextBlockImageDecorator): RichTextBlockImageDecoratorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RichTextBlockImageDecorator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

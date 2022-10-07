@@ -34,3 +34,22 @@ abstract ConstDrawFrustumComp(DrawFrustumComp) from DrawFrustumComp {
 	public extern var Texture(get, never): cpp.Star<Texture.ConstTexture>;
 	public inline extern function get_Texture(): cpp.Star<Texture.ConstTexture> return this.Texture;
 }
+
+@:forward
+@:nativeGen
+@:native("DrawFrustumComp*")
+abstract DrawFrustumCompPtr(cpp.Star<DrawFrustumComp>) from cpp.Star<DrawFrustumComp> to cpp.Star<DrawFrustumComp>{
+	@:from
+	public static extern inline function fromValue(v: DrawFrustumComp): DrawFrustumCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DrawFrustumComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class AIGraphSchema extends EdGraphSchema {
 @:nativeGen
 abstract ConstAIGraphSchema(AIGraphSchema) from AIGraphSchema {
 }
+
+@:forward
+@:nativeGen
+@:native("AIGraphSchema*")
+abstract AIGraphSchemaPtr(cpp.Star<AIGraphSchema>) from cpp.Star<AIGraphSchema> to cpp.Star<AIGraphSchema>{
+	@:from
+	public static extern inline function fromValue(v: AIGraphSchema): AIGraphSchemaPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AIGraphSchema {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstVirtualizationFilterSettings(VirtualizationFilterSettings) from Vi
 	public extern var ExcludePackagePaths(get, never): TArray<FString>;
 	public inline extern function get_ExcludePackagePaths(): TArray<FString> return this.ExcludePackagePaths;
 }
+
+@:forward
+@:nativeGen
+@:native("VirtualizationFilterSettings*")
+abstract VirtualizationFilterSettingsPtr(cpp.Star<VirtualizationFilterSettings>) from cpp.Star<VirtualizationFilterSettings> to cpp.Star<VirtualizationFilterSettings>{
+	@:from
+	public static extern inline function fromValue(v: VirtualizationFilterSettings): VirtualizationFilterSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VirtualizationFilterSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

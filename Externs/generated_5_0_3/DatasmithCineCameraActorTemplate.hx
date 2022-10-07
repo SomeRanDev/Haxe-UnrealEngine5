@@ -16,3 +16,22 @@ abstract ConstDatasmithCineCameraActorTemplate(DatasmithCineCameraActorTemplate)
 	public extern var LookatTrackingSettings(get, never): DatasmithCameraLookatTrackingSettingsTemplate;
 	public inline extern function get_LookatTrackingSettings(): DatasmithCameraLookatTrackingSettingsTemplate return this.LookatTrackingSettings;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithCineCameraActorTemplate*")
+abstract DatasmithCineCameraActorTemplatePtr(cpp.Star<DatasmithCineCameraActorTemplate>) from cpp.Star<DatasmithCineCameraActorTemplate> to cpp.Star<DatasmithCineCameraActorTemplate>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithCineCameraActorTemplate): DatasmithCineCameraActorTemplatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithCineCameraActorTemplate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

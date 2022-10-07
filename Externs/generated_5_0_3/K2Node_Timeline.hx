@@ -31,3 +31,22 @@ abstract ConstK2Node_Timeline(K2Node_Timeline) from K2Node_Timeline {
 	public extern var bIgnoreTimeDilation(get, never): Bool;
 	public inline extern function get_bIgnoreTimeDilation(): Bool return this.bIgnoreTimeDilation;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_Timeline*")
+abstract K2Node_TimelinePtr(cpp.Star<K2Node_Timeline>) from cpp.Star<K2Node_Timeline> to cpp.Star<K2Node_Timeline>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_Timeline): K2Node_TimelinePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_Timeline {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -46,3 +46,22 @@ abstract ConstMaterialExpressionTextureSample(MaterialExpressionTextureSample) f
 	public extern var ConstMipValue(get, never): cpp.Int32;
 	public inline extern function get_ConstMipValue(): cpp.Int32 return this.ConstMipValue;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionTextureSample*")
+abstract MaterialExpressionTextureSamplePtr(cpp.Star<MaterialExpressionTextureSample>) from cpp.Star<MaterialExpressionTextureSample> to cpp.Star<MaterialExpressionTextureSample>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionTextureSample): MaterialExpressionTextureSamplePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionTextureSample {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

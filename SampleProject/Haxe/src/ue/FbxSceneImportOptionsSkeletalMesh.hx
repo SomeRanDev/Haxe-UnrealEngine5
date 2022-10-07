@@ -73,3 +73,22 @@ abstract ConstFbxSceneImportOptionsSkeletalMesh(FbxSceneImportOptionsSkeletalMes
 	public extern var bDeleteExistingMorphTargetCurves(get, never): Bool;
 	public inline extern function get_bDeleteExistingMorphTargetCurves(): Bool return this.bDeleteExistingMorphTargetCurves;
 }
+
+@:forward
+@:nativeGen
+@:native("FbxSceneImportOptionsSkeletalMesh*")
+abstract FbxSceneImportOptionsSkeletalMeshPtr(cpp.Star<FbxSceneImportOptionsSkeletalMesh>) from cpp.Star<FbxSceneImportOptionsSkeletalMesh> to cpp.Star<FbxSceneImportOptionsSkeletalMesh>{
+	@:from
+	public static extern inline function fromValue(v: FbxSceneImportOptionsSkeletalMesh): FbxSceneImportOptionsSkeletalMeshPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FbxSceneImportOptionsSkeletalMesh {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

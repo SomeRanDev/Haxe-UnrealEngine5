@@ -22,3 +22,22 @@ abstract ConstTextPropertyTestObject(TextPropertyTestObject) from TextPropertyTe
 	public extern var TransientText(get, never): FText;
 	public inline extern function get_TransientText(): FText return this.TransientText;
 }
+
+@:forward
+@:nativeGen
+@:native("TextPropertyTestObject*")
+abstract TextPropertyTestObjectPtr(cpp.Star<TextPropertyTestObject>) from cpp.Star<TextPropertyTestObject> to cpp.Star<TextPropertyTestObject>{
+	@:from
+	public static extern inline function fromValue(v: TextPropertyTestObject): TextPropertyTestObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextPropertyTestObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class ParticleModuleTypeDataBase extends ParticleModule {
 @:nativeGen
 abstract ConstParticleModuleTypeDataBase(ParticleModuleTypeDataBase) from ParticleModuleTypeDataBase {
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleTypeDataBase*")
+abstract ParticleModuleTypeDataBasePtr(cpp.Star<ParticleModuleTypeDataBase>) from cpp.Star<ParticleModuleTypeDataBase> to cpp.Star<ParticleModuleTypeDataBase>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleTypeDataBase): ParticleModuleTypeDataBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleTypeDataBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

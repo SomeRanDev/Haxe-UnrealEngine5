@@ -40,3 +40,22 @@ abstract ConstCameraShakeSourceComp(CameraShakeSourceComp) from CameraShakeSourc
 	public extern var EditorSpriteTextureScale(get, never): cpp.Float32;
 	public inline extern function get_EditorSpriteTextureScale(): cpp.Float32 return this.EditorSpriteTextureScale;
 }
+
+@:forward
+@:nativeGen
+@:native("CameraShakeSourceComp*")
+abstract CameraShakeSourceCompPtr(cpp.Star<CameraShakeSourceComp>) from cpp.Star<CameraShakeSourceComp> to cpp.Star<CameraShakeSourceComp>{
+	@:from
+	public static extern inline function fromValue(v: CameraShakeSourceComp): CameraShakeSourceCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CameraShakeSourceComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -34,3 +34,22 @@ abstract ConstCompositionGraphCaptureProtocol(CompositionGraphCaptureProtocol) f
 	public extern var PostProcessingMaterialPtr(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
 	public inline extern function get_PostProcessingMaterialPtr(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.PostProcessingMaterialPtr;
 }
+
+@:forward
+@:nativeGen
+@:native("CompositionGraphCaptureProtocol*")
+abstract CompositionGraphCaptureProtocolPtr(cpp.Star<CompositionGraphCaptureProtocol>) from cpp.Star<CompositionGraphCaptureProtocol> to cpp.Star<CompositionGraphCaptureProtocol>{
+	@:from
+	public static extern inline function fromValue(v: CompositionGraphCaptureProtocol): CompositionGraphCaptureProtocolPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CompositionGraphCaptureProtocol {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

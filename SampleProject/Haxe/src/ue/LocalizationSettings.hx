@@ -25,3 +25,22 @@ abstract ConstLocalizationSettings(LocalizationSettings) from LocalizationSettin
 	public extern var GameTargetsSettings(get, never): TArray<LocalizationTargetSettings>;
 	public inline extern function get_GameTargetsSettings(): TArray<LocalizationTargetSettings> return this.GameTargetsSettings;
 }
+
+@:forward
+@:nativeGen
+@:native("LocalizationSettings*")
+abstract LocalizationSettingsPtr(cpp.Star<LocalizationSettings>) from cpp.Star<LocalizationSettings> to cpp.Star<LocalizationSettings>{
+	@:from
+	public static extern inline function fromValue(v: LocalizationSettings): LocalizationSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LocalizationSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

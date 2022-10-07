@@ -55,3 +55,22 @@ abstract ConstNiagaraDataInterfaceSkeletalMesh(NiagaraDataInterfaceSkeletalMesh)
 	public extern var bRequireCurrentFrameData(get, never): Bool;
 	public inline extern function get_bRequireCurrentFrameData(): Bool return this.bRequireCurrentFrameData;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceSkeletalMesh*")
+abstract NiagaraDataInterfaceSkeletalMeshPtr(cpp.Star<NiagaraDataInterfaceSkeletalMesh>) from cpp.Star<NiagaraDataInterfaceSkeletalMesh> to cpp.Star<NiagaraDataInterfaceSkeletalMesh>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceSkeletalMesh): NiagaraDataInterfaceSkeletalMeshPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceSkeletalMesh {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

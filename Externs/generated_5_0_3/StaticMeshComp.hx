@@ -138,3 +138,22 @@ abstract ConstStaticMeshComp(StaticMeshComp) from StaticMeshComp {
 	public extern var LightmassSettings(get, never): LightmassPrimitiveSettings;
 	public inline extern function get_LightmassSettings(): LightmassPrimitiveSettings return this.LightmassSettings;
 }
+
+@:forward
+@:nativeGen
+@:native("StaticMeshComp*")
+abstract StaticMeshCompPtr(cpp.Star<StaticMeshComp>) from cpp.Star<StaticMeshComp> to cpp.Star<StaticMeshComp>{
+	@:from
+	public static extern inline function fromValue(v: StaticMeshComp): StaticMeshCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): StaticMeshComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

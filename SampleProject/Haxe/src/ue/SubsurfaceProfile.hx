@@ -16,3 +16,22 @@ abstract ConstSubsurfaceProfile(SubsurfaceProfile) from SubsurfaceProfile {
 	public extern var Settings(get, never): SubsurfaceProfileStruct;
 	public inline extern function get_Settings(): SubsurfaceProfileStruct return this.Settings;
 }
+
+@:forward
+@:nativeGen
+@:native("SubsurfaceProfile*")
+abstract SubsurfaceProfilePtr(cpp.Star<SubsurfaceProfile>) from cpp.Star<SubsurfaceProfile> to cpp.Star<SubsurfaceProfile>{
+	@:from
+	public static extern inline function fromValue(v: SubsurfaceProfile): SubsurfaceProfilePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SubsurfaceProfile {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

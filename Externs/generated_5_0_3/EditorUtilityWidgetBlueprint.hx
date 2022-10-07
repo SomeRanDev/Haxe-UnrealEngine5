@@ -16,3 +16,22 @@ abstract ConstEditorUtilityWidgetBlueprint(EditorUtilityWidgetBlueprint) from Ed
 	public extern var CreatedUMGWidget(get, never): cpp.Star<EditorUtilityWidget.ConstEditorUtilityWidget>;
 	public inline extern function get_CreatedUMGWidget(): cpp.Star<EditorUtilityWidget.ConstEditorUtilityWidget> return this.CreatedUMGWidget;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorUtilityWidgetBlueprint*")
+abstract EditorUtilityWidgetBlueprintPtr(cpp.Star<EditorUtilityWidgetBlueprint>) from cpp.Star<EditorUtilityWidgetBlueprint> to cpp.Star<EditorUtilityWidgetBlueprint>{
+	@:from
+	public static extern inline function fromValue(v: EditorUtilityWidgetBlueprint): EditorUtilityWidgetBlueprintPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorUtilityWidgetBlueprint {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

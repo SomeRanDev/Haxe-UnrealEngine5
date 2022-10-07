@@ -70,3 +70,22 @@ abstract ConstEnvQueryTest(EnvQueryTest) from EnvQueryTest {
 	public extern var bWorkOnFloatValues(get, never): Bool;
 	public inline extern function get_bWorkOnFloatValues(): Bool return this.bWorkOnFloatValues;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryTest*")
+abstract EnvQueryTestPtr(cpp.Star<EnvQueryTest>) from cpp.Star<EnvQueryTest> to cpp.Star<EnvQueryTest>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryTest): EnvQueryTestPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryTest {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

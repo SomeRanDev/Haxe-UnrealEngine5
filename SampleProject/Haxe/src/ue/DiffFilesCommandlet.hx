@@ -13,3 +13,22 @@ extern class DiffFilesCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstDiffFilesCommandlet(DiffFilesCommandlet) from DiffFilesCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("DiffFilesCommandlet*")
+abstract DiffFilesCommandletPtr(cpp.Star<DiffFilesCommandlet>) from cpp.Star<DiffFilesCommandlet> to cpp.Star<DiffFilesCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: DiffFilesCommandlet): DiffFilesCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DiffFilesCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

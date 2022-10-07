@@ -13,3 +13,22 @@ extern class ComponentElementWorldInterface extends Object {
 @:nativeGen
 abstract ConstComponentElementWorldInterface(ComponentElementWorldInterface) from ComponentElementWorldInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("ComponentElementWorldInterface*")
+abstract ComponentElementWorldInterfacePtr(cpp.Star<ComponentElementWorldInterface>) from cpp.Star<ComponentElementWorldInterface> to cpp.Star<ComponentElementWorldInterface>{
+	@:from
+	public static extern inline function fromValue(v: ComponentElementWorldInterface): ComponentElementWorldInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ComponentElementWorldInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

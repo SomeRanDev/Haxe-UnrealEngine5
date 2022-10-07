@@ -13,3 +13,22 @@ extern class WorldPartitionMiniMapBuilder extends WorldPartitionBuilder {
 @:nativeGen
 abstract ConstWorldPartitionMiniMapBuilder(WorldPartitionMiniMapBuilder) from WorldPartitionMiniMapBuilder {
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionMiniMapBuilder*")
+abstract WorldPartitionMiniMapBuilderPtr(cpp.Star<WorldPartitionMiniMapBuilder>) from cpp.Star<WorldPartitionMiniMapBuilder> to cpp.Star<WorldPartitionMiniMapBuilder>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionMiniMapBuilder): WorldPartitionMiniMapBuilderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionMiniMapBuilder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

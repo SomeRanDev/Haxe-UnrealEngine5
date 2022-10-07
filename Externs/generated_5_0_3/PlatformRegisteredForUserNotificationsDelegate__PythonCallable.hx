@@ -12,3 +12,22 @@ extern class PlatformRegisteredForUserNotificationsDelegate__PythonCallable exte
 @:nativeGen
 abstract ConstPlatformRegisteredForUserNotificationsDelegate__PythonCallable(PlatformRegisteredForUserNotificationsDelegate__PythonCallable) from PlatformRegisteredForUserNotificationsDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("PlatformRegisteredForUserNotificationsDelegate__PythonCallable*")
+abstract PlatformRegisteredForUserNotificationsDelegate__PythonCallablePtr(cpp.Star<PlatformRegisteredForUserNotificationsDelegate__PythonCallable>) from cpp.Star<PlatformRegisteredForUserNotificationsDelegate__PythonCallable> to cpp.Star<PlatformRegisteredForUserNotificationsDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: PlatformRegisteredForUserNotificationsDelegate__PythonCallable): PlatformRegisteredForUserNotificationsDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PlatformRegisteredForUserNotificationsDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

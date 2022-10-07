@@ -16,3 +16,22 @@ abstract ConstPlacementSubsystem(PlacementSubsystem) from PlacementSubsystem {
 	public extern var AssetFactories(get, never): TArray<AssetFactoryInterface.ConstAssetFactoryInterface>;
 	public inline extern function get_AssetFactories(): TArray<AssetFactoryInterface.ConstAssetFactoryInterface> return this.AssetFactories;
 }
+
+@:forward
+@:nativeGen
+@:native("PlacementSubsystem*")
+abstract PlacementSubsystemPtr(cpp.Star<PlacementSubsystem>) from cpp.Star<PlacementSubsystem> to cpp.Star<PlacementSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: PlacementSubsystem): PlacementSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PlacementSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class CharacterMovementUpdatedSignature__PythonCallable extends PythonCal
 @:nativeGen
 abstract ConstCharacterMovementUpdatedSignature__PythonCallable(CharacterMovementUpdatedSignature__PythonCallable) from CharacterMovementUpdatedSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("CharacterMovementUpdatedSignature__PythonCallable*")
+abstract CharacterMovementUpdatedSignature__PythonCallablePtr(cpp.Star<CharacterMovementUpdatedSignature__PythonCallable>) from cpp.Star<CharacterMovementUpdatedSignature__PythonCallable> to cpp.Star<CharacterMovementUpdatedSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: CharacterMovementUpdatedSignature__PythonCallable): CharacterMovementUpdatedSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CharacterMovementUpdatedSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

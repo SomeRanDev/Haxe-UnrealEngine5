@@ -22,3 +22,22 @@ abstract ConstAnimStateAliasNode(AnimStateAliasNode) from AnimStateAliasNode {
 	public extern var AliasedStateNodes(get, never): TSet<TWeakObjectPtr<AnimStateNodeBase.ConstAnimStateNodeBase>>;
 	public inline extern function get_AliasedStateNodes(): TSet<TWeakObjectPtr<AnimStateNodeBase.ConstAnimStateNodeBase>> return this.AliasedStateNodes;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimStateAliasNode*")
+abstract AnimStateAliasNodePtr(cpp.Star<AnimStateAliasNode>) from cpp.Star<AnimStateAliasNode> to cpp.Star<AnimStateAliasNode>{
+	@:from
+	public static extern inline function fromValue(v: AnimStateAliasNode): AnimStateAliasNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimStateAliasNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

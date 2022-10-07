@@ -58,3 +58,22 @@ abstract ConstAnimStreamable(AnimStreamable) from AnimStreamable {
 	public extern var bUseNormalizedRootMotionScale(get, never): Bool;
 	public inline extern function get_bUseNormalizedRootMotionScale(): Bool return this.bUseNormalizedRootMotionScale;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimStreamable*")
+abstract AnimStreamablePtr(cpp.Star<AnimStreamable>) from cpp.Star<AnimStreamable> to cpp.Star<AnimStreamable>{
+	@:from
+	public static extern inline function fromValue(v: AnimStreamable): AnimStreamablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimStreamable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

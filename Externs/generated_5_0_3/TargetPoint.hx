@@ -19,3 +19,22 @@ abstract ConstTargetPoint(TargetPoint) from TargetPoint {
 	public extern var ArrowComponent(get, never): cpp.Star<ArrowComp.ConstArrowComp>;
 	public inline extern function get_ArrowComponent(): cpp.Star<ArrowComp.ConstArrowComp> return this.ArrowComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("TargetPoint*")
+abstract TargetPointPtr(cpp.Star<TargetPoint>) from cpp.Star<TargetPoint> to cpp.Star<TargetPoint>{
+	@:from
+	public static extern inline function fromValue(v: TargetPoint): TargetPointPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TargetPoint {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

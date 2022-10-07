@@ -16,3 +16,22 @@ abstract ConstMaterialFactoryNew(MaterialFactoryNew) from MaterialFactoryNew {
 	public extern var InitialTexture(get, never): cpp.Star<Texture.ConstTexture>;
 	public inline extern function get_InitialTexture(): cpp.Star<Texture.ConstTexture> return this.InitialTexture;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialFactoryNew*")
+abstract MaterialFactoryNewPtr(cpp.Star<MaterialFactoryNew>) from cpp.Star<MaterialFactoryNew> to cpp.Star<MaterialFactoryNew>{
+	@:from
+	public static extern inline function fromValue(v: MaterialFactoryNew): MaterialFactoryNewPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialFactoryNew {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

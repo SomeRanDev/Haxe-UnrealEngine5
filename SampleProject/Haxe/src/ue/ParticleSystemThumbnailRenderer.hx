@@ -19,3 +19,22 @@ abstract ConstParticleSystemThumbnailRenderer(ParticleSystemThumbnailRenderer) f
 	public extern var OutOfDate(get, never): cpp.Star<Texture2D.ConstTexture2D>;
 	public inline extern function get_OutOfDate(): cpp.Star<Texture2D.ConstTexture2D> return this.OutOfDate;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleSystemThumbnailRenderer*")
+abstract ParticleSystemThumbnailRendererPtr(cpp.Star<ParticleSystemThumbnailRenderer>) from cpp.Star<ParticleSystemThumbnailRenderer> to cpp.Star<ParticleSystemThumbnailRenderer>{
+	@:from
+	public static extern inline function fromValue(v: ParticleSystemThumbnailRenderer): ParticleSystemThumbnailRendererPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleSystemThumbnailRenderer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

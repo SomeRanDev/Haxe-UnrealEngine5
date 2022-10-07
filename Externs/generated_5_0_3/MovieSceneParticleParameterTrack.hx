@@ -16,3 +16,22 @@ abstract ConstMovieSceneParticleParameterTrack(MovieSceneParticleParameterTrack)
 	public extern var Sections(get, never): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>>;
 	public inline extern function get_Sections(): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>> return this.Sections;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneParticleParameterTrack*")
+abstract MovieSceneParticleParameterTrackPtr(cpp.Star<MovieSceneParticleParameterTrack>) from cpp.Star<MovieSceneParticleParameterTrack> to cpp.Star<MovieSceneParticleParameterTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneParticleParameterTrack): MovieSceneParticleParameterTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneParticleParameterTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

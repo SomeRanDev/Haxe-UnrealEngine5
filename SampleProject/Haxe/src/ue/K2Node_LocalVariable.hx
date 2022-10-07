@@ -19,3 +19,22 @@ abstract ConstK2Node_LocalVariable(K2Node_LocalVariable) from K2Node_LocalVariab
 	public extern var VariableTooltip(get, never): FText;
 	public inline extern function get_VariableTooltip(): FText return this.VariableTooltip;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_LocalVariable*")
+abstract K2Node_LocalVariablePtr(cpp.Star<K2Node_LocalVariable>) from cpp.Star<K2Node_LocalVariable> to cpp.Star<K2Node_LocalVariable>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_LocalVariable): K2Node_LocalVariablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_LocalVariable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

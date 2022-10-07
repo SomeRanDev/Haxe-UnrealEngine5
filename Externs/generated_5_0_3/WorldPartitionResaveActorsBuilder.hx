@@ -28,3 +28,22 @@ abstract ConstWorldPartitionResaveActorsBuilder(WorldPartitionResaveActorsBuilde
 	public extern var bEnableActorFolders(get, never): Bool;
 	public inline extern function get_bEnableActorFolders(): Bool return this.bEnableActorFolders;
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionResaveActorsBuilder*")
+abstract WorldPartitionResaveActorsBuilderPtr(cpp.Star<WorldPartitionResaveActorsBuilder>) from cpp.Star<WorldPartitionResaveActorsBuilder> to cpp.Star<WorldPartitionResaveActorsBuilder>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionResaveActorsBuilder): WorldPartitionResaveActorsBuilderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionResaveActorsBuilder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

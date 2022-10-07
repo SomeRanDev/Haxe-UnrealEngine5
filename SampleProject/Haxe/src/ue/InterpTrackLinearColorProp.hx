@@ -16,3 +16,22 @@ abstract ConstInterpTrackLinearColorProp(InterpTrackLinearColorProp) from Interp
 	public extern var PropertyName(get, never): FName;
 	public inline extern function get_PropertyName(): FName return this.PropertyName;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackLinearColorProp*")
+abstract InterpTrackLinearColorPropPtr(cpp.Star<InterpTrackLinearColorProp>) from cpp.Star<InterpTrackLinearColorProp> to cpp.Star<InterpTrackLinearColorProp>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackLinearColorProp): InterpTrackLinearColorPropPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackLinearColorProp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

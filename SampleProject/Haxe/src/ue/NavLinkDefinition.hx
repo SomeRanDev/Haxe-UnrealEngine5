@@ -19,3 +19,22 @@ abstract ConstNavLinkDefinition(NavLinkDefinition) from NavLinkDefinition {
 	public extern var SegmentLinks(get, never): TArray<NavigationSegmentLink>;
 	public inline extern function get_SegmentLinks(): TArray<NavigationSegmentLink> return this.SegmentLinks;
 }
+
+@:forward
+@:nativeGen
+@:native("NavLinkDefinition*")
+abstract NavLinkDefinitionPtr(cpp.Star<NavLinkDefinition>) from cpp.Star<NavLinkDefinition> to cpp.Star<NavLinkDefinition>{
+	@:from
+	public static extern inline function fromValue(v: NavLinkDefinition): NavLinkDefinitionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavLinkDefinition {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

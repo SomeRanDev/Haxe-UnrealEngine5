@@ -49,3 +49,22 @@ abstract ConstLandscape(Landscape) from Landscape {
 	public extern var bSplineLayerUpdateRequested(get, never): Bool;
 	public inline extern function get_bSplineLayerUpdateRequested(): Bool return this.bSplineLayerUpdateRequested;
 }
+
+@:forward
+@:nativeGen
+@:native("Landscape*")
+abstract LandscapePtr(cpp.Star<Landscape>) from cpp.Star<Landscape> to cpp.Star<Landscape>{
+	@:from
+	public static extern inline function fromValue(v: Landscape): LandscapePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Landscape {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

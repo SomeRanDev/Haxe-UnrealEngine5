@@ -72,3 +72,22 @@ abstract ConstMultiLineEditableTextBox(MultiLineEditableTextBox) from MultiLineE
 	public extern var OnTextCommitted(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, ETextCommit) -> Void>;
 	public inline extern function get_OnTextCommitted(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, ETextCommit) -> Void> return this.OnTextCommitted;
 }
+
+@:forward
+@:nativeGen
+@:native("MultiLineEditableTextBox*")
+abstract MultiLineEditableTextBoxPtr(cpp.Star<MultiLineEditableTextBox>) from cpp.Star<MultiLineEditableTextBox> to cpp.Star<MultiLineEditableTextBox>{
+	@:from
+	public static extern inline function fromValue(v: MultiLineEditableTextBox): MultiLineEditableTextBoxPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MultiLineEditableTextBox {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

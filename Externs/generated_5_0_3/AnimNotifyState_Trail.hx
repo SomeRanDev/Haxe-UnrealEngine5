@@ -45,3 +45,22 @@ abstract ConstAnimNotifyState_Trail(AnimNotifyState_Trail) from AnimNotifyState_
 	public extern var bRenderTessellation(get, never): Bool;
 	public inline extern function get_bRenderTessellation(): Bool return this.bRenderTessellation;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimNotifyState_Trail*")
+abstract AnimNotifyState_TrailPtr(cpp.Star<AnimNotifyState_Trail>) from cpp.Star<AnimNotifyState_Trail> to cpp.Star<AnimNotifyState_Trail>{
+	@:from
+	public static extern inline function fromValue(v: AnimNotifyState_Trail): AnimNotifyState_TrailPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimNotifyState_Trail {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

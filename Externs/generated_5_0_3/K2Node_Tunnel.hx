@@ -28,3 +28,22 @@ abstract ConstK2Node_Tunnel(K2Node_Tunnel) from K2Node_Tunnel {
 	public extern var MetaData(get, never): KismetUserDeclaredFunctionMetadata;
 	public inline extern function get_MetaData(): KismetUserDeclaredFunctionMetadata return this.MetaData;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_Tunnel*")
+abstract K2Node_TunnelPtr(cpp.Star<K2Node_Tunnel>) from cpp.Star<K2Node_Tunnel> to cpp.Star<K2Node_Tunnel>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_Tunnel): K2Node_TunnelPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_Tunnel {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

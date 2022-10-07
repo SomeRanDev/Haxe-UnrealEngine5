@@ -12,3 +12,22 @@ extern class RigVMGraphModifiedDynamicEvent__PythonCallable extends PythonCallab
 @:nativeGen
 abstract ConstRigVMGraphModifiedDynamicEvent__PythonCallable(RigVMGraphModifiedDynamicEvent__PythonCallable) from RigVMGraphModifiedDynamicEvent__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("RigVMGraphModifiedDynamicEvent__PythonCallable*")
+abstract RigVMGraphModifiedDynamicEvent__PythonCallablePtr(cpp.Star<RigVMGraphModifiedDynamicEvent__PythonCallable>) from cpp.Star<RigVMGraphModifiedDynamicEvent__PythonCallable> to cpp.Star<RigVMGraphModifiedDynamicEvent__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: RigVMGraphModifiedDynamicEvent__PythonCallable): RigVMGraphModifiedDynamicEvent__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVMGraphModifiedDynamicEvent__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

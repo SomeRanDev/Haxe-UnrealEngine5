@@ -23,3 +23,22 @@ abstract ConstGroundTruthData(GroundTruthData) from GroundTruthData {
 	public extern var ObjectData(get, never): cpp.Star<Object.ConstObject>;
 	public inline extern function get_ObjectData(): cpp.Star<Object.ConstObject> return this.ObjectData;
 }
+
+@:forward
+@:nativeGen
+@:native("GroundTruthData*")
+abstract GroundTruthDataPtr(cpp.Star<GroundTruthData>) from cpp.Star<GroundTruthData> to cpp.Star<GroundTruthData>{
+	@:from
+	public static extern inline function fromValue(v: GroundTruthData): GroundTruthDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GroundTruthData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

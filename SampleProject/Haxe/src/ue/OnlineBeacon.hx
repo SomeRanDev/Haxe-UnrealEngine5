@@ -22,3 +22,22 @@ abstract ConstOnlineBeacon(OnlineBeacon) from OnlineBeacon {
 	public extern var NetDriver(get, never): cpp.Star<NetDriver.ConstNetDriver>;
 	public inline extern function get_NetDriver(): cpp.Star<NetDriver.ConstNetDriver> return this.NetDriver;
 }
+
+@:forward
+@:nativeGen
+@:native("OnlineBeacon*")
+abstract OnlineBeaconPtr(cpp.Star<OnlineBeacon>) from cpp.Star<OnlineBeacon> to cpp.Star<OnlineBeacon>{
+	@:from
+	public static extern inline function fromValue(v: OnlineBeacon): OnlineBeaconPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnlineBeacon {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

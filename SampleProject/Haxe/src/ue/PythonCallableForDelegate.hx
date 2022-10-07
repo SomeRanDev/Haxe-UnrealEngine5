@@ -13,3 +13,22 @@ extern class PythonCallableForDelegate extends Object {
 @:nativeGen
 abstract ConstPythonCallableForDelegate(PythonCallableForDelegate) from PythonCallableForDelegate {
 }
+
+@:forward
+@:nativeGen
+@:native("PythonCallableForDelegate*")
+abstract PythonCallableForDelegatePtr(cpp.Star<PythonCallableForDelegate>) from cpp.Star<PythonCallableForDelegate> to cpp.Star<PythonCallableForDelegate>{
+	@:from
+	public static extern inline function fromValue(v: PythonCallableForDelegate): PythonCallableForDelegatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PythonCallableForDelegate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

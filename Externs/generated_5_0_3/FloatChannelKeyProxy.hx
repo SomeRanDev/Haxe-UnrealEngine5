@@ -19,3 +19,22 @@ abstract ConstFloatChannelKeyProxy(FloatChannelKeyProxy) from FloatChannelKeyPro
 	public extern var Value(get, never): MovieSceneFloatValue;
 	public inline extern function get_Value(): MovieSceneFloatValue return this.Value;
 }
+
+@:forward
+@:nativeGen
+@:native("FloatChannelKeyProxy*")
+abstract FloatChannelKeyProxyPtr(cpp.Star<FloatChannelKeyProxy>) from cpp.Star<FloatChannelKeyProxy> to cpp.Star<FloatChannelKeyProxy>{
+	@:from
+	public static extern inline function fromValue(v: FloatChannelKeyProxy): FloatChannelKeyProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FloatChannelKeyProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -25,3 +25,22 @@ abstract ConstK2Node_WidgetAnimationEvent(K2Node_WidgetAnimationEvent) from K2No
 	public extern var SourceWidgetBlueprint(get, never): cpp.Star<WidgetBlueprint.ConstWidgetBlueprint>;
 	public inline extern function get_SourceWidgetBlueprint(): cpp.Star<WidgetBlueprint.ConstWidgetBlueprint> return this.SourceWidgetBlueprint;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_WidgetAnimationEvent*")
+abstract K2Node_WidgetAnimationEventPtr(cpp.Star<K2Node_WidgetAnimationEvent>) from cpp.Star<K2Node_WidgetAnimationEvent> to cpp.Star<K2Node_WidgetAnimationEvent>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_WidgetAnimationEvent): K2Node_WidgetAnimationEventPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_WidgetAnimationEvent {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

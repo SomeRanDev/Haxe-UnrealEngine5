@@ -12,3 +12,22 @@ extern class AnimDataModelModifiedDynamicEvent__PythonCallable extends PythonCal
 @:nativeGen
 abstract ConstAnimDataModelModifiedDynamicEvent__PythonCallable(AnimDataModelModifiedDynamicEvent__PythonCallable) from AnimDataModelModifiedDynamicEvent__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimDataModelModifiedDynamicEvent__PythonCallable*")
+abstract AnimDataModelModifiedDynamicEvent__PythonCallablePtr(cpp.Star<AnimDataModelModifiedDynamicEvent__PythonCallable>) from cpp.Star<AnimDataModelModifiedDynamicEvent__PythonCallable> to cpp.Star<AnimDataModelModifiedDynamicEvent__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: AnimDataModelModifiedDynamicEvent__PythonCallable): AnimDataModelModifiedDynamicEvent__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimDataModelModifiedDynamicEvent__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

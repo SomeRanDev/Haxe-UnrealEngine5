@@ -13,3 +13,22 @@ extern class MovieSceneTransformOrigin extends Interface {
 @:nativeGen
 abstract ConstMovieSceneTransformOrigin(MovieSceneTransformOrigin) from MovieSceneTransformOrigin {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneTransformOrigin*")
+abstract MovieSceneTransformOriginPtr(cpp.Star<MovieSceneTransformOrigin>) from cpp.Star<MovieSceneTransformOrigin> to cpp.Star<MovieSceneTransformOrigin>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneTransformOrigin): MovieSceneTransformOriginPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneTransformOrigin {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

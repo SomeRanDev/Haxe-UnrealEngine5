@@ -22,3 +22,22 @@ abstract ConstVISettings(VISettings) from VISettings {
 	public extern var bAllowSimultaneousWorldScalingAndRotation(get, never): Bool;
 	public inline extern function get_bAllowSimultaneousWorldScalingAndRotation(): Bool return this.bAllowSimultaneousWorldScalingAndRotation;
 }
+
+@:forward
+@:nativeGen
+@:native("VISettings*")
+abstract VISettingsPtr(cpp.Star<VISettings>) from cpp.Star<VISettings> to cpp.Star<VISettings>{
+	@:from
+	public static extern inline function fromValue(v: VISettings): VISettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VISettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

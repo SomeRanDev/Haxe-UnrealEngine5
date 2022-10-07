@@ -49,3 +49,22 @@ abstract ConstWorldPartitionConvertCommandlet(WorldPartitionConvertCommandlet) f
 	public extern var LandscapeGridSize(get, never): cpp.UInt32;
 	public inline extern function get_LandscapeGridSize(): cpp.UInt32 return this.LandscapeGridSize;
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionConvertCommandlet*")
+abstract WorldPartitionConvertCommandletPtr(cpp.Star<WorldPartitionConvertCommandlet>) from cpp.Star<WorldPartitionConvertCommandlet> to cpp.Star<WorldPartitionConvertCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionConvertCommandlet): WorldPartitionConvertCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionConvertCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

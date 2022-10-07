@@ -55,3 +55,22 @@ abstract ConstNiagaraLightRendererProperties(NiagaraLightRendererProperties) fro
 	public extern var RendererVisibilityTagBinding(get, never): NiagaraVariableAttributeBinding;
 	public inline extern function get_RendererVisibilityTagBinding(): NiagaraVariableAttributeBinding return this.RendererVisibilityTagBinding;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraLightRendererProperties*")
+abstract NiagaraLightRendererPropertiesPtr(cpp.Star<NiagaraLightRendererProperties>) from cpp.Star<NiagaraLightRendererProperties> to cpp.Star<NiagaraLightRendererProperties>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraLightRendererProperties): NiagaraLightRendererPropertiesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraLightRendererProperties {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

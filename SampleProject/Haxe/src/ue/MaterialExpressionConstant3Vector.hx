@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionConstant3Vector(MaterialExpressionConstant3Vecto
 	public extern var Constant(get, never): LinearColor;
 	public inline extern function get_Constant(): LinearColor return this.Constant;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionConstant3Vector*")
+abstract MaterialExpressionConstant3VectorPtr(cpp.Star<MaterialExpressionConstant3Vector>) from cpp.Star<MaterialExpressionConstant3Vector> to cpp.Star<MaterialExpressionConstant3Vector>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionConstant3Vector): MaterialExpressionConstant3VectorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionConstant3Vector {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

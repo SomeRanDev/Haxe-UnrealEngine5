@@ -19,3 +19,22 @@ abstract ConstTriggerBase(TriggerBase) from TriggerBase {
 	public extern var SpriteComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
 	public inline extern function get_SpriteComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("TriggerBase*")
+abstract TriggerBasePtr(cpp.Star<TriggerBase>) from cpp.Star<TriggerBase> to cpp.Star<TriggerBase>{
+	@:from
+	public static extern inline function fromValue(v: TriggerBase): TriggerBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TriggerBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -73,3 +73,22 @@ abstract ConstUserInterfaceSettings(UserInterfaceSettings) from UserInterfaceSet
 	public extern var CustomScalingRule(get, never): cpp.Star<DPICustomScalingRule.ConstDPICustomScalingRule>;
 	public inline extern function get_CustomScalingRule(): cpp.Star<DPICustomScalingRule.ConstDPICustomScalingRule> return this.CustomScalingRule;
 }
+
+@:forward
+@:nativeGen
+@:native("UserInterfaceSettings*")
+abstract UserInterfaceSettingsPtr(cpp.Star<UserInterfaceSettings>) from cpp.Star<UserInterfaceSettings> to cpp.Star<UserInterfaceSettings>{
+	@:from
+	public static extern inline function fromValue(v: UserInterfaceSettings): UserInterfaceSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UserInterfaceSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

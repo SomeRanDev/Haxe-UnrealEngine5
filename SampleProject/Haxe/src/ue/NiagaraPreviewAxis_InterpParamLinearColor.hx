@@ -19,3 +19,22 @@ abstract ConstNiagaraPreviewAxis_InterpParamLinearColor(NiagaraPreviewAxis_Inter
 	public extern var Max(get, never): LinearColor;
 	public inline extern function get_Max(): LinearColor return this.Max;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraPreviewAxis_InterpParamLinearColor*")
+abstract NiagaraPreviewAxis_InterpParamLinearColorPtr(cpp.Star<NiagaraPreviewAxis_InterpParamLinearColor>) from cpp.Star<NiagaraPreviewAxis_InterpParamLinearColor> to cpp.Star<NiagaraPreviewAxis_InterpParamLinearColor>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraPreviewAxis_InterpParamLinearColor): NiagaraPreviewAxis_InterpParamLinearColorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraPreviewAxis_InterpParamLinearColor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

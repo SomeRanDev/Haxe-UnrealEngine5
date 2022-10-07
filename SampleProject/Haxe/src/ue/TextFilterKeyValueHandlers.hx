@@ -16,3 +16,22 @@ abstract ConstTextFilterKeyValueHandlers(TextFilterKeyValueHandlers) from TextFi
 	public extern var TextFilterKeyValueHandlers(get, never): TArray<TextFilterKeyValueHandlerEntry>;
 	public inline extern function get_TextFilterKeyValueHandlers(): TArray<TextFilterKeyValueHandlerEntry> return this.TextFilterKeyValueHandlers;
 }
+
+@:forward
+@:nativeGen
+@:native("TextFilterKeyValueHandlers*")
+abstract TextFilterKeyValueHandlersPtr(cpp.Star<TextFilterKeyValueHandlers>) from cpp.Star<TextFilterKeyValueHandlers> to cpp.Star<TextFilterKeyValueHandlers>{
+	@:from
+	public static extern inline function fromValue(v: TextFilterKeyValueHandlers): TextFilterKeyValueHandlersPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextFilterKeyValueHandlers {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

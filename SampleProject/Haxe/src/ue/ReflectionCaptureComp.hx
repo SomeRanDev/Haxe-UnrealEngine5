@@ -46,3 +46,22 @@ abstract ConstReflectionCaptureComp(ReflectionCaptureComp) from ReflectionCaptur
 	public extern var CachedEncodedHDRCubemap(get, never): cpp.Star<TextureCube.ConstTextureCube>;
 	public inline extern function get_CachedEncodedHDRCubemap(): cpp.Star<TextureCube.ConstTextureCube> return this.CachedEncodedHDRCubemap;
 }
+
+@:forward
+@:nativeGen
+@:native("ReflectionCaptureComp*")
+abstract ReflectionCaptureCompPtr(cpp.Star<ReflectionCaptureComp>) from cpp.Star<ReflectionCaptureComp> to cpp.Star<ReflectionCaptureComp>{
+	@:from
+	public static extern inline function fromValue(v: ReflectionCaptureComp): ReflectionCaptureCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ReflectionCaptureComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -36,3 +36,22 @@ abstract ConstRadialFalloff(RadialFalloff) from RadialFalloff {
 	public extern var Falloff(get, never): EFieldFalloffType;
 	public inline extern function get_Falloff(): EFieldFalloffType return this.Falloff;
 }
+
+@:forward
+@:nativeGen
+@:native("RadialFalloff*")
+abstract RadialFalloffPtr(cpp.Star<RadialFalloff>) from cpp.Star<RadialFalloff> to cpp.Star<RadialFalloff>{
+	@:from
+	public static extern inline function fromValue(v: RadialFalloff): RadialFalloffPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RadialFalloff {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

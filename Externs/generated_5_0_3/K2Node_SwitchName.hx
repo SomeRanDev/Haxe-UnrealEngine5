@@ -16,3 +16,22 @@ abstract ConstK2Node_SwitchName(K2Node_SwitchName) from K2Node_SwitchName {
 	public extern var PinNames(get, never): TArray<FName>;
 	public inline extern function get_PinNames(): TArray<FName> return this.PinNames;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_SwitchName*")
+abstract K2Node_SwitchNamePtr(cpp.Star<K2Node_SwitchName>) from cpp.Star<K2Node_SwitchName> to cpp.Star<K2Node_SwitchName>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_SwitchName): K2Node_SwitchNamePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_SwitchName {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

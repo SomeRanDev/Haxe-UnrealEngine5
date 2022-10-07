@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionSamplePhysicsVectorField(MaterialExpressionSampl
 	public extern var FieldTarget(get, never): EFieldVectorType;
 	public inline extern function get_FieldTarget(): EFieldVectorType return this.FieldTarget;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionSamplePhysicsVectorField*")
+abstract MaterialExpressionSamplePhysicsVectorFieldPtr(cpp.Star<MaterialExpressionSamplePhysicsVectorField>) from cpp.Star<MaterialExpressionSamplePhysicsVectorField> to cpp.Star<MaterialExpressionSamplePhysicsVectorField>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionSamplePhysicsVectorField): MaterialExpressionSamplePhysicsVectorFieldPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionSamplePhysicsVectorField {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

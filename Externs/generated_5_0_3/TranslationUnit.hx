@@ -37,3 +37,22 @@ abstract ConstTranslationUnit(TranslationUnit) from TranslationUnit {
 	public extern var LocresPath(get, never): FString;
 	public inline extern function get_LocresPath(): FString return this.LocresPath;
 }
+
+@:forward
+@:nativeGen
+@:native("TranslationUnit*")
+abstract TranslationUnitPtr(cpp.Star<TranslationUnit>) from cpp.Star<TranslationUnit> to cpp.Star<TranslationUnit>{
+	@:from
+	public static extern inline function fromValue(v: TranslationUnit): TranslationUnitPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TranslationUnit {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

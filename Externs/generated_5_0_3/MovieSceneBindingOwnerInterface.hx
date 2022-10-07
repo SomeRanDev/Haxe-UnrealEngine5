@@ -12,3 +12,22 @@ extern class MovieSceneBindingOwnerInterface extends Interface {
 @:nativeGen
 abstract ConstMovieSceneBindingOwnerInterface(MovieSceneBindingOwnerInterface) from MovieSceneBindingOwnerInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneBindingOwnerInterface*")
+abstract MovieSceneBindingOwnerInterfacePtr(cpp.Star<MovieSceneBindingOwnerInterface>) from cpp.Star<MovieSceneBindingOwnerInterface> to cpp.Star<MovieSceneBindingOwnerInterface>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneBindingOwnerInterface): MovieSceneBindingOwnerInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneBindingOwnerInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

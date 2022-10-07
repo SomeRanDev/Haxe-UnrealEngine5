@@ -43,3 +43,22 @@ abstract ConstNiagaraSystemEditorData(NiagaraSystemEditorData) from NiagaraSyste
 	public extern var bSystemIsPlaceholder(get, never): Bool;
 	public inline extern function get_bSystemIsPlaceholder(): Bool return this.bSystemIsPlaceholder;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraSystemEditorData*")
+abstract NiagaraSystemEditorDataPtr(cpp.Star<NiagaraSystemEditorData>) from cpp.Star<NiagaraSystemEditorData> to cpp.Star<NiagaraSystemEditorData>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraSystemEditorData): NiagaraSystemEditorDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraSystemEditorData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

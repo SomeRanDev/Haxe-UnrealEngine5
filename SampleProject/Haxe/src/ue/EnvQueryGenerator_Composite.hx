@@ -25,3 +25,22 @@ abstract ConstEnvQueryGenerator_Composite(EnvQueryGenerator_Composite) from EnvQ
 	public extern var ForcedItemType(get, never): TSubclassOf<EnvQueryItemType.ConstEnvQueryItemType>;
 	public inline extern function get_ForcedItemType(): TSubclassOf<EnvQueryItemType.ConstEnvQueryItemType> return this.ForcedItemType;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryGenerator_Composite*")
+abstract EnvQueryGenerator_CompositePtr(cpp.Star<EnvQueryGenerator_Composite>) from cpp.Star<EnvQueryGenerator_Composite> to cpp.Star<EnvQueryGenerator_Composite>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryGenerator_Composite): EnvQueryGenerator_CompositePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryGenerator_Composite {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

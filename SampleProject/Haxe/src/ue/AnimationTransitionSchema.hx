@@ -13,3 +13,22 @@ extern class AnimationTransitionSchema extends EdGraphSchema_K2 {
 @:nativeGen
 abstract ConstAnimationTransitionSchema(AnimationTransitionSchema) from AnimationTransitionSchema {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationTransitionSchema*")
+abstract AnimationTransitionSchemaPtr(cpp.Star<AnimationTransitionSchema>) from cpp.Star<AnimationTransitionSchema> to cpp.Star<AnimationTransitionSchema>{
+	@:from
+	public static extern inline function fromValue(v: AnimationTransitionSchema): AnimationTransitionSchemaPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationTransitionSchema {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class OnSpinBoxValueCommittedEvent__PythonCallable extends PythonCallable
 @:nativeGen
 abstract ConstOnSpinBoxValueCommittedEvent__PythonCallable(OnSpinBoxValueCommittedEvent__PythonCallable) from OnSpinBoxValueCommittedEvent__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnSpinBoxValueCommittedEvent__PythonCallable*")
+abstract OnSpinBoxValueCommittedEvent__PythonCallablePtr(cpp.Star<OnSpinBoxValueCommittedEvent__PythonCallable>) from cpp.Star<OnSpinBoxValueCommittedEvent__PythonCallable> to cpp.Star<OnSpinBoxValueCommittedEvent__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnSpinBoxValueCommittedEvent__PythonCallable): OnSpinBoxValueCommittedEvent__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnSpinBoxValueCommittedEvent__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

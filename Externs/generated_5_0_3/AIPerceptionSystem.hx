@@ -25,3 +25,22 @@ abstract ConstAIPerceptionSystem(AIPerceptionSystem) from AIPerceptionSystem {
 	public extern var PerceptionAgingRate(get, never): cpp.Float32;
 	public inline extern function get_PerceptionAgingRate(): cpp.Float32 return this.PerceptionAgingRate;
 }
+
+@:forward
+@:nativeGen
+@:native("AIPerceptionSystem*")
+abstract AIPerceptionSystemPtr(cpp.Star<AIPerceptionSystem>) from cpp.Star<AIPerceptionSystem> to cpp.Star<AIPerceptionSystem>{
+	@:from
+	public static extern inline function fromValue(v: AIPerceptionSystem): AIPerceptionSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AIPerceptionSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

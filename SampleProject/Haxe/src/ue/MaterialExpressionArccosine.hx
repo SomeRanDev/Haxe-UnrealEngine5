@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionArccosine(MaterialExpressionArccosine) from Mate
 	public extern var Input(get, never): ExpressionInput;
 	public inline extern function get_Input(): ExpressionInput return this.Input;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionArccosine*")
+abstract MaterialExpressionArccosinePtr(cpp.Star<MaterialExpressionArccosine>) from cpp.Star<MaterialExpressionArccosine> to cpp.Star<MaterialExpressionArccosine>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionArccosine): MaterialExpressionArccosinePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionArccosine {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

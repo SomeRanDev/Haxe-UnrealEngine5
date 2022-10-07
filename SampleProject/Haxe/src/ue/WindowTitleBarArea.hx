@@ -23,3 +23,22 @@ abstract ConstWindowTitleBarArea(WindowTitleBarArea) from WindowTitleBarArea {
 	public extern var bDoubleClickTogglesFullscreen(get, never): Bool;
 	public inline extern function get_bDoubleClickTogglesFullscreen(): Bool return this.bDoubleClickTogglesFullscreen;
 }
+
+@:forward
+@:nativeGen
+@:native("WindowTitleBarArea*")
+abstract WindowTitleBarAreaPtr(cpp.Star<WindowTitleBarArea>) from cpp.Star<WindowTitleBarArea> to cpp.Star<WindowTitleBarArea>{
+	@:from
+	public static extern inline function fromValue(v: WindowTitleBarArea): WindowTitleBarAreaPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WindowTitleBarArea {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

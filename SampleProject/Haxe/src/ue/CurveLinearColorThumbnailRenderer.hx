@@ -13,3 +13,22 @@ extern class CurveLinearColorThumbnailRenderer extends ThumbnailRenderer {
 @:nativeGen
 abstract ConstCurveLinearColorThumbnailRenderer(CurveLinearColorThumbnailRenderer) from CurveLinearColorThumbnailRenderer {
 }
+
+@:forward
+@:nativeGen
+@:native("CurveLinearColorThumbnailRenderer*")
+abstract CurveLinearColorThumbnailRendererPtr(cpp.Star<CurveLinearColorThumbnailRenderer>) from cpp.Star<CurveLinearColorThumbnailRenderer> to cpp.Star<CurveLinearColorThumbnailRenderer>{
+	@:from
+	public static extern inline function fromValue(v: CurveLinearColorThumbnailRenderer): CurveLinearColorThumbnailRendererPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CurveLinearColorThumbnailRenderer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

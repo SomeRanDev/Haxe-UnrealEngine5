@@ -25,3 +25,22 @@ abstract ConstParticleModuleKillHeight(ParticleModuleKillHeight) from ParticleMo
 	public extern var bApplyPSysScale(get, never): Bool;
 	public inline extern function get_bApplyPSysScale(): Bool return this.bApplyPSysScale;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleKillHeight*")
+abstract ParticleModuleKillHeightPtr(cpp.Star<ParticleModuleKillHeight>) from cpp.Star<ParticleModuleKillHeight> to cpp.Star<ParticleModuleKillHeight>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleKillHeight): ParticleModuleKillHeightPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleKillHeight {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

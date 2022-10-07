@@ -22,3 +22,22 @@ abstract ConstVOIPTalker(VOIPTalker) from VOIPTalker {
 	public extern var Settings(get, never): VoiceSettings;
 	public inline extern function get_Settings(): VoiceSettings return this.Settings;
 }
+
+@:forward
+@:nativeGen
+@:native("VOIPTalker*")
+abstract VOIPTalkerPtr(cpp.Star<VOIPTalker>) from cpp.Star<VOIPTalker> to cpp.Star<VOIPTalker>{
+	@:from
+	public static extern inline function fromValue(v: VOIPTalker): VOIPTalkerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VOIPTalker {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class StretchGizmoHandleDragOperation extends ViewportDragOperation {
 @:nativeGen
 abstract ConstStretchGizmoHandleDragOperation(StretchGizmoHandleDragOperation) from StretchGizmoHandleDragOperation {
 }
+
+@:forward
+@:nativeGen
+@:native("StretchGizmoHandleDragOperation*")
+abstract StretchGizmoHandleDragOperationPtr(cpp.Star<StretchGizmoHandleDragOperation>) from cpp.Star<StretchGizmoHandleDragOperation> to cpp.Star<StretchGizmoHandleDragOperation>{
+	@:from
+	public static extern inline function fromValue(v: StretchGizmoHandleDragOperation): StretchGizmoHandleDragOperationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): StretchGizmoHandleDragOperation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

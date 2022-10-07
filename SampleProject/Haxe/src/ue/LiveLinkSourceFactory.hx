@@ -13,3 +13,22 @@ extern class LiveLinkSourceFactory extends Object {
 @:nativeGen
 abstract ConstLiveLinkSourceFactory(LiveLinkSourceFactory) from LiveLinkSourceFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("LiveLinkSourceFactory*")
+abstract LiveLinkSourceFactoryPtr(cpp.Star<LiveLinkSourceFactory>) from cpp.Star<LiveLinkSourceFactory> to cpp.Star<LiveLinkSourceFactory>{
+	@:from
+	public static extern inline function fromValue(v: LiveLinkSourceFactory): LiveLinkSourceFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LiveLinkSourceFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

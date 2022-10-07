@@ -13,3 +13,22 @@ extern class GizmoActor extends InternalToolFrameworkActor {
 @:nativeGen
 abstract ConstGizmoActor(GizmoActor) from GizmoActor {
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoActor*")
+abstract GizmoActorPtr(cpp.Star<GizmoActor>) from cpp.Star<GizmoActor> to cpp.Star<GizmoActor>{
+	@:from
+	public static extern inline function fromValue(v: GizmoActor): GizmoActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

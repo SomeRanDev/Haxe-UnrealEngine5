@@ -88,3 +88,22 @@ abstract ConstTextureFactory(TextureFactory) from TextureFactory {
 	public extern var ColorSpaceMode(get, never): ETextureSourceColorSpace;
 	public inline extern function get_ColorSpaceMode(): ETextureSourceColorSpace return this.ColorSpaceMode;
 }
+
+@:forward
+@:nativeGen
+@:native("TextureFactory*")
+abstract TextureFactoryPtr(cpp.Star<TextureFactory>) from cpp.Star<TextureFactory> to cpp.Star<TextureFactory>{
+	@:from
+	public static extern inline function fromValue(v: TextureFactory): TextureFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextureFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstBTComposite_SimpleParallel(BTComposite_SimpleParallel) from BTComp
 	public extern var FinishMode(get, never): EBTParallelMode;
 	public inline extern function get_FinishMode(): EBTParallelMode return this.FinishMode;
 }
+
+@:forward
+@:nativeGen
+@:native("BTComposite_SimpleParallel*")
+abstract BTComposite_SimpleParallelPtr(cpp.Star<BTComposite_SimpleParallel>) from cpp.Star<BTComposite_SimpleParallel> to cpp.Star<BTComposite_SimpleParallel>{
+	@:from
+	public static extern inline function fromValue(v: BTComposite_SimpleParallel): BTComposite_SimpleParallelPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTComposite_SimpleParallel {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

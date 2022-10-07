@@ -22,3 +22,22 @@ abstract ConstVirtualTexture2D(VirtualTexture2D) from VirtualTexture2D {
 	public extern var bSinglePhysicalSpace(get, never): Bool;
 	public inline extern function get_bSinglePhysicalSpace(): Bool return this.bSinglePhysicalSpace;
 }
+
+@:forward
+@:nativeGen
+@:native("VirtualTexture2D*")
+abstract VirtualTexture2DPtr(cpp.Star<VirtualTexture2D>) from cpp.Star<VirtualTexture2D> to cpp.Star<VirtualTexture2D>{
+	@:from
+	public static extern inline function fromValue(v: VirtualTexture2D): VirtualTexture2DPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VirtualTexture2D {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

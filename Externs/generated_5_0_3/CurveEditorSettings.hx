@@ -43,3 +43,22 @@ abstract ConstCurveEditorSettings(CurveEditorSettings) from CurveEditorSettings 
 	public extern var ControlSpaceCustomColors(get, never): TArray<CustomColorForSpaceSwitch>;
 	public inline extern function get_ControlSpaceCustomColors(): TArray<CustomColorForSpaceSwitch> return this.ControlSpaceCustomColors;
 }
+
+@:forward
+@:nativeGen
+@:native("CurveEditorSettings*")
+abstract CurveEditorSettingsPtr(cpp.Star<CurveEditorSettings>) from cpp.Star<CurveEditorSettings> to cpp.Star<CurveEditorSettings>{
+	@:from
+	public static extern inline function fromValue(v: CurveEditorSettings): CurveEditorSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CurveEditorSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -22,3 +22,22 @@ abstract ConstBlueprintPaletteFavorites(BlueprintPaletteFavorites) from Blueprin
 	public extern var CurrentProfile(get, never): FString;
 	public inline extern function get_CurrentProfile(): FString return this.CurrentProfile;
 }
+
+@:forward
+@:nativeGen
+@:native("BlueprintPaletteFavorites*")
+abstract BlueprintPaletteFavoritesPtr(cpp.Star<BlueprintPaletteFavorites>) from cpp.Star<BlueprintPaletteFavorites> to cpp.Star<BlueprintPaletteFavorites>{
+	@:from
+	public static extern inline function fromValue(v: BlueprintPaletteFavorites): BlueprintPaletteFavoritesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlueprintPaletteFavorites {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

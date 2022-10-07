@@ -12,3 +12,22 @@ extern class TimerDynamicDelegate__PythonCallable extends PythonCallableForDeleg
 @:nativeGen
 abstract ConstTimerDynamicDelegate__PythonCallable(TimerDynamicDelegate__PythonCallable) from TimerDynamicDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("TimerDynamicDelegate__PythonCallable*")
+abstract TimerDynamicDelegate__PythonCallablePtr(cpp.Star<TimerDynamicDelegate__PythonCallable>) from cpp.Star<TimerDynamicDelegate__PythonCallable> to cpp.Star<TimerDynamicDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: TimerDynamicDelegate__PythonCallable): TimerDynamicDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TimerDynamicDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

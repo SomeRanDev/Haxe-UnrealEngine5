@@ -16,3 +16,22 @@ abstract ConstPinnedCommandListSettings(PinnedCommandListSettings) from PinnedCo
 	public extern var Contexts(get, never): TArray<PinnedCommandListContext>;
 	public inline extern function get_Contexts(): TArray<PinnedCommandListContext> return this.Contexts;
 }
+
+@:forward
+@:nativeGen
+@:native("PinnedCommandListSettings*")
+abstract PinnedCommandListSettingsPtr(cpp.Star<PinnedCommandListSettings>) from cpp.Star<PinnedCommandListSettings> to cpp.Star<PinnedCommandListSettings>{
+	@:from
+	public static extern inline function fromValue(v: PinnedCommandListSettings): PinnedCommandListSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PinnedCommandListSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

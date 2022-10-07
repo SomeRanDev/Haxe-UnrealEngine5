@@ -12,3 +12,22 @@ extern class ActorBeginCursorOverSignature__PythonCallable extends PythonCallabl
 @:nativeGen
 abstract ConstActorBeginCursorOverSignature__PythonCallable(ActorBeginCursorOverSignature__PythonCallable) from ActorBeginCursorOverSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorBeginCursorOverSignature__PythonCallable*")
+abstract ActorBeginCursorOverSignature__PythonCallablePtr(cpp.Star<ActorBeginCursorOverSignature__PythonCallable>) from cpp.Star<ActorBeginCursorOverSignature__PythonCallable> to cpp.Star<ActorBeginCursorOverSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ActorBeginCursorOverSignature__PythonCallable): ActorBeginCursorOverSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorBeginCursorOverSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

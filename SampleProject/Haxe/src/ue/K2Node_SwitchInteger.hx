@@ -16,3 +16,22 @@ abstract ConstK2Node_SwitchInteger(K2Node_SwitchInteger) from K2Node_SwitchInteg
 	public extern var StartIndex(get, never): cpp.Int32;
 	public inline extern function get_StartIndex(): cpp.Int32 return this.StartIndex;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_SwitchInteger*")
+abstract K2Node_SwitchIntegerPtr(cpp.Star<K2Node_SwitchInteger>) from cpp.Star<K2Node_SwitchInteger> to cpp.Star<K2Node_SwitchInteger>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_SwitchInteger): K2Node_SwitchIntegerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_SwitchInteger {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

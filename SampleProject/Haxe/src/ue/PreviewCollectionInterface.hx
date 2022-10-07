@@ -12,3 +12,22 @@ extern class PreviewCollectionInterface extends Interface {
 @:nativeGen
 abstract ConstPreviewCollectionInterface(PreviewCollectionInterface) from PreviewCollectionInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("PreviewCollectionInterface*")
+abstract PreviewCollectionInterfacePtr(cpp.Star<PreviewCollectionInterface>) from cpp.Star<PreviewCollectionInterface> to cpp.Star<PreviewCollectionInterface>{
+	@:from
+	public static extern inline function fromValue(v: PreviewCollectionInterface): PreviewCollectionInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PreviewCollectionInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

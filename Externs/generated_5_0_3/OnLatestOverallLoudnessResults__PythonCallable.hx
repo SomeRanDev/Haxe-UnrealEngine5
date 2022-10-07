@@ -12,3 +12,22 @@ extern class OnLatestOverallLoudnessResults__PythonCallable extends PythonCallab
 @:nativeGen
 abstract ConstOnLatestOverallLoudnessResults__PythonCallable(OnLatestOverallLoudnessResults__PythonCallable) from OnLatestOverallLoudnessResults__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnLatestOverallLoudnessResults__PythonCallable*")
+abstract OnLatestOverallLoudnessResults__PythonCallablePtr(cpp.Star<OnLatestOverallLoudnessResults__PythonCallable>) from cpp.Star<OnLatestOverallLoudnessResults__PythonCallable> to cpp.Star<OnLatestOverallLoudnessResults__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnLatestOverallLoudnessResults__PythonCallable): OnLatestOverallLoudnessResults__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnLatestOverallLoudnessResults__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

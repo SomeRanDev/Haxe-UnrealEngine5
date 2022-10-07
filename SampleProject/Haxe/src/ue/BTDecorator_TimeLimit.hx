@@ -16,3 +16,22 @@ abstract ConstBTDecorator_TimeLimit(BTDecorator_TimeLimit) from BTDecorator_Time
 	public extern var TimeLimit(get, never): cpp.Float32;
 	public inline extern function get_TimeLimit(): cpp.Float32 return this.TimeLimit;
 }
+
+@:forward
+@:nativeGen
+@:native("BTDecorator_TimeLimit*")
+abstract BTDecorator_TimeLimitPtr(cpp.Star<BTDecorator_TimeLimit>) from cpp.Star<BTDecorator_TimeLimit> to cpp.Star<BTDecorator_TimeLimit>{
+	@:from
+	public static extern inline function fromValue(v: BTDecorator_TimeLimit): BTDecorator_TimeLimitPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTDecorator_TimeLimit {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

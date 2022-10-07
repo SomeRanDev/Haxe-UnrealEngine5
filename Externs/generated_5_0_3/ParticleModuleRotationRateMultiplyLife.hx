@@ -16,3 +16,22 @@ abstract ConstParticleModuleRotationRateMultiplyLife(ParticleModuleRotationRateM
 	public extern var LifeMultiplier(get, never): RawDistributionFloat;
 	public inline extern function get_LifeMultiplier(): RawDistributionFloat return this.LifeMultiplier;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleRotationRateMultiplyLife*")
+abstract ParticleModuleRotationRateMultiplyLifePtr(cpp.Star<ParticleModuleRotationRateMultiplyLife>) from cpp.Star<ParticleModuleRotationRateMultiplyLife> to cpp.Star<ParticleModuleRotationRateMultiplyLife>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleRotationRateMultiplyLife): ParticleModuleRotationRateMultiplyLifePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleRotationRateMultiplyLife {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

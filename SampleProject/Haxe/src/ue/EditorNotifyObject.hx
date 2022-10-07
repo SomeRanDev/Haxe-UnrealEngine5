@@ -16,3 +16,22 @@ abstract ConstEditorNotifyObject(EditorNotifyObject) from EditorNotifyObject {
 	public extern var Event(get, never): AnimNotifyEvent;
 	public inline extern function get_Event(): AnimNotifyEvent return this.Event;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorNotifyObject*")
+abstract EditorNotifyObjectPtr(cpp.Star<EditorNotifyObject>) from cpp.Star<EditorNotifyObject> to cpp.Star<EditorNotifyObject>{
+	@:from
+	public static extern inline function fromValue(v: EditorNotifyObject): EditorNotifyObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorNotifyObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

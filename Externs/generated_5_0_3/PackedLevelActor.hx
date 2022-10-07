@@ -22,3 +22,22 @@ abstract ConstPackedLevelActor(PackedLevelActor) from PackedLevelActor {
 	public extern var PackedVersion(get, never): Guid;
 	public inline extern function get_PackedVersion(): Guid return this.PackedVersion;
 }
+
+@:forward
+@:nativeGen
+@:native("PackedLevelActor*")
+abstract PackedLevelActorPtr(cpp.Star<PackedLevelActor>) from cpp.Star<PackedLevelActor> to cpp.Star<PackedLevelActor>{
+	@:from
+	public static extern inline function fromValue(v: PackedLevelActor): PackedLevelActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PackedLevelActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

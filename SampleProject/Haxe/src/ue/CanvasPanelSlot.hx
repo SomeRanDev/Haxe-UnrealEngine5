@@ -41,3 +41,22 @@ abstract ConstCanvasPanelSlot(CanvasPanelSlot) from CanvasPanelSlot {
 	public extern var ZOrder(get, never): cpp.Int32;
 	public inline extern function get_ZOrder(): cpp.Int32 return this.ZOrder;
 }
+
+@:forward
+@:nativeGen
+@:native("CanvasPanelSlot*")
+abstract CanvasPanelSlotPtr(cpp.Star<CanvasPanelSlot>) from cpp.Star<CanvasPanelSlot> to cpp.Star<CanvasPanelSlot>{
+	@:from
+	public static extern inline function fromValue(v: CanvasPanelSlot): CanvasPanelSlotPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CanvasPanelSlot {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

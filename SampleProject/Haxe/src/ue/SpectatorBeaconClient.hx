@@ -35,3 +35,22 @@ abstract ConstSpectatorBeaconClient(SpectatorBeaconClient) from SpectatorBeaconC
 	public extern var bCancelReservation(get, never): Bool;
 	public inline extern function get_bCancelReservation(): Bool return this.bCancelReservation;
 }
+
+@:forward
+@:nativeGen
+@:native("SpectatorBeaconClient*")
+abstract SpectatorBeaconClientPtr(cpp.Star<SpectatorBeaconClient>) from cpp.Star<SpectatorBeaconClient> to cpp.Star<SpectatorBeaconClient>{
+	@:from
+	public static extern inline function fromValue(v: SpectatorBeaconClient): SpectatorBeaconClientPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SpectatorBeaconClient {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

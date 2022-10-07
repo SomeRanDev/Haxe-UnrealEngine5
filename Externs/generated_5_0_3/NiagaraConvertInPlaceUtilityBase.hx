@@ -13,3 +13,22 @@ extern class NiagaraConvertInPlaceUtilityBase extends Object {
 @:nativeGen
 abstract ConstNiagaraConvertInPlaceUtilityBase(NiagaraConvertInPlaceUtilityBase) from NiagaraConvertInPlaceUtilityBase {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraConvertInPlaceUtilityBase*")
+abstract NiagaraConvertInPlaceUtilityBasePtr(cpp.Star<NiagaraConvertInPlaceUtilityBase>) from cpp.Star<NiagaraConvertInPlaceUtilityBase> to cpp.Star<NiagaraConvertInPlaceUtilityBase>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraConvertInPlaceUtilityBase): NiagaraConvertInPlaceUtilityBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraConvertInPlaceUtilityBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

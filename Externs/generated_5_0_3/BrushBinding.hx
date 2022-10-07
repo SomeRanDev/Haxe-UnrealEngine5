@@ -14,3 +14,22 @@ extern class BrushBinding extends PropertyBinding {
 @:nativeGen
 abstract ConstBrushBinding(BrushBinding) from BrushBinding {
 }
+
+@:forward
+@:nativeGen
+@:native("BrushBinding*")
+abstract BrushBindingPtr(cpp.Star<BrushBinding>) from cpp.Star<BrushBinding> to cpp.Star<BrushBinding>{
+	@:from
+	public static extern inline function fromValue(v: BrushBinding): BrushBindingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BrushBinding {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

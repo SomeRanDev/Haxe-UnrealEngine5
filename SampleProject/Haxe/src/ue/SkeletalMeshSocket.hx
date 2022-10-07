@@ -34,3 +34,22 @@ abstract ConstSkeletalMeshSocket(SkeletalMeshSocket) from SkeletalMeshSocket {
 	public extern var bForceAlwaysAnimated(get, never): Bool;
 	public inline extern function get_bForceAlwaysAnimated(): Bool return this.bForceAlwaysAnimated;
 }
+
+@:forward
+@:nativeGen
+@:native("SkeletalMeshSocket*")
+abstract SkeletalMeshSocketPtr(cpp.Star<SkeletalMeshSocket>) from cpp.Star<SkeletalMeshSocket> to cpp.Star<SkeletalMeshSocket>{
+	@:from
+	public static extern inline function fromValue(v: SkeletalMeshSocket): SkeletalMeshSocketPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SkeletalMeshSocket {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

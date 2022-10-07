@@ -49,3 +49,22 @@ abstract ConstNavigationData(NavigationData) from NavigationData {
 	public extern var SupportedAreas(get, never): TArray<SupportedAreaData>;
 	public inline extern function get_SupportedAreas(): TArray<SupportedAreaData> return this.SupportedAreas;
 }
+
+@:forward
+@:nativeGen
+@:native("NavigationData*")
+abstract NavigationDataPtr(cpp.Star<NavigationData>) from cpp.Star<NavigationData> to cpp.Star<NavigationData>{
+	@:from
+	public static extern inline function fromValue(v: NavigationData): NavigationDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavigationData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

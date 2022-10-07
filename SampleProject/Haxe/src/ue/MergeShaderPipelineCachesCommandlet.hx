@@ -13,3 +13,22 @@ extern class MergeShaderPipelineCachesCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstMergeShaderPipelineCachesCommandlet(MergeShaderPipelineCachesCommandlet) from MergeShaderPipelineCachesCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("MergeShaderPipelineCachesCommandlet*")
+abstract MergeShaderPipelineCachesCommandletPtr(cpp.Star<MergeShaderPipelineCachesCommandlet>) from cpp.Star<MergeShaderPipelineCachesCommandlet> to cpp.Star<MergeShaderPipelineCachesCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: MergeShaderPipelineCachesCommandlet): MergeShaderPipelineCachesCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MergeShaderPipelineCachesCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

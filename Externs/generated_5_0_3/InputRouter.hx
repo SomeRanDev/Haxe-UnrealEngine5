@@ -22,3 +22,22 @@ abstract ConstInputRouter(InputRouter) from InputRouter {
 	public extern var ActiveInputBehaviors(get, never): cpp.Star<InputBehaviorSet.ConstInputBehaviorSet>;
 	public inline extern function get_ActiveInputBehaviors(): cpp.Star<InputBehaviorSet.ConstInputBehaviorSet> return this.ActiveInputBehaviors;
 }
+
+@:forward
+@:nativeGen
+@:native("InputRouter*")
+abstract InputRouterPtr(cpp.Star<InputRouter>) from cpp.Star<InputRouter> to cpp.Star<InputRouter>{
+	@:from
+	public static extern inline function fromValue(v: InputRouter): InputRouterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InputRouter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

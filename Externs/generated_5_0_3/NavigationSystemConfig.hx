@@ -25,3 +25,22 @@ abstract ConstNavigationSystemConfig(NavigationSystemConfig) from NavigationSyst
 	public extern var bIsOverriden(get, never): Bool;
 	public inline extern function get_bIsOverriden(): Bool return this.bIsOverriden;
 }
+
+@:forward
+@:nativeGen
+@:native("NavigationSystemConfig*")
+abstract NavigationSystemConfigPtr(cpp.Star<NavigationSystemConfig>) from cpp.Star<NavigationSystemConfig> to cpp.Star<NavigationSystemConfig>{
+	@:from
+	public static extern inline function fromValue(v: NavigationSystemConfig): NavigationSystemConfigPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavigationSystemConfig {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

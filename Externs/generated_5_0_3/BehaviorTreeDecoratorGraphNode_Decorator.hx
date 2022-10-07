@@ -19,3 +19,22 @@ abstract ConstBehaviorTreeDecoratorGraphNode_Decorator(BehaviorTreeDecoratorGrap
 	public extern var ClassData(get, never): GraphNodeClassData;
 	public inline extern function get_ClassData(): GraphNodeClassData return this.ClassData;
 }
+
+@:forward
+@:nativeGen
+@:native("BehaviorTreeDecoratorGraphNode_Decorator*")
+abstract BehaviorTreeDecoratorGraphNode_DecoratorPtr(cpp.Star<BehaviorTreeDecoratorGraphNode_Decorator>) from cpp.Star<BehaviorTreeDecoratorGraphNode_Decorator> to cpp.Star<BehaviorTreeDecoratorGraphNode_Decorator>{
+	@:from
+	public static extern inline function fromValue(v: BehaviorTreeDecoratorGraphNode_Decorator): BehaviorTreeDecoratorGraphNode_DecoratorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BehaviorTreeDecoratorGraphNode_Decorator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -31,3 +31,22 @@ abstract ConstMaterialExpressionSmoothStep(MaterialExpressionSmoothStep) from Ma
 	public extern var ConstValue(get, never): cpp.Float32;
 	public inline extern function get_ConstValue(): cpp.Float32 return this.ConstValue;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionSmoothStep*")
+abstract MaterialExpressionSmoothStepPtr(cpp.Star<MaterialExpressionSmoothStep>) from cpp.Star<MaterialExpressionSmoothStep> to cpp.Star<MaterialExpressionSmoothStep>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionSmoothStep): MaterialExpressionSmoothStepPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionSmoothStep {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

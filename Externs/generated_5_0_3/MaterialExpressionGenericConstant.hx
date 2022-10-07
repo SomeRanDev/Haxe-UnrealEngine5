@@ -13,3 +13,22 @@ extern class MaterialExpressionGenericConstant extends MaterialExpression {
 @:nativeGen
 abstract ConstMaterialExpressionGenericConstant(MaterialExpressionGenericConstant) from MaterialExpressionGenericConstant {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionGenericConstant*")
+abstract MaterialExpressionGenericConstantPtr(cpp.Star<MaterialExpressionGenericConstant>) from cpp.Star<MaterialExpressionGenericConstant> to cpp.Star<MaterialExpressionGenericConstant>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionGenericConstant): MaterialExpressionGenericConstantPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionGenericConstant {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

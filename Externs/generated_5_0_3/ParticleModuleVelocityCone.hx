@@ -22,3 +22,22 @@ abstract ConstParticleModuleVelocityCone(ParticleModuleVelocityCone) from Partic
 	public extern var Direction(get, never): Vector;
 	public inline extern function get_Direction(): Vector return this.Direction;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleVelocityCone*")
+abstract ParticleModuleVelocityConePtr(cpp.Star<ParticleModuleVelocityCone>) from cpp.Star<ParticleModuleVelocityCone> to cpp.Star<ParticleModuleVelocityCone>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleVelocityCone): ParticleModuleVelocityConePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleVelocityCone {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

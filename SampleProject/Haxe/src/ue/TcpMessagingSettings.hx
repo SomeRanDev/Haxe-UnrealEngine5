@@ -28,3 +28,22 @@ abstract ConstTcpMessagingSettings(TcpMessagingSettings) from TcpMessagingSettin
 	public extern var bStopServiceWhenAppDeactivates(get, never): Bool;
 	public inline extern function get_bStopServiceWhenAppDeactivates(): Bool return this.bStopServiceWhenAppDeactivates;
 }
+
+@:forward
+@:nativeGen
+@:native("TcpMessagingSettings*")
+abstract TcpMessagingSettingsPtr(cpp.Star<TcpMessagingSettings>) from cpp.Star<TcpMessagingSettings> to cpp.Star<TcpMessagingSettings>{
+	@:from
+	public static extern inline function fromValue(v: TcpMessagingSettings): TcpMessagingSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TcpMessagingSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

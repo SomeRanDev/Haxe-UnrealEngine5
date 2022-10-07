@@ -13,3 +13,22 @@ extern class ActorTransformer extends ViewportTransformer {
 @:nativeGen
 abstract ConstActorTransformer(ActorTransformer) from ActorTransformer {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorTransformer*")
+abstract ActorTransformerPtr(cpp.Star<ActorTransformer>) from cpp.Star<ActorTransformer> to cpp.Star<ActorTransformer>{
+	@:from
+	public static extern inline function fromValue(v: ActorTransformer): ActorTransformerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorTransformer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

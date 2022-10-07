@@ -527,3 +527,22 @@ abstract ConstCharacterMovementComp(CharacterMovementComp) from CharacterMovemen
 	public extern var AnimRootMotionVelocity(get, never): Vector;
 	public inline extern function get_AnimRootMotionVelocity(): Vector return this.AnimRootMotionVelocity;
 }
+
+@:forward
+@:nativeGen
+@:native("CharacterMovementComp*")
+abstract CharacterMovementCompPtr(cpp.Star<CharacterMovementComp>) from cpp.Star<CharacterMovementComp> to cpp.Star<CharacterMovementComp>{
+	@:from
+	public static extern inline function fromValue(v: CharacterMovementComp): CharacterMovementCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CharacterMovementComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

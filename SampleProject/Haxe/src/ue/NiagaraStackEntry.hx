@@ -22,3 +22,22 @@ abstract ConstNiagaraStackEntry(NiagaraStackEntry) from NiagaraStackEntry {
 	public extern var ErrorChildren(get, never): TArray<cpp.Star<NiagaraStackErrorItem.ConstNiagaraStackErrorItem>>;
 	public inline extern function get_ErrorChildren(): TArray<cpp.Star<NiagaraStackErrorItem.ConstNiagaraStackErrorItem>> return this.ErrorChildren;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackEntry*")
+abstract NiagaraStackEntryPtr(cpp.Star<NiagaraStackEntry>) from cpp.Star<NiagaraStackEntry> to cpp.Star<NiagaraStackEntry>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackEntry): NiagaraStackEntryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackEntry {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

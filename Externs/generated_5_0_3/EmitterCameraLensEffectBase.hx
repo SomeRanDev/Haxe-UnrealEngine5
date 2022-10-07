@@ -37,3 +37,22 @@ abstract ConstEmitterCameraLensEffectBase(EmitterCameraLensEffectBase) from Emit
 	public extern var DistFromCamera_DEPRECATED(get, never): cpp.Float32;
 	public inline extern function get_DistFromCamera_DEPRECATED(): cpp.Float32 return this.DistFromCamera_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("EmitterCameraLensEffectBase*")
+abstract EmitterCameraLensEffectBasePtr(cpp.Star<EmitterCameraLensEffectBase>) from cpp.Star<EmitterCameraLensEffectBase> to cpp.Star<EmitterCameraLensEffectBase>{
+	@:from
+	public static extern inline function fromValue(v: EmitterCameraLensEffectBase): EmitterCameraLensEffectBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EmitterCameraLensEffectBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

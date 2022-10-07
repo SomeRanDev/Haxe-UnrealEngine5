@@ -19,3 +19,22 @@ abstract ConstGroomImportOptions(GroomImportOptions) from GroomImportOptions {
 	public extern var InterpolationSettings(get, never): TArray<HairGroupsInterpolation>;
 	public inline extern function get_InterpolationSettings(): TArray<HairGroupsInterpolation> return this.InterpolationSettings;
 }
+
+@:forward
+@:nativeGen
+@:native("GroomImportOptions*")
+abstract GroomImportOptionsPtr(cpp.Star<GroomImportOptions>) from cpp.Star<GroomImportOptions> to cpp.Star<GroomImportOptions>{
+	@:from
+	public static extern inline function fromValue(v: GroomImportOptions): GroomImportOptionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GroomImportOptions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -36,3 +36,22 @@ abstract ConstThrobber(Throbber) from Throbber {
 	public extern var Image(get, never): SlateBrush;
 	public inline extern function get_Image(): SlateBrush return this.Image;
 }
+
+@:forward
+@:nativeGen
+@:native("Throbber*")
+abstract ThrobberPtr(cpp.Star<Throbber>) from cpp.Star<Throbber> to cpp.Star<Throbber>{
+	@:from
+	public static extern inline function fromValue(v: Throbber): ThrobberPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Throbber {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -34,3 +34,22 @@ abstract ConstAnimSequenceBase(AnimSequenceBase) from AnimSequenceBase {
 	public extern var Controller(get, never): AnimationDataController.ConstAnimationDataController;
 	public inline extern function get_Controller(): AnimationDataController.ConstAnimationDataController return this.Controller;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimSequenceBase*")
+abstract AnimSequenceBasePtr(cpp.Star<AnimSequenceBase>) from cpp.Star<AnimSequenceBase> to cpp.Star<AnimSequenceBase>{
+	@:from
+	public static extern inline function fromValue(v: AnimSequenceBase): AnimSequenceBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimSequenceBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

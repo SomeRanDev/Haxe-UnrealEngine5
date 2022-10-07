@@ -13,3 +13,22 @@ extern class AIDataProvider extends Object {
 @:nativeGen
 abstract ConstAIDataProvider(AIDataProvider) from AIDataProvider {
 }
+
+@:forward
+@:nativeGen
+@:native("AIDataProvider*")
+abstract AIDataProviderPtr(cpp.Star<AIDataProvider>) from cpp.Star<AIDataProvider> to cpp.Star<AIDataProvider>{
+	@:from
+	public static extern inline function fromValue(v: AIDataProvider): AIDataProviderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AIDataProvider {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

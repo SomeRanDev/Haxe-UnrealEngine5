@@ -16,3 +16,22 @@ abstract ConstBaseWidgetBlueprint(BaseWidgetBlueprint) from BaseWidgetBlueprint 
 	public extern var WidgetTree(get, never): cpp.Star<WidgetTree.ConstWidgetTree>;
 	public inline extern function get_WidgetTree(): cpp.Star<WidgetTree.ConstWidgetTree> return this.WidgetTree;
 }
+
+@:forward
+@:nativeGen
+@:native("BaseWidgetBlueprint*")
+abstract BaseWidgetBlueprintPtr(cpp.Star<BaseWidgetBlueprint>) from cpp.Star<BaseWidgetBlueprint> to cpp.Star<BaseWidgetBlueprint>{
+	@:from
+	public static extern inline function fromValue(v: BaseWidgetBlueprint): BaseWidgetBlueprintPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BaseWidgetBlueprint {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

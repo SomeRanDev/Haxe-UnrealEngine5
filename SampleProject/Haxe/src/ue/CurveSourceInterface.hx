@@ -15,3 +15,22 @@ extern class CurveSourceInterface extends Interface {
 @:nativeGen
 abstract ConstCurveSourceInterface(CurveSourceInterface) from CurveSourceInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("CurveSourceInterface*")
+abstract CurveSourceInterfacePtr(cpp.Star<CurveSourceInterface>) from cpp.Star<CurveSourceInterface> to cpp.Star<CurveSourceInterface>{
+	@:from
+	public static extern inline function fromValue(v: CurveSourceInterface): CurveSourceInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CurveSourceInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

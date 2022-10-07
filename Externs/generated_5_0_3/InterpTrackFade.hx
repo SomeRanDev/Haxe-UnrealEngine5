@@ -22,3 +22,22 @@ abstract ConstInterpTrackFade(InterpTrackFade) from InterpTrackFade {
 	public extern var FadeColor(get, never): LinearColor;
 	public inline extern function get_FadeColor(): LinearColor return this.FadeColor;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackFade*")
+abstract InterpTrackFadePtr(cpp.Star<InterpTrackFade>) from cpp.Star<InterpTrackFade> to cpp.Star<InterpTrackFade>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackFade): InterpTrackFadePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackFade {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

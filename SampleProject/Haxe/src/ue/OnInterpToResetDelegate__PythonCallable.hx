@@ -12,3 +12,22 @@ extern class OnInterpToResetDelegate__PythonCallable extends PythonCallableForDe
 @:nativeGen
 abstract ConstOnInterpToResetDelegate__PythonCallable(OnInterpToResetDelegate__PythonCallable) from OnInterpToResetDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnInterpToResetDelegate__PythonCallable*")
+abstract OnInterpToResetDelegate__PythonCallablePtr(cpp.Star<OnInterpToResetDelegate__PythonCallable>) from cpp.Star<OnInterpToResetDelegate__PythonCallable> to cpp.Star<OnInterpToResetDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnInterpToResetDelegate__PythonCallable): OnInterpToResetDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnInterpToResetDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

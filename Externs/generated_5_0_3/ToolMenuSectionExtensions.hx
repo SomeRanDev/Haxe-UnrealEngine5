@@ -17,3 +17,22 @@ extern class ToolMenuSectionExtensions extends Object {
 @:nativeGen
 abstract ConstToolMenuSectionExtensions(ToolMenuSectionExtensions) from ToolMenuSectionExtensions {
 }
+
+@:forward
+@:nativeGen
+@:native("ToolMenuSectionExtensions*")
+abstract ToolMenuSectionExtensionsPtr(cpp.Star<ToolMenuSectionExtensions>) from cpp.Star<ToolMenuSectionExtensions> to cpp.Star<ToolMenuSectionExtensions>{
+	@:from
+	public static extern inline function fromValue(v: ToolMenuSectionExtensions): ToolMenuSectionExtensionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ToolMenuSectionExtensions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

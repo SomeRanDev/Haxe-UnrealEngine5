@@ -23,3 +23,22 @@ abstract ConstARPlaneComp(ARPlaneComp) from ARPlaneComp {
 	public extern var ReplicatedPayload(get, never): ARPlaneUpdatePayload;
 	public inline extern function get_ReplicatedPayload(): ARPlaneUpdatePayload return this.ReplicatedPayload;
 }
+
+@:forward
+@:nativeGen
+@:native("ARPlaneComp*")
+abstract ARPlaneCompPtr(cpp.Star<ARPlaneComp>) from cpp.Star<ARPlaneComp> to cpp.Star<ARPlaneComp>{
+	@:from
+	public static extern inline function fromValue(v: ARPlaneComp): ARPlaneCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARPlaneComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

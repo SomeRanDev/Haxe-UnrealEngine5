@@ -13,3 +13,22 @@ extern class TextAssetCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstTextAssetCommandlet(TextAssetCommandlet) from TextAssetCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("TextAssetCommandlet*")
+abstract TextAssetCommandletPtr(cpp.Star<TextAssetCommandlet>) from cpp.Star<TextAssetCommandlet> to cpp.Star<TextAssetCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: TextAssetCommandlet): TextAssetCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextAssetCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

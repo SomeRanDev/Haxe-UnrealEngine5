@@ -16,3 +16,22 @@ abstract ConstParticleModuleOrientationAxisLock(ParticleModuleOrientationAxisLoc
 	public extern var LockAxisFlags(get, never): EParticleAxisLock;
 	public inline extern function get_LockAxisFlags(): EParticleAxisLock return this.LockAxisFlags;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleOrientationAxisLock*")
+abstract ParticleModuleOrientationAxisLockPtr(cpp.Star<ParticleModuleOrientationAxisLock>) from cpp.Star<ParticleModuleOrientationAxisLock> to cpp.Star<ParticleModuleOrientationAxisLock>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleOrientationAxisLock): ParticleModuleOrientationAxisLockPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleOrientationAxisLock {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

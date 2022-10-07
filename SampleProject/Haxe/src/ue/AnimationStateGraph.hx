@@ -16,3 +16,22 @@ abstract ConstAnimationStateGraph(AnimationStateGraph) from AnimationStateGraph 
 	public extern var MyResultNode(get, never): cpp.Star<AnimGraphNode_StateResult.ConstAnimGraphNode_StateResult>;
 	public inline extern function get_MyResultNode(): cpp.Star<AnimGraphNode_StateResult.ConstAnimGraphNode_StateResult> return this.MyResultNode;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationStateGraph*")
+abstract AnimationStateGraphPtr(cpp.Star<AnimationStateGraph>) from cpp.Star<AnimationStateGraph> to cpp.Star<AnimationStateGraph>{
+	@:from
+	public static extern inline function fromValue(v: AnimationStateGraph): AnimationStateGraphPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationStateGraph {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ extern class TypedElementSelectionInterface extends Interface {
 @:nativeGen
 abstract ConstTypedElementSelectionInterface(TypedElementSelectionInterface) from TypedElementSelectionInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("TypedElementSelectionInterface*")
+abstract TypedElementSelectionInterfacePtr(cpp.Star<TypedElementSelectionInterface>) from cpp.Star<TypedElementSelectionInterface> to cpp.Star<TypedElementSelectionInterface>{
+	@:from
+	public static extern inline function fromValue(v: TypedElementSelectionInterface): TypedElementSelectionInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TypedElementSelectionInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

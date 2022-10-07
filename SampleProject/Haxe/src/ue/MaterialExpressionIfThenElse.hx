@@ -22,3 +22,22 @@ abstract ConstMaterialExpressionIfThenElse(MaterialExpressionIfThenElse) from Ma
 	public extern var Condition(get, never): ExpressionInput;
 	public inline extern function get_Condition(): ExpressionInput return this.Condition;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionIfThenElse*")
+abstract MaterialExpressionIfThenElsePtr(cpp.Star<MaterialExpressionIfThenElse>) from cpp.Star<MaterialExpressionIfThenElse> to cpp.Star<MaterialExpressionIfThenElse>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionIfThenElse): MaterialExpressionIfThenElsePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionIfThenElse {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

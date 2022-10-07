@@ -13,3 +13,22 @@ extern class K2Node_PureAssignmentStatement extends K2Node {
 @:nativeGen
 abstract ConstK2Node_PureAssignmentStatement(K2Node_PureAssignmentStatement) from K2Node_PureAssignmentStatement {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_PureAssignmentStatement*")
+abstract K2Node_PureAssignmentStatementPtr(cpp.Star<K2Node_PureAssignmentStatement>) from cpp.Star<K2Node_PureAssignmentStatement> to cpp.Star<K2Node_PureAssignmentStatement>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_PureAssignmentStatement): K2Node_PureAssignmentStatementPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_PureAssignmentStatement {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

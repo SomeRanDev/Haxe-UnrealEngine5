@@ -28,3 +28,22 @@ abstract ConstInterchangeBaseNodeContainer(InterchangeBaseNodeContainer) from In
 	public extern var Nodes(get, never): TMap<FString, cpp.Star<InterchangeBaseNode.ConstInterchangeBaseNode>>;
 	public inline extern function get_Nodes(): TMap<FString, cpp.Star<InterchangeBaseNode.ConstInterchangeBaseNode>> return this.Nodes;
 }
+
+@:forward
+@:nativeGen
+@:native("InterchangeBaseNodeContainer*")
+abstract InterchangeBaseNodeContainerPtr(cpp.Star<InterchangeBaseNodeContainer>) from cpp.Star<InterchangeBaseNodeContainer> to cpp.Star<InterchangeBaseNodeContainer>{
+	@:from
+	public static extern inline function fromValue(v: InterchangeBaseNodeContainer): InterchangeBaseNodeContainerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterchangeBaseNodeContainer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

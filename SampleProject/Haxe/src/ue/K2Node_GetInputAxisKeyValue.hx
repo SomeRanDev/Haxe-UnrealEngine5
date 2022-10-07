@@ -22,3 +22,22 @@ abstract ConstK2Node_GetInputAxisKeyValue(K2Node_GetInputAxisKeyValue) from K2No
 	public extern var bExecuteWhenPaused(get, never): Bool;
 	public inline extern function get_bExecuteWhenPaused(): Bool return this.bExecuteWhenPaused;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_GetInputAxisKeyValue*")
+abstract K2Node_GetInputAxisKeyValuePtr(cpp.Star<K2Node_GetInputAxisKeyValue>) from cpp.Star<K2Node_GetInputAxisKeyValue> to cpp.Star<K2Node_GetInputAxisKeyValue>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_GetInputAxisKeyValue): K2Node_GetInputAxisKeyValuePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_GetInputAxisKeyValue {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

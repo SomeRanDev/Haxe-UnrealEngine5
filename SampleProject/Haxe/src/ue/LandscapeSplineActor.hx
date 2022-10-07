@@ -16,3 +16,22 @@ abstract ConstLandscapeSplineActor(LandscapeSplineActor) from LandscapeSplineAct
 	public extern var LandscapeGuid(get, never): Guid;
 	public inline extern function get_LandscapeGuid(): Guid return this.LandscapeGuid;
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeSplineActor*")
+abstract LandscapeSplineActorPtr(cpp.Star<LandscapeSplineActor>) from cpp.Star<LandscapeSplineActor> to cpp.Star<LandscapeSplineActor>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeSplineActor): LandscapeSplineActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeSplineActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

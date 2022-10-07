@@ -13,3 +13,22 @@ extern class AIResource_Movement extends GameplayTaskResource {
 @:nativeGen
 abstract ConstAIResource_Movement(AIResource_Movement) from AIResource_Movement {
 }
+
+@:forward
+@:nativeGen
+@:native("AIResource_Movement*")
+abstract AIResource_MovementPtr(cpp.Star<AIResource_Movement>) from cpp.Star<AIResource_Movement> to cpp.Star<AIResource_Movement>{
+	@:from
+	public static extern inline function fromValue(v: AIResource_Movement): AIResource_MovementPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AIResource_Movement {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

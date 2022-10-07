@@ -194,3 +194,22 @@ abstract ConstWidget(Widget) from Widget {
 	public extern var CategoryName(get, never): FString;
 	public inline extern function get_CategoryName(): FString return this.CategoryName;
 }
+
+@:forward
+@:nativeGen
+@:native("Widget*")
+abstract WidgetPtr(cpp.Star<Widget>) from cpp.Star<Widget> to cpp.Star<Widget>{
+	@:from
+	public static extern inline function fromValue(v: Widget): WidgetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Widget {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

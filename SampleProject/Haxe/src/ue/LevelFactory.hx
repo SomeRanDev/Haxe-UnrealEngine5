@@ -13,3 +13,22 @@ extern class LevelFactory extends Factory {
 @:nativeGen
 abstract ConstLevelFactory(LevelFactory) from LevelFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("LevelFactory*")
+abstract LevelFactoryPtr(cpp.Star<LevelFactory>) from cpp.Star<LevelFactory> to cpp.Star<LevelFactory>{
+	@:from
+	public static extern inline function fromValue(v: LevelFactory): LevelFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

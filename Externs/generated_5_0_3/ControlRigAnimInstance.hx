@@ -13,3 +13,22 @@ extern class ControlRigAnimInstance extends AnimInstance {
 @:nativeGen
 abstract ConstControlRigAnimInstance(ControlRigAnimInstance) from ControlRigAnimInstance {
 }
+
+@:forward
+@:nativeGen
+@:native("ControlRigAnimInstance*")
+abstract ControlRigAnimInstancePtr(cpp.Star<ControlRigAnimInstance>) from cpp.Star<ControlRigAnimInstance> to cpp.Star<ControlRigAnimInstance>{
+	@:from
+	public static extern inline function fromValue(v: ControlRigAnimInstance): ControlRigAnimInstancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ControlRigAnimInstance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

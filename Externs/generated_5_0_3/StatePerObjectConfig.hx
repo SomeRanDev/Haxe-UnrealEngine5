@@ -19,3 +19,22 @@ abstract ConstStatePerObjectConfig(StatePerObjectConfig) from StatePerObjectConf
 	public extern var bEnabled(get, never): Bool;
 	public inline extern function get_bEnabled(): Bool return this.bEnabled;
 }
+
+@:forward
+@:nativeGen
+@:native("StatePerObjectConfig*")
+abstract StatePerObjectConfigPtr(cpp.Star<StatePerObjectConfig>) from cpp.Star<StatePerObjectConfig> to cpp.Star<StatePerObjectConfig>{
+	@:from
+	public static extern inline function fromValue(v: StatePerObjectConfig): StatePerObjectConfigPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): StatePerObjectConfig {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

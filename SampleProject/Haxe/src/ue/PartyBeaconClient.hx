@@ -38,3 +38,22 @@ abstract ConstPartyBeaconClient(PartyBeaconClient) from PartyBeaconClient {
 	public extern var bCancelReservation(get, never): Bool;
 	public inline extern function get_bCancelReservation(): Bool return this.bCancelReservation;
 }
+
+@:forward
+@:nativeGen
+@:native("PartyBeaconClient*")
+abstract PartyBeaconClientPtr(cpp.Star<PartyBeaconClient>) from cpp.Star<PartyBeaconClient> to cpp.Star<PartyBeaconClient>{
+	@:from
+	public static extern inline function fromValue(v: PartyBeaconClient): PartyBeaconClientPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PartyBeaconClient {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

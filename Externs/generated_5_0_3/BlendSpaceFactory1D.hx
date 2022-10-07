@@ -19,3 +19,22 @@ abstract ConstBlendSpaceFactory1D(BlendSpaceFactory1D) from BlendSpaceFactory1D 
 	public extern var PreviewSkeletalMesh(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
 	public inline extern function get_PreviewSkeletalMesh(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.PreviewSkeletalMesh;
 }
+
+@:forward
+@:nativeGen
+@:native("BlendSpaceFactory1D*")
+abstract BlendSpaceFactory1DPtr(cpp.Star<BlendSpaceFactory1D>) from cpp.Star<BlendSpaceFactory1D> to cpp.Star<BlendSpaceFactory1D>{
+	@:from
+	public static extern inline function fromValue(v: BlendSpaceFactory1D): BlendSpaceFactory1DPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlendSpaceFactory1D {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

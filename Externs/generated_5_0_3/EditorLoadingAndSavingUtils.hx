@@ -29,3 +29,22 @@ extern class EditorLoadingAndSavingUtils extends Object {
 @:nativeGen
 abstract ConstEditorLoadingAndSavingUtils(EditorLoadingAndSavingUtils) from EditorLoadingAndSavingUtils {
 }
+
+@:forward
+@:nativeGen
+@:native("EditorLoadingAndSavingUtils*")
+abstract EditorLoadingAndSavingUtilsPtr(cpp.Star<EditorLoadingAndSavingUtils>) from cpp.Star<EditorLoadingAndSavingUtils> to cpp.Star<EditorLoadingAndSavingUtils>{
+	@:from
+	public static extern inline function fromValue(v: EditorLoadingAndSavingUtils): EditorLoadingAndSavingUtilsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorLoadingAndSavingUtils {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class LinkerPlaceholderFunction extends Function {
 @:nativeGen
 abstract ConstLinkerPlaceholderFunction(LinkerPlaceholderFunction) from LinkerPlaceholderFunction {
 }
+
+@:forward
+@:nativeGen
+@:native("LinkerPlaceholderFunction*")
+abstract LinkerPlaceholderFunctionPtr(cpp.Star<LinkerPlaceholderFunction>) from cpp.Star<LinkerPlaceholderFunction> to cpp.Star<LinkerPlaceholderFunction>{
+	@:from
+	public static extern inline function fromValue(v: LinkerPlaceholderFunction): LinkerPlaceholderFunctionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LinkerPlaceholderFunction {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

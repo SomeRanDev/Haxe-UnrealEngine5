@@ -16,3 +16,22 @@ abstract ConstMovieSceneSlomoSection(MovieSceneSlomoSection) from MovieSceneSlom
 	public extern var FloatCurve(get, never): MovieSceneFloatChannel;
 	public inline extern function get_FloatCurve(): MovieSceneFloatChannel return this.FloatCurve;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneSlomoSection*")
+abstract MovieSceneSlomoSectionPtr(cpp.Star<MovieSceneSlomoSection>) from cpp.Star<MovieSceneSlomoSection> to cpp.Star<MovieSceneSlomoSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneSlomoSection): MovieSceneSlomoSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneSlomoSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

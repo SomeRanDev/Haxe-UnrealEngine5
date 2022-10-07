@@ -22,3 +22,22 @@ abstract ConstParticleModuleSubUV(ParticleModuleSubUV) from ParticleModuleSubUV 
 	public extern var bUseRealTime(get, never): Bool;
 	public inline extern function get_bUseRealTime(): Bool return this.bUseRealTime;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleSubUV*")
+abstract ParticleModuleSubUVPtr(cpp.Star<ParticleModuleSubUV>) from cpp.Star<ParticleModuleSubUV> to cpp.Star<ParticleModuleSubUV>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleSubUV): ParticleModuleSubUVPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleSubUV {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

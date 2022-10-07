@@ -16,3 +16,22 @@ abstract ConstParticleModuleLocationEmitterDirect(ParticleModuleLocationEmitterD
 	public extern var EmitterName(get, never): FName;
 	public inline extern function get_EmitterName(): FName return this.EmitterName;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleLocationEmitterDirect*")
+abstract ParticleModuleLocationEmitterDirectPtr(cpp.Star<ParticleModuleLocationEmitterDirect>) from cpp.Star<ParticleModuleLocationEmitterDirect> to cpp.Star<ParticleModuleLocationEmitterDirect>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleLocationEmitterDirect): ParticleModuleLocationEmitterDirectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleLocationEmitterDirect {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

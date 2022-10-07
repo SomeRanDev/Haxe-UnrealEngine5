@@ -19,3 +19,22 @@ abstract ConstParticleModuleEventReceiverBase(ParticleModuleEventReceiverBase) f
 	public extern var EventName(get, never): FName;
 	public inline extern function get_EventName(): FName return this.EventName;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleEventReceiverBase*")
+abstract ParticleModuleEventReceiverBasePtr(cpp.Star<ParticleModuleEventReceiverBase>) from cpp.Star<ParticleModuleEventReceiverBase> to cpp.Star<ParticleModuleEventReceiverBase>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleEventReceiverBase): ParticleModuleEventReceiverBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleEventReceiverBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

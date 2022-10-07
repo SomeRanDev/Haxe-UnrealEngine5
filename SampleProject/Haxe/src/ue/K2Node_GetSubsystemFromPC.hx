@@ -13,3 +13,22 @@ extern class K2Node_GetSubsystemFromPC extends K2Node_GetSubsystem {
 @:nativeGen
 abstract ConstK2Node_GetSubsystemFromPC(K2Node_GetSubsystemFromPC) from K2Node_GetSubsystemFromPC {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_GetSubsystemFromPC*")
+abstract K2Node_GetSubsystemFromPCPtr(cpp.Star<K2Node_GetSubsystemFromPC>) from cpp.Star<K2Node_GetSubsystemFromPC> to cpp.Star<K2Node_GetSubsystemFromPC>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_GetSubsystemFromPC): K2Node_GetSubsystemFromPCPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_GetSubsystemFromPC {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

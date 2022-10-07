@@ -16,3 +16,22 @@ abstract ConstWorldPartitionBuilderCommandlet(WorldPartitionBuilderCommandlet) f
 	public extern var Builders(get, never): TArray<cpp.Star<WorldPartitionBuilder.ConstWorldPartitionBuilder>>;
 	public inline extern function get_Builders(): TArray<cpp.Star<WorldPartitionBuilder.ConstWorldPartitionBuilder>> return this.Builders;
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionBuilderCommandlet*")
+abstract WorldPartitionBuilderCommandletPtr(cpp.Star<WorldPartitionBuilderCommandlet>) from cpp.Star<WorldPartitionBuilderCommandlet> to cpp.Star<WorldPartitionBuilderCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionBuilderCommandlet): WorldPartitionBuilderCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionBuilderCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

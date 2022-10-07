@@ -13,3 +13,22 @@ extern class PrecomputedVisibilityVolume extends Volume {
 @:nativeGen
 abstract ConstPrecomputedVisibilityVolume(PrecomputedVisibilityVolume) from PrecomputedVisibilityVolume {
 }
+
+@:forward
+@:nativeGen
+@:native("PrecomputedVisibilityVolume*")
+abstract PrecomputedVisibilityVolumePtr(cpp.Star<PrecomputedVisibilityVolume>) from cpp.Star<PrecomputedVisibilityVolume> to cpp.Star<PrecomputedVisibilityVolume>{
+	@:from
+	public static extern inline function fromValue(v: PrecomputedVisibilityVolume): PrecomputedVisibilityVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PrecomputedVisibilityVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

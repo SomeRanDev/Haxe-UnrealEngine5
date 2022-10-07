@@ -33,3 +33,22 @@ abstract ConstARSharedWorldGameState(ARSharedWorldGameState) from ARSharedWorldG
 	public extern var ARWorldBytesDelivered(get, never): cpp.Int32;
 	public inline extern function get_ARWorldBytesDelivered(): cpp.Int32 return this.ARWorldBytesDelivered;
 }
+
+@:forward
+@:nativeGen
+@:native("ARSharedWorldGameState*")
+abstract ARSharedWorldGameStatePtr(cpp.Star<ARSharedWorldGameState>) from cpp.Star<ARSharedWorldGameState> to cpp.Star<ARSharedWorldGameState>{
+	@:from
+	public static extern inline function fromValue(v: ARSharedWorldGameState): ARSharedWorldGameStatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARSharedWorldGameState {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

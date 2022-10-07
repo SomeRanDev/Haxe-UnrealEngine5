@@ -22,3 +22,22 @@ abstract ConstNavigationQueryFilter(NavigationQueryFilter) from NavigationQueryF
 	public extern var ExcludeFlags(get, never): NavigationFilterFlags;
 	public inline extern function get_ExcludeFlags(): NavigationFilterFlags return this.ExcludeFlags;
 }
+
+@:forward
+@:nativeGen
+@:native("NavigationQueryFilter*")
+abstract NavigationQueryFilterPtr(cpp.Star<NavigationQueryFilter>) from cpp.Star<NavigationQueryFilter> to cpp.Star<NavigationQueryFilter>{
+	@:from
+	public static extern inline function fromValue(v: NavigationQueryFilter): NavigationQueryFilterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavigationQueryFilter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

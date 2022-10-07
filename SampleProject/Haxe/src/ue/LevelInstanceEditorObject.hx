@@ -19,3 +19,22 @@ abstract ConstLevelInstanceEditorObject(LevelInstanceEditorObject) from LevelIns
 	public extern var OtherPackagesToSave(get, never): TArray<TWeakObjectPtr<Package.ConstPackage>>;
 	public inline extern function get_OtherPackagesToSave(): TArray<TWeakObjectPtr<Package.ConstPackage>> return this.OtherPackagesToSave;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelInstanceEditorObject*")
+abstract LevelInstanceEditorObjectPtr(cpp.Star<LevelInstanceEditorObject>) from cpp.Star<LevelInstanceEditorObject> to cpp.Star<LevelInstanceEditorObject>{
+	@:from
+	public static extern inline function fromValue(v: LevelInstanceEditorObject): LevelInstanceEditorObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelInstanceEditorObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

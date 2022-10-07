@@ -16,3 +16,22 @@ abstract ConstLevelSequenceAnimSequenceLink(LevelSequenceAnimSequenceLink) from 
 	public extern var AnimSequenceLinks(get, never): TArray<LevelSequenceAnimSequenceLinkItem>;
 	public inline extern function get_AnimSequenceLinks(): TArray<LevelSequenceAnimSequenceLinkItem> return this.AnimSequenceLinks;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelSequenceAnimSequenceLink*")
+abstract LevelSequenceAnimSequenceLinkPtr(cpp.Star<LevelSequenceAnimSequenceLink>) from cpp.Star<LevelSequenceAnimSequenceLink> to cpp.Star<LevelSequenceAnimSequenceLink>{
+	@:from
+	public static extern inline function fromValue(v: LevelSequenceAnimSequenceLink): LevelSequenceAnimSequenceLinkPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelSequenceAnimSequenceLink {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

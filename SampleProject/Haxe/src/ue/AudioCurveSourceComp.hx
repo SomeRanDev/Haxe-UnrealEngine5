@@ -19,3 +19,22 @@ abstract ConstAudioCurveSourceComp(AudioCurveSourceComp) from AudioCurveSourceCo
 	public extern var CurveSyncOffset(get, never): cpp.Float32;
 	public inline extern function get_CurveSyncOffset(): cpp.Float32 return this.CurveSyncOffset;
 }
+
+@:forward
+@:nativeGen
+@:native("AudioCurveSourceComp*")
+abstract AudioCurveSourceCompPtr(cpp.Star<AudioCurveSourceComp>) from cpp.Star<AudioCurveSourceComp> to cpp.Star<AudioCurveSourceComp>{
+	@:from
+	public static extern inline function fromValue(v: AudioCurveSourceComp): AudioCurveSourceCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AudioCurveSourceComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

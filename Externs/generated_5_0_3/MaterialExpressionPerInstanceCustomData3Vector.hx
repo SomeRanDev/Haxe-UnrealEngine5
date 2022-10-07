@@ -22,3 +22,22 @@ abstract ConstMaterialExpressionPerInstanceCustomData3Vector(MaterialExpressionP
 	public extern var DataIndex(get, never): cpp.UInt32;
 	public inline extern function get_DataIndex(): cpp.UInt32 return this.DataIndex;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionPerInstanceCustomData3Vector*")
+abstract MaterialExpressionPerInstanceCustomData3VectorPtr(cpp.Star<MaterialExpressionPerInstanceCustomData3Vector>) from cpp.Star<MaterialExpressionPerInstanceCustomData3Vector> to cpp.Star<MaterialExpressionPerInstanceCustomData3Vector>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionPerInstanceCustomData3Vector): MaterialExpressionPerInstanceCustomData3VectorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionPerInstanceCustomData3Vector {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

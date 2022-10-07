@@ -12,3 +12,22 @@ extern class OnDeleteActorsBegin__PythonCallable extends PythonCallableForDelega
 @:nativeGen
 abstract ConstOnDeleteActorsBegin__PythonCallable(OnDeleteActorsBegin__PythonCallable) from OnDeleteActorsBegin__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnDeleteActorsBegin__PythonCallable*")
+abstract OnDeleteActorsBegin__PythonCallablePtr(cpp.Star<OnDeleteActorsBegin__PythonCallable>) from cpp.Star<OnDeleteActorsBegin__PythonCallable> to cpp.Star<OnDeleteActorsBegin__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnDeleteActorsBegin__PythonCallable): OnDeleteActorsBegin__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnDeleteActorsBegin__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

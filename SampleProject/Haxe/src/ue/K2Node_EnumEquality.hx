@@ -13,3 +13,22 @@ extern class K2Node_EnumEquality extends K2Node {
 @:nativeGen
 abstract ConstK2Node_EnumEquality(K2Node_EnumEquality) from K2Node_EnumEquality {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_EnumEquality*")
+abstract K2Node_EnumEqualityPtr(cpp.Star<K2Node_EnumEquality>) from cpp.Star<K2Node_EnumEquality> to cpp.Star<K2Node_EnumEquality>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_EnumEquality): K2Node_EnumEqualityPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_EnumEquality {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

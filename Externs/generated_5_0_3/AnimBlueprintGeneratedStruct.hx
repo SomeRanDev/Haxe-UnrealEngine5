@@ -13,3 +13,22 @@ extern class AnimBlueprintGeneratedStruct extends ScriptStruct {
 @:nativeGen
 abstract ConstAnimBlueprintGeneratedStruct(AnimBlueprintGeneratedStruct) from AnimBlueprintGeneratedStruct {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimBlueprintGeneratedStruct*")
+abstract AnimBlueprintGeneratedStructPtr(cpp.Star<AnimBlueprintGeneratedStruct>) from cpp.Star<AnimBlueprintGeneratedStruct> to cpp.Star<AnimBlueprintGeneratedStruct>{
+	@:from
+	public static extern inline function fromValue(v: AnimBlueprintGeneratedStruct): AnimBlueprintGeneratedStructPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimBlueprintGeneratedStruct {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class MovieSceneImageCaptureProtocolBase extends MovieSceneCaptureProtoco
 @:nativeGen
 abstract ConstMovieSceneImageCaptureProtocolBase(MovieSceneImageCaptureProtocolBase) from MovieSceneImageCaptureProtocolBase {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneImageCaptureProtocolBase*")
+abstract MovieSceneImageCaptureProtocolBasePtr(cpp.Star<MovieSceneImageCaptureProtocolBase>) from cpp.Star<MovieSceneImageCaptureProtocolBase> to cpp.Star<MovieSceneImageCaptureProtocolBase>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneImageCaptureProtocolBase): MovieSceneImageCaptureProtocolBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneImageCaptureProtocolBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

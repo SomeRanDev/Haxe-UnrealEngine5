@@ -28,3 +28,22 @@ abstract ConstMaterialGraph(MaterialGraph) from MaterialGraph {
 	public extern var OriginalMaterialFullName(get, never): FString;
 	public inline extern function get_OriginalMaterialFullName(): FString return this.OriginalMaterialFullName;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialGraph*")
+abstract MaterialGraphPtr(cpp.Star<MaterialGraph>) from cpp.Star<MaterialGraph> to cpp.Star<MaterialGraph>{
+	@:from
+	public static extern inline function fromValue(v: MaterialGraph): MaterialGraphPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialGraph {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

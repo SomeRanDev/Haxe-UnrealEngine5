@@ -19,3 +19,22 @@ abstract ConstAnimationStateMachineGraph(AnimationStateMachineGraph) from Animat
 	public extern var OwnerAnimGraphNode(get, never): cpp.Star<AnimGraphNode_StateMachineBase.ConstAnimGraphNode_StateMachineBase>;
 	public inline extern function get_OwnerAnimGraphNode(): cpp.Star<AnimGraphNode_StateMachineBase.ConstAnimGraphNode_StateMachineBase> return this.OwnerAnimGraphNode;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationStateMachineGraph*")
+abstract AnimationStateMachineGraphPtr(cpp.Star<AnimationStateMachineGraph>) from cpp.Star<AnimationStateMachineGraph> to cpp.Star<AnimationStateMachineGraph>{
+	@:from
+	public static extern inline function fromValue(v: AnimationStateMachineGraph): AnimationStateMachineGraphPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationStateMachineGraph {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

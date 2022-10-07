@@ -13,3 +13,22 @@ extern class EnvQueryItemType_Direction extends EnvQueryItemType_VectorBase {
 @:nativeGen
 abstract ConstEnvQueryItemType_Direction(EnvQueryItemType_Direction) from EnvQueryItemType_Direction {
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryItemType_Direction*")
+abstract EnvQueryItemType_DirectionPtr(cpp.Star<EnvQueryItemType_Direction>) from cpp.Star<EnvQueryItemType_Direction> to cpp.Star<EnvQueryItemType_Direction>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryItemType_Direction): EnvQueryItemType_DirectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryItemType_Direction {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

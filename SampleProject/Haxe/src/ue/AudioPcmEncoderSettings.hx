@@ -16,3 +16,22 @@ abstract ConstAudioPcmEncoderSettings(AudioPcmEncoderSettings) from AudioPcmEnco
 	public extern var BitDepthConversion(get, never): EPcmBitDepthConversion;
 	public inline extern function get_BitDepthConversion(): EPcmBitDepthConversion return this.BitDepthConversion;
 }
+
+@:forward
+@:nativeGen
+@:native("AudioPcmEncoderSettings*")
+abstract AudioPcmEncoderSettingsPtr(cpp.Star<AudioPcmEncoderSettings>) from cpp.Star<AudioPcmEncoderSettings> to cpp.Star<AudioPcmEncoderSettings>{
+	@:from
+	public static extern inline function fromValue(v: AudioPcmEncoderSettings): AudioPcmEncoderSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AudioPcmEncoderSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

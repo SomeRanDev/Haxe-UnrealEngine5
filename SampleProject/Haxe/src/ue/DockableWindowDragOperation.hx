@@ -13,3 +13,22 @@ extern class DockableWindowDragOperation extends ViewportDragOperation {
 @:nativeGen
 abstract ConstDockableWindowDragOperation(DockableWindowDragOperation) from DockableWindowDragOperation {
 }
+
+@:forward
+@:nativeGen
+@:native("DockableWindowDragOperation*")
+abstract DockableWindowDragOperationPtr(cpp.Star<DockableWindowDragOperation>) from cpp.Star<DockableWindowDragOperation> to cpp.Star<DockableWindowDragOperation>{
+	@:from
+	public static extern inline function fromValue(v: DockableWindowDragOperation): DockableWindowDragOperationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DockableWindowDragOperation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

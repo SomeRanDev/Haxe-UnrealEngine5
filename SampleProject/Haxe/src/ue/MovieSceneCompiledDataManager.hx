@@ -25,3 +25,22 @@ abstract ConstMovieSceneCompiledDataManager(MovieSceneCompiledDataManager) from 
 	public extern var EntityComponentFields(get, never): TMap<cpp.Int32, MovieSceneEntityComponentField>;
 	public inline extern function get_EntityComponentFields(): TMap<cpp.Int32, MovieSceneEntityComponentField> return this.EntityComponentFields;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneCompiledDataManager*")
+abstract MovieSceneCompiledDataManagerPtr(cpp.Star<MovieSceneCompiledDataManager>) from cpp.Star<MovieSceneCompiledDataManager> to cpp.Star<MovieSceneCompiledDataManager>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneCompiledDataManager): MovieSceneCompiledDataManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneCompiledDataManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

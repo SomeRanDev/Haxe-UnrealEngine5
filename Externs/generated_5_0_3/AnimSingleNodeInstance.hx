@@ -35,3 +35,22 @@ abstract ConstAnimSingleNodeInstance(AnimSingleNodeInstance) from AnimSingleNode
 	public extern var PostEvaluateAnimEvent(get, never): HaxeDelegateProperty<() -> Void>;
 	public inline extern function get_PostEvaluateAnimEvent(): HaxeDelegateProperty<() -> Void> return this.PostEvaluateAnimEvent;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimSingleNodeInstance*")
+abstract AnimSingleNodeInstancePtr(cpp.Star<AnimSingleNodeInstance>) from cpp.Star<AnimSingleNodeInstance> to cpp.Star<AnimSingleNodeInstance>{
+	@:from
+	public static extern inline function fromValue(v: AnimSingleNodeInstance): AnimSingleNodeInstancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimSingleNodeInstance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

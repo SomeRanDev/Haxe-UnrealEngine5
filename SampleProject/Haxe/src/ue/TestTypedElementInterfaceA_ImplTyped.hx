@@ -13,3 +13,22 @@ extern class TestTypedElementInterfaceA_ImplTyped extends Object {
 @:nativeGen
 abstract ConstTestTypedElementInterfaceA_ImplTyped(TestTypedElementInterfaceA_ImplTyped) from TestTypedElementInterfaceA_ImplTyped {
 }
+
+@:forward
+@:nativeGen
+@:native("TestTypedElementInterfaceA_ImplTyped*")
+abstract TestTypedElementInterfaceA_ImplTypedPtr(cpp.Star<TestTypedElementInterfaceA_ImplTyped>) from cpp.Star<TestTypedElementInterfaceA_ImplTyped> to cpp.Star<TestTypedElementInterfaceA_ImplTyped>{
+	@:from
+	public static extern inline function fromValue(v: TestTypedElementInterfaceA_ImplTyped): TestTypedElementInterfaceA_ImplTypedPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TestTypedElementInterfaceA_ImplTyped {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

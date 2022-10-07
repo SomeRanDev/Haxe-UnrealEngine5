@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_Fabrik(AnimGraphNode_Fabrik) from AnimGraphNode_Fabr
 	public extern var Node(get, never): AnimNode_Fabrik;
 	public inline extern function get_Node(): AnimNode_Fabrik return this.Node;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_Fabrik*")
+abstract AnimGraphNode_FabrikPtr(cpp.Star<AnimGraphNode_Fabrik>) from cpp.Star<AnimGraphNode_Fabrik> to cpp.Star<AnimGraphNode_Fabrik>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_Fabrik): AnimGraphNode_FabrikPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_Fabrik {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

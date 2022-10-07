@@ -13,3 +13,22 @@ extern class ControlRigValidationPass extends Object {
 @:nativeGen
 abstract ConstControlRigValidationPass(ControlRigValidationPass) from ControlRigValidationPass {
 }
+
+@:forward
+@:nativeGen
+@:native("ControlRigValidationPass*")
+abstract ControlRigValidationPassPtr(cpp.Star<ControlRigValidationPass>) from cpp.Star<ControlRigValidationPass> to cpp.Star<ControlRigValidationPass>{
+	@:from
+	public static extern inline function fromValue(v: ControlRigValidationPass): ControlRigValidationPassPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ControlRigValidationPass {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

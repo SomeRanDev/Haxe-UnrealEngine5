@@ -42,3 +42,22 @@ abstract ConstVRNotificationsComp(VRNotificationsComp) from VRNotificationsComp 
 	public extern var VRControllerRecenteredDelegate(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_VRControllerRecenteredDelegate(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.VRControllerRecenteredDelegate;
 }
+
+@:forward
+@:nativeGen
+@:native("VRNotificationsComp*")
+abstract VRNotificationsCompPtr(cpp.Star<VRNotificationsComp>) from cpp.Star<VRNotificationsComp> to cpp.Star<VRNotificationsComp>{
+	@:from
+	public static extern inline function fromValue(v: VRNotificationsComp): VRNotificationsCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VRNotificationsComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

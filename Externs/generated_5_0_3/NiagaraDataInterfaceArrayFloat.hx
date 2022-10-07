@@ -16,3 +16,22 @@ abstract ConstNiagaraDataInterfaceArrayFloat(NiagaraDataInterfaceArrayFloat) fro
 	public extern var FloatData(get, never): TArray<cpp.Float32>;
 	public inline extern function get_FloatData(): TArray<cpp.Float32> return this.FloatData;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceArrayFloat*")
+abstract NiagaraDataInterfaceArrayFloatPtr(cpp.Star<NiagaraDataInterfaceArrayFloat>) from cpp.Star<NiagaraDataInterfaceArrayFloat> to cpp.Star<NiagaraDataInterfaceArrayFloat>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceArrayFloat): NiagaraDataInterfaceArrayFloatPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceArrayFloat {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

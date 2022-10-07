@@ -22,3 +22,22 @@ abstract ConstDatasmithAssetImportData(DatasmithAssetImportData) from DatasmithA
 	public extern var DatasmithImportInfo(get, never): DatasmithImportInfo;
 	public inline extern function get_DatasmithImportInfo(): DatasmithImportInfo return this.DatasmithImportInfo;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithAssetImportData*")
+abstract DatasmithAssetImportDataPtr(cpp.Star<DatasmithAssetImportData>) from cpp.Star<DatasmithAssetImportData> to cpp.Star<DatasmithAssetImportData>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithAssetImportData): DatasmithAssetImportDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithAssetImportData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

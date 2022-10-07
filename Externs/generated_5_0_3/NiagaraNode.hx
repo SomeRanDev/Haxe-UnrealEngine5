@@ -16,3 +16,22 @@ abstract ConstNiagaraNode(NiagaraNode) from NiagaraNode {
 	public extern var ChangeId(get, never): Guid;
 	public inline extern function get_ChangeId(): Guid return this.ChangeId;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraNode*")
+abstract NiagaraNodePtr(cpp.Star<NiagaraNode>) from cpp.Star<NiagaraNode> to cpp.Star<NiagaraNode>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraNode): NiagaraNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

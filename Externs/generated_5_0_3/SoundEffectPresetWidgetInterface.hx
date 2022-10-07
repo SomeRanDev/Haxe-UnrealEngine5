@@ -15,3 +15,22 @@ extern class SoundEffectPresetWidgetInterface extends AudioPanelWidgetInterface 
 @:nativeGen
 abstract ConstSoundEffectPresetWidgetInterface(SoundEffectPresetWidgetInterface) from SoundEffectPresetWidgetInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("SoundEffectPresetWidgetInterface*")
+abstract SoundEffectPresetWidgetInterfacePtr(cpp.Star<SoundEffectPresetWidgetInterface>) from cpp.Star<SoundEffectPresetWidgetInterface> to cpp.Star<SoundEffectPresetWidgetInterface>{
+	@:from
+	public static extern inline function fromValue(v: SoundEffectPresetWidgetInterface): SoundEffectPresetWidgetInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundEffectPresetWidgetInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

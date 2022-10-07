@@ -46,3 +46,22 @@ abstract ConstVREditorUISystem(VREditorUISystem) from VREditorUISystem {
 	public extern var RadialMenuHandler(get, never): cpp.Star<VRRadialMenuHandler.ConstVRRadialMenuHandler>;
 	public inline extern function get_RadialMenuHandler(): cpp.Star<VRRadialMenuHandler.ConstVRRadialMenuHandler> return this.RadialMenuHandler;
 }
+
+@:forward
+@:nativeGen
+@:native("VREditorUISystem*")
+abstract VREditorUISystemPtr(cpp.Star<VREditorUISystem>) from cpp.Star<VREditorUISystem> to cpp.Star<VREditorUISystem>{
+	@:from
+	public static extern inline function fromValue(v: VREditorUISystem): VREditorUISystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VREditorUISystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

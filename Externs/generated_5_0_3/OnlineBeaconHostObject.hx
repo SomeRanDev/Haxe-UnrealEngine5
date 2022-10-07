@@ -22,3 +22,22 @@ abstract ConstOnlineBeaconHostObject(OnlineBeaconHostObject) from OnlineBeaconHo
 	public extern var ClientActors(get, never): TArray<cpp.Star<OnlineBeaconClient.ConstOnlineBeaconClient>>;
 	public inline extern function get_ClientActors(): TArray<cpp.Star<OnlineBeaconClient.ConstOnlineBeaconClient>> return this.ClientActors;
 }
+
+@:forward
+@:nativeGen
+@:native("OnlineBeaconHostObject*")
+abstract OnlineBeaconHostObjectPtr(cpp.Star<OnlineBeaconHostObject>) from cpp.Star<OnlineBeaconHostObject> to cpp.Star<OnlineBeaconHostObject>{
+	@:from
+	public static extern inline function fromValue(v: OnlineBeaconHostObject): OnlineBeaconHostObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnlineBeaconHostObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

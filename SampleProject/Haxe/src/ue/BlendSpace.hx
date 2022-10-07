@@ -67,3 +67,22 @@ abstract ConstBlendSpace(BlendSpace) from BlendSpace {
 	public extern var DimensionIndices(get, never): TArray<cpp.Int32>;
 	public inline extern function get_DimensionIndices(): TArray<cpp.Int32> return this.DimensionIndices;
 }
+
+@:forward
+@:nativeGen
+@:native("BlendSpace*")
+abstract BlendSpacePtr(cpp.Star<BlendSpace>) from cpp.Star<BlendSpace> to cpp.Star<BlendSpace>{
+	@:from
+	public static extern inline function fromValue(v: BlendSpace): BlendSpacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlendSpace {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

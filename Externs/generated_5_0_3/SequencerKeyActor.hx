@@ -25,3 +25,22 @@ abstract ConstSequencerKeyActor(SequencerKeyActor) from SequencerKeyActor {
 	public extern var KeyTime(get, never): cpp.Float32;
 	public inline extern function get_KeyTime(): cpp.Float32 return this.KeyTime;
 }
+
+@:forward
+@:nativeGen
+@:native("SequencerKeyActor*")
+abstract SequencerKeyActorPtr(cpp.Star<SequencerKeyActor>) from cpp.Star<SequencerKeyActor> to cpp.Star<SequencerKeyActor>{
+	@:from
+	public static extern inline function fromValue(v: SequencerKeyActor): SequencerKeyActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SequencerKeyActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

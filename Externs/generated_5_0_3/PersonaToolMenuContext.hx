@@ -18,3 +18,22 @@ extern class PersonaToolMenuContext extends Object {
 @:nativeGen
 abstract ConstPersonaToolMenuContext(PersonaToolMenuContext) from PersonaToolMenuContext {
 }
+
+@:forward
+@:nativeGen
+@:native("PersonaToolMenuContext*")
+abstract PersonaToolMenuContextPtr(cpp.Star<PersonaToolMenuContext>) from cpp.Star<PersonaToolMenuContext> to cpp.Star<PersonaToolMenuContext>{
+	@:from
+	public static extern inline function fromValue(v: PersonaToolMenuContext): PersonaToolMenuContextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PersonaToolMenuContext {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

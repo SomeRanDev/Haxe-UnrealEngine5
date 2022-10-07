@@ -17,3 +17,22 @@ extern class CameraLensEffectInterfaceClassSupportLibrary extends BlueprintFunct
 @:nativeGen
 abstract ConstCameraLensEffectInterfaceClassSupportLibrary(CameraLensEffectInterfaceClassSupportLibrary) from CameraLensEffectInterfaceClassSupportLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("CameraLensEffectInterfaceClassSupportLibrary*")
+abstract CameraLensEffectInterfaceClassSupportLibraryPtr(cpp.Star<CameraLensEffectInterfaceClassSupportLibrary>) from cpp.Star<CameraLensEffectInterfaceClassSupportLibrary> to cpp.Star<CameraLensEffectInterfaceClassSupportLibrary>{
+	@:from
+	public static extern inline function fromValue(v: CameraLensEffectInterfaceClassSupportLibrary): CameraLensEffectInterfaceClassSupportLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CameraLensEffectInterfaceClassSupportLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

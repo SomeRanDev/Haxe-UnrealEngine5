@@ -13,3 +13,22 @@ extern class ImageSequenceProtocol_PNG extends CompressedImageSequenceProtocol {
 @:nativeGen
 abstract ConstImageSequenceProtocol_PNG(ImageSequenceProtocol_PNG) from ImageSequenceProtocol_PNG {
 }
+
+@:forward
+@:nativeGen
+@:native("ImageSequenceProtocol_PNG*")
+abstract ImageSequenceProtocol_PNGPtr(cpp.Star<ImageSequenceProtocol_PNG>) from cpp.Star<ImageSequenceProtocol_PNG> to cpp.Star<ImageSequenceProtocol_PNG>{
+	@:from
+	public static extern inline function fromValue(v: ImageSequenceProtocol_PNG): ImageSequenceProtocol_PNGPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ImageSequenceProtocol_PNG {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

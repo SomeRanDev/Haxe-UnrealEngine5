@@ -13,3 +13,22 @@ extern class TestMovieSceneSection extends MovieSceneSection {
 @:nativeGen
 abstract ConstTestMovieSceneSection(TestMovieSceneSection) from TestMovieSceneSection {
 }
+
+@:forward
+@:nativeGen
+@:native("TestMovieSceneSection*")
+abstract TestMovieSceneSectionPtr(cpp.Star<TestMovieSceneSection>) from cpp.Star<TestMovieSceneSection> to cpp.Star<TestMovieSceneSection>{
+	@:from
+	public static extern inline function fromValue(v: TestMovieSceneSection): TestMovieSceneSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TestMovieSceneSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

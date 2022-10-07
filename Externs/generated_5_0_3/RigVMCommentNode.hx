@@ -30,3 +30,22 @@ abstract ConstRigVMCommentNode(RigVMCommentNode) from RigVMCommentNode {
 	public extern var bColorBubble(get, never): Bool;
 	public inline extern function get_bColorBubble(): Bool return this.bColorBubble;
 }
+
+@:forward
+@:nativeGen
+@:native("RigVMCommentNode*")
+abstract RigVMCommentNodePtr(cpp.Star<RigVMCommentNode>) from cpp.Star<RigVMCommentNode> to cpp.Star<RigVMCommentNode>{
+	@:from
+	public static extern inline function fromValue(v: RigVMCommentNode): RigVMCommentNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVMCommentNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

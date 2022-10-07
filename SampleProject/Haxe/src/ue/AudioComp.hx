@@ -196,3 +196,22 @@ abstract ConstAudioComp(AudioComp) from AudioComp {
 	public extern var AutoAttachSocketName(get, never): FName;
 	public inline extern function get_AutoAttachSocketName(): FName return this.AutoAttachSocketName;
 }
+
+@:forward
+@:nativeGen
+@:native("AudioComp*")
+abstract AudioCompPtr(cpp.Star<AudioComp>) from cpp.Star<AudioComp> to cpp.Star<AudioComp>{
+	@:from
+	public static extern inline function fromValue(v: AudioComp): AudioCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AudioComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class UnrealEdTypes extends Object {
 @:nativeGen
 abstract ConstUnrealEdTypes(UnrealEdTypes) from UnrealEdTypes {
 }
+
+@:forward
+@:nativeGen
+@:native("UnrealEdTypes*")
+abstract UnrealEdTypesPtr(cpp.Star<UnrealEdTypes>) from cpp.Star<UnrealEdTypes> to cpp.Star<UnrealEdTypes>{
+	@:from
+	public static extern inline function fromValue(v: UnrealEdTypes): UnrealEdTypesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UnrealEdTypes {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

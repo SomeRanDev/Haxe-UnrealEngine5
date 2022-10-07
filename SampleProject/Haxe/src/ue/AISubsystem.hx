@@ -16,3 +16,22 @@ abstract ConstAISubsystem(AISubsystem) from AISubsystem {
 	public extern var AISystem(get, never): cpp.Star<AISystem.ConstAISystem>;
 	public inline extern function get_AISystem(): cpp.Star<AISystem.ConstAISystem> return this.AISystem;
 }
+
+@:forward
+@:nativeGen
+@:native("AISubsystem*")
+abstract AISubsystemPtr(cpp.Star<AISubsystem>) from cpp.Star<AISubsystem> to cpp.Star<AISubsystem>{
+	@:from
+	public static extern inline function fromValue(v: AISubsystem): AISubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AISubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

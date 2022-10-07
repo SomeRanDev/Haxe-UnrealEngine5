@@ -19,3 +19,22 @@ abstract ConstParticleModuleMeshRotation(ParticleModuleMeshRotation) from Partic
 	public extern var bInheritParent(get, never): Bool;
 	public inline extern function get_bInheritParent(): Bool return this.bInheritParent;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleMeshRotation*")
+abstract ParticleModuleMeshRotationPtr(cpp.Star<ParticleModuleMeshRotation>) from cpp.Star<ParticleModuleMeshRotation> to cpp.Star<ParticleModuleMeshRotation>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleMeshRotation): ParticleModuleMeshRotationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleMeshRotation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

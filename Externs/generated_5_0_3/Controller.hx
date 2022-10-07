@@ -73,3 +73,22 @@ abstract ConstController(Controller) from Controller {
 	public extern var bAttachToPawn(get, never): Bool;
 	public inline extern function get_bAttachToPawn(): Bool return this.bAttachToPawn;
 }
+
+@:forward
+@:nativeGen
+@:native("Controller*")
+abstract ControllerPtr(cpp.Star<Controller>) from cpp.Star<Controller> to cpp.Star<Controller>{
+	@:from
+	public static extern inline function fromValue(v: Controller): ControllerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Controller {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

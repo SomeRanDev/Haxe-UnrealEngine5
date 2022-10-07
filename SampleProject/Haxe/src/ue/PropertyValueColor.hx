@@ -13,3 +13,22 @@ extern class PropertyValueColor extends PropertyValue {
 @:nativeGen
 abstract ConstPropertyValueColor(PropertyValueColor) from PropertyValueColor {
 }
+
+@:forward
+@:nativeGen
+@:native("PropertyValueColor*")
+abstract PropertyValueColorPtr(cpp.Star<PropertyValueColor>) from cpp.Star<PropertyValueColor> to cpp.Star<PropertyValueColor>{
+	@:from
+	public static extern inline function fromValue(v: PropertyValueColor): PropertyValueColorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PropertyValueColor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

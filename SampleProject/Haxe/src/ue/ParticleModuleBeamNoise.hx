@@ -73,3 +73,22 @@ abstract ConstParticleModuleBeamNoise(ParticleModuleBeamNoise) from ParticleModu
 	public extern var NoiseScale(get, never): RawDistributionFloat;
 	public inline extern function get_NoiseScale(): RawDistributionFloat return this.NoiseScale;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleBeamNoise*")
+abstract ParticleModuleBeamNoisePtr(cpp.Star<ParticleModuleBeamNoise>) from cpp.Star<ParticleModuleBeamNoise> to cpp.Star<ParticleModuleBeamNoise>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleBeamNoise): ParticleModuleBeamNoisePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleBeamNoise {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

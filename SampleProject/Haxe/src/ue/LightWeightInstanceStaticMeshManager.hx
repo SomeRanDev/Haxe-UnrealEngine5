@@ -27,3 +27,22 @@ abstract ConstLightWeightInstanceStaticMeshManager(LightWeightInstanceStaticMesh
 	public extern var DataIndicesToRenderingIndices(get, never): TArray<cpp.Int32>;
 	public inline extern function get_DataIndicesToRenderingIndices(): TArray<cpp.Int32> return this.DataIndicesToRenderingIndices;
 }
+
+@:forward
+@:nativeGen
+@:native("LightWeightInstanceStaticMeshManager*")
+abstract LightWeightInstanceStaticMeshManagerPtr(cpp.Star<LightWeightInstanceStaticMeshManager>) from cpp.Star<LightWeightInstanceStaticMeshManager> to cpp.Star<LightWeightInstanceStaticMeshManager>{
+	@:from
+	public static extern inline function fromValue(v: LightWeightInstanceStaticMeshManager): LightWeightInstanceStaticMeshManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LightWeightInstanceStaticMeshManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -31,3 +31,22 @@ abstract ConstMaterialEditorPreviewParameters(MaterialEditorPreviewParameters) f
 	public extern var StoredBlendPreviews(get, never): TArray<cpp.Star<MaterialInstanceConstant.ConstMaterialInstanceConstant>>;
 	public inline extern function get_StoredBlendPreviews(): TArray<cpp.Star<MaterialInstanceConstant.ConstMaterialInstanceConstant>> return this.StoredBlendPreviews;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialEditorPreviewParameters*")
+abstract MaterialEditorPreviewParametersPtr(cpp.Star<MaterialEditorPreviewParameters>) from cpp.Star<MaterialEditorPreviewParameters> to cpp.Star<MaterialEditorPreviewParameters>{
+	@:from
+	public static extern inline function fromValue(v: MaterialEditorPreviewParameters): MaterialEditorPreviewParametersPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialEditorPreviewParameters {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

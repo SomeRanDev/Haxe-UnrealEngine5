@@ -50,3 +50,22 @@ abstract ConstForceFeedbackComp(ForceFeedbackComp) from ForceFeedbackComp {
 	public extern var OnForceFeedbackFinished(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ForceFeedbackComp.ConstForceFeedbackComp>) -> Void>;
 	public inline extern function get_OnForceFeedbackFinished(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ForceFeedbackComp.ConstForceFeedbackComp>) -> Void> return this.OnForceFeedbackFinished;
 }
+
+@:forward
+@:nativeGen
+@:native("ForceFeedbackComp*")
+abstract ForceFeedbackCompPtr(cpp.Star<ForceFeedbackComp>) from cpp.Star<ForceFeedbackComp> to cpp.Star<ForceFeedbackComp>{
+	@:from
+	public static extern inline function fromValue(v: ForceFeedbackComp): ForceFeedbackCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ForceFeedbackComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

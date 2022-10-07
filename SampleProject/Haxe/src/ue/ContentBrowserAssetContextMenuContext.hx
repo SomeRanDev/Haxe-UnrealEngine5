@@ -24,3 +24,22 @@ abstract ConstContentBrowserAssetContextMenuContext(ContentBrowserAssetContextMe
 	public extern var bCanBeModified(get, never): Bool;
 	public inline extern function get_bCanBeModified(): Bool return this.bCanBeModified;
 }
+
+@:forward
+@:nativeGen
+@:native("ContentBrowserAssetContextMenuContext*")
+abstract ContentBrowserAssetContextMenuContextPtr(cpp.Star<ContentBrowserAssetContextMenuContext>) from cpp.Star<ContentBrowserAssetContextMenuContext> to cpp.Star<ContentBrowserAssetContextMenuContext>{
+	@:from
+	public static extern inline function fromValue(v: ContentBrowserAssetContextMenuContext): ContentBrowserAssetContextMenuContextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ContentBrowserAssetContextMenuContext {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

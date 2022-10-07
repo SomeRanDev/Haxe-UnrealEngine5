@@ -19,3 +19,22 @@ abstract ConstK2Node_MathExpression(K2Node_MathExpression) from K2Node_MathExpre
 	public extern var bMadeAfterRotChange(get, never): Bool;
 	public inline extern function get_bMadeAfterRotChange(): Bool return this.bMadeAfterRotChange;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_MathExpression*")
+abstract K2Node_MathExpressionPtr(cpp.Star<K2Node_MathExpression>) from cpp.Star<K2Node_MathExpression> to cpp.Star<K2Node_MathExpression>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_MathExpression): K2Node_MathExpressionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_MathExpression {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

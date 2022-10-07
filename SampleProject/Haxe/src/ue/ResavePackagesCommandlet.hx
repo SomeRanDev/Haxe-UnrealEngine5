@@ -13,3 +13,22 @@ extern class ResavePackagesCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstResavePackagesCommandlet(ResavePackagesCommandlet) from ResavePackagesCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("ResavePackagesCommandlet*")
+abstract ResavePackagesCommandletPtr(cpp.Star<ResavePackagesCommandlet>) from cpp.Star<ResavePackagesCommandlet> to cpp.Star<ResavePackagesCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: ResavePackagesCommandlet): ResavePackagesCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ResavePackagesCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

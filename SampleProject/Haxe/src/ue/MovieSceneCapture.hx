@@ -45,3 +45,22 @@ abstract ConstMovieSceneCapture(MovieSceneCapture) from MovieSceneCapture {
 	public extern var InheritedCommandLineArguments(get, never): FString;
 	public inline extern function get_InheritedCommandLineArguments(): FString return this.InheritedCommandLineArguments;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneCapture*")
+abstract MovieSceneCapturePtr(cpp.Star<MovieSceneCapture>) from cpp.Star<MovieSceneCapture> to cpp.Star<MovieSceneCapture>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneCapture): MovieSceneCapturePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneCapture {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

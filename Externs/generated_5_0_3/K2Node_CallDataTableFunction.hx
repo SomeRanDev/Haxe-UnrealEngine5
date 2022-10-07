@@ -13,3 +13,22 @@ extern class K2Node_CallDataTableFunction extends K2Node_CallFunction {
 @:nativeGen
 abstract ConstK2Node_CallDataTableFunction(K2Node_CallDataTableFunction) from K2Node_CallDataTableFunction {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_CallDataTableFunction*")
+abstract K2Node_CallDataTableFunctionPtr(cpp.Star<K2Node_CallDataTableFunction>) from cpp.Star<K2Node_CallDataTableFunction> to cpp.Star<K2Node_CallDataTableFunction>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_CallDataTableFunction): K2Node_CallDataTableFunctionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_CallDataTableFunction {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

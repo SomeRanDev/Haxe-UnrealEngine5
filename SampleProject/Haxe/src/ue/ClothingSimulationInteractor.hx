@@ -32,3 +32,22 @@ abstract ConstClothingSimulationInteractor(ClothingSimulationInteractor) from Cl
 	public extern var ClothingInteractors(get, never): TMap<FName, cpp.Star<ClothingInteractor.ConstClothingInteractor>>;
 	public inline extern function get_ClothingInteractors(): TMap<FName, cpp.Star<ClothingInteractor.ConstClothingInteractor>> return this.ClothingInteractors;
 }
+
+@:forward
+@:nativeGen
+@:native("ClothingSimulationInteractor*")
+abstract ClothingSimulationInteractorPtr(cpp.Star<ClothingSimulationInteractor>) from cpp.Star<ClothingSimulationInteractor> to cpp.Star<ClothingSimulationInteractor>{
+	@:from
+	public static extern inline function fromValue(v: ClothingSimulationInteractor): ClothingSimulationInteractorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ClothingSimulationInteractor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

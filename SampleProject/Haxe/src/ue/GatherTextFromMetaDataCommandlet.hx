@@ -13,3 +13,22 @@ extern class GatherTextFromMetaDataCommandlet extends GatherTextCommandletBase {
 @:nativeGen
 abstract ConstGatherTextFromMetaDataCommandlet(GatherTextFromMetaDataCommandlet) from GatherTextFromMetaDataCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("GatherTextFromMetaDataCommandlet*")
+abstract GatherTextFromMetaDataCommandletPtr(cpp.Star<GatherTextFromMetaDataCommandlet>) from cpp.Star<GatherTextFromMetaDataCommandlet> to cpp.Star<GatherTextFromMetaDataCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: GatherTextFromMetaDataCommandlet): GatherTextFromMetaDataCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GatherTextFromMetaDataCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

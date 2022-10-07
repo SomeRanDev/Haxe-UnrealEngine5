@@ -13,3 +13,22 @@ extern class K2Node_IfThenElse extends K2Node {
 @:nativeGen
 abstract ConstK2Node_IfThenElse(K2Node_IfThenElse) from K2Node_IfThenElse {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_IfThenElse*")
+abstract K2Node_IfThenElsePtr(cpp.Star<K2Node_IfThenElse>) from cpp.Star<K2Node_IfThenElse> to cpp.Star<K2Node_IfThenElse>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_IfThenElse): K2Node_IfThenElsePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_IfThenElse {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class ActorPerceptionInfoUpdatedDelegate__PythonCallable extends PythonCa
 @:nativeGen
 abstract ConstActorPerceptionInfoUpdatedDelegate__PythonCallable(ActorPerceptionInfoUpdatedDelegate__PythonCallable) from ActorPerceptionInfoUpdatedDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorPerceptionInfoUpdatedDelegate__PythonCallable*")
+abstract ActorPerceptionInfoUpdatedDelegate__PythonCallablePtr(cpp.Star<ActorPerceptionInfoUpdatedDelegate__PythonCallable>) from cpp.Star<ActorPerceptionInfoUpdatedDelegate__PythonCallable> to cpp.Star<ActorPerceptionInfoUpdatedDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ActorPerceptionInfoUpdatedDelegate__PythonCallable): ActorPerceptionInfoUpdatedDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorPerceptionInfoUpdatedDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

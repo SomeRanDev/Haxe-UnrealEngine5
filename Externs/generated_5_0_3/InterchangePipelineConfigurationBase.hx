@@ -14,3 +14,22 @@ extern class InterchangePipelineConfigurationBase extends Object {
 @:nativeGen
 abstract ConstInterchangePipelineConfigurationBase(InterchangePipelineConfigurationBase) from InterchangePipelineConfigurationBase {
 }
+
+@:forward
+@:nativeGen
+@:native("InterchangePipelineConfigurationBase*")
+abstract InterchangePipelineConfigurationBasePtr(cpp.Star<InterchangePipelineConfigurationBase>) from cpp.Star<InterchangePipelineConfigurationBase> to cpp.Star<InterchangePipelineConfigurationBase>{
+	@:from
+	public static extern inline function fromValue(v: InterchangePipelineConfigurationBase): InterchangePipelineConfigurationBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterchangePipelineConfigurationBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstEscalationManagerConfig(EscalationManagerConfig) from EscalationMa
 	public extern var EscalationSeverity(get, never): TArray<FString>;
 	public inline extern function get_EscalationSeverity(): TArray<FString> return this.EscalationSeverity;
 }
+
+@:forward
+@:nativeGen
+@:native("EscalationManagerConfig*")
+abstract EscalationManagerConfigPtr(cpp.Star<EscalationManagerConfig>) from cpp.Star<EscalationManagerConfig> to cpp.Star<EscalationManagerConfig>{
+	@:from
+	public static extern inline function fromValue(v: EscalationManagerConfig): EscalationManagerConfigPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EscalationManagerConfig {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

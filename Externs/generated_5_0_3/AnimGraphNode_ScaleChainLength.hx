@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_ScaleChainLength(AnimGraphNode_ScaleChainLength) fro
 	public extern var Node(get, never): AnimNode_ScaleChainLength;
 	public inline extern function get_Node(): AnimNode_ScaleChainLength return this.Node;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_ScaleChainLength*")
+abstract AnimGraphNode_ScaleChainLengthPtr(cpp.Star<AnimGraphNode_ScaleChainLength>) from cpp.Star<AnimGraphNode_ScaleChainLength> to cpp.Star<AnimGraphNode_ScaleChainLength>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_ScaleChainLength): AnimGraphNode_ScaleChainLengthPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_ScaleChainLength {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

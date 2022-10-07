@@ -40,3 +40,22 @@ abstract ConstGroomBindingAsset(GroomBindingAsset) from GroomBindingAsset {
 	public extern var GroupInfos(get, never): TArray<GoomBindingGroupInfo>;
 	public inline extern function get_GroupInfos(): TArray<GoomBindingGroupInfo> return this.GroupInfos;
 }
+
+@:forward
+@:nativeGen
+@:native("GroomBindingAsset*")
+abstract GroomBindingAssetPtr(cpp.Star<GroomBindingAsset>) from cpp.Star<GroomBindingAsset> to cpp.Star<GroomBindingAsset>{
+	@:from
+	public static extern inline function fromValue(v: GroomBindingAsset): GroomBindingAssetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GroomBindingAsset {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class PawnRestartedSignature__PythonCallable extends PythonCallableForDel
 @:nativeGen
 abstract ConstPawnRestartedSignature__PythonCallable(PawnRestartedSignature__PythonCallable) from PawnRestartedSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("PawnRestartedSignature__PythonCallable*")
+abstract PawnRestartedSignature__PythonCallablePtr(cpp.Star<PawnRestartedSignature__PythonCallable>) from cpp.Star<PawnRestartedSignature__PythonCallable> to cpp.Star<PawnRestartedSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: PawnRestartedSignature__PythonCallable): PawnRestartedSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PawnRestartedSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

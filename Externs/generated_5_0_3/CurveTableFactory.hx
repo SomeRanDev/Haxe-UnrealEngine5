@@ -13,3 +13,22 @@ extern class CurveTableFactory extends Factory {
 @:nativeGen
 abstract ConstCurveTableFactory(CurveTableFactory) from CurveTableFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("CurveTableFactory*")
+abstract CurveTableFactoryPtr(cpp.Star<CurveTableFactory>) from cpp.Star<CurveTableFactory> to cpp.Star<CurveTableFactory>{
+	@:from
+	public static extern inline function fromValue(v: CurveTableFactory): CurveTableFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CurveTableFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

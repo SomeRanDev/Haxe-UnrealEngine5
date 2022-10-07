@@ -61,3 +61,22 @@ abstract ConstHLODProxyDesc(HLODProxyDesc) from HLODProxyDesc {
 	public extern var SubHLODDescs(get, never): TArray<TSoftObjectPtr<HLODProxyDesc.ConstHLODProxyDesc>>;
 	public inline extern function get_SubHLODDescs(): TArray<TSoftObjectPtr<HLODProxyDesc.ConstHLODProxyDesc>> return this.SubHLODDescs;
 }
+
+@:forward
+@:nativeGen
+@:native("HLODProxyDesc*")
+abstract HLODProxyDescPtr(cpp.Star<HLODProxyDesc>) from cpp.Star<HLODProxyDesc> to cpp.Star<HLODProxyDesc>{
+	@:from
+	public static extern inline function fromValue(v: HLODProxyDesc): HLODProxyDescPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): HLODProxyDesc {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

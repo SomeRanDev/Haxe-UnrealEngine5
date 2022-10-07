@@ -22,3 +22,22 @@ abstract ConstBoxReflectionCaptureComp(BoxReflectionCaptureComp) from BoxReflect
 	public extern var PreviewCaptureBox(get, never): cpp.Star<BoxComp.ConstBoxComp>;
 	public inline extern function get_PreviewCaptureBox(): cpp.Star<BoxComp.ConstBoxComp> return this.PreviewCaptureBox;
 }
+
+@:forward
+@:nativeGen
+@:native("BoxReflectionCaptureComp*")
+abstract BoxReflectionCaptureCompPtr(cpp.Star<BoxReflectionCaptureComp>) from cpp.Star<BoxReflectionCaptureComp> to cpp.Star<BoxReflectionCaptureComp>{
+	@:from
+	public static extern inline function fromValue(v: BoxReflectionCaptureComp): BoxReflectionCaptureCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BoxReflectionCaptureComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -42,3 +42,22 @@ abstract ConstNavMovementComp(NavMovementComp) from NavMovementComp {
 	public extern var PathFollowingComp(get, never): cpp.Star<Object.ConstObject>;
 	public inline extern function get_PathFollowingComp(): cpp.Star<Object.ConstObject> return this.PathFollowingComp;
 }
+
+@:forward
+@:nativeGen
+@:native("NavMovementComp*")
+abstract NavMovementCompPtr(cpp.Star<NavMovementComp>) from cpp.Star<NavMovementComp> to cpp.Star<NavMovementComp>{
+	@:from
+	public static extern inline function fromValue(v: NavMovementComp): NavMovementCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavMovementComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

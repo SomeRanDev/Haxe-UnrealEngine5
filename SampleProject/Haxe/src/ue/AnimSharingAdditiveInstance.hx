@@ -25,3 +25,22 @@ abstract ConstAnimSharingAdditiveInstance(AnimSharingAdditiveInstance) from Anim
 	public extern var bStateBool(get, never): Bool;
 	public inline extern function get_bStateBool(): Bool return this.bStateBool;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimSharingAdditiveInstance*")
+abstract AnimSharingAdditiveInstancePtr(cpp.Star<AnimSharingAdditiveInstance>) from cpp.Star<AnimSharingAdditiveInstance> to cpp.Star<AnimSharingAdditiveInstance>{
+	@:from
+	public static extern inline function fromValue(v: AnimSharingAdditiveInstance): AnimSharingAdditiveInstancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimSharingAdditiveInstance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -15,3 +15,22 @@ extern class InstancedFoliageActor extends ISMPartitionActor {
 @:nativeGen
 abstract ConstInstancedFoliageActor(InstancedFoliageActor) from InstancedFoliageActor {
 }
+
+@:forward
+@:nativeGen
+@:native("InstancedFoliageActor*")
+abstract InstancedFoliageActorPtr(cpp.Star<InstancedFoliageActor>) from cpp.Star<InstancedFoliageActor> to cpp.Star<InstancedFoliageActor>{
+	@:from
+	public static extern inline function fromValue(v: InstancedFoliageActor): InstancedFoliageActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InstancedFoliageActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class CustomWidgetNavigationDelegate__PythonCallable extends PythonCallab
 @:nativeGen
 abstract ConstCustomWidgetNavigationDelegate__PythonCallable(CustomWidgetNavigationDelegate__PythonCallable) from CustomWidgetNavigationDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("CustomWidgetNavigationDelegate__PythonCallable*")
+abstract CustomWidgetNavigationDelegate__PythonCallablePtr(cpp.Star<CustomWidgetNavigationDelegate__PythonCallable>) from cpp.Star<CustomWidgetNavigationDelegate__PythonCallable> to cpp.Star<CustomWidgetNavigationDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: CustomWidgetNavigationDelegate__PythonCallable): CustomWidgetNavigationDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CustomWidgetNavigationDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

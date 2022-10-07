@@ -13,3 +13,22 @@ extern class DynamicBlueprintBinding extends Object {
 @:nativeGen
 abstract ConstDynamicBlueprintBinding(DynamicBlueprintBinding) from DynamicBlueprintBinding {
 }
+
+@:forward
+@:nativeGen
+@:native("DynamicBlueprintBinding*")
+abstract DynamicBlueprintBindingPtr(cpp.Star<DynamicBlueprintBinding>) from cpp.Star<DynamicBlueprintBinding> to cpp.Star<DynamicBlueprintBinding>{
+	@:from
+	public static extern inline function fromValue(v: DynamicBlueprintBinding): DynamicBlueprintBindingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DynamicBlueprintBinding {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

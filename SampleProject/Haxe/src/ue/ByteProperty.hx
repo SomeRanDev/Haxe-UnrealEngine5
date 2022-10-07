@@ -12,3 +12,22 @@ extern class ByteProperty extends NumericProperty {
 @:nativeGen
 abstract ConstByteProperty(ByteProperty) from ByteProperty {
 }
+
+@:forward
+@:nativeGen
+@:native("ByteProperty*")
+abstract BytePropertyPtr(cpp.Star<ByteProperty>) from cpp.Star<ByteProperty> to cpp.Star<ByteProperty>{
+	@:from
+	public static extern inline function fromValue(v: ByteProperty): BytePropertyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ByteProperty {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

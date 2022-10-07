@@ -13,3 +13,22 @@ extern class K2Node_MakeSet extends K2Node_MakeContainer {
 @:nativeGen
 abstract ConstK2Node_MakeSet(K2Node_MakeSet) from K2Node_MakeSet {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_MakeSet*")
+abstract K2Node_MakeSetPtr(cpp.Star<K2Node_MakeSet>) from cpp.Star<K2Node_MakeSet> to cpp.Star<K2Node_MakeSet>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_MakeSet): K2Node_MakeSetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_MakeSet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

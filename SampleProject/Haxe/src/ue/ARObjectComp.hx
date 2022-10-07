@@ -20,3 +20,22 @@ abstract ConstARObjectComp(ARObjectComp) from ARObjectComp {
 	public extern var ReplicatedPayload(get, never): ARObjectUpdatePayload;
 	public inline extern function get_ReplicatedPayload(): ARObjectUpdatePayload return this.ReplicatedPayload;
 }
+
+@:forward
+@:nativeGen
+@:native("ARObjectComp*")
+abstract ARObjectCompPtr(cpp.Star<ARObjectComp>) from cpp.Star<ARObjectComp> to cpp.Star<ARObjectComp>{
+	@:from
+	public static extern inline function fromValue(v: ARObjectComp): ARObjectCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARObjectComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

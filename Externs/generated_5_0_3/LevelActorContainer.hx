@@ -16,3 +16,22 @@ abstract ConstLevelActorContainer(LevelActorContainer) from LevelActorContainer 
 	public extern var Actors(get, never): TArray<cpp.Star<Actor.ConstActor>>;
 	public inline extern function get_Actors(): TArray<cpp.Star<Actor.ConstActor>> return this.Actors;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelActorContainer*")
+abstract LevelActorContainerPtr(cpp.Star<LevelActorContainer>) from cpp.Star<LevelActorContainer> to cpp.Star<LevelActorContainer>{
+	@:from
+	public static extern inline function fromValue(v: LevelActorContainer): LevelActorContainerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelActorContainer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

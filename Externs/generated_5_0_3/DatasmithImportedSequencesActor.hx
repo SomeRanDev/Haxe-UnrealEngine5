@@ -18,3 +18,22 @@ abstract ConstDatasmithImportedSequencesActor(DatasmithImportedSequencesActor) f
 	public extern var ImportedSequences(get, never): TArray<cpp.Star<LevelSequence.ConstLevelSequence>>;
 	public inline extern function get_ImportedSequences(): TArray<cpp.Star<LevelSequence.ConstLevelSequence>> return this.ImportedSequences;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithImportedSequencesActor*")
+abstract DatasmithImportedSequencesActorPtr(cpp.Star<DatasmithImportedSequencesActor>) from cpp.Star<DatasmithImportedSequencesActor> to cpp.Star<DatasmithImportedSequencesActor>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithImportedSequencesActor): DatasmithImportedSequencesActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithImportedSequencesActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

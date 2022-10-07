@@ -37,3 +37,22 @@ abstract ConstAnimSeqExportOption(AnimSeqExportOption) from AnimSeqExportOption 
 	public extern var DelayBeforeStart(get, never): FrameNumber;
 	public inline extern function get_DelayBeforeStart(): FrameNumber return this.DelayBeforeStart;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimSeqExportOption*")
+abstract AnimSeqExportOptionPtr(cpp.Star<AnimSeqExportOption>) from cpp.Star<AnimSeqExportOption> to cpp.Star<AnimSeqExportOption>{
+	@:from
+	public static extern inline function fromValue(v: AnimSeqExportOption): AnimSeqExportOptionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimSeqExportOption {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

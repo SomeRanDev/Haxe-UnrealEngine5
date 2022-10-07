@@ -19,3 +19,22 @@ abstract ConstLevelSequencePlayer(LevelSequencePlayer) from LevelSequencePlayer 
 	public extern var OnCameraCut(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<CameraComp.ConstCameraComp>) -> Void>;
 	public inline extern function get_OnCameraCut(): HaxeMulticastSparseDelegateProperty<(cpp.Star<CameraComp.ConstCameraComp>) -> Void> return this.OnCameraCut;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelSequencePlayer*")
+abstract LevelSequencePlayerPtr(cpp.Star<LevelSequencePlayer>) from cpp.Star<LevelSequencePlayer> to cpp.Star<LevelSequencePlayer>{
+	@:from
+	public static extern inline function fromValue(v: LevelSequencePlayer): LevelSequencePlayerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelSequencePlayer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

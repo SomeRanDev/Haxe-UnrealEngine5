@@ -28,3 +28,22 @@ abstract ConstEnvQueryTest_GameplayTags(EnvQueryTest_GameplayTags) from EnvQuery
 	public extern var GameplayTags(get, never): GameplayTagContainer;
 	public inline extern function get_GameplayTags(): GameplayTagContainer return this.GameplayTags;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryTest_GameplayTags*")
+abstract EnvQueryTest_GameplayTagsPtr(cpp.Star<EnvQueryTest_GameplayTags>) from cpp.Star<EnvQueryTest_GameplayTags> to cpp.Star<EnvQueryTest_GameplayTags>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryTest_GameplayTags): EnvQueryTest_GameplayTagsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryTest_GameplayTags {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

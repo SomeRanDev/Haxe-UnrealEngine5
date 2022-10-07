@@ -13,3 +13,22 @@ extern class WorldPartitionNavigationDataBuilder extends WorldPartitionBuilder {
 @:nativeGen
 abstract ConstWorldPartitionNavigationDataBuilder(WorldPartitionNavigationDataBuilder) from WorldPartitionNavigationDataBuilder {
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionNavigationDataBuilder*")
+abstract WorldPartitionNavigationDataBuilderPtr(cpp.Star<WorldPartitionNavigationDataBuilder>) from cpp.Star<WorldPartitionNavigationDataBuilder> to cpp.Star<WorldPartitionNavigationDataBuilder>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionNavigationDataBuilder): WorldPartitionNavigationDataBuilderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionNavigationDataBuilder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -46,3 +46,22 @@ abstract ConstDatasmithVREDSceneImportData(DatasmithVREDSceneImportData) from Da
 	public extern var ClipInfoPath(get, never): FString;
 	public inline extern function get_ClipInfoPath(): FString return this.ClipInfoPath;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithVREDSceneImportData*")
+abstract DatasmithVREDSceneImportDataPtr(cpp.Star<DatasmithVREDSceneImportData>) from cpp.Star<DatasmithVREDSceneImportData> to cpp.Star<DatasmithVREDSceneImportData>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithVREDSceneImportData): DatasmithVREDSceneImportDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithVREDSceneImportData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

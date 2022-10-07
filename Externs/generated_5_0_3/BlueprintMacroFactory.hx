@@ -13,3 +13,22 @@ extern class BlueprintMacroFactory extends BlueprintFactory {
 @:nativeGen
 abstract ConstBlueprintMacroFactory(BlueprintMacroFactory) from BlueprintMacroFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("BlueprintMacroFactory*")
+abstract BlueprintMacroFactoryPtr(cpp.Star<BlueprintMacroFactory>) from cpp.Star<BlueprintMacroFactory> to cpp.Star<BlueprintMacroFactory>{
+	@:from
+	public static extern inline function fromValue(v: BlueprintMacroFactory): BlueprintMacroFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlueprintMacroFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

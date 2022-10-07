@@ -12,3 +12,22 @@ extern class FlipbookFinishedPlaySignature__PythonCallable extends PythonCallabl
 @:nativeGen
 abstract ConstFlipbookFinishedPlaySignature__PythonCallable(FlipbookFinishedPlaySignature__PythonCallable) from FlipbookFinishedPlaySignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("FlipbookFinishedPlaySignature__PythonCallable*")
+abstract FlipbookFinishedPlaySignature__PythonCallablePtr(cpp.Star<FlipbookFinishedPlaySignature__PythonCallable>) from cpp.Star<FlipbookFinishedPlaySignature__PythonCallable> to cpp.Star<FlipbookFinishedPlaySignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: FlipbookFinishedPlaySignature__PythonCallable): FlipbookFinishedPlaySignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FlipbookFinishedPlaySignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

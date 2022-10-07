@@ -123,3 +123,22 @@ abstract ConstNiagaraScript(NiagaraScript) from NiagaraScript {
 	public extern var CachedDefaultDataInterfaces(get, never): TArray<NiagaraScriptDataInterfaceInfo>;
 	public inline extern function get_CachedDefaultDataInterfaces(): TArray<NiagaraScriptDataInterfaceInfo> return this.CachedDefaultDataInterfaces;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraScript*")
+abstract NiagaraScriptPtr(cpp.Star<NiagaraScript>) from cpp.Star<NiagaraScript> to cpp.Star<NiagaraScript>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraScript): NiagaraScriptPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraScript {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

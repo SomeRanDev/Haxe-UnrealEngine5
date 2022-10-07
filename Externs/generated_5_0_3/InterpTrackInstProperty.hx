@@ -19,3 +19,22 @@ abstract ConstInterpTrackInstProperty(InterpTrackInstProperty) from InterpTrackI
 	public extern var PropertyOuterObjectInst(get, never): cpp.Star<Object.ConstObject>;
 	public inline extern function get_PropertyOuterObjectInst(): cpp.Star<Object.ConstObject> return this.PropertyOuterObjectInst;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackInstProperty*")
+abstract InterpTrackInstPropertyPtr(cpp.Star<InterpTrackInstProperty>) from cpp.Star<InterpTrackInstProperty> to cpp.Star<InterpTrackInstProperty>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackInstProperty): InterpTrackInstPropertyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackInstProperty {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

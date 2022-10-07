@@ -16,3 +16,22 @@ abstract ConstSoundNodeWaveParam(SoundNodeWaveParam) from SoundNodeWaveParam {
 	public extern var WaveParameterName(get, never): FName;
 	public inline extern function get_WaveParameterName(): FName return this.WaveParameterName;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundNodeWaveParam*")
+abstract SoundNodeWaveParamPtr(cpp.Star<SoundNodeWaveParam>) from cpp.Star<SoundNodeWaveParam> to cpp.Star<SoundNodeWaveParam>{
+	@:from
+	public static extern inline function fromValue(v: SoundNodeWaveParam): SoundNodeWaveParamPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundNodeWaveParam {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

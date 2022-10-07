@@ -16,3 +16,22 @@ abstract ConstIpConnection(IpConnection) from IpConnection {
 	public extern var SocketErrorDisconnectDelay(get, never): cpp.Float32;
 	public inline extern function get_SocketErrorDisconnectDelay(): cpp.Float32 return this.SocketErrorDisconnectDelay;
 }
+
+@:forward
+@:nativeGen
+@:native("IpConnection*")
+abstract IpConnectionPtr(cpp.Star<IpConnection>) from cpp.Star<IpConnection> to cpp.Star<IpConnection>{
+	@:from
+	public static extern inline function fromValue(v: IpConnection): IpConnectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IpConnection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

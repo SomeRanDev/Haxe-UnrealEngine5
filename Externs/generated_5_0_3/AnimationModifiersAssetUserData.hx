@@ -16,3 +16,22 @@ abstract ConstAnimationModifiersAssetUserData(AnimationModifiersAssetUserData) f
 	public extern var AnimationModifierInstances(get, never): TArray<cpp.Star<AnimationModifier.ConstAnimationModifier>>;
 	public inline extern function get_AnimationModifierInstances(): TArray<cpp.Star<AnimationModifier.ConstAnimationModifier>> return this.AnimationModifierInstances;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationModifiersAssetUserData*")
+abstract AnimationModifiersAssetUserDataPtr(cpp.Star<AnimationModifiersAssetUserData>) from cpp.Star<AnimationModifiersAssetUserData> to cpp.Star<AnimationModifiersAssetUserData>{
+	@:from
+	public static extern inline function fromValue(v: AnimationModifiersAssetUserData): AnimationModifiersAssetUserDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationModifiersAssetUserData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

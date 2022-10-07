@@ -25,3 +25,22 @@ abstract ConstSoundCueFactoryNew(SoundCueFactoryNew) from SoundCueFactoryNew {
 	public extern var InitialDialogueWaves(get, never): TArray<TWeakObjectPtr<DialogueWave.ConstDialogueWave>>;
 	public inline extern function get_InitialDialogueWaves(): TArray<TWeakObjectPtr<DialogueWave.ConstDialogueWave>> return this.InitialDialogueWaves;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundCueFactoryNew*")
+abstract SoundCueFactoryNewPtr(cpp.Star<SoundCueFactoryNew>) from cpp.Star<SoundCueFactoryNew> to cpp.Star<SoundCueFactoryNew>{
+	@:from
+	public static extern inline function fromValue(v: SoundCueFactoryNew): SoundCueFactoryNewPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundCueFactoryNew {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

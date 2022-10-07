@@ -19,3 +19,22 @@ abstract ConstRuntimeVirtualTextureVolume(RuntimeVirtualTextureVolume) from Runt
 	public extern var Box(get, never): cpp.Star<BoxComp.ConstBoxComp>;
 	public inline extern function get_Box(): cpp.Star<BoxComp.ConstBoxComp> return this.Box;
 }
+
+@:forward
+@:nativeGen
+@:native("RuntimeVirtualTextureVolume*")
+abstract RuntimeVirtualTextureVolumePtr(cpp.Star<RuntimeVirtualTextureVolume>) from cpp.Star<RuntimeVirtualTextureVolume> to cpp.Star<RuntimeVirtualTextureVolume>{
+	@:from
+	public static extern inline function fromValue(v: RuntimeVirtualTextureVolume): RuntimeVirtualTextureVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RuntimeVirtualTextureVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

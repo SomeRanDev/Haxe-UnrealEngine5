@@ -28,3 +28,22 @@ abstract ConstNiagaraNodeInput(NiagaraNodeInput) from NiagaraNodeInput {
 	public extern var DataInterface(get, never): cpp.Star<NiagaraDataInterface.ConstNiagaraDataInterface>;
 	public inline extern function get_DataInterface(): cpp.Star<NiagaraDataInterface.ConstNiagaraDataInterface> return this.DataInterface;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraNodeInput*")
+abstract NiagaraNodeInputPtr(cpp.Star<NiagaraNodeInput>) from cpp.Star<NiagaraNodeInput> to cpp.Star<NiagaraNodeInput>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraNodeInput): NiagaraNodeInputPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraNodeInput {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class OnProjectileBounceDelegate__PythonCallable extends PythonCallableFo
 @:nativeGen
 abstract ConstOnProjectileBounceDelegate__PythonCallable(OnProjectileBounceDelegate__PythonCallable) from OnProjectileBounceDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnProjectileBounceDelegate__PythonCallable*")
+abstract OnProjectileBounceDelegate__PythonCallablePtr(cpp.Star<OnProjectileBounceDelegate__PythonCallable>) from cpp.Star<OnProjectileBounceDelegate__PythonCallable> to cpp.Star<OnProjectileBounceDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnProjectileBounceDelegate__PythonCallable): OnProjectileBounceDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnProjectileBounceDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

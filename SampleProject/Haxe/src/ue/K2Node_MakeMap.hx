@@ -13,3 +13,22 @@ extern class K2Node_MakeMap extends K2Node_MakeContainer {
 @:nativeGen
 abstract ConstK2Node_MakeMap(K2Node_MakeMap) from K2Node_MakeMap {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_MakeMap*")
+abstract K2Node_MakeMapPtr(cpp.Star<K2Node_MakeMap>) from cpp.Star<K2Node_MakeMap> to cpp.Star<K2Node_MakeMap>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_MakeMap): K2Node_MakeMapPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_MakeMap {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

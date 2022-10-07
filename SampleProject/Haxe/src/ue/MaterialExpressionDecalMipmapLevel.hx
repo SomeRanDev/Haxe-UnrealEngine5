@@ -22,3 +22,22 @@ abstract ConstMaterialExpressionDecalMipmapLevel(MaterialExpressionDecalMipmapLe
 	public extern var ConstHeight(get, never): cpp.Float32;
 	public inline extern function get_ConstHeight(): cpp.Float32 return this.ConstHeight;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionDecalMipmapLevel*")
+abstract MaterialExpressionDecalMipmapLevelPtr(cpp.Star<MaterialExpressionDecalMipmapLevel>) from cpp.Star<MaterialExpressionDecalMipmapLevel> to cpp.Star<MaterialExpressionDecalMipmapLevel>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionDecalMipmapLevel): MaterialExpressionDecalMipmapLevelPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionDecalMipmapLevel {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

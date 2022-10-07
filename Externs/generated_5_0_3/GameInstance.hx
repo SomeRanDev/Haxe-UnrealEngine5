@@ -32,3 +32,22 @@ abstract ConstGameInstance(GameInstance) from GameInstance {
 	public extern var OnPawnControllerChangedDelegates(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Pawn.ConstPawn>, cpp.Star<Controller.ConstController>) -> Void>;
 	public inline extern function get_OnPawnControllerChangedDelegates(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Pawn.ConstPawn>, cpp.Star<Controller.ConstController>) -> Void> return this.OnPawnControllerChangedDelegates;
 }
+
+@:forward
+@:nativeGen
+@:native("GameInstance*")
+abstract GameInstancePtr(cpp.Star<GameInstance>) from cpp.Star<GameInstance> to cpp.Star<GameInstance>{
+	@:from
+	public static extern inline function fromValue(v: GameInstance): GameInstancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameInstance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

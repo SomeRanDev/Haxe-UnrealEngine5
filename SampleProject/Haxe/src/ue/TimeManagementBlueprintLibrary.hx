@@ -30,3 +30,22 @@ extern class TimeManagementBlueprintLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstTimeManagementBlueprintLibrary(TimeManagementBlueprintLibrary) from TimeManagementBlueprintLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("TimeManagementBlueprintLibrary*")
+abstract TimeManagementBlueprintLibraryPtr(cpp.Star<TimeManagementBlueprintLibrary>) from cpp.Star<TimeManagementBlueprintLibrary> to cpp.Star<TimeManagementBlueprintLibrary>{
+	@:from
+	public static extern inline function fromValue(v: TimeManagementBlueprintLibrary): TimeManagementBlueprintLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TimeManagementBlueprintLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

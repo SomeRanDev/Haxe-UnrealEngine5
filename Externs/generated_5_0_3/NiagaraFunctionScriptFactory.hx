@@ -13,3 +13,22 @@ extern class NiagaraFunctionScriptFactory extends NiagaraScriptFactoryNew {
 @:nativeGen
 abstract ConstNiagaraFunctionScriptFactory(NiagaraFunctionScriptFactory) from NiagaraFunctionScriptFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraFunctionScriptFactory*")
+abstract NiagaraFunctionScriptFactoryPtr(cpp.Star<NiagaraFunctionScriptFactory>) from cpp.Star<NiagaraFunctionScriptFactory> to cpp.Star<NiagaraFunctionScriptFactory>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraFunctionScriptFactory): NiagaraFunctionScriptFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraFunctionScriptFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

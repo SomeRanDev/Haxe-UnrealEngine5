@@ -12,3 +12,22 @@ extern class Interface_PreviewMeshProvider extends Interface {
 @:nativeGen
 abstract ConstInterface_PreviewMeshProvider(Interface_PreviewMeshProvider) from Interface_PreviewMeshProvider {
 }
+
+@:forward
+@:nativeGen
+@:native("Interface_PreviewMeshProvider*")
+abstract Interface_PreviewMeshProviderPtr(cpp.Star<Interface_PreviewMeshProvider>) from cpp.Star<Interface_PreviewMeshProvider> to cpp.Star<Interface_PreviewMeshProvider>{
+	@:from
+	public static extern inline function fromValue(v: Interface_PreviewMeshProvider): Interface_PreviewMeshProviderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Interface_PreviewMeshProvider {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

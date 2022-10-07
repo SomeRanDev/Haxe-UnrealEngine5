@@ -43,3 +43,22 @@ abstract ConstScalableSphereGizmo(ScalableSphereGizmo) from ScalableSphereGizmo 
 	public extern var InteractionStartParameter(get, never): cpp.Float32;
 	public inline extern function get_InteractionStartParameter(): cpp.Float32 return this.InteractionStartParameter;
 }
+
+@:forward
+@:nativeGen
+@:native("ScalableSphereGizmo*")
+abstract ScalableSphereGizmoPtr(cpp.Star<ScalableSphereGizmo>) from cpp.Star<ScalableSphereGizmo> to cpp.Star<ScalableSphereGizmo>{
+	@:from
+	public static extern inline function fromValue(v: ScalableSphereGizmo): ScalableSphereGizmoPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ScalableSphereGizmo {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

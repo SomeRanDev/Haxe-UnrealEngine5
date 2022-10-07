@@ -13,3 +13,22 @@ extern class GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags 
 @:nativeGen
 abstract ConstGameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags(GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags) from GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags {
 }
+
+@:forward
+@:nativeGen
+@:native("GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags*")
+abstract GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTagsPtr(cpp.Star<GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags>) from cpp.Star<GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags> to cpp.Star<GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags>{
+	@:from
+	public static extern inline function fromValue(v: GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags): GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTagsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

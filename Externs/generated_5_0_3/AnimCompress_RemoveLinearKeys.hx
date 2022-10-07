@@ -40,3 +40,22 @@ abstract ConstAnimCompress_RemoveLinearKeys(AnimCompress_RemoveLinearKeys) from 
 	public extern var bActuallyFilterLinearKeys(get, never): Bool;
 	public inline extern function get_bActuallyFilterLinearKeys(): Bool return this.bActuallyFilterLinearKeys;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimCompress_RemoveLinearKeys*")
+abstract AnimCompress_RemoveLinearKeysPtr(cpp.Star<AnimCompress_RemoveLinearKeys>) from cpp.Star<AnimCompress_RemoveLinearKeys> to cpp.Star<AnimCompress_RemoveLinearKeys>{
+	@:from
+	public static extern inline function fromValue(v: AnimCompress_RemoveLinearKeys): AnimCompress_RemoveLinearKeysPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimCompress_RemoveLinearKeys {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

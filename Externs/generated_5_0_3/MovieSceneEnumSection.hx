@@ -16,3 +16,22 @@ abstract ConstMovieSceneEnumSection(MovieSceneEnumSection) from MovieSceneEnumSe
 	public extern var EnumCurve(get, never): MovieSceneByteChannel;
 	public inline extern function get_EnumCurve(): MovieSceneByteChannel return this.EnumCurve;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneEnumSection*")
+abstract MovieSceneEnumSectionPtr(cpp.Star<MovieSceneEnumSection>) from cpp.Star<MovieSceneEnumSection> to cpp.Star<MovieSceneEnumSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneEnumSection): MovieSceneEnumSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneEnumSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

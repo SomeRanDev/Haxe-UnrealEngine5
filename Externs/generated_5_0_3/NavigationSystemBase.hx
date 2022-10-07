@@ -13,3 +13,22 @@ extern class NavigationSystemBase extends Object {
 @:nativeGen
 abstract ConstNavigationSystemBase(NavigationSystemBase) from NavigationSystemBase {
 }
+
+@:forward
+@:nativeGen
+@:native("NavigationSystemBase*")
+abstract NavigationSystemBasePtr(cpp.Star<NavigationSystemBase>) from cpp.Star<NavigationSystemBase> to cpp.Star<NavigationSystemBase>{
+	@:from
+	public static extern inline function fromValue(v: NavigationSystemBase): NavigationSystemBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavigationSystemBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

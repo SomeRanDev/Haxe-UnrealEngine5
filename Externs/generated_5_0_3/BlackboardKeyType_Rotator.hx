@@ -13,3 +13,22 @@ extern class BlackboardKeyType_Rotator extends BlackboardKeyType {
 @:nativeGen
 abstract ConstBlackboardKeyType_Rotator(BlackboardKeyType_Rotator) from BlackboardKeyType_Rotator {
 }
+
+@:forward
+@:nativeGen
+@:native("BlackboardKeyType_Rotator*")
+abstract BlackboardKeyType_RotatorPtr(cpp.Star<BlackboardKeyType_Rotator>) from cpp.Star<BlackboardKeyType_Rotator> to cpp.Star<BlackboardKeyType_Rotator>{
+	@:from
+	public static extern inline function fromValue(v: BlackboardKeyType_Rotator): BlackboardKeyType_RotatorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlackboardKeyType_Rotator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

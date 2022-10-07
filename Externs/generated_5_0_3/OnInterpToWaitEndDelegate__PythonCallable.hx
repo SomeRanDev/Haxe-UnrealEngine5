@@ -12,3 +12,22 @@ extern class OnInterpToWaitEndDelegate__PythonCallable extends PythonCallableFor
 @:nativeGen
 abstract ConstOnInterpToWaitEndDelegate__PythonCallable(OnInterpToWaitEndDelegate__PythonCallable) from OnInterpToWaitEndDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnInterpToWaitEndDelegate__PythonCallable*")
+abstract OnInterpToWaitEndDelegate__PythonCallablePtr(cpp.Star<OnInterpToWaitEndDelegate__PythonCallable>) from cpp.Star<OnInterpToWaitEndDelegate__PythonCallable> to cpp.Star<OnInterpToWaitEndDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnInterpToWaitEndDelegate__PythonCallable): OnInterpToWaitEndDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnInterpToWaitEndDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

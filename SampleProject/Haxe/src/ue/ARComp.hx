@@ -37,3 +37,22 @@ abstract ConstARComp(ARComp) from ARComp {
 	public extern var MyTrackedGeometry(get, never): cpp.Star<ARTrackedGeometry.ConstARTrackedGeometry>;
 	public inline extern function get_MyTrackedGeometry(): cpp.Star<ARTrackedGeometry.ConstARTrackedGeometry> return this.MyTrackedGeometry;
 }
+
+@:forward
+@:nativeGen
+@:native("ARComp*")
+abstract ARCompPtr(cpp.Star<ARComp>) from cpp.Star<ARComp> to cpp.Star<ARComp>{
+	@:from
+	public static extern inline function fromValue(v: ARComp): ARCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -103,3 +103,22 @@ abstract ConstPawn(Pawn) from Pawn {
 	public extern var LastControlInputVector(get, never): Vector;
 	public inline extern function get_LastControlInputVector(): Vector return this.LastControlInputVector;
 }
+
+@:forward
+@:nativeGen
+@:native("Pawn*")
+abstract PawnPtr(cpp.Star<Pawn>) from cpp.Star<Pawn> to cpp.Star<Pawn>{
+	@:from
+	public static extern inline function fromValue(v: Pawn): PawnPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Pawn {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

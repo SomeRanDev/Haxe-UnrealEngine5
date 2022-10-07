@@ -13,3 +13,22 @@ extern class PythonOnlineDocsCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstPythonOnlineDocsCommandlet(PythonOnlineDocsCommandlet) from PythonOnlineDocsCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("PythonOnlineDocsCommandlet*")
+abstract PythonOnlineDocsCommandletPtr(cpp.Star<PythonOnlineDocsCommandlet>) from cpp.Star<PythonOnlineDocsCommandlet> to cpp.Star<PythonOnlineDocsCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: PythonOnlineDocsCommandlet): PythonOnlineDocsCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PythonOnlineDocsCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

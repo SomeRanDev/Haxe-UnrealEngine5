@@ -37,3 +37,22 @@ abstract ConstControlRigGraphNode(ControlRigGraphNode) from ControlRigGraphNode 
 	public extern var ExpandedPins_DEPRECATED(get, never): TArray<FString>;
 	public inline extern function get_ExpandedPins_DEPRECATED(): TArray<FString> return this.ExpandedPins_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("ControlRigGraphNode*")
+abstract ControlRigGraphNodePtr(cpp.Star<ControlRigGraphNode>) from cpp.Star<ControlRigGraphNode> to cpp.Star<ControlRigGraphNode>{
+	@:from
+	public static extern inline function fromValue(v: ControlRigGraphNode): ControlRigGraphNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ControlRigGraphNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

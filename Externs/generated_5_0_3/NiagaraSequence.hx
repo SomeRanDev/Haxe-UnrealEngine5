@@ -16,3 +16,22 @@ abstract ConstNiagaraSequence(NiagaraSequence) from NiagaraSequence {
 	public extern var MovieScene(get, never): cpp.Star<MovieScene.ConstMovieScene>;
 	public inline extern function get_MovieScene(): cpp.Star<MovieScene.ConstMovieScene> return this.MovieScene;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraSequence*")
+abstract NiagaraSequencePtr(cpp.Star<NiagaraSequence>) from cpp.Star<NiagaraSequence> to cpp.Star<NiagaraSequence>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraSequence): NiagaraSequencePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraSequence {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstProgressWidgetStyle(ProgressWidgetStyle) from ProgressWidgetStyle 
 	public extern var ProgressBarStyle(get, never): ProgressBarStyle;
 	public inline extern function get_ProgressBarStyle(): ProgressBarStyle return this.ProgressBarStyle;
 }
+
+@:forward
+@:nativeGen
+@:native("ProgressWidgetStyle*")
+abstract ProgressWidgetStylePtr(cpp.Star<ProgressWidgetStyle>) from cpp.Star<ProgressWidgetStyle> to cpp.Star<ProgressWidgetStyle>{
+	@:from
+	public static extern inline function fromValue(v: ProgressWidgetStyle): ProgressWidgetStylePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ProgressWidgetStyle {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

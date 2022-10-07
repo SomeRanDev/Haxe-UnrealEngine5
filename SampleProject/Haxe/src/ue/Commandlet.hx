@@ -46,3 +46,22 @@ abstract ConstCommandlet(Commandlet) from Commandlet {
 	public extern var ShowProgress(get, never): Bool;
 	public inline extern function get_ShowProgress(): Bool return this.ShowProgress;
 }
+
+@:forward
+@:nativeGen
+@:native("Commandlet*")
+abstract CommandletPtr(cpp.Star<Commandlet>) from cpp.Star<Commandlet> to cpp.Star<Commandlet>{
+	@:from
+	public static extern inline function fromValue(v: Commandlet): CommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Commandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

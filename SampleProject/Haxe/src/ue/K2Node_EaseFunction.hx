@@ -16,3 +16,22 @@ abstract ConstK2Node_EaseFunction(K2Node_EaseFunction) from K2Node_EaseFunction 
 	public extern var EaseFunctionName(get, never): FName;
 	public inline extern function get_EaseFunctionName(): FName return this.EaseFunctionName;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_EaseFunction*")
+abstract K2Node_EaseFunctionPtr(cpp.Star<K2Node_EaseFunction>) from cpp.Star<K2Node_EaseFunction> to cpp.Star<K2Node_EaseFunction>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_EaseFunction): K2Node_EaseFunctionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_EaseFunction {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

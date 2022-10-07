@@ -13,3 +13,22 @@ extern class NiagaraDumpByteCodeCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstNiagaraDumpByteCodeCommandlet(NiagaraDumpByteCodeCommandlet) from NiagaraDumpByteCodeCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDumpByteCodeCommandlet*")
+abstract NiagaraDumpByteCodeCommandletPtr(cpp.Star<NiagaraDumpByteCodeCommandlet>) from cpp.Star<NiagaraDumpByteCodeCommandlet> to cpp.Star<NiagaraDumpByteCodeCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDumpByteCodeCommandlet): NiagaraDumpByteCodeCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDumpByteCodeCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

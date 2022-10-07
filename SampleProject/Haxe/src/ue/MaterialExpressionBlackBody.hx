@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionBlackBody(MaterialExpressionBlackBody) from Mate
 	public extern var Temp(get, never): ExpressionInput;
 	public inline extern function get_Temp(): ExpressionInput return this.Temp;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionBlackBody*")
+abstract MaterialExpressionBlackBodyPtr(cpp.Star<MaterialExpressionBlackBody>) from cpp.Star<MaterialExpressionBlackBody> to cpp.Star<MaterialExpressionBlackBody>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionBlackBody): MaterialExpressionBlackBodyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionBlackBody {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

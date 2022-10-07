@@ -48,3 +48,22 @@ abstract ConstCameraRig_Rail(CameraRig_Rail) from CameraRig_Rail {
 	public extern var PreviewMesh_Mount(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
 	public inline extern function get_PreviewMesh_Mount(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.PreviewMesh_Mount;
 }
+
+@:forward
+@:nativeGen
+@:native("CameraRig_Rail*")
+abstract CameraRig_RailPtr(cpp.Star<CameraRig_Rail>) from cpp.Star<CameraRig_Rail> to cpp.Star<CameraRig_Rail>{
+	@:from
+	public static extern inline function fromValue(v: CameraRig_Rail): CameraRig_RailPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CameraRig_Rail {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

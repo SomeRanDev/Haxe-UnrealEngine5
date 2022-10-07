@@ -34,3 +34,22 @@ abstract ConstBrushBaseProperties(BrushBaseProperties) from BrushBaseProperties 
 	public extern var bShowFalloff(get, never): Bool;
 	public inline extern function get_bShowFalloff(): Bool return this.bShowFalloff;
 }
+
+@:forward
+@:nativeGen
+@:native("BrushBaseProperties*")
+abstract BrushBasePropertiesPtr(cpp.Star<BrushBaseProperties>) from cpp.Star<BrushBaseProperties> to cpp.Star<BrushBaseProperties>{
+	@:from
+	public static extern inline function fromValue(v: BrushBaseProperties): BrushBasePropertiesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BrushBaseProperties {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

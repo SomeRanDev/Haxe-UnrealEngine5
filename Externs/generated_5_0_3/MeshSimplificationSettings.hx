@@ -19,3 +19,22 @@ abstract ConstMeshSimplificationSettings(MeshSimplificationSettings) from MeshSi
 	public extern var bMeshReductionBackwardCompatible(get, never): Bool;
 	public inline extern function get_bMeshReductionBackwardCompatible(): Bool return this.bMeshReductionBackwardCompatible;
 }
+
+@:forward
+@:nativeGen
+@:native("MeshSimplificationSettings*")
+abstract MeshSimplificationSettingsPtr(cpp.Star<MeshSimplificationSettings>) from cpp.Star<MeshSimplificationSettings> to cpp.Star<MeshSimplificationSettings>{
+	@:from
+	public static extern inline function fromValue(v: MeshSimplificationSettings): MeshSimplificationSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MeshSimplificationSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

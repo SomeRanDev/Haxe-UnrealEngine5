@@ -34,3 +34,22 @@ abstract ConstARCandidateImage(ARCandidateImage) from ARCandidateImage {
 	public extern var Orientation(get, never): EARCandidateImageOrientation;
 	public inline extern function get_Orientation(): EARCandidateImageOrientation return this.Orientation;
 }
+
+@:forward
+@:nativeGen
+@:native("ARCandidateImage*")
+abstract ARCandidateImagePtr(cpp.Star<ARCandidateImage>) from cpp.Star<ARCandidateImage> to cpp.Star<ARCandidateImage>{
+	@:from
+	public static extern inline function fromValue(v: ARCandidateImage): ARCandidateImagePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARCandidateImage {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

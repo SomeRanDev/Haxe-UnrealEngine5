@@ -13,3 +13,22 @@ extern class K2Node_PlayAnimation extends K2Node_BaseAsyncTask {
 @:nativeGen
 abstract ConstK2Node_PlayAnimation(K2Node_PlayAnimation) from K2Node_PlayAnimation {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_PlayAnimation*")
+abstract K2Node_PlayAnimationPtr(cpp.Star<K2Node_PlayAnimation>) from cpp.Star<K2Node_PlayAnimation> to cpp.Star<K2Node_PlayAnimation>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_PlayAnimation): K2Node_PlayAnimationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_PlayAnimation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

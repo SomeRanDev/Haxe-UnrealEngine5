@@ -13,3 +13,22 @@ extern class ParticleModuleColorBase extends ParticleModule {
 @:nativeGen
 abstract ConstParticleModuleColorBase(ParticleModuleColorBase) from ParticleModuleColorBase {
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleColorBase*")
+abstract ParticleModuleColorBasePtr(cpp.Star<ParticleModuleColorBase>) from cpp.Star<ParticleModuleColorBase> to cpp.Star<ParticleModuleColorBase>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleColorBase): ParticleModuleColorBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleColorBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

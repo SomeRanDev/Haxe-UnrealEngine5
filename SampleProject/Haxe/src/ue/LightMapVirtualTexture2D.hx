@@ -16,3 +16,22 @@ abstract ConstLightMapVirtualTexture2D(LightMapVirtualTexture2D) from LightMapVi
 	public extern var TypeToLayer(get, never): TArray<cpp.Int8>;
 	public inline extern function get_TypeToLayer(): TArray<cpp.Int8> return this.TypeToLayer;
 }
+
+@:forward
+@:nativeGen
+@:native("LightMapVirtualTexture2D*")
+abstract LightMapVirtualTexture2DPtr(cpp.Star<LightMapVirtualTexture2D>) from cpp.Star<LightMapVirtualTexture2D> to cpp.Star<LightMapVirtualTexture2D>{
+	@:from
+	public static extern inline function fromValue(v: LightMapVirtualTexture2D): LightMapVirtualTexture2DPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LightMapVirtualTexture2D {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

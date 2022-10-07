@@ -21,3 +21,22 @@ abstract ConstSkyLight(SkyLight) from SkyLight {
 	public extern var bEnabled(get, never): Bool;
 	public inline extern function get_bEnabled(): Bool return this.bEnabled;
 }
+
+@:forward
+@:nativeGen
+@:native("SkyLight*")
+abstract SkyLightPtr(cpp.Star<SkyLight>) from cpp.Star<SkyLight> to cpp.Star<SkyLight>{
+	@:from
+	public static extern inline function fromValue(v: SkyLight): SkyLightPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SkyLight {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

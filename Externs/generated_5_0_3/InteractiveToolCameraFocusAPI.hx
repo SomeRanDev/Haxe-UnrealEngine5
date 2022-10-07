@@ -12,3 +12,22 @@ extern class InteractiveToolCameraFocusAPI extends Interface {
 @:nativeGen
 abstract ConstInteractiveToolCameraFocusAPI(InteractiveToolCameraFocusAPI) from InteractiveToolCameraFocusAPI {
 }
+
+@:forward
+@:nativeGen
+@:native("InteractiveToolCameraFocusAPI*")
+abstract InteractiveToolCameraFocusAPIPtr(cpp.Star<InteractiveToolCameraFocusAPI>) from cpp.Star<InteractiveToolCameraFocusAPI> to cpp.Star<InteractiveToolCameraFocusAPI>{
+	@:from
+	public static extern inline function fromValue(v: InteractiveToolCameraFocusAPI): InteractiveToolCameraFocusAPIPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InteractiveToolCameraFocusAPI {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

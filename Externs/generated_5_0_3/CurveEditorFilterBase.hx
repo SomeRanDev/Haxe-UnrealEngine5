@@ -13,3 +13,22 @@ extern class CurveEditorFilterBase extends Object {
 @:nativeGen
 abstract ConstCurveEditorFilterBase(CurveEditorFilterBase) from CurveEditorFilterBase {
 }
+
+@:forward
+@:nativeGen
+@:native("CurveEditorFilterBase*")
+abstract CurveEditorFilterBasePtr(cpp.Star<CurveEditorFilterBase>) from cpp.Star<CurveEditorFilterBase> to cpp.Star<CurveEditorFilterBase>{
+	@:from
+	public static extern inline function fromValue(v: CurveEditorFilterBase): CurveEditorFilterBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CurveEditorFilterBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

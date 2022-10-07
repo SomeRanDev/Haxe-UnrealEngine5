@@ -25,3 +25,22 @@ abstract ConstK2Node_InputTouchEvent(K2Node_InputTouchEvent) from K2Node_InputTo
 	public extern var bOverrideParentBinding(get, never): Bool;
 	public inline extern function get_bOverrideParentBinding(): Bool return this.bOverrideParentBinding;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_InputTouchEvent*")
+abstract K2Node_InputTouchEventPtr(cpp.Star<K2Node_InputTouchEvent>) from cpp.Star<K2Node_InputTouchEvent> to cpp.Star<K2Node_InputTouchEvent>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_InputTouchEvent): K2Node_InputTouchEventPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_InputTouchEvent {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

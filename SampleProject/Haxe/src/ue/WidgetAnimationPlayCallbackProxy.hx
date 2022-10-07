@@ -19,3 +19,22 @@ abstract ConstWidgetAnimationPlayCallbackProxy(WidgetAnimationPlayCallbackProxy)
 	public extern var Finished(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_Finished(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.Finished;
 }
+
+@:forward
+@:nativeGen
+@:native("WidgetAnimationPlayCallbackProxy*")
+abstract WidgetAnimationPlayCallbackProxyPtr(cpp.Star<WidgetAnimationPlayCallbackProxy>) from cpp.Star<WidgetAnimationPlayCallbackProxy> to cpp.Star<WidgetAnimationPlayCallbackProxy>{
+	@:from
+	public static extern inline function fromValue(v: WidgetAnimationPlayCallbackProxy): WidgetAnimationPlayCallbackProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WidgetAnimationPlayCallbackProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

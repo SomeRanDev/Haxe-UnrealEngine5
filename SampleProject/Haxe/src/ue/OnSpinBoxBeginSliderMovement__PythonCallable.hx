@@ -12,3 +12,22 @@ extern class OnSpinBoxBeginSliderMovement__PythonCallable extends PythonCallable
 @:nativeGen
 abstract ConstOnSpinBoxBeginSliderMovement__PythonCallable(OnSpinBoxBeginSliderMovement__PythonCallable) from OnSpinBoxBeginSliderMovement__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnSpinBoxBeginSliderMovement__PythonCallable*")
+abstract OnSpinBoxBeginSliderMovement__PythonCallablePtr(cpp.Star<OnSpinBoxBeginSliderMovement__PythonCallable>) from cpp.Star<OnSpinBoxBeginSliderMovement__PythonCallable> to cpp.Star<OnSpinBoxBeginSliderMovement__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnSpinBoxBeginSliderMovement__PythonCallable): OnSpinBoxBeginSliderMovement__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnSpinBoxBeginSliderMovement__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -31,3 +31,22 @@ abstract ConstNiagaraLensEffectBase(NiagaraLensEffectBase) from NiagaraLensEffec
 	public extern var OwningCameraManager(get, never): cpp.Star<PlayerCameraManager.ConstPlayerCameraManager>;
 	public inline extern function get_OwningCameraManager(): cpp.Star<PlayerCameraManager.ConstPlayerCameraManager> return this.OwningCameraManager;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraLensEffectBase*")
+abstract NiagaraLensEffectBasePtr(cpp.Star<NiagaraLensEffectBase>) from cpp.Star<NiagaraLensEffectBase> to cpp.Star<NiagaraLensEffectBase>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraLensEffectBase): NiagaraLensEffectBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraLensEffectBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -155,6 +155,11 @@ FString GetHaxeConstAbstractName(UStruct* s) {
 	return "Const" + GetHaxeName(s);
 }
 
+// Returns the name of the abstract wrapper for replicating C++ pointers.
+FString GetHaxePointerAbstractName(UStruct* s) {
+	return GetHaxeName(s) + "Ptr";
+}
+
 // Returns the name of the type to be used in Haxe.
 // It returns the "const" version if the FProperty is a const param OR if the ForceAllConst is true.
 // "ForceAllConst" is set to true when processing variables in const abstracts to ensure the variables are also const restricted.
@@ -703,6 +708,26 @@ void ConvertUClassToHaxe(UClass* cls) {
 	haxeSource += "@:nativeGen\n";
 	haxeSource += "abstract " + GetHaxeConstAbstractName(cls) + "(" + haxeName + ") from " + haxeName + " {\n";
 	haxeSource += (*constAbstractVariablesSource);
+	haxeSource += "}\n\n";
+
+	auto ptrName = GetHaxePointerAbstractName(cls);
+	haxeSource += "@:forward\n";
+	haxeSource += "@:nativeGen\n";
+	haxeSource += "@:native(\"" + haxeName + "*\")\n";
+	haxeSource += "abstract " + ptrName + "(cpp.Star<" + haxeName + ">) from cpp.Star<" + haxeName + "> to cpp.Star<" + haxeName + ">{\n";
+	haxeSource += "\t@:from\n";
+	haxeSource += "\tpublic static extern inline function fromValue(v: " + haxeName + "): " + ptrName + " {\n";
+	haxeSource += "\t\treturn untyped __cpp__(\"&({0})\", v);\n";
+	haxeSource += "\t}\n";
+	haxeSource += "\n";
+	haxeSource += "\t@:to\n";
+	haxeSource += "\tpublic extern inline function asValue(): " + haxeName + " {\n";
+	haxeSource += "\t\treturn untyped __cpp__(\"*({0})\", this);\n";
+	haxeSource += "\t}\n";
+	haxeSource += "\n";
+	haxeSource += "\tpublic extern inline function delete(): Void {\n";
+	haxeSource += "\t\tuntyped __cpp__(\"delete ({0})\", this);\n";
+	haxeSource += "\t}\n";
 	haxeSource += "}";
 
 	SaveHaxeFile(haxeName, haxeSource);
@@ -884,7 +909,7 @@ void SetupExtraExterns() {
 	UActorComponent.AddFunc("public function EndPlay(Reason: EEndPlayReason): Void");
 	UActorComponent.AddFunc("public function InitializeComponent(): Void");
 	UActorComponent.AddFunc("public function UninitializeComponent(): Void");
-	UActorComponent.AddFunc("public function TickComponent(DeltaTime: cpp.Float32, TickType: ELevelTick, ThisTickFunction: cpp.Star<FActorComponentTickFunction>): Void");
+	UActorComponent.AddFunc("public function TickComponent(DeltaTime: cpp.Float32, TickType: ELevelTick, ThisTickFunction: cpp.Star<ActorComponentTickFunction>): Void");
 	ExtraExterns.Add("ActorComponent", UActorComponent);
 
 	// ----------------------
@@ -1038,5 +1063,9 @@ void ConvertAllUClasses() {
 	for(TObjectIterator<UClass> it; it; ++it) {
 		ConvertUClassToHaxe(*it);
 	}
+
+	// Convert necessary UClasses/UStructs that aren't found normally
+	ConvertUStructToHaxe(FActorComponentTickFunction::StaticStruct());
+
 	SaveUnusedExtraExterns();
 }

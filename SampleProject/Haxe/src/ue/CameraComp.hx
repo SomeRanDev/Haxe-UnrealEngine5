@@ -76,3 +76,22 @@ abstract ConstCameraComp(CameraComp) from CameraComp {
 	public extern var bUseControllerViewRotation_DEPRECATED(get, never): Bool;
 	public inline extern function get_bUseControllerViewRotation_DEPRECATED(): Bool return this.bUseControllerViewRotation_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("CameraComp*")
+abstract CameraCompPtr(cpp.Star<CameraComp>) from cpp.Star<CameraComp> to cpp.Star<CameraComp>{
+	@:from
+	public static extern inline function fromValue(v: CameraComp): CameraCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CameraComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

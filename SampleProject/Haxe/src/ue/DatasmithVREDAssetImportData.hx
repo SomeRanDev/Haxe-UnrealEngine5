@@ -13,3 +13,22 @@ extern class DatasmithVREDAssetImportData extends DatasmithAssetImportData {
 @:nativeGen
 abstract ConstDatasmithVREDAssetImportData(DatasmithVREDAssetImportData) from DatasmithVREDAssetImportData {
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithVREDAssetImportData*")
+abstract DatasmithVREDAssetImportDataPtr(cpp.Star<DatasmithVREDAssetImportData>) from cpp.Star<DatasmithVREDAssetImportData> to cpp.Star<DatasmithVREDAssetImportData>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithVREDAssetImportData): DatasmithVREDAssetImportDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithVREDAssetImportData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

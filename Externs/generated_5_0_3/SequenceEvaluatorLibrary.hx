@@ -21,3 +21,22 @@ extern class SequenceEvaluatorLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstSequenceEvaluatorLibrary(SequenceEvaluatorLibrary) from SequenceEvaluatorLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("SequenceEvaluatorLibrary*")
+abstract SequenceEvaluatorLibraryPtr(cpp.Star<SequenceEvaluatorLibrary>) from cpp.Star<SequenceEvaluatorLibrary> to cpp.Star<SequenceEvaluatorLibrary>{
+	@:from
+	public static extern inline function fromValue(v: SequenceEvaluatorLibrary): SequenceEvaluatorLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SequenceEvaluatorLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

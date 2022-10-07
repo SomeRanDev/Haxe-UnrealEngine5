@@ -14,3 +14,22 @@ extern class ARMeshGeometry extends ARTrackedGeometry {
 @:nativeGen
 abstract ConstARMeshGeometry(ARMeshGeometry) from ARMeshGeometry {
 }
+
+@:forward
+@:nativeGen
+@:native("ARMeshGeometry*")
+abstract ARMeshGeometryPtr(cpp.Star<ARMeshGeometry>) from cpp.Star<ARMeshGeometry> to cpp.Star<ARMeshGeometry>{
+	@:from
+	public static extern inline function fromValue(v: ARMeshGeometry): ARMeshGeometryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARMeshGeometry {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

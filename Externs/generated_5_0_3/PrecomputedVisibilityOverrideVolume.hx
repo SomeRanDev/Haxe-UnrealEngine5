@@ -22,3 +22,22 @@ abstract ConstPrecomputedVisibilityOverrideVolume(PrecomputedVisibilityOverrideV
 	public extern var OverrideInvisibleLevels(get, never): TArray<FName>;
 	public inline extern function get_OverrideInvisibleLevels(): TArray<FName> return this.OverrideInvisibleLevels;
 }
+
+@:forward
+@:nativeGen
+@:native("PrecomputedVisibilityOverrideVolume*")
+abstract PrecomputedVisibilityOverrideVolumePtr(cpp.Star<PrecomputedVisibilityOverrideVolume>) from cpp.Star<PrecomputedVisibilityOverrideVolume> to cpp.Star<PrecomputedVisibilityOverrideVolume>{
+	@:from
+	public static extern inline function fromValue(v: PrecomputedVisibilityOverrideVolume): PrecomputedVisibilityOverrideVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PrecomputedVisibilityOverrideVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

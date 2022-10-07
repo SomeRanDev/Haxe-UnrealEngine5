@@ -13,3 +13,22 @@ extern class InternationalizationConditioningCommandlet extends GatherTextComman
 @:nativeGen
 abstract ConstInternationalizationConditioningCommandlet(InternationalizationConditioningCommandlet) from InternationalizationConditioningCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("InternationalizationConditioningCommandlet*")
+abstract InternationalizationConditioningCommandletPtr(cpp.Star<InternationalizationConditioningCommandlet>) from cpp.Star<InternationalizationConditioningCommandlet> to cpp.Star<InternationalizationConditioningCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: InternationalizationConditioningCommandlet): InternationalizationConditioningCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InternationalizationConditioningCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

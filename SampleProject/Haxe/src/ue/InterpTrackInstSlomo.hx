@@ -16,3 +16,22 @@ abstract ConstInterpTrackInstSlomo(InterpTrackInstSlomo) from InterpTrackInstSlo
 	public extern var OldTimeDilation(get, never): cpp.Float32;
 	public inline extern function get_OldTimeDilation(): cpp.Float32 return this.OldTimeDilation;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackInstSlomo*")
+abstract InterpTrackInstSlomoPtr(cpp.Star<InterpTrackInstSlomo>) from cpp.Star<InterpTrackInstSlomo> to cpp.Star<InterpTrackInstSlomo>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackInstSlomo): InterpTrackInstSlomoPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackInstSlomo {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

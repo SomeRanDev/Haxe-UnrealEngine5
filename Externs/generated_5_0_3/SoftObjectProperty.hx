@@ -12,3 +12,22 @@ extern class SoftObjectProperty extends ObjectPropertyBase {
 @:nativeGen
 abstract ConstSoftObjectProperty(SoftObjectProperty) from SoftObjectProperty {
 }
+
+@:forward
+@:nativeGen
+@:native("SoftObjectProperty*")
+abstract SoftObjectPropertyPtr(cpp.Star<SoftObjectProperty>) from cpp.Star<SoftObjectProperty> to cpp.Star<SoftObjectProperty>{
+	@:from
+	public static extern inline function fromValue(v: SoftObjectProperty): SoftObjectPropertyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoftObjectProperty {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

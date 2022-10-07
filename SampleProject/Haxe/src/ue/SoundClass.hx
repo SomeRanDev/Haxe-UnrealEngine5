@@ -25,3 +25,22 @@ abstract ConstSoundClass(SoundClass) from SoundClass {
 	public extern var ParentClass(get, never): cpp.Star<SoundClass.ConstSoundClass>;
 	public inline extern function get_ParentClass(): cpp.Star<SoundClass.ConstSoundClass> return this.ParentClass;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundClass*")
+abstract SoundClassPtr(cpp.Star<SoundClass>) from cpp.Star<SoundClass> to cpp.Star<SoundClass>{
+	@:from
+	public static extern inline function fromValue(v: SoundClass): SoundClassPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundClass {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

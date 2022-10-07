@@ -13,3 +13,22 @@ extern class NavFilter_AIControllerDefault extends NavigationQueryFilter {
 @:nativeGen
 abstract ConstNavFilter_AIControllerDefault(NavFilter_AIControllerDefault) from NavFilter_AIControllerDefault {
 }
+
+@:forward
+@:nativeGen
+@:native("NavFilter_AIControllerDefault*")
+abstract NavFilter_AIControllerDefaultPtr(cpp.Star<NavFilter_AIControllerDefault>) from cpp.Star<NavFilter_AIControllerDefault> to cpp.Star<NavFilter_AIControllerDefault>{
+	@:from
+	public static extern inline function fromValue(v: NavFilter_AIControllerDefault): NavFilter_AIControllerDefaultPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavFilter_AIControllerDefault {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

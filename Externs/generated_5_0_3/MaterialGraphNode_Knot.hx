@@ -13,3 +13,22 @@ extern class MaterialGraphNode_Knot extends MaterialGraphNode {
 @:nativeGen
 abstract ConstMaterialGraphNode_Knot(MaterialGraphNode_Knot) from MaterialGraphNode_Knot {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialGraphNode_Knot*")
+abstract MaterialGraphNode_KnotPtr(cpp.Star<MaterialGraphNode_Knot>) from cpp.Star<MaterialGraphNode_Knot> to cpp.Star<MaterialGraphNode_Knot>{
+	@:from
+	public static extern inline function fromValue(v: MaterialGraphNode_Knot): MaterialGraphNode_KnotPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialGraphNode_Knot {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

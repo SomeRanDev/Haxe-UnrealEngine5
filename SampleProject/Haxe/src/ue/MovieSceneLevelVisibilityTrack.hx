@@ -16,3 +16,22 @@ abstract ConstMovieSceneLevelVisibilityTrack(MovieSceneLevelVisibilityTrack) fro
 	public extern var Sections(get, never): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>>;
 	public inline extern function get_Sections(): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>> return this.Sections;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneLevelVisibilityTrack*")
+abstract MovieSceneLevelVisibilityTrackPtr(cpp.Star<MovieSceneLevelVisibilityTrack>) from cpp.Star<MovieSceneLevelVisibilityTrack> to cpp.Star<MovieSceneLevelVisibilityTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneLevelVisibilityTrack): MovieSceneLevelVisibilityTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneLevelVisibilityTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

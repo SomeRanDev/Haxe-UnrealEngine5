@@ -16,3 +16,22 @@ abstract ConstSlateSettings(SlateSettings) from SlateSettings {
 	public extern var bExplicitCanvasChildZOrder(get, never): Bool;
 	public inline extern function get_bExplicitCanvasChildZOrder(): Bool return this.bExplicitCanvasChildZOrder;
 }
+
+@:forward
+@:nativeGen
+@:native("SlateSettings*")
+abstract SlateSettingsPtr(cpp.Star<SlateSettings>) from cpp.Star<SlateSettings> to cpp.Star<SlateSettings>{
+	@:from
+	public static extern inline function fromValue(v: SlateSettings): SlateSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SlateSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

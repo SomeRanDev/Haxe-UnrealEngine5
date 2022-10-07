@@ -16,3 +16,22 @@ abstract ConstGizmoGroupObject(GizmoGroupObject) from GizmoGroupObject {
 	public extern var Objects(get, never): TArray<cpp.Star<GizmoBaseObject.ConstGizmoBaseObject>>;
 	public inline extern function get_Objects(): TArray<cpp.Star<GizmoBaseObject.ConstGizmoBaseObject>> return this.Objects;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoGroupObject*")
+abstract GizmoGroupObjectPtr(cpp.Star<GizmoGroupObject>) from cpp.Star<GizmoGroupObject> to cpp.Star<GizmoGroupObject>{
+	@:from
+	public static extern inline function fromValue(v: GizmoGroupObject): GizmoGroupObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoGroupObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

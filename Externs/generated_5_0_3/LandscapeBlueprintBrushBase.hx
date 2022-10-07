@@ -33,3 +33,22 @@ abstract ConstLandscapeBlueprintBrushBase(LandscapeBlueprintBrushBase) from Land
 	public extern var bIsVisible(get, never): Bool;
 	public inline extern function get_bIsVisible(): Bool return this.bIsVisible;
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeBlueprintBrushBase*")
+abstract LandscapeBlueprintBrushBasePtr(cpp.Star<LandscapeBlueprintBrushBase>) from cpp.Star<LandscapeBlueprintBrushBase> to cpp.Star<LandscapeBlueprintBrushBase>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeBlueprintBrushBase): LandscapeBlueprintBrushBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeBlueprintBrushBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -166,3 +166,22 @@ abstract ConstSequencerSettings(SequencerSettings) from SequencerSettings {
 	public extern var MovieRendererName(get, never): FString;
 	public inline extern function get_MovieRendererName(): FString return this.MovieRendererName;
 }
+
+@:forward
+@:nativeGen
+@:native("SequencerSettings*")
+abstract SequencerSettingsPtr(cpp.Star<SequencerSettings>) from cpp.Star<SequencerSettings> to cpp.Star<SequencerSettings>{
+	@:from
+	public static extern inline function fromValue(v: SequencerSettings): SequencerSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SequencerSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

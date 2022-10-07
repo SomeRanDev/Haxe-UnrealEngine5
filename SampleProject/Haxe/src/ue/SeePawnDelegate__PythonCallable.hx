@@ -12,3 +12,22 @@ extern class SeePawnDelegate__PythonCallable extends PythonCallableForDelegate {
 @:nativeGen
 abstract ConstSeePawnDelegate__PythonCallable(SeePawnDelegate__PythonCallable) from SeePawnDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("SeePawnDelegate__PythonCallable*")
+abstract SeePawnDelegate__PythonCallablePtr(cpp.Star<SeePawnDelegate__PythonCallable>) from cpp.Star<SeePawnDelegate__PythonCallable> to cpp.Star<SeePawnDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: SeePawnDelegate__PythonCallable): SeePawnDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SeePawnDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

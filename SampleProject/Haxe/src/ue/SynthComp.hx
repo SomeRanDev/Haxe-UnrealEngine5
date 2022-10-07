@@ -97,3 +97,22 @@ abstract ConstSynthComp(SynthComp) from SynthComp {
 	public extern var AudioComponent(get, never): cpp.Star<AudioComp.ConstAudioComp>;
 	public inline extern function get_AudioComponent(): cpp.Star<AudioComp.ConstAudioComp> return this.AudioComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("SynthComp*")
+abstract SynthCompPtr(cpp.Star<SynthComp>) from cpp.Star<SynthComp> to cpp.Star<SynthComp>{
+	@:from
+	public static extern inline function fromValue(v: SynthComp): SynthCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SynthComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

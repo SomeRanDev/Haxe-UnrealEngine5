@@ -16,3 +16,22 @@ abstract ConstK2Node_FormatText(K2Node_FormatText) from K2Node_FormatText {
 	public extern var PinNames(get, never): TArray<FName>;
 	public inline extern function get_PinNames(): TArray<FName> return this.PinNames;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_FormatText*")
+abstract K2Node_FormatTextPtr(cpp.Star<K2Node_FormatText>) from cpp.Star<K2Node_FormatText> to cpp.Star<K2Node_FormatText>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_FormatText): K2Node_FormatTextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_FormatText {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

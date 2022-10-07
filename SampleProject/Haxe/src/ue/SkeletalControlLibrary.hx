@@ -17,3 +17,22 @@ extern class SkeletalControlLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstSkeletalControlLibrary(SkeletalControlLibrary) from SkeletalControlLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("SkeletalControlLibrary*")
+abstract SkeletalControlLibraryPtr(cpp.Star<SkeletalControlLibrary>) from cpp.Star<SkeletalControlLibrary> to cpp.Star<SkeletalControlLibrary>{
+	@:from
+	public static extern inline function fromValue(v: SkeletalControlLibrary): SkeletalControlLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SkeletalControlLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

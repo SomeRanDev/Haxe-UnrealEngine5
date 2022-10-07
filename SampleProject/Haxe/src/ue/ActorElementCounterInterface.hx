@@ -13,3 +13,22 @@ extern class ActorElementCounterInterface extends Object {
 @:nativeGen
 abstract ConstActorElementCounterInterface(ActorElementCounterInterface) from ActorElementCounterInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorElementCounterInterface*")
+abstract ActorElementCounterInterfacePtr(cpp.Star<ActorElementCounterInterface>) from cpp.Star<ActorElementCounterInterface> to cpp.Star<ActorElementCounterInterface>{
+	@:from
+	public static extern inline function fromValue(v: ActorElementCounterInterface): ActorElementCounterInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorElementCounterInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

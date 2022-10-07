@@ -21,3 +21,22 @@ abstract ConstAISense_Hearing(AISense_Hearing) from AISense_Hearing {
 	public extern var SpeedOfSoundSq(get, never): cpp.Float32;
 	public inline extern function get_SpeedOfSoundSq(): cpp.Float32 return this.SpeedOfSoundSq;
 }
+
+@:forward
+@:nativeGen
+@:native("AISense_Hearing*")
+abstract AISense_HearingPtr(cpp.Star<AISense_Hearing>) from cpp.Star<AISense_Hearing> to cpp.Star<AISense_Hearing>{
+	@:from
+	public static extern inline function fromValue(v: AISense_Hearing): AISense_HearingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AISense_Hearing {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

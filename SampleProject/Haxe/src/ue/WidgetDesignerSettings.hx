@@ -40,3 +40,22 @@ abstract ConstWidgetDesignerSettings(WidgetDesignerSettings) from WidgetDesigner
 	public extern var Favorites(get, never): cpp.Star<WidgetPaletteFavorites.ConstWidgetPaletteFavorites>;
 	public inline extern function get_Favorites(): cpp.Star<WidgetPaletteFavorites.ConstWidgetPaletteFavorites> return this.Favorites;
 }
+
+@:forward
+@:nativeGen
+@:native("WidgetDesignerSettings*")
+abstract WidgetDesignerSettingsPtr(cpp.Star<WidgetDesignerSettings>) from cpp.Star<WidgetDesignerSettings> to cpp.Star<WidgetDesignerSettings>{
+	@:from
+	public static extern inline function fromValue(v: WidgetDesignerSettings): WidgetDesignerSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WidgetDesignerSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

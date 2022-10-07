@@ -13,3 +13,22 @@ extern class K2Node_GetEditorProperty extends K2Node_EditorPropertyAccessBase {
 @:nativeGen
 abstract ConstK2Node_GetEditorProperty(K2Node_GetEditorProperty) from K2Node_GetEditorProperty {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_GetEditorProperty*")
+abstract K2Node_GetEditorPropertyPtr(cpp.Star<K2Node_GetEditorProperty>) from cpp.Star<K2Node_GetEditorProperty> to cpp.Star<K2Node_GetEditorProperty>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_GetEditorProperty): K2Node_GetEditorPropertyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_GetEditorProperty {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

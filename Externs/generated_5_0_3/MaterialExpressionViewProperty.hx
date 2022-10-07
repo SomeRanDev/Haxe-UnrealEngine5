@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionViewProperty(MaterialExpressionViewProperty) fro
 	public extern var Property(get, never): EMaterialExposedViewProperty;
 	public inline extern function get_Property(): EMaterialExposedViewProperty return this.Property;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionViewProperty*")
+abstract MaterialExpressionViewPropertyPtr(cpp.Star<MaterialExpressionViewProperty>) from cpp.Star<MaterialExpressionViewProperty> to cpp.Star<MaterialExpressionViewProperty>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionViewProperty): MaterialExpressionViewPropertyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionViewProperty {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

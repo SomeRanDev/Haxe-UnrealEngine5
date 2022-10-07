@@ -13,3 +13,22 @@ extern class EditorDomainSaveCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstEditorDomainSaveCommandlet(EditorDomainSaveCommandlet) from EditorDomainSaveCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("EditorDomainSaveCommandlet*")
+abstract EditorDomainSaveCommandletPtr(cpp.Star<EditorDomainSaveCommandlet>) from cpp.Star<EditorDomainSaveCommandlet> to cpp.Star<EditorDomainSaveCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: EditorDomainSaveCommandlet): EditorDomainSaveCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorDomainSaveCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

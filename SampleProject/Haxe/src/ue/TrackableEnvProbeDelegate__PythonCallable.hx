@@ -12,3 +12,22 @@ extern class TrackableEnvProbeDelegate__PythonCallable extends PythonCallableFor
 @:nativeGen
 abstract ConstTrackableEnvProbeDelegate__PythonCallable(TrackableEnvProbeDelegate__PythonCallable) from TrackableEnvProbeDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("TrackableEnvProbeDelegate__PythonCallable*")
+abstract TrackableEnvProbeDelegate__PythonCallablePtr(cpp.Star<TrackableEnvProbeDelegate__PythonCallable>) from cpp.Star<TrackableEnvProbeDelegate__PythonCallable> to cpp.Star<TrackableEnvProbeDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: TrackableEnvProbeDelegate__PythonCallable): TrackableEnvProbeDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TrackableEnvProbeDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -29,3 +29,22 @@ abstract ConstLevelSequenceDirector(LevelSequenceDirector) from LevelSequenceDir
 	public extern var MovieScenePlayerIndex(get, never): cpp.Int32;
 	public inline extern function get_MovieScenePlayerIndex(): cpp.Int32 return this.MovieScenePlayerIndex;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelSequenceDirector*")
+abstract LevelSequenceDirectorPtr(cpp.Star<LevelSequenceDirector>) from cpp.Star<LevelSequenceDirector> to cpp.Star<LevelSequenceDirector>{
+	@:from
+	public static extern inline function fromValue(v: LevelSequenceDirector): LevelSequenceDirectorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelSequenceDirector {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

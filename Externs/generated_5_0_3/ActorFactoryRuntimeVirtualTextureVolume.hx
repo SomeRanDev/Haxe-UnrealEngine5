@@ -13,3 +13,22 @@ extern class ActorFactoryRuntimeVirtualTextureVolume extends ActorFactory {
 @:nativeGen
 abstract ConstActorFactoryRuntimeVirtualTextureVolume(ActorFactoryRuntimeVirtualTextureVolume) from ActorFactoryRuntimeVirtualTextureVolume {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorFactoryRuntimeVirtualTextureVolume*")
+abstract ActorFactoryRuntimeVirtualTextureVolumePtr(cpp.Star<ActorFactoryRuntimeVirtualTextureVolume>) from cpp.Star<ActorFactoryRuntimeVirtualTextureVolume> to cpp.Star<ActorFactoryRuntimeVirtualTextureVolume>{
+	@:from
+	public static extern inline function fromValue(v: ActorFactoryRuntimeVirtualTextureVolume): ActorFactoryRuntimeVirtualTextureVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorFactoryRuntimeVirtualTextureVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

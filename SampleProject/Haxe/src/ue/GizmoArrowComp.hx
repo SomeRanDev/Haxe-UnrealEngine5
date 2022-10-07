@@ -25,3 +25,22 @@ abstract ConstGizmoArrowComp(GizmoArrowComp) from GizmoArrowComp {
 	public extern var Thickness(get, never): cpp.Float32;
 	public inline extern function get_Thickness(): cpp.Float32 return this.Thickness;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoArrowComp*")
+abstract GizmoArrowCompPtr(cpp.Star<GizmoArrowComp>) from cpp.Star<GizmoArrowComp> to cpp.Star<GizmoArrowComp>{
+	@:from
+	public static extern inline function fromValue(v: GizmoArrowComp): GizmoArrowCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoArrowComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

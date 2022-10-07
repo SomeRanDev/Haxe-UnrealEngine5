@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_AimOffsetLookAt(AnimGraphNode_AimOffsetLookAt) from 
 	public extern var Node(get, never): AnimNode_AimOffsetLookAt;
 	public inline extern function get_Node(): AnimNode_AimOffsetLookAt return this.Node;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_AimOffsetLookAt*")
+abstract AnimGraphNode_AimOffsetLookAtPtr(cpp.Star<AnimGraphNode_AimOffsetLookAt>) from cpp.Star<AnimGraphNode_AimOffsetLookAt> to cpp.Star<AnimGraphNode_AimOffsetLookAt>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_AimOffsetLookAt): AnimGraphNode_AimOffsetLookAtPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_AimOffsetLookAt {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -34,3 +34,22 @@ abstract ConstMaterialExpressionStrataHairBSDF(MaterialExpressionStrataHairBSDF)
 	public extern var EmissiveColor(get, never): ExpressionInput;
 	public inline extern function get_EmissiveColor(): ExpressionInput return this.EmissiveColor;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionStrataHairBSDF*")
+abstract MaterialExpressionStrataHairBSDFPtr(cpp.Star<MaterialExpressionStrataHairBSDF>) from cpp.Star<MaterialExpressionStrataHairBSDF> to cpp.Star<MaterialExpressionStrataHairBSDF>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionStrataHairBSDF): MaterialExpressionStrataHairBSDFPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionStrataHairBSDF {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

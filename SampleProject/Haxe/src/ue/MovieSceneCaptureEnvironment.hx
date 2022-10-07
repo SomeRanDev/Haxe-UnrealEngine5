@@ -18,3 +18,22 @@ extern class MovieSceneCaptureEnvironment extends Object {
 @:nativeGen
 abstract ConstMovieSceneCaptureEnvironment(MovieSceneCaptureEnvironment) from MovieSceneCaptureEnvironment {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneCaptureEnvironment*")
+abstract MovieSceneCaptureEnvironmentPtr(cpp.Star<MovieSceneCaptureEnvironment>) from cpp.Star<MovieSceneCaptureEnvironment> to cpp.Star<MovieSceneCaptureEnvironment>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneCaptureEnvironment): MovieSceneCaptureEnvironmentPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneCaptureEnvironment {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

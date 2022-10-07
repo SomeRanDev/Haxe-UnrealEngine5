@@ -186,3 +186,22 @@ abstract ConstGameUserSettings(GameUserSettings) from GameUserSettings {
 	public extern var OnGameUserSettingsUINeedsUpdate(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnGameUserSettingsUINeedsUpdate(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnGameUserSettingsUINeedsUpdate;
 }
+
+@:forward
+@:nativeGen
+@:native("GameUserSettings*")
+abstract GameUserSettingsPtr(cpp.Star<GameUserSettings>) from cpp.Star<GameUserSettings> to cpp.Star<GameUserSettings>{
+	@:from
+	public static extern inline function fromValue(v: GameUserSettings): GameUserSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameUserSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

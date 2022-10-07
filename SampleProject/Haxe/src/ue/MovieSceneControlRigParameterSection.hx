@@ -40,3 +40,22 @@ abstract ConstMovieSceneControlRigParameterSection(MovieSceneControlRigParameter
 	public extern var SpaceChannels(get, never): TArray<SpaceControlNameAndChannel>;
 	public inline extern function get_SpaceChannels(): TArray<SpaceControlNameAndChannel> return this.SpaceChannels;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneControlRigParameterSection*")
+abstract MovieSceneControlRigParameterSectionPtr(cpp.Star<MovieSceneControlRigParameterSection>) from cpp.Star<MovieSceneControlRigParameterSection> to cpp.Star<MovieSceneControlRigParameterSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneControlRigParameterSection): MovieSceneControlRigParameterSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneControlRigParameterSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

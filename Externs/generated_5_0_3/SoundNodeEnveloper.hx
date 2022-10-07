@@ -55,3 +55,22 @@ abstract ConstSoundNodeEnveloper(SoundNodeEnveloper) from SoundNodeEnveloper {
 	public extern var VolumeMax(get, never): cpp.Float32;
 	public inline extern function get_VolumeMax(): cpp.Float32 return this.VolumeMax;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundNodeEnveloper*")
+abstract SoundNodeEnveloperPtr(cpp.Star<SoundNodeEnveloper>) from cpp.Star<SoundNodeEnveloper> to cpp.Star<SoundNodeEnveloper>{
+	@:from
+	public static extern inline function fromValue(v: SoundNodeEnveloper): SoundNodeEnveloperPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundNodeEnveloper {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

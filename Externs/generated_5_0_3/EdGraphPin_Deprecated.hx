@@ -76,3 +76,22 @@ abstract ConstEdGraphPin_Deprecated(EdGraphPin_Deprecated) from EdGraphPin_Depre
 	public extern var PersistentGuid(get, never): Guid;
 	public inline extern function get_PersistentGuid(): Guid return this.PersistentGuid;
 }
+
+@:forward
+@:nativeGen
+@:native("EdGraphPin_Deprecated*")
+abstract EdGraphPin_DeprecatedPtr(cpp.Star<EdGraphPin_Deprecated>) from cpp.Star<EdGraphPin_Deprecated> to cpp.Star<EdGraphPin_Deprecated>{
+	@:from
+	public static extern inline function fromValue(v: EdGraphPin_Deprecated): EdGraphPin_DeprecatedPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EdGraphPin_Deprecated {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

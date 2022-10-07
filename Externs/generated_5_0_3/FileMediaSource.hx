@@ -21,3 +21,22 @@ abstract ConstFileMediaSource(FileMediaSource) from FileMediaSource {
 	public extern var PrecacheFile(get, never): Bool;
 	public inline extern function get_PrecacheFile(): Bool return this.PrecacheFile;
 }
+
+@:forward
+@:nativeGen
+@:native("FileMediaSource*")
+abstract FileMediaSourcePtr(cpp.Star<FileMediaSource>) from cpp.Star<FileMediaSource> to cpp.Star<FileMediaSource>{
+	@:from
+	public static extern inline function fromValue(v: FileMediaSource): FileMediaSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FileMediaSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

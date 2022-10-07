@@ -16,3 +16,22 @@ abstract ConstPacketHandlerProfileConfig(PacketHandlerProfileConfig) from Packet
 	public extern var Components(get, never): TArray<FString>;
 	public inline extern function get_Components(): TArray<FString> return this.Components;
 }
+
+@:forward
+@:nativeGen
+@:native("PacketHandlerProfileConfig*")
+abstract PacketHandlerProfileConfigPtr(cpp.Star<PacketHandlerProfileConfig>) from cpp.Star<PacketHandlerProfileConfig> to cpp.Star<PacketHandlerProfileConfig>{
+	@:from
+	public static extern inline function fromValue(v: PacketHandlerProfileConfig): PacketHandlerProfileConfigPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PacketHandlerProfileConfig {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class BP_ThirdPersonCharacter_C extends HaxeForUnrealCharacter {
 @:nativeGen
 abstract ConstBP_ThirdPersonCharacter_C(BP_ThirdPersonCharacter_C) from BP_ThirdPersonCharacter_C {
 }
+
+@:forward
+@:nativeGen
+@:native("BP_ThirdPersonCharacter_C*")
+abstract BP_ThirdPersonCharacter_CPtr(cpp.Star<BP_ThirdPersonCharacter_C>) from cpp.Star<BP_ThirdPersonCharacter_C> to cpp.Star<BP_ThirdPersonCharacter_C>{
+	@:from
+	public static extern inline function fromValue(v: BP_ThirdPersonCharacter_C): BP_ThirdPersonCharacter_CPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BP_ThirdPersonCharacter_C {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

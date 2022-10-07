@@ -28,3 +28,22 @@ extern class AssetTools extends Interface {
 @:nativeGen
 abstract ConstAssetTools(AssetTools) from AssetTools {
 }
+
+@:forward
+@:nativeGen
+@:native("AssetTools*")
+abstract AssetToolsPtr(cpp.Star<AssetTools>) from cpp.Star<AssetTools> to cpp.Star<AssetTools>{
+	@:from
+	public static extern inline function fromValue(v: AssetTools): AssetToolsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AssetTools {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

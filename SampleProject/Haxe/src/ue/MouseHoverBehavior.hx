@@ -13,3 +13,22 @@ extern class MouseHoverBehavior extends InputBehavior {
 @:nativeGen
 abstract ConstMouseHoverBehavior(MouseHoverBehavior) from MouseHoverBehavior {
 }
+
+@:forward
+@:nativeGen
+@:native("MouseHoverBehavior*")
+abstract MouseHoverBehaviorPtr(cpp.Star<MouseHoverBehavior>) from cpp.Star<MouseHoverBehavior> to cpp.Star<MouseHoverBehavior>{
+	@:from
+	public static extern inline function fromValue(v: MouseHoverBehavior): MouseHoverBehaviorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MouseHoverBehavior {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

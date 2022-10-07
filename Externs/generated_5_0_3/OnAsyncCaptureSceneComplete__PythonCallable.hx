@@ -12,3 +12,22 @@ extern class OnAsyncCaptureSceneComplete__PythonCallable extends PythonCallableF
 @:nativeGen
 abstract ConstOnAsyncCaptureSceneComplete__PythonCallable(OnAsyncCaptureSceneComplete__PythonCallable) from OnAsyncCaptureSceneComplete__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnAsyncCaptureSceneComplete__PythonCallable*")
+abstract OnAsyncCaptureSceneComplete__PythonCallablePtr(cpp.Star<OnAsyncCaptureSceneComplete__PythonCallable>) from cpp.Star<OnAsyncCaptureSceneComplete__PythonCallable> to cpp.Star<OnAsyncCaptureSceneComplete__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnAsyncCaptureSceneComplete__PythonCallable): OnAsyncCaptureSceneComplete__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnAsyncCaptureSceneComplete__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

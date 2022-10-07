@@ -30,3 +30,22 @@ abstract ConstAnimNotifyState_TimedNiagaraEffect(AnimNotifyState_TimedNiagaraEff
 	public extern var bDestroyAtEnd(get, never): Bool;
 	public inline extern function get_bDestroyAtEnd(): Bool return this.bDestroyAtEnd;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimNotifyState_TimedNiagaraEffect*")
+abstract AnimNotifyState_TimedNiagaraEffectPtr(cpp.Star<AnimNotifyState_TimedNiagaraEffect>) from cpp.Star<AnimNotifyState_TimedNiagaraEffect> to cpp.Star<AnimNotifyState_TimedNiagaraEffect>{
+	@:from
+	public static extern inline function fromValue(v: AnimNotifyState_TimedNiagaraEffect): AnimNotifyState_TimedNiagaraEffectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimNotifyState_TimedNiagaraEffect {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

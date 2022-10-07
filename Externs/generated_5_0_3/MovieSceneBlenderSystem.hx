@@ -13,3 +13,22 @@ extern class MovieSceneBlenderSystem extends MovieSceneEntitySystem {
 @:nativeGen
 abstract ConstMovieSceneBlenderSystem(MovieSceneBlenderSystem) from MovieSceneBlenderSystem {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneBlenderSystem*")
+abstract MovieSceneBlenderSystemPtr(cpp.Star<MovieSceneBlenderSystem>) from cpp.Star<MovieSceneBlenderSystem> to cpp.Star<MovieSceneBlenderSystem>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneBlenderSystem): MovieSceneBlenderSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneBlenderSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

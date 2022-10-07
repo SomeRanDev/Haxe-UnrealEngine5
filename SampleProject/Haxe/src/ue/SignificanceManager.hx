@@ -16,3 +16,22 @@ abstract ConstSignificanceManager(SignificanceManager) from SignificanceManager 
 	public extern var SignificanceManagerClassName(get, never): SoftClassPath;
 	public inline extern function get_SignificanceManagerClassName(): SoftClassPath return this.SignificanceManagerClassName;
 }
+
+@:forward
+@:nativeGen
+@:native("SignificanceManager*")
+abstract SignificanceManagerPtr(cpp.Star<SignificanceManager>) from cpp.Star<SignificanceManager> to cpp.Star<SignificanceManager>{
+	@:from
+	public static extern inline function fromValue(v: SignificanceManager): SignificanceManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SignificanceManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

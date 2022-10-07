@@ -13,3 +13,22 @@ extern class BrushStampIndicatorBuilder extends InteractiveGizmoBuilder {
 @:nativeGen
 abstract ConstBrushStampIndicatorBuilder(BrushStampIndicatorBuilder) from BrushStampIndicatorBuilder {
 }
+
+@:forward
+@:nativeGen
+@:native("BrushStampIndicatorBuilder*")
+abstract BrushStampIndicatorBuilderPtr(cpp.Star<BrushStampIndicatorBuilder>) from cpp.Star<BrushStampIndicatorBuilder> to cpp.Star<BrushStampIndicatorBuilder>{
+	@:from
+	public static extern inline function fromValue(v: BrushStampIndicatorBuilder): BrushStampIndicatorBuilderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BrushStampIndicatorBuilder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

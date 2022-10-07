@@ -22,3 +22,22 @@ abstract ConstMaterialExpressionTime(MaterialExpressionTime) from MaterialExpres
 	public extern var Period(get, never): cpp.Float32;
 	public inline extern function get_Period(): cpp.Float32 return this.Period;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionTime*")
+abstract MaterialExpressionTimePtr(cpp.Star<MaterialExpressionTime>) from cpp.Star<MaterialExpressionTime> to cpp.Star<MaterialExpressionTime>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionTime): MaterialExpressionTimePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionTime {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

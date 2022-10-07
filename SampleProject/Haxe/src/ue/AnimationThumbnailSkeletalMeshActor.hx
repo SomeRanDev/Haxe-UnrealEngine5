@@ -13,3 +13,22 @@ extern class AnimationThumbnailSkeletalMeshActor extends SkeletalMeshActor {
 @:nativeGen
 abstract ConstAnimationThumbnailSkeletalMeshActor(AnimationThumbnailSkeletalMeshActor) from AnimationThumbnailSkeletalMeshActor {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationThumbnailSkeletalMeshActor*")
+abstract AnimationThumbnailSkeletalMeshActorPtr(cpp.Star<AnimationThumbnailSkeletalMeshActor>) from cpp.Star<AnimationThumbnailSkeletalMeshActor> to cpp.Star<AnimationThumbnailSkeletalMeshActor>{
+	@:from
+	public static extern inline function fromValue(v: AnimationThumbnailSkeletalMeshActor): AnimationThumbnailSkeletalMeshActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationThumbnailSkeletalMeshActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

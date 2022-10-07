@@ -13,3 +13,22 @@ extern class MaterialExpressionLess extends MaterialExpressionBinaryOp {
 @:nativeGen
 abstract ConstMaterialExpressionLess(MaterialExpressionLess) from MaterialExpressionLess {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionLess*")
+abstract MaterialExpressionLessPtr(cpp.Star<MaterialExpressionLess>) from cpp.Star<MaterialExpressionLess> to cpp.Star<MaterialExpressionLess>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionLess): MaterialExpressionLessPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionLess {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

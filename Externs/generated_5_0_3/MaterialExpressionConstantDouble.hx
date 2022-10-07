@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionConstantDouble(MaterialExpressionConstantDouble)
 	public extern var Value(get, never): cpp.Float64;
 	public inline extern function get_Value(): cpp.Float64 return this.Value;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionConstantDouble*")
+abstract MaterialExpressionConstantDoublePtr(cpp.Star<MaterialExpressionConstantDouble>) from cpp.Star<MaterialExpressionConstantDouble> to cpp.Star<MaterialExpressionConstantDouble>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionConstantDouble): MaterialExpressionConstantDoublePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionConstantDouble {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

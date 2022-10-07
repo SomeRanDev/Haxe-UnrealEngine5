@@ -22,3 +22,22 @@ abstract ConstBTDecorator_SetTagCooldown(BTDecorator_SetTagCooldown) from BTDeco
 	public extern var bAddToExistingDuration(get, never): Bool;
 	public inline extern function get_bAddToExistingDuration(): Bool return this.bAddToExistingDuration;
 }
+
+@:forward
+@:nativeGen
+@:native("BTDecorator_SetTagCooldown*")
+abstract BTDecorator_SetTagCooldownPtr(cpp.Star<BTDecorator_SetTagCooldown>) from cpp.Star<BTDecorator_SetTagCooldown> to cpp.Star<BTDecorator_SetTagCooldown>{
+	@:from
+	public static extern inline function fromValue(v: BTDecorator_SetTagCooldown): BTDecorator_SetTagCooldownPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTDecorator_SetTagCooldown {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

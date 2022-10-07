@@ -13,3 +13,22 @@ extern class TypedElementViewportInteraction extends Object {
 @:nativeGen
 abstract ConstTypedElementViewportInteraction(TypedElementViewportInteraction) from TypedElementViewportInteraction {
 }
+
+@:forward
+@:nativeGen
+@:native("TypedElementViewportInteraction*")
+abstract TypedElementViewportInteractionPtr(cpp.Star<TypedElementViewportInteraction>) from cpp.Star<TypedElementViewportInteraction> to cpp.Star<TypedElementViewportInteraction>{
+	@:from
+	public static extern inline function fromValue(v: TypedElementViewportInteraction): TypedElementViewportInteractionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TypedElementViewportInteraction {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

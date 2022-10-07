@@ -12,3 +12,22 @@ extern class OnAudioPlaybackPercent__PythonCallable extends PythonCallableForDel
 @:nativeGen
 abstract ConstOnAudioPlaybackPercent__PythonCallable(OnAudioPlaybackPercent__PythonCallable) from OnAudioPlaybackPercent__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnAudioPlaybackPercent__PythonCallable*")
+abstract OnAudioPlaybackPercent__PythonCallablePtr(cpp.Star<OnAudioPlaybackPercent__PythonCallable>) from cpp.Star<OnAudioPlaybackPercent__PythonCallable> to cpp.Star<OnAudioPlaybackPercent__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnAudioPlaybackPercent__PythonCallable): OnAudioPlaybackPercent__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnAudioPlaybackPercent__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

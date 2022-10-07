@@ -16,3 +16,22 @@ abstract ConstNavigationDataChunk(NavigationDataChunk) from NavigationDataChunk 
 	public extern var NavigationDataName(get, never): FName;
 	public inline extern function get_NavigationDataName(): FName return this.NavigationDataName;
 }
+
+@:forward
+@:nativeGen
+@:native("NavigationDataChunk*")
+abstract NavigationDataChunkPtr(cpp.Star<NavigationDataChunk>) from cpp.Star<NavigationDataChunk> to cpp.Star<NavigationDataChunk>{
+	@:from
+	public static extern inline function fromValue(v: NavigationDataChunk): NavigationDataChunkPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavigationDataChunk {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class AnimNotify_PauseClothingSimulation extends AnimNotify {
 @:nativeGen
 abstract ConstAnimNotify_PauseClothingSimulation(AnimNotify_PauseClothingSimulation) from AnimNotify_PauseClothingSimulation {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimNotify_PauseClothingSimulation*")
+abstract AnimNotify_PauseClothingSimulationPtr(cpp.Star<AnimNotify_PauseClothingSimulation>) from cpp.Star<AnimNotify_PauseClothingSimulation> to cpp.Star<AnimNotify_PauseClothingSimulation>{
+	@:from
+	public static extern inline function fromValue(v: AnimNotify_PauseClothingSimulation): AnimNotify_PauseClothingSimulationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimNotify_PauseClothingSimulation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

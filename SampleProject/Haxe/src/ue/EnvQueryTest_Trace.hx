@@ -28,3 +28,22 @@ abstract ConstEnvQueryTest_Trace(EnvQueryTest_Trace) from EnvQueryTest_Trace {
 	public extern var Context(get, never): TSubclassOf<EnvQueryContext.ConstEnvQueryContext>;
 	public inline extern function get_Context(): TSubclassOf<EnvQueryContext.ConstEnvQueryContext> return this.Context;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryTest_Trace*")
+abstract EnvQueryTest_TracePtr(cpp.Star<EnvQueryTest_Trace>) from cpp.Star<EnvQueryTest_Trace> to cpp.Star<EnvQueryTest_Trace>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryTest_Trace): EnvQueryTest_TracePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryTest_Trace {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

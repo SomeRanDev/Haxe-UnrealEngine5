@@ -21,3 +21,22 @@ abstract ConstFindTurnBasedMatchCallbackProxy(FindTurnBasedMatchCallbackProxy) f
 	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(FString) -> Void>;
 	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(FString) -> Void> return this.OnFailure;
 }
+
+@:forward
+@:nativeGen
+@:native("FindTurnBasedMatchCallbackProxy*")
+abstract FindTurnBasedMatchCallbackProxyPtr(cpp.Star<FindTurnBasedMatchCallbackProxy>) from cpp.Star<FindTurnBasedMatchCallbackProxy> to cpp.Star<FindTurnBasedMatchCallbackProxy>{
+	@:from
+	public static extern inline function fromValue(v: FindTurnBasedMatchCallbackProxy): FindTurnBasedMatchCallbackProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FindTurnBasedMatchCallbackProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

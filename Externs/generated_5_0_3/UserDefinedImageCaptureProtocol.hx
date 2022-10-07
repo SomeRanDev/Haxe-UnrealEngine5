@@ -26,3 +26,22 @@ abstract ConstUserDefinedImageCaptureProtocol(UserDefinedImageCaptureProtocol) f
 	public extern var CompressionQuality(get, never): cpp.Int32;
 	public inline extern function get_CompressionQuality(): cpp.Int32 return this.CompressionQuality;
 }
+
+@:forward
+@:nativeGen
+@:native("UserDefinedImageCaptureProtocol*")
+abstract UserDefinedImageCaptureProtocolPtr(cpp.Star<UserDefinedImageCaptureProtocol>) from cpp.Star<UserDefinedImageCaptureProtocol> to cpp.Star<UserDefinedImageCaptureProtocol>{
+	@:from
+	public static extern inline function fromValue(v: UserDefinedImageCaptureProtocol): UserDefinedImageCaptureProtocolPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UserDefinedImageCaptureProtocol {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

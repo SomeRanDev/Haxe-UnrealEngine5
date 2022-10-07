@@ -72,3 +72,22 @@ abstract ConstAnimDataModel(AnimDataModel) from AnimDataModel {
 	public extern var RawCurveTracks(get, never): RawCurveTracks;
 	public inline extern function get_RawCurveTracks(): RawCurveTracks return this.RawCurveTracks;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimDataModel*")
+abstract AnimDataModelPtr(cpp.Star<AnimDataModel>) from cpp.Star<AnimDataModel> to cpp.Star<AnimDataModel>{
+	@:from
+	public static extern inline function fromValue(v: AnimDataModel): AnimDataModelPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimDataModel {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -25,3 +25,22 @@ abstract ConstMaterialExpressionSceneColor(MaterialExpressionSceneColor) from Ma
 	public extern var ConstInput(get, never): Vector2D;
 	public inline extern function get_ConstInput(): Vector2D return this.ConstInput;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionSceneColor*")
+abstract MaterialExpressionSceneColorPtr(cpp.Star<MaterialExpressionSceneColor>) from cpp.Star<MaterialExpressionSceneColor> to cpp.Star<MaterialExpressionSceneColor>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionSceneColor): MaterialExpressionSceneColorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionSceneColor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

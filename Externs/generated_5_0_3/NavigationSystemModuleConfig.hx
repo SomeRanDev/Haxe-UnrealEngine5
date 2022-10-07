@@ -25,3 +25,22 @@ abstract ConstNavigationSystemModuleConfig(NavigationSystemModuleConfig) from Na
 	public extern var bSpawnNavDataInNavBoundsLevel(get, never): Bool;
 	public inline extern function get_bSpawnNavDataInNavBoundsLevel(): Bool return this.bSpawnNavDataInNavBoundsLevel;
 }
+
+@:forward
+@:nativeGen
+@:native("NavigationSystemModuleConfig*")
+abstract NavigationSystemModuleConfigPtr(cpp.Star<NavigationSystemModuleConfig>) from cpp.Star<NavigationSystemModuleConfig> to cpp.Star<NavigationSystemModuleConfig>{
+	@:from
+	public static extern inline function fromValue(v: NavigationSystemModuleConfig): NavigationSystemModuleConfigPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavigationSystemModuleConfig {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstSlateThemeManager(SlateThemeManager) from SlateThemeManager {
 	public extern var ActiveColors(get, never): StyleColorList;
 	public inline extern function get_ActiveColors(): StyleColorList return this.ActiveColors;
 }
+
+@:forward
+@:nativeGen
+@:native("SlateThemeManager*")
+abstract SlateThemeManagerPtr(cpp.Star<SlateThemeManager>) from cpp.Star<SlateThemeManager> to cpp.Star<SlateThemeManager>{
+	@:from
+	public static extern inline function fromValue(v: SlateThemeManager): SlateThemeManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SlateThemeManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class GenerateDistillFileSetsCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstGenerateDistillFileSetsCommandlet(GenerateDistillFileSetsCommandlet) from GenerateDistillFileSetsCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("GenerateDistillFileSetsCommandlet*")
+abstract GenerateDistillFileSetsCommandletPtr(cpp.Star<GenerateDistillFileSetsCommandlet>) from cpp.Star<GenerateDistillFileSetsCommandlet> to cpp.Star<GenerateDistillFileSetsCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: GenerateDistillFileSetsCommandlet): GenerateDistillFileSetsCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GenerateDistillFileSetsCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

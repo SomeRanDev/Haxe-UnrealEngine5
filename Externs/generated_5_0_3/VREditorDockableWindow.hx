@@ -40,3 +40,22 @@ abstract ConstVREditorDockableWindow(VREditorDockableWindow) from VREditorDockab
 	public extern var DragOperationComponent(get, never): cpp.Star<ViewportDragOperationComp.ConstViewportDragOperationComp>;
 	public inline extern function get_DragOperationComponent(): cpp.Star<ViewportDragOperationComp.ConstViewportDragOperationComp> return this.DragOperationComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("VREditorDockableWindow*")
+abstract VREditorDockableWindowPtr(cpp.Star<VREditorDockableWindow>) from cpp.Star<VREditorDockableWindow> to cpp.Star<VREditorDockableWindow>{
+	@:from
+	public static extern inline function fromValue(v: VREditorDockableWindow): VREditorDockableWindowPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VREditorDockableWindow {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

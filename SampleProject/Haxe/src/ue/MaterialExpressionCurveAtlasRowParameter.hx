@@ -22,3 +22,22 @@ abstract ConstMaterialExpressionCurveAtlasRowParameter(MaterialExpressionCurveAt
 	public extern var InputTime(get, never): ExpressionInput;
 	public inline extern function get_InputTime(): ExpressionInput return this.InputTime;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionCurveAtlasRowParameter*")
+abstract MaterialExpressionCurveAtlasRowParameterPtr(cpp.Star<MaterialExpressionCurveAtlasRowParameter>) from cpp.Star<MaterialExpressionCurveAtlasRowParameter> to cpp.Star<MaterialExpressionCurveAtlasRowParameter>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionCurveAtlasRowParameter): MaterialExpressionCurveAtlasRowParameterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionCurveAtlasRowParameter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

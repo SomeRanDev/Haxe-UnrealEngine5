@@ -37,3 +37,22 @@ abstract ConstMovieSceneUserImportFBXSettings(MovieSceneUserImportFBXSettings) f
 	public extern var ReduceKeysTolerance(get, never): cpp.Float32;
 	public inline extern function get_ReduceKeysTolerance(): cpp.Float32 return this.ReduceKeysTolerance;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneUserImportFBXSettings*")
+abstract MovieSceneUserImportFBXSettingsPtr(cpp.Star<MovieSceneUserImportFBXSettings>) from cpp.Star<MovieSceneUserImportFBXSettings> to cpp.Star<MovieSceneUserImportFBXSettings>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneUserImportFBXSettings): MovieSceneUserImportFBXSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneUserImportFBXSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

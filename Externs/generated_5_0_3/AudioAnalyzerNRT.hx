@@ -21,3 +21,22 @@ abstract ConstAudioAnalyzerNRT(AudioAnalyzerNRT) from AudioAnalyzerNRT {
 	public extern var DurationInSeconds(get, never): cpp.Float32;
 	public inline extern function get_DurationInSeconds(): cpp.Float32 return this.DurationInSeconds;
 }
+
+@:forward
+@:nativeGen
+@:native("AudioAnalyzerNRT*")
+abstract AudioAnalyzerNRTPtr(cpp.Star<AudioAnalyzerNRT>) from cpp.Star<AudioAnalyzerNRT> to cpp.Star<AudioAnalyzerNRT>{
+	@:from
+	public static extern inline function fromValue(v: AudioAnalyzerNRT): AudioAnalyzerNRTPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AudioAnalyzerNRT {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

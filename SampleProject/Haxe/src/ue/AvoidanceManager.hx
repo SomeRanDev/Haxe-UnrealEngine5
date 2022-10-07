@@ -39,3 +39,22 @@ abstract ConstAvoidanceManager(AvoidanceManager) from AvoidanceManager {
 	public extern var HeightCheckMargin(get, never): cpp.Float32;
 	public inline extern function get_HeightCheckMargin(): cpp.Float32 return this.HeightCheckMargin;
 }
+
+@:forward
+@:nativeGen
+@:native("AvoidanceManager*")
+abstract AvoidanceManagerPtr(cpp.Star<AvoidanceManager>) from cpp.Star<AvoidanceManager> to cpp.Star<AvoidanceManager>{
+	@:from
+	public static extern inline function fromValue(v: AvoidanceManager): AvoidanceManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AvoidanceManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

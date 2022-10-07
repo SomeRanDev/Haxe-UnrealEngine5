@@ -80,3 +80,22 @@ abstract ConstAIController(AIController) from AIController {
 	public extern var ReceiveMoveCompleted(get, never): HaxeMulticastSparseDelegateProperty<(AIRequestID, EPathFollowingResult) -> Void>;
 	public inline extern function get_ReceiveMoveCompleted(): HaxeMulticastSparseDelegateProperty<(AIRequestID, EPathFollowingResult) -> Void> return this.ReceiveMoveCompleted;
 }
+
+@:forward
+@:nativeGen
+@:native("AIController*")
+abstract AIControllerPtr(cpp.Star<AIController>) from cpp.Star<AIController> to cpp.Star<AIController>{
+	@:from
+	public static extern inline function fromValue(v: AIController): AIControllerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AIController {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -22,3 +22,22 @@ abstract ConstParticleModuleSubUVMovie(ParticleModuleSubUVMovie) from ParticleMo
 	public extern var StartingFrame(get, never): cpp.Int32;
 	public inline extern function get_StartingFrame(): cpp.Int32 return this.StartingFrame;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleSubUVMovie*")
+abstract ParticleModuleSubUVMoviePtr(cpp.Star<ParticleModuleSubUVMovie>) from cpp.Star<ParticleModuleSubUVMovie> to cpp.Star<ParticleModuleSubUVMovie>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleSubUVMovie): ParticleModuleSubUVMoviePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleSubUVMovie {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

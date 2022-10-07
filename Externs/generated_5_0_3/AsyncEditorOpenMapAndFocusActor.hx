@@ -18,3 +18,22 @@ abstract ConstAsyncEditorOpenMapAndFocusActor(AsyncEditorOpenMapAndFocusActor) f
 	public extern var Complete(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_Complete(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.Complete;
 }
+
+@:forward
+@:nativeGen
+@:native("AsyncEditorOpenMapAndFocusActor*")
+abstract AsyncEditorOpenMapAndFocusActorPtr(cpp.Star<AsyncEditorOpenMapAndFocusActor>) from cpp.Star<AsyncEditorOpenMapAndFocusActor> to cpp.Star<AsyncEditorOpenMapAndFocusActor>{
+	@:from
+	public static extern inline function fromValue(v: AsyncEditorOpenMapAndFocusActor): AsyncEditorOpenMapAndFocusActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AsyncEditorOpenMapAndFocusActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

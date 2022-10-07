@@ -13,3 +13,22 @@ extern class CommonResolutionMenuContext extends ToolMenuContextBase {
 @:nativeGen
 abstract ConstCommonResolutionMenuContext(CommonResolutionMenuContext) from CommonResolutionMenuContext {
 }
+
+@:forward
+@:nativeGen
+@:native("CommonResolutionMenuContext*")
+abstract CommonResolutionMenuContextPtr(cpp.Star<CommonResolutionMenuContext>) from cpp.Star<CommonResolutionMenuContext> to cpp.Star<CommonResolutionMenuContext>{
+	@:from
+	public static extern inline function fromValue(v: CommonResolutionMenuContext): CommonResolutionMenuContextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CommonResolutionMenuContext {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

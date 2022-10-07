@@ -13,3 +13,22 @@ extern class AnimPreviewAttacheInstance extends AnimInstance {
 @:nativeGen
 abstract ConstAnimPreviewAttacheInstance(AnimPreviewAttacheInstance) from AnimPreviewAttacheInstance {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimPreviewAttacheInstance*")
+abstract AnimPreviewAttacheInstancePtr(cpp.Star<AnimPreviewAttacheInstance>) from cpp.Star<AnimPreviewAttacheInstance> to cpp.Star<AnimPreviewAttacheInstance>{
+	@:from
+	public static extern inline function fromValue(v: AnimPreviewAttacheInstance): AnimPreviewAttacheInstancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimPreviewAttacheInstance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

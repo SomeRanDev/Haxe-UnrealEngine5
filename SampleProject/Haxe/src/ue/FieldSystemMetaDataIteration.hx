@@ -18,3 +18,22 @@ abstract ConstFieldSystemMetaDataIteration(FieldSystemMetaDataIteration) from Fi
 	public extern var Iterations(get, never): cpp.Int32;
 	public inline extern function get_Iterations(): cpp.Int32 return this.Iterations;
 }
+
+@:forward
+@:nativeGen
+@:native("FieldSystemMetaDataIteration*")
+abstract FieldSystemMetaDataIterationPtr(cpp.Star<FieldSystemMetaDataIteration>) from cpp.Star<FieldSystemMetaDataIteration> to cpp.Star<FieldSystemMetaDataIteration>{
+	@:from
+	public static extern inline function fromValue(v: FieldSystemMetaDataIteration): FieldSystemMetaDataIterationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FieldSystemMetaDataIteration {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

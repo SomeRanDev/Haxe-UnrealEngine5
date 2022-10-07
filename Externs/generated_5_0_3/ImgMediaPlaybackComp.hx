@@ -19,3 +19,22 @@ abstract ConstImgMediaPlaybackComp(ImgMediaPlaybackComp) from ImgMediaPlaybackCo
 	public extern var LODBias(get, never): cpp.Float32;
 	public inline extern function get_LODBias(): cpp.Float32 return this.LODBias;
 }
+
+@:forward
+@:nativeGen
+@:native("ImgMediaPlaybackComp*")
+abstract ImgMediaPlaybackCompPtr(cpp.Star<ImgMediaPlaybackComp>) from cpp.Star<ImgMediaPlaybackComp> to cpp.Star<ImgMediaPlaybackComp>{
+	@:from
+	public static extern inline function fromValue(v: ImgMediaPlaybackComp): ImgMediaPlaybackCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ImgMediaPlaybackComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

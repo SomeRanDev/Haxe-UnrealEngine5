@@ -37,3 +37,22 @@ abstract ConstVariantSet(VariantSet) from VariantSet {
 	public extern var Thumbnail(get, never): cpp.Star<Texture2D.ConstTexture2D>;
 	public inline extern function get_Thumbnail(): cpp.Star<Texture2D.ConstTexture2D> return this.Thumbnail;
 }
+
+@:forward
+@:nativeGen
+@:native("VariantSet*")
+abstract VariantSetPtr(cpp.Star<VariantSet>) from cpp.Star<VariantSet> to cpp.Star<VariantSet>{
+	@:from
+	public static extern inline function fromValue(v: VariantSet): VariantSetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VariantSet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -200,3 +200,22 @@ abstract ConstSkeletalMesh(SkeletalMesh) from SkeletalMesh {
 	public extern var SkinWeightProfiles(get, never): TArray<SkinWeightProfileInfo>;
 	public inline extern function get_SkinWeightProfiles(): TArray<SkinWeightProfileInfo> return this.SkinWeightProfiles;
 }
+
+@:forward
+@:nativeGen
+@:native("SkeletalMesh*")
+abstract SkeletalMeshPtr(cpp.Star<SkeletalMesh>) from cpp.Star<SkeletalMesh> to cpp.Star<SkeletalMesh>{
+	@:from
+	public static extern inline function fromValue(v: SkeletalMesh): SkeletalMeshPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SkeletalMesh {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

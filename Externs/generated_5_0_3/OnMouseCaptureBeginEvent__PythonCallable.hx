@@ -12,3 +12,22 @@ extern class OnMouseCaptureBeginEvent__PythonCallable extends PythonCallableForD
 @:nativeGen
 abstract ConstOnMouseCaptureBeginEvent__PythonCallable(OnMouseCaptureBeginEvent__PythonCallable) from OnMouseCaptureBeginEvent__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnMouseCaptureBeginEvent__PythonCallable*")
+abstract OnMouseCaptureBeginEvent__PythonCallablePtr(cpp.Star<OnMouseCaptureBeginEvent__PythonCallable>) from cpp.Star<OnMouseCaptureBeginEvent__PythonCallable> to cpp.Star<OnMouseCaptureBeginEvent__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnMouseCaptureBeginEvent__PythonCallable): OnMouseCaptureBeginEvent__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnMouseCaptureBeginEvent__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

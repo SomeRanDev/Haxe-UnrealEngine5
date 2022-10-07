@@ -22,3 +22,22 @@ abstract ConstMovieSceneFadeSection(MovieSceneFadeSection) from MovieSceneFadeSe
 	public extern var bFadeAudio(get, never): Bool;
 	public inline extern function get_bFadeAudio(): Bool return this.bFadeAudio;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneFadeSection*")
+abstract MovieSceneFadeSectionPtr(cpp.Star<MovieSceneFadeSection>) from cpp.Star<MovieSceneFadeSection> to cpp.Star<MovieSceneFadeSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneFadeSection): MovieSceneFadeSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneFadeSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

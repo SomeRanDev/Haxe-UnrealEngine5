@@ -13,3 +13,22 @@ extern class NavMeshRenderingComp extends DebugDrawComp {
 @:nativeGen
 abstract ConstNavMeshRenderingComp(NavMeshRenderingComp) from NavMeshRenderingComp {
 }
+
+@:forward
+@:nativeGen
+@:native("NavMeshRenderingComp*")
+abstract NavMeshRenderingCompPtr(cpp.Star<NavMeshRenderingComp>) from cpp.Star<NavMeshRenderingComp> to cpp.Star<NavMeshRenderingComp>{
+	@:from
+	public static extern inline function fromValue(v: NavMeshRenderingComp): NavMeshRenderingCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavMeshRenderingComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

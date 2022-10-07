@@ -200,3 +200,22 @@ abstract ConstSplineComp(SplineComp) from SplineComp {
 	public extern var ScaleVisualizationWidth(get, never): cpp.Float32;
 	public inline extern function get_ScaleVisualizationWidth(): cpp.Float32 return this.ScaleVisualizationWidth;
 }
+
+@:forward
+@:nativeGen
+@:native("SplineComp*")
+abstract SplineCompPtr(cpp.Star<SplineComp>) from cpp.Star<SplineComp> to cpp.Star<SplineComp>{
+	@:from
+	public static extern inline function fromValue(v: SplineComp): SplineCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SplineComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

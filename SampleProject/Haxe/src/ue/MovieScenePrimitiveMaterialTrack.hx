@@ -16,3 +16,22 @@ abstract ConstMovieScenePrimitiveMaterialTrack(MovieScenePrimitiveMaterialTrack)
 	public extern var MaterialIndex(get, never): cpp.Int32;
 	public inline extern function get_MaterialIndex(): cpp.Int32 return this.MaterialIndex;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieScenePrimitiveMaterialTrack*")
+abstract MovieScenePrimitiveMaterialTrackPtr(cpp.Star<MovieScenePrimitiveMaterialTrack>) from cpp.Star<MovieScenePrimitiveMaterialTrack> to cpp.Star<MovieScenePrimitiveMaterialTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieScenePrimitiveMaterialTrack): MovieScenePrimitiveMaterialTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieScenePrimitiveMaterialTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class K2Node_GetEnumeratorNameAsString extends K2Node_GetEnumeratorName {
 @:nativeGen
 abstract ConstK2Node_GetEnumeratorNameAsString(K2Node_GetEnumeratorNameAsString) from K2Node_GetEnumeratorNameAsString {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_GetEnumeratorNameAsString*")
+abstract K2Node_GetEnumeratorNameAsStringPtr(cpp.Star<K2Node_GetEnumeratorNameAsString>) from cpp.Star<K2Node_GetEnumeratorNameAsString> to cpp.Star<K2Node_GetEnumeratorNameAsString>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_GetEnumeratorNameAsString): K2Node_GetEnumeratorNameAsStringPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_GetEnumeratorNameAsString {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

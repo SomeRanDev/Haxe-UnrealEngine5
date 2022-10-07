@@ -132,3 +132,22 @@ abstract ConstFbxImportUI(FbxImportUI) from FbxImportUI {
 	public extern var AnimEndFrame(get, never): FString;
 	public inline extern function get_AnimEndFrame(): FString return this.AnimEndFrame;
 }
+
+@:forward
+@:nativeGen
+@:native("FbxImportUI*")
+abstract FbxImportUIPtr(cpp.Star<FbxImportUI>) from cpp.Star<FbxImportUI> to cpp.Star<FbxImportUI>{
+	@:from
+	public static extern inline function fromValue(v: FbxImportUI): FbxImportUIPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FbxImportUI {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

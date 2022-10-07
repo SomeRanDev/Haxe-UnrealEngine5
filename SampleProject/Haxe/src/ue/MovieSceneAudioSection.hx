@@ -81,3 +81,22 @@ abstract ConstMovieSceneAudioSection(MovieSceneAudioSection) from MovieSceneAudi
 	public extern var OnAudioPlaybackPercent(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<SoundWave.ConstSoundWave>, cpp.Float32) -> Void>;
 	public inline extern function get_OnAudioPlaybackPercent(): HaxeMulticastSparseDelegateProperty<(cpp.Star<SoundWave.ConstSoundWave>, cpp.Float32) -> Void> return this.OnAudioPlaybackPercent;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneAudioSection*")
+abstract MovieSceneAudioSectionPtr(cpp.Star<MovieSceneAudioSection>) from cpp.Star<MovieSceneAudioSection> to cpp.Star<MovieSceneAudioSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneAudioSection): MovieSceneAudioSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneAudioSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

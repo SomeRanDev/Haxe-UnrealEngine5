@@ -16,3 +16,22 @@ abstract ConstNiagaraStackEventScriptItemGroup(NiagaraStackEventScriptItemGroup)
 	public extern var EventHandlerProperties(get, never): cpp.Star<NiagaraStackEventHandlerPropertiesItem.ConstNiagaraStackEventHandlerPropertiesItem>;
 	public inline extern function get_EventHandlerProperties(): cpp.Star<NiagaraStackEventHandlerPropertiesItem.ConstNiagaraStackEventHandlerPropertiesItem> return this.EventHandlerProperties;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackEventScriptItemGroup*")
+abstract NiagaraStackEventScriptItemGroupPtr(cpp.Star<NiagaraStackEventScriptItemGroup>) from cpp.Star<NiagaraStackEventScriptItemGroup> to cpp.Star<NiagaraStackEventScriptItemGroup>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackEventScriptItemGroup): NiagaraStackEventScriptItemGroupPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackEventScriptItemGroup {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

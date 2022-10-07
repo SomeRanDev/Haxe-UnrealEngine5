@@ -13,3 +13,22 @@ extern class CookGlobalShadersCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstCookGlobalShadersCommandlet(CookGlobalShadersCommandlet) from CookGlobalShadersCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("CookGlobalShadersCommandlet*")
+abstract CookGlobalShadersCommandletPtr(cpp.Star<CookGlobalShadersCommandlet>) from cpp.Star<CookGlobalShadersCommandlet> to cpp.Star<CookGlobalShadersCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: CookGlobalShadersCommandlet): CookGlobalShadersCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CookGlobalShadersCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

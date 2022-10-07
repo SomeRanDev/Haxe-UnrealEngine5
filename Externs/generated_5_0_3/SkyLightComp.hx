@@ -89,3 +89,22 @@ abstract ConstSkyLightComp(SkyLightComp) from SkyLightComp {
 	public extern var BlendDestinationCubemap(get, never): cpp.Star<TextureCube.ConstTextureCube>;
 	public inline extern function get_BlendDestinationCubemap(): cpp.Star<TextureCube.ConstTextureCube> return this.BlendDestinationCubemap;
 }
+
+@:forward
+@:nativeGen
+@:native("SkyLightComp*")
+abstract SkyLightCompPtr(cpp.Star<SkyLightComp>) from cpp.Star<SkyLightComp> to cpp.Star<SkyLightComp>{
+	@:from
+	public static extern inline function fromValue(v: SkyLightComp): SkyLightCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SkyLightComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

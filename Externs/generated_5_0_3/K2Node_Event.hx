@@ -34,3 +34,22 @@ abstract ConstK2Node_Event(K2Node_Event) from K2Node_Event {
 	public extern var FunctionFlags(get, never): cpp.UInt32;
 	public inline extern function get_FunctionFlags(): cpp.UInt32 return this.FunctionFlags;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_Event*")
+abstract K2Node_EventPtr(cpp.Star<K2Node_Event>) from cpp.Star<K2Node_Event> to cpp.Star<K2Node_Event>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_Event): K2Node_EventPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_Event {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionVirtualTextureFeatureSwitch(MaterialExpressionVi
 	public extern var Yes(get, never): ExpressionInput;
 	public inline extern function get_Yes(): ExpressionInput return this.Yes;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionVirtualTextureFeatureSwitch*")
+abstract MaterialExpressionVirtualTextureFeatureSwitchPtr(cpp.Star<MaterialExpressionVirtualTextureFeatureSwitch>) from cpp.Star<MaterialExpressionVirtualTextureFeatureSwitch> to cpp.Star<MaterialExpressionVirtualTextureFeatureSwitch>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionVirtualTextureFeatureSwitch): MaterialExpressionVirtualTextureFeatureSwitchPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionVirtualTextureFeatureSwitch {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

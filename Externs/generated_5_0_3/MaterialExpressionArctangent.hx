@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionArctangent(MaterialExpressionArctangent) from Ma
 	public extern var Input(get, never): ExpressionInput;
 	public inline extern function get_Input(): ExpressionInput return this.Input;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionArctangent*")
+abstract MaterialExpressionArctangentPtr(cpp.Star<MaterialExpressionArctangent>) from cpp.Star<MaterialExpressionArctangent> to cpp.Star<MaterialExpressionArctangent>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionArctangent): MaterialExpressionArctangentPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionArctangent {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class MaterialExpressionDecalDerivative extends MaterialExpression {
 @:nativeGen
 abstract ConstMaterialExpressionDecalDerivative(MaterialExpressionDecalDerivative) from MaterialExpressionDecalDerivative {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionDecalDerivative*")
+abstract MaterialExpressionDecalDerivativePtr(cpp.Star<MaterialExpressionDecalDerivative>) from cpp.Star<MaterialExpressionDecalDerivative> to cpp.Star<MaterialExpressionDecalDerivative>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionDecalDerivative): MaterialExpressionDecalDerivativePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionDecalDerivative {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

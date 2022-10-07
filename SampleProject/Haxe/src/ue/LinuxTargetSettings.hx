@@ -28,3 +28,22 @@ abstract ConstLinuxTargetSettings(LinuxTargetSettings) from LinuxTargetSettings 
 	public extern var TargetedRHIs(get, never): TArray<FString>;
 	public inline extern function get_TargetedRHIs(): TArray<FString> return this.TargetedRHIs;
 }
+
+@:forward
+@:nativeGen
+@:native("LinuxTargetSettings*")
+abstract LinuxTargetSettingsPtr(cpp.Star<LinuxTargetSettings>) from cpp.Star<LinuxTargetSettings> to cpp.Star<LinuxTargetSettings>{
+	@:from
+	public static extern inline function fromValue(v: LinuxTargetSettings): LinuxTargetSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LinuxTargetSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -17,3 +17,22 @@ extern class ContentBrowserItemLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstContentBrowserItemLibrary(ContentBrowserItemLibrary) from ContentBrowserItemLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("ContentBrowserItemLibrary*")
+abstract ContentBrowserItemLibraryPtr(cpp.Star<ContentBrowserItemLibrary>) from cpp.Star<ContentBrowserItemLibrary> to cpp.Star<ContentBrowserItemLibrary>{
+	@:from
+	public static extern inline function fromValue(v: ContentBrowserItemLibrary): ContentBrowserItemLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ContentBrowserItemLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

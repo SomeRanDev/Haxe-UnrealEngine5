@@ -13,3 +13,22 @@ extern class PackageFactory extends Factory {
 @:nativeGen
 abstract ConstPackageFactory(PackageFactory) from PackageFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("PackageFactory*")
+abstract PackageFactoryPtr(cpp.Star<PackageFactory>) from cpp.Star<PackageFactory> to cpp.Star<PackageFactory>{
+	@:from
+	public static extern inline function fromValue(v: PackageFactory): PackageFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PackageFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

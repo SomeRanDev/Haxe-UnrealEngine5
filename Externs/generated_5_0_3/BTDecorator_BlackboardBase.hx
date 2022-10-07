@@ -16,3 +16,22 @@ abstract ConstBTDecorator_BlackboardBase(BTDecorator_BlackboardBase) from BTDeco
 	public extern var BlackboardKey(get, never): BlackboardKeySelector;
 	public inline extern function get_BlackboardKey(): BlackboardKeySelector return this.BlackboardKey;
 }
+
+@:forward
+@:nativeGen
+@:native("BTDecorator_BlackboardBase*")
+abstract BTDecorator_BlackboardBasePtr(cpp.Star<BTDecorator_BlackboardBase>) from cpp.Star<BTDecorator_BlackboardBase> to cpp.Star<BTDecorator_BlackboardBase>{
+	@:from
+	public static extern inline function fromValue(v: BTDecorator_BlackboardBase): BTDecorator_BlackboardBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTDecorator_BlackboardBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

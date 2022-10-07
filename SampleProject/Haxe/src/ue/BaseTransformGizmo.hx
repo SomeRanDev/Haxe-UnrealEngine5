@@ -22,3 +22,22 @@ abstract ConstBaseTransformGizmo(BaseTransformGizmo) from BaseTransformGizmo {
 	public extern var WorldInteraction(get, never): cpp.Star<ViewportWorldInteraction.ConstViewportWorldInteraction>;
 	public inline extern function get_WorldInteraction(): cpp.Star<ViewportWorldInteraction.ConstViewportWorldInteraction> return this.WorldInteraction;
 }
+
+@:forward
+@:nativeGen
+@:native("BaseTransformGizmo*")
+abstract BaseTransformGizmoPtr(cpp.Star<BaseTransformGizmo>) from cpp.Star<BaseTransformGizmo> to cpp.Star<BaseTransformGizmo>{
+	@:from
+	public static extern inline function fromValue(v: BaseTransformGizmo): BaseTransformGizmoPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BaseTransformGizmo {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

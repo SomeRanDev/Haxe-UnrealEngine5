@@ -13,3 +13,22 @@ extern class SoundSourceEffectChainFactory extends Factory {
 @:nativeGen
 abstract ConstSoundSourceEffectChainFactory(SoundSourceEffectChainFactory) from SoundSourceEffectChainFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("SoundSourceEffectChainFactory*")
+abstract SoundSourceEffectChainFactoryPtr(cpp.Star<SoundSourceEffectChainFactory>) from cpp.Star<SoundSourceEffectChainFactory> to cpp.Star<SoundSourceEffectChainFactory>{
+	@:from
+	public static extern inline function fromValue(v: SoundSourceEffectChainFactory): SoundSourceEffectChainFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundSourceEffectChainFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

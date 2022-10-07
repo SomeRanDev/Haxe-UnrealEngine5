@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionShaderStageSwitch(MaterialExpressionShaderStageS
 	public extern var VertexShader(get, never): ExpressionInput;
 	public inline extern function get_VertexShader(): ExpressionInput return this.VertexShader;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionShaderStageSwitch*")
+abstract MaterialExpressionShaderStageSwitchPtr(cpp.Star<MaterialExpressionShaderStageSwitch>) from cpp.Star<MaterialExpressionShaderStageSwitch> to cpp.Star<MaterialExpressionShaderStageSwitch>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionShaderStageSwitch): MaterialExpressionShaderStageSwitchPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionShaderStageSwitch {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

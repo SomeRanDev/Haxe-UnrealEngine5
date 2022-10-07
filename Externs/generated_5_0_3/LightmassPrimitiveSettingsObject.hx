@@ -16,3 +16,22 @@ abstract ConstLightmassPrimitiveSettingsObject(LightmassPrimitiveSettingsObject)
 	public extern var LightmassSettings(get, never): LightmassPrimitiveSettings;
 	public inline extern function get_LightmassSettings(): LightmassPrimitiveSettings return this.LightmassSettings;
 }
+
+@:forward
+@:nativeGen
+@:native("LightmassPrimitiveSettingsObject*")
+abstract LightmassPrimitiveSettingsObjectPtr(cpp.Star<LightmassPrimitiveSettingsObject>) from cpp.Star<LightmassPrimitiveSettingsObject> to cpp.Star<LightmassPrimitiveSettingsObject>{
+	@:from
+	public static extern inline function fromValue(v: LightmassPrimitiveSettingsObject): LightmassPrimitiveSettingsObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LightmassPrimitiveSettingsObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

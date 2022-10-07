@@ -12,3 +12,22 @@ extern class ActorEndTouchOverSignature__PythonCallable extends PythonCallableFo
 @:nativeGen
 abstract ConstActorEndTouchOverSignature__PythonCallable(ActorEndTouchOverSignature__PythonCallable) from ActorEndTouchOverSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorEndTouchOverSignature__PythonCallable*")
+abstract ActorEndTouchOverSignature__PythonCallablePtr(cpp.Star<ActorEndTouchOverSignature__PythonCallable>) from cpp.Star<ActorEndTouchOverSignature__PythonCallable> to cpp.Star<ActorEndTouchOverSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ActorEndTouchOverSignature__PythonCallable): ActorEndTouchOverSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorEndTouchOverSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

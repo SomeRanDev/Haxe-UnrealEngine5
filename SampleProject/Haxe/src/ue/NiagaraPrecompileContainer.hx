@@ -19,3 +19,22 @@ abstract ConstNiagaraPrecompileContainer(NiagaraPrecompileContainer) from Niagar
 	public extern var System(get, never): cpp.Star<NiagaraSystem.ConstNiagaraSystem>;
 	public inline extern function get_System(): cpp.Star<NiagaraSystem.ConstNiagaraSystem> return this.System;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraPrecompileContainer*")
+abstract NiagaraPrecompileContainerPtr(cpp.Star<NiagaraPrecompileContainer>) from cpp.Star<NiagaraPrecompileContainer> to cpp.Star<NiagaraPrecompileContainer>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraPrecompileContainer): NiagaraPrecompileContainerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraPrecompileContainer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

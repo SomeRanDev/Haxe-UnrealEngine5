@@ -22,3 +22,22 @@ abstract ConstDatasmithDecalComponentTemplate(DatasmithDecalComponentTemplate) f
 	public extern var Material(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
 	public inline extern function get_Material(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.Material;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithDecalComponentTemplate*")
+abstract DatasmithDecalComponentTemplatePtr(cpp.Star<DatasmithDecalComponentTemplate>) from cpp.Star<DatasmithDecalComponentTemplate> to cpp.Star<DatasmithDecalComponentTemplate>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithDecalComponentTemplate): DatasmithDecalComponentTemplatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithDecalComponentTemplate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

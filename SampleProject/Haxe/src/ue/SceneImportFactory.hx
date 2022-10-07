@@ -13,3 +13,22 @@ extern class SceneImportFactory extends Factory {
 @:nativeGen
 abstract ConstSceneImportFactory(SceneImportFactory) from SceneImportFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("SceneImportFactory*")
+abstract SceneImportFactoryPtr(cpp.Star<SceneImportFactory>) from cpp.Star<SceneImportFactory> to cpp.Star<SceneImportFactory>{
+	@:from
+	public static extern inline function fromValue(v: SceneImportFactory): SceneImportFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SceneImportFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class SkeletalMeshEditorData extends Object {
 @:nativeGen
 abstract ConstSkeletalMeshEditorData(SkeletalMeshEditorData) from SkeletalMeshEditorData {
 }
+
+@:forward
+@:nativeGen
+@:native("SkeletalMeshEditorData*")
+abstract SkeletalMeshEditorDataPtr(cpp.Star<SkeletalMeshEditorData>) from cpp.Star<SkeletalMeshEditorData> to cpp.Star<SkeletalMeshEditorData>{
+	@:from
+	public static extern inline function fromValue(v: SkeletalMeshEditorData): SkeletalMeshEditorDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SkeletalMeshEditorData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

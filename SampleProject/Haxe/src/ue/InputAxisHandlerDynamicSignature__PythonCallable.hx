@@ -12,3 +12,22 @@ extern class InputAxisHandlerDynamicSignature__PythonCallable extends PythonCall
 @:nativeGen
 abstract ConstInputAxisHandlerDynamicSignature__PythonCallable(InputAxisHandlerDynamicSignature__PythonCallable) from InputAxisHandlerDynamicSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("InputAxisHandlerDynamicSignature__PythonCallable*")
+abstract InputAxisHandlerDynamicSignature__PythonCallablePtr(cpp.Star<InputAxisHandlerDynamicSignature__PythonCallable>) from cpp.Star<InputAxisHandlerDynamicSignature__PythonCallable> to cpp.Star<InputAxisHandlerDynamicSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: InputAxisHandlerDynamicSignature__PythonCallable): InputAxisHandlerDynamicSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InputAxisHandlerDynamicSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

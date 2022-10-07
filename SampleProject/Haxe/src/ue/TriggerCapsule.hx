@@ -13,3 +13,22 @@ extern class TriggerCapsule extends TriggerBase {
 @:nativeGen
 abstract ConstTriggerCapsule(TriggerCapsule) from TriggerCapsule {
 }
+
+@:forward
+@:nativeGen
+@:native("TriggerCapsule*")
+abstract TriggerCapsulePtr(cpp.Star<TriggerCapsule>) from cpp.Star<TriggerCapsule> to cpp.Star<TriggerCapsule>{
+	@:from
+	public static extern inline function fromValue(v: TriggerCapsule): TriggerCapsulePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TriggerCapsule {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

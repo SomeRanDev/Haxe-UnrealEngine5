@@ -19,3 +19,22 @@ abstract ConstDirectionalLight(DirectionalLight) from DirectionalLight {
 	public extern var DirectionalLightComponent(get, never): cpp.Star<DirectionalLightComp.ConstDirectionalLightComp>;
 	public inline extern function get_DirectionalLightComponent(): cpp.Star<DirectionalLightComp.ConstDirectionalLightComp> return this.DirectionalLightComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("DirectionalLight*")
+abstract DirectionalLightPtr(cpp.Star<DirectionalLight>) from cpp.Star<DirectionalLight> to cpp.Star<DirectionalLight>{
+	@:from
+	public static extern inline function fromValue(v: DirectionalLight): DirectionalLightPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DirectionalLight {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

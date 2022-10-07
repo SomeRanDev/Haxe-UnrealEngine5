@@ -19,3 +19,22 @@ abstract ConstGizmoLocalVec2ParameterSource(GizmoLocalVec2ParameterSource) from 
 	public extern var LastChange(get, never): GizmoVec2ParameterChange;
 	public inline extern function get_LastChange(): GizmoVec2ParameterChange return this.LastChange;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoLocalVec2ParameterSource*")
+abstract GizmoLocalVec2ParameterSourcePtr(cpp.Star<GizmoLocalVec2ParameterSource>) from cpp.Star<GizmoLocalVec2ParameterSource> to cpp.Star<GizmoLocalVec2ParameterSource>{
+	@:from
+	public static extern inline function fromValue(v: GizmoLocalVec2ParameterSource): GizmoLocalVec2ParameterSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoLocalVec2ParameterSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

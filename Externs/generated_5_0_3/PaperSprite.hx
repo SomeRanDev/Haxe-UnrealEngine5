@@ -97,3 +97,22 @@ abstract ConstPaperSprite(PaperSprite) from PaperSprite {
 	public extern var BakedRenderData(get, never): TArray<Vector4>;
 	public inline extern function get_BakedRenderData(): TArray<Vector4> return this.BakedRenderData;
 }
+
+@:forward
+@:nativeGen
+@:native("PaperSprite*")
+abstract PaperSpritePtr(cpp.Star<PaperSprite>) from cpp.Star<PaperSprite> to cpp.Star<PaperSprite>{
+	@:from
+	public static extern inline function fromValue(v: PaperSprite): PaperSpritePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PaperSprite {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

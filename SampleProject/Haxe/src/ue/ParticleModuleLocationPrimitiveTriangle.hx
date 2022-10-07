@@ -25,3 +25,22 @@ abstract ConstParticleModuleLocationPrimitiveTriangle(ParticleModuleLocationPrim
 	public extern var Thickness(get, never): RawDistributionFloat;
 	public inline extern function get_Thickness(): RawDistributionFloat return this.Thickness;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleLocationPrimitiveTriangle*")
+abstract ParticleModuleLocationPrimitiveTrianglePtr(cpp.Star<ParticleModuleLocationPrimitiveTriangle>) from cpp.Star<ParticleModuleLocationPrimitiveTriangle> to cpp.Star<ParticleModuleLocationPrimitiveTriangle>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleLocationPrimitiveTriangle): ParticleModuleLocationPrimitiveTrianglePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleLocationPrimitiveTriangle {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

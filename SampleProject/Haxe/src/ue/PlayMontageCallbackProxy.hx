@@ -34,3 +34,22 @@ abstract ConstPlayMontageCallbackProxy(PlayMontageCallbackProxy) from PlayMontag
 	public extern var OnNotifyEnd(get, never): HaxeMulticastSparseDelegateProperty<(FName) -> Void>;
 	public inline extern function get_OnNotifyEnd(): HaxeMulticastSparseDelegateProperty<(FName) -> Void> return this.OnNotifyEnd;
 }
+
+@:forward
+@:nativeGen
+@:native("PlayMontageCallbackProxy*")
+abstract PlayMontageCallbackProxyPtr(cpp.Star<PlayMontageCallbackProxy>) from cpp.Star<PlayMontageCallbackProxy> to cpp.Star<PlayMontageCallbackProxy>{
+	@:from
+	public static extern inline function fromValue(v: PlayMontageCallbackProxy): PlayMontageCallbackProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PlayMontageCallbackProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

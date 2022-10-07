@@ -54,3 +54,22 @@ abstract ConstBlackboardComp(BlackboardComp) from BlackboardComp {
 	public extern var KeyInstances(get, never): TArray<cpp.Star<BlackboardKeyType.ConstBlackboardKeyType>>;
 	public inline extern function get_KeyInstances(): TArray<cpp.Star<BlackboardKeyType.ConstBlackboardKeyType>> return this.KeyInstances;
 }
+
+@:forward
+@:nativeGen
+@:native("BlackboardComp*")
+abstract BlackboardCompPtr(cpp.Star<BlackboardComp>) from cpp.Star<BlackboardComp> to cpp.Star<BlackboardComp>{
+	@:from
+	public static extern inline function fromValue(v: BlackboardComp): BlackboardCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlackboardComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

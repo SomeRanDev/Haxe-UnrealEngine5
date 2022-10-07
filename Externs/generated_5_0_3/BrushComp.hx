@@ -22,3 +22,22 @@ abstract ConstBrushComp(BrushComp) from BrushComp {
 	public extern var PrePivot_DEPRECATED(get, never): Vector;
 	public inline extern function get_PrePivot_DEPRECATED(): Vector return this.PrePivot_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("BrushComp*")
+abstract BrushCompPtr(cpp.Star<BrushComp>) from cpp.Star<BrushComp> to cpp.Star<BrushComp>{
+	@:from
+	public static extern inline function fromValue(v: BrushComp): BrushCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BrushComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

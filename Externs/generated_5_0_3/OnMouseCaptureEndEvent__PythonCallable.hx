@@ -12,3 +12,22 @@ extern class OnMouseCaptureEndEvent__PythonCallable extends PythonCallableForDel
 @:nativeGen
 abstract ConstOnMouseCaptureEndEvent__PythonCallable(OnMouseCaptureEndEvent__PythonCallable) from OnMouseCaptureEndEvent__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnMouseCaptureEndEvent__PythonCallable*")
+abstract OnMouseCaptureEndEvent__PythonCallablePtr(cpp.Star<OnMouseCaptureEndEvent__PythonCallable>) from cpp.Star<OnMouseCaptureEndEvent__PythonCallable> to cpp.Star<OnMouseCaptureEndEvent__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnMouseCaptureEndEvent__PythonCallable): OnMouseCaptureEndEvent__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnMouseCaptureEndEvent__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

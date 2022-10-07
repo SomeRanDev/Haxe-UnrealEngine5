@@ -13,3 +13,22 @@ extern class K2Node_GenericCreateObject extends K2Node_ConstructObjectFromClass 
 @:nativeGen
 abstract ConstK2Node_GenericCreateObject(K2Node_GenericCreateObject) from K2Node_GenericCreateObject {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_GenericCreateObject*")
+abstract K2Node_GenericCreateObjectPtr(cpp.Star<K2Node_GenericCreateObject>) from cpp.Star<K2Node_GenericCreateObject> to cpp.Star<K2Node_GenericCreateObject>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_GenericCreateObject): K2Node_GenericCreateObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_GenericCreateObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

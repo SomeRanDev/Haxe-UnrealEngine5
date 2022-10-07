@@ -22,3 +22,22 @@ abstract ConstNiagaraNodeIf(NiagaraNodeIf) from NiagaraNodeIf {
 	public extern var ConditionPinGuid(get, never): Guid;
 	public inline extern function get_ConditionPinGuid(): Guid return this.ConditionPinGuid;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraNodeIf*")
+abstract NiagaraNodeIfPtr(cpp.Star<NiagaraNodeIf>) from cpp.Star<NiagaraNodeIf> to cpp.Star<NiagaraNodeIf>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraNodeIf): NiagaraNodeIfPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraNodeIf {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -31,3 +31,22 @@ extern class AutomationPerformaceHelper extends Object {
 @:nativeGen
 abstract ConstAutomationPerformaceHelper(AutomationPerformaceHelper) from AutomationPerformaceHelper {
 }
+
+@:forward
+@:nativeGen
+@:native("AutomationPerformaceHelper*")
+abstract AutomationPerformaceHelperPtr(cpp.Star<AutomationPerformaceHelper>) from cpp.Star<AutomationPerformaceHelper> to cpp.Star<AutomationPerformaceHelper>{
+	@:from
+	public static extern inline function fromValue(v: AutomationPerformaceHelper): AutomationPerformaceHelperPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AutomationPerformaceHelper {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

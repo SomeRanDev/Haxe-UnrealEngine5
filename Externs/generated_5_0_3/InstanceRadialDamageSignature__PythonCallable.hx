@@ -12,3 +12,22 @@ extern class InstanceRadialDamageSignature__PythonCallable extends PythonCallabl
 @:nativeGen
 abstract ConstInstanceRadialDamageSignature__PythonCallable(InstanceRadialDamageSignature__PythonCallable) from InstanceRadialDamageSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("InstanceRadialDamageSignature__PythonCallable*")
+abstract InstanceRadialDamageSignature__PythonCallablePtr(cpp.Star<InstanceRadialDamageSignature__PythonCallable>) from cpp.Star<InstanceRadialDamageSignature__PythonCallable> to cpp.Star<InstanceRadialDamageSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: InstanceRadialDamageSignature__PythonCallable): InstanceRadialDamageSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InstanceRadialDamageSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

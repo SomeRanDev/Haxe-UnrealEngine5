@@ -22,3 +22,22 @@ abstract ConstVREditorWidgetComp(VREditorWidgetComp) from VREditorWidgetComp {
 	public extern var bHasEverDrawn(get, never): Bool;
 	public inline extern function get_bHasEverDrawn(): Bool return this.bHasEverDrawn;
 }
+
+@:forward
+@:nativeGen
+@:native("VREditorWidgetComp*")
+abstract VREditorWidgetCompPtr(cpp.Star<VREditorWidgetComp>) from cpp.Star<VREditorWidgetComp> to cpp.Star<VREditorWidgetComp>{
+	@:from
+	public static extern inline function fromValue(v: VREditorWidgetComp): VREditorWidgetCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VREditorWidgetComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class ActorFactoryRectLight extends ActorFactory {
 @:nativeGen
 abstract ConstActorFactoryRectLight(ActorFactoryRectLight) from ActorFactoryRectLight {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorFactoryRectLight*")
+abstract ActorFactoryRectLightPtr(cpp.Star<ActorFactoryRectLight>) from cpp.Star<ActorFactoryRectLight> to cpp.Star<ActorFactoryRectLight>{
+	@:from
+	public static extern inline function fromValue(v: ActorFactoryRectLight): ActorFactoryRectLightPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorFactoryRectLight {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

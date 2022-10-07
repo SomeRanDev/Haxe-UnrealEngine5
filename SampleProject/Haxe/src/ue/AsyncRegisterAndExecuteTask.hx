@@ -18,3 +18,22 @@ abstract ConstAsyncRegisterAndExecuteTask(AsyncRegisterAndExecuteTask) from Asyn
 	public extern var OnFinished(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<EditorUtilityTask.ConstEditorUtilityTask>) -> Void>;
 	public inline extern function get_OnFinished(): HaxeMulticastSparseDelegateProperty<(cpp.Star<EditorUtilityTask.ConstEditorUtilityTask>) -> Void> return this.OnFinished;
 }
+
+@:forward
+@:nativeGen
+@:native("AsyncRegisterAndExecuteTask*")
+abstract AsyncRegisterAndExecuteTaskPtr(cpp.Star<AsyncRegisterAndExecuteTask>) from cpp.Star<AsyncRegisterAndExecuteTask> to cpp.Star<AsyncRegisterAndExecuteTask>{
+	@:from
+	public static extern inline function fromValue(v: AsyncRegisterAndExecuteTask): AsyncRegisterAndExecuteTaskPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AsyncRegisterAndExecuteTask {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

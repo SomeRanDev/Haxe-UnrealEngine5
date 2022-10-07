@@ -34,3 +34,22 @@ abstract ConstMaterialExpressionCustom(MaterialExpressionCustom) from MaterialEx
 	public extern var IncludeFilePaths(get, never): TArray<FString>;
 	public inline extern function get_IncludeFilePaths(): TArray<FString> return this.IncludeFilePaths;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionCustom*")
+abstract MaterialExpressionCustomPtr(cpp.Star<MaterialExpressionCustom>) from cpp.Star<MaterialExpressionCustom> to cpp.Star<MaterialExpressionCustom>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionCustom): MaterialExpressionCustomPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionCustom {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

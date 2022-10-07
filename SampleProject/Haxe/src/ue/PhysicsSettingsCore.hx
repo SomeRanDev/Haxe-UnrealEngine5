@@ -82,3 +82,22 @@ abstract ConstPhysicsSettingsCore(PhysicsSettingsCore) from PhysicsSettingsCore 
 	public extern var SolverOptions(get, never): ChaosSolverConfiguration;
 	public inline extern function get_SolverOptions(): ChaosSolverConfiguration return this.SolverOptions;
 }
+
+@:forward
+@:nativeGen
+@:native("PhysicsSettingsCore*")
+abstract PhysicsSettingsCorePtr(cpp.Star<PhysicsSettingsCore>) from cpp.Star<PhysicsSettingsCore> to cpp.Star<PhysicsSettingsCore>{
+	@:from
+	public static extern inline function fromValue(v: PhysicsSettingsCore): PhysicsSettingsCorePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhysicsSettingsCore {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

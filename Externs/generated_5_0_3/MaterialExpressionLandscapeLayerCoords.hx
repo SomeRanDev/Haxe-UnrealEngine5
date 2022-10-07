@@ -31,3 +31,22 @@ abstract ConstMaterialExpressionLandscapeLayerCoords(MaterialExpressionLandscape
 	public extern var MappingPanV(get, never): cpp.Float32;
 	public inline extern function get_MappingPanV(): cpp.Float32 return this.MappingPanV;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionLandscapeLayerCoords*")
+abstract MaterialExpressionLandscapeLayerCoordsPtr(cpp.Star<MaterialExpressionLandscapeLayerCoords>) from cpp.Star<MaterialExpressionLandscapeLayerCoords> to cpp.Star<MaterialExpressionLandscapeLayerCoords>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionLandscapeLayerCoords): MaterialExpressionLandscapeLayerCoordsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionLandscapeLayerCoords {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

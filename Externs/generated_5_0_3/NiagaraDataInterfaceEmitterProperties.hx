@@ -16,3 +16,22 @@ abstract ConstNiagaraDataInterfaceEmitterProperties(NiagaraDataInterfaceEmitterP
 	public extern var EmitterBinding(get, never): NiagaraDataInterfaceEmitterBinding;
 	public inline extern function get_EmitterBinding(): NiagaraDataInterfaceEmitterBinding return this.EmitterBinding;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceEmitterProperties*")
+abstract NiagaraDataInterfaceEmitterPropertiesPtr(cpp.Star<NiagaraDataInterfaceEmitterProperties>) from cpp.Star<NiagaraDataInterfaceEmitterProperties> to cpp.Star<NiagaraDataInterfaceEmitterProperties>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceEmitterProperties): NiagaraDataInterfaceEmitterPropertiesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceEmitterProperties {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

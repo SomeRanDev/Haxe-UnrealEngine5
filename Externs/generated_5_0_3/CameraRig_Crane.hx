@@ -52,3 +52,22 @@ abstract ConstCameraRig_Crane(CameraRig_Crane) from CameraRig_Crane {
 	public extern var PreviewMesh_CraneCounterWeight(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
 	public inline extern function get_PreviewMesh_CraneCounterWeight(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.PreviewMesh_CraneCounterWeight;
 }
+
+@:forward
+@:nativeGen
+@:native("CameraRig_Crane*")
+abstract CameraRig_CranePtr(cpp.Star<CameraRig_Crane>) from cpp.Star<CameraRig_Crane> to cpp.Star<CameraRig_Crane>{
+	@:from
+	public static extern inline function fromValue(v: CameraRig_Crane): CameraRig_CranePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CameraRig_Crane {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

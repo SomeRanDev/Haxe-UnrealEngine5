@@ -31,3 +31,22 @@ abstract ConstGameSession(GameSession) from GameSession {
 	public extern var SessionName(get, never): FName;
 	public inline extern function get_SessionName(): FName return this.SessionName;
 }
+
+@:forward
+@:nativeGen
+@:native("GameSession*")
+abstract GameSessionPtr(cpp.Star<GameSession>) from cpp.Star<GameSession> to cpp.Star<GameSession>{
+	@:from
+	public static extern inline function fromValue(v: GameSession): GameSessionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameSession {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

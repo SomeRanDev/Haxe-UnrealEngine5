@@ -19,3 +19,22 @@ abstract ConstMovieSceneDoubleVectorSection(MovieSceneDoubleVectorSection) from 
 	public extern var ChannelsUsed(get, never): cpp.Int32;
 	public inline extern function get_ChannelsUsed(): cpp.Int32 return this.ChannelsUsed;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneDoubleVectorSection*")
+abstract MovieSceneDoubleVectorSectionPtr(cpp.Star<MovieSceneDoubleVectorSection>) from cpp.Star<MovieSceneDoubleVectorSection> to cpp.Star<MovieSceneDoubleVectorSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneDoubleVectorSection): MovieSceneDoubleVectorSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneDoubleVectorSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

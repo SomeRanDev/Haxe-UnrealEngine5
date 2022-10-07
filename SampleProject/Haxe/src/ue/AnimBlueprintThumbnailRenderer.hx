@@ -13,3 +13,22 @@ extern class AnimBlueprintThumbnailRenderer extends DefaultSizedThumbnailRendere
 @:nativeGen
 abstract ConstAnimBlueprintThumbnailRenderer(AnimBlueprintThumbnailRenderer) from AnimBlueprintThumbnailRenderer {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimBlueprintThumbnailRenderer*")
+abstract AnimBlueprintThumbnailRendererPtr(cpp.Star<AnimBlueprintThumbnailRenderer>) from cpp.Star<AnimBlueprintThumbnailRenderer> to cpp.Star<AnimBlueprintThumbnailRenderer>{
+	@:from
+	public static extern inline function fromValue(v: AnimBlueprintThumbnailRenderer): AnimBlueprintThumbnailRendererPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimBlueprintThumbnailRenderer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

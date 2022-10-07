@@ -13,3 +13,22 @@ extern class ScalableSphereGizmoInputBehavior extends AnyButtonInputBehavior {
 @:nativeGen
 abstract ConstScalableSphereGizmoInputBehavior(ScalableSphereGizmoInputBehavior) from ScalableSphereGizmoInputBehavior {
 }
+
+@:forward
+@:nativeGen
+@:native("ScalableSphereGizmoInputBehavior*")
+abstract ScalableSphereGizmoInputBehaviorPtr(cpp.Star<ScalableSphereGizmoInputBehavior>) from cpp.Star<ScalableSphereGizmoInputBehavior> to cpp.Star<ScalableSphereGizmoInputBehavior>{
+	@:from
+	public static extern inline function fromValue(v: ScalableSphereGizmoInputBehavior): ScalableSphereGizmoInputBehaviorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ScalableSphereGizmoInputBehavior {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

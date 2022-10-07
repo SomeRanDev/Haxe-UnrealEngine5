@@ -49,3 +49,22 @@ abstract ConstMaterialExpressionNoise(MaterialExpressionNoise) from MaterialExpr
 	public extern var RepeatSize(get, never): cpp.UInt32;
 	public inline extern function get_RepeatSize(): cpp.UInt32 return this.RepeatSize;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionNoise*")
+abstract MaterialExpressionNoisePtr(cpp.Star<MaterialExpressionNoise>) from cpp.Star<MaterialExpressionNoise> to cpp.Star<MaterialExpressionNoise>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionNoise): MaterialExpressionNoisePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionNoise {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

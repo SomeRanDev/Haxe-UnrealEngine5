@@ -19,3 +19,22 @@ abstract ConstPreviewMeshCollection(PreviewMeshCollection) from PreviewMeshColle
 	public extern var SkeletalMeshes(get, never): TArray<PreviewMeshCollectionEntry>;
 	public inline extern function get_SkeletalMeshes(): TArray<PreviewMeshCollectionEntry> return this.SkeletalMeshes;
 }
+
+@:forward
+@:nativeGen
+@:native("PreviewMeshCollection*")
+abstract PreviewMeshCollectionPtr(cpp.Star<PreviewMeshCollection>) from cpp.Star<PreviewMeshCollection> to cpp.Star<PreviewMeshCollection>{
+	@:from
+	public static extern inline function fromValue(v: PreviewMeshCollection): PreviewMeshCollectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PreviewMeshCollection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

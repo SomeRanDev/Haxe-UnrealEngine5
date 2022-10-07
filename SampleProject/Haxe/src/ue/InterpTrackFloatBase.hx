@@ -19,3 +19,22 @@ abstract ConstInterpTrackFloatBase(InterpTrackFloatBase) from InterpTrackFloatBa
 	public extern var CurveTension(get, never): cpp.Float32;
 	public inline extern function get_CurveTension(): cpp.Float32 return this.CurveTension;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackFloatBase*")
+abstract InterpTrackFloatBasePtr(cpp.Star<InterpTrackFloatBase>) from cpp.Star<InterpTrackFloatBase> to cpp.Star<InterpTrackFloatBase>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackFloatBase): InterpTrackFloatBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackFloatBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

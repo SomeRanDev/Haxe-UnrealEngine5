@@ -19,3 +19,22 @@ abstract ConstInterpTrackFloatMaterialParam(InterpTrackFloatMaterialParam) from 
 	public extern var ParamName(get, never): FName;
 	public inline extern function get_ParamName(): FName return this.ParamName;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackFloatMaterialParam*")
+abstract InterpTrackFloatMaterialParamPtr(cpp.Star<InterpTrackFloatMaterialParam>) from cpp.Star<InterpTrackFloatMaterialParam> to cpp.Star<InterpTrackFloatMaterialParam>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackFloatMaterialParam): InterpTrackFloatMaterialParamPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackFloatMaterialParam {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

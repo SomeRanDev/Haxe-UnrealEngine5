@@ -418,3 +418,22 @@ abstract ConstMaterial(Material) from Material {
 	public extern var ReferencedTextureGuids(get, never): TArray<Guid>;
 	public inline extern function get_ReferencedTextureGuids(): TArray<Guid> return this.ReferencedTextureGuids;
 }
+
+@:forward
+@:nativeGen
+@:native("Material*")
+abstract MaterialPtr(cpp.Star<Material>) from cpp.Star<Material> to cpp.Star<Material>{
+	@:from
+	public static extern inline function fromValue(v: Material): MaterialPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Material {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

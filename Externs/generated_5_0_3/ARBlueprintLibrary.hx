@@ -74,3 +74,22 @@ extern class ARBlueprintLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstARBlueprintLibrary(ARBlueprintLibrary) from ARBlueprintLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("ARBlueprintLibrary*")
+abstract ARBlueprintLibraryPtr(cpp.Star<ARBlueprintLibrary>) from cpp.Star<ARBlueprintLibrary> to cpp.Star<ARBlueprintLibrary>{
+	@:from
+	public static extern inline function fromValue(v: ARBlueprintLibrary): ARBlueprintLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARBlueprintLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

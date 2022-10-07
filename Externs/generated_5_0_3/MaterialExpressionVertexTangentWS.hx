@@ -13,3 +13,22 @@ extern class MaterialExpressionVertexTangentWS extends MaterialExpression {
 @:nativeGen
 abstract ConstMaterialExpressionVertexTangentWS(MaterialExpressionVertexTangentWS) from MaterialExpressionVertexTangentWS {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionVertexTangentWS*")
+abstract MaterialExpressionVertexTangentWSPtr(cpp.Star<MaterialExpressionVertexTangentWS>) from cpp.Star<MaterialExpressionVertexTangentWS> to cpp.Star<MaterialExpressionVertexTangentWS>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionVertexTangentWS): MaterialExpressionVertexTangentWSPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionVertexTangentWS {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

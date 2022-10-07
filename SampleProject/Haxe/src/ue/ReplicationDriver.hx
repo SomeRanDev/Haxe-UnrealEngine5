@@ -13,3 +13,22 @@ extern class ReplicationDriver extends Object {
 @:nativeGen
 abstract ConstReplicationDriver(ReplicationDriver) from ReplicationDriver {
 }
+
+@:forward
+@:nativeGen
+@:native("ReplicationDriver*")
+abstract ReplicationDriverPtr(cpp.Star<ReplicationDriver>) from cpp.Star<ReplicationDriver> to cpp.Star<ReplicationDriver>{
+	@:from
+	public static extern inline function fromValue(v: ReplicationDriver): ReplicationDriverPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ReplicationDriver {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

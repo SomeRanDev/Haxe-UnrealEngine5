@@ -13,3 +13,22 @@ extern class EditorViewportViewMenuContext extends Object {
 @:nativeGen
 abstract ConstEditorViewportViewMenuContext(EditorViewportViewMenuContext) from EditorViewportViewMenuContext {
 }
+
+@:forward
+@:nativeGen
+@:native("EditorViewportViewMenuContext*")
+abstract EditorViewportViewMenuContextPtr(cpp.Star<EditorViewportViewMenuContext>) from cpp.Star<EditorViewportViewMenuContext> to cpp.Star<EditorViewportViewMenuContext>{
+	@:from
+	public static extern inline function fromValue(v: EditorViewportViewMenuContext): EditorViewportViewMenuContextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorViewportViewMenuContext {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

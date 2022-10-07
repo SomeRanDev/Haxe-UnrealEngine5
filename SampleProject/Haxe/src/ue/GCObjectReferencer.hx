@@ -12,3 +12,22 @@ extern class GCObjectReferencer extends Object {
 @:nativeGen
 abstract ConstGCObjectReferencer(GCObjectReferencer) from GCObjectReferencer {
 }
+
+@:forward
+@:nativeGen
+@:native("GCObjectReferencer*")
+abstract GCObjectReferencerPtr(cpp.Star<GCObjectReferencer>) from cpp.Star<GCObjectReferencer> to cpp.Star<GCObjectReferencer>{
+	@:from
+	public static extern inline function fromValue(v: GCObjectReferencer): GCObjectReferencerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GCObjectReferencer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

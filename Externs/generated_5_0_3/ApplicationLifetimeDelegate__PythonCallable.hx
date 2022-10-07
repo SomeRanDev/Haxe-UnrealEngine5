@@ -12,3 +12,22 @@ extern class ApplicationLifetimeDelegate__PythonCallable extends PythonCallableF
 @:nativeGen
 abstract ConstApplicationLifetimeDelegate__PythonCallable(ApplicationLifetimeDelegate__PythonCallable) from ApplicationLifetimeDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ApplicationLifetimeDelegate__PythonCallable*")
+abstract ApplicationLifetimeDelegate__PythonCallablePtr(cpp.Star<ApplicationLifetimeDelegate__PythonCallable>) from cpp.Star<ApplicationLifetimeDelegate__PythonCallable> to cpp.Star<ApplicationLifetimeDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ApplicationLifetimeDelegate__PythonCallable): ApplicationLifetimeDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ApplicationLifetimeDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

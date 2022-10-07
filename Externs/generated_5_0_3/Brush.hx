@@ -55,3 +55,22 @@ abstract ConstBrush(Brush) from Brush {
 	public extern var SavedSelections(get, never): TArray<GeomSelection>;
 	public inline extern function get_SavedSelections(): TArray<GeomSelection> return this.SavedSelections;
 }
+
+@:forward
+@:nativeGen
+@:native("Brush*")
+abstract BrushPtr(cpp.Star<Brush>) from cpp.Star<Brush> to cpp.Star<Brush>{
+	@:from
+	public static extern inline function fromValue(v: Brush): BrushPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Brush {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

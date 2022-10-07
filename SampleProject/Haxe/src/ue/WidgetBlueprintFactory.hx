@@ -22,3 +22,22 @@ abstract ConstWidgetBlueprintFactory(WidgetBlueprintFactory) from WidgetBlueprin
 	public extern var RootWidgetClass(get, never): TSubclassOf<Object.ConstObject>;
 	public inline extern function get_RootWidgetClass(): TSubclassOf<Object.ConstObject> return this.RootWidgetClass;
 }
+
+@:forward
+@:nativeGen
+@:native("WidgetBlueprintFactory*")
+abstract WidgetBlueprintFactoryPtr(cpp.Star<WidgetBlueprintFactory>) from cpp.Star<WidgetBlueprintFactory> to cpp.Star<WidgetBlueprintFactory>{
+	@:from
+	public static extern inline function fromValue(v: WidgetBlueprintFactory): WidgetBlueprintFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WidgetBlueprintFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

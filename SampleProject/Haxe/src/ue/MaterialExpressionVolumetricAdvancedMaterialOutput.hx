@@ -67,3 +67,22 @@ abstract ConstMaterialExpressionVolumetricAdvancedMaterialOutput(MaterialExpress
 	public extern var bRayMarchVolumeShadow(get, never): Bool;
 	public inline extern function get_bRayMarchVolumeShadow(): Bool return this.bRayMarchVolumeShadow;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionVolumetricAdvancedMaterialOutput*")
+abstract MaterialExpressionVolumetricAdvancedMaterialOutputPtr(cpp.Star<MaterialExpressionVolumetricAdvancedMaterialOutput>) from cpp.Star<MaterialExpressionVolumetricAdvancedMaterialOutput> to cpp.Star<MaterialExpressionVolumetricAdvancedMaterialOutput>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionVolumetricAdvancedMaterialOutput): MaterialExpressionVolumetricAdvancedMaterialOutputPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionVolumetricAdvancedMaterialOutput {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstSoundSourceEffectFactory(SoundSourceEffectFactory) from SoundSourc
 	public extern var SoundEffectSourcepresetClass(get, never): TSubclassOf<SoundEffectSourcePreset.ConstSoundEffectSourcePreset>;
 	public inline extern function get_SoundEffectSourcepresetClass(): TSubclassOf<SoundEffectSourcePreset.ConstSoundEffectSourcePreset> return this.SoundEffectSourcepresetClass;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundSourceEffectFactory*")
+abstract SoundSourceEffectFactoryPtr(cpp.Star<SoundSourceEffectFactory>) from cpp.Star<SoundSourceEffectFactory> to cpp.Star<SoundSourceEffectFactory>{
+	@:from
+	public static extern inline function fromValue(v: SoundSourceEffectFactory): SoundSourceEffectFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundSourceEffectFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

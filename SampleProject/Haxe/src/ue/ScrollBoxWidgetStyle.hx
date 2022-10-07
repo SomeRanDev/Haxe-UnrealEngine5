@@ -16,3 +16,22 @@ abstract ConstScrollBoxWidgetStyle(ScrollBoxWidgetStyle) from ScrollBoxWidgetSty
 	public extern var ScrollBoxStyle(get, never): ScrollBoxStyle;
 	public inline extern function get_ScrollBoxStyle(): ScrollBoxStyle return this.ScrollBoxStyle;
 }
+
+@:forward
+@:nativeGen
+@:native("ScrollBoxWidgetStyle*")
+abstract ScrollBoxWidgetStylePtr(cpp.Star<ScrollBoxWidgetStyle>) from cpp.Star<ScrollBoxWidgetStyle> to cpp.Star<ScrollBoxWidgetStyle>{
+	@:from
+	public static extern inline function fromValue(v: ScrollBoxWidgetStyle): ScrollBoxWidgetStylePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ScrollBoxWidgetStyle {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

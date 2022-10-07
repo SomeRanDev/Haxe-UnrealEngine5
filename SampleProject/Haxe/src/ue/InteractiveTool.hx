@@ -19,3 +19,22 @@ abstract ConstInteractiveTool(InteractiveTool) from InteractiveTool {
 	public extern var ToolPropertyObjects(get, never): TArray<cpp.Star<Object.ConstObject>>;
 	public inline extern function get_ToolPropertyObjects(): TArray<cpp.Star<Object.ConstObject>> return this.ToolPropertyObjects;
 }
+
+@:forward
+@:nativeGen
+@:native("InteractiveTool*")
+abstract InteractiveToolPtr(cpp.Star<InteractiveTool>) from cpp.Star<InteractiveTool> to cpp.Star<InteractiveTool>{
+	@:from
+	public static extern inline function fromValue(v: InteractiveTool): InteractiveToolPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InteractiveTool {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

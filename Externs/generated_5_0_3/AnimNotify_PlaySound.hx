@@ -31,3 +31,22 @@ abstract ConstAnimNotify_PlaySound(AnimNotify_PlaySound) from AnimNotify_PlaySou
 	public extern var AttachName(get, never): FName;
 	public inline extern function get_AttachName(): FName return this.AttachName;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimNotify_PlaySound*")
+abstract AnimNotify_PlaySoundPtr(cpp.Star<AnimNotify_PlaySound>) from cpp.Star<AnimNotify_PlaySound> to cpp.Star<AnimNotify_PlaySound>{
+	@:from
+	public static extern inline function fromValue(v: AnimNotify_PlaySound): AnimNotify_PlaySoundPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimNotify_PlaySound {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

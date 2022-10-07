@@ -13,3 +13,22 @@ extern class VectorFieldStaticFactory extends Factory {
 @:nativeGen
 abstract ConstVectorFieldStaticFactory(VectorFieldStaticFactory) from VectorFieldStaticFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("VectorFieldStaticFactory*")
+abstract VectorFieldStaticFactoryPtr(cpp.Star<VectorFieldStaticFactory>) from cpp.Star<VectorFieldStaticFactory> to cpp.Star<VectorFieldStaticFactory>{
+	@:from
+	public static extern inline function fromValue(v: VectorFieldStaticFactory): VectorFieldStaticFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VectorFieldStaticFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

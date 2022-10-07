@@ -21,3 +21,22 @@ abstract ConstCurveFloat(CurveFloat) from CurveFloat {
 	public extern var bIsEventCurve(get, never): Bool;
 	public inline extern function get_bIsEventCurve(): Bool return this.bIsEventCurve;
 }
+
+@:forward
+@:nativeGen
+@:native("CurveFloat*")
+abstract CurveFloatPtr(cpp.Star<CurveFloat>) from cpp.Star<CurveFloat> to cpp.Star<CurveFloat>{
+	@:from
+	public static extern inline function fromValue(v: CurveFloat): CurveFloatPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CurveFloat {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

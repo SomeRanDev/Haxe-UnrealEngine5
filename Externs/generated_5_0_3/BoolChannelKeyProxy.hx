@@ -19,3 +19,22 @@ abstract ConstBoolChannelKeyProxy(BoolChannelKeyProxy) from BoolChannelKeyProxy 
 	public extern var bValue(get, never): Bool;
 	public inline extern function get_bValue(): Bool return this.bValue;
 }
+
+@:forward
+@:nativeGen
+@:native("BoolChannelKeyProxy*")
+abstract BoolChannelKeyProxyPtr(cpp.Star<BoolChannelKeyProxy>) from cpp.Star<BoolChannelKeyProxy> to cpp.Star<BoolChannelKeyProxy>{
+	@:from
+	public static extern inline function fromValue(v: BoolChannelKeyProxy): BoolChannelKeyProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BoolChannelKeyProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -40,3 +40,22 @@ abstract ConstWidgetAnimation(WidgetAnimation) from WidgetAnimation {
 	public extern var DisplayLabel(get, never): FString;
 	public inline extern function get_DisplayLabel(): FString return this.DisplayLabel;
 }
+
+@:forward
+@:nativeGen
+@:native("WidgetAnimation*")
+abstract WidgetAnimationPtr(cpp.Star<WidgetAnimation>) from cpp.Star<WidgetAnimation> to cpp.Star<WidgetAnimation>{
+	@:from
+	public static extern inline function fromValue(v: WidgetAnimation): WidgetAnimationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WidgetAnimation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

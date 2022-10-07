@@ -21,3 +21,22 @@ abstract ConstAsyncTaskDownloadImage(AsyncTaskDownloadImage) from AsyncTaskDownl
 	public extern var OnFail(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Texture2DDynamic.ConstTexture2DDynamic>) -> Void>;
 	public inline extern function get_OnFail(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Texture2DDynamic.ConstTexture2DDynamic>) -> Void> return this.OnFail;
 }
+
+@:forward
+@:nativeGen
+@:native("AsyncTaskDownloadImage*")
+abstract AsyncTaskDownloadImagePtr(cpp.Star<AsyncTaskDownloadImage>) from cpp.Star<AsyncTaskDownloadImage> to cpp.Star<AsyncTaskDownloadImage>{
+	@:from
+	public static extern inline function fromValue(v: AsyncTaskDownloadImage): AsyncTaskDownloadImagePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AsyncTaskDownloadImage {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

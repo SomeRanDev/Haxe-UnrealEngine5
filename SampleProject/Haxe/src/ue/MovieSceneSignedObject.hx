@@ -16,3 +16,22 @@ abstract ConstMovieSceneSignedObject(MovieSceneSignedObject) from MovieSceneSign
 	public extern var Signature(get, never): Guid;
 	public inline extern function get_Signature(): Guid return this.Signature;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneSignedObject*")
+abstract MovieSceneSignedObjectPtr(cpp.Star<MovieSceneSignedObject>) from cpp.Star<MovieSceneSignedObject> to cpp.Star<MovieSceneSignedObject>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneSignedObject): MovieSceneSignedObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneSignedObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

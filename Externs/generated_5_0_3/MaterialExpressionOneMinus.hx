@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionOneMinus(MaterialExpressionOneMinus) from Materi
 	public extern var Input(get, never): ExpressionInput;
 	public inline extern function get_Input(): ExpressionInput return this.Input;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionOneMinus*")
+abstract MaterialExpressionOneMinusPtr(cpp.Star<MaterialExpressionOneMinus>) from cpp.Star<MaterialExpressionOneMinus> to cpp.Star<MaterialExpressionOneMinus>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionOneMinus): MaterialExpressionOneMinusPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionOneMinus {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

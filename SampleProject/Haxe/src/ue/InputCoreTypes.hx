@@ -13,3 +13,22 @@ extern class InputCoreTypes extends Object {
 @:nativeGen
 abstract ConstInputCoreTypes(InputCoreTypes) from InputCoreTypes {
 }
+
+@:forward
+@:nativeGen
+@:native("InputCoreTypes*")
+abstract InputCoreTypesPtr(cpp.Star<InputCoreTypes>) from cpp.Star<InputCoreTypes> to cpp.Star<InputCoreTypes>{
+	@:from
+	public static extern inline function fromValue(v: InputCoreTypes): InputCoreTypesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InputCoreTypes {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

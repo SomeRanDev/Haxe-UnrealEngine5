@@ -111,3 +111,22 @@ abstract ConstRigVMPin(RigVMPin) from RigVMPin {
 	public extern var BoundVariablePath_DEPRECATED(get, never): FString;
 	public inline extern function get_BoundVariablePath_DEPRECATED(): FString return this.BoundVariablePath_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("RigVMPin*")
+abstract RigVMPinPtr(cpp.Star<RigVMPin>) from cpp.Star<RigVMPin> to cpp.Star<RigVMPin>{
+	@:from
+	public static extern inline function fromValue(v: RigVMPin): RigVMPinPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVMPin {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

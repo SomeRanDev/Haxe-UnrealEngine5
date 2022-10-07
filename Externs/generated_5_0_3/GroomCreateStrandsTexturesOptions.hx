@@ -43,3 +43,22 @@ abstract ConstGroomCreateStrandsTexturesOptions(GroomCreateStrandsTexturesOption
 	public extern var GroupIndex(get, never): TArray<cpp.Int32>;
 	public inline extern function get_GroupIndex(): TArray<cpp.Int32> return this.GroupIndex;
 }
+
+@:forward
+@:nativeGen
+@:native("GroomCreateStrandsTexturesOptions*")
+abstract GroomCreateStrandsTexturesOptionsPtr(cpp.Star<GroomCreateStrandsTexturesOptions>) from cpp.Star<GroomCreateStrandsTexturesOptions> to cpp.Star<GroomCreateStrandsTexturesOptions>{
+	@:from
+	public static extern inline function fromValue(v: GroomCreateStrandsTexturesOptions): GroomCreateStrandsTexturesOptionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GroomCreateStrandsTexturesOptions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

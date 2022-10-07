@@ -179,3 +179,22 @@ abstract ConstStaticMesh(StaticMesh) from StaticMesh {
 	public extern var NavCollision(get, never): cpp.Star<NavCollisionBase.ConstNavCollisionBase>;
 	public inline extern function get_NavCollision(): cpp.Star<NavCollisionBase.ConstNavCollisionBase> return this.NavCollision;
 }
+
+@:forward
+@:nativeGen
+@:native("StaticMesh*")
+abstract StaticMeshPtr(cpp.Star<StaticMesh>) from cpp.Star<StaticMesh> to cpp.Star<StaticMesh>{
+	@:from
+	public static extern inline function fromValue(v: StaticMesh): StaticMeshPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): StaticMesh {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

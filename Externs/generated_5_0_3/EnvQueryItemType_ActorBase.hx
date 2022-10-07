@@ -13,3 +13,22 @@ extern class EnvQueryItemType_ActorBase extends EnvQueryItemType_VectorBase {
 @:nativeGen
 abstract ConstEnvQueryItemType_ActorBase(EnvQueryItemType_ActorBase) from EnvQueryItemType_ActorBase {
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryItemType_ActorBase*")
+abstract EnvQueryItemType_ActorBasePtr(cpp.Star<EnvQueryItemType_ActorBase>) from cpp.Star<EnvQueryItemType_ActorBase> to cpp.Star<EnvQueryItemType_ActorBase>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryItemType_ActorBase): EnvQueryItemType_ActorBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryItemType_ActorBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

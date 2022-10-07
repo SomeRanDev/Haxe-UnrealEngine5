@@ -19,3 +19,22 @@ abstract ConstNiagaraBaselineController_Basic(NiagaraBaselineController_Basic) f
 	public extern var SpawnedComponents(get, never): TArray<cpp.Star<NiagaraComp.ConstNiagaraComp>>;
 	public inline extern function get_SpawnedComponents(): TArray<cpp.Star<NiagaraComp.ConstNiagaraComp>> return this.SpawnedComponents;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraBaselineController_Basic*")
+abstract NiagaraBaselineController_BasicPtr(cpp.Star<NiagaraBaselineController_Basic>) from cpp.Star<NiagaraBaselineController_Basic> to cpp.Star<NiagaraBaselineController_Basic>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraBaselineController_Basic): NiagaraBaselineController_BasicPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraBaselineController_Basic {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

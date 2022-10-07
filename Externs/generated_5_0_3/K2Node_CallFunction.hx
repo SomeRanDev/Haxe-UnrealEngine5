@@ -40,3 +40,22 @@ abstract ConstK2Node_CallFunction(K2Node_CallFunction) from K2Node_CallFunction 
 	public extern var CallFunctionClass_DEPRECATED(get, never): TSubclassOf<Object.ConstObject>;
 	public inline extern function get_CallFunctionClass_DEPRECATED(): TSubclassOf<Object.ConstObject> return this.CallFunctionClass_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_CallFunction*")
+abstract K2Node_CallFunctionPtr(cpp.Star<K2Node_CallFunction>) from cpp.Star<K2Node_CallFunction> to cpp.Star<K2Node_CallFunction>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_CallFunction): K2Node_CallFunctionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_CallFunction {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

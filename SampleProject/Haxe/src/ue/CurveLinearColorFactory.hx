@@ -13,3 +13,22 @@ extern class CurveLinearColorFactory extends CurveFactory {
 @:nativeGen
 abstract ConstCurveLinearColorFactory(CurveLinearColorFactory) from CurveLinearColorFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("CurveLinearColorFactory*")
+abstract CurveLinearColorFactoryPtr(cpp.Star<CurveLinearColorFactory>) from cpp.Star<CurveLinearColorFactory> to cpp.Star<CurveLinearColorFactory>{
+	@:from
+	public static extern inline function fromValue(v: CurveLinearColorFactory): CurveLinearColorFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CurveLinearColorFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

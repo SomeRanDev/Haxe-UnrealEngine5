@@ -25,3 +25,22 @@ abstract ConstAIDataProvider_QueryParams(AIDataProvider_QueryParams) from AIData
 	public extern var BoolValue(get, never): Bool;
 	public inline extern function get_BoolValue(): Bool return this.BoolValue;
 }
+
+@:forward
+@:nativeGen
+@:native("AIDataProvider_QueryParams*")
+abstract AIDataProvider_QueryParamsPtr(cpp.Star<AIDataProvider_QueryParams>) from cpp.Star<AIDataProvider_QueryParams> to cpp.Star<AIDataProvider_QueryParams>{
+	@:from
+	public static extern inline function fromValue(v: AIDataProvider_QueryParams): AIDataProvider_QueryParamsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AIDataProvider_QueryParams {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class K2Node_VariableSet extends K2Node_Variable {
 @:nativeGen
 abstract ConstK2Node_VariableSet(K2Node_VariableSet) from K2Node_VariableSet {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_VariableSet*")
+abstract K2Node_VariableSetPtr(cpp.Star<K2Node_VariableSet>) from cpp.Star<K2Node_VariableSet> to cpp.Star<K2Node_VariableSet>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_VariableSet): K2Node_VariableSetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_VariableSet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

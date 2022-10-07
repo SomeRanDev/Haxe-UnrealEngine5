@@ -25,3 +25,22 @@ abstract ConstVREditorPlacement(VREditorPlacement) from VREditorPlacement {
 	public extern var PlacingMaterialOrTextureAsset(get, never): cpp.Star<Object.ConstObject>;
 	public inline extern function get_PlacingMaterialOrTextureAsset(): cpp.Star<Object.ConstObject> return this.PlacingMaterialOrTextureAsset;
 }
+
+@:forward
+@:nativeGen
+@:native("VREditorPlacement*")
+abstract VREditorPlacementPtr(cpp.Star<VREditorPlacement>) from cpp.Star<VREditorPlacement> to cpp.Star<VREditorPlacement>{
+	@:from
+	public static extern inline function fromValue(v: VREditorPlacement): VREditorPlacementPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VREditorPlacement {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstParticleModuleAccelerationDragScaleOverLife(ParticleModuleAccelera
 	public extern var DragScaleRaw(get, never): RawDistributionFloat;
 	public inline extern function get_DragScaleRaw(): RawDistributionFloat return this.DragScaleRaw;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleAccelerationDragScaleOverLife*")
+abstract ParticleModuleAccelerationDragScaleOverLifePtr(cpp.Star<ParticleModuleAccelerationDragScaleOverLife>) from cpp.Star<ParticleModuleAccelerationDragScaleOverLife> to cpp.Star<ParticleModuleAccelerationDragScaleOverLife>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleAccelerationDragScaleOverLife): ParticleModuleAccelerationDragScaleOverLifePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleAccelerationDragScaleOverLife {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

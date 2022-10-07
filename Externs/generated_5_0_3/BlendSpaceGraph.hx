@@ -16,3 +16,22 @@ abstract ConstBlendSpaceGraph(BlendSpaceGraph) from BlendSpaceGraph {
 	public extern var BlendSpace(get, never): cpp.Star<BlendSpace.ConstBlendSpace>;
 	public inline extern function get_BlendSpace(): cpp.Star<BlendSpace.ConstBlendSpace> return this.BlendSpace;
 }
+
+@:forward
+@:nativeGen
+@:native("BlendSpaceGraph*")
+abstract BlendSpaceGraphPtr(cpp.Star<BlendSpaceGraph>) from cpp.Star<BlendSpaceGraph> to cpp.Star<BlendSpaceGraph>{
+	@:from
+	public static extern inline function fromValue(v: BlendSpaceGraph): BlendSpaceGraphPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlendSpaceGraph {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

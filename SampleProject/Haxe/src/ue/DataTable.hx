@@ -43,3 +43,22 @@ abstract ConstDataTable(DataTable) from DataTable {
 	public extern var TemporarilyReferencedObjects(get, never): TSet<cpp.Star<Object.ConstObject>>;
 	public inline extern function get_TemporarilyReferencedObjects(): TSet<cpp.Star<Object.ConstObject>> return this.TemporarilyReferencedObjects;
 }
+
+@:forward
+@:nativeGen
+@:native("DataTable*")
+abstract DataTablePtr(cpp.Star<DataTable>) from cpp.Star<DataTable> to cpp.Star<DataTable>{
+	@:from
+	public static extern inline function fromValue(v: DataTable): DataTablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DataTable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

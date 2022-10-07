@@ -22,3 +22,22 @@ abstract ConstEnvQueryGenerator_PathingGrid(EnvQueryGenerator_PathingGrid) from 
 	public extern var ScanRangeMultiplier(get, never): AIDataProviderFloatValue;
 	public inline extern function get_ScanRangeMultiplier(): AIDataProviderFloatValue return this.ScanRangeMultiplier;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryGenerator_PathingGrid*")
+abstract EnvQueryGenerator_PathingGridPtr(cpp.Star<EnvQueryGenerator_PathingGrid>) from cpp.Star<EnvQueryGenerator_PathingGrid> to cpp.Star<EnvQueryGenerator_PathingGrid>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryGenerator_PathingGrid): EnvQueryGenerator_PathingGridPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryGenerator_PathingGrid {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

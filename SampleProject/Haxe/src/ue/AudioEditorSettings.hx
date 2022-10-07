@@ -25,3 +25,22 @@ abstract ConstAudioEditorSettings(AudioEditorSettings) from AudioEditorSettings 
 	public extern var bPinSoundConcurrencyInAssetMenu(get, never): Bool;
 	public inline extern function get_bPinSoundConcurrencyInAssetMenu(): Bool return this.bPinSoundConcurrencyInAssetMenu;
 }
+
+@:forward
+@:nativeGen
+@:native("AudioEditorSettings*")
+abstract AudioEditorSettingsPtr(cpp.Star<AudioEditorSettings>) from cpp.Star<AudioEditorSettings> to cpp.Star<AudioEditorSettings>{
+	@:from
+	public static extern inline function fromValue(v: AudioEditorSettings): AudioEditorSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AudioEditorSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

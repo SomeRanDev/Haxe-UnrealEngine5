@@ -16,3 +16,22 @@ abstract ConstMovieSceneEasingExternalCurve(MovieSceneEasingExternalCurve) from 
 	public extern var Curve(get, never): cpp.Star<CurveFloat.ConstCurveFloat>;
 	public inline extern function get_Curve(): cpp.Star<CurveFloat.ConstCurveFloat> return this.Curve;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneEasingExternalCurve*")
+abstract MovieSceneEasingExternalCurvePtr(cpp.Star<MovieSceneEasingExternalCurve>) from cpp.Star<MovieSceneEasingExternalCurve> to cpp.Star<MovieSceneEasingExternalCurve>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneEasingExternalCurve): MovieSceneEasingExternalCurvePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneEasingExternalCurve {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

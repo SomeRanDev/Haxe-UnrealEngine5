@@ -12,3 +12,22 @@ extern class OnExportImageAsyncComplete__PythonCallable extends PythonCallableFo
 @:nativeGen
 abstract ConstOnExportImageAsyncComplete__PythonCallable(OnExportImageAsyncComplete__PythonCallable) from OnExportImageAsyncComplete__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnExportImageAsyncComplete__PythonCallable*")
+abstract OnExportImageAsyncComplete__PythonCallablePtr(cpp.Star<OnExportImageAsyncComplete__PythonCallable>) from cpp.Star<OnExportImageAsyncComplete__PythonCallable> to cpp.Star<OnExportImageAsyncComplete__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnExportImageAsyncComplete__PythonCallable): OnExportImageAsyncComplete__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnExportImageAsyncComplete__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

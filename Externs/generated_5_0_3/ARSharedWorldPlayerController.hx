@@ -17,3 +17,22 @@ extern class ARSharedWorldPlayerController extends PlayerController {
 @:nativeGen
 abstract ConstARSharedWorldPlayerController(ARSharedWorldPlayerController) from ARSharedWorldPlayerController {
 }
+
+@:forward
+@:nativeGen
+@:native("ARSharedWorldPlayerController*")
+abstract ARSharedWorldPlayerControllerPtr(cpp.Star<ARSharedWorldPlayerController>) from cpp.Star<ARSharedWorldPlayerController> to cpp.Star<ARSharedWorldPlayerController>{
+	@:from
+	public static extern inline function fromValue(v: ARSharedWorldPlayerController): ARSharedWorldPlayerControllerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARSharedWorldPlayerController {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

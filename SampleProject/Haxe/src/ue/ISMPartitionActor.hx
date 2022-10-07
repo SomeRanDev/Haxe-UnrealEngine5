@@ -25,3 +25,22 @@ abstract ConstISMPartitionActor(ISMPartitionActor) from ISMPartitionActor {
 	public extern var ClientInstanceManagers(get, never): TMap<Guid, ISMClientInstanceManagerData>;
 	public inline extern function get_ClientInstanceManagers(): TMap<Guid, ISMClientInstanceManagerData> return this.ClientInstanceManagers;
 }
+
+@:forward
+@:nativeGen
+@:native("ISMPartitionActor*")
+abstract ISMPartitionActorPtr(cpp.Star<ISMPartitionActor>) from cpp.Star<ISMPartitionActor> to cpp.Star<ISMPartitionActor>{
+	@:from
+	public static extern inline function fromValue(v: ISMPartitionActor): ISMPartitionActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ISMPartitionActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

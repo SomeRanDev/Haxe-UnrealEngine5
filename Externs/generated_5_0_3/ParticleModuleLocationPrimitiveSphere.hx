@@ -16,3 +16,22 @@ abstract ConstParticleModuleLocationPrimitiveSphere(ParticleModuleLocationPrimit
 	public extern var StartRadius(get, never): RawDistributionFloat;
 	public inline extern function get_StartRadius(): RawDistributionFloat return this.StartRadius;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleLocationPrimitiveSphere*")
+abstract ParticleModuleLocationPrimitiveSpherePtr(cpp.Star<ParticleModuleLocationPrimitiveSphere>) from cpp.Star<ParticleModuleLocationPrimitiveSphere> to cpp.Star<ParticleModuleLocationPrimitiveSphere>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleLocationPrimitiveSphere): ParticleModuleLocationPrimitiveSpherePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleLocationPrimitiveSphere {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstParticleModulePivotOffset(ParticleModulePivotOffset) from Particle
 	public extern var PivotOffset(get, never): Vector2D;
 	public inline extern function get_PivotOffset(): Vector2D return this.PivotOffset;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModulePivotOffset*")
+abstract ParticleModulePivotOffsetPtr(cpp.Star<ParticleModulePivotOffset>) from cpp.Star<ParticleModulePivotOffset> to cpp.Star<ParticleModulePivotOffset>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModulePivotOffset): ParticleModulePivotOffsetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModulePivotOffset {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

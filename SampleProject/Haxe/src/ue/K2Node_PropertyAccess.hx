@@ -28,3 +28,22 @@ abstract ConstK2Node_PropertyAccess(K2Node_PropertyAccess) from K2Node_PropertyA
 	public extern var ContextId(get, never): FName;
 	public inline extern function get_ContextId(): FName return this.ContextId;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_PropertyAccess*")
+abstract K2Node_PropertyAccessPtr(cpp.Star<K2Node_PropertyAccess>) from cpp.Star<K2Node_PropertyAccess> to cpp.Star<K2Node_PropertyAccess>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_PropertyAccess): K2Node_PropertyAccessPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_PropertyAccess {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

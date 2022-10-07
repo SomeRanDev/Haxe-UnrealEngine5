@@ -19,3 +19,22 @@ abstract ConstAnimationSharingSetup(AnimationSharingSetup) from AnimationSharing
 	public extern var ScalabilitySettings(get, never): AnimationSharingScalability;
 	public inline extern function get_ScalabilitySettings(): AnimationSharingScalability return this.ScalabilitySettings;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationSharingSetup*")
+abstract AnimationSharingSetupPtr(cpp.Star<AnimationSharingSetup>) from cpp.Star<AnimationSharingSetup> to cpp.Star<AnimationSharingSetup>{
+	@:from
+	public static extern inline function fromValue(v: AnimationSharingSetup): AnimationSharingSetupPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationSharingSetup {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class ComponentOnClickedSignature__PythonCallable extends PythonCallableF
 @:nativeGen
 abstract ConstComponentOnClickedSignature__PythonCallable(ComponentOnClickedSignature__PythonCallable) from ComponentOnClickedSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ComponentOnClickedSignature__PythonCallable*")
+abstract ComponentOnClickedSignature__PythonCallablePtr(cpp.Star<ComponentOnClickedSignature__PythonCallable>) from cpp.Star<ComponentOnClickedSignature__PythonCallable> to cpp.Star<ComponentOnClickedSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ComponentOnClickedSignature__PythonCallable): ComponentOnClickedSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ComponentOnClickedSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

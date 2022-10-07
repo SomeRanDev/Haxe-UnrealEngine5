@@ -13,3 +13,22 @@ extern class DumpHiddenCategoriesCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstDumpHiddenCategoriesCommandlet(DumpHiddenCategoriesCommandlet) from DumpHiddenCategoriesCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("DumpHiddenCategoriesCommandlet*")
+abstract DumpHiddenCategoriesCommandletPtr(cpp.Star<DumpHiddenCategoriesCommandlet>) from cpp.Star<DumpHiddenCategoriesCommandlet> to cpp.Star<DumpHiddenCategoriesCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: DumpHiddenCategoriesCommandlet): DumpHiddenCategoriesCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DumpHiddenCategoriesCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

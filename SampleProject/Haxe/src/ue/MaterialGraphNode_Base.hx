@@ -13,3 +13,22 @@ extern class MaterialGraphNode_Base extends EdGraphNode {
 @:nativeGen
 abstract ConstMaterialGraphNode_Base(MaterialGraphNode_Base) from MaterialGraphNode_Base {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialGraphNode_Base*")
+abstract MaterialGraphNode_BasePtr(cpp.Star<MaterialGraphNode_Base>) from cpp.Star<MaterialGraphNode_Base> to cpp.Star<MaterialGraphNode_Base>{
+	@:from
+	public static extern inline function fromValue(v: MaterialGraphNode_Base): MaterialGraphNode_BasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialGraphNode_Base {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

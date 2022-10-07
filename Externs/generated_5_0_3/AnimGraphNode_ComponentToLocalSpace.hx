@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_ComponentToLocalSpace(AnimGraphNode_ComponentToLocal
 	public extern var Node(get, never): AnimNode_ConvertComponentToLocalSpace;
 	public inline extern function get_Node(): AnimNode_ConvertComponentToLocalSpace return this.Node;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_ComponentToLocalSpace*")
+abstract AnimGraphNode_ComponentToLocalSpacePtr(cpp.Star<AnimGraphNode_ComponentToLocalSpace>) from cpp.Star<AnimGraphNode_ComponentToLocalSpace> to cpp.Star<AnimGraphNode_ComponentToLocalSpace>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_ComponentToLocalSpace): AnimGraphNode_ComponentToLocalSpacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_ComponentToLocalSpace {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

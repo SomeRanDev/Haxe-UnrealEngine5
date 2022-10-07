@@ -16,3 +16,22 @@ abstract ConstMasterAudioSubmixCaptureProtocol(MasterAudioSubmixCaptureProtocol)
 	public extern var FileName(get, never): FString;
 	public inline extern function get_FileName(): FString return this.FileName;
 }
+
+@:forward
+@:nativeGen
+@:native("MasterAudioSubmixCaptureProtocol*")
+abstract MasterAudioSubmixCaptureProtocolPtr(cpp.Star<MasterAudioSubmixCaptureProtocol>) from cpp.Star<MasterAudioSubmixCaptureProtocol> to cpp.Star<MasterAudioSubmixCaptureProtocol>{
+	@:from
+	public static extern inline function fromValue(v: MasterAudioSubmixCaptureProtocol): MasterAudioSubmixCaptureProtocolPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MasterAudioSubmixCaptureProtocol {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

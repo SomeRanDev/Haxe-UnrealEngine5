@@ -12,3 +12,22 @@ extern class OnQueueSubtitles__PythonCallable extends PythonCallableForDelegate 
 @:nativeGen
 abstract ConstOnQueueSubtitles__PythonCallable(OnQueueSubtitles__PythonCallable) from OnQueueSubtitles__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnQueueSubtitles__PythonCallable*")
+abstract OnQueueSubtitles__PythonCallablePtr(cpp.Star<OnQueueSubtitles__PythonCallable>) from cpp.Star<OnQueueSubtitles__PythonCallable> to cpp.Star<OnQueueSubtitles__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnQueueSubtitles__PythonCallable): OnQueueSubtitles__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnQueueSubtitles__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

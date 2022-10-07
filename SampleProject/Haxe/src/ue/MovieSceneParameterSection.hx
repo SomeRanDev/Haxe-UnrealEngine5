@@ -45,3 +45,22 @@ abstract ConstMovieSceneParameterSection(MovieSceneParameterSection) from MovieS
 	public extern var TransformParameterNamesAndCurves(get, never): TArray<TransformParameterNameAndCurves>;
 	public inline extern function get_TransformParameterNamesAndCurves(): TArray<TransformParameterNameAndCurves> return this.TransformParameterNamesAndCurves;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneParameterSection*")
+abstract MovieSceneParameterSectionPtr(cpp.Star<MovieSceneParameterSection>) from cpp.Star<MovieSceneParameterSection> to cpp.Star<MovieSceneParameterSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneParameterSection): MovieSceneParameterSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneParameterSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

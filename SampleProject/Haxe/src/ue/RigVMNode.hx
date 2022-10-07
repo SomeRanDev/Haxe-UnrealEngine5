@@ -86,3 +86,22 @@ abstract ConstRigVMNode(RigVMNode) from RigVMNode {
 	public extern var OrphanedPins(get, never): TArray<cpp.Star<RigVMPin.ConstRigVMPin>>;
 	public inline extern function get_OrphanedPins(): TArray<cpp.Star<RigVMPin.ConstRigVMPin>> return this.OrphanedPins;
 }
+
+@:forward
+@:nativeGen
+@:native("RigVMNode*")
+abstract RigVMNodePtr(cpp.Star<RigVMNode>) from cpp.Star<RigVMNode> to cpp.Star<RigVMNode>{
+	@:from
+	public static extern inline function fromValue(v: RigVMNode): RigVMNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVMNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

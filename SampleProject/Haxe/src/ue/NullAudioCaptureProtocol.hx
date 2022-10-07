@@ -13,3 +13,22 @@ extern class NullAudioCaptureProtocol extends MovieSceneAudioCaptureProtocolBase
 @:nativeGen
 abstract ConstNullAudioCaptureProtocol(NullAudioCaptureProtocol) from NullAudioCaptureProtocol {
 }
+
+@:forward
+@:nativeGen
+@:native("NullAudioCaptureProtocol*")
+abstract NullAudioCaptureProtocolPtr(cpp.Star<NullAudioCaptureProtocol>) from cpp.Star<NullAudioCaptureProtocol> to cpp.Star<NullAudioCaptureProtocol>{
+	@:from
+	public static extern inline function fromValue(v: NullAudioCaptureProtocol): NullAudioCaptureProtocolPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NullAudioCaptureProtocol {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

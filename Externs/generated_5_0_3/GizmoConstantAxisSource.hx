@@ -19,3 +19,22 @@ abstract ConstGizmoConstantAxisSource(GizmoConstantAxisSource) from GizmoConstan
 	public extern var Direction(get, never): Vector;
 	public inline extern function get_Direction(): Vector return this.Direction;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoConstantAxisSource*")
+abstract GizmoConstantAxisSourcePtr(cpp.Star<GizmoConstantAxisSource>) from cpp.Star<GizmoConstantAxisSource> to cpp.Star<GizmoConstantAxisSource>{
+	@:from
+	public static extern inline function fromValue(v: GizmoConstantAxisSource): GizmoConstantAxisSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoConstantAxisSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

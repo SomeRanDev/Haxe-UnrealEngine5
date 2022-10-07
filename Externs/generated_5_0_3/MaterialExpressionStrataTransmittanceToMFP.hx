@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionStrataTransmittanceToMFP(MaterialExpressionStrat
 	public extern var Thickness(get, never): ExpressionInput;
 	public inline extern function get_Thickness(): ExpressionInput return this.Thickness;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionStrataTransmittanceToMFP*")
+abstract MaterialExpressionStrataTransmittanceToMFPPtr(cpp.Star<MaterialExpressionStrataTransmittanceToMFP>) from cpp.Star<MaterialExpressionStrataTransmittanceToMFP> to cpp.Star<MaterialExpressionStrataTransmittanceToMFP>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionStrataTransmittanceToMFP): MaterialExpressionStrataTransmittanceToMFPPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionStrataTransmittanceToMFP {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

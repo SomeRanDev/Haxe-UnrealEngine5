@@ -19,3 +19,22 @@ abstract ConstTextureLightProfile(TextureLightProfile) from TextureLightProfile 
 	public extern var TextureMultiplier(get, never): cpp.Float32;
 	public inline extern function get_TextureMultiplier(): cpp.Float32 return this.TextureMultiplier;
 }
+
+@:forward
+@:nativeGen
+@:native("TextureLightProfile*")
+abstract TextureLightProfilePtr(cpp.Star<TextureLightProfile>) from cpp.Star<TextureLightProfile> to cpp.Star<TextureLightProfile>{
+	@:from
+	public static extern inline function fromValue(v: TextureLightProfile): TextureLightProfilePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextureLightProfile {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

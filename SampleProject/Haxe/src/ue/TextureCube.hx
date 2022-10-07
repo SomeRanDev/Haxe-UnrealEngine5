@@ -13,3 +13,22 @@ extern class TextureCube extends Texture {
 @:nativeGen
 abstract ConstTextureCube(TextureCube) from TextureCube {
 }
+
+@:forward
+@:nativeGen
+@:native("TextureCube*")
+abstract TextureCubePtr(cpp.Star<TextureCube>) from cpp.Star<TextureCube> to cpp.Star<TextureCube>{
+	@:from
+	public static extern inline function fromValue(v: TextureCube): TextureCubePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextureCube {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -28,3 +28,22 @@ abstract ConstDatasmithGLTFSceneImportData(DatasmithGLTFSceneImportData) from Da
 	public extern var Source(get, never): FString;
 	public inline extern function get_Source(): FString return this.Source;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithGLTFSceneImportData*")
+abstract DatasmithGLTFSceneImportDataPtr(cpp.Star<DatasmithGLTFSceneImportData>) from cpp.Star<DatasmithGLTFSceneImportData> to cpp.Star<DatasmithGLTFSceneImportData>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithGLTFSceneImportData): DatasmithGLTFSceneImportDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithGLTFSceneImportData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

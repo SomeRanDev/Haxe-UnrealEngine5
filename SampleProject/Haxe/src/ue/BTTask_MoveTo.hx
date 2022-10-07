@@ -49,3 +49,22 @@ abstract ConstBTTask_MoveTo(BTTask_MoveTo) from BTTask_MoveTo {
 	public extern var bStopOnOverlapNeedsUpdate(get, never): Bool;
 	public inline extern function get_bStopOnOverlapNeedsUpdate(): Bool return this.bStopOnOverlapNeedsUpdate;
 }
+
+@:forward
+@:nativeGen
+@:native("BTTask_MoveTo*")
+abstract BTTask_MoveToPtr(cpp.Star<BTTask_MoveTo>) from cpp.Star<BTTask_MoveTo> to cpp.Star<BTTask_MoveTo>{
+	@:from
+	public static extern inline function fromValue(v: BTTask_MoveTo): BTTask_MoveToPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTTask_MoveTo {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

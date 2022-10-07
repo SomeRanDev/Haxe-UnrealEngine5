@@ -13,3 +13,22 @@ extern class MaterialExpressionPixelDepth extends MaterialExpression {
 @:nativeGen
 abstract ConstMaterialExpressionPixelDepth(MaterialExpressionPixelDepth) from MaterialExpressionPixelDepth {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionPixelDepth*")
+abstract MaterialExpressionPixelDepthPtr(cpp.Star<MaterialExpressionPixelDepth>) from cpp.Star<MaterialExpressionPixelDepth> to cpp.Star<MaterialExpressionPixelDepth>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionPixelDepth): MaterialExpressionPixelDepthPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionPixelDepth {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

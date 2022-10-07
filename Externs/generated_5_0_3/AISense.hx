@@ -28,3 +28,22 @@ abstract ConstAISense(AISense) from AISense {
 	public extern var PerceptionSystemInstance(get, never): cpp.Star<AIPerceptionSystem.ConstAIPerceptionSystem>;
 	public inline extern function get_PerceptionSystemInstance(): cpp.Star<AIPerceptionSystem.ConstAIPerceptionSystem> return this.PerceptionSystemInstance;
 }
+
+@:forward
+@:nativeGen
+@:native("AISense*")
+abstract AISensePtr(cpp.Star<AISense>) from cpp.Star<AISense> to cpp.Star<AISense>{
+	@:from
+	public static extern inline function fromValue(v: AISense): AISensePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AISense {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

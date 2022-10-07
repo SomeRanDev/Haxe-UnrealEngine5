@@ -19,3 +19,22 @@ abstract ConstAssetEditorSubsystem(AssetEditorSubsystem) from AssetEditorSubsyst
 	public extern var OwnedAssetEditors(get, never): TArray<cpp.Star<AssetEditor.ConstAssetEditor>>;
 	public inline extern function get_OwnedAssetEditors(): TArray<cpp.Star<AssetEditor.ConstAssetEditor>> return this.OwnedAssetEditors;
 }
+
+@:forward
+@:nativeGen
+@:native("AssetEditorSubsystem*")
+abstract AssetEditorSubsystemPtr(cpp.Star<AssetEditorSubsystem>) from cpp.Star<AssetEditorSubsystem> to cpp.Star<AssetEditorSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: AssetEditorSubsystem): AssetEditorSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AssetEditorSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

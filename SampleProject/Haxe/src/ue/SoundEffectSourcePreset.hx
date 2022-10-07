@@ -13,3 +13,22 @@ extern class SoundEffectSourcePreset extends SoundEffectPreset {
 @:nativeGen
 abstract ConstSoundEffectSourcePreset(SoundEffectSourcePreset) from SoundEffectSourcePreset {
 }
+
+@:forward
+@:nativeGen
+@:native("SoundEffectSourcePreset*")
+abstract SoundEffectSourcePresetPtr(cpp.Star<SoundEffectSourcePreset>) from cpp.Star<SoundEffectSourcePreset> to cpp.Star<SoundEffectSourcePreset>{
+	@:from
+	public static extern inline function fromValue(v: SoundEffectSourcePreset): SoundEffectSourcePresetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundEffectSourcePreset {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

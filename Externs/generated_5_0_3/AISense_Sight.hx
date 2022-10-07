@@ -31,3 +31,22 @@ abstract ConstAISense_Sight(AISense_Sight) from AISense_Sight {
 	public extern var SightLimitQueryImportance(get, never): cpp.Float32;
 	public inline extern function get_SightLimitQueryImportance(): cpp.Float32 return this.SightLimitQueryImportance;
 }
+
+@:forward
+@:nativeGen
+@:native("AISense_Sight*")
+abstract AISense_SightPtr(cpp.Star<AISense_Sight>) from cpp.Star<AISense_Sight> to cpp.Star<AISense_Sight>{
+	@:from
+	public static extern inline function fromValue(v: AISense_Sight): AISense_SightPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AISense_Sight {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

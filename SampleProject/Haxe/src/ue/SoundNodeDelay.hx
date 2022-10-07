@@ -19,3 +19,22 @@ abstract ConstSoundNodeDelay(SoundNodeDelay) from SoundNodeDelay {
 	public extern var DelayMax(get, never): cpp.Float32;
 	public inline extern function get_DelayMax(): cpp.Float32 return this.DelayMax;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundNodeDelay*")
+abstract SoundNodeDelayPtr(cpp.Star<SoundNodeDelay>) from cpp.Star<SoundNodeDelay> to cpp.Star<SoundNodeDelay>{
+	@:from
+	public static extern inline function fromValue(v: SoundNodeDelay): SoundNodeDelayPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundNodeDelay {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

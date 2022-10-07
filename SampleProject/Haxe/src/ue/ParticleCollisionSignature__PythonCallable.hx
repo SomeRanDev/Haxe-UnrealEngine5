@@ -12,3 +12,22 @@ extern class ParticleCollisionSignature__PythonCallable extends PythonCallableFo
 @:nativeGen
 abstract ConstParticleCollisionSignature__PythonCallable(ParticleCollisionSignature__PythonCallable) from ParticleCollisionSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleCollisionSignature__PythonCallable*")
+abstract ParticleCollisionSignature__PythonCallablePtr(cpp.Star<ParticleCollisionSignature__PythonCallable>) from cpp.Star<ParticleCollisionSignature__PythonCallable> to cpp.Star<ParticleCollisionSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ParticleCollisionSignature__PythonCallable): ParticleCollisionSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleCollisionSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

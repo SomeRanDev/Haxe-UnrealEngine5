@@ -19,3 +19,22 @@ abstract ConstStructViewerSettings(StructViewerSettings) from StructViewerSettin
 	public extern var DeveloperFolderType(get, never): EStructViewerDeveloperType;
 	public inline extern function get_DeveloperFolderType(): EStructViewerDeveloperType return this.DeveloperFolderType;
 }
+
+@:forward
+@:nativeGen
+@:native("StructViewerSettings*")
+abstract StructViewerSettingsPtr(cpp.Star<StructViewerSettings>) from cpp.Star<StructViewerSettings> to cpp.Star<StructViewerSettings>{
+	@:from
+	public static extern inline function fromValue(v: StructViewerSettings): StructViewerSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): StructViewerSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

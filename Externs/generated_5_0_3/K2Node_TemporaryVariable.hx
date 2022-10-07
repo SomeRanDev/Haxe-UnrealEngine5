@@ -19,3 +19,22 @@ abstract ConstK2Node_TemporaryVariable(K2Node_TemporaryVariable) from K2Node_Tem
 	public extern var bIsPersistent(get, never): Bool;
 	public inline extern function get_bIsPersistent(): Bool return this.bIsPersistent;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_TemporaryVariable*")
+abstract K2Node_TemporaryVariablePtr(cpp.Star<K2Node_TemporaryVariable>) from cpp.Star<K2Node_TemporaryVariable> to cpp.Star<K2Node_TemporaryVariable>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_TemporaryVariable): K2Node_TemporaryVariablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_TemporaryVariable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

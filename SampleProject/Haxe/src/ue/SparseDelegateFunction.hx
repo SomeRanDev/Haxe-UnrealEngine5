@@ -12,3 +12,22 @@ extern class SparseDelegateFunction extends DelegateFunction {
 @:nativeGen
 abstract ConstSparseDelegateFunction(SparseDelegateFunction) from SparseDelegateFunction {
 }
+
+@:forward
+@:nativeGen
+@:native("SparseDelegateFunction*")
+abstract SparseDelegateFunctionPtr(cpp.Star<SparseDelegateFunction>) from cpp.Star<SparseDelegateFunction> to cpp.Star<SparseDelegateFunction>{
+	@:from
+	public static extern inline function fromValue(v: SparseDelegateFunction): SparseDelegateFunctionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SparseDelegateFunction {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

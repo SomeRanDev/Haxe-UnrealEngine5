@@ -19,3 +19,22 @@ abstract ConstParticleModuleSizeScaleBySpeed(ParticleModuleSizeScaleBySpeed) fro
 	public extern var MaxScale(get, never): Vector2D;
 	public inline extern function get_MaxScale(): Vector2D return this.MaxScale;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleSizeScaleBySpeed*")
+abstract ParticleModuleSizeScaleBySpeedPtr(cpp.Star<ParticleModuleSizeScaleBySpeed>) from cpp.Star<ParticleModuleSizeScaleBySpeed> to cpp.Star<ParticleModuleSizeScaleBySpeed>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleSizeScaleBySpeed): ParticleModuleSizeScaleBySpeedPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleSizeScaleBySpeed {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

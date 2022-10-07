@@ -13,3 +13,22 @@ extern class AnimGraphNode_PoseHandler extends AnimGraphNode_AssetPlayerBase {
 @:nativeGen
 abstract ConstAnimGraphNode_PoseHandler(AnimGraphNode_PoseHandler) from AnimGraphNode_PoseHandler {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_PoseHandler*")
+abstract AnimGraphNode_PoseHandlerPtr(cpp.Star<AnimGraphNode_PoseHandler>) from cpp.Star<AnimGraphNode_PoseHandler> to cpp.Star<AnimGraphNode_PoseHandler>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_PoseHandler): AnimGraphNode_PoseHandlerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_PoseHandler {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

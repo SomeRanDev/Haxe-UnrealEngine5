@@ -35,3 +35,22 @@ abstract ConstCameraAnimInst(CameraAnimInst) from CameraAnimInst {
 	public extern var PlaySpace(get, never): ECameraShakePlaySpace;
 	public inline extern function get_PlaySpace(): ECameraShakePlaySpace return this.PlaySpace;
 }
+
+@:forward
+@:nativeGen
+@:native("CameraAnimInst*")
+abstract CameraAnimInstPtr(cpp.Star<CameraAnimInst>) from cpp.Star<CameraAnimInst> to cpp.Star<CameraAnimInst>{
+	@:from
+	public static extern inline function fromValue(v: CameraAnimInst): CameraAnimInstPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CameraAnimInst {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

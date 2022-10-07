@@ -22,3 +22,22 @@ abstract ConstInstancedPlacemenClientSettings(InstancedPlacemenClientSettings) f
 	public extern var InstancedComponentSettings(get, never): ISMComponentDescriptor;
 	public inline extern function get_InstancedComponentSettings(): ISMComponentDescriptor return this.InstancedComponentSettings;
 }
+
+@:forward
+@:nativeGen
+@:native("InstancedPlacemenClientSettings*")
+abstract InstancedPlacemenClientSettingsPtr(cpp.Star<InstancedPlacemenClientSettings>) from cpp.Star<InstancedPlacemenClientSettings> to cpp.Star<InstancedPlacemenClientSettings>{
+	@:from
+	public static extern inline function fromValue(v: InstancedPlacemenClientSettings): InstancedPlacemenClientSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InstancedPlacemenClientSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

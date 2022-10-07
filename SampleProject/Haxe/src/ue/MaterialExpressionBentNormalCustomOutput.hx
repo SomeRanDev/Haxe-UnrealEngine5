@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionBentNormalCustomOutput(MaterialExpressionBentNor
 	public extern var Input(get, never): ExpressionInput;
 	public inline extern function get_Input(): ExpressionInput return this.Input;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionBentNormalCustomOutput*")
+abstract MaterialExpressionBentNormalCustomOutputPtr(cpp.Star<MaterialExpressionBentNormalCustomOutput>) from cpp.Star<MaterialExpressionBentNormalCustomOutput> to cpp.Star<MaterialExpressionBentNormalCustomOutput>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionBentNormalCustomOutput): MaterialExpressionBentNormalCustomOutputPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionBentNormalCustomOutput {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

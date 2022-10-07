@@ -19,3 +19,22 @@ abstract ConstMaterialMergeOptions(MaterialMergeOptions) from MaterialMergeOptio
 	public extern var BlendMode(get, never): EBlendMode;
 	public inline extern function get_BlendMode(): EBlendMode return this.BlendMode;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialMergeOptions*")
+abstract MaterialMergeOptionsPtr(cpp.Star<MaterialMergeOptions>) from cpp.Star<MaterialMergeOptions> to cpp.Star<MaterialMergeOptions>{
+	@:from
+	public static extern inline function fromValue(v: MaterialMergeOptions): MaterialMergeOptionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialMergeOptions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -27,3 +27,22 @@ abstract ConstNiagaraDataInterfaceUObjectPropertyReader(NiagaraDataInterfaceUObj
 	public extern var SourceActorComponentClass(get, never): TSubclassOf<Object.ConstObject>;
 	public inline extern function get_SourceActorComponentClass(): TSubclassOf<Object.ConstObject> return this.SourceActorComponentClass;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceUObjectPropertyReader*")
+abstract NiagaraDataInterfaceUObjectPropertyReaderPtr(cpp.Star<NiagaraDataInterfaceUObjectPropertyReader>) from cpp.Star<NiagaraDataInterfaceUObjectPropertyReader> to cpp.Star<NiagaraDataInterfaceUObjectPropertyReader>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceUObjectPropertyReader): NiagaraDataInterfaceUObjectPropertyReaderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceUObjectPropertyReader {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

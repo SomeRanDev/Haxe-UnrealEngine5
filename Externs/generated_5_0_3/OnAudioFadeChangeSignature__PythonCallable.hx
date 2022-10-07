@@ -12,3 +12,22 @@ extern class OnAudioFadeChangeSignature__PythonCallable extends PythonCallableFo
 @:nativeGen
 abstract ConstOnAudioFadeChangeSignature__PythonCallable(OnAudioFadeChangeSignature__PythonCallable) from OnAudioFadeChangeSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnAudioFadeChangeSignature__PythonCallable*")
+abstract OnAudioFadeChangeSignature__PythonCallablePtr(cpp.Star<OnAudioFadeChangeSignature__PythonCallable>) from cpp.Star<OnAudioFadeChangeSignature__PythonCallable> to cpp.Star<OnAudioFadeChangeSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnAudioFadeChangeSignature__PythonCallable): OnAudioFadeChangeSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnAudioFadeChangeSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class LightEditorSubsystem extends EditorSubsystem {
 @:nativeGen
 abstract ConstLightEditorSubsystem(LightEditorSubsystem) from LightEditorSubsystem {
 }
+
+@:forward
+@:nativeGen
+@:native("LightEditorSubsystem*")
+abstract LightEditorSubsystemPtr(cpp.Star<LightEditorSubsystem>) from cpp.Star<LightEditorSubsystem> to cpp.Star<LightEditorSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: LightEditorSubsystem): LightEditorSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LightEditorSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

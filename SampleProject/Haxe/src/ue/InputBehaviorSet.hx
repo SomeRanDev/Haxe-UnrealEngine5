@@ -16,3 +16,22 @@ abstract ConstInputBehaviorSet(InputBehaviorSet) from InputBehaviorSet {
 	public extern var Behaviors(get, never): TArray<BehaviorInfo>;
 	public inline extern function get_Behaviors(): TArray<BehaviorInfo> return this.Behaviors;
 }
+
+@:forward
+@:nativeGen
+@:native("InputBehaviorSet*")
+abstract InputBehaviorSetPtr(cpp.Star<InputBehaviorSet>) from cpp.Star<InputBehaviorSet> to cpp.Star<InputBehaviorSet>{
+	@:from
+	public static extern inline function fromValue(v: InputBehaviorSet): InputBehaviorSetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InputBehaviorSet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

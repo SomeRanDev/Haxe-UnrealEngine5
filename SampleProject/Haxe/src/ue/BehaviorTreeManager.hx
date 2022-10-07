@@ -22,3 +22,22 @@ abstract ConstBehaviorTreeManager(BehaviorTreeManager) from BehaviorTreeManager 
 	public extern var ActiveComponents(get, never): TArray<cpp.Star<BehaviorTreeComp.ConstBehaviorTreeComp>>;
 	public inline extern function get_ActiveComponents(): TArray<cpp.Star<BehaviorTreeComp.ConstBehaviorTreeComp>> return this.ActiveComponents;
 }
+
+@:forward
+@:nativeGen
+@:native("BehaviorTreeManager*")
+abstract BehaviorTreeManagerPtr(cpp.Star<BehaviorTreeManager>) from cpp.Star<BehaviorTreeManager> to cpp.Star<BehaviorTreeManager>{
+	@:from
+	public static extern inline function fromValue(v: BehaviorTreeManager): BehaviorTreeManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BehaviorTreeManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

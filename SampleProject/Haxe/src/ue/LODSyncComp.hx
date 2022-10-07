@@ -42,3 +42,22 @@ abstract ConstLODSyncComp(LODSyncComp) from LODSyncComp {
 	public extern var SubComponents(get, never): TArray<cpp.Star<PrimitiveComp.ConstPrimitiveComp>>;
 	public inline extern function get_SubComponents(): TArray<cpp.Star<PrimitiveComp.ConstPrimitiveComp>> return this.SubComponents;
 }
+
+@:forward
+@:nativeGen
+@:native("LODSyncComp*")
+abstract LODSyncCompPtr(cpp.Star<LODSyncComp>) from cpp.Star<LODSyncComp> to cpp.Star<LODSyncComp>{
+	@:from
+	public static extern inline function fromValue(v: LODSyncComp): LODSyncCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LODSyncComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

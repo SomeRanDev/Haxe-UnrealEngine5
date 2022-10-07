@@ -26,3 +26,22 @@ abstract ConstGameplayTask(GameplayTask) from GameplayTask {
 	public extern var ChildTask(get, never): cpp.Star<GameplayTask.ConstGameplayTask>;
 	public inline extern function get_ChildTask(): cpp.Star<GameplayTask.ConstGameplayTask> return this.ChildTask;
 }
+
+@:forward
+@:nativeGen
+@:native("GameplayTask*")
+abstract GameplayTaskPtr(cpp.Star<GameplayTask>) from cpp.Star<GameplayTask> to cpp.Star<GameplayTask>{
+	@:from
+	public static extern inline function fromValue(v: GameplayTask): GameplayTaskPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameplayTask {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

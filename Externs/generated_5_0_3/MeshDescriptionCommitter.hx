@@ -12,3 +12,22 @@ extern class MeshDescriptionCommitter extends Interface {
 @:nativeGen
 abstract ConstMeshDescriptionCommitter(MeshDescriptionCommitter) from MeshDescriptionCommitter {
 }
+
+@:forward
+@:nativeGen
+@:native("MeshDescriptionCommitter*")
+abstract MeshDescriptionCommitterPtr(cpp.Star<MeshDescriptionCommitter>) from cpp.Star<MeshDescriptionCommitter> to cpp.Star<MeshDescriptionCommitter>{
+	@:from
+	public static extern inline function fromValue(v: MeshDescriptionCommitter): MeshDescriptionCommitterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MeshDescriptionCommitter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

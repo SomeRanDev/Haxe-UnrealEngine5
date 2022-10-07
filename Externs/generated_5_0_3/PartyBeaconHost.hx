@@ -25,3 +25,22 @@ abstract ConstPartyBeaconHost(PartyBeaconHost) from PartyBeaconHost {
 	public extern var TravelSessionTimeoutSecs(get, never): cpp.Float32;
 	public inline extern function get_TravelSessionTimeoutSecs(): cpp.Float32 return this.TravelSessionTimeoutSecs;
 }
+
+@:forward
+@:nativeGen
+@:native("PartyBeaconHost*")
+abstract PartyBeaconHostPtr(cpp.Star<PartyBeaconHost>) from cpp.Star<PartyBeaconHost> to cpp.Star<PartyBeaconHost>{
+	@:from
+	public static extern inline function fromValue(v: PartyBeaconHost): PartyBeaconHostPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PartyBeaconHost {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

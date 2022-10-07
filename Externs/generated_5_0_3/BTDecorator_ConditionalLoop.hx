@@ -13,3 +13,22 @@ extern class BTDecorator_ConditionalLoop extends BTDecorator_Blackboard {
 @:nativeGen
 abstract ConstBTDecorator_ConditionalLoop(BTDecorator_ConditionalLoop) from BTDecorator_ConditionalLoop {
 }
+
+@:forward
+@:nativeGen
+@:native("BTDecorator_ConditionalLoop*")
+abstract BTDecorator_ConditionalLoopPtr(cpp.Star<BTDecorator_ConditionalLoop>) from cpp.Star<BTDecorator_ConditionalLoop> to cpp.Star<BTDecorator_ConditionalLoop>{
+	@:from
+	public static extern inline function fromValue(v: BTDecorator_ConditionalLoop): BTDecorator_ConditionalLoopPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTDecorator_ConditionalLoop {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class VectorFieldExporter extends Exporter {
 @:nativeGen
 abstract ConstVectorFieldExporter(VectorFieldExporter) from VectorFieldExporter {
 }
+
+@:forward
+@:nativeGen
+@:native("VectorFieldExporter*")
+abstract VectorFieldExporterPtr(cpp.Star<VectorFieldExporter>) from cpp.Star<VectorFieldExporter> to cpp.Star<VectorFieldExporter>{
+	@:from
+	public static extern inline function fromValue(v: VectorFieldExporter): VectorFieldExporterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VectorFieldExporter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

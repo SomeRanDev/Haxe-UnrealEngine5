@@ -26,3 +26,22 @@ abstract ConstStereoLayerShapeCylinder(StereoLayerShapeCylinder) from StereoLaye
 	public extern var Height(get, never): cpp.Int32;
 	public inline extern function get_Height(): cpp.Int32 return this.Height;
 }
+
+@:forward
+@:nativeGen
+@:native("StereoLayerShapeCylinder*")
+abstract StereoLayerShapeCylinderPtr(cpp.Star<StereoLayerShapeCylinder>) from cpp.Star<StereoLayerShapeCylinder> to cpp.Star<StereoLayerShapeCylinder>{
+	@:from
+	public static extern inline function fromValue(v: StereoLayerShapeCylinder): StereoLayerShapeCylinderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): StereoLayerShapeCylinder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

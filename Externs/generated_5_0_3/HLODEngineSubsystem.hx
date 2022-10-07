@@ -13,3 +13,22 @@ extern class HLODEngineSubsystem extends EngineSubsystem {
 @:nativeGen
 abstract ConstHLODEngineSubsystem(HLODEngineSubsystem) from HLODEngineSubsystem {
 }
+
+@:forward
+@:nativeGen
+@:native("HLODEngineSubsystem*")
+abstract HLODEngineSubsystemPtr(cpp.Star<HLODEngineSubsystem>) from cpp.Star<HLODEngineSubsystem> to cpp.Star<HLODEngineSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: HLODEngineSubsystem): HLODEngineSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): HLODEngineSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

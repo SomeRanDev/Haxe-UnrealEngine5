@@ -64,3 +64,22 @@ abstract ConstStreamingSettings(StreamingSettings) from StreamingSettings {
 	public extern var EventDrivenLoaderEnabled(get, never): Bool;
 	public inline extern function get_EventDrivenLoaderEnabled(): Bool return this.EventDrivenLoaderEnabled;
 }
+
+@:forward
+@:nativeGen
+@:native("StreamingSettings*")
+abstract StreamingSettingsPtr(cpp.Star<StreamingSettings>) from cpp.Star<StreamingSettings> to cpp.Star<StreamingSettings>{
+	@:from
+	public static extern inline function fromValue(v: StreamingSettings): StreamingSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): StreamingSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

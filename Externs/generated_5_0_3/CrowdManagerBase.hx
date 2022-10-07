@@ -13,3 +13,22 @@ extern class CrowdManagerBase extends Object {
 @:nativeGen
 abstract ConstCrowdManagerBase(CrowdManagerBase) from CrowdManagerBase {
 }
+
+@:forward
+@:nativeGen
+@:native("CrowdManagerBase*")
+abstract CrowdManagerBasePtr(cpp.Star<CrowdManagerBase>) from cpp.Star<CrowdManagerBase> to cpp.Star<CrowdManagerBase>{
+	@:from
+	public static extern inline function fromValue(v: CrowdManagerBase): CrowdManagerBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CrowdManagerBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

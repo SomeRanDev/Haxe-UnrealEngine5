@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_PoseBlendNode(AnimGraphNode_PoseBlendNode) from Anim
 	public extern var Node(get, never): AnimNode_PoseBlendNode;
 	public inline extern function get_Node(): AnimNode_PoseBlendNode return this.Node;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_PoseBlendNode*")
+abstract AnimGraphNode_PoseBlendNodePtr(cpp.Star<AnimGraphNode_PoseBlendNode>) from cpp.Star<AnimGraphNode_PoseBlendNode> to cpp.Star<AnimGraphNode_PoseBlendNode>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_PoseBlendNode): AnimGraphNode_PoseBlendNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_PoseBlendNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

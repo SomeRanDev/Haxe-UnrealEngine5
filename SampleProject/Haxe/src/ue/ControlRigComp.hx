@@ -116,3 +116,22 @@ abstract ConstControlRigComp(ControlRigComp) from ControlRigComp {
 	public extern var ControlRig(get, never): cpp.Star<ControlRig.ConstControlRig>;
 	public inline extern function get_ControlRig(): cpp.Star<ControlRig.ConstControlRig> return this.ControlRig;
 }
+
+@:forward
+@:nativeGen
+@:native("ControlRigComp*")
+abstract ControlRigCompPtr(cpp.Star<ControlRigComp>) from cpp.Star<ControlRigComp> to cpp.Star<ControlRigComp>{
+	@:from
+	public static extern inline function fromValue(v: ControlRigComp): ControlRigCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ControlRigComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ extern class CachedAnimDataLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstCachedAnimDataLibrary(CachedAnimDataLibrary) from CachedAnimDataLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("CachedAnimDataLibrary*")
+abstract CachedAnimDataLibraryPtr(cpp.Star<CachedAnimDataLibrary>) from cpp.Star<CachedAnimDataLibrary> to cpp.Star<CachedAnimDataLibrary>{
+	@:from
+	public static extern inline function fromValue(v: CachedAnimDataLibrary): CachedAnimDataLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CachedAnimDataLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

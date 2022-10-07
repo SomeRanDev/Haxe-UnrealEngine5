@@ -13,3 +13,22 @@ extern class MovieSceneBoolTrack extends MovieScenePropertyTrack {
 @:nativeGen
 abstract ConstMovieSceneBoolTrack(MovieSceneBoolTrack) from MovieSceneBoolTrack {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneBoolTrack*")
+abstract MovieSceneBoolTrackPtr(cpp.Star<MovieSceneBoolTrack>) from cpp.Star<MovieSceneBoolTrack> to cpp.Star<MovieSceneBoolTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneBoolTrack): MovieSceneBoolTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneBoolTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

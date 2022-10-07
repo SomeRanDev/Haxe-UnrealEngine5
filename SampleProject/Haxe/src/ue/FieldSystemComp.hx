@@ -43,3 +43,22 @@ abstract ConstFieldSystemComp(FieldSystemComp) from FieldSystemComp {
 	public extern var BufferCommands(get, never): FieldObjectCommands;
 	public inline extern function get_BufferCommands(): FieldObjectCommands return this.BufferCommands;
 }
+
+@:forward
+@:nativeGen
+@:native("FieldSystemComp*")
+abstract FieldSystemCompPtr(cpp.Star<FieldSystemComp>) from cpp.Star<FieldSystemComp> to cpp.Star<FieldSystemComp>{
+	@:from
+	public static extern inline function fromValue(v: FieldSystemComp): FieldSystemCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FieldSystemComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

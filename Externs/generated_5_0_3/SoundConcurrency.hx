@@ -16,3 +16,22 @@ abstract ConstSoundConcurrency(SoundConcurrency) from SoundConcurrency {
 	public extern var Concurrency(get, never): SoundConcurrencySettings;
 	public inline extern function get_Concurrency(): SoundConcurrencySettings return this.Concurrency;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundConcurrency*")
+abstract SoundConcurrencyPtr(cpp.Star<SoundConcurrency>) from cpp.Star<SoundConcurrency> to cpp.Star<SoundConcurrency>{
+	@:from
+	public static extern inline function fromValue(v: SoundConcurrency): SoundConcurrencyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundConcurrency {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

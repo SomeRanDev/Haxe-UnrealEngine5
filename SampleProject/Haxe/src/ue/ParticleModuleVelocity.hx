@@ -19,3 +19,22 @@ abstract ConstParticleModuleVelocity(ParticleModuleVelocity) from ParticleModule
 	public extern var StartVelocityRadial(get, never): RawDistributionFloat;
 	public inline extern function get_StartVelocityRadial(): RawDistributionFloat return this.StartVelocityRadial;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleVelocity*")
+abstract ParticleModuleVelocityPtr(cpp.Star<ParticleModuleVelocity>) from cpp.Star<ParticleModuleVelocity> to cpp.Star<ParticleModuleVelocity>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleVelocity): ParticleModuleVelocityPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleVelocity {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

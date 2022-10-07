@@ -12,3 +12,22 @@ extern class OnSystemFinished__PythonCallable extends PythonCallableForDelegate 
 @:nativeGen
 abstract ConstOnSystemFinished__PythonCallable(OnSystemFinished__PythonCallable) from OnSystemFinished__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnSystemFinished__PythonCallable*")
+abstract OnSystemFinished__PythonCallablePtr(cpp.Star<OnSystemFinished__PythonCallable>) from cpp.Star<OnSystemFinished__PythonCallable> to cpp.Star<OnSystemFinished__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnSystemFinished__PythonCallable): OnSystemFinished__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnSystemFinished__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

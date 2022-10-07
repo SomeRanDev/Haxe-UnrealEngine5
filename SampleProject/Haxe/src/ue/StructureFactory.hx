@@ -13,3 +13,22 @@ extern class StructureFactory extends Factory {
 @:nativeGen
 abstract ConstStructureFactory(StructureFactory) from StructureFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("StructureFactory*")
+abstract StructureFactoryPtr(cpp.Star<StructureFactory>) from cpp.Star<StructureFactory> to cpp.Star<StructureFactory>{
+	@:from
+	public static extern inline function fromValue(v: StructureFactory): StructureFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): StructureFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

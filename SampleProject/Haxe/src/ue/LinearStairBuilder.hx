@@ -31,3 +31,22 @@ abstract ConstLinearStairBuilder(LinearStairBuilder) from LinearStairBuilder {
 	public extern var GroupName(get, never): FName;
 	public inline extern function get_GroupName(): FName return this.GroupName;
 }
+
+@:forward
+@:nativeGen
+@:native("LinearStairBuilder*")
+abstract LinearStairBuilderPtr(cpp.Star<LinearStairBuilder>) from cpp.Star<LinearStairBuilder> to cpp.Star<LinearStairBuilder>{
+	@:from
+	public static extern inline function fromValue(v: LinearStairBuilder): LinearStairBuilderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LinearStairBuilder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

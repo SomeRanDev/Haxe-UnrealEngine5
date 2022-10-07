@@ -13,3 +13,22 @@ extern class BrushEditingSubsystem extends EditorSubsystem {
 @:nativeGen
 abstract ConstBrushEditingSubsystem(BrushEditingSubsystem) from BrushEditingSubsystem {
 }
+
+@:forward
+@:nativeGen
+@:native("BrushEditingSubsystem*")
+abstract BrushEditingSubsystemPtr(cpp.Star<BrushEditingSubsystem>) from cpp.Star<BrushEditingSubsystem> to cpp.Star<BrushEditingSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: BrushEditingSubsystem): BrushEditingSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BrushEditingSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

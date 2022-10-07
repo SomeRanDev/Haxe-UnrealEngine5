@@ -21,3 +21,22 @@ extern class RigVMVariableNode extends RigVMNode {
 @:nativeGen
 abstract ConstRigVMVariableNode(RigVMVariableNode) from RigVMVariableNode {
 }
+
+@:forward
+@:nativeGen
+@:native("RigVMVariableNode*")
+abstract RigVMVariableNodePtr(cpp.Star<RigVMVariableNode>) from cpp.Star<RigVMVariableNode> to cpp.Star<RigVMVariableNode>{
+	@:from
+	public static extern inline function fromValue(v: RigVMVariableNode): RigVMVariableNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVMVariableNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

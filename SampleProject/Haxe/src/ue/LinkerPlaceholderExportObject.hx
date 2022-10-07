@@ -12,3 +12,22 @@ extern class LinkerPlaceholderExportObject extends Object {
 @:nativeGen
 abstract ConstLinkerPlaceholderExportObject(LinkerPlaceholderExportObject) from LinkerPlaceholderExportObject {
 }
+
+@:forward
+@:nativeGen
+@:native("LinkerPlaceholderExportObject*")
+abstract LinkerPlaceholderExportObjectPtr(cpp.Star<LinkerPlaceholderExportObject>) from cpp.Star<LinkerPlaceholderExportObject> to cpp.Star<LinkerPlaceholderExportObject>{
+	@:from
+	public static extern inline function fromValue(v: LinkerPlaceholderExportObject): LinkerPlaceholderExportObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LinkerPlaceholderExportObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstWorldPartitionLevelStreamingPolicy(WorldPartitionLevelStreamingPol
 	public extern var SubObjectsToCellRemapping(get, never): TMap<FName, FName>;
 	public inline extern function get_SubObjectsToCellRemapping(): TMap<FName, FName> return this.SubObjectsToCellRemapping;
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionLevelStreamingPolicy*")
+abstract WorldPartitionLevelStreamingPolicyPtr(cpp.Star<WorldPartitionLevelStreamingPolicy>) from cpp.Star<WorldPartitionLevelStreamingPolicy> to cpp.Star<WorldPartitionLevelStreamingPolicy>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionLevelStreamingPolicy): WorldPartitionLevelStreamingPolicyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionLevelStreamingPolicy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstGroomCache(GroomCache) from GroomCache {
 	public extern var GroomCacheInfo(get, never): GroomCacheInfo;
 	public inline extern function get_GroomCacheInfo(): GroomCacheInfo return this.GroomCacheInfo;
 }
+
+@:forward
+@:nativeGen
+@:native("GroomCache*")
+abstract GroomCachePtr(cpp.Star<GroomCache>) from cpp.Star<GroomCache> to cpp.Star<GroomCache>{
+	@:from
+	public static extern inline function fromValue(v: GroomCache): GroomCachePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GroomCache {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -26,3 +26,22 @@ abstract ConstLevelVariantSets(LevelVariantSets) from LevelVariantSets {
 	public extern var VariantSets(get, never): TArray<cpp.Star<VariantSet.ConstVariantSet>>;
 	public inline extern function get_VariantSets(): TArray<cpp.Star<VariantSet.ConstVariantSet>> return this.VariantSets;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelVariantSets*")
+abstract LevelVariantSetsPtr(cpp.Star<LevelVariantSets>) from cpp.Star<LevelVariantSets> to cpp.Star<LevelVariantSets>{
+	@:from
+	public static extern inline function fromValue(v: LevelVariantSets): LevelVariantSetsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelVariantSets {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

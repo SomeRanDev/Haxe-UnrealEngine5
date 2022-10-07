@@ -13,3 +13,22 @@ extern class K2Node_GetEditorSubsystem extends K2Node_GetSubsystem {
 @:nativeGen
 abstract ConstK2Node_GetEditorSubsystem(K2Node_GetEditorSubsystem) from K2Node_GetEditorSubsystem {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_GetEditorSubsystem*")
+abstract K2Node_GetEditorSubsystemPtr(cpp.Star<K2Node_GetEditorSubsystem>) from cpp.Star<K2Node_GetEditorSubsystem> to cpp.Star<K2Node_GetEditorSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_GetEditorSubsystem): K2Node_GetEditorSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_GetEditorSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

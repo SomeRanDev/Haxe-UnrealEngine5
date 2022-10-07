@@ -28,3 +28,22 @@ abstract ConstVariantObjectBinding(VariantObjectBinding) from VariantObjectBindi
 	public extern var FunctionCallers(get, never): TArray<FunctionCaller>;
 	public inline extern function get_FunctionCallers(): TArray<FunctionCaller> return this.FunctionCallers;
 }
+
+@:forward
+@:nativeGen
+@:native("VariantObjectBinding*")
+abstract VariantObjectBindingPtr(cpp.Star<VariantObjectBinding>) from cpp.Star<VariantObjectBinding> to cpp.Star<VariantObjectBinding>{
+	@:from
+	public static extern inline function fromValue(v: VariantObjectBinding): VariantObjectBindingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VariantObjectBinding {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

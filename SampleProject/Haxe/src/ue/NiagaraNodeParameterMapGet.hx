@@ -16,3 +16,22 @@ abstract ConstNiagaraNodeParameterMapGet(NiagaraNodeParameterMapGet) from Niagar
 	public extern var PinOutputToPinDefaultPersistentId(get, never): TMap<Guid, Guid>;
 	public inline extern function get_PinOutputToPinDefaultPersistentId(): TMap<Guid, Guid> return this.PinOutputToPinDefaultPersistentId;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraNodeParameterMapGet*")
+abstract NiagaraNodeParameterMapGetPtr(cpp.Star<NiagaraNodeParameterMapGet>) from cpp.Star<NiagaraNodeParameterMapGet> to cpp.Star<NiagaraNodeParameterMapGet>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraNodeParameterMapGet): NiagaraNodeParameterMapGetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraNodeParameterMapGet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

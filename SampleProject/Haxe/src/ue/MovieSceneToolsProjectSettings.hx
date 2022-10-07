@@ -49,3 +49,22 @@ abstract ConstMovieSceneToolsProjectSettings(MovieSceneToolsProjectSettings) fro
 	public extern var FbxSettings(get, never): TArray<MovieSceneToolsFbxSettings>;
 	public inline extern function get_FbxSettings(): TArray<MovieSceneToolsFbxSettings> return this.FbxSettings;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneToolsProjectSettings*")
+abstract MovieSceneToolsProjectSettingsPtr(cpp.Star<MovieSceneToolsProjectSettings>) from cpp.Star<MovieSceneToolsProjectSettings> to cpp.Star<MovieSceneToolsProjectSettings>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneToolsProjectSettings): MovieSceneToolsProjectSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneToolsProjectSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

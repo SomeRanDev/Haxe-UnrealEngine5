@@ -13,3 +13,22 @@ extern class ForceFeedbackAttenuationFactory extends Factory {
 @:nativeGen
 abstract ConstForceFeedbackAttenuationFactory(ForceFeedbackAttenuationFactory) from ForceFeedbackAttenuationFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("ForceFeedbackAttenuationFactory*")
+abstract ForceFeedbackAttenuationFactoryPtr(cpp.Star<ForceFeedbackAttenuationFactory>) from cpp.Star<ForceFeedbackAttenuationFactory> to cpp.Star<ForceFeedbackAttenuationFactory>{
+	@:from
+	public static extern inline function fromValue(v: ForceFeedbackAttenuationFactory): ForceFeedbackAttenuationFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ForceFeedbackAttenuationFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

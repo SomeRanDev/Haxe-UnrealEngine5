@@ -12,3 +12,22 @@ extern class SimpleListItemEventDynamic__PythonCallable extends PythonCallableFo
 @:nativeGen
 abstract ConstSimpleListItemEventDynamic__PythonCallable(SimpleListItemEventDynamic__PythonCallable) from SimpleListItemEventDynamic__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("SimpleListItemEventDynamic__PythonCallable*")
+abstract SimpleListItemEventDynamic__PythonCallablePtr(cpp.Star<SimpleListItemEventDynamic__PythonCallable>) from cpp.Star<SimpleListItemEventDynamic__PythonCallable> to cpp.Star<SimpleListItemEventDynamic__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: SimpleListItemEventDynamic__PythonCallable): SimpleListItemEventDynamic__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SimpleListItemEventDynamic__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

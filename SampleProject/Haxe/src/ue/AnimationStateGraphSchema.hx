@@ -13,3 +13,22 @@ extern class AnimationStateGraphSchema extends AnimationGraphSchema {
 @:nativeGen
 abstract ConstAnimationStateGraphSchema(AnimationStateGraphSchema) from AnimationStateGraphSchema {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationStateGraphSchema*")
+abstract AnimationStateGraphSchemaPtr(cpp.Star<AnimationStateGraphSchema>) from cpp.Star<AnimationStateGraphSchema> to cpp.Star<AnimationStateGraphSchema>{
+	@:from
+	public static extern inline function fromValue(v: AnimationStateGraphSchema): AnimationStateGraphSchemaPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationStateGraphSchema {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

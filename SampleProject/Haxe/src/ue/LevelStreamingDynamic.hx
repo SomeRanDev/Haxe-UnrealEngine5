@@ -22,3 +22,22 @@ abstract ConstLevelStreamingDynamic(LevelStreamingDynamic) from LevelStreamingDy
 	public extern var bInitiallyVisible(get, never): Bool;
 	public inline extern function get_bInitiallyVisible(): Bool return this.bInitiallyVisible;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelStreamingDynamic*")
+abstract LevelStreamingDynamicPtr(cpp.Star<LevelStreamingDynamic>) from cpp.Star<LevelStreamingDynamic> to cpp.Star<LevelStreamingDynamic>{
+	@:from
+	public static extern inline function fromValue(v: LevelStreamingDynamic): LevelStreamingDynamicPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelStreamingDynamic {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

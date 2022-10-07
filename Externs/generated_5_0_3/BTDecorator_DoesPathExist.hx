@@ -28,3 +28,22 @@ abstract ConstBTDecorator_DoesPathExist(BTDecorator_DoesPathExist) from BTDecora
 	public extern var FilterClass(get, never): TSubclassOf<NavigationQueryFilter.ConstNavigationQueryFilter>;
 	public inline extern function get_FilterClass(): TSubclassOf<NavigationQueryFilter.ConstNavigationQueryFilter> return this.FilterClass;
 }
+
+@:forward
+@:nativeGen
+@:native("BTDecorator_DoesPathExist*")
+abstract BTDecorator_DoesPathExistPtr(cpp.Star<BTDecorator_DoesPathExist>) from cpp.Star<BTDecorator_DoesPathExist> to cpp.Star<BTDecorator_DoesPathExist>{
+	@:from
+	public static extern inline function fromValue(v: BTDecorator_DoesPathExist): BTDecorator_DoesPathExistPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTDecorator_DoesPathExist {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

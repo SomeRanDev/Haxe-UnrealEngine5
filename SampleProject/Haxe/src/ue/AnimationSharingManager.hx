@@ -24,3 +24,22 @@ abstract ConstAnimationSharingManager(AnimationSharingManager) from AnimationSha
 	public extern var PerSkeletonData(get, never): TArray<cpp.Star<AnimSharingInstance.ConstAnimSharingInstance>>;
 	public inline extern function get_PerSkeletonData(): TArray<cpp.Star<AnimSharingInstance.ConstAnimSharingInstance>> return this.PerSkeletonData;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationSharingManager*")
+abstract AnimationSharingManagerPtr(cpp.Star<AnimationSharingManager>) from cpp.Star<AnimationSharingManager> to cpp.Star<AnimationSharingManager>{
+	@:from
+	public static extern inline function fromValue(v: AnimationSharingManager): AnimationSharingManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationSharingManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

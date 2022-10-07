@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionExecBegin(MaterialExpressionExecBegin) from Mate
 	public extern var Exec(get, never): ExpressionExecOutput;
 	public inline extern function get_Exec(): ExpressionExecOutput return this.Exec;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionExecBegin*")
+abstract MaterialExpressionExecBeginPtr(cpp.Star<MaterialExpressionExecBegin>) from cpp.Star<MaterialExpressionExecBegin> to cpp.Star<MaterialExpressionExecBegin>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionExecBegin): MaterialExpressionExecBeginPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionExecBegin {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

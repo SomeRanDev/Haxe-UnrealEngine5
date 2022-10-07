@@ -19,3 +19,22 @@ abstract ConstSingleClickOrDragInputBehavior(SingleClickOrDragInputBehavior) fro
 	public extern var ClickDistanceThreshold(get, never): cpp.Float32;
 	public inline extern function get_ClickDistanceThreshold(): cpp.Float32 return this.ClickDistanceThreshold;
 }
+
+@:forward
+@:nativeGen
+@:native("SingleClickOrDragInputBehavior*")
+abstract SingleClickOrDragInputBehaviorPtr(cpp.Star<SingleClickOrDragInputBehavior>) from cpp.Star<SingleClickOrDragInputBehavior> to cpp.Star<SingleClickOrDragInputBehavior>{
+	@:from
+	public static extern inline function fromValue(v: SingleClickOrDragInputBehavior): SingleClickOrDragInputBehaviorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SingleClickOrDragInputBehavior {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

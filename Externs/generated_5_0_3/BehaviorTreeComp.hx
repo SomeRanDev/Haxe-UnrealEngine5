@@ -23,3 +23,22 @@ abstract ConstBehaviorTreeComp(BehaviorTreeComp) from BehaviorTreeComp {
 	public extern var DefaultBehaviorTreeAsset(get, never): cpp.Star<BehaviorTree.ConstBehaviorTree>;
 	public inline extern function get_DefaultBehaviorTreeAsset(): cpp.Star<BehaviorTree.ConstBehaviorTree> return this.DefaultBehaviorTreeAsset;
 }
+
+@:forward
+@:nativeGen
+@:native("BehaviorTreeComp*")
+abstract BehaviorTreeCompPtr(cpp.Star<BehaviorTreeComp>) from cpp.Star<BehaviorTreeComp> to cpp.Star<BehaviorTreeComp>{
+	@:from
+	public static extern inline function fromValue(v: BehaviorTreeComp): BehaviorTreeCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BehaviorTreeComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

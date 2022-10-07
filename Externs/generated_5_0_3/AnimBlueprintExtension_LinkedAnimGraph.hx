@@ -13,3 +13,22 @@ extern class AnimBlueprintExtension_LinkedAnimGraph extends AnimBlueprintExtensi
 @:nativeGen
 abstract ConstAnimBlueprintExtension_LinkedAnimGraph(AnimBlueprintExtension_LinkedAnimGraph) from AnimBlueprintExtension_LinkedAnimGraph {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimBlueprintExtension_LinkedAnimGraph*")
+abstract AnimBlueprintExtension_LinkedAnimGraphPtr(cpp.Star<AnimBlueprintExtension_LinkedAnimGraph>) from cpp.Star<AnimBlueprintExtension_LinkedAnimGraph> to cpp.Star<AnimBlueprintExtension_LinkedAnimGraph>{
+	@:from
+	public static extern inline function fromValue(v: AnimBlueprintExtension_LinkedAnimGraph): AnimBlueprintExtension_LinkedAnimGraphPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimBlueprintExtension_LinkedAnimGraph {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

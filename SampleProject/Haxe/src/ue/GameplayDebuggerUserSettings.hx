@@ -25,3 +25,22 @@ abstract ConstGameplayDebuggerUserSettings(GameplayDebuggerUserSettings) from Ga
 	public extern var FontSize(get, never): cpp.Int32;
 	public inline extern function get_FontSize(): cpp.Int32 return this.FontSize;
 }
+
+@:forward
+@:nativeGen
+@:native("GameplayDebuggerUserSettings*")
+abstract GameplayDebuggerUserSettingsPtr(cpp.Star<GameplayDebuggerUserSettings>) from cpp.Star<GameplayDebuggerUserSettings> to cpp.Star<GameplayDebuggerUserSettings>{
+	@:from
+	public static extern inline function fromValue(v: GameplayDebuggerUserSettings): GameplayDebuggerUserSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameplayDebuggerUserSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

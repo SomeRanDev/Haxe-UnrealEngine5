@@ -34,3 +34,22 @@ abstract ConstWorldPartition(WorldPartition) from WorldPartition {
 	public extern var StreamingPolicy(get, never): cpp.Star<WorldPartitionStreamingPolicy.ConstWorldPartitionStreamingPolicy>;
 	public inline extern function get_StreamingPolicy(): cpp.Star<WorldPartitionStreamingPolicy.ConstWorldPartitionStreamingPolicy> return this.StreamingPolicy;
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartition*")
+abstract WorldPartitionPtr(cpp.Star<WorldPartition>) from cpp.Star<WorldPartition> to cpp.Star<WorldPartition>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartition): WorldPartitionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartition {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

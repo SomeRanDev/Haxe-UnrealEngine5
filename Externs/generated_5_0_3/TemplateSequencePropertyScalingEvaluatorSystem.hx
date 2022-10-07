@@ -13,3 +13,22 @@ extern class TemplateSequencePropertyScalingEvaluatorSystem extends MovieSceneEn
 @:nativeGen
 abstract ConstTemplateSequencePropertyScalingEvaluatorSystem(TemplateSequencePropertyScalingEvaluatorSystem) from TemplateSequencePropertyScalingEvaluatorSystem {
 }
+
+@:forward
+@:nativeGen
+@:native("TemplateSequencePropertyScalingEvaluatorSystem*")
+abstract TemplateSequencePropertyScalingEvaluatorSystemPtr(cpp.Star<TemplateSequencePropertyScalingEvaluatorSystem>) from cpp.Star<TemplateSequencePropertyScalingEvaluatorSystem> to cpp.Star<TemplateSequencePropertyScalingEvaluatorSystem>{
+	@:from
+	public static extern inline function fromValue(v: TemplateSequencePropertyScalingEvaluatorSystem): TemplateSequencePropertyScalingEvaluatorSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TemplateSequencePropertyScalingEvaluatorSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

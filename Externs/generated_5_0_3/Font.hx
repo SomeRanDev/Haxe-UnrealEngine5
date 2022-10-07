@@ -61,3 +61,22 @@ abstract ConstFont(Font) from Font {
 	public extern var CompositeFont(get, never): CompositeFont;
 	public inline extern function get_CompositeFont(): CompositeFont return this.CompositeFont;
 }
+
+@:forward
+@:nativeGen
+@:native("Font*")
+abstract FontPtr(cpp.Star<Font>) from cpp.Star<Font> to cpp.Star<Font>{
+	@:from
+	public static extern inline function fromValue(v: Font): FontPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Font {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

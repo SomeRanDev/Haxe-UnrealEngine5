@@ -22,3 +22,22 @@ abstract ConstMaterialExpressionComposite(MaterialExpressionComposite) from Mate
 	public extern var OutputExpressions(get, never): cpp.Star<MaterialExpressionPinBase.ConstMaterialExpressionPinBase>;
 	public inline extern function get_OutputExpressions(): cpp.Star<MaterialExpressionPinBase.ConstMaterialExpressionPinBase> return this.OutputExpressions;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionComposite*")
+abstract MaterialExpressionCompositePtr(cpp.Star<MaterialExpressionComposite>) from cpp.Star<MaterialExpressionComposite> to cpp.Star<MaterialExpressionComposite>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionComposite): MaterialExpressionCompositePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionComposite {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

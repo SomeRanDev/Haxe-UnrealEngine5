@@ -12,3 +12,22 @@ extern class OnFloatValueChangedEvent__PythonCallable extends PythonCallableForD
 @:nativeGen
 abstract ConstOnFloatValueChangedEvent__PythonCallable(OnFloatValueChangedEvent__PythonCallable) from OnFloatValueChangedEvent__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnFloatValueChangedEvent__PythonCallable*")
+abstract OnFloatValueChangedEvent__PythonCallablePtr(cpp.Star<OnFloatValueChangedEvent__PythonCallable>) from cpp.Star<OnFloatValueChangedEvent__PythonCallable> to cpp.Star<OnFloatValueChangedEvent__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnFloatValueChangedEvent__PythonCallable): OnFloatValueChangedEvent__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnFloatValueChangedEvent__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstInterpTrackLinearColorBase(InterpTrackLinearColorBase) from Interp
 	public extern var CurveTension(get, never): cpp.Float32;
 	public inline extern function get_CurveTension(): cpp.Float32 return this.CurveTension;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackLinearColorBase*")
+abstract InterpTrackLinearColorBasePtr(cpp.Star<InterpTrackLinearColorBase>) from cpp.Star<InterpTrackLinearColorBase> to cpp.Star<InterpTrackLinearColorBase>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackLinearColorBase): InterpTrackLinearColorBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackLinearColorBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class K2Node_InputVectorAxisEvent extends K2Node_InputAxisKeyEvent {
 @:nativeGen
 abstract ConstK2Node_InputVectorAxisEvent(K2Node_InputVectorAxisEvent) from K2Node_InputVectorAxisEvent {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_InputVectorAxisEvent*")
+abstract K2Node_InputVectorAxisEventPtr(cpp.Star<K2Node_InputVectorAxisEvent>) from cpp.Star<K2Node_InputVectorAxisEvent> to cpp.Star<K2Node_InputVectorAxisEvent>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_InputVectorAxisEvent): K2Node_InputVectorAxisEventPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_InputVectorAxisEvent {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

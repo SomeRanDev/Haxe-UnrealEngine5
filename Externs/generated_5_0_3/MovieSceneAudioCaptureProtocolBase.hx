@@ -13,3 +13,22 @@ extern class MovieSceneAudioCaptureProtocolBase extends MovieSceneCaptureProtoco
 @:nativeGen
 abstract ConstMovieSceneAudioCaptureProtocolBase(MovieSceneAudioCaptureProtocolBase) from MovieSceneAudioCaptureProtocolBase {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneAudioCaptureProtocolBase*")
+abstract MovieSceneAudioCaptureProtocolBasePtr(cpp.Star<MovieSceneAudioCaptureProtocolBase>) from cpp.Star<MovieSceneAudioCaptureProtocolBase> to cpp.Star<MovieSceneAudioCaptureProtocolBase>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneAudioCaptureProtocolBase): MovieSceneAudioCaptureProtocolBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneAudioCaptureProtocolBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

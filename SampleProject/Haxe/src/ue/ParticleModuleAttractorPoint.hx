@@ -52,3 +52,22 @@ abstract ConstParticleModuleAttractorPoint(ParticleModuleAttractorPoint) from Pa
 	public extern var Negative_Z(get, never): Bool;
 	public inline extern function get_Negative_Z(): Bool return this.Negative_Z;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleAttractorPoint*")
+abstract ParticleModuleAttractorPointPtr(cpp.Star<ParticleModuleAttractorPoint>) from cpp.Star<ParticleModuleAttractorPoint> to cpp.Star<ParticleModuleAttractorPoint>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleAttractorPoint): ParticleModuleAttractorPointPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleAttractorPoint {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

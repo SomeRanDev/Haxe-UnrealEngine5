@@ -142,3 +142,22 @@ abstract ConstWorld(World) from World {
 	public extern var PSCPool(get, never): WorldPSCPool;
 	public inline extern function get_PSCPool(): WorldPSCPool return this.PSCPool;
 }
+
+@:forward
+@:nativeGen
+@:native("World*")
+abstract WorldPtr(cpp.Star<World>) from cpp.Star<World> to cpp.Star<World>{
+	@:from
+	public static extern inline function fromValue(v: World): WorldPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): World {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

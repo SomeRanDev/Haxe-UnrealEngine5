@@ -12,3 +12,22 @@ extern class OnTemperatureChangeDelegate__PythonCallable extends PythonCallableF
 @:nativeGen
 abstract ConstOnTemperatureChangeDelegate__PythonCallable(OnTemperatureChangeDelegate__PythonCallable) from OnTemperatureChangeDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnTemperatureChangeDelegate__PythonCallable*")
+abstract OnTemperatureChangeDelegate__PythonCallablePtr(cpp.Star<OnTemperatureChangeDelegate__PythonCallable>) from cpp.Star<OnTemperatureChangeDelegate__PythonCallable> to cpp.Star<OnTemperatureChangeDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnTemperatureChangeDelegate__PythonCallable): OnTemperatureChangeDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnTemperatureChangeDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

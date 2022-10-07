@@ -23,3 +23,22 @@ abstract ConstViewport(Viewport) from Viewport {
 	public extern var BackgroundColor(get, never): LinearColor;
 	public inline extern function get_BackgroundColor(): LinearColor return this.BackgroundColor;
 }
+
+@:forward
+@:nativeGen
+@:native("Viewport*")
+abstract ViewportPtr(cpp.Star<Viewport>) from cpp.Star<Viewport> to cpp.Star<Viewport>{
+	@:from
+	public static extern inline function fromValue(v: Viewport): ViewportPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Viewport {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

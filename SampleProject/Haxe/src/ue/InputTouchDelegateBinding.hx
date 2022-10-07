@@ -16,3 +16,22 @@ abstract ConstInputTouchDelegateBinding(InputTouchDelegateBinding) from InputTou
 	public extern var InputTouchDelegateBindings(get, never): TArray<BlueprintInputTouchDelegateBinding>;
 	public inline extern function get_InputTouchDelegateBindings(): TArray<BlueprintInputTouchDelegateBinding> return this.InputTouchDelegateBindings;
 }
+
+@:forward
+@:nativeGen
+@:native("InputTouchDelegateBinding*")
+abstract InputTouchDelegateBindingPtr(cpp.Star<InputTouchDelegateBinding>) from cpp.Star<InputTouchDelegateBinding> to cpp.Star<InputTouchDelegateBinding>{
+	@:from
+	public static extern inline function fromValue(v: InputTouchDelegateBinding): InputTouchDelegateBindingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InputTouchDelegateBinding {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -14,3 +14,22 @@ extern class BlueprintAsyncActionBase extends Object {
 @:nativeGen
 abstract ConstBlueprintAsyncActionBase(BlueprintAsyncActionBase) from BlueprintAsyncActionBase {
 }
+
+@:forward
+@:nativeGen
+@:native("BlueprintAsyncActionBase*")
+abstract BlueprintAsyncActionBasePtr(cpp.Star<BlueprintAsyncActionBase>) from cpp.Star<BlueprintAsyncActionBase> to cpp.Star<BlueprintAsyncActionBase>{
+	@:from
+	public static extern inline function fromValue(v: BlueprintAsyncActionBase): BlueprintAsyncActionBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlueprintAsyncActionBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

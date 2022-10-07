@@ -34,3 +34,22 @@ abstract ConstPivotTransformGizmo(PivotTransformGizmo) from PivotTransformGizmo 
 	public extern var LastDraggingHandle(get, never): cpp.Star<ActorComp.ConstActorComp>;
 	public inline extern function get_LastDraggingHandle(): cpp.Star<ActorComp.ConstActorComp> return this.LastDraggingHandle;
 }
+
+@:forward
+@:nativeGen
+@:native("PivotTransformGizmo*")
+abstract PivotTransformGizmoPtr(cpp.Star<PivotTransformGizmo>) from cpp.Star<PivotTransformGizmo> to cpp.Star<PivotTransformGizmo>{
+	@:from
+	public static extern inline function fromValue(v: PivotTransformGizmo): PivotTransformGizmoPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PivotTransformGizmo {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

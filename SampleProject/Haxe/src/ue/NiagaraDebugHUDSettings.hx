@@ -16,3 +16,22 @@ abstract ConstNiagaraDebugHUDSettings(NiagaraDebugHUDSettings) from NiagaraDebug
 	public extern var Data(get, never): NiagaraDebugHUDSettingsData;
 	public inline extern function get_Data(): NiagaraDebugHUDSettingsData return this.Data;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDebugHUDSettings*")
+abstract NiagaraDebugHUDSettingsPtr(cpp.Star<NiagaraDebugHUDSettings>) from cpp.Star<NiagaraDebugHUDSettings> to cpp.Star<NiagaraDebugHUDSettings>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDebugHUDSettings): NiagaraDebugHUDSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDebugHUDSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

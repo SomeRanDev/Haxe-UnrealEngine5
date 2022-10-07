@@ -15,3 +15,22 @@ extern class TestBeaconClient extends OnlineBeaconClient {
 @:nativeGen
 abstract ConstTestBeaconClient(TestBeaconClient) from TestBeaconClient {
 }
+
+@:forward
+@:nativeGen
+@:native("TestBeaconClient*")
+abstract TestBeaconClientPtr(cpp.Star<TestBeaconClient>) from cpp.Star<TestBeaconClient> to cpp.Star<TestBeaconClient>{
+	@:from
+	public static extern inline function fromValue(v: TestBeaconClient): TestBeaconClientPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TestBeaconClient {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

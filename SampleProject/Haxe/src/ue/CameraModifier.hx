@@ -42,3 +42,22 @@ abstract ConstCameraModifier(CameraModifier) from CameraModifier {
 	public extern var Alpha(get, never): cpp.Float32;
 	public inline extern function get_Alpha(): cpp.Float32 return this.Alpha;
 }
+
+@:forward
+@:nativeGen
+@:native("CameraModifier*")
+abstract CameraModifierPtr(cpp.Star<CameraModifier>) from cpp.Star<CameraModifier> to cpp.Star<CameraModifier>{
+	@:from
+	public static extern inline function fromValue(v: CameraModifier): CameraModifierPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CameraModifier {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

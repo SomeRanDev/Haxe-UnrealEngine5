@@ -13,3 +13,22 @@ extern class LightmassCharacterIndirectDetailVolume extends Volume {
 @:nativeGen
 abstract ConstLightmassCharacterIndirectDetailVolume(LightmassCharacterIndirectDetailVolume) from LightmassCharacterIndirectDetailVolume {
 }
+
+@:forward
+@:nativeGen
+@:native("LightmassCharacterIndirectDetailVolume*")
+abstract LightmassCharacterIndirectDetailVolumePtr(cpp.Star<LightmassCharacterIndirectDetailVolume>) from cpp.Star<LightmassCharacterIndirectDetailVolume> to cpp.Star<LightmassCharacterIndirectDetailVolume>{
+	@:from
+	public static extern inline function fromValue(v: LightmassCharacterIndirectDetailVolume): LightmassCharacterIndirectDetailVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LightmassCharacterIndirectDetailVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

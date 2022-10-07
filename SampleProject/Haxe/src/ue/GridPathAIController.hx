@@ -13,3 +13,22 @@ extern class GridPathAIController extends AIController {
 @:nativeGen
 abstract ConstGridPathAIController(GridPathAIController) from GridPathAIController {
 }
+
+@:forward
+@:nativeGen
+@:native("GridPathAIController*")
+abstract GridPathAIControllerPtr(cpp.Star<GridPathAIController>) from cpp.Star<GridPathAIController> to cpp.Star<GridPathAIController>{
+	@:from
+	public static extern inline function fromValue(v: GridPathAIController): GridPathAIControllerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GridPathAIController {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

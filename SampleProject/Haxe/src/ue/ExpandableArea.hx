@@ -47,3 +47,22 @@ abstract ConstExpandableArea(ExpandableArea) from ExpandableArea {
 	public extern var BodyContent(get, never): cpp.Star<Widget.ConstWidget>;
 	public inline extern function get_BodyContent(): cpp.Star<Widget.ConstWidget> return this.BodyContent;
 }
+
+@:forward
+@:nativeGen
+@:native("ExpandableArea*")
+abstract ExpandableAreaPtr(cpp.Star<ExpandableArea>) from cpp.Star<ExpandableArea> to cpp.Star<ExpandableArea>{
+	@:from
+	public static extern inline function fromValue(v: ExpandableArea): ExpandableAreaPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ExpandableArea {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class BlendableInterface extends Interface {
 @:nativeGen
 abstract ConstBlendableInterface(BlendableInterface) from BlendableInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("BlendableInterface*")
+abstract BlendableInterfacePtr(cpp.Star<BlendableInterface>) from cpp.Star<BlendableInterface> to cpp.Star<BlendableInterface>{
+	@:from
+	public static extern inline function fromValue(v: BlendableInterface): BlendableInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlendableInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

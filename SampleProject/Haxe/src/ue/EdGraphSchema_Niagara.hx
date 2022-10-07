@@ -13,3 +13,22 @@ extern class EdGraphSchema_Niagara extends EdGraphSchema {
 @:nativeGen
 abstract ConstEdGraphSchema_Niagara(EdGraphSchema_Niagara) from EdGraphSchema_Niagara {
 }
+
+@:forward
+@:nativeGen
+@:native("EdGraphSchema_Niagara*")
+abstract EdGraphSchema_NiagaraPtr(cpp.Star<EdGraphSchema_Niagara>) from cpp.Star<EdGraphSchema_Niagara> to cpp.Star<EdGraphSchema_Niagara>{
+	@:from
+	public static extern inline function fromValue(v: EdGraphSchema_Niagara): EdGraphSchema_NiagaraPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EdGraphSchema_Niagara {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -31,3 +31,22 @@ abstract ConstGizmoArrowObject(GizmoArrowObject) from GizmoArrowObject {
 	public extern var BoxObject(get, never): cpp.Star<GizmoBoxObject.ConstGizmoBoxObject>;
 	public inline extern function get_BoxObject(): cpp.Star<GizmoBoxObject.ConstGizmoBoxObject> return this.BoxObject;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoArrowObject*")
+abstract GizmoArrowObjectPtr(cpp.Star<GizmoArrowObject>) from cpp.Star<GizmoArrowObject> to cpp.Star<GizmoArrowObject>{
+	@:from
+	public static extern inline function fromValue(v: GizmoArrowObject): GizmoArrowObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoArrowObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

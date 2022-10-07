@@ -13,3 +13,22 @@ extern class AnimationConduitGraphSchema extends EdGraphSchema_K2 {
 @:nativeGen
 abstract ConstAnimationConduitGraphSchema(AnimationConduitGraphSchema) from AnimationConduitGraphSchema {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationConduitGraphSchema*")
+abstract AnimationConduitGraphSchemaPtr(cpp.Star<AnimationConduitGraphSchema>) from cpp.Star<AnimationConduitGraphSchema> to cpp.Star<AnimationConduitGraphSchema>{
+	@:from
+	public static extern inline function fromValue(v: AnimationConduitGraphSchema): AnimationConduitGraphSchemaPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationConduitGraphSchema {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

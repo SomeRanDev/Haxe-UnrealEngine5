@@ -49,3 +49,22 @@ abstract ConstLandscapeLayerInfoObject(LandscapeLayerInfoObject) from LandscapeL
 	public extern var LayerUsageDebugColor(get, never): LinearColor;
 	public inline extern function get_LayerUsageDebugColor(): LinearColor return this.LayerUsageDebugColor;
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeLayerInfoObject*")
+abstract LandscapeLayerInfoObjectPtr(cpp.Star<LandscapeLayerInfoObject>) from cpp.Star<LandscapeLayerInfoObject> to cpp.Star<LandscapeLayerInfoObject>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeLayerInfoObject): LandscapeLayerInfoObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeLayerInfoObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

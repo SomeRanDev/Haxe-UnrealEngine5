@@ -13,3 +13,22 @@ extern class FixupNeedsLoadForEditorGameCommandlet extends ResavePackagesCommand
 @:nativeGen
 abstract ConstFixupNeedsLoadForEditorGameCommandlet(FixupNeedsLoadForEditorGameCommandlet) from FixupNeedsLoadForEditorGameCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("FixupNeedsLoadForEditorGameCommandlet*")
+abstract FixupNeedsLoadForEditorGameCommandletPtr(cpp.Star<FixupNeedsLoadForEditorGameCommandlet>) from cpp.Star<FixupNeedsLoadForEditorGameCommandlet> to cpp.Star<FixupNeedsLoadForEditorGameCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: FixupNeedsLoadForEditorGameCommandlet): FixupNeedsLoadForEditorGameCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FixupNeedsLoadForEditorGameCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -22,3 +22,22 @@ abstract ConstBTTask_SetTagCooldown(BTTask_SetTagCooldown) from BTTask_SetTagCoo
 	public extern var CooldownDuration(get, never): cpp.Float32;
 	public inline extern function get_CooldownDuration(): cpp.Float32 return this.CooldownDuration;
 }
+
+@:forward
+@:nativeGen
+@:native("BTTask_SetTagCooldown*")
+abstract BTTask_SetTagCooldownPtr(cpp.Star<BTTask_SetTagCooldown>) from cpp.Star<BTTask_SetTagCooldown> to cpp.Star<BTTask_SetTagCooldown>{
+	@:from
+	public static extern inline function fromValue(v: BTTask_SetTagCooldown): BTTask_SetTagCooldownPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTTask_SetTagCooldown {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

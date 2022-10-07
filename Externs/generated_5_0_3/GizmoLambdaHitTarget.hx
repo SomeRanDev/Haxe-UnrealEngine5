@@ -13,3 +13,22 @@ extern class GizmoLambdaHitTarget extends Object {
 @:nativeGen
 abstract ConstGizmoLambdaHitTarget(GizmoLambdaHitTarget) from GizmoLambdaHitTarget {
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoLambdaHitTarget*")
+abstract GizmoLambdaHitTargetPtr(cpp.Star<GizmoLambdaHitTarget>) from cpp.Star<GizmoLambdaHitTarget> to cpp.Star<GizmoLambdaHitTarget>{
+	@:from
+	public static extern inline function fromValue(v: GizmoLambdaHitTarget): GizmoLambdaHitTargetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoLambdaHitTarget {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -22,3 +22,22 @@ abstract ConstSimpleCameraShakePattern(SimpleCameraShakePattern) from SimpleCame
 	public extern var BlendOutTime(get, never): cpp.Float32;
 	public inline extern function get_BlendOutTime(): cpp.Float32 return this.BlendOutTime;
 }
+
+@:forward
+@:nativeGen
+@:native("SimpleCameraShakePattern*")
+abstract SimpleCameraShakePatternPtr(cpp.Star<SimpleCameraShakePattern>) from cpp.Star<SimpleCameraShakePattern> to cpp.Star<SimpleCameraShakePattern>{
+	@:from
+	public static extern inline function fromValue(v: SimpleCameraShakePattern): SimpleCameraShakePatternPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SimpleCameraShakePattern {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

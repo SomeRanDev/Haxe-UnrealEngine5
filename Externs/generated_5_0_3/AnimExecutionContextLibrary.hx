@@ -23,3 +23,22 @@ extern class AnimExecutionContextLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstAnimExecutionContextLibrary(AnimExecutionContextLibrary) from AnimExecutionContextLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimExecutionContextLibrary*")
+abstract AnimExecutionContextLibraryPtr(cpp.Star<AnimExecutionContextLibrary>) from cpp.Star<AnimExecutionContextLibrary> to cpp.Star<AnimExecutionContextLibrary>{
+	@:from
+	public static extern inline function fromValue(v: AnimExecutionContextLibrary): AnimExecutionContextLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimExecutionContextLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

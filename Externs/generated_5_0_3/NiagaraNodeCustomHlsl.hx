@@ -19,3 +19,22 @@ abstract ConstNiagaraNodeCustomHlsl(NiagaraNodeCustomHlsl) from NiagaraNodeCusto
 	public extern var CustomHlsl(get, never): FString;
 	public inline extern function get_CustomHlsl(): FString return this.CustomHlsl;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraNodeCustomHlsl*")
+abstract NiagaraNodeCustomHlslPtr(cpp.Star<NiagaraNodeCustomHlsl>) from cpp.Star<NiagaraNodeCustomHlsl> to cpp.Star<NiagaraNodeCustomHlsl>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraNodeCustomHlsl): NiagaraNodeCustomHlslPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraNodeCustomHlsl {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

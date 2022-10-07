@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_MakeDynamicAdditive(AnimGraphNode_MakeDynamicAdditiv
 	public extern var Node(get, never): AnimNode_MakeDynamicAdditive;
 	public inline extern function get_Node(): AnimNode_MakeDynamicAdditive return this.Node;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_MakeDynamicAdditive*")
+abstract AnimGraphNode_MakeDynamicAdditivePtr(cpp.Star<AnimGraphNode_MakeDynamicAdditive>) from cpp.Star<AnimGraphNode_MakeDynamicAdditive> to cpp.Star<AnimGraphNode_MakeDynamicAdditive>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_MakeDynamicAdditive): AnimGraphNode_MakeDynamicAdditivePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_MakeDynamicAdditive {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

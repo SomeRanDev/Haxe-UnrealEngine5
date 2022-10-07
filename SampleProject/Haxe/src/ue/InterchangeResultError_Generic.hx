@@ -16,3 +16,22 @@ abstract ConstInterchangeResultError_Generic(InterchangeResultError_Generic) fro
 	public extern var Text(get, never): FText;
 	public inline extern function get_Text(): FText return this.Text;
 }
+
+@:forward
+@:nativeGen
+@:native("InterchangeResultError_Generic*")
+abstract InterchangeResultError_GenericPtr(cpp.Star<InterchangeResultError_Generic>) from cpp.Star<InterchangeResultError_Generic> to cpp.Star<InterchangeResultError_Generic>{
+	@:from
+	public static extern inline function fromValue(v: InterchangeResultError_Generic): InterchangeResultError_GenericPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterchangeResultError_Generic {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

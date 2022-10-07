@@ -22,3 +22,22 @@ abstract ConstEditableGameplayTagQuery(EditableGameplayTagQuery) from EditableGa
 	public extern var TagQueryExportText_Helper(get, never): GameplayTagQuery;
 	public inline extern function get_TagQueryExportText_Helper(): GameplayTagQuery return this.TagQueryExportText_Helper;
 }
+
+@:forward
+@:nativeGen
+@:native("EditableGameplayTagQuery*")
+abstract EditableGameplayTagQueryPtr(cpp.Star<EditableGameplayTagQuery>) from cpp.Star<EditableGameplayTagQuery> to cpp.Star<EditableGameplayTagQuery>{
+	@:from
+	public static extern inline function fromValue(v: EditableGameplayTagQuery): EditableGameplayTagQueryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditableGameplayTagQuery {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstCookCommandlet(CookCommandlet) from CookCommandlet {
 	public extern var FullGCAssetClassNames(get, never): TArray<FString>;
 	public inline extern function get_FullGCAssetClassNames(): TArray<FString> return this.FullGCAssetClassNames;
 }
+
+@:forward
+@:nativeGen
+@:native("CookCommandlet*")
+abstract CookCommandletPtr(cpp.Star<CookCommandlet>) from cpp.Star<CookCommandlet> to cpp.Star<CookCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: CookCommandlet): CookCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CookCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

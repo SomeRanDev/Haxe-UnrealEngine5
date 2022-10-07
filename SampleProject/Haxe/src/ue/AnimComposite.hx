@@ -19,3 +19,22 @@ abstract ConstAnimComposite(AnimComposite) from AnimComposite {
 	public extern var PreviewBasePose(get, never): cpp.Star<AnimSequence.ConstAnimSequence>;
 	public inline extern function get_PreviewBasePose(): cpp.Star<AnimSequence.ConstAnimSequence> return this.PreviewBasePose;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimComposite*")
+abstract AnimCompositePtr(cpp.Star<AnimComposite>) from cpp.Star<AnimComposite> to cpp.Star<AnimComposite>{
+	@:from
+	public static extern inline function fromValue(v: AnimComposite): AnimCompositePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimComposite {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

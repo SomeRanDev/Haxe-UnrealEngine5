@@ -48,3 +48,22 @@ extern class AnimationDataController extends Interface {
 @:nativeGen
 abstract ConstAnimationDataController(AnimationDataController) from AnimationDataController {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationDataController*")
+abstract AnimationDataControllerPtr(cpp.Star<AnimationDataController>) from cpp.Star<AnimationDataController> to cpp.Star<AnimationDataController>{
+	@:from
+	public static extern inline function fromValue(v: AnimationDataController): AnimationDataControllerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationDataController {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

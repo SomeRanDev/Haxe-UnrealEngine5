@@ -13,3 +13,22 @@ extern class ActorFactoryAnimationAsset extends ActorFactorySkeletalMesh {
 @:nativeGen
 abstract ConstActorFactoryAnimationAsset(ActorFactoryAnimationAsset) from ActorFactoryAnimationAsset {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorFactoryAnimationAsset*")
+abstract ActorFactoryAnimationAssetPtr(cpp.Star<ActorFactoryAnimationAsset>) from cpp.Star<ActorFactoryAnimationAsset> to cpp.Star<ActorFactoryAnimationAsset>{
+	@:from
+	public static extern inline function fromValue(v: ActorFactoryAnimationAsset): ActorFactoryAnimationAssetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorFactoryAnimationAsset {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

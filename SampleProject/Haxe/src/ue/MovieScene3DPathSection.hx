@@ -31,3 +31,22 @@ abstract ConstMovieScene3DPathSection(MovieScene3DPathSection) from MovieScene3D
 	public extern var bForceUpright(get, never): Bool;
 	public inline extern function get_bForceUpright(): Bool return this.bForceUpright;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieScene3DPathSection*")
+abstract MovieScene3DPathSectionPtr(cpp.Star<MovieScene3DPathSection>) from cpp.Star<MovieScene3DPathSection> to cpp.Star<MovieScene3DPathSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieScene3DPathSection): MovieScene3DPathSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieScene3DPathSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

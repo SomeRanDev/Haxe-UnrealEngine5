@@ -12,3 +12,22 @@ extern class PackageMap extends Object {
 @:nativeGen
 abstract ConstPackageMap(PackageMap) from PackageMap {
 }
+
+@:forward
+@:nativeGen
+@:native("PackageMap*")
+abstract PackageMapPtr(cpp.Star<PackageMap>) from cpp.Star<PackageMap> to cpp.Star<PackageMap>{
+	@:from
+	public static extern inline function fromValue(v: PackageMap): PackageMapPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PackageMap {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

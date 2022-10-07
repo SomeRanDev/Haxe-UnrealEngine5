@@ -76,3 +76,22 @@ abstract ConstMaterialExpression(MaterialExpression) from MaterialExpression {
 	public extern var Outputs(get, never): TArray<ExpressionOutput>;
 	public inline extern function get_Outputs(): TArray<ExpressionOutput> return this.Outputs;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpression*")
+abstract MaterialExpressionPtr(cpp.Star<MaterialExpression>) from cpp.Star<MaterialExpression> to cpp.Star<MaterialExpression>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpression): MaterialExpressionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpression {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

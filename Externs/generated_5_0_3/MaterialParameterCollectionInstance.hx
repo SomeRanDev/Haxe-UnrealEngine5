@@ -16,3 +16,22 @@ abstract ConstMaterialParameterCollectionInstance(MaterialParameterCollectionIns
 	public extern var Collection(get, never): cpp.Star<MaterialParameterCollection.ConstMaterialParameterCollection>;
 	public inline extern function get_Collection(): cpp.Star<MaterialParameterCollection.ConstMaterialParameterCollection> return this.Collection;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialParameterCollectionInstance*")
+abstract MaterialParameterCollectionInstancePtr(cpp.Star<MaterialParameterCollectionInstance>) from cpp.Star<MaterialParameterCollectionInstance> to cpp.Star<MaterialParameterCollectionInstance>{
+	@:from
+	public static extern inline function fromValue(v: MaterialParameterCollectionInstance): MaterialParameterCollectionInstancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialParameterCollectionInstance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

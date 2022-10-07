@@ -16,3 +16,22 @@ abstract ConstNiagaraDataInterfaceParticleRead(NiagaraDataInterfaceParticleRead)
 	public extern var EmitterName(get, never): FString;
 	public inline extern function get_EmitterName(): FString return this.EmitterName;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceParticleRead*")
+abstract NiagaraDataInterfaceParticleReadPtr(cpp.Star<NiagaraDataInterfaceParticleRead>) from cpp.Star<NiagaraDataInterfaceParticleRead> to cpp.Star<NiagaraDataInterfaceParticleRead>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceParticleRead): NiagaraDataInterfaceParticleReadPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceParticleRead {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

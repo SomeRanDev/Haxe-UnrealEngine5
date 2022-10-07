@@ -16,3 +16,22 @@ abstract ConstMovieSceneEnumTrack(MovieSceneEnumTrack) from MovieSceneEnumTrack 
 	public extern var Enum(get, never): cpp.Star<Enum.ConstEnum>;
 	public inline extern function get_Enum(): cpp.Star<Enum.ConstEnum> return this.Enum;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneEnumTrack*")
+abstract MovieSceneEnumTrackPtr(cpp.Star<MovieSceneEnumTrack>) from cpp.Star<MovieSceneEnumTrack> to cpp.Star<MovieSceneEnumTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneEnumTrack): MovieSceneEnumTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneEnumTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -49,3 +49,22 @@ abstract ConstFactory(Factory) from Factory {
 	public extern var OverwriteYesOrNoToAllState(get, never): cpp.Int32;
 	public inline extern function get_OverwriteYesOrNoToAllState(): cpp.Int32 return this.OverwriteYesOrNoToAllState;
 }
+
+@:forward
+@:nativeGen
+@:native("Factory*")
+abstract FactoryPtr(cpp.Star<Factory>) from cpp.Star<Factory> to cpp.Star<Factory>{
+	@:from
+	public static extern inline function fromValue(v: Factory): FactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Factory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

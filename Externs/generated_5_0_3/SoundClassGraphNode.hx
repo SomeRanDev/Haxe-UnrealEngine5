@@ -16,3 +16,22 @@ abstract ConstSoundClassGraphNode(SoundClassGraphNode) from SoundClassGraphNode 
 	public extern var SoundClass(get, never): cpp.Star<SoundClass.ConstSoundClass>;
 	public inline extern function get_SoundClass(): cpp.Star<SoundClass.ConstSoundClass> return this.SoundClass;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundClassGraphNode*")
+abstract SoundClassGraphNodePtr(cpp.Star<SoundClassGraphNode>) from cpp.Star<SoundClassGraphNode> to cpp.Star<SoundClassGraphNode>{
+	@:from
+	public static extern inline function fromValue(v: SoundClassGraphNode): SoundClassGraphNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundClassGraphNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

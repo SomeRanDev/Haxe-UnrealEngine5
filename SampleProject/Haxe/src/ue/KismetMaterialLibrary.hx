@@ -18,3 +18,22 @@ extern class KismetMaterialLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstKismetMaterialLibrary(KismetMaterialLibrary) from KismetMaterialLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("KismetMaterialLibrary*")
+abstract KismetMaterialLibraryPtr(cpp.Star<KismetMaterialLibrary>) from cpp.Star<KismetMaterialLibrary> to cpp.Star<KismetMaterialLibrary>{
+	@:from
+	public static extern inline function fromValue(v: KismetMaterialLibrary): KismetMaterialLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): KismetMaterialLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class PropertyValueVisibility extends PropertyValue {
 @:nativeGen
 abstract ConstPropertyValueVisibility(PropertyValueVisibility) from PropertyValueVisibility {
 }
+
+@:forward
+@:nativeGen
+@:native("PropertyValueVisibility*")
+abstract PropertyValueVisibilityPtr(cpp.Star<PropertyValueVisibility>) from cpp.Star<PropertyValueVisibility> to cpp.Star<PropertyValueVisibility>{
+	@:from
+	public static extern inline function fromValue(v: PropertyValueVisibility): PropertyValueVisibilityPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PropertyValueVisibility {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

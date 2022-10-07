@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionStaticBoolParameter(MaterialExpressionStaticBool
 	public extern var DefaultValue(get, never): Bool;
 	public inline extern function get_DefaultValue(): Bool return this.DefaultValue;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionStaticBoolParameter*")
+abstract MaterialExpressionStaticBoolParameterPtr(cpp.Star<MaterialExpressionStaticBoolParameter>) from cpp.Star<MaterialExpressionStaticBoolParameter> to cpp.Star<MaterialExpressionStaticBoolParameter>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionStaticBoolParameter): MaterialExpressionStaticBoolParameterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionStaticBoolParameter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

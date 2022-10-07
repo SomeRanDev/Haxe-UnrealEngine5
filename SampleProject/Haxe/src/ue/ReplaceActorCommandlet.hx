@@ -13,3 +13,22 @@ extern class ReplaceActorCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstReplaceActorCommandlet(ReplaceActorCommandlet) from ReplaceActorCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("ReplaceActorCommandlet*")
+abstract ReplaceActorCommandletPtr(cpp.Star<ReplaceActorCommandlet>) from cpp.Star<ReplaceActorCommandlet> to cpp.Star<ReplaceActorCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: ReplaceActorCommandlet): ReplaceActorCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ReplaceActorCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

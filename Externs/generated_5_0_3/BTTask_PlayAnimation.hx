@@ -28,3 +28,22 @@ abstract ConstBTTask_PlayAnimation(BTTask_PlayAnimation) from BTTask_PlayAnimati
 	public extern var CachedSkelMesh(get, never): cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp>;
 	public inline extern function get_CachedSkelMesh(): cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp> return this.CachedSkelMesh;
 }
+
+@:forward
+@:nativeGen
+@:native("BTTask_PlayAnimation*")
+abstract BTTask_PlayAnimationPtr(cpp.Star<BTTask_PlayAnimation>) from cpp.Star<BTTask_PlayAnimation> to cpp.Star<BTTask_PlayAnimation>{
+	@:from
+	public static extern inline function fromValue(v: BTTask_PlayAnimation): BTTask_PlayAnimationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTTask_PlayAnimation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

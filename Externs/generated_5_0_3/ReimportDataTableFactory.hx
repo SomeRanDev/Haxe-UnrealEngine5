@@ -13,3 +13,22 @@ extern class ReimportDataTableFactory extends CSVImportFactory {
 @:nativeGen
 abstract ConstReimportDataTableFactory(ReimportDataTableFactory) from ReimportDataTableFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("ReimportDataTableFactory*")
+abstract ReimportDataTableFactoryPtr(cpp.Star<ReimportDataTableFactory>) from cpp.Star<ReimportDataTableFactory> to cpp.Star<ReimportDataTableFactory>{
+	@:from
+	public static extern inline function fromValue(v: ReimportDataTableFactory): ReimportDataTableFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ReimportDataTableFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class OnSpinBoxValueChangedEvent__PythonCallable extends PythonCallableFo
 @:nativeGen
 abstract ConstOnSpinBoxValueChangedEvent__PythonCallable(OnSpinBoxValueChangedEvent__PythonCallable) from OnSpinBoxValueChangedEvent__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnSpinBoxValueChangedEvent__PythonCallable*")
+abstract OnSpinBoxValueChangedEvent__PythonCallablePtr(cpp.Star<OnSpinBoxValueChangedEvent__PythonCallable>) from cpp.Star<OnSpinBoxValueChangedEvent__PythonCallable> to cpp.Star<OnSpinBoxValueChangedEvent__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnSpinBoxValueChangedEvent__PythonCallable): OnSpinBoxValueChangedEvent__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnSpinBoxValueChangedEvent__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

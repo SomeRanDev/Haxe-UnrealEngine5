@@ -22,3 +22,22 @@ abstract ConstGroomCreateFollicleMaskOptions(GroomCreateFollicleMaskOptions) fro
 	public extern var Grooms(get, never): TArray<FollicleMaskOptions>;
 	public inline extern function get_Grooms(): TArray<FollicleMaskOptions> return this.Grooms;
 }
+
+@:forward
+@:nativeGen
+@:native("GroomCreateFollicleMaskOptions*")
+abstract GroomCreateFollicleMaskOptionsPtr(cpp.Star<GroomCreateFollicleMaskOptions>) from cpp.Star<GroomCreateFollicleMaskOptions> to cpp.Star<GroomCreateFollicleMaskOptions>{
+	@:from
+	public static extern inline function fromValue(v: GroomCreateFollicleMaskOptions): GroomCreateFollicleMaskOptionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GroomCreateFollicleMaskOptions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

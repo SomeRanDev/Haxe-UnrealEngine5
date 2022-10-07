@@ -22,3 +22,22 @@ abstract ConstRectangleSplineGenerator(RectangleSplineGenerator) from RectangleS
 	public extern var bBranchRight(get, never): Bool;
 	public inline extern function get_bBranchRight(): Bool return this.bBranchRight;
 }
+
+@:forward
+@:nativeGen
+@:native("RectangleSplineGenerator*")
+abstract RectangleSplineGeneratorPtr(cpp.Star<RectangleSplineGenerator>) from cpp.Star<RectangleSplineGenerator> to cpp.Star<RectangleSplineGenerator>{
+	@:from
+	public static extern inline function fromValue(v: RectangleSplineGenerator): RectangleSplineGeneratorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RectangleSplineGenerator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

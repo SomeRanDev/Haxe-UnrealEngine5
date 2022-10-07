@@ -19,3 +19,22 @@ abstract ConstBlackboardKeyType_NativeEnum(BlackboardKeyType_NativeEnum) from Bl
 	public extern var EnumType(get, never): cpp.Star<Enum.ConstEnum>;
 	public inline extern function get_EnumType(): cpp.Star<Enum.ConstEnum> return this.EnumType;
 }
+
+@:forward
+@:nativeGen
+@:native("BlackboardKeyType_NativeEnum*")
+abstract BlackboardKeyType_NativeEnumPtr(cpp.Star<BlackboardKeyType_NativeEnum>) from cpp.Star<BlackboardKeyType_NativeEnum> to cpp.Star<BlackboardKeyType_NativeEnum>{
+	@:from
+	public static extern inline function fromValue(v: BlackboardKeyType_NativeEnum): BlackboardKeyType_NativeEnumPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlackboardKeyType_NativeEnum {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

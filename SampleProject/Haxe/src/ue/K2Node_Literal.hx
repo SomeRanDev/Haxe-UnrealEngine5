@@ -16,3 +16,22 @@ abstract ConstK2Node_Literal(K2Node_Literal) from K2Node_Literal {
 	public extern var ObjectRef(get, never): cpp.Star<Object.ConstObject>;
 	public inline extern function get_ObjectRef(): cpp.Star<Object.ConstObject> return this.ObjectRef;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_Literal*")
+abstract K2Node_LiteralPtr(cpp.Star<K2Node_Literal>) from cpp.Star<K2Node_Literal> to cpp.Star<K2Node_Literal>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_Literal): K2Node_LiteralPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_Literal {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

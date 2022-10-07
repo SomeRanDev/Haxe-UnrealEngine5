@@ -91,3 +91,22 @@ abstract ConstSequenceRecorderSettings(SequenceRecorderSettings) from SequenceRe
 	public extern var PerActorSettings(get, never): TArray<SettingsForActorClass>;
 	public inline extern function get_PerActorSettings(): TArray<SettingsForActorClass> return this.PerActorSettings;
 }
+
+@:forward
+@:nativeGen
+@:native("SequenceRecorderSettings*")
+abstract SequenceRecorderSettingsPtr(cpp.Star<SequenceRecorderSettings>) from cpp.Star<SequenceRecorderSettings> to cpp.Star<SequenceRecorderSettings>{
+	@:from
+	public static extern inline function fromValue(v: SequenceRecorderSettings): SequenceRecorderSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SequenceRecorderSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class MaterialInstanceThumbnailRenderer extends DefaultSizedThumbnailRend
 @:nativeGen
 abstract ConstMaterialInstanceThumbnailRenderer(MaterialInstanceThumbnailRenderer) from MaterialInstanceThumbnailRenderer {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialInstanceThumbnailRenderer*")
+abstract MaterialInstanceThumbnailRendererPtr(cpp.Star<MaterialInstanceThumbnailRenderer>) from cpp.Star<MaterialInstanceThumbnailRenderer> to cpp.Star<MaterialInstanceThumbnailRenderer>{
+	@:from
+	public static extern inline function fromValue(v: MaterialInstanceThumbnailRenderer): MaterialInstanceThumbnailRendererPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialInstanceThumbnailRenderer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

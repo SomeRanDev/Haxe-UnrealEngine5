@@ -25,3 +25,22 @@ abstract ConstAnimationRecordingParameters(AnimationRecordingParameters) from An
 	public extern var SampleRate(get, never): cpp.Float32;
 	public inline extern function get_SampleRate(): cpp.Float32 return this.SampleRate;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationRecordingParameters*")
+abstract AnimationRecordingParametersPtr(cpp.Star<AnimationRecordingParameters>) from cpp.Star<AnimationRecordingParameters> to cpp.Star<AnimationRecordingParameters>{
+	@:from
+	public static extern inline function fromValue(v: AnimationRecordingParameters): AnimationRecordingParametersPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationRecordingParameters {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

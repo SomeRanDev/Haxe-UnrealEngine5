@@ -22,3 +22,22 @@ abstract ConstEnvQueryGenerator(EnvQueryGenerator) from EnvQueryGenerator {
 	public extern var bAutoSortTests(get, never): Bool;
 	public inline extern function get_bAutoSortTests(): Bool return this.bAutoSortTests;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryGenerator*")
+abstract EnvQueryGeneratorPtr(cpp.Star<EnvQueryGenerator>) from cpp.Star<EnvQueryGenerator> to cpp.Star<EnvQueryGenerator>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryGenerator): EnvQueryGeneratorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryGenerator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

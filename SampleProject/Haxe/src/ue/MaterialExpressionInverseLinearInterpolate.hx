@@ -34,3 +34,22 @@ abstract ConstMaterialExpressionInverseLinearInterpolate(MaterialExpressionInver
 	public extern var bClampResult(get, never): Bool;
 	public inline extern function get_bClampResult(): Bool return this.bClampResult;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionInverseLinearInterpolate*")
+abstract MaterialExpressionInverseLinearInterpolatePtr(cpp.Star<MaterialExpressionInverseLinearInterpolate>) from cpp.Star<MaterialExpressionInverseLinearInterpolate> to cpp.Star<MaterialExpressionInverseLinearInterpolate>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionInverseLinearInterpolate): MaterialExpressionInverseLinearInterpolatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionInverseLinearInterpolate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

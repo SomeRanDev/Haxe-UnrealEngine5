@@ -16,3 +16,22 @@ abstract ConstSplineGeneratorBase(SplineGeneratorBase) from SplineGeneratorBase 
 	public extern var ShapeAddMode(get, never): EShapeAddMode;
 	public inline extern function get_ShapeAddMode(): EShapeAddMode return this.ShapeAddMode;
 }
+
+@:forward
+@:nativeGen
+@:native("SplineGeneratorBase*")
+abstract SplineGeneratorBasePtr(cpp.Star<SplineGeneratorBase>) from cpp.Star<SplineGeneratorBase> to cpp.Star<SplineGeneratorBase>{
+	@:from
+	public static extern inline function fromValue(v: SplineGeneratorBase): SplineGeneratorBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SplineGeneratorBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

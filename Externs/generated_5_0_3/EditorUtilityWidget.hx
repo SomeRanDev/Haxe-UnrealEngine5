@@ -24,3 +24,22 @@ abstract ConstEditorUtilityWidget(EditorUtilityWidget) from EditorUtilityWidget 
 	public extern var bAutoRunDefaultAction(get, never): Bool;
 	public inline extern function get_bAutoRunDefaultAction(): Bool return this.bAutoRunDefaultAction;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorUtilityWidget*")
+abstract EditorUtilityWidgetPtr(cpp.Star<EditorUtilityWidget>) from cpp.Star<EditorUtilityWidget> to cpp.Star<EditorUtilityWidget>{
+	@:from
+	public static extern inline function fromValue(v: EditorUtilityWidget): EditorUtilityWidgetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorUtilityWidget {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

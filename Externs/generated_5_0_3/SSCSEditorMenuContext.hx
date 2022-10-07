@@ -13,3 +13,22 @@ extern class SSCSEditorMenuContext extends Object {
 @:nativeGen
 abstract ConstSSCSEditorMenuContext(SSCSEditorMenuContext) from SSCSEditorMenuContext {
 }
+
+@:forward
+@:nativeGen
+@:native("SSCSEditorMenuContext*")
+abstract SSCSEditorMenuContextPtr(cpp.Star<SSCSEditorMenuContext>) from cpp.Star<SSCSEditorMenuContext> to cpp.Star<SSCSEditorMenuContext>{
+	@:from
+	public static extern inline function fromValue(v: SSCSEditorMenuContext): SSCSEditorMenuContextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SSCSEditorMenuContext {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

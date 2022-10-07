@@ -13,3 +13,22 @@ extern class AROriginActor extends Actor {
 @:nativeGen
 abstract ConstAROriginActor(AROriginActor) from AROriginActor {
 }
+
+@:forward
+@:nativeGen
+@:native("AROriginActor*")
+abstract AROriginActorPtr(cpp.Star<AROriginActor>) from cpp.Star<AROriginActor> to cpp.Star<AROriginActor>{
+	@:from
+	public static extern inline function fromValue(v: AROriginActor): AROriginActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AROriginActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

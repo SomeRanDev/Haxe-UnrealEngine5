@@ -16,3 +16,22 @@ extern class MovieSceneCustomClockSource extends Interface {
 @:nativeGen
 abstract ConstMovieSceneCustomClockSource(MovieSceneCustomClockSource) from MovieSceneCustomClockSource {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneCustomClockSource*")
+abstract MovieSceneCustomClockSourcePtr(cpp.Star<MovieSceneCustomClockSource>) from cpp.Star<MovieSceneCustomClockSource> to cpp.Star<MovieSceneCustomClockSource>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneCustomClockSource): MovieSceneCustomClockSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneCustomClockSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

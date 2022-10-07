@@ -25,3 +25,22 @@ abstract ConstMovieSceneTrackInstance(MovieSceneTrackInstance) from MovieSceneTr
 	public extern var Inputs(get, never): TArray<MovieSceneTrackInstanceInput>;
 	public inline extern function get_Inputs(): TArray<MovieSceneTrackInstanceInput> return this.Inputs;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneTrackInstance*")
+abstract MovieSceneTrackInstancePtr(cpp.Star<MovieSceneTrackInstance>) from cpp.Star<MovieSceneTrackInstance> to cpp.Star<MovieSceneTrackInstance>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneTrackInstance): MovieSceneTrackInstancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneTrackInstance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstInterpFilter(InterpFilter) from InterpFilter {
 	public extern var Caption(get, never): FString;
 	public inline extern function get_Caption(): FString return this.Caption;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpFilter*")
+abstract InterpFilterPtr(cpp.Star<InterpFilter>) from cpp.Star<InterpFilter> to cpp.Star<InterpFilter>{
+	@:from
+	public static extern inline function fromValue(v: InterpFilter): InterpFilterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpFilter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

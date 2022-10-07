@@ -13,3 +13,22 @@ extern class AnyButtonInputBehavior extends InputBehavior {
 @:nativeGen
 abstract ConstAnyButtonInputBehavior(AnyButtonInputBehavior) from AnyButtonInputBehavior {
 }
+
+@:forward
+@:nativeGen
+@:native("AnyButtonInputBehavior*")
+abstract AnyButtonInputBehaviorPtr(cpp.Star<AnyButtonInputBehavior>) from cpp.Star<AnyButtonInputBehavior> to cpp.Star<AnyButtonInputBehavior>{
+	@:from
+	public static extern inline function fromValue(v: AnyButtonInputBehavior): AnyButtonInputBehaviorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnyButtonInputBehavior {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

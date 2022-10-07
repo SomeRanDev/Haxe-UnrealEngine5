@@ -21,3 +21,22 @@ abstract ConstGameplayTask_TimeLimitedExecution(GameplayTask_TimeLimitedExecutio
 	public extern var OnTimeExpired(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnTimeExpired(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnTimeExpired;
 }
+
+@:forward
+@:nativeGen
+@:native("GameplayTask_TimeLimitedExecution*")
+abstract GameplayTask_TimeLimitedExecutionPtr(cpp.Star<GameplayTask_TimeLimitedExecution>) from cpp.Star<GameplayTask_TimeLimitedExecution> to cpp.Star<GameplayTask_TimeLimitedExecution>{
+	@:from
+	public static extern inline function fromValue(v: GameplayTask_TimeLimitedExecution): GameplayTask_TimeLimitedExecutionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameplayTask_TimeLimitedExecution {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

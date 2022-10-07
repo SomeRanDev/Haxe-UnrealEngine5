@@ -16,3 +16,22 @@ abstract ConstK2Node_GetSubsystem(K2Node_GetSubsystem) from K2Node_GetSubsystem 
 	public extern var CustomClass(get, never): TSubclassOf<Subsystem.ConstSubsystem>;
 	public inline extern function get_CustomClass(): TSubclassOf<Subsystem.ConstSubsystem> return this.CustomClass;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_GetSubsystem*")
+abstract K2Node_GetSubsystemPtr(cpp.Star<K2Node_GetSubsystem>) from cpp.Star<K2Node_GetSubsystem> to cpp.Star<K2Node_GetSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_GetSubsystem): K2Node_GetSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_GetSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

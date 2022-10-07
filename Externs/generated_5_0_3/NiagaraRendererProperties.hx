@@ -34,3 +34,22 @@ abstract ConstNiagaraRendererProperties(NiagaraRendererProperties) from NiagaraR
 	public extern var bMotionBlurEnabled_DEPRECATED(get, never): Bool;
 	public inline extern function get_bMotionBlurEnabled_DEPRECATED(): Bool return this.bMotionBlurEnabled_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraRendererProperties*")
+abstract NiagaraRendererPropertiesPtr(cpp.Star<NiagaraRendererProperties>) from cpp.Star<NiagaraRendererProperties> to cpp.Star<NiagaraRendererProperties>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraRendererProperties): NiagaraRendererPropertiesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraRendererProperties {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

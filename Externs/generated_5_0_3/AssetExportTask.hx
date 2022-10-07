@@ -49,3 +49,22 @@ abstract ConstAssetExportTask(AssetExportTask) from AssetExportTask {
 	public extern var Errors(get, never): TArray<FString>;
 	public inline extern function get_Errors(): TArray<FString> return this.Errors;
 }
+
+@:forward
+@:nativeGen
+@:native("AssetExportTask*")
+abstract AssetExportTaskPtr(cpp.Star<AssetExportTask>) from cpp.Star<AssetExportTask> to cpp.Star<AssetExportTask>{
+	@:from
+	public static extern inline function fromValue(v: AssetExportTask): AssetExportTaskPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AssetExportTask {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

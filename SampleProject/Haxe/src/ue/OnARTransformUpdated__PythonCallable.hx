@@ -12,3 +12,22 @@ extern class OnARTransformUpdated__PythonCallable extends PythonCallableForDeleg
 @:nativeGen
 abstract ConstOnARTransformUpdated__PythonCallable(OnARTransformUpdated__PythonCallable) from OnARTransformUpdated__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnARTransformUpdated__PythonCallable*")
+abstract OnARTransformUpdated__PythonCallablePtr(cpp.Star<OnARTransformUpdated__PythonCallable>) from cpp.Star<OnARTransformUpdated__PythonCallable> to cpp.Star<OnARTransformUpdated__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnARTransformUpdated__PythonCallable): OnARTransformUpdated__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnARTransformUpdated__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

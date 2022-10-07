@@ -30,3 +30,22 @@ abstract ConstLevelEditorContextMenuContext(LevelEditorContextMenuContext) from 
 	public extern var HitProxyActor(get, never): cpp.Star<Actor.ConstActor>;
 	public inline extern function get_HitProxyActor(): cpp.Star<Actor.ConstActor> return this.HitProxyActor;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelEditorContextMenuContext*")
+abstract LevelEditorContextMenuContextPtr(cpp.Star<LevelEditorContextMenuContext>) from cpp.Star<LevelEditorContextMenuContext> to cpp.Star<LevelEditorContextMenuContext>{
+	@:from
+	public static extern inline function fromValue(v: LevelEditorContextMenuContext): LevelEditorContextMenuContextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelEditorContextMenuContext {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

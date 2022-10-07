@@ -31,3 +31,22 @@ abstract ConstK2Node_AnimGetter(K2Node_AnimGetter) from K2Node_AnimGetter {
 	public extern var Contexts(get, never): TArray<FString>;
 	public inline extern function get_Contexts(): TArray<FString> return this.Contexts;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_AnimGetter*")
+abstract K2Node_AnimGetterPtr(cpp.Star<K2Node_AnimGetter>) from cpp.Star<K2Node_AnimGetter> to cpp.Star<K2Node_AnimGetter>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_AnimGetter): K2Node_AnimGetterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_AnimGetter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

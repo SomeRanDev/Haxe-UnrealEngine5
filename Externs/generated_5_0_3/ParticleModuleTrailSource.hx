@@ -37,3 +37,22 @@ abstract ConstParticleModuleTrailSource(ParticleModuleTrailSource) from Particle
 	public extern var bInheritRotation(get, never): Bool;
 	public inline extern function get_bInheritRotation(): Bool return this.bInheritRotation;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleTrailSource*")
+abstract ParticleModuleTrailSourcePtr(cpp.Star<ParticleModuleTrailSource>) from cpp.Star<ParticleModuleTrailSource> to cpp.Star<ParticleModuleTrailSource>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleTrailSource): ParticleModuleTrailSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleTrailSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

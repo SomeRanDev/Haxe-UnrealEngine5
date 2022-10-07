@@ -13,3 +13,22 @@ extern class K2Node_PlayAnimationTimeRange extends K2Node_BaseAsyncTask {
 @:nativeGen
 abstract ConstK2Node_PlayAnimationTimeRange(K2Node_PlayAnimationTimeRange) from K2Node_PlayAnimationTimeRange {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_PlayAnimationTimeRange*")
+abstract K2Node_PlayAnimationTimeRangePtr(cpp.Star<K2Node_PlayAnimationTimeRange>) from cpp.Star<K2Node_PlayAnimationTimeRange> to cpp.Star<K2Node_PlayAnimationTimeRange>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_PlayAnimationTimeRange): K2Node_PlayAnimationTimeRangePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_PlayAnimationTimeRange {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

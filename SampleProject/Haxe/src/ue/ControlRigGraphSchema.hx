@@ -13,3 +13,22 @@ extern class ControlRigGraphSchema extends EdGraphSchema {
 @:nativeGen
 abstract ConstControlRigGraphSchema(ControlRigGraphSchema) from ControlRigGraphSchema {
 }
+
+@:forward
+@:nativeGen
+@:native("ControlRigGraphSchema*")
+abstract ControlRigGraphSchemaPtr(cpp.Star<ControlRigGraphSchema>) from cpp.Star<ControlRigGraphSchema> to cpp.Star<ControlRigGraphSchema>{
+	@:from
+	public static extern inline function fromValue(v: ControlRigGraphSchema): ControlRigGraphSchemaPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ControlRigGraphSchema {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

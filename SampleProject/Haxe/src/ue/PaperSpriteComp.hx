@@ -26,3 +26,22 @@ abstract ConstPaperSpriteComp(PaperSpriteComp) from PaperSpriteComp {
 	public extern var SpriteColor(get, never): LinearColor;
 	public inline extern function get_SpriteColor(): LinearColor return this.SpriteColor;
 }
+
+@:forward
+@:nativeGen
+@:native("PaperSpriteComp*")
+abstract PaperSpriteCompPtr(cpp.Star<PaperSpriteComp>) from cpp.Star<PaperSpriteComp> to cpp.Star<PaperSpriteComp>{
+	@:from
+	public static extern inline function fromValue(v: PaperSpriteComp): PaperSpriteCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PaperSpriteComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

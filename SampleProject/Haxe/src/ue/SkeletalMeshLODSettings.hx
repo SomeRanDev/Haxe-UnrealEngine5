@@ -34,3 +34,22 @@ abstract ConstSkeletalMeshLODSettings(SkeletalMeshLODSettings) from SkeletalMesh
 	public extern var LODGroups(get, never): TArray<SkeletalMeshLODGroupSettings>;
 	public inline extern function get_LODGroups(): TArray<SkeletalMeshLODGroupSettings> return this.LODGroups;
 }
+
+@:forward
+@:nativeGen
+@:native("SkeletalMeshLODSettings*")
+abstract SkeletalMeshLODSettingsPtr(cpp.Star<SkeletalMeshLODSettings>) from cpp.Star<SkeletalMeshLODSettings> to cpp.Star<SkeletalMeshLODSettings>{
+	@:from
+	public static extern inline function fromValue(v: SkeletalMeshLODSettings): SkeletalMeshLODSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SkeletalMeshLODSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

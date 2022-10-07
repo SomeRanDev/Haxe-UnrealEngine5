@@ -37,3 +37,22 @@ abstract ConstWorldDataLayers(WorldDataLayers) from WorldDataLayers {
 	public extern var RepEffectiveLoadedDataLayerNames(get, never): TArray<FName>;
 	public inline extern function get_RepEffectiveLoadedDataLayerNames(): TArray<FName> return this.RepEffectiveLoadedDataLayerNames;
 }
+
+@:forward
+@:nativeGen
+@:native("WorldDataLayers*")
+abstract WorldDataLayersPtr(cpp.Star<WorldDataLayers>) from cpp.Star<WorldDataLayers> to cpp.Star<WorldDataLayers>{
+	@:from
+	public static extern inline function fromValue(v: WorldDataLayers): WorldDataLayersPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldDataLayers {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

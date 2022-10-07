@@ -37,3 +37,22 @@ abstract ConstConeBuilder(ConeBuilder) from ConeBuilder {
 	public extern var Hollow(get, never): Bool;
 	public inline extern function get_Hollow(): Bool return this.Hollow;
 }
+
+@:forward
+@:nativeGen
+@:native("ConeBuilder*")
+abstract ConeBuilderPtr(cpp.Star<ConeBuilder>) from cpp.Star<ConeBuilder> to cpp.Star<ConeBuilder>{
+	@:from
+	public static extern inline function fromValue(v: ConeBuilder): ConeBuilderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ConeBuilder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

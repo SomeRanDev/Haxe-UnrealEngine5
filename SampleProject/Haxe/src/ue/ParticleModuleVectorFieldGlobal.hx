@@ -22,3 +22,22 @@ abstract ConstParticleModuleVectorFieldGlobal(ParticleModuleVectorFieldGlobal) f
 	public extern var GlobalVectorFieldTightness(get, never): cpp.Float32;
 	public inline extern function get_GlobalVectorFieldTightness(): cpp.Float32 return this.GlobalVectorFieldTightness;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleVectorFieldGlobal*")
+abstract ParticleModuleVectorFieldGlobalPtr(cpp.Star<ParticleModuleVectorFieldGlobal>) from cpp.Star<ParticleModuleVectorFieldGlobal> to cpp.Star<ParticleModuleVectorFieldGlobal>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleVectorFieldGlobal): ParticleModuleVectorFieldGlobalPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleVectorFieldGlobal {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

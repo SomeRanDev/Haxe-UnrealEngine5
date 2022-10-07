@@ -16,3 +16,22 @@ abstract ConstEnvQueryNode(EnvQueryNode) from EnvQueryNode {
 	public extern var VerNum(get, never): cpp.Int32;
 	public inline extern function get_VerNum(): cpp.Int32 return this.VerNum;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryNode*")
+abstract EnvQueryNodePtr(cpp.Star<EnvQueryNode>) from cpp.Star<EnvQueryNode> to cpp.Star<EnvQueryNode>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryNode): EnvQueryNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstAnimPreviewInstance(AnimPreviewInstance) from AnimPreviewInstance 
 	public extern var MontagePreviewStartSectionIdx(get, never): cpp.Int32;
 	public inline extern function get_MontagePreviewStartSectionIdx(): cpp.Int32 return this.MontagePreviewStartSectionIdx;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimPreviewInstance*")
+abstract AnimPreviewInstancePtr(cpp.Star<AnimPreviewInstance>) from cpp.Star<AnimPreviewInstance> to cpp.Star<AnimPreviewInstance>{
+	@:from
+	public static extern inline function fromValue(v: AnimPreviewInstance): AnimPreviewInstancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimPreviewInstance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

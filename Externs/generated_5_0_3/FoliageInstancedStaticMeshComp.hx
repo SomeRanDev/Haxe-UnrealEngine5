@@ -28,3 +28,22 @@ abstract ConstFoliageInstancedStaticMeshComp(FoliageInstancedStaticMeshComp) fro
 	public extern var GenerationGuid(get, never): Guid;
 	public inline extern function get_GenerationGuid(): Guid return this.GenerationGuid;
 }
+
+@:forward
+@:nativeGen
+@:native("FoliageInstancedStaticMeshComp*")
+abstract FoliageInstancedStaticMeshCompPtr(cpp.Star<FoliageInstancedStaticMeshComp>) from cpp.Star<FoliageInstancedStaticMeshComp> to cpp.Star<FoliageInstancedStaticMeshComp>{
+	@:from
+	public static extern inline function fromValue(v: FoliageInstancedStaticMeshComp): FoliageInstancedStaticMeshCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FoliageInstancedStaticMeshComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

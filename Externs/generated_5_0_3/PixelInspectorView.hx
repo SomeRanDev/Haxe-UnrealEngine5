@@ -91,3 +91,22 @@ abstract ConstPixelInspectorView(PixelInspectorView) from PixelInspectorView {
 	public extern var IrisDistance(get, never): cpp.Float32;
 	public inline extern function get_IrisDistance(): cpp.Float32 return this.IrisDistance;
 }
+
+@:forward
+@:nativeGen
+@:native("PixelInspectorView*")
+abstract PixelInspectorViewPtr(cpp.Star<PixelInspectorView>) from cpp.Star<PixelInspectorView> to cpp.Star<PixelInspectorView>{
+	@:from
+	public static extern inline function fromValue(v: PixelInspectorView): PixelInspectorViewPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PixelInspectorView {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

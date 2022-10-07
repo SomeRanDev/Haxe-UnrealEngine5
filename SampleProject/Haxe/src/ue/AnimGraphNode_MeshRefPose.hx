@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_MeshRefPose(AnimGraphNode_MeshRefPose) from AnimGrap
 	public extern var Node(get, never): AnimNode_MeshSpaceRefPose;
 	public inline extern function get_Node(): AnimNode_MeshSpaceRefPose return this.Node;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_MeshRefPose*")
+abstract AnimGraphNode_MeshRefPosePtr(cpp.Star<AnimGraphNode_MeshRefPose>) from cpp.Star<AnimGraphNode_MeshRefPose> to cpp.Star<AnimGraphNode_MeshRefPose>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_MeshRefPose): AnimGraphNode_MeshRefPosePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_MeshRefPose {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstGizmoLocalFloatParameterSource(GizmoLocalFloatParameterSource) fro
 	public extern var LastChange(get, never): GizmoFloatParameterChange;
 	public inline extern function get_LastChange(): GizmoFloatParameterChange return this.LastChange;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoLocalFloatParameterSource*")
+abstract GizmoLocalFloatParameterSourcePtr(cpp.Star<GizmoLocalFloatParameterSource>) from cpp.Star<GizmoLocalFloatParameterSource> to cpp.Star<GizmoLocalFloatParameterSource>{
+	@:from
+	public static extern inline function fromValue(v: GizmoLocalFloatParameterSource): GizmoLocalFloatParameterSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoLocalFloatParameterSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

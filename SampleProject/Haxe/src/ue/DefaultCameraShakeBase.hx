@@ -13,3 +13,22 @@ extern class DefaultCameraShakeBase extends CameraShakeBase {
 @:nativeGen
 abstract ConstDefaultCameraShakeBase(DefaultCameraShakeBase) from DefaultCameraShakeBase {
 }
+
+@:forward
+@:nativeGen
+@:native("DefaultCameraShakeBase*")
+abstract DefaultCameraShakeBasePtr(cpp.Star<DefaultCameraShakeBase>) from cpp.Star<DefaultCameraShakeBase> to cpp.Star<DefaultCameraShakeBase>{
+	@:from
+	public static extern inline function fromValue(v: DefaultCameraShakeBase): DefaultCameraShakeBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DefaultCameraShakeBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

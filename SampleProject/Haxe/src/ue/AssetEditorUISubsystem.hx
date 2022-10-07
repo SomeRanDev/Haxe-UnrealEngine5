@@ -13,3 +13,22 @@ extern class AssetEditorUISubsystem extends EditorSubsystem {
 @:nativeGen
 abstract ConstAssetEditorUISubsystem(AssetEditorUISubsystem) from AssetEditorUISubsystem {
 }
+
+@:forward
+@:nativeGen
+@:native("AssetEditorUISubsystem*")
+abstract AssetEditorUISubsystemPtr(cpp.Star<AssetEditorUISubsystem>) from cpp.Star<AssetEditorUISubsystem> to cpp.Star<AssetEditorUISubsystem>{
+	@:from
+	public static extern inline function fromValue(v: AssetEditorUISubsystem): AssetEditorUISubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AssetEditorUISubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

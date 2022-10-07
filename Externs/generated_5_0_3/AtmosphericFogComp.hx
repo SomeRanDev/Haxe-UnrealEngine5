@@ -26,3 +26,22 @@ extern class AtmosphericFogComp extends SkyAtmosphereComp {
 @:nativeGen
 abstract ConstAtmosphericFogComp(AtmosphericFogComp) from AtmosphericFogComp {
 }
+
+@:forward
+@:nativeGen
+@:native("AtmosphericFogComp*")
+abstract AtmosphericFogCompPtr(cpp.Star<AtmosphericFogComp>) from cpp.Star<AtmosphericFogComp> to cpp.Star<AtmosphericFogComp>{
+	@:from
+	public static extern inline function fromValue(v: AtmosphericFogComp): AtmosphericFogCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AtmosphericFogComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

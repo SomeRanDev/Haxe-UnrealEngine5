@@ -19,3 +19,22 @@ abstract ConstDEditorScalarParameterValue(DEditorScalarParameterValue) from DEdi
 	public extern var AtlasData(get, never): ScalarParameterAtlasData;
 	public inline extern function get_AtlasData(): ScalarParameterAtlasData return this.AtlasData;
 }
+
+@:forward
+@:nativeGen
+@:native("DEditorScalarParameterValue*")
+abstract DEditorScalarParameterValuePtr(cpp.Star<DEditorScalarParameterValue>) from cpp.Star<DEditorScalarParameterValue> to cpp.Star<DEditorScalarParameterValue>{
+	@:from
+	public static extern inline function fromValue(v: DEditorScalarParameterValue): DEditorScalarParameterValuePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DEditorScalarParameterValue {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

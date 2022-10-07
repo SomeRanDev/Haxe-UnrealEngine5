@@ -21,3 +21,22 @@ extern class KismetStringTableLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstKismetStringTableLibrary(KismetStringTableLibrary) from KismetStringTableLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("KismetStringTableLibrary*")
+abstract KismetStringTableLibraryPtr(cpp.Star<KismetStringTableLibrary>) from cpp.Star<KismetStringTableLibrary> to cpp.Star<KismetStringTableLibrary>{
+	@:from
+	public static extern inline function fromValue(v: KismetStringTableLibrary): KismetStringTableLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): KismetStringTableLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

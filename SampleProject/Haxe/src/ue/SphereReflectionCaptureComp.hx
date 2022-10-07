@@ -22,3 +22,22 @@ abstract ConstSphereReflectionCaptureComp(SphereReflectionCaptureComp) from Sphe
 	public extern var PreviewInfluenceRadius(get, never): cpp.Star<DrawSphereComp.ConstDrawSphereComp>;
 	public inline extern function get_PreviewInfluenceRadius(): cpp.Star<DrawSphereComp.ConstDrawSphereComp> return this.PreviewInfluenceRadius;
 }
+
+@:forward
+@:nativeGen
+@:native("SphereReflectionCaptureComp*")
+abstract SphereReflectionCaptureCompPtr(cpp.Star<SphereReflectionCaptureComp>) from cpp.Star<SphereReflectionCaptureComp> to cpp.Star<SphereReflectionCaptureComp>{
+	@:from
+	public static extern inline function fromValue(v: SphereReflectionCaptureComp): SphereReflectionCaptureCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SphereReflectionCaptureComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

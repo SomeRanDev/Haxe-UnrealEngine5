@@ -13,3 +13,22 @@ extern class ImageSequenceProtocol_BMP extends ImageSequenceProtocol {
 @:nativeGen
 abstract ConstImageSequenceProtocol_BMP(ImageSequenceProtocol_BMP) from ImageSequenceProtocol_BMP {
 }
+
+@:forward
+@:nativeGen
+@:native("ImageSequenceProtocol_BMP*")
+abstract ImageSequenceProtocol_BMPPtr(cpp.Star<ImageSequenceProtocol_BMP>) from cpp.Star<ImageSequenceProtocol_BMP> to cpp.Star<ImageSequenceProtocol_BMP>{
+	@:from
+	public static extern inline function fromValue(v: ImageSequenceProtocol_BMP): ImageSequenceProtocol_BMPPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ImageSequenceProtocol_BMP {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

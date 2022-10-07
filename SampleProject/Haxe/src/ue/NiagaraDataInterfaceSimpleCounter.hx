@@ -19,3 +19,22 @@ abstract ConstNiagaraDataInterfaceSimpleCounter(NiagaraDataInterfaceSimpleCounte
 	public extern var InitialValue(get, never): cpp.Int32;
 	public inline extern function get_InitialValue(): cpp.Int32 return this.InitialValue;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceSimpleCounter*")
+abstract NiagaraDataInterfaceSimpleCounterPtr(cpp.Star<NiagaraDataInterfaceSimpleCounter>) from cpp.Star<NiagaraDataInterfaceSimpleCounter> to cpp.Star<NiagaraDataInterfaceSimpleCounter>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceSimpleCounter): NiagaraDataInterfaceSimpleCounterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceSimpleCounter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

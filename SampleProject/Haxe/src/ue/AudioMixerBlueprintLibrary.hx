@@ -51,3 +51,22 @@ extern class AudioMixerBlueprintLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstAudioMixerBlueprintLibrary(AudioMixerBlueprintLibrary) from AudioMixerBlueprintLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("AudioMixerBlueprintLibrary*")
+abstract AudioMixerBlueprintLibraryPtr(cpp.Star<AudioMixerBlueprintLibrary>) from cpp.Star<AudioMixerBlueprintLibrary> to cpp.Star<AudioMixerBlueprintLibrary>{
+	@:from
+	public static extern inline function fromValue(v: AudioMixerBlueprintLibrary): AudioMixerBlueprintLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AudioMixerBlueprintLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class FixConflictingLocalizationKeysCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstFixConflictingLocalizationKeysCommandlet(FixConflictingLocalizationKeysCommandlet) from FixConflictingLocalizationKeysCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("FixConflictingLocalizationKeysCommandlet*")
+abstract FixConflictingLocalizationKeysCommandletPtr(cpp.Star<FixConflictingLocalizationKeysCommandlet>) from cpp.Star<FixConflictingLocalizationKeysCommandlet> to cpp.Star<FixConflictingLocalizationKeysCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: FixConflictingLocalizationKeysCommandlet): FixConflictingLocalizationKeysCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FixConflictingLocalizationKeysCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

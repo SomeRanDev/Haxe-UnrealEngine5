@@ -13,3 +13,22 @@ extern class WidgetGraphSchema extends EdGraphSchema_K2 {
 @:nativeGen
 abstract ConstWidgetGraphSchema(WidgetGraphSchema) from WidgetGraphSchema {
 }
+
+@:forward
+@:nativeGen
+@:native("WidgetGraphSchema*")
+abstract WidgetGraphSchemaPtr(cpp.Star<WidgetGraphSchema>) from cpp.Star<WidgetGraphSchema> to cpp.Star<WidgetGraphSchema>{
+	@:from
+	public static extern inline function fromValue(v: WidgetGraphSchema): WidgetGraphSchemaPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WidgetGraphSchema {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

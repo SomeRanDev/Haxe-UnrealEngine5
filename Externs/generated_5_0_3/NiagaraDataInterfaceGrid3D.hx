@@ -28,3 +28,22 @@ abstract ConstNiagaraDataInterfaceGrid3D(NiagaraDataInterfaceGrid3D) from Niagar
 	public extern var WorldBBoxSize(get, never): Vector;
 	public inline extern function get_WorldBBoxSize(): Vector return this.WorldBBoxSize;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceGrid3D*")
+abstract NiagaraDataInterfaceGrid3DPtr(cpp.Star<NiagaraDataInterfaceGrid3D>) from cpp.Star<NiagaraDataInterfaceGrid3D> to cpp.Star<NiagaraDataInterfaceGrid3D>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceGrid3D): NiagaraDataInterfaceGrid3DPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceGrid3D {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

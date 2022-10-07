@@ -18,3 +18,22 @@ abstract ConstAsyncEditorWaitForGameWorld(AsyncEditorWaitForGameWorld) from Asyn
 	public extern var Complete(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<World.ConstWorld>) -> Void>;
 	public inline extern function get_Complete(): HaxeMulticastSparseDelegateProperty<(cpp.Star<World.ConstWorld>) -> Void> return this.Complete;
 }
+
+@:forward
+@:nativeGen
+@:native("AsyncEditorWaitForGameWorld*")
+abstract AsyncEditorWaitForGameWorldPtr(cpp.Star<AsyncEditorWaitForGameWorld>) from cpp.Star<AsyncEditorWaitForGameWorld> to cpp.Star<AsyncEditorWaitForGameWorld>{
+	@:from
+	public static extern inline function fromValue(v: AsyncEditorWaitForGameWorld): AsyncEditorWaitForGameWorldPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AsyncEditorWaitForGameWorld {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

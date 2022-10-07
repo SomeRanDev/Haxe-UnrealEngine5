@@ -13,3 +13,22 @@ extern class MeshSurfacePointToolBuilder extends InteractiveToolWithToolTargetsB
 @:nativeGen
 abstract ConstMeshSurfacePointToolBuilder(MeshSurfacePointToolBuilder) from MeshSurfacePointToolBuilder {
 }
+
+@:forward
+@:nativeGen
+@:native("MeshSurfacePointToolBuilder*")
+abstract MeshSurfacePointToolBuilderPtr(cpp.Star<MeshSurfacePointToolBuilder>) from cpp.Star<MeshSurfacePointToolBuilder> to cpp.Star<MeshSurfacePointToolBuilder>{
+	@:from
+	public static extern inline function fromValue(v: MeshSurfacePointToolBuilder): MeshSurfacePointToolBuilderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MeshSurfacePointToolBuilder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class VisualLoggerAutomationTests extends Object {
 @:nativeGen
 abstract ConstVisualLoggerAutomationTests(VisualLoggerAutomationTests) from VisualLoggerAutomationTests {
 }
+
+@:forward
+@:nativeGen
+@:native("VisualLoggerAutomationTests*")
+abstract VisualLoggerAutomationTestsPtr(cpp.Star<VisualLoggerAutomationTests>) from cpp.Star<VisualLoggerAutomationTests> to cpp.Star<VisualLoggerAutomationTests>{
+	@:from
+	public static extern inline function fromValue(v: VisualLoggerAutomationTests): VisualLoggerAutomationTestsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VisualLoggerAutomationTests {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

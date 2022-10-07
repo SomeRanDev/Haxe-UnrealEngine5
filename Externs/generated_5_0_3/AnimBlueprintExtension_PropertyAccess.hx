@@ -16,3 +16,22 @@ abstract ConstAnimBlueprintExtension_PropertyAccess(AnimBlueprintExtension_Prope
 	public extern var Subsystem(get, never): AnimSubsystem_PropertyAccess;
 	public inline extern function get_Subsystem(): AnimSubsystem_PropertyAccess return this.Subsystem;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimBlueprintExtension_PropertyAccess*")
+abstract AnimBlueprintExtension_PropertyAccessPtr(cpp.Star<AnimBlueprintExtension_PropertyAccess>) from cpp.Star<AnimBlueprintExtension_PropertyAccess> to cpp.Star<AnimBlueprintExtension_PropertyAccess>{
+	@:from
+	public static extern inline function fromValue(v: AnimBlueprintExtension_PropertyAccess): AnimBlueprintExtension_PropertyAccessPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimBlueprintExtension_PropertyAccess {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

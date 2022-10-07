@@ -19,3 +19,22 @@ abstract ConstMovieScenePredictionSystem(MovieScenePredictionSystem) from MovieS
 	public extern var ProcessingPredictions(get, never): TArray<cpp.Star<MovieSceneAsyncAction_SequencePrediction.ConstMovieSceneAsyncAction_SequencePrediction>>;
 	public inline extern function get_ProcessingPredictions(): TArray<cpp.Star<MovieSceneAsyncAction_SequencePrediction.ConstMovieSceneAsyncAction_SequencePrediction>> return this.ProcessingPredictions;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieScenePredictionSystem*")
+abstract MovieScenePredictionSystemPtr(cpp.Star<MovieScenePredictionSystem>) from cpp.Star<MovieScenePredictionSystem> to cpp.Star<MovieScenePredictionSystem>{
+	@:from
+	public static extern inline function fromValue(v: MovieScenePredictionSystem): MovieScenePredictionSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieScenePredictionSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

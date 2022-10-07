@@ -12,3 +12,22 @@ extern class GetInt32__PythonCallable extends PythonCallableForDelegate {
 @:nativeGen
 abstract ConstGetInt32__PythonCallable(GetInt32__PythonCallable) from GetInt32__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("GetInt32__PythonCallable*")
+abstract GetInt32__PythonCallablePtr(cpp.Star<GetInt32__PythonCallable>) from cpp.Star<GetInt32__PythonCallable> to cpp.Star<GetInt32__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: GetInt32__PythonCallable): GetInt32__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GetInt32__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

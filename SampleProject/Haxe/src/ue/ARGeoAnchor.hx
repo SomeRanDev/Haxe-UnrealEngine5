@@ -17,3 +17,22 @@ extern class ARGeoAnchor extends ARTrackedGeometry {
 @:nativeGen
 abstract ConstARGeoAnchor(ARGeoAnchor) from ARGeoAnchor {
 }
+
+@:forward
+@:nativeGen
+@:native("ARGeoAnchor*")
+abstract ARGeoAnchorPtr(cpp.Star<ARGeoAnchor>) from cpp.Star<ARGeoAnchor> to cpp.Star<ARGeoAnchor>{
+	@:from
+	public static extern inline function fromValue(v: ARGeoAnchor): ARGeoAnchorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARGeoAnchor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

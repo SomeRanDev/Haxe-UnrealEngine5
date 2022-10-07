@@ -16,3 +16,22 @@ abstract ConstNiagaraStackSimulationStagePropertiesItem(NiagaraStackSimulationSt
 	public extern var SimulationStageObject(get, never): cpp.Star<NiagaraStackObject.ConstNiagaraStackObject>;
 	public inline extern function get_SimulationStageObject(): cpp.Star<NiagaraStackObject.ConstNiagaraStackObject> return this.SimulationStageObject;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackSimulationStagePropertiesItem*")
+abstract NiagaraStackSimulationStagePropertiesItemPtr(cpp.Star<NiagaraStackSimulationStagePropertiesItem>) from cpp.Star<NiagaraStackSimulationStagePropertiesItem> to cpp.Star<NiagaraStackSimulationStagePropertiesItem>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackSimulationStagePropertiesItem): NiagaraStackSimulationStagePropertiesItemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackSimulationStagePropertiesItem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

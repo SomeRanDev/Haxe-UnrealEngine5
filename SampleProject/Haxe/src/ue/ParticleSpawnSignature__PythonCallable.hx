@@ -12,3 +12,22 @@ extern class ParticleSpawnSignature__PythonCallable extends PythonCallableForDel
 @:nativeGen
 abstract ConstParticleSpawnSignature__PythonCallable(ParticleSpawnSignature__PythonCallable) from ParticleSpawnSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleSpawnSignature__PythonCallable*")
+abstract ParticleSpawnSignature__PythonCallablePtr(cpp.Star<ParticleSpawnSignature__PythonCallable>) from cpp.Star<ParticleSpawnSignature__PythonCallable> to cpp.Star<ParticleSpawnSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ParticleSpawnSignature__PythonCallable): ParticleSpawnSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleSpawnSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

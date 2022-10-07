@@ -25,3 +25,22 @@ abstract ConstMaterialExpressionMin(MaterialExpressionMin) from MaterialExpressi
 	public extern var ConstB(get, never): cpp.Float32;
 	public inline extern function get_ConstB(): cpp.Float32 return this.ConstB;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionMin*")
+abstract MaterialExpressionMinPtr(cpp.Star<MaterialExpressionMin>) from cpp.Star<MaterialExpressionMin> to cpp.Star<MaterialExpressionMin>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionMin): MaterialExpressionMinPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionMin {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

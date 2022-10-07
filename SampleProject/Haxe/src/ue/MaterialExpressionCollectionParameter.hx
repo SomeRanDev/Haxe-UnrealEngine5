@@ -22,3 +22,22 @@ abstract ConstMaterialExpressionCollectionParameter(MaterialExpressionCollection
 	public extern var ParameterId(get, never): Guid;
 	public inline extern function get_ParameterId(): Guid return this.ParameterId;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionCollectionParameter*")
+abstract MaterialExpressionCollectionParameterPtr(cpp.Star<MaterialExpressionCollectionParameter>) from cpp.Star<MaterialExpressionCollectionParameter> to cpp.Star<MaterialExpressionCollectionParameter>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionCollectionParameter): MaterialExpressionCollectionParameterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionCollectionParameter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

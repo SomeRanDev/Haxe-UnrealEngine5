@@ -13,3 +13,22 @@ extern class MovieSceneMotionVectorSimulationSystem extends MovieSceneEntitySyst
 @:nativeGen
 abstract ConstMovieSceneMotionVectorSimulationSystem(MovieSceneMotionVectorSimulationSystem) from MovieSceneMotionVectorSimulationSystem {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneMotionVectorSimulationSystem*")
+abstract MovieSceneMotionVectorSimulationSystemPtr(cpp.Star<MovieSceneMotionVectorSimulationSystem>) from cpp.Star<MovieSceneMotionVectorSimulationSystem> to cpp.Star<MovieSceneMotionVectorSimulationSystem>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneMotionVectorSimulationSystem): MovieSceneMotionVectorSimulationSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneMotionVectorSimulationSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

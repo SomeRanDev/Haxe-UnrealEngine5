@@ -28,3 +28,22 @@ abstract ConstMovieSceneCameraShakeSection(MovieSceneCameraShakeSection) from Mo
 	public extern var UserDefinedPlaySpace_DEPRECATED(get, never): Rotator;
 	public inline extern function get_UserDefinedPlaySpace_DEPRECATED(): Rotator return this.UserDefinedPlaySpace_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneCameraShakeSection*")
+abstract MovieSceneCameraShakeSectionPtr(cpp.Star<MovieSceneCameraShakeSection>) from cpp.Star<MovieSceneCameraShakeSection> to cpp.Star<MovieSceneCameraShakeSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneCameraShakeSection): MovieSceneCameraShakeSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneCameraShakeSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

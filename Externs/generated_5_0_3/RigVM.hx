@@ -71,3 +71,22 @@ abstract ConstRigVM(RigVM) from RigVM {
 	public extern var DeferredVMToCopy(get, never): cpp.Star<RigVM.ConstRigVM>;
 	public inline extern function get_DeferredVMToCopy(): cpp.Star<RigVM.ConstRigVM> return this.DeferredVMToCopy;
 }
+
+@:forward
+@:nativeGen
+@:native("RigVM*")
+abstract RigVMPtr(cpp.Star<RigVM>) from cpp.Star<RigVM> to cpp.Star<RigVM>{
+	@:from
+	public static extern inline function fromValue(v: RigVM): RigVMPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVM {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

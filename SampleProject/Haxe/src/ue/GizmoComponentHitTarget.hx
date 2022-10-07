@@ -16,3 +16,22 @@ abstract ConstGizmoComponentHitTarget(GizmoComponentHitTarget) from GizmoCompone
 	public extern var Component(get, never): cpp.Star<PrimitiveComp.ConstPrimitiveComp>;
 	public inline extern function get_Component(): cpp.Star<PrimitiveComp.ConstPrimitiveComp> return this.Component;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoComponentHitTarget*")
+abstract GizmoComponentHitTargetPtr(cpp.Star<GizmoComponentHitTarget>) from cpp.Star<GizmoComponentHitTarget> to cpp.Star<GizmoComponentHitTarget>{
+	@:from
+	public static extern inline function fromValue(v: GizmoComponentHitTarget): GizmoComponentHitTargetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoComponentHitTarget {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

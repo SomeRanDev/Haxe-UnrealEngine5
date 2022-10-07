@@ -13,3 +13,22 @@ extern class LevelStreamingLevelInstance extends LevelStreamingDynamic {
 @:nativeGen
 abstract ConstLevelStreamingLevelInstance(LevelStreamingLevelInstance) from LevelStreamingLevelInstance {
 }
+
+@:forward
+@:nativeGen
+@:native("LevelStreamingLevelInstance*")
+abstract LevelStreamingLevelInstancePtr(cpp.Star<LevelStreamingLevelInstance>) from cpp.Star<LevelStreamingLevelInstance> to cpp.Star<LevelStreamingLevelInstance>{
+	@:from
+	public static extern inline function fromValue(v: LevelStreamingLevelInstance): LevelStreamingLevelInstancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelStreamingLevelInstance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

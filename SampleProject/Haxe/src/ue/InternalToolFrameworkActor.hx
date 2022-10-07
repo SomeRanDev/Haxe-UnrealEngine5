@@ -16,3 +16,22 @@ abstract ConstInternalToolFrameworkActor(InternalToolFrameworkActor) from Intern
 	public extern var bIsSelectableInEditor(get, never): Bool;
 	public inline extern function get_bIsSelectableInEditor(): Bool return this.bIsSelectableInEditor;
 }
+
+@:forward
+@:nativeGen
+@:native("InternalToolFrameworkActor*")
+abstract InternalToolFrameworkActorPtr(cpp.Star<InternalToolFrameworkActor>) from cpp.Star<InternalToolFrameworkActor> to cpp.Star<InternalToolFrameworkActor>{
+	@:from
+	public static extern inline function fromValue(v: InternalToolFrameworkActor): InternalToolFrameworkActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InternalToolFrameworkActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

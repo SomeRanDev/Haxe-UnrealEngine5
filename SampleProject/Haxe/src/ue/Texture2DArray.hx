@@ -25,3 +25,22 @@ abstract ConstTexture2DArray(Texture2DArray) from Texture2DArray {
 	public extern var SourceTextures(get, never): TArray<cpp.Star<Texture2D.ConstTexture2D>>;
 	public inline extern function get_SourceTextures(): TArray<cpp.Star<Texture2D.ConstTexture2D>> return this.SourceTextures;
 }
+
+@:forward
+@:nativeGen
+@:native("Texture2DArray*")
+abstract Texture2DArrayPtr(cpp.Star<Texture2DArray>) from cpp.Star<Texture2DArray> to cpp.Star<Texture2DArray>{
+	@:from
+	public static extern inline function fromValue(v: Texture2DArray): Texture2DArrayPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Texture2DArray {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

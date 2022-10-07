@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionSphericalParticleOpacity(MaterialExpressionSpher
 	public extern var ConstantDensity(get, never): cpp.Float32;
 	public inline extern function get_ConstantDensity(): cpp.Float32 return this.ConstantDensity;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionSphericalParticleOpacity*")
+abstract MaterialExpressionSphericalParticleOpacityPtr(cpp.Star<MaterialExpressionSphericalParticleOpacity>) from cpp.Star<MaterialExpressionSphericalParticleOpacity> to cpp.Star<MaterialExpressionSphericalParticleOpacity>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionSphericalParticleOpacity): MaterialExpressionSphericalParticleOpacityPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionSphericalParticleOpacity {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

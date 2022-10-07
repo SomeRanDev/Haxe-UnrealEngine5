@@ -16,3 +16,22 @@ abstract ConstDatasmithCADImportSceneData(DatasmithCADImportSceneData) from Data
 	public extern var TessellationOptions(get, never): DatasmithTessellationOptions;
 	public inline extern function get_TessellationOptions(): DatasmithTessellationOptions return this.TessellationOptions;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithCADImportSceneData*")
+abstract DatasmithCADImportSceneDataPtr(cpp.Star<DatasmithCADImportSceneData>) from cpp.Star<DatasmithCADImportSceneData> to cpp.Star<DatasmithCADImportSceneData>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithCADImportSceneData): DatasmithCADImportSceneDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithCADImportSceneData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

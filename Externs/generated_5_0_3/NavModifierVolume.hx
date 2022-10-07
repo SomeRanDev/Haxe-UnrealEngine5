@@ -21,3 +21,22 @@ abstract ConstNavModifierVolume(NavModifierVolume) from NavModifierVolume {
 	public extern var bMaskFillCollisionUnderneathForNavmesh(get, never): Bool;
 	public inline extern function get_bMaskFillCollisionUnderneathForNavmesh(): Bool return this.bMaskFillCollisionUnderneathForNavmesh;
 }
+
+@:forward
+@:nativeGen
+@:native("NavModifierVolume*")
+abstract NavModifierVolumePtr(cpp.Star<NavModifierVolume>) from cpp.Star<NavModifierVolume> to cpp.Star<NavModifierVolume>{
+	@:from
+	public static extern inline function fromValue(v: NavModifierVolume): NavModifierVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavModifierVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

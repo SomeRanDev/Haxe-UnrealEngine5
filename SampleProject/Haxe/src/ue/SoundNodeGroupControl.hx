@@ -16,3 +16,22 @@ abstract ConstSoundNodeGroupControl(SoundNodeGroupControl) from SoundNodeGroupCo
 	public extern var GroupSizes(get, never): TArray<cpp.Int32>;
 	public inline extern function get_GroupSizes(): TArray<cpp.Int32> return this.GroupSizes;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundNodeGroupControl*")
+abstract SoundNodeGroupControlPtr(cpp.Star<SoundNodeGroupControl>) from cpp.Star<SoundNodeGroupControl> to cpp.Star<SoundNodeGroupControl>{
+	@:from
+	public static extern inline function fromValue(v: SoundNodeGroupControl): SoundNodeGroupControlPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundNodeGroupControl {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

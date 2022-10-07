@@ -19,3 +19,22 @@ abstract ConstBTService_RunEQS(BTService_RunEQS) from BTService_RunEQS {
 	public extern var bUpdateBBOnFail(get, never): Bool;
 	public inline extern function get_bUpdateBBOnFail(): Bool return this.bUpdateBBOnFail;
 }
+
+@:forward
+@:nativeGen
+@:native("BTService_RunEQS*")
+abstract BTService_RunEQSPtr(cpp.Star<BTService_RunEQS>) from cpp.Star<BTService_RunEQS> to cpp.Star<BTService_RunEQS>{
+	@:from
+	public static extern inline function fromValue(v: BTService_RunEQS): BTService_RunEQSPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTService_RunEQS {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

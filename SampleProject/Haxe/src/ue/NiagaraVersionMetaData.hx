@@ -34,3 +34,22 @@ abstract ConstNiagaraVersionMetaData(NiagaraVersionMetaData) from NiagaraVersion
 	public extern var ScriptAsset(get, never): FilePath;
 	public inline extern function get_ScriptAsset(): FilePath return this.ScriptAsset;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraVersionMetaData*")
+abstract NiagaraVersionMetaDataPtr(cpp.Star<NiagaraVersionMetaData>) from cpp.Star<NiagaraVersionMetaData> to cpp.Star<NiagaraVersionMetaData>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraVersionMetaData): NiagaraVersionMetaDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraVersionMetaData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

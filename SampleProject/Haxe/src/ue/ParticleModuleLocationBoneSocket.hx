@@ -46,3 +46,22 @@ abstract ConstParticleModuleLocationBoneSocket(ParticleModuleLocationBoneSocket)
 	public extern var EditorSkelMesh(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
 	public inline extern function get_EditorSkelMesh(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.EditorSkelMesh;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleLocationBoneSocket*")
+abstract ParticleModuleLocationBoneSocketPtr(cpp.Star<ParticleModuleLocationBoneSocket>) from cpp.Star<ParticleModuleLocationBoneSocket> to cpp.Star<ParticleModuleLocationBoneSocket>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleLocationBoneSocket): ParticleModuleLocationBoneSocketPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleLocationBoneSocket {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

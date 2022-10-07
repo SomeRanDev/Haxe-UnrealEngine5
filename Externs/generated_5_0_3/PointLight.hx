@@ -19,3 +19,22 @@ abstract ConstPointLight(PointLight) from PointLight {
 	public extern var PointLightComponent(get, never): cpp.Star<PointLightComp.ConstPointLightComp>;
 	public inline extern function get_PointLightComponent(): cpp.Star<PointLightComp.ConstPointLightComp> return this.PointLightComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("PointLight*")
+abstract PointLightPtr(cpp.Star<PointLight>) from cpp.Star<PointLight> to cpp.Star<PointLight>{
+	@:from
+	public static extern inline function fromValue(v: PointLight): PointLightPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PointLight {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

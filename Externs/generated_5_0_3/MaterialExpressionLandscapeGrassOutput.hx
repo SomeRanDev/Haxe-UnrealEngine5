@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionLandscapeGrassOutput(MaterialExpressionLandscape
 	public extern var GrassTypes(get, never): TArray<GrassInput>;
 	public inline extern function get_GrassTypes(): TArray<GrassInput> return this.GrassTypes;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionLandscapeGrassOutput*")
+abstract MaterialExpressionLandscapeGrassOutputPtr(cpp.Star<MaterialExpressionLandscapeGrassOutput>) from cpp.Star<MaterialExpressionLandscapeGrassOutput> to cpp.Star<MaterialExpressionLandscapeGrassOutput>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionLandscapeGrassOutput): MaterialExpressionLandscapeGrassOutputPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionLandscapeGrassOutput {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

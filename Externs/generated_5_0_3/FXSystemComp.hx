@@ -24,3 +24,22 @@ extern class FXSystemComp extends PrimitiveComp {
 @:nativeGen
 abstract ConstFXSystemComp(FXSystemComp) from FXSystemComp {
 }
+
+@:forward
+@:nativeGen
+@:native("FXSystemComp*")
+abstract FXSystemCompPtr(cpp.Star<FXSystemComp>) from cpp.Star<FXSystemComp> to cpp.Star<FXSystemComp>{
+	@:from
+	public static extern inline function fromValue(v: FXSystemComp): FXSystemCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FXSystemComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

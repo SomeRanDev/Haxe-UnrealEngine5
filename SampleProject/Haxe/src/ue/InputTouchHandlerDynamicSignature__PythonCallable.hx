@@ -12,3 +12,22 @@ extern class InputTouchHandlerDynamicSignature__PythonCallable extends PythonCal
 @:nativeGen
 abstract ConstInputTouchHandlerDynamicSignature__PythonCallable(InputTouchHandlerDynamicSignature__PythonCallable) from InputTouchHandlerDynamicSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("InputTouchHandlerDynamicSignature__PythonCallable*")
+abstract InputTouchHandlerDynamicSignature__PythonCallablePtr(cpp.Star<InputTouchHandlerDynamicSignature__PythonCallable>) from cpp.Star<InputTouchHandlerDynamicSignature__PythonCallable> to cpp.Star<InputTouchHandlerDynamicSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: InputTouchHandlerDynamicSignature__PythonCallable): InputTouchHandlerDynamicSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InputTouchHandlerDynamicSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ extern class GizmoVec2ParameterSource extends Interface {
 @:nativeGen
 abstract ConstGizmoVec2ParameterSource(GizmoVec2ParameterSource) from GizmoVec2ParameterSource {
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoVec2ParameterSource*")
+abstract GizmoVec2ParameterSourcePtr(cpp.Star<GizmoVec2ParameterSource>) from cpp.Star<GizmoVec2ParameterSource> to cpp.Star<GizmoVec2ParameterSource>{
+	@:from
+	public static extern inline function fromValue(v: GizmoVec2ParameterSource): GizmoVec2ParameterSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoVec2ParameterSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

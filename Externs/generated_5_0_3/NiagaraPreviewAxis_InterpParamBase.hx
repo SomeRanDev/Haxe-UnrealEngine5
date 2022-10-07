@@ -19,3 +19,22 @@ abstract ConstNiagaraPreviewAxis_InterpParamBase(NiagaraPreviewAxis_InterpParamB
 	public extern var Count(get, never): cpp.Int32;
 	public inline extern function get_Count(): cpp.Int32 return this.Count;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraPreviewAxis_InterpParamBase*")
+abstract NiagaraPreviewAxis_InterpParamBasePtr(cpp.Star<NiagaraPreviewAxis_InterpParamBase>) from cpp.Star<NiagaraPreviewAxis_InterpParamBase> to cpp.Star<NiagaraPreviewAxis_InterpParamBase>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraPreviewAxis_InterpParamBase): NiagaraPreviewAxis_InterpParamBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraPreviewAxis_InterpParamBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

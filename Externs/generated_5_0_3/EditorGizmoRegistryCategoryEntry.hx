@@ -19,3 +19,22 @@ abstract ConstEditorGizmoRegistryCategoryEntry(EditorGizmoRegistryCategoryEntry)
 	public extern var CategoryName(get, never): FString;
 	public inline extern function get_CategoryName(): FString return this.CategoryName;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorGizmoRegistryCategoryEntry*")
+abstract EditorGizmoRegistryCategoryEntryPtr(cpp.Star<EditorGizmoRegistryCategoryEntry>) from cpp.Star<EditorGizmoRegistryCategoryEntry> to cpp.Star<EditorGizmoRegistryCategoryEntry>{
+	@:from
+	public static extern inline function fromValue(v: EditorGizmoRegistryCategoryEntry): EditorGizmoRegistryCategoryEntryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorGizmoRegistryCategoryEntry {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

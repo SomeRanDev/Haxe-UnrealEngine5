@@ -19,3 +19,22 @@ abstract ConstCurveTable(CurveTable) from CurveTable {
 	public extern var ImportPath_DEPRECATED(get, never): FString;
 	public inline extern function get_ImportPath_DEPRECATED(): FString return this.ImportPath_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("CurveTable*")
+abstract CurveTablePtr(cpp.Star<CurveTable>) from cpp.Star<CurveTable> to cpp.Star<CurveTable>{
+	@:from
+	public static extern inline function fromValue(v: CurveTable): CurveTablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CurveTable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

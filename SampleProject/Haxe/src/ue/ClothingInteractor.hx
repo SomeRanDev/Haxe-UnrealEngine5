@@ -13,3 +13,22 @@ extern class ClothingInteractor extends Object {
 @:nativeGen
 abstract ConstClothingInteractor(ClothingInteractor) from ClothingInteractor {
 }
+
+@:forward
+@:nativeGen
+@:native("ClothingInteractor*")
+abstract ClothingInteractorPtr(cpp.Star<ClothingInteractor>) from cpp.Star<ClothingInteractor> to cpp.Star<ClothingInteractor>{
+	@:from
+	public static extern inline function fromValue(v: ClothingInteractor): ClothingInteractorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ClothingInteractor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

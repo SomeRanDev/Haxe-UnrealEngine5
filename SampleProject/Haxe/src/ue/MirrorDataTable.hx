@@ -22,3 +22,22 @@ abstract ConstMirrorDataTable(MirrorDataTable) from MirrorDataTable {
 	public extern var Skeleton(get, never): cpp.Star<Skeleton.ConstSkeleton>;
 	public inline extern function get_Skeleton(): cpp.Star<Skeleton.ConstSkeleton> return this.Skeleton;
 }
+
+@:forward
+@:nativeGen
+@:native("MirrorDataTable*")
+abstract MirrorDataTablePtr(cpp.Star<MirrorDataTable>) from cpp.Star<MirrorDataTable> to cpp.Star<MirrorDataTable>{
+	@:from
+	public static extern inline function fromValue(v: MirrorDataTable): MirrorDataTablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MirrorDataTable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

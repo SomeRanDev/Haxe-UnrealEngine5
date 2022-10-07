@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionLogarithm2(MaterialExpressionLogarithm2) from Ma
 	public extern var X(get, never): ExpressionInput;
 	public inline extern function get_X(): ExpressionInput return this.X;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionLogarithm2*")
+abstract MaterialExpressionLogarithm2Ptr(cpp.Star<MaterialExpressionLogarithm2>) from cpp.Star<MaterialExpressionLogarithm2> to cpp.Star<MaterialExpressionLogarithm2>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionLogarithm2): MaterialExpressionLogarithm2Ptr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionLogarithm2 {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

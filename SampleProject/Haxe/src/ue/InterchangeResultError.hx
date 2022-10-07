@@ -13,3 +13,22 @@ extern class InterchangeResultError extends InterchangeResult {
 @:nativeGen
 abstract ConstInterchangeResultError(InterchangeResultError) from InterchangeResultError {
 }
+
+@:forward
+@:nativeGen
+@:native("InterchangeResultError*")
+abstract InterchangeResultErrorPtr(cpp.Star<InterchangeResultError>) from cpp.Star<InterchangeResultError> to cpp.Star<InterchangeResultError>{
+	@:from
+	public static extern inline function fromValue(v: InterchangeResultError): InterchangeResultErrorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterchangeResultError {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

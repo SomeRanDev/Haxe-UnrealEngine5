@@ -13,3 +13,22 @@ extern class MovieSceneTrackInstanceInstantiator extends MovieSceneEntityInstant
 @:nativeGen
 abstract ConstMovieSceneTrackInstanceInstantiator(MovieSceneTrackInstanceInstantiator) from MovieSceneTrackInstanceInstantiator {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneTrackInstanceInstantiator*")
+abstract MovieSceneTrackInstanceInstantiatorPtr(cpp.Star<MovieSceneTrackInstanceInstantiator>) from cpp.Star<MovieSceneTrackInstanceInstantiator> to cpp.Star<MovieSceneTrackInstanceInstantiator>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneTrackInstanceInstantiator): MovieSceneTrackInstanceInstantiatorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneTrackInstanceInstantiator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

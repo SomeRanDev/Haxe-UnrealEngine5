@@ -62,3 +62,22 @@ abstract ConstPhysicsAsset(PhysicsAsset) from PhysicsAsset {
 	public extern var BodySetup_DEPRECATED(get, never): TArray<cpp.Star<BodySetup.ConstBodySetup>>;
 	public inline extern function get_BodySetup_DEPRECATED(): TArray<cpp.Star<BodySetup.ConstBodySetup>> return this.BodySetup_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("PhysicsAsset*")
+abstract PhysicsAssetPtr(cpp.Star<PhysicsAsset>) from cpp.Star<PhysicsAsset> to cpp.Star<PhysicsAsset>{
+	@:from
+	public static extern inline function fromValue(v: PhysicsAsset): PhysicsAssetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhysicsAsset {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

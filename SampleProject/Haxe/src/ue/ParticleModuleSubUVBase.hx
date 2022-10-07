@@ -13,3 +13,22 @@ extern class ParticleModuleSubUVBase extends ParticleModule {
 @:nativeGen
 abstract ConstParticleModuleSubUVBase(ParticleModuleSubUVBase) from ParticleModuleSubUVBase {
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleSubUVBase*")
+abstract ParticleModuleSubUVBasePtr(cpp.Star<ParticleModuleSubUVBase>) from cpp.Star<ParticleModuleSubUVBase> to cpp.Star<ParticleModuleSubUVBase>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleSubUVBase): ParticleModuleSubUVBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleSubUVBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

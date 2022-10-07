@@ -34,3 +34,22 @@ abstract ConstDamageType(DamageType) from DamageType {
 	public extern var DamageFalloff(get, never): cpp.Float32;
 	public inline extern function get_DamageFalloff(): cpp.Float32 return this.DamageFalloff;
 }
+
+@:forward
+@:nativeGen
+@:native("DamageType*")
+abstract DamageTypePtr(cpp.Star<DamageType>) from cpp.Star<DamageType> to cpp.Star<DamageType>{
+	@:from
+	public static extern inline function fromValue(v: DamageType): DamageTypePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DamageType {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -29,3 +29,22 @@ abstract ConstDecalActor(DecalActor) from DecalActor {
 	public extern var BoxComponent_DEPRECATED(get, never): cpp.Star<BoxComp.ConstBoxComp>;
 	public inline extern function get_BoxComponent_DEPRECATED(): cpp.Star<BoxComp.ConstBoxComp> return this.BoxComponent_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("DecalActor*")
+abstract DecalActorPtr(cpp.Star<DecalActor>) from cpp.Star<DecalActor> to cpp.Star<DecalActor>{
+	@:from
+	public static extern inline function fromValue(v: DecalActor): DecalActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DecalActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

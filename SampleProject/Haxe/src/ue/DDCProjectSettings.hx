@@ -31,3 +31,22 @@ abstract ConstDDCProjectSettings(DDCProjectSettings) from DDCProjectSettings {
 	public extern var RecommendEveryoneUseHordeStorage(get, never): Bool;
 	public inline extern function get_RecommendEveryoneUseHordeStorage(): Bool return this.RecommendEveryoneUseHordeStorage;
 }
+
+@:forward
+@:nativeGen
+@:native("DDCProjectSettings*")
+abstract DDCProjectSettingsPtr(cpp.Star<DDCProjectSettings>) from cpp.Star<DDCProjectSettings> to cpp.Star<DDCProjectSettings>{
+	@:from
+	public static extern inline function fromValue(v: DDCProjectSettings): DDCProjectSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DDCProjectSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

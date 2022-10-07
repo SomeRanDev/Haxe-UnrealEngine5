@@ -34,3 +34,22 @@ abstract ConstMovieSceneCameraAnimSection(MovieSceneCameraAnimSection) from Movi
 	public extern var bLooping_DEPRECATED(get, never): Bool;
 	public inline extern function get_bLooping_DEPRECATED(): Bool return this.bLooping_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneCameraAnimSection*")
+abstract MovieSceneCameraAnimSectionPtr(cpp.Star<MovieSceneCameraAnimSection>) from cpp.Star<MovieSceneCameraAnimSection> to cpp.Star<MovieSceneCameraAnimSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneCameraAnimSection): MovieSceneCameraAnimSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneCameraAnimSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

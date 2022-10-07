@@ -19,3 +19,22 @@ abstract ConstNiagaraPreviewAxis_InterpParamVector4(NiagaraPreviewAxis_InterpPar
 	public extern var Max(get, never): Vector4;
 	public inline extern function get_Max(): Vector4 return this.Max;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraPreviewAxis_InterpParamVector4*")
+abstract NiagaraPreviewAxis_InterpParamVector4Ptr(cpp.Star<NiagaraPreviewAxis_InterpParamVector4>) from cpp.Star<NiagaraPreviewAxis_InterpParamVector4> to cpp.Star<NiagaraPreviewAxis_InterpParamVector4>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraPreviewAxis_InterpParamVector4): NiagaraPreviewAxis_InterpParamVector4Ptr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraPreviewAxis_InterpParamVector4 {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

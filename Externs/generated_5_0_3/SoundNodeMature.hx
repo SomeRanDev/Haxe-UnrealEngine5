@@ -13,3 +13,22 @@ extern class SoundNodeMature extends SoundNode {
 @:nativeGen
 abstract ConstSoundNodeMature(SoundNodeMature) from SoundNodeMature {
 }
+
+@:forward
+@:nativeGen
+@:native("SoundNodeMature*")
+abstract SoundNodeMaturePtr(cpp.Star<SoundNodeMature>) from cpp.Star<SoundNodeMature> to cpp.Star<SoundNodeMature>{
+	@:from
+	public static extern inline function fromValue(v: SoundNodeMature): SoundNodeMaturePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundNodeMature {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

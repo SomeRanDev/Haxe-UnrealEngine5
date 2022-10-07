@@ -12,3 +12,22 @@ extern class PlatformInterfaceDelegate__PythonCallable extends PythonCallableFor
 @:nativeGen
 abstract ConstPlatformInterfaceDelegate__PythonCallable(PlatformInterfaceDelegate__PythonCallable) from PlatformInterfaceDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("PlatformInterfaceDelegate__PythonCallable*")
+abstract PlatformInterfaceDelegate__PythonCallablePtr(cpp.Star<PlatformInterfaceDelegate__PythonCallable>) from cpp.Star<PlatformInterfaceDelegate__PythonCallable> to cpp.Star<PlatformInterfaceDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: PlatformInterfaceDelegate__PythonCallable): PlatformInterfaceDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PlatformInterfaceDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

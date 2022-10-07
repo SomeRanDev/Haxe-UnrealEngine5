@@ -13,3 +13,22 @@ extern class EditorSubsystem extends DynamicSubsystem {
 @:nativeGen
 abstract ConstEditorSubsystem(EditorSubsystem) from EditorSubsystem {
 }
+
+@:forward
+@:nativeGen
+@:native("EditorSubsystem*")
+abstract EditorSubsystemPtr(cpp.Star<EditorSubsystem>) from cpp.Star<EditorSubsystem> to cpp.Star<EditorSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: EditorSubsystem): EditorSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -55,3 +55,22 @@ abstract ConstBuildPatchManifest(BuildPatchManifest) from BuildPatchManifest {
 	public extern var CustomFields(get, never): TArray<CustomFieldData>;
 	public inline extern function get_CustomFields(): TArray<CustomFieldData> return this.CustomFields;
 }
+
+@:forward
+@:nativeGen
+@:native("BuildPatchManifest*")
+abstract BuildPatchManifestPtr(cpp.Star<BuildPatchManifest>) from cpp.Star<BuildPatchManifest> to cpp.Star<BuildPatchManifest>{
+	@:from
+	public static extern inline function fromValue(v: BuildPatchManifest): BuildPatchManifestPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BuildPatchManifest {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

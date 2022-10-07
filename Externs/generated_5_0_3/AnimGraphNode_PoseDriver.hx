@@ -42,3 +42,22 @@ abstract ConstAnimGraphNode_PoseDriver(AnimGraphNode_PoseDriver) from AnimGraphN
 	public extern var LastPreviewComponent(get, never): cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp>;
 	public inline extern function get_LastPreviewComponent(): cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp> return this.LastPreviewComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_PoseDriver*")
+abstract AnimGraphNode_PoseDriverPtr(cpp.Star<AnimGraphNode_PoseDriver>) from cpp.Star<AnimGraphNode_PoseDriver> to cpp.Star<AnimGraphNode_PoseDriver>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_PoseDriver): AnimGraphNode_PoseDriverPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_PoseDriver {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class MeshMergeCullingVolume extends Volume {
 @:nativeGen
 abstract ConstMeshMergeCullingVolume(MeshMergeCullingVolume) from MeshMergeCullingVolume {
 }
+
+@:forward
+@:nativeGen
+@:native("MeshMergeCullingVolume*")
+abstract MeshMergeCullingVolumePtr(cpp.Star<MeshMergeCullingVolume>) from cpp.Star<MeshMergeCullingVolume> to cpp.Star<MeshMergeCullingVolume>{
+	@:from
+	public static extern inline function fromValue(v: MeshMergeCullingVolume): MeshMergeCullingVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MeshMergeCullingVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

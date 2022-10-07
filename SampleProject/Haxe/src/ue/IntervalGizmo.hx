@@ -31,3 +31,22 @@ abstract ConstIntervalGizmo(IntervalGizmo) from IntervalGizmo {
 	public extern var AxisZSource(get, never): cpp.Star<GizmoComponentAxisSource.ConstGizmoComponentAxisSource>;
 	public inline extern function get_AxisZSource(): cpp.Star<GizmoComponentAxisSource.ConstGizmoComponentAxisSource> return this.AxisZSource;
 }
+
+@:forward
+@:nativeGen
+@:native("IntervalGizmo*")
+abstract IntervalGizmoPtr(cpp.Star<IntervalGizmo>) from cpp.Star<IntervalGizmo> to cpp.Star<IntervalGizmo>{
+	@:from
+	public static extern inline function fromValue(v: IntervalGizmo): IntervalGizmoPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IntervalGizmo {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

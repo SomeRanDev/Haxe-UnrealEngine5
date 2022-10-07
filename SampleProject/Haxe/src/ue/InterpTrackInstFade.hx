@@ -13,3 +13,22 @@ extern class InterpTrackInstFade extends InterpTrackInst {
 @:nativeGen
 abstract ConstInterpTrackInstFade(InterpTrackInstFade) from InterpTrackInstFade {
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackInstFade*")
+abstract InterpTrackInstFadePtr(cpp.Star<InterpTrackInstFade>) from cpp.Star<InterpTrackInstFade> to cpp.Star<InterpTrackInstFade>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackInstFade): InterpTrackInstFadePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackInstFade {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

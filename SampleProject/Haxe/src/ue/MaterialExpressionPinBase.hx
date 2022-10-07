@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionPinBase(MaterialExpressionPinBase) from Material
 	public extern var PinDirection(get, never): EEdGraphPinDirection;
 	public inline extern function get_PinDirection(): EEdGraphPinDirection return this.PinDirection;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionPinBase*")
+abstract MaterialExpressionPinBasePtr(cpp.Star<MaterialExpressionPinBase>) from cpp.Star<MaterialExpressionPinBase> to cpp.Star<MaterialExpressionPinBase>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionPinBase): MaterialExpressionPinBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionPinBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

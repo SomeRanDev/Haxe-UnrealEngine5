@@ -22,3 +22,22 @@ abstract ConstMaterialExpressionSpriteTextureSampler(MaterialExpressionSpriteTex
 	public extern var SlotDisplayName(get, never): FText;
 	public inline extern function get_SlotDisplayName(): FText return this.SlotDisplayName;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionSpriteTextureSampler*")
+abstract MaterialExpressionSpriteTextureSamplerPtr(cpp.Star<MaterialExpressionSpriteTextureSampler>) from cpp.Star<MaterialExpressionSpriteTextureSampler> to cpp.Star<MaterialExpressionSpriteTextureSampler>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionSpriteTextureSampler): MaterialExpressionSpriteTextureSamplerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionSpriteTextureSampler {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class MovieSceneDataLayerSystem extends MovieSceneEntitySystem {
 @:nativeGen
 abstract ConstMovieSceneDataLayerSystem(MovieSceneDataLayerSystem) from MovieSceneDataLayerSystem {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneDataLayerSystem*")
+abstract MovieSceneDataLayerSystemPtr(cpp.Star<MovieSceneDataLayerSystem>) from cpp.Star<MovieSceneDataLayerSystem> to cpp.Star<MovieSceneDataLayerSystem>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneDataLayerSystem): MovieSceneDataLayerSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneDataLayerSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

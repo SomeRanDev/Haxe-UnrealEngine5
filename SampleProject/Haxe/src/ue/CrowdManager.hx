@@ -49,3 +49,22 @@ abstract ConstCrowdManager(CrowdManager) from CrowdManager {
 	public extern var bResolveCollisions(get, never): Bool;
 	public inline extern function get_bResolveCollisions(): Bool return this.bResolveCollisions;
 }
+
+@:forward
+@:nativeGen
+@:native("CrowdManager*")
+abstract CrowdManagerPtr(cpp.Star<CrowdManager>) from cpp.Star<CrowdManager> to cpp.Star<CrowdManager>{
+	@:from
+	public static extern inline function fromValue(v: CrowdManager): CrowdManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CrowdManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

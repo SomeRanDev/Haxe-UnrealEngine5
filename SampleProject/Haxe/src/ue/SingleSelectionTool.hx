@@ -16,3 +16,22 @@ abstract ConstSingleSelectionTool(SingleSelectionTool) from SingleSelectionTool 
 	public extern var Target(get, never): cpp.Star<ToolTarget.ConstToolTarget>;
 	public inline extern function get_Target(): cpp.Star<ToolTarget.ConstToolTarget> return this.Target;
 }
+
+@:forward
+@:nativeGen
+@:native("SingleSelectionTool*")
+abstract SingleSelectionToolPtr(cpp.Star<SingleSelectionTool>) from cpp.Star<SingleSelectionTool> to cpp.Star<SingleSelectionTool>{
+	@:from
+	public static extern inline function fromValue(v: SingleSelectionTool): SingleSelectionToolPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SingleSelectionTool {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

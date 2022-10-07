@@ -19,3 +19,22 @@ abstract ConstMovieSceneAudioTrack(MovieSceneAudioTrack) from MovieSceneAudioTra
 	public extern var RowHeight(get, never): cpp.Int32;
 	public inline extern function get_RowHeight(): cpp.Int32 return this.RowHeight;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneAudioTrack*")
+abstract MovieSceneAudioTrackPtr(cpp.Star<MovieSceneAudioTrack>) from cpp.Star<MovieSceneAudioTrack> to cpp.Star<MovieSceneAudioTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneAudioTrack): MovieSceneAudioTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneAudioTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

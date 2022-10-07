@@ -12,3 +12,22 @@ extern class GetWidget__PythonCallable extends PythonCallableForDelegate {
 @:nativeGen
 abstract ConstGetWidget__PythonCallable(GetWidget__PythonCallable) from GetWidget__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("GetWidget__PythonCallable*")
+abstract GetWidget__PythonCallablePtr(cpp.Star<GetWidget__PythonCallable>) from cpp.Star<GetWidget__PythonCallable> to cpp.Star<GetWidget__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: GetWidget__PythonCallable): GetWidget__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GetWidget__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

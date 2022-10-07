@@ -13,3 +13,22 @@ extern class GizmoBaseTransformSource extends Object {
 @:nativeGen
 abstract ConstGizmoBaseTransformSource(GizmoBaseTransformSource) from GizmoBaseTransformSource {
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoBaseTransformSource*")
+abstract GizmoBaseTransformSourcePtr(cpp.Star<GizmoBaseTransformSource>) from cpp.Star<GizmoBaseTransformSource> to cpp.Star<GizmoBaseTransformSource>{
+	@:from
+	public static extern inline function fromValue(v: GizmoBaseTransformSource): GizmoBaseTransformSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoBaseTransformSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

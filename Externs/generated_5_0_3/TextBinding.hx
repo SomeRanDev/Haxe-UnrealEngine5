@@ -15,3 +15,22 @@ extern class TextBinding extends PropertyBinding {
 @:nativeGen
 abstract ConstTextBinding(TextBinding) from TextBinding {
 }
+
+@:forward
+@:nativeGen
+@:native("TextBinding*")
+abstract TextBindingPtr(cpp.Star<TextBinding>) from cpp.Star<TextBinding> to cpp.Star<TextBinding>{
+	@:from
+	public static extern inline function fromValue(v: TextBinding): TextBindingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextBinding {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

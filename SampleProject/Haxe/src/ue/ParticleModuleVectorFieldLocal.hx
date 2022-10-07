@@ -46,3 +46,22 @@ abstract ConstParticleModuleVectorFieldLocal(ParticleModuleVectorFieldLocal) fro
 	public extern var bUseFixDT(get, never): Bool;
 	public inline extern function get_bUseFixDT(): Bool return this.bUseFixDT;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleVectorFieldLocal*")
+abstract ParticleModuleVectorFieldLocalPtr(cpp.Star<ParticleModuleVectorFieldLocal>) from cpp.Star<ParticleModuleVectorFieldLocal> to cpp.Star<ParticleModuleVectorFieldLocal>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleVectorFieldLocal): ParticleModuleVectorFieldLocalPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleVectorFieldLocal {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

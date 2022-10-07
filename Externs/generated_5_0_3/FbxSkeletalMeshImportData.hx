@@ -52,3 +52,22 @@ abstract ConstFbxSkeletalMeshImportData(FbxSkeletalMeshImportData) from FbxSkele
 	public extern var MorphThresholdPosition(get, never): cpp.Float32;
 	public inline extern function get_MorphThresholdPosition(): cpp.Float32 return this.MorphThresholdPosition;
 }
+
+@:forward
+@:nativeGen
+@:native("FbxSkeletalMeshImportData*")
+abstract FbxSkeletalMeshImportDataPtr(cpp.Star<FbxSkeletalMeshImportData>) from cpp.Star<FbxSkeletalMeshImportData> to cpp.Star<FbxSkeletalMeshImportData>{
+	@:from
+	public static extern inline function fromValue(v: FbxSkeletalMeshImportData): FbxSkeletalMeshImportDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FbxSkeletalMeshImportData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

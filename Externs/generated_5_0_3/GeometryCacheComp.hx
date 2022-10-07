@@ -85,3 +85,22 @@ abstract ConstGeometryCacheComp(GeometryCacheComp) from GeometryCacheComp {
 	public extern var WireframeOverrideColor(get, never): LinearColor;
 	public inline extern function get_WireframeOverrideColor(): LinearColor return this.WireframeOverrideColor;
 }
+
+@:forward
+@:nativeGen
+@:native("GeometryCacheComp*")
+abstract GeometryCacheCompPtr(cpp.Star<GeometryCacheComp>) from cpp.Star<GeometryCacheComp> to cpp.Star<GeometryCacheComp>{
+	@:from
+	public static extern inline function fromValue(v: GeometryCacheComp): GeometryCacheCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GeometryCacheComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

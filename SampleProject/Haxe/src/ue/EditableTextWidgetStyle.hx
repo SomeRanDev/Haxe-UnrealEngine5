@@ -16,3 +16,22 @@ abstract ConstEditableTextWidgetStyle(EditableTextWidgetStyle) from EditableText
 	public extern var EditableTextStyle(get, never): EditableTextStyle;
 	public inline extern function get_EditableTextStyle(): EditableTextStyle return this.EditableTextStyle;
 }
+
+@:forward
+@:nativeGen
+@:native("EditableTextWidgetStyle*")
+abstract EditableTextWidgetStylePtr(cpp.Star<EditableTextWidgetStyle>) from cpp.Star<EditableTextWidgetStyle> to cpp.Star<EditableTextWidgetStyle>{
+	@:from
+	public static extern inline function fromValue(v: EditableTextWidgetStyle): EditableTextWidgetStylePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditableTextWidgetStyle {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

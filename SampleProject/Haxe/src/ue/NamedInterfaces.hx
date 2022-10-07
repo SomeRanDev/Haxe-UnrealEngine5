@@ -19,3 +19,22 @@ abstract ConstNamedInterfaces(NamedInterfaces) from NamedInterfaces {
 	public extern var NamedInterfaceDefs(get, never): TArray<NamedInterfaceDef>;
 	public inline extern function get_NamedInterfaceDefs(): TArray<NamedInterfaceDef> return this.NamedInterfaceDefs;
 }
+
+@:forward
+@:nativeGen
+@:native("NamedInterfaces*")
+abstract NamedInterfacesPtr(cpp.Star<NamedInterfaces>) from cpp.Star<NamedInterfaces> to cpp.Star<NamedInterfaces>{
+	@:from
+	public static extern inline function fromValue(v: NamedInterfaces): NamedInterfacesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NamedInterfaces {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

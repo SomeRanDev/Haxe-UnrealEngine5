@@ -17,3 +17,22 @@ extern class IKRigComp extends ActorComp {
 @:nativeGen
 abstract ConstIKRigComp(IKRigComp) from IKRigComp {
 }
+
+@:forward
+@:nativeGen
+@:native("IKRigComp*")
+abstract IKRigCompPtr(cpp.Star<IKRigComp>) from cpp.Star<IKRigComp> to cpp.Star<IKRigComp>{
+	@:from
+	public static extern inline function fromValue(v: IKRigComp): IKRigCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IKRigComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstIKRig_LimbEffector(IKRig_LimbEffector) from IKRig_LimbEffector {
 	public extern var BoneName(get, never): FName;
 	public inline extern function get_BoneName(): FName return this.BoneName;
 }
+
+@:forward
+@:nativeGen
+@:native("IKRig_LimbEffector*")
+abstract IKRig_LimbEffectorPtr(cpp.Star<IKRig_LimbEffector>) from cpp.Star<IKRig_LimbEffector> to cpp.Star<IKRig_LimbEffector>{
+	@:from
+	public static extern inline function fromValue(v: IKRig_LimbEffector): IKRig_LimbEffectorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IKRig_LimbEffector {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

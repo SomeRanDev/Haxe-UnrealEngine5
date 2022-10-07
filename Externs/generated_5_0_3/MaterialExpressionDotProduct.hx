@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionDotProduct(MaterialExpressionDotProduct) from Ma
 	public extern var B(get, never): ExpressionInput;
 	public inline extern function get_B(): ExpressionInput return this.B;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionDotProduct*")
+abstract MaterialExpressionDotProductPtr(cpp.Star<MaterialExpressionDotProduct>) from cpp.Star<MaterialExpressionDotProduct> to cpp.Star<MaterialExpressionDotProduct>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionDotProduct): MaterialExpressionDotProductPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionDotProduct {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -223,3 +223,22 @@ abstract ConstEditorEngine(EditorEngine) from EditorEngine {
 	public extern var PlayInEditorViewportIndex(get, never): cpp.Int32;
 	public inline extern function get_PlayInEditorViewportIndex(): cpp.Int32 return this.PlayInEditorViewportIndex;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorEngine*")
+abstract EditorEnginePtr(cpp.Star<EditorEngine>) from cpp.Star<EditorEngine> to cpp.Star<EditorEngine>{
+	@:from
+	public static extern inline function fromValue(v: EditorEngine): EditorEnginePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorEngine {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

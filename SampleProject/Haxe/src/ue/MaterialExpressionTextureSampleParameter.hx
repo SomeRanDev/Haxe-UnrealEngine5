@@ -28,3 +28,22 @@ abstract ConstMaterialExpressionTextureSampleParameter(MaterialExpressionTexture
 	public extern var ChannelNames(get, never): ParameterChannelNames;
 	public inline extern function get_ChannelNames(): ParameterChannelNames return this.ChannelNames;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionTextureSampleParameter*")
+abstract MaterialExpressionTextureSampleParameterPtr(cpp.Star<MaterialExpressionTextureSampleParameter>) from cpp.Star<MaterialExpressionTextureSampleParameter> to cpp.Star<MaterialExpressionTextureSampleParameter>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionTextureSampleParameter): MaterialExpressionTextureSampleParameterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionTextureSampleParameter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

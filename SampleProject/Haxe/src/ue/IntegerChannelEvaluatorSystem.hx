@@ -13,3 +13,22 @@ extern class IntegerChannelEvaluatorSystem extends MovieSceneEntitySystem {
 @:nativeGen
 abstract ConstIntegerChannelEvaluatorSystem(IntegerChannelEvaluatorSystem) from IntegerChannelEvaluatorSystem {
 }
+
+@:forward
+@:nativeGen
+@:native("IntegerChannelEvaluatorSystem*")
+abstract IntegerChannelEvaluatorSystemPtr(cpp.Star<IntegerChannelEvaluatorSystem>) from cpp.Star<IntegerChannelEvaluatorSystem> to cpp.Star<IntegerChannelEvaluatorSystem>{
+	@:from
+	public static extern inline function fromValue(v: IntegerChannelEvaluatorSystem): IntegerChannelEvaluatorSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IntegerChannelEvaluatorSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

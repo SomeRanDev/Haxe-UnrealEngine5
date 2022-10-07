@@ -22,3 +22,22 @@ abstract ConstNiagaraStackModuleItem(NiagaraStackModuleItem) from NiagaraStackMo
 	public extern var OutputCollection(get, never): cpp.Star<NiagaraStackModuleItemOutputCollection.ConstNiagaraStackModuleItemOutputCollection>;
 	public inline extern function get_OutputCollection(): cpp.Star<NiagaraStackModuleItemOutputCollection.ConstNiagaraStackModuleItemOutputCollection> return this.OutputCollection;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackModuleItem*")
+abstract NiagaraStackModuleItemPtr(cpp.Star<NiagaraStackModuleItem>) from cpp.Star<NiagaraStackModuleItem> to cpp.Star<NiagaraStackModuleItem>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackModuleItem): NiagaraStackModuleItemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackModuleItem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

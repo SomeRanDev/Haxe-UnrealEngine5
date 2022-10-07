@@ -31,3 +31,22 @@ abstract ConstObjectLibrary(ObjectLibrary) from ObjectLibrary {
 	public extern var bIsFullyLoaded(get, never): Bool;
 	public inline extern function get_bIsFullyLoaded(): Bool return this.bIsFullyLoaded;
 }
+
+@:forward
+@:nativeGen
+@:native("ObjectLibrary*")
+abstract ObjectLibraryPtr(cpp.Star<ObjectLibrary>) from cpp.Star<ObjectLibrary> to cpp.Star<ObjectLibrary>{
+	@:from
+	public static extern inline function fromValue(v: ObjectLibrary): ObjectLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ObjectLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstMovieSceneDoubleSection(MovieSceneDoubleSection) from MovieSceneDo
 	public extern var DoubleCurve(get, never): MovieSceneDoubleChannel;
 	public inline extern function get_DoubleCurve(): MovieSceneDoubleChannel return this.DoubleCurve;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneDoubleSection*")
+abstract MovieSceneDoubleSectionPtr(cpp.Star<MovieSceneDoubleSection>) from cpp.Star<MovieSceneDoubleSection> to cpp.Star<MovieSceneDoubleSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneDoubleSection): MovieSceneDoubleSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneDoubleSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

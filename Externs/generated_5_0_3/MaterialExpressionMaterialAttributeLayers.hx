@@ -34,3 +34,22 @@ abstract ConstMaterialExpressionMaterialAttributeLayers(MaterialExpressionMateri
 	public extern var bIsLayerGraphBuilt(get, never): Bool;
 	public inline extern function get_bIsLayerGraphBuilt(): Bool return this.bIsLayerGraphBuilt;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionMaterialAttributeLayers*")
+abstract MaterialExpressionMaterialAttributeLayersPtr(cpp.Star<MaterialExpressionMaterialAttributeLayers>) from cpp.Star<MaterialExpressionMaterialAttributeLayers> to cpp.Star<MaterialExpressionMaterialAttributeLayers>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionMaterialAttributeLayers): MaterialExpressionMaterialAttributeLayersPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionMaterialAttributeLayers {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

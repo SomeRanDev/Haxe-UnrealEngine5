@@ -13,3 +13,22 @@ extern class MovieSceneBytePropertySystem extends MovieScenePropertySystem {
 @:nativeGen
 abstract ConstMovieSceneBytePropertySystem(MovieSceneBytePropertySystem) from MovieSceneBytePropertySystem {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneBytePropertySystem*")
+abstract MovieSceneBytePropertySystemPtr(cpp.Star<MovieSceneBytePropertySystem>) from cpp.Star<MovieSceneBytePropertySystem> to cpp.Star<MovieSceneBytePropertySystem>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneBytePropertySystem): MovieSceneBytePropertySystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneBytePropertySystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

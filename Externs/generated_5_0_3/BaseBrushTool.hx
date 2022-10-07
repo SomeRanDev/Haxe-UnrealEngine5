@@ -31,3 +31,22 @@ abstract ConstBaseBrushTool(BaseBrushTool) from BaseBrushTool {
 	public extern var BrushStampIndicator(get, never): cpp.Star<BrushStampIndicator.ConstBrushStampIndicator>;
 	public inline extern function get_BrushStampIndicator(): cpp.Star<BrushStampIndicator.ConstBrushStampIndicator> return this.BrushStampIndicator;
 }
+
+@:forward
+@:nativeGen
+@:native("BaseBrushTool*")
+abstract BaseBrushToolPtr(cpp.Star<BaseBrushTool>) from cpp.Star<BaseBrushTool> to cpp.Star<BaseBrushTool>{
+	@:from
+	public static extern inline function fromValue(v: BaseBrushTool): BaseBrushToolPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BaseBrushTool {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

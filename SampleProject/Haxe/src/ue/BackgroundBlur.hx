@@ -49,3 +49,22 @@ abstract ConstBackgroundBlur(BackgroundBlur) from BackgroundBlur {
 	public extern var LowQualityFallbackBrush(get, never): SlateBrush;
 	public inline extern function get_LowQualityFallbackBrush(): SlateBrush return this.LowQualityFallbackBrush;
 }
+
+@:forward
+@:nativeGen
+@:native("BackgroundBlur*")
+abstract BackgroundBlurPtr(cpp.Star<BackgroundBlur>) from cpp.Star<BackgroundBlur> to cpp.Star<BackgroundBlur>{
+	@:from
+	public static extern inline function fromValue(v: BackgroundBlur): BackgroundBlurPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BackgroundBlur {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

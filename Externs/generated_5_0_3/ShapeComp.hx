@@ -31,3 +31,22 @@ abstract ConstShapeComp(ShapeComp) from ShapeComp {
 	public extern var bDynamicObstacle(get, never): Bool;
 	public inline extern function get_bDynamicObstacle(): Bool return this.bDynamicObstacle;
 }
+
+@:forward
+@:nativeGen
+@:native("ShapeComp*")
+abstract ShapeCompPtr(cpp.Star<ShapeComp>) from cpp.Star<ShapeComp> to cpp.Star<ShapeComp>{
+	@:from
+	public static extern inline function fromValue(v: ShapeComp): ShapeCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ShapeComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

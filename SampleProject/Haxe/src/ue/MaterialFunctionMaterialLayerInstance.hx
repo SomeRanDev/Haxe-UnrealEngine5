@@ -13,3 +13,22 @@ extern class MaterialFunctionMaterialLayerInstance extends MaterialFunctionInsta
 @:nativeGen
 abstract ConstMaterialFunctionMaterialLayerInstance(MaterialFunctionMaterialLayerInstance) from MaterialFunctionMaterialLayerInstance {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialFunctionMaterialLayerInstance*")
+abstract MaterialFunctionMaterialLayerInstancePtr(cpp.Star<MaterialFunctionMaterialLayerInstance>) from cpp.Star<MaterialFunctionMaterialLayerInstance> to cpp.Star<MaterialFunctionMaterialLayerInstance>{
+	@:from
+	public static extern inline function fromValue(v: MaterialFunctionMaterialLayerInstance): MaterialFunctionMaterialLayerInstancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialFunctionMaterialLayerInstance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class TakeAnyDamageSignature__PythonCallable extends PythonCallableForDel
 @:nativeGen
 abstract ConstTakeAnyDamageSignature__PythonCallable(TakeAnyDamageSignature__PythonCallable) from TakeAnyDamageSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("TakeAnyDamageSignature__PythonCallable*")
+abstract TakeAnyDamageSignature__PythonCallablePtr(cpp.Star<TakeAnyDamageSignature__PythonCallable>) from cpp.Star<TakeAnyDamageSignature__PythonCallable> to cpp.Star<TakeAnyDamageSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: TakeAnyDamageSignature__PythonCallable): TakeAnyDamageSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TakeAnyDamageSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

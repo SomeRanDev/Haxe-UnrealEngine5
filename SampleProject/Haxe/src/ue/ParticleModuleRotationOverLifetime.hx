@@ -19,3 +19,22 @@ abstract ConstParticleModuleRotationOverLifetime(ParticleModuleRotationOverLifet
 	public extern var Scale(get, never): Bool;
 	public inline extern function get_Scale(): Bool return this.Scale;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleRotationOverLifetime*")
+abstract ParticleModuleRotationOverLifetimePtr(cpp.Star<ParticleModuleRotationOverLifetime>) from cpp.Star<ParticleModuleRotationOverLifetime> to cpp.Star<ParticleModuleRotationOverLifetime>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleRotationOverLifetime): ParticleModuleRotationOverLifetimePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleRotationOverLifetime {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

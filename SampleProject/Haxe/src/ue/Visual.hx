@@ -13,3 +13,22 @@ extern class Visual extends Object {
 @:nativeGen
 abstract ConstVisual(Visual) from Visual {
 }
+
+@:forward
+@:nativeGen
+@:native("Visual*")
+abstract VisualPtr(cpp.Star<Visual>) from cpp.Star<Visual> to cpp.Star<Visual>{
+	@:from
+	public static extern inline function fromValue(v: Visual): VisualPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Visual {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

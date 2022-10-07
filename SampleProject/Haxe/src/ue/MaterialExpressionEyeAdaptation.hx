@@ -13,3 +13,22 @@ extern class MaterialExpressionEyeAdaptation extends MaterialExpression {
 @:nativeGen
 abstract ConstMaterialExpressionEyeAdaptation(MaterialExpressionEyeAdaptation) from MaterialExpressionEyeAdaptation {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionEyeAdaptation*")
+abstract MaterialExpressionEyeAdaptationPtr(cpp.Star<MaterialExpressionEyeAdaptation>) from cpp.Star<MaterialExpressionEyeAdaptation> to cpp.Star<MaterialExpressionEyeAdaptation>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionEyeAdaptation): MaterialExpressionEyeAdaptationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionEyeAdaptation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

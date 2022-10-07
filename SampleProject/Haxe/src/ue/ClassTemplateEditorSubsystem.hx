@@ -13,3 +13,22 @@ extern class ClassTemplateEditorSubsystem extends EditorSubsystem {
 @:nativeGen
 abstract ConstClassTemplateEditorSubsystem(ClassTemplateEditorSubsystem) from ClassTemplateEditorSubsystem {
 }
+
+@:forward
+@:nativeGen
+@:native("ClassTemplateEditorSubsystem*")
+abstract ClassTemplateEditorSubsystemPtr(cpp.Star<ClassTemplateEditorSubsystem>) from cpp.Star<ClassTemplateEditorSubsystem> to cpp.Star<ClassTemplateEditorSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: ClassTemplateEditorSubsystem): ClassTemplateEditorSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ClassTemplateEditorSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

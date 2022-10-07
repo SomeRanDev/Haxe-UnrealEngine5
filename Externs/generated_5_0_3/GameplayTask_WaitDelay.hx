@@ -19,3 +19,22 @@ abstract ConstGameplayTask_WaitDelay(GameplayTask_WaitDelay) from GameplayTask_W
 	public extern var OnFinish(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnFinish(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnFinish;
 }
+
+@:forward
+@:nativeGen
+@:native("GameplayTask_WaitDelay*")
+abstract GameplayTask_WaitDelayPtr(cpp.Star<GameplayTask_WaitDelay>) from cpp.Star<GameplayTask_WaitDelay> to cpp.Star<GameplayTask_WaitDelay>{
+	@:from
+	public static extern inline function fromValue(v: GameplayTask_WaitDelay): GameplayTask_WaitDelayPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameplayTask_WaitDelay {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

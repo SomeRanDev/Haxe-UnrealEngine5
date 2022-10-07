@@ -16,3 +16,22 @@ abstract ConstChaosSolverSettings(ChaosSolverSettings) from ChaosSolverSettings 
 	public extern var DefaultChaosSolverActorClass(get, never): SoftClassPath;
 	public inline extern function get_DefaultChaosSolverActorClass(): SoftClassPath return this.DefaultChaosSolverActorClass;
 }
+
+@:forward
+@:nativeGen
+@:native("ChaosSolverSettings*")
+abstract ChaosSolverSettingsPtr(cpp.Star<ChaosSolverSettings>) from cpp.Star<ChaosSolverSettings> to cpp.Star<ChaosSolverSettings>{
+	@:from
+	public static extern inline function fromValue(v: ChaosSolverSettings): ChaosSolverSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ChaosSolverSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

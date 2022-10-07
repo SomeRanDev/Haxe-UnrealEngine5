@@ -322,3 +322,22 @@ abstract ConstPlayerController(PlayerController) from PlayerController {
 	public extern var SpawnLocation(get, never): Vector;
 	public inline extern function get_SpawnLocation(): Vector return this.SpawnLocation;
 }
+
+@:forward
+@:nativeGen
+@:native("PlayerController*")
+abstract PlayerControllerPtr(cpp.Star<PlayerController>) from cpp.Star<PlayerController> to cpp.Star<PlayerController>{
+	@:from
+	public static extern inline function fromValue(v: PlayerController): PlayerControllerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PlayerController {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

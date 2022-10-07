@@ -24,3 +24,22 @@ abstract ConstRadialForceActor(RadialForceActor) from RadialForceActor {
 	public extern var SpriteComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
 	public inline extern function get_SpriteComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("RadialForceActor*")
+abstract RadialForceActorPtr(cpp.Star<RadialForceActor>) from cpp.Star<RadialForceActor> to cpp.Star<RadialForceActor>{
+	@:from
+	public static extern inline function fromValue(v: RadialForceActor): RadialForceActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RadialForceActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

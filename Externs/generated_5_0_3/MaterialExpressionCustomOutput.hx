@@ -13,3 +13,22 @@ extern class MaterialExpressionCustomOutput extends MaterialExpression {
 @:nativeGen
 abstract ConstMaterialExpressionCustomOutput(MaterialExpressionCustomOutput) from MaterialExpressionCustomOutput {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionCustomOutput*")
+abstract MaterialExpressionCustomOutputPtr(cpp.Star<MaterialExpressionCustomOutput>) from cpp.Star<MaterialExpressionCustomOutput> to cpp.Star<MaterialExpressionCustomOutput>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionCustomOutput): MaterialExpressionCustomOutputPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionCustomOutput {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

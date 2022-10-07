@@ -41,3 +41,22 @@ abstract ConstNavLinkProxy(NavLinkProxy) from NavLinkProxy {
 	public extern var OnSmartLinkReached(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor.ConstActor>, cpp.Reference<Vector>) -> Void>;
 	public inline extern function get_OnSmartLinkReached(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor.ConstActor>, cpp.Reference<Vector>) -> Void> return this.OnSmartLinkReached;
 }
+
+@:forward
+@:nativeGen
+@:native("NavLinkProxy*")
+abstract NavLinkProxyPtr(cpp.Star<NavLinkProxy>) from cpp.Star<NavLinkProxy> to cpp.Star<NavLinkProxy>{
+	@:from
+	public static extern inline function fromValue(v: NavLinkProxy): NavLinkProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavLinkProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

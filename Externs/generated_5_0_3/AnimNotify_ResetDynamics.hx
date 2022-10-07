@@ -13,3 +13,22 @@ extern class AnimNotify_ResetDynamics extends AnimNotify {
 @:nativeGen
 abstract ConstAnimNotify_ResetDynamics(AnimNotify_ResetDynamics) from AnimNotify_ResetDynamics {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimNotify_ResetDynamics*")
+abstract AnimNotify_ResetDynamicsPtr(cpp.Star<AnimNotify_ResetDynamics>) from cpp.Star<AnimNotify_ResetDynamics> to cpp.Star<AnimNotify_ResetDynamics>{
+	@:from
+	public static extern inline function fromValue(v: AnimNotify_ResetDynamics): AnimNotify_ResetDynamicsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimNotify_ResetDynamics {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

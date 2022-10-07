@@ -13,3 +13,22 @@ extern class RigVMMemoryStorageGeneratorClass extends Class {
 @:nativeGen
 abstract ConstRigVMMemoryStorageGeneratorClass(RigVMMemoryStorageGeneratorClass) from RigVMMemoryStorageGeneratorClass {
 }
+
+@:forward
+@:nativeGen
+@:native("RigVMMemoryStorageGeneratorClass*")
+abstract RigVMMemoryStorageGeneratorClassPtr(cpp.Star<RigVMMemoryStorageGeneratorClass>) from cpp.Star<RigVMMemoryStorageGeneratorClass> to cpp.Star<RigVMMemoryStorageGeneratorClass>{
+	@:from
+	public static extern inline function fromValue(v: RigVMMemoryStorageGeneratorClass): RigVMMemoryStorageGeneratorClassPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVMMemoryStorageGeneratorClass {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

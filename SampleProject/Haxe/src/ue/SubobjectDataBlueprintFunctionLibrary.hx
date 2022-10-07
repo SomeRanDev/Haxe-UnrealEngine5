@@ -39,3 +39,22 @@ extern class SubobjectDataBlueprintFunctionLibrary extends BlueprintFunctionLibr
 @:nativeGen
 abstract ConstSubobjectDataBlueprintFunctionLibrary(SubobjectDataBlueprintFunctionLibrary) from SubobjectDataBlueprintFunctionLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("SubobjectDataBlueprintFunctionLibrary*")
+abstract SubobjectDataBlueprintFunctionLibraryPtr(cpp.Star<SubobjectDataBlueprintFunctionLibrary>) from cpp.Star<SubobjectDataBlueprintFunctionLibrary> to cpp.Star<SubobjectDataBlueprintFunctionLibrary>{
+	@:from
+	public static extern inline function fromValue(v: SubobjectDataBlueprintFunctionLibrary): SubobjectDataBlueprintFunctionLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SubobjectDataBlueprintFunctionLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

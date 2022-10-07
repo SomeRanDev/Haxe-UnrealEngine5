@@ -16,3 +16,22 @@ abstract ConstParticleModuleMeshRotationRate_Seeded(ParticleModuleMeshRotationRa
 	public extern var RandomSeedInfo(get, never): ParticleRandomSeedInfo;
 	public inline extern function get_RandomSeedInfo(): ParticleRandomSeedInfo return this.RandomSeedInfo;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleMeshRotationRate_Seeded*")
+abstract ParticleModuleMeshRotationRate_SeededPtr(cpp.Star<ParticleModuleMeshRotationRate_Seeded>) from cpp.Star<ParticleModuleMeshRotationRate_Seeded> to cpp.Star<ParticleModuleMeshRotationRate_Seeded>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleMeshRotationRate_Seeded): ParticleModuleMeshRotationRate_SeededPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleMeshRotationRate_Seeded {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

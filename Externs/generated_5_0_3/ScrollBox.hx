@@ -96,3 +96,22 @@ abstract ConstScrollBox(ScrollBox) from ScrollBox {
 	public extern var OnUserScrolled(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
 	public inline extern function get_OnUserScrolled(): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void> return this.OnUserScrolled;
 }
+
+@:forward
+@:nativeGen
+@:native("ScrollBox*")
+abstract ScrollBoxPtr(cpp.Star<ScrollBox>) from cpp.Star<ScrollBox> to cpp.Star<ScrollBox>{
+	@:from
+	public static extern inline function fromValue(v: ScrollBox): ScrollBoxPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ScrollBox {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class EngineTypes extends Object {
 @:nativeGen
 abstract ConstEngineTypes(EngineTypes) from EngineTypes {
 }
+
+@:forward
+@:nativeGen
+@:native("EngineTypes*")
+abstract EngineTypesPtr(cpp.Star<EngineTypes>) from cpp.Star<EngineTypes> to cpp.Star<EngineTypes>{
+	@:from
+	public static extern inline function fromValue(v: EngineTypes): EngineTypesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EngineTypes {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

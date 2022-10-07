@@ -94,3 +94,22 @@ abstract ConstAudioSettings(AudioSettings) from AudioSettings {
 	public extern var DefaultSoundConcurrency(get, never): cpp.Star<SoundConcurrency.ConstSoundConcurrency>;
 	public inline extern function get_DefaultSoundConcurrency(): cpp.Star<SoundConcurrency.ConstSoundConcurrency> return this.DefaultSoundConcurrency;
 }
+
+@:forward
+@:nativeGen
+@:native("AudioSettings*")
+abstract AudioSettingsPtr(cpp.Star<AudioSettings>) from cpp.Star<AudioSettings> to cpp.Star<AudioSettings>{
+	@:from
+	public static extern inline function fromValue(v: AudioSettings): AudioSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AudioSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

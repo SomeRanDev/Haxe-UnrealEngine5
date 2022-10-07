@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionNamedRerouteUsage(MaterialExpressionNamedReroute
 	public extern var DeclarationGuid(get, never): Guid;
 	public inline extern function get_DeclarationGuid(): Guid return this.DeclarationGuid;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionNamedRerouteUsage*")
+abstract MaterialExpressionNamedRerouteUsagePtr(cpp.Star<MaterialExpressionNamedRerouteUsage>) from cpp.Star<MaterialExpressionNamedRerouteUsage> to cpp.Star<MaterialExpressionNamedRerouteUsage>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionNamedRerouteUsage): MaterialExpressionNamedRerouteUsagePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionNamedRerouteUsage {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

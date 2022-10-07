@@ -13,3 +13,22 @@ extern class DatasmithAdditionalData extends Object {
 @:nativeGen
 abstract ConstDatasmithAdditionalData(DatasmithAdditionalData) from DatasmithAdditionalData {
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithAdditionalData*")
+abstract DatasmithAdditionalDataPtr(cpp.Star<DatasmithAdditionalData>) from cpp.Star<DatasmithAdditionalData> to cpp.Star<DatasmithAdditionalData>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithAdditionalData): DatasmithAdditionalDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithAdditionalData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

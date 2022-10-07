@@ -14,3 +14,22 @@ extern class MatineeCameraShakeFunctionLibrary extends BlueprintFunctionLibrary 
 @:nativeGen
 abstract ConstMatineeCameraShakeFunctionLibrary(MatineeCameraShakeFunctionLibrary) from MatineeCameraShakeFunctionLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("MatineeCameraShakeFunctionLibrary*")
+abstract MatineeCameraShakeFunctionLibraryPtr(cpp.Star<MatineeCameraShakeFunctionLibrary>) from cpp.Star<MatineeCameraShakeFunctionLibrary> to cpp.Star<MatineeCameraShakeFunctionLibrary>{
+	@:from
+	public static extern inline function fromValue(v: MatineeCameraShakeFunctionLibrary): MatineeCameraShakeFunctionLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MatineeCameraShakeFunctionLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

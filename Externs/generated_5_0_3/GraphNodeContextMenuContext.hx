@@ -25,3 +25,22 @@ abstract ConstGraphNodeContextMenuContext(GraphNodeContextMenuContext) from Grap
 	public extern var bIsDebugging(get, never): Bool;
 	public inline extern function get_bIsDebugging(): Bool return this.bIsDebugging;
 }
+
+@:forward
+@:nativeGen
+@:native("GraphNodeContextMenuContext*")
+abstract GraphNodeContextMenuContextPtr(cpp.Star<GraphNodeContextMenuContext>) from cpp.Star<GraphNodeContextMenuContext> to cpp.Star<GraphNodeContextMenuContext>{
+	@:from
+	public static extern inline function fromValue(v: GraphNodeContextMenuContext): GraphNodeContextMenuContextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GraphNodeContextMenuContext {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

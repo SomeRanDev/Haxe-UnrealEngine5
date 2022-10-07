@@ -28,3 +28,22 @@ abstract ConstAnimSharingInstance(AnimSharingInstance) from AnimSharingInstance 
 	public extern var SharingActor(get, never): cpp.Star<Actor.ConstActor>;
 	public inline extern function get_SharingActor(): cpp.Star<Actor.ConstActor> return this.SharingActor;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimSharingInstance*")
+abstract AnimSharingInstancePtr(cpp.Star<AnimSharingInstance>) from cpp.Star<AnimSharingInstance> to cpp.Star<AnimSharingInstance>{
+	@:from
+	public static extern inline function fromValue(v: AnimSharingInstance): AnimSharingInstancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimSharingInstance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

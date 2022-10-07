@@ -118,3 +118,22 @@ abstract ConstFunctionalTest(FunctionalTest) from FunctionalTest {
 	public extern var TotalTime(get, never): cpp.Float32;
 	public inline extern function get_TotalTime(): cpp.Float32 return this.TotalTime;
 }
+
+@:forward
+@:nativeGen
+@:native("FunctionalTest*")
+abstract FunctionalTestPtr(cpp.Star<FunctionalTest>) from cpp.Star<FunctionalTest> to cpp.Star<FunctionalTest>{
+	@:from
+	public static extern inline function fromValue(v: FunctionalTest): FunctionalTestPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FunctionalTest {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

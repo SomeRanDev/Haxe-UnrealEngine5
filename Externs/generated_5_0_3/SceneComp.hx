@@ -258,3 +258,22 @@ abstract ConstSceneComp(SceneComp) from SceneComp {
 	public extern var ReplacementSceneComponent(get, never): cpp.Star<SceneComp.ConstSceneComp>;
 	public inline extern function get_ReplacementSceneComponent(): cpp.Star<SceneComp.ConstSceneComp> return this.ReplacementSceneComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("SceneComp*")
+abstract SceneCompPtr(cpp.Star<SceneComp>) from cpp.Star<SceneComp> to cpp.Star<SceneComp>{
+	@:from
+	public static extern inline function fromValue(v: SceneComp): SceneCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SceneComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

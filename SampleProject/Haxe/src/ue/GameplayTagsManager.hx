@@ -19,3 +19,22 @@ abstract ConstGameplayTagsManager(GameplayTagsManager) from GameplayTagsManager 
 	public extern var GameplayTagTables(get, never): TArray<cpp.Star<DataTable.ConstDataTable>>;
 	public inline extern function get_GameplayTagTables(): TArray<cpp.Star<DataTable.ConstDataTable>> return this.GameplayTagTables;
 }
+
+@:forward
+@:nativeGen
+@:native("GameplayTagsManager*")
+abstract GameplayTagsManagerPtr(cpp.Star<GameplayTagsManager>) from cpp.Star<GameplayTagsManager> to cpp.Star<GameplayTagsManager>{
+	@:from
+	public static extern inline function fromValue(v: GameplayTagsManager): GameplayTagsManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameplayTagsManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

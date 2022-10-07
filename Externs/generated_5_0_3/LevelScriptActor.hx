@@ -21,3 +21,22 @@ abstract ConstLevelScriptActor(LevelScriptActor) from LevelScriptActor {
 	public extern var bInputEnabled(get, never): Bool;
 	public inline extern function get_bInputEnabled(): Bool return this.bInputEnabled;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelScriptActor*")
+abstract LevelScriptActorPtr(cpp.Star<LevelScriptActor>) from cpp.Star<LevelScriptActor> to cpp.Star<LevelScriptActor>{
+	@:from
+	public static extern inline function fromValue(v: LevelScriptActor): LevelScriptActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelScriptActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

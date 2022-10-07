@@ -19,3 +19,22 @@ abstract ConstMovieSceneEventSection(MovieSceneEventSection) from MovieSceneEven
 	public extern var EventData(get, never): MovieSceneEventSectionData;
 	public inline extern function get_EventData(): MovieSceneEventSectionData return this.EventData;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneEventSection*")
+abstract MovieSceneEventSectionPtr(cpp.Star<MovieSceneEventSection>) from cpp.Star<MovieSceneEventSection> to cpp.Star<MovieSceneEventSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneEventSection): MovieSceneEventSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneEventSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

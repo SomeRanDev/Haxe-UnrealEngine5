@@ -12,3 +12,22 @@ extern class NavigationPathGenerator extends Interface {
 @:nativeGen
 abstract ConstNavigationPathGenerator(NavigationPathGenerator) from NavigationPathGenerator {
 }
+
+@:forward
+@:nativeGen
+@:native("NavigationPathGenerator*")
+abstract NavigationPathGeneratorPtr(cpp.Star<NavigationPathGenerator>) from cpp.Star<NavigationPathGenerator> to cpp.Star<NavigationPathGenerator>{
+	@:from
+	public static extern inline function fromValue(v: NavigationPathGenerator): NavigationPathGeneratorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavigationPathGenerator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

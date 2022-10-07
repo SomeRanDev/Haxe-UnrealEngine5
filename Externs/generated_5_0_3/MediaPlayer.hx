@@ -165,3 +165,22 @@ abstract ConstMediaPlayer(MediaPlayer) from MediaPlayer {
 	public extern var AffectedByPIEHandling(get, never): Bool;
 	public inline extern function get_AffectedByPIEHandling(): Bool return this.AffectedByPIEHandling;
 }
+
+@:forward
+@:nativeGen
+@:native("MediaPlayer*")
+abstract MediaPlayerPtr(cpp.Star<MediaPlayer>) from cpp.Star<MediaPlayer> to cpp.Star<MediaPlayer>{
+	@:from
+	public static extern inline function fromValue(v: MediaPlayer): MediaPlayerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MediaPlayer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class HLODBuilderSettings extends Object {
 @:nativeGen
 abstract ConstHLODBuilderSettings(HLODBuilderSettings) from HLODBuilderSettings {
 }
+
+@:forward
+@:nativeGen
+@:native("HLODBuilderSettings*")
+abstract HLODBuilderSettingsPtr(cpp.Star<HLODBuilderSettings>) from cpp.Star<HLODBuilderSettings> to cpp.Star<HLODBuilderSettings>{
+	@:from
+	public static extern inline function fromValue(v: HLODBuilderSettings): HLODBuilderSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): HLODBuilderSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

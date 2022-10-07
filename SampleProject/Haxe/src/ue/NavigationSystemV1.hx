@@ -116,3 +116,22 @@ abstract ConstNavigationSystemV1(NavigationSystemV1) from NavigationSystemV1 {
 	public extern var DirtyAreasUpdateFreq(get, never): cpp.Float32;
 	public inline extern function get_DirtyAreasUpdateFreq(): cpp.Float32 return this.DirtyAreasUpdateFreq;
 }
+
+@:forward
+@:nativeGen
+@:native("NavigationSystemV1*")
+abstract NavigationSystemV1Ptr(cpp.Star<NavigationSystemV1>) from cpp.Star<NavigationSystemV1> to cpp.Star<NavigationSystemV1>{
+	@:from
+	public static extern inline function fromValue(v: NavigationSystemV1): NavigationSystemV1Ptr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavigationSystemV1 {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

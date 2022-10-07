@@ -76,3 +76,22 @@ abstract ConstCookerSettings(CookerSettings) from CookerSettings {
 	public extern var bCookBlueprintComponentTemplateData(get, never): Bool;
 	public inline extern function get_bCookBlueprintComponentTemplateData(): Bool return this.bCookBlueprintComponentTemplateData;
 }
+
+@:forward
+@:nativeGen
+@:native("CookerSettings*")
+abstract CookerSettingsPtr(cpp.Star<CookerSettings>) from cpp.Star<CookerSettings> to cpp.Star<CookerSettings>{
+	@:from
+	public static extern inline function fromValue(v: CookerSettings): CookerSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CookerSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

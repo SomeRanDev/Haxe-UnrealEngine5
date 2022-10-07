@@ -16,3 +16,22 @@ abstract ConstEditorParentPlayerListObj(EditorParentPlayerListObj) from EditorPa
 	public extern var Overrides(get, never): TArray<AnimParentNodeAssetOverride>;
 	public inline extern function get_Overrides(): TArray<AnimParentNodeAssetOverride> return this.Overrides;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorParentPlayerListObj*")
+abstract EditorParentPlayerListObjPtr(cpp.Star<EditorParentPlayerListObj>) from cpp.Star<EditorParentPlayerListObj> to cpp.Star<EditorParentPlayerListObj>{
+	@:from
+	public static extern inline function fromValue(v: EditorParentPlayerListObj): EditorParentPlayerListObjPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorParentPlayerListObj {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

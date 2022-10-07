@@ -13,3 +13,22 @@ extern class SlateTabManagerContext extends ToolMenuContextBase {
 @:nativeGen
 abstract ConstSlateTabManagerContext(SlateTabManagerContext) from SlateTabManagerContext {
 }
+
+@:forward
+@:nativeGen
+@:native("SlateTabManagerContext*")
+abstract SlateTabManagerContextPtr(cpp.Star<SlateTabManagerContext>) from cpp.Star<SlateTabManagerContext> to cpp.Star<SlateTabManagerContext>{
+	@:from
+	public static extern inline function fromValue(v: SlateTabManagerContext): SlateTabManagerContextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SlateTabManagerContext {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

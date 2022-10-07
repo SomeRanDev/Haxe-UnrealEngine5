@@ -19,3 +19,22 @@ abstract ConstNiagaraPreviewAxis_InterpParamFloat(NiagaraPreviewAxis_InterpParam
 	public extern var Max(get, never): cpp.Float32;
 	public inline extern function get_Max(): cpp.Float32 return this.Max;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraPreviewAxis_InterpParamFloat*")
+abstract NiagaraPreviewAxis_InterpParamFloatPtr(cpp.Star<NiagaraPreviewAxis_InterpParamFloat>) from cpp.Star<NiagaraPreviewAxis_InterpParamFloat> to cpp.Star<NiagaraPreviewAxis_InterpParamFloat>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraPreviewAxis_InterpParamFloat): NiagaraPreviewAxis_InterpParamFloatPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraPreviewAxis_InterpParamFloat {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

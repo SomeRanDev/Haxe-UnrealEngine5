@@ -12,3 +12,22 @@ extern class OnEditorUtilityTaskDynamicDelegate__PythonCallable extends PythonCa
 @:nativeGen
 abstract ConstOnEditorUtilityTaskDynamicDelegate__PythonCallable(OnEditorUtilityTaskDynamicDelegate__PythonCallable) from OnEditorUtilityTaskDynamicDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnEditorUtilityTaskDynamicDelegate__PythonCallable*")
+abstract OnEditorUtilityTaskDynamicDelegate__PythonCallablePtr(cpp.Star<OnEditorUtilityTaskDynamicDelegate__PythonCallable>) from cpp.Star<OnEditorUtilityTaskDynamicDelegate__PythonCallable> to cpp.Star<OnEditorUtilityTaskDynamicDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnEditorUtilityTaskDynamicDelegate__PythonCallable): OnEditorUtilityTaskDynamicDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnEditorUtilityTaskDynamicDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

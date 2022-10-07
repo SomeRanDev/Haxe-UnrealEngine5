@@ -13,3 +13,22 @@ extern class EditorConfigBase extends Object {
 @:nativeGen
 abstract ConstEditorConfigBase(EditorConfigBase) from EditorConfigBase {
 }
+
+@:forward
+@:nativeGen
+@:native("EditorConfigBase*")
+abstract EditorConfigBasePtr(cpp.Star<EditorConfigBase>) from cpp.Star<EditorConfigBase> to cpp.Star<EditorConfigBase>{
+	@:from
+	public static extern inline function fromValue(v: EditorConfigBase): EditorConfigBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorConfigBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstSpinBoxWidgetStyle(SpinBoxWidgetStyle) from SpinBoxWidgetStyle {
 	public extern var SpinBoxStyle(get, never): SpinBoxStyle;
 	public inline extern function get_SpinBoxStyle(): SpinBoxStyle return this.SpinBoxStyle;
 }
+
+@:forward
+@:nativeGen
+@:native("SpinBoxWidgetStyle*")
+abstract SpinBoxWidgetStylePtr(cpp.Star<SpinBoxWidgetStyle>) from cpp.Star<SpinBoxWidgetStyle> to cpp.Star<SpinBoxWidgetStyle>{
+	@:from
+	public static extern inline function fromValue(v: SpinBoxWidgetStyle): SpinBoxWidgetStylePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SpinBoxWidgetStyle {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

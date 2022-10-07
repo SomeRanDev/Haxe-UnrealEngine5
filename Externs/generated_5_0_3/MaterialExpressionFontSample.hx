@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionFontSample(MaterialExpressionFontSample) from Ma
 	public extern var FontTexturePage(get, never): cpp.Int32;
 	public inline extern function get_FontTexturePage(): cpp.Int32 return this.FontTexturePage;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionFontSample*")
+abstract MaterialExpressionFontSamplePtr(cpp.Star<MaterialExpressionFontSample>) from cpp.Star<MaterialExpressionFontSample> to cpp.Star<MaterialExpressionFontSample>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionFontSample): MaterialExpressionFontSamplePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionFontSample {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

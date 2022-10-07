@@ -25,3 +25,22 @@ abstract ConstParticleModuleSizeScale(ParticleModuleSizeScale) from ParticleModu
 	public extern var EnableZ(get, never): Bool;
 	public inline extern function get_EnableZ(): Bool return this.EnableZ;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleSizeScale*")
+abstract ParticleModuleSizeScalePtr(cpp.Star<ParticleModuleSizeScale>) from cpp.Star<ParticleModuleSizeScale> to cpp.Star<ParticleModuleSizeScale>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleSizeScale): ParticleModuleSizeScalePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleSizeScale {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

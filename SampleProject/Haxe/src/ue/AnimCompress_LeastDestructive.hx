@@ -13,3 +13,22 @@ extern class AnimCompress_LeastDestructive extends AnimCompress_BitwiseCompressO
 @:nativeGen
 abstract ConstAnimCompress_LeastDestructive(AnimCompress_LeastDestructive) from AnimCompress_LeastDestructive {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimCompress_LeastDestructive*")
+abstract AnimCompress_LeastDestructivePtr(cpp.Star<AnimCompress_LeastDestructive>) from cpp.Star<AnimCompress_LeastDestructive> to cpp.Star<AnimCompress_LeastDestructive>{
+	@:from
+	public static extern inline function fromValue(v: AnimCompress_LeastDestructive): AnimCompress_LeastDestructivePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimCompress_LeastDestructive {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

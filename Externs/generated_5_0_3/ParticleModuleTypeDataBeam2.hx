@@ -67,3 +67,22 @@ abstract ConstParticleModuleTypeDataBeam2(ParticleModuleTypeDataBeam2) from Part
 	public extern var RenderTessellation(get, never): Bool;
 	public inline extern function get_RenderTessellation(): Bool return this.RenderTessellation;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleTypeDataBeam2*")
+abstract ParticleModuleTypeDataBeam2Ptr(cpp.Star<ParticleModuleTypeDataBeam2>) from cpp.Star<ParticleModuleTypeDataBeam2> to cpp.Star<ParticleModuleTypeDataBeam2>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleTypeDataBeam2): ParticleModuleTypeDataBeam2Ptr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleTypeDataBeam2 {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

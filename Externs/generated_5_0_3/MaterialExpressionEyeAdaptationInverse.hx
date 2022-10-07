@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionEyeAdaptationInverse(MaterialExpressionEyeAdapta
 	public extern var AlphaInput(get, never): ExpressionInput;
 	public inline extern function get_AlphaInput(): ExpressionInput return this.AlphaInput;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionEyeAdaptationInverse*")
+abstract MaterialExpressionEyeAdaptationInversePtr(cpp.Star<MaterialExpressionEyeAdaptationInverse>) from cpp.Star<MaterialExpressionEyeAdaptationInverse> to cpp.Star<MaterialExpressionEyeAdaptationInverse>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionEyeAdaptationInverse): MaterialExpressionEyeAdaptationInversePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionEyeAdaptationInverse {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

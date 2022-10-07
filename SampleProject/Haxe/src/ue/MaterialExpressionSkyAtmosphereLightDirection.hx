@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionSkyAtmosphereLightDirection(MaterialExpressionSk
 	public extern var LightIndex(get, never): cpp.Int32;
 	public inline extern function get_LightIndex(): cpp.Int32 return this.LightIndex;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionSkyAtmosphereLightDirection*")
+abstract MaterialExpressionSkyAtmosphereLightDirectionPtr(cpp.Star<MaterialExpressionSkyAtmosphereLightDirection>) from cpp.Star<MaterialExpressionSkyAtmosphereLightDirection> to cpp.Star<MaterialExpressionSkyAtmosphereLightDirection>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionSkyAtmosphereLightDirection): MaterialExpressionSkyAtmosphereLightDirectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionSkyAtmosphereLightDirection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

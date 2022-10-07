@@ -17,3 +17,22 @@ extern class PythonScriptLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstPythonScriptLibrary(PythonScriptLibrary) from PythonScriptLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("PythonScriptLibrary*")
+abstract PythonScriptLibraryPtr(cpp.Star<PythonScriptLibrary>) from cpp.Star<PythonScriptLibrary> to cpp.Star<PythonScriptLibrary>{
+	@:from
+	public static extern inline function fromValue(v: PythonScriptLibrary): PythonScriptLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PythonScriptLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

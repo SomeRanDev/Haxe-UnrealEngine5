@@ -18,3 +18,22 @@ extern class XRLoadingScreenFunctionLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstXRLoadingScreenFunctionLibrary(XRLoadingScreenFunctionLibrary) from XRLoadingScreenFunctionLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("XRLoadingScreenFunctionLibrary*")
+abstract XRLoadingScreenFunctionLibraryPtr(cpp.Star<XRLoadingScreenFunctionLibrary>) from cpp.Star<XRLoadingScreenFunctionLibrary> to cpp.Star<XRLoadingScreenFunctionLibrary>{
+	@:from
+	public static extern inline function fromValue(v: XRLoadingScreenFunctionLibrary): XRLoadingScreenFunctionLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): XRLoadingScreenFunctionLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

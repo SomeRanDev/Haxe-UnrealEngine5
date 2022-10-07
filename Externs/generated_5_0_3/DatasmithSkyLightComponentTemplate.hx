@@ -22,3 +22,22 @@ abstract ConstDatasmithSkyLightComponentTemplate(DatasmithSkyLightComponentTempl
 	public extern var Cubemap(get, never): cpp.Star<TextureCube.ConstTextureCube>;
 	public inline extern function get_Cubemap(): cpp.Star<TextureCube.ConstTextureCube> return this.Cubemap;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithSkyLightComponentTemplate*")
+abstract DatasmithSkyLightComponentTemplatePtr(cpp.Star<DatasmithSkyLightComponentTemplate>) from cpp.Star<DatasmithSkyLightComponentTemplate> to cpp.Star<DatasmithSkyLightComponentTemplate>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithSkyLightComponentTemplate): DatasmithSkyLightComponentTemplatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithSkyLightComponentTemplate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

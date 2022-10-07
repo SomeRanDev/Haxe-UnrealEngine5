@@ -46,3 +46,22 @@ abstract ConstWidgetBlueprint(WidgetBlueprint) from WidgetBlueprint {
 	public extern var ThumbnailImage(get, never): cpp.Star<Texture2D.ConstTexture2D>;
 	public inline extern function get_ThumbnailImage(): cpp.Star<Texture2D.ConstTexture2D> return this.ThumbnailImage;
 }
+
+@:forward
+@:nativeGen
+@:native("WidgetBlueprint*")
+abstract WidgetBlueprintPtr(cpp.Star<WidgetBlueprint>) from cpp.Star<WidgetBlueprint> to cpp.Star<WidgetBlueprint>{
+	@:from
+	public static extern inline function fromValue(v: WidgetBlueprint): WidgetBlueprintPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WidgetBlueprint {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

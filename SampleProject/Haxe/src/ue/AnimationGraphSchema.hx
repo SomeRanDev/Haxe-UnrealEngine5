@@ -37,3 +37,22 @@ abstract ConstAnimationGraphSchema(AnimationGraphSchema) from AnimationGraphSche
 	public extern var DefaultEvaluationHandlerName(get, never): FName;
 	public inline extern function get_DefaultEvaluationHandlerName(): FName return this.DefaultEvaluationHandlerName;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationGraphSchema*")
+abstract AnimationGraphSchemaPtr(cpp.Star<AnimationGraphSchema>) from cpp.Star<AnimationGraphSchema> to cpp.Star<AnimationGraphSchema>{
+	@:from
+	public static extern inline function fromValue(v: AnimationGraphSchema): AnimationGraphSchemaPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationGraphSchema {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

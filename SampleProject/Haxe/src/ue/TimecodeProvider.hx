@@ -25,3 +25,22 @@ abstract ConstTimecodeProvider(TimecodeProvider) from TimecodeProvider {
 	public extern var FrameDelay(get, never): cpp.Float32;
 	public inline extern function get_FrameDelay(): cpp.Float32 return this.FrameDelay;
 }
+
+@:forward
+@:nativeGen
+@:native("TimecodeProvider*")
+abstract TimecodeProviderPtr(cpp.Star<TimecodeProvider>) from cpp.Star<TimecodeProvider> to cpp.Star<TimecodeProvider>{
+	@:from
+	public static extern inline function fromValue(v: TimecodeProvider): TimecodeProviderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TimecodeProvider {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

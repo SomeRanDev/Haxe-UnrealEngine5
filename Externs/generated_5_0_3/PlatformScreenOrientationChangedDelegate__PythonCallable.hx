@@ -12,3 +12,22 @@ extern class PlatformScreenOrientationChangedDelegate__PythonCallable extends Py
 @:nativeGen
 abstract ConstPlatformScreenOrientationChangedDelegate__PythonCallable(PlatformScreenOrientationChangedDelegate__PythonCallable) from PlatformScreenOrientationChangedDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("PlatformScreenOrientationChangedDelegate__PythonCallable*")
+abstract PlatformScreenOrientationChangedDelegate__PythonCallablePtr(cpp.Star<PlatformScreenOrientationChangedDelegate__PythonCallable>) from cpp.Star<PlatformScreenOrientationChangedDelegate__PythonCallable> to cpp.Star<PlatformScreenOrientationChangedDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: PlatformScreenOrientationChangedDelegate__PythonCallable): PlatformScreenOrientationChangedDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PlatformScreenOrientationChangedDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -136,3 +136,22 @@ abstract ConstControlRigBlueprint(ControlRigBlueprint) from ControlRigBlueprint 
 	public extern var DebugBoneRadius(get, never): cpp.Float32;
 	public inline extern function get_DebugBoneRadius(): cpp.Float32 return this.DebugBoneRadius;
 }
+
+@:forward
+@:nativeGen
+@:native("ControlRigBlueprint*")
+abstract ControlRigBlueprintPtr(cpp.Star<ControlRigBlueprint>) from cpp.Star<ControlRigBlueprint> to cpp.Star<ControlRigBlueprint>{
+	@:from
+	public static extern inline function fromValue(v: ControlRigBlueprint): ControlRigBlueprintPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ControlRigBlueprint {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

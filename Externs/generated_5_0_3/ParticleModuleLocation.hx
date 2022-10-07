@@ -22,3 +22,22 @@ abstract ConstParticleModuleLocation(ParticleModuleLocation) from ParticleModule
 	public extern var DistributeThreshold(get, never): cpp.Float32;
 	public inline extern function get_DistributeThreshold(): cpp.Float32 return this.DistributeThreshold;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleLocation*")
+abstract ParticleModuleLocationPtr(cpp.Star<ParticleModuleLocation>) from cpp.Star<ParticleModuleLocation> to cpp.Star<ParticleModuleLocation>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleLocation): ParticleModuleLocationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleLocation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

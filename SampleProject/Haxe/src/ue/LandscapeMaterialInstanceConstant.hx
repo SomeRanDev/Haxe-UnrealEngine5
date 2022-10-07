@@ -28,3 +28,22 @@ abstract ConstLandscapeMaterialInstanceConstant(LandscapeMaterialInstanceConstan
 	public extern var bEditorToolUsage(get, never): Bool;
 	public inline extern function get_bEditorToolUsage(): Bool return this.bEditorToolUsage;
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeMaterialInstanceConstant*")
+abstract LandscapeMaterialInstanceConstantPtr(cpp.Star<LandscapeMaterialInstanceConstant>) from cpp.Star<LandscapeMaterialInstanceConstant> to cpp.Star<LandscapeMaterialInstanceConstant>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeMaterialInstanceConstant): LandscapeMaterialInstanceConstantPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeMaterialInstanceConstant {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

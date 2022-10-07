@@ -22,3 +22,22 @@ abstract ConstEditorAnimCurveBoneLinks(EditorAnimCurveBoneLinks) from EditorAnim
 	public extern var MaxLOD(get, never): cpp.UInt8;
 	public inline extern function get_MaxLOD(): cpp.UInt8 return this.MaxLOD;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorAnimCurveBoneLinks*")
+abstract EditorAnimCurveBoneLinksPtr(cpp.Star<EditorAnimCurveBoneLinks>) from cpp.Star<EditorAnimCurveBoneLinks> to cpp.Star<EditorAnimCurveBoneLinks>{
+	@:from
+	public static extern inline function fromValue(v: EditorAnimCurveBoneLinks): EditorAnimCurveBoneLinksPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorAnimCurveBoneLinks {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

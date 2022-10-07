@@ -31,3 +31,22 @@ abstract ConstAnimStateNode(AnimStateNode) from AnimStateNode {
 	public extern var bAlwaysResetOnEntry(get, never): Bool;
 	public inline extern function get_bAlwaysResetOnEntry(): Bool return this.bAlwaysResetOnEntry;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimStateNode*")
+abstract AnimStateNodePtr(cpp.Star<AnimStateNode>) from cpp.Star<AnimStateNode> to cpp.Star<AnimStateNode>{
+	@:from
+	public static extern inline function fromValue(v: AnimStateNode): AnimStateNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimStateNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -39,3 +39,22 @@ abstract ConstSkeletalMeshActor(SkeletalMeshActor) from SkeletalMeshActor {
 	public extern var ReplicatedMaterial1(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
 	public inline extern function get_ReplicatedMaterial1(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.ReplicatedMaterial1;
 }
+
+@:forward
+@:nativeGen
+@:native("SkeletalMeshActor*")
+abstract SkeletalMeshActorPtr(cpp.Star<SkeletalMeshActor>) from cpp.Star<SkeletalMeshActor> to cpp.Star<SkeletalMeshActor>{
+	@:from
+	public static extern inline function fromValue(v: SkeletalMeshActor): SkeletalMeshActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SkeletalMeshActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -84,3 +84,22 @@ abstract ConstSplineMeshComp(SplineMeshComp) from SplineMeshComp {
 	public extern var bSelected(get, never): Bool;
 	public inline extern function get_bSelected(): Bool return this.bSelected;
 }
+
+@:forward
+@:nativeGen
+@:native("SplineMeshComp*")
+abstract SplineMeshCompPtr(cpp.Star<SplineMeshComp>) from cpp.Star<SplineMeshComp> to cpp.Star<SplineMeshComp>{
+	@:from
+	public static extern inline function fromValue(v: SplineMeshComp): SplineMeshCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SplineMeshComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

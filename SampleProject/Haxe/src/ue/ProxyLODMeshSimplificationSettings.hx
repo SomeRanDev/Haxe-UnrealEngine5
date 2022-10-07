@@ -16,3 +16,22 @@ abstract ConstProxyLODMeshSimplificationSettings(ProxyLODMeshSimplificationSetti
 	public extern var ProxyLODMeshReductionModuleName(get, never): FName;
 	public inline extern function get_ProxyLODMeshReductionModuleName(): FName return this.ProxyLODMeshReductionModuleName;
 }
+
+@:forward
+@:nativeGen
+@:native("ProxyLODMeshSimplificationSettings*")
+abstract ProxyLODMeshSimplificationSettingsPtr(cpp.Star<ProxyLODMeshSimplificationSettings>) from cpp.Star<ProxyLODMeshSimplificationSettings> to cpp.Star<ProxyLODMeshSimplificationSettings>{
+	@:from
+	public static extern inline function fromValue(v: ProxyLODMeshSimplificationSettings): ProxyLODMeshSimplificationSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ProxyLODMeshSimplificationSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

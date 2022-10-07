@@ -12,3 +12,21 @@ extern class TRASHCLASS_CR_Mannequin_BasicFootIK_0 {
 @:nativeGen
 abstract ConstTRASHCLASS_CR_Mannequin_BasicFootIK_0(TRASHCLASS_CR_Mannequin_BasicFootIK_0) from TRASHCLASS_CR_Mannequin_BasicFootIK_0 {
 }
+
+@:forward
+@:nativeGen
+@:native("TRASHCLASS_CR_Mannequin_BasicFootIK_0*")abstract TRASHCLASS_CR_Mannequin_BasicFootIK_0Ptr(cpp.Star<TRASHCLASS_CR_Mannequin_BasicFootIK_0>) from cpp.Star<TRASHCLASS_CR_Mannequin_BasicFootIK_0> to cpp.Star<TRASHCLASS_CR_Mannequin_BasicFootIK_0>{
+	@:from
+	public static extern inline function fromValue(v: TRASHCLASS_CR_Mannequin_BasicFootIK_0): TRASHCLASS_CR_Mannequin_BasicFootIK_0Ptr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TRASHCLASS_CR_Mannequin_BasicFootIK_0 {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete() {
+		return untyped __cpp__("delete ({0})", this);
+	}
+}

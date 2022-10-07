@@ -46,3 +46,22 @@ abstract ConstMaterialFunctionInstance(MaterialFunctionInstance) from MaterialFu
 	public extern var PreviewMaterial(get, never): cpp.Star<MaterialInstanceConstant.ConstMaterialInstanceConstant>;
 	public inline extern function get_PreviewMaterial(): cpp.Star<MaterialInstanceConstant.ConstMaterialInstanceConstant> return this.PreviewMaterial;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialFunctionInstance*")
+abstract MaterialFunctionInstancePtr(cpp.Star<MaterialFunctionInstance>) from cpp.Star<MaterialFunctionInstance> to cpp.Star<MaterialFunctionInstance>{
+	@:from
+	public static extern inline function fromValue(v: MaterialFunctionInstance): MaterialFunctionInstancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialFunctionInstance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

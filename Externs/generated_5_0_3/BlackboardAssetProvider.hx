@@ -13,3 +13,22 @@ extern class BlackboardAssetProvider extends Interface {
 @:nativeGen
 abstract ConstBlackboardAssetProvider(BlackboardAssetProvider) from BlackboardAssetProvider {
 }
+
+@:forward
+@:nativeGen
+@:native("BlackboardAssetProvider*")
+abstract BlackboardAssetProviderPtr(cpp.Star<BlackboardAssetProvider>) from cpp.Star<BlackboardAssetProvider> to cpp.Star<BlackboardAssetProvider>{
+	@:from
+	public static extern inline function fromValue(v: BlackboardAssetProvider): BlackboardAssetProviderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlackboardAssetProvider {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

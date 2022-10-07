@@ -17,3 +17,22 @@ extern class TurnBasedBlueprintLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstTurnBasedBlueprintLibrary(TurnBasedBlueprintLibrary) from TurnBasedBlueprintLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("TurnBasedBlueprintLibrary*")
+abstract TurnBasedBlueprintLibraryPtr(cpp.Star<TurnBasedBlueprintLibrary>) from cpp.Star<TurnBasedBlueprintLibrary> to cpp.Star<TurnBasedBlueprintLibrary>{
+	@:from
+	public static extern inline function fromValue(v: TurnBasedBlueprintLibrary): TurnBasedBlueprintLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TurnBasedBlueprintLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class Scene extends Object {
 @:nativeGen
 abstract ConstScene(Scene) from Scene {
 }
+
+@:forward
+@:nativeGen
+@:native("Scene*")
+abstract ScenePtr(cpp.Star<Scene>) from cpp.Star<Scene> to cpp.Star<Scene>{
+	@:from
+	public static extern inline function fromValue(v: Scene): ScenePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Scene {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

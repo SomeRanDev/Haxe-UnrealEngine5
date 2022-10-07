@@ -13,3 +13,22 @@ extern class AnimGraphNode_BlendSpaceBase extends AnimGraphNode_AssetPlayerBase 
 @:nativeGen
 abstract ConstAnimGraphNode_BlendSpaceBase(AnimGraphNode_BlendSpaceBase) from AnimGraphNode_BlendSpaceBase {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_BlendSpaceBase*")
+abstract AnimGraphNode_BlendSpaceBasePtr(cpp.Star<AnimGraphNode_BlendSpaceBase>) from cpp.Star<AnimGraphNode_BlendSpaceBase> to cpp.Star<AnimGraphNode_BlendSpaceBase>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_BlendSpaceBase): AnimGraphNode_BlendSpaceBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_BlendSpaceBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstEditableGameplayTagQueryExpression_AnyTagsMatch(EditableGameplayTa
 	public extern var Tags(get, never): GameplayTagContainer;
 	public inline extern function get_Tags(): GameplayTagContainer return this.Tags;
 }
+
+@:forward
+@:nativeGen
+@:native("EditableGameplayTagQueryExpression_AnyTagsMatch*")
+abstract EditableGameplayTagQueryExpression_AnyTagsMatchPtr(cpp.Star<EditableGameplayTagQueryExpression_AnyTagsMatch>) from cpp.Star<EditableGameplayTagQueryExpression_AnyTagsMatch> to cpp.Star<EditableGameplayTagQueryExpression_AnyTagsMatch>{
+	@:from
+	public static extern inline function fromValue(v: EditableGameplayTagQueryExpression_AnyTagsMatch): EditableGameplayTagQueryExpression_AnyTagsMatchPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditableGameplayTagQueryExpression_AnyTagsMatch {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

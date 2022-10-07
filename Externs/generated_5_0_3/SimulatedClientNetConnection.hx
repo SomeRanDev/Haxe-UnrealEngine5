@@ -13,3 +13,22 @@ extern class SimulatedClientNetConnection extends NetConnection {
 @:nativeGen
 abstract ConstSimulatedClientNetConnection(SimulatedClientNetConnection) from SimulatedClientNetConnection {
 }
+
+@:forward
+@:nativeGen
+@:native("SimulatedClientNetConnection*")
+abstract SimulatedClientNetConnectionPtr(cpp.Star<SimulatedClientNetConnection>) from cpp.Star<SimulatedClientNetConnection> to cpp.Star<SimulatedClientNetConnection>{
+	@:from
+	public static extern inline function fromValue(v: SimulatedClientNetConnection): SimulatedClientNetConnectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SimulatedClientNetConnection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

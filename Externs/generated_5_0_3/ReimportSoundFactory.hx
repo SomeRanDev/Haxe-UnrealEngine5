@@ -13,3 +13,22 @@ extern class ReimportSoundFactory extends SoundFactory {
 @:nativeGen
 abstract ConstReimportSoundFactory(ReimportSoundFactory) from ReimportSoundFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("ReimportSoundFactory*")
+abstract ReimportSoundFactoryPtr(cpp.Star<ReimportSoundFactory>) from cpp.Star<ReimportSoundFactory> to cpp.Star<ReimportSoundFactory>{
+	@:from
+	public static extern inline function fromValue(v: ReimportSoundFactory): ReimportSoundFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ReimportSoundFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

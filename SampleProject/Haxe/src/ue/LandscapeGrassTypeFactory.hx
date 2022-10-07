@@ -13,3 +13,22 @@ extern class LandscapeGrassTypeFactory extends Factory {
 @:nativeGen
 abstract ConstLandscapeGrassTypeFactory(LandscapeGrassTypeFactory) from LandscapeGrassTypeFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeGrassTypeFactory*")
+abstract LandscapeGrassTypeFactoryPtr(cpp.Star<LandscapeGrassTypeFactory>) from cpp.Star<LandscapeGrassTypeFactory> to cpp.Star<LandscapeGrassTypeFactory>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeGrassTypeFactory): LandscapeGrassTypeFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeGrassTypeFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

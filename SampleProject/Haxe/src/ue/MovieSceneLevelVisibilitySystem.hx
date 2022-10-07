@@ -13,3 +13,22 @@ extern class MovieSceneLevelVisibilitySystem extends MovieSceneEntitySystem {
 @:nativeGen
 abstract ConstMovieSceneLevelVisibilitySystem(MovieSceneLevelVisibilitySystem) from MovieSceneLevelVisibilitySystem {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneLevelVisibilitySystem*")
+abstract MovieSceneLevelVisibilitySystemPtr(cpp.Star<MovieSceneLevelVisibilitySystem>) from cpp.Star<MovieSceneLevelVisibilitySystem> to cpp.Star<MovieSceneLevelVisibilitySystem>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneLevelVisibilitySystem): MovieSceneLevelVisibilitySystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneLevelVisibilitySystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

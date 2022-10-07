@@ -12,3 +12,22 @@ extern class PhysicsDataSource extends Interface {
 @:nativeGen
 abstract ConstPhysicsDataSource(PhysicsDataSource) from PhysicsDataSource {
 }
+
+@:forward
+@:nativeGen
+@:native("PhysicsDataSource*")
+abstract PhysicsDataSourcePtr(cpp.Star<PhysicsDataSource>) from cpp.Star<PhysicsDataSource> to cpp.Star<PhysicsDataSource>{
+	@:from
+	public static extern inline function fromValue(v: PhysicsDataSource): PhysicsDataSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhysicsDataSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

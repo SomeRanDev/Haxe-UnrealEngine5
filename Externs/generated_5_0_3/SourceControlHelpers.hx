@@ -35,3 +35,22 @@ extern class SourceControlHelpers extends Object {
 @:nativeGen
 abstract ConstSourceControlHelpers(SourceControlHelpers) from SourceControlHelpers {
 }
+
+@:forward
+@:nativeGen
+@:native("SourceControlHelpers*")
+abstract SourceControlHelpersPtr(cpp.Star<SourceControlHelpers>) from cpp.Star<SourceControlHelpers> to cpp.Star<SourceControlHelpers>{
+	@:from
+	public static extern inline function fromValue(v: SourceControlHelpers): SourceControlHelpersPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SourceControlHelpers {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -40,3 +40,22 @@ abstract ConstMaterialExpressionRuntimeVirtualTextureSample(MaterialExpressionRu
 	public extern var TextureAddressMode(get, never): ERuntimeVirtualTextureTextureAddressMode;
 	public inline extern function get_TextureAddressMode(): ERuntimeVirtualTextureTextureAddressMode return this.TextureAddressMode;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionRuntimeVirtualTextureSample*")
+abstract MaterialExpressionRuntimeVirtualTextureSamplePtr(cpp.Star<MaterialExpressionRuntimeVirtualTextureSample>) from cpp.Star<MaterialExpressionRuntimeVirtualTextureSample> to cpp.Star<MaterialExpressionRuntimeVirtualTextureSample>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionRuntimeVirtualTextureSample): MaterialExpressionRuntimeVirtualTextureSamplePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionRuntimeVirtualTextureSample {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstConstantQNRT(ConstantQNRT) from ConstantQNRT {
 	public extern var Settings(get, never): cpp.Star<ConstantQNRTSettings.ConstConstantQNRTSettings>;
 	public inline extern function get_Settings(): cpp.Star<ConstantQNRTSettings.ConstConstantQNRTSettings> return this.Settings;
 }
+
+@:forward
+@:nativeGen
+@:native("ConstantQNRT*")
+abstract ConstantQNRTPtr(cpp.Star<ConstantQNRT>) from cpp.Star<ConstantQNRT> to cpp.Star<ConstantQNRT>{
+	@:from
+	public static extern inline function fromValue(v: ConstantQNRT): ConstantQNRTPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ConstantQNRT {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

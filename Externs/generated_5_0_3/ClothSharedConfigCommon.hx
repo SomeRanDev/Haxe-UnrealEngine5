@@ -13,3 +13,22 @@ extern class ClothSharedConfigCommon extends ClothConfigCommon {
 @:nativeGen
 abstract ConstClothSharedConfigCommon(ClothSharedConfigCommon) from ClothSharedConfigCommon {
 }
+
+@:forward
+@:nativeGen
+@:native("ClothSharedConfigCommon*")
+abstract ClothSharedConfigCommonPtr(cpp.Star<ClothSharedConfigCommon>) from cpp.Star<ClothSharedConfigCommon> to cpp.Star<ClothSharedConfigCommon>{
+	@:from
+	public static extern inline function fromValue(v: ClothSharedConfigCommon): ClothSharedConfigCommonPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ClothSharedConfigCommon {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class MaterialExpressionAtmosphericLightColor extends MaterialExpression 
 @:nativeGen
 abstract ConstMaterialExpressionAtmosphericLightColor(MaterialExpressionAtmosphericLightColor) from MaterialExpressionAtmosphericLightColor {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionAtmosphericLightColor*")
+abstract MaterialExpressionAtmosphericLightColorPtr(cpp.Star<MaterialExpressionAtmosphericLightColor>) from cpp.Star<MaterialExpressionAtmosphericLightColor> to cpp.Star<MaterialExpressionAtmosphericLightColor>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionAtmosphericLightColor): MaterialExpressionAtmosphericLightColorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionAtmosphericLightColor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

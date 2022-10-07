@@ -28,3 +28,22 @@ abstract ConstNavCollision(NavCollision) from NavCollision {
 	public extern var bCreateOnClient(get, never): Bool;
 	public inline extern function get_bCreateOnClient(): Bool return this.bCreateOnClient;
 }
+
+@:forward
+@:nativeGen
+@:native("NavCollision*")
+abstract NavCollisionPtr(cpp.Star<NavCollision>) from cpp.Star<NavCollision> to cpp.Star<NavCollision>{
+	@:from
+	public static extern inline function fromValue(v: NavCollision): NavCollisionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavCollision {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

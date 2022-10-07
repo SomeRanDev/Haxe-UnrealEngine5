@@ -13,3 +13,22 @@ extern class MaterialExpressionVertexColor extends MaterialExpression {
 @:nativeGen
 abstract ConstMaterialExpressionVertexColor(MaterialExpressionVertexColor) from MaterialExpressionVertexColor {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionVertexColor*")
+abstract MaterialExpressionVertexColorPtr(cpp.Star<MaterialExpressionVertexColor>) from cpp.Star<MaterialExpressionVertexColor> to cpp.Star<MaterialExpressionVertexColor>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionVertexColor): MaterialExpressionVertexColorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionVertexColor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

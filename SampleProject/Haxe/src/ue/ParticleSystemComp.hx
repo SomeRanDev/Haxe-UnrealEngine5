@@ -146,3 +146,22 @@ abstract ConstParticleSystemComp(ParticleSystemComp) from ParticleSystemComp {
 	public extern var OnSystemFinished(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ParticleSystemComp.ConstParticleSystemComp>) -> Void>;
 	public inline extern function get_OnSystemFinished(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ParticleSystemComp.ConstParticleSystemComp>) -> Void> return this.OnSystemFinished;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleSystemComp*")
+abstract ParticleSystemCompPtr(cpp.Star<ParticleSystemComp>) from cpp.Star<ParticleSystemComp> to cpp.Star<ParticleSystemComp>{
+	@:from
+	public static extern inline function fromValue(v: ParticleSystemComp): ParticleSystemCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleSystemComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ extern class HealthSnapshotBlueprintLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstHealthSnapshotBlueprintLibrary(HealthSnapshotBlueprintLibrary) from HealthSnapshotBlueprintLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("HealthSnapshotBlueprintLibrary*")
+abstract HealthSnapshotBlueprintLibraryPtr(cpp.Star<HealthSnapshotBlueprintLibrary>) from cpp.Star<HealthSnapshotBlueprintLibrary> to cpp.Star<HealthSnapshotBlueprintLibrary>{
+	@:from
+	public static extern inline function fromValue(v: HealthSnapshotBlueprintLibrary): HealthSnapshotBlueprintLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): HealthSnapshotBlueprintLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

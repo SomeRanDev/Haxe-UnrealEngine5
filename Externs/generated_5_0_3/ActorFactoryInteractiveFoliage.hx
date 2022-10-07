@@ -13,3 +13,22 @@ extern class ActorFactoryInteractiveFoliage extends ActorFactoryStaticMesh {
 @:nativeGen
 abstract ConstActorFactoryInteractiveFoliage(ActorFactoryInteractiveFoliage) from ActorFactoryInteractiveFoliage {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorFactoryInteractiveFoliage*")
+abstract ActorFactoryInteractiveFoliagePtr(cpp.Star<ActorFactoryInteractiveFoliage>) from cpp.Star<ActorFactoryInteractiveFoliage> to cpp.Star<ActorFactoryInteractiveFoliage>{
+	@:from
+	public static extern inline function fromValue(v: ActorFactoryInteractiveFoliage): ActorFactoryInteractiveFoliagePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorFactoryInteractiveFoliage {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

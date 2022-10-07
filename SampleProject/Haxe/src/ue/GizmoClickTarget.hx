@@ -14,3 +14,22 @@ extern class GizmoClickTarget extends Interface {
 @:nativeGen
 abstract ConstGizmoClickTarget(GizmoClickTarget) from GizmoClickTarget {
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoClickTarget*")
+abstract GizmoClickTargetPtr(cpp.Star<GizmoClickTarget>) from cpp.Star<GizmoClickTarget> to cpp.Star<GizmoClickTarget>{
+	@:from
+	public static extern inline function fromValue(v: GizmoClickTarget): GizmoClickTargetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoClickTarget {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

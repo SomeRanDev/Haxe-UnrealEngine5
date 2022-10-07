@@ -21,3 +21,22 @@ abstract ConstRigVMPrototypeNode(RigVMPrototypeNode) from RigVMPrototypeNode {
 	public extern var SupportedTypesCache(get, never): TMap<FString, Bool>;
 	public inline extern function get_SupportedTypesCache(): TMap<FString, Bool> return this.SupportedTypesCache;
 }
+
+@:forward
+@:nativeGen
+@:native("RigVMPrototypeNode*")
+abstract RigVMPrototypeNodePtr(cpp.Star<RigVMPrototypeNode>) from cpp.Star<RigVMPrototypeNode> to cpp.Star<RigVMPrototypeNode>{
+	@:from
+	public static extern inline function fromValue(v: RigVMPrototypeNode): RigVMPrototypeNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVMPrototypeNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

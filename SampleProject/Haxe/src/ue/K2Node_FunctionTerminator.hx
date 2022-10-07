@@ -22,3 +22,22 @@ abstract ConstK2Node_FunctionTerminator(K2Node_FunctionTerminator) from K2Node_F
 	public extern var SignatureName_DEPRECATED(get, never): FName;
 	public inline extern function get_SignatureName_DEPRECATED(): FName return this.SignatureName_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_FunctionTerminator*")
+abstract K2Node_FunctionTerminatorPtr(cpp.Star<K2Node_FunctionTerminator>) from cpp.Star<K2Node_FunctionTerminator> to cpp.Star<K2Node_FunctionTerminator>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_FunctionTerminator): K2Node_FunctionTerminatorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_FunctionTerminator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

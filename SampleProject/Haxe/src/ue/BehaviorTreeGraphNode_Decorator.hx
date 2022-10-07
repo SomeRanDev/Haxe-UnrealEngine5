@@ -13,3 +13,22 @@ extern class BehaviorTreeGraphNode_Decorator extends BehaviorTreeGraphNode {
 @:nativeGen
 abstract ConstBehaviorTreeGraphNode_Decorator(BehaviorTreeGraphNode_Decorator) from BehaviorTreeGraphNode_Decorator {
 }
+
+@:forward
+@:nativeGen
+@:native("BehaviorTreeGraphNode_Decorator*")
+abstract BehaviorTreeGraphNode_DecoratorPtr(cpp.Star<BehaviorTreeGraphNode_Decorator>) from cpp.Star<BehaviorTreeGraphNode_Decorator> to cpp.Star<BehaviorTreeGraphNode_Decorator>{
+	@:from
+	public static extern inline function fromValue(v: BehaviorTreeGraphNode_Decorator): BehaviorTreeGraphNode_DecoratorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BehaviorTreeGraphNode_Decorator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

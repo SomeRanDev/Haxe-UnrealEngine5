@@ -25,3 +25,22 @@ abstract ConstBodySetupCore(BodySetupCore) from BodySetupCore {
 	public extern var CollisionReponse(get, never): EBodyCollisionResponse;
 	public inline extern function get_CollisionReponse(): EBodyCollisionResponse return this.CollisionReponse;
 }
+
+@:forward
+@:nativeGen
+@:native("BodySetupCore*")
+abstract BodySetupCorePtr(cpp.Star<BodySetupCore>) from cpp.Star<BodySetupCore> to cpp.Star<BodySetupCore>{
+	@:from
+	public static extern inline function fromValue(v: BodySetupCore): BodySetupCorePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BodySetupCore {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

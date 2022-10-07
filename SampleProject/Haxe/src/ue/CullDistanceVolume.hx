@@ -19,3 +19,22 @@ abstract ConstCullDistanceVolume(CullDistanceVolume) from CullDistanceVolume {
 	public extern var bEnabled(get, never): Bool;
 	public inline extern function get_bEnabled(): Bool return this.bEnabled;
 }
+
+@:forward
+@:nativeGen
+@:native("CullDistanceVolume*")
+abstract CullDistanceVolumePtr(cpp.Star<CullDistanceVolume>) from cpp.Star<CullDistanceVolume> to cpp.Star<CullDistanceVolume>{
+	@:from
+	public static extern inline function fromValue(v: CullDistanceVolume): CullDistanceVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CullDistanceVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

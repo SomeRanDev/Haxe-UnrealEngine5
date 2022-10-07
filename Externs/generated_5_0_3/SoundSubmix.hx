@@ -65,3 +65,22 @@ abstract ConstSoundSubmix(SoundSubmix) from SoundSubmix {
 	public extern var OnSubmixRecordedFileDone(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<SoundWave.ConstSoundWave>) -> Void>;
 	public inline extern function get_OnSubmixRecordedFileDone(): HaxeMulticastSparseDelegateProperty<(cpp.Star<SoundWave.ConstSoundWave>) -> Void> return this.OnSubmixRecordedFileDone;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundSubmix*")
+abstract SoundSubmixPtr(cpp.Star<SoundSubmix>) from cpp.Star<SoundSubmix> to cpp.Star<SoundSubmix>{
+	@:from
+	public static extern inline function fromValue(v: SoundSubmix): SoundSubmixPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundSubmix {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

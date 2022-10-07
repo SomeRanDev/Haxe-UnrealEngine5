@@ -13,3 +13,22 @@ extern class DataValidationChangelist extends Object {
 @:nativeGen
 abstract ConstDataValidationChangelist(DataValidationChangelist) from DataValidationChangelist {
 }
+
+@:forward
+@:nativeGen
+@:native("DataValidationChangelist*")
+abstract DataValidationChangelistPtr(cpp.Star<DataValidationChangelist>) from cpp.Star<DataValidationChangelist> to cpp.Star<DataValidationChangelist>{
+	@:from
+	public static extern inline function fromValue(v: DataValidationChangelist): DataValidationChangelistPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DataValidationChangelist {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

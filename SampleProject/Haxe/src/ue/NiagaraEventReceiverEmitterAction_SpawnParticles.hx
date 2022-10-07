@@ -16,3 +16,22 @@ abstract ConstNiagaraEventReceiverEmitterAction_SpawnParticles(NiagaraEventRecei
 	public extern var NumParticles(get, never): cpp.UInt32;
 	public inline extern function get_NumParticles(): cpp.UInt32 return this.NumParticles;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraEventReceiverEmitterAction_SpawnParticles*")
+abstract NiagaraEventReceiverEmitterAction_SpawnParticlesPtr(cpp.Star<NiagaraEventReceiverEmitterAction_SpawnParticles>) from cpp.Star<NiagaraEventReceiverEmitterAction_SpawnParticles> to cpp.Star<NiagaraEventReceiverEmitterAction_SpawnParticles>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraEventReceiverEmitterAction_SpawnParticles): NiagaraEventReceiverEmitterAction_SpawnParticlesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraEventReceiverEmitterAction_SpawnParticles {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

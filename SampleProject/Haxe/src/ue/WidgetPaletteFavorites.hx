@@ -16,3 +16,22 @@ abstract ConstWidgetPaletteFavorites(WidgetPaletteFavorites) from WidgetPaletteF
 	public extern var Favorites(get, never): TArray<FString>;
 	public inline extern function get_Favorites(): TArray<FString> return this.Favorites;
 }
+
+@:forward
+@:nativeGen
+@:native("WidgetPaletteFavorites*")
+abstract WidgetPaletteFavoritesPtr(cpp.Star<WidgetPaletteFavorites>) from cpp.Star<WidgetPaletteFavorites> to cpp.Star<WidgetPaletteFavorites>{
+	@:from
+	public static extern inline function fromValue(v: WidgetPaletteFavorites): WidgetPaletteFavoritesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WidgetPaletteFavorites {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

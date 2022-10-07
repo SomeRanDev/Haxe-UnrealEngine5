@@ -31,3 +31,22 @@ abstract ConstNavigationPath(NavigationPath) from NavigationPath {
 	public extern var RecalculateOnInvalidation(get, never): ENavigationOptionFlag;
 	public inline extern function get_RecalculateOnInvalidation(): ENavigationOptionFlag return this.RecalculateOnInvalidation;
 }
+
+@:forward
+@:nativeGen
+@:native("NavigationPath*")
+abstract NavigationPathPtr(cpp.Star<NavigationPath>) from cpp.Star<NavigationPath> to cpp.Star<NavigationPath>{
+	@:from
+	public static extern inline function fromValue(v: NavigationPath): NavigationPathPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavigationPath {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

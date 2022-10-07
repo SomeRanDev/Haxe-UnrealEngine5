@@ -42,3 +42,22 @@ abstract ConstWorldPartitionStreamingSourceComp(WorldPartitionStreamingSourceCom
 	public extern var TargetState(get, never): EStreamingSourceTargetState;
 	public inline extern function get_TargetState(): EStreamingSourceTargetState return this.TargetState;
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionStreamingSourceComp*")
+abstract WorldPartitionStreamingSourceCompPtr(cpp.Star<WorldPartitionStreamingSourceComp>) from cpp.Star<WorldPartitionStreamingSourceComp> to cpp.Star<WorldPartitionStreamingSourceComp>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionStreamingSourceComp): WorldPartitionStreamingSourceCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionStreamingSourceComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

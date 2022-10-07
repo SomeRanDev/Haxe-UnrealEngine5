@@ -43,3 +43,22 @@ abstract ConstInternationalizationExportSettings(InternationalizationExportSetti
 	public extern var bUseCultureDirectory(get, never): Bool;
 	public inline extern function get_bUseCultureDirectory(): Bool return this.bUseCultureDirectory;
 }
+
+@:forward
+@:nativeGen
+@:native("InternationalizationExportSettings*")
+abstract InternationalizationExportSettingsPtr(cpp.Star<InternationalizationExportSettings>) from cpp.Star<InternationalizationExportSettings> to cpp.Star<InternationalizationExportSettings>{
+	@:from
+	public static extern inline function fromValue(v: InternationalizationExportSettings): InternationalizationExportSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InternationalizationExportSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

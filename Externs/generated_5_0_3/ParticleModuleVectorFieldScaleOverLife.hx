@@ -19,3 +19,22 @@ abstract ConstParticleModuleVectorFieldScaleOverLife(ParticleModuleVectorFieldSc
 	public extern var VectorFieldScaleOverLifeRaw(get, never): RawDistributionFloat;
 	public inline extern function get_VectorFieldScaleOverLifeRaw(): RawDistributionFloat return this.VectorFieldScaleOverLifeRaw;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleVectorFieldScaleOverLife*")
+abstract ParticleModuleVectorFieldScaleOverLifePtr(cpp.Star<ParticleModuleVectorFieldScaleOverLife>) from cpp.Star<ParticleModuleVectorFieldScaleOverLife> to cpp.Star<ParticleModuleVectorFieldScaleOverLife>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleVectorFieldScaleOverLife): ParticleModuleVectorFieldScaleOverLifePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleVectorFieldScaleOverLife {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

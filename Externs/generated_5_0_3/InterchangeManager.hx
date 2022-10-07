@@ -33,3 +33,22 @@ abstract ConstInterchangeManager(InterchangeManager) from InterchangeManager {
 	public extern var TextureOnlyTranslatorClass(get, never): TSet<TSubclassOf<Object.ConstObject>>;
 	public inline extern function get_TextureOnlyTranslatorClass(): TSet<TSubclassOf<Object.ConstObject>> return this.TextureOnlyTranslatorClass;
 }
+
+@:forward
+@:nativeGen
+@:native("InterchangeManager*")
+abstract InterchangeManagerPtr(cpp.Star<InterchangeManager>) from cpp.Star<InterchangeManager> to cpp.Star<InterchangeManager>{
+	@:from
+	public static extern inline function fromValue(v: InterchangeManager): InterchangeManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterchangeManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

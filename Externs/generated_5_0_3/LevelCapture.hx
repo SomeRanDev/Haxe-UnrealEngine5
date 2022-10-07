@@ -19,3 +19,22 @@ abstract ConstLevelCapture(LevelCapture) from LevelCapture {
 	public extern var PrerequisiteActorId(get, never): Guid;
 	public inline extern function get_PrerequisiteActorId(): Guid return this.PrerequisiteActorId;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelCapture*")
+abstract LevelCapturePtr(cpp.Star<LevelCapture>) from cpp.Star<LevelCapture> to cpp.Star<LevelCapture>{
+	@:from
+	public static extern inline function fromValue(v: LevelCapture): LevelCapturePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelCapture {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

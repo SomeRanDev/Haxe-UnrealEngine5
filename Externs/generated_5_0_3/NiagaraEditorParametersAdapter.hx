@@ -16,3 +16,22 @@ abstract ConstNiagaraEditorParametersAdapter(NiagaraEditorParametersAdapter) fro
 	public extern var EditorOnlyScriptVars(get, never): TArray<cpp.Star<NiagaraScriptVariable.ConstNiagaraScriptVariable>>;
 	public inline extern function get_EditorOnlyScriptVars(): TArray<cpp.Star<NiagaraScriptVariable.ConstNiagaraScriptVariable>> return this.EditorOnlyScriptVars;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraEditorParametersAdapter*")
+abstract NiagaraEditorParametersAdapterPtr(cpp.Star<NiagaraEditorParametersAdapter>) from cpp.Star<NiagaraEditorParametersAdapter> to cpp.Star<NiagaraEditorParametersAdapter>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraEditorParametersAdapter): NiagaraEditorParametersAdapterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraEditorParametersAdapter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

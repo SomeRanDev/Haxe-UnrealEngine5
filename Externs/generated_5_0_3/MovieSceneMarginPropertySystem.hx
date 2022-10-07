@@ -13,3 +13,22 @@ extern class MovieSceneMarginPropertySystem extends MovieScenePropertySystem {
 @:nativeGen
 abstract ConstMovieSceneMarginPropertySystem(MovieSceneMarginPropertySystem) from MovieSceneMarginPropertySystem {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneMarginPropertySystem*")
+abstract MovieSceneMarginPropertySystemPtr(cpp.Star<MovieSceneMarginPropertySystem>) from cpp.Star<MovieSceneMarginPropertySystem> to cpp.Star<MovieSceneMarginPropertySystem>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneMarginPropertySystem): MovieSceneMarginPropertySystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneMarginPropertySystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

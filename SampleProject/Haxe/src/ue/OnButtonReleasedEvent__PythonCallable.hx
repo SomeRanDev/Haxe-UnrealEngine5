@@ -12,3 +12,22 @@ extern class OnButtonReleasedEvent__PythonCallable extends PythonCallableForDele
 @:nativeGen
 abstract ConstOnButtonReleasedEvent__PythonCallable(OnButtonReleasedEvent__PythonCallable) from OnButtonReleasedEvent__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnButtonReleasedEvent__PythonCallable*")
+abstract OnButtonReleasedEvent__PythonCallablePtr(cpp.Star<OnButtonReleasedEvent__PythonCallable>) from cpp.Star<OnButtonReleasedEvent__PythonCallable> to cpp.Star<OnButtonReleasedEvent__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnButtonReleasedEvent__PythonCallable): OnButtonReleasedEvent__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnButtonReleasedEvent__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

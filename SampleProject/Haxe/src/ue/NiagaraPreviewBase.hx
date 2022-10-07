@@ -15,3 +15,22 @@ extern class NiagaraPreviewBase extends Actor {
 @:nativeGen
 abstract ConstNiagaraPreviewBase(NiagaraPreviewBase) from NiagaraPreviewBase {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraPreviewBase*")
+abstract NiagaraPreviewBasePtr(cpp.Star<NiagaraPreviewBase>) from cpp.Star<NiagaraPreviewBase> to cpp.Star<NiagaraPreviewBase>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraPreviewBase): NiagaraPreviewBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraPreviewBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

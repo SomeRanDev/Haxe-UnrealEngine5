@@ -12,3 +12,22 @@ extern class Struct extends Field {
 @:nativeGen
 abstract ConstStruct(Struct) from Struct {
 }
+
+@:forward
+@:nativeGen
+@:native("Struct*")
+abstract StructPtr(cpp.Star<Struct>) from cpp.Star<Struct> to cpp.Star<Struct>{
+	@:from
+	public static extern inline function fromValue(v: Struct): StructPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Struct {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class Model extends Object {
 @:nativeGen
 abstract ConstModel(Model) from Model {
 }
+
+@:forward
+@:nativeGen
+@:native("Model*")
+abstract ModelPtr(cpp.Star<Model>) from cpp.Star<Model> to cpp.Star<Model>{
+	@:from
+	public static extern inline function fromValue(v: Model): ModelPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Model {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

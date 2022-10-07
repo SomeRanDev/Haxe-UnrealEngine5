@@ -17,3 +17,22 @@ extern class TileMapBlueprintLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstTileMapBlueprintLibrary(TileMapBlueprintLibrary) from TileMapBlueprintLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("TileMapBlueprintLibrary*")
+abstract TileMapBlueprintLibraryPtr(cpp.Star<TileMapBlueprintLibrary>) from cpp.Star<TileMapBlueprintLibrary> to cpp.Star<TileMapBlueprintLibrary>{
+	@:from
+	public static extern inline function fromValue(v: TileMapBlueprintLibrary): TileMapBlueprintLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TileMapBlueprintLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

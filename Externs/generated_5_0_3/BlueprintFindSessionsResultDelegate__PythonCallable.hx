@@ -12,3 +12,22 @@ extern class BlueprintFindSessionsResultDelegate__PythonCallable extends PythonC
 @:nativeGen
 abstract ConstBlueprintFindSessionsResultDelegate__PythonCallable(BlueprintFindSessionsResultDelegate__PythonCallable) from BlueprintFindSessionsResultDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("BlueprintFindSessionsResultDelegate__PythonCallable*")
+abstract BlueprintFindSessionsResultDelegate__PythonCallablePtr(cpp.Star<BlueprintFindSessionsResultDelegate__PythonCallable>) from cpp.Star<BlueprintFindSessionsResultDelegate__PythonCallable> to cpp.Star<BlueprintFindSessionsResultDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: BlueprintFindSessionsResultDelegate__PythonCallable): BlueprintFindSessionsResultDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlueprintFindSessionsResultDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

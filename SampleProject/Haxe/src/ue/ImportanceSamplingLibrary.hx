@@ -22,3 +22,22 @@ extern class ImportanceSamplingLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstImportanceSamplingLibrary(ImportanceSamplingLibrary) from ImportanceSamplingLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("ImportanceSamplingLibrary*")
+abstract ImportanceSamplingLibraryPtr(cpp.Star<ImportanceSamplingLibrary>) from cpp.Star<ImportanceSamplingLibrary> to cpp.Star<ImportanceSamplingLibrary>{
+	@:from
+	public static extern inline function fromValue(v: ImportanceSamplingLibrary): ImportanceSamplingLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ImportanceSamplingLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

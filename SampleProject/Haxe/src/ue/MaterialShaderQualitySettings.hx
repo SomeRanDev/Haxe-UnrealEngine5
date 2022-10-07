@@ -16,3 +16,22 @@ abstract ConstMaterialShaderQualitySettings(MaterialShaderQualitySettings) from 
 	public extern var ForwardSettingMap(get, never): TMap<FName, cpp.Star<ShaderPlatformQualitySettings.ConstShaderPlatformQualitySettings>>;
 	public inline extern function get_ForwardSettingMap(): TMap<FName, cpp.Star<ShaderPlatformQualitySettings.ConstShaderPlatformQualitySettings>> return this.ForwardSettingMap;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialShaderQualitySettings*")
+abstract MaterialShaderQualitySettingsPtr(cpp.Star<MaterialShaderQualitySettings>) from cpp.Star<MaterialShaderQualitySettings> to cpp.Star<MaterialShaderQualitySettings>{
+	@:from
+	public static extern inline function fromValue(v: MaterialShaderQualitySettings): MaterialShaderQualitySettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialShaderQualitySettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

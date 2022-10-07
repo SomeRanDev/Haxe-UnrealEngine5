@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionConstant2Vector(MaterialExpressionConstant2Vecto
 	public extern var G(get, never): cpp.Float32;
 	public inline extern function get_G(): cpp.Float32 return this.G;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionConstant2Vector*")
+abstract MaterialExpressionConstant2VectorPtr(cpp.Star<MaterialExpressionConstant2Vector>) from cpp.Star<MaterialExpressionConstant2Vector> to cpp.Star<MaterialExpressionConstant2Vector>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionConstant2Vector): MaterialExpressionConstant2VectorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionConstant2Vector {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

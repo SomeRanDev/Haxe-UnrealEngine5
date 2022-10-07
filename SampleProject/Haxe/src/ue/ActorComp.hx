@@ -51,6 +51,11 @@ extern class ActorComp extends Object {
 	public function AddTickPrerequisiteComponent(PrerequisiteComponent: cpp.Star<ActorComp>): Void;
 	public function AddTickPrerequisiteActor(PrerequisiteActor: cpp.Star<Actor>): Void;
 	public function Activate(bReset: Bool): Void;
+	public function BeginPlay(): Void;
+	public function EndPlay(Reason: EEndPlayReason): Void;
+	public function InitializeComponent(): Void;
+	public function UninitializeComponent(): Void;
+	public function TickComponent(DeltaTime: cpp.Float32, TickType: ELevelTick, ThisTickFunction: cpp.Star<ActorComponentTickFunction>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -96,4 +101,23 @@ abstract ConstActorComp(ActorComp) from ActorComp {
 	public inline extern function get_OnComponentDeactivated(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ActorComp.ConstActorComp>) -> Void> return this.OnComponentDeactivated;
 	public extern var UCSModifiedProperties(get, never): TArray<SimpleMemberReference>;
 	public inline extern function get_UCSModifiedProperties(): TArray<SimpleMemberReference> return this.UCSModifiedProperties;
+}
+
+@:forward
+@:nativeGen
+@:native("ActorComp*")
+abstract ActorCompPtr(cpp.Star<ActorComp>) from cpp.Star<ActorComp> to cpp.Star<ActorComp>{
+	@:from
+	public static extern inline function fromValue(v: ActorComp): ActorCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
 }

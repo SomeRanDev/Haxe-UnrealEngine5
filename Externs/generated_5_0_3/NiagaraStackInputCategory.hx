@@ -16,3 +16,22 @@ abstract ConstNiagaraStackInputCategory(NiagaraStackInputCategory) from NiagaraS
 	public extern var CategorySpacer(get, never): cpp.Star<NiagaraStackSpacer.ConstNiagaraStackSpacer>;
 	public inline extern function get_CategorySpacer(): cpp.Star<NiagaraStackSpacer.ConstNiagaraStackSpacer> return this.CategorySpacer;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackInputCategory*")
+abstract NiagaraStackInputCategoryPtr(cpp.Star<NiagaraStackInputCategory>) from cpp.Star<NiagaraStackInputCategory> to cpp.Star<NiagaraStackInputCategory>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackInputCategory): NiagaraStackInputCategoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackInputCategory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -22,3 +22,22 @@ abstract ConstNiagaraDataInterfaceRasterizationGrid3D(NiagaraDataInterfaceRaster
 	public extern var ResetValue(get, never): cpp.Int32;
 	public inline extern function get_ResetValue(): cpp.Int32 return this.ResetValue;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceRasterizationGrid3D*")
+abstract NiagaraDataInterfaceRasterizationGrid3DPtr(cpp.Star<NiagaraDataInterfaceRasterizationGrid3D>) from cpp.Star<NiagaraDataInterfaceRasterizationGrid3D> to cpp.Star<NiagaraDataInterfaceRasterizationGrid3D>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceRasterizationGrid3D): NiagaraDataInterfaceRasterizationGrid3DPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceRasterizationGrid3D {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class SlateBrushThumbnailRenderer extends DefaultSizedThumbnailRenderer {
 @:nativeGen
 abstract ConstSlateBrushThumbnailRenderer(SlateBrushThumbnailRenderer) from SlateBrushThumbnailRenderer {
 }
+
+@:forward
+@:nativeGen
+@:native("SlateBrushThumbnailRenderer*")
+abstract SlateBrushThumbnailRendererPtr(cpp.Star<SlateBrushThumbnailRenderer>) from cpp.Star<SlateBrushThumbnailRenderer> to cpp.Star<SlateBrushThumbnailRenderer>{
+	@:from
+	public static extern inline function fromValue(v: SlateBrushThumbnailRenderer): SlateBrushThumbnailRendererPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SlateBrushThumbnailRenderer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

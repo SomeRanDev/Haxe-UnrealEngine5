@@ -19,3 +19,22 @@ abstract ConstParticleModuleMeshRotationRateOverLife(ParticleModuleMeshRotationR
 	public extern var bScaleRotRate(get, never): Bool;
 	public inline extern function get_bScaleRotRate(): Bool return this.bScaleRotRate;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleMeshRotationRateOverLife*")
+abstract ParticleModuleMeshRotationRateOverLifePtr(cpp.Star<ParticleModuleMeshRotationRateOverLife>) from cpp.Star<ParticleModuleMeshRotationRateOverLife> to cpp.Star<ParticleModuleMeshRotationRateOverLife>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleMeshRotationRateOverLife): ParticleModuleMeshRotationRateOverLifePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleMeshRotationRateOverLife {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

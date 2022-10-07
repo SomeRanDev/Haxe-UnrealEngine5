@@ -12,3 +12,22 @@ extern class NavLinkCustomInterface extends Interface {
 @:nativeGen
 abstract ConstNavLinkCustomInterface(NavLinkCustomInterface) from NavLinkCustomInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("NavLinkCustomInterface*")
+abstract NavLinkCustomInterfacePtr(cpp.Star<NavLinkCustomInterface>) from cpp.Star<NavLinkCustomInterface> to cpp.Star<NavLinkCustomInterface>{
+	@:from
+	public static extern inline function fromValue(v: NavLinkCustomInterface): NavLinkCustomInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavLinkCustomInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

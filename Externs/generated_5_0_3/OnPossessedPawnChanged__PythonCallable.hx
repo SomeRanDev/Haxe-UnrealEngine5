@@ -12,3 +12,22 @@ extern class OnPossessedPawnChanged__PythonCallable extends PythonCallableForDel
 @:nativeGen
 abstract ConstOnPossessedPawnChanged__PythonCallable(OnPossessedPawnChanged__PythonCallable) from OnPossessedPawnChanged__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnPossessedPawnChanged__PythonCallable*")
+abstract OnPossessedPawnChanged__PythonCallablePtr(cpp.Star<OnPossessedPawnChanged__PythonCallable>) from cpp.Star<OnPossessedPawnChanged__PythonCallable> to cpp.Star<OnPossessedPawnChanged__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnPossessedPawnChanged__PythonCallable): OnPossessedPawnChanged__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnPossessedPawnChanged__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

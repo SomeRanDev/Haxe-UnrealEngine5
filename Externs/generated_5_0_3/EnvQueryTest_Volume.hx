@@ -22,3 +22,22 @@ abstract ConstEnvQueryTest_Volume(EnvQueryTest_Volume) from EnvQueryTest_Volume 
 	public extern var bDoComplexVolumeTest(get, never): Bool;
 	public inline extern function get_bDoComplexVolumeTest(): Bool return this.bDoComplexVolumeTest;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryTest_Volume*")
+abstract EnvQueryTest_VolumePtr(cpp.Star<EnvQueryTest_Volume>) from cpp.Star<EnvQueryTest_Volume> to cpp.Star<EnvQueryTest_Volume>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryTest_Volume): EnvQueryTest_VolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryTest_Volume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

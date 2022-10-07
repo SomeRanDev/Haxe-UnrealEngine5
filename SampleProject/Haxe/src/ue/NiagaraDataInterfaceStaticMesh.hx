@@ -37,3 +37,22 @@ abstract ConstNiagaraDataInterfaceStaticMesh(NiagaraDataInterfaceStaticMesh) fro
 	public extern var FilteredSockets(get, never): TArray<FName>;
 	public inline extern function get_FilteredSockets(): TArray<FName> return this.FilteredSockets;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceStaticMesh*")
+abstract NiagaraDataInterfaceStaticMeshPtr(cpp.Star<NiagaraDataInterfaceStaticMesh>) from cpp.Star<NiagaraDataInterfaceStaticMesh> to cpp.Star<NiagaraDataInterfaceStaticMesh>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceStaticMesh): NiagaraDataInterfaceStaticMeshPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceStaticMesh {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

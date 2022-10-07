@@ -12,3 +12,22 @@ extern class NavPathObserverInterface extends Interface {
 @:nativeGen
 abstract ConstNavPathObserverInterface(NavPathObserverInterface) from NavPathObserverInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("NavPathObserverInterface*")
+abstract NavPathObserverInterfacePtr(cpp.Star<NavPathObserverInterface>) from cpp.Star<NavPathObserverInterface> to cpp.Star<NavPathObserverInterface>{
+	@:from
+	public static extern inline function fromValue(v: NavPathObserverInterface): NavPathObserverInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavPathObserverInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

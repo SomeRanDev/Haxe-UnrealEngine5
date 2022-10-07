@@ -13,3 +13,22 @@ extern class PythonScriptCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstPythonScriptCommandlet(PythonScriptCommandlet) from PythonScriptCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("PythonScriptCommandlet*")
+abstract PythonScriptCommandletPtr(cpp.Star<PythonScriptCommandlet>) from cpp.Star<PythonScriptCommandlet> to cpp.Star<PythonScriptCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: PythonScriptCommandlet): PythonScriptCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PythonScriptCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

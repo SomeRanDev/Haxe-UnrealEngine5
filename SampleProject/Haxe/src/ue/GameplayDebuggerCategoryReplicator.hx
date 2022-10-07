@@ -38,3 +38,22 @@ abstract ConstGameplayDebuggerCategoryReplicator(GameplayDebuggerCategoryReplica
 	public extern var RenderingComp(get, never): cpp.Star<GameplayDebuggerRenderingComp.ConstGameplayDebuggerRenderingComp>;
 	public inline extern function get_RenderingComp(): cpp.Star<GameplayDebuggerRenderingComp.ConstGameplayDebuggerRenderingComp> return this.RenderingComp;
 }
+
+@:forward
+@:nativeGen
+@:native("GameplayDebuggerCategoryReplicator*")
+abstract GameplayDebuggerCategoryReplicatorPtr(cpp.Star<GameplayDebuggerCategoryReplicator>) from cpp.Star<GameplayDebuggerCategoryReplicator> to cpp.Star<GameplayDebuggerCategoryReplicator>{
+	@:from
+	public static extern inline function fromValue(v: GameplayDebuggerCategoryReplicator): GameplayDebuggerCategoryReplicatorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameplayDebuggerCategoryReplicator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

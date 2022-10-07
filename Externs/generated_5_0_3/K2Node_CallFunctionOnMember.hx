@@ -16,3 +16,22 @@ abstract ConstK2Node_CallFunctionOnMember(K2Node_CallFunctionOnMember) from K2No
 	public extern var MemberVariableToCallOn(get, never): MemberReference;
 	public inline extern function get_MemberVariableToCallOn(): MemberReference return this.MemberVariableToCallOn;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_CallFunctionOnMember*")
+abstract K2Node_CallFunctionOnMemberPtr(cpp.Star<K2Node_CallFunctionOnMember>) from cpp.Star<K2Node_CallFunctionOnMember> to cpp.Star<K2Node_CallFunctionOnMember>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_CallFunctionOnMember): K2Node_CallFunctionOnMemberPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_CallFunctionOnMember {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

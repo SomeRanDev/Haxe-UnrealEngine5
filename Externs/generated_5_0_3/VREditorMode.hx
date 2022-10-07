@@ -39,3 +39,22 @@ abstract ConstVREditorMode(VREditorMode) from VREditorMode {
 	public extern var AssetContainer(get, never): cpp.Star<VREditorAssetContainer.ConstVREditorAssetContainer>;
 	public inline extern function get_AssetContainer(): cpp.Star<VREditorAssetContainer.ConstVREditorAssetContainer> return this.AssetContainer;
 }
+
+@:forward
+@:nativeGen
+@:native("VREditorMode*")
+abstract VREditorModePtr(cpp.Star<VREditorMode>) from cpp.Star<VREditorMode> to cpp.Star<VREditorMode>{
+	@:from
+	public static extern inline function fromValue(v: VREditorMode): VREditorModePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VREditorMode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

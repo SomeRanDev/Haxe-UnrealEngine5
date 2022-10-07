@@ -13,3 +13,22 @@ extern class FieldSystem extends Object {
 @:nativeGen
 abstract ConstFieldSystem(FieldSystem) from FieldSystem {
 }
+
+@:forward
+@:nativeGen
+@:native("FieldSystem*")
+abstract FieldSystemPtr(cpp.Star<FieldSystem>) from cpp.Star<FieldSystem> to cpp.Star<FieldSystem>{
+	@:from
+	public static extern inline function fromValue(v: FieldSystem): FieldSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FieldSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

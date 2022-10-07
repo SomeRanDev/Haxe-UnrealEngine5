@@ -16,3 +16,22 @@ abstract ConstNiagaraStackParameterStoreEntry(NiagaraStackParameterStoreEntry) f
 	public extern var ValueObjectEntry(get, never): cpp.Star<NiagaraStackObject.ConstNiagaraStackObject>;
 	public inline extern function get_ValueObjectEntry(): cpp.Star<NiagaraStackObject.ConstNiagaraStackObject> return this.ValueObjectEntry;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackParameterStoreEntry*")
+abstract NiagaraStackParameterStoreEntryPtr(cpp.Star<NiagaraStackParameterStoreEntry>) from cpp.Star<NiagaraStackParameterStoreEntry> to cpp.Star<NiagaraStackParameterStoreEntry>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackParameterStoreEntry): NiagaraStackParameterStoreEntryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackParameterStoreEntry {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

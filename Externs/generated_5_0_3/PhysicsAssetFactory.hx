@@ -16,3 +16,22 @@ abstract ConstPhysicsAssetFactory(PhysicsAssetFactory) from PhysicsAssetFactory 
 	public extern var TargetSkeletalMesh(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
 	public inline extern function get_TargetSkeletalMesh(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.TargetSkeletalMesh;
 }
+
+@:forward
+@:nativeGen
+@:native("PhysicsAssetFactory*")
+abstract PhysicsAssetFactoryPtr(cpp.Star<PhysicsAssetFactory>) from cpp.Star<PhysicsAssetFactory> to cpp.Star<PhysicsAssetFactory>{
+	@:from
+	public static extern inline function fromValue(v: PhysicsAssetFactory): PhysicsAssetFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhysicsAssetFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

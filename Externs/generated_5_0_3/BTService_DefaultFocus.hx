@@ -16,3 +16,22 @@ abstract ConstBTService_DefaultFocus(BTService_DefaultFocus) from BTService_Defa
 	public extern var FocusPriority(get, never): cpp.UInt8;
 	public inline extern function get_FocusPriority(): cpp.UInt8 return this.FocusPriority;
 }
+
+@:forward
+@:nativeGen
+@:native("BTService_DefaultFocus*")
+abstract BTService_DefaultFocusPtr(cpp.Star<BTService_DefaultFocus>) from cpp.Star<BTService_DefaultFocus> to cpp.Star<BTService_DefaultFocus>{
+	@:from
+	public static extern inline function fromValue(v: BTService_DefaultFocus): BTService_DefaultFocusPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTService_DefaultFocus {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

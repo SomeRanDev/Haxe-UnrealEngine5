@@ -19,3 +19,22 @@ abstract ConstInteractiveToolPropertySet(InteractiveToolPropertySet) from Intera
 	public extern var bIsPropertySetEnabled(get, never): Bool;
 	public inline extern function get_bIsPropertySetEnabled(): Bool return this.bIsPropertySetEnabled;
 }
+
+@:forward
+@:nativeGen
+@:native("InteractiveToolPropertySet*")
+abstract InteractiveToolPropertySetPtr(cpp.Star<InteractiveToolPropertySet>) from cpp.Star<InteractiveToolPropertySet> to cpp.Star<InteractiveToolPropertySet>{
+	@:from
+	public static extern inline function fromValue(v: InteractiveToolPropertySet): InteractiveToolPropertySetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InteractiveToolPropertySet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

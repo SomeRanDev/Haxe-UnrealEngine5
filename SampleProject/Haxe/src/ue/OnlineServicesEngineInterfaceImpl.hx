@@ -13,3 +13,22 @@ extern class OnlineServicesEngineInterfaceImpl extends OnlineEngineInterface {
 @:nativeGen
 abstract ConstOnlineServicesEngineInterfaceImpl(OnlineServicesEngineInterfaceImpl) from OnlineServicesEngineInterfaceImpl {
 }
+
+@:forward
+@:nativeGen
+@:native("OnlineServicesEngineInterfaceImpl*")
+abstract OnlineServicesEngineInterfaceImplPtr(cpp.Star<OnlineServicesEngineInterfaceImpl>) from cpp.Star<OnlineServicesEngineInterfaceImpl> to cpp.Star<OnlineServicesEngineInterfaceImpl>{
+	@:from
+	public static extern inline function fromValue(v: OnlineServicesEngineInterfaceImpl): OnlineServicesEngineInterfaceImplPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnlineServicesEngineInterfaceImpl {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

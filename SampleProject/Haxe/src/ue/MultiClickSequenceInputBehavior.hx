@@ -13,3 +13,22 @@ extern class MultiClickSequenceInputBehavior extends AnyButtonInputBehavior {
 @:nativeGen
 abstract ConstMultiClickSequenceInputBehavior(MultiClickSequenceInputBehavior) from MultiClickSequenceInputBehavior {
 }
+
+@:forward
+@:nativeGen
+@:native("MultiClickSequenceInputBehavior*")
+abstract MultiClickSequenceInputBehaviorPtr(cpp.Star<MultiClickSequenceInputBehavior>) from cpp.Star<MultiClickSequenceInputBehavior> to cpp.Star<MultiClickSequenceInputBehavior>{
+	@:from
+	public static extern inline function fromValue(v: MultiClickSequenceInputBehavior): MultiClickSequenceInputBehaviorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MultiClickSequenceInputBehavior {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

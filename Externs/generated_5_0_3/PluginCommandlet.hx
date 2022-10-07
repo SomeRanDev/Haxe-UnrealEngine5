@@ -13,3 +13,22 @@ extern class PluginCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstPluginCommandlet(PluginCommandlet) from PluginCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("PluginCommandlet*")
+abstract PluginCommandletPtr(cpp.Star<PluginCommandlet>) from cpp.Star<PluginCommandlet> to cpp.Star<PluginCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: PluginCommandlet): PluginCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PluginCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

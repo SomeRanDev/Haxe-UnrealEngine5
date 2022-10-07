@@ -22,3 +22,22 @@ abstract ConstAREnvironmentCaptureProbe(AREnvironmentCaptureProbe) from AREnviro
 	public extern var EnvironmentCaptureTexture(get, never): cpp.Star<AREnvironmentCaptureProbeTexture.ConstAREnvironmentCaptureProbeTexture>;
 	public inline extern function get_EnvironmentCaptureTexture(): cpp.Star<AREnvironmentCaptureProbeTexture.ConstAREnvironmentCaptureProbeTexture> return this.EnvironmentCaptureTexture;
 }
+
+@:forward
+@:nativeGen
+@:native("AREnvironmentCaptureProbe*")
+abstract AREnvironmentCaptureProbePtr(cpp.Star<AREnvironmentCaptureProbe>) from cpp.Star<AREnvironmentCaptureProbe> to cpp.Star<AREnvironmentCaptureProbe>{
+	@:from
+	public static extern inline function fromValue(v: AREnvironmentCaptureProbe): AREnvironmentCaptureProbePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AREnvironmentCaptureProbe {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

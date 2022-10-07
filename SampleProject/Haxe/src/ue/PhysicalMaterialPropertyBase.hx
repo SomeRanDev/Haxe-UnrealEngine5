@@ -13,3 +13,22 @@ extern class PhysicalMaterialPropertyBase extends Object {
 @:nativeGen
 abstract ConstPhysicalMaterialPropertyBase(PhysicalMaterialPropertyBase) from PhysicalMaterialPropertyBase {
 }
+
+@:forward
+@:nativeGen
+@:native("PhysicalMaterialPropertyBase*")
+abstract PhysicalMaterialPropertyBasePtr(cpp.Star<PhysicalMaterialPropertyBase>) from cpp.Star<PhysicalMaterialPropertyBase> to cpp.Star<PhysicalMaterialPropertyBase>{
+	@:from
+	public static extern inline function fromValue(v: PhysicalMaterialPropertyBase): PhysicalMaterialPropertyBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhysicalMaterialPropertyBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

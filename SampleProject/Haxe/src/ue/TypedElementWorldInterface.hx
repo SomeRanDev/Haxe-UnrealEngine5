@@ -31,3 +31,22 @@ extern class TypedElementWorldInterface extends Interface {
 @:nativeGen
 abstract ConstTypedElementWorldInterface(TypedElementWorldInterface) from TypedElementWorldInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("TypedElementWorldInterface*")
+abstract TypedElementWorldInterfacePtr(cpp.Star<TypedElementWorldInterface>) from cpp.Star<TypedElementWorldInterface> to cpp.Star<TypedElementWorldInterface>{
+	@:from
+	public static extern inline function fromValue(v: TypedElementWorldInterface): TypedElementWorldInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TypedElementWorldInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

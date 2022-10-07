@@ -13,3 +13,22 @@ extern class BehaviorTreeGraphNode_Composite extends BehaviorTreeGraphNode {
 @:nativeGen
 abstract ConstBehaviorTreeGraphNode_Composite(BehaviorTreeGraphNode_Composite) from BehaviorTreeGraphNode_Composite {
 }
+
+@:forward
+@:nativeGen
+@:native("BehaviorTreeGraphNode_Composite*")
+abstract BehaviorTreeGraphNode_CompositePtr(cpp.Star<BehaviorTreeGraphNode_Composite>) from cpp.Star<BehaviorTreeGraphNode_Composite> to cpp.Star<BehaviorTreeGraphNode_Composite>{
+	@:from
+	public static extern inline function fromValue(v: BehaviorTreeGraphNode_Composite): BehaviorTreeGraphNode_CompositePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BehaviorTreeGraphNode_Composite {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

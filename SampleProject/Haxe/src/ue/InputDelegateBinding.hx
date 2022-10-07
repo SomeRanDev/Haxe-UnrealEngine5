@@ -13,3 +13,22 @@ extern class InputDelegateBinding extends DynamicBlueprintBinding {
 @:nativeGen
 abstract ConstInputDelegateBinding(InputDelegateBinding) from InputDelegateBinding {
 }
+
+@:forward
+@:nativeGen
+@:native("InputDelegateBinding*")
+abstract InputDelegateBindingPtr(cpp.Star<InputDelegateBinding>) from cpp.Star<InputDelegateBinding> to cpp.Star<InputDelegateBinding>{
+	@:from
+	public static extern inline function fromValue(v: InputDelegateBinding): InputDelegateBindingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InputDelegateBinding {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

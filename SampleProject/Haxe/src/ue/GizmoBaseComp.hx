@@ -28,3 +28,22 @@ abstract ConstGizmoBaseComp(GizmoBaseComp) from GizmoBaseComp {
 	public extern var GizmoViewContext(get, never): cpp.Star<GizmoViewContext.ConstGizmoViewContext>;
 	public inline extern function get_GizmoViewContext(): cpp.Star<GizmoViewContext.ConstGizmoViewContext> return this.GizmoViewContext;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoBaseComp*")
+abstract GizmoBaseCompPtr(cpp.Star<GizmoBaseComp>) from cpp.Star<GizmoBaseComp> to cpp.Star<GizmoBaseComp>{
+	@:from
+	public static extern inline function fromValue(v: GizmoBaseComp): GizmoBaseCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoBaseComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

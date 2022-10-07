@@ -13,3 +13,22 @@ extern class DebugCameraHUD extends HUD {
 @:nativeGen
 abstract ConstDebugCameraHUD(DebugCameraHUD) from DebugCameraHUD {
 }
+
+@:forward
+@:nativeGen
+@:native("DebugCameraHUD*")
+abstract DebugCameraHUDPtr(cpp.Star<DebugCameraHUD>) from cpp.Star<DebugCameraHUD> to cpp.Star<DebugCameraHUD>{
+	@:from
+	public static extern inline function fromValue(v: DebugCameraHUD): DebugCameraHUDPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DebugCameraHUD {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

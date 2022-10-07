@@ -12,3 +12,22 @@ extern class UInt16Property extends NumericProperty {
 @:nativeGen
 abstract ConstUInt16Property(UInt16Property) from UInt16Property {
 }
+
+@:forward
+@:nativeGen
+@:native("UInt16Property*")
+abstract UInt16PropertyPtr(cpp.Star<UInt16Property>) from cpp.Star<UInt16Property> to cpp.Star<UInt16Property>{
+	@:from
+	public static extern inline function fromValue(v: UInt16Property): UInt16PropertyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UInt16Property {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

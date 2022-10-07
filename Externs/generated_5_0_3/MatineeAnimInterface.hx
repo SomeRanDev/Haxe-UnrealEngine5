@@ -12,3 +12,22 @@ extern class MatineeAnimInterface extends Interface {
 @:nativeGen
 abstract ConstMatineeAnimInterface(MatineeAnimInterface) from MatineeAnimInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("MatineeAnimInterface*")
+abstract MatineeAnimInterfacePtr(cpp.Star<MatineeAnimInterface>) from cpp.Star<MatineeAnimInterface> to cpp.Star<MatineeAnimInterface>{
+	@:from
+	public static extern inline function fromValue(v: MatineeAnimInterface): MatineeAnimInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MatineeAnimInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

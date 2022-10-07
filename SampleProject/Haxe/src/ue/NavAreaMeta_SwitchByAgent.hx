@@ -61,3 +61,22 @@ abstract ConstNavAreaMeta_SwitchByAgent(NavAreaMeta_SwitchByAgent) from NavAreaM
 	public extern var Agent15Area(get, never): TSubclassOf<NavArea.ConstNavArea>;
 	public inline extern function get_Agent15Area(): TSubclassOf<NavArea.ConstNavArea> return this.Agent15Area;
 }
+
+@:forward
+@:nativeGen
+@:native("NavAreaMeta_SwitchByAgent*")
+abstract NavAreaMeta_SwitchByAgentPtr(cpp.Star<NavAreaMeta_SwitchByAgent>) from cpp.Star<NavAreaMeta_SwitchByAgent> to cpp.Star<NavAreaMeta_SwitchByAgent>{
+	@:from
+	public static extern inline function fromValue(v: NavAreaMeta_SwitchByAgent): NavAreaMeta_SwitchByAgentPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavAreaMeta_SwitchByAgent {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

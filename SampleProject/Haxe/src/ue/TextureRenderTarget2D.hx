@@ -55,3 +55,22 @@ abstract ConstTextureRenderTarget2D(TextureRenderTarget2D) from TextureRenderTar
 	public extern var OverrideFormat(get, never): EPixelFormat;
 	public inline extern function get_OverrideFormat(): EPixelFormat return this.OverrideFormat;
 }
+
+@:forward
+@:nativeGen
+@:native("TextureRenderTarget2D*")
+abstract TextureRenderTarget2DPtr(cpp.Star<TextureRenderTarget2D>) from cpp.Star<TextureRenderTarget2D> to cpp.Star<TextureRenderTarget2D>{
+	@:from
+	public static extern inline function fromValue(v: TextureRenderTarget2D): TextureRenderTarget2DPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextureRenderTarget2D {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

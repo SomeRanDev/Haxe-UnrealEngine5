@@ -25,3 +25,22 @@ abstract ConstClothLODDataCommon_Legacy(ClothLODDataCommon_Legacy) from ClothLOD
 	public extern var ParameterMasks(get, never): TArray<PointWeightMap>;
 	public inline extern function get_ParameterMasks(): TArray<PointWeightMap> return this.ParameterMasks;
 }
+
+@:forward
+@:nativeGen
+@:native("ClothLODDataCommon_Legacy*")
+abstract ClothLODDataCommon_LegacyPtr(cpp.Star<ClothLODDataCommon_Legacy>) from cpp.Star<ClothLODDataCommon_Legacy> to cpp.Star<ClothLODDataCommon_Legacy>{
+	@:from
+	public static extern inline function fromValue(v: ClothLODDataCommon_Legacy): ClothLODDataCommon_LegacyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ClothLODDataCommon_Legacy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

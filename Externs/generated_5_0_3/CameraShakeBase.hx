@@ -28,3 +28,22 @@ abstract ConstCameraShakeBase(CameraShakeBase) from CameraShakeBase {
 	public extern var CameraManager(get, never): cpp.Star<PlayerCameraManager.ConstPlayerCameraManager>;
 	public inline extern function get_CameraManager(): cpp.Star<PlayerCameraManager.ConstPlayerCameraManager> return this.CameraManager;
 }
+
+@:forward
+@:nativeGen
+@:native("CameraShakeBase*")
+abstract CameraShakeBasePtr(cpp.Star<CameraShakeBase>) from cpp.Star<CameraShakeBase> to cpp.Star<CameraShakeBase>{
+	@:from
+	public static extern inline function fromValue(v: CameraShakeBase): CameraShakeBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CameraShakeBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

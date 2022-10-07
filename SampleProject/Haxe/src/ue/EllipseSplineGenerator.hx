@@ -31,3 +31,22 @@ abstract ConstEllipseSplineGenerator(EllipseSplineGenerator) from EllipseSplineG
 	public extern var bBranchRight(get, never): Bool;
 	public inline extern function get_bBranchRight(): Bool return this.bBranchRight;
 }
+
+@:forward
+@:nativeGen
+@:native("EllipseSplineGenerator*")
+abstract EllipseSplineGeneratorPtr(cpp.Star<EllipseSplineGenerator>) from cpp.Star<EllipseSplineGenerator> to cpp.Star<EllipseSplineGenerator>{
+	@:from
+	public static extern inline function fromValue(v: EllipseSplineGenerator): EllipseSplineGeneratorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EllipseSplineGenerator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

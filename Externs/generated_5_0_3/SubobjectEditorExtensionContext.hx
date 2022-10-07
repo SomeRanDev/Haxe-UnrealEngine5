@@ -13,3 +13,22 @@ extern class SubobjectEditorExtensionContext extends Object {
 @:nativeGen
 abstract ConstSubobjectEditorExtensionContext(SubobjectEditorExtensionContext) from SubobjectEditorExtensionContext {
 }
+
+@:forward
+@:nativeGen
+@:native("SubobjectEditorExtensionContext*")
+abstract SubobjectEditorExtensionContextPtr(cpp.Star<SubobjectEditorExtensionContext>) from cpp.Star<SubobjectEditorExtensionContext> to cpp.Star<SubobjectEditorExtensionContext>{
+	@:from
+	public static extern inline function fromValue(v: SubobjectEditorExtensionContext): SubobjectEditorExtensionContextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SubobjectEditorExtensionContext {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

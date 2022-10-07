@@ -12,3 +12,22 @@ extern class ComponentHitSignature__PythonCallable extends PythonCallableForDele
 @:nativeGen
 abstract ConstComponentHitSignature__PythonCallable(ComponentHitSignature__PythonCallable) from ComponentHitSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ComponentHitSignature__PythonCallable*")
+abstract ComponentHitSignature__PythonCallablePtr(cpp.Star<ComponentHitSignature__PythonCallable>) from cpp.Star<ComponentHitSignature__PythonCallable> to cpp.Star<ComponentHitSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ComponentHitSignature__PythonCallable): ComponentHitSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ComponentHitSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstTextureLODSettings(TextureLODSettings) from TextureLODSettings {
 	public extern var TextureLODGroups(get, never): TArray<TextureLODGroup>;
 	public inline extern function get_TextureLODGroups(): TArray<TextureLODGroup> return this.TextureLODGroups;
 }
+
+@:forward
+@:nativeGen
+@:native("TextureLODSettings*")
+abstract TextureLODSettingsPtr(cpp.Star<TextureLODSettings>) from cpp.Star<TextureLODSettings> to cpp.Star<TextureLODSettings>{
+	@:from
+	public static extern inline function fromValue(v: TextureLODSettings): TextureLODSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextureLODSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

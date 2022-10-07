@@ -21,3 +21,22 @@ abstract ConstNavRelevantComp(NavRelevantComp) from NavRelevantComp {
 	public extern var CachedNavParent(get, never): cpp.Star<Object.ConstObject>;
 	public inline extern function get_CachedNavParent(): cpp.Star<Object.ConstObject> return this.CachedNavParent;
 }
+
+@:forward
+@:nativeGen
+@:native("NavRelevantComp*")
+abstract NavRelevantCompPtr(cpp.Star<NavRelevantComp>) from cpp.Star<NavRelevantComp> to cpp.Star<NavRelevantComp>{
+	@:from
+	public static extern inline function fromValue(v: NavRelevantComp): NavRelevantCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavRelevantComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

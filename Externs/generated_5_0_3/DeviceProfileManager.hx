@@ -19,3 +19,22 @@ abstract ConstDeviceProfileManager(DeviceProfileManager) from DeviceProfileManag
 	public extern var BackupProfiles(get, never): TArray<cpp.Star<DeviceProfile.ConstDeviceProfile>>;
 	public inline extern function get_BackupProfiles(): TArray<cpp.Star<DeviceProfile.ConstDeviceProfile>> return this.BackupProfiles;
 }
+
+@:forward
+@:nativeGen
+@:native("DeviceProfileManager*")
+abstract DeviceProfileManagerPtr(cpp.Star<DeviceProfileManager>) from cpp.Star<DeviceProfileManager> to cpp.Star<DeviceProfileManager>{
+	@:from
+	public static extern inline function fromValue(v: DeviceProfileManager): DeviceProfileManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DeviceProfileManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

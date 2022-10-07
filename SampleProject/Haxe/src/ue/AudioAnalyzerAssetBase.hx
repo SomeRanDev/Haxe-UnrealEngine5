@@ -13,3 +13,22 @@ extern class AudioAnalyzerAssetBase extends Object {
 @:nativeGen
 abstract ConstAudioAnalyzerAssetBase(AudioAnalyzerAssetBase) from AudioAnalyzerAssetBase {
 }
+
+@:forward
+@:nativeGen
+@:native("AudioAnalyzerAssetBase*")
+abstract AudioAnalyzerAssetBasePtr(cpp.Star<AudioAnalyzerAssetBase>) from cpp.Star<AudioAnalyzerAssetBase> to cpp.Star<AudioAnalyzerAssetBase>{
+	@:from
+	public static extern inline function fromValue(v: AudioAnalyzerAssetBase): AudioAnalyzerAssetBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AudioAnalyzerAssetBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

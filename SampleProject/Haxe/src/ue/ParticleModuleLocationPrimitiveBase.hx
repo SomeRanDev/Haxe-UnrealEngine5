@@ -43,3 +43,22 @@ abstract ConstParticleModuleLocationPrimitiveBase(ParticleModuleLocationPrimitiv
 	public extern var StartLocation(get, never): RawDistributionVector;
 	public inline extern function get_StartLocation(): RawDistributionVector return this.StartLocation;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleLocationPrimitiveBase*")
+abstract ParticleModuleLocationPrimitiveBasePtr(cpp.Star<ParticleModuleLocationPrimitiveBase>) from cpp.Star<ParticleModuleLocationPrimitiveBase> to cpp.Star<ParticleModuleLocationPrimitiveBase>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleLocationPrimitiveBase): ParticleModuleLocationPrimitiveBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleLocationPrimitiveBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

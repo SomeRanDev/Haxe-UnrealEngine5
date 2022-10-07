@@ -16,3 +16,22 @@ abstract ConstParticleModuleMeshRotationRate(ParticleModuleMeshRotationRate) fro
 	public extern var StartRotationRate(get, never): RawDistributionVector;
 	public inline extern function get_StartRotationRate(): RawDistributionVector return this.StartRotationRate;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleMeshRotationRate*")
+abstract ParticleModuleMeshRotationRatePtr(cpp.Star<ParticleModuleMeshRotationRate>) from cpp.Star<ParticleModuleMeshRotationRate> to cpp.Star<ParticleModuleMeshRotationRate>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleMeshRotationRate): ParticleModuleMeshRotationRatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleMeshRotationRate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

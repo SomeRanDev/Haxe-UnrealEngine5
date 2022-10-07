@@ -13,3 +13,22 @@ extern class DeveloperSettingsBackedByCVars extends DeveloperSettings {
 @:nativeGen
 abstract ConstDeveloperSettingsBackedByCVars(DeveloperSettingsBackedByCVars) from DeveloperSettingsBackedByCVars {
 }
+
+@:forward
+@:nativeGen
+@:native("DeveloperSettingsBackedByCVars*")
+abstract DeveloperSettingsBackedByCVarsPtr(cpp.Star<DeveloperSettingsBackedByCVars>) from cpp.Star<DeveloperSettingsBackedByCVars> to cpp.Star<DeveloperSettingsBackedByCVars>{
+	@:from
+	public static extern inline function fromValue(v: DeveloperSettingsBackedByCVars): DeveloperSettingsBackedByCVarsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DeveloperSettingsBackedByCVars {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

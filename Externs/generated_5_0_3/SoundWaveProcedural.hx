@@ -13,3 +13,22 @@ extern class SoundWaveProcedural extends SoundWave {
 @:nativeGen
 abstract ConstSoundWaveProcedural(SoundWaveProcedural) from SoundWaveProcedural {
 }
+
+@:forward
+@:nativeGen
+@:native("SoundWaveProcedural*")
+abstract SoundWaveProceduralPtr(cpp.Star<SoundWaveProcedural>) from cpp.Star<SoundWaveProcedural> to cpp.Star<SoundWaveProcedural>{
+	@:from
+	public static extern inline function fromValue(v: SoundWaveProcedural): SoundWaveProceduralPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundWaveProcedural {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

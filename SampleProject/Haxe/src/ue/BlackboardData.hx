@@ -25,3 +25,22 @@ abstract ConstBlackboardData(BlackboardData) from BlackboardData {
 	public extern var bHasSynchronizedKeys(get, never): Bool;
 	public inline extern function get_bHasSynchronizedKeys(): Bool return this.bHasSynchronizedKeys;
 }
+
+@:forward
+@:nativeGen
+@:native("BlackboardData*")
+abstract BlackboardDataPtr(cpp.Star<BlackboardData>) from cpp.Star<BlackboardData> to cpp.Star<BlackboardData>{
+	@:from
+	public static extern inline function fromValue(v: BlackboardData): BlackboardDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlackboardData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstSequencerExportTask(SequencerExportTask) from SequencerExportTask 
 	public extern var SequencerContext(get, never): cpp.Star<Object.ConstObject>;
 	public inline extern function get_SequencerContext(): cpp.Star<Object.ConstObject> return this.SequencerContext;
 }
+
+@:forward
+@:nativeGen
+@:native("SequencerExportTask*")
+abstract SequencerExportTaskPtr(cpp.Star<SequencerExportTask>) from cpp.Star<SequencerExportTask> to cpp.Star<SequencerExportTask>{
+	@:from
+	public static extern inline function fromValue(v: SequencerExportTask): SequencerExportTaskPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SequencerExportTask {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

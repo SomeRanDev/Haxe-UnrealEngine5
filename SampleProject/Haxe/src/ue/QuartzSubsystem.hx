@@ -32,3 +32,22 @@ extern class QuartzSubsystem extends TickableWorldSubsystem {
 @:nativeGen
 abstract ConstQuartzSubsystem(QuartzSubsystem) from QuartzSubsystem {
 }
+
+@:forward
+@:nativeGen
+@:native("QuartzSubsystem*")
+abstract QuartzSubsystemPtr(cpp.Star<QuartzSubsystem>) from cpp.Star<QuartzSubsystem> to cpp.Star<QuartzSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: QuartzSubsystem): QuartzSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): QuartzSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

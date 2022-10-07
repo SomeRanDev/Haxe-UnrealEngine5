@@ -25,3 +25,22 @@ abstract ConstGizmoConstantFrameAxisSource(GizmoConstantFrameAxisSource) from Gi
 	public extern var TangentY(get, never): Vector;
 	public inline extern function get_TangentY(): Vector return this.TangentY;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoConstantFrameAxisSource*")
+abstract GizmoConstantFrameAxisSourcePtr(cpp.Star<GizmoConstantFrameAxisSource>) from cpp.Star<GizmoConstantFrameAxisSource> to cpp.Star<GizmoConstantFrameAxisSource>{
+	@:from
+	public static extern inline function fromValue(v: GizmoConstantFrameAxisSource): GizmoConstantFrameAxisSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoConstantFrameAxisSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

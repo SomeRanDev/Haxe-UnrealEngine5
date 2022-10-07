@@ -19,3 +19,22 @@ abstract ConstHapticFeedbackEffect_Buffer(HapticFeedbackEffect_Buffer) from Hapt
 	public extern var SampleRate(get, never): cpp.Int32;
 	public inline extern function get_SampleRate(): cpp.Int32 return this.SampleRate;
 }
+
+@:forward
+@:nativeGen
+@:native("HapticFeedbackEffect_Buffer*")
+abstract HapticFeedbackEffect_BufferPtr(cpp.Star<HapticFeedbackEffect_Buffer>) from cpp.Star<HapticFeedbackEffect_Buffer> to cpp.Star<HapticFeedbackEffect_Buffer>{
+	@:from
+	public static extern inline function fromValue(v: HapticFeedbackEffect_Buffer): HapticFeedbackEffect_BufferPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): HapticFeedbackEffect_Buffer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

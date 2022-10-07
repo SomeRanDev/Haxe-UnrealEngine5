@@ -13,3 +13,22 @@ extern class NiagaraDataInterfaceOcclusion extends NiagaraDataInterface {
 @:nativeGen
 abstract ConstNiagaraDataInterfaceOcclusion(NiagaraDataInterfaceOcclusion) from NiagaraDataInterfaceOcclusion {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceOcclusion*")
+abstract NiagaraDataInterfaceOcclusionPtr(cpp.Star<NiagaraDataInterfaceOcclusion>) from cpp.Star<NiagaraDataInterfaceOcclusion> to cpp.Star<NiagaraDataInterfaceOcclusion>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceOcclusion): NiagaraDataInterfaceOcclusionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceOcclusion {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

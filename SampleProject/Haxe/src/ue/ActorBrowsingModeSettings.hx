@@ -31,3 +31,22 @@ abstract ConstActorBrowsingModeSettings(ActorBrowsingModeSettings) from ActorBro
 	public extern var bHideUnloadedActors(get, never): Bool;
 	public inline extern function get_bHideUnloadedActors(): Bool return this.bHideUnloadedActors;
 }
+
+@:forward
+@:nativeGen
+@:native("ActorBrowsingModeSettings*")
+abstract ActorBrowsingModeSettingsPtr(cpp.Star<ActorBrowsingModeSettings>) from cpp.Star<ActorBrowsingModeSettings> to cpp.Star<ActorBrowsingModeSettings>{
+	@:from
+	public static extern inline function fromValue(v: ActorBrowsingModeSettings): ActorBrowsingModeSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorBrowsingModeSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

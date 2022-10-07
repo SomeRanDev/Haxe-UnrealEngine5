@@ -58,3 +58,22 @@ abstract ConstReverbEffect(ReverbEffect) from ReverbEffect {
 	public extern var bChanged(get, never): Bool;
 	public inline extern function get_bChanged(): Bool return this.bChanged;
 }
+
+@:forward
+@:nativeGen
+@:native("ReverbEffect*")
+abstract ReverbEffectPtr(cpp.Star<ReverbEffect>) from cpp.Star<ReverbEffect> to cpp.Star<ReverbEffect>{
+	@:from
+	public static extern inline function fromValue(v: ReverbEffect): ReverbEffectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ReverbEffect {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

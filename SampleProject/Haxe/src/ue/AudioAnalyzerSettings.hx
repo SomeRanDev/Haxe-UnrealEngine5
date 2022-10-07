@@ -13,3 +13,22 @@ extern class AudioAnalyzerSettings extends AudioAnalyzerAssetBase {
 @:nativeGen
 abstract ConstAudioAnalyzerSettings(AudioAnalyzerSettings) from AudioAnalyzerSettings {
 }
+
+@:forward
+@:nativeGen
+@:native("AudioAnalyzerSettings*")
+abstract AudioAnalyzerSettingsPtr(cpp.Star<AudioAnalyzerSettings>) from cpp.Star<AudioAnalyzerSettings> to cpp.Star<AudioAnalyzerSettings>{
+	@:from
+	public static extern inline function fromValue(v: AudioAnalyzerSettings): AudioAnalyzerSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AudioAnalyzerSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstDEditorStaticSwitchParameterValue(DEditorStaticSwitchParameterValu
 	public extern var ParameterValue(get, never): Bool;
 	public inline extern function get_ParameterValue(): Bool return this.ParameterValue;
 }
+
+@:forward
+@:nativeGen
+@:native("DEditorStaticSwitchParameterValue*")
+abstract DEditorStaticSwitchParameterValuePtr(cpp.Star<DEditorStaticSwitchParameterValue>) from cpp.Star<DEditorStaticSwitchParameterValue> to cpp.Star<DEditorStaticSwitchParameterValue>{
+	@:from
+	public static extern inline function fromValue(v: DEditorStaticSwitchParameterValue): DEditorStaticSwitchParameterValuePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DEditorStaticSwitchParameterValue {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

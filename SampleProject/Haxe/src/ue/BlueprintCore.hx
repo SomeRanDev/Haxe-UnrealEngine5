@@ -25,3 +25,22 @@ abstract ConstBlueprintCore(BlueprintCore) from BlueprintCore {
 	public extern var BlueprintGuid(get, never): Guid;
 	public inline extern function get_BlueprintGuid(): Guid return this.BlueprintGuid;
 }
+
+@:forward
+@:nativeGen
+@:native("BlueprintCore*")
+abstract BlueprintCorePtr(cpp.Star<BlueprintCore>) from cpp.Star<BlueprintCore> to cpp.Star<BlueprintCore>{
+	@:from
+	public static extern inline function fromValue(v: BlueprintCore): BlueprintCorePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlueprintCore {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

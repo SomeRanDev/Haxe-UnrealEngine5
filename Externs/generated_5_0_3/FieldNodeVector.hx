@@ -13,3 +13,22 @@ extern class FieldNodeVector extends FieldNodeBase {
 @:nativeGen
 abstract ConstFieldNodeVector(FieldNodeVector) from FieldNodeVector {
 }
+
+@:forward
+@:nativeGen
+@:native("FieldNodeVector*")
+abstract FieldNodeVectorPtr(cpp.Star<FieldNodeVector>) from cpp.Star<FieldNodeVector> to cpp.Star<FieldNodeVector>{
+	@:from
+	public static extern inline function fromValue(v: FieldNodeVector): FieldNodeVectorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FieldNodeVector {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

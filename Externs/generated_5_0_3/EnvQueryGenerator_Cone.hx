@@ -31,3 +31,22 @@ abstract ConstEnvQueryGenerator_Cone(EnvQueryGenerator_Cone) from EnvQueryGenera
 	public extern var bIncludeContextLocation(get, never): Bool;
 	public inline extern function get_bIncludeContextLocation(): Bool return this.bIncludeContextLocation;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryGenerator_Cone*")
+abstract EnvQueryGenerator_ConePtr(cpp.Star<EnvQueryGenerator_Cone>) from cpp.Star<EnvQueryGenerator_Cone> to cpp.Star<EnvQueryGenerator_Cone>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryGenerator_Cone): EnvQueryGenerator_ConePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryGenerator_Cone {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

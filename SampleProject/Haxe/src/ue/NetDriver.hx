@@ -100,3 +100,22 @@ abstract ConstNetDriver(NetDriver) from NetDriver {
 	public extern var ReplicationDriver(get, never): cpp.Star<ReplicationDriver.ConstReplicationDriver>;
 	public inline extern function get_ReplicationDriver(): cpp.Star<ReplicationDriver.ConstReplicationDriver> return this.ReplicationDriver;
 }
+
+@:forward
+@:nativeGen
+@:native("NetDriver*")
+abstract NetDriverPtr(cpp.Star<NetDriver>) from cpp.Star<NetDriver> to cpp.Star<NetDriver>{
+	@:from
+	public static extern inline function fromValue(v: NetDriver): NetDriverPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NetDriver {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

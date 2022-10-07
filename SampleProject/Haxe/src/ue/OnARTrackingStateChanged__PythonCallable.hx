@@ -12,3 +12,22 @@ extern class OnARTrackingStateChanged__PythonCallable extends PythonCallableForD
 @:nativeGen
 abstract ConstOnARTrackingStateChanged__PythonCallable(OnARTrackingStateChanged__PythonCallable) from OnARTrackingStateChanged__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnARTrackingStateChanged__PythonCallable*")
+abstract OnARTrackingStateChanged__PythonCallablePtr(cpp.Star<OnARTrackingStateChanged__PythonCallable>) from cpp.Star<OnARTrackingStateChanged__PythonCallable> to cpp.Star<OnARTrackingStateChanged__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnARTrackingStateChanged__PythonCallable): OnARTrackingStateChanged__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnARTrackingStateChanged__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

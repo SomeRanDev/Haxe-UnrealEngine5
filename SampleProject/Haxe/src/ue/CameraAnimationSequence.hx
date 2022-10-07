@@ -13,3 +13,22 @@ extern class CameraAnimationSequence extends TemplateSequence {
 @:nativeGen
 abstract ConstCameraAnimationSequence(CameraAnimationSequence) from CameraAnimationSequence {
 }
+
+@:forward
+@:nativeGen
+@:native("CameraAnimationSequence*")
+abstract CameraAnimationSequencePtr(cpp.Star<CameraAnimationSequence>) from cpp.Star<CameraAnimationSequence> to cpp.Star<CameraAnimationSequence>{
+	@:from
+	public static extern inline function fromValue(v: CameraAnimationSequence): CameraAnimationSequencePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CameraAnimationSequence {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

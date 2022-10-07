@@ -19,3 +19,22 @@ abstract ConstAnimGraphNode_LinkedAnimLayer(AnimGraphNode_LinkedAnimLayer) from 
 	public extern var InterfaceGuid(get, never): Guid;
 	public inline extern function get_InterfaceGuid(): Guid return this.InterfaceGuid;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_LinkedAnimLayer*")
+abstract AnimGraphNode_LinkedAnimLayerPtr(cpp.Star<AnimGraphNode_LinkedAnimLayer>) from cpp.Star<AnimGraphNode_LinkedAnimLayer> to cpp.Star<AnimGraphNode_LinkedAnimLayer>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_LinkedAnimLayer): AnimGraphNode_LinkedAnimLayerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_LinkedAnimLayer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

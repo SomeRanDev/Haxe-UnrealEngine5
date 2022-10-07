@@ -12,3 +12,22 @@ extern class OnlineConnectionResult__PythonCallable extends PythonCallableForDel
 @:nativeGen
 abstract ConstOnlineConnectionResult__PythonCallable(OnlineConnectionResult__PythonCallable) from OnlineConnectionResult__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnlineConnectionResult__PythonCallable*")
+abstract OnlineConnectionResult__PythonCallablePtr(cpp.Star<OnlineConnectionResult__PythonCallable>) from cpp.Star<OnlineConnectionResult__PythonCallable> to cpp.Star<OnlineConnectionResult__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnlineConnectionResult__PythonCallable): OnlineConnectionResult__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnlineConnectionResult__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

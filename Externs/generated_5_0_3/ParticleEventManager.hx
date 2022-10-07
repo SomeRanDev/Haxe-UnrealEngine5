@@ -13,3 +13,22 @@ extern class ParticleEventManager extends Actor {
 @:nativeGen
 abstract ConstParticleEventManager(ParticleEventManager) from ParticleEventManager {
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleEventManager*")
+abstract ParticleEventManagerPtr(cpp.Star<ParticleEventManager>) from cpp.Star<ParticleEventManager> to cpp.Star<ParticleEventManager>{
+	@:from
+	public static extern inline function fromValue(v: ParticleEventManager): ParticleEventManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleEventManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

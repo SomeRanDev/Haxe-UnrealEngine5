@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_SequencePlayer(AnimGraphNode_SequencePlayer) from An
 	public extern var Node(get, never): AnimNode_SequencePlayer;
 	public inline extern function get_Node(): AnimNode_SequencePlayer return this.Node;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_SequencePlayer*")
+abstract AnimGraphNode_SequencePlayerPtr(cpp.Star<AnimGraphNode_SequencePlayer>) from cpp.Star<AnimGraphNode_SequencePlayer> to cpp.Star<AnimGraphNode_SequencePlayer>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_SequencePlayer): AnimGraphNode_SequencePlayerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_SequencePlayer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

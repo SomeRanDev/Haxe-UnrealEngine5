@@ -12,3 +12,22 @@ extern class CharacterReachedApexSignature__PythonCallable extends PythonCallabl
 @:nativeGen
 abstract ConstCharacterReachedApexSignature__PythonCallable(CharacterReachedApexSignature__PythonCallable) from CharacterReachedApexSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("CharacterReachedApexSignature__PythonCallable*")
+abstract CharacterReachedApexSignature__PythonCallablePtr(cpp.Star<CharacterReachedApexSignature__PythonCallable>) from cpp.Star<CharacterReachedApexSignature__PythonCallable> to cpp.Star<CharacterReachedApexSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: CharacterReachedApexSignature__PythonCallable): CharacterReachedApexSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CharacterReachedApexSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

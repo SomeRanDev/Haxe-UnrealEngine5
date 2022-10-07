@@ -13,3 +13,22 @@ extern class LocalInputBehaviorSource extends Object {
 @:nativeGen
 abstract ConstLocalInputBehaviorSource(LocalInputBehaviorSource) from LocalInputBehaviorSource {
 }
+
+@:forward
+@:nativeGen
+@:native("LocalInputBehaviorSource*")
+abstract LocalInputBehaviorSourcePtr(cpp.Star<LocalInputBehaviorSource>) from cpp.Star<LocalInputBehaviorSource> to cpp.Star<LocalInputBehaviorSource>{
+	@:from
+	public static extern inline function fromValue(v: LocalInputBehaviorSource): LocalInputBehaviorSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LocalInputBehaviorSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

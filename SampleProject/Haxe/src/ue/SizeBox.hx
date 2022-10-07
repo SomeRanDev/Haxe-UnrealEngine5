@@ -78,3 +78,22 @@ abstract ConstSizeBox(SizeBox) from SizeBox {
 	public extern var bOverride_MaxAspectRatio(get, never): Bool;
 	public inline extern function get_bOverride_MaxAspectRatio(): Bool return this.bOverride_MaxAspectRatio;
 }
+
+@:forward
+@:nativeGen
+@:native("SizeBox*")
+abstract SizeBoxPtr(cpp.Star<SizeBox>) from cpp.Star<SizeBox> to cpp.Star<SizeBox>{
+	@:from
+	public static extern inline function fromValue(v: SizeBox): SizeBoxPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SizeBox {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

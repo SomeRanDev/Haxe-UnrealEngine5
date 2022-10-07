@@ -12,3 +12,22 @@ extern class GetMouseCursor__PythonCallable extends PythonCallableForDelegate {
 @:nativeGen
 abstract ConstGetMouseCursor__PythonCallable(GetMouseCursor__PythonCallable) from GetMouseCursor__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("GetMouseCursor__PythonCallable*")
+abstract GetMouseCursor__PythonCallablePtr(cpp.Star<GetMouseCursor__PythonCallable>) from cpp.Star<GetMouseCursor__PythonCallable> to cpp.Star<GetMouseCursor__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: GetMouseCursor__PythonCallable): GetMouseCursor__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GetMouseCursor__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

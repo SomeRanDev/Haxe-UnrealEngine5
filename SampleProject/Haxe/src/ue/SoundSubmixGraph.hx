@@ -19,3 +19,22 @@ abstract ConstSoundSubmixGraph(SoundSubmixGraph) from SoundSubmixGraph {
 	public extern var StaleRoots(get, never): TArray<cpp.Star<SoundSubmixBase.ConstSoundSubmixBase>>;
 	public inline extern function get_StaleRoots(): TArray<cpp.Star<SoundSubmixBase.ConstSoundSubmixBase>> return this.StaleRoots;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundSubmixGraph*")
+abstract SoundSubmixGraphPtr(cpp.Star<SoundSubmixGraph>) from cpp.Star<SoundSubmixGraph> to cpp.Star<SoundSubmixGraph>{
+	@:from
+	public static extern inline function fromValue(v: SoundSubmixGraph): SoundSubmixGraphPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundSubmixGraph {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

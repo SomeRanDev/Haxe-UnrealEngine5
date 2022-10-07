@@ -13,3 +13,22 @@ extern class SoundEffectSubmixPresetClassTemplate extends ClassTemplate {
 @:nativeGen
 abstract ConstSoundEffectSubmixPresetClassTemplate(SoundEffectSubmixPresetClassTemplate) from SoundEffectSubmixPresetClassTemplate {
 }
+
+@:forward
+@:nativeGen
+@:native("SoundEffectSubmixPresetClassTemplate*")
+abstract SoundEffectSubmixPresetClassTemplatePtr(cpp.Star<SoundEffectSubmixPresetClassTemplate>) from cpp.Star<SoundEffectSubmixPresetClassTemplate> to cpp.Star<SoundEffectSubmixPresetClassTemplate>{
+	@:from
+	public static extern inline function fromValue(v: SoundEffectSubmixPresetClassTemplate): SoundEffectSubmixPresetClassTemplatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundEffectSubmixPresetClassTemplate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

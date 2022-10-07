@@ -49,3 +49,22 @@ abstract ConstDetailsView(DetailsView) from DetailsView {
 	public extern var bShowOnlyAllowed(get, never): Bool;
 	public inline extern function get_bShowOnlyAllowed(): Bool return this.bShowOnlyAllowed;
 }
+
+@:forward
+@:nativeGen
+@:native("DetailsView*")
+abstract DetailsViewPtr(cpp.Star<DetailsView>) from cpp.Star<DetailsView> to cpp.Star<DetailsView>{
+	@:from
+	public static extern inline function fromValue(v: DetailsView): DetailsViewPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DetailsView {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

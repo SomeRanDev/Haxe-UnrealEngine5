@@ -61,3 +61,22 @@ abstract ConstPlatformGameInstance(PlatformGameInstance) from PlatformGameInstan
 	public extern var ApplicationReceivedScreenOrientationChangedNotificationDelegate(get, never): HaxeMulticastSparseDelegateProperty<(EScreenOrientation) -> Void>;
 	public inline extern function get_ApplicationReceivedScreenOrientationChangedNotificationDelegate(): HaxeMulticastSparseDelegateProperty<(EScreenOrientation) -> Void> return this.ApplicationReceivedScreenOrientationChangedNotificationDelegate;
 }
+
+@:forward
+@:nativeGen
+@:native("PlatformGameInstance*")
+abstract PlatformGameInstancePtr(cpp.Star<PlatformGameInstance>) from cpp.Star<PlatformGameInstance> to cpp.Star<PlatformGameInstance>{
+	@:from
+	public static extern inline function fromValue(v: PlatformGameInstance): PlatformGameInstancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PlatformGameInstance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

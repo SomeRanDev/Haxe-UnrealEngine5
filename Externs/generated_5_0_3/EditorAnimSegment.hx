@@ -16,3 +16,22 @@ abstract ConstEditorAnimSegment(EditorAnimSegment) from EditorAnimSegment {
 	public extern var AnimSegment(get, never): AnimSegment;
 	public inline extern function get_AnimSegment(): AnimSegment return this.AnimSegment;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorAnimSegment*")
+abstract EditorAnimSegmentPtr(cpp.Star<EditorAnimSegment>) from cpp.Star<EditorAnimSegment> to cpp.Star<EditorAnimSegment>{
+	@:from
+	public static extern inline function fromValue(v: EditorAnimSegment): EditorAnimSegmentPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorAnimSegment {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

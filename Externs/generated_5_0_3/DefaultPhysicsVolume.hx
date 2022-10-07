@@ -13,3 +13,22 @@ extern class DefaultPhysicsVolume extends PhysicsVolume {
 @:nativeGen
 abstract ConstDefaultPhysicsVolume(DefaultPhysicsVolume) from DefaultPhysicsVolume {
 }
+
+@:forward
+@:nativeGen
+@:native("DefaultPhysicsVolume*")
+abstract DefaultPhysicsVolumePtr(cpp.Star<DefaultPhysicsVolume>) from cpp.Star<DefaultPhysicsVolume> to cpp.Star<DefaultPhysicsVolume>{
+	@:from
+	public static extern inline function fromValue(v: DefaultPhysicsVolume): DefaultPhysicsVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DefaultPhysicsVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

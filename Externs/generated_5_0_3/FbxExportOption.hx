@@ -43,3 +43,22 @@ abstract ConstFbxExportOption(FbxExportOption) from FbxExportOption {
 	public extern var bExportLocalTime(get, never): Bool;
 	public inline extern function get_bExportLocalTime(): Bool return this.bExportLocalTime;
 }
+
+@:forward
+@:nativeGen
+@:native("FbxExportOption*")
+abstract FbxExportOptionPtr(cpp.Star<FbxExportOption>) from cpp.Star<FbxExportOption> to cpp.Star<FbxExportOption>{
+	@:from
+	public static extern inline function fromValue(v: FbxExportOption): FbxExportOptionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FbxExportOption {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

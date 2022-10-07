@@ -19,3 +19,22 @@ abstract ConstDocumentationActor(DocumentationActor) from DocumentationActor {
 	public extern var Billboard(get, never): cpp.Star<MaterialBillboardComp.ConstMaterialBillboardComp>;
 	public inline extern function get_Billboard(): cpp.Star<MaterialBillboardComp.ConstMaterialBillboardComp> return this.Billboard;
 }
+
+@:forward
+@:nativeGen
+@:native("DocumentationActor*")
+abstract DocumentationActorPtr(cpp.Star<DocumentationActor>) from cpp.Star<DocumentationActor> to cpp.Star<DocumentationActor>{
+	@:from
+	public static extern inline function fromValue(v: DocumentationActor): DocumentationActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DocumentationActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class NiagaraStackSpacer extends NiagaraStackEntry {
 @:nativeGen
 abstract ConstNiagaraStackSpacer(NiagaraStackSpacer) from NiagaraStackSpacer {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackSpacer*")
+abstract NiagaraStackSpacerPtr(cpp.Star<NiagaraStackSpacer>) from cpp.Star<NiagaraStackSpacer> to cpp.Star<NiagaraStackSpacer>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackSpacer): NiagaraStackSpacerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackSpacer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

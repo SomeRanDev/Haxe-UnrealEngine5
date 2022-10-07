@@ -22,3 +22,22 @@ abstract ConstIntervalGizmoActor(IntervalGizmoActor) from IntervalGizmoActor {
 	public extern var ForwardIntervalComponent(get, never): cpp.Star<GizmoLineHandleComp.ConstGizmoLineHandleComp>;
 	public inline extern function get_ForwardIntervalComponent(): cpp.Star<GizmoLineHandleComp.ConstGizmoLineHandleComp> return this.ForwardIntervalComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("IntervalGizmoActor*")
+abstract IntervalGizmoActorPtr(cpp.Star<IntervalGizmoActor>) from cpp.Star<IntervalGizmoActor> to cpp.Star<IntervalGizmoActor>{
+	@:from
+	public static extern inline function fromValue(v: IntervalGizmoActor): IntervalGizmoActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IntervalGizmoActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

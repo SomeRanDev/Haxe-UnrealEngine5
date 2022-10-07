@@ -13,3 +13,22 @@ extern class ARLightEstimate extends Object {
 @:nativeGen
 abstract ConstARLightEstimate(ARLightEstimate) from ARLightEstimate {
 }
+
+@:forward
+@:nativeGen
+@:native("ARLightEstimate*")
+abstract ARLightEstimatePtr(cpp.Star<ARLightEstimate>) from cpp.Star<ARLightEstimate> to cpp.Star<ARLightEstimate>{
+	@:from
+	public static extern inline function fromValue(v: ARLightEstimate): ARLightEstimatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARLightEstimate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

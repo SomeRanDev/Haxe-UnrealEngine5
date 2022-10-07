@@ -71,3 +71,22 @@ abstract ConstSceneCaptureComp(SceneCaptureComp) from SceneCaptureComp {
 	public extern var CaptureMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
 	public inline extern function get_CaptureMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.CaptureMesh;
 }
+
+@:forward
+@:nativeGen
+@:native("SceneCaptureComp*")
+abstract SceneCaptureCompPtr(cpp.Star<SceneCaptureComp>) from cpp.Star<SceneCaptureComp> to cpp.Star<SceneCaptureComp>{
+	@:from
+	public static extern inline function fromValue(v: SceneCaptureComp): SceneCaptureCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SceneCaptureComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class StaticMeshExporterOBJ extends Exporter {
 @:nativeGen
 abstract ConstStaticMeshExporterOBJ(StaticMeshExporterOBJ) from StaticMeshExporterOBJ {
 }
+
+@:forward
+@:nativeGen
+@:native("StaticMeshExporterOBJ*")
+abstract StaticMeshExporterOBJPtr(cpp.Star<StaticMeshExporterOBJ>) from cpp.Star<StaticMeshExporterOBJ> to cpp.Star<StaticMeshExporterOBJ>{
+	@:from
+	public static extern inline function fromValue(v: StaticMeshExporterOBJ): StaticMeshExporterOBJPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): StaticMeshExporterOBJ {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

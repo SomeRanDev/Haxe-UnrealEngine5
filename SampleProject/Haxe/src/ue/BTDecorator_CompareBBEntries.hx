@@ -22,3 +22,22 @@ abstract ConstBTDecorator_CompareBBEntries(BTDecorator_CompareBBEntries) from BT
 	public extern var BlackboardKeyB(get, never): BlackboardKeySelector;
 	public inline extern function get_BlackboardKeyB(): BlackboardKeySelector return this.BlackboardKeyB;
 }
+
+@:forward
+@:nativeGen
+@:native("BTDecorator_CompareBBEntries*")
+abstract BTDecorator_CompareBBEntriesPtr(cpp.Star<BTDecorator_CompareBBEntries>) from cpp.Star<BTDecorator_CompareBBEntries> to cpp.Star<BTDecorator_CompareBBEntries>{
+	@:from
+	public static extern inline function fromValue(v: BTDecorator_CompareBBEntries): BTDecorator_CompareBBEntriesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTDecorator_CompareBBEntries {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstK2Node_DoOnceMultiInput(K2Node_DoOnceMultiInput) from K2Node_DoOnc
 	public extern var DataNode(get, never): cpp.Star<K2Node_TemporaryVariable.ConstK2Node_TemporaryVariable>;
 	public inline extern function get_DataNode(): cpp.Star<K2Node_TemporaryVariable.ConstK2Node_TemporaryVariable> return this.DataNode;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_DoOnceMultiInput*")
+abstract K2Node_DoOnceMultiInputPtr(cpp.Star<K2Node_DoOnceMultiInput>) from cpp.Star<K2Node_DoOnceMultiInput> to cpp.Star<K2Node_DoOnceMultiInput>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_DoOnceMultiInput): K2Node_DoOnceMultiInputPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_DoOnceMultiInput {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

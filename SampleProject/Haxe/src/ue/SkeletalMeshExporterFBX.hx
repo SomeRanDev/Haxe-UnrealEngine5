@@ -13,3 +13,22 @@ extern class SkeletalMeshExporterFBX extends ExporterFBX {
 @:nativeGen
 abstract ConstSkeletalMeshExporterFBX(SkeletalMeshExporterFBX) from SkeletalMeshExporterFBX {
 }
+
+@:forward
+@:nativeGen
+@:native("SkeletalMeshExporterFBX*")
+abstract SkeletalMeshExporterFBXPtr(cpp.Star<SkeletalMeshExporterFBX>) from cpp.Star<SkeletalMeshExporterFBX> to cpp.Star<SkeletalMeshExporterFBX>{
+	@:from
+	public static extern inline function fromValue(v: SkeletalMeshExporterFBX): SkeletalMeshExporterFBXPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SkeletalMeshExporterFBX {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

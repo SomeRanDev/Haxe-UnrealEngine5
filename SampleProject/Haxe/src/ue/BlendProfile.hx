@@ -22,3 +22,22 @@ abstract ConstBlendProfile(BlendProfile) from BlendProfile {
 	public extern var Mode(get, never): EBlendProfileMode;
 	public inline extern function get_Mode(): EBlendProfileMode return this.Mode;
 }
+
+@:forward
+@:nativeGen
+@:native("BlendProfile*")
+abstract BlendProfilePtr(cpp.Star<BlendProfile>) from cpp.Star<BlendProfile> to cpp.Star<BlendProfile>{
+	@:from
+	public static extern inline function fromValue(v: BlendProfile): BlendProfilePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlendProfile {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

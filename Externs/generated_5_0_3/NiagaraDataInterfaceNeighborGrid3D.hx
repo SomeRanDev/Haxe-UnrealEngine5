@@ -16,3 +16,22 @@ abstract ConstNiagaraDataInterfaceNeighborGrid3D(NiagaraDataInterfaceNeighborGri
 	public extern var MaxNeighborsPerCell(get, never): cpp.UInt32;
 	public inline extern function get_MaxNeighborsPerCell(): cpp.UInt32 return this.MaxNeighborsPerCell;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceNeighborGrid3D*")
+abstract NiagaraDataInterfaceNeighborGrid3DPtr(cpp.Star<NiagaraDataInterfaceNeighborGrid3D>) from cpp.Star<NiagaraDataInterfaceNeighborGrid3D> to cpp.Star<NiagaraDataInterfaceNeighborGrid3D>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceNeighborGrid3D): NiagaraDataInterfaceNeighborGrid3DPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceNeighborGrid3D {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

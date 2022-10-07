@@ -43,3 +43,22 @@ extern class BlueprintGameplayTagLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstBlueprintGameplayTagLibrary(BlueprintGameplayTagLibrary) from BlueprintGameplayTagLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("BlueprintGameplayTagLibrary*")
+abstract BlueprintGameplayTagLibraryPtr(cpp.Star<BlueprintGameplayTagLibrary>) from cpp.Star<BlueprintGameplayTagLibrary> to cpp.Star<BlueprintGameplayTagLibrary>{
+	@:from
+	public static extern inline function fromValue(v: BlueprintGameplayTagLibrary): BlueprintGameplayTagLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlueprintGameplayTagLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

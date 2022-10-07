@@ -49,3 +49,22 @@ abstract ConstProceduralFoliageComp(ProceduralFoliageComp) from ProceduralFoliag
 	public extern var LastSimulationDataLayer(get, never): ActorDataLayer;
 	public inline extern function get_LastSimulationDataLayer(): ActorDataLayer return this.LastSimulationDataLayer;
 }
+
+@:forward
+@:nativeGen
+@:native("ProceduralFoliageComp*")
+abstract ProceduralFoliageCompPtr(cpp.Star<ProceduralFoliageComp>) from cpp.Star<ProceduralFoliageComp> to cpp.Star<ProceduralFoliageComp>{
+	@:from
+	public static extern inline function fromValue(v: ProceduralFoliageComp): ProceduralFoliageCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ProceduralFoliageComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

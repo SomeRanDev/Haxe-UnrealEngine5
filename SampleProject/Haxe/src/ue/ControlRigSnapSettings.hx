@@ -25,3 +25,22 @@ abstract ConstControlRigSnapSettings(ControlRigSnapSettings) from ControlRigSnap
 	public extern var bSnapScale(get, never): Bool;
 	public inline extern function get_bSnapScale(): Bool return this.bSnapScale;
 }
+
+@:forward
+@:nativeGen
+@:native("ControlRigSnapSettings*")
+abstract ControlRigSnapSettingsPtr(cpp.Star<ControlRigSnapSettings>) from cpp.Star<ControlRigSnapSettings> to cpp.Star<ControlRigSnapSettings>{
+	@:from
+	public static extern inline function fromValue(v: ControlRigSnapSettings): ControlRigSnapSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ControlRigSnapSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

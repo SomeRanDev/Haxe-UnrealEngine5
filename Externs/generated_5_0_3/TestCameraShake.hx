@@ -13,3 +13,22 @@ extern class TestCameraShake extends CameraShakeBase {
 @:nativeGen
 abstract ConstTestCameraShake(TestCameraShake) from TestCameraShake {
 }
+
+@:forward
+@:nativeGen
+@:native("TestCameraShake*")
+abstract TestCameraShakePtr(cpp.Star<TestCameraShake>) from cpp.Star<TestCameraShake> to cpp.Star<TestCameraShake>{
+	@:from
+	public static extern inline function fromValue(v: TestCameraShake): TestCameraShakePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TestCameraShake {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -46,3 +46,22 @@ abstract ConstUMGEditorProjectSettings(UMGEditorProjectSettings) from UMGEditorP
 	public extern var Version(get, never): cpp.Int32;
 	public inline extern function get_Version(): cpp.Int32 return this.Version;
 }
+
+@:forward
+@:nativeGen
+@:native("UMGEditorProjectSettings*")
+abstract UMGEditorProjectSettingsPtr(cpp.Star<UMGEditorProjectSettings>) from cpp.Star<UMGEditorProjectSettings> to cpp.Star<UMGEditorProjectSettings>{
+	@:from
+	public static extern inline function fromValue(v: UMGEditorProjectSettings): UMGEditorProjectSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UMGEditorProjectSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

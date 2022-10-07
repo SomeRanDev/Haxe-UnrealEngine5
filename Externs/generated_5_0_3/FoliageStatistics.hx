@@ -16,3 +16,22 @@ extern class FoliageStatistics extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstFoliageStatistics(FoliageStatistics) from FoliageStatistics {
 }
+
+@:forward
+@:nativeGen
+@:native("FoliageStatistics*")
+abstract FoliageStatisticsPtr(cpp.Star<FoliageStatistics>) from cpp.Star<FoliageStatistics> to cpp.Star<FoliageStatistics>{
+	@:from
+	public static extern inline function fromValue(v: FoliageStatistics): FoliageStatisticsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FoliageStatistics {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

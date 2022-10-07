@@ -14,3 +14,22 @@ extern class WidgetBinding extends PropertyBinding {
 @:nativeGen
 abstract ConstWidgetBinding(WidgetBinding) from WidgetBinding {
 }
+
+@:forward
+@:nativeGen
+@:native("WidgetBinding*")
+abstract WidgetBindingPtr(cpp.Star<WidgetBinding>) from cpp.Star<WidgetBinding> to cpp.Star<WidgetBinding>{
+	@:from
+	public static extern inline function fromValue(v: WidgetBinding): WidgetBindingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WidgetBinding {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

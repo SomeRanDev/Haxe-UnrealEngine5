@@ -13,3 +13,22 @@ extern class CompressAnimationsCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstCompressAnimationsCommandlet(CompressAnimationsCommandlet) from CompressAnimationsCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("CompressAnimationsCommandlet*")
+abstract CompressAnimationsCommandletPtr(cpp.Star<CompressAnimationsCommandlet>) from cpp.Star<CompressAnimationsCommandlet> to cpp.Star<CompressAnimationsCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: CompressAnimationsCommandlet): CompressAnimationsCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CompressAnimationsCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

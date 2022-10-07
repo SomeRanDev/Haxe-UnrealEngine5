@@ -13,3 +13,22 @@ extern class K2Node extends EdGraphNode {
 @:nativeGen
 abstract ConstK2Node(K2Node) from K2Node {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node*")
+abstract K2NodePtr(cpp.Star<K2Node>) from cpp.Star<K2Node> to cpp.Star<K2Node>{
+	@:from
+	public static extern inline function fromValue(v: K2Node): K2NodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

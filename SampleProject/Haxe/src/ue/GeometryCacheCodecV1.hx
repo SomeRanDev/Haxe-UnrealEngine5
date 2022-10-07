@@ -13,3 +13,22 @@ extern class GeometryCacheCodecV1 extends GeometryCacheCodecBase {
 @:nativeGen
 abstract ConstGeometryCacheCodecV1(GeometryCacheCodecV1) from GeometryCacheCodecV1 {
 }
+
+@:forward
+@:nativeGen
+@:native("GeometryCacheCodecV1*")
+abstract GeometryCacheCodecV1Ptr(cpp.Star<GeometryCacheCodecV1>) from cpp.Star<GeometryCacheCodecV1> to cpp.Star<GeometryCacheCodecV1>{
+	@:from
+	public static extern inline function fromValue(v: GeometryCacheCodecV1): GeometryCacheCodecV1Ptr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GeometryCacheCodecV1 {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

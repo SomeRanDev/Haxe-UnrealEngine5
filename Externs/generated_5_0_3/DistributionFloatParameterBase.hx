@@ -31,3 +31,22 @@ abstract ConstDistributionFloatParameterBase(DistributionFloatParameterBase) fro
 	public extern var ParamMode(get, never): DistributionParamMode;
 	public inline extern function get_ParamMode(): DistributionParamMode return this.ParamMode;
 }
+
+@:forward
+@:nativeGen
+@:native("DistributionFloatParameterBase*")
+abstract DistributionFloatParameterBasePtr(cpp.Star<DistributionFloatParameterBase>) from cpp.Star<DistributionFloatParameterBase> to cpp.Star<DistributionFloatParameterBase>{
+	@:from
+	public static extern inline function fromValue(v: DistributionFloatParameterBase): DistributionFloatParameterBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DistributionFloatParameterBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

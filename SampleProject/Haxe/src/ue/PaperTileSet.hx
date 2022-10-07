@@ -64,3 +64,22 @@ abstract ConstPaperTileSet(PaperTileSet) from PaperTileSet {
 	public extern var Spacing_DEPRECATED(get, never): cpp.Int32;
 	public inline extern function get_Spacing_DEPRECATED(): cpp.Int32 return this.Spacing_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("PaperTileSet*")
+abstract PaperTileSetPtr(cpp.Star<PaperTileSet>) from cpp.Star<PaperTileSet> to cpp.Star<PaperTileSet>{
+	@:from
+	public static extern inline function fromValue(v: PaperTileSet): PaperTileSetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PaperTileSet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

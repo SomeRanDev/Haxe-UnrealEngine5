@@ -145,3 +145,22 @@ abstract ConstLevel(Level) from Level {
 	public extern var LoadedExternalActorFolders(get, never): TArray<cpp.Star<ActorFolder.ConstActorFolder>>;
 	public inline extern function get_LoadedExternalActorFolders(): TArray<cpp.Star<ActorFolder.ConstActorFolder>> return this.LoadedExternalActorFolders;
 }
+
+@:forward
+@:nativeGen
+@:native("Level*")
+abstract LevelPtr(cpp.Star<Level>) from cpp.Star<Level> to cpp.Star<Level>{
+	@:from
+	public static extern inline function fromValue(v: Level): LevelPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Level {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

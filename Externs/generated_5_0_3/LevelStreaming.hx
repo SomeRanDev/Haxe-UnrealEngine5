@@ -115,3 +115,22 @@ abstract ConstLevelStreaming(LevelStreaming) from LevelStreaming {
 	public extern var FolderPath(get, never): FName;
 	public inline extern function get_FolderPath(): FName return this.FolderPath;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelStreaming*")
+abstract LevelStreamingPtr(cpp.Star<LevelStreaming>) from cpp.Star<LevelStreaming> to cpp.Star<LevelStreaming>{
+	@:from
+	public static extern inline function fromValue(v: LevelStreaming): LevelStreamingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelStreaming {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

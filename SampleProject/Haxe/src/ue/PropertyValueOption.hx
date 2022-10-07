@@ -13,3 +13,22 @@ extern class PropertyValueOption extends PropertyValue {
 @:nativeGen
 abstract ConstPropertyValueOption(PropertyValueOption) from PropertyValueOption {
 }
+
+@:forward
+@:nativeGen
+@:native("PropertyValueOption*")
+abstract PropertyValueOptionPtr(cpp.Star<PropertyValueOption>) from cpp.Star<PropertyValueOption> to cpp.Star<PropertyValueOption>{
+	@:from
+	public static extern inline function fromValue(v: PropertyValueOption): PropertyValueOptionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PropertyValueOption {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -14,3 +14,22 @@ extern class EditorSubsystemBlueprintLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstEditorSubsystemBlueprintLibrary(EditorSubsystemBlueprintLibrary) from EditorSubsystemBlueprintLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("EditorSubsystemBlueprintLibrary*")
+abstract EditorSubsystemBlueprintLibraryPtr(cpp.Star<EditorSubsystemBlueprintLibrary>) from cpp.Star<EditorSubsystemBlueprintLibrary> to cpp.Star<EditorSubsystemBlueprintLibrary>{
+	@:from
+	public static extern inline function fromValue(v: EditorSubsystemBlueprintLibrary): EditorSubsystemBlueprintLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorSubsystemBlueprintLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -52,3 +52,22 @@ abstract ConstInterpTrackMove(InterpTrackMove) from InterpTrackMove {
 	public extern var RotMode(get, never): EInterpTrackMoveRotMode;
 	public inline extern function get_RotMode(): EInterpTrackMoveRotMode return this.RotMode;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackMove*")
+abstract InterpTrackMovePtr(cpp.Star<InterpTrackMove>) from cpp.Star<InterpTrackMove> to cpp.Star<InterpTrackMove>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackMove): InterpTrackMovePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackMove {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstBlueprintFactory(BlueprintFactory) from BlueprintFactory {
 	public extern var bSkipClassPicker(get, never): Bool;
 	public inline extern function get_bSkipClassPicker(): Bool return this.bSkipClassPicker;
 }
+
+@:forward
+@:nativeGen
+@:native("BlueprintFactory*")
+abstract BlueprintFactoryPtr(cpp.Star<BlueprintFactory>) from cpp.Star<BlueprintFactory> to cpp.Star<BlueprintFactory>{
+	@:from
+	public static extern inline function fromValue(v: BlueprintFactory): BlueprintFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlueprintFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

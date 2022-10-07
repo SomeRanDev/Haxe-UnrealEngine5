@@ -19,3 +19,22 @@ abstract ConstRig(Rig) from Rig {
 	public extern var Nodes(get, never): TArray<Node>;
 	public inline extern function get_Nodes(): TArray<Node> return this.Nodes;
 }
+
+@:forward
+@:nativeGen
+@:native("Rig*")
+abstract RigPtr(cpp.Star<Rig>) from cpp.Star<Rig> to cpp.Star<Rig>{
+	@:from
+	public static extern inline function fromValue(v: Rig): RigPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Rig {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

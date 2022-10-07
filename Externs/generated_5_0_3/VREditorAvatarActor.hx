@@ -58,3 +58,22 @@ abstract ConstVREditorAvatarActor(VREditorAvatarActor) from VREditorAvatarActor 
 	public extern var VRMode(get, never): cpp.Star<VREditorMode.ConstVREditorMode>;
 	public inline extern function get_VRMode(): cpp.Star<VREditorMode.ConstVREditorMode> return this.VRMode;
 }
+
+@:forward
+@:nativeGen
+@:native("VREditorAvatarActor*")
+abstract VREditorAvatarActorPtr(cpp.Star<VREditorAvatarActor>) from cpp.Star<VREditorAvatarActor> to cpp.Star<VREditorAvatarActor>{
+	@:from
+	public static extern inline function fromValue(v: VREditorAvatarActor): VREditorAvatarActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VREditorAvatarActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

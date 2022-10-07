@@ -13,3 +13,22 @@ extern class ActorElementEditorWorldInterface extends ActorElementWorldInterface
 @:nativeGen
 abstract ConstActorElementEditorWorldInterface(ActorElementEditorWorldInterface) from ActorElementEditorWorldInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorElementEditorWorldInterface*")
+abstract ActorElementEditorWorldInterfacePtr(cpp.Star<ActorElementEditorWorldInterface>) from cpp.Star<ActorElementEditorWorldInterface> to cpp.Star<ActorElementEditorWorldInterface>{
+	@:from
+	public static extern inline function fromValue(v: ActorElementEditorWorldInterface): ActorElementEditorWorldInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorElementEditorWorldInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

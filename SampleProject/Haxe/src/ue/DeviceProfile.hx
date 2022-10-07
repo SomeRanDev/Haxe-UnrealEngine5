@@ -28,3 +28,22 @@ abstract ConstDeviceProfile(DeviceProfile) from DeviceProfile {
 	public extern var MatchingRules(get, never): TArray<DPMatchingRulestruct>;
 	public inline extern function get_MatchingRules(): TArray<DPMatchingRulestruct> return this.MatchingRules;
 }
+
+@:forward
+@:nativeGen
+@:native("DeviceProfile*")
+abstract DeviceProfilePtr(cpp.Star<DeviceProfile>) from cpp.Star<DeviceProfile> to cpp.Star<DeviceProfile>{
+	@:from
+	public static extern inline function fromValue(v: DeviceProfile): DeviceProfilePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DeviceProfile {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class NiagaraConvertInPlaceEmitterAndSystemState extends NiagaraConvertIn
 @:nativeGen
 abstract ConstNiagaraConvertInPlaceEmitterAndSystemState(NiagaraConvertInPlaceEmitterAndSystemState) from NiagaraConvertInPlaceEmitterAndSystemState {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraConvertInPlaceEmitterAndSystemState*")
+abstract NiagaraConvertInPlaceEmitterAndSystemStatePtr(cpp.Star<NiagaraConvertInPlaceEmitterAndSystemState>) from cpp.Star<NiagaraConvertInPlaceEmitterAndSystemState> to cpp.Star<NiagaraConvertInPlaceEmitterAndSystemState>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraConvertInPlaceEmitterAndSystemState): NiagaraConvertInPlaceEmitterAndSystemStatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraConvertInPlaceEmitterAndSystemState {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

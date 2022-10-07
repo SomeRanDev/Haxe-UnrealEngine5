@@ -34,3 +34,22 @@ abstract ConstMaterialExpressionRuntimeVirtualTextureOutput(MaterialExpressionRu
 	public extern var Mask(get, never): ExpressionInput;
 	public inline extern function get_Mask(): ExpressionInput return this.Mask;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionRuntimeVirtualTextureOutput*")
+abstract MaterialExpressionRuntimeVirtualTextureOutputPtr(cpp.Star<MaterialExpressionRuntimeVirtualTextureOutput>) from cpp.Star<MaterialExpressionRuntimeVirtualTextureOutput> to cpp.Star<MaterialExpressionRuntimeVirtualTextureOutput>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionRuntimeVirtualTextureOutput): MaterialExpressionRuntimeVirtualTextureOutputPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionRuntimeVirtualTextureOutput {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

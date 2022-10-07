@@ -13,3 +13,22 @@ extern class AnimGraphNode_CustomTransitionResult extends AnimGraphNode_StateRes
 @:nativeGen
 abstract ConstAnimGraphNode_CustomTransitionResult(AnimGraphNode_CustomTransitionResult) from AnimGraphNode_CustomTransitionResult {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_CustomTransitionResult*")
+abstract AnimGraphNode_CustomTransitionResultPtr(cpp.Star<AnimGraphNode_CustomTransitionResult>) from cpp.Star<AnimGraphNode_CustomTransitionResult> to cpp.Star<AnimGraphNode_CustomTransitionResult>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_CustomTransitionResult): AnimGraphNode_CustomTransitionResultPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_CustomTransitionResult {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

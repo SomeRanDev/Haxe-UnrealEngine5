@@ -13,3 +13,22 @@ extern class AnimCompositeBase extends AnimSequenceBase {
 @:nativeGen
 abstract ConstAnimCompositeBase(AnimCompositeBase) from AnimCompositeBase {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimCompositeBase*")
+abstract AnimCompositeBasePtr(cpp.Star<AnimCompositeBase>) from cpp.Star<AnimCompositeBase> to cpp.Star<AnimCompositeBase>{
+	@:from
+	public static extern inline function fromValue(v: AnimCompositeBase): AnimCompositeBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimCompositeBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

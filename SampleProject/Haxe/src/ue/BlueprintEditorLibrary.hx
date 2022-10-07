@@ -27,3 +27,22 @@ extern class BlueprintEditorLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstBlueprintEditorLibrary(BlueprintEditorLibrary) from BlueprintEditorLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("BlueprintEditorLibrary*")
+abstract BlueprintEditorLibraryPtr(cpp.Star<BlueprintEditorLibrary>) from cpp.Star<BlueprintEditorLibrary> to cpp.Star<BlueprintEditorLibrary>{
+	@:from
+	public static extern inline function fromValue(v: BlueprintEditorLibrary): BlueprintEditorLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlueprintEditorLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

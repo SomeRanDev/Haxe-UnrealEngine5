@@ -40,3 +40,22 @@ abstract ConstMaterialExpressionSpeedTree(MaterialExpressionSpeedTree) from Mate
 	public extern var bAccurateWindVelocities(get, never): Bool;
 	public inline extern function get_bAccurateWindVelocities(): Bool return this.bAccurateWindVelocities;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionSpeedTree*")
+abstract MaterialExpressionSpeedTreePtr(cpp.Star<MaterialExpressionSpeedTree>) from cpp.Star<MaterialExpressionSpeedTree> to cpp.Star<MaterialExpressionSpeedTree>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionSpeedTree): MaterialExpressionSpeedTreePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionSpeedTree {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

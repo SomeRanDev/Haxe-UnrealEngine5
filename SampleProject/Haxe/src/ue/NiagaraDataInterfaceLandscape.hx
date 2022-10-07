@@ -22,3 +22,22 @@ abstract ConstNiagaraDataInterfaceLandscape(NiagaraDataInterfaceLandscape) from 
 	public extern var PhysicalMaterials(get, never): TArray<cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>>;
 	public inline extern function get_PhysicalMaterials(): TArray<cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>> return this.PhysicalMaterials;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceLandscape*")
+abstract NiagaraDataInterfaceLandscapePtr(cpp.Star<NiagaraDataInterfaceLandscape>) from cpp.Star<NiagaraDataInterfaceLandscape> to cpp.Star<NiagaraDataInterfaceLandscape>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceLandscape): NiagaraDataInterfaceLandscapePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceLandscape {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

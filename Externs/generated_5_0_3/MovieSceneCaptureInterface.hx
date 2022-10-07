@@ -12,3 +12,22 @@ extern class MovieSceneCaptureInterface extends Interface {
 @:nativeGen
 abstract ConstMovieSceneCaptureInterface(MovieSceneCaptureInterface) from MovieSceneCaptureInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneCaptureInterface*")
+abstract MovieSceneCaptureInterfacePtr(cpp.Star<MovieSceneCaptureInterface>) from cpp.Star<MovieSceneCaptureInterface> to cpp.Star<MovieSceneCaptureInterface>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneCaptureInterface): MovieSceneCaptureInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneCaptureInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

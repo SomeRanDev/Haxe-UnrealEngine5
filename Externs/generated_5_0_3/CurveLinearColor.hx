@@ -41,3 +41,22 @@ abstract ConstCurveLinearColor(CurveLinearColor) from CurveLinearColor {
 	public extern var AdjustMaxAlpha(get, never): cpp.Float32;
 	public inline extern function get_AdjustMaxAlpha(): cpp.Float32 return this.AdjustMaxAlpha;
 }
+
+@:forward
+@:nativeGen
+@:native("CurveLinearColor*")
+abstract CurveLinearColorPtr(cpp.Star<CurveLinearColor>) from cpp.Star<CurveLinearColor> to cpp.Star<CurveLinearColor>{
+	@:from
+	public static extern inline function fromValue(v: CurveLinearColor): CurveLinearColorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CurveLinearColor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

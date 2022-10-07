@@ -16,3 +16,22 @@ abstract ConstNiagaraMergeable(NiagaraMergeable) from NiagaraMergeable {
 	public extern var MergeId(get, never): Guid;
 	public inline extern function get_MergeId(): Guid return this.MergeId;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraMergeable*")
+abstract NiagaraMergeablePtr(cpp.Star<NiagaraMergeable>) from cpp.Star<NiagaraMergeable> to cpp.Star<NiagaraMergeable>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraMergeable): NiagaraMergeablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraMergeable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

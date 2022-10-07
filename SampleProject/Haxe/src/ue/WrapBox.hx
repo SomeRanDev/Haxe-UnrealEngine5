@@ -38,3 +38,22 @@ abstract ConstWrapBox(WrapBox) from WrapBox {
 	public extern var Orientation(get, never): EOrientation;
 	public inline extern function get_Orientation(): EOrientation return this.Orientation;
 }
+
+@:forward
+@:nativeGen
+@:native("WrapBox*")
+abstract WrapBoxPtr(cpp.Star<WrapBox>) from cpp.Star<WrapBox> to cpp.Star<WrapBox>{
+	@:from
+	public static extern inline function fromValue(v: WrapBox): WrapBoxPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WrapBox {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

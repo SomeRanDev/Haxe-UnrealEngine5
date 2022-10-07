@@ -12,3 +12,21 @@ extern class TRASHCLASS_ABP_Manny_1 {
 @:nativeGen
 abstract ConstTRASHCLASS_ABP_Manny_1(TRASHCLASS_ABP_Manny_1) from TRASHCLASS_ABP_Manny_1 {
 }
+
+@:forward
+@:nativeGen
+@:native("TRASHCLASS_ABP_Manny_1*")abstract TRASHCLASS_ABP_Manny_1Ptr(cpp.Star<TRASHCLASS_ABP_Manny_1>) from cpp.Star<TRASHCLASS_ABP_Manny_1> to cpp.Star<TRASHCLASS_ABP_Manny_1>{
+	@:from
+	public static extern inline function fromValue(v: TRASHCLASS_ABP_Manny_1): TRASHCLASS_ABP_Manny_1Ptr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TRASHCLASS_ABP_Manny_1 {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete() {
+		return untyped __cpp__("delete ({0})", this);
+	}
+}

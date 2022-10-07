@@ -25,3 +25,22 @@ abstract ConstGameState(GameState) from GameState {
 	public extern var ElapsedTime(get, never): cpp.Int32;
 	public inline extern function get_ElapsedTime(): cpp.Int32 return this.ElapsedTime;
 }
+
+@:forward
+@:nativeGen
+@:native("GameState*")
+abstract GameStatePtr(cpp.Star<GameState>) from cpp.Star<GameState> to cpp.Star<GameState>{
+	@:from
+	public static extern inline function fromValue(v: GameState): GameStatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameState {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

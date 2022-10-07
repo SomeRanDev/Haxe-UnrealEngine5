@@ -13,3 +13,22 @@ extern class BasicOverlaysFactory extends Factory {
 @:nativeGen
 abstract ConstBasicOverlaysFactory(BasicOverlaysFactory) from BasicOverlaysFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("BasicOverlaysFactory*")
+abstract BasicOverlaysFactoryPtr(cpp.Star<BasicOverlaysFactory>) from cpp.Star<BasicOverlaysFactory> to cpp.Star<BasicOverlaysFactory>{
+	@:from
+	public static extern inline function fromValue(v: BasicOverlaysFactory): BasicOverlaysFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BasicOverlaysFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

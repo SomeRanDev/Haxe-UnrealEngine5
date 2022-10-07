@@ -70,3 +70,22 @@ abstract ConstMaterialExpressionMakeMaterialAttributes(MaterialExpressionMakeMat
 	public extern var ShadingModel(get, never): ExpressionInput;
 	public inline extern function get_ShadingModel(): ExpressionInput return this.ShadingModel;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionMakeMaterialAttributes*")
+abstract MaterialExpressionMakeMaterialAttributesPtr(cpp.Star<MaterialExpressionMakeMaterialAttributes>) from cpp.Star<MaterialExpressionMakeMaterialAttributes> to cpp.Star<MaterialExpressionMakeMaterialAttributes>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionMakeMaterialAttributes): MaterialExpressionMakeMaterialAttributesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionMakeMaterialAttributes {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

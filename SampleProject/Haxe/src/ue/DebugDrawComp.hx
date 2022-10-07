@@ -13,3 +13,22 @@ extern class DebugDrawComp extends PrimitiveComp {
 @:nativeGen
 abstract ConstDebugDrawComp(DebugDrawComp) from DebugDrawComp {
 }
+
+@:forward
+@:nativeGen
+@:native("DebugDrawComp*")
+abstract DebugDrawCompPtr(cpp.Star<DebugDrawComp>) from cpp.Star<DebugDrawComp> to cpp.Star<DebugDrawComp>{
+	@:from
+	public static extern inline function fromValue(v: DebugDrawComp): DebugDrawCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DebugDrawComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstInterpTrackVectorMaterialParam(InterpTrackVectorMaterialParam) fro
 	public extern var ParamName(get, never): FName;
 	public inline extern function get_ParamName(): FName return this.ParamName;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackVectorMaterialParam*")
+abstract InterpTrackVectorMaterialParamPtr(cpp.Star<InterpTrackVectorMaterialParam>) from cpp.Star<InterpTrackVectorMaterialParam> to cpp.Star<InterpTrackVectorMaterialParam>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackVectorMaterialParam): InterpTrackVectorMaterialParamPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackVectorMaterialParam {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

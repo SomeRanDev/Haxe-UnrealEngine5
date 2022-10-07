@@ -64,3 +64,22 @@ abstract ConstBlueprintGeneratedClass(BlueprintGeneratedClass) from BlueprintGen
 	public extern var CookedComponentInstancingData(get, never): TMap<FName, BlueprintCookedComponentInstancingData>;
 	public inline extern function get_CookedComponentInstancingData(): TMap<FName, BlueprintCookedComponentInstancingData> return this.CookedComponentInstancingData;
 }
+
+@:forward
+@:nativeGen
+@:native("BlueprintGeneratedClass*")
+abstract BlueprintGeneratedClassPtr(cpp.Star<BlueprintGeneratedClass>) from cpp.Star<BlueprintGeneratedClass> to cpp.Star<BlueprintGeneratedClass>{
+	@:from
+	public static extern inline function fromValue(v: BlueprintGeneratedClass): BlueprintGeneratedClassPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlueprintGeneratedClass {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

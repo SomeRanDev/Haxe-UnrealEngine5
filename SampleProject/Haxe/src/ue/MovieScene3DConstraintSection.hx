@@ -22,3 +22,22 @@ abstract ConstMovieScene3DConstraintSection(MovieScene3DConstraintSection) from 
 	public extern var ConstraintBindingID(get, never): MovieSceneObjectBindingID;
 	public inline extern function get_ConstraintBindingID(): MovieSceneObjectBindingID return this.ConstraintBindingID;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieScene3DConstraintSection*")
+abstract MovieScene3DConstraintSectionPtr(cpp.Star<MovieScene3DConstraintSection>) from cpp.Star<MovieScene3DConstraintSection> to cpp.Star<MovieScene3DConstraintSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieScene3DConstraintSection): MovieScene3DConstraintSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieScene3DConstraintSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

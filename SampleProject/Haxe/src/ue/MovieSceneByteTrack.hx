@@ -16,3 +16,22 @@ abstract ConstMovieSceneByteTrack(MovieSceneByteTrack) from MovieSceneByteTrack 
 	public extern var Enum(get, never): cpp.Star<Enum.ConstEnum>;
 	public inline extern function get_Enum(): cpp.Star<Enum.ConstEnum> return this.Enum;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneByteTrack*")
+abstract MovieSceneByteTrackPtr(cpp.Star<MovieSceneByteTrack>) from cpp.Star<MovieSceneByteTrack> to cpp.Star<MovieSceneByteTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneByteTrack): MovieSceneByteTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneByteTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

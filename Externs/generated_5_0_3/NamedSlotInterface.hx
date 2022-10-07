@@ -12,3 +12,22 @@ extern class NamedSlotInterface extends Interface {
 @:nativeGen
 abstract ConstNamedSlotInterface(NamedSlotInterface) from NamedSlotInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("NamedSlotInterface*")
+abstract NamedSlotInterfacePtr(cpp.Star<NamedSlotInterface>) from cpp.Star<NamedSlotInterface> to cpp.Star<NamedSlotInterface>{
+	@:from
+	public static extern inline function fromValue(v: NamedSlotInterface): NamedSlotInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NamedSlotInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

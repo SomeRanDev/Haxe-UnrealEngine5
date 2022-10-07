@@ -13,3 +13,22 @@ extern class TickableWorldSubsystem extends WorldSubsystem {
 @:nativeGen
 abstract ConstTickableWorldSubsystem(TickableWorldSubsystem) from TickableWorldSubsystem {
 }
+
+@:forward
+@:nativeGen
+@:native("TickableWorldSubsystem*")
+abstract TickableWorldSubsystemPtr(cpp.Star<TickableWorldSubsystem>) from cpp.Star<TickableWorldSubsystem> to cpp.Star<TickableWorldSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: TickableWorldSubsystem): TickableWorldSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TickableWorldSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

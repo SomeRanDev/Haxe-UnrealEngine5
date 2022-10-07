@@ -16,3 +16,22 @@ abstract ConstPinTypeSelectorFilter(PinTypeSelectorFilter) from PinTypeSelectorF
 	public extern var FilterClass(get, never): TSoftClassPtr<Class.ConstClass>;
 	public inline extern function get_FilterClass(): TSoftClassPtr<Class.ConstClass> return this.FilterClass;
 }
+
+@:forward
+@:nativeGen
+@:native("PinTypeSelectorFilter*")
+abstract PinTypeSelectorFilterPtr(cpp.Star<PinTypeSelectorFilter>) from cpp.Star<PinTypeSelectorFilter> to cpp.Star<PinTypeSelectorFilter>{
+	@:from
+	public static extern inline function fromValue(v: PinTypeSelectorFilter): PinTypeSelectorFilterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PinTypeSelectorFilter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

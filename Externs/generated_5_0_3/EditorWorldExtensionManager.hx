@@ -16,3 +16,22 @@ abstract ConstEditorWorldExtensionManager(EditorWorldExtensionManager) from Edit
 	public extern var EditorWorldExtensionCollection(get, never): TArray<cpp.Star<EditorWorldExtensionCollection.ConstEditorWorldExtensionCollection>>;
 	public inline extern function get_EditorWorldExtensionCollection(): TArray<cpp.Star<EditorWorldExtensionCollection.ConstEditorWorldExtensionCollection>> return this.EditorWorldExtensionCollection;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorWorldExtensionManager*")
+abstract EditorWorldExtensionManagerPtr(cpp.Star<EditorWorldExtensionManager>) from cpp.Star<EditorWorldExtensionManager> to cpp.Star<EditorWorldExtensionManager>{
+	@:from
+	public static extern inline function fromValue(v: EditorWorldExtensionManager): EditorWorldExtensionManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorWorldExtensionManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

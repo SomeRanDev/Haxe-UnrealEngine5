@@ -13,3 +13,22 @@ extern class ImageSequenceProtocol extends FrameGrabberProtocol {
 @:nativeGen
 abstract ConstImageSequenceProtocol(ImageSequenceProtocol) from ImageSequenceProtocol {
 }
+
+@:forward
+@:nativeGen
+@:native("ImageSequenceProtocol*")
+abstract ImageSequenceProtocolPtr(cpp.Star<ImageSequenceProtocol>) from cpp.Star<ImageSequenceProtocol> to cpp.Star<ImageSequenceProtocol>{
+	@:from
+	public static extern inline function fromValue(v: ImageSequenceProtocol): ImageSequenceProtocolPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ImageSequenceProtocol {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

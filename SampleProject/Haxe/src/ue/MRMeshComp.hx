@@ -43,3 +43,22 @@ abstract ConstMRMeshComp(MRMeshComp) from MRMeshComp {
 	public extern var BodyHolders(get, never): TArray<cpp.Star<MRMeshBodyHolder.ConstMRMeshBodyHolder>>;
 	public inline extern function get_BodyHolders(): TArray<cpp.Star<MRMeshBodyHolder.ConstMRMeshBodyHolder>> return this.BodyHolders;
 }
+
+@:forward
+@:nativeGen
+@:native("MRMeshComp*")
+abstract MRMeshCompPtr(cpp.Star<MRMeshComp>) from cpp.Star<MRMeshComp> to cpp.Star<MRMeshComp>{
+	@:from
+	public static extern inline function fromValue(v: MRMeshComp): MRMeshCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MRMeshComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

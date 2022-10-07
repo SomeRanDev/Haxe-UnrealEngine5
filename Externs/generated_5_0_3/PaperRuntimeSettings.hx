@@ -22,3 +22,22 @@ abstract ConstPaperRuntimeSettings(PaperRuntimeSettings) from PaperRuntimeSettin
 	public extern var bResizeSpriteDataToMatchTextures(get, never): Bool;
 	public inline extern function get_bResizeSpriteDataToMatchTextures(): Bool return this.bResizeSpriteDataToMatchTextures;
 }
+
+@:forward
+@:nativeGen
+@:native("PaperRuntimeSettings*")
+abstract PaperRuntimeSettingsPtr(cpp.Star<PaperRuntimeSettings>) from cpp.Star<PaperRuntimeSettings> to cpp.Star<PaperRuntimeSettings>{
+	@:from
+	public static extern inline function fromValue(v: PaperRuntimeSettings): PaperRuntimeSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PaperRuntimeSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

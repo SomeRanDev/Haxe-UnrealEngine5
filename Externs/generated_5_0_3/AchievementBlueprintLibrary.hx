@@ -15,3 +15,22 @@ extern class AchievementBlueprintLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstAchievementBlueprintLibrary(AchievementBlueprintLibrary) from AchievementBlueprintLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("AchievementBlueprintLibrary*")
+abstract AchievementBlueprintLibraryPtr(cpp.Star<AchievementBlueprintLibrary>) from cpp.Star<AchievementBlueprintLibrary> to cpp.Star<AchievementBlueprintLibrary>{
+	@:from
+	public static extern inline function fromValue(v: AchievementBlueprintLibrary): AchievementBlueprintLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AchievementBlueprintLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

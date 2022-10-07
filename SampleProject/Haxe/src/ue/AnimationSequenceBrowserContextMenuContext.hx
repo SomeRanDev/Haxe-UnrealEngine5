@@ -18,3 +18,22 @@ abstract ConstAnimationSequenceBrowserContextMenuContext(AnimationSequenceBrowse
 	public extern var SelectedObjects(get, never): TArray<TWeakObjectPtr<Object.ConstObject>>;
 	public inline extern function get_SelectedObjects(): TArray<TWeakObjectPtr<Object.ConstObject>> return this.SelectedObjects;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationSequenceBrowserContextMenuContext*")
+abstract AnimationSequenceBrowserContextMenuContextPtr(cpp.Star<AnimationSequenceBrowserContextMenuContext>) from cpp.Star<AnimationSequenceBrowserContextMenuContext> to cpp.Star<AnimationSequenceBrowserContextMenuContext>{
+	@:from
+	public static extern inline function fromValue(v: AnimationSequenceBrowserContextMenuContext): AnimationSequenceBrowserContextMenuContextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationSequenceBrowserContextMenuContext {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

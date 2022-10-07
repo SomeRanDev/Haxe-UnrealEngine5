@@ -151,3 +151,22 @@ abstract ConstParticleModuleRequired(ParticleModuleRequired) from ParticleModule
 	public extern var NamedMaterialOverrides(get, never): TArray<FName>;
 	public inline extern function get_NamedMaterialOverrides(): TArray<FName> return this.NamedMaterialOverrides;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleRequired*")
+abstract ParticleModuleRequiredPtr(cpp.Star<ParticleModuleRequired>) from cpp.Star<ParticleModuleRequired> to cpp.Star<ParticleModuleRequired>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleRequired): ParticleModuleRequiredPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleRequired {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

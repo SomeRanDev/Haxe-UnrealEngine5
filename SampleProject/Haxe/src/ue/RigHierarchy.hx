@@ -131,3 +131,22 @@ abstract ConstRigHierarchy(RigHierarchy) from RigHierarchy {
 	public extern var HierarchyForCacheValidation(get, never): cpp.Star<RigHierarchy.ConstRigHierarchy>;
 	public inline extern function get_HierarchyForCacheValidation(): cpp.Star<RigHierarchy.ConstRigHierarchy> return this.HierarchyForCacheValidation;
 }
+
+@:forward
+@:nativeGen
+@:native("RigHierarchy*")
+abstract RigHierarchyPtr(cpp.Star<RigHierarchy>) from cpp.Star<RigHierarchy> to cpp.Star<RigHierarchy>{
+	@:from
+	public static extern inline function fromValue(v: RigHierarchy): RigHierarchyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigHierarchy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

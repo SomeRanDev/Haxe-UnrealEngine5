@@ -25,3 +25,22 @@ abstract ConstParticleModuleAttractorLine(ParticleModuleAttractorLine) from Part
 	public extern var Strength(get, never): RawDistributionFloat;
 	public inline extern function get_Strength(): RawDistributionFloat return this.Strength;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleAttractorLine*")
+abstract ParticleModuleAttractorLinePtr(cpp.Star<ParticleModuleAttractorLine>) from cpp.Star<ParticleModuleAttractorLine> to cpp.Star<ParticleModuleAttractorLine>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleAttractorLine): ParticleModuleAttractorLinePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleAttractorLine {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

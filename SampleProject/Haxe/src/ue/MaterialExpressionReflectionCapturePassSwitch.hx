@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionReflectionCapturePassSwitch(MaterialExpressionRe
 	public extern var Reflection(get, never): ExpressionInput;
 	public inline extern function get_Reflection(): ExpressionInput return this.Reflection;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionReflectionCapturePassSwitch*")
+abstract MaterialExpressionReflectionCapturePassSwitchPtr(cpp.Star<MaterialExpressionReflectionCapturePassSwitch>) from cpp.Star<MaterialExpressionReflectionCapturePassSwitch> to cpp.Star<MaterialExpressionReflectionCapturePassSwitch>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionReflectionCapturePassSwitch): MaterialExpressionReflectionCapturePassSwitchPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionReflectionCapturePassSwitch {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

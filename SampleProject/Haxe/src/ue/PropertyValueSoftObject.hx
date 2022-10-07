@@ -13,3 +13,22 @@ extern class PropertyValueSoftObject extends PropertyValue {
 @:nativeGen
 abstract ConstPropertyValueSoftObject(PropertyValueSoftObject) from PropertyValueSoftObject {
 }
+
+@:forward
+@:nativeGen
+@:native("PropertyValueSoftObject*")
+abstract PropertyValueSoftObjectPtr(cpp.Star<PropertyValueSoftObject>) from cpp.Star<PropertyValueSoftObject> to cpp.Star<PropertyValueSoftObject>{
+	@:from
+	public static extern inline function fromValue(v: PropertyValueSoftObject): PropertyValueSoftObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PropertyValueSoftObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

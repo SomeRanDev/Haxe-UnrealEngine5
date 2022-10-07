@@ -13,3 +13,22 @@ extern class GenerateTextLocalizationResourceCommandlet extends GatherTextComman
 @:nativeGen
 abstract ConstGenerateTextLocalizationResourceCommandlet(GenerateTextLocalizationResourceCommandlet) from GenerateTextLocalizationResourceCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("GenerateTextLocalizationResourceCommandlet*")
+abstract GenerateTextLocalizationResourceCommandletPtr(cpp.Star<GenerateTextLocalizationResourceCommandlet>) from cpp.Star<GenerateTextLocalizationResourceCommandlet> to cpp.Star<GenerateTextLocalizationResourceCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: GenerateTextLocalizationResourceCommandlet): GenerateTextLocalizationResourceCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GenerateTextLocalizationResourceCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

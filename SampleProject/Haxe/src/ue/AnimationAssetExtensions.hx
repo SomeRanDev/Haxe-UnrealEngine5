@@ -14,3 +14,22 @@ extern class AnimationAssetExtensions extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstAnimationAssetExtensions(AnimationAssetExtensions) from AnimationAssetExtensions {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationAssetExtensions*")
+abstract AnimationAssetExtensionsPtr(cpp.Star<AnimationAssetExtensions>) from cpp.Star<AnimationAssetExtensions> to cpp.Star<AnimationAssetExtensions>{
+	@:from
+	public static extern inline function fromValue(v: AnimationAssetExtensions): AnimationAssetExtensionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationAssetExtensions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

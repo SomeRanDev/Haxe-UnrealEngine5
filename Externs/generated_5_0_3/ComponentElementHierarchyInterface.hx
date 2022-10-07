@@ -13,3 +13,22 @@ extern class ComponentElementHierarchyInterface extends Object {
 @:nativeGen
 abstract ConstComponentElementHierarchyInterface(ComponentElementHierarchyInterface) from ComponentElementHierarchyInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("ComponentElementHierarchyInterface*")
+abstract ComponentElementHierarchyInterfacePtr(cpp.Star<ComponentElementHierarchyInterface>) from cpp.Star<ComponentElementHierarchyInterface> to cpp.Star<ComponentElementHierarchyInterface>{
+	@:from
+	public static extern inline function fromValue(v: ComponentElementHierarchyInterface): ComponentElementHierarchyInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ComponentElementHierarchyInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

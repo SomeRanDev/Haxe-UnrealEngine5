@@ -19,3 +19,22 @@ abstract ConstWidgetTree(WidgetTree) from WidgetTree {
 	public extern var AllWidgets(get, never): TArray<cpp.Star<Widget.ConstWidget>>;
 	public inline extern function get_AllWidgets(): TArray<cpp.Star<Widget.ConstWidget>> return this.AllWidgets;
 }
+
+@:forward
+@:nativeGen
+@:native("WidgetTree*")
+abstract WidgetTreePtr(cpp.Star<WidgetTree>) from cpp.Star<WidgetTree> to cpp.Star<WidgetTree>{
+	@:from
+	public static extern inline function fromValue(v: WidgetTree): WidgetTreePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WidgetTree {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

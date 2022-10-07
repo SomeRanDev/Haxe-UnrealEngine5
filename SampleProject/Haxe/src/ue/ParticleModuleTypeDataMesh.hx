@@ -64,3 +64,22 @@ abstract ConstParticleModuleTypeDataMesh(ParticleModuleTypeDataMesh) from Partic
 	public extern var bCollisionsConsiderPartilceSize(get, never): Bool;
 	public inline extern function get_bCollisionsConsiderPartilceSize(): Bool return this.bCollisionsConsiderPartilceSize;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleTypeDataMesh*")
+abstract ParticleModuleTypeDataMeshPtr(cpp.Star<ParticleModuleTypeDataMesh>) from cpp.Star<ParticleModuleTypeDataMesh> to cpp.Star<ParticleModuleTypeDataMesh>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleTypeDataMesh): ParticleModuleTypeDataMeshPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleTypeDataMesh {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

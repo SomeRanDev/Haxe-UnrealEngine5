@@ -16,3 +16,22 @@ abstract ConstRigVMBuildData(RigVMBuildData) from RigVMBuildData {
 	public extern var FunctionReferences(get, never): TMap<TSoftObjectPtr<RigVMLibraryNode.ConstRigVMLibraryNode>, RigVMFunctionReferenceArray>;
 	public inline extern function get_FunctionReferences(): TMap<TSoftObjectPtr<RigVMLibraryNode.ConstRigVMLibraryNode>, RigVMFunctionReferenceArray> return this.FunctionReferences;
 }
+
+@:forward
+@:nativeGen
+@:native("RigVMBuildData*")
+abstract RigVMBuildDataPtr(cpp.Star<RigVMBuildData>) from cpp.Star<RigVMBuildData> to cpp.Star<RigVMBuildData>{
+	@:from
+	public static extern inline function fromValue(v: RigVMBuildData): RigVMBuildDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVMBuildData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

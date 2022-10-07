@@ -34,3 +34,22 @@ abstract ConstRectLightComp(RectLightComp) from RectLightComp {
 	public extern var SourceTexture(get, never): cpp.Star<Texture.ConstTexture>;
 	public inline extern function get_SourceTexture(): cpp.Star<Texture.ConstTexture> return this.SourceTexture;
 }
+
+@:forward
+@:nativeGen
+@:native("RectLightComp*")
+abstract RectLightCompPtr(cpp.Star<RectLightComp>) from cpp.Star<RectLightComp> to cpp.Star<RectLightComp>{
+	@:from
+	public static extern inline function fromValue(v: RectLightComp): RectLightCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RectLightComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

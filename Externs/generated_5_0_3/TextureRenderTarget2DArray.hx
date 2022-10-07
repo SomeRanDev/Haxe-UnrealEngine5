@@ -34,3 +34,22 @@ abstract ConstTextureRenderTarget2DArray(TextureRenderTarget2DArray) from Textur
 	public extern var bForceLinearGamma(get, never): Bool;
 	public inline extern function get_bForceLinearGamma(): Bool return this.bForceLinearGamma;
 }
+
+@:forward
+@:nativeGen
+@:native("TextureRenderTarget2DArray*")
+abstract TextureRenderTarget2DArrayPtr(cpp.Star<TextureRenderTarget2DArray>) from cpp.Star<TextureRenderTarget2DArray> to cpp.Star<TextureRenderTarget2DArray>{
+	@:from
+	public static extern inline function fromValue(v: TextureRenderTarget2DArray): TextureRenderTarget2DArrayPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextureRenderTarget2DArray {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

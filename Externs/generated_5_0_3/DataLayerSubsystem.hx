@@ -36,3 +36,22 @@ abstract ConstDataLayerSubsystem(DataLayerSubsystem) from DataLayerSubsystem {
 	public extern var OnDataLayerRuntimeStateChanged(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<DataLayer.ConstDataLayer>, EDataLayerRuntimeState) -> Void>;
 	public inline extern function get_OnDataLayerRuntimeStateChanged(): HaxeMulticastSparseDelegateProperty<(cpp.Star<DataLayer.ConstDataLayer>, EDataLayerRuntimeState) -> Void> return this.OnDataLayerRuntimeStateChanged;
 }
+
+@:forward
+@:nativeGen
+@:native("DataLayerSubsystem*")
+abstract DataLayerSubsystemPtr(cpp.Star<DataLayerSubsystem>) from cpp.Star<DataLayerSubsystem> to cpp.Star<DataLayerSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: DataLayerSubsystem): DataLayerSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DataLayerSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstAISenseConfig_Damage(AISenseConfig_Damage) from AISenseConfig_Dama
 	public extern var Implementation(get, never): TSubclassOf<AISense_Damage.ConstAISense_Damage>;
 	public inline extern function get_Implementation(): TSubclassOf<AISense_Damage.ConstAISense_Damage> return this.Implementation;
 }
+
+@:forward
+@:nativeGen
+@:native("AISenseConfig_Damage*")
+abstract AISenseConfig_DamagePtr(cpp.Star<AISenseConfig_Damage>) from cpp.Star<AISenseConfig_Damage> to cpp.Star<AISenseConfig_Damage>{
+	@:from
+	public static extern inline function fromValue(v: AISenseConfig_Damage): AISenseConfig_DamagePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AISenseConfig_Damage {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

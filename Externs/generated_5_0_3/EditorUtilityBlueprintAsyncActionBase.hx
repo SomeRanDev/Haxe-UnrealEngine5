@@ -13,3 +13,22 @@ extern class EditorUtilityBlueprintAsyncActionBase extends BlueprintAsyncActionB
 @:nativeGen
 abstract ConstEditorUtilityBlueprintAsyncActionBase(EditorUtilityBlueprintAsyncActionBase) from EditorUtilityBlueprintAsyncActionBase {
 }
+
+@:forward
+@:nativeGen
+@:native("EditorUtilityBlueprintAsyncActionBase*")
+abstract EditorUtilityBlueprintAsyncActionBasePtr(cpp.Star<EditorUtilityBlueprintAsyncActionBase>) from cpp.Star<EditorUtilityBlueprintAsyncActionBase> to cpp.Star<EditorUtilityBlueprintAsyncActionBase>{
+	@:from
+	public static extern inline function fromValue(v: EditorUtilityBlueprintAsyncActionBase): EditorUtilityBlueprintAsyncActionBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorUtilityBlueprintAsyncActionBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

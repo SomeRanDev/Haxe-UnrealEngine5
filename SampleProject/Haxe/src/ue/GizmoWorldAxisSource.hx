@@ -19,3 +19,22 @@ abstract ConstGizmoWorldAxisSource(GizmoWorldAxisSource) from GizmoWorldAxisSour
 	public extern var AxisIndex(get, never): cpp.Int32;
 	public inline extern function get_AxisIndex(): cpp.Int32 return this.AxisIndex;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoWorldAxisSource*")
+abstract GizmoWorldAxisSourcePtr(cpp.Star<GizmoWorldAxisSource>) from cpp.Star<GizmoWorldAxisSource> to cpp.Star<GizmoWorldAxisSource>{
+	@:from
+	public static extern inline function fromValue(v: GizmoWorldAxisSource): GizmoWorldAxisSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoWorldAxisSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

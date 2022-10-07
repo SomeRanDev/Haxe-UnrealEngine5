@@ -43,3 +43,22 @@ abstract ConstDatasmithLightComponentTemplate(DatasmithLightComponentTemplate) f
 	public extern var IESTexture(get, never): cpp.Star<TextureLightProfile.ConstTextureLightProfile>;
 	public inline extern function get_IESTexture(): cpp.Star<TextureLightProfile.ConstTextureLightProfile> return this.IESTexture;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithLightComponentTemplate*")
+abstract DatasmithLightComponentTemplatePtr(cpp.Star<DatasmithLightComponentTemplate>) from cpp.Star<DatasmithLightComponentTemplate> to cpp.Star<DatasmithLightComponentTemplate>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithLightComponentTemplate): DatasmithLightComponentTemplatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithLightComponentTemplate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

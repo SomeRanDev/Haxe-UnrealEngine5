@@ -13,3 +13,22 @@ extern class PlaneReflectionCapture extends ReflectionCapture {
 @:nativeGen
 abstract ConstPlaneReflectionCapture(PlaneReflectionCapture) from PlaneReflectionCapture {
 }
+
+@:forward
+@:nativeGen
+@:native("PlaneReflectionCapture*")
+abstract PlaneReflectionCapturePtr(cpp.Star<PlaneReflectionCapture>) from cpp.Star<PlaneReflectionCapture> to cpp.Star<PlaneReflectionCapture>{
+	@:from
+	public static extern inline function fromValue(v: PlaneReflectionCapture): PlaneReflectionCapturePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PlaneReflectionCapture {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

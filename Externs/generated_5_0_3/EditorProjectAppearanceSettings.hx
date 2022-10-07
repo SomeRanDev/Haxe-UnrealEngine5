@@ -52,3 +52,22 @@ abstract ConstEditorProjectAppearanceSettings(EditorProjectAppearanceSettings) f
 	public extern var DefaultInputUnits_DEPRECATED(get, never): EDefaultLocationUnit;
 	public inline extern function get_DefaultInputUnits_DEPRECATED(): EDefaultLocationUnit return this.DefaultInputUnits_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorProjectAppearanceSettings*")
+abstract EditorProjectAppearanceSettingsPtr(cpp.Star<EditorProjectAppearanceSettings>) from cpp.Star<EditorProjectAppearanceSettings> to cpp.Star<EditorProjectAppearanceSettings>{
+	@:from
+	public static extern inline function fromValue(v: EditorProjectAppearanceSettings): EditorProjectAppearanceSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorProjectAppearanceSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

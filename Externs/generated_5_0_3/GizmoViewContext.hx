@@ -13,3 +13,22 @@ extern class GizmoViewContext extends Object {
 @:nativeGen
 abstract ConstGizmoViewContext(GizmoViewContext) from GizmoViewContext {
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoViewContext*")
+abstract GizmoViewContextPtr(cpp.Star<GizmoViewContext>) from cpp.Star<GizmoViewContext> to cpp.Star<GizmoViewContext>{
+	@:from
+	public static extern inline function fromValue(v: GizmoViewContext): GizmoViewContextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoViewContext {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

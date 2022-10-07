@@ -13,3 +13,22 @@ extern class MaterialExpressionTextureSampleParameterVolume extends MaterialExpr
 @:nativeGen
 abstract ConstMaterialExpressionTextureSampleParameterVolume(MaterialExpressionTextureSampleParameterVolume) from MaterialExpressionTextureSampleParameterVolume {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionTextureSampleParameterVolume*")
+abstract MaterialExpressionTextureSampleParameterVolumePtr(cpp.Star<MaterialExpressionTextureSampleParameterVolume>) from cpp.Star<MaterialExpressionTextureSampleParameterVolume> to cpp.Star<MaterialExpressionTextureSampleParameterVolume>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionTextureSampleParameterVolume): MaterialExpressionTextureSampleParameterVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionTextureSampleParameterVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

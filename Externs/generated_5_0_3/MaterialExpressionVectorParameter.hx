@@ -25,3 +25,22 @@ abstract ConstMaterialExpressionVectorParameter(MaterialExpressionVectorParamete
 	public extern var ChannelNames(get, never): ParameterChannelNames;
 	public inline extern function get_ChannelNames(): ParameterChannelNames return this.ChannelNames;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionVectorParameter*")
+abstract MaterialExpressionVectorParameterPtr(cpp.Star<MaterialExpressionVectorParameter>) from cpp.Star<MaterialExpressionVectorParameter> to cpp.Star<MaterialExpressionVectorParameter>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionVectorParameter): MaterialExpressionVectorParameterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionVectorParameter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

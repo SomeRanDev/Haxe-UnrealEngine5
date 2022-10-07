@@ -22,3 +22,22 @@ abstract ConstWidgetSlotPair(WidgetSlotPair) from WidgetSlotPair {
 	public extern var SlotPropertyValues(get, never): TArray<FString>;
 	public inline extern function get_SlotPropertyValues(): TArray<FString> return this.SlotPropertyValues;
 }
+
+@:forward
+@:nativeGen
+@:native("WidgetSlotPair*")
+abstract WidgetSlotPairPtr(cpp.Star<WidgetSlotPair>) from cpp.Star<WidgetSlotPair> to cpp.Star<WidgetSlotPair>{
+	@:from
+	public static extern inline function fromValue(v: WidgetSlotPair): WidgetSlotPairPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WidgetSlotPair {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

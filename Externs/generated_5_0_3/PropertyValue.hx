@@ -50,3 +50,22 @@ abstract ConstPropertyValue(PropertyValue) from PropertyValue {
 	public extern var DisplayOrder(get, never): cpp.UInt32;
 	public inline extern function get_DisplayOrder(): cpp.UInt32 return this.DisplayOrder;
 }
+
+@:forward
+@:nativeGen
+@:native("PropertyValue*")
+abstract PropertyValuePtr(cpp.Star<PropertyValue>) from cpp.Star<PropertyValue> to cpp.Star<PropertyValue>{
+	@:from
+	public static extern inline function fromValue(v: PropertyValue): PropertyValuePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PropertyValue {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

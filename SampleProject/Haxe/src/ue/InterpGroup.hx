@@ -37,3 +37,22 @@ abstract ConstInterpGroup(InterpGroup) from InterpGroup {
 	public extern var bIsSelected(get, never): Bool;
 	public inline extern function get_bIsSelected(): Bool return this.bIsSelected;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpGroup*")
+abstract InterpGroupPtr(cpp.Star<InterpGroup>) from cpp.Star<InterpGroup> to cpp.Star<InterpGroup>{
+	@:from
+	public static extern inline function fromValue(v: InterpGroup): InterpGroupPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpGroup {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

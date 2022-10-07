@@ -12,3 +12,22 @@ extern class OnMovieSceneSequencePlayerEvent__PythonCallable extends PythonCalla
 @:nativeGen
 abstract ConstOnMovieSceneSequencePlayerEvent__PythonCallable(OnMovieSceneSequencePlayerEvent__PythonCallable) from OnMovieSceneSequencePlayerEvent__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnMovieSceneSequencePlayerEvent__PythonCallable*")
+abstract OnMovieSceneSequencePlayerEvent__PythonCallablePtr(cpp.Star<OnMovieSceneSequencePlayerEvent__PythonCallable>) from cpp.Star<OnMovieSceneSequencePlayerEvent__PythonCallable> to cpp.Star<OnMovieSceneSequencePlayerEvent__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnMovieSceneSequencePlayerEvent__PythonCallable): OnMovieSceneSequencePlayerEvent__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnMovieSceneSequencePlayerEvent__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

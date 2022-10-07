@@ -12,3 +12,22 @@ extern class SoundParameterControllerInterface extends AudioParameterControllerI
 @:nativeGen
 abstract ConstSoundParameterControllerInterface(SoundParameterControllerInterface) from SoundParameterControllerInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("SoundParameterControllerInterface*")
+abstract SoundParameterControllerInterfacePtr(cpp.Star<SoundParameterControllerInterface>) from cpp.Star<SoundParameterControllerInterface> to cpp.Star<SoundParameterControllerInterface>{
+	@:from
+	public static extern inline function fromValue(v: SoundParameterControllerInterface): SoundParameterControllerInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundParameterControllerInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

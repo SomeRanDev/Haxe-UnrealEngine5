@@ -13,3 +13,22 @@ extern class UserObjectListEntry extends UserListEntry {
 @:nativeGen
 abstract ConstUserObjectListEntry(UserObjectListEntry) from UserObjectListEntry {
 }
+
+@:forward
+@:nativeGen
+@:native("UserObjectListEntry*")
+abstract UserObjectListEntryPtr(cpp.Star<UserObjectListEntry>) from cpp.Star<UserObjectListEntry> to cpp.Star<UserObjectListEntry>{
+	@:from
+	public static extern inline function fromValue(v: UserObjectListEntry): UserObjectListEntryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UserObjectListEntry {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

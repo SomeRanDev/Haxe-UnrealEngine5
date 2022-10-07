@@ -16,3 +16,22 @@ abstract ConstMovieSceneNiagaraTrack(MovieSceneNiagaraTrack) from MovieSceneNiag
 	public extern var Sections(get, never): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>>;
 	public inline extern function get_Sections(): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>> return this.Sections;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneNiagaraTrack*")
+abstract MovieSceneNiagaraTrackPtr(cpp.Star<MovieSceneNiagaraTrack>) from cpp.Star<MovieSceneNiagaraTrack> to cpp.Star<MovieSceneNiagaraTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneNiagaraTrack): MovieSceneNiagaraTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneNiagaraTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

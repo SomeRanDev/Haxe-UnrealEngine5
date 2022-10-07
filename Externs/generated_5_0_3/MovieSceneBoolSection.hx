@@ -22,3 +22,22 @@ abstract ConstMovieSceneBoolSection(MovieSceneBoolSection) from MovieSceneBoolSe
 	public extern var bIsExternallyInverted(get, never): Bool;
 	public inline extern function get_bIsExternallyInverted(): Bool return this.bIsExternallyInverted;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneBoolSection*")
+abstract MovieSceneBoolSectionPtr(cpp.Star<MovieSceneBoolSection>) from cpp.Star<MovieSceneBoolSection> to cpp.Star<MovieSceneBoolSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneBoolSection): MovieSceneBoolSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneBoolSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

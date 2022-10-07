@@ -13,3 +13,22 @@ extern class ListMaterialsUsedWithMeshEmittersCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstListMaterialsUsedWithMeshEmittersCommandlet(ListMaterialsUsedWithMeshEmittersCommandlet) from ListMaterialsUsedWithMeshEmittersCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("ListMaterialsUsedWithMeshEmittersCommandlet*")
+abstract ListMaterialsUsedWithMeshEmittersCommandletPtr(cpp.Star<ListMaterialsUsedWithMeshEmittersCommandlet>) from cpp.Star<ListMaterialsUsedWithMeshEmittersCommandlet> to cpp.Star<ListMaterialsUsedWithMeshEmittersCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: ListMaterialsUsedWithMeshEmittersCommandlet): ListMaterialsUsedWithMeshEmittersCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ListMaterialsUsedWithMeshEmittersCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

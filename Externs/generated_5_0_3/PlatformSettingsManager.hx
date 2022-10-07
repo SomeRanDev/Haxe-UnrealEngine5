@@ -16,3 +16,22 @@ abstract ConstPlatformSettingsManager(PlatformSettingsManager) from PlatformSett
 	public extern var SettingsMap(get, never): TMap<TSubclassOf<PlatformSettings.ConstPlatformSettings>, PlatformSettingsInstances>;
 	public inline extern function get_SettingsMap(): TMap<TSubclassOf<PlatformSettings.ConstPlatformSettings>, PlatformSettingsInstances> return this.SettingsMap;
 }
+
+@:forward
+@:nativeGen
+@:native("PlatformSettingsManager*")
+abstract PlatformSettingsManagerPtr(cpp.Star<PlatformSettingsManager>) from cpp.Star<PlatformSettingsManager> to cpp.Star<PlatformSettingsManager>{
+	@:from
+	public static extern inline function fromValue(v: PlatformSettingsManager): PlatformSettingsManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PlatformSettingsManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

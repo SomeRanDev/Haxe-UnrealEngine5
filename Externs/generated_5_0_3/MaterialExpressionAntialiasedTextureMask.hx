@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionAntialiasedTextureMask(MaterialExpressionAntiali
 	public extern var Channel(get, never): ETextureColorChannel;
 	public inline extern function get_Channel(): ETextureColorChannel return this.Channel;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionAntialiasedTextureMask*")
+abstract MaterialExpressionAntialiasedTextureMaskPtr(cpp.Star<MaterialExpressionAntialiasedTextureMask>) from cpp.Star<MaterialExpressionAntialiasedTextureMask> to cpp.Star<MaterialExpressionAntialiasedTextureMask>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionAntialiasedTextureMask): MaterialExpressionAntialiasedTextureMaskPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionAntialiasedTextureMask {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstSoundfieldEffectBase(SoundfieldEffectBase) from SoundfieldEffectBa
 	public extern var Settings(get, never): cpp.Star<SoundfieldEffectSettingsBase.ConstSoundfieldEffectSettingsBase>;
 	public inline extern function get_Settings(): cpp.Star<SoundfieldEffectSettingsBase.ConstSoundfieldEffectSettingsBase> return this.Settings;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundfieldEffectBase*")
+abstract SoundfieldEffectBasePtr(cpp.Star<SoundfieldEffectBase>) from cpp.Star<SoundfieldEffectBase> to cpp.Star<SoundfieldEffectBase>{
+	@:from
+	public static extern inline function fromValue(v: SoundfieldEffectBase): SoundfieldEffectBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundfieldEffectBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

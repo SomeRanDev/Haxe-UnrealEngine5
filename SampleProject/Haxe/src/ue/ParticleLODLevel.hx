@@ -55,3 +55,22 @@ abstract ConstParticleLODLevel(ParticleLODLevel) from ParticleLODLevel {
 	public extern var PeakActiveParticles(get, never): cpp.Int32;
 	public inline extern function get_PeakActiveParticles(): cpp.Int32 return this.PeakActiveParticles;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleLODLevel*")
+abstract ParticleLODLevelPtr(cpp.Star<ParticleLODLevel>) from cpp.Star<ParticleLODLevel> to cpp.Star<ParticleLODLevel>{
+	@:from
+	public static extern inline function fromValue(v: ParticleLODLevel): ParticleLODLevelPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleLODLevel {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

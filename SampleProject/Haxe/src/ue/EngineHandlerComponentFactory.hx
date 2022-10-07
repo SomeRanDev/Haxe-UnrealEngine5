@@ -13,3 +13,22 @@ extern class EngineHandlerComponentFactory extends HandlerComponentFactory {
 @:nativeGen
 abstract ConstEngineHandlerComponentFactory(EngineHandlerComponentFactory) from EngineHandlerComponentFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("EngineHandlerComponentFactory*")
+abstract EngineHandlerComponentFactoryPtr(cpp.Star<EngineHandlerComponentFactory>) from cpp.Star<EngineHandlerComponentFactory> to cpp.Star<EngineHandlerComponentFactory>{
+	@:from
+	public static extern inline function fromValue(v: EngineHandlerComponentFactory): EngineHandlerComponentFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EngineHandlerComponentFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

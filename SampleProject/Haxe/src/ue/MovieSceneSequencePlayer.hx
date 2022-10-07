@@ -113,3 +113,22 @@ abstract ConstMovieSceneSequencePlayer(MovieSceneSequencePlayer) from MovieScene
 	public extern var TickManager(get, never): cpp.Star<MovieSceneSequenceTickManager.ConstMovieSceneSequenceTickManager>;
 	public inline extern function get_TickManager(): cpp.Star<MovieSceneSequenceTickManager.ConstMovieSceneSequenceTickManager> return this.TickManager;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneSequencePlayer*")
+abstract MovieSceneSequencePlayerPtr(cpp.Star<MovieSceneSequencePlayer>) from cpp.Star<MovieSceneSequencePlayer> to cpp.Star<MovieSceneSequencePlayer>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneSequencePlayer): MovieSceneSequencePlayerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneSequencePlayer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

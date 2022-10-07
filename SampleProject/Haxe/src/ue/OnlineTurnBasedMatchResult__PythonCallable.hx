@@ -12,3 +12,22 @@ extern class OnlineTurnBasedMatchResult__PythonCallable extends PythonCallableFo
 @:nativeGen
 abstract ConstOnlineTurnBasedMatchResult__PythonCallable(OnlineTurnBasedMatchResult__PythonCallable) from OnlineTurnBasedMatchResult__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnlineTurnBasedMatchResult__PythonCallable*")
+abstract OnlineTurnBasedMatchResult__PythonCallablePtr(cpp.Star<OnlineTurnBasedMatchResult__PythonCallable>) from cpp.Star<OnlineTurnBasedMatchResult__PythonCallable> to cpp.Star<OnlineTurnBasedMatchResult__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnlineTurnBasedMatchResult__PythonCallable): OnlineTurnBasedMatchResult__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnlineTurnBasedMatchResult__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

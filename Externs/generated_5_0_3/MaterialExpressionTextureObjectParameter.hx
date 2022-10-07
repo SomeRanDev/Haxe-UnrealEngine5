@@ -13,3 +13,22 @@ extern class MaterialExpressionTextureObjectParameter extends MaterialExpression
 @:nativeGen
 abstract ConstMaterialExpressionTextureObjectParameter(MaterialExpressionTextureObjectParameter) from MaterialExpressionTextureObjectParameter {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionTextureObjectParameter*")
+abstract MaterialExpressionTextureObjectParameterPtr(cpp.Star<MaterialExpressionTextureObjectParameter>) from cpp.Star<MaterialExpressionTextureObjectParameter> to cpp.Star<MaterialExpressionTextureObjectParameter>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionTextureObjectParameter): MaterialExpressionTextureObjectParameterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionTextureObjectParameter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -171,3 +171,22 @@ abstract ConstWidgetComp(WidgetComp) from WidgetComp {
 	public extern var Widget(get, never): cpp.Star<UserWidget.ConstUserWidget>;
 	public inline extern function get_Widget(): cpp.Star<UserWidget.ConstUserWidget> return this.Widget;
 }
+
+@:forward
+@:nativeGen
+@:native("WidgetComp*")
+abstract WidgetCompPtr(cpp.Star<WidgetComp>) from cpp.Star<WidgetComp> to cpp.Star<WidgetComp>{
+	@:from
+	public static extern inline function fromValue(v: WidgetComp): WidgetCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WidgetComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

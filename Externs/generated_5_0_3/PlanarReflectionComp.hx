@@ -58,3 +58,22 @@ abstract ConstPlanarReflectionComp(PlanarReflectionComp) from PlanarReflectionCo
 	public extern var CaptureMaterial(get, never): cpp.Star<Material.ConstMaterial>;
 	public inline extern function get_CaptureMaterial(): cpp.Star<Material.ConstMaterial> return this.CaptureMaterial;
 }
+
+@:forward
+@:nativeGen
+@:native("PlanarReflectionComp*")
+abstract PlanarReflectionCompPtr(cpp.Star<PlanarReflectionComp>) from cpp.Star<PlanarReflectionComp> to cpp.Star<PlanarReflectionComp>{
+	@:from
+	public static extern inline function fromValue(v: PlanarReflectionComp): PlanarReflectionCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PlanarReflectionComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

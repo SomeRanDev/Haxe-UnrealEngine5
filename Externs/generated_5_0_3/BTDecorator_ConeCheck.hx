@@ -25,3 +25,22 @@ abstract ConstBTDecorator_ConeCheck(BTDecorator_ConeCheck) from BTDecorator_Cone
 	public extern var Observed(get, never): BlackboardKeySelector;
 	public inline extern function get_Observed(): BlackboardKeySelector return this.Observed;
 }
+
+@:forward
+@:nativeGen
+@:native("BTDecorator_ConeCheck*")
+abstract BTDecorator_ConeCheckPtr(cpp.Star<BTDecorator_ConeCheck>) from cpp.Star<BTDecorator_ConeCheck> to cpp.Star<BTDecorator_ConeCheck>{
+	@:from
+	public static extern inline function fromValue(v: BTDecorator_ConeCheck): BTDecorator_ConeCheckPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTDecorator_ConeCheck {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

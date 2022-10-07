@@ -14,3 +14,22 @@ extern class CheatManagerExtension extends Object {
 @:nativeGen
 abstract ConstCheatManagerExtension(CheatManagerExtension) from CheatManagerExtension {
 }
+
+@:forward
+@:nativeGen
+@:native("CheatManagerExtension*")
+abstract CheatManagerExtensionPtr(cpp.Star<CheatManagerExtension>) from cpp.Star<CheatManagerExtension> to cpp.Star<CheatManagerExtension>{
+	@:from
+	public static extern inline function fromValue(v: CheatManagerExtension): CheatManagerExtensionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CheatManagerExtension {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

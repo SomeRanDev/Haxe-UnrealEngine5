@@ -25,3 +25,22 @@ abstract ConstGameplayDebuggerLocalController(GameplayDebuggerLocalController) f
 	public extern var HUDFont(get, never): cpp.Star<Font.ConstFont>;
 	public inline extern function get_HUDFont(): cpp.Star<Font.ConstFont> return this.HUDFont;
 }
+
+@:forward
+@:nativeGen
+@:native("GameplayDebuggerLocalController*")
+abstract GameplayDebuggerLocalControllerPtr(cpp.Star<GameplayDebuggerLocalController>) from cpp.Star<GameplayDebuggerLocalController> to cpp.Star<GameplayDebuggerLocalController>{
+	@:from
+	public static extern inline function fromValue(v: GameplayDebuggerLocalController): GameplayDebuggerLocalControllerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameplayDebuggerLocalController {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

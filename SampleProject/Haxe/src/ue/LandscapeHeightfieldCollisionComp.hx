@@ -51,3 +51,22 @@ abstract ConstLandscapeHeightfieldCollisionComp(LandscapeHeightfieldCollisionCom
 	public extern var CookedPhysicalMaterials(get, never): TArray<cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>>;
 	public inline extern function get_CookedPhysicalMaterials(): TArray<cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>> return this.CookedPhysicalMaterials;
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeHeightfieldCollisionComp*")
+abstract LandscapeHeightfieldCollisionCompPtr(cpp.Star<LandscapeHeightfieldCollisionComp>) from cpp.Star<LandscapeHeightfieldCollisionComp> to cpp.Star<LandscapeHeightfieldCollisionComp>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeHeightfieldCollisionComp): LandscapeHeightfieldCollisionCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeHeightfieldCollisionComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -25,3 +25,22 @@ abstract ConstLevelSequenceProjectSettings(LevelSequenceProjectSettings) from Le
 	public extern var DefaultClockSource(get, never): EUpdateClockSource;
 	public inline extern function get_DefaultClockSource(): EUpdateClockSource return this.DefaultClockSource;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelSequenceProjectSettings*")
+abstract LevelSequenceProjectSettingsPtr(cpp.Star<LevelSequenceProjectSettings>) from cpp.Star<LevelSequenceProjectSettings> to cpp.Star<LevelSequenceProjectSettings>{
+	@:from
+	public static extern inline function fromValue(v: LevelSequenceProjectSettings): LevelSequenceProjectSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelSequenceProjectSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

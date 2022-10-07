@@ -13,3 +13,22 @@ extern class NiagaraSequencerTrackFilter extends SequencerTrackFilterExtension {
 @:nativeGen
 abstract ConstNiagaraSequencerTrackFilter(NiagaraSequencerTrackFilter) from NiagaraSequencerTrackFilter {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraSequencerTrackFilter*")
+abstract NiagaraSequencerTrackFilterPtr(cpp.Star<NiagaraSequencerTrackFilter>) from cpp.Star<NiagaraSequencerTrackFilter> to cpp.Star<NiagaraSequencerTrackFilter>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraSequencerTrackFilter): NiagaraSequencerTrackFilterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraSequencerTrackFilter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

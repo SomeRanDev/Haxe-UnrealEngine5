@@ -16,3 +16,22 @@ abstract ConstReimportTextureFactory(ReimportTextureFactory) from ReimportTextur
 	public extern var pOriginalTex(get, never): cpp.Star<Texture.ConstTexture>;
 	public inline extern function get_pOriginalTex(): cpp.Star<Texture.ConstTexture> return this.pOriginalTex;
 }
+
+@:forward
+@:nativeGen
+@:native("ReimportTextureFactory*")
+abstract ReimportTextureFactoryPtr(cpp.Star<ReimportTextureFactory>) from cpp.Star<ReimportTextureFactory> to cpp.Star<ReimportTextureFactory>{
+	@:from
+	public static extern inline function fromValue(v: ReimportTextureFactory): ReimportTextureFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ReimportTextureFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

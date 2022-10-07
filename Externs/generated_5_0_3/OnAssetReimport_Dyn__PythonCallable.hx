@@ -12,3 +12,22 @@ extern class OnAssetReimport_Dyn__PythonCallable extends PythonCallableForDelega
 @:nativeGen
 abstract ConstOnAssetReimport_Dyn__PythonCallable(OnAssetReimport_Dyn__PythonCallable) from OnAssetReimport_Dyn__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnAssetReimport_Dyn__PythonCallable*")
+abstract OnAssetReimport_Dyn__PythonCallablePtr(cpp.Star<OnAssetReimport_Dyn__PythonCallable>) from cpp.Star<OnAssetReimport_Dyn__PythonCallable> to cpp.Star<OnAssetReimport_Dyn__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnAssetReimport_Dyn__PythonCallable): OnAssetReimport_Dyn__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnAssetReimport_Dyn__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class DemoPendingNetGame extends PendingNetGame {
 @:nativeGen
 abstract ConstDemoPendingNetGame(DemoPendingNetGame) from DemoPendingNetGame {
 }
+
+@:forward
+@:nativeGen
+@:native("DemoPendingNetGame*")
+abstract DemoPendingNetGamePtr(cpp.Star<DemoPendingNetGame>) from cpp.Star<DemoPendingNetGame> to cpp.Star<DemoPendingNetGame>{
+	@:from
+	public static extern inline function fromValue(v: DemoPendingNetGame): DemoPendingNetGamePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DemoPendingNetGame {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

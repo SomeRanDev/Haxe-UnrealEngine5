@@ -13,3 +13,22 @@ extern class SceneOutlinerMenuContext extends Object {
 @:nativeGen
 abstract ConstSceneOutlinerMenuContext(SceneOutlinerMenuContext) from SceneOutlinerMenuContext {
 }
+
+@:forward
+@:nativeGen
+@:native("SceneOutlinerMenuContext*")
+abstract SceneOutlinerMenuContextPtr(cpp.Star<SceneOutlinerMenuContext>) from cpp.Star<SceneOutlinerMenuContext> to cpp.Star<SceneOutlinerMenuContext>{
+	@:from
+	public static extern inline function fromValue(v: SceneOutlinerMenuContext): SceneOutlinerMenuContextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SceneOutlinerMenuContext {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

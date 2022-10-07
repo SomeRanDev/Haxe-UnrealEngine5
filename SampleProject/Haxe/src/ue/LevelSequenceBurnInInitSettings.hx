@@ -13,3 +13,22 @@ extern class LevelSequenceBurnInInitSettings extends Object {
 @:nativeGen
 abstract ConstLevelSequenceBurnInInitSettings(LevelSequenceBurnInInitSettings) from LevelSequenceBurnInInitSettings {
 }
+
+@:forward
+@:nativeGen
+@:native("LevelSequenceBurnInInitSettings*")
+abstract LevelSequenceBurnInInitSettingsPtr(cpp.Star<LevelSequenceBurnInInitSettings>) from cpp.Star<LevelSequenceBurnInInitSettings> to cpp.Star<LevelSequenceBurnInInitSettings>{
+	@:from
+	public static extern inline function fromValue(v: LevelSequenceBurnInInitSettings): LevelSequenceBurnInInitSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelSequenceBurnInInitSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

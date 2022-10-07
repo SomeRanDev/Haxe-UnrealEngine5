@@ -12,3 +12,22 @@ extern class SlateWidgetStyleContainerInterface extends Interface {
 @:nativeGen
 abstract ConstSlateWidgetStyleContainerInterface(SlateWidgetStyleContainerInterface) from SlateWidgetStyleContainerInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("SlateWidgetStyleContainerInterface*")
+abstract SlateWidgetStyleContainerInterfacePtr(cpp.Star<SlateWidgetStyleContainerInterface>) from cpp.Star<SlateWidgetStyleContainerInterface> to cpp.Star<SlateWidgetStyleContainerInterface>{
+	@:from
+	public static extern inline function fromValue(v: SlateWidgetStyleContainerInterface): SlateWidgetStyleContainerInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SlateWidgetStyleContainerInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

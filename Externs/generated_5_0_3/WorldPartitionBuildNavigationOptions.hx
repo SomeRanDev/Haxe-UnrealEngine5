@@ -19,3 +19,22 @@ abstract ConstWorldPartitionBuildNavigationOptions(WorldPartitionBuildNavigation
 	public extern var bCleanPackages(get, never): Bool;
 	public inline extern function get_bCleanPackages(): Bool return this.bCleanPackages;
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionBuildNavigationOptions*")
+abstract WorldPartitionBuildNavigationOptionsPtr(cpp.Star<WorldPartitionBuildNavigationOptions>) from cpp.Star<WorldPartitionBuildNavigationOptions> to cpp.Star<WorldPartitionBuildNavigationOptions>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionBuildNavigationOptions): WorldPartitionBuildNavigationOptionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionBuildNavigationOptions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

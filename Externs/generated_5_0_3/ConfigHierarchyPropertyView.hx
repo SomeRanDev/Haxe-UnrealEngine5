@@ -19,3 +19,22 @@ abstract ConstConfigHierarchyPropertyView(ConfigHierarchyPropertyView) from Conf
 	public extern var ConfigFilePropertyObjects(get, never): TArray<cpp.Star<PropertyConfigFileDisplayRow.ConstPropertyConfigFileDisplayRow>>;
 	public inline extern function get_ConfigFilePropertyObjects(): TArray<cpp.Star<PropertyConfigFileDisplayRow.ConstPropertyConfigFileDisplayRow>> return this.ConfigFilePropertyObjects;
 }
+
+@:forward
+@:nativeGen
+@:native("ConfigHierarchyPropertyView*")
+abstract ConfigHierarchyPropertyViewPtr(cpp.Star<ConfigHierarchyPropertyView>) from cpp.Star<ConfigHierarchyPropertyView> to cpp.Star<ConfigHierarchyPropertyView>{
+	@:from
+	public static extern inline function fromValue(v: ConfigHierarchyPropertyView): ConfigHierarchyPropertyViewPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ConfigHierarchyPropertyView {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

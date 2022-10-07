@@ -24,3 +24,22 @@ abstract ConstNavModifierComp(NavModifierComp) from NavModifierComp {
 	public extern var bIncludeAgentHeight(get, never): Bool;
 	public inline extern function get_bIncludeAgentHeight(): Bool return this.bIncludeAgentHeight;
 }
+
+@:forward
+@:nativeGen
+@:native("NavModifierComp*")
+abstract NavModifierCompPtr(cpp.Star<NavModifierComp>) from cpp.Star<NavModifierComp> to cpp.Star<NavModifierComp>{
+	@:from
+	public static extern inline function fromValue(v: NavModifierComp): NavModifierCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavModifierComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

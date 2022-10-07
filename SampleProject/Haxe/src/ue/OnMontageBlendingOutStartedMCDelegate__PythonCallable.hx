@@ -12,3 +12,22 @@ extern class OnMontageBlendingOutStartedMCDelegate__PythonCallable extends Pytho
 @:nativeGen
 abstract ConstOnMontageBlendingOutStartedMCDelegate__PythonCallable(OnMontageBlendingOutStartedMCDelegate__PythonCallable) from OnMontageBlendingOutStartedMCDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnMontageBlendingOutStartedMCDelegate__PythonCallable*")
+abstract OnMontageBlendingOutStartedMCDelegate__PythonCallablePtr(cpp.Star<OnMontageBlendingOutStartedMCDelegate__PythonCallable>) from cpp.Star<OnMontageBlendingOutStartedMCDelegate__PythonCallable> to cpp.Star<OnMontageBlendingOutStartedMCDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnMontageBlendingOutStartedMCDelegate__PythonCallable): OnMontageBlendingOutStartedMCDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnMontageBlendingOutStartedMCDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -25,3 +25,22 @@ abstract ConstControlRigShapeLibrary(ControlRigShapeLibrary) from ControlRigShap
 	public extern var Shapes(get, never): TArray<ControlRigShapeDefinition>;
 	public inline extern function get_Shapes(): TArray<ControlRigShapeDefinition> return this.Shapes;
 }
+
+@:forward
+@:nativeGen
+@:native("ControlRigShapeLibrary*")
+abstract ControlRigShapeLibraryPtr(cpp.Star<ControlRigShapeLibrary>) from cpp.Star<ControlRigShapeLibrary> to cpp.Star<ControlRigShapeLibrary>{
+	@:from
+	public static extern inline function fromValue(v: ControlRigShapeLibrary): ControlRigShapeLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ControlRigShapeLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

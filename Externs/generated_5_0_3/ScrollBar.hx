@@ -36,3 +36,22 @@ abstract ConstScrollBar(ScrollBar) from ScrollBar {
 	public extern var Padding(get, never): Margin;
 	public inline extern function get_Padding(): Margin return this.Padding;
 }
+
+@:forward
+@:nativeGen
+@:native("ScrollBar*")
+abstract ScrollBarPtr(cpp.Star<ScrollBar>) from cpp.Star<ScrollBar> to cpp.Star<ScrollBar>{
+	@:from
+	public static extern inline function fromValue(v: ScrollBar): ScrollBarPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ScrollBar {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

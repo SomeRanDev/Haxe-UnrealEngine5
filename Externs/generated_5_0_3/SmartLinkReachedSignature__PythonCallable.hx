@@ -12,3 +12,22 @@ extern class SmartLinkReachedSignature__PythonCallable extends PythonCallableFor
 @:nativeGen
 abstract ConstSmartLinkReachedSignature__PythonCallable(SmartLinkReachedSignature__PythonCallable) from SmartLinkReachedSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("SmartLinkReachedSignature__PythonCallable*")
+abstract SmartLinkReachedSignature__PythonCallablePtr(cpp.Star<SmartLinkReachedSignature__PythonCallable>) from cpp.Star<SmartLinkReachedSignature__PythonCallable> to cpp.Star<SmartLinkReachedSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: SmartLinkReachedSignature__PythonCallable): SmartLinkReachedSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SmartLinkReachedSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

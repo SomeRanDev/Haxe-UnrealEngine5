@@ -87,3 +87,22 @@ abstract ConstListView(ListView) from ListView {
 	public extern var BP_OnItemScrolledIntoView(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Object.ConstObject>, cpp.Star<UserWidget.ConstUserWidget>) -> Void>;
 	public inline extern function get_BP_OnItemScrolledIntoView(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Object.ConstObject>, cpp.Star<UserWidget.ConstUserWidget>) -> Void> return this.BP_OnItemScrolledIntoView;
 }
+
+@:forward
+@:nativeGen
+@:native("ListView*")
+abstract ListViewPtr(cpp.Star<ListView>) from cpp.Star<ListView> to cpp.Star<ListView>{
+	@:from
+	public static extern inline function fromValue(v: ListView): ListViewPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ListView {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

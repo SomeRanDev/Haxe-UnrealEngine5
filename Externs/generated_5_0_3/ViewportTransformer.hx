@@ -23,3 +23,22 @@ abstract ConstViewportTransformer(ViewportTransformer) from ViewportTransformer 
 	public extern var ViewportWorldInteraction(get, never): cpp.Star<ViewportWorldInteraction.ConstViewportWorldInteraction>;
 	public inline extern function get_ViewportWorldInteraction(): cpp.Star<ViewportWorldInteraction.ConstViewportWorldInteraction> return this.ViewportWorldInteraction;
 }
+
+@:forward
+@:nativeGen
+@:native("ViewportTransformer*")
+abstract ViewportTransformerPtr(cpp.Star<ViewportTransformer>) from cpp.Star<ViewportTransformer> to cpp.Star<ViewportTransformer>{
+	@:from
+	public static extern inline function fromValue(v: ViewportTransformer): ViewportTransformerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ViewportTransformer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

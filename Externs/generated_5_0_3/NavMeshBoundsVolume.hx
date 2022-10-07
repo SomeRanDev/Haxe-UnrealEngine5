@@ -16,3 +16,22 @@ abstract ConstNavMeshBoundsVolume(NavMeshBoundsVolume) from NavMeshBoundsVolume 
 	public extern var SupportedAgents(get, never): NavAgentSelector;
 	public inline extern function get_SupportedAgents(): NavAgentSelector return this.SupportedAgents;
 }
+
+@:forward
+@:nativeGen
+@:native("NavMeshBoundsVolume*")
+abstract NavMeshBoundsVolumePtr(cpp.Star<NavMeshBoundsVolume>) from cpp.Star<NavMeshBoundsVolume> to cpp.Star<NavMeshBoundsVolume>{
+	@:from
+	public static extern inline function fromValue(v: NavMeshBoundsVolume): NavMeshBoundsVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavMeshBoundsVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

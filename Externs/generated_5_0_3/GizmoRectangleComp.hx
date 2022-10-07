@@ -40,3 +40,22 @@ abstract ConstGizmoRectangleComp(GizmoRectangleComp) from GizmoRectangleComp {
 	public extern var SegmentFlags(get, never): cpp.UInt8;
 	public inline extern function get_SegmentFlags(): cpp.UInt8 return this.SegmentFlags;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoRectangleComp*")
+abstract GizmoRectangleCompPtr(cpp.Star<GizmoRectangleComp>) from cpp.Star<GizmoRectangleComp> to cpp.Star<GizmoRectangleComp>{
+	@:from
+	public static extern inline function fromValue(v: GizmoRectangleComp): GizmoRectangleCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoRectangleComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

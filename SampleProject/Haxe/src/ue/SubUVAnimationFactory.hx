@@ -16,3 +16,22 @@ abstract ConstSubUVAnimationFactory(SubUVAnimationFactory) from SubUVAnimationFa
 	public extern var InitialTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
 	public inline extern function get_InitialTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.InitialTexture;
 }
+
+@:forward
+@:nativeGen
+@:native("SubUVAnimationFactory*")
+abstract SubUVAnimationFactoryPtr(cpp.Star<SubUVAnimationFactory>) from cpp.Star<SubUVAnimationFactory> to cpp.Star<SubUVAnimationFactory>{
+	@:from
+	public static extern inline function fromValue(v: SubUVAnimationFactory): SubUVAnimationFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SubUVAnimationFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

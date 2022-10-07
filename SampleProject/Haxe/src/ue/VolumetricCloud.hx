@@ -16,3 +16,22 @@ abstract ConstVolumetricCloud(VolumetricCloud) from VolumetricCloud {
 	public extern var VolumetricCloudComponent(get, never): cpp.Star<VolumetricCloudComp.ConstVolumetricCloudComp>;
 	public inline extern function get_VolumetricCloudComponent(): cpp.Star<VolumetricCloudComp.ConstVolumetricCloudComp> return this.VolumetricCloudComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("VolumetricCloud*")
+abstract VolumetricCloudPtr(cpp.Star<VolumetricCloud>) from cpp.Star<VolumetricCloud> to cpp.Star<VolumetricCloud>{
+	@:from
+	public static extern inline function fromValue(v: VolumetricCloud): VolumetricCloudPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VolumetricCloud {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

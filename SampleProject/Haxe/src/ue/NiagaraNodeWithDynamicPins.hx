@@ -13,3 +13,22 @@ extern class NiagaraNodeWithDynamicPins extends NiagaraNode {
 @:nativeGen
 abstract ConstNiagaraNodeWithDynamicPins(NiagaraNodeWithDynamicPins) from NiagaraNodeWithDynamicPins {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraNodeWithDynamicPins*")
+abstract NiagaraNodeWithDynamicPinsPtr(cpp.Star<NiagaraNodeWithDynamicPins>) from cpp.Star<NiagaraNodeWithDynamicPins> to cpp.Star<NiagaraNodeWithDynamicPins>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraNodeWithDynamicPins): NiagaraNodeWithDynamicPinsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraNodeWithDynamicPins {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

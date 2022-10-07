@@ -26,3 +26,22 @@ abstract ConstGameplayTask_SpawnActor(GameplayTask_SpawnActor) from GameplayTask
 	public extern var ClassToSpawn(get, never): TSubclassOf<Actor.ConstActor>;
 	public inline extern function get_ClassToSpawn(): TSubclassOf<Actor.ConstActor> return this.ClassToSpawn;
 }
+
+@:forward
+@:nativeGen
+@:native("GameplayTask_SpawnActor*")
+abstract GameplayTask_SpawnActorPtr(cpp.Star<GameplayTask_SpawnActor>) from cpp.Star<GameplayTask_SpawnActor> to cpp.Star<GameplayTask_SpawnActor>{
+	@:from
+	public static extern inline function fromValue(v: GameplayTask_SpawnActor): GameplayTask_SpawnActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameplayTask_SpawnActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class TemplateMapMetadata extends Object {
 @:nativeGen
 abstract ConstTemplateMapMetadata(TemplateMapMetadata) from TemplateMapMetadata {
 }
+
+@:forward
+@:nativeGen
+@:native("TemplateMapMetadata*")
+abstract TemplateMapMetadataPtr(cpp.Star<TemplateMapMetadata>) from cpp.Star<TemplateMapMetadata> to cpp.Star<TemplateMapMetadata>{
+	@:from
+	public static extern inline function fromValue(v: TemplateMapMetadata): TemplateMapMetadataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TemplateMapMetadata {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

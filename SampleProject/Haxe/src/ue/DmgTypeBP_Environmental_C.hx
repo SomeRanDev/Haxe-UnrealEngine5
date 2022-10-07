@@ -12,3 +12,22 @@ extern class DmgTypeBP_Environmental_C extends DamageType {
 @:nativeGen
 abstract ConstDmgTypeBP_Environmental_C(DmgTypeBP_Environmental_C) from DmgTypeBP_Environmental_C {
 }
+
+@:forward
+@:nativeGen
+@:native("DmgTypeBP_Environmental_C*")
+abstract DmgTypeBP_Environmental_CPtr(cpp.Star<DmgTypeBP_Environmental_C>) from cpp.Star<DmgTypeBP_Environmental_C> to cpp.Star<DmgTypeBP_Environmental_C>{
+	@:from
+	public static extern inline function fromValue(v: DmgTypeBP_Environmental_C): DmgTypeBP_Environmental_CPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DmgTypeBP_Environmental_C {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

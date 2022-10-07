@@ -13,3 +13,22 @@ extern class EQSRenderingComp extends DebugDrawComp {
 @:nativeGen
 abstract ConstEQSRenderingComp(EQSRenderingComp) from EQSRenderingComp {
 }
+
+@:forward
+@:nativeGen
+@:native("EQSRenderingComp*")
+abstract EQSRenderingCompPtr(cpp.Star<EQSRenderingComp>) from cpp.Star<EQSRenderingComp> to cpp.Star<EQSRenderingComp>{
+	@:from
+	public static extern inline function fromValue(v: EQSRenderingComp): EQSRenderingCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EQSRenderingComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

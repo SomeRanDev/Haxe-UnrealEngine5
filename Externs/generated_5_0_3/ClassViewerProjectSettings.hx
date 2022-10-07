@@ -19,3 +19,22 @@ abstract ConstClassViewerProjectSettings(ClassViewerProjectSettings) from ClassV
 	public extern var InternalOnlyClasses(get, never): TArray<SoftClassPath>;
 	public inline extern function get_InternalOnlyClasses(): TArray<SoftClassPath> return this.InternalOnlyClasses;
 }
+
+@:forward
+@:nativeGen
+@:native("ClassViewerProjectSettings*")
+abstract ClassViewerProjectSettingsPtr(cpp.Star<ClassViewerProjectSettings>) from cpp.Star<ClassViewerProjectSettings> to cpp.Star<ClassViewerProjectSettings>{
+	@:from
+	public static extern inline function fromValue(v: ClassViewerProjectSettings): ClassViewerProjectSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ClassViewerProjectSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

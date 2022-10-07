@@ -19,3 +19,22 @@ abstract ConstAnimSequenceLevelSequenceLink(AnimSequenceLevelSequenceLink) from 
 	public extern var PathToLevelSequence(get, never): SoftObjectPath;
 	public inline extern function get_PathToLevelSequence(): SoftObjectPath return this.PathToLevelSequence;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimSequenceLevelSequenceLink*")
+abstract AnimSequenceLevelSequenceLinkPtr(cpp.Star<AnimSequenceLevelSequenceLink>) from cpp.Star<AnimSequenceLevelSequenceLink> to cpp.Star<AnimSequenceLevelSequenceLink>{
+	@:from
+	public static extern inline function fromValue(v: AnimSequenceLevelSequenceLink): AnimSequenceLevelSequenceLinkPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimSequenceLevelSequenceLink {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

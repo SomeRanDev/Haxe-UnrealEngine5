@@ -25,3 +25,22 @@ abstract ConstEditorConfigTestObject(EditorConfigTestObject) from EditorConfigTe
 	public extern var Number(get, never): cpp.Int32;
 	public inline extern function get_Number(): cpp.Int32 return this.Number;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorConfigTestObject*")
+abstract EditorConfigTestObjectPtr(cpp.Star<EditorConfigTestObject>) from cpp.Star<EditorConfigTestObject> to cpp.Star<EditorConfigTestObject>{
+	@:from
+	public static extern inline function fromValue(v: EditorConfigTestObject): EditorConfigTestObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorConfigTestObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

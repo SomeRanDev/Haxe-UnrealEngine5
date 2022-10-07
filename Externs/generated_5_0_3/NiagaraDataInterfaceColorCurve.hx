@@ -25,3 +25,22 @@ abstract ConstNiagaraDataInterfaceColorCurve(NiagaraDataInterfaceColorCurve) fro
 	public extern var AlphaCurve(get, never): RichCurve;
 	public inline extern function get_AlphaCurve(): RichCurve return this.AlphaCurve;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceColorCurve*")
+abstract NiagaraDataInterfaceColorCurvePtr(cpp.Star<NiagaraDataInterfaceColorCurve>) from cpp.Star<NiagaraDataInterfaceColorCurve> to cpp.Star<NiagaraDataInterfaceColorCurve>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceColorCurve): NiagaraDataInterfaceColorCurvePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceColorCurve {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -77,3 +77,22 @@ abstract ConstPhysicsConstraintComp(PhysicsConstraintComp) from PhysicsConstrain
 	public extern var ConstraintInstance(get, never): ConstraintInstance;
 	public inline extern function get_ConstraintInstance(): ConstraintInstance return this.ConstraintInstance;
 }
+
+@:forward
+@:nativeGen
+@:native("PhysicsConstraintComp*")
+abstract PhysicsConstraintCompPtr(cpp.Star<PhysicsConstraintComp>) from cpp.Star<PhysicsConstraintComp> to cpp.Star<PhysicsConstraintComp>{
+	@:from
+	public static extern inline function fromValue(v: PhysicsConstraintComp): PhysicsConstraintCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhysicsConstraintComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

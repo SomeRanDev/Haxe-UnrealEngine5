@@ -16,3 +16,22 @@ abstract ConstPaperGroupedSpriteActor(PaperGroupedSpriteActor) from PaperGrouped
 	public extern var RenderComponent(get, never): cpp.Star<PaperGroupedSpriteComp.ConstPaperGroupedSpriteComp>;
 	public inline extern function get_RenderComponent(): cpp.Star<PaperGroupedSpriteComp.ConstPaperGroupedSpriteComp> return this.RenderComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("PaperGroupedSpriteActor*")
+abstract PaperGroupedSpriteActorPtr(cpp.Star<PaperGroupedSpriteActor>) from cpp.Star<PaperGroupedSpriteActor> to cpp.Star<PaperGroupedSpriteActor>{
+	@:from
+	public static extern inline function fromValue(v: PaperGroupedSpriteActor): PaperGroupedSpriteActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PaperGroupedSpriteActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

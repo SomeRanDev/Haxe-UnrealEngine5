@@ -12,3 +12,22 @@ extern class OnLatestOverallMeterResults__PythonCallable extends PythonCallableF
 @:nativeGen
 abstract ConstOnLatestOverallMeterResults__PythonCallable(OnLatestOverallMeterResults__PythonCallable) from OnLatestOverallMeterResults__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnLatestOverallMeterResults__PythonCallable*")
+abstract OnLatestOverallMeterResults__PythonCallablePtr(cpp.Star<OnLatestOverallMeterResults__PythonCallable>) from cpp.Star<OnLatestOverallMeterResults__PythonCallable> to cpp.Star<OnLatestOverallMeterResults__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnLatestOverallMeterResults__PythonCallable): OnLatestOverallMeterResults__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnLatestOverallMeterResults__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

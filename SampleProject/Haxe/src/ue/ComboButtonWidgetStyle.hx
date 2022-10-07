@@ -16,3 +16,22 @@ abstract ConstComboButtonWidgetStyle(ComboButtonWidgetStyle) from ComboButtonWid
 	public extern var ComboButtonStyle(get, never): ComboButtonStyle;
 	public inline extern function get_ComboButtonStyle(): ComboButtonStyle return this.ComboButtonStyle;
 }
+
+@:forward
+@:nativeGen
+@:native("ComboButtonWidgetStyle*")
+abstract ComboButtonWidgetStylePtr(cpp.Star<ComboButtonWidgetStyle>) from cpp.Star<ComboButtonWidgetStyle> to cpp.Star<ComboButtonWidgetStyle>{
+	@:from
+	public static extern inline function fromValue(v: ComboButtonWidgetStyle): ComboButtonWidgetStylePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ComboButtonWidgetStyle {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

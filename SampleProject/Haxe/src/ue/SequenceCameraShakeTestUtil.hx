@@ -16,3 +16,22 @@ extern class SequenceCameraShakeTestUtil extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstSequenceCameraShakeTestUtil(SequenceCameraShakeTestUtil) from SequenceCameraShakeTestUtil {
 }
+
+@:forward
+@:nativeGen
+@:native("SequenceCameraShakeTestUtil*")
+abstract SequenceCameraShakeTestUtilPtr(cpp.Star<SequenceCameraShakeTestUtil>) from cpp.Star<SequenceCameraShakeTestUtil> to cpp.Star<SequenceCameraShakeTestUtil>{
+	@:from
+	public static extern inline function fromValue(v: SequenceCameraShakeTestUtil): SequenceCameraShakeTestUtilPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SequenceCameraShakeTestUtil {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

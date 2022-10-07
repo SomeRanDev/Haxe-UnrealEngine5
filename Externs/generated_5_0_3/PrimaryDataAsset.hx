@@ -16,3 +16,22 @@ abstract ConstPrimaryDataAsset(PrimaryDataAsset) from PrimaryDataAsset {
 	public extern var AssetBundleData(get, never): AssetBundleData;
 	public inline extern function get_AssetBundleData(): AssetBundleData return this.AssetBundleData;
 }
+
+@:forward
+@:nativeGen
+@:native("PrimaryDataAsset*")
+abstract PrimaryDataAssetPtr(cpp.Star<PrimaryDataAsset>) from cpp.Star<PrimaryDataAsset> to cpp.Star<PrimaryDataAsset>{
+	@:from
+	public static extern inline function fromValue(v: PrimaryDataAsset): PrimaryDataAssetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PrimaryDataAsset {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

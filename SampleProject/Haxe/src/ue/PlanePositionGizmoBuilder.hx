@@ -13,3 +13,22 @@ extern class PlanePositionGizmoBuilder extends InteractiveGizmoBuilder {
 @:nativeGen
 abstract ConstPlanePositionGizmoBuilder(PlanePositionGizmoBuilder) from PlanePositionGizmoBuilder {
 }
+
+@:forward
+@:nativeGen
+@:native("PlanePositionGizmoBuilder*")
+abstract PlanePositionGizmoBuilderPtr(cpp.Star<PlanePositionGizmoBuilder>) from cpp.Star<PlanePositionGizmoBuilder> to cpp.Star<PlanePositionGizmoBuilder>{
+	@:from
+	public static extern inline function fromValue(v: PlanePositionGizmoBuilder): PlanePositionGizmoBuilderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PlanePositionGizmoBuilder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

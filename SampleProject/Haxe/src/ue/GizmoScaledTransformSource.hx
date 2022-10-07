@@ -16,3 +16,22 @@ abstract ConstGizmoScaledTransformSource(GizmoScaledTransformSource) from GizmoS
 	public extern var ChildTransformSource(get, never): GizmoTransformSource.ConstGizmoTransformSource;
 	public inline extern function get_ChildTransformSource(): GizmoTransformSource.ConstGizmoTransformSource return this.ChildTransformSource;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoScaledTransformSource*")
+abstract GizmoScaledTransformSourcePtr(cpp.Star<GizmoScaledTransformSource>) from cpp.Star<GizmoScaledTransformSource> to cpp.Star<GizmoScaledTransformSource>{
+	@:from
+	public static extern inline function fromValue(v: GizmoScaledTransformSource): GizmoScaledTransformSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoScaledTransformSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

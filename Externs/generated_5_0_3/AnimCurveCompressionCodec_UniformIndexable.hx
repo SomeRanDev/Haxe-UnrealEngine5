@@ -13,3 +13,22 @@ extern class AnimCurveCompressionCodec_UniformIndexable extends AnimCurveCompres
 @:nativeGen
 abstract ConstAnimCurveCompressionCodec_UniformIndexable(AnimCurveCompressionCodec_UniformIndexable) from AnimCurveCompressionCodec_UniformIndexable {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimCurveCompressionCodec_UniformIndexable*")
+abstract AnimCurveCompressionCodec_UniformIndexablePtr(cpp.Star<AnimCurveCompressionCodec_UniformIndexable>) from cpp.Star<AnimCurveCompressionCodec_UniformIndexable> to cpp.Star<AnimCurveCompressionCodec_UniformIndexable>{
+	@:from
+	public static extern inline function fromValue(v: AnimCurveCompressionCodec_UniformIndexable): AnimCurveCompressionCodec_UniformIndexablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimCurveCompressionCodec_UniformIndexable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

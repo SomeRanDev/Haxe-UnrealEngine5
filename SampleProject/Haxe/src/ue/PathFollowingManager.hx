@@ -13,3 +13,22 @@ extern class PathFollowingManager extends Object {
 @:nativeGen
 abstract ConstPathFollowingManager(PathFollowingManager) from PathFollowingManager {
 }
+
+@:forward
+@:nativeGen
+@:native("PathFollowingManager*")
+abstract PathFollowingManagerPtr(cpp.Star<PathFollowingManager>) from cpp.Star<PathFollowingManager> to cpp.Star<PathFollowingManager>{
+	@:from
+	public static extern inline function fromValue(v: PathFollowingManager): PathFollowingManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PathFollowingManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

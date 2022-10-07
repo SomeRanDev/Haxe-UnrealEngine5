@@ -46,3 +46,22 @@ abstract ConstMovieSceneTrack(MovieSceneTrack) from MovieSceneTrack {
 	public extern var bSupportsDefaultSections(get, never): Bool;
 	public inline extern function get_bSupportsDefaultSections(): Bool return this.bSupportsDefaultSections;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneTrack*")
+abstract MovieSceneTrackPtr(cpp.Star<MovieSceneTrack>) from cpp.Star<MovieSceneTrack> to cpp.Star<MovieSceneTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneTrack): MovieSceneTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

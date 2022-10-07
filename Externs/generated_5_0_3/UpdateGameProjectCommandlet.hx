@@ -13,3 +13,22 @@ extern class UpdateGameProjectCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstUpdateGameProjectCommandlet(UpdateGameProjectCommandlet) from UpdateGameProjectCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("UpdateGameProjectCommandlet*")
+abstract UpdateGameProjectCommandletPtr(cpp.Star<UpdateGameProjectCommandlet>) from cpp.Star<UpdateGameProjectCommandlet> to cpp.Star<UpdateGameProjectCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: UpdateGameProjectCommandlet): UpdateGameProjectCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UpdateGameProjectCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

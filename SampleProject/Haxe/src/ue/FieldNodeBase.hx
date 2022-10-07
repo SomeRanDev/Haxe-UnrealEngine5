@@ -13,3 +13,22 @@ extern class FieldNodeBase extends ActorComp {
 @:nativeGen
 abstract ConstFieldNodeBase(FieldNodeBase) from FieldNodeBase {
 }
+
+@:forward
+@:nativeGen
+@:native("FieldNodeBase*")
+abstract FieldNodeBasePtr(cpp.Star<FieldNodeBase>) from cpp.Star<FieldNodeBase> to cpp.Star<FieldNodeBase>{
+	@:from
+	public static extern inline function fromValue(v: FieldNodeBase): FieldNodeBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FieldNodeBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

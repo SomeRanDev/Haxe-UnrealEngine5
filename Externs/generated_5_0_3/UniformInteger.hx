@@ -18,3 +18,22 @@ abstract ConstUniformInteger(UniformInteger) from UniformInteger {
 	public extern var Magnitude(get, never): cpp.Int32;
 	public inline extern function get_Magnitude(): cpp.Int32 return this.Magnitude;
 }
+
+@:forward
+@:nativeGen
+@:native("UniformInteger*")
+abstract UniformIntegerPtr(cpp.Star<UniformInteger>) from cpp.Star<UniformInteger> to cpp.Star<UniformInteger>{
+	@:from
+	public static extern inline function fromValue(v: UniformInteger): UniformIntegerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UniformInteger {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

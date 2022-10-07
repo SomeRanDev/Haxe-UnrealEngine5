@@ -12,3 +12,22 @@ extern class OnUserScrolledEvent__PythonCallable extends PythonCallableForDelega
 @:nativeGen
 abstract ConstOnUserScrolledEvent__PythonCallable(OnUserScrolledEvent__PythonCallable) from OnUserScrolledEvent__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnUserScrolledEvent__PythonCallable*")
+abstract OnUserScrolledEvent__PythonCallablePtr(cpp.Star<OnUserScrolledEvent__PythonCallable>) from cpp.Star<OnUserScrolledEvent__PythonCallable> to cpp.Star<OnUserScrolledEvent__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnUserScrolledEvent__PythonCallable): OnUserScrolledEvent__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnUserScrolledEvent__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

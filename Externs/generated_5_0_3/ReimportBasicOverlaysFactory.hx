@@ -13,3 +13,22 @@ extern class ReimportBasicOverlaysFactory extends BasicOverlaysFactory {
 @:nativeGen
 abstract ConstReimportBasicOverlaysFactory(ReimportBasicOverlaysFactory) from ReimportBasicOverlaysFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("ReimportBasicOverlaysFactory*")
+abstract ReimportBasicOverlaysFactoryPtr(cpp.Star<ReimportBasicOverlaysFactory>) from cpp.Star<ReimportBasicOverlaysFactory> to cpp.Star<ReimportBasicOverlaysFactory>{
+	@:from
+	public static extern inline function fromValue(v: ReimportBasicOverlaysFactory): ReimportBasicOverlaysFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ReimportBasicOverlaysFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

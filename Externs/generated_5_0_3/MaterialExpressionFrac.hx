@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionFrac(MaterialExpressionFrac) from MaterialExpres
 	public extern var Input(get, never): ExpressionInput;
 	public inline extern function get_Input(): ExpressionInput return this.Input;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionFrac*")
+abstract MaterialExpressionFracPtr(cpp.Star<MaterialExpressionFrac>) from cpp.Star<MaterialExpressionFrac> to cpp.Star<MaterialExpressionFrac>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionFrac): MaterialExpressionFracPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionFrac {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

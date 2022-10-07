@@ -81,3 +81,22 @@ abstract ConstPaperTileMapComp(PaperTileMapComp) from PaperTileMapComp {
 	public extern var bShowPerLayerGridWhenUnselected(get, never): Bool;
 	public inline extern function get_bShowPerLayerGridWhenUnselected(): Bool return this.bShowPerLayerGridWhenUnselected;
 }
+
+@:forward
+@:nativeGen
+@:native("PaperTileMapComp*")
+abstract PaperTileMapCompPtr(cpp.Star<PaperTileMapComp>) from cpp.Star<PaperTileMapComp> to cpp.Star<PaperTileMapComp>{
+	@:from
+	public static extern inline function fromValue(v: PaperTileMapComp): PaperTileMapCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PaperTileMapComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -40,3 +40,22 @@ abstract ConstRPCDoSDetectionConfig(RPCDoSDetectionConfig) from RPCDoSDetectionC
 	public extern var RPCAnalyticsOverrideChance(get, never): cpp.Float64;
 	public inline extern function get_RPCAnalyticsOverrideChance(): cpp.Float64 return this.RPCAnalyticsOverrideChance;
 }
+
+@:forward
+@:nativeGen
+@:native("RPCDoSDetectionConfig*")
+abstract RPCDoSDetectionConfigPtr(cpp.Star<RPCDoSDetectionConfig>) from cpp.Star<RPCDoSDetectionConfig> to cpp.Star<RPCDoSDetectionConfig>{
+	@:from
+	public static extern inline function fromValue(v: RPCDoSDetectionConfig): RPCDoSDetectionConfigPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RPCDoSDetectionConfig {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

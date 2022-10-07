@@ -13,3 +13,22 @@ extern class MaterialGraphSchema extends EdGraphSchema {
 @:nativeGen
 abstract ConstMaterialGraphSchema(MaterialGraphSchema) from MaterialGraphSchema {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialGraphSchema*")
+abstract MaterialGraphSchemaPtr(cpp.Star<MaterialGraphSchema>) from cpp.Star<MaterialGraphSchema> to cpp.Star<MaterialGraphSchema>{
+	@:from
+	public static extern inline function fromValue(v: MaterialGraphSchema): MaterialGraphSchemaPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialGraphSchema {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

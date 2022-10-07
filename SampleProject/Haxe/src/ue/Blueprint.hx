@@ -187,3 +187,22 @@ abstract ConstBlueprint(Blueprint) from Blueprint {
 	public extern var OriginalClass(get, never): TSubclassOf<Object.ConstObject>;
 	public inline extern function get_OriginalClass(): TSubclassOf<Object.ConstObject> return this.OriginalClass;
 }
+
+@:forward
+@:nativeGen
+@:native("Blueprint*")
+abstract BlueprintPtr(cpp.Star<Blueprint>) from cpp.Star<Blueprint> to cpp.Star<Blueprint>{
+	@:from
+	public static extern inline function fromValue(v: Blueprint): BlueprintPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Blueprint {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

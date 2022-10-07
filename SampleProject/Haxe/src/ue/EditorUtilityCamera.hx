@@ -13,3 +13,22 @@ extern class EditorUtilityCamera extends CameraActor {
 @:nativeGen
 abstract ConstEditorUtilityCamera(EditorUtilityCamera) from EditorUtilityCamera {
 }
+
+@:forward
+@:nativeGen
+@:native("EditorUtilityCamera*")
+abstract EditorUtilityCameraPtr(cpp.Star<EditorUtilityCamera>) from cpp.Star<EditorUtilityCamera> to cpp.Star<EditorUtilityCamera>{
+	@:from
+	public static extern inline function fromValue(v: EditorUtilityCamera): EditorUtilityCameraPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorUtilityCamera {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

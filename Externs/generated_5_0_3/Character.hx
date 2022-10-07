@@ -183,3 +183,22 @@ abstract ConstCharacter(Character) from Character {
 	public extern var RepRootMotion(get, never): RepRootMotionMontage;
 	public inline extern function get_RepRootMotion(): RepRootMotionMontage return this.RepRootMotion;
 }
+
+@:forward
+@:nativeGen
+@:native("Character*")
+abstract CharacterPtr(cpp.Star<Character>) from cpp.Star<Character> to cpp.Star<Character>{
+	@:from
+	public static extern inline function fromValue(v: Character): CharacterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Character {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

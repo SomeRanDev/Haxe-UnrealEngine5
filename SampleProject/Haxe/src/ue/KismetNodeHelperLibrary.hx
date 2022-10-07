@@ -26,3 +26,22 @@ extern class KismetNodeHelperLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstKismetNodeHelperLibrary(KismetNodeHelperLibrary) from KismetNodeHelperLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("KismetNodeHelperLibrary*")
+abstract KismetNodeHelperLibraryPtr(cpp.Star<KismetNodeHelperLibrary>) from cpp.Star<KismetNodeHelperLibrary> to cpp.Star<KismetNodeHelperLibrary>{
+	@:from
+	public static extern inline function fromValue(v: KismetNodeHelperLibrary): KismetNodeHelperLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): KismetNodeHelperLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

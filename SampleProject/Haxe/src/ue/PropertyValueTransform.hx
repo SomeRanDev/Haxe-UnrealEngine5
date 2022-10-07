@@ -13,3 +13,22 @@ extern class PropertyValueTransform extends PropertyValue {
 @:nativeGen
 abstract ConstPropertyValueTransform(PropertyValueTransform) from PropertyValueTransform {
 }
+
+@:forward
+@:nativeGen
+@:native("PropertyValueTransform*")
+abstract PropertyValueTransformPtr(cpp.Star<PropertyValueTransform>) from cpp.Star<PropertyValueTransform> to cpp.Star<PropertyValueTransform>{
+	@:from
+	public static extern inline function fromValue(v: PropertyValueTransform): PropertyValueTransformPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PropertyValueTransform {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

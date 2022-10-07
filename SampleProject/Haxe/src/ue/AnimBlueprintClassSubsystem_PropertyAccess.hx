@@ -13,3 +13,22 @@ extern class AnimBlueprintClassSubsystem_PropertyAccess extends Object {
 @:nativeGen
 abstract ConstAnimBlueprintClassSubsystem_PropertyAccess(AnimBlueprintClassSubsystem_PropertyAccess) from AnimBlueprintClassSubsystem_PropertyAccess {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimBlueprintClassSubsystem_PropertyAccess*")
+abstract AnimBlueprintClassSubsystem_PropertyAccessPtr(cpp.Star<AnimBlueprintClassSubsystem_PropertyAccess>) from cpp.Star<AnimBlueprintClassSubsystem_PropertyAccess> to cpp.Star<AnimBlueprintClassSubsystem_PropertyAccess>{
+	@:from
+	public static extern inline function fromValue(v: AnimBlueprintClassSubsystem_PropertyAccess): AnimBlueprintClassSubsystem_PropertyAccessPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimBlueprintClassSubsystem_PropertyAccess {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class DynamicSubsystem extends Subsystem {
 @:nativeGen
 abstract ConstDynamicSubsystem(DynamicSubsystem) from DynamicSubsystem {
 }
+
+@:forward
+@:nativeGen
+@:native("DynamicSubsystem*")
+abstract DynamicSubsystemPtr(cpp.Star<DynamicSubsystem>) from cpp.Star<DynamicSubsystem> to cpp.Star<DynamicSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: DynamicSubsystem): DynamicSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DynamicSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

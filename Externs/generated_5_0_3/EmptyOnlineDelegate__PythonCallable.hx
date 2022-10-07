@@ -12,3 +12,22 @@ extern class EmptyOnlineDelegate__PythonCallable extends PythonCallableForDelega
 @:nativeGen
 abstract ConstEmptyOnlineDelegate__PythonCallable(EmptyOnlineDelegate__PythonCallable) from EmptyOnlineDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("EmptyOnlineDelegate__PythonCallable*")
+abstract EmptyOnlineDelegate__PythonCallablePtr(cpp.Star<EmptyOnlineDelegate__PythonCallable>) from cpp.Star<EmptyOnlineDelegate__PythonCallable> to cpp.Star<EmptyOnlineDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: EmptyOnlineDelegate__PythonCallable): EmptyOnlineDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EmptyOnlineDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

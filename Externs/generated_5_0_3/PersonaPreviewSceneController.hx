@@ -13,3 +13,22 @@ extern class PersonaPreviewSceneController extends Object {
 @:nativeGen
 abstract ConstPersonaPreviewSceneController(PersonaPreviewSceneController) from PersonaPreviewSceneController {
 }
+
+@:forward
+@:nativeGen
+@:native("PersonaPreviewSceneController*")
+abstract PersonaPreviewSceneControllerPtr(cpp.Star<PersonaPreviewSceneController>) from cpp.Star<PersonaPreviewSceneController> to cpp.Star<PersonaPreviewSceneController>{
+	@:from
+	public static extern inline function fromValue(v: PersonaPreviewSceneController): PersonaPreviewSceneControllerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PersonaPreviewSceneController {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

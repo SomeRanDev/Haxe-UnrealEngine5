@@ -16,3 +16,22 @@ abstract ConstNiagaraDataInterfaceMeshRendererInfo(NiagaraDataInterfaceMeshRende
 	public extern var MeshRenderer(get, never): cpp.Star<NiagaraMeshRendererProperties.ConstNiagaraMeshRendererProperties>;
 	public inline extern function get_MeshRenderer(): cpp.Star<NiagaraMeshRendererProperties.ConstNiagaraMeshRendererProperties> return this.MeshRenderer;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceMeshRendererInfo*")
+abstract NiagaraDataInterfaceMeshRendererInfoPtr(cpp.Star<NiagaraDataInterfaceMeshRendererInfo>) from cpp.Star<NiagaraDataInterfaceMeshRendererInfo> to cpp.Star<NiagaraDataInterfaceMeshRendererInfo>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceMeshRendererInfo): NiagaraDataInterfaceMeshRendererInfoPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceMeshRendererInfo {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

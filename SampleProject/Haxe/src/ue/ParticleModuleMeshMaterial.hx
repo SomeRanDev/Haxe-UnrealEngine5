@@ -16,3 +16,22 @@ abstract ConstParticleModuleMeshMaterial(ParticleModuleMeshMaterial) from Partic
 	public extern var MeshMaterials(get, never): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>>;
 	public inline extern function get_MeshMaterials(): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>> return this.MeshMaterials;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleMeshMaterial*")
+abstract ParticleModuleMeshMaterialPtr(cpp.Star<ParticleModuleMeshMaterial>) from cpp.Star<ParticleModuleMeshMaterial> to cpp.Star<ParticleModuleMeshMaterial>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleMeshMaterial): ParticleModuleMeshMaterialPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleMeshMaterial {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

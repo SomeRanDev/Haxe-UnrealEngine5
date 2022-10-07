@@ -16,3 +16,22 @@ abstract ConstMovieSceneGroomCacheTrack(MovieSceneGroomCacheTrack) from MovieSce
 	public extern var AnimationSections(get, never): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>>;
 	public inline extern function get_AnimationSections(): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>> return this.AnimationSections;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneGroomCacheTrack*")
+abstract MovieSceneGroomCacheTrackPtr(cpp.Star<MovieSceneGroomCacheTrack>) from cpp.Star<MovieSceneGroomCacheTrack> to cpp.Star<MovieSceneGroomCacheTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneGroomCacheTrack): MovieSceneGroomCacheTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneGroomCacheTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

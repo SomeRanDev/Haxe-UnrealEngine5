@@ -13,3 +13,22 @@ extern class Volume extends Brush {
 @:nativeGen
 abstract ConstVolume(Volume) from Volume {
 }
+
+@:forward
+@:nativeGen
+@:native("Volume*")
+abstract VolumePtr(cpp.Star<Volume>) from cpp.Star<Volume> to cpp.Star<Volume>{
+	@:from
+	public static extern inline function fromValue(v: Volume): VolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Volume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

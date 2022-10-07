@@ -13,3 +13,22 @@ extern class EditorUtilityToolMenuSection extends ToolMenuSectionDynamic {
 @:nativeGen
 abstract ConstEditorUtilityToolMenuSection(EditorUtilityToolMenuSection) from EditorUtilityToolMenuSection {
 }
+
+@:forward
+@:nativeGen
+@:native("EditorUtilityToolMenuSection*")
+abstract EditorUtilityToolMenuSectionPtr(cpp.Star<EditorUtilityToolMenuSection>) from cpp.Star<EditorUtilityToolMenuSection> to cpp.Star<EditorUtilityToolMenuSection>{
+	@:from
+	public static extern inline function fromValue(v: EditorUtilityToolMenuSection): EditorUtilityToolMenuSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorUtilityToolMenuSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

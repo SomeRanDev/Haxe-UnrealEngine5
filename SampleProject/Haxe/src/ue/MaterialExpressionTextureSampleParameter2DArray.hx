@@ -13,3 +13,22 @@ extern class MaterialExpressionTextureSampleParameter2DArray extends MaterialExp
 @:nativeGen
 abstract ConstMaterialExpressionTextureSampleParameter2DArray(MaterialExpressionTextureSampleParameter2DArray) from MaterialExpressionTextureSampleParameter2DArray {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionTextureSampleParameter2DArray*")
+abstract MaterialExpressionTextureSampleParameter2DArrayPtr(cpp.Star<MaterialExpressionTextureSampleParameter2DArray>) from cpp.Star<MaterialExpressionTextureSampleParameter2DArray> to cpp.Star<MaterialExpressionTextureSampleParameter2DArray>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionTextureSampleParameter2DArray): MaterialExpressionTextureSampleParameter2DArrayPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionTextureSampleParameter2DArray {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

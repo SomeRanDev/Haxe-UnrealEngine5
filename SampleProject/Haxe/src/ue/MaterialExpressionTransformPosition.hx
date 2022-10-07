@@ -22,3 +22,22 @@ abstract ConstMaterialExpressionTransformPosition(MaterialExpressionTransformPos
 	public extern var TransformType(get, never): EMaterialPositionTransformSource;
 	public inline extern function get_TransformType(): EMaterialPositionTransformSource return this.TransformType;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionTransformPosition*")
+abstract MaterialExpressionTransformPositionPtr(cpp.Star<MaterialExpressionTransformPosition>) from cpp.Star<MaterialExpressionTransformPosition> to cpp.Star<MaterialExpressionTransformPosition>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionTransformPosition): MaterialExpressionTransformPositionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionTransformPosition {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

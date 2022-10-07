@@ -13,3 +13,22 @@ extern class LocalSingleClickInputBehavior extends SingleClickInputBehavior {
 @:nativeGen
 abstract ConstLocalSingleClickInputBehavior(LocalSingleClickInputBehavior) from LocalSingleClickInputBehavior {
 }
+
+@:forward
+@:nativeGen
+@:native("LocalSingleClickInputBehavior*")
+abstract LocalSingleClickInputBehaviorPtr(cpp.Star<LocalSingleClickInputBehavior>) from cpp.Star<LocalSingleClickInputBehavior> to cpp.Star<LocalSingleClickInputBehavior>{
+	@:from
+	public static extern inline function fromValue(v: LocalSingleClickInputBehavior): LocalSingleClickInputBehaviorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LocalSingleClickInputBehavior {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

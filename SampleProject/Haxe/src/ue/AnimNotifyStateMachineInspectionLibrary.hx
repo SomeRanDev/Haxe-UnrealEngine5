@@ -16,3 +16,22 @@ extern class AnimNotifyStateMachineInspectionLibrary extends BlueprintFunctionLi
 @:nativeGen
 abstract ConstAnimNotifyStateMachineInspectionLibrary(AnimNotifyStateMachineInspectionLibrary) from AnimNotifyStateMachineInspectionLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimNotifyStateMachineInspectionLibrary*")
+abstract AnimNotifyStateMachineInspectionLibraryPtr(cpp.Star<AnimNotifyStateMachineInspectionLibrary>) from cpp.Star<AnimNotifyStateMachineInspectionLibrary> to cpp.Star<AnimNotifyStateMachineInspectionLibrary>{
+	@:from
+	public static extern inline function fromValue(v: AnimNotifyStateMachineInspectionLibrary): AnimNotifyStateMachineInspectionLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimNotifyStateMachineInspectionLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

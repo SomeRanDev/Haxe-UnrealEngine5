@@ -13,3 +13,22 @@ extern class ReplayNetConnection extends NetConnection {
 @:nativeGen
 abstract ConstReplayNetConnection(ReplayNetConnection) from ReplayNetConnection {
 }
+
+@:forward
+@:nativeGen
+@:native("ReplayNetConnection*")
+abstract ReplayNetConnectionPtr(cpp.Star<ReplayNetConnection>) from cpp.Star<ReplayNetConnection> to cpp.Star<ReplayNetConnection>{
+	@:from
+	public static extern inline function fromValue(v: ReplayNetConnection): ReplayNetConnectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ReplayNetConnection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

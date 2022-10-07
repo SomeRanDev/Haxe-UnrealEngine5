@@ -718,3 +718,22 @@ abstract ConstEngine(Engine) from Engine {
 	public extern var NextWorldContextHandle(get, never): cpp.Int32;
 	public inline extern function get_NextWorldContextHandle(): cpp.Int32 return this.NextWorldContextHandle;
 }
+
+@:forward
+@:nativeGen
+@:native("Engine*")
+abstract EnginePtr(cpp.Star<Engine>) from cpp.Star<Engine> to cpp.Star<Engine>{
+	@:from
+	public static extern inline function fromValue(v: Engine): EnginePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Engine {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

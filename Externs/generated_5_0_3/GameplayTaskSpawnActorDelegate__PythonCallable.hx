@@ -12,3 +12,22 @@ extern class GameplayTaskSpawnActorDelegate__PythonCallable extends PythonCallab
 @:nativeGen
 abstract ConstGameplayTaskSpawnActorDelegate__PythonCallable(GameplayTaskSpawnActorDelegate__PythonCallable) from GameplayTaskSpawnActorDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("GameplayTaskSpawnActorDelegate__PythonCallable*")
+abstract GameplayTaskSpawnActorDelegate__PythonCallablePtr(cpp.Star<GameplayTaskSpawnActorDelegate__PythonCallable>) from cpp.Star<GameplayTaskSpawnActorDelegate__PythonCallable> to cpp.Star<GameplayTaskSpawnActorDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: GameplayTaskSpawnActorDelegate__PythonCallable): GameplayTaskSpawnActorDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameplayTaskSpawnActorDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -34,3 +34,22 @@ abstract ConstMaterialExpressionPanner(MaterialExpressionPanner) from MaterialEx
 	public extern var bFractionalPart(get, never): Bool;
 	public inline extern function get_bFractionalPart(): Bool return this.bFractionalPart;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionPanner*")
+abstract MaterialExpressionPannerPtr(cpp.Star<MaterialExpressionPanner>) from cpp.Star<MaterialExpressionPanner> to cpp.Star<MaterialExpressionPanner>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionPanner): MaterialExpressionPannerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionPanner {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

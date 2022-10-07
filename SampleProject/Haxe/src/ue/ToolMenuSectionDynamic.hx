@@ -14,3 +14,22 @@ extern class ToolMenuSectionDynamic extends Object {
 @:nativeGen
 abstract ConstToolMenuSectionDynamic(ToolMenuSectionDynamic) from ToolMenuSectionDynamic {
 }
+
+@:forward
+@:nativeGen
+@:native("ToolMenuSectionDynamic*")
+abstract ToolMenuSectionDynamicPtr(cpp.Star<ToolMenuSectionDynamic>) from cpp.Star<ToolMenuSectionDynamic> to cpp.Star<ToolMenuSectionDynamic>{
+	@:from
+	public static extern inline function fromValue(v: ToolMenuSectionDynamic): ToolMenuSectionDynamicPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ToolMenuSectionDynamic {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

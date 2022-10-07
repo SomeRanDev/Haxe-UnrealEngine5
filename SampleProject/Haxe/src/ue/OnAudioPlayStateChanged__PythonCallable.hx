@@ -12,3 +12,22 @@ extern class OnAudioPlayStateChanged__PythonCallable extends PythonCallableForDe
 @:nativeGen
 abstract ConstOnAudioPlayStateChanged__PythonCallable(OnAudioPlayStateChanged__PythonCallable) from OnAudioPlayStateChanged__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnAudioPlayStateChanged__PythonCallable*")
+abstract OnAudioPlayStateChanged__PythonCallablePtr(cpp.Star<OnAudioPlayStateChanged__PythonCallable>) from cpp.Star<OnAudioPlayStateChanged__PythonCallable> to cpp.Star<OnAudioPlayStateChanged__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnAudioPlayStateChanged__PythonCallable): OnAudioPlayStateChanged__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnAudioPlayStateChanged__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

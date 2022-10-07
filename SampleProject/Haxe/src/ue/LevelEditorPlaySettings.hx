@@ -205,3 +205,22 @@ abstract ConstLevelEditorPlaySettings(LevelEditorPlaySettings) from LevelEditorP
 	public extern var CustomUnsafeZoneDimensions(get, never): TArray<Vector2D>;
 	public inline extern function get_CustomUnsafeZoneDimensions(): TArray<Vector2D> return this.CustomUnsafeZoneDimensions;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelEditorPlaySettings*")
+abstract LevelEditorPlaySettingsPtr(cpp.Star<LevelEditorPlaySettings>) from cpp.Star<LevelEditorPlaySettings> to cpp.Star<LevelEditorPlaySettings>{
+	@:from
+	public static extern inline function fromValue(v: LevelEditorPlaySettings): LevelEditorPlaySettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelEditorPlaySettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

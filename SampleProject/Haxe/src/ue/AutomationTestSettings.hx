@@ -64,3 +64,22 @@ abstract ConstAutomationTestSettings(AutomationTestSettings) from AutomationTest
 	public extern var PIETestDuration(get, never): cpp.Float32;
 	public inline extern function get_PIETestDuration(): cpp.Float32 return this.PIETestDuration;
 }
+
+@:forward
+@:nativeGen
+@:native("AutomationTestSettings*")
+abstract AutomationTestSettingsPtr(cpp.Star<AutomationTestSettings>) from cpp.Star<AutomationTestSettings> to cpp.Star<AutomationTestSettings>{
+	@:from
+	public static extern inline function fromValue(v: AutomationTestSettings): AutomationTestSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AutomationTestSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

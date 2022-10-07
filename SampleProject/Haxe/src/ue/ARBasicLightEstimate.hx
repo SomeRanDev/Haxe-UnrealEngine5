@@ -26,3 +26,22 @@ abstract ConstARBasicLightEstimate(ARBasicLightEstimate) from ARBasicLightEstima
 	public extern var AmbientColor(get, never): LinearColor;
 	public inline extern function get_AmbientColor(): LinearColor return this.AmbientColor;
 }
+
+@:forward
+@:nativeGen
+@:native("ARBasicLightEstimate*")
+abstract ARBasicLightEstimatePtr(cpp.Star<ARBasicLightEstimate>) from cpp.Star<ARBasicLightEstimate> to cpp.Star<ARBasicLightEstimate>{
+	@:from
+	public static extern inline function fromValue(v: ARBasicLightEstimate): ARBasicLightEstimatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARBasicLightEstimate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

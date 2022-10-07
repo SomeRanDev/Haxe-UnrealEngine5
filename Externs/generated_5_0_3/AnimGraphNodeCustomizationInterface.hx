@@ -13,3 +13,22 @@ extern class AnimGraphNodeCustomizationInterface extends Interface {
 @:nativeGen
 abstract ConstAnimGraphNodeCustomizationInterface(AnimGraphNodeCustomizationInterface) from AnimGraphNodeCustomizationInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNodeCustomizationInterface*")
+abstract AnimGraphNodeCustomizationInterfacePtr(cpp.Star<AnimGraphNodeCustomizationInterface>) from cpp.Star<AnimGraphNodeCustomizationInterface> to cpp.Star<AnimGraphNodeCustomizationInterface>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNodeCustomizationInterface): AnimGraphNodeCustomizationInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNodeCustomizationInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

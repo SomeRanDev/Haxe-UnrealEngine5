@@ -19,3 +19,22 @@ abstract ConstParticleModuleVectorFieldScale(ParticleModuleVectorFieldScale) fro
 	public extern var VectorFieldScaleRaw(get, never): RawDistributionFloat;
 	public inline extern function get_VectorFieldScaleRaw(): RawDistributionFloat return this.VectorFieldScaleRaw;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleVectorFieldScale*")
+abstract ParticleModuleVectorFieldScalePtr(cpp.Star<ParticleModuleVectorFieldScale>) from cpp.Star<ParticleModuleVectorFieldScale> to cpp.Star<ParticleModuleVectorFieldScale>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleVectorFieldScale): ParticleModuleVectorFieldScalePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleVectorFieldScale {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class OnIsSelectingKeyChanged__PythonCallable extends PythonCallableForDe
 @:nativeGen
 abstract ConstOnIsSelectingKeyChanged__PythonCallable(OnIsSelectingKeyChanged__PythonCallable) from OnIsSelectingKeyChanged__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnIsSelectingKeyChanged__PythonCallable*")
+abstract OnIsSelectingKeyChanged__PythonCallablePtr(cpp.Star<OnIsSelectingKeyChanged__PythonCallable>) from cpp.Star<OnIsSelectingKeyChanged__PythonCallable> to cpp.Star<OnIsSelectingKeyChanged__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnIsSelectingKeyChanged__PythonCallable): OnIsSelectingKeyChanged__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnIsSelectingKeyChanged__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

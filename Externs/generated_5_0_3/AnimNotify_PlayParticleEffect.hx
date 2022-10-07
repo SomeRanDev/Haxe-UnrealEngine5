@@ -31,3 +31,22 @@ abstract ConstAnimNotify_PlayParticleEffect(AnimNotify_PlayParticleEffect) from 
 	public extern var SocketName(get, never): FName;
 	public inline extern function get_SocketName(): FName return this.SocketName;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimNotify_PlayParticleEffect*")
+abstract AnimNotify_PlayParticleEffectPtr(cpp.Star<AnimNotify_PlayParticleEffect>) from cpp.Star<AnimNotify_PlayParticleEffect> to cpp.Star<AnimNotify_PlayParticleEffect>{
+	@:from
+	public static extern inline function fromValue(v: AnimNotify_PlayParticleEffect): AnimNotify_PlayParticleEffectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimNotify_PlayParticleEffect {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

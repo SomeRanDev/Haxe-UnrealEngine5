@@ -12,3 +12,22 @@ extern class ViewportInteractableInterface extends Interface {
 @:nativeGen
 abstract ConstViewportInteractableInterface(ViewportInteractableInterface) from ViewportInteractableInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("ViewportInteractableInterface*")
+abstract ViewportInteractableInterfacePtr(cpp.Star<ViewportInteractableInterface>) from cpp.Star<ViewportInteractableInterface> to cpp.Star<ViewportInteractableInterface>{
+	@:from
+	public static extern inline function fromValue(v: ViewportInteractableInterface): ViewportInteractableInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ViewportInteractableInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

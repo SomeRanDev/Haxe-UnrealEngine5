@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_AssetPlayerBase(AnimGraphNode_AssetPlayerBase) from 
 	public extern var SyncGroup_DEPRECATED(get, never): AnimationGroupReference;
 	public inline extern function get_SyncGroup_DEPRECATED(): AnimationGroupReference return this.SyncGroup_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_AssetPlayerBase*")
+abstract AnimGraphNode_AssetPlayerBasePtr(cpp.Star<AnimGraphNode_AssetPlayerBase>) from cpp.Star<AnimGraphNode_AssetPlayerBase> to cpp.Star<AnimGraphNode_AssetPlayerBase>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_AssetPlayerBase): AnimGraphNode_AssetPlayerBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_AssetPlayerBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

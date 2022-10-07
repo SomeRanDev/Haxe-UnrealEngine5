@@ -24,3 +24,22 @@ abstract ConstLevelVariantSetsActor(LevelVariantSetsActor) from LevelVariantSets
 	public extern var DirectorInstances(get, never): TMap<TSubclassOf<Object.ConstObject>, cpp.Star<LevelVariantSetsFunctionDirector.ConstLevelVariantSetsFunctionDirector>>;
 	public inline extern function get_DirectorInstances(): TMap<TSubclassOf<Object.ConstObject>, cpp.Star<LevelVariantSetsFunctionDirector.ConstLevelVariantSetsFunctionDirector>> return this.DirectorInstances;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelVariantSetsActor*")
+abstract LevelVariantSetsActorPtr(cpp.Star<LevelVariantSetsActor>) from cpp.Star<LevelVariantSetsActor> to cpp.Star<LevelVariantSetsActor>{
+	@:from
+	public static extern inline function fromValue(v: LevelVariantSetsActor): LevelVariantSetsActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelVariantSetsActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

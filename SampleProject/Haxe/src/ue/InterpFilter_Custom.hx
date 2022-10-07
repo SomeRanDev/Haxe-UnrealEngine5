@@ -16,3 +16,22 @@ abstract ConstInterpFilter_Custom(InterpFilter_Custom) from InterpFilter_Custom 
 	public extern var GroupsToInclude(get, never): TArray<cpp.Star<InterpGroup.ConstInterpGroup>>;
 	public inline extern function get_GroupsToInclude(): TArray<cpp.Star<InterpGroup.ConstInterpGroup>> return this.GroupsToInclude;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpFilter_Custom*")
+abstract InterpFilter_CustomPtr(cpp.Star<InterpFilter_Custom>) from cpp.Star<InterpFilter_Custom> to cpp.Star<InterpFilter_Custom>{
+	@:from
+	public static extern inline function fromValue(v: InterpFilter_Custom): InterpFilter_CustomPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpFilter_Custom {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -22,3 +22,22 @@ abstract ConstActorSequence(ActorSequence) from ActorSequence {
 	public extern var bHasBeenInitialized(get, never): Bool;
 	public inline extern function get_bHasBeenInitialized(): Bool return this.bHasBeenInitialized;
 }
+
+@:forward
+@:nativeGen
+@:native("ActorSequence*")
+abstract ActorSequencePtr(cpp.Star<ActorSequence>) from cpp.Star<ActorSequence> to cpp.Star<ActorSequence>{
+	@:from
+	public static extern inline function fromValue(v: ActorSequence): ActorSequencePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorSequence {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

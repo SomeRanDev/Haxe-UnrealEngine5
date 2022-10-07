@@ -104,3 +104,22 @@ abstract ConstSkyAtmosphereComp(SkyAtmosphereComp) from SkyAtmosphereComp {
 	public extern var bStaticLightingBuiltGUID(get, never): Guid;
 	public inline extern function get_bStaticLightingBuiltGUID(): Guid return this.bStaticLightingBuiltGUID;
 }
+
+@:forward
+@:nativeGen
+@:native("SkyAtmosphereComp*")
+abstract SkyAtmosphereCompPtr(cpp.Star<SkyAtmosphereComp>) from cpp.Star<SkyAtmosphereComp> to cpp.Star<SkyAtmosphereComp>{
+	@:from
+	public static extern inline function fromValue(v: SkyAtmosphereComp): SkyAtmosphereCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SkyAtmosphereComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class AnimGraphNode_LinkedAnimGraphBase extends AnimGraphNode_CustomPrope
 @:nativeGen
 abstract ConstAnimGraphNode_LinkedAnimGraphBase(AnimGraphNode_LinkedAnimGraphBase) from AnimGraphNode_LinkedAnimGraphBase {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_LinkedAnimGraphBase*")
+abstract AnimGraphNode_LinkedAnimGraphBasePtr(cpp.Star<AnimGraphNode_LinkedAnimGraphBase>) from cpp.Star<AnimGraphNode_LinkedAnimGraphBase> to cpp.Star<AnimGraphNode_LinkedAnimGraphBase>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_LinkedAnimGraphBase): AnimGraphNode_LinkedAnimGraphBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_LinkedAnimGraphBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

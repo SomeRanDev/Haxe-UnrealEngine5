@@ -13,3 +13,22 @@ extern class OnlineBlueprintCallProxyBase extends BlueprintAsyncActionBase {
 @:nativeGen
 abstract ConstOnlineBlueprintCallProxyBase(OnlineBlueprintCallProxyBase) from OnlineBlueprintCallProxyBase {
 }
+
+@:forward
+@:nativeGen
+@:native("OnlineBlueprintCallProxyBase*")
+abstract OnlineBlueprintCallProxyBasePtr(cpp.Star<OnlineBlueprintCallProxyBase>) from cpp.Star<OnlineBlueprintCallProxyBase> to cpp.Star<OnlineBlueprintCallProxyBase>{
+	@:from
+	public static extern inline function fromValue(v: OnlineBlueprintCallProxyBase): OnlineBlueprintCallProxyBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnlineBlueprintCallProxyBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

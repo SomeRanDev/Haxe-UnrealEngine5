@@ -13,3 +13,22 @@ extern class NiagaraParameterCollectionFactoryNew extends Factory {
 @:nativeGen
 abstract ConstNiagaraParameterCollectionFactoryNew(NiagaraParameterCollectionFactoryNew) from NiagaraParameterCollectionFactoryNew {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraParameterCollectionFactoryNew*")
+abstract NiagaraParameterCollectionFactoryNewPtr(cpp.Star<NiagaraParameterCollectionFactoryNew>) from cpp.Star<NiagaraParameterCollectionFactoryNew> to cpp.Star<NiagaraParameterCollectionFactoryNew>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraParameterCollectionFactoryNew): NiagaraParameterCollectionFactoryNewPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraParameterCollectionFactoryNew {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

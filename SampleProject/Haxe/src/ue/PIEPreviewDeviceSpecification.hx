@@ -46,3 +46,22 @@ abstract ConstPIEPreviewDeviceSpecification(PIEPreviewDeviceSpecification) from 
 	public extern var Chipset(get, never): FString;
 	public inline extern function get_Chipset(): FString return this.Chipset;
 }
+
+@:forward
+@:nativeGen
+@:native("PIEPreviewDeviceSpecification*")
+abstract PIEPreviewDeviceSpecificationPtr(cpp.Star<PIEPreviewDeviceSpecification>) from cpp.Star<PIEPreviewDeviceSpecification> to cpp.Star<PIEPreviewDeviceSpecification>{
+	@:from
+	public static extern inline function fromValue(v: PIEPreviewDeviceSpecification): PIEPreviewDeviceSpecificationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PIEPreviewDeviceSpecification {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -40,3 +40,22 @@ abstract ConstSKEL_ABP_Manny_C(SKEL_ABP_Manny_C) from SKEL_ABP_Manny_C {
 	public extern var IsFalling(get, never): Bool;
 	public inline extern function get_IsFalling(): Bool return this.IsFalling;
 }
+
+@:forward
+@:nativeGen
+@:native("SKEL_ABP_Manny_C*")
+abstract SKEL_ABP_Manny_CPtr(cpp.Star<SKEL_ABP_Manny_C>) from cpp.Star<SKEL_ABP_Manny_C> to cpp.Star<SKEL_ABP_Manny_C>{
+	@:from
+	public static extern inline function fromValue(v: SKEL_ABP_Manny_C): SKEL_ABP_Manny_CPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SKEL_ABP_Manny_C {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

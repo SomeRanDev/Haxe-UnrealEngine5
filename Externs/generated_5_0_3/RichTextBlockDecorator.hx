@@ -13,3 +13,22 @@ extern class RichTextBlockDecorator extends Object {
 @:nativeGen
 abstract ConstRichTextBlockDecorator(RichTextBlockDecorator) from RichTextBlockDecorator {
 }
+
+@:forward
+@:nativeGen
+@:native("RichTextBlockDecorator*")
+abstract RichTextBlockDecoratorPtr(cpp.Star<RichTextBlockDecorator>) from cpp.Star<RichTextBlockDecorator> to cpp.Star<RichTextBlockDecorator>{
+	@:from
+	public static extern inline function fromValue(v: RichTextBlockDecorator): RichTextBlockDecoratorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RichTextBlockDecorator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -31,3 +31,22 @@ abstract ConstLinearAnalysisProperties(LinearAnalysisProperties) from LinearAnal
 	public extern var EndTimeFraction(get, never): cpp.Float32;
 	public inline extern function get_EndTimeFraction(): cpp.Float32 return this.EndTimeFraction;
 }
+
+@:forward
+@:nativeGen
+@:native("LinearAnalysisProperties*")
+abstract LinearAnalysisPropertiesPtr(cpp.Star<LinearAnalysisProperties>) from cpp.Star<LinearAnalysisProperties> to cpp.Star<LinearAnalysisProperties>{
+	@:from
+	public static extern inline function fromValue(v: LinearAnalysisProperties): LinearAnalysisPropertiesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LinearAnalysisProperties {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class InstigatedAnyDamageSignature__PythonCallable extends PythonCallable
 @:nativeGen
 abstract ConstInstigatedAnyDamageSignature__PythonCallable(InstigatedAnyDamageSignature__PythonCallable) from InstigatedAnyDamageSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("InstigatedAnyDamageSignature__PythonCallable*")
+abstract InstigatedAnyDamageSignature__PythonCallablePtr(cpp.Star<InstigatedAnyDamageSignature__PythonCallable>) from cpp.Star<InstigatedAnyDamageSignature__PythonCallable> to cpp.Star<InstigatedAnyDamageSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: InstigatedAnyDamageSignature__PythonCallable): InstigatedAnyDamageSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InstigatedAnyDamageSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

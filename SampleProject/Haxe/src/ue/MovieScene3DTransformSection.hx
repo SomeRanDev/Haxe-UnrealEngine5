@@ -34,3 +34,22 @@ abstract ConstMovieScene3DTransformSection(MovieScene3DTransformSection) from Mo
 	public extern var Show3DTrajectory(get, never): EShow3DTrajectory;
 	public inline extern function get_Show3DTrajectory(): EShow3DTrajectory return this.Show3DTrajectory;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieScene3DTransformSection*")
+abstract MovieScene3DTransformSectionPtr(cpp.Star<MovieScene3DTransformSection>) from cpp.Star<MovieScene3DTransformSection> to cpp.Star<MovieScene3DTransformSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieScene3DTransformSection): MovieScene3DTransformSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieScene3DTransformSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

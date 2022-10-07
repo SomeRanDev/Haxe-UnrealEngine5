@@ -19,3 +19,22 @@ abstract ConstNiagaraNodeSelect(NiagaraNodeSelect) from NiagaraNodeSelect {
 	public extern var SelectorPinGuid(get, never): Guid;
 	public inline extern function get_SelectorPinGuid(): Guid return this.SelectorPinGuid;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraNodeSelect*")
+abstract NiagaraNodeSelectPtr(cpp.Star<NiagaraNodeSelect>) from cpp.Star<NiagaraNodeSelect> to cpp.Star<NiagaraNodeSelect>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraNodeSelect): NiagaraNodeSelectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraNodeSelect {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

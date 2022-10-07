@@ -13,3 +13,22 @@ extern class ScriptViewportClient extends Object {
 @:nativeGen
 abstract ConstScriptViewportClient(ScriptViewportClient) from ScriptViewportClient {
 }
+
+@:forward
+@:nativeGen
+@:native("ScriptViewportClient*")
+abstract ScriptViewportClientPtr(cpp.Star<ScriptViewportClient>) from cpp.Star<ScriptViewportClient> to cpp.Star<ScriptViewportClient>{
+	@:from
+	public static extern inline function fromValue(v: ScriptViewportClient): ScriptViewportClientPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ScriptViewportClient {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -31,3 +31,22 @@ abstract ConstMaterialExpressionFunctionOutput(MaterialExpressionFunctionOutput)
 	public extern var Id(get, never): Guid;
 	public inline extern function get_Id(): Guid return this.Id;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionFunctionOutput*")
+abstract MaterialExpressionFunctionOutputPtr(cpp.Star<MaterialExpressionFunctionOutput>) from cpp.Star<MaterialExpressionFunctionOutput> to cpp.Star<MaterialExpressionFunctionOutput>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionFunctionOutput): MaterialExpressionFunctionOutputPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionFunctionOutput {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

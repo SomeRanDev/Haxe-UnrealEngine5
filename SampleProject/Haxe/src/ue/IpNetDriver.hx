@@ -43,3 +43,22 @@ abstract ConstIpNetDriver(IpNetDriver) from IpNetDriver {
 	public extern var ResolutionConnectionTimeout(get, never): cpp.Float32;
 	public inline extern function get_ResolutionConnectionTimeout(): cpp.Float32 return this.ResolutionConnectionTimeout;
 }
+
+@:forward
+@:nativeGen
+@:native("IpNetDriver*")
+abstract IpNetDriverPtr(cpp.Star<IpNetDriver>) from cpp.Star<IpNetDriver> to cpp.Star<IpNetDriver>{
+	@:from
+	public static extern inline function fromValue(v: IpNetDriver): IpNetDriverPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IpNetDriver {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

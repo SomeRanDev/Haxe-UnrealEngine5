@@ -22,3 +22,22 @@ abstract ConstAnimGraphNode_UseCachedPose(AnimGraphNode_UseCachedPose) from Anim
 	public extern var NameOfCache(get, never): FString;
 	public inline extern function get_NameOfCache(): FString return this.NameOfCache;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_UseCachedPose*")
+abstract AnimGraphNode_UseCachedPosePtr(cpp.Star<AnimGraphNode_UseCachedPose>) from cpp.Star<AnimGraphNode_UseCachedPose> to cpp.Star<AnimGraphNode_UseCachedPose>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_UseCachedPose): AnimGraphNode_UseCachedPosePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_UseCachedPose {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

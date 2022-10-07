@@ -22,3 +22,22 @@ abstract ConstARTextureCameraDepth(ARTextureCameraDepth) from ARTextureCameraDep
 	public extern var bIsTemporallySmoothed(get, never): Bool;
 	public inline extern function get_bIsTemporallySmoothed(): Bool return this.bIsTemporallySmoothed;
 }
+
+@:forward
+@:nativeGen
+@:native("ARTextureCameraDepth*")
+abstract ARTextureCameraDepthPtr(cpp.Star<ARTextureCameraDepth>) from cpp.Star<ARTextureCameraDepth> to cpp.Star<ARTextureCameraDepth>{
+	@:from
+	public static extern inline function fromValue(v: ARTextureCameraDepth): ARTextureCameraDepthPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARTextureCameraDepth {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

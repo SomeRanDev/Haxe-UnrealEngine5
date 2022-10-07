@@ -31,3 +31,22 @@ abstract ConstParticleModuleLocationEmitter(ParticleModuleLocationEmitter) from 
 	public extern var InheritSourceRotationScale(get, never): cpp.Float32;
 	public inline extern function get_InheritSourceRotationScale(): cpp.Float32 return this.InheritSourceRotationScale;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleLocationEmitter*")
+abstract ParticleModuleLocationEmitterPtr(cpp.Star<ParticleModuleLocationEmitter>) from cpp.Star<ParticleModuleLocationEmitter> to cpp.Star<ParticleModuleLocationEmitter>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleLocationEmitter): ParticleModuleLocationEmitterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleLocationEmitter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstControlRigObjectHolder(ControlRigObjectHolder) from ControlRigObje
 	public extern var Objects(get, never): TArray<cpp.Star<Object.ConstObject>>;
 	public inline extern function get_Objects(): TArray<cpp.Star<Object.ConstObject>> return this.Objects;
 }
+
+@:forward
+@:nativeGen
+@:native("ControlRigObjectHolder*")
+abstract ControlRigObjectHolderPtr(cpp.Star<ControlRigObjectHolder>) from cpp.Star<ControlRigObjectHolder> to cpp.Star<ControlRigObjectHolder>{
+	@:from
+	public static extern inline function fromValue(v: ControlRigObjectHolder): ControlRigObjectHolderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ControlRigObjectHolder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

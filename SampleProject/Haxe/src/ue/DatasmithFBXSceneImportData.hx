@@ -25,3 +25,22 @@ abstract ConstDatasmithFBXSceneImportData(DatasmithFBXSceneImportData) from Data
 	public extern var bColorizeMaterials(get, never): Bool;
 	public inline extern function get_bColorizeMaterials(): Bool return this.bColorizeMaterials;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithFBXSceneImportData*")
+abstract DatasmithFBXSceneImportDataPtr(cpp.Star<DatasmithFBXSceneImportData>) from cpp.Star<DatasmithFBXSceneImportData> to cpp.Star<DatasmithFBXSceneImportData>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithFBXSceneImportData): DatasmithFBXSceneImportDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithFBXSceneImportData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

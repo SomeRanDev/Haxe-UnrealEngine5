@@ -19,3 +19,22 @@ abstract ConstInheritableComponentHandler(InheritableComponentHandler) from Inhe
 	public extern var UnnecessaryComponents(get, never): TArray<cpp.Star<ActorComp.ConstActorComp>>;
 	public inline extern function get_UnnecessaryComponents(): TArray<cpp.Star<ActorComp.ConstActorComp>> return this.UnnecessaryComponents;
 }
+
+@:forward
+@:nativeGen
+@:native("InheritableComponentHandler*")
+abstract InheritableComponentHandlerPtr(cpp.Star<InheritableComponentHandler>) from cpp.Star<InheritableComponentHandler> to cpp.Star<InheritableComponentHandler>{
+	@:from
+	public static extern inline function fromValue(v: InheritableComponentHandler): InheritableComponentHandlerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InheritableComponentHandler {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

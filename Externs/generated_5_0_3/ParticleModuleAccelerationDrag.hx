@@ -19,3 +19,22 @@ abstract ConstParticleModuleAccelerationDrag(ParticleModuleAccelerationDrag) fro
 	public extern var DragCoefficientRaw(get, never): RawDistributionFloat;
 	public inline extern function get_DragCoefficientRaw(): RawDistributionFloat return this.DragCoefficientRaw;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleAccelerationDrag*")
+abstract ParticleModuleAccelerationDragPtr(cpp.Star<ParticleModuleAccelerationDrag>) from cpp.Star<ParticleModuleAccelerationDrag> to cpp.Star<ParticleModuleAccelerationDrag>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleAccelerationDrag): ParticleModuleAccelerationDragPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleAccelerationDrag {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

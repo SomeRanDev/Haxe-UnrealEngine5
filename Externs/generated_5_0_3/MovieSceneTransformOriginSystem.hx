@@ -13,3 +13,22 @@ extern class MovieSceneTransformOriginSystem extends MovieSceneEntitySystem {
 @:nativeGen
 abstract ConstMovieSceneTransformOriginSystem(MovieSceneTransformOriginSystem) from MovieSceneTransformOriginSystem {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneTransformOriginSystem*")
+abstract MovieSceneTransformOriginSystemPtr(cpp.Star<MovieSceneTransformOriginSystem>) from cpp.Star<MovieSceneTransformOriginSystem> to cpp.Star<MovieSceneTransformOriginSystem>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneTransformOriginSystem): MovieSceneTransformOriginSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneTransformOriginSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

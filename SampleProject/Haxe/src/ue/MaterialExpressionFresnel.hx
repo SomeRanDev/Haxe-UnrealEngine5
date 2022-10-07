@@ -28,3 +28,22 @@ abstract ConstMaterialExpressionFresnel(MaterialExpressionFresnel) from Material
 	public extern var Normal(get, never): ExpressionInput;
 	public inline extern function get_Normal(): ExpressionInput return this.Normal;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionFresnel*")
+abstract MaterialExpressionFresnelPtr(cpp.Star<MaterialExpressionFresnel>) from cpp.Star<MaterialExpressionFresnel> to cpp.Star<MaterialExpressionFresnel>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionFresnel): MaterialExpressionFresnelPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionFresnel {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

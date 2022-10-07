@@ -13,3 +13,22 @@ extern class AnimCurveCompressionSettingsFactory extends Factory {
 @:nativeGen
 abstract ConstAnimCurveCompressionSettingsFactory(AnimCurveCompressionSettingsFactory) from AnimCurveCompressionSettingsFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimCurveCompressionSettingsFactory*")
+abstract AnimCurveCompressionSettingsFactoryPtr(cpp.Star<AnimCurveCompressionSettingsFactory>) from cpp.Star<AnimCurveCompressionSettingsFactory> to cpp.Star<AnimCurveCompressionSettingsFactory>{
+	@:from
+	public static extern inline function fromValue(v: AnimCurveCompressionSettingsFactory): AnimCurveCompressionSettingsFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimCurveCompressionSettingsFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

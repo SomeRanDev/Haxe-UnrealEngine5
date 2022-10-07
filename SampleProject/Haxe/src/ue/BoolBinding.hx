@@ -14,3 +14,22 @@ extern class BoolBinding extends PropertyBinding {
 @:nativeGen
 abstract ConstBoolBinding(BoolBinding) from BoolBinding {
 }
+
+@:forward
+@:nativeGen
+@:native("BoolBinding*")
+abstract BoolBindingPtr(cpp.Star<BoolBinding>) from cpp.Star<BoolBinding> to cpp.Star<BoolBinding>{
+	@:from
+	public static extern inline function fromValue(v: BoolBinding): BoolBindingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BoolBinding {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

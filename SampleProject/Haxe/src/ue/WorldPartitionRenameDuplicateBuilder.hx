@@ -16,3 +16,22 @@ abstract ConstWorldPartitionRenameDuplicateBuilder(WorldPartitionRenameDuplicate
 	public extern var DuplicatedObjects(get, never): TMap<cpp.Star<Object.ConstObject>, cpp.Star<Object.ConstObject>>;
 	public inline extern function get_DuplicatedObjects(): TMap<cpp.Star<Object.ConstObject>, cpp.Star<Object.ConstObject>> return this.DuplicatedObjects;
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionRenameDuplicateBuilder*")
+abstract WorldPartitionRenameDuplicateBuilderPtr(cpp.Star<WorldPartitionRenameDuplicateBuilder>) from cpp.Star<WorldPartitionRenameDuplicateBuilder> to cpp.Star<WorldPartitionRenameDuplicateBuilder>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionRenameDuplicateBuilder): WorldPartitionRenameDuplicateBuilderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionRenameDuplicateBuilder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

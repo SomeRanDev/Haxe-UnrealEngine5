@@ -82,3 +82,22 @@ abstract ConstVolumetricCloudComp(VolumetricCloudComp) from VolumetricCloudComp 
 	public extern var StopTracingTransmittanceThreshold(get, never): cpp.Float32;
 	public inline extern function get_StopTracingTransmittanceThreshold(): cpp.Float32 return this.StopTracingTransmittanceThreshold;
 }
+
+@:forward
+@:nativeGen
+@:native("VolumetricCloudComp*")
+abstract VolumetricCloudCompPtr(cpp.Star<VolumetricCloudComp>) from cpp.Star<VolumetricCloudComp> to cpp.Star<VolumetricCloudComp>{
+	@:from
+	public static extern inline function fromValue(v: VolumetricCloudComp): VolumetricCloudCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VolumetricCloudComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

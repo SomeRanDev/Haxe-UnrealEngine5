@@ -12,3 +12,22 @@ extern class OnImageWriteComplete__PythonCallable extends PythonCallableForDeleg
 @:nativeGen
 abstract ConstOnImageWriteComplete__PythonCallable(OnImageWriteComplete__PythonCallable) from OnImageWriteComplete__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnImageWriteComplete__PythonCallable*")
+abstract OnImageWriteComplete__PythonCallablePtr(cpp.Star<OnImageWriteComplete__PythonCallable>) from cpp.Star<OnImageWriteComplete__PythonCallable> to cpp.Star<OnImageWriteComplete__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnImageWriteComplete__PythonCallable): OnImageWriteComplete__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnImageWriteComplete__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

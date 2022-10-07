@@ -25,3 +25,22 @@ abstract ConstVolumeTexture(VolumeTexture) from VolumeTexture {
 	public extern var Source2DTileSizeY(get, never): cpp.Int32;
 	public inline extern function get_Source2DTileSizeY(): cpp.Int32 return this.Source2DTileSizeY;
 }
+
+@:forward
+@:nativeGen
+@:native("VolumeTexture*")
+abstract VolumeTexturePtr(cpp.Star<VolumeTexture>) from cpp.Star<VolumeTexture> to cpp.Star<VolumeTexture>{
+	@:from
+	public static extern inline function fromValue(v: VolumeTexture): VolumeTexturePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VolumeTexture {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

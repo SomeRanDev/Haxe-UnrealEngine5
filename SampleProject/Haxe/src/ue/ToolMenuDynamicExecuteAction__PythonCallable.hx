@@ -12,3 +12,22 @@ extern class ToolMenuDynamicExecuteAction__PythonCallable extends PythonCallable
 @:nativeGen
 abstract ConstToolMenuDynamicExecuteAction__PythonCallable(ToolMenuDynamicExecuteAction__PythonCallable) from ToolMenuDynamicExecuteAction__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ToolMenuDynamicExecuteAction__PythonCallable*")
+abstract ToolMenuDynamicExecuteAction__PythonCallablePtr(cpp.Star<ToolMenuDynamicExecuteAction__PythonCallable>) from cpp.Star<ToolMenuDynamicExecuteAction__PythonCallable> to cpp.Star<ToolMenuDynamicExecuteAction__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ToolMenuDynamicExecuteAction__PythonCallable): ToolMenuDynamicExecuteAction__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ToolMenuDynamicExecuteAction__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

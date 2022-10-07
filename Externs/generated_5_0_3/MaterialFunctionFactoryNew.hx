@@ -13,3 +13,22 @@ extern class MaterialFunctionFactoryNew extends Factory {
 @:nativeGen
 abstract ConstMaterialFunctionFactoryNew(MaterialFunctionFactoryNew) from MaterialFunctionFactoryNew {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialFunctionFactoryNew*")
+abstract MaterialFunctionFactoryNewPtr(cpp.Star<MaterialFunctionFactoryNew>) from cpp.Star<MaterialFunctionFactoryNew> to cpp.Star<MaterialFunctionFactoryNew>{
+	@:from
+	public static extern inline function fromValue(v: MaterialFunctionFactoryNew): MaterialFunctionFactoryNewPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialFunctionFactoryNew {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

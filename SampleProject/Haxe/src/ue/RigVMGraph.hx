@@ -59,3 +59,22 @@ abstract ConstRigVMGraph(RigVMGraph) from RigVMGraph {
 	public extern var LocalVariables(get, never): TArray<RigVMGraphVariableDescription>;
 	public inline extern function get_LocalVariables(): TArray<RigVMGraphVariableDescription> return this.LocalVariables;
 }
+
+@:forward
+@:nativeGen
+@:native("RigVMGraph*")
+abstract RigVMGraphPtr(cpp.Star<RigVMGraph>) from cpp.Star<RigVMGraph> to cpp.Star<RigVMGraph>{
+	@:from
+	public static extern inline function fromValue(v: RigVMGraph): RigVMGraphPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVMGraph {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

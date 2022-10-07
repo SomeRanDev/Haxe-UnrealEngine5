@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionStrataWeight(MaterialExpressionStrataWeight) fro
 	public extern var Weight(get, never): ExpressionInput;
 	public inline extern function get_Weight(): ExpressionInput return this.Weight;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionStrataWeight*")
+abstract MaterialExpressionStrataWeightPtr(cpp.Star<MaterialExpressionStrataWeight>) from cpp.Star<MaterialExpressionStrataWeight> to cpp.Star<MaterialExpressionStrataWeight>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionStrataWeight): MaterialExpressionStrataWeightPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionStrataWeight {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

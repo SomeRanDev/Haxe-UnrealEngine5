@@ -16,3 +16,22 @@ abstract ConstEnvQueryGenerator_CurrentLocation(EnvQueryGenerator_CurrentLocatio
 	public extern var QueryContext(get, never): TSubclassOf<EnvQueryContext.ConstEnvQueryContext>;
 	public inline extern function get_QueryContext(): TSubclassOf<EnvQueryContext.ConstEnvQueryContext> return this.QueryContext;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryGenerator_CurrentLocation*")
+abstract EnvQueryGenerator_CurrentLocationPtr(cpp.Star<EnvQueryGenerator_CurrentLocation>) from cpp.Star<EnvQueryGenerator_CurrentLocation> to cpp.Star<EnvQueryGenerator_CurrentLocation>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryGenerator_CurrentLocation): EnvQueryGenerator_CurrentLocationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryGenerator_CurrentLocation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

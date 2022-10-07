@@ -37,3 +37,22 @@ abstract ConstFbxAssetImportData(FbxAssetImportData) from FbxAssetImportData {
 	public extern var FbxSceneImportDataReference(get, never): cpp.Star<FbxSceneImportData.ConstFbxSceneImportData>;
 	public inline extern function get_FbxSceneImportDataReference(): cpp.Star<FbxSceneImportData.ConstFbxSceneImportData> return this.FbxSceneImportDataReference;
 }
+
+@:forward
+@:nativeGen
+@:native("FbxAssetImportData*")
+abstract FbxAssetImportDataPtr(cpp.Star<FbxAssetImportData>) from cpp.Star<FbxAssetImportData> to cpp.Star<FbxAssetImportData>{
+	@:from
+	public static extern inline function fromValue(v: FbxAssetImportData): FbxAssetImportDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FbxAssetImportData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

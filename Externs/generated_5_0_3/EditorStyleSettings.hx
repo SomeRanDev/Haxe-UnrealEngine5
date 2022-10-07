@@ -103,3 +103,22 @@ abstract ConstEditorStyleSettings(EditorStyleSettings) from EditorStyleSettings 
 	public extern var bEnableColorizedEditorTabs(get, never): Bool;
 	public inline extern function get_bEnableColorizedEditorTabs(): Bool return this.bEnableColorizedEditorTabs;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorStyleSettings*")
+abstract EditorStyleSettingsPtr(cpp.Star<EditorStyleSettings>) from cpp.Star<EditorStyleSettings> to cpp.Star<EditorStyleSettings>{
+	@:from
+	public static extern inline function fromValue(v: EditorStyleSettings): EditorStyleSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorStyleSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

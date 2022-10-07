@@ -30,3 +30,22 @@ abstract ConstLightWeightInstanceManager(LightWeightInstanceManager) from LightW
 	public extern var ValidIndices(get, never): TArray<Bool>;
 	public inline extern function get_ValidIndices(): TArray<Bool> return this.ValidIndices;
 }
+
+@:forward
+@:nativeGen
+@:native("LightWeightInstanceManager*")
+abstract LightWeightInstanceManagerPtr(cpp.Star<LightWeightInstanceManager>) from cpp.Star<LightWeightInstanceManager> to cpp.Star<LightWeightInstanceManager>{
+	@:from
+	public static extern inline function fromValue(v: LightWeightInstanceManager): LightWeightInstanceManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LightWeightInstanceManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

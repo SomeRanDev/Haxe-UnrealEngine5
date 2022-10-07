@@ -33,3 +33,22 @@ abstract ConstPointLightComp(PointLightComp) from PointLightComp {
 	public extern var SourceLength(get, never): cpp.Float32;
 	public inline extern function get_SourceLength(): cpp.Float32 return this.SourceLength;
 }
+
+@:forward
+@:nativeGen
+@:native("PointLightComp*")
+abstract PointLightCompPtr(cpp.Star<PointLightComp>) from cpp.Star<PointLightComp> to cpp.Star<PointLightComp>{
+	@:from
+	public static extern inline function fromValue(v: PointLightComp): PointLightCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PointLightComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

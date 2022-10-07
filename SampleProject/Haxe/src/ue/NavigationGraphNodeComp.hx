@@ -22,3 +22,22 @@ abstract ConstNavigationGraphNodeComp(NavigationGraphNodeComp) from NavigationGr
 	public extern var PrevNodeComponent(get, never): cpp.Star<NavigationGraphNodeComp.ConstNavigationGraphNodeComp>;
 	public inline extern function get_PrevNodeComponent(): cpp.Star<NavigationGraphNodeComp.ConstNavigationGraphNodeComp> return this.PrevNodeComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("NavigationGraphNodeComp*")
+abstract NavigationGraphNodeCompPtr(cpp.Star<NavigationGraphNodeComp>) from cpp.Star<NavigationGraphNodeComp> to cpp.Star<NavigationGraphNodeComp>{
+	@:from
+	public static extern inline function fromValue(v: NavigationGraphNodeComp): NavigationGraphNodeCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavigationGraphNodeComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -58,3 +58,22 @@ abstract ConstIKRetargeter(IKRetargeter) from IKRetargeter {
 	public extern var CurrentRetargetPose(get, never): FName;
 	public inline extern function get_CurrentRetargetPose(): FName return this.CurrentRetargetPose;
 }
+
+@:forward
+@:nativeGen
+@:native("IKRetargeter*")
+abstract IKRetargeterPtr(cpp.Star<IKRetargeter>) from cpp.Star<IKRetargeter> to cpp.Star<IKRetargeter>{
+	@:from
+	public static extern inline function fromValue(v: IKRetargeter): IKRetargeterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IKRetargeter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

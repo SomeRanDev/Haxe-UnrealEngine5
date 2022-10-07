@@ -22,3 +22,22 @@ abstract ConstMirrorDataTableFactory(MirrorDataTableFactory) from MirrorDataTabl
 	public extern var MirrorFindReplaceExpressions(get, never): cpp.Star<MirrorTableFindReplaceExpressions.ConstMirrorTableFindReplaceExpressions>;
 	public inline extern function get_MirrorFindReplaceExpressions(): cpp.Star<MirrorTableFindReplaceExpressions.ConstMirrorTableFindReplaceExpressions> return this.MirrorFindReplaceExpressions;
 }
+
+@:forward
+@:nativeGen
+@:native("MirrorDataTableFactory*")
+abstract MirrorDataTableFactoryPtr(cpp.Star<MirrorDataTableFactory>) from cpp.Star<MirrorDataTableFactory> to cpp.Star<MirrorDataTableFactory>{
+	@:from
+	public static extern inline function fromValue(v: MirrorDataTableFactory): MirrorDataTableFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MirrorDataTableFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

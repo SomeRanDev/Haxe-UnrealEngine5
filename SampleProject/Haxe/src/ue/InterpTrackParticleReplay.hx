@@ -22,3 +22,22 @@ abstract ConstInterpTrackParticleReplay(InterpTrackParticleReplay) from InterpTr
 	public extern var FixedTimeStep(get, never): cpp.Float32;
 	public inline extern function get_FixedTimeStep(): cpp.Float32 return this.FixedTimeStep;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackParticleReplay*")
+abstract InterpTrackParticleReplayPtr(cpp.Star<InterpTrackParticleReplay>) from cpp.Star<InterpTrackParticleReplay> to cpp.Star<InterpTrackParticleReplay>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackParticleReplay): InterpTrackParticleReplayPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackParticleReplay {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

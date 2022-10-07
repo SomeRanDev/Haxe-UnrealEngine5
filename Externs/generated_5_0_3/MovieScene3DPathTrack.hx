@@ -13,3 +13,22 @@ extern class MovieScene3DPathTrack extends MovieScene3DConstraintTrack {
 @:nativeGen
 abstract ConstMovieScene3DPathTrack(MovieScene3DPathTrack) from MovieScene3DPathTrack {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieScene3DPathTrack*")
+abstract MovieScene3DPathTrackPtr(cpp.Star<MovieScene3DPathTrack>) from cpp.Star<MovieScene3DPathTrack> to cpp.Star<MovieScene3DPathTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieScene3DPathTrack): MovieScene3DPathTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieScene3DPathTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

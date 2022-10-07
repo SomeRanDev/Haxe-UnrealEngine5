@@ -76,3 +76,22 @@ abstract ConstAnimCompress_PerTrackCompression(AnimCompress_PerTrackCompression)
 	public extern var PerturbationProbeSize(get, never): cpp.Float32;
 	public inline extern function get_PerturbationProbeSize(): cpp.Float32 return this.PerturbationProbeSize;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimCompress_PerTrackCompression*")
+abstract AnimCompress_PerTrackCompressionPtr(cpp.Star<AnimCompress_PerTrackCompression>) from cpp.Star<AnimCompress_PerTrackCompression> to cpp.Star<AnimCompress_PerTrackCompression>{
+	@:from
+	public static extern inline function fromValue(v: AnimCompress_PerTrackCompression): AnimCompress_PerTrackCompressionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimCompress_PerTrackCompression {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

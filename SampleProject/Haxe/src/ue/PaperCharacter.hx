@@ -16,3 +16,22 @@ abstract ConstPaperCharacter(PaperCharacter) from PaperCharacter {
 	public extern var Sprite(get, never): cpp.Star<PaperFlipbookComp.ConstPaperFlipbookComp>;
 	public inline extern function get_Sprite(): cpp.Star<PaperFlipbookComp.ConstPaperFlipbookComp> return this.Sprite;
 }
+
+@:forward
+@:nativeGen
+@:native("PaperCharacter*")
+abstract PaperCharacterPtr(cpp.Star<PaperCharacter>) from cpp.Star<PaperCharacter> to cpp.Star<PaperCharacter>{
+	@:from
+	public static extern inline function fromValue(v: PaperCharacter): PaperCharacterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PaperCharacter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

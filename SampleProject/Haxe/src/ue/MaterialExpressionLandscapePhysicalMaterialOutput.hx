@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionLandscapePhysicalMaterialOutput(MaterialExpressi
 	public extern var Inputs(get, never): TArray<PhysicalMaterialInput>;
 	public inline extern function get_Inputs(): TArray<PhysicalMaterialInput> return this.Inputs;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionLandscapePhysicalMaterialOutput*")
+abstract MaterialExpressionLandscapePhysicalMaterialOutputPtr(cpp.Star<MaterialExpressionLandscapePhysicalMaterialOutput>) from cpp.Star<MaterialExpressionLandscapePhysicalMaterialOutput> to cpp.Star<MaterialExpressionLandscapePhysicalMaterialOutput>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionLandscapePhysicalMaterialOutput): MaterialExpressionLandscapePhysicalMaterialOutputPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionLandscapePhysicalMaterialOutput {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

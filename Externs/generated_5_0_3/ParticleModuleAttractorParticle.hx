@@ -40,3 +40,22 @@ abstract ConstParticleModuleAttractorParticle(ParticleModuleAttractorParticle) f
 	public extern var LastSelIndex(get, never): cpp.Int32;
 	public inline extern function get_LastSelIndex(): cpp.Int32 return this.LastSelIndex;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleAttractorParticle*")
+abstract ParticleModuleAttractorParticlePtr(cpp.Star<ParticleModuleAttractorParticle>) from cpp.Star<ParticleModuleAttractorParticle> to cpp.Star<ParticleModuleAttractorParticle>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleAttractorParticle): ParticleModuleAttractorParticlePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleAttractorParticle {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

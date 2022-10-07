@@ -13,3 +13,22 @@ extern class AnimCompress_BitwiseCompressOnly extends AnimCompress {
 @:nativeGen
 abstract ConstAnimCompress_BitwiseCompressOnly(AnimCompress_BitwiseCompressOnly) from AnimCompress_BitwiseCompressOnly {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimCompress_BitwiseCompressOnly*")
+abstract AnimCompress_BitwiseCompressOnlyPtr(cpp.Star<AnimCompress_BitwiseCompressOnly>) from cpp.Star<AnimCompress_BitwiseCompressOnly> to cpp.Star<AnimCompress_BitwiseCompressOnly>{
+	@:from
+	public static extern inline function fromValue(v: AnimCompress_BitwiseCompressOnly): AnimCompress_BitwiseCompressOnlyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimCompress_BitwiseCompressOnly {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

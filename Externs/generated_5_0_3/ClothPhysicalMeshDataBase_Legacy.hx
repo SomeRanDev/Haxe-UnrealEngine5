@@ -40,3 +40,22 @@ abstract ConstClothPhysicalMeshDataBase_Legacy(ClothPhysicalMeshDataBase_Legacy)
 	public extern var SelfCollisionIndices(get, never): TArray<cpp.UInt32>;
 	public inline extern function get_SelfCollisionIndices(): TArray<cpp.UInt32> return this.SelfCollisionIndices;
 }
+
+@:forward
+@:nativeGen
+@:native("ClothPhysicalMeshDataBase_Legacy*")
+abstract ClothPhysicalMeshDataBase_LegacyPtr(cpp.Star<ClothPhysicalMeshDataBase_Legacy>) from cpp.Star<ClothPhysicalMeshDataBase_Legacy> to cpp.Star<ClothPhysicalMeshDataBase_Legacy>{
+	@:from
+	public static extern inline function fromValue(v: ClothPhysicalMeshDataBase_Legacy): ClothPhysicalMeshDataBase_LegacyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ClothPhysicalMeshDataBase_Legacy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

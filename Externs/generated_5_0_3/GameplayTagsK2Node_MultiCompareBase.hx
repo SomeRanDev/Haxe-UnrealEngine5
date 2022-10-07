@@ -19,3 +19,22 @@ abstract ConstGameplayTagsK2Node_MultiCompareBase(GameplayTagsK2Node_MultiCompar
 	public extern var PinNames(get, never): TArray<FName>;
 	public inline extern function get_PinNames(): TArray<FName> return this.PinNames;
 }
+
+@:forward
+@:nativeGen
+@:native("GameplayTagsK2Node_MultiCompareBase*")
+abstract GameplayTagsK2Node_MultiCompareBasePtr(cpp.Star<GameplayTagsK2Node_MultiCompareBase>) from cpp.Star<GameplayTagsK2Node_MultiCompareBase> to cpp.Star<GameplayTagsK2Node_MultiCompareBase>{
+	@:from
+	public static extern inline function fromValue(v: GameplayTagsK2Node_MultiCompareBase): GameplayTagsK2Node_MultiCompareBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameplayTagsK2Node_MultiCompareBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

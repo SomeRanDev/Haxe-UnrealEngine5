@@ -34,3 +34,22 @@ abstract ConstParticleModuleEventReceiverSpawn(ParticleModuleEventReceiverSpawn)
 	public extern var bBanPhysicalMaterials(get, never): Bool;
 	public inline extern function get_bBanPhysicalMaterials(): Bool return this.bBanPhysicalMaterials;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleEventReceiverSpawn*")
+abstract ParticleModuleEventReceiverSpawnPtr(cpp.Star<ParticleModuleEventReceiverSpawn>) from cpp.Star<ParticleModuleEventReceiverSpawn> to cpp.Star<ParticleModuleEventReceiverSpawn>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleEventReceiverSpawn): ParticleModuleEventReceiverSpawnPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleEventReceiverSpawn {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

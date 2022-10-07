@@ -13,3 +13,22 @@ extern class TextureExporterBMP extends Exporter {
 @:nativeGen
 abstract ConstTextureExporterBMP(TextureExporterBMP) from TextureExporterBMP {
 }
+
+@:forward
+@:nativeGen
+@:native("TextureExporterBMP*")
+abstract TextureExporterBMPPtr(cpp.Star<TextureExporterBMP>) from cpp.Star<TextureExporterBMP> to cpp.Star<TextureExporterBMP>{
+	@:from
+	public static extern inline function fromValue(v: TextureExporterBMP): TextureExporterBMPPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextureExporterBMP {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

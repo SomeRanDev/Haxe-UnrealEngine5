@@ -181,3 +181,22 @@ abstract ConstUserWidget(UserWidget) from UserWidget {
 	public extern var AnimationCallbacks(get, never): TArray<AnimationEventBinding>;
 	public inline extern function get_AnimationCallbacks(): TArray<AnimationEventBinding> return this.AnimationCallbacks;
 }
+
+@:forward
+@:nativeGen
+@:native("UserWidget*")
+abstract UserWidgetPtr(cpp.Star<UserWidget>) from cpp.Star<UserWidget> to cpp.Star<UserWidget>{
+	@:from
+	public static extern inline function fromValue(v: UserWidget): UserWidgetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UserWidget {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

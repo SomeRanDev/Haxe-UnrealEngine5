@@ -13,3 +13,22 @@ extern class GizmoBaseFloatParameterSource extends Object {
 @:nativeGen
 abstract ConstGizmoBaseFloatParameterSource(GizmoBaseFloatParameterSource) from GizmoBaseFloatParameterSource {
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoBaseFloatParameterSource*")
+abstract GizmoBaseFloatParameterSourcePtr(cpp.Star<GizmoBaseFloatParameterSource>) from cpp.Star<GizmoBaseFloatParameterSource> to cpp.Star<GizmoBaseFloatParameterSource>{
+	@:from
+	public static extern inline function fromValue(v: GizmoBaseFloatParameterSource): GizmoBaseFloatParameterSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoBaseFloatParameterSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

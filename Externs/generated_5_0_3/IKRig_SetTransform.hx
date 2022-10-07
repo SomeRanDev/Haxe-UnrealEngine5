@@ -22,3 +22,22 @@ abstract ConstIKRig_SetTransform(IKRig_SetTransform) from IKRig_SetTransform {
 	public extern var Effector(get, never): cpp.Star<IKRig_SetTransformEffector.ConstIKRig_SetTransformEffector>;
 	public inline extern function get_Effector(): cpp.Star<IKRig_SetTransformEffector.ConstIKRig_SetTransformEffector> return this.Effector;
 }
+
+@:forward
+@:nativeGen
+@:native("IKRig_SetTransform*")
+abstract IKRig_SetTransformPtr(cpp.Star<IKRig_SetTransform>) from cpp.Star<IKRig_SetTransform> to cpp.Star<IKRig_SetTransform>{
+	@:from
+	public static extern inline function fromValue(v: IKRig_SetTransform): IKRig_SetTransformPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IKRig_SetTransform {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

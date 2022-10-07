@@ -13,3 +13,22 @@ extern class SoundWaveThumbnailRenderer extends DefaultSizedThumbnailRenderer {
 @:nativeGen
 abstract ConstSoundWaveThumbnailRenderer(SoundWaveThumbnailRenderer) from SoundWaveThumbnailRenderer {
 }
+
+@:forward
+@:nativeGen
+@:native("SoundWaveThumbnailRenderer*")
+abstract SoundWaveThumbnailRendererPtr(cpp.Star<SoundWaveThumbnailRenderer>) from cpp.Star<SoundWaveThumbnailRenderer> to cpp.Star<SoundWaveThumbnailRenderer>{
+	@:from
+	public static extern inline function fromValue(v: SoundWaveThumbnailRenderer): SoundWaveThumbnailRendererPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundWaveThumbnailRenderer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

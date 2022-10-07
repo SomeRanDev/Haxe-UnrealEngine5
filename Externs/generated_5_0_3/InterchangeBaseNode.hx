@@ -50,3 +50,22 @@ abstract ConstInterchangeBaseNode(InterchangeBaseNode) from InterchangeBaseNode 
 	public extern var ReferenceObject(get, never): SoftObjectPath;
 	public inline extern function get_ReferenceObject(): SoftObjectPath return this.ReferenceObject;
 }
+
+@:forward
+@:nativeGen
+@:native("InterchangeBaseNode*")
+abstract InterchangeBaseNodePtr(cpp.Star<InterchangeBaseNode>) from cpp.Star<InterchangeBaseNode> to cpp.Star<InterchangeBaseNode>{
+	@:from
+	public static extern inline function fromValue(v: InterchangeBaseNode): InterchangeBaseNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterchangeBaseNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

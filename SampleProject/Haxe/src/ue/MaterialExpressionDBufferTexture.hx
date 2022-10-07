@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionDBufferTexture(MaterialExpressionDBufferTexture)
 	public extern var DBufferTextureId(get, never): EDBufferTextureId;
 	public inline extern function get_DBufferTextureId(): EDBufferTextureId return this.DBufferTextureId;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionDBufferTexture*")
+abstract MaterialExpressionDBufferTexturePtr(cpp.Star<MaterialExpressionDBufferTexture>) from cpp.Star<MaterialExpressionDBufferTexture> to cpp.Star<MaterialExpressionDBufferTexture>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionDBufferTexture): MaterialExpressionDBufferTexturePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionDBufferTexture {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

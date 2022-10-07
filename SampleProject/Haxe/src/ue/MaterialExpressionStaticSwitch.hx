@@ -25,3 +25,22 @@ abstract ConstMaterialExpressionStaticSwitch(MaterialExpressionStaticSwitch) fro
 	public extern var Value(get, never): ExpressionInput;
 	public inline extern function get_Value(): ExpressionInput return this.Value;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionStaticSwitch*")
+abstract MaterialExpressionStaticSwitchPtr(cpp.Star<MaterialExpressionStaticSwitch>) from cpp.Star<MaterialExpressionStaticSwitch> to cpp.Star<MaterialExpressionStaticSwitch>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionStaticSwitch): MaterialExpressionStaticSwitchPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionStaticSwitch {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

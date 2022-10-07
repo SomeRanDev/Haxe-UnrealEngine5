@@ -13,3 +13,22 @@ extern class HaxeForUnrealGameMode extends GameModeBase {
 @:nativeGen
 abstract ConstHaxeForUnrealGameMode(HaxeForUnrealGameMode) from HaxeForUnrealGameMode {
 }
+
+@:forward
+@:nativeGen
+@:native("HaxeForUnrealGameMode*")
+abstract HaxeForUnrealGameModePtr(cpp.Star<HaxeForUnrealGameMode>) from cpp.Star<HaxeForUnrealGameMode> to cpp.Star<HaxeForUnrealGameMode>{
+	@:from
+	public static extern inline function fromValue(v: HaxeForUnrealGameMode): HaxeForUnrealGameModePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): HaxeForUnrealGameMode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

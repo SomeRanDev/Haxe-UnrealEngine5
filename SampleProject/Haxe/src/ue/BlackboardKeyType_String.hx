@@ -16,3 +16,22 @@ abstract ConstBlackboardKeyType_String(BlackboardKeyType_String) from Blackboard
 	public extern var StringValue(get, never): FString;
 	public inline extern function get_StringValue(): FString return this.StringValue;
 }
+
+@:forward
+@:nativeGen
+@:native("BlackboardKeyType_String*")
+abstract BlackboardKeyType_StringPtr(cpp.Star<BlackboardKeyType_String>) from cpp.Star<BlackboardKeyType_String> to cpp.Star<BlackboardKeyType_String>{
+	@:from
+	public static extern inline function fromValue(v: BlackboardKeyType_String): BlackboardKeyType_StringPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlackboardKeyType_String {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

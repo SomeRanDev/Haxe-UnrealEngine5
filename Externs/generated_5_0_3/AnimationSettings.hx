@@ -63,3 +63,22 @@ abstract ConstAnimationSettings(AnimationSettings) from AnimationSettings {
 	public extern var MirrorFindReplaceExpressions(get, never): TArray<MirrorFindReplaceExpression>;
 	public inline extern function get_MirrorFindReplaceExpressions(): TArray<MirrorFindReplaceExpression> return this.MirrorFindReplaceExpressions;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationSettings*")
+abstract AnimationSettingsPtr(cpp.Star<AnimationSettings>) from cpp.Star<AnimationSettings> to cpp.Star<AnimationSettings>{
+	@:from
+	public static extern inline function fromValue(v: AnimationSettings): AnimationSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

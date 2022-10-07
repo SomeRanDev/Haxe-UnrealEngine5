@@ -13,3 +13,22 @@ extern class ARTraceResultDummy extends Object {
 @:nativeGen
 abstract ConstARTraceResultDummy(ARTraceResultDummy) from ARTraceResultDummy {
 }
+
+@:forward
+@:nativeGen
+@:native("ARTraceResultDummy*")
+abstract ARTraceResultDummyPtr(cpp.Star<ARTraceResultDummy>) from cpp.Star<ARTraceResultDummy> to cpp.Star<ARTraceResultDummy>{
+	@:from
+	public static extern inline function fromValue(v: ARTraceResultDummy): ARTraceResultDummyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARTraceResultDummy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

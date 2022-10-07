@@ -71,3 +71,22 @@ abstract ConstLevelSequenceActor(LevelSequenceActor) from LevelSequenceActor {
 	public extern var bShowBurnin(get, never): Bool;
 	public inline extern function get_bShowBurnin(): Bool return this.bShowBurnin;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelSequenceActor*")
+abstract LevelSequenceActorPtr(cpp.Star<LevelSequenceActor>) from cpp.Star<LevelSequenceActor> to cpp.Star<LevelSequenceActor>{
+	@:from
+	public static extern inline function fromValue(v: LevelSequenceActor): LevelSequenceActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelSequenceActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class K2Node_SetVariableOnPersistentFrame extends K2Node {
 @:nativeGen
 abstract ConstK2Node_SetVariableOnPersistentFrame(K2Node_SetVariableOnPersistentFrame) from K2Node_SetVariableOnPersistentFrame {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_SetVariableOnPersistentFrame*")
+abstract K2Node_SetVariableOnPersistentFramePtr(cpp.Star<K2Node_SetVariableOnPersistentFrame>) from cpp.Star<K2Node_SetVariableOnPersistentFrame> to cpp.Star<K2Node_SetVariableOnPersistentFrame>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_SetVariableOnPersistentFrame): K2Node_SetVariableOnPersistentFramePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_SetVariableOnPersistentFrame {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

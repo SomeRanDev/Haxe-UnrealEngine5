@@ -13,3 +13,22 @@ extern class BookmarkBase extends Object {
 @:nativeGen
 abstract ConstBookmarkBase(BookmarkBase) from BookmarkBase {
 }
+
+@:forward
+@:nativeGen
+@:native("BookmarkBase*")
+abstract BookmarkBasePtr(cpp.Star<BookmarkBase>) from cpp.Star<BookmarkBase> to cpp.Star<BookmarkBase>{
+	@:from
+	public static extern inline function fromValue(v: BookmarkBase): BookmarkBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BookmarkBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

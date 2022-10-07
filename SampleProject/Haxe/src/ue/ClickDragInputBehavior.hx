@@ -16,3 +16,22 @@ abstract ConstClickDragInputBehavior(ClickDragInputBehavior) from ClickDragInput
 	public extern var bUpdateModifiersDuringDrag(get, never): Bool;
 	public inline extern function get_bUpdateModifiersDuringDrag(): Bool return this.bUpdateModifiersDuringDrag;
 }
+
+@:forward
+@:nativeGen
+@:native("ClickDragInputBehavior*")
+abstract ClickDragInputBehaviorPtr(cpp.Star<ClickDragInputBehavior>) from cpp.Star<ClickDragInputBehavior> to cpp.Star<ClickDragInputBehavior>{
+	@:from
+	public static extern inline function fromValue(v: ClickDragInputBehavior): ClickDragInputBehaviorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ClickDragInputBehavior {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

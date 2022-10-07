@@ -13,3 +13,22 @@ extern class UncontrolledChangelistValidator extends EditorValidatorBase {
 @:nativeGen
 abstract ConstUncontrolledChangelistValidator(UncontrolledChangelistValidator) from UncontrolledChangelistValidator {
 }
+
+@:forward
+@:nativeGen
+@:native("UncontrolledChangelistValidator*")
+abstract UncontrolledChangelistValidatorPtr(cpp.Star<UncontrolledChangelistValidator>) from cpp.Star<UncontrolledChangelistValidator> to cpp.Star<UncontrolledChangelistValidator>{
+	@:from
+	public static extern inline function fromValue(v: UncontrolledChangelistValidator): UncontrolledChangelistValidatorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UncontrolledChangelistValidator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

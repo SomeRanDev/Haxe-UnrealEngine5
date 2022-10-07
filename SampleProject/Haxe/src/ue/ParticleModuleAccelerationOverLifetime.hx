@@ -16,3 +16,22 @@ abstract ConstParticleModuleAccelerationOverLifetime(ParticleModuleAccelerationO
 	public extern var AccelOverLife(get, never): RawDistributionVector;
 	public inline extern function get_AccelOverLife(): RawDistributionVector return this.AccelOverLife;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleAccelerationOverLifetime*")
+abstract ParticleModuleAccelerationOverLifetimePtr(cpp.Star<ParticleModuleAccelerationOverLifetime>) from cpp.Star<ParticleModuleAccelerationOverLifetime> to cpp.Star<ParticleModuleAccelerationOverLifetime>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleAccelerationOverLifetime): ParticleModuleAccelerationOverLifetimePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleAccelerationOverLifetime {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

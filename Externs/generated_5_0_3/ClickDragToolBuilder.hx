@@ -13,3 +13,22 @@ extern class ClickDragToolBuilder extends InteractiveToolBuilder {
 @:nativeGen
 abstract ConstClickDragToolBuilder(ClickDragToolBuilder) from ClickDragToolBuilder {
 }
+
+@:forward
+@:nativeGen
+@:native("ClickDragToolBuilder*")
+abstract ClickDragToolBuilderPtr(cpp.Star<ClickDragToolBuilder>) from cpp.Star<ClickDragToolBuilder> to cpp.Star<ClickDragToolBuilder>{
+	@:from
+	public static extern inline function fromValue(v: ClickDragToolBuilder): ClickDragToolBuilderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ClickDragToolBuilder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

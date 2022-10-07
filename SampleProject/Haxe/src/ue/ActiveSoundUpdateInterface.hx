@@ -12,3 +12,22 @@ extern class ActiveSoundUpdateInterface extends Interface {
 @:nativeGen
 abstract ConstActiveSoundUpdateInterface(ActiveSoundUpdateInterface) from ActiveSoundUpdateInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("ActiveSoundUpdateInterface*")
+abstract ActiveSoundUpdateInterfacePtr(cpp.Star<ActiveSoundUpdateInterface>) from cpp.Star<ActiveSoundUpdateInterface> to cpp.Star<ActiveSoundUpdateInterface>{
+	@:from
+	public static extern inline function fromValue(v: ActiveSoundUpdateInterface): ActiveSoundUpdateInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActiveSoundUpdateInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

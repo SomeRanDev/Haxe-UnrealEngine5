@@ -13,3 +13,22 @@ extern class ActorSequencePlayer extends MovieSceneSequencePlayer {
 @:nativeGen
 abstract ConstActorSequencePlayer(ActorSequencePlayer) from ActorSequencePlayer {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorSequencePlayer*")
+abstract ActorSequencePlayerPtr(cpp.Star<ActorSequencePlayer>) from cpp.Star<ActorSequencePlayer> to cpp.Star<ActorSequencePlayer>{
+	@:from
+	public static extern inline function fromValue(v: ActorSequencePlayer): ActorSequencePlayerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorSequencePlayer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

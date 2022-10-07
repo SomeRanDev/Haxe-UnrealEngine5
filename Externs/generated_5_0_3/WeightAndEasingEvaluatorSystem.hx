@@ -13,3 +13,22 @@ extern class WeightAndEasingEvaluatorSystem extends MovieSceneEntitySystem {
 @:nativeGen
 abstract ConstWeightAndEasingEvaluatorSystem(WeightAndEasingEvaluatorSystem) from WeightAndEasingEvaluatorSystem {
 }
+
+@:forward
+@:nativeGen
+@:native("WeightAndEasingEvaluatorSystem*")
+abstract WeightAndEasingEvaluatorSystemPtr(cpp.Star<WeightAndEasingEvaluatorSystem>) from cpp.Star<WeightAndEasingEvaluatorSystem> to cpp.Star<WeightAndEasingEvaluatorSystem>{
+	@:from
+	public static extern inline function fromValue(v: WeightAndEasingEvaluatorSystem): WeightAndEasingEvaluatorSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WeightAndEasingEvaluatorSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

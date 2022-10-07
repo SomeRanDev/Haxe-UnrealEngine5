@@ -19,3 +19,22 @@ abstract ConstHudSettings(HudSettings) from HudSettings {
 	public extern var DebugDisplay(get, never): TArray<FName>;
 	public inline extern function get_DebugDisplay(): TArray<FName> return this.DebugDisplay;
 }
+
+@:forward
+@:nativeGen
+@:native("HudSettings*")
+abstract HudSettingsPtr(cpp.Star<HudSettings>) from cpp.Star<HudSettings> to cpp.Star<HudSettings>{
+	@:from
+	public static extern inline function fromValue(v: HudSettings): HudSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): HudSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

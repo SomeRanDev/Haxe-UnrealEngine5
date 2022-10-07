@@ -37,3 +37,22 @@ abstract ConstBTTask_RunEQSQuery(BTTask_RunEQSQuery) from BTTask_RunEQSQuery {
 	public extern var bUpdateBBOnFail(get, never): Bool;
 	public inline extern function get_bUpdateBBOnFail(): Bool return this.bUpdateBBOnFail;
 }
+
+@:forward
+@:nativeGen
+@:native("BTTask_RunEQSQuery*")
+abstract BTTask_RunEQSQueryPtr(cpp.Star<BTTask_RunEQSQuery>) from cpp.Star<BTTask_RunEQSQuery> to cpp.Star<BTTask_RunEQSQuery>{
+	@:from
+	public static extern inline function fromValue(v: BTTask_RunEQSQuery): BTTask_RunEQSQueryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTTask_RunEQSQuery {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

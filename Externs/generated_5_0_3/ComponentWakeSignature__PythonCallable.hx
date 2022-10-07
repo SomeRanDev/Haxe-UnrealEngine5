@@ -12,3 +12,22 @@ extern class ComponentWakeSignature__PythonCallable extends PythonCallableForDel
 @:nativeGen
 abstract ConstComponentWakeSignature__PythonCallable(ComponentWakeSignature__PythonCallable) from ComponentWakeSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ComponentWakeSignature__PythonCallable*")
+abstract ComponentWakeSignature__PythonCallablePtr(cpp.Star<ComponentWakeSignature__PythonCallable>) from cpp.Star<ComponentWakeSignature__PythonCallable> to cpp.Star<ComponentWakeSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ComponentWakeSignature__PythonCallable): ComponentWakeSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ComponentWakeSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

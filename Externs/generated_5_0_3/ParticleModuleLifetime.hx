@@ -16,3 +16,22 @@ abstract ConstParticleModuleLifetime(ParticleModuleLifetime) from ParticleModule
 	public extern var Lifetime(get, never): RawDistributionFloat;
 	public inline extern function get_Lifetime(): RawDistributionFloat return this.Lifetime;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleLifetime*")
+abstract ParticleModuleLifetimePtr(cpp.Star<ParticleModuleLifetime>) from cpp.Star<ParticleModuleLifetime> to cpp.Star<ParticleModuleLifetime>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleLifetime): ParticleModuleLifetimePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleLifetime {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

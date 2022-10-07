@@ -34,3 +34,22 @@ abstract ConstGeometryCache(GeometryCache) from GeometryCache {
 	public extern var Hash(get, never): cpp.UInt64;
 	public inline extern function get_Hash(): cpp.UInt64 return this.Hash;
 }
+
+@:forward
+@:nativeGen
+@:native("GeometryCache*")
+abstract GeometryCachePtr(cpp.Star<GeometryCache>) from cpp.Star<GeometryCache> to cpp.Star<GeometryCache>{
+	@:from
+	public static extern inline function fromValue(v: GeometryCache): GeometryCachePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GeometryCache {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -23,3 +23,22 @@ abstract ConstWidgetSwitcher(WidgetSwitcher) from WidgetSwitcher {
 	public extern var ActiveWidgetIndex(get, never): cpp.Int32;
 	public inline extern function get_ActiveWidgetIndex(): cpp.Int32 return this.ActiveWidgetIndex;
 }
+
+@:forward
+@:nativeGen
+@:native("WidgetSwitcher*")
+abstract WidgetSwitcherPtr(cpp.Star<WidgetSwitcher>) from cpp.Star<WidgetSwitcher> to cpp.Star<WidgetSwitcher>{
+	@:from
+	public static extern inline function fromValue(v: WidgetSwitcher): WidgetSwitcherPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WidgetSwitcher {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

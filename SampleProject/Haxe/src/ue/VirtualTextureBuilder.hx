@@ -19,3 +19,22 @@ abstract ConstVirtualTextureBuilder(VirtualTextureBuilder) from VirtualTextureBu
 	public extern var BuildHash(get, never): cpp.UInt64;
 	public inline extern function get_BuildHash(): cpp.UInt64 return this.BuildHash;
 }
+
+@:forward
+@:nativeGen
+@:native("VirtualTextureBuilder*")
+abstract VirtualTextureBuilderPtr(cpp.Star<VirtualTextureBuilder>) from cpp.Star<VirtualTextureBuilder> to cpp.Star<VirtualTextureBuilder>{
+	@:from
+	public static extern inline function fromValue(v: VirtualTextureBuilder): VirtualTextureBuilderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VirtualTextureBuilder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

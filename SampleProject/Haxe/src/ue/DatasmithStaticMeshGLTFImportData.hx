@@ -16,3 +16,22 @@ abstract ConstDatasmithStaticMeshGLTFImportData(DatasmithStaticMeshGLTFImportDat
 	public extern var SourceMeshName(get, never): FString;
 	public inline extern function get_SourceMeshName(): FString return this.SourceMeshName;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithStaticMeshGLTFImportData*")
+abstract DatasmithStaticMeshGLTFImportDataPtr(cpp.Star<DatasmithStaticMeshGLTFImportData>) from cpp.Star<DatasmithStaticMeshGLTFImportData> to cpp.Star<DatasmithStaticMeshGLTFImportData>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithStaticMeshGLTFImportData): DatasmithStaticMeshGLTFImportDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithStaticMeshGLTFImportData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

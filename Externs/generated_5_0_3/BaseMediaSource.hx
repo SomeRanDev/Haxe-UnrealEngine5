@@ -19,3 +19,22 @@ abstract ConstBaseMediaSource(BaseMediaSource) from BaseMediaSource {
 	public extern var PlayerName(get, never): FName;
 	public inline extern function get_PlayerName(): FName return this.PlayerName;
 }
+
+@:forward
+@:nativeGen
+@:native("BaseMediaSource*")
+abstract BaseMediaSourcePtr(cpp.Star<BaseMediaSource>) from cpp.Star<BaseMediaSource> to cpp.Star<BaseMediaSource>{
+	@:from
+	public static extern inline function fromValue(v: BaseMediaSource): BaseMediaSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BaseMediaSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class ActorFactoryExponentialHeightFog extends ActorFactory {
 @:nativeGen
 abstract ConstActorFactoryExponentialHeightFog(ActorFactoryExponentialHeightFog) from ActorFactoryExponentialHeightFog {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorFactoryExponentialHeightFog*")
+abstract ActorFactoryExponentialHeightFogPtr(cpp.Star<ActorFactoryExponentialHeightFog>) from cpp.Star<ActorFactoryExponentialHeightFog> to cpp.Star<ActorFactoryExponentialHeightFog>{
+	@:from
+	public static extern inline function fromValue(v: ActorFactoryExponentialHeightFog): ActorFactoryExponentialHeightFogPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorFactoryExponentialHeightFog {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

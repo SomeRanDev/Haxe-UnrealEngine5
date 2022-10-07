@@ -19,3 +19,22 @@ abstract ConstVirtualTexturePoolConfig(VirtualTexturePoolConfig) from VirtualTex
 	public extern var Pools(get, never): TArray<VirtualTextureSpacePoolConfig>;
 	public inline extern function get_Pools(): TArray<VirtualTextureSpacePoolConfig> return this.Pools;
 }
+
+@:forward
+@:nativeGen
+@:native("VirtualTexturePoolConfig*")
+abstract VirtualTexturePoolConfigPtr(cpp.Star<VirtualTexturePoolConfig>) from cpp.Star<VirtualTexturePoolConfig> to cpp.Star<VirtualTexturePoolConfig>{
+	@:from
+	public static extern inline function fromValue(v: VirtualTexturePoolConfig): VirtualTexturePoolConfigPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VirtualTexturePoolConfig {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

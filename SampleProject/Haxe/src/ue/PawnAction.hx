@@ -44,3 +44,22 @@ abstract ConstPawnAction(PawnAction) from PawnAction {
 	public extern var bAlwaysNotifyOnFinished(get, never): Bool;
 	public inline extern function get_bAlwaysNotifyOnFinished(): Bool return this.bAlwaysNotifyOnFinished;
 }
+
+@:forward
+@:nativeGen
+@:native("PawnAction*")
+abstract PawnActionPtr(cpp.Star<PawnAction>) from cpp.Star<PawnAction> to cpp.Star<PawnAction>{
+	@:from
+	public static extern inline function fromValue(v: PawnAction): PawnActionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PawnAction {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

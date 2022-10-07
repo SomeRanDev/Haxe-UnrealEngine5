@@ -33,3 +33,22 @@ abstract ConstBoxFalloff(BoxFalloff) from BoxFalloff {
 	public extern var Falloff(get, never): EFieldFalloffType;
 	public inline extern function get_Falloff(): EFieldFalloffType return this.Falloff;
 }
+
+@:forward
+@:nativeGen
+@:native("BoxFalloff*")
+abstract BoxFalloffPtr(cpp.Star<BoxFalloff>) from cpp.Star<BoxFalloff> to cpp.Star<BoxFalloff>{
+	@:from
+	public static extern inline function fromValue(v: BoxFalloff): BoxFalloffPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BoxFalloff {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

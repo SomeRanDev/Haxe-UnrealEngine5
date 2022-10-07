@@ -13,3 +13,22 @@ extern class NiagaraStackItemTextContent extends NiagaraStackItemContent {
 @:nativeGen
 abstract ConstNiagaraStackItemTextContent(NiagaraStackItemTextContent) from NiagaraStackItemTextContent {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackItemTextContent*")
+abstract NiagaraStackItemTextContentPtr(cpp.Star<NiagaraStackItemTextContent>) from cpp.Star<NiagaraStackItemTextContent> to cpp.Star<NiagaraStackItemTextContent>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackItemTextContent): NiagaraStackItemTextContentPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackItemTextContent {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

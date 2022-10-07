@@ -55,3 +55,22 @@ abstract ConstEQSTestingPawn(EQSTestingPawn) from EQSTestingPawn {
 	public extern var EdRenderComp(get, never): cpp.Star<EQSRenderingComp.ConstEQSRenderingComp>;
 	public inline extern function get_EdRenderComp(): cpp.Star<EQSRenderingComp.ConstEQSRenderingComp> return this.EdRenderComp;
 }
+
+@:forward
+@:nativeGen
+@:native("EQSTestingPawn*")
+abstract EQSTestingPawnPtr(cpp.Star<EQSTestingPawn>) from cpp.Star<EQSTestingPawn> to cpp.Star<EQSTestingPawn>{
+	@:from
+	public static extern inline function fromValue(v: EQSTestingPawn): EQSTestingPawnPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EQSTestingPawn {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

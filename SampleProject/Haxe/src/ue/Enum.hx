@@ -12,3 +12,22 @@ extern class Enum extends Field {
 @:nativeGen
 abstract ConstEnum(Enum) from Enum {
 }
+
+@:forward
+@:nativeGen
+@:native("Enum*")
+abstract EnumPtr(cpp.Star<Enum>) from cpp.Star<Enum> to cpp.Star<Enum>{
+	@:from
+	public static extern inline function fromValue(v: Enum): EnumPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Enum {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

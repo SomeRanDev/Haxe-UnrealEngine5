@@ -38,3 +38,22 @@ extern class QuartzClockHandle extends Object {
 @:nativeGen
 abstract ConstQuartzClockHandle(QuartzClockHandle) from QuartzClockHandle {
 }
+
+@:forward
+@:nativeGen
+@:native("QuartzClockHandle*")
+abstract QuartzClockHandlePtr(cpp.Star<QuartzClockHandle>) from cpp.Star<QuartzClockHandle> to cpp.Star<QuartzClockHandle>{
+	@:from
+	public static extern inline function fromValue(v: QuartzClockHandle): QuartzClockHandlePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): QuartzClockHandle {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

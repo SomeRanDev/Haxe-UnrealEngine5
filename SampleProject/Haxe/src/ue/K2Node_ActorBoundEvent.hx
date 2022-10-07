@@ -22,3 +22,22 @@ abstract ConstK2Node_ActorBoundEvent(K2Node_ActorBoundEvent) from K2Node_ActorBo
 	public extern var EventOwner(get, never): cpp.Star<Actor.ConstActor>;
 	public inline extern function get_EventOwner(): cpp.Star<Actor.ConstActor> return this.EventOwner;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_ActorBoundEvent*")
+abstract K2Node_ActorBoundEventPtr(cpp.Star<K2Node_ActorBoundEvent>) from cpp.Star<K2Node_ActorBoundEvent> to cpp.Star<K2Node_ActorBoundEvent>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_ActorBoundEvent): K2Node_ActorBoundEventPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_ActorBoundEvent {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

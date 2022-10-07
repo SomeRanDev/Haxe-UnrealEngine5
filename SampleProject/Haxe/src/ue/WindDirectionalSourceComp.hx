@@ -38,3 +38,22 @@ abstract ConstWindDirectionalSourceComp(WindDirectionalSourceComp) from WindDire
 	public extern var bPointWind(get, never): Bool;
 	public inline extern function get_bPointWind(): Bool return this.bPointWind;
 }
+
+@:forward
+@:nativeGen
+@:native("WindDirectionalSourceComp*")
+abstract WindDirectionalSourceCompPtr(cpp.Star<WindDirectionalSourceComp>) from cpp.Star<WindDirectionalSourceComp> to cpp.Star<WindDirectionalSourceComp>{
+	@:from
+	public static extern inline function fromValue(v: WindDirectionalSourceComp): WindDirectionalSourceCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WindDirectionalSourceComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

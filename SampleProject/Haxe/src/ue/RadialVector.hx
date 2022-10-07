@@ -21,3 +21,22 @@ abstract ConstRadialVector(RadialVector) from RadialVector {
 	public extern var Position(get, never): Vector;
 	public inline extern function get_Position(): Vector return this.Position;
 }
+
+@:forward
+@:nativeGen
+@:native("RadialVector*")
+abstract RadialVectorPtr(cpp.Star<RadialVector>) from cpp.Star<RadialVector> to cpp.Star<RadialVector>{
+	@:from
+	public static extern inline function fromValue(v: RadialVector): RadialVectorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RadialVector {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

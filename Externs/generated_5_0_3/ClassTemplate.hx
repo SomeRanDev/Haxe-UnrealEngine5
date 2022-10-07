@@ -16,3 +16,22 @@ abstract ConstClassTemplate(ClassTemplate) from ClassTemplate {
 	public extern var GeneratedBaseClass(get, never): TSubclassOf<Object.ConstObject>;
 	public inline extern function get_GeneratedBaseClass(): TSubclassOf<Object.ConstObject> return this.GeneratedBaseClass;
 }
+
+@:forward
+@:nativeGen
+@:native("ClassTemplate*")
+abstract ClassTemplatePtr(cpp.Star<ClassTemplate>) from cpp.Star<ClassTemplate> to cpp.Star<ClassTemplate>{
+	@:from
+	public static extern inline function fromValue(v: ClassTemplate): ClassTemplatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ClassTemplate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

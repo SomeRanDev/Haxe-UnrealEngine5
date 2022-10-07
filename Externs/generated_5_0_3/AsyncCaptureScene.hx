@@ -24,3 +24,22 @@ abstract ConstAsyncCaptureScene(AsyncCaptureScene) from AsyncCaptureScene {
 	public extern var SceneCaptureRT(get, never): cpp.Star<TextureRenderTarget2D.ConstTextureRenderTarget2D>;
 	public inline extern function get_SceneCaptureRT(): cpp.Star<TextureRenderTarget2D.ConstTextureRenderTarget2D> return this.SceneCaptureRT;
 }
+
+@:forward
+@:nativeGen
+@:native("AsyncCaptureScene*")
+abstract AsyncCaptureScenePtr(cpp.Star<AsyncCaptureScene>) from cpp.Star<AsyncCaptureScene> to cpp.Star<AsyncCaptureScene>{
+	@:from
+	public static extern inline function fromValue(v: AsyncCaptureScene): AsyncCaptureScenePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AsyncCaptureScene {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

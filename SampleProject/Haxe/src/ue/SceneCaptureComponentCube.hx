@@ -33,3 +33,22 @@ abstract ConstSceneCaptureComponentCube(SceneCaptureComponentCube) from SceneCap
 	public extern var IPD(get, never): cpp.Float32;
 	public inline extern function get_IPD(): cpp.Float32 return this.IPD;
 }
+
+@:forward
+@:nativeGen
+@:native("SceneCaptureComponentCube*")
+abstract SceneCaptureComponentCubePtr(cpp.Star<SceneCaptureComponentCube>) from cpp.Star<SceneCaptureComponentCube> to cpp.Star<SceneCaptureComponentCube>{
+	@:from
+	public static extern inline function fromValue(v: SceneCaptureComponentCube): SceneCaptureComponentCubePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SceneCaptureComponentCube {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

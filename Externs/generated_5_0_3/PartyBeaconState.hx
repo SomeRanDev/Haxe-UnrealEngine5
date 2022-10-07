@@ -52,3 +52,22 @@ abstract ConstPartyBeaconState(PartyBeaconState) from PartyBeaconState {
 	public extern var Reservations(get, never): TArray<PartyReservation>;
 	public inline extern function get_Reservations(): TArray<PartyReservation> return this.Reservations;
 }
+
+@:forward
+@:nativeGen
+@:native("PartyBeaconState*")
+abstract PartyBeaconStatePtr(cpp.Star<PartyBeaconState>) from cpp.Star<PartyBeaconState> to cpp.Star<PartyBeaconState>{
+	@:from
+	public static extern inline function fromValue(v: PartyBeaconState): PartyBeaconStatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PartyBeaconState {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

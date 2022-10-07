@@ -66,3 +66,22 @@ abstract ConstComboBoxKey(ComboBoxKey) from ComboBoxKey {
 	public extern var OnOpening(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnOpening(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnOpening;
 }
+
+@:forward
+@:nativeGen
+@:native("ComboBoxKey*")
+abstract ComboBoxKeyPtr(cpp.Star<ComboBoxKey>) from cpp.Star<ComboBoxKey> to cpp.Star<ComboBoxKey>{
+	@:from
+	public static extern inline function fromValue(v: ComboBoxKey): ComboBoxKeyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ComboBoxKey {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

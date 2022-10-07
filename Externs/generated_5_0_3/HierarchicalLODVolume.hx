@@ -19,3 +19,22 @@ abstract ConstHierarchicalLODVolume(HierarchicalLODVolume) from HierarchicalLODV
 	public extern var ApplyOnlyToSpecificHLODLevels(get, never): TArray<cpp.Int32>;
 	public inline extern function get_ApplyOnlyToSpecificHLODLevels(): TArray<cpp.Int32> return this.ApplyOnlyToSpecificHLODLevels;
 }
+
+@:forward
+@:nativeGen
+@:native("HierarchicalLODVolume*")
+abstract HierarchicalLODVolumePtr(cpp.Star<HierarchicalLODVolume>) from cpp.Star<HierarchicalLODVolume> to cpp.Star<HierarchicalLODVolume>{
+	@:from
+	public static extern inline function fromValue(v: HierarchicalLODVolume): HierarchicalLODVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): HierarchicalLODVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

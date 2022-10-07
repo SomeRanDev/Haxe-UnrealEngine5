@@ -28,3 +28,22 @@ abstract ConstAISenseConfig_Hearing(AISenseConfig_Hearing) from AISenseConfig_He
 	public extern var DetectionByAffiliation(get, never): AISenseAffiliationFilter;
 	public inline extern function get_DetectionByAffiliation(): AISenseAffiliationFilter return this.DetectionByAffiliation;
 }
+
+@:forward
+@:nativeGen
+@:native("AISenseConfig_Hearing*")
+abstract AISenseConfig_HearingPtr(cpp.Star<AISenseConfig_Hearing>) from cpp.Star<AISenseConfig_Hearing> to cpp.Star<AISenseConfig_Hearing>{
+	@:from
+	public static extern inline function fromValue(v: AISenseConfig_Hearing): AISenseConfig_HearingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AISenseConfig_Hearing {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

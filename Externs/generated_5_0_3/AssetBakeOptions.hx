@@ -13,3 +13,22 @@ extern class AssetBakeOptions extends Object {
 @:nativeGen
 abstract ConstAssetBakeOptions(AssetBakeOptions) from AssetBakeOptions {
 }
+
+@:forward
+@:nativeGen
+@:native("AssetBakeOptions*")
+abstract AssetBakeOptionsPtr(cpp.Star<AssetBakeOptions>) from cpp.Star<AssetBakeOptions> to cpp.Star<AssetBakeOptions>{
+	@:from
+	public static extern inline function fromValue(v: AssetBakeOptions): AssetBakeOptionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AssetBakeOptions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

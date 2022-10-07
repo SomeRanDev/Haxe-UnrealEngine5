@@ -12,3 +12,22 @@ extern class BoolProperty extends Property {
 @:nativeGen
 abstract ConstBoolProperty(BoolProperty) from BoolProperty {
 }
+
+@:forward
+@:nativeGen
+@:native("BoolProperty*")
+abstract BoolPropertyPtr(cpp.Star<BoolProperty>) from cpp.Star<BoolProperty> to cpp.Star<BoolProperty>{
+	@:from
+	public static extern inline function fromValue(v: BoolProperty): BoolPropertyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BoolProperty {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

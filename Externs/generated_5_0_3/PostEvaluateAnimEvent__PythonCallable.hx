@@ -12,3 +12,22 @@ extern class PostEvaluateAnimEvent__PythonCallable extends PythonCallableForDele
 @:nativeGen
 abstract ConstPostEvaluateAnimEvent__PythonCallable(PostEvaluateAnimEvent__PythonCallable) from PostEvaluateAnimEvent__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("PostEvaluateAnimEvent__PythonCallable*")
+abstract PostEvaluateAnimEvent__PythonCallablePtr(cpp.Star<PostEvaluateAnimEvent__PythonCallable>) from cpp.Star<PostEvaluateAnimEvent__PythonCallable> to cpp.Star<PostEvaluateAnimEvent__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: PostEvaluateAnimEvent__PythonCallable): PostEvaluateAnimEvent__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PostEvaluateAnimEvent__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

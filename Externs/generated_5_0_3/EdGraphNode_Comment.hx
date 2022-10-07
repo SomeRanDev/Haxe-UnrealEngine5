@@ -31,3 +31,22 @@ abstract ConstEdGraphNode_Comment(EdGraphNode_Comment) from EdGraphNode_Comment 
 	public extern var CommentDepth(get, never): cpp.Int32;
 	public inline extern function get_CommentDepth(): cpp.Int32 return this.CommentDepth;
 }
+
+@:forward
+@:nativeGen
+@:native("EdGraphNode_Comment*")
+abstract EdGraphNode_CommentPtr(cpp.Star<EdGraphNode_Comment>) from cpp.Star<EdGraphNode_Comment> to cpp.Star<EdGraphNode_Comment>{
+	@:from
+	public static extern inline function fromValue(v: EdGraphNode_Comment): EdGraphNode_CommentPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EdGraphNode_Comment {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

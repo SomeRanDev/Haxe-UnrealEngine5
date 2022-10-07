@@ -31,3 +31,22 @@ abstract ConstBehaviorTreeGraphNode_CompositeDecorator(BehaviorTreeGraphNode_Com
 	public extern var CachedDescription(get, never): FString;
 	public inline extern function get_CachedDescription(): FString return this.CachedDescription;
 }
+
+@:forward
+@:nativeGen
+@:native("BehaviorTreeGraphNode_CompositeDecorator*")
+abstract BehaviorTreeGraphNode_CompositeDecoratorPtr(cpp.Star<BehaviorTreeGraphNode_CompositeDecorator>) from cpp.Star<BehaviorTreeGraphNode_CompositeDecorator> to cpp.Star<BehaviorTreeGraphNode_CompositeDecorator>{
+	@:from
+	public static extern inline function fromValue(v: BehaviorTreeGraphNode_CompositeDecorator): BehaviorTreeGraphNode_CompositeDecoratorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BehaviorTreeGraphNode_CompositeDecorator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

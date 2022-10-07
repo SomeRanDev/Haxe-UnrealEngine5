@@ -19,3 +19,22 @@ abstract ConstBlendSpace1D(BlendSpace1D) from BlendSpace1D {
 	public extern var bScaleAnimation(get, never): Bool;
 	public inline extern function get_bScaleAnimation(): Bool return this.bScaleAnimation;
 }
+
+@:forward
+@:nativeGen
+@:native("BlendSpace1D*")
+abstract BlendSpace1DPtr(cpp.Star<BlendSpace1D>) from cpp.Star<BlendSpace1D> to cpp.Star<BlendSpace1D>{
+	@:from
+	public static extern inline function fromValue(v: BlendSpace1D): BlendSpace1DPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlendSpace1D {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

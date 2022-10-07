@@ -19,3 +19,22 @@ abstract ConstNiagaraDataInterfaceGrid3DCollectionReader(NiagaraDataInterfaceGri
 	public extern var DIName(get, never): FString;
 	public inline extern function get_DIName(): FString return this.DIName;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceGrid3DCollectionReader*")
+abstract NiagaraDataInterfaceGrid3DCollectionReaderPtr(cpp.Star<NiagaraDataInterfaceGrid3DCollectionReader>) from cpp.Star<NiagaraDataInterfaceGrid3DCollectionReader> to cpp.Star<NiagaraDataInterfaceGrid3DCollectionReader>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceGrid3DCollectionReader): NiagaraDataInterfaceGrid3DCollectionReaderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceGrid3DCollectionReader {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

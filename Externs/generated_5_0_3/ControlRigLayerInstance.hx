@@ -13,3 +13,22 @@ extern class ControlRigLayerInstance extends AnimInstance {
 @:nativeGen
 abstract ConstControlRigLayerInstance(ControlRigLayerInstance) from ControlRigLayerInstance {
 }
+
+@:forward
+@:nativeGen
+@:native("ControlRigLayerInstance*")
+abstract ControlRigLayerInstancePtr(cpp.Star<ControlRigLayerInstance>) from cpp.Star<ControlRigLayerInstance> to cpp.Star<ControlRigLayerInstance>{
+	@:from
+	public static extern inline function fromValue(v: ControlRigLayerInstance): ControlRigLayerInstancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ControlRigLayerInstance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

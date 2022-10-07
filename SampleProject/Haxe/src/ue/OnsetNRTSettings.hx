@@ -28,3 +28,22 @@ abstract ConstOnsetNRTSettings(OnsetNRTSettings) from OnsetNRTSettings {
 	public extern var MaximumFrequency(get, never): cpp.Float32;
 	public inline extern function get_MaximumFrequency(): cpp.Float32 return this.MaximumFrequency;
 }
+
+@:forward
+@:nativeGen
+@:native("OnsetNRTSettings*")
+abstract OnsetNRTSettingsPtr(cpp.Star<OnsetNRTSettings>) from cpp.Star<OnsetNRTSettings> to cpp.Star<OnsetNRTSettings>{
+	@:from
+	public static extern inline function fromValue(v: OnsetNRTSettings): OnsetNRTSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnsetNRTSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

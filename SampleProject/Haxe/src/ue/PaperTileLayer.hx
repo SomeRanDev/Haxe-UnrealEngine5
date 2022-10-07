@@ -61,3 +61,22 @@ abstract ConstPaperTileLayer(PaperTileLayer) from PaperTileLayer {
 	public extern var AllocatedGrid_DEPRECATED(get, never): TArray<cpp.Int32>;
 	public inline extern function get_AllocatedGrid_DEPRECATED(): TArray<cpp.Int32> return this.AllocatedGrid_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("PaperTileLayer*")
+abstract PaperTileLayerPtr(cpp.Star<PaperTileLayer>) from cpp.Star<PaperTileLayer> to cpp.Star<PaperTileLayer>{
+	@:from
+	public static extern inline function fromValue(v: PaperTileLayer): PaperTileLayerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PaperTileLayer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

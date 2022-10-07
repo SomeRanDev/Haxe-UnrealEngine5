@@ -16,3 +16,22 @@ abstract ConstAnimCurveCompressionSettings(AnimCurveCompressionSettings) from An
 	public extern var Codec(get, never): cpp.Star<AnimCurveCompressionCodec.ConstAnimCurveCompressionCodec>;
 	public inline extern function get_Codec(): cpp.Star<AnimCurveCompressionCodec.ConstAnimCurveCompressionCodec> return this.Codec;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimCurveCompressionSettings*")
+abstract AnimCurveCompressionSettingsPtr(cpp.Star<AnimCurveCompressionSettings>) from cpp.Star<AnimCurveCompressionSettings> to cpp.Star<AnimCurveCompressionSettings>{
+	@:from
+	public static extern inline function fromValue(v: AnimCurveCompressionSettings): AnimCurveCompressionSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimCurveCompressionSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

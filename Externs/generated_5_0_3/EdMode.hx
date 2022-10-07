@@ -22,3 +22,22 @@ abstract ConstEdMode(EdMode) from EdMode {
 	public extern var SettingsObject(get, never): cpp.Star<Object.ConstObject>;
 	public inline extern function get_SettingsObject(): cpp.Star<Object.ConstObject> return this.SettingsObject;
 }
+
+@:forward
+@:nativeGen
+@:native("EdMode*")
+abstract EdModePtr(cpp.Star<EdMode>) from cpp.Star<EdMode> to cpp.Star<EdMode>{
+	@:from
+	public static extern inline function fromValue(v: EdMode): EdModePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EdMode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

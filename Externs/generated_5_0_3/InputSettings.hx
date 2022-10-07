@@ -109,3 +109,22 @@ abstract ConstInputSettings(InputSettings) from InputSettings {
 	public extern var ConsoleKeys(get, never): TArray<Key>;
 	public inline extern function get_ConsoleKeys(): TArray<Key> return this.ConsoleKeys;
 }
+
+@:forward
+@:nativeGen
+@:native("InputSettings*")
+abstract InputSettingsPtr(cpp.Star<InputSettings>) from cpp.Star<InputSettings> to cpp.Star<InputSettings>{
+	@:from
+	public static extern inline function fromValue(v: InputSettings): InputSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InputSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

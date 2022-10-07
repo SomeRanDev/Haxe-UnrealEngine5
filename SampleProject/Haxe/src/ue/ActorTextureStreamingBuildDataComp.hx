@@ -19,3 +19,22 @@ abstract ConstActorTextureStreamingBuildDataComp(ActorTextureStreamingBuildDataC
 	public extern var PackedTextureStreamingQualityLevelFeatureLevel(get, never): cpp.UInt32;
 	public inline extern function get_PackedTextureStreamingQualityLevelFeatureLevel(): cpp.UInt32 return this.PackedTextureStreamingQualityLevelFeatureLevel;
 }
+
+@:forward
+@:nativeGen
+@:native("ActorTextureStreamingBuildDataComp*")
+abstract ActorTextureStreamingBuildDataCompPtr(cpp.Star<ActorTextureStreamingBuildDataComp>) from cpp.Star<ActorTextureStreamingBuildDataComp> to cpp.Star<ActorTextureStreamingBuildDataComp>{
+	@:from
+	public static extern inline function fromValue(v: ActorTextureStreamingBuildDataComp): ActorTextureStreamingBuildDataCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorTextureStreamingBuildDataComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

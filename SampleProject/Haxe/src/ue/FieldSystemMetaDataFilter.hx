@@ -24,3 +24,22 @@ abstract ConstFieldSystemMetaDataFilter(FieldSystemMetaDataFilter) from FieldSys
 	public extern var PositionType(get, never): EFieldPositionType;
 	public inline extern function get_PositionType(): EFieldPositionType return this.PositionType;
 }
+
+@:forward
+@:nativeGen
+@:native("FieldSystemMetaDataFilter*")
+abstract FieldSystemMetaDataFilterPtr(cpp.Star<FieldSystemMetaDataFilter>) from cpp.Star<FieldSystemMetaDataFilter> to cpp.Star<FieldSystemMetaDataFilter>{
+	@:from
+	public static extern inline function fromValue(v: FieldSystemMetaDataFilter): FieldSystemMetaDataFilterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FieldSystemMetaDataFilter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

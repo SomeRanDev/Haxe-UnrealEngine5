@@ -16,3 +16,22 @@ abstract ConstBehaviorTreeDecoratorGraphNode_Logic(BehaviorTreeDecoratorGraphNod
 	public extern var LogicMode(get, never): EDecoratorLogicMode;
 	public inline extern function get_LogicMode(): EDecoratorLogicMode return this.LogicMode;
 }
+
+@:forward
+@:nativeGen
+@:native("BehaviorTreeDecoratorGraphNode_Logic*")
+abstract BehaviorTreeDecoratorGraphNode_LogicPtr(cpp.Star<BehaviorTreeDecoratorGraphNode_Logic>) from cpp.Star<BehaviorTreeDecoratorGraphNode_Logic> to cpp.Star<BehaviorTreeDecoratorGraphNode_Logic>{
+	@:from
+	public static extern inline function fromValue(v: BehaviorTreeDecoratorGraphNode_Logic): BehaviorTreeDecoratorGraphNode_LogicPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BehaviorTreeDecoratorGraphNode_Logic {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

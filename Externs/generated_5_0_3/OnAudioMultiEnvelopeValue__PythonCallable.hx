@@ -12,3 +12,22 @@ extern class OnAudioMultiEnvelopeValue__PythonCallable extends PythonCallableFor
 @:nativeGen
 abstract ConstOnAudioMultiEnvelopeValue__PythonCallable(OnAudioMultiEnvelopeValue__PythonCallable) from OnAudioMultiEnvelopeValue__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnAudioMultiEnvelopeValue__PythonCallable*")
+abstract OnAudioMultiEnvelopeValue__PythonCallablePtr(cpp.Star<OnAudioMultiEnvelopeValue__PythonCallable>) from cpp.Star<OnAudioMultiEnvelopeValue__PythonCallable> to cpp.Star<OnAudioMultiEnvelopeValue__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnAudioMultiEnvelopeValue__PythonCallable): OnAudioMultiEnvelopeValue__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnAudioMultiEnvelopeValue__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

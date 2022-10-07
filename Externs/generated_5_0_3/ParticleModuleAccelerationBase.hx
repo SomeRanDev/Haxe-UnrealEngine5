@@ -16,3 +16,22 @@ abstract ConstParticleModuleAccelerationBase(ParticleModuleAccelerationBase) fro
 	public extern var bAlwaysInWorldSpace(get, never): Bool;
 	public inline extern function get_bAlwaysInWorldSpace(): Bool return this.bAlwaysInWorldSpace;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleAccelerationBase*")
+abstract ParticleModuleAccelerationBasePtr(cpp.Star<ParticleModuleAccelerationBase>) from cpp.Star<ParticleModuleAccelerationBase> to cpp.Star<ParticleModuleAccelerationBase>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleAccelerationBase): ParticleModuleAccelerationBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleAccelerationBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

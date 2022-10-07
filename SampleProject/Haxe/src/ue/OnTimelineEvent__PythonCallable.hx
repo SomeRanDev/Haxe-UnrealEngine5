@@ -12,3 +12,22 @@ extern class OnTimelineEvent__PythonCallable extends PythonCallableForDelegate {
 @:nativeGen
 abstract ConstOnTimelineEvent__PythonCallable(OnTimelineEvent__PythonCallable) from OnTimelineEvent__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnTimelineEvent__PythonCallable*")
+abstract OnTimelineEvent__PythonCallablePtr(cpp.Star<OnTimelineEvent__PythonCallable>) from cpp.Star<OnTimelineEvent__PythonCallable> to cpp.Star<OnTimelineEvent__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnTimelineEvent__PythonCallable): OnTimelineEvent__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnTimelineEvent__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -30,3 +30,22 @@ abstract ConstRadialIntMask(RadialIntMask) from RadialIntMask {
 	public extern var SetMaskCondition(get, never): ESetMaskConditionType;
 	public inline extern function get_SetMaskCondition(): ESetMaskConditionType return this.SetMaskCondition;
 }
+
+@:forward
+@:nativeGen
+@:native("RadialIntMask*")
+abstract RadialIntMaskPtr(cpp.Star<RadialIntMask>) from cpp.Star<RadialIntMask> to cpp.Star<RadialIntMask>{
+	@:from
+	public static extern inline function fromValue(v: RadialIntMask): RadialIntMaskPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RadialIntMask {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

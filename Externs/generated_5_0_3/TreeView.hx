@@ -23,3 +23,22 @@ abstract ConstTreeView(TreeView) from TreeView {
 	public extern var BP_OnItemExpansionChanged(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Object.ConstObject>, Bool) -> Void>;
 	public inline extern function get_BP_OnItemExpansionChanged(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Object.ConstObject>, Bool) -> Void> return this.BP_OnItemExpansionChanged;
 }
+
+@:forward
+@:nativeGen
+@:native("TreeView*")
+abstract TreeViewPtr(cpp.Star<TreeView>) from cpp.Star<TreeView> to cpp.Star<TreeView>{
+	@:from
+	public static extern inline function fromValue(v: TreeView): TreeViewPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TreeView {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

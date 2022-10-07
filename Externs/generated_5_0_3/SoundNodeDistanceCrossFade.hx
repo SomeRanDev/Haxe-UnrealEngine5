@@ -16,3 +16,22 @@ abstract ConstSoundNodeDistanceCrossFade(SoundNodeDistanceCrossFade) from SoundN
 	public extern var CrossFadeInput(get, never): TArray<DistanceDatum>;
 	public inline extern function get_CrossFadeInput(): TArray<DistanceDatum> return this.CrossFadeInput;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundNodeDistanceCrossFade*")
+abstract SoundNodeDistanceCrossFadePtr(cpp.Star<SoundNodeDistanceCrossFade>) from cpp.Star<SoundNodeDistanceCrossFade> to cpp.Star<SoundNodeDistanceCrossFade>{
+	@:from
+	public static extern inline function fromValue(v: SoundNodeDistanceCrossFade): SoundNodeDistanceCrossFadePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundNodeDistanceCrossFade {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

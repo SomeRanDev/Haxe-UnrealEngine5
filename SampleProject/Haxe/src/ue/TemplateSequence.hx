@@ -25,3 +25,22 @@ abstract ConstTemplateSequence(TemplateSequence) from TemplateSequence {
 	public extern var BoundActorComponents(get, never): TMap<Guid, FName>;
 	public inline extern function get_BoundActorComponents(): TMap<Guid, FName> return this.BoundActorComponents;
 }
+
+@:forward
+@:nativeGen
+@:native("TemplateSequence*")
+abstract TemplateSequencePtr(cpp.Star<TemplateSequence>) from cpp.Star<TemplateSequence> to cpp.Star<TemplateSequence>{
+	@:from
+	public static extern inline function fromValue(v: TemplateSequence): TemplateSequencePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TemplateSequence {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

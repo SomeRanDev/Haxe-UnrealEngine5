@@ -19,3 +19,22 @@ abstract ConstAISense_Prediction(AISense_Prediction) from AISense_Prediction {
 	public extern var RegisteredEvents(get, never): TArray<AIPredictionEvent>;
 	public inline extern function get_RegisteredEvents(): TArray<AIPredictionEvent> return this.RegisteredEvents;
 }
+
+@:forward
+@:nativeGen
+@:native("AISense_Prediction*")
+abstract AISense_PredictionPtr(cpp.Star<AISense_Prediction>) from cpp.Star<AISense_Prediction> to cpp.Star<AISense_Prediction>{
+	@:from
+	public static extern inline function fromValue(v: AISense_Prediction): AISense_PredictionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AISense_Prediction {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstIntegerChannelKeyProxy(IntegerChannelKeyProxy) from IntegerChannel
 	public extern var Value(get, never): cpp.Int32;
 	public inline extern function get_Value(): cpp.Int32 return this.Value;
 }
+
+@:forward
+@:nativeGen
+@:native("IntegerChannelKeyProxy*")
+abstract IntegerChannelKeyProxyPtr(cpp.Star<IntegerChannelKeyProxy>) from cpp.Star<IntegerChannelKeyProxy> to cpp.Star<IntegerChannelKeyProxy>{
+	@:from
+	public static extern inline function fromValue(v: IntegerChannelKeyProxy): IntegerChannelKeyProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IntegerChannelKeyProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class K2Node_SetEditorProperty extends K2Node_EditorPropertyAccessBase {
 @:nativeGen
 abstract ConstK2Node_SetEditorProperty(K2Node_SetEditorProperty) from K2Node_SetEditorProperty {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_SetEditorProperty*")
+abstract K2Node_SetEditorPropertyPtr(cpp.Star<K2Node_SetEditorProperty>) from cpp.Star<K2Node_SetEditorProperty> to cpp.Star<K2Node_SetEditorProperty>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_SetEditorProperty): K2Node_SetEditorPropertyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_SetEditorProperty {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

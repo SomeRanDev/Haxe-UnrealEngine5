@@ -19,3 +19,22 @@ abstract ConstSoundNodeModulatorContinuous(SoundNodeModulatorContinuous) from So
 	public extern var VolumeModulationParams(get, never): ModulatorContinuousParams;
 	public inline extern function get_VolumeModulationParams(): ModulatorContinuousParams return this.VolumeModulationParams;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundNodeModulatorContinuous*")
+abstract SoundNodeModulatorContinuousPtr(cpp.Star<SoundNodeModulatorContinuous>) from cpp.Star<SoundNodeModulatorContinuous> to cpp.Star<SoundNodeModulatorContinuous>{
+	@:from
+	public static extern inline function fromValue(v: SoundNodeModulatorContinuous): SoundNodeModulatorContinuousPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundNodeModulatorContinuous {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

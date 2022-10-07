@@ -12,3 +12,22 @@ extern class AIPerceptionListenerInterface extends Interface {
 @:nativeGen
 abstract ConstAIPerceptionListenerInterface(AIPerceptionListenerInterface) from AIPerceptionListenerInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("AIPerceptionListenerInterface*")
+abstract AIPerceptionListenerInterfacePtr(cpp.Star<AIPerceptionListenerInterface>) from cpp.Star<AIPerceptionListenerInterface> to cpp.Star<AIPerceptionListenerInterface>{
+	@:from
+	public static extern inline function fromValue(v: AIPerceptionListenerInterface): AIPerceptionListenerInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AIPerceptionListenerInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

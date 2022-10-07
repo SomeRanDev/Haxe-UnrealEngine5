@@ -12,3 +12,22 @@ extern class ActorEndPlaySignature__PythonCallable extends PythonCallableForDele
 @:nativeGen
 abstract ConstActorEndPlaySignature__PythonCallable(ActorEndPlaySignature__PythonCallable) from ActorEndPlaySignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorEndPlaySignature__PythonCallable*")
+abstract ActorEndPlaySignature__PythonCallablePtr(cpp.Star<ActorEndPlaySignature__PythonCallable>) from cpp.Star<ActorEndPlaySignature__PythonCallable> to cpp.Star<ActorEndPlaySignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ActorEndPlaySignature__PythonCallable): ActorEndPlaySignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorEndPlaySignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

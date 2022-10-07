@@ -18,3 +18,22 @@ abstract ConstToIntegerField(ToIntegerField) from ToIntegerField {
 	public extern var FloatField(get, never): cpp.Star<FieldNodeFloat.ConstFieldNodeFloat>;
 	public inline extern function get_FloatField(): cpp.Star<FieldNodeFloat.ConstFieldNodeFloat> return this.FloatField;
 }
+
+@:forward
+@:nativeGen
+@:native("ToIntegerField*")
+abstract ToIntegerFieldPtr(cpp.Star<ToIntegerField>) from cpp.Star<ToIntegerField> to cpp.Star<ToIntegerField>{
+	@:from
+	public static extern inline function fromValue(v: ToIntegerField): ToIntegerFieldPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ToIntegerField {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

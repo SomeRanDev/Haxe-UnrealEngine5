@@ -17,3 +17,22 @@ extern class EngineElementsLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstEngineElementsLibrary(EngineElementsLibrary) from EngineElementsLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("EngineElementsLibrary*")
+abstract EngineElementsLibraryPtr(cpp.Star<EngineElementsLibrary>) from cpp.Star<EngineElementsLibrary> to cpp.Star<EngineElementsLibrary>{
+	@:from
+	public static extern inline function fromValue(v: EngineElementsLibrary): EngineElementsLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EngineElementsLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

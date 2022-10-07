@@ -13,3 +13,22 @@ extern class PaperTerrainSplineComp extends SplineComp {
 @:nativeGen
 abstract ConstPaperTerrainSplineComp(PaperTerrainSplineComp) from PaperTerrainSplineComp {
 }
+
+@:forward
+@:nativeGen
+@:native("PaperTerrainSplineComp*")
+abstract PaperTerrainSplineCompPtr(cpp.Star<PaperTerrainSplineComp>) from cpp.Star<PaperTerrainSplineComp> to cpp.Star<PaperTerrainSplineComp>{
+	@:from
+	public static extern inline function fromValue(v: PaperTerrainSplineComp): PaperTerrainSplineCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PaperTerrainSplineComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

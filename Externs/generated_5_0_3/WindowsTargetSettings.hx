@@ -85,3 +85,22 @@ abstract ConstWindowsTargetSettings(WindowsTargetSettings) from WindowsTargetSet
 	public extern var SoundCueCookQualityIndex(get, never): cpp.Int32;
 	public inline extern function get_SoundCueCookQualityIndex(): cpp.Int32 return this.SoundCueCookQualityIndex;
 }
+
+@:forward
+@:nativeGen
+@:native("WindowsTargetSettings*")
+abstract WindowsTargetSettingsPtr(cpp.Star<WindowsTargetSettings>) from cpp.Star<WindowsTargetSettings> to cpp.Star<WindowsTargetSettings>{
+	@:from
+	public static extern inline function fromValue(v: WindowsTargetSettings): WindowsTargetSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WindowsTargetSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

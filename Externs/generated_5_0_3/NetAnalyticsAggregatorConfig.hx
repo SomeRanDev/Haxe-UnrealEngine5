@@ -16,3 +16,22 @@ abstract ConstNetAnalyticsAggregatorConfig(NetAnalyticsAggregatorConfig) from Ne
 	public extern var NetAnalyticsData(get, never): TArray<NetAnalyticsDataConfig>;
 	public inline extern function get_NetAnalyticsData(): TArray<NetAnalyticsDataConfig> return this.NetAnalyticsData;
 }
+
+@:forward
+@:nativeGen
+@:native("NetAnalyticsAggregatorConfig*")
+abstract NetAnalyticsAggregatorConfigPtr(cpp.Star<NetAnalyticsAggregatorConfig>) from cpp.Star<NetAnalyticsAggregatorConfig> to cpp.Star<NetAnalyticsAggregatorConfig>{
+	@:from
+	public static extern inline function fromValue(v: NetAnalyticsAggregatorConfig): NetAnalyticsAggregatorConfigPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NetAnalyticsAggregatorConfig {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

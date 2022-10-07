@@ -12,3 +12,22 @@ extern class OnInputAction__PythonCallable extends PythonCallableForDelegate {
 @:nativeGen
 abstract ConstOnInputAction__PythonCallable(OnInputAction__PythonCallable) from OnInputAction__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnInputAction__PythonCallable*")
+abstract OnInputAction__PythonCallablePtr(cpp.Star<OnInputAction__PythonCallable>) from cpp.Star<OnInputAction__PythonCallable> to cpp.Star<OnInputAction__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnInputAction__PythonCallable): OnInputAction__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnInputAction__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

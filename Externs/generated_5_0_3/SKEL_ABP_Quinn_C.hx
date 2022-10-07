@@ -17,3 +17,22 @@ abstract ConstSKEL_ABP_Quinn_C(SKEL_ABP_Quinn_C) from SKEL_ABP_Quinn_C {
 	public extern var UberGraphFrame(get, never): PointerToUberGraphFrame;
 	public inline extern function get_UberGraphFrame(): PointerToUberGraphFrame return this.UberGraphFrame;
 }
+
+@:forward
+@:nativeGen
+@:native("SKEL_ABP_Quinn_C*")
+abstract SKEL_ABP_Quinn_CPtr(cpp.Star<SKEL_ABP_Quinn_C>) from cpp.Star<SKEL_ABP_Quinn_C> to cpp.Star<SKEL_ABP_Quinn_C>{
+	@:from
+	public static extern inline function fromValue(v: SKEL_ABP_Quinn_C): SKEL_ABP_Quinn_CPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SKEL_ABP_Quinn_C {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

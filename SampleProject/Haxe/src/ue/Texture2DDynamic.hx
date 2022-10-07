@@ -16,3 +16,22 @@ abstract ConstTexture2DDynamic(Texture2DDynamic) from Texture2DDynamic {
 	public extern var Format(get, never): EPixelFormat;
 	public inline extern function get_Format(): EPixelFormat return this.Format;
 }
+
+@:forward
+@:nativeGen
+@:native("Texture2DDynamic*")
+abstract Texture2DDynamicPtr(cpp.Star<Texture2DDynamic>) from cpp.Star<Texture2DDynamic> to cpp.Star<Texture2DDynamic>{
+	@:from
+	public static extern inline function fromValue(v: Texture2DDynamic): Texture2DDynamicPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Texture2DDynamic {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

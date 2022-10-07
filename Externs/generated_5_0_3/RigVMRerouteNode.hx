@@ -18,3 +18,22 @@ abstract ConstRigVMRerouteNode(RigVMRerouteNode) from RigVMRerouteNode {
 	public extern var bShowAsFullNode(get, never): Bool;
 	public inline extern function get_bShowAsFullNode(): Bool return this.bShowAsFullNode;
 }
+
+@:forward
+@:nativeGen
+@:native("RigVMRerouteNode*")
+abstract RigVMRerouteNodePtr(cpp.Star<RigVMRerouteNode>) from cpp.Star<RigVMRerouteNode> to cpp.Star<RigVMRerouteNode>{
+	@:from
+	public static extern inline function fromValue(v: RigVMRerouteNode): RigVMRerouteNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVMRerouteNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

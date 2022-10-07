@@ -49,3 +49,22 @@ abstract ConstBTDecorator_BlueprintBase(BTDecorator_BlueprintBase) from BTDecora
 	public extern var bIsObservingBB(get, never): Bool;
 	public inline extern function get_bIsObservingBB(): Bool return this.bIsObservingBB;
 }
+
+@:forward
+@:nativeGen
+@:native("BTDecorator_BlueprintBase*")
+abstract BTDecorator_BlueprintBasePtr(cpp.Star<BTDecorator_BlueprintBase>) from cpp.Star<BTDecorator_BlueprintBase> to cpp.Star<BTDecorator_BlueprintBase>{
+	@:from
+	public static extern inline function fromValue(v: BTDecorator_BlueprintBase): BTDecorator_BlueprintBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTDecorator_BlueprintBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

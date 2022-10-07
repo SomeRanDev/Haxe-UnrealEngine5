@@ -182,3 +182,22 @@ abstract ConstLandscapeComp(LandscapeComp) from LandscapeComp {
 	public extern var MobileCombinationMaterialInstance_DEPRECATED(get, never): cpp.Star<MaterialInstanceConstant.ConstMaterialInstanceConstant>;
 	public inline extern function get_MobileCombinationMaterialInstance_DEPRECATED(): cpp.Star<MaterialInstanceConstant.ConstMaterialInstanceConstant> return this.MobileCombinationMaterialInstance_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeComp*")
+abstract LandscapeCompPtr(cpp.Star<LandscapeComp>) from cpp.Star<LandscapeComp> to cpp.Star<LandscapeComp>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeComp): LandscapeCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

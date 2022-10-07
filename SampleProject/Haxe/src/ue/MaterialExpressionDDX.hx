@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionDDX(MaterialExpressionDDX) from MaterialExpressi
 	public extern var Value(get, never): ExpressionInput;
 	public inline extern function get_Value(): ExpressionInput return this.Value;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionDDX*")
+abstract MaterialExpressionDDXPtr(cpp.Star<MaterialExpressionDDX>) from cpp.Star<MaterialExpressionDDX> to cpp.Star<MaterialExpressionDDX>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionDDX): MaterialExpressionDDXPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionDDX {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

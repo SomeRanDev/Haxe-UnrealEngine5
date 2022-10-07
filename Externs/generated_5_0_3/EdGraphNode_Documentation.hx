@@ -19,3 +19,22 @@ abstract ConstEdGraphNode_Documentation(EdGraphNode_Documentation) from EdGraphN
 	public extern var Excerpt(get, never): FString;
 	public inline extern function get_Excerpt(): FString return this.Excerpt;
 }
+
+@:forward
+@:nativeGen
+@:native("EdGraphNode_Documentation*")
+abstract EdGraphNode_DocumentationPtr(cpp.Star<EdGraphNode_Documentation>) from cpp.Star<EdGraphNode_Documentation> to cpp.Star<EdGraphNode_Documentation>{
+	@:from
+	public static extern inline function fromValue(v: EdGraphNode_Documentation): EdGraphNode_DocumentationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EdGraphNode_Documentation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

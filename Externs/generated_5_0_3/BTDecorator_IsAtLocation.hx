@@ -31,3 +31,22 @@ abstract ConstBTDecorator_IsAtLocation(BTDecorator_IsAtLocation) from BTDecorato
 	public extern var bPathFindingBasedTest(get, never): Bool;
 	public inline extern function get_bPathFindingBasedTest(): Bool return this.bPathFindingBasedTest;
 }
+
+@:forward
+@:nativeGen
+@:native("BTDecorator_IsAtLocation*")
+abstract BTDecorator_IsAtLocationPtr(cpp.Star<BTDecorator_IsAtLocation>) from cpp.Star<BTDecorator_IsAtLocation> to cpp.Star<BTDecorator_IsAtLocation>{
+	@:from
+	public static extern inline function fromValue(v: BTDecorator_IsAtLocation): BTDecorator_IsAtLocationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTDecorator_IsAtLocation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

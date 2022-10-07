@@ -16,3 +16,22 @@ abstract ConstAssetToolsSettings(AssetToolsSettings) from AssetToolsSettings {
 	public extern var AdvancedCopyCustomizations(get, never): TArray<AdvancedCopyMap>;
 	public inline extern function get_AdvancedCopyCustomizations(): TArray<AdvancedCopyMap> return this.AdvancedCopyCustomizations;
 }
+
+@:forward
+@:nativeGen
+@:native("AssetToolsSettings*")
+abstract AssetToolsSettingsPtr(cpp.Star<AssetToolsSettings>) from cpp.Star<AssetToolsSettings> to cpp.Star<AssetToolsSettings>{
+	@:from
+	public static extern inline function fromValue(v: AssetToolsSettings): AssetToolsSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AssetToolsSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

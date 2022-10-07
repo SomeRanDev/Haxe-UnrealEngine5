@@ -16,3 +16,22 @@ abstract ConstPartitionActor(PartitionActor) from PartitionActor {
 	public extern var GridSize(get, never): cpp.UInt32;
 	public inline extern function get_GridSize(): cpp.UInt32 return this.GridSize;
 }
+
+@:forward
+@:nativeGen
+@:native("PartitionActor*")
+abstract PartitionActorPtr(cpp.Star<PartitionActor>) from cpp.Star<PartitionActor> to cpp.Star<PartitionActor>{
+	@:from
+	public static extern inline function fromValue(v: PartitionActor): PartitionActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PartitionActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class MovieSceneFadeTrack extends MovieSceneFloatTrack {
 @:nativeGen
 abstract ConstMovieSceneFadeTrack(MovieSceneFadeTrack) from MovieSceneFadeTrack {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneFadeTrack*")
+abstract MovieSceneFadeTrackPtr(cpp.Star<MovieSceneFadeTrack>) from cpp.Star<MovieSceneFadeTrack> to cpp.Star<MovieSceneFadeTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneFadeTrack): MovieSceneFadeTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneFadeTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

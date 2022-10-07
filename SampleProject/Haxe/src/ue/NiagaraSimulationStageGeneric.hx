@@ -55,3 +55,22 @@ abstract ConstNiagaraSimulationStageGeneric(NiagaraSimulationStageGeneric) from 
 	public extern var OverrideGpuDispatchNumThreads(get, never): IntVector;
 	public inline extern function get_OverrideGpuDispatchNumThreads(): IntVector return this.OverrideGpuDispatchNumThreads;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraSimulationStageGeneric*")
+abstract NiagaraSimulationStageGenericPtr(cpp.Star<NiagaraSimulationStageGeneric>) from cpp.Star<NiagaraSimulationStageGeneric> to cpp.Star<NiagaraSimulationStageGeneric>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraSimulationStageGeneric): NiagaraSimulationStageGenericPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraSimulationStageGeneric {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

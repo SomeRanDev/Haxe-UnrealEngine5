@@ -19,3 +19,22 @@ abstract ConstDefaultLevelSequenceInstanceData(DefaultLevelSequenceInstanceData)
 	public extern var TransformOrigin(get, never): Transform;
 	public inline extern function get_TransformOrigin(): Transform return this.TransformOrigin;
 }
+
+@:forward
+@:nativeGen
+@:native("DefaultLevelSequenceInstanceData*")
+abstract DefaultLevelSequenceInstanceDataPtr(cpp.Star<DefaultLevelSequenceInstanceData>) from cpp.Star<DefaultLevelSequenceInstanceData> to cpp.Star<DefaultLevelSequenceInstanceData>{
+	@:from
+	public static extern inline function fromValue(v: DefaultLevelSequenceInstanceData): DefaultLevelSequenceInstanceDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DefaultLevelSequenceInstanceData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -31,3 +31,22 @@ abstract ConstInterpTrackToggle(InterpTrackToggle) from InterpTrackToggle {
 	public extern var bFireEventsWhenJumpingForwards(get, never): Bool;
 	public inline extern function get_bFireEventsWhenJumpingForwards(): Bool return this.bFireEventsWhenJumpingForwards;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackToggle*")
+abstract InterpTrackTogglePtr(cpp.Star<InterpTrackToggle>) from cpp.Star<InterpTrackToggle> to cpp.Star<InterpTrackToggle>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackToggle): InterpTrackTogglePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackToggle {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

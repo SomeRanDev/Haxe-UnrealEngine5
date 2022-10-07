@@ -13,3 +13,22 @@ extern class InterpTrackColorScale extends InterpTrackVectorBase {
 @:nativeGen
 abstract ConstInterpTrackColorScale(InterpTrackColorScale) from InterpTrackColorScale {
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackColorScale*")
+abstract InterpTrackColorScalePtr(cpp.Star<InterpTrackColorScale>) from cpp.Star<InterpTrackColorScale> to cpp.Star<InterpTrackColorScale>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackColorScale): InterpTrackColorScalePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackColorScale {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -82,3 +82,22 @@ abstract ConstAISystem(AISystem) from AISystem {
 	public extern var NavLocalGrids(get, never): cpp.Star<NavLocalGridManager.ConstNavLocalGridManager>;
 	public inline extern function get_NavLocalGrids(): cpp.Star<NavLocalGridManager.ConstNavLocalGridManager> return this.NavLocalGrids;
 }
+
+@:forward
+@:nativeGen
+@:native("AISystem*")
+abstract AISystemPtr(cpp.Star<AISystem>) from cpp.Star<AISystem> to cpp.Star<AISystem>{
+	@:from
+	public static extern inline function fromValue(v: AISystem): AISystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AISystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

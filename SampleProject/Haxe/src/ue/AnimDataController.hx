@@ -16,3 +16,22 @@ abstract ConstAnimDataController(AnimDataController) from AnimDataController {
 	public extern var Model(get, never): cpp.Star<AnimDataModel.ConstAnimDataModel>;
 	public inline extern function get_Model(): cpp.Star<AnimDataModel.ConstAnimDataModel> return this.Model;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimDataController*")
+abstract AnimDataControllerPtr(cpp.Star<AnimDataController>) from cpp.Star<AnimDataController> to cpp.Star<AnimDataController>{
+	@:from
+	public static extern inline function fromValue(v: AnimDataController): AnimDataControllerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimDataController {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

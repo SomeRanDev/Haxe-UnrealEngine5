@@ -16,3 +16,22 @@ abstract ConstHapticFeedbackEffect_Curve(HapticFeedbackEffect_Curve) from Haptic
 	public extern var HapticDetails(get, never): HapticFeedbackDetails_Curve;
 	public inline extern function get_HapticDetails(): HapticFeedbackDetails_Curve return this.HapticDetails;
 }
+
+@:forward
+@:nativeGen
+@:native("HapticFeedbackEffect_Curve*")
+abstract HapticFeedbackEffect_CurvePtr(cpp.Star<HapticFeedbackEffect_Curve>) from cpp.Star<HapticFeedbackEffect_Curve> to cpp.Star<HapticFeedbackEffect_Curve>{
+	@:from
+	public static extern inline function fromValue(v: HapticFeedbackEffect_Curve): HapticFeedbackEffect_CurvePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): HapticFeedbackEffect_Curve {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

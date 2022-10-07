@@ -31,3 +31,22 @@ abstract ConstMeterSettings(MeterSettings) from MeterSettings {
 	public extern var ClippingThreshold(get, never): cpp.Float32;
 	public inline extern function get_ClippingThreshold(): cpp.Float32 return this.ClippingThreshold;
 }
+
+@:forward
+@:nativeGen
+@:native("MeterSettings*")
+abstract MeterSettingsPtr(cpp.Star<MeterSettings>) from cpp.Star<MeterSettings> to cpp.Star<MeterSettings>{
+	@:from
+	public static extern inline function fromValue(v: MeterSettings): MeterSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MeterSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class GizmoHandleMeshComp extends StaticMeshComp {
 @:nativeGen
 abstract ConstGizmoHandleMeshComp(GizmoHandleMeshComp) from GizmoHandleMeshComp {
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoHandleMeshComp*")
+abstract GizmoHandleMeshCompPtr(cpp.Star<GizmoHandleMeshComp>) from cpp.Star<GizmoHandleMeshComp> to cpp.Star<GizmoHandleMeshComp>{
+	@:from
+	public static extern inline function fromValue(v: GizmoHandleMeshComp): GizmoHandleMeshCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoHandleMeshComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

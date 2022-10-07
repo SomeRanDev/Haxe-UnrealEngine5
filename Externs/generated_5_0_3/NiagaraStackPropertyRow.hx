@@ -16,3 +16,22 @@ abstract ConstNiagaraStackPropertyRow(NiagaraStackPropertyRow) from NiagaraStack
 	public extern var CategorySpacer(get, never): cpp.Star<NiagaraStackSpacer.ConstNiagaraStackSpacer>;
 	public inline extern function get_CategorySpacer(): cpp.Star<NiagaraStackSpacer.ConstNiagaraStackSpacer> return this.CategorySpacer;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackPropertyRow*")
+abstract NiagaraStackPropertyRowPtr(cpp.Star<NiagaraStackPropertyRow>) from cpp.Star<NiagaraStackPropertyRow> to cpp.Star<NiagaraStackPropertyRow>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackPropertyRow): NiagaraStackPropertyRowPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackPropertyRow {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

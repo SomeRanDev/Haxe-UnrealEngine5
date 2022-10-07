@@ -14,3 +14,22 @@ extern class BlueprintEditorToolMenuContext extends Object {
 @:nativeGen
 abstract ConstBlueprintEditorToolMenuContext(BlueprintEditorToolMenuContext) from BlueprintEditorToolMenuContext {
 }
+
+@:forward
+@:nativeGen
+@:native("BlueprintEditorToolMenuContext*")
+abstract BlueprintEditorToolMenuContextPtr(cpp.Star<BlueprintEditorToolMenuContext>) from cpp.Star<BlueprintEditorToolMenuContext> to cpp.Star<BlueprintEditorToolMenuContext>{
+	@:from
+	public static extern inline function fromValue(v: BlueprintEditorToolMenuContext): BlueprintEditorToolMenuContextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlueprintEditorToolMenuContext {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -33,3 +33,22 @@ extern class TypedElementListLibrary extends Object {
 @:nativeGen
 abstract ConstTypedElementListLibrary(TypedElementListLibrary) from TypedElementListLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("TypedElementListLibrary*")
+abstract TypedElementListLibraryPtr(cpp.Star<TypedElementListLibrary>) from cpp.Star<TypedElementListLibrary> to cpp.Star<TypedElementListLibrary>{
+	@:from
+	public static extern inline function fromValue(v: TypedElementListLibrary): TypedElementListLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TypedElementListLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

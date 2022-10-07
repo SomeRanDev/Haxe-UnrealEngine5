@@ -16,3 +16,22 @@ abstract ConstParticleModuleVelocityInheritParent(ParticleModuleVelocityInheritP
 	public extern var Scale(get, never): RawDistributionVector;
 	public inline extern function get_Scale(): RawDistributionVector return this.Scale;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleVelocityInheritParent*")
+abstract ParticleModuleVelocityInheritParentPtr(cpp.Star<ParticleModuleVelocityInheritParent>) from cpp.Star<ParticleModuleVelocityInheritParent> to cpp.Star<ParticleModuleVelocityInheritParent>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleVelocityInheritParent): ParticleModuleVelocityInheritParentPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleVelocityInheritParent {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

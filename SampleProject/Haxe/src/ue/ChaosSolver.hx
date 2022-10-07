@@ -13,3 +13,22 @@ extern class ChaosSolver extends Object {
 @:nativeGen
 abstract ConstChaosSolver(ChaosSolver) from ChaosSolver {
 }
+
+@:forward
+@:nativeGen
+@:native("ChaosSolver*")
+abstract ChaosSolverPtr(cpp.Star<ChaosSolver>) from cpp.Star<ChaosSolver> to cpp.Star<ChaosSolver>{
+	@:from
+	public static extern inline function fromValue(v: ChaosSolver): ChaosSolverPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ChaosSolver {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

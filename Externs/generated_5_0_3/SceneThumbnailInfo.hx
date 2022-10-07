@@ -22,3 +22,22 @@ abstract ConstSceneThumbnailInfo(SceneThumbnailInfo) from SceneThumbnailInfo {
 	public extern var OrbitZoom(get, never): cpp.Float32;
 	public inline extern function get_OrbitZoom(): cpp.Float32 return this.OrbitZoom;
 }
+
+@:forward
+@:nativeGen
+@:native("SceneThumbnailInfo*")
+abstract SceneThumbnailInfoPtr(cpp.Star<SceneThumbnailInfo>) from cpp.Star<SceneThumbnailInfo> to cpp.Star<SceneThumbnailInfo>{
+	@:from
+	public static extern inline function fromValue(v: SceneThumbnailInfo): SceneThumbnailInfoPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SceneThumbnailInfo {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -49,3 +49,22 @@ abstract ConstVREditorTeleporter(VREditorTeleporter) from VREditorTeleporter {
 	public extern var InteractorTryingTeleport(get, never): cpp.Star<ViewportInteractor.ConstViewportInteractor>;
 	public inline extern function get_InteractorTryingTeleport(): cpp.Star<ViewportInteractor.ConstViewportInteractor> return this.InteractorTryingTeleport;
 }
+
+@:forward
+@:nativeGen
+@:native("VREditorTeleporter*")
+abstract VREditorTeleporterPtr(cpp.Star<VREditorTeleporter>) from cpp.Star<VREditorTeleporter> to cpp.Star<VREditorTeleporter>{
+	@:from
+	public static extern inline function fromValue(v: VREditorTeleporter): VREditorTeleporterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VREditorTeleporter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

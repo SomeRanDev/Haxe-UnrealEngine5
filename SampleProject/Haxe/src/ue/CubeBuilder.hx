@@ -34,3 +34,22 @@ abstract ConstCubeBuilder(CubeBuilder) from CubeBuilder {
 	public extern var Tessellated(get, never): Bool;
 	public inline extern function get_Tessellated(): Bool return this.Tessellated;
 }
+
+@:forward
+@:nativeGen
+@:native("CubeBuilder*")
+abstract CubeBuilderPtr(cpp.Star<CubeBuilder>) from cpp.Star<CubeBuilder> to cpp.Star<CubeBuilder>{
+	@:from
+	public static extern inline function fromValue(v: CubeBuilder): CubeBuilderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CubeBuilder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

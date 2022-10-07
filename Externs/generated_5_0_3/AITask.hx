@@ -16,3 +16,22 @@ abstract ConstAITask(AITask) from AITask {
 	public extern var OwnerController(get, never): cpp.Star<AIController.ConstAIController>;
 	public inline extern function get_OwnerController(): cpp.Star<AIController.ConstAIController> return this.OwnerController;
 }
+
+@:forward
+@:nativeGen
+@:native("AITask*")
+abstract AITaskPtr(cpp.Star<AITask>) from cpp.Star<AITask> to cpp.Star<AITask>{
+	@:from
+	public static extern inline function fromValue(v: AITask): AITaskPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AITask {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class ReporterGraph extends ReporterBase {
 @:nativeGen
 abstract ConstReporterGraph(ReporterGraph) from ReporterGraph {
 }
+
+@:forward
+@:nativeGen
+@:native("ReporterGraph*")
+abstract ReporterGraphPtr(cpp.Star<ReporterGraph>) from cpp.Star<ReporterGraph> to cpp.Star<ReporterGraph>{
+	@:from
+	public static extern inline function fromValue(v: ReporterGraph): ReporterGraphPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ReporterGraph {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

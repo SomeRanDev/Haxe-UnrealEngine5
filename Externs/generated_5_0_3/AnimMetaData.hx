@@ -13,3 +13,22 @@ extern class AnimMetaData extends Object {
 @:nativeGen
 abstract ConstAnimMetaData(AnimMetaData) from AnimMetaData {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimMetaData*")
+abstract AnimMetaDataPtr(cpp.Star<AnimMetaData>) from cpp.Star<AnimMetaData> to cpp.Star<AnimMetaData>{
+	@:from
+	public static extern inline function fromValue(v: AnimMetaData): AnimMetaDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimMetaData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

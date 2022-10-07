@@ -22,3 +22,22 @@ abstract ConstInterpTrackDirector(InterpTrackDirector) from InterpTrackDirector 
 	public extern var PreviewCamera(get, never): cpp.Star<CameraActor.ConstCameraActor>;
 	public inline extern function get_PreviewCamera(): cpp.Star<CameraActor.ConstCameraActor> return this.PreviewCamera;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackDirector*")
+abstract InterpTrackDirectorPtr(cpp.Star<InterpTrackDirector>) from cpp.Star<InterpTrackDirector> to cpp.Star<InterpTrackDirector>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackDirector): InterpTrackDirectorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackDirector {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

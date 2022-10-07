@@ -25,3 +25,22 @@ abstract ConstMaterialExpressionStrataHorizontalMixing(MaterialExpressionStrataH
 	public extern var bUseParameterBlending(get, never): Bool;
 	public inline extern function get_bUseParameterBlending(): Bool return this.bUseParameterBlending;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionStrataHorizontalMixing*")
+abstract MaterialExpressionStrataHorizontalMixingPtr(cpp.Star<MaterialExpressionStrataHorizontalMixing>) from cpp.Star<MaterialExpressionStrataHorizontalMixing> to cpp.Star<MaterialExpressionStrataHorizontalMixing>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionStrataHorizontalMixing): MaterialExpressionStrataHorizontalMixingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionStrataHorizontalMixing {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

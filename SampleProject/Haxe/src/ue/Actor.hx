@@ -603,3 +603,22 @@ abstract ConstActor(Actor) from Actor {
 	public extern var BlueprintCreatedComponents(get, never): TArray<cpp.Star<ActorComp.ConstActorComp>>;
 	public inline extern function get_BlueprintCreatedComponents(): TArray<cpp.Star<ActorComp.ConstActorComp>> return this.BlueprintCreatedComponents;
 }
+
+@:forward
+@:nativeGen
+@:native("Actor*")
+abstract ActorPtr(cpp.Star<Actor>) from cpp.Star<Actor> to cpp.Star<Actor>{
+	@:from
+	public static extern inline function fromValue(v: Actor): ActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Actor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

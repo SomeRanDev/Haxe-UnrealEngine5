@@ -13,3 +13,22 @@ extern class TestSparseClassDataBase extends Object {
 @:nativeGen
 abstract ConstTestSparseClassDataBase(TestSparseClassDataBase) from TestSparseClassDataBase {
 }
+
+@:forward
+@:nativeGen
+@:native("TestSparseClassDataBase*")
+abstract TestSparseClassDataBasePtr(cpp.Star<TestSparseClassDataBase>) from cpp.Star<TestSparseClassDataBase> to cpp.Star<TestSparseClassDataBase>{
+	@:from
+	public static extern inline function fromValue(v: TestSparseClassDataBase): TestSparseClassDataBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TestSparseClassDataBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -14,3 +14,22 @@ extern class VisibilityBinding extends PropertyBinding {
 @:nativeGen
 abstract ConstVisibilityBinding(VisibilityBinding) from VisibilityBinding {
 }
+
+@:forward
+@:nativeGen
+@:native("VisibilityBinding*")
+abstract VisibilityBindingPtr(cpp.Star<VisibilityBinding>) from cpp.Star<VisibilityBinding> to cpp.Star<VisibilityBinding>{
+	@:from
+	public static extern inline function fromValue(v: VisibilityBinding): VisibilityBindingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VisibilityBinding {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

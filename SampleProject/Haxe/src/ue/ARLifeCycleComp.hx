@@ -24,3 +24,22 @@ abstract ConstARLifeCycleComp(ARLifeCycleComp) from ARLifeCycleComp {
 	public extern var OnARActorToBeDestroyedDelegate(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARActor.ConstARActor>) -> Void>;
 	public inline extern function get_OnARActorToBeDestroyedDelegate(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARActor.ConstARActor>) -> Void> return this.OnARActorToBeDestroyedDelegate;
 }
+
+@:forward
+@:nativeGen
+@:native("ARLifeCycleComp*")
+abstract ARLifeCycleCompPtr(cpp.Star<ARLifeCycleComp>) from cpp.Star<ARLifeCycleComp> to cpp.Star<ARLifeCycleComp>{
+	@:from
+	public static extern inline function fromValue(v: ARLifeCycleComp): ARLifeCycleCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARLifeCycleComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

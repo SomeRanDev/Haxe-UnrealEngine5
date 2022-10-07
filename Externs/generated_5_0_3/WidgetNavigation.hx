@@ -31,3 +31,22 @@ abstract ConstWidgetNavigation(WidgetNavigation) from WidgetNavigation {
 	public extern var Previous(get, never): WidgetNavigationData;
 	public inline extern function get_Previous(): WidgetNavigationData return this.Previous;
 }
+
+@:forward
+@:nativeGen
+@:native("WidgetNavigation*")
+abstract WidgetNavigationPtr(cpp.Star<WidgetNavigation>) from cpp.Star<WidgetNavigation> to cpp.Star<WidgetNavigation>{
+	@:from
+	public static extern inline function fromValue(v: WidgetNavigation): WidgetNavigationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WidgetNavigation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

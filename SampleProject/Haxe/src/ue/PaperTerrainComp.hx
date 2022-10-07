@@ -48,3 +48,22 @@ abstract ConstPaperTerrainComp(PaperTerrainComp) from PaperTerrainComp {
 	public extern var CachedBodySetup(get, never): cpp.Star<BodySetup.ConstBodySetup>;
 	public inline extern function get_CachedBodySetup(): cpp.Star<BodySetup.ConstBodySetup> return this.CachedBodySetup;
 }
+
+@:forward
+@:nativeGen
+@:native("PaperTerrainComp*")
+abstract PaperTerrainCompPtr(cpp.Star<PaperTerrainComp>) from cpp.Star<PaperTerrainComp> to cpp.Star<PaperTerrainComp>{
+	@:from
+	public static extern inline function fromValue(v: PaperTerrainComp): PaperTerrainCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PaperTerrainComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

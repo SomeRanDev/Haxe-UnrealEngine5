@@ -12,3 +12,22 @@ extern class OnMockDataMeshTrackerUpdated__PythonCallable extends PythonCallable
 @:nativeGen
 abstract ConstOnMockDataMeshTrackerUpdated__PythonCallable(OnMockDataMeshTrackerUpdated__PythonCallable) from OnMockDataMeshTrackerUpdated__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnMockDataMeshTrackerUpdated__PythonCallable*")
+abstract OnMockDataMeshTrackerUpdated__PythonCallablePtr(cpp.Star<OnMockDataMeshTrackerUpdated__PythonCallable>) from cpp.Star<OnMockDataMeshTrackerUpdated__PythonCallable> to cpp.Star<OnMockDataMeshTrackerUpdated__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnMockDataMeshTrackerUpdated__PythonCallable): OnMockDataMeshTrackerUpdated__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnMockDataMeshTrackerUpdated__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

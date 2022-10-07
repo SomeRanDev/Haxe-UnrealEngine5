@@ -23,3 +23,22 @@ abstract ConstGridPanel(GridPanel) from GridPanel {
 	public extern var RowFill(get, never): TArray<cpp.Float32>;
 	public inline extern function get_RowFill(): TArray<cpp.Float32> return this.RowFill;
 }
+
+@:forward
+@:nativeGen
+@:native("GridPanel*")
+abstract GridPanelPtr(cpp.Star<GridPanel>) from cpp.Star<GridPanel> to cpp.Star<GridPanel>{
+	@:from
+	public static extern inline function fromValue(v: GridPanel): GridPanelPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GridPanel {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

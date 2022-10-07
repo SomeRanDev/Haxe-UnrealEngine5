@@ -13,3 +13,22 @@ extern class ReimportFbxAnimSequenceFactory extends FbxFactory {
 @:nativeGen
 abstract ConstReimportFbxAnimSequenceFactory(ReimportFbxAnimSequenceFactory) from ReimportFbxAnimSequenceFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("ReimportFbxAnimSequenceFactory*")
+abstract ReimportFbxAnimSequenceFactoryPtr(cpp.Star<ReimportFbxAnimSequenceFactory>) from cpp.Star<ReimportFbxAnimSequenceFactory> to cpp.Star<ReimportFbxAnimSequenceFactory>{
+	@:from
+	public static extern inline function fromValue(v: ReimportFbxAnimSequenceFactory): ReimportFbxAnimSequenceFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ReimportFbxAnimSequenceFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

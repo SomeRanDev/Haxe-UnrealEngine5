@@ -13,3 +13,22 @@ extern class K2Node_GetDataTableRow extends K2Node {
 @:nativeGen
 abstract ConstK2Node_GetDataTableRow(K2Node_GetDataTableRow) from K2Node_GetDataTableRow {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_GetDataTableRow*")
+abstract K2Node_GetDataTableRowPtr(cpp.Star<K2Node_GetDataTableRow>) from cpp.Star<K2Node_GetDataTableRow> to cpp.Star<K2Node_GetDataTableRow>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_GetDataTableRow): K2Node_GetDataTableRowPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_GetDataTableRow {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

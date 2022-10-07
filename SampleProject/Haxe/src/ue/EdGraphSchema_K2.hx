@@ -16,3 +16,22 @@ abstract ConstEdGraphSchema_K2(EdGraphSchema_K2) from EdGraphSchema_K2 {
 	public extern var EditoronlyBPFunctionRedirects(get, never): TArray<BlueprintCallableFunctionRedirect>;
 	public inline extern function get_EditoronlyBPFunctionRedirects(): TArray<BlueprintCallableFunctionRedirect> return this.EditoronlyBPFunctionRedirects;
 }
+
+@:forward
+@:nativeGen
+@:native("EdGraphSchema_K2*")
+abstract EdGraphSchema_K2Ptr(cpp.Star<EdGraphSchema_K2>) from cpp.Star<EdGraphSchema_K2> to cpp.Star<EdGraphSchema_K2>{
+	@:from
+	public static extern inline function fromValue(v: EdGraphSchema_K2): EdGraphSchema_K2Ptr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EdGraphSchema_K2 {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

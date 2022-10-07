@@ -12,3 +12,22 @@ extern class OnDragDropMulticast__PythonCallable extends PythonCallableForDelega
 @:nativeGen
 abstract ConstOnDragDropMulticast__PythonCallable(OnDragDropMulticast__PythonCallable) from OnDragDropMulticast__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnDragDropMulticast__PythonCallable*")
+abstract OnDragDropMulticast__PythonCallablePtr(cpp.Star<OnDragDropMulticast__PythonCallable>) from cpp.Star<OnDragDropMulticast__PythonCallable> to cpp.Star<OnDragDropMulticast__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnDragDropMulticast__PythonCallable): OnDragDropMulticast__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnDragDropMulticast__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class K2Node_InAppPurchaseRestore extends K2Node_BaseAsyncTask {
 @:nativeGen
 abstract ConstK2Node_InAppPurchaseRestore(K2Node_InAppPurchaseRestore) from K2Node_InAppPurchaseRestore {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_InAppPurchaseRestore*")
+abstract K2Node_InAppPurchaseRestorePtr(cpp.Star<K2Node_InAppPurchaseRestore>) from cpp.Star<K2Node_InAppPurchaseRestore> to cpp.Star<K2Node_InAppPurchaseRestore>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_InAppPurchaseRestore): K2Node_InAppPurchaseRestorePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_InAppPurchaseRestore {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

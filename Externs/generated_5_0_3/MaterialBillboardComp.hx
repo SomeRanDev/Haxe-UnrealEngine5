@@ -19,3 +19,22 @@ abstract ConstMaterialBillboardComp(MaterialBillboardComp) from MaterialBillboar
 	public extern var Elements(get, never): TArray<MaterialSpriteElement>;
 	public inline extern function get_Elements(): TArray<MaterialSpriteElement> return this.Elements;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialBillboardComp*")
+abstract MaterialBillboardCompPtr(cpp.Star<MaterialBillboardComp>) from cpp.Star<MaterialBillboardComp> to cpp.Star<MaterialBillboardComp>{
+	@:from
+	public static extern inline function fromValue(v: MaterialBillboardComp): MaterialBillboardCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialBillboardComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionCeil(MaterialExpressionCeil) from MaterialExpres
 	public extern var Input(get, never): ExpressionInput;
 	public inline extern function get_Input(): ExpressionInput return this.Input;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionCeil*")
+abstract MaterialExpressionCeilPtr(cpp.Star<MaterialExpressionCeil>) from cpp.Star<MaterialExpressionCeil> to cpp.Star<MaterialExpressionCeil>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionCeil): MaterialExpressionCeilPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionCeil {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

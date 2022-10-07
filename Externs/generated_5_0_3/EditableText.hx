@@ -110,3 +110,22 @@ abstract ConstEditableText(EditableText) from EditableText {
 	public extern var OnTextCommitted(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, ETextCommit) -> Void>;
 	public inline extern function get_OnTextCommitted(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, ETextCommit) -> Void> return this.OnTextCommitted;
 }
+
+@:forward
+@:nativeGen
+@:native("EditableText*")
+abstract EditableTextPtr(cpp.Star<EditableText>) from cpp.Star<EditableText> to cpp.Star<EditableText>{
+	@:from
+	public static extern inline function fromValue(v: EditableText): EditableTextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditableText {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

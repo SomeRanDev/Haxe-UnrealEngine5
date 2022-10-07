@@ -19,3 +19,22 @@ abstract ConstInterchangeTranslatorBase(InterchangeTranslatorBase) from Intercha
 	public extern var SourceData(get, never): cpp.Star<InterchangeSourceData.ConstInterchangeSourceData>;
 	public inline extern function get_SourceData(): cpp.Star<InterchangeSourceData.ConstInterchangeSourceData> return this.SourceData;
 }
+
+@:forward
+@:nativeGen
+@:native("InterchangeTranslatorBase*")
+abstract InterchangeTranslatorBasePtr(cpp.Star<InterchangeTranslatorBase>) from cpp.Star<InterchangeTranslatorBase> to cpp.Star<InterchangeTranslatorBase>{
+	@:from
+	public static extern inline function fromValue(v: InterchangeTranslatorBase): InterchangeTranslatorBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterchangeTranslatorBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class ToolContextTransactionProvider extends Interface {
 @:nativeGen
 abstract ConstToolContextTransactionProvider(ToolContextTransactionProvider) from ToolContextTransactionProvider {
 }
+
+@:forward
+@:nativeGen
+@:native("ToolContextTransactionProvider*")
+abstract ToolContextTransactionProviderPtr(cpp.Star<ToolContextTransactionProvider>) from cpp.Star<ToolContextTransactionProvider> to cpp.Star<ToolContextTransactionProvider>{
+	@:from
+	public static extern inline function fromValue(v: ToolContextTransactionProvider): ToolContextTransactionProviderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ToolContextTransactionProvider {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

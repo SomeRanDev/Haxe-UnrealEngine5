@@ -22,3 +22,22 @@ abstract ConstLevelInstance(LevelInstance) from LevelInstance {
 	public extern var DesiredRuntimeBehavior(get, never): ELevelInstanceRuntimeBehavior;
 	public inline extern function get_DesiredRuntimeBehavior(): ELevelInstanceRuntimeBehavior return this.DesiredRuntimeBehavior;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelInstance*")
+abstract LevelInstancePtr(cpp.Star<LevelInstance>) from cpp.Star<LevelInstance> to cpp.Star<LevelInstance>{
+	@:from
+	public static extern inline function fromValue(v: LevelInstance): LevelInstancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelInstance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

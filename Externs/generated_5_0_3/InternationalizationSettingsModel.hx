@@ -16,3 +16,22 @@ abstract ConstInternationalizationSettingsModel(InternationalizationSettingsMode
 	public extern var DisplayTimezone(get, never): ETimezoneSetting;
 	public inline extern function get_DisplayTimezone(): ETimezoneSetting return this.DisplayTimezone;
 }
+
+@:forward
+@:nativeGen
+@:native("InternationalizationSettingsModel*")
+abstract InternationalizationSettingsModelPtr(cpp.Star<InternationalizationSettingsModel>) from cpp.Star<InternationalizationSettingsModel> to cpp.Star<InternationalizationSettingsModel>{
+	@:from
+	public static extern inline function fromValue(v: InternationalizationSettingsModel): InternationalizationSettingsModelPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InternationalizationSettingsModel {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

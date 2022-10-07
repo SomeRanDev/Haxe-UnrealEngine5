@@ -12,3 +12,22 @@ extern class ForEachAssetIteratorSignature__PythonCallable extends PythonCallabl
 @:nativeGen
 abstract ConstForEachAssetIteratorSignature__PythonCallable(ForEachAssetIteratorSignature__PythonCallable) from ForEachAssetIteratorSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ForEachAssetIteratorSignature__PythonCallable*")
+abstract ForEachAssetIteratorSignature__PythonCallablePtr(cpp.Star<ForEachAssetIteratorSignature__PythonCallable>) from cpp.Star<ForEachAssetIteratorSignature__PythonCallable> to cpp.Star<ForEachAssetIteratorSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ForEachAssetIteratorSignature__PythonCallable): ForEachAssetIteratorSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ForEachAssetIteratorSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

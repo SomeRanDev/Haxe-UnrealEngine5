@@ -16,3 +16,22 @@ extern class MeshVertexPainterKismetLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstMeshVertexPainterKismetLibrary(MeshVertexPainterKismetLibrary) from MeshVertexPainterKismetLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("MeshVertexPainterKismetLibrary*")
+abstract MeshVertexPainterKismetLibraryPtr(cpp.Star<MeshVertexPainterKismetLibrary>) from cpp.Star<MeshVertexPainterKismetLibrary> to cpp.Star<MeshVertexPainterKismetLibrary>{
+	@:from
+	public static extern inline function fromValue(v: MeshVertexPainterKismetLibrary): MeshVertexPainterKismetLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MeshVertexPainterKismetLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

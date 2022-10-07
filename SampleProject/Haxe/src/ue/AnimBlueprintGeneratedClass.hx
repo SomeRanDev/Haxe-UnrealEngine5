@@ -43,3 +43,22 @@ abstract ConstAnimBlueprintGeneratedClass(AnimBlueprintGeneratedClass) from Anim
 	public extern var NodeTypeMap(get, never): TMap<cpp.Star<ScriptStruct.ConstScriptStruct>, AnimNodeStructData>;
 	public inline extern function get_NodeTypeMap(): TMap<cpp.Star<ScriptStruct.ConstScriptStruct>, AnimNodeStructData> return this.NodeTypeMap;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimBlueprintGeneratedClass*")
+abstract AnimBlueprintGeneratedClassPtr(cpp.Star<AnimBlueprintGeneratedClass>) from cpp.Star<AnimBlueprintGeneratedClass> to cpp.Star<AnimBlueprintGeneratedClass>{
+	@:from
+	public static extern inline function fromValue(v: AnimBlueprintGeneratedClass): AnimBlueprintGeneratedClassPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimBlueprintGeneratedClass {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

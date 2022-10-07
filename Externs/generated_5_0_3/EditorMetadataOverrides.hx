@@ -13,3 +13,22 @@ extern class EditorMetadataOverrides extends EditorSubsystem {
 @:nativeGen
 abstract ConstEditorMetadataOverrides(EditorMetadataOverrides) from EditorMetadataOverrides {
 }
+
+@:forward
+@:nativeGen
+@:native("EditorMetadataOverrides*")
+abstract EditorMetadataOverridesPtr(cpp.Star<EditorMetadataOverrides>) from cpp.Star<EditorMetadataOverrides> to cpp.Star<EditorMetadataOverrides>{
+	@:from
+	public static extern inline function fromValue(v: EditorMetadataOverrides): EditorMetadataOverridesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorMetadataOverrides {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

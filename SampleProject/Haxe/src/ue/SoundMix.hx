@@ -40,3 +40,22 @@ abstract ConstSoundMix(SoundMix) from SoundMix {
 	public extern var bChanged(get, never): Bool;
 	public inline extern function get_bChanged(): Bool return this.bChanged;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundMix*")
+abstract SoundMixPtr(cpp.Star<SoundMix>) from cpp.Star<SoundMix> to cpp.Star<SoundMix>{
+	@:from
+	public static extern inline function fromValue(v: SoundMix): SoundMixPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundMix {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

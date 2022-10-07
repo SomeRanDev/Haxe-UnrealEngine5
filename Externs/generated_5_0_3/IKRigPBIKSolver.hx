@@ -40,3 +40,22 @@ abstract ConstIKRigPBIKSolver(IKRigPBIKSolver) from IKRigPBIKSolver {
 	public extern var BoneSettings(get, never): TArray<cpp.Star<IKRig_PBIKBoneSettings.ConstIKRig_PBIKBoneSettings>>;
 	public inline extern function get_BoneSettings(): TArray<cpp.Star<IKRig_PBIKBoneSettings.ConstIKRig_PBIKBoneSettings>> return this.BoneSettings;
 }
+
+@:forward
+@:nativeGen
+@:native("IKRigPBIKSolver*")
+abstract IKRigPBIKSolverPtr(cpp.Star<IKRigPBIKSolver>) from cpp.Star<IKRigPBIKSolver> to cpp.Star<IKRigPBIKSolver>{
+	@:from
+	public static extern inline function fromValue(v: IKRigPBIKSolver): IKRigPBIKSolverPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IKRigPBIKSolver {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

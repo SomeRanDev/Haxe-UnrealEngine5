@@ -37,3 +37,22 @@ abstract ConstParticleModuleBeamModifier(ParticleModuleBeamModifier) from Partic
 	public extern var Strength(get, never): RawDistributionFloat;
 	public inline extern function get_Strength(): RawDistributionFloat return this.Strength;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleBeamModifier*")
+abstract ParticleModuleBeamModifierPtr(cpp.Star<ParticleModuleBeamModifier>) from cpp.Star<ParticleModuleBeamModifier> to cpp.Star<ParticleModuleBeamModifier>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleBeamModifier): ParticleModuleBeamModifierPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleBeamModifier {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

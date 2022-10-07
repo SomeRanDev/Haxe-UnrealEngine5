@@ -16,3 +16,22 @@ abstract ConstLandscapeStreamingProxy(LandscapeStreamingProxy) from LandscapeStr
 	public extern var LandscapeActor(get, never): TLazyObjectPtr<Landscape.ConstLandscape>;
 	public inline extern function get_LandscapeActor(): TLazyObjectPtr<Landscape.ConstLandscape> return this.LandscapeActor;
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeStreamingProxy*")
+abstract LandscapeStreamingProxyPtr(cpp.Star<LandscapeStreamingProxy>) from cpp.Star<LandscapeStreamingProxy> to cpp.Star<LandscapeStreamingProxy>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeStreamingProxy): LandscapeStreamingProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeStreamingProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

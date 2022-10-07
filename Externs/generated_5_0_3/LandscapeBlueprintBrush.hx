@@ -13,3 +13,22 @@ extern class LandscapeBlueprintBrush extends LandscapeBlueprintBrushBase {
 @:nativeGen
 abstract ConstLandscapeBlueprintBrush(LandscapeBlueprintBrush) from LandscapeBlueprintBrush {
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeBlueprintBrush*")
+abstract LandscapeBlueprintBrushPtr(cpp.Star<LandscapeBlueprintBrush>) from cpp.Star<LandscapeBlueprintBrush> to cpp.Star<LandscapeBlueprintBrush>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeBlueprintBrush): LandscapeBlueprintBrushPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeBlueprintBrush {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

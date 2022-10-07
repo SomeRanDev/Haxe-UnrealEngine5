@@ -34,3 +34,22 @@ abstract ConstPainCausingVolume(PainCausingVolume) from PainCausingVolume {
 	public extern var DamageInstigator(get, never): cpp.Star<Controller.ConstController>;
 	public inline extern function get_DamageInstigator(): cpp.Star<Controller.ConstController> return this.DamageInstigator;
 }
+
+@:forward
+@:nativeGen
+@:native("PainCausingVolume*")
+abstract PainCausingVolumePtr(cpp.Star<PainCausingVolume>) from cpp.Star<PainCausingVolume> to cpp.Star<PainCausingVolume>{
+	@:from
+	public static extern inline function fromValue(v: PainCausingVolume): PainCausingVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PainCausingVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

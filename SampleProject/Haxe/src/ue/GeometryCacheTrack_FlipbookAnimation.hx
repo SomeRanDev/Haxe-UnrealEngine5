@@ -18,3 +18,22 @@ abstract ConstGeometryCacheTrack_FlipbookAnimation(GeometryCacheTrack_FlipbookAn
 	public extern var NumMeshSamples(get, never): cpp.UInt32;
 	public inline extern function get_NumMeshSamples(): cpp.UInt32 return this.NumMeshSamples;
 }
+
+@:forward
+@:nativeGen
+@:native("GeometryCacheTrack_FlipbookAnimation*")
+abstract GeometryCacheTrack_FlipbookAnimationPtr(cpp.Star<GeometryCacheTrack_FlipbookAnimation>) from cpp.Star<GeometryCacheTrack_FlipbookAnimation> to cpp.Star<GeometryCacheTrack_FlipbookAnimation>{
+	@:from
+	public static extern inline function fromValue(v: GeometryCacheTrack_FlipbookAnimation): GeometryCacheTrack_FlipbookAnimationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GeometryCacheTrack_FlipbookAnimation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

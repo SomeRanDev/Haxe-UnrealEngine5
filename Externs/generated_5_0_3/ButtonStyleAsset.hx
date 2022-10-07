@@ -16,3 +16,22 @@ abstract ConstButtonStyleAsset(ButtonStyleAsset) from ButtonStyleAsset {
 	public extern var ButtonStyle(get, never): ButtonStyle;
 	public inline extern function get_ButtonStyle(): ButtonStyle return this.ButtonStyle;
 }
+
+@:forward
+@:nativeGen
+@:native("ButtonStyleAsset*")
+abstract ButtonStyleAssetPtr(cpp.Star<ButtonStyleAsset>) from cpp.Star<ButtonStyleAsset> to cpp.Star<ButtonStyleAsset>{
+	@:from
+	public static extern inline function fromValue(v: ButtonStyleAsset): ButtonStyleAssetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ButtonStyleAsset {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

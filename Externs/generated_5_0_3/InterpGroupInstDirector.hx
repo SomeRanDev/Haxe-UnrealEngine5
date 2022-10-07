@@ -13,3 +13,22 @@ extern class InterpGroupInstDirector extends InterpGroupInst {
 @:nativeGen
 abstract ConstInterpGroupInstDirector(InterpGroupInstDirector) from InterpGroupInstDirector {
 }
+
+@:forward
+@:nativeGen
+@:native("InterpGroupInstDirector*")
+abstract InterpGroupInstDirectorPtr(cpp.Star<InterpGroupInstDirector>) from cpp.Star<InterpGroupInstDirector> to cpp.Star<InterpGroupInstDirector>{
+	@:from
+	public static extern inline function fromValue(v: InterpGroupInstDirector): InterpGroupInstDirectorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpGroupInstDirector {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

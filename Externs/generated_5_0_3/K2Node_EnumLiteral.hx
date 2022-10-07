@@ -16,3 +16,22 @@ abstract ConstK2Node_EnumLiteral(K2Node_EnumLiteral) from K2Node_EnumLiteral {
 	public extern var Enum(get, never): cpp.Star<Enum.ConstEnum>;
 	public inline extern function get_Enum(): cpp.Star<Enum.ConstEnum> return this.Enum;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_EnumLiteral*")
+abstract K2Node_EnumLiteralPtr(cpp.Star<K2Node_EnumLiteral>) from cpp.Star<K2Node_EnumLiteral> to cpp.Star<K2Node_EnumLiteral>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_EnumLiteral): K2Node_EnumLiteralPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_EnumLiteral {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

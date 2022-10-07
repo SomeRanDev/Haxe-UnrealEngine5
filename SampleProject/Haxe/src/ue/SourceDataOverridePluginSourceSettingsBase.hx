@@ -13,3 +13,22 @@ extern class SourceDataOverridePluginSourceSettingsBase extends Object {
 @:nativeGen
 abstract ConstSourceDataOverridePluginSourceSettingsBase(SourceDataOverridePluginSourceSettingsBase) from SourceDataOverridePluginSourceSettingsBase {
 }
+
+@:forward
+@:nativeGen
+@:native("SourceDataOverridePluginSourceSettingsBase*")
+abstract SourceDataOverridePluginSourceSettingsBasePtr(cpp.Star<SourceDataOverridePluginSourceSettingsBase>) from cpp.Star<SourceDataOverridePluginSourceSettingsBase> to cpp.Star<SourceDataOverridePluginSourceSettingsBase>{
+	@:from
+	public static extern inline function fromValue(v: SourceDataOverridePluginSourceSettingsBase): SourceDataOverridePluginSourceSettingsBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SourceDataOverridePluginSourceSettingsBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

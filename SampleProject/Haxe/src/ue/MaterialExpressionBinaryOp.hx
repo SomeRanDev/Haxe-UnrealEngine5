@@ -25,3 +25,22 @@ abstract ConstMaterialExpressionBinaryOp(MaterialExpressionBinaryOp) from Materi
 	public extern var ConstB(get, never): cpp.Float32;
 	public inline extern function get_ConstB(): cpp.Float32 return this.ConstB;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionBinaryOp*")
+abstract MaterialExpressionBinaryOpPtr(cpp.Star<MaterialExpressionBinaryOp>) from cpp.Star<MaterialExpressionBinaryOp> to cpp.Star<MaterialExpressionBinaryOp>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionBinaryOp): MaterialExpressionBinaryOpPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionBinaryOp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -20,3 +20,22 @@ abstract ConstRigVMArrayNode(RigVMArrayNode) from RigVMArrayNode {
 	public extern var OpCode(get, never): ERigVMOpCode;
 	public inline extern function get_OpCode(): ERigVMOpCode return this.OpCode;
 }
+
+@:forward
+@:nativeGen
+@:native("RigVMArrayNode*")
+abstract RigVMArrayNodePtr(cpp.Star<RigVMArrayNode>) from cpp.Star<RigVMArrayNode> to cpp.Star<RigVMArrayNode>{
+	@:from
+	public static extern inline function fromValue(v: RigVMArrayNode): RigVMArrayNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVMArrayNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

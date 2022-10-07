@@ -12,3 +12,22 @@ extern class SequencerAnimationSupport extends Interface {
 @:nativeGen
 abstract ConstSequencerAnimationSupport(SequencerAnimationSupport) from SequencerAnimationSupport {
 }
+
+@:forward
+@:nativeGen
+@:native("SequencerAnimationSupport*")
+abstract SequencerAnimationSupportPtr(cpp.Star<SequencerAnimationSupport>) from cpp.Star<SequencerAnimationSupport> to cpp.Star<SequencerAnimationSupport>{
+	@:from
+	public static extern inline function fromValue(v: SequencerAnimationSupport): SequencerAnimationSupportPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SequencerAnimationSupport {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -41,3 +41,22 @@ abstract ConstRadialForceComp(RadialForceComp) from RadialForceComp {
 	public extern var ObjectTypesToAffect(get, never): TArray<EObjectTypeQuery>;
 	public inline extern function get_ObjectTypesToAffect(): TArray<EObjectTypeQuery> return this.ObjectTypesToAffect;
 }
+
+@:forward
+@:nativeGen
+@:native("RadialForceComp*")
+abstract RadialForceCompPtr(cpp.Star<RadialForceComp>) from cpp.Star<RadialForceComp> to cpp.Star<RadialForceComp>{
+	@:from
+	public static extern inline function fromValue(v: RadialForceComp): RadialForceCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RadialForceComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

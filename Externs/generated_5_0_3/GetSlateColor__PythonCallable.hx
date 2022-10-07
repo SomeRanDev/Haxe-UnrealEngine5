@@ -12,3 +12,22 @@ extern class GetSlateColor__PythonCallable extends PythonCallableForDelegate {
 @:nativeGen
 abstract ConstGetSlateColor__PythonCallable(GetSlateColor__PythonCallable) from GetSlateColor__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("GetSlateColor__PythonCallable*")
+abstract GetSlateColor__PythonCallablePtr(cpp.Star<GetSlateColor__PythonCallable>) from cpp.Star<GetSlateColor__PythonCallable> to cpp.Star<GetSlateColor__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: GetSlateColor__PythonCallable): GetSlateColor__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GetSlateColor__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

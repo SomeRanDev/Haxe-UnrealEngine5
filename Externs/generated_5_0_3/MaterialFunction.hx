@@ -49,3 +49,22 @@ abstract ConstMaterialFunction(MaterialFunction) from MaterialFunction {
 	public extern var bReentrantFlag(get, never): Bool;
 	public inline extern function get_bReentrantFlag(): Bool return this.bReentrantFlag;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialFunction*")
+abstract MaterialFunctionPtr(cpp.Star<MaterialFunction>) from cpp.Star<MaterialFunction> to cpp.Star<MaterialFunction>{
+	@:from
+	public static extern inline function fromValue(v: MaterialFunction): MaterialFunctionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialFunction {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

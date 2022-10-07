@@ -19,3 +19,22 @@ abstract ConstManipulator(Manipulator) from Manipulator {
 	public extern var StaticMeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
 	public inline extern function get_StaticMeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.StaticMeshComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("Manipulator*")
+abstract ManipulatorPtr(cpp.Star<Manipulator>) from cpp.Star<Manipulator> to cpp.Star<Manipulator>{
+	@:from
+	public static extern inline function fromValue(v: Manipulator): ManipulatorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Manipulator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

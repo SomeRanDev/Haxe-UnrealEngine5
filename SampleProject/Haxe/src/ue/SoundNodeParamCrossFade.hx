@@ -16,3 +16,22 @@ abstract ConstSoundNodeParamCrossFade(SoundNodeParamCrossFade) from SoundNodePar
 	public extern var ParamName(get, never): FName;
 	public inline extern function get_ParamName(): FName return this.ParamName;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundNodeParamCrossFade*")
+abstract SoundNodeParamCrossFadePtr(cpp.Star<SoundNodeParamCrossFade>) from cpp.Star<SoundNodeParamCrossFade> to cpp.Star<SoundNodeParamCrossFade>{
+	@:from
+	public static extern inline function fromValue(v: SoundNodeParamCrossFade): SoundNodeParamCrossFadePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundNodeParamCrossFade {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

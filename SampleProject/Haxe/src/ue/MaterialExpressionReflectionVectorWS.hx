@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionReflectionVectorWS(MaterialExpressionReflectionV
 	public extern var bNormalizeCustomWorldNormal(get, never): Bool;
 	public inline extern function get_bNormalizeCustomWorldNormal(): Bool return this.bNormalizeCustomWorldNormal;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionReflectionVectorWS*")
+abstract MaterialExpressionReflectionVectorWSPtr(cpp.Star<MaterialExpressionReflectionVectorWS>) from cpp.Star<MaterialExpressionReflectionVectorWS> to cpp.Star<MaterialExpressionReflectionVectorWS>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionReflectionVectorWS): MaterialExpressionReflectionVectorWSPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionReflectionVectorWS {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

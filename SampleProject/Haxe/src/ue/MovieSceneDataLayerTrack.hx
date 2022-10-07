@@ -16,3 +16,22 @@ abstract ConstMovieSceneDataLayerTrack(MovieSceneDataLayerTrack) from MovieScene
 	public extern var Sections(get, never): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>>;
 	public inline extern function get_Sections(): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>> return this.Sections;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneDataLayerTrack*")
+abstract MovieSceneDataLayerTrackPtr(cpp.Star<MovieSceneDataLayerTrack>) from cpp.Star<MovieSceneDataLayerTrack> to cpp.Star<MovieSceneDataLayerTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneDataLayerTrack): MovieSceneDataLayerTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneDataLayerTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

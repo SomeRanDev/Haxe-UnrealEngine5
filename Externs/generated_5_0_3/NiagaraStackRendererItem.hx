@@ -16,3 +16,22 @@ abstract ConstNiagaraStackRendererItem(NiagaraStackRendererItem) from NiagaraSta
 	public extern var RendererObject(get, never): cpp.Star<NiagaraStackObject.ConstNiagaraStackObject>;
 	public inline extern function get_RendererObject(): cpp.Star<NiagaraStackObject.ConstNiagaraStackObject> return this.RendererObject;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackRendererItem*")
+abstract NiagaraStackRendererItemPtr(cpp.Star<NiagaraStackRendererItem>) from cpp.Star<NiagaraStackRendererItem> to cpp.Star<NiagaraStackRendererItem>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackRendererItem): NiagaraStackRendererItemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackRendererItem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

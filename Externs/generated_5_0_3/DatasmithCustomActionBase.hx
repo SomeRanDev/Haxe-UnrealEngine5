@@ -13,3 +13,22 @@ extern class DatasmithCustomActionBase extends Object {
 @:nativeGen
 abstract ConstDatasmithCustomActionBase(DatasmithCustomActionBase) from DatasmithCustomActionBase {
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithCustomActionBase*")
+abstract DatasmithCustomActionBasePtr(cpp.Star<DatasmithCustomActionBase>) from cpp.Star<DatasmithCustomActionBase> to cpp.Star<DatasmithCustomActionBase>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithCustomActionBase): DatasmithCustomActionBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithCustomActionBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

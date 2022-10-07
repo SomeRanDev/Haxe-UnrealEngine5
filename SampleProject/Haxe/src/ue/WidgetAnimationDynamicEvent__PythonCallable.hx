@@ -12,3 +12,22 @@ extern class WidgetAnimationDynamicEvent__PythonCallable extends PythonCallableF
 @:nativeGen
 abstract ConstWidgetAnimationDynamicEvent__PythonCallable(WidgetAnimationDynamicEvent__PythonCallable) from WidgetAnimationDynamicEvent__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("WidgetAnimationDynamicEvent__PythonCallable*")
+abstract WidgetAnimationDynamicEvent__PythonCallablePtr(cpp.Star<WidgetAnimationDynamicEvent__PythonCallable>) from cpp.Star<WidgetAnimationDynamicEvent__PythonCallable> to cpp.Star<WidgetAnimationDynamicEvent__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: WidgetAnimationDynamicEvent__PythonCallable): WidgetAnimationDynamicEvent__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WidgetAnimationDynamicEvent__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

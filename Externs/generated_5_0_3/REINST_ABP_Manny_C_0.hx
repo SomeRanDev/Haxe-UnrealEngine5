@@ -135,3 +135,21 @@ abstract ConstREINST_ABP_Manny_C_0(REINST_ABP_Manny_C_0) from REINST_ABP_Manny_C
 	public extern var IsFalling(get, never): Bool;
 	public inline extern function get_IsFalling(): Bool return this.IsFalling;
 }
+
+@:forward
+@:nativeGen
+@:native("REINST_ABP_Manny_C_0*")abstract REINST_ABP_Manny_C_0Ptr(cpp.Star<REINST_ABP_Manny_C_0>) from cpp.Star<REINST_ABP_Manny_C_0> to cpp.Star<REINST_ABP_Manny_C_0>{
+	@:from
+	public static extern inline function fromValue(v: REINST_ABP_Manny_C_0): REINST_ABP_Manny_C_0Ptr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): REINST_ABP_Manny_C_0 {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete() {
+		return untyped __cpp__("delete ({0})", this);
+	}
+}

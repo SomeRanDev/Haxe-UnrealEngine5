@@ -43,3 +43,22 @@ abstract ConstSpiralStairBuilder(SpiralStairBuilder) from SpiralStairBuilder {
 	public extern var CounterClockwise(get, never): Bool;
 	public inline extern function get_CounterClockwise(): Bool return this.CounterClockwise;
 }
+
+@:forward
+@:nativeGen
+@:native("SpiralStairBuilder*")
+abstract SpiralStairBuilderPtr(cpp.Star<SpiralStairBuilder>) from cpp.Star<SpiralStairBuilder> to cpp.Star<SpiralStairBuilder>{
+	@:from
+	public static extern inline function fromValue(v: SpiralStairBuilder): SpiralStairBuilderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SpiralStairBuilder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -26,3 +26,22 @@ abstract ConstContentBrowserDataSubsystem(ContentBrowserDataSubsystem) from Cont
 	public extern var EnabledDataSources(get, never): TArray<FName>;
 	public inline extern function get_EnabledDataSources(): TArray<FName> return this.EnabledDataSources;
 }
+
+@:forward
+@:nativeGen
+@:native("ContentBrowserDataSubsystem*")
+abstract ContentBrowserDataSubsystemPtr(cpp.Star<ContentBrowserDataSubsystem>) from cpp.Star<ContentBrowserDataSubsystem> to cpp.Star<ContentBrowserDataSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: ContentBrowserDataSubsystem): ContentBrowserDataSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ContentBrowserDataSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

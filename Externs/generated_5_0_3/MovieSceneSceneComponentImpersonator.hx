@@ -12,3 +12,22 @@ extern class MovieSceneSceneComponentImpersonator extends Interface {
 @:nativeGen
 abstract ConstMovieSceneSceneComponentImpersonator(MovieSceneSceneComponentImpersonator) from MovieSceneSceneComponentImpersonator {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneSceneComponentImpersonator*")
+abstract MovieSceneSceneComponentImpersonatorPtr(cpp.Star<MovieSceneSceneComponentImpersonator>) from cpp.Star<MovieSceneSceneComponentImpersonator> to cpp.Star<MovieSceneSceneComponentImpersonator>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneSceneComponentImpersonator): MovieSceneSceneComponentImpersonatorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneSceneComponentImpersonator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

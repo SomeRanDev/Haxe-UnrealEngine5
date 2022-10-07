@@ -19,3 +19,22 @@ abstract ConstNiagaraDataInterfaceArray(NiagaraDataInterfaceArray) from NiagaraD
 	public extern var MaxElements(get, never): cpp.Int32;
 	public inline extern function get_MaxElements(): cpp.Int32 return this.MaxElements;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceArray*")
+abstract NiagaraDataInterfaceArrayPtr(cpp.Star<NiagaraDataInterfaceArray>) from cpp.Star<NiagaraDataInterfaceArray> to cpp.Star<NiagaraDataInterfaceArray>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceArray): NiagaraDataInterfaceArrayPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceArray {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

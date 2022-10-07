@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionTextureSampleParameterSubUV(MaterialExpressionTe
 	public extern var bBlend(get, never): Bool;
 	public inline extern function get_bBlend(): Bool return this.bBlend;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionTextureSampleParameterSubUV*")
+abstract MaterialExpressionTextureSampleParameterSubUVPtr(cpp.Star<MaterialExpressionTextureSampleParameterSubUV>) from cpp.Star<MaterialExpressionTextureSampleParameterSubUV> to cpp.Star<MaterialExpressionTextureSampleParameterSubUV>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionTextureSampleParameterSubUV): MaterialExpressionTextureSampleParameterSubUVPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionTextureSampleParameterSubUV {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -28,3 +28,22 @@ abstract ConstCameraAnimationCameraModifier(CameraAnimationCameraModifier) from 
 	public extern var InstanceSerialNumber(get, never): cpp.UInt16;
 	public inline extern function get_InstanceSerialNumber(): cpp.UInt16 return this.InstanceSerialNumber;
 }
+
+@:forward
+@:nativeGen
+@:native("CameraAnimationCameraModifier*")
+abstract CameraAnimationCameraModifierPtr(cpp.Star<CameraAnimationCameraModifier>) from cpp.Star<CameraAnimationCameraModifier> to cpp.Star<CameraAnimationCameraModifier>{
+	@:from
+	public static extern inline function fromValue(v: CameraAnimationCameraModifier): CameraAnimationCameraModifierPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CameraAnimationCameraModifier {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

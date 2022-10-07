@@ -13,3 +13,22 @@ extern class NavArea_Default extends NavArea {
 @:nativeGen
 abstract ConstNavArea_Default(NavArea_Default) from NavArea_Default {
 }
+
+@:forward
+@:nativeGen
+@:native("NavArea_Default*")
+abstract NavArea_DefaultPtr(cpp.Star<NavArea_Default>) from cpp.Star<NavArea_Default> to cpp.Star<NavArea_Default>{
+	@:from
+	public static extern inline function fromValue(v: NavArea_Default): NavArea_DefaultPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavArea_Default {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

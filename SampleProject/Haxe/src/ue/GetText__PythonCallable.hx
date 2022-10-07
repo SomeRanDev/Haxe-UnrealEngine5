@@ -12,3 +12,22 @@ extern class GetText__PythonCallable extends PythonCallableForDelegate {
 @:nativeGen
 abstract ConstGetText__PythonCallable(GetText__PythonCallable) from GetText__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("GetText__PythonCallable*")
+abstract GetText__PythonCallablePtr(cpp.Star<GetText__PythonCallable>) from cpp.Star<GetText__PythonCallable> to cpp.Star<GetText__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: GetText__PythonCallable): GetText__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GetText__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

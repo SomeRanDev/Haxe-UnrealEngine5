@@ -13,3 +13,22 @@ extern class MeshDeformer extends Object {
 @:nativeGen
 abstract ConstMeshDeformer(MeshDeformer) from MeshDeformer {
 }
+
+@:forward
+@:nativeGen
+@:native("MeshDeformer*")
+abstract MeshDeformerPtr(cpp.Star<MeshDeformer>) from cpp.Star<MeshDeformer> to cpp.Star<MeshDeformer>{
+	@:from
+	public static extern inline function fromValue(v: MeshDeformer): MeshDeformerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MeshDeformer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

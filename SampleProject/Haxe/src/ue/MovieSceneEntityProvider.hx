@@ -12,3 +12,22 @@ extern class MovieSceneEntityProvider extends Interface {
 @:nativeGen
 abstract ConstMovieSceneEntityProvider(MovieSceneEntityProvider) from MovieSceneEntityProvider {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneEntityProvider*")
+abstract MovieSceneEntityProviderPtr(cpp.Star<MovieSceneEntityProvider>) from cpp.Star<MovieSceneEntityProvider> to cpp.Star<MovieSceneEntityProvider>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneEntityProvider): MovieSceneEntityProviderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneEntityProvider {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

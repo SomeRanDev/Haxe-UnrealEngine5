@@ -16,3 +16,22 @@ abstract ConstShadowMapTexture2D(ShadowMapTexture2D) from ShadowMapTexture2D {
 	public extern var ShadowmapFlags(get, never): EShadowMapFlags;
 	public inline extern function get_ShadowmapFlags(): EShadowMapFlags return this.ShadowmapFlags;
 }
+
+@:forward
+@:nativeGen
+@:native("ShadowMapTexture2D*")
+abstract ShadowMapTexture2DPtr(cpp.Star<ShadowMapTexture2D>) from cpp.Star<ShadowMapTexture2D> to cpp.Star<ShadowMapTexture2D>{
+	@:from
+	public static extern inline function fromValue(v: ShadowMapTexture2D): ShadowMapTexture2DPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ShadowMapTexture2D {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstTextureCubeArray(TextureCubeArray) from TextureCubeArray {
 	public extern var SourceTextures(get, never): TArray<cpp.Star<TextureCube.ConstTextureCube>>;
 	public inline extern function get_SourceTextures(): TArray<cpp.Star<TextureCube.ConstTextureCube>> return this.SourceTextures;
 }
+
+@:forward
+@:nativeGen
+@:native("TextureCubeArray*")
+abstract TextureCubeArrayPtr(cpp.Star<TextureCubeArray>) from cpp.Star<TextureCubeArray> to cpp.Star<TextureCubeArray>{
+	@:from
+	public static extern inline function fromValue(v: TextureCubeArray): TextureCubeArrayPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextureCubeArray {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

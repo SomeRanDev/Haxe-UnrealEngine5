@@ -24,3 +24,22 @@ extern class BlueprintMapLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstBlueprintMapLibrary(BlueprintMapLibrary) from BlueprintMapLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("BlueprintMapLibrary*")
+abstract BlueprintMapLibraryPtr(cpp.Star<BlueprintMapLibrary>) from cpp.Star<BlueprintMapLibrary> to cpp.Star<BlueprintMapLibrary>{
+	@:from
+	public static extern inline function fromValue(v: BlueprintMapLibrary): BlueprintMapLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlueprintMapLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

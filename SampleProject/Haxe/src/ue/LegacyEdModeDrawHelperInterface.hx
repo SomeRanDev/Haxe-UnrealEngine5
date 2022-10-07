@@ -12,3 +12,22 @@ extern class LegacyEdModeDrawHelperInterface extends Interface {
 @:nativeGen
 abstract ConstLegacyEdModeDrawHelperInterface(LegacyEdModeDrawHelperInterface) from LegacyEdModeDrawHelperInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("LegacyEdModeDrawHelperInterface*")
+abstract LegacyEdModeDrawHelperInterfacePtr(cpp.Star<LegacyEdModeDrawHelperInterface>) from cpp.Star<LegacyEdModeDrawHelperInterface> to cpp.Star<LegacyEdModeDrawHelperInterface>{
+	@:from
+	public static extern inline function fromValue(v: LegacyEdModeDrawHelperInterface): LegacyEdModeDrawHelperInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LegacyEdModeDrawHelperInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

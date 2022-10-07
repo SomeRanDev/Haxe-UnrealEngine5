@@ -13,3 +13,22 @@ extern class LiveLinkController extends Object {
 @:nativeGen
 abstract ConstLiveLinkController(LiveLinkController) from LiveLinkController {
 }
+
+@:forward
+@:nativeGen
+@:native("LiveLinkController*")
+abstract LiveLinkControllerPtr(cpp.Star<LiveLinkController>) from cpp.Star<LiveLinkController> to cpp.Star<LiveLinkController>{
+	@:from
+	public static extern inline function fromValue(v: LiveLinkController): LiveLinkControllerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LiveLinkController {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

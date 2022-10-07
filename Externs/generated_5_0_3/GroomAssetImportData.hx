@@ -16,3 +16,22 @@ abstract ConstGroomAssetImportData(GroomAssetImportData) from GroomAssetImportDa
 	public extern var ImportOptions(get, never): cpp.Star<GroomImportOptions.ConstGroomImportOptions>;
 	public inline extern function get_ImportOptions(): cpp.Star<GroomImportOptions.ConstGroomImportOptions> return this.ImportOptions;
 }
+
+@:forward
+@:nativeGen
+@:native("GroomAssetImportData*")
+abstract GroomAssetImportDataPtr(cpp.Star<GroomAssetImportData>) from cpp.Star<GroomAssetImportData> to cpp.Star<GroomAssetImportData>{
+	@:from
+	public static extern inline function fromValue(v: GroomAssetImportData): GroomAssetImportDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GroomAssetImportData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

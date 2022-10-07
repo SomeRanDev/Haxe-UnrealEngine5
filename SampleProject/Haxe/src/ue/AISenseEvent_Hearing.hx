@@ -16,3 +16,22 @@ abstract ConstAISenseEvent_Hearing(AISenseEvent_Hearing) from AISenseEvent_Heari
 	public extern var Event(get, never): AINoiseEvent;
 	public inline extern function get_Event(): AINoiseEvent return this.Event;
 }
+
+@:forward
+@:nativeGen
+@:native("AISenseEvent_Hearing*")
+abstract AISenseEvent_HearingPtr(cpp.Star<AISenseEvent_Hearing>) from cpp.Star<AISenseEvent_Hearing> to cpp.Star<AISenseEvent_Hearing>{
+	@:from
+	public static extern inline function fromValue(v: AISenseEvent_Hearing): AISenseEvent_HearingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AISenseEvent_Hearing {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -22,3 +22,22 @@ abstract ConstK2Node_AddComp(K2Node_AddComp) from K2Node_AddComp {
 	public extern var TemplateType(get, never): TSubclassOf<Object.ConstObject>;
 	public inline extern function get_TemplateType(): TSubclassOf<Object.ConstObject> return this.TemplateType;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_AddComp*")
+abstract K2Node_AddCompPtr(cpp.Star<K2Node_AddComp>) from cpp.Star<K2Node_AddComp> to cpp.Star<K2Node_AddComp>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_AddComp): K2Node_AddCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_AddComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

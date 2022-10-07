@@ -12,3 +12,22 @@ extern class OnOverallMeterResults__PythonCallable extends PythonCallableForDele
 @:nativeGen
 abstract ConstOnOverallMeterResults__PythonCallable(OnOverallMeterResults__PythonCallable) from OnOverallMeterResults__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnOverallMeterResults__PythonCallable*")
+abstract OnOverallMeterResults__PythonCallablePtr(cpp.Star<OnOverallMeterResults__PythonCallable>) from cpp.Star<OnOverallMeterResults__PythonCallable> to cpp.Star<OnOverallMeterResults__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnOverallMeterResults__PythonCallable): OnOverallMeterResults__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnOverallMeterResults__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

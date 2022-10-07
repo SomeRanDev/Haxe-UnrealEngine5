@@ -12,3 +12,22 @@ extern class DownloadImageDelegate__PythonCallable extends PythonCallableForDele
 @:nativeGen
 abstract ConstDownloadImageDelegate__PythonCallable(DownloadImageDelegate__PythonCallable) from DownloadImageDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("DownloadImageDelegate__PythonCallable*")
+abstract DownloadImageDelegate__PythonCallablePtr(cpp.Star<DownloadImageDelegate__PythonCallable>) from cpp.Star<DownloadImageDelegate__PythonCallable> to cpp.Star<DownloadImageDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: DownloadImageDelegate__PythonCallable): DownloadImageDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DownloadImageDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstAnimBlueprintExtension_Tag(AnimBlueprintExtension_Tag) from AnimBl
 	public extern var Subsystem(get, never): AnimSubsystem_Tag;
 	public inline extern function get_Subsystem(): AnimSubsystem_Tag return this.Subsystem;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimBlueprintExtension_Tag*")
+abstract AnimBlueprintExtension_TagPtr(cpp.Star<AnimBlueprintExtension_Tag>) from cpp.Star<AnimBlueprintExtension_Tag> to cpp.Star<AnimBlueprintExtension_Tag>{
+	@:from
+	public static extern inline function fromValue(v: AnimBlueprintExtension_Tag): AnimBlueprintExtension_TagPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimBlueprintExtension_Tag {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

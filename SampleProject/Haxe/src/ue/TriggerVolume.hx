@@ -13,3 +13,22 @@ extern class TriggerVolume extends Volume {
 @:nativeGen
 abstract ConstTriggerVolume(TriggerVolume) from TriggerVolume {
 }
+
+@:forward
+@:nativeGen
+@:native("TriggerVolume*")
+abstract TriggerVolumePtr(cpp.Star<TriggerVolume>) from cpp.Star<TriggerVolume> to cpp.Star<TriggerVolume>{
+	@:from
+	public static extern inline function fromValue(v: TriggerVolume): TriggerVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TriggerVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

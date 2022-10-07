@@ -12,3 +12,22 @@ extern class DelegateProperty extends Property {
 @:nativeGen
 abstract ConstDelegateProperty(DelegateProperty) from DelegateProperty {
 }
+
+@:forward
+@:nativeGen
+@:native("DelegateProperty*")
+abstract DelegatePropertyPtr(cpp.Star<DelegateProperty>) from cpp.Star<DelegateProperty> to cpp.Star<DelegateProperty>{
+	@:from
+	public static extern inline function fromValue(v: DelegateProperty): DelegatePropertyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DelegateProperty {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

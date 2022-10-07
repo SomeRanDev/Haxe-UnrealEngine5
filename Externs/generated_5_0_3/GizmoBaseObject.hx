@@ -45,3 +45,22 @@ abstract ConstGizmoBaseObject(GizmoBaseObject) from GizmoBaseObject {
 	public extern var PixelHitDistanceThreshold(get, never): cpp.Float32;
 	public inline extern function get_PixelHitDistanceThreshold(): cpp.Float32 return this.PixelHitDistanceThreshold;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoBaseObject*")
+abstract GizmoBaseObjectPtr(cpp.Star<GizmoBaseObject>) from cpp.Star<GizmoBaseObject> to cpp.Star<GizmoBaseObject>{
+	@:from
+	public static extern inline function fromValue(v: GizmoBaseObject): GizmoBaseObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoBaseObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

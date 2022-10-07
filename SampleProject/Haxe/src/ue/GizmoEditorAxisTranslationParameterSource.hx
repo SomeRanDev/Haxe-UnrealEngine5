@@ -34,3 +34,22 @@ abstract ConstGizmoEditorAxisTranslationParameterSource(GizmoEditorAxisTranslati
 	public extern var LastSnappedLocation(get, never): Vector;
 	public inline extern function get_LastSnappedLocation(): Vector return this.LastSnappedLocation;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoEditorAxisTranslationParameterSource*")
+abstract GizmoEditorAxisTranslationParameterSourcePtr(cpp.Star<GizmoEditorAxisTranslationParameterSource>) from cpp.Star<GizmoEditorAxisTranslationParameterSource> to cpp.Star<GizmoEditorAxisTranslationParameterSource>{
+	@:from
+	public static extern inline function fromValue(v: GizmoEditorAxisTranslationParameterSource): GizmoEditorAxisTranslationParameterSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoEditorAxisTranslationParameterSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

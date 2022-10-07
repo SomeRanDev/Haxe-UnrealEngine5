@@ -22,3 +22,22 @@ abstract ConstParticleModuleParameterDynamic(ParticleModuleParameterDynamic) fro
 	public extern var bUsesVelocity(get, never): Bool;
 	public inline extern function get_bUsesVelocity(): Bool return this.bUsesVelocity;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleParameterDynamic*")
+abstract ParticleModuleParameterDynamicPtr(cpp.Star<ParticleModuleParameterDynamic>) from cpp.Star<ParticleModuleParameterDynamic> to cpp.Star<ParticleModuleParameterDynamic>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleParameterDynamic): ParticleModuleParameterDynamicPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleParameterDynamic {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

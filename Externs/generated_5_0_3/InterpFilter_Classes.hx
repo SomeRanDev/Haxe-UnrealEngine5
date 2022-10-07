@@ -19,3 +19,22 @@ abstract ConstInterpFilter_Classes(InterpFilter_Classes) from InterpFilter_Class
 	public extern var TrackClasses(get, never): TArray<TSubclassOf<Object.ConstObject>>;
 	public inline extern function get_TrackClasses(): TArray<TSubclassOf<Object.ConstObject>> return this.TrackClasses;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpFilter_Classes*")
+abstract InterpFilter_ClassesPtr(cpp.Star<InterpFilter_Classes>) from cpp.Star<InterpFilter_Classes> to cpp.Star<InterpFilter_Classes>{
+	@:from
+	public static extern inline function fromValue(v: InterpFilter_Classes): InterpFilter_ClassesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpFilter_Classes {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

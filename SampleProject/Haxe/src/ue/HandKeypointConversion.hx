@@ -14,3 +14,22 @@ extern class HandKeypointConversion extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstHandKeypointConversion(HandKeypointConversion) from HandKeypointConversion {
 }
+
+@:forward
+@:nativeGen
+@:native("HandKeypointConversion*")
+abstract HandKeypointConversionPtr(cpp.Star<HandKeypointConversion>) from cpp.Star<HandKeypointConversion> to cpp.Star<HandKeypointConversion>{
+	@:from
+	public static extern inline function fromValue(v: HandKeypointConversion): HandKeypointConversionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): HandKeypointConversion {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

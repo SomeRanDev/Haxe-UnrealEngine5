@@ -103,3 +103,22 @@ abstract ConstLandscapeSplineSegment(LandscapeSplineSegment) from LandscapeSplin
 	public extern var ModificationKey(get, never): Guid;
 	public inline extern function get_ModificationKey(): Guid return this.ModificationKey;
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeSplineSegment*")
+abstract LandscapeSplineSegmentPtr(cpp.Star<LandscapeSplineSegment>) from cpp.Star<LandscapeSplineSegment> to cpp.Star<LandscapeSplineSegment>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeSplineSegment): LandscapeSplineSegmentPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeSplineSegment {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

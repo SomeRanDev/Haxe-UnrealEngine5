@@ -22,3 +22,22 @@ abstract ConstEnvironmentQueryGraphNode_Test(EnvironmentQueryGraphNode_Test) fro
 	public extern var bTestEnabled(get, never): Bool;
 	public inline extern function get_bTestEnabled(): Bool return this.bTestEnabled;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvironmentQueryGraphNode_Test*")
+abstract EnvironmentQueryGraphNode_TestPtr(cpp.Star<EnvironmentQueryGraphNode_Test>) from cpp.Star<EnvironmentQueryGraphNode_Test> to cpp.Star<EnvironmentQueryGraphNode_Test>{
+	@:from
+	public static extern inline function fromValue(v: EnvironmentQueryGraphNode_Test): EnvironmentQueryGraphNode_TestPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvironmentQueryGraphNode_Test {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

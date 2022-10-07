@@ -59,3 +59,22 @@ abstract ConstMaterialInterface(MaterialInterface) from MaterialInterface {
 	public extern var LightingGuid(get, never): Guid;
 	public inline extern function get_LightingGuid(): Guid return this.LightingGuid;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialInterface*")
+abstract MaterialInterfacePtr(cpp.Star<MaterialInterface>) from cpp.Star<MaterialInterface> to cpp.Star<MaterialInterface>{
+	@:from
+	public static extern inline function fromValue(v: MaterialInterface): MaterialInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

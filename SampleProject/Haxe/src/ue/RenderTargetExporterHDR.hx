@@ -13,3 +13,22 @@ extern class RenderTargetExporterHDR extends Exporter {
 @:nativeGen
 abstract ConstRenderTargetExporterHDR(RenderTargetExporterHDR) from RenderTargetExporterHDR {
 }
+
+@:forward
+@:nativeGen
+@:native("RenderTargetExporterHDR*")
+abstract RenderTargetExporterHDRPtr(cpp.Star<RenderTargetExporterHDR>) from cpp.Star<RenderTargetExporterHDR> to cpp.Star<RenderTargetExporterHDR>{
+	@:from
+	public static extern inline function fromValue(v: RenderTargetExporterHDR): RenderTargetExporterHDRPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RenderTargetExporterHDR {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class AudioEngineSubsystem extends DynamicSubsystem {
 @:nativeGen
 abstract ConstAudioEngineSubsystem(AudioEngineSubsystem) from AudioEngineSubsystem {
 }
+
+@:forward
+@:nativeGen
+@:native("AudioEngineSubsystem*")
+abstract AudioEngineSubsystemPtr(cpp.Star<AudioEngineSubsystem>) from cpp.Star<AudioEngineSubsystem> to cpp.Star<AudioEngineSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: AudioEngineSubsystem): AudioEngineSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AudioEngineSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

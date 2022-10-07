@@ -29,3 +29,22 @@ extern class NiagaraFunctionLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstNiagaraFunctionLibrary(NiagaraFunctionLibrary) from NiagaraFunctionLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraFunctionLibrary*")
+abstract NiagaraFunctionLibraryPtr(cpp.Star<NiagaraFunctionLibrary>) from cpp.Star<NiagaraFunctionLibrary> to cpp.Star<NiagaraFunctionLibrary>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraFunctionLibrary): NiagaraFunctionLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraFunctionLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

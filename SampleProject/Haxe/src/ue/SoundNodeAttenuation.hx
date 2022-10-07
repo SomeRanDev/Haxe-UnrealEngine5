@@ -22,3 +22,22 @@ abstract ConstSoundNodeAttenuation(SoundNodeAttenuation) from SoundNodeAttenuati
 	public extern var bOverrideAttenuation(get, never): Bool;
 	public inline extern function get_bOverrideAttenuation(): Bool return this.bOverrideAttenuation;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundNodeAttenuation*")
+abstract SoundNodeAttenuationPtr(cpp.Star<SoundNodeAttenuation>) from cpp.Star<SoundNodeAttenuation> to cpp.Star<SoundNodeAttenuation>{
+	@:from
+	public static extern inline function fromValue(v: SoundNodeAttenuation): SoundNodeAttenuationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundNodeAttenuation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class BlueprintDelegateNodeSpawner extends BlueprintFieldNodeSpawner {
 @:nativeGen
 abstract ConstBlueprintDelegateNodeSpawner(BlueprintDelegateNodeSpawner) from BlueprintDelegateNodeSpawner {
 }
+
+@:forward
+@:nativeGen
+@:native("BlueprintDelegateNodeSpawner*")
+abstract BlueprintDelegateNodeSpawnerPtr(cpp.Star<BlueprintDelegateNodeSpawner>) from cpp.Star<BlueprintDelegateNodeSpawner> to cpp.Star<BlueprintDelegateNodeSpawner>{
+	@:from
+	public static extern inline function fromValue(v: BlueprintDelegateNodeSpawner): BlueprintDelegateNodeSpawnerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlueprintDelegateNodeSpawner {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

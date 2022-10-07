@@ -16,3 +16,22 @@ abstract ConstWidgetAnimationDelegateBinding(WidgetAnimationDelegateBinding) fro
 	public extern var WidgetAnimationDelegateBindings(get, never): TArray<BlueprintWidgetAnimationDelegateBinding>;
 	public inline extern function get_WidgetAnimationDelegateBindings(): TArray<BlueprintWidgetAnimationDelegateBinding> return this.WidgetAnimationDelegateBindings;
 }
+
+@:forward
+@:nativeGen
+@:native("WidgetAnimationDelegateBinding*")
+abstract WidgetAnimationDelegateBindingPtr(cpp.Star<WidgetAnimationDelegateBinding>) from cpp.Star<WidgetAnimationDelegateBinding> to cpp.Star<WidgetAnimationDelegateBinding>{
+	@:from
+	public static extern inline function fromValue(v: WidgetAnimationDelegateBinding): WidgetAnimationDelegateBindingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WidgetAnimationDelegateBinding {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

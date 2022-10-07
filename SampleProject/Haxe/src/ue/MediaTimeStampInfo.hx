@@ -19,3 +19,22 @@ abstract ConstMediaTimeStampInfo(MediaTimeStampInfo) from MediaTimeStampInfo {
 	public extern var SequenceIndex(get, never): cpp.Int64;
 	public inline extern function get_SequenceIndex(): cpp.Int64 return this.SequenceIndex;
 }
+
+@:forward
+@:nativeGen
+@:native("MediaTimeStampInfo*")
+abstract MediaTimeStampInfoPtr(cpp.Star<MediaTimeStampInfo>) from cpp.Star<MediaTimeStampInfo> to cpp.Star<MediaTimeStampInfo>{
+	@:from
+	public static extern inline function fromValue(v: MediaTimeStampInfo): MediaTimeStampInfoPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MediaTimeStampInfo {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

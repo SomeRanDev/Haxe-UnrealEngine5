@@ -13,3 +13,22 @@ extern class OnlineSession extends Object {
 @:nativeGen
 abstract ConstOnlineSession(OnlineSession) from OnlineSession {
 }
+
+@:forward
+@:nativeGen
+@:native("OnlineSession*")
+abstract OnlineSessionPtr(cpp.Star<OnlineSession>) from cpp.Star<OnlineSession> to cpp.Star<OnlineSession>{
+	@:from
+	public static extern inline function fromValue(v: OnlineSession): OnlineSessionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnlineSession {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

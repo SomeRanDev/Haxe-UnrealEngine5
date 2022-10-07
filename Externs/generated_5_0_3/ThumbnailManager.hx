@@ -46,3 +46,22 @@ abstract ConstThumbnailManager(ThumbnailManager) from ThumbnailManager {
 	public extern var ThumbnailManagerClassName(get, never): FString;
 	public inline extern function get_ThumbnailManagerClassName(): FString return this.ThumbnailManagerClassName;
 }
+
+@:forward
+@:nativeGen
+@:native("ThumbnailManager*")
+abstract ThumbnailManagerPtr(cpp.Star<ThumbnailManager>) from cpp.Star<ThumbnailManager> to cpp.Star<ThumbnailManager>{
+	@:from
+	public static extern inline function fromValue(v: ThumbnailManager): ThumbnailManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ThumbnailManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -28,3 +28,22 @@ abstract ConstRigVMActionStack(RigVMActionStack) from RigVMActionStack {
 	public extern var RedoActions(get, never): TArray<RigVMActionKey>;
 	public inline extern function get_RedoActions(): TArray<RigVMActionKey> return this.RedoActions;
 }
+
+@:forward
+@:nativeGen
+@:native("RigVMActionStack*")
+abstract RigVMActionStackPtr(cpp.Star<RigVMActionStack>) from cpp.Star<RigVMActionStack> to cpp.Star<RigVMActionStack>{
+	@:from
+	public static extern inline function fromValue(v: RigVMActionStack): RigVMActionStackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVMActionStack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

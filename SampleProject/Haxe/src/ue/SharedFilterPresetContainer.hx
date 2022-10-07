@@ -16,3 +16,22 @@ abstract ConstSharedFilterPresetContainer(SharedFilterPresetContainer) from Shar
 	public extern var SharedPresets(get, never): TArray<FilterData>;
 	public inline extern function get_SharedPresets(): TArray<FilterData> return this.SharedPresets;
 }
+
+@:forward
+@:nativeGen
+@:native("SharedFilterPresetContainer*")
+abstract SharedFilterPresetContainerPtr(cpp.Star<SharedFilterPresetContainer>) from cpp.Star<SharedFilterPresetContainer> to cpp.Star<SharedFilterPresetContainer>{
+	@:from
+	public static extern inline function fromValue(v: SharedFilterPresetContainer): SharedFilterPresetContainerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SharedFilterPresetContainer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

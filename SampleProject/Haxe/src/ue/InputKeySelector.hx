@@ -63,3 +63,22 @@ abstract ConstInputKeySelector(InputKeySelector) from InputKeySelector {
 	public extern var OnIsSelectingKeyChanged(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnIsSelectingKeyChanged(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnIsSelectingKeyChanged;
 }
+
+@:forward
+@:nativeGen
+@:native("InputKeySelector*")
+abstract InputKeySelectorPtr(cpp.Star<InputKeySelector>) from cpp.Star<InputKeySelector> to cpp.Star<InputKeySelector>{
+	@:from
+	public static extern inline function fromValue(v: InputKeySelector): InputKeySelectorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InputKeySelector {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

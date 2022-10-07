@@ -25,3 +25,22 @@ abstract ConstLevelStreamingVolume(LevelStreamingVolume) from LevelStreamingVolu
 	public extern var StreamingUsage(get, never): EStreamingVolumeUsage;
 	public inline extern function get_StreamingUsage(): EStreamingVolumeUsage return this.StreamingUsage;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelStreamingVolume*")
+abstract LevelStreamingVolumePtr(cpp.Star<LevelStreamingVolume>) from cpp.Star<LevelStreamingVolume> to cpp.Star<LevelStreamingVolume>{
+	@:from
+	public static extern inline function fromValue(v: LevelStreamingVolume): LevelStreamingVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelStreamingVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

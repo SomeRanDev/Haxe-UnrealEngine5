@@ -52,3 +52,22 @@ abstract ConstDatasmithImportOptions(DatasmithImportOptions) from DatasmithImpor
 	public extern var SourceUri(get, never): FString;
 	public inline extern function get_SourceUri(): FString return this.SourceUri;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithImportOptions*")
+abstract DatasmithImportOptionsPtr(cpp.Star<DatasmithImportOptions>) from cpp.Star<DatasmithImportOptions> to cpp.Star<DatasmithImportOptions>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithImportOptions): DatasmithImportOptionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithImportOptions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_ModifyBone(AnimGraphNode_ModifyBone) from AnimGraphN
 	public extern var Node(get, never): AnimNode_ModifyBone;
 	public inline extern function get_Node(): AnimNode_ModifyBone return this.Node;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_ModifyBone*")
+abstract AnimGraphNode_ModifyBonePtr(cpp.Star<AnimGraphNode_ModifyBone>) from cpp.Star<AnimGraphNode_ModifyBone> to cpp.Star<AnimGraphNode_ModifyBone>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_ModifyBone): AnimGraphNode_ModifyBonePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_ModifyBone {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

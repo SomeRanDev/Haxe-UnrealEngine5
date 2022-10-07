@@ -22,3 +22,22 @@ abstract ConstInterpTrackInstAnimControl(InterpTrackInstAnimControl) from Interp
 	public extern var InitRotation(get, never): Rotator;
 	public inline extern function get_InitRotation(): Rotator return this.InitRotation;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackInstAnimControl*")
+abstract InterpTrackInstAnimControlPtr(cpp.Star<InterpTrackInstAnimControl>) from cpp.Star<InterpTrackInstAnimControl> to cpp.Star<InterpTrackInstAnimControl>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackInstAnimControl): InterpTrackInstAnimControlPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackInstAnimControl {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

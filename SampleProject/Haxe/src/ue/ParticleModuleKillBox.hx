@@ -28,3 +28,22 @@ abstract ConstParticleModuleKillBox(ParticleModuleKillBox) from ParticleModuleKi
 	public extern var bAxisAlignedAndFixedSize(get, never): Bool;
 	public inline extern function get_bAxisAlignedAndFixedSize(): Bool return this.bAxisAlignedAndFixedSize;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleKillBox*")
+abstract ParticleModuleKillBoxPtr(cpp.Star<ParticleModuleKillBox>) from cpp.Star<ParticleModuleKillBox> to cpp.Star<ParticleModuleKillBox>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleKillBox): ParticleModuleKillBoxPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleKillBox {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

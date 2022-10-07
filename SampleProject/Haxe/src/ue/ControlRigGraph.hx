@@ -22,3 +22,22 @@ abstract ConstControlRigGraph(ControlRigGraph) from ControlRigGraph {
 	public extern var TemplateController(get, never): cpp.Star<RigVMController.ConstRigVMController>;
 	public inline extern function get_TemplateController(): cpp.Star<RigVMController.ConstRigVMController> return this.TemplateController;
 }
+
+@:forward
+@:nativeGen
+@:native("ControlRigGraph*")
+abstract ControlRigGraphPtr(cpp.Star<ControlRigGraph>) from cpp.Star<ControlRigGraph> to cpp.Star<ControlRigGraph>{
+	@:from
+	public static extern inline function fromValue(v: ControlRigGraph): ControlRigGraphPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ControlRigGraph {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

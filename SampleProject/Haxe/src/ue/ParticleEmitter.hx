@@ -70,3 +70,22 @@ abstract ConstParticleEmitter(ParticleEmitter) from ParticleEmitter {
 	public extern var DetailModeDisplay(get, never): FString;
 	public inline extern function get_DetailModeDisplay(): FString return this.DetailModeDisplay;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleEmitter*")
+abstract ParticleEmitterPtr(cpp.Star<ParticleEmitter>) from cpp.Star<ParticleEmitter> to cpp.Star<ParticleEmitter>{
+	@:from
+	public static extern inline function fromValue(v: ParticleEmitter): ParticleEmitterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleEmitter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

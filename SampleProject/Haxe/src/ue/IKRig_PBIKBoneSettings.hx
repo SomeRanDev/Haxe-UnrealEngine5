@@ -55,3 +55,22 @@ abstract ConstIKRig_PBIKBoneSettings(IKRig_PBIKBoneSettings) from IKRig_PBIKBone
 	public extern var PreferredAngles(get, never): Vector;
 	public inline extern function get_PreferredAngles(): Vector return this.PreferredAngles;
 }
+
+@:forward
+@:nativeGen
+@:native("IKRig_PBIKBoneSettings*")
+abstract IKRig_PBIKBoneSettingsPtr(cpp.Star<IKRig_PBIKBoneSettings>) from cpp.Star<IKRig_PBIKBoneSettings> to cpp.Star<IKRig_PBIKBoneSettings>{
+	@:from
+	public static extern inline function fromValue(v: IKRig_PBIKBoneSettings): IKRig_PBIKBoneSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IKRig_PBIKBoneSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

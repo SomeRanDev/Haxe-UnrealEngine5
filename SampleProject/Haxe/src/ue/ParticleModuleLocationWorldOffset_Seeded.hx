@@ -16,3 +16,22 @@ abstract ConstParticleModuleLocationWorldOffset_Seeded(ParticleModuleLocationWor
 	public extern var RandomSeedInfo(get, never): ParticleRandomSeedInfo;
 	public inline extern function get_RandomSeedInfo(): ParticleRandomSeedInfo return this.RandomSeedInfo;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleLocationWorldOffset_Seeded*")
+abstract ParticleModuleLocationWorldOffset_SeededPtr(cpp.Star<ParticleModuleLocationWorldOffset_Seeded>) from cpp.Star<ParticleModuleLocationWorldOffset_Seeded> to cpp.Star<ParticleModuleLocationWorldOffset_Seeded>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleLocationWorldOffset_Seeded): ParticleModuleLocationWorldOffset_SeededPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleLocationWorldOffset_Seeded {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstDatasmithActorTemplate(DatasmithActorTemplate) from DatasmithActor
 	public extern var Tags(get, never): TSet<FName>;
 	public inline extern function get_Tags(): TSet<FName> return this.Tags;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithActorTemplate*")
+abstract DatasmithActorTemplatePtr(cpp.Star<DatasmithActorTemplate>) from cpp.Star<DatasmithActorTemplate> to cpp.Star<DatasmithActorTemplate>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithActorTemplate): DatasmithActorTemplatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithActorTemplate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

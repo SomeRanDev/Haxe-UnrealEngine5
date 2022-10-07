@@ -13,3 +13,22 @@ extern class LiveLinkAnimationRole extends LiveLinkBasicRole {
 @:nativeGen
 abstract ConstLiveLinkAnimationRole(LiveLinkAnimationRole) from LiveLinkAnimationRole {
 }
+
+@:forward
+@:nativeGen
+@:native("LiveLinkAnimationRole*")
+abstract LiveLinkAnimationRolePtr(cpp.Star<LiveLinkAnimationRole>) from cpp.Star<LiveLinkAnimationRole> to cpp.Star<LiveLinkAnimationRole>{
+	@:from
+	public static extern inline function fromValue(v: LiveLinkAnimationRole): LiveLinkAnimationRolePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LiveLinkAnimationRole {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

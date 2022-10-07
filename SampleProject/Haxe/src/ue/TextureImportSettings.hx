@@ -16,3 +16,22 @@ abstract ConstTextureImportSettings(TextureImportSettings) from TextureImportSet
 	public extern var AutoVTSize(get, never): cpp.Int32;
 	public inline extern function get_AutoVTSize(): cpp.Int32 return this.AutoVTSize;
 }
+
+@:forward
+@:nativeGen
+@:native("TextureImportSettings*")
+abstract TextureImportSettingsPtr(cpp.Star<TextureImportSettings>) from cpp.Star<TextureImportSettings> to cpp.Star<TextureImportSettings>{
+	@:from
+	public static extern inline function fromValue(v: TextureImportSettings): TextureImportSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextureImportSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

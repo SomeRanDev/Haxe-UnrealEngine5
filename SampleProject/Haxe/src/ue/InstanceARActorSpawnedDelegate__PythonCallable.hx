@@ -12,3 +12,22 @@ extern class InstanceARActorSpawnedDelegate__PythonCallable extends PythonCallab
 @:nativeGen
 abstract ConstInstanceARActorSpawnedDelegate__PythonCallable(InstanceARActorSpawnedDelegate__PythonCallable) from InstanceARActorSpawnedDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("InstanceARActorSpawnedDelegate__PythonCallable*")
+abstract InstanceARActorSpawnedDelegate__PythonCallablePtr(cpp.Star<InstanceARActorSpawnedDelegate__PythonCallable>) from cpp.Star<InstanceARActorSpawnedDelegate__PythonCallable> to cpp.Star<InstanceARActorSpawnedDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: InstanceARActorSpawnedDelegate__PythonCallable): InstanceARActorSpawnedDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InstanceARActorSpawnedDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

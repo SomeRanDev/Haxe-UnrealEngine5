@@ -19,3 +19,22 @@ abstract ConstEnvQueryOption(EnvQueryOption) from EnvQueryOption {
 	public extern var Tests(get, never): TArray<cpp.Star<EnvQueryTest.ConstEnvQueryTest>>;
 	public inline extern function get_Tests(): TArray<cpp.Star<EnvQueryTest.ConstEnvQueryTest>> return this.Tests;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryOption*")
+abstract EnvQueryOptionPtr(cpp.Star<EnvQueryOption>) from cpp.Star<EnvQueryOption> to cpp.Star<EnvQueryOption>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryOption): EnvQueryOptionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryOption {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

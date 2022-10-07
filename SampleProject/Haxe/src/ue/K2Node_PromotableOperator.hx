@@ -16,3 +16,22 @@ abstract ConstK2Node_PromotableOperator(K2Node_PromotableOperator) from K2Node_P
 	public extern var NumAdditionalInputs(get, never): cpp.Int32;
 	public inline extern function get_NumAdditionalInputs(): cpp.Int32 return this.NumAdditionalInputs;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_PromotableOperator*")
+abstract K2Node_PromotableOperatorPtr(cpp.Star<K2Node_PromotableOperator>) from cpp.Star<K2Node_PromotableOperator> to cpp.Star<K2Node_PromotableOperator>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_PromotableOperator): K2Node_PromotableOperatorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_PromotableOperator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -55,3 +55,22 @@ abstract ConstStaticMeshLightingInfo(StaticMeshLightingInfo) from StaticMeshLigh
 	public extern var LightmapTextureNames(get, never): TArray<FString>;
 	public inline extern function get_LightmapTextureNames(): TArray<FString> return this.LightmapTextureNames;
 }
+
+@:forward
+@:nativeGen
+@:native("StaticMeshLightingInfo*")
+abstract StaticMeshLightingInfoPtr(cpp.Star<StaticMeshLightingInfo>) from cpp.Star<StaticMeshLightingInfo> to cpp.Star<StaticMeshLightingInfo>{
+	@:from
+	public static extern inline function fromValue(v: StaticMeshLightingInfo): StaticMeshLightingInfoPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): StaticMeshLightingInfo {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

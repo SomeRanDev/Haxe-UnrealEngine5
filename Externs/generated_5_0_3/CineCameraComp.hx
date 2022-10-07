@@ -81,3 +81,22 @@ abstract ConstCineCameraComp(CineCameraComp) from CineCameraComp {
 	public extern var DefaultLensFStop(get, never): cpp.Float32;
 	public inline extern function get_DefaultLensFStop(): cpp.Float32 return this.DefaultLensFStop;
 }
+
+@:forward
+@:nativeGen
+@:native("CineCameraComp*")
+abstract CineCameraCompPtr(cpp.Star<CineCameraComp>) from cpp.Star<CineCameraComp> to cpp.Star<CineCameraComp>{
+	@:from
+	public static extern inline function fromValue(v: CineCameraComp): CineCameraCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CineCameraComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

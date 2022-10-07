@@ -21,3 +21,22 @@ abstract ConstQuitMatchCallbackProxy(QuitMatchCallbackProxy) from QuitMatchCallb
 	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnFailure;
 }
+
+@:forward
+@:nativeGen
+@:native("QuitMatchCallbackProxy*")
+abstract QuitMatchCallbackProxyPtr(cpp.Star<QuitMatchCallbackProxy>) from cpp.Star<QuitMatchCallbackProxy> to cpp.Star<QuitMatchCallbackProxy>{
+	@:from
+	public static extern inline function fromValue(v: QuitMatchCallbackProxy): QuitMatchCallbackProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): QuitMatchCallbackProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -127,3 +127,22 @@ abstract ConstPhysicsConstraintTemplate(PhysicsConstraintTemplate) from PhysicsC
 	public extern var AngularBreakThreshold_DEPRECATED(get, never): cpp.Float32;
 	public inline extern function get_AngularBreakThreshold_DEPRECATED(): cpp.Float32 return this.AngularBreakThreshold_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("PhysicsConstraintTemplate*")
+abstract PhysicsConstraintTemplatePtr(cpp.Star<PhysicsConstraintTemplate>) from cpp.Star<PhysicsConstraintTemplate> to cpp.Star<PhysicsConstraintTemplate>{
+	@:from
+	public static extern inline function fromValue(v: PhysicsConstraintTemplate): PhysicsConstraintTemplatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhysicsConstraintTemplate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -29,3 +29,22 @@ extern class SlateBlueprintLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstSlateBlueprintLibrary(SlateBlueprintLibrary) from SlateBlueprintLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("SlateBlueprintLibrary*")
+abstract SlateBlueprintLibraryPtr(cpp.Star<SlateBlueprintLibrary>) from cpp.Star<SlateBlueprintLibrary> to cpp.Star<SlateBlueprintLibrary>{
+	@:from
+	public static extern inline function fromValue(v: SlateBlueprintLibrary): SlateBlueprintLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SlateBlueprintLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

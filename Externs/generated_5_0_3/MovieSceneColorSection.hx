@@ -25,3 +25,22 @@ abstract ConstMovieSceneColorSection(MovieSceneColorSection) from MovieSceneColo
 	public extern var AlphaCurve(get, never): MovieSceneFloatChannel;
 	public inline extern function get_AlphaCurve(): MovieSceneFloatChannel return this.AlphaCurve;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneColorSection*")
+abstract MovieSceneColorSectionPtr(cpp.Star<MovieSceneColorSection>) from cpp.Star<MovieSceneColorSection> to cpp.Star<MovieSceneColorSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneColorSection): MovieSceneColorSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneColorSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

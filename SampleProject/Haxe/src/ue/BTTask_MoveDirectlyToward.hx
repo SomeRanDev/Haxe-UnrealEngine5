@@ -22,3 +22,22 @@ abstract ConstBTTask_MoveDirectlyToward(BTTask_MoveDirectlyToward) from BTTask_M
 	public extern var bUpdatedDeprecatedProperties(get, never): Bool;
 	public inline extern function get_bUpdatedDeprecatedProperties(): Bool return this.bUpdatedDeprecatedProperties;
 }
+
+@:forward
+@:nativeGen
+@:native("BTTask_MoveDirectlyToward*")
+abstract BTTask_MoveDirectlyTowardPtr(cpp.Star<BTTask_MoveDirectlyToward>) from cpp.Star<BTTask_MoveDirectlyToward> to cpp.Star<BTTask_MoveDirectlyToward>{
+	@:from
+	public static extern inline function fromValue(v: BTTask_MoveDirectlyToward): BTTask_MoveDirectlyTowardPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTTask_MoveDirectlyToward {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

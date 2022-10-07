@@ -49,3 +49,22 @@ abstract ConstNiagaraStackRoot(NiagaraStackRoot) from NiagaraStackRoot {
 	public extern var SummaryCollapseButton(get, never): cpp.Star<NiagaraStackSummaryViewCollapseButton.ConstNiagaraStackSummaryViewCollapseButton>;
 	public inline extern function get_SummaryCollapseButton(): cpp.Star<NiagaraStackSummaryViewCollapseButton.ConstNiagaraStackSummaryViewCollapseButton> return this.SummaryCollapseButton;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackRoot*")
+abstract NiagaraStackRootPtr(cpp.Star<NiagaraStackRoot>) from cpp.Star<NiagaraStackRoot> to cpp.Star<NiagaraStackRoot>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackRoot): NiagaraStackRootPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackRoot {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

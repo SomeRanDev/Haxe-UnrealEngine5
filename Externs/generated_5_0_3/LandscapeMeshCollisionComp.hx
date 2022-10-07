@@ -16,3 +16,22 @@ abstract ConstLandscapeMeshCollisionComp(LandscapeMeshCollisionComp) from Landsc
 	public extern var MeshGuid(get, never): Guid;
 	public inline extern function get_MeshGuid(): Guid return this.MeshGuid;
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeMeshCollisionComp*")
+abstract LandscapeMeshCollisionCompPtr(cpp.Star<LandscapeMeshCollisionComp>) from cpp.Star<LandscapeMeshCollisionComp> to cpp.Star<LandscapeMeshCollisionComp>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeMeshCollisionComp): LandscapeMeshCollisionCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeMeshCollisionComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

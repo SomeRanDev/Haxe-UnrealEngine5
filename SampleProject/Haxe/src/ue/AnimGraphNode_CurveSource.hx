@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_CurveSource(AnimGraphNode_CurveSource) from AnimGrap
 	public extern var Node(get, never): AnimNode_CurveSource;
 	public inline extern function get_Node(): AnimNode_CurveSource return this.Node;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_CurveSource*")
+abstract AnimGraphNode_CurveSourcePtr(cpp.Star<AnimGraphNode_CurveSource>) from cpp.Star<AnimGraphNode_CurveSource> to cpp.Star<AnimGraphNode_CurveSource>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_CurveSource): AnimGraphNode_CurveSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_CurveSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

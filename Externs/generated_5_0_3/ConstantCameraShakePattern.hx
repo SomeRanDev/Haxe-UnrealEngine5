@@ -19,3 +19,22 @@ abstract ConstConstantCameraShakePattern(ConstantCameraShakePattern) from Consta
 	public extern var RotationOffset(get, never): Rotator;
 	public inline extern function get_RotationOffset(): Rotator return this.RotationOffset;
 }
+
+@:forward
+@:nativeGen
+@:native("ConstantCameraShakePattern*")
+abstract ConstantCameraShakePatternPtr(cpp.Star<ConstantCameraShakePattern>) from cpp.Star<ConstantCameraShakePattern> to cpp.Star<ConstantCameraShakePattern>{
+	@:from
+	public static extern inline function fromValue(v: ConstantCameraShakePattern): ConstantCameraShakePatternPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ConstantCameraShakePattern {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

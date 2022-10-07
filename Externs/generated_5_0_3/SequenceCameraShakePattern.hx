@@ -40,3 +40,22 @@ abstract ConstSequenceCameraShakePattern(SequenceCameraShakePattern) from Sequen
 	public extern var CameraStandIn(get, never): cpp.Star<CameraAnimationSequenceCameraStandIn.ConstCameraAnimationSequenceCameraStandIn>;
 	public inline extern function get_CameraStandIn(): cpp.Star<CameraAnimationSequenceCameraStandIn.ConstCameraAnimationSequenceCameraStandIn> return this.CameraStandIn;
 }
+
+@:forward
+@:nativeGen
+@:native("SequenceCameraShakePattern*")
+abstract SequenceCameraShakePatternPtr(cpp.Star<SequenceCameraShakePattern>) from cpp.Star<SequenceCameraShakePattern> to cpp.Star<SequenceCameraShakePattern>{
+	@:from
+	public static extern inline function fromValue(v: SequenceCameraShakePattern): SequenceCameraShakePatternPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SequenceCameraShakePattern {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

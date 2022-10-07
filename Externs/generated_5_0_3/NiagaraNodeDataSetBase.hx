@@ -25,3 +25,22 @@ abstract ConstNiagaraNodeDataSetBase(NiagaraNodeDataSetBase) from NiagaraNodeDat
 	public extern var ExternalStructAsset(get, never): cpp.Star<Struct.ConstStruct>;
 	public inline extern function get_ExternalStructAsset(): cpp.Star<Struct.ConstStruct> return this.ExternalStructAsset;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraNodeDataSetBase*")
+abstract NiagaraNodeDataSetBasePtr(cpp.Star<NiagaraNodeDataSetBase>) from cpp.Star<NiagaraNodeDataSetBase> to cpp.Star<NiagaraNodeDataSetBase>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraNodeDataSetBase): NiagaraNodeDataSetBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraNodeDataSetBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

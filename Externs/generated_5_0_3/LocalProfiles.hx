@@ -16,3 +16,22 @@ abstract ConstLocalProfiles(LocalProfiles) from LocalProfiles {
 	public extern var Profiles(get, never): TArray<PreviewSceneProfile>;
 	public inline extern function get_Profiles(): TArray<PreviewSceneProfile> return this.Profiles;
 }
+
+@:forward
+@:nativeGen
+@:native("LocalProfiles*")
+abstract LocalProfilesPtr(cpp.Star<LocalProfiles>) from cpp.Star<LocalProfiles> to cpp.Star<LocalProfiles>{
+	@:from
+	public static extern inline function fromValue(v: LocalProfiles): LocalProfilesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LocalProfiles {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

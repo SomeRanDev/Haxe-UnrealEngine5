@@ -79,3 +79,22 @@ abstract ConstContentBrowserSettings(ContentBrowserSettings) from ContentBrowser
 	public extern var IncludeCollectionNames(get, never): Bool;
 	public inline extern function get_IncludeCollectionNames(): Bool return this.IncludeCollectionNames;
 }
+
+@:forward
+@:nativeGen
+@:native("ContentBrowserSettings*")
+abstract ContentBrowserSettingsPtr(cpp.Star<ContentBrowserSettings>) from cpp.Star<ContentBrowserSettings> to cpp.Star<ContentBrowserSettings>{
+	@:from
+	public static extern inline function fromValue(v: ContentBrowserSettings): ContentBrowserSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ContentBrowserSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

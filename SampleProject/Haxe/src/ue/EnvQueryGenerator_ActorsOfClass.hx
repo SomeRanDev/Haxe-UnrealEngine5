@@ -25,3 +25,22 @@ abstract ConstEnvQueryGenerator_ActorsOfClass(EnvQueryGenerator_ActorsOfClass) f
 	public extern var SearchCenter(get, never): TSubclassOf<EnvQueryContext.ConstEnvQueryContext>;
 	public inline extern function get_SearchCenter(): TSubclassOf<EnvQueryContext.ConstEnvQueryContext> return this.SearchCenter;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryGenerator_ActorsOfClass*")
+abstract EnvQueryGenerator_ActorsOfClassPtr(cpp.Star<EnvQueryGenerator_ActorsOfClass>) from cpp.Star<EnvQueryGenerator_ActorsOfClass> to cpp.Star<EnvQueryGenerator_ActorsOfClass>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryGenerator_ActorsOfClass): EnvQueryGenerator_ActorsOfClassPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryGenerator_ActorsOfClass {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

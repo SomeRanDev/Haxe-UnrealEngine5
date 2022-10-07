@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionSamplePhysicsIntegerField(MaterialExpressionSamp
 	public extern var FieldTarget(get, never): EFieldIntegerType;
 	public inline extern function get_FieldTarget(): EFieldIntegerType return this.FieldTarget;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionSamplePhysicsIntegerField*")
+abstract MaterialExpressionSamplePhysicsIntegerFieldPtr(cpp.Star<MaterialExpressionSamplePhysicsIntegerField>) from cpp.Star<MaterialExpressionSamplePhysicsIntegerField> to cpp.Star<MaterialExpressionSamplePhysicsIntegerField>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionSamplePhysicsIntegerField): MaterialExpressionSamplePhysicsIntegerFieldPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionSamplePhysicsIntegerField {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

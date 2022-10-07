@@ -13,3 +13,22 @@ extern class K2Node_Self extends K2Node {
 @:nativeGen
 abstract ConstK2Node_Self(K2Node_Self) from K2Node_Self {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_Self*")
+abstract K2Node_SelfPtr(cpp.Star<K2Node_Self>) from cpp.Star<K2Node_Self> to cpp.Star<K2Node_Self>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_Self): K2Node_SelfPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_Self {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

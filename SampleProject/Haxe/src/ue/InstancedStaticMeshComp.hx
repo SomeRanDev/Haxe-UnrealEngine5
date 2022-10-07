@@ -63,3 +63,22 @@ abstract ConstInstancedStaticMeshComp(InstancedStaticMeshComp) from InstancedSta
 	public extern var CachedMappings(get, never): TArray<InstancedStaticMeshMappingInfo>;
 	public inline extern function get_CachedMappings(): TArray<InstancedStaticMeshMappingInfo> return this.CachedMappings;
 }
+
+@:forward
+@:nativeGen
+@:native("InstancedStaticMeshComp*")
+abstract InstancedStaticMeshCompPtr(cpp.Star<InstancedStaticMeshComp>) from cpp.Star<InstancedStaticMeshComp> to cpp.Star<InstancedStaticMeshComp>{
+	@:from
+	public static extern inline function fromValue(v: InstancedStaticMeshComp): InstancedStaticMeshCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InstancedStaticMeshComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

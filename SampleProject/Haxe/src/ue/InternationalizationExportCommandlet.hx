@@ -13,3 +13,22 @@ extern class InternationalizationExportCommandlet extends GatherTextCommandletBa
 @:nativeGen
 abstract ConstInternationalizationExportCommandlet(InternationalizationExportCommandlet) from InternationalizationExportCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("InternationalizationExportCommandlet*")
+abstract InternationalizationExportCommandletPtr(cpp.Star<InternationalizationExportCommandlet>) from cpp.Star<InternationalizationExportCommandlet> to cpp.Star<InternationalizationExportCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: InternationalizationExportCommandlet): InternationalizationExportCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InternationalizationExportCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

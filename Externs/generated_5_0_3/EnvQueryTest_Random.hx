@@ -13,3 +13,22 @@ extern class EnvQueryTest_Random extends EnvQueryTest {
 @:nativeGen
 abstract ConstEnvQueryTest_Random(EnvQueryTest_Random) from EnvQueryTest_Random {
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryTest_Random*")
+abstract EnvQueryTest_RandomPtr(cpp.Star<EnvQueryTest_Random>) from cpp.Star<EnvQueryTest_Random> to cpp.Star<EnvQueryTest_Random>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryTest_Random): EnvQueryTest_RandomPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryTest_Random {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

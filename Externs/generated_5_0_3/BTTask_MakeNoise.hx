@@ -16,3 +16,22 @@ abstract ConstBTTask_MakeNoise(BTTask_MakeNoise) from BTTask_MakeNoise {
 	public extern var Loudnes(get, never): cpp.Float32;
 	public inline extern function get_Loudnes(): cpp.Float32 return this.Loudnes;
 }
+
+@:forward
+@:nativeGen
+@:native("BTTask_MakeNoise*")
+abstract BTTask_MakeNoisePtr(cpp.Star<BTTask_MakeNoise>) from cpp.Star<BTTask_MakeNoise> to cpp.Star<BTTask_MakeNoise>{
+	@:from
+	public static extern inline function fromValue(v: BTTask_MakeNoise): BTTask_MakeNoisePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTTask_MakeNoise {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -28,3 +28,22 @@ abstract ConstNetworkSettings(NetworkSettings) from NetworkSettings {
 	public extern var NetworkEmulationProfiles(get, never): TArray<NetworkEmulationProfileDescription>;
 	public inline extern function get_NetworkEmulationProfiles(): TArray<NetworkEmulationProfileDescription> return this.NetworkEmulationProfiles;
 }
+
+@:forward
+@:nativeGen
+@:native("NetworkSettings*")
+abstract NetworkSettingsPtr(cpp.Star<NetworkSettings>) from cpp.Star<NetworkSettings> to cpp.Star<NetworkSettings>{
+	@:from
+	public static extern inline function fromValue(v: NetworkSettings): NetworkSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NetworkSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstMovieSceneCVarSection(MovieSceneCVarSection) from MovieSceneCVarSe
 	public extern var ConsoleVariables(get, never): MovieSceneCVarOverrides;
 	public inline extern function get_ConsoleVariables(): MovieSceneCVarOverrides return this.ConsoleVariables;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneCVarSection*")
+abstract MovieSceneCVarSectionPtr(cpp.Star<MovieSceneCVarSection>) from cpp.Star<MovieSceneCVarSection> to cpp.Star<MovieSceneCVarSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneCVarSection): MovieSceneCVarSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneCVarSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class CurveEdPresetCurve extends Object {
 @:nativeGen
 abstract ConstCurveEdPresetCurve(CurveEdPresetCurve) from CurveEdPresetCurve {
 }
+
+@:forward
+@:nativeGen
+@:native("CurveEdPresetCurve*")
+abstract CurveEdPresetCurvePtr(cpp.Star<CurveEdPresetCurve>) from cpp.Star<CurveEdPresetCurve> to cpp.Star<CurveEdPresetCurve>{
+	@:from
+	public static extern inline function fromValue(v: CurveEdPresetCurve): CurveEdPresetCurvePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CurveEdPresetCurve {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

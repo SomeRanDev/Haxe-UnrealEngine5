@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_RigidBody(AnimGraphNode_RigidBody) from AnimGraphNod
 	public extern var Node(get, never): AnimNode_RigidBody;
 	public inline extern function get_Node(): AnimNode_RigidBody return this.Node;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_RigidBody*")
+abstract AnimGraphNode_RigidBodyPtr(cpp.Star<AnimGraphNode_RigidBody>) from cpp.Star<AnimGraphNode_RigidBody> to cpp.Star<AnimGraphNode_RigidBody>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_RigidBody): AnimGraphNode_RigidBodyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_RigidBody {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

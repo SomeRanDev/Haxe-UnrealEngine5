@@ -13,3 +13,22 @@ extern class FunctionalTestGameMode extends GameModeBase {
 @:nativeGen
 abstract ConstFunctionalTestGameMode(FunctionalTestGameMode) from FunctionalTestGameMode {
 }
+
+@:forward
+@:nativeGen
+@:native("FunctionalTestGameMode*")
+abstract FunctionalTestGameModePtr(cpp.Star<FunctionalTestGameMode>) from cpp.Star<FunctionalTestGameMode> to cpp.Star<FunctionalTestGameMode>{
+	@:from
+	public static extern inline function fromValue(v: FunctionalTestGameMode): FunctionalTestGameModePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FunctionalTestGameMode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

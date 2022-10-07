@@ -13,3 +13,22 @@ extern class FoliageType_ActorFactory extends Factory {
 @:nativeGen
 abstract ConstFoliageType_ActorFactory(FoliageType_ActorFactory) from FoliageType_ActorFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("FoliageType_ActorFactory*")
+abstract FoliageType_ActorFactoryPtr(cpp.Star<FoliageType_ActorFactory>) from cpp.Star<FoliageType_ActorFactory> to cpp.Star<FoliageType_ActorFactory>{
+	@:from
+	public static extern inline function fromValue(v: FoliageType_ActorFactory): FoliageType_ActorFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FoliageType_ActorFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

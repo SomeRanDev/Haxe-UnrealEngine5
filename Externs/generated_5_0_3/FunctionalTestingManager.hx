@@ -30,3 +30,22 @@ abstract ConstFunctionalTestingManager(FunctionalTestingManager) from Functional
 	public extern var OnTestsBegin(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnTestsBegin(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnTestsBegin;
 }
+
+@:forward
+@:nativeGen
+@:native("FunctionalTestingManager*")
+abstract FunctionalTestingManagerPtr(cpp.Star<FunctionalTestingManager>) from cpp.Star<FunctionalTestingManager> to cpp.Star<FunctionalTestingManager>{
+	@:from
+	public static extern inline function fromValue(v: FunctionalTestingManager): FunctionalTestingManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FunctionalTestingManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

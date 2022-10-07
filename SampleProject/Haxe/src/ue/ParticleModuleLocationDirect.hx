@@ -25,3 +25,22 @@ abstract ConstParticleModuleLocationDirect(ParticleModuleLocationDirect) from Pa
 	public extern var Direction(get, never): RawDistributionVector;
 	public inline extern function get_Direction(): RawDistributionVector return this.Direction;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleLocationDirect*")
+abstract ParticleModuleLocationDirectPtr(cpp.Star<ParticleModuleLocationDirect>) from cpp.Star<ParticleModuleLocationDirect> to cpp.Star<ParticleModuleLocationDirect>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleLocationDirect): ParticleModuleLocationDirectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleLocationDirect {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

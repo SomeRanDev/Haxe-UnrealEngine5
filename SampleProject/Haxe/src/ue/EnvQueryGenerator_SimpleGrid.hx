@@ -22,3 +22,22 @@ abstract ConstEnvQueryGenerator_SimpleGrid(EnvQueryGenerator_SimpleGrid) from En
 	public extern var GenerateAround(get, never): TSubclassOf<EnvQueryContext.ConstEnvQueryContext>;
 	public inline extern function get_GenerateAround(): TSubclassOf<EnvQueryContext.ConstEnvQueryContext> return this.GenerateAround;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryGenerator_SimpleGrid*")
+abstract EnvQueryGenerator_SimpleGridPtr(cpp.Star<EnvQueryGenerator_SimpleGrid>) from cpp.Star<EnvQueryGenerator_SimpleGrid> to cpp.Star<EnvQueryGenerator_SimpleGrid>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryGenerator_SimpleGrid): EnvQueryGenerator_SimpleGridPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryGenerator_SimpleGrid {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

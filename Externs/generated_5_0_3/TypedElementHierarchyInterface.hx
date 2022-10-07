@@ -14,3 +14,22 @@ extern class TypedElementHierarchyInterface extends Interface {
 @:nativeGen
 abstract ConstTypedElementHierarchyInterface(TypedElementHierarchyInterface) from TypedElementHierarchyInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("TypedElementHierarchyInterface*")
+abstract TypedElementHierarchyInterfacePtr(cpp.Star<TypedElementHierarchyInterface>) from cpp.Star<TypedElementHierarchyInterface> to cpp.Star<TypedElementHierarchyInterface>{
+	@:from
+	public static extern inline function fromValue(v: TypedElementHierarchyInterface): TypedElementHierarchyInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TypedElementHierarchyInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

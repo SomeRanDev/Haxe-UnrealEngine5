@@ -28,3 +28,22 @@ abstract ConstMaterialExpressionVectorNoise(MaterialExpressionVectorNoise) from 
 	public extern var TileSize(get, never): cpp.UInt32;
 	public inline extern function get_TileSize(): cpp.UInt32 return this.TileSize;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionVectorNoise*")
+abstract MaterialExpressionVectorNoisePtr(cpp.Star<MaterialExpressionVectorNoise>) from cpp.Star<MaterialExpressionVectorNoise> to cpp.Star<MaterialExpressionVectorNoise>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionVectorNoise): MaterialExpressionVectorNoisePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionVectorNoise {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

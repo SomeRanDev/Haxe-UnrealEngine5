@@ -16,3 +16,22 @@ extern class ContentWidget extends PanelWidget {
 @:nativeGen
 abstract ConstContentWidget(ContentWidget) from ContentWidget {
 }
+
+@:forward
+@:nativeGen
+@:native("ContentWidget*")
+abstract ContentWidgetPtr(cpp.Star<ContentWidget>) from cpp.Star<ContentWidget> to cpp.Star<ContentWidget>{
+	@:from
+	public static extern inline function fromValue(v: ContentWidget): ContentWidgetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ContentWidget {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

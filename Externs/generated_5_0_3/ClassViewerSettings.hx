@@ -22,3 +22,22 @@ abstract ConstClassViewerSettings(ClassViewerSettings) from ClassViewerSettings 
 	public extern var DeveloperFolderType(get, never): EClassViewerDeveloperType;
 	public inline extern function get_DeveloperFolderType(): EClassViewerDeveloperType return this.DeveloperFolderType;
 }
+
+@:forward
+@:nativeGen
+@:native("ClassViewerSettings*")
+abstract ClassViewerSettingsPtr(cpp.Star<ClassViewerSettings>) from cpp.Star<ClassViewerSettings> to cpp.Star<ClassViewerSettings>{
+	@:from
+	public static extern inline function fromValue(v: ClassViewerSettings): ClassViewerSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ClassViewerSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

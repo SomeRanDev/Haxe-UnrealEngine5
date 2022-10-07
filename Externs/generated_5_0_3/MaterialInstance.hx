@@ -61,3 +61,22 @@ abstract ConstMaterialInstance(MaterialInstance) from MaterialInstance {
 	public extern var bSavedCachedData_DEPRECATED(get, never): Bool;
 	public inline extern function get_bSavedCachedData_DEPRECATED(): Bool return this.bSavedCachedData_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialInstance*")
+abstract MaterialInstancePtr(cpp.Star<MaterialInstance>) from cpp.Star<MaterialInstance> to cpp.Star<MaterialInstance>{
+	@:from
+	public static extern inline function fromValue(v: MaterialInstance): MaterialInstancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialInstance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

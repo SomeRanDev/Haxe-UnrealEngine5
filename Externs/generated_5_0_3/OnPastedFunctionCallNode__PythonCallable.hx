@@ -12,3 +12,22 @@ extern class OnPastedFunctionCallNode__PythonCallable extends PythonCallableForD
 @:nativeGen
 abstract ConstOnPastedFunctionCallNode__PythonCallable(OnPastedFunctionCallNode__PythonCallable) from OnPastedFunctionCallNode__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnPastedFunctionCallNode__PythonCallable*")
+abstract OnPastedFunctionCallNode__PythonCallablePtr(cpp.Star<OnPastedFunctionCallNode__PythonCallable>) from cpp.Star<OnPastedFunctionCallNode__PythonCallable> to cpp.Star<OnPastedFunctionCallNode__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnPastedFunctionCallNode__PythonCallable): OnPastedFunctionCallNode__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnPastedFunctionCallNode__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

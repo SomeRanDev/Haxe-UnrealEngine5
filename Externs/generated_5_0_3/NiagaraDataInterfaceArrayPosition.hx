@@ -16,3 +16,22 @@ abstract ConstNiagaraDataInterfaceArrayPosition(NiagaraDataInterfaceArrayPositio
 	public extern var PositionData(get, never): TArray<NiagaraPosition>;
 	public inline extern function get_PositionData(): TArray<NiagaraPosition> return this.PositionData;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceArrayPosition*")
+abstract NiagaraDataInterfaceArrayPositionPtr(cpp.Star<NiagaraDataInterfaceArrayPosition>) from cpp.Star<NiagaraDataInterfaceArrayPosition> to cpp.Star<NiagaraDataInterfaceArrayPosition>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceArrayPosition): NiagaraDataInterfaceArrayPositionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceArrayPosition {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

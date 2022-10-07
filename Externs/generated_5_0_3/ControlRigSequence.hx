@@ -22,3 +22,22 @@ abstract ConstControlRigSequence(ControlRigSequence) from ControlRigSequence {
 	public extern var LastExportedFrameRate(get, never): cpp.Float32;
 	public inline extern function get_LastExportedFrameRate(): cpp.Float32 return this.LastExportedFrameRate;
 }
+
+@:forward
+@:nativeGen
+@:native("ControlRigSequence*")
+abstract ControlRigSequencePtr(cpp.Star<ControlRigSequence>) from cpp.Star<ControlRigSequence> to cpp.Star<ControlRigSequence>{
+	@:from
+	public static extern inline function fromValue(v: ControlRigSequence): ControlRigSequencePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ControlRigSequence {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

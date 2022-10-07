@@ -16,3 +16,22 @@ abstract ConstControlRigSettings(ControlRigSettings) from ControlRigSettings {
 	public extern var DefaultShapeLibrary(get, never): TSoftObjectPtr<ControlRigShapeLibrary.ConstControlRigShapeLibrary>;
 	public inline extern function get_DefaultShapeLibrary(): TSoftObjectPtr<ControlRigShapeLibrary.ConstControlRigShapeLibrary> return this.DefaultShapeLibrary;
 }
+
+@:forward
+@:nativeGen
+@:native("ControlRigSettings*")
+abstract ControlRigSettingsPtr(cpp.Star<ControlRigSettings>) from cpp.Star<ControlRigSettings> to cpp.Star<ControlRigSettings>{
+	@:from
+	public static extern inline function fromValue(v: ControlRigSettings): ControlRigSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ControlRigSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

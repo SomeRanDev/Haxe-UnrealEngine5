@@ -12,3 +12,22 @@ extern class ImportantToggleSettingInterface extends Interface {
 @:nativeGen
 abstract ConstImportantToggleSettingInterface(ImportantToggleSettingInterface) from ImportantToggleSettingInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("ImportantToggleSettingInterface*")
+abstract ImportantToggleSettingInterfacePtr(cpp.Star<ImportantToggleSettingInterface>) from cpp.Star<ImportantToggleSettingInterface> to cpp.Star<ImportantToggleSettingInterface>{
+	@:from
+	public static extern inline function fromValue(v: ImportantToggleSettingInterface): ImportantToggleSettingInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ImportantToggleSettingInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

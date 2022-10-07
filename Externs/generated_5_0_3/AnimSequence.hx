@@ -134,3 +134,22 @@ abstract ConstAnimSequence(AnimSequence) from AnimSequence {
 	public extern var AttributeCurves(get, never): TMap<AnimationAttributeIdentifier, AttributeCurve>;
 	public inline extern function get_AttributeCurves(): TMap<AnimationAttributeIdentifier, AttributeCurve> return this.AttributeCurves;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimSequence*")
+abstract AnimSequencePtr(cpp.Star<AnimSequence>) from cpp.Star<AnimSequence> to cpp.Star<AnimSequence>{
+	@:from
+	public static extern inline function fromValue(v: AnimSequence): AnimSequencePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimSequence {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

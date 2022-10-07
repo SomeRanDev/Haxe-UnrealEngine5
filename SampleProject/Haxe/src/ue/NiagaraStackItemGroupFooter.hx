@@ -13,3 +13,22 @@ extern class NiagaraStackItemGroupFooter extends NiagaraStackEntry {
 @:nativeGen
 abstract ConstNiagaraStackItemGroupFooter(NiagaraStackItemGroupFooter) from NiagaraStackItemGroupFooter {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackItemGroupFooter*")
+abstract NiagaraStackItemGroupFooterPtr(cpp.Star<NiagaraStackItemGroupFooter>) from cpp.Star<NiagaraStackItemGroupFooter> to cpp.Star<NiagaraStackItemGroupFooter>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackItemGroupFooter): NiagaraStackItemGroupFooterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackItemGroupFooter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

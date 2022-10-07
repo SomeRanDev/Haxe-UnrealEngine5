@@ -16,3 +16,22 @@ abstract ConstBTTask_PushPawnAction(BTTask_PushPawnAction) from BTTask_PushPawnA
 	public extern var Action(get, never): cpp.Star<PawnAction.ConstPawnAction>;
 	public inline extern function get_Action(): cpp.Star<PawnAction.ConstPawnAction> return this.Action;
 }
+
+@:forward
+@:nativeGen
+@:native("BTTask_PushPawnAction*")
+abstract BTTask_PushPawnActionPtr(cpp.Star<BTTask_PushPawnAction>) from cpp.Star<BTTask_PushPawnAction> to cpp.Star<BTTask_PushPawnAction>{
+	@:from
+	public static extern inline function fromValue(v: BTTask_PushPawnAction): BTTask_PushPawnActionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTTask_PushPawnAction {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -94,3 +94,22 @@ abstract ConstPaperTileMap(PaperTileMap) from PaperTileMap {
 	public extern var LayerNameIndex(get, never): cpp.Int32;
 	public inline extern function get_LayerNameIndex(): cpp.Int32 return this.LayerNameIndex;
 }
+
+@:forward
+@:nativeGen
+@:native("PaperTileMap*")
+abstract PaperTileMapPtr(cpp.Star<PaperTileMap>) from cpp.Star<PaperTileMap> to cpp.Star<PaperTileMap>{
+	@:from
+	public static extern inline function fromValue(v: PaperTileMap): PaperTileMapPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PaperTileMap {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

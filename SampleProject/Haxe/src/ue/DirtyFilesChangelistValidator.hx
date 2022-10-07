@@ -13,3 +13,22 @@ extern class DirtyFilesChangelistValidator extends EditorValidatorBase {
 @:nativeGen
 abstract ConstDirtyFilesChangelistValidator(DirtyFilesChangelistValidator) from DirtyFilesChangelistValidator {
 }
+
+@:forward
+@:nativeGen
+@:native("DirtyFilesChangelistValidator*")
+abstract DirtyFilesChangelistValidatorPtr(cpp.Star<DirtyFilesChangelistValidator>) from cpp.Star<DirtyFilesChangelistValidator> to cpp.Star<DirtyFilesChangelistValidator>{
+	@:from
+	public static extern inline function fromValue(v: DirtyFilesChangelistValidator): DirtyFilesChangelistValidatorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DirtyFilesChangelistValidator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

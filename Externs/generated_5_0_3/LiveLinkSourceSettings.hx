@@ -28,3 +28,22 @@ abstract ConstLiveLinkSourceSettings(LiveLinkSourceSettings) from LiveLinkSource
 	public extern var SourceDebugInfos_DEPRECATED(get, never): TArray<LiveLinkSourceDebugInfo>;
 	public inline extern function get_SourceDebugInfos_DEPRECATED(): TArray<LiveLinkSourceDebugInfo> return this.SourceDebugInfos_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("LiveLinkSourceSettings*")
+abstract LiveLinkSourceSettingsPtr(cpp.Star<LiveLinkSourceSettings>) from cpp.Star<LiveLinkSourceSettings> to cpp.Star<LiveLinkSourceSettings>{
+	@:from
+	public static extern inline function fromValue(v: LiveLinkSourceSettings): LiveLinkSourceSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LiveLinkSourceSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ extern class MediaBlueprintFunctionLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstMediaBlueprintFunctionLibrary(MediaBlueprintFunctionLibrary) from MediaBlueprintFunctionLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("MediaBlueprintFunctionLibrary*")
+abstract MediaBlueprintFunctionLibraryPtr(cpp.Star<MediaBlueprintFunctionLibrary>) from cpp.Star<MediaBlueprintFunctionLibrary> to cpp.Star<MediaBlueprintFunctionLibrary>{
+	@:from
+	public static extern inline function fromValue(v: MediaBlueprintFunctionLibrary): MediaBlueprintFunctionLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MediaBlueprintFunctionLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

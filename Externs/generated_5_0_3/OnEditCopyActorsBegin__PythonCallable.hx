@@ -12,3 +12,22 @@ extern class OnEditCopyActorsBegin__PythonCallable extends PythonCallableForDele
 @:nativeGen
 abstract ConstOnEditCopyActorsBegin__PythonCallable(OnEditCopyActorsBegin__PythonCallable) from OnEditCopyActorsBegin__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnEditCopyActorsBegin__PythonCallable*")
+abstract OnEditCopyActorsBegin__PythonCallablePtr(cpp.Star<OnEditCopyActorsBegin__PythonCallable>) from cpp.Star<OnEditCopyActorsBegin__PythonCallable> to cpp.Star<OnEditCopyActorsBegin__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnEditCopyActorsBegin__PythonCallable): OnEditCopyActorsBegin__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnEditCopyActorsBegin__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

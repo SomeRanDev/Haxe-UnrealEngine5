@@ -13,3 +13,22 @@ extern class MaterialExpressionPerInstanceFadeAmount extends MaterialExpression 
 @:nativeGen
 abstract ConstMaterialExpressionPerInstanceFadeAmount(MaterialExpressionPerInstanceFadeAmount) from MaterialExpressionPerInstanceFadeAmount {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionPerInstanceFadeAmount*")
+abstract MaterialExpressionPerInstanceFadeAmountPtr(cpp.Star<MaterialExpressionPerInstanceFadeAmount>) from cpp.Star<MaterialExpressionPerInstanceFadeAmount> to cpp.Star<MaterialExpressionPerInstanceFadeAmount>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionPerInstanceFadeAmount): MaterialExpressionPerInstanceFadeAmountPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionPerInstanceFadeAmount {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

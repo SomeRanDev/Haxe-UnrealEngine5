@@ -16,3 +16,22 @@ abstract ConstTranslationPickerSettings(TranslationPickerSettings) from Translat
 	public extern var bSubmitTranslationPickerChangesToLocalizationService(get, never): Bool;
 	public inline extern function get_bSubmitTranslationPickerChangesToLocalizationService(): Bool return this.bSubmitTranslationPickerChangesToLocalizationService;
 }
+
+@:forward
+@:nativeGen
+@:native("TranslationPickerSettings*")
+abstract TranslationPickerSettingsPtr(cpp.Star<TranslationPickerSettings>) from cpp.Star<TranslationPickerSettings> to cpp.Star<TranslationPickerSettings>{
+	@:from
+	public static extern inline function fromValue(v: TranslationPickerSettings): TranslationPickerSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TranslationPickerSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

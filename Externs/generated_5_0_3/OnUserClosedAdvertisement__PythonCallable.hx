@@ -12,3 +12,22 @@ extern class OnUserClosedAdvertisement__PythonCallable extends PythonCallableFor
 @:nativeGen
 abstract ConstOnUserClosedAdvertisement__PythonCallable(OnUserClosedAdvertisement__PythonCallable) from OnUserClosedAdvertisement__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnUserClosedAdvertisement__PythonCallable*")
+abstract OnUserClosedAdvertisement__PythonCallablePtr(cpp.Star<OnUserClosedAdvertisement__PythonCallable>) from cpp.Star<OnUserClosedAdvertisement__PythonCallable> to cpp.Star<OnUserClosedAdvertisement__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnUserClosedAdvertisement__PythonCallable): OnUserClosedAdvertisement__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnUserClosedAdvertisement__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

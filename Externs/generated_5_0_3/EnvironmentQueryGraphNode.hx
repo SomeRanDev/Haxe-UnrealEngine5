@@ -13,3 +13,22 @@ extern class EnvironmentQueryGraphNode extends AIGraphNode {
 @:nativeGen
 abstract ConstEnvironmentQueryGraphNode(EnvironmentQueryGraphNode) from EnvironmentQueryGraphNode {
 }
+
+@:forward
+@:nativeGen
+@:native("EnvironmentQueryGraphNode*")
+abstract EnvironmentQueryGraphNodePtr(cpp.Star<EnvironmentQueryGraphNode>) from cpp.Star<EnvironmentQueryGraphNode> to cpp.Star<EnvironmentQueryGraphNode>{
+	@:from
+	public static extern inline function fromValue(v: EnvironmentQueryGraphNode): EnvironmentQueryGraphNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvironmentQueryGraphNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstMovieSceneDoubleVectorTrack(MovieSceneDoubleVectorTrack) from Movi
 	public extern var NumChannelsUsed(get, never): cpp.Int32;
 	public inline extern function get_NumChannelsUsed(): cpp.Int32 return this.NumChannelsUsed;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneDoubleVectorTrack*")
+abstract MovieSceneDoubleVectorTrackPtr(cpp.Star<MovieSceneDoubleVectorTrack>) from cpp.Star<MovieSceneDoubleVectorTrack> to cpp.Star<MovieSceneDoubleVectorTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneDoubleVectorTrack): MovieSceneDoubleVectorTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneDoubleVectorTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

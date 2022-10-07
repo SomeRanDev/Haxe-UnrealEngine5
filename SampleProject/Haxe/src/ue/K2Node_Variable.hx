@@ -28,3 +28,22 @@ abstract ConstK2Node_Variable(K2Node_Variable) from K2Node_Variable {
 	public extern var bSelfContext_DEPRECATED(get, never): Bool;
 	public inline extern function get_bSelfContext_DEPRECATED(): Bool return this.bSelfContext_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_Variable*")
+abstract K2Node_VariablePtr(cpp.Star<K2Node_Variable>) from cpp.Star<K2Node_Variable> to cpp.Star<K2Node_Variable>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_Variable): K2Node_VariablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_Variable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

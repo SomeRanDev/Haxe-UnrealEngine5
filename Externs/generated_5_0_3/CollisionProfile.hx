@@ -28,3 +28,22 @@ abstract ConstCollisionProfile(CollisionProfile) from CollisionProfile {
 	public extern var CollisionChannelRedirects(get, never): TArray<Redirector>;
 	public inline extern function get_CollisionChannelRedirects(): TArray<Redirector> return this.CollisionChannelRedirects;
 }
+
+@:forward
+@:nativeGen
+@:native("CollisionProfile*")
+abstract CollisionProfilePtr(cpp.Star<CollisionProfile>) from cpp.Star<CollisionProfile> to cpp.Star<CollisionProfile>{
+	@:from
+	public static extern inline function fromValue(v: CollisionProfile): CollisionProfilePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CollisionProfile {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

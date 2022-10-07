@@ -25,3 +25,22 @@ abstract ConstNiagaraStackEditorData(NiagaraStackEditorData) from NiagaraStackEd
 	public extern var DismissedStackIssueIds(get, never): TArray<FString>;
 	public inline extern function get_DismissedStackIssueIds(): TArray<FString> return this.DismissedStackIssueIds;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackEditorData*")
+abstract NiagaraStackEditorDataPtr(cpp.Star<NiagaraStackEditorData>) from cpp.Star<NiagaraStackEditorData> to cpp.Star<NiagaraStackEditorData>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackEditorData): NiagaraStackEditorDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackEditorData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

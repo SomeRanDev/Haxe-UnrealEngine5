@@ -22,3 +22,22 @@ abstract ConstMediaComp(MediaComp) from MediaComp {
 	public extern var MediaPlayer(get, never): cpp.Star<MediaPlayer.ConstMediaPlayer>;
 	public inline extern function get_MediaPlayer(): cpp.Star<MediaPlayer.ConstMediaPlayer> return this.MediaPlayer;
 }
+
+@:forward
+@:nativeGen
+@:native("MediaComp*")
+abstract MediaCompPtr(cpp.Star<MediaComp>) from cpp.Star<MediaComp> to cpp.Star<MediaComp>{
+	@:from
+	public static extern inline function fromValue(v: MediaComp): MediaCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MediaComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

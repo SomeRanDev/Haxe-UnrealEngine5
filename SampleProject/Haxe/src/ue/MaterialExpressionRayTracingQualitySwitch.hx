@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionRayTracingQualitySwitch(MaterialExpressionRayTra
 	public extern var RayTraced(get, never): ExpressionInput;
 	public inline extern function get_RayTraced(): ExpressionInput return this.RayTraced;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionRayTracingQualitySwitch*")
+abstract MaterialExpressionRayTracingQualitySwitchPtr(cpp.Star<MaterialExpressionRayTracingQualitySwitch>) from cpp.Star<MaterialExpressionRayTracingQualitySwitch> to cpp.Star<MaterialExpressionRayTracingQualitySwitch>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionRayTracingQualitySwitch): MaterialExpressionRayTracingQualitySwitchPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionRayTracingQualitySwitch {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

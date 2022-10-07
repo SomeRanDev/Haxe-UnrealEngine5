@@ -61,3 +61,22 @@ abstract ConstAnimClassData(AnimClassData) from AnimClassData {
 	public extern var GraphBlendOptions(get, never): TMap<FName, AnimGraphBlendOptions>;
 	public inline extern function get_GraphBlendOptions(): TMap<FName, AnimGraphBlendOptions> return this.GraphBlendOptions;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimClassData*")
+abstract AnimClassDataPtr(cpp.Star<AnimClassData>) from cpp.Star<AnimClassData> to cpp.Star<AnimClassData>{
+	@:from
+	public static extern inline function fromValue(v: AnimClassData): AnimClassDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimClassData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

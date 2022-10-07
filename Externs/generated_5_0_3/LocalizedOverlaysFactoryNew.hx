@@ -13,3 +13,22 @@ extern class LocalizedOverlaysFactoryNew extends Factory {
 @:nativeGen
 abstract ConstLocalizedOverlaysFactoryNew(LocalizedOverlaysFactoryNew) from LocalizedOverlaysFactoryNew {
 }
+
+@:forward
+@:nativeGen
+@:native("LocalizedOverlaysFactoryNew*")
+abstract LocalizedOverlaysFactoryNewPtr(cpp.Star<LocalizedOverlaysFactoryNew>) from cpp.Star<LocalizedOverlaysFactoryNew> to cpp.Star<LocalizedOverlaysFactoryNew>{
+	@:from
+	public static extern inline function fromValue(v: LocalizedOverlaysFactoryNew): LocalizedOverlaysFactoryNewPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LocalizedOverlaysFactoryNew {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

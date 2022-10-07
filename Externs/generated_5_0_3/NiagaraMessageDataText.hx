@@ -28,3 +28,22 @@ abstract ConstNiagaraMessageDataText(NiagaraMessageDataText) from NiagaraMessage
 	public extern var TopicName(get, never): FName;
 	public inline extern function get_TopicName(): FName return this.TopicName;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraMessageDataText*")
+abstract NiagaraMessageDataTextPtr(cpp.Star<NiagaraMessageDataText>) from cpp.Star<NiagaraMessageDataText> to cpp.Star<NiagaraMessageDataText>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraMessageDataText): NiagaraMessageDataTextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraMessageDataText {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

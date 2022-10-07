@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionDoubleVectorParameter(MaterialExpressionDoubleVe
 	public extern var DefaultValue(get, never): Vector4d;
 	public inline extern function get_DefaultValue(): Vector4d return this.DefaultValue;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionDoubleVectorParameter*")
+abstract MaterialExpressionDoubleVectorParameterPtr(cpp.Star<MaterialExpressionDoubleVectorParameter>) from cpp.Star<MaterialExpressionDoubleVectorParameter> to cpp.Star<MaterialExpressionDoubleVectorParameter>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionDoubleVectorParameter): MaterialExpressionDoubleVectorParameterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionDoubleVectorParameter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class ClothingAssetFactory extends ClothingAssetFactoryBase {
 @:nativeGen
 abstract ConstClothingAssetFactory(ClothingAssetFactory) from ClothingAssetFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("ClothingAssetFactory*")
+abstract ClothingAssetFactoryPtr(cpp.Star<ClothingAssetFactory>) from cpp.Star<ClothingAssetFactory> to cpp.Star<ClothingAssetFactory>{
+	@:from
+	public static extern inline function fromValue(v: ClothingAssetFactory): ClothingAssetFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ClothingAssetFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

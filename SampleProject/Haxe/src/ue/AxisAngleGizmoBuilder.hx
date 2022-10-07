@@ -13,3 +13,22 @@ extern class AxisAngleGizmoBuilder extends InteractiveGizmoBuilder {
 @:nativeGen
 abstract ConstAxisAngleGizmoBuilder(AxisAngleGizmoBuilder) from AxisAngleGizmoBuilder {
 }
+
+@:forward
+@:nativeGen
+@:native("AxisAngleGizmoBuilder*")
+abstract AxisAngleGizmoBuilderPtr(cpp.Star<AxisAngleGizmoBuilder>) from cpp.Star<AxisAngleGizmoBuilder> to cpp.Star<AxisAngleGizmoBuilder>{
+	@:from
+	public static extern inline function fromValue(v: AxisAngleGizmoBuilder): AxisAngleGizmoBuilderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AxisAngleGizmoBuilder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

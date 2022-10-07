@@ -12,3 +12,22 @@ extern class ObjectProperty extends ObjectPropertyBase {
 @:nativeGen
 abstract ConstObjectProperty(ObjectProperty) from ObjectProperty {
 }
+
+@:forward
+@:nativeGen
+@:native("ObjectProperty*")
+abstract ObjectPropertyPtr(cpp.Star<ObjectProperty>) from cpp.Star<ObjectProperty> to cpp.Star<ObjectProperty>{
+	@:from
+	public static extern inline function fromValue(v: ObjectProperty): ObjectPropertyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ObjectProperty {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

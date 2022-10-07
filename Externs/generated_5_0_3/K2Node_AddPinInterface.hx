@@ -12,3 +12,22 @@ extern class K2Node_AddPinInterface extends Interface {
 @:nativeGen
 abstract ConstK2Node_AddPinInterface(K2Node_AddPinInterface) from K2Node_AddPinInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_AddPinInterface*")
+abstract K2Node_AddPinInterfacePtr(cpp.Star<K2Node_AddPinInterface>) from cpp.Star<K2Node_AddPinInterface> to cpp.Star<K2Node_AddPinInterface>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_AddPinInterface): K2Node_AddPinInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_AddPinInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

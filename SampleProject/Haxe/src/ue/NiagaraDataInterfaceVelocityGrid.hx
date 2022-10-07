@@ -16,3 +16,22 @@ abstract ConstNiagaraDataInterfaceVelocityGrid(NiagaraDataInterfaceVelocityGrid)
 	public extern var GridSize(get, never): IntVector;
 	public inline extern function get_GridSize(): IntVector return this.GridSize;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceVelocityGrid*")
+abstract NiagaraDataInterfaceVelocityGridPtr(cpp.Star<NiagaraDataInterfaceVelocityGrid>) from cpp.Star<NiagaraDataInterfaceVelocityGrid> to cpp.Star<NiagaraDataInterfaceVelocityGrid>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceVelocityGrid): NiagaraDataInterfaceVelocityGridPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceVelocityGrid {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

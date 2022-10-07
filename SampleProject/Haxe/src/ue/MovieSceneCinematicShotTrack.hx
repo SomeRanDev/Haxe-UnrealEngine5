@@ -13,3 +13,22 @@ extern class MovieSceneCinematicShotTrack extends MovieSceneSubTrack {
 @:nativeGen
 abstract ConstMovieSceneCinematicShotTrack(MovieSceneCinematicShotTrack) from MovieSceneCinematicShotTrack {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneCinematicShotTrack*")
+abstract MovieSceneCinematicShotTrackPtr(cpp.Star<MovieSceneCinematicShotTrack>) from cpp.Star<MovieSceneCinematicShotTrack> to cpp.Star<MovieSceneCinematicShotTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneCinematicShotTrack): MovieSceneCinematicShotTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneCinematicShotTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

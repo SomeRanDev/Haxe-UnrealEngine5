@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionTangent(MaterialExpressionTangent) from Material
 	public extern var Period(get, never): cpp.Float32;
 	public inline extern function get_Period(): cpp.Float32 return this.Period;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionTangent*")
+abstract MaterialExpressionTangentPtr(cpp.Star<MaterialExpressionTangent>) from cpp.Star<MaterialExpressionTangent> to cpp.Star<MaterialExpressionTangent>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionTangent): MaterialExpressionTangentPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionTangent {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstNiagaraParameterDefinitionsBase(NiagaraParameterDefinitionsBase) f
 	public extern var UniqueId(get, never): Guid;
 	public inline extern function get_UniqueId(): Guid return this.UniqueId;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraParameterDefinitionsBase*")
+abstract NiagaraParameterDefinitionsBasePtr(cpp.Star<NiagaraParameterDefinitionsBase>) from cpp.Star<NiagaraParameterDefinitionsBase> to cpp.Star<NiagaraParameterDefinitionsBase>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraParameterDefinitionsBase): NiagaraParameterDefinitionsBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraParameterDefinitionsBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

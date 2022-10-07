@@ -34,3 +34,22 @@ abstract ConstGameplayTasksComp(GameplayTasksComp) from GameplayTasksComp {
 	public extern var OnClaimedResourcesChange(get, never): HaxeMulticastSparseDelegateProperty<(GameplayResourceSet, GameplayResourceSet) -> Void>;
 	public inline extern function get_OnClaimedResourcesChange(): HaxeMulticastSparseDelegateProperty<(GameplayResourceSet, GameplayResourceSet) -> Void> return this.OnClaimedResourcesChange;
 }
+
+@:forward
+@:nativeGen
+@:native("GameplayTasksComp*")
+abstract GameplayTasksCompPtr(cpp.Star<GameplayTasksComp>) from cpp.Star<GameplayTasksComp> to cpp.Star<GameplayTasksComp>{
+	@:from
+	public static extern inline function fromValue(v: GameplayTasksComp): GameplayTasksCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameplayTasksComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

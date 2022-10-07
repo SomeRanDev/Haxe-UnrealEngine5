@@ -19,3 +19,22 @@ abstract ConstGroomActor(GroomActor) from GroomActor {
 	public extern var SpriteComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
 	public inline extern function get_SpriteComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("GroomActor*")
+abstract GroomActorPtr(cpp.Star<GroomActor>) from cpp.Star<GroomActor> to cpp.Star<GroomActor>{
+	@:from
+	public static extern inline function fromValue(v: GroomActor): GroomActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GroomActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

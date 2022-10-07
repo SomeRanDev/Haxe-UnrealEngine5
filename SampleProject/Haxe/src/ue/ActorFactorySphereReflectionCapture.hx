@@ -13,3 +13,22 @@ extern class ActorFactorySphereReflectionCapture extends ActorFactory {
 @:nativeGen
 abstract ConstActorFactorySphereReflectionCapture(ActorFactorySphereReflectionCapture) from ActorFactorySphereReflectionCapture {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorFactorySphereReflectionCapture*")
+abstract ActorFactorySphereReflectionCapturePtr(cpp.Star<ActorFactorySphereReflectionCapture>) from cpp.Star<ActorFactorySphereReflectionCapture> to cpp.Star<ActorFactorySphereReflectionCapture>{
+	@:from
+	public static extern inline function fromValue(v: ActorFactorySphereReflectionCapture): ActorFactorySphereReflectionCapturePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorFactorySphereReflectionCapture {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -43,3 +43,22 @@ abstract ConstControlRigNumericalValidationPass(ControlRigNumericalValidationPas
 	public extern var Pose(get, never): RigPose;
 	public inline extern function get_Pose(): RigPose return this.Pose;
 }
+
+@:forward
+@:nativeGen
+@:native("ControlRigNumericalValidationPass*")
+abstract ControlRigNumericalValidationPassPtr(cpp.Star<ControlRigNumericalValidationPass>) from cpp.Star<ControlRigNumericalValidationPass> to cpp.Star<ControlRigNumericalValidationPass>{
+	@:from
+	public static extern inline function fromValue(v: ControlRigNumericalValidationPass): ControlRigNumericalValidationPassPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ControlRigNumericalValidationPass {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

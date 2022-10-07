@@ -12,3 +12,22 @@ extern class TextProperty extends Property {
 @:nativeGen
 abstract ConstTextProperty(TextProperty) from TextProperty {
 }
+
+@:forward
+@:nativeGen
+@:native("TextProperty*")
+abstract TextPropertyPtr(cpp.Star<TextProperty>) from cpp.Star<TextProperty> to cpp.Star<TextProperty>{
+	@:from
+	public static extern inline function fromValue(v: TextProperty): TextPropertyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextProperty {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

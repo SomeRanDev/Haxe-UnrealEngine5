@@ -19,3 +19,22 @@ abstract ConstProceduralFoliageTile(ProceduralFoliageTile) from ProceduralFoliag
 	public extern var InstancesArray(get, never): TArray<ProceduralFoliageInstance>;
 	public inline extern function get_InstancesArray(): TArray<ProceduralFoliageInstance> return this.InstancesArray;
 }
+
+@:forward
+@:nativeGen
+@:native("ProceduralFoliageTile*")
+abstract ProceduralFoliageTilePtr(cpp.Star<ProceduralFoliageTile>) from cpp.Star<ProceduralFoliageTile> to cpp.Star<ProceduralFoliageTile>{
+	@:from
+	public static extern inline function fromValue(v: ProceduralFoliageTile): ProceduralFoliageTilePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ProceduralFoliageTile {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

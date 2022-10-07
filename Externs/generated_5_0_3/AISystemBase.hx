@@ -22,3 +22,22 @@ abstract ConstAISystemBase(AISystemBase) from AISystemBase {
 	public extern var bInstantiateAISystemOnClient(get, never): Bool;
 	public inline extern function get_bInstantiateAISystemOnClient(): Bool return this.bInstantiateAISystemOnClient;
 }
+
+@:forward
+@:nativeGen
+@:native("AISystemBase*")
+abstract AISystemBasePtr(cpp.Star<AISystemBase>) from cpp.Star<AISystemBase> to cpp.Star<AISystemBase>{
+	@:from
+	public static extern inline function fromValue(v: AISystemBase): AISystemBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AISystemBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstPaperTerrainMaterial(PaperTerrainMaterial) from PaperTerrainMateri
 	public extern var InteriorFill(get, never): cpp.Star<PaperSprite.ConstPaperSprite>;
 	public inline extern function get_InteriorFill(): cpp.Star<PaperSprite.ConstPaperSprite> return this.InteriorFill;
 }
+
+@:forward
+@:nativeGen
+@:native("PaperTerrainMaterial*")
+abstract PaperTerrainMaterialPtr(cpp.Star<PaperTerrainMaterial>) from cpp.Star<PaperTerrainMaterial> to cpp.Star<PaperTerrainMaterial>{
+	@:from
+	public static extern inline function fromValue(v: PaperTerrainMaterial): PaperTerrainMaterialPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PaperTerrainMaterial {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

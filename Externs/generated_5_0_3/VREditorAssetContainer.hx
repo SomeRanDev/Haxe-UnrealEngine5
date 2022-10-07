@@ -142,3 +142,22 @@ abstract ConstVREditorAssetContainer(VREditorAssetContainer) from VREditorAssetC
 	public extern var TextFont(get, never): cpp.Star<Font.ConstFont>;
 	public inline extern function get_TextFont(): cpp.Star<Font.ConstFont> return this.TextFont;
 }
+
+@:forward
+@:nativeGen
+@:native("VREditorAssetContainer*")
+abstract VREditorAssetContainerPtr(cpp.Star<VREditorAssetContainer>) from cpp.Star<VREditorAssetContainer> to cpp.Star<VREditorAssetContainer>{
+	@:from
+	public static extern inline function fromValue(v: VREditorAssetContainer): VREditorAssetContainerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VREditorAssetContainer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

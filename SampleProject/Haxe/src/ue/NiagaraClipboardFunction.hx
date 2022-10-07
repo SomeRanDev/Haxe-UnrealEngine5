@@ -45,3 +45,22 @@ abstract ConstNiagaraClipboardFunction(NiagaraClipboardFunction) from NiagaraCli
 	public extern var Messages(get, never): TArray<NiagaraStackMessage>;
 	public inline extern function get_Messages(): TArray<NiagaraStackMessage> return this.Messages;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraClipboardFunction*")
+abstract NiagaraClipboardFunctionPtr(cpp.Star<NiagaraClipboardFunction>) from cpp.Star<NiagaraClipboardFunction> to cpp.Star<NiagaraClipboardFunction>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraClipboardFunction): NiagaraClipboardFunctionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraClipboardFunction {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

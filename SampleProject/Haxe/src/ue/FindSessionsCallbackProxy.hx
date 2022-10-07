@@ -25,3 +25,22 @@ abstract ConstFindSessionsCallbackProxy(FindSessionsCallbackProxy) from FindSess
 	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<BlueprintSessionResult>>) -> Void>;
 	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<BlueprintSessionResult>>) -> Void> return this.OnFailure;
 }
+
+@:forward
+@:nativeGen
+@:native("FindSessionsCallbackProxy*")
+abstract FindSessionsCallbackProxyPtr(cpp.Star<FindSessionsCallbackProxy>) from cpp.Star<FindSessionsCallbackProxy> to cpp.Star<FindSessionsCallbackProxy>{
+	@:from
+	public static extern inline function fromValue(v: FindSessionsCallbackProxy): FindSessionsCallbackProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FindSessionsCallbackProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

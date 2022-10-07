@@ -22,3 +22,22 @@ abstract ConstK2Node_MacroInstance(K2Node_MacroInstance) from K2Node_MacroInstan
 	public extern var ResolvedWildcardType(get, never): EdGraphPinType;
 	public inline extern function get_ResolvedWildcardType(): EdGraphPinType return this.ResolvedWildcardType;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_MacroInstance*")
+abstract K2Node_MacroInstancePtr(cpp.Star<K2Node_MacroInstance>) from cpp.Star<K2Node_MacroInstance> to cpp.Star<K2Node_MacroInstance>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_MacroInstance): K2Node_MacroInstancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_MacroInstance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

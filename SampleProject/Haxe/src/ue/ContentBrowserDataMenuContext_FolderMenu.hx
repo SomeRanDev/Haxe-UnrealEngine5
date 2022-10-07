@@ -19,3 +19,22 @@ abstract ConstContentBrowserDataMenuContext_FolderMenu(ContentBrowserDataMenuCon
 	public extern var bCanBeModified(get, never): Bool;
 	public inline extern function get_bCanBeModified(): Bool return this.bCanBeModified;
 }
+
+@:forward
+@:nativeGen
+@:native("ContentBrowserDataMenuContext_FolderMenu*")
+abstract ContentBrowserDataMenuContext_FolderMenuPtr(cpp.Star<ContentBrowserDataMenuContext_FolderMenu>) from cpp.Star<ContentBrowserDataMenuContext_FolderMenu> to cpp.Star<ContentBrowserDataMenuContext_FolderMenu>{
+	@:from
+	public static extern inline function fromValue(v: ContentBrowserDataMenuContext_FolderMenu): ContentBrowserDataMenuContext_FolderMenuPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ContentBrowserDataMenuContext_FolderMenu {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

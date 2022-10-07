@@ -22,3 +22,22 @@ abstract ConstBehaviorTreeGraphNode(BehaviorTreeGraphNode) from BehaviorTreeGrap
 	public extern var bInjectedNode(get, never): Bool;
 	public inline extern function get_bInjectedNode(): Bool return this.bInjectedNode;
 }
+
+@:forward
+@:nativeGen
+@:native("BehaviorTreeGraphNode*")
+abstract BehaviorTreeGraphNodePtr(cpp.Star<BehaviorTreeGraphNode>) from cpp.Star<BehaviorTreeGraphNode> to cpp.Star<BehaviorTreeGraphNode>{
+	@:from
+	public static extern inline function fromValue(v: BehaviorTreeGraphNode): BehaviorTreeGraphNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BehaviorTreeGraphNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

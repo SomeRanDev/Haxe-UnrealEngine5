@@ -13,3 +13,22 @@ extern class ReporterBase extends Object {
 @:nativeGen
 abstract ConstReporterBase(ReporterBase) from ReporterBase {
 }
+
+@:forward
+@:nativeGen
+@:native("ReporterBase*")
+abstract ReporterBasePtr(cpp.Star<ReporterBase>) from cpp.Star<ReporterBase> to cpp.Star<ReporterBase>{
+	@:from
+	public static extern inline function fromValue(v: ReporterBase): ReporterBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ReporterBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

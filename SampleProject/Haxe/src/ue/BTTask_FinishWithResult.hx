@@ -16,3 +16,22 @@ abstract ConstBTTask_FinishWithResult(BTTask_FinishWithResult) from BTTask_Finis
 	public extern var Result(get, never): EBTNodeResult;
 	public inline extern function get_Result(): EBTNodeResult return this.Result;
 }
+
+@:forward
+@:nativeGen
+@:native("BTTask_FinishWithResult*")
+abstract BTTask_FinishWithResultPtr(cpp.Star<BTTask_FinishWithResult>) from cpp.Star<BTTask_FinishWithResult> to cpp.Star<BTTask_FinishWithResult>{
+	@:from
+	public static extern inline function fromValue(v: BTTask_FinishWithResult): BTTask_FinishWithResultPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTTask_FinishWithResult {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

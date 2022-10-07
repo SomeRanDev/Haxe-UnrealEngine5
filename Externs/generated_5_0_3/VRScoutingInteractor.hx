@@ -20,3 +20,22 @@ abstract ConstVRScoutingInteractor(VRScoutingInteractor) from VRScoutingInteract
 	public extern var FlyingIndicatorComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
 	public inline extern function get_FlyingIndicatorComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.FlyingIndicatorComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("VRScoutingInteractor*")
+abstract VRScoutingInteractorPtr(cpp.Star<VRScoutingInteractor>) from cpp.Star<VRScoutingInteractor> to cpp.Star<VRScoutingInteractor>{
+	@:from
+	public static extern inline function fromValue(v: VRScoutingInteractor): VRScoutingInteractorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VRScoutingInteractor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

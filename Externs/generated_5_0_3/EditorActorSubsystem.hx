@@ -66,3 +66,22 @@ abstract ConstEditorActorSubsystem(EditorActorSubsystem) from EditorActorSubsyst
 	public extern var OnDeleteActorsEnd(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnDeleteActorsEnd(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnDeleteActorsEnd;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorActorSubsystem*")
+abstract EditorActorSubsystemPtr(cpp.Star<EditorActorSubsystem>) from cpp.Star<EditorActorSubsystem> to cpp.Star<EditorActorSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: EditorActorSubsystem): EditorActorSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorActorSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

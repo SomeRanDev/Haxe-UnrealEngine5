@@ -12,3 +12,22 @@ extern class MovementModeChangedSignature__PythonCallable extends PythonCallable
 @:nativeGen
 abstract ConstMovementModeChangedSignature__PythonCallable(MovementModeChangedSignature__PythonCallable) from MovementModeChangedSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("MovementModeChangedSignature__PythonCallable*")
+abstract MovementModeChangedSignature__PythonCallablePtr(cpp.Star<MovementModeChangedSignature__PythonCallable>) from cpp.Star<MovementModeChangedSignature__PythonCallable> to cpp.Star<MovementModeChangedSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: MovementModeChangedSignature__PythonCallable): MovementModeChangedSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovementModeChangedSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

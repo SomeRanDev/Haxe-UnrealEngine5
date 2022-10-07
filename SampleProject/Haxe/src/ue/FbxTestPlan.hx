@@ -31,3 +31,22 @@ abstract ConstFbxTestPlan(FbxTestPlan) from FbxTestPlan {
 	public extern var ImportUI(get, never): cpp.Star<FbxImportUI.ConstFbxImportUI>;
 	public inline extern function get_ImportUI(): cpp.Star<FbxImportUI.ConstFbxImportUI> return this.ImportUI;
 }
+
+@:forward
+@:nativeGen
+@:native("FbxTestPlan*")
+abstract FbxTestPlanPtr(cpp.Star<FbxTestPlan>) from cpp.Star<FbxTestPlan> to cpp.Star<FbxTestPlan>{
+	@:from
+	public static extern inline function fromValue(v: FbxTestPlan): FbxTestPlanPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FbxTestPlan {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

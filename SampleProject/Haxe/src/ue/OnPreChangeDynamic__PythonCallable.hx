@@ -12,3 +12,22 @@ extern class OnPreChangeDynamic__PythonCallable extends PythonCallableForDelegat
 @:nativeGen
 abstract ConstOnPreChangeDynamic__PythonCallable(OnPreChangeDynamic__PythonCallable) from OnPreChangeDynamic__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnPreChangeDynamic__PythonCallable*")
+abstract OnPreChangeDynamic__PythonCallablePtr(cpp.Star<OnPreChangeDynamic__PythonCallable>) from cpp.Star<OnPreChangeDynamic__PythonCallable> to cpp.Star<OnPreChangeDynamic__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnPreChangeDynamic__PythonCallable): OnPreChangeDynamic__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnPreChangeDynamic__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

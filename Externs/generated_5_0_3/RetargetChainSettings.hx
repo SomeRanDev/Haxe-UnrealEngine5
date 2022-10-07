@@ -55,3 +55,22 @@ abstract ConstRetargetChainSettings(RetargetChainSettings) from RetargetChainSet
 	public extern var VelocityThreshold(get, never): cpp.Float32;
 	public inline extern function get_VelocityThreshold(): cpp.Float32 return this.VelocityThreshold;
 }
+
+@:forward
+@:nativeGen
+@:native("RetargetChainSettings*")
+abstract RetargetChainSettingsPtr(cpp.Star<RetargetChainSettings>) from cpp.Star<RetargetChainSettings> to cpp.Star<RetargetChainSettings>{
+	@:from
+	public static extern inline function fromValue(v: RetargetChainSettings): RetargetChainSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RetargetChainSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

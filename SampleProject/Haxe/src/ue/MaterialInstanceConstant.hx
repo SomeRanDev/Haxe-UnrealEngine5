@@ -23,3 +23,22 @@ abstract ConstMaterialInstanceConstant(MaterialInstanceConstant) from MaterialIn
 	public extern var PhysMaterialMask(get, never): cpp.Star<PhysicalMaterialMask.ConstPhysicalMaterialMask>;
 	public inline extern function get_PhysMaterialMask(): cpp.Star<PhysicalMaterialMask.ConstPhysicalMaterialMask> return this.PhysMaterialMask;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialInstanceConstant*")
+abstract MaterialInstanceConstantPtr(cpp.Star<MaterialInstanceConstant>) from cpp.Star<MaterialInstanceConstant> to cpp.Star<MaterialInstanceConstant>{
+	@:from
+	public static extern inline function fromValue(v: MaterialInstanceConstant): MaterialInstanceConstantPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialInstanceConstant {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

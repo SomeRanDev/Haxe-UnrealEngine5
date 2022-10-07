@@ -13,3 +13,22 @@ extern class MaterialExpressionObjectOrientation extends MaterialExpression {
 @:nativeGen
 abstract ConstMaterialExpressionObjectOrientation(MaterialExpressionObjectOrientation) from MaterialExpressionObjectOrientation {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionObjectOrientation*")
+abstract MaterialExpressionObjectOrientationPtr(cpp.Star<MaterialExpressionObjectOrientation>) from cpp.Star<MaterialExpressionObjectOrientation> to cpp.Star<MaterialExpressionObjectOrientation>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionObjectOrientation): MaterialExpressionObjectOrientationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionObjectOrientation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

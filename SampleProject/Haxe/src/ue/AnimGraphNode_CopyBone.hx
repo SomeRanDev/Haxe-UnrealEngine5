@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_CopyBone(AnimGraphNode_CopyBone) from AnimGraphNode_
 	public extern var Node(get, never): AnimNode_CopyBone;
 	public inline extern function get_Node(): AnimNode_CopyBone return this.Node;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_CopyBone*")
+abstract AnimGraphNode_CopyBonePtr(cpp.Star<AnimGraphNode_CopyBone>) from cpp.Star<AnimGraphNode_CopyBone> to cpp.Star<AnimGraphNode_CopyBone>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_CopyBone): AnimGraphNode_CopyBonePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_CopyBone {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

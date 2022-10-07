@@ -16,3 +16,22 @@ abstract ConstSlateWidgetStyleAssetFactory(SlateWidgetStyleAssetFactory) from Sl
 	public extern var StyleType(get, never): TSubclassOf<SlateWidgetStyleContainerBase.ConstSlateWidgetStyleContainerBase>;
 	public inline extern function get_StyleType(): TSubclassOf<SlateWidgetStyleContainerBase.ConstSlateWidgetStyleContainerBase> return this.StyleType;
 }
+
+@:forward
+@:nativeGen
+@:native("SlateWidgetStyleAssetFactory*")
+abstract SlateWidgetStyleAssetFactoryPtr(cpp.Star<SlateWidgetStyleAssetFactory>) from cpp.Star<SlateWidgetStyleAssetFactory> to cpp.Star<SlateWidgetStyleAssetFactory>{
+	@:from
+	public static extern inline function fromValue(v: SlateWidgetStyleAssetFactory): SlateWidgetStyleAssetFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SlateWidgetStyleAssetFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

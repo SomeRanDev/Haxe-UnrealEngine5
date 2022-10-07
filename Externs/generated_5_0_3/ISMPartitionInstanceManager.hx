@@ -12,3 +12,22 @@ extern class ISMPartitionInstanceManager extends Interface {
 @:nativeGen
 abstract ConstISMPartitionInstanceManager(ISMPartitionInstanceManager) from ISMPartitionInstanceManager {
 }
+
+@:forward
+@:nativeGen
+@:native("ISMPartitionInstanceManager*")
+abstract ISMPartitionInstanceManagerPtr(cpp.Star<ISMPartitionInstanceManager>) from cpp.Star<ISMPartitionInstanceManager> to cpp.Star<ISMPartitionInstanceManager>{
+	@:from
+	public static extern inline function fromValue(v: ISMPartitionInstanceManager): ISMPartitionInstanceManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ISMPartitionInstanceManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

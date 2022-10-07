@@ -13,3 +13,22 @@ extern class WorldPartitionChangelistValidator extends EditorValidatorBase {
 @:nativeGen
 abstract ConstWorldPartitionChangelistValidator(WorldPartitionChangelistValidator) from WorldPartitionChangelistValidator {
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionChangelistValidator*")
+abstract WorldPartitionChangelistValidatorPtr(cpp.Star<WorldPartitionChangelistValidator>) from cpp.Star<WorldPartitionChangelistValidator> to cpp.Star<WorldPartitionChangelistValidator>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionChangelistValidator): WorldPartitionChangelistValidatorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionChangelistValidator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

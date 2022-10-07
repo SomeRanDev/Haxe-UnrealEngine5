@@ -15,3 +15,22 @@ extern class AnimationDataModelNotifiesExtensions extends BlueprintFunctionLibra
 @:nativeGen
 abstract ConstAnimationDataModelNotifiesExtensions(AnimationDataModelNotifiesExtensions) from AnimationDataModelNotifiesExtensions {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationDataModelNotifiesExtensions*")
+abstract AnimationDataModelNotifiesExtensionsPtr(cpp.Star<AnimationDataModelNotifiesExtensions>) from cpp.Star<AnimationDataModelNotifiesExtensions> to cpp.Star<AnimationDataModelNotifiesExtensions>{
+	@:from
+	public static extern inline function fromValue(v: AnimationDataModelNotifiesExtensions): AnimationDataModelNotifiesExtensionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationDataModelNotifiesExtensions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

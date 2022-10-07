@@ -76,3 +76,22 @@ abstract ConstARTrackableNotifyComp(ARTrackableNotifyComp) from ARTrackableNotif
 	public extern var OnRemoveTrackedObject(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedObject.ConstARTrackedObject>) -> Void>;
 	public inline extern function get_OnRemoveTrackedObject(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedObject.ConstARTrackedObject>) -> Void> return this.OnRemoveTrackedObject;
 }
+
+@:forward
+@:nativeGen
+@:native("ARTrackableNotifyComp*")
+abstract ARTrackableNotifyCompPtr(cpp.Star<ARTrackableNotifyComp>) from cpp.Star<ARTrackableNotifyComp> to cpp.Star<ARTrackableNotifyComp>{
+	@:from
+	public static extern inline function fromValue(v: ARTrackableNotifyComp): ARTrackableNotifyCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARTrackableNotifyComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

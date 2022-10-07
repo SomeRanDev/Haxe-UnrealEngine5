@@ -27,3 +27,22 @@ abstract ConstInputComp(InputComp) from InputComp {
 	public extern var CachedKeyToActionInfo(get, never): TArray<CachedKeyToActionInfo>;
 	public inline extern function get_CachedKeyToActionInfo(): TArray<CachedKeyToActionInfo> return this.CachedKeyToActionInfo;
 }
+
+@:forward
+@:nativeGen
+@:native("InputComp*")
+abstract InputCompPtr(cpp.Star<InputComp>) from cpp.Star<InputComp> to cpp.Star<InputComp>{
+	@:from
+	public static extern inline function fromValue(v: InputComp): InputCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InputComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

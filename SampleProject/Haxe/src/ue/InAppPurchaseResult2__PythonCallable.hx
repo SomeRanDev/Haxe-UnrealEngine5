@@ -12,3 +12,22 @@ extern class InAppPurchaseResult2__PythonCallable extends PythonCallableForDeleg
 @:nativeGen
 abstract ConstInAppPurchaseResult2__PythonCallable(InAppPurchaseResult2__PythonCallable) from InAppPurchaseResult2__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("InAppPurchaseResult2__PythonCallable*")
+abstract InAppPurchaseResult2__PythonCallablePtr(cpp.Star<InAppPurchaseResult2__PythonCallable>) from cpp.Star<InAppPurchaseResult2__PythonCallable> to cpp.Star<InAppPurchaseResult2__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: InAppPurchaseResult2__PythonCallable): InAppPurchaseResult2__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InAppPurchaseResult2__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

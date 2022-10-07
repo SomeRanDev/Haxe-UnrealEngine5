@@ -12,3 +12,22 @@ extern class OnMediaPlayerMediaEvent__PythonCallable extends PythonCallableForDe
 @:nativeGen
 abstract ConstOnMediaPlayerMediaEvent__PythonCallable(OnMediaPlayerMediaEvent__PythonCallable) from OnMediaPlayerMediaEvent__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnMediaPlayerMediaEvent__PythonCallable*")
+abstract OnMediaPlayerMediaEvent__PythonCallablePtr(cpp.Star<OnMediaPlayerMediaEvent__PythonCallable>) from cpp.Star<OnMediaPlayerMediaEvent__PythonCallable> to cpp.Star<OnMediaPlayerMediaEvent__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnMediaPlayerMediaEvent__PythonCallable): OnMediaPlayerMediaEvent__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnMediaPlayerMediaEvent__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

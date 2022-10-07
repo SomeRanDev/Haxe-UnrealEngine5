@@ -7,7 +7,7 @@ using ue_helpers.StringHelpers; // .TEXT()
 class MyActor extends Actor {
 	// All UE classes are assumed to be value types.
 	// To specify they are pointers, cpp.Star should be used.
-	@:uprop var Root: cpp.Star<SceneComp>;
+	@:uprop var Root: SceneComp.SceneCompPtr;
 
 	// Most Haxe API should work.
 	// No doubt bugs will appear in the future for stuff I haven't tested

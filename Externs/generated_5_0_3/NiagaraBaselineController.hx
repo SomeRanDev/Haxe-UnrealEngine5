@@ -31,3 +31,22 @@ abstract ConstNiagaraBaselineController(NiagaraBaselineController) from NiagaraB
 	public extern var System(get, never): TSoftObjectPtr<NiagaraSystem.ConstNiagaraSystem>;
 	public inline extern function get_System(): TSoftObjectPtr<NiagaraSystem.ConstNiagaraSystem> return this.System;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraBaselineController*")
+abstract NiagaraBaselineControllerPtr(cpp.Star<NiagaraBaselineController>) from cpp.Star<NiagaraBaselineController> to cpp.Star<NiagaraBaselineController>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraBaselineController): NiagaraBaselineControllerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraBaselineController {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

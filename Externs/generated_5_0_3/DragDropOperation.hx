@@ -41,3 +41,22 @@ abstract ConstDragDropOperation(DragDropOperation) from DragDropOperation {
 	public extern var OnDragged(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<DragDropOperation.ConstDragDropOperation>) -> Void>;
 	public inline extern function get_OnDragged(): HaxeMulticastSparseDelegateProperty<(cpp.Star<DragDropOperation.ConstDragDropOperation>) -> Void> return this.OnDragged;
 }
+
+@:forward
+@:nativeGen
+@:native("DragDropOperation*")
+abstract DragDropOperationPtr(cpp.Star<DragDropOperation>) from cpp.Star<DragDropOperation> to cpp.Star<DragDropOperation>{
+	@:from
+	public static extern inline function fromValue(v: DragDropOperation): DragDropOperationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DragDropOperation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

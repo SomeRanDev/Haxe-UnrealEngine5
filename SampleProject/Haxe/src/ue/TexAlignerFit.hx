@@ -13,3 +13,22 @@ extern class TexAlignerFit extends TexAligner {
 @:nativeGen
 abstract ConstTexAlignerFit(TexAlignerFit) from TexAlignerFit {
 }
+
+@:forward
+@:nativeGen
+@:native("TexAlignerFit*")
+abstract TexAlignerFitPtr(cpp.Star<TexAlignerFit>) from cpp.Star<TexAlignerFit> to cpp.Star<TexAlignerFit>{
+	@:from
+	public static extern inline function fromValue(v: TexAlignerFit): TexAlignerFitPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TexAlignerFit {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

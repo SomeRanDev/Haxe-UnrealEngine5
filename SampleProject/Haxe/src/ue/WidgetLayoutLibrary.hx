@@ -35,3 +35,22 @@ extern class WidgetLayoutLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstWidgetLayoutLibrary(WidgetLayoutLibrary) from WidgetLayoutLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("WidgetLayoutLibrary*")
+abstract WidgetLayoutLibraryPtr(cpp.Star<WidgetLayoutLibrary>) from cpp.Star<WidgetLayoutLibrary> to cpp.Star<WidgetLayoutLibrary>{
+	@:from
+	public static extern inline function fromValue(v: WidgetLayoutLibrary): WidgetLayoutLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WidgetLayoutLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

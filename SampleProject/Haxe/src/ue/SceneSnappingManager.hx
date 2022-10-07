@@ -13,3 +13,22 @@ extern class SceneSnappingManager extends Object {
 @:nativeGen
 abstract ConstSceneSnappingManager(SceneSnappingManager) from SceneSnappingManager {
 }
+
+@:forward
+@:nativeGen
+@:native("SceneSnappingManager*")
+abstract SceneSnappingManagerPtr(cpp.Star<SceneSnappingManager>) from cpp.Star<SceneSnappingManager> to cpp.Star<SceneSnappingManager>{
+	@:from
+	public static extern inline function fromValue(v: SceneSnappingManager): SceneSnappingManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SceneSnappingManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

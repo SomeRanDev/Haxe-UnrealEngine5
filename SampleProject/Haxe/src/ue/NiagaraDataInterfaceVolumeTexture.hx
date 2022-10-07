@@ -19,3 +19,22 @@ abstract ConstNiagaraDataInterfaceVolumeTexture(NiagaraDataInterfaceVolumeTextur
 	public extern var TextureUserParameter(get, never): NiagaraUserParameterBinding;
 	public inline extern function get_TextureUserParameter(): NiagaraUserParameterBinding return this.TextureUserParameter;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceVolumeTexture*")
+abstract NiagaraDataInterfaceVolumeTexturePtr(cpp.Star<NiagaraDataInterfaceVolumeTexture>) from cpp.Star<NiagaraDataInterfaceVolumeTexture> to cpp.Star<NiagaraDataInterfaceVolumeTexture>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceVolumeTexture): NiagaraDataInterfaceVolumeTexturePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceVolumeTexture {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

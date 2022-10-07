@@ -34,3 +34,22 @@ abstract ConstSlateVectorArtData(SlateVectorArtData) from SlateVectorArtData {
 	public extern var ExtentMax(get, never): Vector2D;
 	public inline extern function get_ExtentMax(): Vector2D return this.ExtentMax;
 }
+
+@:forward
+@:nativeGen
+@:native("SlateVectorArtData*")
+abstract SlateVectorArtDataPtr(cpp.Star<SlateVectorArtData>) from cpp.Star<SlateVectorArtData> to cpp.Star<SlateVectorArtData>{
+	@:from
+	public static extern inline function fromValue(v: SlateVectorArtData): SlateVectorArtDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SlateVectorArtData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -73,3 +73,22 @@ abstract ConstParticleModuleTypeDataRibbon(ParticleModuleTypeDataRibbon) from Pa
 	public extern var TangentTessellationScalar(get, never): cpp.Float32;
 	public inline extern function get_TangentTessellationScalar(): cpp.Float32 return this.TangentTessellationScalar;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleTypeDataRibbon*")
+abstract ParticleModuleTypeDataRibbonPtr(cpp.Star<ParticleModuleTypeDataRibbon>) from cpp.Star<ParticleModuleTypeDataRibbon> to cpp.Star<ParticleModuleTypeDataRibbon>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleTypeDataRibbon): ParticleModuleTypeDataRibbonPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleTypeDataRibbon {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

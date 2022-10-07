@@ -14,3 +14,22 @@ extern class ChaosSolverEngineBlueprintLibrary extends BlueprintFunctionLibrary 
 @:nativeGen
 abstract ConstChaosSolverEngineBlueprintLibrary(ChaosSolverEngineBlueprintLibrary) from ChaosSolverEngineBlueprintLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("ChaosSolverEngineBlueprintLibrary*")
+abstract ChaosSolverEngineBlueprintLibraryPtr(cpp.Star<ChaosSolverEngineBlueprintLibrary>) from cpp.Star<ChaosSolverEngineBlueprintLibrary> to cpp.Star<ChaosSolverEngineBlueprintLibrary>{
+	@:from
+	public static extern inline function fromValue(v: ChaosSolverEngineBlueprintLibrary): ChaosSolverEngineBlueprintLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ChaosSolverEngineBlueprintLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

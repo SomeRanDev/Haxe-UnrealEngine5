@@ -95,3 +95,22 @@ abstract ConstLightComponentBase(LightComponentBase) from LightComponentBase {
 	public extern var DynamicEditorTextureScale(get, never): cpp.Float32;
 	public inline extern function get_DynamicEditorTextureScale(): cpp.Float32 return this.DynamicEditorTextureScale;
 }
+
+@:forward
+@:nativeGen
+@:native("LightComponentBase*")
+abstract LightComponentBasePtr(cpp.Star<LightComponentBase>) from cpp.Star<LightComponentBase> to cpp.Star<LightComponentBase>{
+	@:from
+	public static extern inline function fromValue(v: LightComponentBase): LightComponentBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LightComponentBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

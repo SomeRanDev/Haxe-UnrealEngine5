@@ -13,3 +13,22 @@ extern class NativeWidgetHost extends Widget {
 @:nativeGen
 abstract ConstNativeWidgetHost(NativeWidgetHost) from NativeWidgetHost {
 }
+
+@:forward
+@:nativeGen
+@:native("NativeWidgetHost*")
+abstract NativeWidgetHostPtr(cpp.Star<NativeWidgetHost>) from cpp.Star<NativeWidgetHost> to cpp.Star<NativeWidgetHost>{
+	@:from
+	public static extern inline function fromValue(v: NativeWidgetHost): NativeWidgetHostPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NativeWidgetHost {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

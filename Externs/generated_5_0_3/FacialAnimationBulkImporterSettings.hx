@@ -22,3 +22,22 @@ abstract ConstFacialAnimationBulkImporterSettings(FacialAnimationBulkImporterSet
 	public extern var CurveNodeName(get, never): FString;
 	public inline extern function get_CurveNodeName(): FString return this.CurveNodeName;
 }
+
+@:forward
+@:nativeGen
+@:native("FacialAnimationBulkImporterSettings*")
+abstract FacialAnimationBulkImporterSettingsPtr(cpp.Star<FacialAnimationBulkImporterSettings>) from cpp.Star<FacialAnimationBulkImporterSettings> to cpp.Star<FacialAnimationBulkImporterSettings>{
+	@:from
+	public static extern inline function fromValue(v: FacialAnimationBulkImporterSettings): FacialAnimationBulkImporterSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FacialAnimationBulkImporterSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

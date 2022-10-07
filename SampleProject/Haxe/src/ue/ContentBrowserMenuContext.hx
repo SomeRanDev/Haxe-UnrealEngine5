@@ -13,3 +13,22 @@ extern class ContentBrowserMenuContext extends Object {
 @:nativeGen
 abstract ConstContentBrowserMenuContext(ContentBrowserMenuContext) from ContentBrowserMenuContext {
 }
+
+@:forward
+@:nativeGen
+@:native("ContentBrowserMenuContext*")
+abstract ContentBrowserMenuContextPtr(cpp.Star<ContentBrowserMenuContext>) from cpp.Star<ContentBrowserMenuContext> to cpp.Star<ContentBrowserMenuContext>{
+	@:from
+	public static extern inline function fromValue(v: ContentBrowserMenuContext): ContentBrowserMenuContextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ContentBrowserMenuContext {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

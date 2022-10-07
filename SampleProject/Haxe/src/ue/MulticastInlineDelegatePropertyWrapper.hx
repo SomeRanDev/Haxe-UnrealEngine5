@@ -12,3 +12,22 @@ extern class MulticastInlineDelegatePropertyWrapper extends MulticastDelegatePro
 @:nativeGen
 abstract ConstMulticastInlineDelegatePropertyWrapper(MulticastInlineDelegatePropertyWrapper) from MulticastInlineDelegatePropertyWrapper {
 }
+
+@:forward
+@:nativeGen
+@:native("MulticastInlineDelegatePropertyWrapper*")
+abstract MulticastInlineDelegatePropertyWrapperPtr(cpp.Star<MulticastInlineDelegatePropertyWrapper>) from cpp.Star<MulticastInlineDelegatePropertyWrapper> to cpp.Star<MulticastInlineDelegatePropertyWrapper>{
+	@:from
+	public static extern inline function fromValue(v: MulticastInlineDelegatePropertyWrapper): MulticastInlineDelegatePropertyWrapperPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MulticastInlineDelegatePropertyWrapper {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

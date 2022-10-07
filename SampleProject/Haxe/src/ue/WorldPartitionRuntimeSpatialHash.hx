@@ -25,3 +25,22 @@ abstract ConstWorldPartitionRuntimeSpatialHash(WorldPartitionRuntimeSpatialHash)
 	public extern var StreamingGrids(get, never): TArray<SpatialHashStreamingGrid>;
 	public inline extern function get_StreamingGrids(): TArray<SpatialHashStreamingGrid> return this.StreamingGrids;
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionRuntimeSpatialHash*")
+abstract WorldPartitionRuntimeSpatialHashPtr(cpp.Star<WorldPartitionRuntimeSpatialHash>) from cpp.Star<WorldPartitionRuntimeSpatialHash> to cpp.Star<WorldPartitionRuntimeSpatialHash>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionRuntimeSpatialHash): WorldPartitionRuntimeSpatialHashPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionRuntimeSpatialHash {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

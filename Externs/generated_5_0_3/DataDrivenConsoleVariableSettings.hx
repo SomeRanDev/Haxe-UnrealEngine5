@@ -16,3 +16,22 @@ abstract ConstDataDrivenConsoleVariableSettings(DataDrivenConsoleVariableSetting
 	public extern var CVarsArray(get, never): TArray<DataDrivenConsoleVariable>;
 	public inline extern function get_CVarsArray(): TArray<DataDrivenConsoleVariable> return this.CVarsArray;
 }
+
+@:forward
+@:nativeGen
+@:native("DataDrivenConsoleVariableSettings*")
+abstract DataDrivenConsoleVariableSettingsPtr(cpp.Star<DataDrivenConsoleVariableSettings>) from cpp.Star<DataDrivenConsoleVariableSettings> to cpp.Star<DataDrivenConsoleVariableSettings>{
+	@:from
+	public static extern inline function fromValue(v: DataDrivenConsoleVariableSettings): DataDrivenConsoleVariableSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DataDrivenConsoleVariableSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstParticleModuleOrbitBase(ParticleModuleOrbitBase) from ParticleModu
 	public extern var bUseEmitterTime(get, never): Bool;
 	public inline extern function get_bUseEmitterTime(): Bool return this.bUseEmitterTime;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleOrbitBase*")
+abstract ParticleModuleOrbitBasePtr(cpp.Star<ParticleModuleOrbitBase>) from cpp.Star<ParticleModuleOrbitBase> to cpp.Star<ParticleModuleOrbitBase>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleOrbitBase): ParticleModuleOrbitBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleOrbitBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

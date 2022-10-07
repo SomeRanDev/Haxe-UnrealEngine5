@@ -13,3 +13,22 @@ extern class AIResource_Logic extends GameplayTaskResource {
 @:nativeGen
 abstract ConstAIResource_Logic(AIResource_Logic) from AIResource_Logic {
 }
+
+@:forward
+@:nativeGen
+@:native("AIResource_Logic*")
+abstract AIResource_LogicPtr(cpp.Star<AIResource_Logic>) from cpp.Star<AIResource_Logic> to cpp.Star<AIResource_Logic>{
+	@:from
+	public static extern inline function fromValue(v: AIResource_Logic): AIResource_LogicPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AIResource_Logic {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

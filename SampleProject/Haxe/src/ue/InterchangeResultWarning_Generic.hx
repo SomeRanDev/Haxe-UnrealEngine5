@@ -16,3 +16,22 @@ abstract ConstInterchangeResultWarning_Generic(InterchangeResultWarning_Generic)
 	public extern var Text(get, never): FText;
 	public inline extern function get_Text(): FText return this.Text;
 }
+
+@:forward
+@:nativeGen
+@:native("InterchangeResultWarning_Generic*")
+abstract InterchangeResultWarning_GenericPtr(cpp.Star<InterchangeResultWarning_Generic>) from cpp.Star<InterchangeResultWarning_Generic> to cpp.Star<InterchangeResultWarning_Generic>{
+	@:from
+	public static extern inline function fromValue(v: InterchangeResultWarning_Generic): InterchangeResultWarning_GenericPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterchangeResultWarning_Generic {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

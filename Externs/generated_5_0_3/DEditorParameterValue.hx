@@ -25,3 +25,22 @@ abstract ConstDEditorParameterValue(DEditorParameterValue) from DEditorParameter
 	public extern var SortPriority(get, never): cpp.Int32;
 	public inline extern function get_SortPriority(): cpp.Int32 return this.SortPriority;
 }
+
+@:forward
+@:nativeGen
+@:native("DEditorParameterValue*")
+abstract DEditorParameterValuePtr(cpp.Star<DEditorParameterValue>) from cpp.Star<DEditorParameterValue> to cpp.Star<DEditorParameterValue>{
+	@:from
+	public static extern inline function fromValue(v: DEditorParameterValue): DEditorParameterValuePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DEditorParameterValue {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

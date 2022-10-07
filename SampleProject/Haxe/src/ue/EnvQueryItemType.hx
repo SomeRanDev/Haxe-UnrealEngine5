@@ -13,3 +13,22 @@ extern class EnvQueryItemType extends Object {
 @:nativeGen
 abstract ConstEnvQueryItemType(EnvQueryItemType) from EnvQueryItemType {
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryItemType*")
+abstract EnvQueryItemTypePtr(cpp.Star<EnvQueryItemType>) from cpp.Star<EnvQueryItemType> to cpp.Star<EnvQueryItemType>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryItemType): EnvQueryItemTypePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryItemType {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

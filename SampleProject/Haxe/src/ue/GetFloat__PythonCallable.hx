@@ -12,3 +12,22 @@ extern class GetFloat__PythonCallable extends PythonCallableForDelegate {
 @:nativeGen
 abstract ConstGetFloat__PythonCallable(GetFloat__PythonCallable) from GetFloat__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("GetFloat__PythonCallable*")
+abstract GetFloat__PythonCallablePtr(cpp.Star<GetFloat__PythonCallable>) from cpp.Star<GetFloat__PythonCallable> to cpp.Star<GetFloat__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: GetFloat__PythonCallable): GetFloat__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GetFloat__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -34,3 +34,22 @@ abstract ConstWorldPartitionEditorSpatialHash(WorldPartitionEditorSpatialHash) f
 	public extern var WorldImageBottomRightW(get, never): Vector2D;
 	public inline extern function get_WorldImageBottomRightW(): Vector2D return this.WorldImageBottomRightW;
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionEditorSpatialHash*")
+abstract WorldPartitionEditorSpatialHashPtr(cpp.Star<WorldPartitionEditorSpatialHash>) from cpp.Star<WorldPartitionEditorSpatialHash> to cpp.Star<WorldPartitionEditorSpatialHash>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionEditorSpatialHash): WorldPartitionEditorSpatialHashPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionEditorSpatialHash {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

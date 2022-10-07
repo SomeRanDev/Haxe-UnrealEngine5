@@ -12,3 +12,22 @@ extern class OnPrimaryAssetClassListLoaded__PythonCallable extends PythonCallabl
 @:nativeGen
 abstract ConstOnPrimaryAssetClassListLoaded__PythonCallable(OnPrimaryAssetClassListLoaded__PythonCallable) from OnPrimaryAssetClassListLoaded__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnPrimaryAssetClassListLoaded__PythonCallable*")
+abstract OnPrimaryAssetClassListLoaded__PythonCallablePtr(cpp.Star<OnPrimaryAssetClassListLoaded__PythonCallable>) from cpp.Star<OnPrimaryAssetClassListLoaded__PythonCallable> to cpp.Star<OnPrimaryAssetClassListLoaded__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnPrimaryAssetClassListLoaded__PythonCallable): OnPrimaryAssetClassListLoaded__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnPrimaryAssetClassListLoaded__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

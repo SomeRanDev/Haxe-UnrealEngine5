@@ -22,3 +22,22 @@ abstract ConstIKRig_BodyMoverEffector(IKRig_BodyMoverEffector) from IKRig_BodyMo
 	public extern var InfluenceMultiplier(get, never): cpp.Float32;
 	public inline extern function get_InfluenceMultiplier(): cpp.Float32 return this.InfluenceMultiplier;
 }
+
+@:forward
+@:nativeGen
+@:native("IKRig_BodyMoverEffector*")
+abstract IKRig_BodyMoverEffectorPtr(cpp.Star<IKRig_BodyMoverEffector>) from cpp.Star<IKRig_BodyMoverEffector> to cpp.Star<IKRig_BodyMoverEffector>{
+	@:from
+	public static extern inline function fromValue(v: IKRig_BodyMoverEffector): IKRig_BodyMoverEffectorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IKRig_BodyMoverEffector {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

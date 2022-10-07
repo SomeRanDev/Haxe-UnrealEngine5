@@ -13,3 +13,22 @@ extern class TextureExporterTGA extends Exporter {
 @:nativeGen
 abstract ConstTextureExporterTGA(TextureExporterTGA) from TextureExporterTGA {
 }
+
+@:forward
+@:nativeGen
+@:native("TextureExporterTGA*")
+abstract TextureExporterTGAPtr(cpp.Star<TextureExporterTGA>) from cpp.Star<TextureExporterTGA> to cpp.Star<TextureExporterTGA>{
+	@:from
+	public static extern inline function fromValue(v: TextureExporterTGA): TextureExporterTGAPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextureExporterTGA {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

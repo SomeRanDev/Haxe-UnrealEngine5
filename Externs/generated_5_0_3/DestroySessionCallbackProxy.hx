@@ -21,3 +21,22 @@ abstract ConstDestroySessionCallbackProxy(DestroySessionCallbackProxy) from Dest
 	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnFailure;
 }
+
+@:forward
+@:nativeGen
+@:native("DestroySessionCallbackProxy*")
+abstract DestroySessionCallbackProxyPtr(cpp.Star<DestroySessionCallbackProxy>) from cpp.Star<DestroySessionCallbackProxy> to cpp.Star<DestroySessionCallbackProxy>{
+	@:from
+	public static extern inline function fromValue(v: DestroySessionCallbackProxy): DestroySessionCallbackProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DestroySessionCallbackProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

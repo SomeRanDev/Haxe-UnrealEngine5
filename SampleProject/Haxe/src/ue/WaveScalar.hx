@@ -33,3 +33,22 @@ abstract ConstWaveScalar(WaveScalar) from WaveScalar {
 	public extern var Falloff(get, never): EFieldFalloffType;
 	public inline extern function get_Falloff(): EFieldFalloffType return this.Falloff;
 }
+
+@:forward
+@:nativeGen
+@:native("WaveScalar*")
+abstract WaveScalarPtr(cpp.Star<WaveScalar>) from cpp.Star<WaveScalar> to cpp.Star<WaveScalar>{
+	@:from
+	public static extern inline function fromValue(v: WaveScalar): WaveScalarPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WaveScalar {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

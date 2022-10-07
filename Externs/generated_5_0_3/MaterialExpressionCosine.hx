@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionCosine(MaterialExpressionCosine) from MaterialEx
 	public extern var Period(get, never): cpp.Float32;
 	public inline extern function get_Period(): cpp.Float32 return this.Period;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionCosine*")
+abstract MaterialExpressionCosinePtr(cpp.Star<MaterialExpressionCosine>) from cpp.Star<MaterialExpressionCosine> to cpp.Star<MaterialExpressionCosine>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionCosine): MaterialExpressionCosinePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionCosine {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

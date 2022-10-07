@@ -13,3 +13,22 @@ extern class ClothSharedSimConfigBase extends Object {
 @:nativeGen
 abstract ConstClothSharedSimConfigBase(ClothSharedSimConfigBase) from ClothSharedSimConfigBase {
 }
+
+@:forward
+@:nativeGen
+@:native("ClothSharedSimConfigBase*")
+abstract ClothSharedSimConfigBasePtr(cpp.Star<ClothSharedSimConfigBase>) from cpp.Star<ClothSharedSimConfigBase> to cpp.Star<ClothSharedSimConfigBase>{
+	@:from
+	public static extern inline function fromValue(v: ClothSharedSimConfigBase): ClothSharedSimConfigBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ClothSharedSimConfigBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

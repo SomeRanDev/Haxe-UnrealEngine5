@@ -13,3 +13,22 @@ extern class CameraBlockingVolume extends Volume {
 @:nativeGen
 abstract ConstCameraBlockingVolume(CameraBlockingVolume) from CameraBlockingVolume {
 }
+
+@:forward
+@:nativeGen
+@:native("CameraBlockingVolume*")
+abstract CameraBlockingVolumePtr(cpp.Star<CameraBlockingVolume>) from cpp.Star<CameraBlockingVolume> to cpp.Star<CameraBlockingVolume>{
+	@:from
+	public static extern inline function fromValue(v: CameraBlockingVolume): CameraBlockingVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CameraBlockingVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class LegacyEdModeSelectInterface extends Interface {
 @:nativeGen
 abstract ConstLegacyEdModeSelectInterface(LegacyEdModeSelectInterface) from LegacyEdModeSelectInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("LegacyEdModeSelectInterface*")
+abstract LegacyEdModeSelectInterfacePtr(cpp.Star<LegacyEdModeSelectInterface>) from cpp.Star<LegacyEdModeSelectInterface> to cpp.Star<LegacyEdModeSelectInterface>{
+	@:from
+	public static extern inline function fromValue(v: LegacyEdModeSelectInterface): LegacyEdModeSelectInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LegacyEdModeSelectInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

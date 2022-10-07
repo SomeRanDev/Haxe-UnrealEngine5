@@ -13,3 +13,22 @@ extern class PopulateDialogueWaveFromCharacterSheetCommandlet extends Commandlet
 @:nativeGen
 abstract ConstPopulateDialogueWaveFromCharacterSheetCommandlet(PopulateDialogueWaveFromCharacterSheetCommandlet) from PopulateDialogueWaveFromCharacterSheetCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("PopulateDialogueWaveFromCharacterSheetCommandlet*")
+abstract PopulateDialogueWaveFromCharacterSheetCommandletPtr(cpp.Star<PopulateDialogueWaveFromCharacterSheetCommandlet>) from cpp.Star<PopulateDialogueWaveFromCharacterSheetCommandlet> to cpp.Star<PopulateDialogueWaveFromCharacterSheetCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: PopulateDialogueWaveFromCharacterSheetCommandlet): PopulateDialogueWaveFromCharacterSheetCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PopulateDialogueWaveFromCharacterSheetCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

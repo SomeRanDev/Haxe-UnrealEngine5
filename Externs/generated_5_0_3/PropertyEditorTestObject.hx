@@ -544,3 +544,22 @@ abstract ConstPropertyEditorTestObject(PropertyEditorTestObject) from PropertyEd
 	public extern var ArrayOfStructsWithInlineCondition(get, never): TArray<PropertyEditorTestEditCondition>;
 	public inline extern function get_ArrayOfStructsWithInlineCondition(): TArray<PropertyEditorTestEditCondition> return this.ArrayOfStructsWithInlineCondition;
 }
+
+@:forward
+@:nativeGen
+@:native("PropertyEditorTestObject*")
+abstract PropertyEditorTestObjectPtr(cpp.Star<PropertyEditorTestObject>) from cpp.Star<PropertyEditorTestObject> to cpp.Star<PropertyEditorTestObject>{
+	@:from
+	public static extern inline function fromValue(v: PropertyEditorTestObject): PropertyEditorTestObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PropertyEditorTestObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

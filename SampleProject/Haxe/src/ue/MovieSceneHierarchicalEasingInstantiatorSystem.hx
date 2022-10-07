@@ -13,3 +13,22 @@ extern class MovieSceneHierarchicalEasingInstantiatorSystem extends MovieSceneEn
 @:nativeGen
 abstract ConstMovieSceneHierarchicalEasingInstantiatorSystem(MovieSceneHierarchicalEasingInstantiatorSystem) from MovieSceneHierarchicalEasingInstantiatorSystem {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneHierarchicalEasingInstantiatorSystem*")
+abstract MovieSceneHierarchicalEasingInstantiatorSystemPtr(cpp.Star<MovieSceneHierarchicalEasingInstantiatorSystem>) from cpp.Star<MovieSceneHierarchicalEasingInstantiatorSystem> to cpp.Star<MovieSceneHierarchicalEasingInstantiatorSystem>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneHierarchicalEasingInstantiatorSystem): MovieSceneHierarchicalEasingInstantiatorSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneHierarchicalEasingInstantiatorSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

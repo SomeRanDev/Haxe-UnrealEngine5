@@ -25,3 +25,22 @@ abstract ConstInterpTrackVisibility(InterpTrackVisibility) from InterpTrackVisib
 	public extern var bFireEventsWhenJumpingForwards(get, never): Bool;
 	public inline extern function get_bFireEventsWhenJumpingForwards(): Bool return this.bFireEventsWhenJumpingForwards;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackVisibility*")
+abstract InterpTrackVisibilityPtr(cpp.Star<InterpTrackVisibility>) from cpp.Star<InterpTrackVisibility> to cpp.Star<InterpTrackVisibility>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackVisibility): InterpTrackVisibilityPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackVisibility {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

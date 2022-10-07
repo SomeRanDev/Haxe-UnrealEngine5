@@ -16,3 +16,22 @@ abstract ConstBandwidthTestActor(BandwidthTestActor) from BandwidthTestActor {
 	public extern var BandwidthGenerator(get, never): BandwidthTestGenerator;
 	public inline extern function get_BandwidthGenerator(): BandwidthTestGenerator return this.BandwidthGenerator;
 }
+
+@:forward
+@:nativeGen
+@:native("BandwidthTestActor*")
+abstract BandwidthTestActorPtr(cpp.Star<BandwidthTestActor>) from cpp.Star<BandwidthTestActor> to cpp.Star<BandwidthTestActor>{
+	@:from
+	public static extern inline function fromValue(v: BandwidthTestActor): BandwidthTestActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BandwidthTestActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -22,3 +22,22 @@ abstract ConstGetGeoLocationAsyncTaskBlueprintProxy(GetGeoLocationAsyncTaskBluep
 	public extern var OnFailed(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32, cpp.Float32, cpp.Float32, FString) -> Void>;
 	public inline extern function get_OnFailed(): HaxeMulticastSparseDelegateProperty<(cpp.Float32, cpp.Float32, cpp.Float32, FString) -> Void> return this.OnFailed;
 }
+
+@:forward
+@:nativeGen
+@:native("GetGeoLocationAsyncTaskBlueprintProxy*")
+abstract GetGeoLocationAsyncTaskBlueprintProxyPtr(cpp.Star<GetGeoLocationAsyncTaskBlueprintProxy>) from cpp.Star<GetGeoLocationAsyncTaskBlueprintProxy> to cpp.Star<GetGeoLocationAsyncTaskBlueprintProxy>{
+	@:from
+	public static extern inline function fromValue(v: GetGeoLocationAsyncTaskBlueprintProxy): GetGeoLocationAsyncTaskBlueprintProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GetGeoLocationAsyncTaskBlueprintProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

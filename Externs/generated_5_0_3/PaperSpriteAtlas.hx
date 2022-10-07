@@ -61,3 +61,22 @@ abstract ConstPaperSpriteAtlas(PaperSpriteAtlas) from PaperSpriteAtlas {
 	public extern var BuiltPadding(get, never): cpp.Int32;
 	public inline extern function get_BuiltPadding(): cpp.Int32 return this.BuiltPadding;
 }
+
+@:forward
+@:nativeGen
+@:native("PaperSpriteAtlas*")
+abstract PaperSpriteAtlasPtr(cpp.Star<PaperSpriteAtlas>) from cpp.Star<PaperSpriteAtlas> to cpp.Star<PaperSpriteAtlas>{
+	@:from
+	public static extern inline function fromValue(v: PaperSpriteAtlas): PaperSpriteAtlasPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PaperSpriteAtlas {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

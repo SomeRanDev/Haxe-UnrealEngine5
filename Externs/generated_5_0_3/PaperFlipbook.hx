@@ -33,3 +33,22 @@ abstract ConstPaperFlipbook(PaperFlipbook) from PaperFlipbook {
 	public extern var CollisionSource(get, never): EFlipbookCollisionMode;
 	public inline extern function get_CollisionSource(): EFlipbookCollisionMode return this.CollisionSource;
 }
+
+@:forward
+@:nativeGen
+@:native("PaperFlipbook*")
+abstract PaperFlipbookPtr(cpp.Star<PaperFlipbook>) from cpp.Star<PaperFlipbook> to cpp.Star<PaperFlipbook>{
+	@:from
+	public static extern inline function fromValue(v: PaperFlipbook): PaperFlipbookPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PaperFlipbook {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

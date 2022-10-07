@@ -28,3 +28,22 @@ abstract ConstWorldPartitionMiniMap(WorldPartitionMiniMap) from WorldPartitionMi
 	public extern var MiniMapTileSize(get, never): cpp.Int32;
 	public inline extern function get_MiniMapTileSize(): cpp.Int32 return this.MiniMapTileSize;
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionMiniMap*")
+abstract WorldPartitionMiniMapPtr(cpp.Star<WorldPartitionMiniMap>) from cpp.Star<WorldPartitionMiniMap> to cpp.Star<WorldPartitionMiniMap>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionMiniMap): WorldPartitionMiniMapPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionMiniMap {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

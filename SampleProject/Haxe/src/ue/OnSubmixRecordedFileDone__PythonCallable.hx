@@ -12,3 +12,22 @@ extern class OnSubmixRecordedFileDone__PythonCallable extends PythonCallableForD
 @:nativeGen
 abstract ConstOnSubmixRecordedFileDone__PythonCallable(OnSubmixRecordedFileDone__PythonCallable) from OnSubmixRecordedFileDone__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnSubmixRecordedFileDone__PythonCallable*")
+abstract OnSubmixRecordedFileDone__PythonCallablePtr(cpp.Star<OnSubmixRecordedFileDone__PythonCallable>) from cpp.Star<OnSubmixRecordedFileDone__PythonCallable> to cpp.Star<OnSubmixRecordedFileDone__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnSubmixRecordedFileDone__PythonCallable): OnSubmixRecordedFileDone__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnSubmixRecordedFileDone__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

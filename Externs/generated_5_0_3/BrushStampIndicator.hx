@@ -58,3 +58,22 @@ abstract ConstBrushStampIndicator(BrushStampIndicator) from BrushStampIndicator 
 	public extern var AttachedComponent(get, never): cpp.Star<PrimitiveComp.ConstPrimitiveComp>;
 	public inline extern function get_AttachedComponent(): cpp.Star<PrimitiveComp.ConstPrimitiveComp> return this.AttachedComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("BrushStampIndicator*")
+abstract BrushStampIndicatorPtr(cpp.Star<BrushStampIndicator>) from cpp.Star<BrushStampIndicator> to cpp.Star<BrushStampIndicator>{
+	@:from
+	public static extern inline function fromValue(v: BrushStampIndicator): BrushStampIndicatorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BrushStampIndicator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

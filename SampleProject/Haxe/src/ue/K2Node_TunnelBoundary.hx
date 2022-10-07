@@ -19,3 +19,22 @@ abstract ConstK2Node_TunnelBoundary(K2Node_TunnelBoundary) from K2Node_TunnelBou
 	public extern var TunnelBoundaryType(get, never): ETunnelBoundaryType;
 	public inline extern function get_TunnelBoundaryType(): ETunnelBoundaryType return this.TunnelBoundaryType;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_TunnelBoundary*")
+abstract K2Node_TunnelBoundaryPtr(cpp.Star<K2Node_TunnelBoundary>) from cpp.Star<K2Node_TunnelBoundary> to cpp.Star<K2Node_TunnelBoundary>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_TunnelBoundary): K2Node_TunnelBoundaryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_TunnelBoundary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class MovieSceneNiagaraSystemTrack extends MovieSceneNiagaraTrack {
 @:nativeGen
 abstract ConstMovieSceneNiagaraSystemTrack(MovieSceneNiagaraSystemTrack) from MovieSceneNiagaraSystemTrack {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneNiagaraSystemTrack*")
+abstract MovieSceneNiagaraSystemTrackPtr(cpp.Star<MovieSceneNiagaraSystemTrack>) from cpp.Star<MovieSceneNiagaraSystemTrack> to cpp.Star<MovieSceneNiagaraSystemTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneNiagaraSystemTrack): MovieSceneNiagaraSystemTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneNiagaraSystemTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

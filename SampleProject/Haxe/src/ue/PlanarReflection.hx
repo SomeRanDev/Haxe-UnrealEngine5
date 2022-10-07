@@ -24,3 +24,22 @@ abstract ConstPlanarReflection(PlanarReflection) from PlanarReflection {
 	public extern var bShowPreviewPlane_DEPRECATED(get, never): Bool;
 	public inline extern function get_bShowPreviewPlane_DEPRECATED(): Bool return this.bShowPreviewPlane_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("PlanarReflection*")
+abstract PlanarReflectionPtr(cpp.Star<PlanarReflection>) from cpp.Star<PlanarReflection> to cpp.Star<PlanarReflection>{
+	@:from
+	public static extern inline function fromValue(v: PlanarReflection): PlanarReflectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PlanarReflection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

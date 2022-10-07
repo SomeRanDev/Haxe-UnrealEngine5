@@ -52,3 +52,22 @@ abstract ConstGameplayTagsSettings(GameplayTagsSettings) from GameplayTagsSettin
 	public extern var RestrictedTagList(get, never): FString;
 	public inline extern function get_RestrictedTagList(): FString return this.RestrictedTagList;
 }
+
+@:forward
+@:nativeGen
+@:native("GameplayTagsSettings*")
+abstract GameplayTagsSettingsPtr(cpp.Star<GameplayTagsSettings>) from cpp.Star<GameplayTagsSettings> to cpp.Star<GameplayTagsSettings>{
+	@:from
+	public static extern inline function fromValue(v: GameplayTagsSettings): GameplayTagsSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameplayTagsSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

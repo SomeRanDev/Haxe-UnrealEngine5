@@ -42,3 +42,22 @@ abstract ConstAIPerceptionComp(AIPerceptionComp) from AIPerceptionComp {
 	public extern var OnTargetPerceptionInfoUpdated(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<ActorPerceptionUpdateInfo>) -> Void>;
 	public inline extern function get_OnTargetPerceptionInfoUpdated(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<ActorPerceptionUpdateInfo>) -> Void> return this.OnTargetPerceptionInfoUpdated;
 }
+
+@:forward
+@:nativeGen
+@:native("AIPerceptionComp*")
+abstract AIPerceptionCompPtr(cpp.Star<AIPerceptionComp>) from cpp.Star<AIPerceptionComp> to cpp.Star<AIPerceptionComp>{
+	@:from
+	public static extern inline function fromValue(v: AIPerceptionComp): AIPerceptionCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AIPerceptionComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

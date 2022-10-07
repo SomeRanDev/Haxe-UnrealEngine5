@@ -13,3 +13,22 @@ extern class MaterialExpressionNamedRerouteBase extends MaterialExpressionRerout
 @:nativeGen
 abstract ConstMaterialExpressionNamedRerouteBase(MaterialExpressionNamedRerouteBase) from MaterialExpressionNamedRerouteBase {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionNamedRerouteBase*")
+abstract MaterialExpressionNamedRerouteBasePtr(cpp.Star<MaterialExpressionNamedRerouteBase>) from cpp.Star<MaterialExpressionNamedRerouteBase> to cpp.Star<MaterialExpressionNamedRerouteBase>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionNamedRerouteBase): MaterialExpressionNamedRerouteBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionNamedRerouteBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

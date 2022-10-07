@@ -27,3 +27,22 @@ abstract ConstVectorFieldComp(VectorFieldComp) from VectorFieldComp {
 	public extern var bPreviewVectorField(get, never): Bool;
 	public inline extern function get_bPreviewVectorField(): Bool return this.bPreviewVectorField;
 }
+
+@:forward
+@:nativeGen
+@:native("VectorFieldComp*")
+abstract VectorFieldCompPtr(cpp.Star<VectorFieldComp>) from cpp.Star<VectorFieldComp> to cpp.Star<VectorFieldComp>{
+	@:from
+	public static extern inline function fromValue(v: VectorFieldComp): VectorFieldCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VectorFieldComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

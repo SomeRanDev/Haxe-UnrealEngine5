@@ -12,3 +12,22 @@ extern class OnEditableTextBoxChangedEvent__PythonCallable extends PythonCallabl
 @:nativeGen
 abstract ConstOnEditableTextBoxChangedEvent__PythonCallable(OnEditableTextBoxChangedEvent__PythonCallable) from OnEditableTextBoxChangedEvent__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnEditableTextBoxChangedEvent__PythonCallable*")
+abstract OnEditableTextBoxChangedEvent__PythonCallablePtr(cpp.Star<OnEditableTextBoxChangedEvent__PythonCallable>) from cpp.Star<OnEditableTextBoxChangedEvent__PythonCallable> to cpp.Star<OnEditableTextBoxChangedEvent__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnEditableTextBoxChangedEvent__PythonCallable): OnEditableTextBoxChangedEvent__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnEditableTextBoxChangedEvent__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

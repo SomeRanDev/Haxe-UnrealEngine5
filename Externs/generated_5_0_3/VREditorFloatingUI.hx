@@ -28,3 +28,22 @@ abstract ConstVREditorFloatingUI(VREditorFloatingUI) from VREditorFloatingUI {
 	public extern var UserWidgetClass(get, never): TSubclassOf<Object.ConstObject>;
 	public inline extern function get_UserWidgetClass(): TSubclassOf<Object.ConstObject> return this.UserWidgetClass;
 }
+
+@:forward
+@:nativeGen
+@:native("VREditorFloatingUI*")
+abstract VREditorFloatingUIPtr(cpp.Star<VREditorFloatingUI>) from cpp.Star<VREditorFloatingUI> to cpp.Star<VREditorFloatingUI>{
+	@:from
+	public static extern inline function fromValue(v: VREditorFloatingUI): VREditorFloatingUIPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VREditorFloatingUI {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

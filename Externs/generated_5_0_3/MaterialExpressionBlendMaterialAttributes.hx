@@ -28,3 +28,22 @@ abstract ConstMaterialExpressionBlendMaterialAttributes(MaterialExpressionBlendM
 	public extern var VertexAttributeBlendType(get, never): EMaterialAttributeBlend;
 	public inline extern function get_VertexAttributeBlendType(): EMaterialAttributeBlend return this.VertexAttributeBlendType;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionBlendMaterialAttributes*")
+abstract MaterialExpressionBlendMaterialAttributesPtr(cpp.Star<MaterialExpressionBlendMaterialAttributes>) from cpp.Star<MaterialExpressionBlendMaterialAttributes> to cpp.Star<MaterialExpressionBlendMaterialAttributes>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionBlendMaterialAttributes): MaterialExpressionBlendMaterialAttributesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionBlendMaterialAttributes {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

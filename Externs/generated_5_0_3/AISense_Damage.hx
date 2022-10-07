@@ -18,3 +18,22 @@ abstract ConstAISense_Damage(AISense_Damage) from AISense_Damage {
 	public extern var RegisteredEvents(get, never): TArray<AIDamageEvent>;
 	public inline extern function get_RegisteredEvents(): TArray<AIDamageEvent> return this.RegisteredEvents;
 }
+
+@:forward
+@:nativeGen
+@:native("AISense_Damage*")
+abstract AISense_DamagePtr(cpp.Star<AISense_Damage>) from cpp.Star<AISense_Damage> to cpp.Star<AISense_Damage>{
+	@:from
+	public static extern inline function fromValue(v: AISense_Damage): AISense_DamagePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AISense_Damage {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

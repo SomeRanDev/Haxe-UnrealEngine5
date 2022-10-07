@@ -12,3 +12,22 @@ extern class OnLevelSequencePlayerCameraCutEvent__PythonCallable extends PythonC
 @:nativeGen
 abstract ConstOnLevelSequencePlayerCameraCutEvent__PythonCallable(OnLevelSequencePlayerCameraCutEvent__PythonCallable) from OnLevelSequencePlayerCameraCutEvent__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnLevelSequencePlayerCameraCutEvent__PythonCallable*")
+abstract OnLevelSequencePlayerCameraCutEvent__PythonCallablePtr(cpp.Star<OnLevelSequencePlayerCameraCutEvent__PythonCallable>) from cpp.Star<OnLevelSequencePlayerCameraCutEvent__PythonCallable> to cpp.Star<OnLevelSequencePlayerCameraCutEvent__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnLevelSequencePlayerCameraCutEvent__PythonCallable): OnLevelSequencePlayerCameraCutEvent__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnLevelSequencePlayerCameraCutEvent__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

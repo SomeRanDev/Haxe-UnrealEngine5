@@ -26,3 +26,22 @@ abstract ConstAssetImportData(AssetImportData) from AssetImportData {
 	public extern var SourceData(get, never): AssetImportInfo;
 	public inline extern function get_SourceData(): AssetImportInfo return this.SourceData;
 }
+
+@:forward
+@:nativeGen
+@:native("AssetImportData*")
+abstract AssetImportDataPtr(cpp.Star<AssetImportData>) from cpp.Star<AssetImportData> to cpp.Star<AssetImportData>{
+	@:from
+	public static extern inline function fromValue(v: AssetImportData): AssetImportDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AssetImportData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

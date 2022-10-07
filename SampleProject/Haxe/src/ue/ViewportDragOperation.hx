@@ -13,3 +13,22 @@ extern class ViewportDragOperation extends Object {
 @:nativeGen
 abstract ConstViewportDragOperation(ViewportDragOperation) from ViewportDragOperation {
 }
+
+@:forward
+@:nativeGen
+@:native("ViewportDragOperation*")
+abstract ViewportDragOperationPtr(cpp.Star<ViewportDragOperation>) from cpp.Star<ViewportDragOperation> to cpp.Star<ViewportDragOperation>{
+	@:from
+	public static extern inline function fromValue(v: ViewportDragOperation): ViewportDragOperationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ViewportDragOperation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

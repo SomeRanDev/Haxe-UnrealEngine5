@@ -31,3 +31,22 @@ extern class MotionTrackedDeviceFunctionLibrary extends BlueprintFunctionLibrary
 @:nativeGen
 abstract ConstMotionTrackedDeviceFunctionLibrary(MotionTrackedDeviceFunctionLibrary) from MotionTrackedDeviceFunctionLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("MotionTrackedDeviceFunctionLibrary*")
+abstract MotionTrackedDeviceFunctionLibraryPtr(cpp.Star<MotionTrackedDeviceFunctionLibrary>) from cpp.Star<MotionTrackedDeviceFunctionLibrary> to cpp.Star<MotionTrackedDeviceFunctionLibrary>{
+	@:from
+	public static extern inline function fromValue(v: MotionTrackedDeviceFunctionLibrary): MotionTrackedDeviceFunctionLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MotionTrackedDeviceFunctionLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

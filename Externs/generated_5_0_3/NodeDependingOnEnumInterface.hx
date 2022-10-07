@@ -12,3 +12,22 @@ extern class NodeDependingOnEnumInterface extends Interface {
 @:nativeGen
 abstract ConstNodeDependingOnEnumInterface(NodeDependingOnEnumInterface) from NodeDependingOnEnumInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("NodeDependingOnEnumInterface*")
+abstract NodeDependingOnEnumInterfacePtr(cpp.Star<NodeDependingOnEnumInterface>) from cpp.Star<NodeDependingOnEnumInterface> to cpp.Star<NodeDependingOnEnumInterface>{
+	@:from
+	public static extern inline function fromValue(v: NodeDependingOnEnumInterface): NodeDependingOnEnumInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NodeDependingOnEnumInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class PhysicsAssetThumbnailRenderer extends DefaultSizedThumbnailRenderer
 @:nativeGen
 abstract ConstPhysicsAssetThumbnailRenderer(PhysicsAssetThumbnailRenderer) from PhysicsAssetThumbnailRenderer {
 }
+
+@:forward
+@:nativeGen
+@:native("PhysicsAssetThumbnailRenderer*")
+abstract PhysicsAssetThumbnailRendererPtr(cpp.Star<PhysicsAssetThumbnailRenderer>) from cpp.Star<PhysicsAssetThumbnailRenderer> to cpp.Star<PhysicsAssetThumbnailRenderer>{
+	@:from
+	public static extern inline function fromValue(v: PhysicsAssetThumbnailRenderer): PhysicsAssetThumbnailRendererPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhysicsAssetThumbnailRenderer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

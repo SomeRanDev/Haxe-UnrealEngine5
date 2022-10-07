@@ -16,3 +16,22 @@ abstract ConstInputAxisDelegateBinding(InputAxisDelegateBinding) from InputAxisD
 	public extern var InputAxisDelegateBindings(get, never): TArray<BlueprintInputAxisDelegateBinding>;
 	public inline extern function get_InputAxisDelegateBindings(): TArray<BlueprintInputAxisDelegateBinding> return this.InputAxisDelegateBindings;
 }
+
+@:forward
+@:nativeGen
+@:native("InputAxisDelegateBinding*")
+abstract InputAxisDelegateBindingPtr(cpp.Star<InputAxisDelegateBinding>) from cpp.Star<InputAxisDelegateBinding> to cpp.Star<InputAxisDelegateBinding>{
+	@:from
+	public static extern inline function fromValue(v: InputAxisDelegateBinding): InputAxisDelegateBindingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InputAxisDelegateBinding {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

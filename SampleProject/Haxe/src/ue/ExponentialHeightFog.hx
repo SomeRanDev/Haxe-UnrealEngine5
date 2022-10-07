@@ -21,3 +21,22 @@ abstract ConstExponentialHeightFog(ExponentialHeightFog) from ExponentialHeightF
 	public extern var bEnabled(get, never): Bool;
 	public inline extern function get_bEnabled(): Bool return this.bEnabled;
 }
+
+@:forward
+@:nativeGen
+@:native("ExponentialHeightFog*")
+abstract ExponentialHeightFogPtr(cpp.Star<ExponentialHeightFog>) from cpp.Star<ExponentialHeightFog> to cpp.Star<ExponentialHeightFog>{
+	@:from
+	public static extern inline function fromValue(v: ExponentialHeightFog): ExponentialHeightFogPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ExponentialHeightFog {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

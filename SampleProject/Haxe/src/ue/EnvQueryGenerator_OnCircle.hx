@@ -49,3 +49,22 @@ abstract ConstEnvQueryGenerator_OnCircle(EnvQueryGenerator_OnCircle) from EnvQue
 	public extern var bDefineArc(get, never): Bool;
 	public inline extern function get_bDefineArc(): Bool return this.bDefineArc;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryGenerator_OnCircle*")
+abstract EnvQueryGenerator_OnCirclePtr(cpp.Star<EnvQueryGenerator_OnCircle>) from cpp.Star<EnvQueryGenerator_OnCircle> to cpp.Star<EnvQueryGenerator_OnCircle>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryGenerator_OnCircle): EnvQueryGenerator_OnCirclePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryGenerator_OnCircle {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

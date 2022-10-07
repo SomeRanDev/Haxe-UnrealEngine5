@@ -70,3 +70,22 @@ abstract ConstLODActor(LODActor) from LODActor {
 	public extern var ProxyDesc(get, never): cpp.Star<HLODProxyDesc.ConstHLODProxyDesc>;
 	public inline extern function get_ProxyDesc(): cpp.Star<HLODProxyDesc.ConstHLODProxyDesc> return this.ProxyDesc;
 }
+
+@:forward
+@:nativeGen
+@:native("LODActor*")
+abstract LODActorPtr(cpp.Star<LODActor>) from cpp.Star<LODActor> to cpp.Star<LODActor>{
+	@:from
+	public static extern inline function fromValue(v: LODActor): LODActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LODActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

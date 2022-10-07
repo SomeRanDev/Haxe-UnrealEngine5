@@ -30,3 +30,22 @@ abstract ConstCrowdFollowingComp(CrowdFollowingComp) from CrowdFollowingComp {
 	public extern var GroupsToIgnore_DEPRECATED(get, never): NavAvoidanceMask;
 	public inline extern function get_GroupsToIgnore_DEPRECATED(): NavAvoidanceMask return this.GroupsToIgnore_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("CrowdFollowingComp*")
+abstract CrowdFollowingCompPtr(cpp.Star<CrowdFollowingComp>) from cpp.Star<CrowdFollowingComp> to cpp.Star<CrowdFollowingComp>{
+	@:from
+	public static extern inline function fromValue(v: CrowdFollowingComp): CrowdFollowingCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CrowdFollowingComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

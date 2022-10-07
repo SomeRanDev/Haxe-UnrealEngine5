@@ -52,3 +52,22 @@ abstract ConstAssetManagerSettings(AssetManagerSettings) from AssetManagerSettin
 	public extern var MetaDataTagsForAssetRegistry(get, never): TSet<FName>;
 	public inline extern function get_MetaDataTagsForAssetRegistry(): TSet<FName> return this.MetaDataTagsForAssetRegistry;
 }
+
+@:forward
+@:nativeGen
+@:native("AssetManagerSettings*")
+abstract AssetManagerSettingsPtr(cpp.Star<AssetManagerSettings>) from cpp.Star<AssetManagerSettings> to cpp.Star<AssetManagerSettings>{
+	@:from
+	public static extern inline function fromValue(v: AssetManagerSettings): AssetManagerSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AssetManagerSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

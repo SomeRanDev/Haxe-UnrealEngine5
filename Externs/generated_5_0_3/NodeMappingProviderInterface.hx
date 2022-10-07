@@ -12,3 +12,22 @@ extern class NodeMappingProviderInterface extends Interface {
 @:nativeGen
 abstract ConstNodeMappingProviderInterface(NodeMappingProviderInterface) from NodeMappingProviderInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("NodeMappingProviderInterface*")
+abstract NodeMappingProviderInterfacePtr(cpp.Star<NodeMappingProviderInterface>) from cpp.Star<NodeMappingProviderInterface> to cpp.Star<NodeMappingProviderInterface>{
+	@:from
+	public static extern inline function fromValue(v: NodeMappingProviderInterface): NodeMappingProviderInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NodeMappingProviderInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

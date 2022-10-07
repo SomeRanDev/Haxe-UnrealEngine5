@@ -25,3 +25,22 @@ abstract ConstMaterialExpressionSingleLayerWaterMaterialOutput(MaterialExpressio
 	public extern var ColorScaleBehindWater(get, never): ExpressionInput;
 	public inline extern function get_ColorScaleBehindWater(): ExpressionInput return this.ColorScaleBehindWater;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionSingleLayerWaterMaterialOutput*")
+abstract MaterialExpressionSingleLayerWaterMaterialOutputPtr(cpp.Star<MaterialExpressionSingleLayerWaterMaterialOutput>) from cpp.Star<MaterialExpressionSingleLayerWaterMaterialOutput> to cpp.Star<MaterialExpressionSingleLayerWaterMaterialOutput>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionSingleLayerWaterMaterialOutput): MaterialExpressionSingleLayerWaterMaterialOutputPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionSingleLayerWaterMaterialOutput {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_PoseSnapshot(AnimGraphNode_PoseSnapshot) from AnimGr
 	public extern var Node(get, never): AnimNode_PoseSnapshot;
 	public inline extern function get_Node(): AnimNode_PoseSnapshot return this.Node;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_PoseSnapshot*")
+abstract AnimGraphNode_PoseSnapshotPtr(cpp.Star<AnimGraphNode_PoseSnapshot>) from cpp.Star<AnimGraphNode_PoseSnapshot> to cpp.Star<AnimGraphNode_PoseSnapshot>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_PoseSnapshot): AnimGraphNode_PoseSnapshotPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_PoseSnapshot {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

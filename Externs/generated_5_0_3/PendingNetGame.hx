@@ -19,3 +19,22 @@ abstract ConstPendingNetGame(PendingNetGame) from PendingNetGame {
 	public extern var DemoNetDriver(get, never): cpp.Star<DemoNetDriver.ConstDemoNetDriver>;
 	public inline extern function get_DemoNetDriver(): cpp.Star<DemoNetDriver.ConstDemoNetDriver> return this.DemoNetDriver;
 }
+
+@:forward
+@:nativeGen
+@:native("PendingNetGame*")
+abstract PendingNetGamePtr(cpp.Star<PendingNetGame>) from cpp.Star<PendingNetGame> to cpp.Star<PendingNetGame>{
+	@:from
+	public static extern inline function fromValue(v: PendingNetGame): PendingNetGamePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PendingNetGame {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

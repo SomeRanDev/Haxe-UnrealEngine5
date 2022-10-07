@@ -18,3 +18,22 @@ extern class TypedElementSelectionSetLibrary extends Object {
 @:nativeGen
 abstract ConstTypedElementSelectionSetLibrary(TypedElementSelectionSetLibrary) from TypedElementSelectionSetLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("TypedElementSelectionSetLibrary*")
+abstract TypedElementSelectionSetLibraryPtr(cpp.Star<TypedElementSelectionSetLibrary>) from cpp.Star<TypedElementSelectionSetLibrary> to cpp.Star<TypedElementSelectionSetLibrary>{
+	@:from
+	public static extern inline function fromValue(v: TypedElementSelectionSetLibrary): TypedElementSelectionSetLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TypedElementSelectionSetLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -40,3 +40,22 @@ abstract ConstParticleModuleCollisionGPU(ParticleModuleCollisionGPU) from Partic
 	public extern var CollisionMode(get, never): EParticleCollisionMode;
 	public inline extern function get_CollisionMode(): EParticleCollisionMode return this.CollisionMode;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleCollisionGPU*")
+abstract ParticleModuleCollisionGPUPtr(cpp.Star<ParticleModuleCollisionGPU>) from cpp.Star<ParticleModuleCollisionGPU> to cpp.Star<ParticleModuleCollisionGPU>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleCollisionGPU): ParticleModuleCollisionGPUPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleCollisionGPU {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

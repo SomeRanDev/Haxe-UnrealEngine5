@@ -12,3 +12,22 @@ extern class MovieSceneEvaluationHook extends Interface {
 @:nativeGen
 abstract ConstMovieSceneEvaluationHook(MovieSceneEvaluationHook) from MovieSceneEvaluationHook {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneEvaluationHook*")
+abstract MovieSceneEvaluationHookPtr(cpp.Star<MovieSceneEvaluationHook>) from cpp.Star<MovieSceneEvaluationHook> to cpp.Star<MovieSceneEvaluationHook>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneEvaluationHook): MovieSceneEvaluationHookPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneEvaluationHook {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

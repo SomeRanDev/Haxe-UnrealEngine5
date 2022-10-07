@@ -16,3 +16,22 @@ abstract ConstAnimBlueprintExtension_NodeRelevancy(AnimBlueprintExtension_NodeRe
 	public extern var Subsystem(get, never): AnimSubsystemInstance_NodeRelevancy;
 	public inline extern function get_Subsystem(): AnimSubsystemInstance_NodeRelevancy return this.Subsystem;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimBlueprintExtension_NodeRelevancy*")
+abstract AnimBlueprintExtension_NodeRelevancyPtr(cpp.Star<AnimBlueprintExtension_NodeRelevancy>) from cpp.Star<AnimBlueprintExtension_NodeRelevancy> to cpp.Star<AnimBlueprintExtension_NodeRelevancy>{
+	@:from
+	public static extern inline function fromValue(v: AnimBlueprintExtension_NodeRelevancy): AnimBlueprintExtension_NodeRelevancyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimBlueprintExtension_NodeRelevancy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -46,3 +46,22 @@ abstract ConstFbxStaticMeshImportData(FbxStaticMeshImportData) from FbxStaticMes
 	public extern var DistanceFieldResolutionScale(get, never): cpp.Float32;
 	public inline extern function get_DistanceFieldResolutionScale(): cpp.Float32 return this.DistanceFieldResolutionScale;
 }
+
+@:forward
+@:nativeGen
+@:native("FbxStaticMeshImportData*")
+abstract FbxStaticMeshImportDataPtr(cpp.Star<FbxStaticMeshImportData>) from cpp.Star<FbxStaticMeshImportData> to cpp.Star<FbxStaticMeshImportData>{
+	@:from
+	public static extern inline function fromValue(v: FbxStaticMeshImportData): FbxStaticMeshImportDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FbxStaticMeshImportData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

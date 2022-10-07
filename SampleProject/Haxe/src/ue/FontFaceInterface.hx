@@ -12,3 +12,22 @@ extern class FontFaceInterface extends Interface {
 @:nativeGen
 abstract ConstFontFaceInterface(FontFaceInterface) from FontFaceInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("FontFaceInterface*")
+abstract FontFaceInterfacePtr(cpp.Star<FontFaceInterface>) from cpp.Star<FontFaceInterface> to cpp.Star<FontFaceInterface>{
+	@:from
+	public static extern inline function fromValue(v: FontFaceInterface): FontFaceInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FontFaceInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -31,3 +31,22 @@ abstract ConstK2Node_Select(K2Node_Select) from K2Node_Select {
 	public extern var bReconstructNode(get, never): Bool;
 	public inline extern function get_bReconstructNode(): Bool return this.bReconstructNode;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_Select*")
+abstract K2Node_SelectPtr(cpp.Star<K2Node_Select>) from cpp.Star<K2Node_Select> to cpp.Star<K2Node_Select>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_Select): K2Node_SelectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_Select {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

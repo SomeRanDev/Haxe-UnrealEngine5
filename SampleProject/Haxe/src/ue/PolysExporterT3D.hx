@@ -13,3 +13,22 @@ extern class PolysExporterT3D extends Exporter {
 @:nativeGen
 abstract ConstPolysExporterT3D(PolysExporterT3D) from PolysExporterT3D {
 }
+
+@:forward
+@:nativeGen
+@:native("PolysExporterT3D*")
+abstract PolysExporterT3DPtr(cpp.Star<PolysExporterT3D>) from cpp.Star<PolysExporterT3D> to cpp.Star<PolysExporterT3D>{
+	@:from
+	public static extern inline function fromValue(v: PolysExporterT3D): PolysExporterT3DPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PolysExporterT3D {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

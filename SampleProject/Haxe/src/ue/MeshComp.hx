@@ -27,3 +27,22 @@ abstract ConstMeshComp(MeshComp) from MeshComp {
 	public extern var bEnableMaterialParameterCaching(get, never): Bool;
 	public inline extern function get_bEnableMaterialParameterCaching(): Bool return this.bEnableMaterialParameterCaching;
 }
+
+@:forward
+@:nativeGen
+@:native("MeshComp*")
+abstract MeshCompPtr(cpp.Star<MeshComp>) from cpp.Star<MeshComp> to cpp.Star<MeshComp>{
+	@:from
+	public static extern inline function fromValue(v: MeshComp): MeshCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MeshComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

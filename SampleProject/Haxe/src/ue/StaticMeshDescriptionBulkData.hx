@@ -13,3 +13,22 @@ extern class StaticMeshDescriptionBulkData extends MeshDescriptionBaseBulkData {
 @:nativeGen
 abstract ConstStaticMeshDescriptionBulkData(StaticMeshDescriptionBulkData) from StaticMeshDescriptionBulkData {
 }
+
+@:forward
+@:nativeGen
+@:native("StaticMeshDescriptionBulkData*")
+abstract StaticMeshDescriptionBulkDataPtr(cpp.Star<StaticMeshDescriptionBulkData>) from cpp.Star<StaticMeshDescriptionBulkData> to cpp.Star<StaticMeshDescriptionBulkData>{
+	@:from
+	public static extern inline function fromValue(v: StaticMeshDescriptionBulkData): StaticMeshDescriptionBulkDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): StaticMeshDescriptionBulkData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

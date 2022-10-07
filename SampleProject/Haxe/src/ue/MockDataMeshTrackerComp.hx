@@ -47,3 +47,22 @@ abstract ConstMockDataMeshTrackerComp(MockDataMeshTrackerComp) from MockDataMesh
 	public extern var MRMesh(get, never): cpp.Star<MRMeshComp.ConstMRMeshComp>;
 	public inline extern function get_MRMesh(): cpp.Star<MRMeshComp.ConstMRMeshComp> return this.MRMesh;
 }
+
+@:forward
+@:nativeGen
+@:native("MockDataMeshTrackerComp*")
+abstract MockDataMeshTrackerCompPtr(cpp.Star<MockDataMeshTrackerComp>) from cpp.Star<MockDataMeshTrackerComp> to cpp.Star<MockDataMeshTrackerComp>{
+	@:from
+	public static extern inline function fromValue(v: MockDataMeshTrackerComp): MockDataMeshTrackerCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MockDataMeshTrackerComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

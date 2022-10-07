@@ -13,3 +13,22 @@ extern class TextureExporterPCX extends Exporter {
 @:nativeGen
 abstract ConstTextureExporterPCX(TextureExporterPCX) from TextureExporterPCX {
 }
+
+@:forward
+@:nativeGen
+@:native("TextureExporterPCX*")
+abstract TextureExporterPCXPtr(cpp.Star<TextureExporterPCX>) from cpp.Star<TextureExporterPCX> to cpp.Star<TextureExporterPCX>{
+	@:from
+	public static extern inline function fromValue(v: TextureExporterPCX): TextureExporterPCXPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextureExporterPCX {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

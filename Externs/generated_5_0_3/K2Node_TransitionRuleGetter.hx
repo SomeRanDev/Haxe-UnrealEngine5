@@ -22,3 +22,22 @@ abstract ConstK2Node_TransitionRuleGetter(K2Node_TransitionRuleGetter) from K2No
 	public extern var AssociatedStateNode(get, never): cpp.Star<AnimStateNode.ConstAnimStateNode>;
 	public inline extern function get_AssociatedStateNode(): cpp.Star<AnimStateNode.ConstAnimStateNode> return this.AssociatedStateNode;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_TransitionRuleGetter*")
+abstract K2Node_TransitionRuleGetterPtr(cpp.Star<K2Node_TransitionRuleGetter>) from cpp.Star<K2Node_TransitionRuleGetter> to cpp.Star<K2Node_TransitionRuleGetter>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_TransitionRuleGetter): K2Node_TransitionRuleGetterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_TransitionRuleGetter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

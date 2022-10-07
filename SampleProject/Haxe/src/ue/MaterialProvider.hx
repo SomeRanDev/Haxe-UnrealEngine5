@@ -12,3 +12,22 @@ extern class MaterialProvider extends Interface {
 @:nativeGen
 abstract ConstMaterialProvider(MaterialProvider) from MaterialProvider {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialProvider*")
+abstract MaterialProviderPtr(cpp.Star<MaterialProvider>) from cpp.Star<MaterialProvider> to cpp.Star<MaterialProvider>{
+	@:from
+	public static extern inline function fromValue(v: MaterialProvider): MaterialProviderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialProvider {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

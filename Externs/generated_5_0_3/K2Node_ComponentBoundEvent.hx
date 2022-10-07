@@ -25,3 +25,22 @@ abstract ConstK2Node_ComponentBoundEvent(K2Node_ComponentBoundEvent) from K2Node
 	public extern var DelegatePropertyDisplayName(get, never): FText;
 	public inline extern function get_DelegatePropertyDisplayName(): FText return this.DelegatePropertyDisplayName;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_ComponentBoundEvent*")
+abstract K2Node_ComponentBoundEventPtr(cpp.Star<K2Node_ComponentBoundEvent>) from cpp.Star<K2Node_ComponentBoundEvent> to cpp.Star<K2Node_ComponentBoundEvent>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_ComponentBoundEvent): K2Node_ComponentBoundEventPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_ComponentBoundEvent {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

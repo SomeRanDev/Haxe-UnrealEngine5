@@ -16,3 +16,22 @@ abstract ConstEngineFilterPresetContainer(EngineFilterPresetContainer) from Engi
 	public extern var EnginePresets(get, never): TArray<FilterData>;
 	public inline extern function get_EnginePresets(): TArray<FilterData> return this.EnginePresets;
 }
+
+@:forward
+@:nativeGen
+@:native("EngineFilterPresetContainer*")
+abstract EngineFilterPresetContainerPtr(cpp.Star<EngineFilterPresetContainer>) from cpp.Star<EngineFilterPresetContainer> to cpp.Star<EngineFilterPresetContainer>{
+	@:from
+	public static extern inline function fromValue(v: EngineFilterPresetContainer): EngineFilterPresetContainerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EngineFilterPresetContainer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

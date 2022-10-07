@@ -22,3 +22,22 @@ abstract ConstLocalizedOverlays(LocalizedOverlays) from LocalizedOverlays {
 	public extern var AssetImportData(get, never): cpp.Star<AssetImportData.ConstAssetImportData>;
 	public inline extern function get_AssetImportData(): cpp.Star<AssetImportData.ConstAssetImportData> return this.AssetImportData;
 }
+
+@:forward
+@:nativeGen
+@:native("LocalizedOverlays*")
+abstract LocalizedOverlaysPtr(cpp.Star<LocalizedOverlays>) from cpp.Star<LocalizedOverlays> to cpp.Star<LocalizedOverlays>{
+	@:from
+	public static extern inline function fromValue(v: LocalizedOverlays): LocalizedOverlaysPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LocalizedOverlays {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

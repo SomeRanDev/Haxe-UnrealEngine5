@@ -13,3 +13,22 @@ extern class LevelVariantSetsFunctionDirector extends Object {
 @:nativeGen
 abstract ConstLevelVariantSetsFunctionDirector(LevelVariantSetsFunctionDirector) from LevelVariantSetsFunctionDirector {
 }
+
+@:forward
+@:nativeGen
+@:native("LevelVariantSetsFunctionDirector*")
+abstract LevelVariantSetsFunctionDirectorPtr(cpp.Star<LevelVariantSetsFunctionDirector>) from cpp.Star<LevelVariantSetsFunctionDirector> to cpp.Star<LevelVariantSetsFunctionDirector>{
+	@:from
+	public static extern inline function fromValue(v: LevelVariantSetsFunctionDirector): LevelVariantSetsFunctionDirectorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelVariantSetsFunctionDirector {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

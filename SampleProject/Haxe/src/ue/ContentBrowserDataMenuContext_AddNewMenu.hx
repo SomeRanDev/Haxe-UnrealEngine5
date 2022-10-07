@@ -25,3 +25,22 @@ abstract ConstContentBrowserDataMenuContext_AddNewMenu(ContentBrowserDataMenuCon
 	public extern var OwnerDomain(get, never): EContentBrowserDataMenuContext_AddNewMenuDomain;
 	public inline extern function get_OwnerDomain(): EContentBrowserDataMenuContext_AddNewMenuDomain return this.OwnerDomain;
 }
+
+@:forward
+@:nativeGen
+@:native("ContentBrowserDataMenuContext_AddNewMenu*")
+abstract ContentBrowserDataMenuContext_AddNewMenuPtr(cpp.Star<ContentBrowserDataMenuContext_AddNewMenu>) from cpp.Star<ContentBrowserDataMenuContext_AddNewMenu> to cpp.Star<ContentBrowserDataMenuContext_AddNewMenu>{
+	@:from
+	public static extern inline function fromValue(v: ContentBrowserDataMenuContext_AddNewMenu): ContentBrowserDataMenuContext_AddNewMenuPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ContentBrowserDataMenuContext_AddNewMenu {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

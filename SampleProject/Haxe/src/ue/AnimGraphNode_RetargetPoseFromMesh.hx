@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_RetargetPoseFromMesh(AnimGraphNode_RetargetPoseFromM
 	public extern var Node(get, never): AnimNode_RetargetPoseFromMesh;
 	public inline extern function get_Node(): AnimNode_RetargetPoseFromMesh return this.Node;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_RetargetPoseFromMesh*")
+abstract AnimGraphNode_RetargetPoseFromMeshPtr(cpp.Star<AnimGraphNode_RetargetPoseFromMesh>) from cpp.Star<AnimGraphNode_RetargetPoseFromMesh> to cpp.Star<AnimGraphNode_RetargetPoseFromMesh>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_RetargetPoseFromMesh): AnimGraphNode_RetargetPoseFromMeshPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_RetargetPoseFromMesh {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

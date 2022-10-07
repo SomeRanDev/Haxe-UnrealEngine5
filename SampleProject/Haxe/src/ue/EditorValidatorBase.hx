@@ -24,3 +24,22 @@ abstract ConstEditorValidatorBase(EditorValidatorBase) from EditorValidatorBase 
 	public extern var bIsEnabled(get, never): Bool;
 	public inline extern function get_bIsEnabled(): Bool return this.bIsEnabled;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorValidatorBase*")
+abstract EditorValidatorBasePtr(cpp.Star<EditorValidatorBase>) from cpp.Star<EditorValidatorBase> to cpp.Star<EditorValidatorBase>{
+	@:from
+	public static extern inline function fromValue(v: EditorValidatorBase): EditorValidatorBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorValidatorBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

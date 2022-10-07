@@ -13,3 +13,22 @@ extern class K2Node_AddComponentByClass extends K2Node_ConstructObjectFromClass 
 @:nativeGen
 abstract ConstK2Node_AddComponentByClass(K2Node_AddComponentByClass) from K2Node_AddComponentByClass {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_AddComponentByClass*")
+abstract K2Node_AddComponentByClassPtr(cpp.Star<K2Node_AddComponentByClass>) from cpp.Star<K2Node_AddComponentByClass> to cpp.Star<K2Node_AddComponentByClass>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_AddComponentByClass): K2Node_AddComponentByClassPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_AddComponentByClass {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

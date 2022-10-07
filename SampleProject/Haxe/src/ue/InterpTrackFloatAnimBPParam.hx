@@ -22,3 +22,22 @@ abstract ConstInterpTrackFloatAnimBPParam(InterpTrackFloatAnimBPParam) from Inte
 	public extern var ParamName(get, never): FName;
 	public inline extern function get_ParamName(): FName return this.ParamName;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackFloatAnimBPParam*")
+abstract InterpTrackFloatAnimBPParamPtr(cpp.Star<InterpTrackFloatAnimBPParam>) from cpp.Star<InterpTrackFloatAnimBPParam> to cpp.Star<InterpTrackFloatAnimBPParam>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackFloatAnimBPParam): InterpTrackFloatAnimBPParamPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackFloatAnimBPParam {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

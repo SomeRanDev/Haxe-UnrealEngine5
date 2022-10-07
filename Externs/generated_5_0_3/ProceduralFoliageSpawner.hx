@@ -30,3 +30,22 @@ abstract ConstProceduralFoliageSpawner(ProceduralFoliageSpawner) from Procedural
 	public extern var FoliageTypes(get, never): TArray<FoliageTypeObject>;
 	public inline extern function get_FoliageTypes(): TArray<FoliageTypeObject> return this.FoliageTypes;
 }
+
+@:forward
+@:nativeGen
+@:native("ProceduralFoliageSpawner*")
+abstract ProceduralFoliageSpawnerPtr(cpp.Star<ProceduralFoliageSpawner>) from cpp.Star<ProceduralFoliageSpawner> to cpp.Star<ProceduralFoliageSpawner>{
+	@:from
+	public static extern inline function fromValue(v: ProceduralFoliageSpawner): ProceduralFoliageSpawnerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ProceduralFoliageSpawner {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

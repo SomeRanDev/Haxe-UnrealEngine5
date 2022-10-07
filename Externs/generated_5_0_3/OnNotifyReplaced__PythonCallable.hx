@@ -12,3 +12,22 @@ extern class OnNotifyReplaced__PythonCallable extends PythonCallableForDelegate 
 @:nativeGen
 abstract ConstOnNotifyReplaced__PythonCallable(OnNotifyReplaced__PythonCallable) from OnNotifyReplaced__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnNotifyReplaced__PythonCallable*")
+abstract OnNotifyReplaced__PythonCallablePtr(cpp.Star<OnNotifyReplaced__PythonCallable>) from cpp.Star<OnNotifyReplaced__PythonCallable> to cpp.Star<OnNotifyReplaced__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnNotifyReplaced__PythonCallable): OnNotifyReplaced__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnNotifyReplaced__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

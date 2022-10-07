@@ -13,3 +13,22 @@ extern class SynthComponentClassTemplate extends ClassTemplate {
 @:nativeGen
 abstract ConstSynthComponentClassTemplate(SynthComponentClassTemplate) from SynthComponentClassTemplate {
 }
+
+@:forward
+@:nativeGen
+@:native("SynthComponentClassTemplate*")
+abstract SynthComponentClassTemplatePtr(cpp.Star<SynthComponentClassTemplate>) from cpp.Star<SynthComponentClassTemplate> to cpp.Star<SynthComponentClassTemplate>{
+	@:from
+	public static extern inline function fromValue(v: SynthComponentClassTemplate): SynthComponentClassTemplatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SynthComponentClassTemplate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

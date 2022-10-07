@@ -22,3 +22,22 @@ abstract ConstScreenshotFunctionalTestBase(ScreenshotFunctionalTestBase) from Sc
 	public extern var ScreenshotOptions(get, never): AutomationScreenshotOptions;
 	public inline extern function get_ScreenshotOptions(): AutomationScreenshotOptions return this.ScreenshotOptions;
 }
+
+@:forward
+@:nativeGen
+@:native("ScreenshotFunctionalTestBase*")
+abstract ScreenshotFunctionalTestBasePtr(cpp.Star<ScreenshotFunctionalTestBase>) from cpp.Star<ScreenshotFunctionalTestBase> to cpp.Star<ScreenshotFunctionalTestBase>{
+	@:from
+	public static extern inline function fromValue(v: ScreenshotFunctionalTestBase): ScreenshotFunctionalTestBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ScreenshotFunctionalTestBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class SavePackageUtilitiesCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstSavePackageUtilitiesCommandlet(SavePackageUtilitiesCommandlet) from SavePackageUtilitiesCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("SavePackageUtilitiesCommandlet*")
+abstract SavePackageUtilitiesCommandletPtr(cpp.Star<SavePackageUtilitiesCommandlet>) from cpp.Star<SavePackageUtilitiesCommandlet> to cpp.Star<SavePackageUtilitiesCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: SavePackageUtilitiesCommandlet): SavePackageUtilitiesCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SavePackageUtilitiesCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

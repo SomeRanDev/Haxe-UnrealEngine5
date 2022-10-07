@@ -13,3 +13,22 @@ extern class SequenceRecordingBase extends Object {
 @:nativeGen
 abstract ConstSequenceRecordingBase(SequenceRecordingBase) from SequenceRecordingBase {
 }
+
+@:forward
+@:nativeGen
+@:native("SequenceRecordingBase*")
+abstract SequenceRecordingBasePtr(cpp.Star<SequenceRecordingBase>) from cpp.Star<SequenceRecordingBase> to cpp.Star<SequenceRecordingBase>{
+	@:from
+	public static extern inline function fromValue(v: SequenceRecordingBase): SequenceRecordingBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SequenceRecordingBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

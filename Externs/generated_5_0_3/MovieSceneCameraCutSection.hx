@@ -34,3 +34,22 @@ abstract ConstMovieSceneCameraCutSection(MovieSceneCameraCutSection) from MovieS
 	public extern var ThumbnailReferenceOffset(get, never): cpp.Float32;
 	public inline extern function get_ThumbnailReferenceOffset(): cpp.Float32 return this.ThumbnailReferenceOffset;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneCameraCutSection*")
+abstract MovieSceneCameraCutSectionPtr(cpp.Star<MovieSceneCameraCutSection>) from cpp.Star<MovieSceneCameraCutSection> to cpp.Star<MovieSceneCameraCutSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneCameraCutSection): MovieSceneCameraCutSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneCameraCutSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

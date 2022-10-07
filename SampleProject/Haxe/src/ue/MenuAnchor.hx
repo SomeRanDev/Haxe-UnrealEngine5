@@ -48,3 +48,22 @@ abstract ConstMenuAnchor(MenuAnchor) from MenuAnchor {
 	public extern var OnMenuOpenChanged(get, never): HaxeMulticastSparseDelegateProperty<(Bool) -> Void>;
 	public inline extern function get_OnMenuOpenChanged(): HaxeMulticastSparseDelegateProperty<(Bool) -> Void> return this.OnMenuOpenChanged;
 }
+
+@:forward
+@:nativeGen
+@:native("MenuAnchor*")
+abstract MenuAnchorPtr(cpp.Star<MenuAnchor>) from cpp.Star<MenuAnchor> to cpp.Star<MenuAnchor>{
+	@:from
+	public static extern inline function fromValue(v: MenuAnchor): MenuAnchorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MenuAnchor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

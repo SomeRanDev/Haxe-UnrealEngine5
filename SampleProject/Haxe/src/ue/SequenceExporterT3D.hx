@@ -13,3 +13,22 @@ extern class SequenceExporterT3D extends Exporter {
 @:nativeGen
 abstract ConstSequenceExporterT3D(SequenceExporterT3D) from SequenceExporterT3D {
 }
+
+@:forward
+@:nativeGen
+@:native("SequenceExporterT3D*")
+abstract SequenceExporterT3DPtr(cpp.Star<SequenceExporterT3D>) from cpp.Star<SequenceExporterT3D> to cpp.Star<SequenceExporterT3D>{
+	@:from
+	public static extern inline function fromValue(v: SequenceExporterT3D): SequenceExporterT3DPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SequenceExporterT3D {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

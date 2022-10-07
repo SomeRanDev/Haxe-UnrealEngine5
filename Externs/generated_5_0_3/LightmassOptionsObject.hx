@@ -19,3 +19,22 @@ abstract ConstLightmassOptionsObject(LightmassOptionsObject) from LightmassOptio
 	public extern var SwarmSettings(get, never): SwarmDebugOptions;
 	public inline extern function get_SwarmSettings(): SwarmDebugOptions return this.SwarmSettings;
 }
+
+@:forward
+@:nativeGen
+@:native("LightmassOptionsObject*")
+abstract LightmassOptionsObjectPtr(cpp.Star<LightmassOptionsObject>) from cpp.Star<LightmassOptionsObject> to cpp.Star<LightmassOptionsObject>{
+	@:from
+	public static extern inline function fromValue(v: LightmassOptionsObject): LightmassOptionsObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LightmassOptionsObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -22,3 +22,22 @@ abstract ConstInterpGroupInst(InterpGroupInst) from InterpGroupInst {
 	public extern var TrackInst(get, never): TArray<cpp.Star<InterpTrackInst.ConstInterpTrackInst>>;
 	public inline extern function get_TrackInst(): TArray<cpp.Star<InterpTrackInst.ConstInterpTrackInst>> return this.TrackInst;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpGroupInst*")
+abstract InterpGroupInstPtr(cpp.Star<InterpGroupInst>) from cpp.Star<InterpGroupInst> to cpp.Star<InterpGroupInst>{
+	@:from
+	public static extern inline function fromValue(v: InterpGroupInst): InterpGroupInstPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpGroupInst {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

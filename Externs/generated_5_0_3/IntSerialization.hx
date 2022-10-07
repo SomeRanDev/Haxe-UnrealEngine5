@@ -37,3 +37,22 @@ abstract ConstIntSerialization(IntSerialization) from IntSerialization {
 	public extern var SignedInt32Variable(get, never): cpp.Int32;
 	public inline extern function get_SignedInt32Variable(): cpp.Int32 return this.SignedInt32Variable;
 }
+
+@:forward
+@:nativeGen
+@:native("IntSerialization*")
+abstract IntSerializationPtr(cpp.Star<IntSerialization>) from cpp.Star<IntSerialization> to cpp.Star<IntSerialization>{
+	@:from
+	public static extern inline function fromValue(v: IntSerialization): IntSerializationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IntSerialization {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

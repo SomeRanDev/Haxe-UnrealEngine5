@@ -13,3 +13,22 @@ extern class InterpGroupInstCamera extends InterpGroupInst {
 @:nativeGen
 abstract ConstInterpGroupInstCamera(InterpGroupInstCamera) from InterpGroupInstCamera {
 }
+
+@:forward
+@:nativeGen
+@:native("InterpGroupInstCamera*")
+abstract InterpGroupInstCameraPtr(cpp.Star<InterpGroupInstCamera>) from cpp.Star<InterpGroupInstCamera> to cpp.Star<InterpGroupInstCamera>{
+	@:from
+	public static extern inline function fromValue(v: InterpGroupInstCamera): InterpGroupInstCameraPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpGroupInstCamera {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -43,3 +43,22 @@ abstract ConstFbxTextureImportData(FbxTextureImportData) from FbxTextureImportDa
 	public extern var BaseOpacityTextureName(get, never): FString;
 	public inline extern function get_BaseOpacityTextureName(): FString return this.BaseOpacityTextureName;
 }
+
+@:forward
+@:nativeGen
+@:native("FbxTextureImportData*")
+abstract FbxTextureImportDataPtr(cpp.Star<FbxTextureImportData>) from cpp.Star<FbxTextureImportData> to cpp.Star<FbxTextureImportData>{
+	@:from
+	public static extern inline function fromValue(v: FbxTextureImportData): FbxTextureImportDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FbxTextureImportData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

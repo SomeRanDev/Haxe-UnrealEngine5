@@ -82,3 +82,22 @@ abstract ConstAnimStateTransitionNode(AnimStateTransitionNode) from AnimStateTra
 	public extern var SharedCrossfadeIdx(get, never): cpp.Int32;
 	public inline extern function get_SharedCrossfadeIdx(): cpp.Int32 return this.SharedCrossfadeIdx;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimStateTransitionNode*")
+abstract AnimStateTransitionNodePtr(cpp.Star<AnimStateTransitionNode>) from cpp.Star<AnimStateTransitionNode> to cpp.Star<AnimStateTransitionNode>{
+	@:from
+	public static extern inline function fromValue(v: AnimStateTransitionNode): AnimStateTransitionNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimStateTransitionNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

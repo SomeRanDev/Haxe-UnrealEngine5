@@ -19,3 +19,22 @@ abstract ConstViewportDragOperationComp(ViewportDragOperationComp) from Viewport
 	public extern var DragOperationSubclass(get, never): TSubclassOf<ViewportDragOperation.ConstViewportDragOperation>;
 	public inline extern function get_DragOperationSubclass(): TSubclassOf<ViewportDragOperation.ConstViewportDragOperation> return this.DragOperationSubclass;
 }
+
+@:forward
+@:nativeGen
+@:native("ViewportDragOperationComp*")
+abstract ViewportDragOperationCompPtr(cpp.Star<ViewportDragOperationComp>) from cpp.Star<ViewportDragOperationComp> to cpp.Star<ViewportDragOperationComp>{
+	@:from
+	public static extern inline function fromValue(v: ViewportDragOperationComp): ViewportDragOperationCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ViewportDragOperationComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

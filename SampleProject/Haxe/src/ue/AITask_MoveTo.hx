@@ -24,3 +24,22 @@ abstract ConstAITask_MoveTo(AITask_MoveTo) from AITask_MoveTo {
 	public extern var MoveRequest(get, never): AIMoveRequest;
 	public inline extern function get_MoveRequest(): AIMoveRequest return this.MoveRequest;
 }
+
+@:forward
+@:nativeGen
+@:native("AITask_MoveTo*")
+abstract AITask_MoveToPtr(cpp.Star<AITask_MoveTo>) from cpp.Star<AITask_MoveTo> to cpp.Star<AITask_MoveTo>{
+	@:from
+	public static extern inline function fromValue(v: AITask_MoveTo): AITask_MoveToPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AITask_MoveTo {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

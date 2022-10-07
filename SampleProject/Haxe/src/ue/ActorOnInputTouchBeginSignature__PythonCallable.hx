@@ -12,3 +12,22 @@ extern class ActorOnInputTouchBeginSignature__PythonCallable extends PythonCalla
 @:nativeGen
 abstract ConstActorOnInputTouchBeginSignature__PythonCallable(ActorOnInputTouchBeginSignature__PythonCallable) from ActorOnInputTouchBeginSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorOnInputTouchBeginSignature__PythonCallable*")
+abstract ActorOnInputTouchBeginSignature__PythonCallablePtr(cpp.Star<ActorOnInputTouchBeginSignature__PythonCallable>) from cpp.Star<ActorOnInputTouchBeginSignature__PythonCallable> to cpp.Star<ActorOnInputTouchBeginSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ActorOnInputTouchBeginSignature__PythonCallable): ActorOnInputTouchBeginSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorOnInputTouchBeginSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

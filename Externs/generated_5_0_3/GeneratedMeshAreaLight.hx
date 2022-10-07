@@ -13,3 +13,22 @@ extern class GeneratedMeshAreaLight extends SpotLight {
 @:nativeGen
 abstract ConstGeneratedMeshAreaLight(GeneratedMeshAreaLight) from GeneratedMeshAreaLight {
 }
+
+@:forward
+@:nativeGen
+@:native("GeneratedMeshAreaLight*")
+abstract GeneratedMeshAreaLightPtr(cpp.Star<GeneratedMeshAreaLight>) from cpp.Star<GeneratedMeshAreaLight> to cpp.Star<GeneratedMeshAreaLight>{
+	@:from
+	public static extern inline function fromValue(v: GeneratedMeshAreaLight): GeneratedMeshAreaLightPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GeneratedMeshAreaLight {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

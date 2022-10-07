@@ -39,3 +39,22 @@ abstract ConstCurveLinearColorAtlas(CurveLinearColorAtlas) from CurveLinearColor
 	public extern var CachedColorAdjustments(get, never): CurveAtlasColorAdjustments;
 	public inline extern function get_CachedColorAdjustments(): CurveAtlasColorAdjustments return this.CachedColorAdjustments;
 }
+
+@:forward
+@:nativeGen
+@:native("CurveLinearColorAtlas*")
+abstract CurveLinearColorAtlasPtr(cpp.Star<CurveLinearColorAtlas>) from cpp.Star<CurveLinearColorAtlas> to cpp.Star<CurveLinearColorAtlas>{
+	@:from
+	public static extern inline function fromValue(v: CurveLinearColorAtlas): CurveLinearColorAtlasPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CurveLinearColorAtlas {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

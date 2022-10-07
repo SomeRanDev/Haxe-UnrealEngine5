@@ -22,3 +22,22 @@ abstract ConstMaterialExpressionHairColor(MaterialExpressionHairColor) from Mate
 	public extern var DyeColor(get, never): ExpressionInput;
 	public inline extern function get_DyeColor(): ExpressionInput return this.DyeColor;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionHairColor*")
+abstract MaterialExpressionHairColorPtr(cpp.Star<MaterialExpressionHairColor>) from cpp.Star<MaterialExpressionHairColor> to cpp.Star<MaterialExpressionHairColor>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionHairColor): MaterialExpressionHairColorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionHairColor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

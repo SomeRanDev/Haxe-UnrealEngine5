@@ -16,3 +16,22 @@ abstract ConstRendererOverrideSettings(RendererOverrideSettings) from RendererOv
 	public extern var bSupportAllShaderPermutations(get, never): Bool;
 	public inline extern function get_bSupportAllShaderPermutations(): Bool return this.bSupportAllShaderPermutations;
 }
+
+@:forward
+@:nativeGen
+@:native("RendererOverrideSettings*")
+abstract RendererOverrideSettingsPtr(cpp.Star<RendererOverrideSettings>) from cpp.Star<RendererOverrideSettings> to cpp.Star<RendererOverrideSettings>{
+	@:from
+	public static extern inline function fromValue(v: RendererOverrideSettings): RendererOverrideSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RendererOverrideSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

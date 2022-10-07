@@ -43,3 +43,22 @@ abstract ConstSoundNodeOscillator(SoundNodeOscillator) from SoundNodeOscillator 
 	public extern var CenterMax(get, never): cpp.Float32;
 	public inline extern function get_CenterMax(): cpp.Float32 return this.CenterMax;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundNodeOscillator*")
+abstract SoundNodeOscillatorPtr(cpp.Star<SoundNodeOscillator>) from cpp.Star<SoundNodeOscillator> to cpp.Star<SoundNodeOscillator>{
+	@:from
+	public static extern inline function fromValue(v: SoundNodeOscillator): SoundNodeOscillatorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundNodeOscillator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

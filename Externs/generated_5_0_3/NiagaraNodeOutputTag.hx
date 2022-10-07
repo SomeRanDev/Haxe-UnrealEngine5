@@ -19,3 +19,22 @@ abstract ConstNiagaraNodeOutputTag(NiagaraNodeOutputTag) from NiagaraNodeOutputT
 	public extern var FailureSeverity(get, never): FNiagaraCompileEventSeverity;
 	public inline extern function get_FailureSeverity(): FNiagaraCompileEventSeverity return this.FailureSeverity;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraNodeOutputTag*")
+abstract NiagaraNodeOutputTagPtr(cpp.Star<NiagaraNodeOutputTag>) from cpp.Star<NiagaraNodeOutputTag> to cpp.Star<NiagaraNodeOutputTag>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraNodeOutputTag): NiagaraNodeOutputTagPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraNodeOutputTag {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

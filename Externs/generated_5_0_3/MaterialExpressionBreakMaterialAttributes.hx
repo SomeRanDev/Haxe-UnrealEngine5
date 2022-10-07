@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionBreakMaterialAttributes(MaterialExpressionBreakM
 	public extern var MaterialAttributes(get, never): MaterialAttributesInput;
 	public inline extern function get_MaterialAttributes(): MaterialAttributesInput return this.MaterialAttributes;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionBreakMaterialAttributes*")
+abstract MaterialExpressionBreakMaterialAttributesPtr(cpp.Star<MaterialExpressionBreakMaterialAttributes>) from cpp.Star<MaterialExpressionBreakMaterialAttributes> to cpp.Star<MaterialExpressionBreakMaterialAttributes>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionBreakMaterialAttributes): MaterialExpressionBreakMaterialAttributesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionBreakMaterialAttributes {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

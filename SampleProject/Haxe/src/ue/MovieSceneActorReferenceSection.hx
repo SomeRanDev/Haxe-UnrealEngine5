@@ -22,3 +22,22 @@ abstract ConstMovieSceneActorReferenceSection(MovieSceneActorReferenceSection) f
 	public extern var ActorGuidStrings_DEPRECATED(get, never): TArray<FString>;
 	public inline extern function get_ActorGuidStrings_DEPRECATED(): TArray<FString> return this.ActorGuidStrings_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneActorReferenceSection*")
+abstract MovieSceneActorReferenceSectionPtr(cpp.Star<MovieSceneActorReferenceSection>) from cpp.Star<MovieSceneActorReferenceSection> to cpp.Star<MovieSceneActorReferenceSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneActorReferenceSection): MovieSceneActorReferenceSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneActorReferenceSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

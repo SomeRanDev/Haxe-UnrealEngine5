@@ -16,3 +16,22 @@ abstract ConstK2Node_LatentGameplayTaskCall(K2Node_LatentGameplayTaskCall) from 
 	public extern var SpawnParamPins(get, never): TArray<FName>;
 	public inline extern function get_SpawnParamPins(): TArray<FName> return this.SpawnParamPins;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_LatentGameplayTaskCall*")
+abstract K2Node_LatentGameplayTaskCallPtr(cpp.Star<K2Node_LatentGameplayTaskCall>) from cpp.Star<K2Node_LatentGameplayTaskCall> to cpp.Star<K2Node_LatentGameplayTaskCall>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_LatentGameplayTaskCall): K2Node_LatentGameplayTaskCallPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_LatentGameplayTaskCall {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

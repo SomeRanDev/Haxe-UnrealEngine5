@@ -19,3 +19,22 @@ abstract ConstAnimationModifierSettings(AnimationModifierSettings) from Animatio
 	public extern var bApplyAnimationModifiersOnImport(get, never): Bool;
 	public inline extern function get_bApplyAnimationModifiersOnImport(): Bool return this.bApplyAnimationModifiersOnImport;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationModifierSettings*")
+abstract AnimationModifierSettingsPtr(cpp.Star<AnimationModifierSettings>) from cpp.Star<AnimationModifierSettings> to cpp.Star<AnimationModifierSettings>{
+	@:from
+	public static extern inline function fromValue(v: AnimationModifierSettings): AnimationModifierSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationModifierSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -22,3 +22,22 @@ abstract ConstInteractiveToolManager(InteractiveToolManager) from InteractiveToo
 	public extern var ToolBuilders(get, never): TMap<FString, cpp.Star<InteractiveToolBuilder.ConstInteractiveToolBuilder>>;
 	public inline extern function get_ToolBuilders(): TMap<FString, cpp.Star<InteractiveToolBuilder.ConstInteractiveToolBuilder>> return this.ToolBuilders;
 }
+
+@:forward
+@:nativeGen
+@:native("InteractiveToolManager*")
+abstract InteractiveToolManagerPtr(cpp.Star<InteractiveToolManager>) from cpp.Star<InteractiveToolManager> to cpp.Star<InteractiveToolManager>{
+	@:from
+	public static extern inline function fromValue(v: InteractiveToolManager): InteractiveToolManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InteractiveToolManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

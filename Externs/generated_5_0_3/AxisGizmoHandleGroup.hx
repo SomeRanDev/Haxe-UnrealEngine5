@@ -13,3 +13,22 @@ extern class AxisGizmoHandleGroup extends GizmoHandleGroup {
 @:nativeGen
 abstract ConstAxisGizmoHandleGroup(AxisGizmoHandleGroup) from AxisGizmoHandleGroup {
 }
+
+@:forward
+@:nativeGen
+@:native("AxisGizmoHandleGroup*")
+abstract AxisGizmoHandleGroupPtr(cpp.Star<AxisGizmoHandleGroup>) from cpp.Star<AxisGizmoHandleGroup> to cpp.Star<AxisGizmoHandleGroup>{
+	@:from
+	public static extern inline function fromValue(v: AxisGizmoHandleGroup): AxisGizmoHandleGroupPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AxisGizmoHandleGroup {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

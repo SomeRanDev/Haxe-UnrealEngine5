@@ -81,3 +81,22 @@ abstract ConstMovieSceneSection(MovieSceneSection) from MovieSceneSection {
 	public extern var BlendType(get, never): OptionalMovieSceneBlendType;
 	public inline extern function get_BlendType(): OptionalMovieSceneBlendType return this.BlendType;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneSection*")
+abstract MovieSceneSectionPtr(cpp.Star<MovieSceneSection>) from cpp.Star<MovieSceneSection> to cpp.Star<MovieSceneSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneSection): MovieSceneSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

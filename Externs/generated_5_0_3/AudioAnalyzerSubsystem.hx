@@ -16,3 +16,22 @@ abstract ConstAudioAnalyzerSubsystem(AudioAnalyzerSubsystem) from AudioAnalyzerS
 	public extern var AudioAnalyzers(get, never): TArray<cpp.Star<AudioAnalyzer.ConstAudioAnalyzer>>;
 	public inline extern function get_AudioAnalyzers(): TArray<cpp.Star<AudioAnalyzer.ConstAudioAnalyzer>> return this.AudioAnalyzers;
 }
+
+@:forward
+@:nativeGen
+@:native("AudioAnalyzerSubsystem*")
+abstract AudioAnalyzerSubsystemPtr(cpp.Star<AudioAnalyzerSubsystem>) from cpp.Star<AudioAnalyzerSubsystem> to cpp.Star<AudioAnalyzerSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: AudioAnalyzerSubsystem): AudioAnalyzerSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AudioAnalyzerSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

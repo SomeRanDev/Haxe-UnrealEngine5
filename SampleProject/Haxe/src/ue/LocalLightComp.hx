@@ -29,3 +29,22 @@ abstract ConstLocalLightComp(LocalLightComp) from LocalLightComp {
 	public extern var LightmassSettings(get, never): LightmassPointLightSettings;
 	public inline extern function get_LightmassSettings(): LightmassPointLightSettings return this.LightmassSettings;
 }
+
+@:forward
+@:nativeGen
+@:native("LocalLightComp*")
+abstract LocalLightCompPtr(cpp.Star<LocalLightComp>) from cpp.Star<LocalLightComp> to cpp.Star<LocalLightComp>{
+	@:from
+	public static extern inline function fromValue(v: LocalLightComp): LocalLightCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LocalLightComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -43,3 +43,22 @@ abstract ConstAnimSet(AnimSet) from AnimSet {
 	public extern var BestRatioSkelMeshName(get, never): FName;
 	public inline extern function get_BestRatioSkelMeshName(): FName return this.BestRatioSkelMeshName;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimSet*")
+abstract AnimSetPtr(cpp.Star<AnimSet>) from cpp.Star<AnimSet> to cpp.Star<AnimSet>{
+	@:from
+	public static extern inline function fromValue(v: AnimSet): AnimSetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimSet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

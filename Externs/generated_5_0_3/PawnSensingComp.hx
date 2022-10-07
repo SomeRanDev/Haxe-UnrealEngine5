@@ -60,3 +60,22 @@ abstract ConstPawnSensingComp(PawnSensingComp) from PawnSensingComp {
 	public extern var PeripheralVisionCosine(get, never): cpp.Float32;
 	public inline extern function get_PeripheralVisionCosine(): cpp.Float32 return this.PeripheralVisionCosine;
 }
+
+@:forward
+@:nativeGen
+@:native("PawnSensingComp*")
+abstract PawnSensingCompPtr(cpp.Star<PawnSensingComp>) from cpp.Star<PawnSensingComp> to cpp.Star<PawnSensingComp>{
+	@:from
+	public static extern inline function fromValue(v: PawnSensingComp): PawnSensingCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PawnSensingComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

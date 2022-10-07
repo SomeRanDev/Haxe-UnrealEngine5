@@ -25,3 +25,22 @@ abstract ConstNiagaraDataInterfaceSpline(NiagaraDataInterfaceSpline) from Niagar
 	public extern var NumLUTSteps(get, never): cpp.Int32;
 	public inline extern function get_NumLUTSteps(): cpp.Int32 return this.NumLUTSteps;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceSpline*")
+abstract NiagaraDataInterfaceSplinePtr(cpp.Star<NiagaraDataInterfaceSpline>) from cpp.Star<NiagaraDataInterfaceSpline> to cpp.Star<NiagaraDataInterfaceSpline>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceSpline): NiagaraDataInterfaceSplinePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceSpline {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

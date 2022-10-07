@@ -13,3 +13,22 @@ extern class SMInstanceElementWorldInterface extends Object {
 @:nativeGen
 abstract ConstSMInstanceElementWorldInterface(SMInstanceElementWorldInterface) from SMInstanceElementWorldInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("SMInstanceElementWorldInterface*")
+abstract SMInstanceElementWorldInterfacePtr(cpp.Star<SMInstanceElementWorldInterface>) from cpp.Star<SMInstanceElementWorldInterface> to cpp.Star<SMInstanceElementWorldInterface>{
+	@:from
+	public static extern inline function fromValue(v: SMInstanceElementWorldInterface): SMInstanceElementWorldInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SMInstanceElementWorldInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

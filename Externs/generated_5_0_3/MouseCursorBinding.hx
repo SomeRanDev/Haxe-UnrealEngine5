@@ -14,3 +14,22 @@ extern class MouseCursorBinding extends PropertyBinding {
 @:nativeGen
 abstract ConstMouseCursorBinding(MouseCursorBinding) from MouseCursorBinding {
 }
+
+@:forward
+@:nativeGen
+@:native("MouseCursorBinding*")
+abstract MouseCursorBindingPtr(cpp.Star<MouseCursorBinding>) from cpp.Star<MouseCursorBinding> to cpp.Star<MouseCursorBinding>{
+	@:from
+	public static extern inline function fromValue(v: MouseCursorBinding): MouseCursorBindingPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MouseCursorBinding {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstActorChannel(ActorChannel) from ActorChannel {
 	public extern var CreateSubObjects(get, never): TArray<cpp.Star<Object.ConstObject>>;
 	public inline extern function get_CreateSubObjects(): TArray<cpp.Star<Object.ConstObject>> return this.CreateSubObjects;
 }
+
+@:forward
+@:nativeGen
+@:native("ActorChannel*")
+abstract ActorChannelPtr(cpp.Star<ActorChannel>) from cpp.Star<ActorChannel> to cpp.Star<ActorChannel>{
+	@:from
+	public static extern inline function fromValue(v: ActorChannel): ActorChannelPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorChannel {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

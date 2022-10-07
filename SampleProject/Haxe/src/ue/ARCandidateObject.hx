@@ -29,3 +29,22 @@ abstract ConstARCandidateObject(ARCandidateObject) from ARCandidateObject {
 	public extern var BoundingBox(get, never): Box;
 	public inline extern function get_BoundingBox(): Box return this.BoundingBox;
 }
+
+@:forward
+@:nativeGen
+@:native("ARCandidateObject*")
+abstract ARCandidateObjectPtr(cpp.Star<ARCandidateObject>) from cpp.Star<ARCandidateObject> to cpp.Star<ARCandidateObject>{
+	@:from
+	public static extern inline function fromValue(v: ARCandidateObject): ARCandidateObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARCandidateObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

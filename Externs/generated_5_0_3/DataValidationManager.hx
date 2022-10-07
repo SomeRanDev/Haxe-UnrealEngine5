@@ -22,3 +22,22 @@ abstract ConstDataValidationManager(DataValidationManager) from DataValidationMa
 	public extern var DataValidationManagerClassName(get, never): SoftClassPath;
 	public inline extern function get_DataValidationManagerClassName(): SoftClassPath return this.DataValidationManagerClassName;
 }
+
+@:forward
+@:nativeGen
+@:native("DataValidationManager*")
+abstract DataValidationManagerPtr(cpp.Star<DataValidationManager>) from cpp.Star<DataValidationManager> to cpp.Star<DataValidationManager>{
+	@:from
+	public static extern inline function fromValue(v: DataValidationManager): DataValidationManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DataValidationManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

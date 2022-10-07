@@ -25,3 +25,22 @@ abstract ConstTextureRenderTarget2DArrayFactoryNew(TextureRenderTarget2DArrayFac
 	public extern var Format(get, never): cpp.UInt8;
 	public inline extern function get_Format(): cpp.UInt8 return this.Format;
 }
+
+@:forward
+@:nativeGen
+@:native("TextureRenderTarget2DArrayFactoryNew*")
+abstract TextureRenderTarget2DArrayFactoryNewPtr(cpp.Star<TextureRenderTarget2DArrayFactoryNew>) from cpp.Star<TextureRenderTarget2DArrayFactoryNew> to cpp.Star<TextureRenderTarget2DArrayFactoryNew>{
+	@:from
+	public static extern inline function fromValue(v: TextureRenderTarget2DArrayFactoryNew): TextureRenderTarget2DArrayFactoryNewPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextureRenderTarget2DArrayFactoryNew {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

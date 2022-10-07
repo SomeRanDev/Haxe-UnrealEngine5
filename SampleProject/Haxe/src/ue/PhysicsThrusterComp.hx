@@ -16,3 +16,22 @@ abstract ConstPhysicsThrusterComp(PhysicsThrusterComp) from PhysicsThrusterComp 
 	public extern var ThrustStrength(get, never): cpp.Float32;
 	public inline extern function get_ThrustStrength(): cpp.Float32 return this.ThrustStrength;
 }
+
+@:forward
+@:nativeGen
+@:native("PhysicsThrusterComp*")
+abstract PhysicsThrusterCompPtr(cpp.Star<PhysicsThrusterComp>) from cpp.Star<PhysicsThrusterComp> to cpp.Star<PhysicsThrusterComp>{
+	@:from
+	public static extern inline function fromValue(v: PhysicsThrusterComp): PhysicsThrusterCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PhysicsThrusterComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

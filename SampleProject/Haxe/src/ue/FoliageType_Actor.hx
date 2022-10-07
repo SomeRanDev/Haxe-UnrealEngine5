@@ -25,3 +25,22 @@ abstract ConstFoliageType_Actor(FoliageType_Actor) from FoliageType_Actor {
 	public extern var StaticMeshOnlyComponentClass(get, never): TSubclassOf<FoliageInstancedStaticMeshComp.ConstFoliageInstancedStaticMeshComp>;
 	public inline extern function get_StaticMeshOnlyComponentClass(): TSubclassOf<FoliageInstancedStaticMeshComp.ConstFoliageInstancedStaticMeshComp> return this.StaticMeshOnlyComponentClass;
 }
+
+@:forward
+@:nativeGen
+@:native("FoliageType_Actor*")
+abstract FoliageType_ActorPtr(cpp.Star<FoliageType_Actor>) from cpp.Star<FoliageType_Actor> to cpp.Star<FoliageType_Actor>{
+	@:from
+	public static extern inline function fromValue(v: FoliageType_Actor): FoliageType_ActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FoliageType_Actor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstTemplateSequenceSection(TemplateSequenceSection) from TemplateSequ
 	public extern var PropertyScales(get, never): TArray<TemplateSectionPropertyScale>;
 	public inline extern function get_PropertyScales(): TArray<TemplateSectionPropertyScale> return this.PropertyScales;
 }
+
+@:forward
+@:nativeGen
+@:native("TemplateSequenceSection*")
+abstract TemplateSequenceSectionPtr(cpp.Star<TemplateSequenceSection>) from cpp.Star<TemplateSequenceSection> to cpp.Star<TemplateSequenceSection>{
+	@:from
+	public static extern inline function fromValue(v: TemplateSequenceSection): TemplateSequenceSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TemplateSequenceSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

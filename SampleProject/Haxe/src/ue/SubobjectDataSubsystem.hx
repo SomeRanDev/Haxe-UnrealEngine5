@@ -36,3 +36,22 @@ extern class SubobjectDataSubsystem extends EngineSubsystem {
 @:nativeGen
 abstract ConstSubobjectDataSubsystem(SubobjectDataSubsystem) from SubobjectDataSubsystem {
 }
+
+@:forward
+@:nativeGen
+@:native("SubobjectDataSubsystem*")
+abstract SubobjectDataSubsystemPtr(cpp.Star<SubobjectDataSubsystem>) from cpp.Star<SubobjectDataSubsystem> to cpp.Star<SubobjectDataSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: SubobjectDataSubsystem): SubobjectDataSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SubobjectDataSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

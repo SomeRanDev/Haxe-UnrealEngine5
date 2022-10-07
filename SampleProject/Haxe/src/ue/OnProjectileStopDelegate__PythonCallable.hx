@@ -12,3 +12,22 @@ extern class OnProjectileStopDelegate__PythonCallable extends PythonCallableForD
 @:nativeGen
 abstract ConstOnProjectileStopDelegate__PythonCallable(OnProjectileStopDelegate__PythonCallable) from OnProjectileStopDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnProjectileStopDelegate__PythonCallable*")
+abstract OnProjectileStopDelegate__PythonCallablePtr(cpp.Star<OnProjectileStopDelegate__PythonCallable>) from cpp.Star<OnProjectileStopDelegate__PythonCallable> to cpp.Star<OnProjectileStopDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnProjectileStopDelegate__PythonCallable): OnProjectileStopDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnProjectileStopDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

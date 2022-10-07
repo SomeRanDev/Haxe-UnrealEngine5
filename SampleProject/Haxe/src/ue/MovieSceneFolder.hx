@@ -31,3 +31,22 @@ abstract ConstMovieSceneFolder(MovieSceneFolder) from MovieSceneFolder {
 	public extern var SortingOrder(get, never): cpp.Int32;
 	public inline extern function get_SortingOrder(): cpp.Int32 return this.SortingOrder;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneFolder*")
+abstract MovieSceneFolderPtr(cpp.Star<MovieSceneFolder>) from cpp.Star<MovieSceneFolder> to cpp.Star<MovieSceneFolder>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneFolder): MovieSceneFolderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneFolder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

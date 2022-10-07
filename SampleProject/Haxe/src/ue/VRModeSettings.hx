@@ -52,3 +52,22 @@ abstract ConstVRModeSettings(VRModeSettings) from VRModeSettings {
 	public extern var TeleporterClass(get, never): TSoftClassPtr<Class.ConstClass>;
 	public inline extern function get_TeleporterClass(): TSoftClassPtr<Class.ConstClass> return this.TeleporterClass;
 }
+
+@:forward
+@:nativeGen
+@:native("VRModeSettings*")
+abstract VRModeSettingsPtr(cpp.Star<VRModeSettings>) from cpp.Star<VRModeSettings> to cpp.Star<VRModeSettings>{
+	@:from
+	public static extern inline function fromValue(v: VRModeSettings): VRModeSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VRModeSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

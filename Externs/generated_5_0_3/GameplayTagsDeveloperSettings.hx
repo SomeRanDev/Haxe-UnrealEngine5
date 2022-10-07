@@ -19,3 +19,22 @@ abstract ConstGameplayTagsDeveloperSettings(GameplayTagsDeveloperSettings) from 
 	public extern var FavoriteTagSource(get, never): FName;
 	public inline extern function get_FavoriteTagSource(): FName return this.FavoriteTagSource;
 }
+
+@:forward
+@:nativeGen
+@:native("GameplayTagsDeveloperSettings*")
+abstract GameplayTagsDeveloperSettingsPtr(cpp.Star<GameplayTagsDeveloperSettings>) from cpp.Star<GameplayTagsDeveloperSettings> to cpp.Star<GameplayTagsDeveloperSettings>{
+	@:from
+	public static extern inline function fromValue(v: GameplayTagsDeveloperSettings): GameplayTagsDeveloperSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameplayTagsDeveloperSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

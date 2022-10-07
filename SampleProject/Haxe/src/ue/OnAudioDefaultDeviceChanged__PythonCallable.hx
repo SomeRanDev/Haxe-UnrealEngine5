@@ -12,3 +12,22 @@ extern class OnAudioDefaultDeviceChanged__PythonCallable extends PythonCallableF
 @:nativeGen
 abstract ConstOnAudioDefaultDeviceChanged__PythonCallable(OnAudioDefaultDeviceChanged__PythonCallable) from OnAudioDefaultDeviceChanged__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnAudioDefaultDeviceChanged__PythonCallable*")
+abstract OnAudioDefaultDeviceChanged__PythonCallablePtr(cpp.Star<OnAudioDefaultDeviceChanged__PythonCallable>) from cpp.Star<OnAudioDefaultDeviceChanged__PythonCallable> to cpp.Star<OnAudioDefaultDeviceChanged__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnAudioDefaultDeviceChanged__PythonCallable): OnAudioDefaultDeviceChanged__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnAudioDefaultDeviceChanged__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

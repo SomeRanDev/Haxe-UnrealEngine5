@@ -34,3 +34,22 @@ abstract ConstNiagaraGraph(NiagaraGraph) from NiagaraGraph {
 	public extern var ParameterToReferencesMap(get, never): TMap<NiagaraVariable, NiagaraGraphParameterReferenceCollection>;
 	public inline extern function get_ParameterToReferencesMap(): TMap<NiagaraVariable, NiagaraGraphParameterReferenceCollection> return this.ParameterToReferencesMap;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraGraph*")
+abstract NiagaraGraphPtr(cpp.Star<NiagaraGraph>) from cpp.Star<NiagaraGraph> to cpp.Star<NiagaraGraph>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraGraph): NiagaraGraphPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraGraph {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

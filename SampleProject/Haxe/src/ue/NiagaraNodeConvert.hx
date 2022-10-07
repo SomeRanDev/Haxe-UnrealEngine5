@@ -31,3 +31,22 @@ abstract ConstNiagaraNodeConvert(NiagaraNodeConvert) from NiagaraNodeConvert {
 	public extern var ExpandedItems(get, never): TArray<NiagaraConvertPinRecord>;
 	public inline extern function get_ExpandedItems(): TArray<NiagaraConvertPinRecord> return this.ExpandedItems;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraNodeConvert*")
+abstract NiagaraNodeConvertPtr(cpp.Star<NiagaraNodeConvert>) from cpp.Star<NiagaraNodeConvert> to cpp.Star<NiagaraNodeConvert>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraNodeConvert): NiagaraNodeConvertPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraNodeConvert {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

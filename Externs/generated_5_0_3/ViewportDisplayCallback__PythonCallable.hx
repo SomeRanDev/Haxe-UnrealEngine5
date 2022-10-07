@@ -12,3 +12,22 @@ extern class ViewportDisplayCallback__PythonCallable extends PythonCallableForDe
 @:nativeGen
 abstract ConstViewportDisplayCallback__PythonCallable(ViewportDisplayCallback__PythonCallable) from ViewportDisplayCallback__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ViewportDisplayCallback__PythonCallable*")
+abstract ViewportDisplayCallback__PythonCallablePtr(cpp.Star<ViewportDisplayCallback__PythonCallable>) from cpp.Star<ViewportDisplayCallback__PythonCallable> to cpp.Star<ViewportDisplayCallback__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ViewportDisplayCallback__PythonCallable): ViewportDisplayCallback__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ViewportDisplayCallback__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstLandscapeSettings(LandscapeSettings) from LandscapeSettings {
 	public extern var MaxNumberOfLayers(get, never): cpp.Int32;
 	public inline extern function get_MaxNumberOfLayers(): cpp.Int32 return this.MaxNumberOfLayers;
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeSettings*")
+abstract LandscapeSettingsPtr(cpp.Star<LandscapeSettings>) from cpp.Star<LandscapeSettings> to cpp.Star<LandscapeSettings>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeSettings): LandscapeSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

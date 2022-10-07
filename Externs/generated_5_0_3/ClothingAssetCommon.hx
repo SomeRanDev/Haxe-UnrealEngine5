@@ -52,3 +52,22 @@ abstract ConstClothingAssetCommon(ClothingAssetCommon) from ClothingAssetCommon 
 	public extern var ClothConfig_DEPRECATED(get, never): ClothConfig_Legacy;
 	public inline extern function get_ClothConfig_DEPRECATED(): ClothConfig_Legacy return this.ClothConfig_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("ClothingAssetCommon*")
+abstract ClothingAssetCommonPtr(cpp.Star<ClothingAssetCommon>) from cpp.Star<ClothingAssetCommon> to cpp.Star<ClothingAssetCommon>{
+	@:from
+	public static extern inline function fromValue(v: ClothingAssetCommon): ClothingAssetCommonPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ClothingAssetCommon {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -53,3 +53,22 @@ abstract ConstViewportWorldInteraction(ViewportWorldInteraction) from ViewportWo
 	public extern var AssetContainer(get, never): cpp.Star<ViewportInteractionAssetContainer.ConstViewportInteractionAssetContainer>;
 	public inline extern function get_AssetContainer(): cpp.Star<ViewportInteractionAssetContainer.ConstViewportInteractionAssetContainer> return this.AssetContainer;
 }
+
+@:forward
+@:nativeGen
+@:native("ViewportWorldInteraction*")
+abstract ViewportWorldInteractionPtr(cpp.Star<ViewportWorldInteraction>) from cpp.Star<ViewportWorldInteraction> to cpp.Star<ViewportWorldInteraction>{
+	@:from
+	public static extern inline function fromValue(v: ViewportWorldInteraction): ViewportWorldInteractionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ViewportWorldInteraction {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

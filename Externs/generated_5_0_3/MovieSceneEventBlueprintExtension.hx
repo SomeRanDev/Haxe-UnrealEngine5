@@ -16,3 +16,22 @@ abstract ConstMovieSceneEventBlueprintExtension(MovieSceneEventBlueprintExtensio
 	public extern var EventSections(get, never): TArray<TWeakObjectPtr<MovieSceneEventSectionBase.ConstMovieSceneEventSectionBase>>;
 	public inline extern function get_EventSections(): TArray<TWeakObjectPtr<MovieSceneEventSectionBase.ConstMovieSceneEventSectionBase>> return this.EventSections;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneEventBlueprintExtension*")
+abstract MovieSceneEventBlueprintExtensionPtr(cpp.Star<MovieSceneEventBlueprintExtension>) from cpp.Star<MovieSceneEventBlueprintExtension> to cpp.Star<MovieSceneEventBlueprintExtension>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneEventBlueprintExtension): MovieSceneEventBlueprintExtensionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneEventBlueprintExtension {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

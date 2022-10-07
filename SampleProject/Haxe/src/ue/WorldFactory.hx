@@ -13,3 +13,22 @@ extern class WorldFactory extends Factory {
 @:nativeGen
 abstract ConstWorldFactory(WorldFactory) from WorldFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("WorldFactory*")
+abstract WorldFactoryPtr(cpp.Star<WorldFactory>) from cpp.Star<WorldFactory> to cpp.Star<WorldFactory>{
+	@:from
+	public static extern inline function fromValue(v: WorldFactory): WorldFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

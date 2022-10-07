@@ -12,3 +12,22 @@ extern class MovieSceneKeyProxy extends Interface {
 @:nativeGen
 abstract ConstMovieSceneKeyProxy(MovieSceneKeyProxy) from MovieSceneKeyProxy {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneKeyProxy*")
+abstract MovieSceneKeyProxyPtr(cpp.Star<MovieSceneKeyProxy>) from cpp.Star<MovieSceneKeyProxy> to cpp.Star<MovieSceneKeyProxy>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneKeyProxy): MovieSceneKeyProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneKeyProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

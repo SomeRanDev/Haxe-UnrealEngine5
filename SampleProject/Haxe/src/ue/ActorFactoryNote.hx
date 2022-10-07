@@ -13,3 +13,22 @@ extern class ActorFactoryNote extends ActorFactory {
 @:nativeGen
 abstract ConstActorFactoryNote(ActorFactoryNote) from ActorFactoryNote {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorFactoryNote*")
+abstract ActorFactoryNotePtr(cpp.Star<ActorFactoryNote>) from cpp.Star<ActorFactoryNote> to cpp.Star<ActorFactoryNote>{
+	@:from
+	public static extern inline function fromValue(v: ActorFactoryNote): ActorFactoryNotePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorFactoryNote {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

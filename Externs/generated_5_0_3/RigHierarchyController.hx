@@ -49,3 +49,22 @@ abstract ConstRigHierarchyController(RigHierarchyController) from RigHierarchyCo
 	public extern var Hierarchy(get, never): TWeakObjectPtr<RigHierarchy.ConstRigHierarchy>;
 	public inline extern function get_Hierarchy(): TWeakObjectPtr<RigHierarchy.ConstRigHierarchy> return this.Hierarchy;
 }
+
+@:forward
+@:nativeGen
+@:native("RigHierarchyController*")
+abstract RigHierarchyControllerPtr(cpp.Star<RigHierarchyController>) from cpp.Star<RigHierarchyController> to cpp.Star<RigHierarchyController>{
+	@:from
+	public static extern inline function fromValue(v: RigHierarchyController): RigHierarchyControllerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigHierarchyController {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

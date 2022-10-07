@@ -16,3 +16,22 @@ abstract ConstHLODBuilder(HLODBuilder) from HLODBuilder {
 	public extern var HLODBuilderSettings(get, never): cpp.Star<HLODBuilderSettings.ConstHLODBuilderSettings>;
 	public inline extern function get_HLODBuilderSettings(): cpp.Star<HLODBuilderSettings.ConstHLODBuilderSettings> return this.HLODBuilderSettings;
 }
+
+@:forward
+@:nativeGen
+@:native("HLODBuilder*")
+abstract HLODBuilderPtr(cpp.Star<HLODBuilder>) from cpp.Star<HLODBuilder> to cpp.Star<HLODBuilder>{
+	@:from
+	public static extern inline function fromValue(v: HLODBuilder): HLODBuilderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): HLODBuilder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

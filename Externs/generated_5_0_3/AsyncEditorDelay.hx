@@ -18,3 +18,22 @@ abstract ConstAsyncEditorDelay(AsyncEditorDelay) from AsyncEditorDelay {
 	public extern var Complete(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_Complete(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.Complete;
 }
+
+@:forward
+@:nativeGen
+@:native("AsyncEditorDelay*")
+abstract AsyncEditorDelayPtr(cpp.Star<AsyncEditorDelay>) from cpp.Star<AsyncEditorDelay> to cpp.Star<AsyncEditorDelay>{
+	@:from
+	public static extern inline function fromValue(v: AsyncEditorDelay): AsyncEditorDelayPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AsyncEditorDelay {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

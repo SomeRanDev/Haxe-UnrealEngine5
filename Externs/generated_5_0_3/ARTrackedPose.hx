@@ -18,3 +18,22 @@ abstract ConstARTrackedPose(ARTrackedPose) from ARTrackedPose {
 	public extern var TrackedPose(get, never): ARPose3D;
 	public inline extern function get_TrackedPose(): ARPose3D return this.TrackedPose;
 }
+
+@:forward
+@:nativeGen
+@:native("ARTrackedPose*")
+abstract ARTrackedPosePtr(cpp.Star<ARTrackedPose>) from cpp.Star<ARTrackedPose> to cpp.Star<ARTrackedPose>{
+	@:from
+	public static extern inline function fromValue(v: ARTrackedPose): ARTrackedPosePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARTrackedPose {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

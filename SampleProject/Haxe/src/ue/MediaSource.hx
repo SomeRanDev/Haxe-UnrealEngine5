@@ -19,3 +19,22 @@ extern class MediaSource extends Object {
 @:nativeGen
 abstract ConstMediaSource(MediaSource) from MediaSource {
 }
+
+@:forward
+@:nativeGen
+@:native("MediaSource*")
+abstract MediaSourcePtr(cpp.Star<MediaSource>) from cpp.Star<MediaSource> to cpp.Star<MediaSource>{
+	@:from
+	public static extern inline function fromValue(v: MediaSource): MediaSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MediaSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

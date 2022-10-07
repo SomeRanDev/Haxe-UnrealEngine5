@@ -49,3 +49,22 @@ abstract ConstIKRig_LimbSolver(IKRig_LimbSolver) from IKRig_LimbSolver {
 	public extern var Effector(get, never): cpp.Star<IKRig_LimbEffector.ConstIKRig_LimbEffector>;
 	public inline extern function get_Effector(): cpp.Star<IKRig_LimbEffector.ConstIKRig_LimbEffector> return this.Effector;
 }
+
+@:forward
+@:nativeGen
+@:native("IKRig_LimbSolver*")
+abstract IKRig_LimbSolverPtr(cpp.Star<IKRig_LimbSolver>) from cpp.Star<IKRig_LimbSolver> to cpp.Star<IKRig_LimbSolver>{
+	@:from
+	public static extern inline function fromValue(v: IKRig_LimbSolver): IKRig_LimbSolverPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IKRig_LimbSolver {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

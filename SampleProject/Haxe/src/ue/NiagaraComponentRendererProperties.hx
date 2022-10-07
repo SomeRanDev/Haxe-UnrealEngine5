@@ -46,3 +46,22 @@ abstract ConstNiagaraComponentRendererProperties(NiagaraComponentRendererPropert
 	public extern var PropertyBindings(get, never): TArray<NiagaraComponentPropertyBinding>;
 	public inline extern function get_PropertyBindings(): TArray<NiagaraComponentPropertyBinding> return this.PropertyBindings;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraComponentRendererProperties*")
+abstract NiagaraComponentRendererPropertiesPtr(cpp.Star<NiagaraComponentRendererProperties>) from cpp.Star<NiagaraComponentRendererProperties> to cpp.Star<NiagaraComponentRendererProperties>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraComponentRendererProperties): NiagaraComponentRendererPropertiesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraComponentRendererProperties {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

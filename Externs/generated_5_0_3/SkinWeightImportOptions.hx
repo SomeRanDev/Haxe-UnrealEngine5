@@ -22,3 +22,22 @@ abstract ConstSkinWeightImportOptions(SkinWeightImportOptions) from SkinWeightIm
 	public extern var LODIndex(get, never): cpp.Int32;
 	public inline extern function get_LODIndex(): cpp.Int32 return this.LODIndex;
 }
+
+@:forward
+@:nativeGen
+@:native("SkinWeightImportOptions*")
+abstract SkinWeightImportOptionsPtr(cpp.Star<SkinWeightImportOptions>) from cpp.Star<SkinWeightImportOptions> to cpp.Star<SkinWeightImportOptions>{
+	@:from
+	public static extern inline function fromValue(v: SkinWeightImportOptions): SkinWeightImportOptionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SkinWeightImportOptions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -28,3 +28,22 @@ abstract ConstK2Node_InputActionEvent(K2Node_InputActionEvent) from K2Node_Input
 	public extern var bOverrideParentBinding(get, never): Bool;
 	public inline extern function get_bOverrideParentBinding(): Bool return this.bOverrideParentBinding;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_InputActionEvent*")
+abstract K2Node_InputActionEventPtr(cpp.Star<K2Node_InputActionEvent>) from cpp.Star<K2Node_InputActionEvent> to cpp.Star<K2Node_InputActionEvent>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_InputActionEvent): K2Node_InputActionEventPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_InputActionEvent {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class MaterialExpressionDistanceCullFade extends MaterialExpression {
 @:nativeGen
 abstract ConstMaterialExpressionDistanceCullFade(MaterialExpressionDistanceCullFade) from MaterialExpressionDistanceCullFade {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionDistanceCullFade*")
+abstract MaterialExpressionDistanceCullFadePtr(cpp.Star<MaterialExpressionDistanceCullFade>) from cpp.Star<MaterialExpressionDistanceCullFade> to cpp.Star<MaterialExpressionDistanceCullFade>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionDistanceCullFade): MaterialExpressionDistanceCullFadePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionDistanceCullFade {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

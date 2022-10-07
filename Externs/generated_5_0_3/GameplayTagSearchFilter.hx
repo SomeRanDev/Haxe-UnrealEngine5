@@ -13,3 +13,22 @@ extern class GameplayTagSearchFilter extends ContentBrowserFrontEndFilterExtensi
 @:nativeGen
 abstract ConstGameplayTagSearchFilter(GameplayTagSearchFilter) from GameplayTagSearchFilter {
 }
+
+@:forward
+@:nativeGen
+@:native("GameplayTagSearchFilter*")
+abstract GameplayTagSearchFilterPtr(cpp.Star<GameplayTagSearchFilter>) from cpp.Star<GameplayTagSearchFilter> to cpp.Star<GameplayTagSearchFilter>{
+	@:from
+	public static extern inline function fromValue(v: GameplayTagSearchFilter): GameplayTagSearchFilterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameplayTagSearchFilter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

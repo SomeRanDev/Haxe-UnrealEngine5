@@ -13,3 +13,22 @@ extern class MakeBinaryConfigCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstMakeBinaryConfigCommandlet(MakeBinaryConfigCommandlet) from MakeBinaryConfigCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("MakeBinaryConfigCommandlet*")
+abstract MakeBinaryConfigCommandletPtr(cpp.Star<MakeBinaryConfigCommandlet>) from cpp.Star<MakeBinaryConfigCommandlet> to cpp.Star<MakeBinaryConfigCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: MakeBinaryConfigCommandlet): MakeBinaryConfigCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MakeBinaryConfigCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

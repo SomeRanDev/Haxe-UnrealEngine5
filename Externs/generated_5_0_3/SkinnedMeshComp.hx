@@ -174,3 +174,22 @@ abstract ConstSkinnedMeshComp(SkinnedMeshComp) from SkinnedMeshComp {
 	public extern var CachedWorldToLocalTransform(get, never): Matrix;
 	public inline extern function get_CachedWorldToLocalTransform(): Matrix return this.CachedWorldToLocalTransform;
 }
+
+@:forward
+@:nativeGen
+@:native("SkinnedMeshComp*")
+abstract SkinnedMeshCompPtr(cpp.Star<SkinnedMeshComp>) from cpp.Star<SkinnedMeshComp> to cpp.Star<SkinnedMeshComp>{
+	@:from
+	public static extern inline function fromValue(v: SkinnedMeshComp): SkinnedMeshCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SkinnedMeshComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

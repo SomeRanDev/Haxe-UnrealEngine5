@@ -69,3 +69,22 @@ abstract ConstInterpToMovementComp(InterpToMovementComp) from InterpToMovementCo
 	public extern var ControlPoints(get, never): TArray<InterpControlPoint>;
 	public inline extern function get_ControlPoints(): TArray<InterpControlPoint> return this.ControlPoints;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpToMovementComp*")
+abstract InterpToMovementCompPtr(cpp.Star<InterpToMovementComp>) from cpp.Star<InterpToMovementComp> to cpp.Star<InterpToMovementComp>{
+	@:from
+	public static extern inline function fromValue(v: InterpToMovementComp): InterpToMovementCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpToMovementComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

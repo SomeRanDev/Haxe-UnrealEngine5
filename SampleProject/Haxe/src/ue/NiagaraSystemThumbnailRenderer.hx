@@ -13,3 +13,22 @@ extern class NiagaraSystemThumbnailRenderer extends NiagaraThumbnailRendererBase
 @:nativeGen
 abstract ConstNiagaraSystemThumbnailRenderer(NiagaraSystemThumbnailRenderer) from NiagaraSystemThumbnailRenderer {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraSystemThumbnailRenderer*")
+abstract NiagaraSystemThumbnailRendererPtr(cpp.Star<NiagaraSystemThumbnailRenderer>) from cpp.Star<NiagaraSystemThumbnailRenderer> to cpp.Star<NiagaraSystemThumbnailRenderer>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraSystemThumbnailRenderer): NiagaraSystemThumbnailRendererPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraSystemThumbnailRenderer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

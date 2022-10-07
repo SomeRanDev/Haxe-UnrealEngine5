@@ -13,3 +13,22 @@ extern class VRRadialMenuHandler extends Object {
 @:nativeGen
 abstract ConstVRRadialMenuHandler(VRRadialMenuHandler) from VRRadialMenuHandler {
 }
+
+@:forward
+@:nativeGen
+@:native("VRRadialMenuHandler*")
+abstract VRRadialMenuHandlerPtr(cpp.Star<VRRadialMenuHandler>) from cpp.Star<VRRadialMenuHandler> to cpp.Star<VRRadialMenuHandler>{
+	@:from
+	public static extern inline function fromValue(v: VRRadialMenuHandler): VRRadialMenuHandlerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VRRadialMenuHandler {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

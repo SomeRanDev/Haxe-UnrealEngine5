@@ -18,3 +18,22 @@ abstract ConstUniformScalar(UniformScalar) from UniformScalar {
 	public extern var Magnitude(get, never): cpp.Float32;
 	public inline extern function get_Magnitude(): cpp.Float32 return this.Magnitude;
 }
+
+@:forward
+@:nativeGen
+@:native("UniformScalar*")
+abstract UniformScalarPtr(cpp.Star<UniformScalar>) from cpp.Star<UniformScalar> to cpp.Star<UniformScalar>{
+	@:from
+	public static extern inline function fromValue(v: UniformScalar): UniformScalarPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UniformScalar {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

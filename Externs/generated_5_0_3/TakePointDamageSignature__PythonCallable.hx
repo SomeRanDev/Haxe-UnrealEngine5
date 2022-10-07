@@ -12,3 +12,22 @@ extern class TakePointDamageSignature__PythonCallable extends PythonCallableForD
 @:nativeGen
 abstract ConstTakePointDamageSignature__PythonCallable(TakePointDamageSignature__PythonCallable) from TakePointDamageSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("TakePointDamageSignature__PythonCallable*")
+abstract TakePointDamageSignature__PythonCallablePtr(cpp.Star<TakePointDamageSignature__PythonCallable>) from cpp.Star<TakePointDamageSignature__PythonCallable> to cpp.Star<TakePointDamageSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: TakePointDamageSignature__PythonCallable): TakePointDamageSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TakePointDamageSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

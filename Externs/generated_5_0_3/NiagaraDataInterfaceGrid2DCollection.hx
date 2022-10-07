@@ -36,3 +36,22 @@ abstract ConstNiagaraDataInterfaceGrid2DCollection(NiagaraDataInterfaceGrid2DCol
 	public extern var ManagedRenderTargets(get, never): TMap<cpp.UInt64, cpp.Star<TextureRenderTarget2DArray.ConstTextureRenderTarget2DArray>>;
 	public inline extern function get_ManagedRenderTargets(): TMap<cpp.UInt64, cpp.Star<TextureRenderTarget2DArray.ConstTextureRenderTarget2DArray>> return this.ManagedRenderTargets;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceGrid2DCollection*")
+abstract NiagaraDataInterfaceGrid2DCollectionPtr(cpp.Star<NiagaraDataInterfaceGrid2DCollection>) from cpp.Star<NiagaraDataInterfaceGrid2DCollection> to cpp.Star<NiagaraDataInterfaceGrid2DCollection>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceGrid2DCollection): NiagaraDataInterfaceGrid2DCollectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceGrid2DCollection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

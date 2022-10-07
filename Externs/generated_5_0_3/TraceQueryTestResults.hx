@@ -27,3 +27,22 @@ abstract ConstTraceQueryTestResults(TraceQueryTestResults) from TraceQueryTestRe
 	public extern var BatchOptions(get, never): TraceChannelTestBatchOptions;
 	public inline extern function get_BatchOptions(): TraceChannelTestBatchOptions return this.BatchOptions;
 }
+
+@:forward
+@:nativeGen
+@:native("TraceQueryTestResults*")
+abstract TraceQueryTestResultsPtr(cpp.Star<TraceQueryTestResults>) from cpp.Star<TraceQueryTestResults> to cpp.Star<TraceQueryTestResults>{
+	@:from
+	public static extern inline function fromValue(v: TraceQueryTestResults): TraceQueryTestResultsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TraceQueryTestResults {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

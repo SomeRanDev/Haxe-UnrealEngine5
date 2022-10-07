@@ -27,3 +27,22 @@ abstract ConstSafeZone(SafeZone) from SafeZone {
 	public extern var PadBottom(get, never): Bool;
 	public inline extern function get_PadBottom(): Bool return this.PadBottom;
 }
+
+@:forward
+@:nativeGen
+@:native("SafeZone*")
+abstract SafeZonePtr(cpp.Star<SafeZone>) from cpp.Star<SafeZone> to cpp.Star<SafeZone>{
+	@:from
+	public static extern inline function fromValue(v: SafeZone): SafeZonePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SafeZone {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

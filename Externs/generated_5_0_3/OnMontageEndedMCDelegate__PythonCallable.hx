@@ -12,3 +12,22 @@ extern class OnMontageEndedMCDelegate__PythonCallable extends PythonCallableForD
 @:nativeGen
 abstract ConstOnMontageEndedMCDelegate__PythonCallable(OnMontageEndedMCDelegate__PythonCallable) from OnMontageEndedMCDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnMontageEndedMCDelegate__PythonCallable*")
+abstract OnMontageEndedMCDelegate__PythonCallablePtr(cpp.Star<OnMontageEndedMCDelegate__PythonCallable>) from cpp.Star<OnMontageEndedMCDelegate__PythonCallable> to cpp.Star<OnMontageEndedMCDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnMontageEndedMCDelegate__PythonCallable): OnMontageEndedMCDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnMontageEndedMCDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

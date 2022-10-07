@@ -16,3 +16,22 @@ abstract ConstPersonaPreviewSceneAnimationController(PersonaPreviewSceneAnimatio
 	public extern var Animation(get, never): TSoftObjectPtr<AnimationAsset.ConstAnimationAsset>;
 	public inline extern function get_Animation(): TSoftObjectPtr<AnimationAsset.ConstAnimationAsset> return this.Animation;
 }
+
+@:forward
+@:nativeGen
+@:native("PersonaPreviewSceneAnimationController*")
+abstract PersonaPreviewSceneAnimationControllerPtr(cpp.Star<PersonaPreviewSceneAnimationController>) from cpp.Star<PersonaPreviewSceneAnimationController> to cpp.Star<PersonaPreviewSceneAnimationController>{
+	@:from
+	public static extern inline function fromValue(v: PersonaPreviewSceneAnimationController): PersonaPreviewSceneAnimationControllerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PersonaPreviewSceneAnimationController {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

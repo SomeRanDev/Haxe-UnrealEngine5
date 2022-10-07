@@ -19,3 +19,22 @@ abstract ConstParticleModuleVectorFieldRotation(ParticleModuleVectorFieldRotatio
 	public extern var MaxInitialRotation(get, never): Vector;
 	public inline extern function get_MaxInitialRotation(): Vector return this.MaxInitialRotation;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleVectorFieldRotation*")
+abstract ParticleModuleVectorFieldRotationPtr(cpp.Star<ParticleModuleVectorFieldRotation>) from cpp.Star<ParticleModuleVectorFieldRotation> to cpp.Star<ParticleModuleVectorFieldRotation>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleVectorFieldRotation): ParticleModuleVectorFieldRotationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleVectorFieldRotation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

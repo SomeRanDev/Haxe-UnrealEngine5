@@ -13,3 +13,22 @@ extern class LevelEditorDragDropHandler extends Object {
 @:nativeGen
 abstract ConstLevelEditorDragDropHandler(LevelEditorDragDropHandler) from LevelEditorDragDropHandler {
 }
+
+@:forward
+@:nativeGen
+@:native("LevelEditorDragDropHandler*")
+abstract LevelEditorDragDropHandlerPtr(cpp.Star<LevelEditorDragDropHandler>) from cpp.Star<LevelEditorDragDropHandler> to cpp.Star<LevelEditorDragDropHandler>{
+	@:from
+	public static extern inline function fromValue(v: LevelEditorDragDropHandler): LevelEditorDragDropHandlerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelEditorDragDropHandler {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

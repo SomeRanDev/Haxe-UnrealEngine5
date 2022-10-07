@@ -27,3 +27,22 @@ abstract ConstMaterialParameterCollection(MaterialParameterCollection) from Mate
 	public extern var VectorParameters(get, never): TArray<CollectionVectorParameter>;
 	public inline extern function get_VectorParameters(): TArray<CollectionVectorParameter> return this.VectorParameters;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialParameterCollection*")
+abstract MaterialParameterCollectionPtr(cpp.Star<MaterialParameterCollection>) from cpp.Star<MaterialParameterCollection> to cpp.Star<MaterialParameterCollection>{
+	@:from
+	public static extern inline function fromValue(v: MaterialParameterCollection): MaterialParameterCollectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialParameterCollection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

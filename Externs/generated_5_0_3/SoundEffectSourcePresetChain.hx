@@ -19,3 +19,22 @@ abstract ConstSoundEffectSourcePresetChain(SoundEffectSourcePresetChain) from So
 	public extern var bPlayEffectChainTails(get, never): Bool;
 	public inline extern function get_bPlayEffectChainTails(): Bool return this.bPlayEffectChainTails;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundEffectSourcePresetChain*")
+abstract SoundEffectSourcePresetChainPtr(cpp.Star<SoundEffectSourcePresetChain>) from cpp.Star<SoundEffectSourcePresetChain> to cpp.Star<SoundEffectSourcePresetChain>{
+	@:from
+	public static extern inline function fromValue(v: SoundEffectSourcePresetChain): SoundEffectSourcePresetChainPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundEffectSourcePresetChain {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

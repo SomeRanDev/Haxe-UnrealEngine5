@@ -22,3 +22,22 @@ abstract ConstBTDecorator_Loop(BTDecorator_Loop) from BTDecorator_Loop {
 	public extern var InfiniteLoopTimeoutTime(get, never): cpp.Float32;
 	public inline extern function get_InfiniteLoopTimeoutTime(): cpp.Float32 return this.InfiniteLoopTimeoutTime;
 }
+
+@:forward
+@:nativeGen
+@:native("BTDecorator_Loop*")
+abstract BTDecorator_LoopPtr(cpp.Star<BTDecorator_Loop>) from cpp.Star<BTDecorator_Loop> to cpp.Star<BTDecorator_Loop>{
+	@:from
+	public static extern inline function fromValue(v: BTDecorator_Loop): BTDecorator_LoopPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTDecorator_Loop {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -25,3 +25,22 @@ abstract ConstK2Node_CustomEvent(K2Node_CustomEvent) from K2Node_CustomEvent {
 	public extern var MetaData(get, never): KismetUserDeclaredFunctionMetadata;
 	public inline extern function get_MetaData(): KismetUserDeclaredFunctionMetadata return this.MetaData;
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_CustomEvent*")
+abstract K2Node_CustomEventPtr(cpp.Star<K2Node_CustomEvent>) from cpp.Star<K2Node_CustomEvent> to cpp.Star<K2Node_CustomEvent>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_CustomEvent): K2Node_CustomEventPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_CustomEvent {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

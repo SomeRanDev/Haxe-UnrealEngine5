@@ -16,3 +16,22 @@ abstract ConstMovieSceneBindingOverrides(MovieSceneBindingOverrides) from MovieS
 	public extern var BindingData(get, never): TArray<MovieSceneBindingOverrideData>;
 	public inline extern function get_BindingData(): TArray<MovieSceneBindingOverrideData> return this.BindingData;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneBindingOverrides*")
+abstract MovieSceneBindingOverridesPtr(cpp.Star<MovieSceneBindingOverrides>) from cpp.Star<MovieSceneBindingOverrides> to cpp.Star<MovieSceneBindingOverrides>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneBindingOverrides): MovieSceneBindingOverridesPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneBindingOverrides {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class ComponentEndTouchOverSignature__PythonCallable extends PythonCallab
 @:nativeGen
 abstract ConstComponentEndTouchOverSignature__PythonCallable(ComponentEndTouchOverSignature__PythonCallable) from ComponentEndTouchOverSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ComponentEndTouchOverSignature__PythonCallable*")
+abstract ComponentEndTouchOverSignature__PythonCallablePtr(cpp.Star<ComponentEndTouchOverSignature__PythonCallable>) from cpp.Star<ComponentEndTouchOverSignature__PythonCallable> to cpp.Star<ComponentEndTouchOverSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ComponentEndTouchOverSignature__PythonCallable): ComponentEndTouchOverSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ComponentEndTouchOverSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

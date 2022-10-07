@@ -156,3 +156,22 @@ abstract ConstParticleSystem(ParticleSystem) from ParticleSystem {
 	public extern var NamedMaterialSlots(get, never): TArray<NamedEmitterMaterial>;
 	public inline extern function get_NamedMaterialSlots(): TArray<NamedEmitterMaterial> return this.NamedMaterialSlots;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleSystem*")
+abstract ParticleSystemPtr(cpp.Star<ParticleSystem>) from cpp.Star<ParticleSystem> to cpp.Star<ParticleSystem>{
+	@:from
+	public static extern inline function fromValue(v: ParticleSystem): ParticleSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

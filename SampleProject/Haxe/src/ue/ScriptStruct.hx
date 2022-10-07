@@ -12,3 +12,22 @@ extern class ScriptStruct extends Struct {
 @:nativeGen
 abstract ConstScriptStruct(ScriptStruct) from ScriptStruct {
 }
+
+@:forward
+@:nativeGen
+@:native("ScriptStruct*")
+abstract ScriptStructPtr(cpp.Star<ScriptStruct>) from cpp.Star<ScriptStruct> to cpp.Star<ScriptStruct>{
+	@:from
+	public static extern inline function fromValue(v: ScriptStruct): ScriptStructPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ScriptStruct {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

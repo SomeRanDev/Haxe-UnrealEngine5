@@ -16,3 +16,22 @@ abstract ConstPluginClassTemplate(PluginClassTemplate) from PluginClassTemplate 
 	public extern var PluginName(get, never): FString;
 	public inline extern function get_PluginName(): FString return this.PluginName;
 }
+
+@:forward
+@:nativeGen
+@:native("PluginClassTemplate*")
+abstract PluginClassTemplatePtr(cpp.Star<PluginClassTemplate>) from cpp.Star<PluginClassTemplate> to cpp.Star<PluginClassTemplate>{
+	@:from
+	public static extern inline function fromValue(v: PluginClassTemplate): PluginClassTemplatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PluginClassTemplate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

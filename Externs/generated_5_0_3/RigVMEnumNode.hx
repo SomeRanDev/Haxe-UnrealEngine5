@@ -16,3 +16,22 @@ extern class RigVMEnumNode extends RigVMNode {
 @:nativeGen
 abstract ConstRigVMEnumNode(RigVMEnumNode) from RigVMEnumNode {
 }
+
+@:forward
+@:nativeGen
+@:native("RigVMEnumNode*")
+abstract RigVMEnumNodePtr(cpp.Star<RigVMEnumNode>) from cpp.Star<RigVMEnumNode> to cpp.Star<RigVMEnumNode>{
+	@:from
+	public static extern inline function fromValue(v: RigVMEnumNode): RigVMEnumNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVMEnumNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

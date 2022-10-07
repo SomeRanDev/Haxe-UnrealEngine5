@@ -16,3 +16,22 @@ abstract ConstDEditorFontParameterValue(DEditorFontParameterValue) from DEditorF
 	public extern var ParameterValue(get, never): DFontParameters;
 	public inline extern function get_ParameterValue(): DFontParameters return this.ParameterValue;
 }
+
+@:forward
+@:nativeGen
+@:native("DEditorFontParameterValue*")
+abstract DEditorFontParameterValuePtr(cpp.Star<DEditorFontParameterValue>) from cpp.Star<DEditorFontParameterValue> to cpp.Star<DEditorFontParameterValue>{
+	@:from
+	public static extern inline function fromValue(v: DEditorFontParameterValue): DEditorFontParameterValuePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DEditorFontParameterValue {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

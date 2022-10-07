@@ -46,3 +46,22 @@ abstract ConstPerlinNoiseCameraShakePattern(PerlinNoiseCameraShakePattern) from 
 	public extern var FOV(get, never): PerlinNoiseShaker;
 	public inline extern function get_FOV(): PerlinNoiseShaker return this.FOV;
 }
+
+@:forward
+@:nativeGen
+@:native("PerlinNoiseCameraShakePattern*")
+abstract PerlinNoiseCameraShakePatternPtr(cpp.Star<PerlinNoiseCameraShakePattern>) from cpp.Star<PerlinNoiseCameraShakePattern> to cpp.Star<PerlinNoiseCameraShakePattern>{
+	@:from
+	public static extern inline function fromValue(v: PerlinNoiseCameraShakePattern): PerlinNoiseCameraShakePatternPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PerlinNoiseCameraShakePattern {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

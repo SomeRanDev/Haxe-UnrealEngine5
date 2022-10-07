@@ -49,3 +49,22 @@ abstract ConstAnimBlueprint(AnimBlueprint) from AnimBlueprint {
 	public extern var PreviewAnimationBlueprintTag(get, never): FName;
 	public inline extern function get_PreviewAnimationBlueprintTag(): FName return this.PreviewAnimationBlueprintTag;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimBlueprint*")
+abstract AnimBlueprintPtr(cpp.Star<AnimBlueprint>) from cpp.Star<AnimBlueprint> to cpp.Star<AnimBlueprint>{
+	@:from
+	public static extern inline function fromValue(v: AnimBlueprint): AnimBlueprintPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimBlueprint {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

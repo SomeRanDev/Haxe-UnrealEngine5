@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionMaterialProxyReplace(MaterialExpressionMaterialP
 	public extern var MaterialProxy(get, never): ExpressionInput;
 	public inline extern function get_MaterialProxy(): ExpressionInput return this.MaterialProxy;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionMaterialProxyReplace*")
+abstract MaterialExpressionMaterialProxyReplacePtr(cpp.Star<MaterialExpressionMaterialProxyReplace>) from cpp.Star<MaterialExpressionMaterialProxyReplace> to cpp.Star<MaterialExpressionMaterialProxyReplace>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionMaterialProxyReplace): MaterialExpressionMaterialProxyReplacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionMaterialProxyReplace {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

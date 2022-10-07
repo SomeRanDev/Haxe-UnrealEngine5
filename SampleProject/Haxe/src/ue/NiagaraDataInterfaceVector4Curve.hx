@@ -25,3 +25,22 @@ abstract ConstNiagaraDataInterfaceVector4Curve(NiagaraDataInterfaceVector4Curve)
 	public extern var WCurve(get, never): RichCurve;
 	public inline extern function get_WCurve(): RichCurve return this.WCurve;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceVector4Curve*")
+abstract NiagaraDataInterfaceVector4CurvePtr(cpp.Star<NiagaraDataInterfaceVector4Curve>) from cpp.Star<NiagaraDataInterfaceVector4Curve> to cpp.Star<NiagaraDataInterfaceVector4Curve>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceVector4Curve): NiagaraDataInterfaceVector4CurvePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceVector4Curve {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

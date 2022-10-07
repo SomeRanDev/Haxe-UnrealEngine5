@@ -16,3 +16,22 @@ abstract ConstLocationServicesImpl(LocationServicesImpl) from LocationServicesIm
 	public extern var OnLocationChanged(get, never): HaxeMulticastSparseDelegateProperty<(LocationServicesData) -> Void>;
 	public inline extern function get_OnLocationChanged(): HaxeMulticastSparseDelegateProperty<(LocationServicesData) -> Void> return this.OnLocationChanged;
 }
+
+@:forward
+@:nativeGen
+@:native("LocationServicesImpl*")
+abstract LocationServicesImplPtr(cpp.Star<LocationServicesImpl>) from cpp.Star<LocationServicesImpl> to cpp.Star<LocationServicesImpl>{
+	@:from
+	public static extern inline function fromValue(v: LocationServicesImpl): LocationServicesImplPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LocationServicesImpl {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

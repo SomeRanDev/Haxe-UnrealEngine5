@@ -24,3 +24,22 @@ extern class ActorGroupingUtils extends Object {
 @:nativeGen
 abstract ConstActorGroupingUtils(ActorGroupingUtils) from ActorGroupingUtils {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorGroupingUtils*")
+abstract ActorGroupingUtilsPtr(cpp.Star<ActorGroupingUtils>) from cpp.Star<ActorGroupingUtils> to cpp.Star<ActorGroupingUtils>{
+	@:from
+	public static extern inline function fromValue(v: ActorGroupingUtils): ActorGroupingUtilsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorGroupingUtils {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

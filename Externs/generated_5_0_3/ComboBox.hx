@@ -22,3 +22,22 @@ abstract ConstComboBox(ComboBox) from ComboBox {
 	public extern var bIsFocusable(get, never): Bool;
 	public inline extern function get_bIsFocusable(): Bool return this.bIsFocusable;
 }
+
+@:forward
+@:nativeGen
+@:native("ComboBox*")
+abstract ComboBoxPtr(cpp.Star<ComboBox>) from cpp.Star<ComboBox> to cpp.Star<ComboBox>{
+	@:from
+	public static extern inline function fromValue(v: ComboBox): ComboBoxPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ComboBox {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

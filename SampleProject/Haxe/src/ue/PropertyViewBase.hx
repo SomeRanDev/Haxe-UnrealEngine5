@@ -28,3 +28,22 @@ abstract ConstPropertyViewBase(PropertyViewBase) from PropertyViewBase {
 	public extern var OnPropertyChanged(get, never): HaxeMulticastSparseDelegateProperty<(FName) -> Void>;
 	public inline extern function get_OnPropertyChanged(): HaxeMulticastSparseDelegateProperty<(FName) -> Void> return this.OnPropertyChanged;
 }
+
+@:forward
+@:nativeGen
+@:native("PropertyViewBase*")
+abstract PropertyViewBasePtr(cpp.Star<PropertyViewBase>) from cpp.Star<PropertyViewBase> to cpp.Star<PropertyViewBase>{
+	@:from
+	public static extern inline function fromValue(v: PropertyViewBase): PropertyViewBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PropertyViewBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

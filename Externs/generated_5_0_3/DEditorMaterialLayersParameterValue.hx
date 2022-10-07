@@ -16,3 +16,22 @@ abstract ConstDEditorMaterialLayersParameterValue(DEditorMaterialLayersParameter
 	public extern var ParameterValue(get, never): MaterialLayersFunctions;
 	public inline extern function get_ParameterValue(): MaterialLayersFunctions return this.ParameterValue;
 }
+
+@:forward
+@:nativeGen
+@:native("DEditorMaterialLayersParameterValue*")
+abstract DEditorMaterialLayersParameterValuePtr(cpp.Star<DEditorMaterialLayersParameterValue>) from cpp.Star<DEditorMaterialLayersParameterValue> to cpp.Star<DEditorMaterialLayersParameterValue>{
+	@:from
+	public static extern inline function fromValue(v: DEditorMaterialLayersParameterValue): DEditorMaterialLayersParameterValuePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DEditorMaterialLayersParameterValue {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -40,3 +40,22 @@ abstract ConstMaterialEditorOptions(MaterialEditorOptions) from MaterialEditorOp
 	public extern var FavoriteExpressions(get, never): TArray<FString>;
 	public inline extern function get_FavoriteExpressions(): TArray<FString> return this.FavoriteExpressions;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialEditorOptions*")
+abstract MaterialEditorOptionsPtr(cpp.Star<MaterialEditorOptions>) from cpp.Star<MaterialEditorOptions> to cpp.Star<MaterialEditorOptions>{
+	@:from
+	public static extern inline function fromValue(v: MaterialEditorOptions): MaterialEditorOptionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialEditorOptions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

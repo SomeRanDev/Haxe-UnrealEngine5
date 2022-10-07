@@ -16,3 +16,22 @@ abstract ConstEditorUtilityBlueprintFactory(EditorUtilityBlueprintFactory) from 
 	public extern var ParentClass(get, never): TSubclassOf<Object.ConstObject>;
 	public inline extern function get_ParentClass(): TSubclassOf<Object.ConstObject> return this.ParentClass;
 }
+
+@:forward
+@:nativeGen
+@:native("EditorUtilityBlueprintFactory*")
+abstract EditorUtilityBlueprintFactoryPtr(cpp.Star<EditorUtilityBlueprintFactory>) from cpp.Star<EditorUtilityBlueprintFactory> to cpp.Star<EditorUtilityBlueprintFactory>{
+	@:from
+	public static extern inline function fromValue(v: EditorUtilityBlueprintFactory): EditorUtilityBlueprintFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorUtilityBlueprintFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

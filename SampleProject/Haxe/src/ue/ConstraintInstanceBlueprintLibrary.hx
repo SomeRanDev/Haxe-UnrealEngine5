@@ -67,3 +67,22 @@ extern class ConstraintInstanceBlueprintLibrary extends BlueprintFunctionLibrary
 @:nativeGen
 abstract ConstConstraintInstanceBlueprintLibrary(ConstraintInstanceBlueprintLibrary) from ConstraintInstanceBlueprintLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("ConstraintInstanceBlueprintLibrary*")
+abstract ConstraintInstanceBlueprintLibraryPtr(cpp.Star<ConstraintInstanceBlueprintLibrary>) from cpp.Star<ConstraintInstanceBlueprintLibrary> to cpp.Star<ConstraintInstanceBlueprintLibrary>{
+	@:from
+	public static extern inline function fromValue(v: ConstraintInstanceBlueprintLibrary): ConstraintInstanceBlueprintLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ConstraintInstanceBlueprintLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

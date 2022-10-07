@@ -13,3 +13,22 @@ extern class IKGoalCreatorInterface extends Interface {
 @:nativeGen
 abstract ConstIKGoalCreatorInterface(IKGoalCreatorInterface) from IKGoalCreatorInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("IKGoalCreatorInterface*")
+abstract IKGoalCreatorInterfacePtr(cpp.Star<IKGoalCreatorInterface>) from cpp.Star<IKGoalCreatorInterface> to cpp.Star<IKGoalCreatorInterface>{
+	@:from
+	public static extern inline function fromValue(v: IKGoalCreatorInterface): IKGoalCreatorInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IKGoalCreatorInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

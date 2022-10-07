@@ -13,3 +13,22 @@ extern class IoStoreCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstIoStoreCommandlet(IoStoreCommandlet) from IoStoreCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("IoStoreCommandlet*")
+abstract IoStoreCommandletPtr(cpp.Star<IoStoreCommandlet>) from cpp.Star<IoStoreCommandlet> to cpp.Star<IoStoreCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: IoStoreCommandlet): IoStoreCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IoStoreCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

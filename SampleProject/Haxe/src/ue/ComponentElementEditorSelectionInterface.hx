@@ -13,3 +13,22 @@ extern class ComponentElementEditorSelectionInterface extends ComponentElementSe
 @:nativeGen
 abstract ConstComponentElementEditorSelectionInterface(ComponentElementEditorSelectionInterface) from ComponentElementEditorSelectionInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("ComponentElementEditorSelectionInterface*")
+abstract ComponentElementEditorSelectionInterfacePtr(cpp.Star<ComponentElementEditorSelectionInterface>) from cpp.Star<ComponentElementEditorSelectionInterface> to cpp.Star<ComponentElementEditorSelectionInterface>{
+	@:from
+	public static extern inline function fromValue(v: ComponentElementEditorSelectionInterface): ComponentElementEditorSelectionInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ComponentElementEditorSelectionInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

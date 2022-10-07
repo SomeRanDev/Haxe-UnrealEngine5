@@ -22,3 +22,22 @@ abstract ConstIKRig_PoleSolverEffector(IKRig_PoleSolverEffector) from IKRig_Pole
 	public extern var Alpha(get, never): cpp.Float32;
 	public inline extern function get_Alpha(): cpp.Float32 return this.Alpha;
 }
+
+@:forward
+@:nativeGen
+@:native("IKRig_PoleSolverEffector*")
+abstract IKRig_PoleSolverEffectorPtr(cpp.Star<IKRig_PoleSolverEffector>) from cpp.Star<IKRig_PoleSolverEffector> to cpp.Star<IKRig_PoleSolverEffector>{
+	@:from
+	public static extern inline function fromValue(v: IKRig_PoleSolverEffector): IKRig_PoleSolverEffectorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IKRig_PoleSolverEffector {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

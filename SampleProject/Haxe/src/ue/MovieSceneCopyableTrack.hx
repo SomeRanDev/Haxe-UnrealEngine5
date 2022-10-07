@@ -25,3 +25,22 @@ abstract ConstMovieSceneCopyableTrack(MovieSceneCopyableTrack) from MovieSceneCo
 	public extern var FolderPath(get, never): TArray<FName>;
 	public inline extern function get_FolderPath(): TArray<FName> return this.FolderPath;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneCopyableTrack*")
+abstract MovieSceneCopyableTrackPtr(cpp.Star<MovieSceneCopyableTrack>) from cpp.Star<MovieSceneCopyableTrack> to cpp.Star<MovieSceneCopyableTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneCopyableTrack): MovieSceneCopyableTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneCopyableTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

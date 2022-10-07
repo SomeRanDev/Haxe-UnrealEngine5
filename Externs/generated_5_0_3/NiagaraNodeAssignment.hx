@@ -28,3 +28,22 @@ abstract ConstNiagaraNodeAssignment(NiagaraNodeAssignment) from NiagaraNodeAssig
 	public extern var OldFunctionCallName(get, never): FString;
 	public inline extern function get_OldFunctionCallName(): FString return this.OldFunctionCallName;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraNodeAssignment*")
+abstract NiagaraNodeAssignmentPtr(cpp.Star<NiagaraNodeAssignment>) from cpp.Star<NiagaraNodeAssignment> to cpp.Star<NiagaraNodeAssignment>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraNodeAssignment): NiagaraNodeAssignmentPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraNodeAssignment {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

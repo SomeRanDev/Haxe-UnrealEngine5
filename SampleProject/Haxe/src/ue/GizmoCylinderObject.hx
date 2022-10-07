@@ -28,3 +28,22 @@ abstract ConstGizmoCylinderObject(GizmoCylinderObject) from GizmoCylinderObject 
 	public extern var NumSides(get, never): cpp.Int32;
 	public inline extern function get_NumSides(): cpp.Int32 return this.NumSides;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoCylinderObject*")
+abstract GizmoCylinderObjectPtr(cpp.Star<GizmoCylinderObject>) from cpp.Star<GizmoCylinderObject> to cpp.Star<GizmoCylinderObject>{
+	@:from
+	public static extern inline function fromValue(v: GizmoCylinderObject): GizmoCylinderObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoCylinderObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

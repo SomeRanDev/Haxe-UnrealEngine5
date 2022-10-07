@@ -13,3 +13,22 @@ extern class NavLinkTrivial extends NavLinkDefinition {
 @:nativeGen
 abstract ConstNavLinkTrivial(NavLinkTrivial) from NavLinkTrivial {
 }
+
+@:forward
+@:nativeGen
+@:native("NavLinkTrivial*")
+abstract NavLinkTrivialPtr(cpp.Star<NavLinkTrivial>) from cpp.Star<NavLinkTrivial> to cpp.Star<NavLinkTrivial>{
+	@:from
+	public static extern inline function fromValue(v: NavLinkTrivial): NavLinkTrivialPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavLinkTrivial {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

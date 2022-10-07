@@ -88,3 +88,22 @@ abstract ConstPyTestObject(PyTestObject) from PyTestObject {
 	public extern var BoolDefaultsOnly(get, never): Bool;
 	public inline extern function get_BoolDefaultsOnly(): Bool return this.BoolDefaultsOnly;
 }
+
+@:forward
+@:nativeGen
+@:native("PyTestObject*")
+abstract PyTestObjectPtr(cpp.Star<PyTestObject>) from cpp.Star<PyTestObject> to cpp.Star<PyTestObject>{
+	@:from
+	public static extern inline function fromValue(v: PyTestObject): PyTestObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PyTestObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

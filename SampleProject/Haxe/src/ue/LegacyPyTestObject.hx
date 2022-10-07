@@ -13,3 +13,22 @@ extern class LegacyPyTestObject extends PyTestObject {
 @:nativeGen
 abstract ConstLegacyPyTestObject(LegacyPyTestObject) from LegacyPyTestObject {
 }
+
+@:forward
+@:nativeGen
+@:native("LegacyPyTestObject*")
+abstract LegacyPyTestObjectPtr(cpp.Star<LegacyPyTestObject>) from cpp.Star<LegacyPyTestObject> to cpp.Star<LegacyPyTestObject>{
+	@:from
+	public static extern inline function fromValue(v: LegacyPyTestObject): LegacyPyTestObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LegacyPyTestObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

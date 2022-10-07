@@ -13,3 +13,22 @@ extern class GeneralEngineSettings extends Object {
 @:nativeGen
 abstract ConstGeneralEngineSettings(GeneralEngineSettings) from GeneralEngineSettings {
 }
+
+@:forward
+@:nativeGen
+@:native("GeneralEngineSettings*")
+abstract GeneralEngineSettingsPtr(cpp.Star<GeneralEngineSettings>) from cpp.Star<GeneralEngineSettings> to cpp.Star<GeneralEngineSettings>{
+	@:from
+	public static extern inline function fromValue(v: GeneralEngineSettings): GeneralEngineSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GeneralEngineSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

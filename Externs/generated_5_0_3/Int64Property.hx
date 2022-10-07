@@ -12,3 +12,22 @@ extern class Int64Property extends NumericProperty {
 @:nativeGen
 abstract ConstInt64Property(Int64Property) from Int64Property {
 }
+
+@:forward
+@:nativeGen
+@:native("Int64Property*")
+abstract Int64PropertyPtr(cpp.Star<Int64Property>) from cpp.Star<Int64Property> to cpp.Star<Int64Property>{
+	@:from
+	public static extern inline function fromValue(v: Int64Property): Int64PropertyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Int64Property {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

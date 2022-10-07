@@ -13,3 +13,22 @@ extern class ClothingAssetCustomData extends Object {
 @:nativeGen
 abstract ConstClothingAssetCustomData(ClothingAssetCustomData) from ClothingAssetCustomData {
 }
+
+@:forward
+@:nativeGen
+@:native("ClothingAssetCustomData*")
+abstract ClothingAssetCustomDataPtr(cpp.Star<ClothingAssetCustomData>) from cpp.Star<ClothingAssetCustomData> to cpp.Star<ClothingAssetCustomData>{
+	@:from
+	public static extern inline function fromValue(v: ClothingAssetCustomData): ClothingAssetCustomDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ClothingAssetCustomData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

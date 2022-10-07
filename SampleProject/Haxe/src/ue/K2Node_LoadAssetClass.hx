@@ -13,3 +13,22 @@ extern class K2Node_LoadAssetClass extends K2Node_LoadAsset {
 @:nativeGen
 abstract ConstK2Node_LoadAssetClass(K2Node_LoadAssetClass) from K2Node_LoadAssetClass {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_LoadAssetClass*")
+abstract K2Node_LoadAssetClassPtr(cpp.Star<K2Node_LoadAssetClass>) from cpp.Star<K2Node_LoadAssetClass> to cpp.Star<K2Node_LoadAssetClass>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_LoadAssetClass): K2Node_LoadAssetClassPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_LoadAssetClass {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

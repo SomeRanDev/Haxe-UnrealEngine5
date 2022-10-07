@@ -31,3 +31,22 @@ abstract ConstInteractiveToolsContext(InteractiveToolsContext) from InteractiveT
 	public extern var ToolManagerClass(get, never): TSoftClassPtr<Class.ConstClass>;
 	public inline extern function get_ToolManagerClass(): TSoftClassPtr<Class.ConstClass> return this.ToolManagerClass;
 }
+
+@:forward
+@:nativeGen
+@:native("InteractiveToolsContext*")
+abstract InteractiveToolsContextPtr(cpp.Star<InteractiveToolsContext>) from cpp.Star<InteractiveToolsContext> to cpp.Star<InteractiveToolsContext>{
+	@:from
+	public static extern inline function fromValue(v: InteractiveToolsContext): InteractiveToolsContextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InteractiveToolsContext {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

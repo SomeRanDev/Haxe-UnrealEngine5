@@ -45,3 +45,22 @@ abstract ConstEnvQueryManager(EnvQueryManager) from EnvQueryManager {
 	public extern var GenerationTimeWarningSeconds(get, never): cpp.Float64;
 	public inline extern function get_GenerationTimeWarningSeconds(): cpp.Float64 return this.GenerationTimeWarningSeconds;
 }
+
+@:forward
+@:nativeGen
+@:native("EnvQueryManager*")
+abstract EnvQueryManagerPtr(cpp.Star<EnvQueryManager>) from cpp.Star<EnvQueryManager> to cpp.Star<EnvQueryManager>{
+	@:from
+	public static extern inline function fromValue(v: EnvQueryManager): EnvQueryManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EnvQueryManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

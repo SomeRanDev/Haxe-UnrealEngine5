@@ -19,3 +19,22 @@ abstract ConstFXSystemAsset(FXSystemAsset) from FXSystemAsset {
 	public extern var PoolPrimeSize(get, never): cpp.UInt32;
 	public inline extern function get_PoolPrimeSize(): cpp.UInt32 return this.PoolPrimeSize;
 }
+
+@:forward
+@:nativeGen
+@:native("FXSystemAsset*")
+abstract FXSystemAssetPtr(cpp.Star<FXSystemAsset>) from cpp.Star<FXSystemAsset> to cpp.Star<FXSystemAsset>{
+	@:from
+	public static extern inline function fromValue(v: FXSystemAsset): FXSystemAssetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FXSystemAsset {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

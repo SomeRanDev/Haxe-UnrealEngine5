@@ -24,3 +24,22 @@ abstract ConstLevelSequenceBurnInOptions(LevelSequenceBurnInOptions) from LevelS
 	public extern var Settings(get, never): cpp.Star<LevelSequenceBurnInInitSettings.ConstLevelSequenceBurnInInitSettings>;
 	public inline extern function get_Settings(): cpp.Star<LevelSequenceBurnInInitSettings.ConstLevelSequenceBurnInInitSettings> return this.Settings;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelSequenceBurnInOptions*")
+abstract LevelSequenceBurnInOptionsPtr(cpp.Star<LevelSequenceBurnInOptions>) from cpp.Star<LevelSequenceBurnInOptions> to cpp.Star<LevelSequenceBurnInOptions>{
+	@:from
+	public static extern inline function fromValue(v: LevelSequenceBurnInOptions): LevelSequenceBurnInOptionsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelSequenceBurnInOptions {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

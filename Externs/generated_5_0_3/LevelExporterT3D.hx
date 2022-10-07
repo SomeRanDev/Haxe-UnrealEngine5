@@ -13,3 +13,22 @@ extern class LevelExporterT3D extends Exporter {
 @:nativeGen
 abstract ConstLevelExporterT3D(LevelExporterT3D) from LevelExporterT3D {
 }
+
+@:forward
+@:nativeGen
+@:native("LevelExporterT3D*")
+abstract LevelExporterT3DPtr(cpp.Star<LevelExporterT3D>) from cpp.Star<LevelExporterT3D> to cpp.Star<LevelExporterT3D>{
+	@:from
+	public static extern inline function fromValue(v: LevelExporterT3D): LevelExporterT3DPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelExporterT3D {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

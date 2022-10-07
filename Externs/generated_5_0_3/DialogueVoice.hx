@@ -22,3 +22,22 @@ abstract ConstDialogueVoice(DialogueVoice) from DialogueVoice {
 	public extern var LocalizationGUID(get, never): Guid;
 	public inline extern function get_LocalizationGUID(): Guid return this.LocalizationGUID;
 }
+
+@:forward
+@:nativeGen
+@:native("DialogueVoice*")
+abstract DialogueVoicePtr(cpp.Star<DialogueVoice>) from cpp.Star<DialogueVoice> to cpp.Star<DialogueVoice>{
+	@:from
+	public static extern inline function fromValue(v: DialogueVoice): DialogueVoicePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DialogueVoice {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

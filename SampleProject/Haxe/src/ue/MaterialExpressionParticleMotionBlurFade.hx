@@ -13,3 +13,22 @@ extern class MaterialExpressionParticleMotionBlurFade extends MaterialExpression
 @:nativeGen
 abstract ConstMaterialExpressionParticleMotionBlurFade(MaterialExpressionParticleMotionBlurFade) from MaterialExpressionParticleMotionBlurFade {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionParticleMotionBlurFade*")
+abstract MaterialExpressionParticleMotionBlurFadePtr(cpp.Star<MaterialExpressionParticleMotionBlurFade>) from cpp.Star<MaterialExpressionParticleMotionBlurFade> to cpp.Star<MaterialExpressionParticleMotionBlurFade>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionParticleMotionBlurFade): MaterialExpressionParticleMotionBlurFadePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionParticleMotionBlurFade {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

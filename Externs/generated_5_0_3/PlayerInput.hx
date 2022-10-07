@@ -25,3 +25,22 @@ abstract ConstPlayerInput(PlayerInput) from PlayerInput {
 	public extern var InvertedAxis(get, never): TArray<FName>;
 	public inline extern function get_InvertedAxis(): TArray<FName> return this.InvertedAxis;
 }
+
+@:forward
+@:nativeGen
+@:native("PlayerInput*")
+abstract PlayerInputPtr(cpp.Star<PlayerInput>) from cpp.Star<PlayerInput> to cpp.Star<PlayerInput>{
+	@:from
+	public static extern inline function fromValue(v: PlayerInput): PlayerInputPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PlayerInput {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

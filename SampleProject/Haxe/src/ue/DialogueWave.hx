@@ -34,3 +34,22 @@ abstract ConstDialogueWave(DialogueWave) from DialogueWave {
 	public extern var LocalizationGUID(get, never): Guid;
 	public inline extern function get_LocalizationGUID(): Guid return this.LocalizationGUID;
 }
+
+@:forward
+@:nativeGen
+@:native("DialogueWave*")
+abstract DialogueWavePtr(cpp.Star<DialogueWave>) from cpp.Star<DialogueWave> to cpp.Star<DialogueWave>{
+	@:from
+	public static extern inline function fromValue(v: DialogueWave): DialogueWavePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DialogueWave {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

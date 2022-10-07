@@ -16,3 +16,22 @@ abstract ConstBTTask_WaitBlackboardTime(BTTask_WaitBlackboardTime) from BTTask_W
 	public extern var BlackboardKey(get, never): BlackboardKeySelector;
 	public inline extern function get_BlackboardKey(): BlackboardKeySelector return this.BlackboardKey;
 }
+
+@:forward
+@:nativeGen
+@:native("BTTask_WaitBlackboardTime*")
+abstract BTTask_WaitBlackboardTimePtr(cpp.Star<BTTask_WaitBlackboardTime>) from cpp.Star<BTTask_WaitBlackboardTime> to cpp.Star<BTTask_WaitBlackboardTime>{
+	@:from
+	public static extern inline function fromValue(v: BTTask_WaitBlackboardTime): BTTask_WaitBlackboardTimePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTTask_WaitBlackboardTime {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

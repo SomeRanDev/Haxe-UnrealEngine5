@@ -31,3 +31,22 @@ abstract ConstSubUVAnimation(SubUVAnimation) from SubUVAnimation {
 	public extern var AlphaThreshold(get, never): cpp.Float32;
 	public inline extern function get_AlphaThreshold(): cpp.Float32 return this.AlphaThreshold;
 }
+
+@:forward
+@:nativeGen
+@:native("SubUVAnimation*")
+abstract SubUVAnimationPtr(cpp.Star<SubUVAnimation>) from cpp.Star<SubUVAnimation> to cpp.Star<SubUVAnimation>{
+	@:from
+	public static extern inline function fromValue(v: SubUVAnimation): SubUVAnimationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SubUVAnimation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -18,3 +18,22 @@ abstract ConstCineCameraActor(CineCameraActor) from CineCameraActor {
 	public extern var LookatTrackingSettings(get, never): CameraLookatTrackingSettings;
 	public inline extern function get_LookatTrackingSettings(): CameraLookatTrackingSettings return this.LookatTrackingSettings;
 }
+
+@:forward
+@:nativeGen
+@:native("CineCameraActor*")
+abstract CineCameraActorPtr(cpp.Star<CineCameraActor>) from cpp.Star<CineCameraActor> to cpp.Star<CineCameraActor>{
+	@:from
+	public static extern inline function fromValue(v: CineCameraActor): CineCameraActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CineCameraActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

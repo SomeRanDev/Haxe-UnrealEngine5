@@ -13,3 +13,22 @@ extern class BlackboardKeyType_Float extends BlackboardKeyType {
 @:nativeGen
 abstract ConstBlackboardKeyType_Float(BlackboardKeyType_Float) from BlackboardKeyType_Float {
 }
+
+@:forward
+@:nativeGen
+@:native("BlackboardKeyType_Float*")
+abstract BlackboardKeyType_FloatPtr(cpp.Star<BlackboardKeyType_Float>) from cpp.Star<BlackboardKeyType_Float> to cpp.Star<BlackboardKeyType_Float>{
+	@:from
+	public static extern inline function fromValue(v: BlackboardKeyType_Float): BlackboardKeyType_FloatPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BlackboardKeyType_Float {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

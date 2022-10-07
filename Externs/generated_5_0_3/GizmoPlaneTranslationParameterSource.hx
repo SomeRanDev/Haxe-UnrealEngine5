@@ -40,3 +40,22 @@ abstract ConstGizmoPlaneTranslationParameterSource(GizmoPlaneTranslationParamete
 	public extern var InitialTransform(get, never): Transform;
 	public inline extern function get_InitialTransform(): Transform return this.InitialTransform;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoPlaneTranslationParameterSource*")
+abstract GizmoPlaneTranslationParameterSourcePtr(cpp.Star<GizmoPlaneTranslationParameterSource>) from cpp.Star<GizmoPlaneTranslationParameterSource> to cpp.Star<GizmoPlaneTranslationParameterSource>{
+	@:from
+	public static extern inline function fromValue(v: GizmoPlaneTranslationParameterSource): GizmoPlaneTranslationParameterSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoPlaneTranslationParameterSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

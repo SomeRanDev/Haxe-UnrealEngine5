@@ -22,3 +22,22 @@ abstract ConstNiagaraDataInterfaceAudioOscilloscope(NiagaraDataInterfaceAudioOsc
 	public extern var ScopeInMilliseconds(get, never): cpp.Float32;
 	public inline extern function get_ScopeInMilliseconds(): cpp.Float32 return this.ScopeInMilliseconds;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceAudioOscilloscope*")
+abstract NiagaraDataInterfaceAudioOscilloscopePtr(cpp.Star<NiagaraDataInterfaceAudioOscilloscope>) from cpp.Star<NiagaraDataInterfaceAudioOscilloscope> to cpp.Star<NiagaraDataInterfaceAudioOscilloscope>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceAudioOscilloscope): NiagaraDataInterfaceAudioOscilloscopePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceAudioOscilloscope {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

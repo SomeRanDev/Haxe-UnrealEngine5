@@ -12,3 +12,22 @@ extern class SlateTextureAtlasInterface extends Interface {
 @:nativeGen
 abstract ConstSlateTextureAtlasInterface(SlateTextureAtlasInterface) from SlateTextureAtlasInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("SlateTextureAtlasInterface*")
+abstract SlateTextureAtlasInterfacePtr(cpp.Star<SlateTextureAtlasInterface>) from cpp.Star<SlateTextureAtlasInterface> to cpp.Star<SlateTextureAtlasInterface>{
+	@:from
+	public static extern inline function fromValue(v: SlateTextureAtlasInterface): SlateTextureAtlasInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SlateTextureAtlasInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

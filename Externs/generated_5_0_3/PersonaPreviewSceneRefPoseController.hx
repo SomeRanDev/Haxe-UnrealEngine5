@@ -16,3 +16,22 @@ abstract ConstPersonaPreviewSceneRefPoseController(PersonaPreviewSceneRefPoseCon
 	public extern var bResetBoneTransforms(get, never): Bool;
 	public inline extern function get_bResetBoneTransforms(): Bool return this.bResetBoneTransforms;
 }
+
+@:forward
+@:nativeGen
+@:native("PersonaPreviewSceneRefPoseController*")
+abstract PersonaPreviewSceneRefPoseControllerPtr(cpp.Star<PersonaPreviewSceneRefPoseController>) from cpp.Star<PersonaPreviewSceneRefPoseController> to cpp.Star<PersonaPreviewSceneRefPoseController>{
+	@:from
+	public static extern inline function fromValue(v: PersonaPreviewSceneRefPoseController): PersonaPreviewSceneRefPoseControllerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PersonaPreviewSceneRefPoseController {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

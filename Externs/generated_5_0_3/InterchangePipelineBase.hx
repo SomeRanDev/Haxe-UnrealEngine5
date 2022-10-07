@@ -21,3 +21,22 @@ abstract ConstInterchangePipelineBase(InterchangePipelineBase) from InterchangeP
 	public extern var Results(get, never): cpp.Star<InterchangeResultsContainer.ConstInterchangeResultsContainer>;
 	public inline extern function get_Results(): cpp.Star<InterchangeResultsContainer.ConstInterchangeResultsContainer> return this.Results;
 }
+
+@:forward
+@:nativeGen
+@:native("InterchangePipelineBase*")
+abstract InterchangePipelineBasePtr(cpp.Star<InterchangePipelineBase>) from cpp.Star<InterchangePipelineBase> to cpp.Star<InterchangePipelineBase>{
+	@:from
+	public static extern inline function fromValue(v: InterchangePipelineBase): InterchangePipelineBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterchangePipelineBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

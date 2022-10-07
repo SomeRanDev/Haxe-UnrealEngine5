@@ -18,3 +18,22 @@ abstract ConstSceneCaptureCube(SceneCaptureCube) from SceneCaptureCube {
 	public extern var CaptureComponentCube(get, never): cpp.Star<SceneCaptureComponentCube.ConstSceneCaptureComponentCube>;
 	public inline extern function get_CaptureComponentCube(): cpp.Star<SceneCaptureComponentCube.ConstSceneCaptureComponentCube> return this.CaptureComponentCube;
 }
+
+@:forward
+@:nativeGen
+@:native("SceneCaptureCube*")
+abstract SceneCaptureCubePtr(cpp.Star<SceneCaptureCube>) from cpp.Star<SceneCaptureCube> to cpp.Star<SceneCaptureCube>{
+	@:from
+	public static extern inline function fromValue(v: SceneCaptureCube): SceneCaptureCubePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SceneCaptureCube {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

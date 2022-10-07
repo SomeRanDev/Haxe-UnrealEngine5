@@ -25,3 +25,22 @@ abstract ConstMaterialExpressionAdd(MaterialExpressionAdd) from MaterialExpressi
 	public extern var ConstB(get, never): cpp.Float32;
 	public inline extern function get_ConstB(): cpp.Float32 return this.ConstB;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionAdd*")
+abstract MaterialExpressionAddPtr(cpp.Star<MaterialExpressionAdd>) from cpp.Star<MaterialExpressionAdd> to cpp.Star<MaterialExpressionAdd>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionAdd): MaterialExpressionAddPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionAdd {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

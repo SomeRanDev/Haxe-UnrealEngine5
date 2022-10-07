@@ -13,3 +13,22 @@ extern class GenerateBlueprintAPICommandlet extends Commandlet {
 @:nativeGen
 abstract ConstGenerateBlueprintAPICommandlet(GenerateBlueprintAPICommandlet) from GenerateBlueprintAPICommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("GenerateBlueprintAPICommandlet*")
+abstract GenerateBlueprintAPICommandletPtr(cpp.Star<GenerateBlueprintAPICommandlet>) from cpp.Star<GenerateBlueprintAPICommandlet> to cpp.Star<GenerateBlueprintAPICommandlet>{
+	@:from
+	public static extern inline function fromValue(v: GenerateBlueprintAPICommandlet): GenerateBlueprintAPICommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GenerateBlueprintAPICommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

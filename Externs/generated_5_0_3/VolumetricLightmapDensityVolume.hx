@@ -16,3 +16,22 @@ abstract ConstVolumetricLightmapDensityVolume(VolumetricLightmapDensityVolume) f
 	public extern var AllowedMipLevelRange(get, never): Int32Interval;
 	public inline extern function get_AllowedMipLevelRange(): Int32Interval return this.AllowedMipLevelRange;
 }
+
+@:forward
+@:nativeGen
+@:native("VolumetricLightmapDensityVolume*")
+abstract VolumetricLightmapDensityVolumePtr(cpp.Star<VolumetricLightmapDensityVolume>) from cpp.Star<VolumetricLightmapDensityVolume> to cpp.Star<VolumetricLightmapDensityVolume>{
+	@:from
+	public static extern inline function fromValue(v: VolumetricLightmapDensityVolume): VolumetricLightmapDensityVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VolumetricLightmapDensityVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

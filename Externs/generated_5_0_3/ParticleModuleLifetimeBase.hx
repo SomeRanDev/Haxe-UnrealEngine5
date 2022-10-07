@@ -13,3 +13,22 @@ extern class ParticleModuleLifetimeBase extends ParticleModule {
 @:nativeGen
 abstract ConstParticleModuleLifetimeBase(ParticleModuleLifetimeBase) from ParticleModuleLifetimeBase {
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleLifetimeBase*")
+abstract ParticleModuleLifetimeBasePtr(cpp.Star<ParticleModuleLifetimeBase>) from cpp.Star<ParticleModuleLifetimeBase> to cpp.Star<ParticleModuleLifetimeBase>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleLifetimeBase): ParticleModuleLifetimeBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleLifetimeBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

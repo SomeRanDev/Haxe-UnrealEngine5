@@ -41,3 +41,22 @@ abstract ConstBTTask_BlueprintBase(BTTask_BlueprintBase) from BTTask_BlueprintBa
 	public extern var bShowPropertyDetails(get, never): Bool;
 	public inline extern function get_bShowPropertyDetails(): Bool return this.bShowPropertyDetails;
 }
+
+@:forward
+@:nativeGen
+@:native("BTTask_BlueprintBase*")
+abstract BTTask_BlueprintBasePtr(cpp.Star<BTTask_BlueprintBase>) from cpp.Star<BTTask_BlueprintBase> to cpp.Star<BTTask_BlueprintBase>{
+	@:from
+	public static extern inline function fromValue(v: BTTask_BlueprintBase): BTTask_BlueprintBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTTask_BlueprintBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

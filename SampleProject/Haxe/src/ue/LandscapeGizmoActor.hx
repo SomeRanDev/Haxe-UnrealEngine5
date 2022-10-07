@@ -37,3 +37,22 @@ abstract ConstLandscapeGizmoActor(LandscapeGizmoActor) from LandscapeGizmoActor 
 	public extern var SpriteComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
 	public inline extern function get_SpriteComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeGizmoActor*")
+abstract LandscapeGizmoActorPtr(cpp.Star<LandscapeGizmoActor>) from cpp.Star<LandscapeGizmoActor> to cpp.Star<LandscapeGizmoActor>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeGizmoActor): LandscapeGizmoActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeGizmoActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

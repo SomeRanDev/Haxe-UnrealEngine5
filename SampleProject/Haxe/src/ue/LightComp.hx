@@ -139,3 +139,22 @@ abstract ConstLightComp(LightComp) from LightComp {
 	public extern var RayStartOffsetDepthScale(get, never): cpp.Float32;
 	public inline extern function get_RayStartOffsetDepthScale(): cpp.Float32 return this.RayStartOffsetDepthScale;
 }
+
+@:forward
+@:nativeGen
+@:native("LightComp*")
+abstract LightCompPtr(cpp.Star<LightComp>) from cpp.Star<LightComp> to cpp.Star<LightComp>{
+	@:from
+	public static extern inline function fromValue(v: LightComp): LightCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LightComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

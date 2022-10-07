@@ -13,3 +13,22 @@ extern class MaterialExpressionScreenPosition extends MaterialExpression {
 @:nativeGen
 abstract ConstMaterialExpressionScreenPosition(MaterialExpressionScreenPosition) from MaterialExpressionScreenPosition {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionScreenPosition*")
+abstract MaterialExpressionScreenPositionPtr(cpp.Star<MaterialExpressionScreenPosition>) from cpp.Star<MaterialExpressionScreenPosition> to cpp.Star<MaterialExpressionScreenPosition>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionScreenPosition): MaterialExpressionScreenPositionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionScreenPosition {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

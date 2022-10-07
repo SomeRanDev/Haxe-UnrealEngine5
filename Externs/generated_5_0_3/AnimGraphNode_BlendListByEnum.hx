@@ -22,3 +22,22 @@ abstract ConstAnimGraphNode_BlendListByEnum(AnimGraphNode_BlendListByEnum) from 
 	public extern var VisibleEnumEntries(get, never): TArray<FName>;
 	public inline extern function get_VisibleEnumEntries(): TArray<FName> return this.VisibleEnumEntries;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_BlendListByEnum*")
+abstract AnimGraphNode_BlendListByEnumPtr(cpp.Star<AnimGraphNode_BlendListByEnum>) from cpp.Star<AnimGraphNode_BlendListByEnum> to cpp.Star<AnimGraphNode_BlendListByEnum>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_BlendListByEnum): AnimGraphNode_BlendListByEnumPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_BlendListByEnum {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

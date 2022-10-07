@@ -19,3 +19,22 @@ abstract ConstCompositeCurveTable(CompositeCurveTable) from CompositeCurveTable 
 	public extern var OldParentTables(get, never): TArray<cpp.Star<CurveTable.ConstCurveTable>>;
 	public inline extern function get_OldParentTables(): TArray<cpp.Star<CurveTable.ConstCurveTable>> return this.OldParentTables;
 }
+
+@:forward
+@:nativeGen
+@:native("CompositeCurveTable*")
+abstract CompositeCurveTablePtr(cpp.Star<CompositeCurveTable>) from cpp.Star<CompositeCurveTable> to cpp.Star<CompositeCurveTable>{
+	@:from
+	public static extern inline function fromValue(v: CompositeCurveTable): CompositeCurveTablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CompositeCurveTable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

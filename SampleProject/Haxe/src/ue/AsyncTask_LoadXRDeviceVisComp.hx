@@ -25,3 +25,22 @@ abstract ConstAsyncTask_LoadXRDeviceVisComp(AsyncTask_LoadXRDeviceVisComp) from 
 	public extern var SpawnedComponent(get, never): cpp.Star<PrimitiveComp.ConstPrimitiveComp>;
 	public inline extern function get_SpawnedComponent(): cpp.Star<PrimitiveComp.ConstPrimitiveComp> return this.SpawnedComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("AsyncTask_LoadXRDeviceVisComp*")
+abstract AsyncTask_LoadXRDeviceVisCompPtr(cpp.Star<AsyncTask_LoadXRDeviceVisComp>) from cpp.Star<AsyncTask_LoadXRDeviceVisComp> to cpp.Star<AsyncTask_LoadXRDeviceVisComp>{
+	@:from
+	public static extern inline function fromValue(v: AsyncTask_LoadXRDeviceVisComp): AsyncTask_LoadXRDeviceVisCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AsyncTask_LoadXRDeviceVisComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

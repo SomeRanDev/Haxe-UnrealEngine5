@@ -79,3 +79,22 @@ abstract ConstMovementComp(MovementComp) from MovementComp {
 	public extern var PlaneConstraintAxisSetting(get, never): EPlaneConstraintAxisSetting;
 	public inline extern function get_PlaneConstraintAxisSetting(): EPlaneConstraintAxisSetting return this.PlaneConstraintAxisSetting;
 }
+
+@:forward
+@:nativeGen
+@:native("MovementComp*")
+abstract MovementCompPtr(cpp.Star<MovementComp>) from cpp.Star<MovementComp> to cpp.Star<MovementComp>{
+	@:from
+	public static extern inline function fromValue(v: MovementComp): MovementCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovementComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

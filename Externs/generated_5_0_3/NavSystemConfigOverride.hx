@@ -27,3 +27,22 @@ abstract ConstNavSystemConfigOverride(NavSystemConfigOverride) from NavSystemCon
 	public extern var bLoadOnClient(get, never): Bool;
 	public inline extern function get_bLoadOnClient(): Bool return this.bLoadOnClient;
 }
+
+@:forward
+@:nativeGen
+@:native("NavSystemConfigOverride*")
+abstract NavSystemConfigOverridePtr(cpp.Star<NavSystemConfigOverride>) from cpp.Star<NavSystemConfigOverride> to cpp.Star<NavSystemConfigOverride>{
+	@:from
+	public static extern inline function fromValue(v: NavSystemConfigOverride): NavSystemConfigOverridePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavSystemConfigOverride {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

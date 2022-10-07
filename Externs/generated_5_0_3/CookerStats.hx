@@ -25,3 +25,22 @@ abstract ConstCookerStats(CookerStats) from CookerStats {
 	public extern var Path(get, never): FString;
 	public inline extern function get_Path(): FString return this.Path;
 }
+
+@:forward
+@:nativeGen
+@:native("CookerStats*")
+abstract CookerStatsPtr(cpp.Star<CookerStats>) from cpp.Star<CookerStats> to cpp.Star<CookerStats>{
+	@:from
+	public static extern inline function fromValue(v: CookerStats): CookerStatsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CookerStats {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

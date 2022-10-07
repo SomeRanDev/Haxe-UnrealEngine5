@@ -30,3 +30,22 @@ abstract ConstARFaceComp(ARFaceComp) from ARFaceComp {
 	public extern var ReplicatedPayload(get, never): ARFaceUpdatePayload;
 	public inline extern function get_ReplicatedPayload(): ARFaceUpdatePayload return this.ReplicatedPayload;
 }
+
+@:forward
+@:nativeGen
+@:native("ARFaceComp*")
+abstract ARFaceCompPtr(cpp.Star<ARFaceComp>) from cpp.Star<ARFaceComp> to cpp.Star<ARFaceComp>{
+	@:from
+	public static extern inline function fromValue(v: ARFaceComp): ARFaceCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARFaceComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstBTTask_PlaySound(BTTask_PlaySound) from BTTask_PlaySound {
 	public extern var SoundToPlay(get, never): cpp.Star<SoundCue.ConstSoundCue>;
 	public inline extern function get_SoundToPlay(): cpp.Star<SoundCue.ConstSoundCue> return this.SoundToPlay;
 }
+
+@:forward
+@:nativeGen
+@:native("BTTask_PlaySound*")
+abstract BTTask_PlaySoundPtr(cpp.Star<BTTask_PlaySound>) from cpp.Star<BTTask_PlaySound> to cpp.Star<BTTask_PlaySound>{
+	@:from
+	public static extern inline function fromValue(v: BTTask_PlaySound): BTTask_PlaySoundPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTTask_PlaySound {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

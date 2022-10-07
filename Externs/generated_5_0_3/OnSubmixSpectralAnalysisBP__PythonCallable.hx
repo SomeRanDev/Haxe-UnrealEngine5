@@ -12,3 +12,22 @@ extern class OnSubmixSpectralAnalysisBP__PythonCallable extends PythonCallableFo
 @:nativeGen
 abstract ConstOnSubmixSpectralAnalysisBP__PythonCallable(OnSubmixSpectralAnalysisBP__PythonCallable) from OnSubmixSpectralAnalysisBP__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnSubmixSpectralAnalysisBP__PythonCallable*")
+abstract OnSubmixSpectralAnalysisBP__PythonCallablePtr(cpp.Star<OnSubmixSpectralAnalysisBP__PythonCallable>) from cpp.Star<OnSubmixSpectralAnalysisBP__PythonCallable> to cpp.Star<OnSubmixSpectralAnalysisBP__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnSubmixSpectralAnalysisBP__PythonCallable): OnSubmixSpectralAnalysisBP__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnSubmixSpectralAnalysisBP__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

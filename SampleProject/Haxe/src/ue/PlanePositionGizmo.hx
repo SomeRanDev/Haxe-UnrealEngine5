@@ -67,3 +67,22 @@ abstract ConstPlanePositionGizmo(PlanePositionGizmo) from PlanePositionGizmo {
 	public extern var ParameterSigns(get, never): Vector2D;
 	public inline extern function get_ParameterSigns(): Vector2D return this.ParameterSigns;
 }
+
+@:forward
+@:nativeGen
+@:native("PlanePositionGizmo*")
+abstract PlanePositionGizmoPtr(cpp.Star<PlanePositionGizmo>) from cpp.Star<PlanePositionGizmo> to cpp.Star<PlanePositionGizmo>{
+	@:from
+	public static extern inline function fromValue(v: PlanePositionGizmo): PlanePositionGizmoPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PlanePositionGizmo {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

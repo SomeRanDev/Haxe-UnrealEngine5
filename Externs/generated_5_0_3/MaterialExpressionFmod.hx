@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionFmod(MaterialExpressionFmod) from MaterialExpres
 	public extern var B(get, never): ExpressionInput;
 	public inline extern function get_B(): ExpressionInput return this.B;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionFmod*")
+abstract MaterialExpressionFmodPtr(cpp.Star<MaterialExpressionFmod>) from cpp.Star<MaterialExpressionFmod> to cpp.Star<MaterialExpressionFmod>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionFmod): MaterialExpressionFmodPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionFmod {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

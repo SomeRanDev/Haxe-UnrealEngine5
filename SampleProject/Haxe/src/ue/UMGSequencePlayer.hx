@@ -22,3 +22,22 @@ abstract ConstUMGSequencePlayer(UMGSequencePlayer) from UMGSequencePlayer {
 	public extern var RootTemplateInstance(get, never): MovieSceneRootEvaluationTemplateInstance;
 	public inline extern function get_RootTemplateInstance(): MovieSceneRootEvaluationTemplateInstance return this.RootTemplateInstance;
 }
+
+@:forward
+@:nativeGen
+@:native("UMGSequencePlayer*")
+abstract UMGSequencePlayerPtr(cpp.Star<UMGSequencePlayer>) from cpp.Star<UMGSequencePlayer> to cpp.Star<UMGSequencePlayer>{
+	@:from
+	public static extern inline function fromValue(v: UMGSequencePlayer): UMGSequencePlayerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UMGSequencePlayer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

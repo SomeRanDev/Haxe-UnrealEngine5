@@ -13,3 +13,22 @@ extern class MaterialExpressionSkyAtmosphereDistantLightScatteredLuminance exten
 @:nativeGen
 abstract ConstMaterialExpressionSkyAtmosphereDistantLightScatteredLuminance(MaterialExpressionSkyAtmosphereDistantLightScatteredLuminance) from MaterialExpressionSkyAtmosphereDistantLightScatteredLuminance {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionSkyAtmosphereDistantLightScatteredLuminance*")
+abstract MaterialExpressionSkyAtmosphereDistantLightScatteredLuminancePtr(cpp.Star<MaterialExpressionSkyAtmosphereDistantLightScatteredLuminance>) from cpp.Star<MaterialExpressionSkyAtmosphereDistantLightScatteredLuminance> to cpp.Star<MaterialExpressionSkyAtmosphereDistantLightScatteredLuminance>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionSkyAtmosphereDistantLightScatteredLuminance): MaterialExpressionSkyAtmosphereDistantLightScatteredLuminancePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionSkyAtmosphereDistantLightScatteredLuminance {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

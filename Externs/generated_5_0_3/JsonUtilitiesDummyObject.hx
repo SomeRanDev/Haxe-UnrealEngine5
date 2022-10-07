@@ -13,3 +13,22 @@ extern class JsonUtilitiesDummyObject extends Object {
 @:nativeGen
 abstract ConstJsonUtilitiesDummyObject(JsonUtilitiesDummyObject) from JsonUtilitiesDummyObject {
 }
+
+@:forward
+@:nativeGen
+@:native("JsonUtilitiesDummyObject*")
+abstract JsonUtilitiesDummyObjectPtr(cpp.Star<JsonUtilitiesDummyObject>) from cpp.Star<JsonUtilitiesDummyObject> to cpp.Star<JsonUtilitiesDummyObject>{
+	@:from
+	public static extern inline function fromValue(v: JsonUtilitiesDummyObject): JsonUtilitiesDummyObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): JsonUtilitiesDummyObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

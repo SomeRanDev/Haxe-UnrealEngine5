@@ -13,3 +13,22 @@ extern class SoundCueGraphSchema extends EdGraphSchema {
 @:nativeGen
 abstract ConstSoundCueGraphSchema(SoundCueGraphSchema) from SoundCueGraphSchema {
 }
+
+@:forward
+@:nativeGen
+@:native("SoundCueGraphSchema*")
+abstract SoundCueGraphSchemaPtr(cpp.Star<SoundCueGraphSchema>) from cpp.Star<SoundCueGraphSchema> to cpp.Star<SoundCueGraphSchema>{
+	@:from
+	public static extern inline function fromValue(v: SoundCueGraphSchema): SoundCueGraphSchemaPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundCueGraphSchema {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

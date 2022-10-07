@@ -16,3 +16,22 @@ abstract ConstPreviewMeshCollectionFactory(PreviewMeshCollectionFactory) from Pr
 	public extern var CurrentSkeleton(get, never): TWeakObjectPtr<Skeleton.ConstSkeleton>;
 	public inline extern function get_CurrentSkeleton(): TWeakObjectPtr<Skeleton.ConstSkeleton> return this.CurrentSkeleton;
 }
+
+@:forward
+@:nativeGen
+@:native("PreviewMeshCollectionFactory*")
+abstract PreviewMeshCollectionFactoryPtr(cpp.Star<PreviewMeshCollectionFactory>) from cpp.Star<PreviewMeshCollectionFactory> to cpp.Star<PreviewMeshCollectionFactory>{
+	@:from
+	public static extern inline function fromValue(v: PreviewMeshCollectionFactory): PreviewMeshCollectionFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PreviewMeshCollectionFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

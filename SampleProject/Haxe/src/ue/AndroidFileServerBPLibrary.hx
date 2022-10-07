@@ -16,3 +16,22 @@ extern class AndroidFileServerBPLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstAndroidFileServerBPLibrary(AndroidFileServerBPLibrary) from AndroidFileServerBPLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("AndroidFileServerBPLibrary*")
+abstract AndroidFileServerBPLibraryPtr(cpp.Star<AndroidFileServerBPLibrary>) from cpp.Star<AndroidFileServerBPLibrary> to cpp.Star<AndroidFileServerBPLibrary>{
+	@:from
+	public static extern inline function fromValue(v: AndroidFileServerBPLibrary): AndroidFileServerBPLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AndroidFileServerBPLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

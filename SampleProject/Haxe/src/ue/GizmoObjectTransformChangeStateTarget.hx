@@ -16,3 +16,22 @@ abstract ConstGizmoObjectTransformChangeStateTarget(GizmoObjectTransformChangeSt
 	public extern var TransactionManager(get, never): ToolContextTransactionProvider.ConstToolContextTransactionProvider;
 	public inline extern function get_TransactionManager(): ToolContextTransactionProvider.ConstToolContextTransactionProvider return this.TransactionManager;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoObjectTransformChangeStateTarget*")
+abstract GizmoObjectTransformChangeStateTargetPtr(cpp.Star<GizmoObjectTransformChangeStateTarget>) from cpp.Star<GizmoObjectTransformChangeStateTarget> to cpp.Star<GizmoObjectTransformChangeStateTarget>{
+	@:from
+	public static extern inline function fromValue(v: GizmoObjectTransformChangeStateTarget): GizmoObjectTransformChangeStateTargetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoObjectTransformChangeStateTarget {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

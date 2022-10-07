@@ -90,3 +90,22 @@ abstract ConstGroomComp(GroomComp) from GroomComp {
 	public extern var BindingAssetBeingLoaded(get, never): cpp.Star<GroomBindingAsset.ConstGroomBindingAsset>;
 	public inline extern function get_BindingAssetBeingLoaded(): cpp.Star<GroomBindingAsset.ConstGroomBindingAsset> return this.BindingAssetBeingLoaded;
 }
+
+@:forward
+@:nativeGen
+@:native("GroomComp*")
+abstract GroomCompPtr(cpp.Star<GroomComp>) from cpp.Star<GroomComp> to cpp.Star<GroomComp>{
+	@:from
+	public static extern inline function fromValue(v: GroomComp): GroomCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GroomComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

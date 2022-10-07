@@ -12,3 +12,22 @@ extern class PlayMontageAnimNotifyDelegate__PythonCallable extends PythonCallabl
 @:nativeGen
 abstract ConstPlayMontageAnimNotifyDelegate__PythonCallable(PlayMontageAnimNotifyDelegate__PythonCallable) from PlayMontageAnimNotifyDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("PlayMontageAnimNotifyDelegate__PythonCallable*")
+abstract PlayMontageAnimNotifyDelegate__PythonCallablePtr(cpp.Star<PlayMontageAnimNotifyDelegate__PythonCallable>) from cpp.Star<PlayMontageAnimNotifyDelegate__PythonCallable> to cpp.Star<PlayMontageAnimNotifyDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: PlayMontageAnimNotifyDelegate__PythonCallable): PlayMontageAnimNotifyDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PlayMontageAnimNotifyDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstProceduralFoliageBlockingVolume(ProceduralFoliageBlockingVolume) f
 	public extern var DensityFalloff(get, never): FoliageDensityFalloff;
 	public inline extern function get_DensityFalloff(): FoliageDensityFalloff return this.DensityFalloff;
 }
+
+@:forward
+@:nativeGen
+@:native("ProceduralFoliageBlockingVolume*")
+abstract ProceduralFoliageBlockingVolumePtr(cpp.Star<ProceduralFoliageBlockingVolume>) from cpp.Star<ProceduralFoliageBlockingVolume> to cpp.Star<ProceduralFoliageBlockingVolume>{
+	@:from
+	public static extern inline function fromValue(v: ProceduralFoliageBlockingVolume): ProceduralFoliageBlockingVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ProceduralFoliageBlockingVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

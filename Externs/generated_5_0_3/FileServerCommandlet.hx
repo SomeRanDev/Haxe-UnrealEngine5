@@ -13,3 +13,22 @@ extern class FileServerCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstFileServerCommandlet(FileServerCommandlet) from FileServerCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("FileServerCommandlet*")
+abstract FileServerCommandletPtr(cpp.Star<FileServerCommandlet>) from cpp.Star<FileServerCommandlet> to cpp.Star<FileServerCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: FileServerCommandlet): FileServerCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FileServerCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

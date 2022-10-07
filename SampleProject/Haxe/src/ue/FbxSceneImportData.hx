@@ -16,3 +16,22 @@ abstract ConstFbxSceneImportData(FbxSceneImportData) from FbxSceneImportData {
 	public extern var SourceFbxFile(get, never): FString;
 	public inline extern function get_SourceFbxFile(): FString return this.SourceFbxFile;
 }
+
+@:forward
+@:nativeGen
+@:native("FbxSceneImportData*")
+abstract FbxSceneImportDataPtr(cpp.Star<FbxSceneImportData>) from cpp.Star<FbxSceneImportData> to cpp.Star<FbxSceneImportData>{
+	@:from
+	public static extern inline function fromValue(v: FbxSceneImportData): FbxSceneImportDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FbxSceneImportData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

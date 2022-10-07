@@ -55,3 +55,22 @@ abstract ConstMotionControllerComp(MotionControllerComp) from MotionControllerCo
 	public extern var DisplayComponent(get, never): cpp.Star<PrimitiveComp.ConstPrimitiveComp>;
 	public inline extern function get_DisplayComponent(): cpp.Star<PrimitiveComp.ConstPrimitiveComp> return this.DisplayComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("MotionControllerComp*")
+abstract MotionControllerCompPtr(cpp.Star<MotionControllerComp>) from cpp.Star<MotionControllerComp> to cpp.Star<MotionControllerComp>{
+	@:from
+	public static extern inline function fromValue(v: MotionControllerComp): MotionControllerCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MotionControllerComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

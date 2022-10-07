@@ -12,3 +12,22 @@ extern class ComponentEndOverlapSignature__PythonCallable extends PythonCallable
 @:nativeGen
 abstract ConstComponentEndOverlapSignature__PythonCallable(ComponentEndOverlapSignature__PythonCallable) from ComponentEndOverlapSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ComponentEndOverlapSignature__PythonCallable*")
+abstract ComponentEndOverlapSignature__PythonCallablePtr(cpp.Star<ComponentEndOverlapSignature__PythonCallable>) from cpp.Star<ComponentEndOverlapSignature__PythonCallable> to cpp.Star<ComponentEndOverlapSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ComponentEndOverlapSignature__PythonCallable): ComponentEndOverlapSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ComponentEndOverlapSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

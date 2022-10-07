@@ -16,3 +16,22 @@ abstract ConstMovieSceneTrackInstanceSystem(MovieSceneTrackInstanceSystem) from 
 	public extern var Instantiator(get, never): cpp.Star<MovieSceneTrackInstanceInstantiator.ConstMovieSceneTrackInstanceInstantiator>;
 	public inline extern function get_Instantiator(): cpp.Star<MovieSceneTrackInstanceInstantiator.ConstMovieSceneTrackInstanceInstantiator> return this.Instantiator;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneTrackInstanceSystem*")
+abstract MovieSceneTrackInstanceSystemPtr(cpp.Star<MovieSceneTrackInstanceSystem>) from cpp.Star<MovieSceneTrackInstanceSystem> to cpp.Star<MovieSceneTrackInstanceSystem>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneTrackInstanceSystem): MovieSceneTrackInstanceSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneTrackInstanceSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

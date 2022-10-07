@@ -32,3 +32,22 @@ abstract ConstNiagaraPythonScriptModuleInput(NiagaraPythonScriptModuleInput) fro
 	public extern var Input(get, never): cpp.Star<NiagaraClipboardFunctionInput.ConstNiagaraClipboardFunctionInput>;
 	public inline extern function get_Input(): cpp.Star<NiagaraClipboardFunctionInput.ConstNiagaraClipboardFunctionInput> return this.Input;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraPythonScriptModuleInput*")
+abstract NiagaraPythonScriptModuleInputPtr(cpp.Star<NiagaraPythonScriptModuleInput>) from cpp.Star<NiagaraPythonScriptModuleInput> to cpp.Star<NiagaraPythonScriptModuleInput>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraPythonScriptModuleInput): NiagaraPythonScriptModuleInputPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraPythonScriptModuleInput {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

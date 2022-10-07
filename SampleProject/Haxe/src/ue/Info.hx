@@ -16,3 +16,22 @@ abstract ConstInfo(Info) from Info {
 	public extern var SpriteComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
 	public inline extern function get_SpriteComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("Info*")
+abstract InfoPtr(cpp.Star<Info>) from cpp.Star<Info> to cpp.Star<Info>{
+	@:from
+	public static extern inline function fromValue(v: Info): InfoPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Info {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

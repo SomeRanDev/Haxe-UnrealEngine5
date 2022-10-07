@@ -22,3 +22,22 @@ abstract ConstMaterialExpressionGIReplace(MaterialExpressionGIReplace) from Mate
 	public extern var DynamicIndirect(get, never): ExpressionInput;
 	public inline extern function get_DynamicIndirect(): ExpressionInput return this.DynamicIndirect;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionGIReplace*")
+abstract MaterialExpressionGIReplacePtr(cpp.Star<MaterialExpressionGIReplace>) from cpp.Star<MaterialExpressionGIReplace> to cpp.Star<MaterialExpressionGIReplace>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionGIReplace): MaterialExpressionGIReplacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionGIReplace {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

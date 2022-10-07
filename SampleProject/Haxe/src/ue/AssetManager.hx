@@ -55,3 +55,22 @@ abstract ConstAssetManager(AssetManager) from AssetManager {
 	public extern var NumberOfSpawnedNotifications(get, never): cpp.Int32;
 	public inline extern function get_NumberOfSpawnedNotifications(): cpp.Int32 return this.NumberOfSpawnedNotifications;
 }
+
+@:forward
+@:nativeGen
+@:native("AssetManager*")
+abstract AssetManagerPtr(cpp.Star<AssetManager>) from cpp.Star<AssetManager> to cpp.Star<AssetManager>{
+	@:from
+	public static extern inline function fromValue(v: AssetManager): AssetManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AssetManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

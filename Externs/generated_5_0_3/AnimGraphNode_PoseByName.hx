@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_PoseByName(AnimGraphNode_PoseByName) from AnimGraphN
 	public extern var Node(get, never): AnimNode_PoseByName;
 	public inline extern function get_Node(): AnimNode_PoseByName return this.Node;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_PoseByName*")
+abstract AnimGraphNode_PoseByNamePtr(cpp.Star<AnimGraphNode_PoseByName>) from cpp.Star<AnimGraphNode_PoseByName> to cpp.Star<AnimGraphNode_PoseByName>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_PoseByName): AnimGraphNode_PoseByNamePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_PoseByName {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

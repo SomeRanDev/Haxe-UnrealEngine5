@@ -43,3 +43,22 @@ abstract ConstNiagaraEffectType(NiagaraEffectType) from NiagaraEffectType {
 	public extern var PerfBaselineVersion(get, never): Guid;
 	public inline extern function get_PerfBaselineVersion(): Guid return this.PerfBaselineVersion;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraEffectType*")
+abstract NiagaraEffectTypePtr(cpp.Star<NiagaraEffectType>) from cpp.Star<NiagaraEffectType> to cpp.Star<NiagaraEffectType>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraEffectType): NiagaraEffectTypePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraEffectType {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

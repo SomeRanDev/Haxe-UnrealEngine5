@@ -13,3 +13,22 @@ extern class NiagaraStackSelection extends NiagaraStackEntry {
 @:nativeGen
 abstract ConstNiagaraStackSelection(NiagaraStackSelection) from NiagaraStackSelection {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackSelection*")
+abstract NiagaraStackSelectionPtr(cpp.Star<NiagaraStackSelection>) from cpp.Star<NiagaraStackSelection> to cpp.Star<NiagaraStackSelection>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackSelection): NiagaraStackSelectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackSelection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

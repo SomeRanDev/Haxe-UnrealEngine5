@@ -13,3 +13,22 @@ extern class ExternalActorsCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstExternalActorsCommandlet(ExternalActorsCommandlet) from ExternalActorsCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("ExternalActorsCommandlet*")
+abstract ExternalActorsCommandletPtr(cpp.Star<ExternalActorsCommandlet>) from cpp.Star<ExternalActorsCommandlet> to cpp.Star<ExternalActorsCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: ExternalActorsCommandlet): ExternalActorsCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ExternalActorsCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

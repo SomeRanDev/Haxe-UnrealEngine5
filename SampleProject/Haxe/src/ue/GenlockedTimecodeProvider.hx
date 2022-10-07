@@ -16,3 +16,22 @@ abstract ConstGenlockedTimecodeProvider(GenlockedTimecodeProvider) from Genlocke
 	public extern var bUseGenlockToCount(get, never): Bool;
 	public inline extern function get_bUseGenlockToCount(): Bool return this.bUseGenlockToCount;
 }
+
+@:forward
+@:nativeGen
+@:native("GenlockedTimecodeProvider*")
+abstract GenlockedTimecodeProviderPtr(cpp.Star<GenlockedTimecodeProvider>) from cpp.Star<GenlockedTimecodeProvider> to cpp.Star<GenlockedTimecodeProvider>{
+	@:from
+	public static extern inline function fromValue(v: GenlockedTimecodeProvider): GenlockedTimecodeProviderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GenlockedTimecodeProvider {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -31,3 +31,22 @@ abstract ConstTemplateSequenceActor(TemplateSequenceActor) from TemplateSequence
 	public extern var BindingOverride(get, never): TemplateSequenceBindingOverrideData;
 	public inline extern function get_BindingOverride(): TemplateSequenceBindingOverrideData return this.BindingOverride;
 }
+
+@:forward
+@:nativeGen
+@:native("TemplateSequenceActor*")
+abstract TemplateSequenceActorPtr(cpp.Star<TemplateSequenceActor>) from cpp.Star<TemplateSequenceActor> to cpp.Star<TemplateSequenceActor>{
+	@:from
+	public static extern inline function fromValue(v: TemplateSequenceActor): TemplateSequenceActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TemplateSequenceActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

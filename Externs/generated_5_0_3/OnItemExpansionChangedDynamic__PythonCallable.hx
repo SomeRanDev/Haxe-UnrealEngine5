@@ -12,3 +12,22 @@ extern class OnItemExpansionChangedDynamic__PythonCallable extends PythonCallabl
 @:nativeGen
 abstract ConstOnItemExpansionChangedDynamic__PythonCallable(OnItemExpansionChangedDynamic__PythonCallable) from OnItemExpansionChangedDynamic__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnItemExpansionChangedDynamic__PythonCallable*")
+abstract OnItemExpansionChangedDynamic__PythonCallablePtr(cpp.Star<OnItemExpansionChangedDynamic__PythonCallable>) from cpp.Star<OnItemExpansionChangedDynamic__PythonCallable> to cpp.Star<OnItemExpansionChangedDynamic__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnItemExpansionChangedDynamic__PythonCallable): OnItemExpansionChangedDynamic__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnItemExpansionChangedDynamic__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

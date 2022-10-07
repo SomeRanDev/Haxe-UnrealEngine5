@@ -80,3 +80,22 @@ abstract ConstCheatManager(CheatManager) from CheatManager {
 	public extern var CheatManagerExtensions(get, never): TArray<cpp.Star<CheatManagerExtension.ConstCheatManagerExtension>>;
 	public inline extern function get_CheatManagerExtensions(): TArray<cpp.Star<CheatManagerExtension.ConstCheatManagerExtension>> return this.CheatManagerExtensions;
 }
+
+@:forward
+@:nativeGen
+@:native("CheatManager*")
+abstract CheatManagerPtr(cpp.Star<CheatManager>) from cpp.Star<CheatManager> to cpp.Star<CheatManager>{
+	@:from
+	public static extern inline function fromValue(v: CheatManager): CheatManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CheatManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

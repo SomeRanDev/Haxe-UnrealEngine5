@@ -18,3 +18,22 @@ extern class DatasmithContentBlueprintLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstDatasmithContentBlueprintLibrary(DatasmithContentBlueprintLibrary) from DatasmithContentBlueprintLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithContentBlueprintLibrary*")
+abstract DatasmithContentBlueprintLibraryPtr(cpp.Star<DatasmithContentBlueprintLibrary>) from cpp.Star<DatasmithContentBlueprintLibrary> to cpp.Star<DatasmithContentBlueprintLibrary>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithContentBlueprintLibrary): DatasmithContentBlueprintLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithContentBlueprintLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

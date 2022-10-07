@@ -61,3 +61,22 @@ abstract ConstInterpTrack(InterpTrack) from InterpTrack {
 	public extern var bIsCollapsed(get, never): Bool;
 	public inline extern function get_bIsCollapsed(): Bool return this.bIsCollapsed;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrack*")
+abstract InterpTrackPtr(cpp.Star<InterpTrack>) from cpp.Star<InterpTrack> to cpp.Star<InterpTrack>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrack): InterpTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -12,3 +12,22 @@ extern class XRTimedInputActionDelegate__PythonCallable extends PythonCallableFo
 @:nativeGen
 abstract ConstXRTimedInputActionDelegate__PythonCallable(XRTimedInputActionDelegate__PythonCallable) from XRTimedInputActionDelegate__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("XRTimedInputActionDelegate__PythonCallable*")
+abstract XRTimedInputActionDelegate__PythonCallablePtr(cpp.Star<XRTimedInputActionDelegate__PythonCallable>) from cpp.Star<XRTimedInputActionDelegate__PythonCallable> to cpp.Star<XRTimedInputActionDelegate__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: XRTimedInputActionDelegate__PythonCallable): XRTimedInputActionDelegate__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): XRTimedInputActionDelegate__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -36,3 +36,22 @@ abstract ConstSlateAccessibleWidgetData(SlateAccessibleWidgetData) from SlateAcc
 	public extern var AccessibleSummaryTextDelegate(get, never): HaxeDelegateProperty<() -> Void>;
 	public inline extern function get_AccessibleSummaryTextDelegate(): HaxeDelegateProperty<() -> Void> return this.AccessibleSummaryTextDelegate;
 }
+
+@:forward
+@:nativeGen
+@:native("SlateAccessibleWidgetData*")
+abstract SlateAccessibleWidgetDataPtr(cpp.Star<SlateAccessibleWidgetData>) from cpp.Star<SlateAccessibleWidgetData> to cpp.Star<SlateAccessibleWidgetData>{
+	@:from
+	public static extern inline function fromValue(v: SlateAccessibleWidgetData): SlateAccessibleWidgetDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SlateAccessibleWidgetData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

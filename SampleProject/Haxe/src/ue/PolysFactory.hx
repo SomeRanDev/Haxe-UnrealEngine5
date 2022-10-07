@@ -13,3 +13,22 @@ extern class PolysFactory extends Factory {
 @:nativeGen
 abstract ConstPolysFactory(PolysFactory) from PolysFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("PolysFactory*")
+abstract PolysFactoryPtr(cpp.Star<PolysFactory>) from cpp.Star<PolysFactory> to cpp.Star<PolysFactory>{
+	@:from
+	public static extern inline function fromValue(v: PolysFactory): PolysFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PolysFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class EditorAnimBaseObj extends Object {
 @:nativeGen
 abstract ConstEditorAnimBaseObj(EditorAnimBaseObj) from EditorAnimBaseObj {
 }
+
+@:forward
+@:nativeGen
+@:native("EditorAnimBaseObj*")
+abstract EditorAnimBaseObjPtr(cpp.Star<EditorAnimBaseObj>) from cpp.Star<EditorAnimBaseObj> to cpp.Star<EditorAnimBaseObj>{
+	@:from
+	public static extern inline function fromValue(v: EditorAnimBaseObj): EditorAnimBaseObjPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorAnimBaseObj {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

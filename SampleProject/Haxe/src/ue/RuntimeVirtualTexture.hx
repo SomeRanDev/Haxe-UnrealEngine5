@@ -64,3 +64,22 @@ abstract ConstRuntimeVirtualTexture(RuntimeVirtualTexture) from RuntimeVirtualTe
 	public extern var StreamingTexture_DEPRECATED(get, never): cpp.Star<RuntimeVirtualTextureStreamingProxy.ConstRuntimeVirtualTextureStreamingProxy>;
 	public inline extern function get_StreamingTexture_DEPRECATED(): cpp.Star<RuntimeVirtualTextureStreamingProxy.ConstRuntimeVirtualTextureStreamingProxy> return this.StreamingTexture_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("RuntimeVirtualTexture*")
+abstract RuntimeVirtualTexturePtr(cpp.Star<RuntimeVirtualTexture>) from cpp.Star<RuntimeVirtualTexture> to cpp.Star<RuntimeVirtualTexture>{
+	@:from
+	public static extern inline function fromValue(v: RuntimeVirtualTexture): RuntimeVirtualTexturePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RuntimeVirtualTexture {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

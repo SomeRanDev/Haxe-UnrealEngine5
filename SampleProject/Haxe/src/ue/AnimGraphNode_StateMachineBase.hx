@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_StateMachineBase(AnimGraphNode_StateMachineBase) fro
 	public extern var EditorStateMachineGraph(get, never): cpp.Star<AnimationStateMachineGraph.ConstAnimationStateMachineGraph>;
 	public inline extern function get_EditorStateMachineGraph(): cpp.Star<AnimationStateMachineGraph.ConstAnimationStateMachineGraph> return this.EditorStateMachineGraph;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_StateMachineBase*")
+abstract AnimGraphNode_StateMachineBasePtr(cpp.Star<AnimGraphNode_StateMachineBase>) from cpp.Star<AnimGraphNode_StateMachineBase> to cpp.Star<AnimGraphNode_StateMachineBase>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_StateMachineBase): AnimGraphNode_StateMachineBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_StateMachineBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

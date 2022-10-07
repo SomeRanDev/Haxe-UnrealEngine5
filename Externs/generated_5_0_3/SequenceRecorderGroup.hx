@@ -16,3 +16,22 @@ abstract ConstSequenceRecorderGroup(SequenceRecorderGroup) from SequenceRecorder
 	public extern var ActorGroups(get, never): TArray<cpp.Star<SequenceRecorderActorGroup.ConstSequenceRecorderActorGroup>>;
 	public inline extern function get_ActorGroups(): TArray<cpp.Star<SequenceRecorderActorGroup.ConstSequenceRecorderActorGroup>> return this.ActorGroups;
 }
+
+@:forward
+@:nativeGen
+@:native("SequenceRecorderGroup*")
+abstract SequenceRecorderGroupPtr(cpp.Star<SequenceRecorderGroup>) from cpp.Star<SequenceRecorderGroup> to cpp.Star<SequenceRecorderGroup>{
+	@:from
+	public static extern inline function fromValue(v: SequenceRecorderGroup): SequenceRecorderGroupPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SequenceRecorderGroup {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

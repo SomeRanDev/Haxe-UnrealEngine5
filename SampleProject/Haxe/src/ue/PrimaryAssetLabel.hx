@@ -31,3 +31,22 @@ abstract ConstPrimaryAssetLabel(PrimaryAssetLabel) from PrimaryAssetLabel {
 	public extern var AssetCollection(get, never): CollectionReference;
 	public inline extern function get_AssetCollection(): CollectionReference return this.AssetCollection;
 }
+
+@:forward
+@:nativeGen
+@:native("PrimaryAssetLabel*")
+abstract PrimaryAssetLabelPtr(cpp.Star<PrimaryAssetLabel>) from cpp.Star<PrimaryAssetLabel> to cpp.Star<PrimaryAssetLabel>{
+	@:from
+	public static extern inline function fromValue(v: PrimaryAssetLabel): PrimaryAssetLabelPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PrimaryAssetLabel {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

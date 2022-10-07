@@ -13,3 +13,22 @@ extern class LandscapeLODStreamingProxy extends StreamableRenderAsset {
 @:nativeGen
 abstract ConstLandscapeLODStreamingProxy(LandscapeLODStreamingProxy) from LandscapeLODStreamingProxy {
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeLODStreamingProxy*")
+abstract LandscapeLODStreamingProxyPtr(cpp.Star<LandscapeLODStreamingProxy>) from cpp.Star<LandscapeLODStreamingProxy> to cpp.Star<LandscapeLODStreamingProxy>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeLODStreamingProxy): LandscapeLODStreamingProxyPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeLODStreamingProxy {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

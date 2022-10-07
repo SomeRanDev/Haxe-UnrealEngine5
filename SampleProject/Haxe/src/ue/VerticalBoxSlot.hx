@@ -30,3 +30,22 @@ abstract ConstVerticalBoxSlot(VerticalBoxSlot) from VerticalBoxSlot {
 	public extern var VerticalAlignment(get, never): EVerticalAlignment;
 	public inline extern function get_VerticalAlignment(): EVerticalAlignment return this.VerticalAlignment;
 }
+
+@:forward
+@:nativeGen
+@:native("VerticalBoxSlot*")
+abstract VerticalBoxSlotPtr(cpp.Star<VerticalBoxSlot>) from cpp.Star<VerticalBoxSlot> to cpp.Star<VerticalBoxSlot>{
+	@:from
+	public static extern inline function fromValue(v: VerticalBoxSlot): VerticalBoxSlotPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VerticalBoxSlot {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

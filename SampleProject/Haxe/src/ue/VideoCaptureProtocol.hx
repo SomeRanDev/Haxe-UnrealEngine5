@@ -19,3 +19,22 @@ abstract ConstVideoCaptureProtocol(VideoCaptureProtocol) from VideoCaptureProtoc
 	public extern var CompressionQuality(get, never): cpp.Float32;
 	public inline extern function get_CompressionQuality(): cpp.Float32 return this.CompressionQuality;
 }
+
+@:forward
+@:nativeGen
+@:native("VideoCaptureProtocol*")
+abstract VideoCaptureProtocolPtr(cpp.Star<VideoCaptureProtocol>) from cpp.Star<VideoCaptureProtocol> to cpp.Star<VideoCaptureProtocol>{
+	@:from
+	public static extern inline function fromValue(v: VideoCaptureProtocol): VideoCaptureProtocolPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VideoCaptureProtocol {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

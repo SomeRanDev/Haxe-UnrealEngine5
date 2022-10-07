@@ -12,3 +12,22 @@ extern class OnForceFeedbackFinished__PythonCallable extends PythonCallableForDe
 @:nativeGen
 abstract ConstOnForceFeedbackFinished__PythonCallable(OnForceFeedbackFinished__PythonCallable) from OnForceFeedbackFinished__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnForceFeedbackFinished__PythonCallable*")
+abstract OnForceFeedbackFinished__PythonCallablePtr(cpp.Star<OnForceFeedbackFinished__PythonCallable>) from cpp.Star<OnForceFeedbackFinished__PythonCallable> to cpp.Star<OnForceFeedbackFinished__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnForceFeedbackFinished__PythonCallable): OnForceFeedbackFinished__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnForceFeedbackFinished__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

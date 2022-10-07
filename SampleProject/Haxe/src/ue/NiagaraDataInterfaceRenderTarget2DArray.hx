@@ -34,3 +34,22 @@ abstract ConstNiagaraDataInterfaceRenderTarget2DArray(NiagaraDataInterfaceRender
 	public extern var ManagedRenderTargets(get, never): TMap<cpp.UInt64, cpp.Star<TextureRenderTarget2DArray.ConstTextureRenderTarget2DArray>>;
 	public inline extern function get_ManagedRenderTargets(): TMap<cpp.UInt64, cpp.Star<TextureRenderTarget2DArray.ConstTextureRenderTarget2DArray>> return this.ManagedRenderTargets;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraDataInterfaceRenderTarget2DArray*")
+abstract NiagaraDataInterfaceRenderTarget2DArrayPtr(cpp.Star<NiagaraDataInterfaceRenderTarget2DArray>) from cpp.Star<NiagaraDataInterfaceRenderTarget2DArray> to cpp.Star<NiagaraDataInterfaceRenderTarget2DArray>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraDataInterfaceRenderTarget2DArray): NiagaraDataInterfaceRenderTarget2DArrayPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraDataInterfaceRenderTarget2DArray {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

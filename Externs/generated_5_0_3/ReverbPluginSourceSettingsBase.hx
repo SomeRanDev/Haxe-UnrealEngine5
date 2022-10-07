@@ -13,3 +13,22 @@ extern class ReverbPluginSourceSettingsBase extends Object {
 @:nativeGen
 abstract ConstReverbPluginSourceSettingsBase(ReverbPluginSourceSettingsBase) from ReverbPluginSourceSettingsBase {
 }
+
+@:forward
+@:nativeGen
+@:native("ReverbPluginSourceSettingsBase*")
+abstract ReverbPluginSourceSettingsBasePtr(cpp.Star<ReverbPluginSourceSettingsBase>) from cpp.Star<ReverbPluginSourceSettingsBase> to cpp.Star<ReverbPluginSourceSettingsBase>{
+	@:from
+	public static extern inline function fromValue(v: ReverbPluginSourceSettingsBase): ReverbPluginSourceSettingsBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ReverbPluginSourceSettingsBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

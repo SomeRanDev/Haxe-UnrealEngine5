@@ -13,3 +13,22 @@ extern class K2Node_ExecutionSequence extends K2Node {
 @:nativeGen
 abstract ConstK2Node_ExecutionSequence(K2Node_ExecutionSequence) from K2Node_ExecutionSequence {
 }
+
+@:forward
+@:nativeGen
+@:native("K2Node_ExecutionSequence*")
+abstract K2Node_ExecutionSequencePtr(cpp.Star<K2Node_ExecutionSequence>) from cpp.Star<K2Node_ExecutionSequence> to cpp.Star<K2Node_ExecutionSequence>{
+	@:from
+	public static extern inline function fromValue(v: K2Node_ExecutionSequence): K2Node_ExecutionSequencePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): K2Node_ExecutionSequence {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

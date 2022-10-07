@@ -16,3 +16,22 @@ abstract ConstActorDescContainer(ActorDescContainer) from ActorDescContainer {
 	public extern var World(get, never): cpp.Star<World.ConstWorld>;
 	public inline extern function get_World(): cpp.Star<World.ConstWorld> return this.World;
 }
+
+@:forward
+@:nativeGen
+@:native("ActorDescContainer*")
+abstract ActorDescContainerPtr(cpp.Star<ActorDescContainer>) from cpp.Star<ActorDescContainer> to cpp.Star<ActorDescContainer>{
+	@:from
+	public static extern inline function fromValue(v: ActorDescContainer): ActorDescContainerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorDescContainer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

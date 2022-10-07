@@ -40,3 +40,22 @@ abstract ConstFloatingText(FloatingText) from FloatingText {
 	public extern var LineMaterialMID(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
 	public inline extern function get_LineMaterialMID(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.LineMaterialMID;
 }
+
+@:forward
+@:nativeGen
+@:native("FloatingText*")
+abstract FloatingTextPtr(cpp.Star<FloatingText>) from cpp.Star<FloatingText> to cpp.Star<FloatingText>{
+	@:from
+	public static extern inline function fromValue(v: FloatingText): FloatingTextPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FloatingText {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

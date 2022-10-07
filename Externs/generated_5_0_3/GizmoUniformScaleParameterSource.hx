@@ -43,3 +43,22 @@ abstract ConstGizmoUniformScaleParameterSource(GizmoUniformScaleParameterSource)
 	public extern var InitialTransform(get, never): Transform;
 	public inline extern function get_InitialTransform(): Transform return this.InitialTransform;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoUniformScaleParameterSource*")
+abstract GizmoUniformScaleParameterSourcePtr(cpp.Star<GizmoUniformScaleParameterSource>) from cpp.Star<GizmoUniformScaleParameterSource> to cpp.Star<GizmoUniformScaleParameterSource>{
+	@:from
+	public static extern inline function fromValue(v: GizmoUniformScaleParameterSource): GizmoUniformScaleParameterSourcePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoUniformScaleParameterSource {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class MovieSceneComponentTransformSystem extends MovieScenePropertySystem
 @:nativeGen
 abstract ConstMovieSceneComponentTransformSystem(MovieSceneComponentTransformSystem) from MovieSceneComponentTransformSystem {
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneComponentTransformSystem*")
+abstract MovieSceneComponentTransformSystemPtr(cpp.Star<MovieSceneComponentTransformSystem>) from cpp.Star<MovieSceneComponentTransformSystem> to cpp.Star<MovieSceneComponentTransformSystem>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneComponentTransformSystem): MovieSceneComponentTransformSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneComponentTransformSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

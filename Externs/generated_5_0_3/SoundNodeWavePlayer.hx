@@ -22,3 +22,22 @@ abstract ConstSoundNodeWavePlayer(SoundNodeWavePlayer) from SoundNodeWavePlayer 
 	public extern var bLooping(get, never): Bool;
 	public inline extern function get_bLooping(): Bool return this.bLooping;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundNodeWavePlayer*")
+abstract SoundNodeWavePlayerPtr(cpp.Star<SoundNodeWavePlayer>) from cpp.Star<SoundNodeWavePlayer> to cpp.Star<SoundNodeWavePlayer>{
+	@:from
+	public static extern inline function fromValue(v: SoundNodeWavePlayer): SoundNodeWavePlayerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundNodeWavePlayer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

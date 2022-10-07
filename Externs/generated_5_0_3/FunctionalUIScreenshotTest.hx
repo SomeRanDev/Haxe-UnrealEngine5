@@ -28,3 +28,22 @@ abstract ConstFunctionalUIScreenshotTest(FunctionalUIScreenshotTest) from Functi
 	public extern var bHideDebugCanvas(get, never): Bool;
 	public inline extern function get_bHideDebugCanvas(): Bool return this.bHideDebugCanvas;
 }
+
+@:forward
+@:nativeGen
+@:native("FunctionalUIScreenshotTest*")
+abstract FunctionalUIScreenshotTestPtr(cpp.Star<FunctionalUIScreenshotTest>) from cpp.Star<FunctionalUIScreenshotTest> to cpp.Star<FunctionalUIScreenshotTest>{
+	@:from
+	public static extern inline function fromValue(v: FunctionalUIScreenshotTest): FunctionalUIScreenshotTestPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FunctionalUIScreenshotTest {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

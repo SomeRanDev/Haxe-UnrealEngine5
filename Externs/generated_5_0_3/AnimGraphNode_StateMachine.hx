@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_StateMachine(AnimGraphNode_StateMachine) from AnimGr
 	public extern var Node(get, never): AnimNode_StateMachine;
 	public inline extern function get_Node(): AnimNode_StateMachine return this.Node;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_StateMachine*")
+abstract AnimGraphNode_StateMachinePtr(cpp.Star<AnimGraphNode_StateMachine>) from cpp.Star<AnimGraphNode_StateMachine> to cpp.Star<AnimGraphNode_StateMachine>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_StateMachine): AnimGraphNode_StateMachinePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_StateMachine {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class AdditiveControlRig extends ControlRig {
 @:nativeGen
 abstract ConstAdditiveControlRig(AdditiveControlRig) from AdditiveControlRig {
 }
+
+@:forward
+@:nativeGen
+@:native("AdditiveControlRig*")
+abstract AdditiveControlRigPtr(cpp.Star<AdditiveControlRig>) from cpp.Star<AdditiveControlRig> to cpp.Star<AdditiveControlRig>{
+	@:from
+	public static extern inline function fromValue(v: AdditiveControlRig): AdditiveControlRigPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AdditiveControlRig {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

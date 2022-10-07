@@ -16,3 +16,22 @@ abstract ConstMovieSceneObjectPropertySection(MovieSceneObjectPropertySection) f
 	public extern var ObjectChannel(get, never): MovieSceneObjectPathChannel;
 	public inline extern function get_ObjectChannel(): MovieSceneObjectPathChannel return this.ObjectChannel;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneObjectPropertySection*")
+abstract MovieSceneObjectPropertySectionPtr(cpp.Star<MovieSceneObjectPropertySection>) from cpp.Star<MovieSceneObjectPropertySection> to cpp.Star<MovieSceneObjectPropertySection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneObjectPropertySection): MovieSceneObjectPropertySectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneObjectPropertySection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

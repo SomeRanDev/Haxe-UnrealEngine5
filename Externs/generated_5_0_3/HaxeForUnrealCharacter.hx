@@ -22,3 +22,22 @@ abstract ConstHaxeForUnrealCharacter(HaxeForUnrealCharacter) from HaxeForUnrealC
 	public extern var TurnRateGamepad(get, never): cpp.Float32;
 	public inline extern function get_TurnRateGamepad(): cpp.Float32 return this.TurnRateGamepad;
 }
+
+@:forward
+@:nativeGen
+@:native("HaxeForUnrealCharacter*")
+abstract HaxeForUnrealCharacterPtr(cpp.Star<HaxeForUnrealCharacter>) from cpp.Star<HaxeForUnrealCharacter> to cpp.Star<HaxeForUnrealCharacter>{
+	@:from
+	public static extern inline function fromValue(v: HaxeForUnrealCharacter): HaxeForUnrealCharacterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): HaxeForUnrealCharacter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

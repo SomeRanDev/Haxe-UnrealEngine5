@@ -13,3 +13,22 @@ extern class BTDecorator_ForceSuccess extends BTDecorator {
 @:nativeGen
 abstract ConstBTDecorator_ForceSuccess(BTDecorator_ForceSuccess) from BTDecorator_ForceSuccess {
 }
+
+@:forward
+@:nativeGen
+@:native("BTDecorator_ForceSuccess*")
+abstract BTDecorator_ForceSuccessPtr(cpp.Star<BTDecorator_ForceSuccess>) from cpp.Star<BTDecorator_ForceSuccess> to cpp.Star<BTDecorator_ForceSuccess>{
+	@:from
+	public static extern inline function fromValue(v: BTDecorator_ForceSuccess): BTDecorator_ForceSuccessPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTDecorator_ForceSuccess {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

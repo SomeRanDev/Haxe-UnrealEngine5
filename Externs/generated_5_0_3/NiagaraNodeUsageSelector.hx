@@ -25,3 +25,22 @@ abstract ConstNiagaraNodeUsageSelector(NiagaraNodeUsageSelector) from NiagaraNod
 	public extern var NumOptionsPerVariable(get, never): cpp.Int32;
 	public inline extern function get_NumOptionsPerVariable(): cpp.Int32 return this.NumOptionsPerVariable;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraNodeUsageSelector*")
+abstract NiagaraNodeUsageSelectorPtr(cpp.Star<NiagaraNodeUsageSelector>) from cpp.Star<NiagaraNodeUsageSelector> to cpp.Star<NiagaraNodeUsageSelector>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraNodeUsageSelector): NiagaraNodeUsageSelectorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraNodeUsageSelector {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

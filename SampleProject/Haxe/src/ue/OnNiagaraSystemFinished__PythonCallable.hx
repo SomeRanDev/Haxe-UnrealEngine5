@@ -12,3 +12,22 @@ extern class OnNiagaraSystemFinished__PythonCallable extends PythonCallableForDe
 @:nativeGen
 abstract ConstOnNiagaraSystemFinished__PythonCallable(OnNiagaraSystemFinished__PythonCallable) from OnNiagaraSystemFinished__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnNiagaraSystemFinished__PythonCallable*")
+abstract OnNiagaraSystemFinished__PythonCallablePtr(cpp.Star<OnNiagaraSystemFinished__PythonCallable>) from cpp.Star<OnNiagaraSystemFinished__PythonCallable> to cpp.Star<OnNiagaraSystemFinished__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnNiagaraSystemFinished__PythonCallable): OnNiagaraSystemFinished__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnNiagaraSystemFinished__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

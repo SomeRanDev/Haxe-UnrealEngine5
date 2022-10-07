@@ -13,3 +13,22 @@ extern class IntervalGizmoBuilder extends InteractiveGizmoBuilder {
 @:nativeGen
 abstract ConstIntervalGizmoBuilder(IntervalGizmoBuilder) from IntervalGizmoBuilder {
 }
+
+@:forward
+@:nativeGen
+@:native("IntervalGizmoBuilder*")
+abstract IntervalGizmoBuilderPtr(cpp.Star<IntervalGizmoBuilder>) from cpp.Star<IntervalGizmoBuilder> to cpp.Star<IntervalGizmoBuilder>{
+	@:from
+	public static extern inline function fromValue(v: IntervalGizmoBuilder): IntervalGizmoBuilderPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IntervalGizmoBuilder {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

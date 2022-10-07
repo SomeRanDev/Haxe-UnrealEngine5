@@ -22,3 +22,22 @@ abstract ConstCrashReporterSettings(CrashReporterSettings) from CrashReporterSet
 	public extern var RemoteStorage(get, never): TArray<FString>;
 	public inline extern function get_RemoteStorage(): TArray<FString> return this.RemoteStorage;
 }
+
+@:forward
+@:nativeGen
+@:native("CrashReporterSettings*")
+abstract CrashReporterSettingsPtr(cpp.Star<CrashReporterSettings>) from cpp.Star<CrashReporterSettings> to cpp.Star<CrashReporterSettings>{
+	@:from
+	public static extern inline function fromValue(v: CrashReporterSettings): CrashReporterSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CrashReporterSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

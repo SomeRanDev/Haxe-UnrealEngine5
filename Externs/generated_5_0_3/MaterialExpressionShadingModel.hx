@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionShadingModel(MaterialExpressionShadingModel) fro
 	public extern var ShadingModel(get, never): EMaterialShadingModel;
 	public inline extern function get_ShadingModel(): EMaterialShadingModel return this.ShadingModel;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionShadingModel*")
+abstract MaterialExpressionShadingModelPtr(cpp.Star<MaterialExpressionShadingModel>) from cpp.Star<MaterialExpressionShadingModel> to cpp.Star<MaterialExpressionShadingModel>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionShadingModel): MaterialExpressionShadingModelPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionShadingModel {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

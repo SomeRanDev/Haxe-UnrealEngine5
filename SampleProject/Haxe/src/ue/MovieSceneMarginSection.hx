@@ -25,3 +25,22 @@ abstract ConstMovieSceneMarginSection(MovieSceneMarginSection) from MovieSceneMa
 	public extern var BottomCurve(get, never): MovieSceneFloatChannel;
 	public inline extern function get_BottomCurve(): MovieSceneFloatChannel return this.BottomCurve;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneMarginSection*")
+abstract MovieSceneMarginSectionPtr(cpp.Star<MovieSceneMarginSection>) from cpp.Star<MovieSceneMarginSection> to cpp.Star<MovieSceneMarginSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneMarginSection): MovieSceneMarginSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneMarginSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstDatasmithStaticMeshComponentTemplate(DatasmithStaticMeshComponentT
 	public extern var OverrideMaterials(get, never): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>>;
 	public inline extern function get_OverrideMaterials(): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>> return this.OverrideMaterials;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithStaticMeshComponentTemplate*")
+abstract DatasmithStaticMeshComponentTemplatePtr(cpp.Star<DatasmithStaticMeshComponentTemplate>) from cpp.Star<DatasmithStaticMeshComponentTemplate> to cpp.Star<DatasmithStaticMeshComponentTemplate>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithStaticMeshComponentTemplate): DatasmithStaticMeshComponentTemplatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithStaticMeshComponentTemplate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

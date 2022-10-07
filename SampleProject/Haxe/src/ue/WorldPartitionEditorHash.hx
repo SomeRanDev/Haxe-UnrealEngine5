@@ -13,3 +13,22 @@ extern class WorldPartitionEditorHash extends Object {
 @:nativeGen
 abstract ConstWorldPartitionEditorHash(WorldPartitionEditorHash) from WorldPartitionEditorHash {
 }
+
+@:forward
+@:nativeGen
+@:native("WorldPartitionEditorHash*")
+abstract WorldPartitionEditorHashPtr(cpp.Star<WorldPartitionEditorHash>) from cpp.Star<WorldPartitionEditorHash> to cpp.Star<WorldPartitionEditorHash>{
+	@:from
+	public static extern inline function fromValue(v: WorldPartitionEditorHash): WorldPartitionEditorHashPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WorldPartitionEditorHash {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

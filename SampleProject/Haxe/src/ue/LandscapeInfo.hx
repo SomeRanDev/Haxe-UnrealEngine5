@@ -40,3 +40,22 @@ abstract ConstLandscapeInfo(LandscapeInfo) from LandscapeInfo {
 	public extern var SplineActors(get, never): TArray<LandscapeSplineInterface.ConstLandscapeSplineInterface>;
 	public inline extern function get_SplineActors(): TArray<LandscapeSplineInterface.ConstLandscapeSplineInterface> return this.SplineActors;
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeInfo*")
+abstract LandscapeInfoPtr(cpp.Star<LandscapeInfo>) from cpp.Star<LandscapeInfo> to cpp.Star<LandscapeInfo>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeInfo): LandscapeInfoPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeInfo {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

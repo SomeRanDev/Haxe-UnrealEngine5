@@ -28,3 +28,22 @@ abstract ConstMovieSceneNiagaraSystemSpawnSection(MovieSceneNiagaraSystemSpawnSe
 	public extern var bAllowScalability(get, never): Bool;
 	public inline extern function get_bAllowScalability(): Bool return this.bAllowScalability;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneNiagaraSystemSpawnSection*")
+abstract MovieSceneNiagaraSystemSpawnSectionPtr(cpp.Star<MovieSceneNiagaraSystemSpawnSection>) from cpp.Star<MovieSceneNiagaraSystemSpawnSection> to cpp.Star<MovieSceneNiagaraSystemSpawnSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneNiagaraSystemSpawnSection): MovieSceneNiagaraSystemSpawnSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneNiagaraSystemSpawnSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -28,3 +28,22 @@ abstract ConstSafeZoneSlot(SafeZoneSlot) from SafeZoneSlot {
 	public extern var Padding(get, never): Margin;
 	public inline extern function get_Padding(): Margin return this.Padding;
 }
+
+@:forward
+@:nativeGen
+@:native("SafeZoneSlot*")
+abstract SafeZoneSlotPtr(cpp.Star<SafeZoneSlot>) from cpp.Star<SafeZoneSlot> to cpp.Star<SafeZoneSlot>{
+	@:from
+	public static extern inline function fromValue(v: SafeZoneSlot): SafeZoneSlotPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SafeZoneSlot {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

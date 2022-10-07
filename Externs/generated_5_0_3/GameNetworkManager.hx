@@ -145,3 +145,22 @@ abstract ConstGameNetworkManager(GameNetworkManager) from GameNetworkManager {
 	public extern var bUseDistanceBasedRelevancy(get, never): Bool;
 	public inline extern function get_bUseDistanceBasedRelevancy(): Bool return this.bUseDistanceBasedRelevancy;
 }
+
+@:forward
+@:nativeGen
+@:native("GameNetworkManager*")
+abstract GameNetworkManagerPtr(cpp.Star<GameNetworkManager>) from cpp.Star<GameNetworkManager> to cpp.Star<GameNetworkManager>{
+	@:from
+	public static extern inline function fromValue(v: GameNetworkManager): GameNetworkManagerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameNetworkManager {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

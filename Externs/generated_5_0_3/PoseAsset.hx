@@ -41,3 +41,22 @@ abstract ConstPoseAsset(PoseAsset) from PoseAsset {
 	public extern var SourceAnimationRawDataGUID(get, never): Guid;
 	public inline extern function get_SourceAnimationRawDataGUID(): Guid return this.SourceAnimationRawDataGUID;
 }
+
+@:forward
+@:nativeGen
+@:native("PoseAsset*")
+abstract PoseAssetPtr(cpp.Star<PoseAsset>) from cpp.Star<PoseAsset> to cpp.Star<PoseAsset>{
+	@:from
+	public static extern inline function fromValue(v: PoseAsset): PoseAssetPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PoseAsset {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -16,3 +16,22 @@ abstract ConstActorFactoryEmptyActor(ActorFactoryEmptyActor) from ActorFactoryEm
 	public extern var bVisualizeActor(get, never): Bool;
 	public inline extern function get_bVisualizeActor(): Bool return this.bVisualizeActor;
 }
+
+@:forward
+@:nativeGen
+@:native("ActorFactoryEmptyActor*")
+abstract ActorFactoryEmptyActorPtr(cpp.Star<ActorFactoryEmptyActor>) from cpp.Star<ActorFactoryEmptyActor> to cpp.Star<ActorFactoryEmptyActor>{
+	@:from
+	public static extern inline function fromValue(v: ActorFactoryEmptyActor): ActorFactoryEmptyActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorFactoryEmptyActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

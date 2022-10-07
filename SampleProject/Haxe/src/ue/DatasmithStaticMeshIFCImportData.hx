@@ -16,3 +16,22 @@ abstract ConstDatasmithStaticMeshIFCImportData(DatasmithStaticMeshIFCImportData)
 	public extern var SourceGlobalId(get, never): FString;
 	public inline extern function get_SourceGlobalId(): FString return this.SourceGlobalId;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithStaticMeshIFCImportData*")
+abstract DatasmithStaticMeshIFCImportDataPtr(cpp.Star<DatasmithStaticMeshIFCImportData>) from cpp.Star<DatasmithStaticMeshIFCImportData> to cpp.Star<DatasmithStaticMeshIFCImportData>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithStaticMeshIFCImportData): DatasmithStaticMeshIFCImportDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithStaticMeshIFCImportData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

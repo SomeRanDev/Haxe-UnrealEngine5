@@ -54,3 +54,22 @@ abstract ConstRuntimeVirtualTextureComp(RuntimeVirtualTextureComp) from RuntimeV
 	public extern var bBuildDebugStreamingMips(get, never): Bool;
 	public inline extern function get_bBuildDebugStreamingMips(): Bool return this.bBuildDebugStreamingMips;
 }
+
+@:forward
+@:nativeGen
+@:native("RuntimeVirtualTextureComp*")
+abstract RuntimeVirtualTextureCompPtr(cpp.Star<RuntimeVirtualTextureComp>) from cpp.Star<RuntimeVirtualTextureComp> to cpp.Star<RuntimeVirtualTextureComp>{
+	@:from
+	public static extern inline function fromValue(v: RuntimeVirtualTextureComp): RuntimeVirtualTextureCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RuntimeVirtualTextureComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

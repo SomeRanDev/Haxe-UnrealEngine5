@@ -14,3 +14,22 @@ extern class PackageTools extends Object {
 @:nativeGen
 abstract ConstPackageTools(PackageTools) from PackageTools {
 }
+
+@:forward
+@:nativeGen
+@:native("PackageTools*")
+abstract PackageToolsPtr(cpp.Star<PackageTools>) from cpp.Star<PackageTools> to cpp.Star<PackageTools>{
+	@:from
+	public static extern inline function fromValue(v: PackageTools): PackageToolsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PackageTools {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

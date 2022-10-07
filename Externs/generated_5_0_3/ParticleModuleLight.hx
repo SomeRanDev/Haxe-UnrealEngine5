@@ -49,3 +49,22 @@ abstract ConstParticleModuleLight(ParticleModuleLight) from ParticleModuleLight 
 	public extern var bShadowCastingLights(get, never): Bool;
 	public inline extern function get_bShadowCastingLights(): Bool return this.bShadowCastingLights;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleLight*")
+abstract ParticleModuleLightPtr(cpp.Star<ParticleModuleLight>) from cpp.Star<ParticleModuleLight> to cpp.Star<ParticleModuleLight>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleLight): ParticleModuleLightPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleLight {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

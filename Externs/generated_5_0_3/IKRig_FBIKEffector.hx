@@ -31,3 +31,22 @@ abstract ConstIKRig_FBIKEffector(IKRig_FBIKEffector) from IKRig_FBIKEffector {
 	public extern var IndexInSolver(get, never): cpp.Int32;
 	public inline extern function get_IndexInSolver(): cpp.Int32 return this.IndexInSolver;
 }
+
+@:forward
+@:nativeGen
+@:native("IKRig_FBIKEffector*")
+abstract IKRig_FBIKEffectorPtr(cpp.Star<IKRig_FBIKEffector>) from cpp.Star<IKRig_FBIKEffector> to cpp.Star<IKRig_FBIKEffector>{
+	@:from
+	public static extern inline function fromValue(v: IKRig_FBIKEffector): IKRig_FBIKEffectorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): IKRig_FBIKEffector {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

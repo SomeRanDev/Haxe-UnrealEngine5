@@ -73,3 +73,22 @@ abstract ConstTemplateProjectDefs(TemplateProjectDefs) from TemplateProjectDefs 
 	public extern var StarterContent(get, never): FString;
 	public inline extern function get_StarterContent(): FString return this.StarterContent;
 }
+
+@:forward
+@:nativeGen
+@:native("TemplateProjectDefs*")
+abstract TemplateProjectDefsPtr(cpp.Star<TemplateProjectDefs>) from cpp.Star<TemplateProjectDefs> to cpp.Star<TemplateProjectDefs>{
+	@:from
+	public static extern inline function fromValue(v: TemplateProjectDefs): TemplateProjectDefsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TemplateProjectDefs {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

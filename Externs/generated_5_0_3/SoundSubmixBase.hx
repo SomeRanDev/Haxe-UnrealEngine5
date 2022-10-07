@@ -22,3 +22,22 @@ abstract ConstSoundSubmixBase(SoundSubmixBase) from SoundSubmixBase {
 	public extern var ChildSubmixes(get, never): TArray<cpp.Star<SoundSubmixBase.ConstSoundSubmixBase>>;
 	public inline extern function get_ChildSubmixes(): TArray<cpp.Star<SoundSubmixBase.ConstSoundSubmixBase>> return this.ChildSubmixes;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundSubmixBase*")
+abstract SoundSubmixBasePtr(cpp.Star<SoundSubmixBase>) from cpp.Star<SoundSubmixBase> to cpp.Star<SoundSubmixBase>{
+	@:from
+	public static extern inline function fromValue(v: SoundSubmixBase): SoundSubmixBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundSubmixBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

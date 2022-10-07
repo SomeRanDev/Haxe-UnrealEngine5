@@ -37,3 +37,22 @@ abstract ConstActorFactory(ActorFactory) from ActorFactory {
 	public extern var SpawnPositionOffset(get, never): Vector;
 	public inline extern function get_SpawnPositionOffset(): Vector return this.SpawnPositionOffset;
 }
+
+@:forward
+@:nativeGen
+@:native("ActorFactory*")
+abstract ActorFactoryPtr(cpp.Star<ActorFactory>) from cpp.Star<ActorFactory> to cpp.Star<ActorFactory>{
+	@:from
+	public static extern inline function fromValue(v: ActorFactory): ActorFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

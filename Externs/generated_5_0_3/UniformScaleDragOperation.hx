@@ -13,3 +13,22 @@ extern class UniformScaleDragOperation extends ViewportDragOperation {
 @:nativeGen
 abstract ConstUniformScaleDragOperation(UniformScaleDragOperation) from UniformScaleDragOperation {
 }
+
+@:forward
+@:nativeGen
+@:native("UniformScaleDragOperation*")
+abstract UniformScaleDragOperationPtr(cpp.Star<UniformScaleDragOperation>) from cpp.Star<UniformScaleDragOperation> to cpp.Star<UniformScaleDragOperation>{
+	@:from
+	public static extern inline function fromValue(v: UniformScaleDragOperation): UniformScaleDragOperationPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UniformScaleDragOperation {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

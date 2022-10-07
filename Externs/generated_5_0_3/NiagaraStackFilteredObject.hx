@@ -13,3 +13,22 @@ extern class NiagaraStackFilteredObject extends NiagaraStackFunctionInputCollect
 @:nativeGen
 abstract ConstNiagaraStackFilteredObject(NiagaraStackFilteredObject) from NiagaraStackFilteredObject {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraStackFilteredObject*")
+abstract NiagaraStackFilteredObjectPtr(cpp.Star<NiagaraStackFilteredObject>) from cpp.Star<NiagaraStackFilteredObject> to cpp.Star<NiagaraStackFilteredObject>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraStackFilteredObject): NiagaraStackFilteredObjectPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraStackFilteredObject {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

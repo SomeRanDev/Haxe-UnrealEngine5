@@ -16,3 +16,22 @@ abstract ConstMovieSceneCameraShakeSourceTriggerSection(MovieSceneCameraShakeSou
 	public extern var Channel(get, never): MovieSceneCameraShakeSourceTriggerChannel;
 	public inline extern function get_Channel(): MovieSceneCameraShakeSourceTriggerChannel return this.Channel;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneCameraShakeSourceTriggerSection*")
+abstract MovieSceneCameraShakeSourceTriggerSectionPtr(cpp.Star<MovieSceneCameraShakeSourceTriggerSection>) from cpp.Star<MovieSceneCameraShakeSourceTriggerSection> to cpp.Star<MovieSceneCameraShakeSourceTriggerSection>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneCameraShakeSourceTriggerSection): MovieSceneCameraShakeSourceTriggerSectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneCameraShakeSourceTriggerSection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

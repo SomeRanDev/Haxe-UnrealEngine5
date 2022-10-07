@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionRuntimeVirtualTextureReplace(MaterialExpressionR
 	public extern var VirtualTextureOutput(get, never): ExpressionInput;
 	public inline extern function get_VirtualTextureOutput(): ExpressionInput return this.VirtualTextureOutput;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionRuntimeVirtualTextureReplace*")
+abstract MaterialExpressionRuntimeVirtualTextureReplacePtr(cpp.Star<MaterialExpressionRuntimeVirtualTextureReplace>) from cpp.Star<MaterialExpressionRuntimeVirtualTextureReplace> to cpp.Star<MaterialExpressionRuntimeVirtualTextureReplace>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionRuntimeVirtualTextureReplace): MaterialExpressionRuntimeVirtualTextureReplacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionRuntimeVirtualTextureReplace {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

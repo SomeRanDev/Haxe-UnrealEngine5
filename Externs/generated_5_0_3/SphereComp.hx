@@ -21,3 +21,22 @@ abstract ConstSphereComp(SphereComp) from SphereComp {
 	public extern var SphereRadius(get, never): cpp.Float32;
 	public inline extern function get_SphereRadius(): cpp.Float32 return this.SphereRadius;
 }
+
+@:forward
+@:nativeGen
+@:native("SphereComp*")
+abstract SphereCompPtr(cpp.Star<SphereComp>) from cpp.Star<SphereComp> to cpp.Star<SphereComp>{
+	@:from
+	public static extern inline function fromValue(v: SphereComp): SphereCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SphereComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

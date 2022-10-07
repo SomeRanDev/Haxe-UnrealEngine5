@@ -12,3 +12,22 @@ extern class ToolMenuDynamicIsActionButtonVisible__PythonCallable extends Python
 @:nativeGen
 abstract ConstToolMenuDynamicIsActionButtonVisible__PythonCallable(ToolMenuDynamicIsActionButtonVisible__PythonCallable) from ToolMenuDynamicIsActionButtonVisible__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ToolMenuDynamicIsActionButtonVisible__PythonCallable*")
+abstract ToolMenuDynamicIsActionButtonVisible__PythonCallablePtr(cpp.Star<ToolMenuDynamicIsActionButtonVisible__PythonCallable>) from cpp.Star<ToolMenuDynamicIsActionButtonVisible__PythonCallable> to cpp.Star<ToolMenuDynamicIsActionButtonVisible__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ToolMenuDynamicIsActionButtonVisible__PythonCallable): ToolMenuDynamicIsActionButtonVisible__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ToolMenuDynamicIsActionButtonVisible__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

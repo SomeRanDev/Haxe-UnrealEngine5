@@ -31,3 +31,22 @@ abstract ConstFontFace(FontFace) from FontFace {
 	public extern var SubFaces(get, never): TArray<FString>;
 	public inline extern function get_SubFaces(): TArray<FString> return this.SubFaces;
 }
+
+@:forward
+@:nativeGen
+@:native("FontFace*")
+abstract FontFacePtr(cpp.Star<FontFace>) from cpp.Star<FontFace> to cpp.Star<FontFace>{
+	@:from
+	public static extern inline function fromValue(v: FontFace): FontFacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FontFace {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

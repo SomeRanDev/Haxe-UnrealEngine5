@@ -16,3 +16,22 @@ abstract ConstBTDecorator_IsBBEntryOfClass(BTDecorator_IsBBEntryOfClass) from BT
 	public extern var TestClass(get, never): TSubclassOf<Object.ConstObject>;
 	public inline extern function get_TestClass(): TSubclassOf<Object.ConstObject> return this.TestClass;
 }
+
+@:forward
+@:nativeGen
+@:native("BTDecorator_IsBBEntryOfClass*")
+abstract BTDecorator_IsBBEntryOfClassPtr(cpp.Star<BTDecorator_IsBBEntryOfClass>) from cpp.Star<BTDecorator_IsBBEntryOfClass> to cpp.Star<BTDecorator_IsBBEntryOfClass>{
+	@:from
+	public static extern inline function fromValue(v: BTDecorator_IsBBEntryOfClass): BTDecorator_IsBBEntryOfClassPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTDecorator_IsBBEntryOfClass {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

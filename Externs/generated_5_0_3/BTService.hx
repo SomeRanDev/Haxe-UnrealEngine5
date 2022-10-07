@@ -25,3 +25,22 @@ abstract ConstBTService(BTService) from BTService {
 	public extern var bRestartTimerOnEachActivation(get, never): Bool;
 	public inline extern function get_bRestartTimerOnEachActivation(): Bool return this.bRestartTimerOnEachActivation;
 }
+
+@:forward
+@:nativeGen
+@:native("BTService*")
+abstract BTServicePtr(cpp.Star<BTService>) from cpp.Star<BTService> to cpp.Star<BTService>{
+	@:from
+	public static extern inline function fromValue(v: BTService): BTServicePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BTService {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

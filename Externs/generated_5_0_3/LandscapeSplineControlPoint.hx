@@ -136,3 +136,22 @@ abstract ConstLandscapeSplineControlPoint(LandscapeSplineControlPoint) from Land
 	public extern var ModificationKey(get, never): Guid;
 	public inline extern function get_ModificationKey(): Guid return this.ModificationKey;
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeSplineControlPoint*")
+abstract LandscapeSplineControlPointPtr(cpp.Star<LandscapeSplineControlPoint>) from cpp.Star<LandscapeSplineControlPoint> to cpp.Star<LandscapeSplineControlPoint>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeSplineControlPoint): LandscapeSplineControlPointPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeSplineControlPoint {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

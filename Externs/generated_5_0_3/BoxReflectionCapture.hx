@@ -13,3 +13,22 @@ extern class BoxReflectionCapture extends ReflectionCapture {
 @:nativeGen
 abstract ConstBoxReflectionCapture(BoxReflectionCapture) from BoxReflectionCapture {
 }
+
+@:forward
+@:nativeGen
+@:native("BoxReflectionCapture*")
+abstract BoxReflectionCapturePtr(cpp.Star<BoxReflectionCapture>) from cpp.Star<BoxReflectionCapture> to cpp.Star<BoxReflectionCapture>{
+	@:from
+	public static extern inline function fromValue(v: BoxReflectionCapture): BoxReflectionCapturePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BoxReflectionCapture {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

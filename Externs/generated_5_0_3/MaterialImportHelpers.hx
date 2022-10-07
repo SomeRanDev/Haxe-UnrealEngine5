@@ -15,3 +15,22 @@ extern class MaterialImportHelpers extends Object {
 @:nativeGen
 abstract ConstMaterialImportHelpers(MaterialImportHelpers) from MaterialImportHelpers {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialImportHelpers*")
+abstract MaterialImportHelpersPtr(cpp.Star<MaterialImportHelpers>) from cpp.Star<MaterialImportHelpers> to cpp.Star<MaterialImportHelpers>{
+	@:from
+	public static extern inline function fromValue(v: MaterialImportHelpers): MaterialImportHelpersPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialImportHelpers {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class InterpTrackInst extends Object {
 @:nativeGen
 abstract ConstInterpTrackInst(InterpTrackInst) from InterpTrackInst {
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackInst*")
+abstract InterpTrackInstPtr(cpp.Star<InterpTrackInst>) from cpp.Star<InterpTrackInst> to cpp.Star<InterpTrackInst>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackInst): InterpTrackInstPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackInst {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

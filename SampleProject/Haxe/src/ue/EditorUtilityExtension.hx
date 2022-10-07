@@ -12,3 +12,22 @@ extern class EditorUtilityExtension extends Interface {
 @:nativeGen
 abstract ConstEditorUtilityExtension(EditorUtilityExtension) from EditorUtilityExtension {
 }
+
+@:forward
+@:nativeGen
+@:native("EditorUtilityExtension*")
+abstract EditorUtilityExtensionPtr(cpp.Star<EditorUtilityExtension>) from cpp.Star<EditorUtilityExtension> to cpp.Star<EditorUtilityExtension>{
+	@:from
+	public static extern inline function fromValue(v: EditorUtilityExtension): EditorUtilityExtensionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EditorUtilityExtension {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

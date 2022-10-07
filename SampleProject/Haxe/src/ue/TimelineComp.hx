@@ -44,3 +44,22 @@ abstract ConstTimelineComp(TimelineComp) from TimelineComp {
 	public extern var bIgnoreTimeDilation(get, never): Bool;
 	public inline extern function get_bIgnoreTimeDilation(): Bool return this.bIgnoreTimeDilation;
 }
+
+@:forward
+@:nativeGen
+@:native("TimelineComp*")
+abstract TimelineCompPtr(cpp.Star<TimelineComp>) from cpp.Star<TimelineComp> to cpp.Star<TimelineComp>{
+	@:from
+	public static extern inline function fromValue(v: TimelineComp): TimelineCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TimelineComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -66,3 +66,22 @@ abstract ConstTextRenderComp(TextRenderComp) from TextRenderComp {
 	public extern var bAlwaysRenderAsText(get, never): Bool;
 	public inline extern function get_bAlwaysRenderAsText(): Bool return this.bAlwaysRenderAsText;
 }
+
+@:forward
+@:nativeGen
+@:native("TextRenderComp*")
+abstract TextRenderCompPtr(cpp.Star<TextRenderComp>) from cpp.Star<TextRenderComp> to cpp.Star<TextRenderComp>{
+	@:from
+	public static extern inline function fromValue(v: TextRenderComp): TextRenderCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextRenderComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

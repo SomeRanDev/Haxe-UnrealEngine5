@@ -16,3 +16,22 @@ abstract ConstInterpTrackFloatParticleParam(InterpTrackFloatParticleParam) from 
 	public extern var ParamName(get, never): FName;
 	public inline extern function get_ParamName(): FName return this.ParamName;
 }
+
+@:forward
+@:nativeGen
+@:native("InterpTrackFloatParticleParam*")
+abstract InterpTrackFloatParticleParamPtr(cpp.Star<InterpTrackFloatParticleParam>) from cpp.Star<InterpTrackFloatParticleParam> to cpp.Star<InterpTrackFloatParticleParam>{
+	@:from
+	public static extern inline function fromValue(v: InterpTrackFloatParticleParam): InterpTrackFloatParticleParamPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): InterpTrackFloatParticleParam {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

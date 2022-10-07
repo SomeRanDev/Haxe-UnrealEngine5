@@ -21,3 +21,22 @@ abstract ConstARImageComp(ARImageComp) from ARImageComp {
 	public extern var ReplicatedPayload(get, never): ARImageUpdatePayload;
 	public inline extern function get_ReplicatedPayload(): ARImageUpdatePayload return this.ReplicatedPayload;
 }
+
+@:forward
+@:nativeGen
+@:native("ARImageComp*")
+abstract ARImageCompPtr(cpp.Star<ARImageComp>) from cpp.Star<ARImageComp> to cpp.Star<ARImageComp>{
+	@:from
+	public static extern inline function fromValue(v: ARImageComp): ARImageCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ARImageComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

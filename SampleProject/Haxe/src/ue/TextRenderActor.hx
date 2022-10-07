@@ -19,3 +19,22 @@ abstract ConstTextRenderActor(TextRenderActor) from TextRenderActor {
 	public extern var SpriteComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
 	public inline extern function get_SpriteComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("TextRenderActor*")
+abstract TextRenderActorPtr(cpp.Star<TextRenderActor>) from cpp.Star<TextRenderActor> to cpp.Star<TextRenderActor>{
+	@:from
+	public static extern inline function fromValue(v: TextRenderActor): TextRenderActorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TextRenderActor {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

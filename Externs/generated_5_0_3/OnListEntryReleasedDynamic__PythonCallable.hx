@@ -12,3 +12,22 @@ extern class OnListEntryReleasedDynamic__PythonCallable extends PythonCallableFo
 @:nativeGen
 abstract ConstOnListEntryReleasedDynamic__PythonCallable(OnListEntryReleasedDynamic__PythonCallable) from OnListEntryReleasedDynamic__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("OnListEntryReleasedDynamic__PythonCallable*")
+abstract OnListEntryReleasedDynamic__PythonCallablePtr(cpp.Star<OnListEntryReleasedDynamic__PythonCallable>) from cpp.Star<OnListEntryReleasedDynamic__PythonCallable> to cpp.Star<OnListEntryReleasedDynamic__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: OnListEntryReleasedDynamic__PythonCallable): OnListEntryReleasedDynamic__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): OnListEntryReleasedDynamic__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -28,3 +28,22 @@ abstract ConstDatasmithMaterialInstanceTemplate(DatasmithMaterialInstanceTemplat
 	public extern var StaticParameters(get, never): DatasmithStaticParameterSetTemplate;
 	public inline extern function get_StaticParameters(): DatasmithStaticParameterSetTemplate return this.StaticParameters;
 }
+
+@:forward
+@:nativeGen
+@:native("DatasmithMaterialInstanceTemplate*")
+abstract DatasmithMaterialInstanceTemplatePtr(cpp.Star<DatasmithMaterialInstanceTemplate>) from cpp.Star<DatasmithMaterialInstanceTemplate> to cpp.Star<DatasmithMaterialInstanceTemplate>{
+	@:from
+	public static extern inline function fromValue(v: DatasmithMaterialInstanceTemplate): DatasmithMaterialInstanceTemplatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DatasmithMaterialInstanceTemplate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

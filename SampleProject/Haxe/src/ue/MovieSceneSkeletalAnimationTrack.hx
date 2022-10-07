@@ -28,3 +28,22 @@ abstract ConstMovieSceneSkeletalAnimationTrack(MovieSceneSkeletalAnimationTrack)
 	public extern var bShowRootMotionTrail(get, never): Bool;
 	public inline extern function get_bShowRootMotionTrail(): Bool return this.bShowRootMotionTrail;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneSkeletalAnimationTrack*")
+abstract MovieSceneSkeletalAnimationTrackPtr(cpp.Star<MovieSceneSkeletalAnimationTrack>) from cpp.Star<MovieSceneSkeletalAnimationTrack> to cpp.Star<MovieSceneSkeletalAnimationTrack>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneSkeletalAnimationTrack): MovieSceneSkeletalAnimationTrackPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneSkeletalAnimationTrack {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

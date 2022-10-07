@@ -13,3 +13,22 @@ extern class SoundfieldEndpointSettingsBase extends Object {
 @:nativeGen
 abstract ConstSoundfieldEndpointSettingsBase(SoundfieldEndpointSettingsBase) from SoundfieldEndpointSettingsBase {
 }
+
+@:forward
+@:nativeGen
+@:native("SoundfieldEndpointSettingsBase*")
+abstract SoundfieldEndpointSettingsBasePtr(cpp.Star<SoundfieldEndpointSettingsBase>) from cpp.Star<SoundfieldEndpointSettingsBase> to cpp.Star<SoundfieldEndpointSettingsBase>{
+	@:from
+	public static extern inline function fromValue(v: SoundfieldEndpointSettingsBase): SoundfieldEndpointSettingsBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundfieldEndpointSettingsBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

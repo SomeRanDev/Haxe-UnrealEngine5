@@ -13,3 +13,22 @@ extern class AudioSynesthesiaNRT extends AudioAnalyzerNRT {
 @:nativeGen
 abstract ConstAudioSynesthesiaNRT(AudioSynesthesiaNRT) from AudioSynesthesiaNRT {
 }
+
+@:forward
+@:nativeGen
+@:native("AudioSynesthesiaNRT*")
+abstract AudioSynesthesiaNRTPtr(cpp.Star<AudioSynesthesiaNRT>) from cpp.Star<AudioSynesthesiaNRT> to cpp.Star<AudioSynesthesiaNRT>{
+	@:from
+	public static extern inline function fromValue(v: AudioSynesthesiaNRT): AudioSynesthesiaNRTPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AudioSynesthesiaNRT {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

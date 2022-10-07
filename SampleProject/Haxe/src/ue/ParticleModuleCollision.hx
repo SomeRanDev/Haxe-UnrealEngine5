@@ -64,3 +64,22 @@ abstract ConstParticleModuleCollision(ParticleModuleCollision) from ParticleModu
 	public extern var MaxCollisionDistance(get, never): cpp.Float32;
 	public inline extern function get_MaxCollisionDistance(): cpp.Float32 return this.MaxCollisionDistance;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleCollision*")
+abstract ParticleModuleCollisionPtr(cpp.Star<ParticleModuleCollision>) from cpp.Star<ParticleModuleCollision> to cpp.Star<ParticleModuleCollision>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleCollision): ParticleModuleCollisionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleCollision {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

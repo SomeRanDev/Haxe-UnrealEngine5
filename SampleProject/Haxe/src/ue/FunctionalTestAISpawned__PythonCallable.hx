@@ -12,3 +12,22 @@ extern class FunctionalTestAISpawned__PythonCallable extends PythonCallableForDe
 @:nativeGen
 abstract ConstFunctionalTestAISpawned__PythonCallable(FunctionalTestAISpawned__PythonCallable) from FunctionalTestAISpawned__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("FunctionalTestAISpawned__PythonCallable*")
+abstract FunctionalTestAISpawned__PythonCallablePtr(cpp.Star<FunctionalTestAISpawned__PythonCallable>) from cpp.Star<FunctionalTestAISpawned__PythonCallable> to cpp.Star<FunctionalTestAISpawned__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: FunctionalTestAISpawned__PythonCallable): FunctionalTestAISpawned__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FunctionalTestAISpawned__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

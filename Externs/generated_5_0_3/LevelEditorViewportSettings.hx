@@ -241,3 +241,22 @@ abstract ConstLevelEditorViewportSettings(LevelEditorViewportSettings) from Leve
 	public extern var PerInstanceSettings(get, never): TArray<LevelEditorViewportInstanceSettingsKeyValuePair>;
 	public inline extern function get_PerInstanceSettings(): TArray<LevelEditorViewportInstanceSettingsKeyValuePair> return this.PerInstanceSettings;
 }
+
+@:forward
+@:nativeGen
+@:native("LevelEditorViewportSettings*")
+abstract LevelEditorViewportSettingsPtr(cpp.Star<LevelEditorViewportSettings>) from cpp.Star<LevelEditorViewportSettings> to cpp.Star<LevelEditorViewportSettings>{
+	@:from
+	public static extern inline function fromValue(v: LevelEditorViewportSettings): LevelEditorViewportSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LevelEditorViewportSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

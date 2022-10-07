@@ -16,3 +16,22 @@ abstract ConstDeviceProfileFragment(DeviceProfileFragment) from DeviceProfileFra
 	public extern var CVars(get, never): TArray<FString>;
 	public inline extern function get_CVars(): TArray<FString> return this.CVars;
 }
+
+@:forward
+@:nativeGen
+@:native("DeviceProfileFragment*")
+abstract DeviceProfileFragmentPtr(cpp.Star<DeviceProfileFragment>) from cpp.Star<DeviceProfileFragment> to cpp.Star<DeviceProfileFragment>{
+	@:from
+	public static extern inline function fromValue(v: DeviceProfileFragment): DeviceProfileFragmentPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DeviceProfileFragment {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

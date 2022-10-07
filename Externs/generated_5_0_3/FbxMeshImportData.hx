@@ -40,3 +40,22 @@ abstract ConstFbxMeshImportData(FbxMeshImportData) from FbxMeshImportData {
 	public extern var ImportMeshLodData(get, never): TArray<ImportMeshLodSectionsData>;
 	public inline extern function get_ImportMeshLodData(): TArray<ImportMeshLodSectionsData> return this.ImportMeshLodData;
 }
+
+@:forward
+@:nativeGen
+@:native("FbxMeshImportData*")
+abstract FbxMeshImportDataPtr(cpp.Star<FbxMeshImportData>) from cpp.Star<FbxMeshImportData> to cpp.Star<FbxMeshImportData>{
+	@:from
+	public static extern inline function fromValue(v: FbxMeshImportData): FbxMeshImportDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FbxMeshImportData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class BehaviorTreeGraphNode_Service extends BehaviorTreeGraphNode {
 @:nativeGen
 abstract ConstBehaviorTreeGraphNode_Service(BehaviorTreeGraphNode_Service) from BehaviorTreeGraphNode_Service {
 }
+
+@:forward
+@:nativeGen
+@:native("BehaviorTreeGraphNode_Service*")
+abstract BehaviorTreeGraphNode_ServicePtr(cpp.Star<BehaviorTreeGraphNode_Service>) from cpp.Star<BehaviorTreeGraphNode_Service> to cpp.Star<BehaviorTreeGraphNode_Service>{
+	@:from
+	public static extern inline function fromValue(v: BehaviorTreeGraphNode_Service): BehaviorTreeGraphNode_ServicePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): BehaviorTreeGraphNode_Service {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

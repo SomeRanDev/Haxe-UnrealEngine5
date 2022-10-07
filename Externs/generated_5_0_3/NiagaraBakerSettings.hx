@@ -58,3 +58,22 @@ abstract ConstNiagaraBakerSettings(NiagaraBakerSettings) from NiagaraBakerSettin
 	public extern var bRenderComponentOnly(get, never): Bool;
 	public inline extern function get_bRenderComponentOnly(): Bool return this.bRenderComponentOnly;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraBakerSettings*")
+abstract NiagaraBakerSettingsPtr(cpp.Star<NiagaraBakerSettings>) from cpp.Star<NiagaraBakerSettings> to cpp.Star<NiagaraBakerSettings>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraBakerSettings): NiagaraBakerSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraBakerSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -22,3 +22,22 @@ abstract ConstCurveBase(CurveBase) from CurveBase {
 	public extern var ImportPath_DEPRECATED(get, never): FString;
 	public inline extern function get_ImportPath_DEPRECATED(): FString return this.ImportPath_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("CurveBase*")
+abstract CurveBasePtr(cpp.Star<CurveBase>) from cpp.Star<CurveBase> to cpp.Star<CurveBase>{
+	@:from
+	public static extern inline function fromValue(v: CurveBase): CurveBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): CurveBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

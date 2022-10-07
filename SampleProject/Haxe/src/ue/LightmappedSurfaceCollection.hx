@@ -19,3 +19,22 @@ abstract ConstLightmappedSurfaceCollection(LightmappedSurfaceCollection) from Li
 	public extern var Surfaces(get, never): TArray<cpp.Int32>;
 	public inline extern function get_Surfaces(): TArray<cpp.Int32> return this.Surfaces;
 }
+
+@:forward
+@:nativeGen
+@:native("LightmappedSurfaceCollection*")
+abstract LightmappedSurfaceCollectionPtr(cpp.Star<LightmappedSurfaceCollection>) from cpp.Star<LightmappedSurfaceCollection> to cpp.Star<LightmappedSurfaceCollection>{
+	@:from
+	public static extern inline function fromValue(v: LightmappedSurfaceCollection): LightmappedSurfaceCollectionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LightmappedSurfaceCollection {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

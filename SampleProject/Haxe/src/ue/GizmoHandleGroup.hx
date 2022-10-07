@@ -28,3 +28,22 @@ abstract ConstGizmoHandleGroup(GizmoHandleGroup) from GizmoHandleGroup {
 	public extern var DragOperationComponent(get, never): cpp.Star<ViewportDragOperationComp.ConstViewportDragOperationComp>;
 	public inline extern function get_DragOperationComponent(): cpp.Star<ViewportDragOperationComp.ConstViewportDragOperationComp> return this.DragOperationComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("GizmoHandleGroup*")
+abstract GizmoHandleGroupPtr(cpp.Star<GizmoHandleGroup>) from cpp.Star<GizmoHandleGroup> to cpp.Star<GizmoHandleGroup>{
+	@:from
+	public static extern inline function fromValue(v: GizmoHandleGroup): GizmoHandleGroupPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GizmoHandleGroup {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

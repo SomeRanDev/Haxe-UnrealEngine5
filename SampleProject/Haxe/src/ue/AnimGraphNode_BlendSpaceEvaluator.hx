@@ -16,3 +16,22 @@ abstract ConstAnimGraphNode_BlendSpaceEvaluator(AnimGraphNode_BlendSpaceEvaluato
 	public extern var Node(get, never): AnimNode_BlendSpaceEvaluator;
 	public inline extern function get_Node(): AnimNode_BlendSpaceEvaluator return this.Node;
 }
+
+@:forward
+@:nativeGen
+@:native("AnimGraphNode_BlendSpaceEvaluator*")
+abstract AnimGraphNode_BlendSpaceEvaluatorPtr(cpp.Star<AnimGraphNode_BlendSpaceEvaluator>) from cpp.Star<AnimGraphNode_BlendSpaceEvaluator> to cpp.Star<AnimGraphNode_BlendSpaceEvaluator>{
+	@:from
+	public static extern inline function fromValue(v: AnimGraphNode_BlendSpaceEvaluator): AnimGraphNode_BlendSpaceEvaluatorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimGraphNode_BlendSpaceEvaluator {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -25,3 +25,22 @@ abstract ConstNavigationObjectBase(NavigationObjectBase) from NavigationObjectBa
 	public extern var bIsPIEPlayerStart(get, never): Bool;
 	public inline extern function get_bIsPIEPlayerStart(): Bool return this.bIsPIEPlayerStart;
 }
+
+@:forward
+@:nativeGen
+@:native("NavigationObjectBase*")
+abstract NavigationObjectBasePtr(cpp.Star<NavigationObjectBase>) from cpp.Star<NavigationObjectBase> to cpp.Star<NavigationObjectBase>{
+	@:from
+	public static extern inline function fromValue(v: NavigationObjectBase): NavigationObjectBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NavigationObjectBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

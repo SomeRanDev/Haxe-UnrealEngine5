@@ -16,3 +16,22 @@ abstract ConstProceduralFoliageVolume(ProceduralFoliageVolume) from ProceduralFo
 	public extern var ProceduralComponent(get, never): cpp.Star<ProceduralFoliageComp.ConstProceduralFoliageComp>;
 	public inline extern function get_ProceduralComponent(): cpp.Star<ProceduralFoliageComp.ConstProceduralFoliageComp> return this.ProceduralComponent;
 }
+
+@:forward
+@:nativeGen
+@:native("ProceduralFoliageVolume*")
+abstract ProceduralFoliageVolumePtr(cpp.Star<ProceduralFoliageVolume>) from cpp.Star<ProceduralFoliageVolume> to cpp.Star<ProceduralFoliageVolume>{
+	@:from
+	public static extern inline function fromValue(v: ProceduralFoliageVolume): ProceduralFoliageVolumePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ProceduralFoliageVolume {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

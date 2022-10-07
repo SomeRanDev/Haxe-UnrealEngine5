@@ -471,3 +471,22 @@ abstract ConstPrimitiveComp(PrimitiveComp) from PrimitiveComp {
 	public extern var LODParentPrimitive(get, never): cpp.Star<PrimitiveComp.ConstPrimitiveComp>;
 	public inline extern function get_LODParentPrimitive(): cpp.Star<PrimitiveComp.ConstPrimitiveComp> return this.LODParentPrimitive;
 }
+
+@:forward
+@:nativeGen
+@:native("PrimitiveComp*")
+abstract PrimitiveCompPtr(cpp.Star<PrimitiveComp>) from cpp.Star<PrimitiveComp> to cpp.Star<PrimitiveComp>{
+	@:from
+	public static extern inline function fromValue(v: PrimitiveComp): PrimitiveCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PrimitiveComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

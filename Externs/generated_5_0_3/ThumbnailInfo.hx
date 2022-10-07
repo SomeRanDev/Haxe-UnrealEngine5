@@ -13,3 +13,22 @@ extern class ThumbnailInfo extends Object {
 @:nativeGen
 abstract ConstThumbnailInfo(ThumbnailInfo) from ThumbnailInfo {
 }
+
+@:forward
+@:nativeGen
+@:native("ThumbnailInfo*")
+abstract ThumbnailInfoPtr(cpp.Star<ThumbnailInfo>) from cpp.Star<ThumbnailInfo> to cpp.Star<ThumbnailInfo>{
+	@:from
+	public static extern inline function fromValue(v: ThumbnailInfo): ThumbnailInfoPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ThumbnailInfo {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

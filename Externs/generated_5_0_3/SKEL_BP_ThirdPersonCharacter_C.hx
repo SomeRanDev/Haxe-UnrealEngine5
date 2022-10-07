@@ -20,3 +20,22 @@ abstract ConstSKEL_BP_ThirdPersonCharacter_C(SKEL_BP_ThirdPersonCharacter_C) fro
 	public extern var UberGraphFrame(get, never): PointerToUberGraphFrame;
 	public inline extern function get_UberGraphFrame(): PointerToUberGraphFrame return this.UberGraphFrame;
 }
+
+@:forward
+@:nativeGen
+@:native("SKEL_BP_ThirdPersonCharacter_C*")
+abstract SKEL_BP_ThirdPersonCharacter_CPtr(cpp.Star<SKEL_BP_ThirdPersonCharacter_C>) from cpp.Star<SKEL_BP_ThirdPersonCharacter_C> to cpp.Star<SKEL_BP_ThirdPersonCharacter_C>{
+	@:from
+	public static extern inline function fromValue(v: SKEL_BP_ThirdPersonCharacter_C): SKEL_BP_ThirdPersonCharacter_CPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SKEL_BP_ThirdPersonCharacter_C {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -109,3 +109,22 @@ extern class AnimationBlueprintLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstAnimationBlueprintLibrary(AnimationBlueprintLibrary) from AnimationBlueprintLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("AnimationBlueprintLibrary*")
+abstract AnimationBlueprintLibraryPtr(cpp.Star<AnimationBlueprintLibrary>) from cpp.Star<AnimationBlueprintLibrary> to cpp.Star<AnimationBlueprintLibrary>{
+	@:from
+	public static extern inline function fromValue(v: AnimationBlueprintLibrary): AnimationBlueprintLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AnimationBlueprintLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

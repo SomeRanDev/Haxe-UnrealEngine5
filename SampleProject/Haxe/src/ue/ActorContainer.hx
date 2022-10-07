@@ -16,3 +16,22 @@ abstract ConstActorContainer(ActorContainer) from ActorContainer {
 	public extern var Actors(get, never): TMap<FName, cpp.Star<Actor.ConstActor>>;
 	public inline extern function get_Actors(): TMap<FName, cpp.Star<Actor.ConstActor>> return this.Actors;
 }
+
+@:forward
+@:nativeGen
+@:native("ActorContainer*")
+abstract ActorContainerPtr(cpp.Star<ActorContainer>) from cpp.Star<ActorContainer> to cpp.Star<ActorContainer>{
+	@:from
+	public static extern inline function fromValue(v: ActorContainer): ActorContainerPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorContainer {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

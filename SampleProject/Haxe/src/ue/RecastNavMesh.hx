@@ -201,3 +201,22 @@ abstract ConstRecastNavMesh(RecastNavMesh) from RecastNavMesh {
 	public extern var VerticalDeviationFromGroundCompensation(get, never): cpp.Float32;
 	public inline extern function get_VerticalDeviationFromGroundCompensation(): cpp.Float32 return this.VerticalDeviationFromGroundCompensation;
 }
+
+@:forward
+@:nativeGen
+@:native("RecastNavMesh*")
+abstract RecastNavMeshPtr(cpp.Star<RecastNavMesh>) from cpp.Star<RecastNavMesh> to cpp.Star<RecastNavMesh>{
+	@:from
+	public static extern inline function fromValue(v: RecastNavMesh): RecastNavMeshPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RecastNavMesh {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

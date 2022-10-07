@@ -73,3 +73,22 @@ abstract ConstGameplayDebuggerConfig(GameplayDebuggerConfig) from GameplayDebugg
 	public extern var Extensions(get, never): TArray<GameplayDebuggerExtensionConfig>;
 	public inline extern function get_Extensions(): TArray<GameplayDebuggerExtensionConfig> return this.Extensions;
 }
+
+@:forward
+@:nativeGen
+@:native("GameplayDebuggerConfig*")
+abstract GameplayDebuggerConfigPtr(cpp.Star<GameplayDebuggerConfig>) from cpp.Star<GameplayDebuggerConfig> to cpp.Star<GameplayDebuggerConfig>{
+	@:from
+	public static extern inline function fromValue(v: GameplayDebuggerConfig): GameplayDebuggerConfigPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GameplayDebuggerConfig {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

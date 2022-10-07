@@ -38,3 +38,22 @@ abstract ConstToolMenus(ToolMenus) from ToolMenus {
 	public extern var Menus(get, never): TMap<FName, cpp.Star<ToolMenu.ConstToolMenu>>;
 	public inline extern function get_Menus(): TMap<FName, cpp.Star<ToolMenu.ConstToolMenu>> return this.Menus;
 }
+
+@:forward
+@:nativeGen
+@:native("ToolMenus*")
+abstract ToolMenusPtr(cpp.Star<ToolMenus>) from cpp.Star<ToolMenus> to cpp.Star<ToolMenus>{
+	@:from
+	public static extern inline function fromValue(v: ToolMenus): ToolMenusPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ToolMenus {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

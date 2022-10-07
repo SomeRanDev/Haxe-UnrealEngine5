@@ -42,3 +42,22 @@ abstract ConstLandscapeSplinesComp(LandscapeSplinesComp) from LandscapeSplinesCo
 	public extern var CookedForeignMeshComponents(get, never): TArray<cpp.Star<MeshComp.ConstMeshComp>>;
 	public inline extern function get_CookedForeignMeshComponents(): TArray<cpp.Star<MeshComp.ConstMeshComp>> return this.CookedForeignMeshComponents;
 }
+
+@:forward
+@:nativeGen
+@:native("LandscapeSplinesComp*")
+abstract LandscapeSplinesCompPtr(cpp.Star<LandscapeSplinesComp>) from cpp.Star<LandscapeSplinesComp> to cpp.Star<LandscapeSplinesComp>{
+	@:from
+	public static extern inline function fromValue(v: LandscapeSplinesComp): LandscapeSplinesCompPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LandscapeSplinesComp {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

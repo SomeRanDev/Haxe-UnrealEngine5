@@ -16,3 +16,22 @@ extern class ViewportStatsSubsystem extends WorldSubsystem {
 @:nativeGen
 abstract ConstViewportStatsSubsystem(ViewportStatsSubsystem) from ViewportStatsSubsystem {
 }
+
+@:forward
+@:nativeGen
+@:native("ViewportStatsSubsystem*")
+abstract ViewportStatsSubsystemPtr(cpp.Star<ViewportStatsSubsystem>) from cpp.Star<ViewportStatsSubsystem> to cpp.Star<ViewportStatsSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: ViewportStatsSubsystem): ViewportStatsSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ViewportStatsSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

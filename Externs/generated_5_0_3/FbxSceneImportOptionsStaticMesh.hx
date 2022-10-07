@@ -43,3 +43,22 @@ abstract ConstFbxSceneImportOptionsStaticMesh(FbxSceneImportOptionsStaticMesh) f
 	public extern var NormalGenerationMethod(get, never): EFBXSceneNormalGenerationMethod;
 	public inline extern function get_NormalGenerationMethod(): EFBXSceneNormalGenerationMethod return this.NormalGenerationMethod;
 }
+
+@:forward
+@:nativeGen
+@:native("FbxSceneImportOptionsStaticMesh*")
+abstract FbxSceneImportOptionsStaticMeshPtr(cpp.Star<FbxSceneImportOptionsStaticMesh>) from cpp.Star<FbxSceneImportOptionsStaticMesh> to cpp.Star<FbxSceneImportOptionsStaticMesh>{
+	@:from
+	public static extern inline function fromValue(v: FbxSceneImportOptionsStaticMesh): FbxSceneImportOptionsStaticMeshPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): FbxSceneImportOptionsStaticMesh {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

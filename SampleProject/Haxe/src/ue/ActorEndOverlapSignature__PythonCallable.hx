@@ -12,3 +12,22 @@ extern class ActorEndOverlapSignature__PythonCallable extends PythonCallableForD
 @:nativeGen
 abstract ConstActorEndOverlapSignature__PythonCallable(ActorEndOverlapSignature__PythonCallable) from ActorEndOverlapSignature__PythonCallable {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorEndOverlapSignature__PythonCallable*")
+abstract ActorEndOverlapSignature__PythonCallablePtr(cpp.Star<ActorEndOverlapSignature__PythonCallable>) from cpp.Star<ActorEndOverlapSignature__PythonCallable> to cpp.Star<ActorEndOverlapSignature__PythonCallable>{
+	@:from
+	public static extern inline function fromValue(v: ActorEndOverlapSignature__PythonCallable): ActorEndOverlapSignature__PythonCallablePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorEndOverlapSignature__PythonCallable {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class DoubleChannelEvaluatorSystem extends MovieSceneEntitySystem {
 @:nativeGen
 abstract ConstDoubleChannelEvaluatorSystem(DoubleChannelEvaluatorSystem) from DoubleChannelEvaluatorSystem {
 }
+
+@:forward
+@:nativeGen
+@:native("DoubleChannelEvaluatorSystem*")
+abstract DoubleChannelEvaluatorSystemPtr(cpp.Star<DoubleChannelEvaluatorSystem>) from cpp.Star<DoubleChannelEvaluatorSystem> to cpp.Star<DoubleChannelEvaluatorSystem>{
+	@:from
+	public static extern inline function fromValue(v: DoubleChannelEvaluatorSystem): DoubleChannelEvaluatorSystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DoubleChannelEvaluatorSystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

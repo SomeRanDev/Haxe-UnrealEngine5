@@ -25,3 +25,22 @@ abstract ConstParticleModuleSizeMultiplyLife(ParticleModuleSizeMultiplyLife) fro
 	public extern var MultiplyZ(get, never): Bool;
 	public inline extern function get_MultiplyZ(): Bool return this.MultiplyZ;
 }
+
+@:forward
+@:nativeGen
+@:native("ParticleModuleSizeMultiplyLife*")
+abstract ParticleModuleSizeMultiplyLifePtr(cpp.Star<ParticleModuleSizeMultiplyLife>) from cpp.Star<ParticleModuleSizeMultiplyLife> to cpp.Star<ParticleModuleSizeMultiplyLife>{
+	@:from
+	public static extern inline function fromValue(v: ParticleModuleSizeMultiplyLife): ParticleModuleSizeMultiplyLifePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ParticleModuleSizeMultiplyLife {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

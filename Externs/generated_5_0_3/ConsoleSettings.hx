@@ -46,3 +46,22 @@ abstract ConstConsoleSettings(ConsoleSettings) from ConsoleSettings {
 	public extern var AutoCompleteFadedColor(get, never): Color;
 	public inline extern function get_AutoCompleteFadedColor(): Color return this.AutoCompleteFadedColor;
 }
+
+@:forward
+@:nativeGen
+@:native("ConsoleSettings*")
+abstract ConsoleSettingsPtr(cpp.Star<ConsoleSettings>) from cpp.Star<ConsoleSettings> to cpp.Star<ConsoleSettings>{
+	@:from
+	public static extern inline function fromValue(v: ConsoleSettings): ConsoleSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ConsoleSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

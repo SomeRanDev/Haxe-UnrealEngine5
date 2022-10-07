@@ -13,3 +13,22 @@ extern class LocalMouseHoverBehavior extends MouseHoverBehavior {
 @:nativeGen
 abstract ConstLocalMouseHoverBehavior(LocalMouseHoverBehavior) from LocalMouseHoverBehavior {
 }
+
+@:forward
+@:nativeGen
+@:native("LocalMouseHoverBehavior*")
+abstract LocalMouseHoverBehaviorPtr(cpp.Star<LocalMouseHoverBehavior>) from cpp.Star<LocalMouseHoverBehavior> to cpp.Star<LocalMouseHoverBehavior>{
+	@:from
+	public static extern inline function fromValue(v: LocalMouseHoverBehavior): LocalMouseHoverBehaviorPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LocalMouseHoverBehavior {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

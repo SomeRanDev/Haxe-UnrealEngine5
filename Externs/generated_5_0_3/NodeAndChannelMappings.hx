@@ -12,3 +12,22 @@ extern class NodeAndChannelMappings extends Interface {
 @:nativeGen
 abstract ConstNodeAndChannelMappings(NodeAndChannelMappings) from NodeAndChannelMappings {
 }
+
+@:forward
+@:nativeGen
+@:native("NodeAndChannelMappings*")
+abstract NodeAndChannelMappingsPtr(cpp.Star<NodeAndChannelMappings>) from cpp.Star<NodeAndChannelMappings> to cpp.Star<NodeAndChannelMappings>{
+	@:from
+	public static extern inline function fromValue(v: NodeAndChannelMappings): NodeAndChannelMappingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NodeAndChannelMappings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

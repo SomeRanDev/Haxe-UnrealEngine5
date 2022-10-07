@@ -28,3 +28,22 @@ abstract ConstUserDefinedStruct(UserDefinedStruct) from UserDefinedStruct {
 	public extern var Guid(get, never): Guid;
 	public inline extern function get_Guid(): Guid return this.Guid;
 }
+
+@:forward
+@:nativeGen
+@:native("UserDefinedStruct*")
+abstract UserDefinedStructPtr(cpp.Star<UserDefinedStruct>) from cpp.Star<UserDefinedStruct> to cpp.Star<UserDefinedStruct>{
+	@:from
+	public static extern inline function fromValue(v: UserDefinedStruct): UserDefinedStructPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): UserDefinedStruct {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -25,3 +25,22 @@ abstract ConstDialogueWaveFactory(DialogueWaveFactory) from DialogueWaveFactory 
 	public extern var InitialTargetVoices(get, never): TArray<cpp.Star<DialogueVoice.ConstDialogueVoice>>;
 	public inline extern function get_InitialTargetVoices(): TArray<cpp.Star<DialogueVoice.ConstDialogueVoice>> return this.InitialTargetVoices;
 }
+
+@:forward
+@:nativeGen
+@:native("DialogueWaveFactory*")
+abstract DialogueWaveFactoryPtr(cpp.Star<DialogueWaveFactory>) from cpp.Star<DialogueWaveFactory> to cpp.Star<DialogueWaveFactory>{
+	@:from
+	public static extern inline function fromValue(v: DialogueWaveFactory): DialogueWaveFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): DialogueWaveFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

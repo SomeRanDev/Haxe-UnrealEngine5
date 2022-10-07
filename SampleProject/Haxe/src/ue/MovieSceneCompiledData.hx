@@ -43,3 +43,22 @@ abstract ConstMovieSceneCompiledData(MovieSceneCompiledData) from MovieSceneComp
 	public extern var AccumulatedFlags(get, never): EMovieSceneSequenceFlags;
 	public inline extern function get_AccumulatedFlags(): EMovieSceneSequenceFlags return this.AccumulatedFlags;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneCompiledData*")
+abstract MovieSceneCompiledDataPtr(cpp.Star<MovieSceneCompiledData>) from cpp.Star<MovieSceneCompiledData> to cpp.Star<MovieSceneCompiledData>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneCompiledData): MovieSceneCompiledDataPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneCompiledData {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

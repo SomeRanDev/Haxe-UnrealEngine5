@@ -13,3 +13,22 @@ extern class LocalMessage extends Object {
 @:nativeGen
 abstract ConstLocalMessage(LocalMessage) from LocalMessage {
 }
+
+@:forward
+@:nativeGen
+@:native("LocalMessage*")
+abstract LocalMessagePtr(cpp.Star<LocalMessage>) from cpp.Star<LocalMessage> to cpp.Star<LocalMessage>{
+	@:from
+	public static extern inline function fromValue(v: LocalMessage): LocalMessagePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LocalMessage {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

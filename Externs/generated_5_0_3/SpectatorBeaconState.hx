@@ -28,3 +28,22 @@ abstract ConstSpectatorBeaconState(SpectatorBeaconState) from SpectatorBeaconSta
 	public extern var Reservations(get, never): TArray<SpectatorReservation>;
 	public inline extern function get_Reservations(): TArray<SpectatorReservation> return this.Reservations;
 }
+
+@:forward
+@:nativeGen
+@:native("SpectatorBeaconState*")
+abstract SpectatorBeaconStatePtr(cpp.Star<SpectatorBeaconState>) from cpp.Star<SpectatorBeaconState> to cpp.Star<SpectatorBeaconState>{
+	@:from
+	public static extern inline function fromValue(v: SpectatorBeaconState): SpectatorBeaconStatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SpectatorBeaconState {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

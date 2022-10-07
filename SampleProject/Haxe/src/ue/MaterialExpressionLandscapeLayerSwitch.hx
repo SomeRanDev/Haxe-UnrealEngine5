@@ -25,3 +25,22 @@ abstract ConstMaterialExpressionLandscapeLayerSwitch(MaterialExpressionLandscape
 	public extern var PreviewUsed(get, never): Bool;
 	public inline extern function get_PreviewUsed(): Bool return this.PreviewUsed;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionLandscapeLayerSwitch*")
+abstract MaterialExpressionLandscapeLayerSwitchPtr(cpp.Star<MaterialExpressionLandscapeLayerSwitch>) from cpp.Star<MaterialExpressionLandscapeLayerSwitch> to cpp.Star<MaterialExpressionLandscapeLayerSwitch>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionLandscapeLayerSwitch): MaterialExpressionLandscapeLayerSwitchPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionLandscapeLayerSwitch {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

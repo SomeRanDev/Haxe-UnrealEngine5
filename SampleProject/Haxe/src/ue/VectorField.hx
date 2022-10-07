@@ -19,3 +19,22 @@ abstract ConstVectorField(VectorField) from VectorField {
 	public extern var Intensity(get, never): cpp.Float32;
 	public inline extern function get_Intensity(): cpp.Float32 return this.Intensity;
 }
+
+@:forward
+@:nativeGen
+@:native("VectorField*")
+abstract VectorFieldPtr(cpp.Star<VectorField>) from cpp.Star<VectorField> to cpp.Star<VectorField>{
+	@:from
+	public static extern inline function fromValue(v: VectorField): VectorFieldPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): VectorField {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -49,3 +49,22 @@ abstract ConstImage(Image) from Image {
 	public extern var OnMouseButtonDownEvent(get, never): HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void>;
 	public inline extern function get_OnMouseButtonDownEvent(): HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void> return this.OnMouseButtonDownEvent;
 }
+
+@:forward
+@:nativeGen
+@:native("Image*")
+abstract ImagePtr(cpp.Star<Image>) from cpp.Star<Image> to cpp.Star<Image>{
+	@:from
+	public static extern inline function fromValue(v: Image): ImagePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): Image {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

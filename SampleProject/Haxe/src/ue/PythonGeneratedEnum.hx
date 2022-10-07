@@ -13,3 +13,22 @@ extern class PythonGeneratedEnum extends Enum {
 @:nativeGen
 abstract ConstPythonGeneratedEnum(PythonGeneratedEnum) from PythonGeneratedEnum {
 }
+
+@:forward
+@:nativeGen
+@:native("PythonGeneratedEnum*")
+abstract PythonGeneratedEnumPtr(cpp.Star<PythonGeneratedEnum>) from cpp.Star<PythonGeneratedEnum> to cpp.Star<PythonGeneratedEnum>{
+	@:from
+	public static extern inline function fromValue(v: PythonGeneratedEnum): PythonGeneratedEnumPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): PythonGeneratedEnum {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

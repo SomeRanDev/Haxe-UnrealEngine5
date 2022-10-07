@@ -16,3 +16,22 @@ abstract ConstMovieSceneBuiltInEasingFunction(MovieSceneBuiltInEasingFunction) f
 	public extern var Type(get, never): EMovieSceneBuiltInEasing;
 	public inline extern function get_Type(): EMovieSceneBuiltInEasing return this.Type;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieSceneBuiltInEasingFunction*")
+abstract MovieSceneBuiltInEasingFunctionPtr(cpp.Star<MovieSceneBuiltInEasingFunction>) from cpp.Star<MovieSceneBuiltInEasingFunction> to cpp.Star<MovieSceneBuiltInEasingFunction>{
+	@:from
+	public static extern inline function fromValue(v: MovieSceneBuiltInEasingFunction): MovieSceneBuiltInEasingFunctionPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieSceneBuiltInEasingFunction {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -19,3 +19,22 @@ abstract ConstNiagaraSystemSelectionViewModel(NiagaraSystemSelectionViewModel) f
 	public extern var SelectionStackViewModel(get, never): cpp.Star<NiagaraStackViewModel.ConstNiagaraStackViewModel>;
 	public inline extern function get_SelectionStackViewModel(): cpp.Star<NiagaraStackViewModel.ConstNiagaraStackViewModel> return this.SelectionStackViewModel;
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraSystemSelectionViewModel*")
+abstract NiagaraSystemSelectionViewModelPtr(cpp.Star<NiagaraSystemSelectionViewModel>) from cpp.Star<NiagaraSystemSelectionViewModel> to cpp.Star<NiagaraSystemSelectionViewModel>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraSystemSelectionViewModel): NiagaraSystemSelectionViewModelPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraSystemSelectionViewModel {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

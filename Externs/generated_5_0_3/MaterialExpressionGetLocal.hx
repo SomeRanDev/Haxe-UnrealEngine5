@@ -16,3 +16,22 @@ abstract ConstMaterialExpressionGetLocal(MaterialExpressionGetLocal) from Materi
 	public extern var LocalName(get, never): FName;
 	public inline extern function get_LocalName(): FName return this.LocalName;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionGetLocal*")
+abstract MaterialExpressionGetLocalPtr(cpp.Star<MaterialExpressionGetLocal>) from cpp.Star<MaterialExpressionGetLocal> to cpp.Star<MaterialExpressionGetLocal>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionGetLocal): MaterialExpressionGetLocalPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionGetLocal {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

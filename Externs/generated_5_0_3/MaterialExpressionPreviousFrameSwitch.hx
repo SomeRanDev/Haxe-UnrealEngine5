@@ -19,3 +19,22 @@ abstract ConstMaterialExpressionPreviousFrameSwitch(MaterialExpressionPreviousFr
 	public extern var PreviousFrame(get, never): ExpressionInput;
 	public inline extern function get_PreviousFrame(): ExpressionInput return this.PreviousFrame;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionPreviousFrameSwitch*")
+abstract MaterialExpressionPreviousFrameSwitchPtr(cpp.Star<MaterialExpressionPreviousFrameSwitch>) from cpp.Star<MaterialExpressionPreviousFrameSwitch> to cpp.Star<MaterialExpressionPreviousFrameSwitch>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionPreviousFrameSwitch): MaterialExpressionPreviousFrameSwitchPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionPreviousFrameSwitch {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

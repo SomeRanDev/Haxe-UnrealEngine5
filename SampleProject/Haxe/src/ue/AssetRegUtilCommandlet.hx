@@ -13,3 +13,22 @@ extern class AssetRegUtilCommandlet extends Commandlet {
 @:nativeGen
 abstract ConstAssetRegUtilCommandlet(AssetRegUtilCommandlet) from AssetRegUtilCommandlet {
 }
+
+@:forward
+@:nativeGen
+@:native("AssetRegUtilCommandlet*")
+abstract AssetRegUtilCommandletPtr(cpp.Star<AssetRegUtilCommandlet>) from cpp.Star<AssetRegUtilCommandlet> to cpp.Star<AssetRegUtilCommandlet>{
+	@:from
+	public static extern inline function fromValue(v: AssetRegUtilCommandlet): AssetRegUtilCommandletPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AssetRegUtilCommandlet {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

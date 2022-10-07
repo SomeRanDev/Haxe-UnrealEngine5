@@ -13,3 +13,22 @@ extern class ActorPartitionSubsystem extends WorldSubsystem {
 @:nativeGen
 abstract ConstActorPartitionSubsystem(ActorPartitionSubsystem) from ActorPartitionSubsystem {
 }
+
+@:forward
+@:nativeGen
+@:native("ActorPartitionSubsystem*")
+abstract ActorPartitionSubsystemPtr(cpp.Star<ActorPartitionSubsystem>) from cpp.Star<ActorPartitionSubsystem> to cpp.Star<ActorPartitionSubsystem>{
+	@:from
+	public static extern inline function fromValue(v: ActorPartitionSubsystem): ActorPartitionSubsystemPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ActorPartitionSubsystem {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

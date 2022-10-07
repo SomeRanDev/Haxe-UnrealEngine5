@@ -13,3 +13,22 @@ extern class RigVMFunctionEntryNode extends RigVMNode {
 @:nativeGen
 abstract ConstRigVMFunctionEntryNode(RigVMFunctionEntryNode) from RigVMFunctionEntryNode {
 }
+
+@:forward
+@:nativeGen
+@:native("RigVMFunctionEntryNode*")
+abstract RigVMFunctionEntryNodePtr(cpp.Star<RigVMFunctionEntryNode>) from cpp.Star<RigVMFunctionEntryNode> to cpp.Star<RigVMFunctionEntryNode>{
+	@:from
+	public static extern inline function fromValue(v: RigVMFunctionEntryNode): RigVMFunctionEntryNodePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): RigVMFunctionEntryNode {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

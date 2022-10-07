@@ -16,3 +16,22 @@ abstract ConstSoundGroups(SoundGroups) from SoundGroups {
 	public extern var SoundGroupProfiles(get, never): TArray<SoundGroup>;
 	public inline extern function get_SoundGroupProfiles(): TArray<SoundGroup> return this.SoundGroupProfiles;
 }
+
+@:forward
+@:nativeGen
+@:native("SoundGroups*")
+abstract SoundGroupsPtr(cpp.Star<SoundGroups>) from cpp.Star<SoundGroups> to cpp.Star<SoundGroups>{
+	@:from
+	public static extern inline function fromValue(v: SoundGroups): SoundGroupsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundGroups {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -40,3 +40,22 @@ abstract ConstAutomationControllerSettings(AutomationControllerSettings) from Au
 	public extern var bResetTelemetryStorageOnNewSession(get, never): Bool;
 	public inline extern function get_bResetTelemetryStorageOnNewSession(): Bool return this.bResetTelemetryStorageOnNewSession;
 }
+
+@:forward
+@:nativeGen
+@:native("AutomationControllerSettings*")
+abstract AutomationControllerSettingsPtr(cpp.Star<AutomationControllerSettings>) from cpp.Star<AutomationControllerSettings> to cpp.Star<AutomationControllerSettings>{
+	@:from
+	public static extern inline function fromValue(v: AutomationControllerSettings): AutomationControllerSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): AutomationControllerSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

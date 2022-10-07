@@ -103,3 +103,22 @@ abstract ConstMovieScene(MovieScene) from MovieScene {
 	public extern var FixedFrameInterval_DEPRECATED(get, never): cpp.Float32;
 	public inline extern function get_FixedFrameInterval_DEPRECATED(): cpp.Float32 return this.FixedFrameInterval_DEPRECATED;
 }
+
+@:forward
+@:nativeGen
+@:native("MovieScene*")
+abstract MovieScenePtr(cpp.Star<MovieScene>) from cpp.Star<MovieScene> to cpp.Star<MovieScene>{
+	@:from
+	public static extern inline function fromValue(v: MovieScene): MovieScenePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MovieScene {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

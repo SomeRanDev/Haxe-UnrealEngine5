@@ -22,3 +22,22 @@ abstract ConstSkeletalBodySetup(SkeletalBodySetup) from SkeletalBodySetup {
 	public extern var PhysicalAnimationData(get, never): TArray<PhysicalAnimationProfile>;
 	public inline extern function get_PhysicalAnimationData(): TArray<PhysicalAnimationProfile> return this.PhysicalAnimationData;
 }
+
+@:forward
+@:nativeGen
+@:native("SkeletalBodySetup*")
+abstract SkeletalBodySetupPtr(cpp.Star<SkeletalBodySetup>) from cpp.Star<SkeletalBodySetup> to cpp.Star<SkeletalBodySetup>{
+	@:from
+	public static extern inline function fromValue(v: SkeletalBodySetup): SkeletalBodySetupPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SkeletalBodySetup {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

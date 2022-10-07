@@ -25,3 +25,22 @@ abstract ConstMaterialExpressionRuntimeVirtualTextureSampleParameter(MaterialExp
 	public extern var SortPriority(get, never): cpp.Int32;
 	public inline extern function get_SortPriority(): cpp.Int32 return this.SortPriority;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionRuntimeVirtualTextureSampleParameter*")
+abstract MaterialExpressionRuntimeVirtualTextureSampleParameterPtr(cpp.Star<MaterialExpressionRuntimeVirtualTextureSampleParameter>) from cpp.Star<MaterialExpressionRuntimeVirtualTextureSampleParameter> to cpp.Star<MaterialExpressionRuntimeVirtualTextureSampleParameter>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionRuntimeVirtualTextureSampleParameter): MaterialExpressionRuntimeVirtualTextureSampleParameterPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionRuntimeVirtualTextureSampleParameter {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

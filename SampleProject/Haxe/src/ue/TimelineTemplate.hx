@@ -67,3 +67,22 @@ abstract ConstTimelineTemplate(TimelineTemplate) from TimelineTemplate {
 	public extern var TrackDisplayOrder(get, never): TArray<TTTrackId>;
 	public inline extern function get_TrackDisplayOrder(): TArray<TTTrackId> return this.TrackDisplayOrder;
 }
+
+@:forward
+@:nativeGen
+@:native("TimelineTemplate*")
+abstract TimelineTemplatePtr(cpp.Star<TimelineTemplate>) from cpp.Star<TimelineTemplate> to cpp.Star<TimelineTemplate>{
+	@:from
+	public static extern inline function fromValue(v: TimelineTemplate): TimelineTemplatePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): TimelineTemplate {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

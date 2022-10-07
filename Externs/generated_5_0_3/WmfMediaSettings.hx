@@ -25,3 +25,22 @@ abstract ConstWmfMediaSettings(WmfMediaSettings) from WmfMediaSettings {
 	public extern var HardwareAcceleratedVideoDecoding(get, never): Bool;
 	public inline extern function get_HardwareAcceleratedVideoDecoding(): Bool return this.HardwareAcceleratedVideoDecoding;
 }
+
+@:forward
+@:nativeGen
+@:native("WmfMediaSettings*")
+abstract WmfMediaSettingsPtr(cpp.Star<WmfMediaSettings>) from cpp.Star<WmfMediaSettings> to cpp.Star<WmfMediaSettings>{
+	@:from
+	public static extern inline function fromValue(v: WmfMediaSettings): WmfMediaSettingsPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): WmfMediaSettings {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

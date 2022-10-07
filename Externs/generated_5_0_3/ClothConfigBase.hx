@@ -13,3 +13,22 @@ extern class ClothConfigBase extends Object {
 @:nativeGen
 abstract ConstClothConfigBase(ClothConfigBase) from ClothConfigBase {
 }
+
+@:forward
+@:nativeGen
+@:native("ClothConfigBase*")
+abstract ClothConfigBasePtr(cpp.Star<ClothConfigBase>) from cpp.Star<ClothConfigBase> to cpp.Star<ClothConfigBase>{
+	@:from
+	public static extern inline function fromValue(v: ClothConfigBase): ClothConfigBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ClothConfigBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

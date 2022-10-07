@@ -12,3 +12,22 @@ extern class GenericTeamAgentInterface extends Interface {
 @:nativeGen
 abstract ConstGenericTeamAgentInterface(GenericTeamAgentInterface) from GenericTeamAgentInterface {
 }
+
+@:forward
+@:nativeGen
+@:native("GenericTeamAgentInterface*")
+abstract GenericTeamAgentInterfacePtr(cpp.Star<GenericTeamAgentInterface>) from cpp.Star<GenericTeamAgentInterface> to cpp.Star<GenericTeamAgentInterface>{
+	@:from
+	public static extern inline function fromValue(v: GenericTeamAgentInterface): GenericTeamAgentInterfacePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): GenericTeamAgentInterface {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

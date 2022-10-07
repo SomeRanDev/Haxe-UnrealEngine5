@@ -13,3 +13,22 @@ extern class ObjectLibraryFactory extends Factory {
 @:nativeGen
 abstract ConstObjectLibraryFactory(ObjectLibraryFactory) from ObjectLibraryFactory {
 }
+
+@:forward
+@:nativeGen
+@:native("ObjectLibraryFactory*")
+abstract ObjectLibraryFactoryPtr(cpp.Star<ObjectLibraryFactory>) from cpp.Star<ObjectLibraryFactory> to cpp.Star<ObjectLibraryFactory>{
+	@:from
+	public static extern inline function fromValue(v: ObjectLibraryFactory): ObjectLibraryFactoryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): ObjectLibraryFactory {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

@@ -13,3 +13,22 @@ extern class EdGraphSchema_BehaviorTree extends AIGraphSchema {
 @:nativeGen
 abstract ConstEdGraphSchema_BehaviorTree(EdGraphSchema_BehaviorTree) from EdGraphSchema_BehaviorTree {
 }
+
+@:forward
+@:nativeGen
+@:native("EdGraphSchema_BehaviorTree*")
+abstract EdGraphSchema_BehaviorTreePtr(cpp.Star<EdGraphSchema_BehaviorTree>) from cpp.Star<EdGraphSchema_BehaviorTree> to cpp.Star<EdGraphSchema_BehaviorTree>{
+	@:from
+	public static extern inline function fromValue(v: EdGraphSchema_BehaviorTree): EdGraphSchema_BehaviorTreePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): EdGraphSchema_BehaviorTree {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

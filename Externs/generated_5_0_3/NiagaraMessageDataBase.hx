@@ -13,3 +13,22 @@ extern class NiagaraMessageDataBase extends Object {
 @:nativeGen
 abstract ConstNiagaraMessageDataBase(NiagaraMessageDataBase) from NiagaraMessageDataBase {
 }
+
+@:forward
+@:nativeGen
+@:native("NiagaraMessageDataBase*")
+abstract NiagaraMessageDataBasePtr(cpp.Star<NiagaraMessageDataBase>) from cpp.Star<NiagaraMessageDataBase> to cpp.Star<NiagaraMessageDataBase>{
+	@:from
+	public static extern inline function fromValue(v: NiagaraMessageDataBase): NiagaraMessageDataBasePtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): NiagaraMessageDataBase {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

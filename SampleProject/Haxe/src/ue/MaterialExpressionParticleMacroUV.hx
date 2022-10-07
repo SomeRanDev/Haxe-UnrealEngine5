@@ -13,3 +13,22 @@ extern class MaterialExpressionParticleMacroUV extends MaterialExpression {
 @:nativeGen
 abstract ConstMaterialExpressionParticleMacroUV(MaterialExpressionParticleMacroUV) from MaterialExpressionParticleMacroUV {
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionParticleMacroUV*")
+abstract MaterialExpressionParticleMacroUVPtr(cpp.Star<MaterialExpressionParticleMacroUV>) from cpp.Star<MaterialExpressionParticleMacroUV> to cpp.Star<MaterialExpressionParticleMacroUV>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionParticleMacroUV): MaterialExpressionParticleMacroUVPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionParticleMacroUV {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

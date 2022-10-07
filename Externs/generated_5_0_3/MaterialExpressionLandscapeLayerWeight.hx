@@ -28,3 +28,22 @@ abstract ConstMaterialExpressionLandscapeLayerWeight(MaterialExpressionLandscape
 	public extern var ConstBase(get, never): Vector;
 	public inline extern function get_ConstBase(): Vector return this.ConstBase;
 }
+
+@:forward
+@:nativeGen
+@:native("MaterialExpressionLandscapeLayerWeight*")
+abstract MaterialExpressionLandscapeLayerWeightPtr(cpp.Star<MaterialExpressionLandscapeLayerWeight>) from cpp.Star<MaterialExpressionLandscapeLayerWeight> to cpp.Star<MaterialExpressionLandscapeLayerWeight>{
+	@:from
+	public static extern inline function fromValue(v: MaterialExpressionLandscapeLayerWeight): MaterialExpressionLandscapeLayerWeightPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): MaterialExpressionLandscapeLayerWeight {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

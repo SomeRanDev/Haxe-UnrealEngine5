@@ -17,3 +17,22 @@ extern class LinkedAnimGraphLibrary extends BlueprintFunctionLibrary {
 @:nativeGen
 abstract ConstLinkedAnimGraphLibrary(LinkedAnimGraphLibrary) from LinkedAnimGraphLibrary {
 }
+
+@:forward
+@:nativeGen
+@:native("LinkedAnimGraphLibrary*")
+abstract LinkedAnimGraphLibraryPtr(cpp.Star<LinkedAnimGraphLibrary>) from cpp.Star<LinkedAnimGraphLibrary> to cpp.Star<LinkedAnimGraphLibrary>{
+	@:from
+	public static extern inline function fromValue(v: LinkedAnimGraphLibrary): LinkedAnimGraphLibraryPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): LinkedAnimGraphLibrary {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}

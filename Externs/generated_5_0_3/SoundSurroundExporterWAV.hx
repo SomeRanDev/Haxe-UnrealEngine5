@@ -13,3 +13,22 @@ extern class SoundSurroundExporterWAV extends Exporter {
 @:nativeGen
 abstract ConstSoundSurroundExporterWAV(SoundSurroundExporterWAV) from SoundSurroundExporterWAV {
 }
+
+@:forward
+@:nativeGen
+@:native("SoundSurroundExporterWAV*")
+abstract SoundSurroundExporterWAVPtr(cpp.Star<SoundSurroundExporterWAV>) from cpp.Star<SoundSurroundExporterWAV> to cpp.Star<SoundSurroundExporterWAV>{
+	@:from
+	public static extern inline function fromValue(v: SoundSurroundExporterWAV): SoundSurroundExporterWAVPtr {
+		return untyped __cpp__("&({0})", v);
+	}
+
+	@:to
+	public extern inline function asValue(): SoundSurroundExporterWAV {
+		return untyped __cpp__("*({0})", this);
+	}
+
+	public extern inline function delete(): Void {
+		untyped __cpp__("delete ({0})", this);
+	}
+}
