@@ -117,9 +117,11 @@ FString ConvertFPropertyToHaxeTypeString(FProperty* prop);
 // This saves the provided "content" string into a file located at "HAXE_FILE_SAVE_PATH" named "filename".
 // Used to create the .hx source files.
 void SaveHaxeFile(const FString& filename, const FString& content) {
-	static FString Dir = HAXE_FILE_SAVE_PATH_RELATIVE ? (FPaths::ConvertRelativePathToFull(FPaths::Combine(FPaths::ProjectDir(), HAXE_FILE_SAVE_PATH))) : HAXE_FILE_SAVE_PATH;
-
-	auto file = Dir.Replace(TEXT("%s"), *filename);
+	static FString _RelativePath = HAXE_FILE_SAVE_PATH;
+	FString RelativePath = _RelativePath.Replace(TEXT("%s"), *filename);
+	FString ProjectDirAndHaxeSavePath = FPaths::Combine(FPaths::ProjectDir(), RelativePath);
+	FString AbsolutePath = FPaths::ConvertRelativePathToFull(ProjectDirAndHaxeSavePath);
+	FString file = HAXE_FILE_SAVE_PATH_RELATIVE ? AbsolutePath : ProjectDirAndHaxeSavePath;
 	FFileHelper::SaveStringToFile(content, *file);
 }
 
@@ -1002,7 +1004,7 @@ void SaveExtraExtern(ExtraExtern& extraExtern) {
 	for(auto& v : extraExtern.Variables) {
 		haxeSource += "\t" + v + ";\n";
 	}
-	if(!extraExtern.Variables.IsEmpty() && !extraExtern.Functions.IsEmpty()) {
+	if(extraExtern.Variables.Num() > 0 && extraExtern.Functions.Num() > 0) {
 		haxeSource += "\n";
 	}
 	for(auto& v : extraExtern.Functions) {
