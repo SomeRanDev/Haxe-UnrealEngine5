@@ -105,6 +105,12 @@ class UEMetadata {
 		// Remove Haxe/C++ output class prepend content
 		addMeta(cls, ":headerClassNamePrepend");
 
+		// Treat the class like a value type
+		addMeta(cls, ":structAccess");
+
+		// Used by ue_helpers.Ptr to enable the compile-time Ptr abstract generation
+		addMeta(cls, ":generateUEPtr");
+
 		// We rename the filename of the include to remove the Unreal prefix,
 		// so we need to make sure Haxe knows this too.
 		cls.meta.add(":include", [macro $v{cls.name + ".h"}], nopos);
@@ -159,6 +165,36 @@ class UEMetadata {
 				}
 			}
 		}
+
+		// Find this class's ComplexType for use when adding extra functions
+		final pack = cls.module.split(".");
+		final moduleTPath = { pack: pack, name: pack.pop() };
+		final moduleIsType = moduleTPath.name == cls.name;
+		final complexType = TPath({ pack: moduleTPath.pack, name: moduleTPath.name, sub: moduleIsType ? null : cls.name, params: null });
+
+		// Add toPtr function to convert to Ptr class
+		extraFields.push({
+			name: "toPtr",
+			pos: nopos,
+			kind: FFun({
+				args: [],
+				ret: macro : cpp.Star<$complexType>,
+				expr: macro return untyped __cpp__("this")
+			}),
+			access: [APublic, AInline, AExtern]
+		});
+
+		// Add toVal function to override Haxe's normal behavior for passing values
+		extraFields.push({
+			name: "toVal",
+			pos: nopos,
+			kind: FFun({
+				args: [],
+				ret: macro : $complexType,
+				expr: macro return untyped __cpp__("(*this)")
+			}),
+			access: [APublic, AInline, AExtern]
+		});
 
 		// Let's add our extra fields to the final list of fields
 		for(extra in extraFields) {

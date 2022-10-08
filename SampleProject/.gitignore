@@ -19,6 +19,9 @@ Plugins/HaxeCompatibility
 # Temporary File of Class List for Renaming Files
 Haxe/BuildScripts/UObjectClassList.txt
 
+# Custom .hxml I use to make VS Code work properly
+Haxe/vscodeCompile.hxml
+
 # Visual Studio 2015 user specific files
 .vs/
 
