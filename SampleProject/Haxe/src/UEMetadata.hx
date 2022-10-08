@@ -27,6 +27,12 @@ class UEMetadata {
 	// everytime we need to create an Expr or MetadataEntry.
 	static var nopos: Position;
 
+	// Stores the metadata name configurations
+	static var metadataNames: { uprop: String, ufunc: String };
+
+	// Stores the metadata default parameter configurations
+	static var metadataDefaults: { uprop: Array<String>, ufunc: Array<String> };
+
 	// This function is called in the compile.hxml
 	public static function init(packageName: String) {
 		// Store the package name we are focused on
@@ -36,9 +42,19 @@ class UEMetadata {
 		uclassList = [];
 
 		// Generate nopos
-		nopos = Context.makePosition({
-			min: 0, max: 100, file: "Another World"
-		});
+		nopos = Context.currentPos();
+
+		// Get metadata name configurations if they exist
+		metadataNames = {
+			uprop: Context.defined("UPropertyName") ? Context.definedValue("UPropertyName") : ":uprop",
+			ufunc: Context.defined("UFunctionName") ? Context.definedValue("UFunctionName") : ":ufunc"
+		};
+
+		// Get metadata default parameters if they exist
+		metadataDefaults = {
+			uprop: Context.defined("UPropertyDefaults") ? haxe.Json.parse(Context.definedValue("UPropertyDefaults")) : ["BlueprintReadWrite"],
+			ufunc: Context.defined("UFunctionDefaults") ? haxe.Json.parse(Context.definedValue("UFunctionDefaults")) : ["BlueprintCallable"]
+		};
 
 		// Call "onBuild" for every member in our package
 		Compiler.addGlobalMetadata(packageName, "@:build(UEMetadata.onBuild())");
@@ -129,7 +145,7 @@ class UEMetadata {
 			final isFunc = switch(f.kind) { case FFun(_): true; case _: false; }
 
 			// Convert @:uprop to UPROPERTY, throw an error if the field isn't a variable
-			final uPropMeta = convertMetadataToNativePrepend(f, ":uprop", "UPROPERTY");
+			final uPropMeta = convertMetadataToNativePrepend(f, metadataNames.uprop, "UPROPERTY", metadataDefaults.uprop);
 			if(uPropMeta != null) {
 				if(isFunc) {
 					Context.error("Cannot use @:uprop on field that is not variable.", f.pos);
@@ -140,7 +156,7 @@ class UEMetadata {
 			}
 
 			// Convert @:ufunc to UFUNCTION, throw an error if the field isn't a function
-			final uFuncMeta = convertMetadataToNativePrepend(f, ":ufunc", "UFUNCTION");
+			final uFuncMeta = convertMetadataToNativePrepend(f, metadataNames.ufunc, "UFUNCTION", metadataDefaults.ufunc);
 			if(uFuncMeta != null) {
 				if(!isFunc) {
 					Context.error("Cannot use @:ufunc on field that is not function.", f.pos);
@@ -299,7 +315,7 @@ class UEMetadata {
 	}
 
 	// Replaces an arbitrary metadata on a Field into a "native" Unreal attribute using @:headerDefinitionPrepend
-	static function convertMetadataToNativePrepend(field: Field, metaName: String, nativePrependName: String): Null<MetadataEntry> {
+	static function convertMetadataToNativePrepend(field: Field, metaName: String, nativePrependName: String, defaultParams: Array<String>): Null<MetadataEntry> {
 		var metadata = null;
 		if(field.meta != null) {
 			for(m in field.meta) {
@@ -323,7 +339,7 @@ class UEMetadata {
 		final cppAttr = if(paramsString != null) {
 			nativePrependName + "(" + paramsString + ")";
 		} else {
-			nativePrependName + "()";
+			nativePrependName + "(" + defaultParams.join(", ") + ")";
 		}
 
 		return { name: ":headerDefinitionPrepend", params: [macro $v{cppAttr}], pos: nopos };

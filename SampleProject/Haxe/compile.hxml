@@ -33,6 +33,18 @@
 
 #-lib hscript
 
+# These defines let you control the name of the attribute that is converted
+# to Unreal's header attributes UPROPERTY/UFUNCTION.
+# By default, they are @:uprop and @:ufunc
+-D UPropertyName=:uprop
+-D UFunctionName=:ufunc
+
+# These defines let you control which parameters are passed by default
+# to the UPROPERTY/UFUNCTION attributes if the Haxe ones are left blank.
+# Should be a valid JSON array with strings for each parameter.
+-D UPropertyDefaults=["BlueprintReadWrite"]
+-D UFunctionDefaults=["BlueprintCallable"]
+
 # Handle Unreal metadata in Haxe
 --macro UEMetadata.init("game")
 

@@ -12,6 +12,8 @@ class Log {
 		return pstr + ": " + str;
 	}
 
+	#if !macro
+
 	public static function trace(v: Dynamic, ?infos: PosInfos): Void {
 		var str = formatOutput(v, infos);
 		print(new ue.FString(str));
@@ -20,4 +22,12 @@ class Log {
 	static function print(s: ue.FString): Void {
 		untyped __cpp__("UE_LOG(LogTemp, Warning, TEXT(\"%s\"), *{0})", s);
 	}
+
+	#else
+
+	public static function trace(v: Dynamic, ?infos: PosInfos): Void {
+		Sys.println(formatOutput(v, infos));
+	}
+
+	#end
 }
