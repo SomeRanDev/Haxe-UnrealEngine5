@@ -10,21 +10,20 @@ This project attempts to provide compatibility between Haxe and Unreal in the si
 ```haxe
 import ue.*; // all the UE externs
 
-// StringHelpers provides functions to transform Haxe `String` literals -> C++ `const char*` literals
-using ue_helpers.StringHelpers; 
+import ue_helpers.Ptr;
+import ue_helpers.UEHelper;
 
 // UCLASS() is automatically assumed when extending from UObject class.
 // @:uclass(...) can be provided for explicit parameters
 // Also note there is no prefix on "MyActor", this is added using macros at Haxe -> C++ compile-time;
 class MyActor extends Actor {
 	// All UE classes are assumed to be value types.
-	// To specify they are pointers, cpp.Star should be used.
+	// To specify they are pointers, ue_helpers.Ptr should be used.
 	@:uprop(BlueprintReadWrite)
-	var Root: cpp.Star<SceneComp>;
+	var Root: Ptr<SceneComp>;
 	
 	public function new() {
-		// CreateDefaultSubobject a little cluncky atm since Haxe doesn't support C++ template args
-		Root = cast CreateDefaultSubobject("TestRoot".TEXT(), SceneComp.StaticClass());
+		Root = UEHelper.CreateDefaultSubobject(SceneComp, "TestRoot");
 		PrimaryActorTick.bCanEverTick = true;
 	}
 
