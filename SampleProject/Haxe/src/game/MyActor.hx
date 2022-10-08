@@ -4,6 +4,7 @@ import ue.*;
 
 import ue_helpers.Ptr;
 import ue_helpers.UEHelper;
+import ue_helpers.FStringHX;
 
 class MyActor extends Actor {
 	// All UE classes are assumed to be value types.
@@ -43,15 +44,24 @@ class MyActor extends Actor {
 		subCls.callTest();
 	}
 
+	override function Tick(DeltaTime: cpp.Float64) {
+		// Once again, testing Haxe-based data structures
+		testMap["test"].AddWorldOffset(Vector.make(DeltaTime, 0, 0));
+	}
+
 	// This function does not need @:ueExport since it is not called from C++
 	public function doThing(s: String) {
 		Root.AddLocalRotation(Rotator.make(100, 0, 0));
 		trace("Did thing with string: " + s);
 	}
 
-	override function Tick(DeltaTime: cpp.Float64) {
-		// Once again, testing Haxe-based data structures
-		testMap["test"].AddWorldOffset(Vector.make(DeltaTime, 0, 0));
+	// Callable from blueprint
+	@:ufunc(BlueprintCallable)
+	public function doThing2(number: Int, addPrefix: Bool): FStringHX {
+		if(!addPrefix) {
+			return FStringHX.fromString(Std.string(number));
+		}
+		return FStringHX.fromString("Received number: " + Std.string(number));
 	}
 }
 

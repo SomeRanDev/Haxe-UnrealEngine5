@@ -5,6 +5,7 @@ package;
 import haxe.macro.Compiler;
 import haxe.macro.Context;
 import haxe.macro.Expr;
+import haxe.macro.ExprTools;
 import haxe.macro.Type.ClassType;
 
 // Enum used to tracking whether a class extends from AActor, UObject, or neither.
@@ -384,18 +385,63 @@ class UEMetadata {
 		final aliasCallText = field.name + "(" + funData.args.map(a -> a.name).join(", ") + ")";
 		final aliasCallExpr = Context.parse(aliasCallText, nopos);
 
+		// Check if the function explicitly defines a return type
+		var hasReturnType = true;
+		var noReturnType = switch(funData.ret) {
+			case TPath({ name: "Void", pack: [] }): true;
+			case null: {
+				hasReturnType = false;
+				false;
+			}
+			case _: false;
+		}
+
+		// If no return type is defined, we search the function for a return with an expression.
+		if(!hasReturnType) {
+			function findReturnExpr(e:Expr): Bool {
+				return switch(e.expr) {
+					case EReturn(e):
+						e != null;
+					case _:
+						var result = false;
+						ExprTools.iter(e, function(e: Expr) {
+							if(findReturnExpr(e)) {
+								result = true;
+							}
+						});
+						result;
+				}
+			}
+
+			hasReturnType = findReturnExpr(funData.expr);
+		}
+
+		// Generate the wrapper function's expression based on whether there's a return type.
+		final expr = if(hasReturnType) {
+			macro {
+				untyped __cpp__("int top = 99");
+				untyped __cpp__("::hx::SetTopOfStack(&top, true)");
+				final result = $aliasCallExpr;
+				untyped __cpp__("::hx::SetTopOfStack((int*)0, true)");
+				return result;
+			}
+		} else {
+			macro {
+				untyped __cpp__("int top = 99");
+				untyped __cpp__("::hx::SetTopOfStack(&top, true)");
+				$aliasCallExpr;
+				untyped __cpp__("::hx::SetTopOfStack((int*)0, true)");
+			}
+		}
+
+		// Return the function field
 		return {
 			pos: nopos,
 			name: originalName,
 			kind: FFun({
 				ret: funData.ret,
 				params: funData.params,
-				expr: macro {
-					untyped __cpp__("int top = 99");
-					untyped __cpp__("::hx::SetTopOfStack(&top, true)");
-					$aliasCallExpr;
-					untyped __cpp__("::hx::SetTopOfStack((int*)0, true)");
-				},
+				expr: expr,
 				args: funData.args
 			}),
 			access: access,
