@@ -400,8 +400,8 @@ class UEMetadata {
 		if(!hasReturnType) {
 			function findReturnExpr(e:Expr): Bool {
 				return switch(e.expr) {
-					case EReturn(e):
-						e != null;
+					case EReturn(e): e != null;
+					case EFunction(_, _): false;
 					case _:
 						var result = false;
 						ExprTools.iter(e, function(e: Expr) {
