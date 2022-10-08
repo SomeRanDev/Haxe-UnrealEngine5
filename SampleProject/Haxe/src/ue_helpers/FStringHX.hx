@@ -1,3 +1,10 @@
+// ===============================================================
+// * FStringHX
+//
+// A string class that has the same methods as Haxe's String,
+// but compiles to Unreal's FString.
+// ===============================================================
+
 package ue_helpers;
 
 @:include("Misc/CString.h")
@@ -18,8 +25,8 @@ extern class ESearchDir {
 @:native("FString")
 @:nativeGen
 @:structAccess
-class FStringHX {
-	public var length(get, null):Int;
+extern class FStringHX {
+	public var length(get, never):Int;
 
 	public extern function Len(): cpp.Int32;
 	public extern function AppendChar(InChar: cpp.Int64): cpp.Reference<FStringHX>;
@@ -30,14 +37,18 @@ class FStringHX {
 	public extern function Find(SubStr: FStringHX, SearchCase: ESearchCase, SearchDir: ESearchDir, StartPosition: cpp.Int32): cpp.Int32;
 	public extern function ParseIntoArray(OutArray: cpp.Reference<Array<FStringHX>>, pchDelim: cpp.ConstCharStar, InCullEmpty: Bool): cpp.Int32;
 
+	public static extern inline function fromString(s: String): FStringHX {
+		return new FStringHX(cpp.ConstCharStar.fromString(s));
+	}
+
 	@:native("operator*")
 	public extern function ToConstCharStar(): cpp.ConstCharStar;
 
-	public function toInt(): Int {
+	public extern inline function toInt(): Int {
 		return untyped __cpp__("FCString::Atoi(*{0})", this);
 	}
 
-	public function toFloat(): Int {
+	public extern inline function toFloat(): cpp.Float32 {
 		return untyped __cpp__("FCString::Atof(*{0})", this);
 	}
 
@@ -45,57 +56,57 @@ class FStringHX {
 	public extern function ArrayAccess(Index: cpp.Int32): Int; // this should cpp.Int64 (and it compiles with cpp.Int64),
 															   // but editor still gives red underline???
 
-	public function new(string: FStringHX) {
-	}
+	@:native("FString")
+	public extern function new(string: cpp.ConstCharStar);
 
-	public inline function get_length(): Int {
+	public extern inline function get_length(): Int {
 		return Len();
 	}
 
-	public inline function toUpperCase(): FStringHX {
+	public extern inline function toUpperCase(): FStringHX {
 		return ToUpper();
 	}
 
-	public inline function toLowerCase(): FStringHX {
+	public extern inline function toLowerCase(): FStringHX {
 		return ToLower();
 	}
 
-	public inline function charAt(index:Int): FStringHX {
+	public extern inline function charAt(index:Int): FStringHX {
 		return Mid(index, 1);
 	}
 
-	public inline function charCodeAt(index:Int): Null<Int> {
+	public extern inline function charCodeAt(index:Int): Null<Int> {
 		return index >= 0 && index < get_length() ? ArrayAccess(index) : throw "charCodeAt searched outside range of string";
 	}
 
-	public inline function indexOf(str: FStringHX, startIndex: Int = 0): Int {
+	public extern inline function indexOf(str: FStringHX, startIndex: Int = 0): Int {
 		return Find(str, ESearchCase.CaseSensitive, ESearchDir.FromStart, startIndex);
 	}
 
-	public inline function lastIndexOf(str: FStringHX, startIndex: Int = 0): Int {
+	public extern inline function lastIndexOf(str: FStringHX, startIndex: Int = 0): Int {
 		return Find(str, ESearchCase.CaseSensitive, ESearchDir.FromEnd, startIndex);
 	}
 
-	public inline function split(delimiter: FStringHX): Array<FStringHX> {
+	public extern inline function split(delimiter: FStringHX): Array<FStringHX> {
 		var result = new Array<FStringHX>();
 		ParseIntoArray(result, ToConstCharStar(), false);
 		return result;
 	}
 
-	public inline function substr(pos:Int, len: Int = -1): FStringHX {
+	public extern inline function substr(pos:Int, len: Int = -1): FStringHX {
 		return len == -1 ? Mid(pos) : Mid(pos, len);
 	}
 
-	public inline function substring(startIndex: Int, endIndex: Int = -1): FStringHX {
+	public extern inline function substring(startIndex: Int, endIndex: Int = -1): FStringHX {
 		return endIndex == -1 ? Mid(startIndex) : Mid(startIndex, endIndex - startIndex);
 	}
 
-	public inline function toString(): FStringHX {
+	public extern inline function toString(): FStringHX {
 		return this;
 	}
 
-	@:pure public inline static function fromCharCode(code:Int): FStringHX {
-		final result = "";
+	@:pure public extern inline static function fromCharCode(code:Int): FStringHX {
+		final result = FStringHX.fromString("");
 		result.AppendChar(code);
 		return result;
 	}
