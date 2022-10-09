@@ -9,8 +9,13 @@ import ue_helpers.FStringHX;
 class MyActor extends Actor {
 	// All UE classes are assumed to be value types.
 	// To specify they are pointers, cpp.Star should be used.
-	@:uprop(BlueprintReadWrite)
+	@:uprop
 	var Root: Ptr<SceneComp>;
+
+	// Used for testing properties in blueprints.
+	// By default, no parameters defaults to UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	@:uprop
+	var thingNumber = 43;
 
 	// Most Haxe API should work.
 	// No doubt bugs will appear in the future for stuff I haven't tested
@@ -56,8 +61,8 @@ class MyActor extends Actor {
 		trace("Did thing with string: " + s);
 	}
 
-	// Callable from blueprint
-	@:ufunc(BlueprintCallable)
+	// Callable from blueprint since by default no parameters results in UFUNCTION(BlueprintCallable)
+	@:ufunc
 	public function doThing2(number: Int, addPrefix: Bool): FStringHX {
 		if(!addPrefix) {
 			return FStringHX.fromString(Std.string(number));

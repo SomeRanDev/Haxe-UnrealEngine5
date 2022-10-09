@@ -330,7 +330,7 @@ class UEMetadata {
 			return null;
 		}
 
-		final paramsString = if(metadata.params != null) {
+		final paramsString = if(metadata.params != null && metadata.params.length > 0) {
 			metadata.params.map(p -> haxe.macro.ExprTools.toString(p)).join(", ");
 		} else {
 			null;

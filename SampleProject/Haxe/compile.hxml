@@ -42,7 +42,7 @@
 # These defines let you control which parameters are passed by default
 # to the UPROPERTY/UFUNCTION attributes if the Haxe ones are left blank.
 # Should be a valid JSON array with strings for each parameter.
--D UPropertyDefaults=["BlueprintReadWrite"]
+-D UPropertyDefaults=["EditAnywhere", "BlueprintReadWrite"]
 -D UFunctionDefaults=["BlueprintCallable"]
 
 # Handle Unreal metadata in Haxe
