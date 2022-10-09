@@ -32,6 +32,9 @@ class UEMetadata {
 
 	// Stores the metadata default parameter configurations
 	static var metadataDefaults: { uprop: Array<String>, ufunc: Array<String> };
+	
+	// cache class inheritance fields
+	static var fieldMap = new Map<String, Array<String>>();
 
 	// This function is called in the compile.hxml
 	public static function init(packageName: String) {
@@ -189,29 +192,42 @@ class UEMetadata {
 		final moduleIsType = moduleTPath.name == cls.name;
 		final complexType = TPath({ pack: moduleTPath.pack, name: moduleTPath.name, sub: moduleIsType ? null : cls.name, params: null });
 
-		// Add toPtr function to convert to Ptr class
-		extraFields.push({
-			name: "toPtr",
-			pos: nopos,
-			kind: FFun({
-				args: [],
-				ret: macro : cpp.Star<$complexType>,
-				expr: macro return untyped __cpp__("this")
-			}),
-			access: [APublic, AInline, AExtern]
-		});
+		// This is probably not the best approach, as with large codebases it has the potential to slow down compile times
+		var parentFields:Array<String> = getParentFieldNames(cls, false);
 
-		// Add toVal function to override Haxe's normal behavior for passing values
-		extraFields.push({
-			name: "toVal",
-			pos: nopos,
-			kind: FFun({
-				args: [],
-				ret: macro : $complexType,
-				expr: macro return untyped __cpp__("(*this)")
-			}),
-			access: [APublic, AInline, AExtern]
-		});
+		// only add field if not already defined in the parent class
+		if (parentFields.indexOf("toPtr") == -1) {
+			// Add toPtr function to convert to Ptr class
+			extraFields.push({
+				name: "toPtr",
+				pos: nopos,
+				kind: FFun({
+					args: [],
+					ret: macro:cpp.Star<$complexType>,
+					expr: macro return untyped __cpp__("this")
+				}),
+				access: [APublic, AInline, AExtern]
+			});
+
+			fieldMap.get(cls.name).push("toPtr");
+		}
+
+		// only add field if not already defined in the parent class
+		if (parentFields.indexOf("toVal") == -1) {
+			// Add toVal function to override Haxe's normal behavior for passing values
+			extraFields.push({
+				name: "toVal",
+				pos: nopos,
+				kind: FFun({
+					args: [],
+					ret: macro:$complexType,
+					expr: macro return untyped __cpp__("(*this)")
+				}),
+				access: [APublic, AInline, AExtern]
+			});
+
+			fieldMap.get(cls.name).push("toVal");
+		}
 
 		// Let's add our extra fields to the final list of fields
 		for(extra in extraFields) {
@@ -491,6 +507,31 @@ class UEMetadata {
 		}
 
 		return checkExternSuperClassesForMethod(superCls, fieldName);
+	}
+
+	static function getParentFieldNames(classType:ClassType, addfields:Bool = true):Array<String> {
+		var fieldNames:Array<String> = fieldMap.get(classType.name);
+		if (fieldNames == null) {
+			fieldNames = [];
+
+			if (classType.superClass != null) {
+				var parentCls = classType.superClass.t.get();
+				if (parentCls != null) {
+					fieldNames = getParentFieldNames(parentCls, true);
+				}
+			}
+
+			if (addfields) {
+				var classFields = classType.fields.get();
+				for (classField in classFields) {
+					fieldNames.push(classField.name);
+				}
+			}
+
+			fieldMap.set(classType.name, fieldNames);
+		}
+
+		return fieldNames.concat([]);
 	}
 }
 
