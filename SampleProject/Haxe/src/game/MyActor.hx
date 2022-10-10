@@ -69,6 +69,12 @@ class MyActor extends Actor {
 		}
 		return FStringHX.fromString("Received number: " + Std.string(number));
 	}
+
+	@:ufunc
+	@:script(Math)
+	public function scriptThing(v: Int) {
+		trace(Math.pow(v, 2));
+	}
 }
 
 @:nativeGen

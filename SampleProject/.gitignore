@@ -6,6 +6,9 @@ Haxe/CopyHxOutputToSourceFolder/Classes.txt
 HaxePlugin/Haxe/bin/
 Haxe/HaxeStaticLib/bin/
 
+# Haxe hscript output
+Haxe/script_output/
+
 # No need to recommit bindings
 Haxe/src/ue/
 

@@ -31,7 +31,9 @@
 # We do not want the Haxe compiler to compile the C++ for us
 -D no-compilation
 
-#-lib hscript
+# Required for scripting support
+# You can comment out the next line if you don't need scripting
+-lib hscript
 
 # These defines let you control the name of the attribute that is converted
 # to Unreal's header attributes UPROPERTY/UFUNCTION.
@@ -47,6 +49,9 @@
 
 # Handle Unreal metadata in Haxe
 --macro UEMetadata.init("game")
+
+#
+--macro scripting.ScriptHandler.init()
 
 # Handle Unreal macro conflicts
 --macro UEMacroConflictFixer.init()
