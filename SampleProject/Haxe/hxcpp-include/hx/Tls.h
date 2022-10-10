@@ -13,7 +13,7 @@
     // Nothing
   #else
 
-   #if ! defined(__GNUC__) && !defined(__BORLANDC__)
+   #ifndef __GNUC__
    #include <intrin.h>
    #endif
 

@@ -364,8 +364,6 @@ namespace cpp
          return valDouble;
       else if (type==typeInt)
          return valInt;
-      else if (type==typeBool)
-         return valBool ? 1.0 : 0.0;
       else if (type==typeInt64)
          return valInt64;
       else if (type==typeObject)

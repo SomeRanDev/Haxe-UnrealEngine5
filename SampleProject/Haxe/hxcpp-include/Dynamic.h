@@ -175,7 +175,7 @@ public:
       bool operator op (const String &inRHS)  const { return mPtr && ((String)(*this) op inRHS); } \
       bool operator op (double inRHS)  const { return IsNumeric() && ((double)(*this) op inRHS); } \
       bool operator op (cpp::Int64 inRHS)  const { return IsNumeric() && ((cpp::Int64)(*this) op inRHS); } \
-      bool operator op (cpp::UInt64 inRHS)  const { return IsNumeric() && ((cpp::Int64)(*this) op (cpp::Int64)(inRHS)); } \
+      bool operator op (cpp::UInt64 inRHS)  const { return IsNumeric() && ((cpp::UInt64)(*this) op (cpp::UInt64)(inRHS)); } \
       bool operator op (float inRHS)  const { return IsNumeric() && ((double)(*this) op inRHS); } \
       bool operator op (int inRHS)  const { return IsNumeric() && ((double)(*this) op (double)inRHS); } \
       bool operator op (unsigned int inRHS)  const { return IsNumeric() && ((double)(*this) op (double)inRHS); } \
@@ -188,7 +188,7 @@ public:
    bool operator != (const String &inRHS)  const { return !mPtr || ((String)(*this) != inRHS); }
    bool operator != (double inRHS)  const { return !IsNumeric() || ((double)(*this) != inRHS); }
    bool operator != (cpp::Int64 inRHS)  const { return !IsNumeric() || ((cpp::Int64)(*this) != inRHS); }
-   bool operator != (cpp::UInt64 inRHS)  const { return !IsNumeric() || ((cpp::Int64)(*this) != inRHS); }
+   bool operator != (cpp::UInt64 inRHS)  const { return !IsNumeric() || ((cpp::UInt64)(*this) != (cpp::UInt64)(inRHS)); }
    bool operator != (float inRHS)  const { return !IsNumeric() || ((double)(*this) != inRHS); }
    bool operator != (int inRHS)  const { return !IsNumeric() || ((double)(*this) != (double)inRHS); }
    bool operator != (unsigned int inRHS)  const { return !IsNumeric() || ((double)(*this) != (double)inRHS); }
@@ -201,7 +201,7 @@ public:
 
 
    #define DYNAMIC_COMPARE_OP_ALL( op ) \
-      bool operator op (const Dynamic &inRHS) const { return mPtr && ((double)Compare(inRHS) op (double)0); } \
+      bool operator op (const Dynamic &inRHS) const { return mPtr && (Compare(inRHS) op 0); } \
       bool operator op (const cpp::Variant &inRHS) const { return *this op Dynamic(inRHS); } \
       DYNAMIC_COMPARE_OP(op)
 

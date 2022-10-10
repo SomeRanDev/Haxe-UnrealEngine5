@@ -59,7 +59,7 @@ HXCPP_EXTERN_CLASS_ATTRIBUTES null BadCast();
 #endif
 
 
-typedef void (CPPIA_CALL *StackExecute)(class StackContext *ctx);
+typedef void (CPPIA_CALL *StackExecute)(struct StackContext *ctx);
 struct ScriptFunction
 {
    ScriptFunction(StackExecute inExe=0,const char *inSig=0)
@@ -122,8 +122,6 @@ enum
    clsIdCStatic5,
    clsIdCStaticVar,
    clsIdMutex,
-   clsIdSemaphore,
-   clsIdCondition,
    clsIdLock,
    clsIdDeque,
    clsIdThreadInfo,

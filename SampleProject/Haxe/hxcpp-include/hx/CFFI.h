@@ -249,23 +249,11 @@ inline bool val_is_object(value inVal)
 class AutoGCBlocking
 {
 public:
-	inline AutoGCBlocking(bool inSoftUnlock=false) :
-      mSoftUnlock(inSoftUnlock), mLocked( gc_try_blocking() ) {  }
-	inline ~AutoGCBlocking() { Close(); }
-	inline void Close()
-   {
-      if (mLocked)
-      {
-         if (mSoftUnlock)
-            gc_try_unblocking();
-         else
-            gc_exit_blocking();
-      }
-      mLocked = false;
-   }
+	AutoGCBlocking() : mLocked( gc_try_blocking() ) {  }
+	~AutoGCBlocking() { Close(); }
+	void Close() { if (mLocked) gc_exit_blocking(); mLocked = false; }
 
 	bool mLocked;
-	bool mSoftUnlock;
 };
 
 class AutoGCUnblocking

@@ -159,10 +159,6 @@ HXCPP_EXTERN_CLASS_ATTRIBUTES String __hxcpp_utf8_string_to_char_bytes(String &i
    #define HX_MAP_THIS_ARG Dynamic &ioHash
 #endif
 
-// --- HashRoot ---------------------------------------------------------------------
-
-HXCPP_EXTERN_CLASS_ATTRIBUTES int           __root_hash_size(Dynamic *rtHash);
-
 // --- IntHash ----------------------------------------------------------------------
 
 HXCPP_EXTERN_CLASS_ATTRIBUTES inline hx::Object   *__int_hash_create() { return 0; }
@@ -275,19 +271,6 @@ void    __hxcpp_mutex_acquire(Dynamic);
 bool    __hxcpp_mutex_try(Dynamic);
 void    __hxcpp_mutex_release(Dynamic);
 
-Dynamic __hxcpp_semaphore_create(int);
-void __hxcpp_semaphore_acquire(Dynamic);
-bool __hxcpp_semaphore_try_acquire(Dynamic, double timeout);
-void __hxcpp_semaphore_release(Dynamic);
-
-Dynamic __hxcpp_condition_create(void);
-void __hxcpp_condition_acquire(Dynamic);
-bool __hxcpp_condition_try_acquire(Dynamic);
-void __hxcpp_condition_release(Dynamic);
-void __hxcpp_condition_wait(Dynamic);
-bool __hxcpp_condition_timed_wait(Dynamic,double);
-void __hxcpp_condition_signal(Dynamic);
-void __hxcpp_condition_broadcast(Dynamic);
 
 Dynamic __hxcpp_lock_create();
 bool    __hxcpp_lock_wait(Dynamic inlock,double inTime);
@@ -550,7 +533,6 @@ HXCPP_EXTERN_CLASS_ATTRIBUTES Dynamic _hx_regexp_new_options(String s, String op
 HXCPP_EXTERN_CLASS_ATTRIBUTES bool    _hx_regexp_match(Dynamic handle, String string, int pos, int len);
 HXCPP_EXTERN_CLASS_ATTRIBUTES String  _hx_regexp_matched(Dynamic handle, int pos);
 HXCPP_EXTERN_CLASS_ATTRIBUTES Dynamic _hx_regexp_matched_pos(Dynamic handle, int match);
-HXCPP_EXTERN_CLASS_ATTRIBUTES int     _hx_regexp_matched_num(Dynamic handle);
 
 
 // haxe.zip.(Un)Compress.hx -> src/hx/libs/zlib/ZLib.cpp
@@ -623,11 +605,7 @@ HXCPP_EXTERN_CLASS_ATTRIBUTES int _hx_std_process_stdout_read( Dynamic handle, A
 HXCPP_EXTERN_CLASS_ATTRIBUTES int _hx_std_process_stderr_read( Dynamic handle, Array<unsigned char> buf, int pos, int len );
 HXCPP_EXTERN_CLASS_ATTRIBUTES int _hx_std_process_stdin_write( Dynamic handle, Array<unsigned char> buf, int pos, int len );
 HXCPP_EXTERN_CLASS_ATTRIBUTES void _hx_std_process_stdin_close( Dynamic handle );
-#if (HXCPP_API_LEVEL > 420)
-HXCPP_EXTERN_CLASS_ATTRIBUTES Dynamic _hx_std_process_exit( Dynamic handle, bool block );
-#else
 HXCPP_EXTERN_CLASS_ATTRIBUTES int _hx_std_process_exit( Dynamic handle );
-#endif
 HXCPP_EXTERN_CLASS_ATTRIBUTES int _hx_std_process_pid( Dynamic handle );
 HXCPP_EXTERN_CLASS_ATTRIBUTES void _hx_std_process_kill( Dynamic handle );
 HXCPP_EXTERN_CLASS_ATTRIBUTES void _hx_std_process_close( Dynamic handle );

@@ -93,7 +93,6 @@ class GenMacro
       Reflect.setField(context, "PARAMS", params);
       Reflect.setField(context, "LOCALS", locals);
       Reflect.setField(context, "NS", "::");
-      Reflect.setField(context, "hxNS", " ::hx::");
 
       var fixed = File.getContent("MacrosFixed.h");
       fixed = fixed.split("").join("");
