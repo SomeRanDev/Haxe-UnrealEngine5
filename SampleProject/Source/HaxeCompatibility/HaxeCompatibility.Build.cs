@@ -68,8 +68,14 @@ public class HaxeCompatibility: ModuleRules {
 		// ========================================================================================
 		// * LIBRARIES
 		// ========================================================================================
+		// define a variable called "extension" and set it's value to ".lib"
+		// if the target platform is Windows, ".a" if it is Linux, and ".a" if it is Linux
+		string extension = ".a";
+		if(Target.Platform == UnrealTargetPlatform.Win32 || Target.Platform == UnrealTargetPlatform.Win64) {
+			extension = ".lib";
+		}
 		PublicAdditionalLibraries.AddRange( new string[] {
-			Path.Combine(ModuleDirectory, "../../Haxe/HaxeStaticLib/bin/liboutput.lib"),
+			Path.Combine(ModuleDirectory, "../../Haxe/HaxeStaticLib/bin/liboutput" + extension),
 		});
 	}
 }
