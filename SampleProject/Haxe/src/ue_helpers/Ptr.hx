@@ -56,7 +56,7 @@ class PtrHelper {
 		final ptrComplexType = haxe.macro.MacroStringTools.toComplex(typePathStrPtr);
 
 		if(existingType == null) {
-			final cppStarComplexType = macro : cpp.Star<game.MyActor>;
+			final cppStarComplexType = macro : cpp.Star<$typePathStr>;
 			final nativeName = switch(cls.meta.extract(":native")[0].params[0].expr) {
 				case EConst(CString(s, _)): s;
 				case _: null;

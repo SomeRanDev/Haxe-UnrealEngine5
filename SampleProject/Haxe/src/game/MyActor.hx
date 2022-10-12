@@ -17,6 +17,9 @@ class MyActor extends Actor {
 	@:uprop
 	var thingNumber = 43;
 
+	// Temporary variable for testing scripting/reflection
+	var dynamicActorTest: scripting.Reflectable<MyActor>;
+
 	// Most Haxe API should work.
 	// No doubt bugs will appear in the future for stuff I haven't tested
 	var testMap: Map<String, cpp.Star<SceneComp>>;
@@ -44,6 +47,9 @@ class MyActor extends Actor {
 
 		// Testing trace
 		trace("begin play!!!");
+
+		// Test Reflectable
+		dynamicActorTest = new scripting.Reflectable<MyActor>(toPtr());
 
 		// Test helper class
 		final subCls = new MyActorHelperClassTest(toPtr());
