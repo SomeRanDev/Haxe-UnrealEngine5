@@ -13,7 +13,7 @@
 
 // The path where your externs are saved.
 // The "%s" is replaced with the filename, (i.e. "AActor")
-#define HAXE_FILE_SAVE_PATH "Haxe/Externs/generated_5_0_3/%s.hx"
+#define HAXE_FILE_SAVE_PATH "Haxe/Externs/generated_5_2_0/%s.hx"
 
 #endif
 
@@ -52,6 +52,26 @@
 #ifndef INCLUDE_META
 
 #define INCLUDE_META FString("@:include")
+
+#endif
+
+
+
+// ------------------------------------------------------------------------------------
+
+#ifndef HX_PTR_CLASS
+
+#define HX_PTR_CLASS FString("ucpp.Ptr")
+
+#endif
+
+
+
+// ------------------------------------------------------------------------------------
+
+#ifndef HX_REF_CLASS
+
+#define HX_REF_CLASS FString("ucpp.Ref")
 
 #endif
 
@@ -202,9 +222,9 @@ FString ConvertCPPTypeStringToHaxeTypeString(const FString cppType) {
 	auto t = cppType.TrimStartAndEnd();
 
 	if(t.EndsWith("*")) {
-		return "cpp.Star<" + ConvertCPPTypeStringToHaxeTypeString(t.Mid(0, t.Len() - 1)) + ">";
+		return HX_PTR_CLASS + "<" + ConvertCPPTypeStringToHaxeTypeString(t.Mid(0, t.Len() - 1)) + ">";
 	} else if(t.EndsWith("&")) {
-		return "cpp.Reference<" + ConvertCPPTypeStringToHaxeTypeString(t.Mid(0, t.Len() - 1)) + ">";
+		return HX_REF_CLASS + "<" + ConvertCPPTypeStringToHaxeTypeString(t.Mid(0, t.Len() - 1)) + ">";
 	} else if(t.EndsWith(">")) {
 		int i = t.Len() - 2;
 		int depth = 0;
@@ -303,14 +323,14 @@ FString ConvertFClassPropertyToHaxeTypeString(FProperty* prop) {
 	if(c->GetPropertyFlags() & CPF_UObjectWrapper) {
 		return "TSubclassOf<" + GetHaxeNameMaybeConst(c->MetaClass, c) + ">";
 	} else {
-		return "cpp.Star<Class>";
+		return HX_PTR_CLASS + "<Class>";
 	}
 }
 
 // Returns Haxe type string of a FObjectProperty.
 FString ConvertFObjectPropertyToHaxeTypeString(FProperty* prop) {
 	auto o = CastField<FObjectProperty>(prop);
-	return "cpp.Star<" + GetHaxeNameMaybeConst(o->PropertyClass, o) + ">";
+	return HX_PTR_CLASS + "<" + GetHaxeNameMaybeConst(o->PropertyClass, o) + ">";
 }
 
 FString ConvertFSoftClassPropertyToHaxeTypeString(FProperty* prop) {
@@ -430,7 +450,7 @@ FString ConvertFPropertyToHaxeTypeString(FProperty* prop) {
 	bool isOut = !isReturn && (flags & CPF_OutParm) != 0;
 
 	if(isOut) {
-		haxeTypeResult = "cpp.Reference<" + haxeTypeResult + ">";
+		haxeTypeResult = HX_REF_CLASS + "<" + haxeTypeResult + ">";
 	}
 
 	return haxeTypeResult;
@@ -632,7 +652,7 @@ void ConvertUStructToHaxe(UStruct* s) {
 		haxeSource += INCLUDE_META + "(\"" + includePath.Replace(TEXT("Classes/"), TEXT("")).Replace(TEXT("Public/"), TEXT("")) + "\")\n";
 	}
 
-	haxeSource += "@:structAccess\n";
+	haxeSource += "@:valueType\n";
 
 	haxeSource += "extern class " + GetHaxeName(s);
 
@@ -706,7 +726,7 @@ void ConvertUClassToHaxe(UClass* cls) {
 	if(!headerPath.IsEmpty()) {
 		haxeSource += INCLUDE_META + "(\"" + headerPath + "\")\n";
 	}
-	haxeSource += "@:structAccess\n";
+	haxeSource += "@:valueType\n";
 	if(hasExtraExterns) {
 		auto& extraExtern = ExtraExterns[name];
 		for(auto& meta : extraExtern.Meta) {
@@ -757,7 +777,7 @@ void ConvertUClassToHaxe(UClass* cls) {
 	}
 
 	haxeSource += "\n";
-	haxeSource += "\tpublic static function StaticClass(): cpp.Star<" + GetHaxeName(UClass::StaticClass()) + ">;\n";
+	haxeSource += "\tpublic static function StaticClass(): " + HX_PTR_CLASS + "<" + GetHaxeName(UClass::StaticClass()) + ">;\n";
 
 	haxeSource += "}\n\n";
 
@@ -771,7 +791,7 @@ void ConvertUClassToHaxe(UClass* cls) {
 	haxeSource += "@:forward\n";
 	haxeSource += "@:nativeGen\n";
 	haxeSource += "@:native(\"" + haxeName + "*\")\n";
-	haxeSource += "abstract " + ptrName + "(cpp.Star<" + haxeName + ">) from cpp.Star<" + haxeName + "> to cpp.Star<" + haxeName + ">{\n";
+	haxeSource += "abstract " + ptrName + "(" + HX_PTR_CLASS + "<" + haxeName + ">) from " + HX_PTR_CLASS + "<" + haxeName + "> to " + HX_PTR_CLASS + "<" + haxeName + ">{\n";
 	haxeSource += "\t@:from\n";
 	haxeSource += "\tpublic static extern inline function fromValue(v: " + haxeName + "): " + ptrName + " {\n";
 	haxeSource += "\t\treturn untyped __cpp__(\"&({0})\", v);\n";
@@ -806,16 +826,16 @@ void SetupExtraExterns() {
 	// * UObjectBase
 	// ----------------------
 	ExtraExtern UObjectBase("ObjectBase", "UObjectBase", TOptional<FString>(), FString("UObject/UObjectBaseUtility.h"));
-	UObjectBase.AddFunc("public function GetClass(): cpp.Star<" + UClassName + ">");
-	UObjectBase.AddFunc("public function GetExternalPackage(): cpp.Star<" + GetHaxeName(UPackage::StaticClass()) + ">");
-	UObjectBase.AddFunc("public function GetExternalPackageInternal(): cpp.Star<" + UClassName + ">");
+	UObjectBase.AddFunc("public function GetClass(): " + HX_PTR_CLASS + "<" + UClassName + ">");
+	UObjectBase.AddFunc("public function GetExternalPackage(): " + HX_PTR_CLASS + "<" + GetHaxeName(UPackage::StaticClass()) + ">");
+	UObjectBase.AddFunc("public function GetExternalPackageInternal(): " + HX_PTR_CLASS + "<" + UClassName + ">");
 	UObjectBase.AddFunc("public function GetFlags(): EObjectFlags");
 	UObjectBase.AddFunc("public function GetFName(): FName");
-	UObjectBase.AddFunc("public function GetOuter(): cpp.Star<" + GetHaxeName(UObject::StaticClass()) + ">");
+	UObjectBase.AddFunc("public function GetOuter(): " + HX_PTR_CLASS + "<" + GetHaxeName(UObject::StaticClass()) + ">");
 	UObjectBase.AddFunc("public function GetUniqueID(): cpp.UInt32");
 	UObjectBase.AddFunc("public function IsValidLowLevel(): Bool");
 	UObjectBase.AddFunc("public function IsValidLowLevelFast(bRecursive: Bool): Bool");
-	UObjectBase.AddFunc("@:protected public function LowLevelRename(NewName: FName, NewOuter: cpp.Star<" + GetHaxeName(UObject::StaticClass()) + ">): Void");
+	UObjectBase.AddFunc("@:protected public function LowLevelRename(NewName: FName, NewOuter: " + HX_PTR_CLASS + "<" + GetHaxeName(UObject::StaticClass()) + ">): Void");
 	UObjectBase.AddFunc("@:protected public function Register(PackageName: cpp.ConstTCHARStar, Name: cpp.ConstTCHARStar): Void");
 	ExtraExterns.Add("UObjectBase", UObjectBase);
 
@@ -829,8 +849,8 @@ void SetupExtraExterns() {
 	// * UObject
 	// ----------------------
 	ExtraExtern UObject("Object", "UObject", FString("ObjectBaseUtility"), FString("UObject/Object.h"));
-	UObject.AddFunc("public extern inline overload function CreateDefaultSubobject(SubobjectName: FName, ReturnType: cpp.Star<" + UClassName + ">): cpp.Star<Object> { return CreateDefaultSubobject(SubobjectName, ReturnType, ReturnType, true, false); }");
-	UObject.AddFunc("public overload function CreateDefaultSubobject(SubobjectName: FName, ReturnType: cpp.Star<" + UClassName + ">, ClassToCreateByDefault: cpp.Star<" + UClassName + ">, bIsRequired: Bool, bIsTransient: Bool): cpp.Star<Object>");
+	UObject.AddFunc("public extern inline overload function CreateDefaultSubobject(SubobjectName: FName, ReturnType: " + HX_PTR_CLASS + "<" + UClassName + ">): " + HX_PTR_CLASS + "<Object> { return CreateDefaultSubobject(SubobjectName, ReturnType, ReturnType, true, false); }");
+	UObject.AddFunc("public overload function CreateDefaultSubobject(SubobjectName: FName, ReturnType: " + HX_PTR_CLASS + "<" + UClassName + ">, ClassToCreateByDefault: " + HX_PTR_CLASS + "<" + UClassName + ">, bIsRequired: Bool, bIsTransient: Bool): " + HX_PTR_CLASS + "<Object>");
 	UObject.AddFunc("public overload function CreateDefaultSubobject<TReturnType>(SubobjectName: FName, bTransient: Bool = false): TReturnType");
 	UObject.AddFunc("public overload function CreateDefaultSubobject<TReturnType, TClassToConstructByDefault>(SubobjectName: FName, bTransient: Bool = false): TReturnType");
 	UObject.AddFunc("public function PostLoad(): Void");
@@ -845,7 +865,7 @@ void SetupExtraExterns() {
 	AActor.AddFunc("public function PreRegisterAllComponents(): Void");
 	AActor.AddFunc("public function PostRegisterAllComponents(): Void");
 	AActor.AddFunc("public function PostActorCreated(): Void");
-	AActor.AddFunc("public function OnConstruction(Transform: cpp.Reference<Transform>): Void");
+	AActor.AddFunc("public function OnConstruction(Transform: " + HX_REF_CLASS + "<Transform>): Void");
 	AActor.AddFunc("public function PreInitializeComponents(): Void");
 	AActor.AddFunc("public function PostInitializeComponents(): Void");
 	AActor.AddFunc("public function Destroyed(): Void");
@@ -853,88 +873,88 @@ void SetupExtraExterns() {
 	AActor.AddFunc("@:protected public function EndPlay(): Void");
 	AActor.AddFunc("public overload function SetActorLocation(NewLocation: Vector): Bool");
 	AActor.AddFunc("public overload function SetActorLocation(NewLocation: Vector, bSweep: Bool): Bool");
-	AActor.AddFunc("public overload function SetActorLocation(NewLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Bool");
-	AActor.AddFunc("public overload function SetActorLocation(NewLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Bool");
+	AActor.AddFunc("public overload function SetActorLocation(NewLocation: Vector, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Bool");
+	AActor.AddFunc("public overload function SetActorLocation(NewLocation: Vector, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Bool");
 	AActor.AddFunc("public overload function SetActorRotation(NewRotation: Rotator): Bool");
 	AActor.AddFunc("public overload function SetActorRotation(NewRotation: Rotator, Teleport: ETeleportType): Bool");
-	AActor.AddFunc("@:native(\"SetActorRotation\") public overload function SetActorRotationQuad(@:const NewRotation: cpp.Reference<Quat>): Bool");
-	AActor.AddFunc("@:native(\"SetActorRotation\") public overload function SetActorRotationQuad(@:const NewRotation: cpp.Reference<Quat>, Teleport: ETeleportType): Bool");
+	AActor.AddFunc("@:native(\"SetActorRotation\") public overload function SetActorRotationQuad(@:const NewRotation: " + HX_REF_CLASS + "<Quat>): Bool");
+	AActor.AddFunc("@:native(\"SetActorRotation\") public overload function SetActorRotationQuad(@:const NewRotation: " + HX_REF_CLASS + "<Quat>, Teleport: ETeleportType): Bool");
 	AActor.AddFunc("public overload function SetActorLocationAndRotation(NewLocation: Vector, NewRotation: Rotator): Bool");
 	AActor.AddFunc("public overload function SetActorLocationAndRotation(NewLocation: Vector, NewRotation: Rotator, bSweep: Bool): Bool");
-	AActor.AddFunc("public overload function SetActorLocationAndRotation(NewLocation: Vector, NewRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Bool");
-	AActor.AddFunc("public overload function SetActorLocationAndRotation(NewLocation: Vector, NewRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Bool");
-	AActor.AddFunc("@:native(\"SetActorLocationAndRotation\") public overload function SetActorLocationAndRotationQuad(NewLocation: Vector, @:const NewRotation: cpp.Reference<Quat>): Bool");
-	AActor.AddFunc("@:native(\"SetActorLocationAndRotation\") public overload function SetActorLocationAndRotationQuad(NewLocation: Vector, @:const NewRotation: cpp.Reference<Quat>, bSweep: Bool): Bool");
-	AActor.AddFunc("@:native(\"SetActorLocationAndRotation\") public overload function SetActorLocationAndRotationQuad(NewLocation: Vector, @:const NewRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Bool");
-	AActor.AddFunc("public overload function SetActorLocationAndRotation(NewLocation: Vector, @:const NewRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Bool");
-	AActor.AddFunc("public overload function SetActorTransform(@:const NewTransform: cpp.Reference<Transform>, bSweep: Bool): Bool");
-	AActor.AddFunc("public overload function SetActorTransform(@:const NewTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Bool");
-	AActor.AddFunc("public overload function SetActorTransform(@:const NewTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Bool");
+	AActor.AddFunc("public overload function SetActorLocationAndRotation(NewLocation: Vector, NewRotation: Rotator, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Bool");
+	AActor.AddFunc("public overload function SetActorLocationAndRotation(NewLocation: Vector, NewRotation: Rotator, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Bool");
+	AActor.AddFunc("@:native(\"SetActorLocationAndRotation\") public overload function SetActorLocationAndRotationQuad(NewLocation: Vector, @:const NewRotation: " + HX_REF_CLASS + "<Quat>): Bool");
+	AActor.AddFunc("@:native(\"SetActorLocationAndRotation\") public overload function SetActorLocationAndRotationQuad(NewLocation: Vector, @:const NewRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool): Bool");
+	AActor.AddFunc("@:native(\"SetActorLocationAndRotation\") public overload function SetActorLocationAndRotationQuad(NewLocation: Vector, @:const NewRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Bool");
+	AActor.AddFunc("public overload function SetActorLocationAndRotation(NewLocation: Vector, @:const NewRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Bool");
+	AActor.AddFunc("public overload function SetActorTransform(@:const NewTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool): Bool");
+	AActor.AddFunc("public overload function SetActorTransform(@:const NewTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Bool");
+	AActor.AddFunc("public overload function SetActorTransform(@:const NewTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Bool");
 	AActor.AddFunc("public overload function AddActorWorldOffset(DeltaLocation: Vector): Void");
 	AActor.AddFunc("public overload function AddActorWorldOffset(DeltaLocation: Vector, bSweep: Bool): Void");
-	AActor.AddFunc("public overload function AddActorWorldOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	AActor.AddFunc("public overload function AddActorWorldOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
+	AActor.AddFunc("public overload function AddActorWorldOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	AActor.AddFunc("public overload function AddActorWorldOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
 	AActor.AddFunc("public overload function AddActorWorldRotation(DeltaRotation: Rotator): Void");
 	AActor.AddFunc("public overload function AddActorWorldRotation(DeltaRotation: Rotator, bSweep: Bool): Void");
-	AActor.AddFunc("public overload function AddActorWorldRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	AActor.AddFunc("public overload function AddActorWorldRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
-	AActor.AddFunc("@:native(\"AddActorWorldRotation\") public overload function AddActorWorldRotationQuad(DeltaRotation: cpp.Reference<Quat>): Void");
-	AActor.AddFunc("@:native(\"AddActorWorldRotation\") public overload function AddActorWorldRotationQuad(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool): Void");
-	AActor.AddFunc("@:native(\"AddActorWorldRotation\") public overload function AddActorWorldRotationQuad(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	AActor.AddFunc("@:native(\"AddActorWorldRotation\") public overload function AddActorWorldRotationQuad(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
-	AActor.AddFunc("public overload function AddActorWorldTransform(DeltaTransform: cpp.Reference<Transform>): Void");
-	AActor.AddFunc("public overload function AddActorWorldTransform(DeltaTransform: cpp.Reference<Transform>, bSweep: Bool): Void");
-	AActor.AddFunc("public overload function AddActorWorldTransform(DeltaTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	AActor.AddFunc("public overload function AddActorWorldTransform(DeltaTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
-	AActor.AddFunc("public overload function AddActorWorldTransformKeepScale(DeltaTransform: cpp.Reference<Transform>): Void");
-	AActor.AddFunc("public overload function AddActorWorldTransformKeepScale(DeltaTransform: cpp.Reference<Transform>, bSweep: Bool): Void");
-	AActor.AddFunc("public overload function AddActorWorldTransformKeepScale(DeltaTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	AActor.AddFunc("public overload function AddActorWorldTransformKeepScale(DeltaTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
+	AActor.AddFunc("public overload function AddActorWorldRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	AActor.AddFunc("public overload function AddActorWorldRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
+	AActor.AddFunc("@:native(\"AddActorWorldRotation\") public overload function AddActorWorldRotationQuad(DeltaRotation: " + HX_REF_CLASS + "<Quat>): Void");
+	AActor.AddFunc("@:native(\"AddActorWorldRotation\") public overload function AddActorWorldRotationQuad(DeltaRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool): Void");
+	AActor.AddFunc("@:native(\"AddActorWorldRotation\") public overload function AddActorWorldRotationQuad(DeltaRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	AActor.AddFunc("@:native(\"AddActorWorldRotation\") public overload function AddActorWorldRotationQuad(DeltaRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
+	AActor.AddFunc("public overload function AddActorWorldTransform(DeltaTransform: " + HX_REF_CLASS + "<Transform>): Void");
+	AActor.AddFunc("public overload function AddActorWorldTransform(DeltaTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool): Void");
+	AActor.AddFunc("public overload function AddActorWorldTransform(DeltaTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	AActor.AddFunc("public overload function AddActorWorldTransform(DeltaTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
+	AActor.AddFunc("public overload function AddActorWorldTransformKeepScale(DeltaTransform: " + HX_REF_CLASS + "<Transform>): Void");
+	AActor.AddFunc("public overload function AddActorWorldTransformKeepScale(DeltaTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool): Void");
+	AActor.AddFunc("public overload function AddActorWorldTransformKeepScale(DeltaTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	AActor.AddFunc("public overload function AddActorWorldTransformKeepScale(DeltaTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
 	AActor.AddFunc("public overload function AddActorLocalOffset(DeltaLocation: Vector): Void");
 	AActor.AddFunc("public overload function AddActorLocalOffset(DeltaLocation: Vector, bSweep: Bool): Void");
-	AActor.AddFunc("public overload function AddActorLocalOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	AActor.AddFunc("public overload function AddActorLocalOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
+	AActor.AddFunc("public overload function AddActorLocalOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	AActor.AddFunc("public overload function AddActorLocalOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
 	AActor.AddFunc("public overload function AddActorLocalRotation(DeltaRotation: Rotator): Void");
 	AActor.AddFunc("public overload function AddActorLocalRotation(DeltaRotation: Rotator, bSweep: Bool): Void");
-	AActor.AddFunc("public overload function AddActorLocalRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	AActor.AddFunc("public overload function AddActorLocalRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
-	AActor.AddFunc("@:native(\"AddActorLocalRotation\") public overload function AddActorLocalRotationQuad(DeltaRotation: cpp.Reference<Quat>): Void");
-	AActor.AddFunc("@:native(\"AddActorLocalRotation\") public overload function AddActorLocalRotationQuad(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool): Void");
-	AActor.AddFunc("@:native(\"AddActorLocalRotation\") public overload function AddActorLocalRotationQuad(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	AActor.AddFunc("@:native(\"AddActorLocalRotation\") public overload function AddActorLocalRotationQuad(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
-	AActor.AddFunc("public overload function AddActorLocalTransform(DeltaTransform: cpp.Reference<Transform>): Void");
-	AActor.AddFunc("public overload function AddActorLocalTransform(DeltaTransform: cpp.Reference<Transform>, bSweep: Bool): Void");
-	AActor.AddFunc("public overload function AddActorLocalTransform(DeltaTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	AActor.AddFunc("public overload function AddActorLocalTransform(DeltaTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
+	AActor.AddFunc("public overload function AddActorLocalRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	AActor.AddFunc("public overload function AddActorLocalRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
+	AActor.AddFunc("@:native(\"AddActorLocalRotation\") public overload function AddActorLocalRotationQuad(DeltaRotation: " + HX_REF_CLASS + "<Quat>): Void");
+	AActor.AddFunc("@:native(\"AddActorLocalRotation\") public overload function AddActorLocalRotationQuad(DeltaRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool): Void");
+	AActor.AddFunc("@:native(\"AddActorLocalRotation\") public overload function AddActorLocalRotationQuad(DeltaRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	AActor.AddFunc("@:native(\"AddActorLocalRotation\") public overload function AddActorLocalRotationQuad(DeltaRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
+	AActor.AddFunc("public overload function AddActorLocalTransform(DeltaTransform: " + HX_REF_CLASS + "<Transform>): Void");
+	AActor.AddFunc("public overload function AddActorLocalTransform(DeltaTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool): Void");
+	AActor.AddFunc("public overload function AddActorLocalTransform(DeltaTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	AActor.AddFunc("public overload function AddActorLocalTransform(DeltaTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
 	AActor.AddFunc("public overload function SetActorRelativeLocation(NewRelativeLocation: Vector): Void");
 	AActor.AddFunc("public overload function SetActorRelativeLocation(NewRelativeLocation: Vector, bSweep: Bool): Void");
-	AActor.AddFunc("public overload function SetActorRelativeLocation(NewRelativeLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	AActor.AddFunc("public overload function SetActorRelativeLocation(NewRelativeLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
+	AActor.AddFunc("public overload function SetActorRelativeLocation(NewRelativeLocation: Vector, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	AActor.AddFunc("public overload function SetActorRelativeLocation(NewRelativeLocation: Vector, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
 	AActor.AddFunc("public overload function SetActorRelativeRotation(NewRelativeRotation: Rotator): Void");
 	AActor.AddFunc("public overload function SetActorRelativeRotation(NewRelativeRotation: Rotator, bSweep: Bool): Void");
-	AActor.AddFunc("public overload function SetActorRelativeRotation(NewRelativeRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	AActor.AddFunc("public overload function SetActorRelativeRotation(NewRelativeRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
-	AActor.AddFunc("@:native(\"SetActorRelativeRotation\") public overload function SetActorRelativeRotationQuad(NewRelativeRotation: cpp.Reference<Quat>): Void");
-	AActor.AddFunc("@:native(\"SetActorRelativeRotation\") public overload function SetActorRelativeRotationQuad(NewRelativeRotation: cpp.Reference<Quat>, bSweep: Bool): Void");
-	AActor.AddFunc("@:native(\"SetActorRelativeRotation\") public overload function SetActorRelativeRotationQuad(NewRelativeRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	AActor.AddFunc("@:native(\"SetActorRelativeRotation\") public overload function SetActorRelativeRotationQuad(NewRelativeRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
-	AActor.AddFunc("public overload function SetActorRelativeTransform(NewRelativeTransform: cpp.Reference<Transform>): Void");
-	AActor.AddFunc("public overload function SetActorRelativeTransform(NewRelativeTransform: cpp.Reference<Transform>, bSweep: Bool): Void");
-	AActor.AddFunc("public overload function SetActorRelativeTransform(NewRelativeTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	AActor.AddFunc("public overload function SetActorRelativeTransform(NewRelativeTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
+	AActor.AddFunc("public overload function SetActorRelativeRotation(NewRelativeRotation: Rotator, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	AActor.AddFunc("public overload function SetActorRelativeRotation(NewRelativeRotation: Rotator, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
+	AActor.AddFunc("@:native(\"SetActorRelativeRotation\") public overload function SetActorRelativeRotationQuad(NewRelativeRotation: " + HX_REF_CLASS + "<Quat>): Void");
+	AActor.AddFunc("@:native(\"SetActorRelativeRotation\") public overload function SetActorRelativeRotationQuad(NewRelativeRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool): Void");
+	AActor.AddFunc("@:native(\"SetActorRelativeRotation\") public overload function SetActorRelativeRotationQuad(NewRelativeRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	AActor.AddFunc("@:native(\"SetActorRelativeRotation\") public overload function SetActorRelativeRotationQuad(NewRelativeRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
+	AActor.AddFunc("public overload function SetActorRelativeTransform(NewRelativeTransform: " + HX_REF_CLASS + "<Transform>): Void");
+	AActor.AddFunc("public overload function SetActorRelativeTransform(NewRelativeTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool): Void");
+	AActor.AddFunc("public overload function SetActorRelativeTransform(NewRelativeTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	AActor.AddFunc("public overload function SetActorRelativeTransform(NewRelativeTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
 	AActor.AddFunc("@:const public function GetActorLocation(): Vector");
-	AActor.AddFunc("@:const public function GetActorNameOrLabel(): cpp.Reference<FString>");
+	AActor.AddFunc("@:const public function GetActorNameOrLabel(): " + HX_REF_CLASS + "<FString>");
 	AActor.AddFunc("@:const public function GetActorQuat(): Quat");
 	AActor.AddFunc("@:const public function GetActorRotation(): Rotator");
 	AActor.AddFunc("@:const public function GetActorScale(): Vector");
-	AActor.AddFunc("@:const public function GetActorTransform(): cpp.Reference<Transform>");
+	AActor.AddFunc("@:const public function GetActorTransform(): " + HX_REF_CLASS + "<Transform>");
 	AActor.AddFunc("@:const public function GetAutoDestroyWhenFinished(): Bool");
 	AActor.AddFunc("@:const public function GetIsReplicated(): Bool");
 	AActor.AddFunc("@:const public function GetIsSpatiallyLoaded(): Bool");
 	AActor.AddFunc("@:const public function GetLastRenderTime(): cpp.Float32");
 	AActor.AddFunc("@:const public function GetPivotOffset(): Vector");
 	AActor.AddFunc("@:const public function GetPlacementExtent(): Vector");
-	AActor.AddFunc("@:const public function GetWorld(): cpp.Star<World>");
+	AActor.AddFunc("@:const public function GetWorld(): " + HX_PTR_CLASS + "<World>");
 	AActor.AddFunc("@:const public function HasActiveCameraComponent(): Bool");
 	AActor.AddFunc("@:const public function HasActivePawnControlCameraComponent(): Bool");
 	AActor.AddFunc("@:const public function HasActorBegunPlay(): Bool");
@@ -966,7 +986,7 @@ void SetupExtraExterns() {
 	UActorComponent.AddFunc("@:protected public function EndPlay(Reason: EEndPlayReason): Void");
 	UActorComponent.AddFunc("public function InitializeComponent(): Void");
 	UActorComponent.AddFunc("public function UninitializeComponent(): Void");
-	UActorComponent.AddFunc("public function TickComponent(DeltaTime: cpp.Float32, TickType: ELevelTick, ThisTickFunction: cpp.Star<ActorComponentTickFunction>): Void");
+	UActorComponent.AddFunc("public function TickComponent(DeltaTime: cpp.Float32, TickType: ELevelTick, ThisTickFunction: " + HX_PTR_CLASS + "<ActorComponentTickFunction>): Void");
 	ExtraExterns.Add("ActorComponent", UActorComponent);
 
 	// ----------------------
@@ -977,90 +997,90 @@ void SetupExtraExterns() {
 	USceneComponent.AddFunc("@:const public function GetComponentRotation(): Rotator");
 	USceneComponent.AddFunc("@:const public function GetComponentQuat(): Quat");
 	USceneComponent.AddFunc("@:const public function GetComponentScale(): Vector");
-	USceneComponent.AddFunc("@:const public function GetComponentToWorld(): cpp.Reference<Transform>");
-	USceneComponent.AddFunc("@:const public function GetComponentTransform(): cpp.Reference<Transform>");
+	USceneComponent.AddFunc("@:const public function GetComponentToWorld(): " + HX_REF_CLASS + "<Transform>");
+	USceneComponent.AddFunc("@:const public function GetComponentTransform(): " + HX_REF_CLASS + "<Transform>");
 	USceneComponent.AddFunc("@:const public function GetRelativeLocation(): Vector");
-	USceneComponent.AddFunc("@:const public function GetRelativeLocation_DirectMutable(): cpp.Reference<Vector>");
+	USceneComponent.AddFunc("@:const public function GetRelativeLocation_DirectMutable(): " + HX_REF_CLASS + "<Vector>");
 	USceneComponent.AddFunc("@:const public function GetRelativeRotation(): Rotator");
-	USceneComponent.AddFunc("@:const public function GetRelativeRotation_DirectMutable(): cpp.Reference<Rotator>");
+	USceneComponent.AddFunc("@:const public function GetRelativeRotation_DirectMutable(): " + HX_REF_CLASS + "<Rotator>");
 	USceneComponent.AddFunc("@:const public function GetRelativeScale3D(): Vector");
-	USceneComponent.AddFunc("@:const public function GetRelativeScale3D_DirectMutable(): cpp.Reference<Vector>");
+	USceneComponent.AddFunc("@:const public function GetRelativeScale3D_DirectMutable(): " + HX_REF_CLASS + "<Vector>");
 	USceneComponent.AddFunc("public overload function SetRelativeLocation(NewLocation: Vector): Void");
 	USceneComponent.AddFunc("public overload function SetRelativeLocation(NewLocation: Vector, bSweep: Bool): Void");
-	USceneComponent.AddFunc("public overload function SetRelativeLocation(NewLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	USceneComponent.AddFunc("public overload function SetRelativeLocation(NewLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
+	USceneComponent.AddFunc("public overload function SetRelativeLocation(NewLocation: Vector, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	USceneComponent.AddFunc("public overload function SetRelativeLocation(NewLocation: Vector, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
 	USceneComponent.AddFunc("public overload function SetRelativeRotation(NewRotation: Rotator): Void");
 	USceneComponent.AddFunc("public overload function SetRelativeRotation(NewRotation: Rotator, bSweep: Bool): Void");
-	USceneComponent.AddFunc("public overload function SetRelativeRotation(NewRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	USceneComponent.AddFunc("public overload function SetRelativeRotation(NewRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
-	USceneComponent.AddFunc("@:native(\"SetRelativeRotation\") public overload function SetRelativeRotationQuad(NewRotation: cpp.Reference<Quat>): Void");
-	USceneComponent.AddFunc("@:native(\"SetRelativeRotation\") public overload function SetRelativeRotationQuad(NewRotation: cpp.Reference<Quat>, bSweep: Bool): Void");
-	USceneComponent.AddFunc("@:native(\"SetRelativeRotation\") public overload function SetRelativeRotationQuad(NewRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	USceneComponent.AddFunc("@:native(\"SetRelativeRotation\") public overload function SetRelativeRotationQuad(NewRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
-	USceneComponent.AddFunc("public overload function SetRelativeTransform(NewTransform: cpp.Reference<Transform>): Void");
-	USceneComponent.AddFunc("public overload function SetRelativeTransform(NewTransform: cpp.Reference<Transform>, bSweep: Bool): Void");
-	USceneComponent.AddFunc("public overload function SetRelativeTransform(NewTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	USceneComponent.AddFunc("public overload function SetRelativeTransform(NewTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
+	USceneComponent.AddFunc("public overload function SetRelativeRotation(NewRotation: Rotator, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	USceneComponent.AddFunc("public overload function SetRelativeRotation(NewRotation: Rotator, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
+	USceneComponent.AddFunc("@:native(\"SetRelativeRotation\") public overload function SetRelativeRotationQuad(NewRotation: " + HX_REF_CLASS + "<Quat>): Void");
+	USceneComponent.AddFunc("@:native(\"SetRelativeRotation\") public overload function SetRelativeRotationQuad(NewRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool): Void");
+	USceneComponent.AddFunc("@:native(\"SetRelativeRotation\") public overload function SetRelativeRotationQuad(NewRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	USceneComponent.AddFunc("@:native(\"SetRelativeRotation\") public overload function SetRelativeRotationQuad(NewRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
+	USceneComponent.AddFunc("public overload function SetRelativeTransform(NewTransform: " + HX_REF_CLASS + "<Transform>): Void");
+	USceneComponent.AddFunc("public overload function SetRelativeTransform(NewTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool): Void");
+	USceneComponent.AddFunc("public overload function SetRelativeTransform(NewTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	USceneComponent.AddFunc("public overload function SetRelativeTransform(NewTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
 	USceneComponent.AddFunc("public overload function AddRelativeLocation(DeltaLocation: Vector): Void");
 	USceneComponent.AddFunc("public overload function AddRelativeLocation(DeltaLocation: Vector, bSweep: Bool): Void");
-	USceneComponent.AddFunc("public overload function AddRelativeLocation(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	USceneComponent.AddFunc("public overload function AddRelativeLocation(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
+	USceneComponent.AddFunc("public overload function AddRelativeLocation(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	USceneComponent.AddFunc("public overload function AddRelativeLocation(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
 	USceneComponent.AddFunc("public overload function AddRelativeRotation(DeltaRotation: Rotator): Void");
 	USceneComponent.AddFunc("public overload function AddRelativeRotation(DeltaRotation: Rotator, bSweep: Bool): Void");
-	USceneComponent.AddFunc("public overload function AddRelativeRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	USceneComponent.AddFunc("public overload function AddRelativeRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
-	USceneComponent.AddFunc("@:native(\"AddRelativeRotation\") public overload function AddRelativeRotationQuad(DeltaRotation: cpp.Reference<Quat>): Void");
-	USceneComponent.AddFunc("@:native(\"AddRelativeRotation\") public overload function AddRelativeRotationQuad(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool): Void");
-	USceneComponent.AddFunc("@:native(\"AddRelativeRotation\") public overload function AddRelativeRotationQuad(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	USceneComponent.AddFunc("@:native(\"AddRelativeRotation\") public overload function AddRelativeRotationQuad(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
+	USceneComponent.AddFunc("public overload function AddRelativeRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	USceneComponent.AddFunc("public overload function AddRelativeRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
+	USceneComponent.AddFunc("@:native(\"AddRelativeRotation\") public overload function AddRelativeRotationQuad(DeltaRotation: " + HX_REF_CLASS + "<Quat>): Void");
+	USceneComponent.AddFunc("@:native(\"AddRelativeRotation\") public overload function AddRelativeRotationQuad(DeltaRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool): Void");
+	USceneComponent.AddFunc("@:native(\"AddRelativeRotation\") public overload function AddRelativeRotationQuad(DeltaRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	USceneComponent.AddFunc("@:native(\"AddRelativeRotation\") public overload function AddRelativeRotationQuad(DeltaRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
 	USceneComponent.AddFunc("public overload function AddLocalOffset(DeltaLocation: Vector): Void");
 	USceneComponent.AddFunc("public overload function AddLocalOffset(DeltaLocation: Vector, bSweep: Bool): Void");
-	USceneComponent.AddFunc("public overload function AddLocalOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	USceneComponent.AddFunc("public overload function AddLocalOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
+	USceneComponent.AddFunc("public overload function AddLocalOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	USceneComponent.AddFunc("public overload function AddLocalOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
 	USceneComponent.AddFunc("public overload function AddLocalRotation(DeltaRotation: Rotator): Void");
 	USceneComponent.AddFunc("public overload function AddLocalRotation(DeltaRotation: Rotator, bSweep: Bool): Void");
-	USceneComponent.AddFunc("public overload function AddLocalRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	USceneComponent.AddFunc("public overload function AddLocalRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
-	USceneComponent.AddFunc("@:native(\"AddLocalRotation\") public overload function AddLocalRotationQuad(DeltaRotation: cpp.Reference<Quat>): Void");
-	USceneComponent.AddFunc("@:native(\"AddLocalRotation\") public overload function AddLocalRotationQuad(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool): Void");
-	USceneComponent.AddFunc("@:native(\"AddLocalRotation\") public overload function AddLocalRotationQuad(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	USceneComponent.AddFunc("@:native(\"AddLocalRotation\") public overload function AddLocalRotationQuad(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
-	USceneComponent.AddFunc("public overload function AddLocalTransform(DeltaTransform: cpp.Reference<Transform>): Void");
-	USceneComponent.AddFunc("public overload function AddLocalTransform(DeltaTransform: cpp.Reference<Transform>, bSweep: Bool): Void");
-	USceneComponent.AddFunc("public overload function AddLocalTransform(DeltaTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	USceneComponent.AddFunc("public overload function AddLocalTransform(DeltaTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
+	USceneComponent.AddFunc("public overload function AddLocalRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	USceneComponent.AddFunc("public overload function AddLocalRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
+	USceneComponent.AddFunc("@:native(\"AddLocalRotation\") public overload function AddLocalRotationQuad(DeltaRotation: " + HX_REF_CLASS + "<Quat>): Void");
+	USceneComponent.AddFunc("@:native(\"AddLocalRotation\") public overload function AddLocalRotationQuad(DeltaRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool): Void");
+	USceneComponent.AddFunc("@:native(\"AddLocalRotation\") public overload function AddLocalRotationQuad(DeltaRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	USceneComponent.AddFunc("@:native(\"AddLocalRotation\") public overload function AddLocalRotationQuad(DeltaRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
+	USceneComponent.AddFunc("public overload function AddLocalTransform(DeltaTransform: " + HX_REF_CLASS + "<Transform>): Void");
+	USceneComponent.AddFunc("public overload function AddLocalTransform(DeltaTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool): Void");
+	USceneComponent.AddFunc("public overload function AddLocalTransform(DeltaTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	USceneComponent.AddFunc("public overload function AddLocalTransform(DeltaTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
 	USceneComponent.AddFunc("public overload function SetWorldLocation(NewLocation: Vector): Void");
 	USceneComponent.AddFunc("public overload function SetWorldLocation(NewLocation: Vector, bSweep: Bool): Void");
-	USceneComponent.AddFunc("public overload function SetWorldLocation(NewLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	USceneComponent.AddFunc("public overload function SetWorldLocation(NewLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
+	USceneComponent.AddFunc("public overload function SetWorldLocation(NewLocation: Vector, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	USceneComponent.AddFunc("public overload function SetWorldLocation(NewLocation: Vector, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
 	USceneComponent.AddFunc("public overload function SetWorldRotation(NewRotation: Rotator): Void");
 	USceneComponent.AddFunc("public overload function SetWorldRotation(NewRotation: Rotator, bSweep: Bool): Void");
-	USceneComponent.AddFunc("public overload function SetWorldRotation(NewRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	USceneComponent.AddFunc("public overload function SetWorldRotation(NewRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
-	USceneComponent.AddFunc("@:native(\"SetWorldRotation\") public overload function SetWorldRotationQuad(NewRotation: cpp.Reference<Quat>): Void");
-	USceneComponent.AddFunc("@:native(\"SetWorldRotation\") public overload function SetWorldRotationQuad(NewRotation: cpp.Reference<Quat>, bSweep: Bool): Void");
-	USceneComponent.AddFunc("@:native(\"SetWorldRotation\") public overload function SetWorldRotationQuad(NewRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	USceneComponent.AddFunc("@:native(\"SetWorldRotation\") public overload function SetWorldRotationQuad(NewRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
-	USceneComponent.AddFunc("public overload function SetWorldTransform(NewTransform: cpp.Reference<Transform>): Void");
-	USceneComponent.AddFunc("public overload function SetWorldTransform(NewTransform: cpp.Reference<Transform>, bSweep: Bool): Void");
-	USceneComponent.AddFunc("public overload function SetWorldTransform(NewTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	USceneComponent.AddFunc("public overload function SetWorldTransform(NewTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
+	USceneComponent.AddFunc("public overload function SetWorldRotation(NewRotation: Rotator, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	USceneComponent.AddFunc("public overload function SetWorldRotation(NewRotation: Rotator, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
+	USceneComponent.AddFunc("@:native(\"SetWorldRotation\") public overload function SetWorldRotationQuad(NewRotation: " + HX_REF_CLASS + "<Quat>): Void");
+	USceneComponent.AddFunc("@:native(\"SetWorldRotation\") public overload function SetWorldRotationQuad(NewRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool): Void");
+	USceneComponent.AddFunc("@:native(\"SetWorldRotation\") public overload function SetWorldRotationQuad(NewRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	USceneComponent.AddFunc("@:native(\"SetWorldRotation\") public overload function SetWorldRotationQuad(NewRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
+	USceneComponent.AddFunc("public overload function SetWorldTransform(NewTransform: " + HX_REF_CLASS + "<Transform>): Void");
+	USceneComponent.AddFunc("public overload function SetWorldTransform(NewTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool): Void");
+	USceneComponent.AddFunc("public overload function SetWorldTransform(NewTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	USceneComponent.AddFunc("public overload function SetWorldTransform(NewTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
 	USceneComponent.AddFunc("public overload function AddWorldOffset(DeltaLocation: Vector): Void");
 	USceneComponent.AddFunc("public overload function AddWorldOffset(DeltaLocation: Vector, bSweep: Bool): Void");
-	USceneComponent.AddFunc("public overload function AddWorldOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	USceneComponent.AddFunc("public overload function AddWorldOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
+	USceneComponent.AddFunc("public overload function AddWorldOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	USceneComponent.AddFunc("public overload function AddWorldOffset(DeltaLocation: Vector, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
 	USceneComponent.AddFunc("public overload function AddWorldRotation(DeltaRotation: Rotator): Void");
 	USceneComponent.AddFunc("public overload function AddWorldRotation(DeltaRotation: Rotator, bSweep: Bool): Void");
-	USceneComponent.AddFunc("public overload function AddWorldRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	USceneComponent.AddFunc("public overload function AddWorldRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
-	USceneComponent.AddFunc("@:native(\"AddWorldRotation\") public overload function AddWorldRotationQuad(DeltaRotation: cpp.Reference<Quat>): Void");
-	USceneComponent.AddFunc("@:native(\"AddWorldRotation\") public overload function AddWorldRotationQuad(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool): Void");
-	USceneComponent.AddFunc("@:native(\"AddWorldRotation\") public overload function AddWorldRotationQuad(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	USceneComponent.AddFunc("@:native(\"AddWorldRotation\") public overload function AddWorldRotationQuad(DeltaRotation: cpp.Reference<Quat>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
-	USceneComponent.AddFunc("public overload function AddWorldTransform(DeltaTransform: cpp.Reference<Transform>): Void");
-	USceneComponent.AddFunc("public overload function AddWorldTransform(DeltaTransform: cpp.Reference<Transform>, bSweep: Bool): Void");
-	USceneComponent.AddFunc("public overload function AddWorldTransform(DeltaTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>): Void");
-	USceneComponent.AddFunc("public overload function AddWorldTransform(DeltaTransform: cpp.Reference<Transform>, bSweep: Bool, OutSweepHitResult: cpp.Star<HitResult>, Teleport: ETeleportType): Void");
+	USceneComponent.AddFunc("public overload function AddWorldRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	USceneComponent.AddFunc("public overload function AddWorldRotation(DeltaRotation: Rotator, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
+	USceneComponent.AddFunc("@:native(\"AddWorldRotation\") public overload function AddWorldRotationQuad(DeltaRotation: " + HX_REF_CLASS + "<Quat>): Void");
+	USceneComponent.AddFunc("@:native(\"AddWorldRotation\") public overload function AddWorldRotationQuad(DeltaRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool): Void");
+	USceneComponent.AddFunc("@:native(\"AddWorldRotation\") public overload function AddWorldRotationQuad(DeltaRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	USceneComponent.AddFunc("@:native(\"AddWorldRotation\") public overload function AddWorldRotationQuad(DeltaRotation: " + HX_REF_CLASS + "<Quat>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
+	USceneComponent.AddFunc("public overload function AddWorldTransform(DeltaTransform: " + HX_REF_CLASS + "<Transform>): Void");
+	USceneComponent.AddFunc("public overload function AddWorldTransform(DeltaTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool): Void");
+	USceneComponent.AddFunc("public overload function AddWorldTransform(DeltaTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>): Void");
+	USceneComponent.AddFunc("public overload function AddWorldTransform(DeltaTransform: " + HX_REF_CLASS + "<Transform>, bSweep: Bool, OutSweepHitResult: " + HX_PTR_CLASS + "<HitResult>, Teleport: ETeleportType): Void");
 	ExtraExterns.Add("SceneComponent", USceneComponent);
 }
 
@@ -1072,7 +1092,7 @@ void SaveExtraExtern(ExtraExtern& extraExtern) {
 	if(extraExtern.Include.IsSet()) {
 		haxeSource += INCLUDE_META + "(\"" + extraExtern.Include.GetValue() + "\")\n";
 	}
-	haxeSource += "@:structAccess\n";
+	haxeSource += "@:valueType\n";
 	for(auto& meta : extraExtern.Meta) {
 		haxeSource += meta + "\n";
 	}
