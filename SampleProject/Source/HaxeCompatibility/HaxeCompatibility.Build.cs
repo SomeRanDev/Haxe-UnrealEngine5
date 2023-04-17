@@ -6,7 +6,7 @@ public class HaxeCompatibility: ModuleRules {
 	public HaxeCompatibility(ReadOnlyTargetRules Target): base(Target) {
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-		bUseRTTI = true;
+		// bUseRTTI = true;
 
 		#if UE_5_0_OR_LATER
 		ShadowVariableWarningLevel = WarningLevel.Warning;
@@ -46,13 +46,7 @@ public class HaxeCompatibility: ModuleRules {
 		// * DEFINITIONS
 		// ========================================================================================
 		PublicDefinitions.AddRange(new string[] {
-			"HXCPP_API_LEVEL=430",
-			"HXCPP_M64",
-			"HXCPP_VISIT_ALLOCS",
-			"HX_SMART_STRINGS",
-			"_CRT_SECURE_NO_DEPRECATE",
-			"_ALLOW_MSC_VER_MISMATCH",
-			"_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH"
+			//"DEFINITION_EXAMPLE=EXAMPLE_VALUE"
 		});
 
 		#if UE_5_0_OR_LATER
