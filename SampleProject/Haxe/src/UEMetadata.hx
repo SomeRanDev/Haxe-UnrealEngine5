@@ -120,10 +120,10 @@ class UEMetadata {
 		addMeta(cls, ":pragmaOnce");
 
 		// Remove Haxe/C++ output class prepend content
-		addMeta(cls, ":headerClassNamePrepend");
+		addMeta(cls, ":prependContent");
 
 		// Treat the class like a value type
-		addMeta(cls, ":structAccess");
+		addMeta(cls, ":valueType");
 
 		// Used by ue_helpers.Ptr to enable the compile-time Ptr abstract generation
 		addMeta(cls, ":generateUEPtr");
@@ -160,25 +160,6 @@ class UEMetadata {
 			if(uFuncMeta != null) {
 				if(!isFunc) {
 					Context.error("Cannot use @:ufunc on field that is not function.", f.pos);
-				} else {
-					// All UFUNCTIONs must be callable from C++
-					// Note: exporting the field replaces it with a new one,
-					//       so the "uFuncMeta" is added to the replacement instead of here.
-					if(f.meta == null) f.meta = [];
-					f.meta.push({ name: ":ueExport", params: [], pos: nopos });
-				}
-			}
-
-			// Handle functions that should be accessible on Unreal's side
-			if(isFunc) {
-				final newField = processUEExportMeta(f);
-				if(newField != null) {
-					extraFields.push(newField);
-
-					// The UFUNCTION meta be on the replacement field
-					if(uFuncMeta != null) {
-						newField.meta.push(uFuncMeta);
-					}
 				}
 			}
 		}
@@ -288,7 +269,7 @@ class UEMetadata {
 			} else {
 				"UCLASS()";
 			}
-			cls.meta.add(":headerDefinitionPrepend", [macro $v{cppAttr}], nopos);
+			cls.meta.add(":prependContent", [macro $v{cppAttr}], nopos);
 
 			// Generate an Unreal compliant name based on whether extending from UObject or AActor
 			if(nativeName == null) {
@@ -342,155 +323,7 @@ class UEMetadata {
 			nativePrependName + "(" + defaultParams.join(", ") + ")";
 		}
 
-		return { name: ":headerDefinitionPrepend", params: [macro $v{cppAttr}], pos: nopos };
-	}
-
-	// Process @:ueExport meta
-	static function processUEExportMeta(field: Field): Null<Field> {
-		var shouldExport = false;
-		
-		// UObject descendant constructors should always be exported
-		if(field.name == "new") {
-			shouldExport = true;
-		}
-
-		// If this method overrides a method from an "extern" class, we export it regardless
-		if(!shouldExport) {
-			final isOverride = field.access != null && field.access.contains(AOverride);
-			if(isOverride && checkExternSuperClassesForMethod(Context.getLocalClass().get(), field.name)) {
-				shouldExport = true;
-			}
-		}
-		
-		// Check for @:ueExport metadata
-		if(!shouldExport && field.meta != null) {
-			for(m in field.meta) {
-				if(m.name == ":ueExport") {
-					shouldExport = true;
-					break;
-				}
-			}
-		}
-
-		// Do nothing if we do not need to export
-		if(!shouldExport) {
-			return null;
-		}
-
-		final funData = switch(field.kind) {
-			case FFun(f): f;
-			case _: null;
-		}
-
-		// Only functions will be passed, but just in case...
-		if(funData == null) {
-			return null;
-		}
-
-		// Modify this function into a "Haxe" callable form
-		final originalName = field.name;
-		var access = field.access.concat([]);
-		if(field.access != null && field.access.contains(AOverride)) {
-			field.access.remove(AOverride);
-		}
-		field.name = "uehx_" + originalName;
-
-		// Generate a new function field that can be called from C++.
-		// It sets everything up properly for Haxe/C++ output to be executed,
-		// then calls the original version of this function.
-		final aliasCallText = field.name + "(" + funData.args.map(a -> a.name).join(", ") + ")";
-		final aliasCallExpr = Context.parse(aliasCallText, nopos);
-
-		// Check if the function explicitly defines a return type
-		var hasReturnType = true;
-		var noReturnType = switch(funData.ret) {
-			case TPath({ name: "Void", pack: [] }): true;
-			case null: {
-				hasReturnType = false;
-				false;
-			}
-			case _: false;
-		}
-
-		// If no return type is defined, we search the function for a return with an expression.
-		if(!hasReturnType) {
-			function findReturnExpr(e:Expr): Bool {
-				return switch(e.expr) {
-					case EReturn(e): e != null;
-					case EFunction(_, _): false;
-					case _:
-						var result = false;
-						ExprTools.iter(e, function(e: Expr) {
-							if(findReturnExpr(e)) {
-								result = true;
-							}
-						});
-						result;
-				}
-			}
-
-			hasReturnType = findReturnExpr(funData.expr);
-		}
-
-		// Generate the wrapper function's expression based on whether there's a return type.
-		final expr = if(hasReturnType) {
-			macro {
-				untyped __cpp__("int top = 99");
-				untyped __cpp__("::hx::SetTopOfStack(&top, true)");
-				final result = $aliasCallExpr;
-				untyped __cpp__("::hx::SetTopOfStack((int*)0, true)");
-				return result;
-			}
-		} else {
-			macro {
-				untyped __cpp__("int top = 99");
-				untyped __cpp__("::hx::SetTopOfStack(&top, true)");
-				$aliasCallExpr;
-				untyped __cpp__("::hx::SetTopOfStack((int*)0, true)");
-			}
-		}
-
-		// Return the function field
-		return {
-			pos: nopos,
-			name: originalName,
-			kind: FFun({
-				ret: funData.ret,
-				params: funData.params,
-				expr: expr,
-				args: funData.args
-			}),
-			access: access,
-			meta: []
-		};
-	}
-
-	// This function checks a class's extern super classes for a method of a specific name.
-	// We need this since a function that's overridden from a C++ class may be called from C++.
-	// Thus we treat the function like it has @:ueExport metadata on it.
-	//
-	// Technically, this should only be done for C++ methods marked with "virtual", but
-	// there's no way to check this for that here at the moment. It's a pretty niche
-	// scenario, and the detriment for labeling something @:ueExport that doesn't need to be
-	// is pretty low, so it'll stay like this for the time being.
-	static function checkExternSuperClassesForMethod(cls: ClassType, fieldName: String): Bool {
-		if(cls.superClass == null) {
-			return false;
-		}
-
-		final superCls = cls.superClass.t.get();
-
-		if(superCls.isExtern) {
-			final fields = superCls.fields.get();
-			for(f in fields) {
-				final isMethod = switch(f.kind) { case FMethod(_): true; case _: false; }
-				if(isMethod && f.name == fieldName) {
-					return true;
-				}
-			}
-		}
-
-		return checkExternSuperClassesForMethod(superCls, fieldName);
+		return { name: ":prependContent", params: [macro $v{cppAttr}], pos: nopos };
 	}
 }
 
