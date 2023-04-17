@@ -4,26 +4,7 @@
 
 -D UObjectClassListPath=BuildScripts/UObjectClassList.txt
 
-# ---------------------------------------------
-# * Delete Output Folder If Exists
-# ---------------------------------------------
-
 --each
-
-# Script is stored in "BuildScripts"
--cp BuildScripts
-
-# Call "DeleteHxOutputIfExists.hx" main function
--main DeleteHxOutputIfExists
-
-# Interpret this Haxe script
---interp
-
-# ---------------------------------------------
-# * Compile Haxe Project
-# ---------------------------------------------
-
---next
 
 # Set Haxe source code folder
 -cp src
