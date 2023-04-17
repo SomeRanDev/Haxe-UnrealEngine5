@@ -5,7 +5,7 @@ package ue;
 @:include("Rigs/RigControlHierarchy.h")
 @:structAccess
 extern class RigControlHierarchy {
-	public var Controls: TArray<RigControl>;
+	private var Controls: TArray<RigControl>;
 
 	@:native("FRigControlHierarchy") public function new();
 	@:native("FRigControlHierarchy") public static function make(Controls: TArray<RigControl>): RigControlHierarchy ;

@@ -3,11 +3,11 @@ package ue;
 
 @:native("EParticleSortMode")
 @:include("Particles/ParticleModuleRequired.h")
-extern enum EParticleSortMode {
-	PSORTMODE_None;
-	PSORTMODE_ViewProjDepth;
-	PSORTMODE_DistanceToView;
-	PSORTMODE_Age_OldestFirst;
-	PSORTMODE_Age_NewestFirst;
-	PSORTMODE_MAX;
+extern class EParticleSortMode {
+	static var PSORTMODE_None: EParticleSortMode;
+	static var PSORTMODE_ViewProjDepth: EParticleSortMode;
+	static var PSORTMODE_DistanceToView: EParticleSortMode;
+	static var PSORTMODE_Age_OldestFirst: EParticleSortMode;
+	static var PSORTMODE_Age_NewestFirst: EParticleSortMode;
+	static var PSORTMODE_MAX: EParticleSortMode;
 }

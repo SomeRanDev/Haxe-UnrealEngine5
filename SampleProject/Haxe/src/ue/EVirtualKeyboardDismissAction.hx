@@ -3,9 +3,9 @@ package ue;
 
 @:native("EVirtualKeyboardDismissAction")
 @:include("Widgets/Text/ISlateEditableTextWidget.h")
-extern enum EVirtualKeyboardDismissAction {
-	TextChangeOnDismiss;
-	TextCommitOnAccept;
-	TextCommitOnDismiss;
-	EVirtualKeyboardDismissAction_MAX;
+extern class EVirtualKeyboardDismissAction {
+	static var TextChangeOnDismiss: EVirtualKeyboardDismissAction;
+	static var TextCommitOnAccept: EVirtualKeyboardDismissAction;
+	static var TextCommitOnDismiss: EVirtualKeyboardDismissAction;
+	static var EVirtualKeyboardDismissAction_MAX: EVirtualKeyboardDismissAction;
 }

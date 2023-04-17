@@ -3,9 +3,9 @@ package ue;
 
 @:native("EModelingModeAssetGenerationBehavior")
 @:include("ModelingToolsEditorModeSettings.h")
-extern enum EModelingModeAssetGenerationBehavior {
-	AutoGenerateAndAutosave;
-	AutoGenerateButDoNotAutosave;
-	InteractivePromptToSave;
-	EModelingModeAssetGenerationBehavior_MAX;
+extern class EModelingModeAssetGenerationBehavior {
+	static var AutoGenerateAndAutosave: EModelingModeAssetGenerationBehavior;
+	static var AutoGenerateButDoNotAutosave: EModelingModeAssetGenerationBehavior;
+	static var InteractivePromptToSave: EModelingModeAssetGenerationBehavior;
+	static var EModelingModeAssetGenerationBehavior_MAX: EModelingModeAssetGenerationBehavior;
 }

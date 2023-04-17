@@ -3,8 +3,8 @@ package ue;
 
 @:native("EEditorScriptingFilterType")
 @:include("EditorFilterLibrary.h")
-extern enum EEditorScriptingFilterType {
-	Include;
-	Exclude;
-	EEditorScriptingFilterType_MAX;
+extern class EEditorScriptingFilterType {
+	static var Include: EEditorScriptingFilterType;
+	static var Exclude: EEditorScriptingFilterType;
+	static var EEditorScriptingFilterType_MAX: EEditorScriptingFilterType;
 }

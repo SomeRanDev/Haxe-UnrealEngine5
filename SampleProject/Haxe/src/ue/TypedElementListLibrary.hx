@@ -8,23 +8,23 @@ extern class TypedElementListLibrary extends Object {
 	public function Shrink(ElementList: ScriptTypedElementListProxy): Void;
 	public function Reset(ElementList: ScriptTypedElementListProxy): Void;
 	public function Reserve(ElementList: ScriptTypedElementListProxy, Size: cpp.Int32): Void;
-	public function Remove(ElementList: ScriptTypedElementListProxy, ElementHandle: cpp.Reference<ScriptTypedElementHandle>): cpp.Reference<Bool>;
-	public function Num(ElementList: ScriptTypedElementListProxy): cpp.Reference<cpp.Int32>;
-	public function IsValidIndex(ElementList: ScriptTypedElementListProxy, Index: cpp.Int32): cpp.Reference<Bool>;
-	public function HasElementsOfType(ElementList: ScriptTypedElementListProxy, ElementTypeName: FName): cpp.Reference<Bool>;
-	public function HasElements(ElementList: ScriptTypedElementListProxy, BaseInterfaceType: TSubclassOf<Interface.ConstInterface>): cpp.Reference<Bool>;
-	public function GetElementInterface(ElementList: ScriptTypedElementListProxy, ElementHandle: cpp.Reference<ScriptTypedElementHandle>, BaseInterfaceType: TSubclassOf<Interface.ConstInterface>): cpp.Reference<cpp.Star<Object>>;
-	public function GetElementHandles(ElementList: ScriptTypedElementListProxy, BaseInterfaceType: TSubclassOf<Interface.ConstInterface>): cpp.Reference<TArray<ScriptTypedElementHandle>>;
-	public function GetElementHandleAt(ElementList: ScriptTypedElementListProxy, Index: cpp.Int32): cpp.Reference<ScriptTypedElementHandle>;
+	public function Remove(ElementList: ScriptTypedElementListProxy, ElementHandle: cpp.Reference<ScriptTypedElementHandle>): Bool;
+	public function Num(ElementList: ScriptTypedElementListProxy): cpp.Int32;
+	public function IsValidIndex(ElementList: ScriptTypedElementListProxy, Index: cpp.Int32): Bool;
+	public function HasElementsOfType(ElementList: ScriptTypedElementListProxy, ElementTypeName: FName): Bool;
+	public function HasElements(ElementList: ScriptTypedElementListProxy, BaseInterfaceType: TSubclassOf<Interface.ConstInterface>): Bool;
+	public function GetElementInterface(ElementList: ScriptTypedElementListProxy, ElementHandle: cpp.Reference<ScriptTypedElementHandle>, BaseInterfaceType: TSubclassOf<Interface.ConstInterface>): cpp.Star<Object>;
+	public function GetElementHandles(ElementList: ScriptTypedElementListProxy, BaseInterfaceType: TSubclassOf<Interface.ConstInterface>): TArray<ScriptTypedElementHandle>;
+	public function GetElementHandleAt(ElementList: ScriptTypedElementListProxy, Index: cpp.Int32): ScriptTypedElementHandle;
 	public function Empty(ElementList: ScriptTypedElementListProxy, Slack: cpp.Int32): Void;
-	public function CreateScriptElementList(Registry: cpp.Star<TypedElementRegistry>): cpp.Reference<ScriptTypedElementListProxy>;
-	public function CountElementsOfType(ElementList: ScriptTypedElementListProxy, ElementTypeName: FName): cpp.Reference<cpp.Int32>;
-	public function CountElements(ElementList: ScriptTypedElementListProxy, BaseInterfaceType: TSubclassOf<Interface.ConstInterface>): cpp.Reference<cpp.Int32>;
-	public function Contains(ElementList: ScriptTypedElementListProxy, ElementHandle: cpp.Reference<ScriptTypedElementHandle>): cpp.Reference<Bool>;
-	public function Clone(ElementList: ScriptTypedElementListProxy): cpp.Reference<ScriptTypedElementListProxy>;
+	public function CreateScriptElementList(Registry: cpp.Star<TypedElementRegistry>): ScriptTypedElementListProxy;
+	public function CountElementsOfType(ElementList: ScriptTypedElementListProxy, ElementTypeName: FName): cpp.Int32;
+	public function CountElements(ElementList: ScriptTypedElementListProxy, BaseInterfaceType: TSubclassOf<Interface.ConstInterface>): cpp.Int32;
+	public function Contains(ElementList: ScriptTypedElementListProxy, ElementHandle: cpp.Reference<ScriptTypedElementHandle>): Bool;
+	public function Clone(ElementList: ScriptTypedElementListProxy): ScriptTypedElementListProxy;
 	public function AppendList(ElementList: ScriptTypedElementListProxy, OtherElementList: ScriptTypedElementListProxy): Void;
 	public function Append(ElementList: ScriptTypedElementListProxy, ElementHandles: cpp.Reference<TArray<ScriptTypedElementHandle>>): Void;
-	public function Add(ElementList: ScriptTypedElementListProxy, ElementHandle: cpp.Reference<ScriptTypedElementHandle>): cpp.Reference<Bool>;
+	public function Add(ElementList: ScriptTypedElementListProxy, ElementHandle: cpp.Reference<ScriptTypedElementHandle>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

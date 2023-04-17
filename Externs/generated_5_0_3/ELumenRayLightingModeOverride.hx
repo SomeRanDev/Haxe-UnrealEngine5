@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELumenRayLightingModeOverride")
 @:include("Engine/Scene.h")
-extern enum ELumenRayLightingModeOverride {
-	Default;
-	SurfaceCache;
-	HitLighting;
-	ELumenRayLightingModeOverride_MAX;
+extern class ELumenRayLightingModeOverride {
+	static var Default: ELumenRayLightingModeOverride;
+	static var SurfaceCache: ELumenRayLightingModeOverride;
+	static var HitLighting: ELumenRayLightingModeOverride;
+	static var ELumenRayLightingModeOverride_MAX: ELumenRayLightingModeOverride;
 }

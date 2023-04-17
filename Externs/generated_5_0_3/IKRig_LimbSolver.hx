@@ -7,7 +7,7 @@ package ue;
 extern class IKRig_LimbSolver extends IKRigSolver {
 	public var RootName: FName;
 	public var ReachPrecision: cpp.Float32;
-	public var HingeRotationAxis: EAxis;
+	public var HingeRotationAxis: TEnumAsByte<EAxis>;
 	public var MaxIterations: cpp.Int32;
 	public var bEnableLimit: Bool;
 	public var MinRotationAngle: cpp.Float32;
@@ -15,8 +15,8 @@ extern class IKRig_LimbSolver extends IKRigSolver {
 	public var PullDistribution: cpp.Float32;
 	public var ReachStepAlpha: cpp.Float32;
 	public var bEnableTwistCorrection: Bool;
-	public var EndBoneForwardAxis: EAxis;
-	public var Effector: cpp.Star<IKRig_LimbEffector>;
+	public var EndBoneForwardAxis: TEnumAsByte<EAxis>;
+	private var Effector: cpp.Star<IKRig_LimbEffector>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -28,8 +28,8 @@ abstract ConstIKRig_LimbSolver(IKRig_LimbSolver) from IKRig_LimbSolver {
 	public inline extern function get_RootName(): FName return this.RootName;
 	public extern var ReachPrecision(get, never): cpp.Float32;
 	public inline extern function get_ReachPrecision(): cpp.Float32 return this.ReachPrecision;
-	public extern var HingeRotationAxis(get, never): EAxis;
-	public inline extern function get_HingeRotationAxis(): EAxis return this.HingeRotationAxis;
+	public extern var HingeRotationAxis(get, never): TEnumAsByte<EAxis>;
+	public inline extern function get_HingeRotationAxis(): TEnumAsByte<EAxis> return this.HingeRotationAxis;
 	public extern var MaxIterations(get, never): cpp.Int32;
 	public inline extern function get_MaxIterations(): cpp.Int32 return this.MaxIterations;
 	public extern var bEnableLimit(get, never): Bool;
@@ -44,10 +44,8 @@ abstract ConstIKRig_LimbSolver(IKRig_LimbSolver) from IKRig_LimbSolver {
 	public inline extern function get_ReachStepAlpha(): cpp.Float32 return this.ReachStepAlpha;
 	public extern var bEnableTwistCorrection(get, never): Bool;
 	public inline extern function get_bEnableTwistCorrection(): Bool return this.bEnableTwistCorrection;
-	public extern var EndBoneForwardAxis(get, never): EAxis;
-	public inline extern function get_EndBoneForwardAxis(): EAxis return this.EndBoneForwardAxis;
-	public extern var Effector(get, never): cpp.Star<IKRig_LimbEffector.ConstIKRig_LimbEffector>;
-	public inline extern function get_Effector(): cpp.Star<IKRig_LimbEffector.ConstIKRig_LimbEffector> return this.Effector;
+	public extern var EndBoneForwardAxis(get, never): TEnumAsByte<EAxis>;
+	public inline extern function get_EndBoneForwardAxis(): TEnumAsByte<EAxis> return this.EndBoneForwardAxis;
 }
 
 @:forward

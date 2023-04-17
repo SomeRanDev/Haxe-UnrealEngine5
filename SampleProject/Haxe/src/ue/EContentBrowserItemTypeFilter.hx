@@ -3,10 +3,10 @@ package ue;
 
 @:native("EContentBrowserItemTypeFilter")
 @:include("ContentBrowserDataFilter.h")
-extern enum EContentBrowserItemTypeFilter {
-	IncludeNone;
-	IncludeFolders;
-	IncludeFiles;
-	IncludeAll;
-	EContentBrowserItemTypeFilter_MAX;
+extern class EContentBrowserItemTypeFilter {
+	static var IncludeNone: EContentBrowserItemTypeFilter;
+	static var IncludeFolders: EContentBrowserItemTypeFilter;
+	static var IncludeFiles: EContentBrowserItemTypeFilter;
+	static var IncludeAll: EContentBrowserItemTypeFilter;
+	static var EContentBrowserItemTypeFilter_MAX: EContentBrowserItemTypeFilter;
 }

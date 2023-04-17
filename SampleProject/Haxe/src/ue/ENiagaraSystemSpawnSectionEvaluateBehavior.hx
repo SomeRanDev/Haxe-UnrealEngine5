@@ -3,8 +3,8 @@ package ue;
 
 @:native("ENiagaraSystemSpawnSectionEvaluateBehavior")
 @:include("MovieScene/MovieSceneNiagaraSystemSpawnSection.h")
-extern enum ENiagaraSystemSpawnSectionEvaluateBehavior {
-	ActivateIfInactive;
-	None;
-	ENiagaraSystemSpawnSectionEvaluateBehavior_MAX;
+extern class ENiagaraSystemSpawnSectionEvaluateBehavior {
+	static var ActivateIfInactive: ENiagaraSystemSpawnSectionEvaluateBehavior;
+	static var None: ENiagaraSystemSpawnSectionEvaluateBehavior;
+	static var ENiagaraSystemSpawnSectionEvaluateBehavior_MAX: ENiagaraSystemSpawnSectionEvaluateBehavior;
 }

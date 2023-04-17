@@ -4,7 +4,7 @@ package ue;
 @:native("UPyTestChildInterface")
 @:structAccess
 extern class PyTestChildInterface extends PyTestInterface {
-	public function FuncInterfaceChild(InValue: cpp.Int32): cpp.Reference<cpp.Int32>;
+	public function FuncInterfaceChild(InValue: cpp.Int32): cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -7,7 +7,7 @@ package ue;
 extern class ConstructionPlaneMechanic extends InteractionMechanic {
 	public var PlaneTransformGizmo: cpp.Star<CombinedTransformGizmo>;
 	public var PlaneTransformProxy: cpp.Star<TransformProxy>;
-	public var ClickToSetPlaneBehavior: cpp.Star<SingleClickInputBehavior>;
+	@:protected public var ClickToSetPlaneBehavior: cpp.Star<SingleClickInputBehavior>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,8 +19,6 @@ abstract ConstConstructionPlaneMechanic(ConstructionPlaneMechanic) from Construc
 	public inline extern function get_PlaneTransformGizmo(): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo> return this.PlaneTransformGizmo;
 	public extern var PlaneTransformProxy(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
 	public inline extern function get_PlaneTransformProxy(): cpp.Star<TransformProxy.ConstTransformProxy> return this.PlaneTransformProxy;
-	public extern var ClickToSetPlaneBehavior(get, never): cpp.Star<SingleClickInputBehavior.ConstSingleClickInputBehavior>;
-	public inline extern function get_ClickToSetPlaneBehavior(): cpp.Star<SingleClickInputBehavior.ConstSingleClickInputBehavior> return this.ClickToSetPlaneBehavior;
 }
 
 @:forward

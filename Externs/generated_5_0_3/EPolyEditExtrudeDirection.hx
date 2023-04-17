@@ -3,13 +3,13 @@ package ue;
 
 @:native("EPolyEditExtrudeDirection")
 @:include("ToolActivities/PolyEditExtrudeActivity.h")
-extern enum EPolyEditExtrudeDirection {
-	SelectionNormal;
-	WorldX;
-	WorldY;
-	WorldZ;
-	LocalX;
-	LocalY;
-	LocalZ;
-	EPolyEditExtrudeDirection_MAX;
+extern class EPolyEditExtrudeDirection {
+	static var SelectionNormal: EPolyEditExtrudeDirection;
+	static var WorldX: EPolyEditExtrudeDirection;
+	static var WorldY: EPolyEditExtrudeDirection;
+	static var WorldZ: EPolyEditExtrudeDirection;
+	static var LocalX: EPolyEditExtrudeDirection;
+	static var LocalY: EPolyEditExtrudeDirection;
+	static var LocalZ: EPolyEditExtrudeDirection;
+	static var EPolyEditExtrudeDirection_MAX: EPolyEditExtrudeDirection;
 }

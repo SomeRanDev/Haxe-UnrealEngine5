@@ -3,9 +3,9 @@ package ue;
 
 @:native("EBeamTaperMethod")
 @:include("Particles/TypeData/ParticleModuleTypeDataBeam2.h")
-extern enum EBeamTaperMethod {
-	PEBTM_None;
-	PEBTM_Full;
-	PEBTM_Partial;
-	PEBTM_MAX;
+extern class EBeamTaperMethod {
+	static var PEBTM_None: EBeamTaperMethod;
+	static var PEBTM_Full: EBeamTaperMethod;
+	static var PEBTM_Partial: EBeamTaperMethod;
+	static var PEBTM_MAX: EBeamTaperMethod;
 }

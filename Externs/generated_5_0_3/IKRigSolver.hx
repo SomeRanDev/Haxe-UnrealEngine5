@@ -5,7 +5,6 @@ package ue;
 @:include("IKRigSolver.h")
 @:structAccess
 extern class IKRigSolver extends Object {
-	public var bIsEnabled: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +12,6 @@ extern class IKRigSolver extends Object {
 @:forward()
 @:nativeGen
 abstract ConstIKRigSolver(IKRigSolver) from IKRigSolver {
-	public extern var bIsEnabled(get, never): Bool;
-	public inline extern function get_bIsEnabled(): Bool return this.bIsEnabled;
 }
 
 @:forward

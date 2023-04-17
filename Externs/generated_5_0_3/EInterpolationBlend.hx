@@ -3,13 +3,13 @@ package ue;
 
 @:native("EInterpolationBlend.Type")
 @:include("BoneControllers/AnimNode_LookAt.h")
-extern enum EInterpolationBlend {
-	Linear;
-	Cubic;
-	Sinusoidal;
-	EaseInOutExponent2;
-	EaseInOutExponent3;
-	EaseInOutExponent4;
-	EaseInOutExponent5;
-	MAX;
+extern class EInterpolationBlend {
+	static var Linear: EInterpolationBlend;
+	static var Cubic: EInterpolationBlend;
+	static var Sinusoidal: EInterpolationBlend;
+	static var EaseInOutExponent2: EInterpolationBlend;
+	static var EaseInOutExponent3: EInterpolationBlend;
+	static var EaseInOutExponent4: EInterpolationBlend;
+	static var EaseInOutExponent5: EInterpolationBlend;
+	static var MAX: EInterpolationBlend;
 }

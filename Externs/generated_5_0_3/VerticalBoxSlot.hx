@@ -7,13 +7,13 @@ package ue;
 extern class VerticalBoxSlot extends PanelSlot {
 	public var Size: SlateChildSize;
 	public var Padding: Margin;
-	public var HorizontalAlignment: EHorizontalAlignment;
-	public var VerticalAlignment: EVerticalAlignment;
+	public var HorizontalAlignment: TEnumAsByte<EHorizontalAlignment>;
+	public var VerticalAlignment: TEnumAsByte<EVerticalAlignment>;
 
-	public function SetVerticalAlignment(InVerticalAlignment: EVerticalAlignment): Void;
+	public function SetVerticalAlignment(InVerticalAlignment: TEnumAsByte<EVerticalAlignment>): Void;
 	public function SetSize(InSize: SlateChildSize): Void;
 	public function SetPadding(InPadding: Margin): Void;
-	public function SetHorizontalAlignment(InHorizontalAlignment: EHorizontalAlignment): Void;
+	public function SetHorizontalAlignment(InHorizontalAlignment: TEnumAsByte<EHorizontalAlignment>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -25,10 +25,10 @@ abstract ConstVerticalBoxSlot(VerticalBoxSlot) from VerticalBoxSlot {
 	public inline extern function get_Size(): SlateChildSize return this.Size;
 	public extern var Padding(get, never): Margin;
 	public inline extern function get_Padding(): Margin return this.Padding;
-	public extern var HorizontalAlignment(get, never): EHorizontalAlignment;
-	public inline extern function get_HorizontalAlignment(): EHorizontalAlignment return this.HorizontalAlignment;
-	public extern var VerticalAlignment(get, never): EVerticalAlignment;
-	public inline extern function get_VerticalAlignment(): EVerticalAlignment return this.VerticalAlignment;
+	public extern var HorizontalAlignment(get, never): TEnumAsByte<EHorizontalAlignment>;
+	public inline extern function get_HorizontalAlignment(): TEnumAsByte<EHorizontalAlignment> return this.HorizontalAlignment;
+	public extern var VerticalAlignment(get, never): TEnumAsByte<EVerticalAlignment>;
+	public inline extern function get_VerticalAlignment(): TEnumAsByte<EVerticalAlignment> return this.VerticalAlignment;
 }
 
 @:forward

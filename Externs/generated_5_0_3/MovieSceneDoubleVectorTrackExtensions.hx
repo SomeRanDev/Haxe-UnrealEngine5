@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class MovieSceneDoubleVectorTrackExtensions extends BlueprintFunctionLibrary {
 	public function SetNumChannelsUsed(Track: cpp.Star<MovieSceneDoubleVectorTrack>, InNumChannelsUsed: cpp.Int32): Void;
-	public function GetNumChannelsUsed(Track: cpp.Star<MovieSceneDoubleVectorTrack>): cpp.Reference<cpp.Int32>;
+	public function GetNumChannelsUsed(Track: cpp.Star<MovieSceneDoubleVectorTrack>): cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

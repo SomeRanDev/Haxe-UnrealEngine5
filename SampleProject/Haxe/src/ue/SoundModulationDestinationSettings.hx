@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class SoundModulationDestinationSettings {
 	public var Value: cpp.Float32;
-	public var bEnableModulation: Bool;
 	public var Modulator: cpp.Star<SoundModulatorBase>;
 
 	@:native("FSoundModulationDestinationSettings") public function new();

@@ -5,7 +5,7 @@ package ue;
 @:include("Binding/VisibilityBinding.h")
 @:structAccess
 extern class VisibilityBinding extends PropertyBinding {
-	public function GetValue(): cpp.Reference<ESlateVisibility>;
+	public function GetValue(): ESlateVisibility;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

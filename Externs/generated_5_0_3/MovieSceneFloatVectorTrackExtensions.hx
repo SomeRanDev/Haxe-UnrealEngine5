@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class MovieSceneFloatVectorTrackExtensions extends BlueprintFunctionLibrary {
 	public function SetNumChannelsUsed(Track: cpp.Star<MovieSceneFloatVectorTrack>, InNumChannelsUsed: cpp.Int32): Void;
-	public function GetNumChannelsUsed(Track: cpp.Star<MovieSceneFloatVectorTrack>): cpp.Reference<cpp.Int32>;
+	public function GetNumChannelsUsed(Track: cpp.Star<MovieSceneFloatVectorTrack>): cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -5,8 +5,8 @@ package ue;
 @:include("RigVMModel/Nodes/RigVMFunctionReferenceNode.h")
 @:structAccess
 extern class RigVMFunctionReferenceNode extends RigVMLibraryNode {
-	public var ReferencedNodePtr: TSoftObjectPtr<RigVMLibraryNode>;
-	public var VariableMap: TMap<FName, FName>;
+	private var ReferencedNodePtr: TSoftObjectPtr<RigVMLibraryNode>;
+	private var VariableMap: TMap<FName, FName>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class RigVMFunctionReferenceNode extends RigVMLibraryNode {
 @:forward()
 @:nativeGen
 abstract ConstRigVMFunctionReferenceNode(RigVMFunctionReferenceNode) from RigVMFunctionReferenceNode {
-	public extern var ReferencedNodePtr(get, never): TSoftObjectPtr<RigVMLibraryNode.ConstRigVMLibraryNode>;
-	public inline extern function get_ReferencedNodePtr(): TSoftObjectPtr<RigVMLibraryNode.ConstRigVMLibraryNode> return this.ReferencedNodePtr;
-	public extern var VariableMap(get, never): TMap<FName, FName>;
-	public inline extern function get_VariableMap(): TMap<FName, FName> return this.VariableMap;
 }
 
 @:forward

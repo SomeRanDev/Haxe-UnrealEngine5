@@ -5,7 +5,7 @@ package ue;
 @:include("Tracks/MovieSceneSubTrack.h")
 @:structAccess
 extern class MovieSceneSubTrack extends MovieSceneNameableTrack {
-	public var Sections: TArray<cpp.Star<MovieSceneSection>>;
+	@:protected public var Sections: TArray<cpp.Star<MovieSceneSection>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MovieSceneSubTrack extends MovieSceneNameableTrack {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneSubTrack(MovieSceneSubTrack) from MovieSceneSubTrack {
-	public extern var Sections(get, never): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>>;
-	public inline extern function get_Sections(): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>> return this.Sections;
 }
 
 @:forward

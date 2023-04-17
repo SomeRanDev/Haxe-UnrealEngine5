@@ -5,7 +5,7 @@ package ue;
 @:include("Tasks/AITask_RunEQS.h")
 @:structAccess
 extern class AITask_RunEQS extends AITask {
-	public function RunEQS(Controller: cpp.Star<AIController>, QueryTemplate: cpp.Star<EnvQuery>): cpp.Reference<cpp.Star<AITask_RunEQS>>;
+	public function RunEQS(Controller: cpp.Star<AIController>, QueryTemplate: cpp.Star<EnvQuery>): cpp.Star<AITask_RunEQS>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

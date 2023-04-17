@@ -5,7 +5,7 @@ package ue;
 @:include("Sequencer/NiagaraSequence/NiagaraSequence.h")
 @:structAccess
 extern class NiagaraSequence extends MovieSceneSequence {
-	public var MovieScene: cpp.Star<MovieScene>;
+	private var MovieScene: cpp.Star<MovieScene>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class NiagaraSequence extends MovieSceneSequence {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraSequence(NiagaraSequence) from NiagaraSequence {
-	public extern var MovieScene(get, never): cpp.Star<MovieScene.ConstMovieScene>;
-	public inline extern function get_MovieScene(): cpp.Star<MovieScene.ConstMovieScene> return this.MovieScene;
 }
 
 @:forward

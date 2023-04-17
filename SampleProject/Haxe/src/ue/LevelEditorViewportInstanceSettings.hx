@@ -5,9 +5,9 @@ package ue;
 @:include("Settings/LevelEditorViewportSettings.h")
 @:structAccess
 extern class LevelEditorViewportInstanceSettings {
-	public var ViewportType: ELevelViewportType;
-	public var PerspViewModeIndex: EViewModeIndex;
-	public var OrthoViewModeIndex: EViewModeIndex;
+	public var ViewportType: TEnumAsByte<ELevelViewportType>;
+	public var PerspViewModeIndex: TEnumAsByte<EViewModeIndex>;
+	public var OrthoViewModeIndex: TEnumAsByte<EViewModeIndex>;
 	public var EditorShowFlagsString: FString;
 	public var GameShowFlagsString: FString;
 	public var BufferVisualizationMode: FName;
@@ -19,7 +19,6 @@ extern class LevelEditorViewportInstanceSettings {
 	public var FOVAngle: cpp.Float32;
 	public var FarViewPlane: cpp.Float32;
 	public var bIsRealtime: Bool;
-	public var bShowFPS_DEPRECATED: Bool;
 	public var bShowOnScreenStats: Bool;
 	public var EnabledStats: TArray<FString>;
 	public var bShowFullToolbar: Bool;

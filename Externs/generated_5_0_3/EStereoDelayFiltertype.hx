@@ -3,11 +3,11 @@ package ue;
 
 @:native("EStereoDelayFiltertype")
 @:include("SourceEffects/SourceEffectStereoDelay.h")
-extern enum EStereoDelayFiltertype {
-	Lowpass;
-	Highpass;
-	Bandpass;
-	Notch;
-	Count;
-	EStereoDelayFiltertype_MAX;
+extern class EStereoDelayFiltertype {
+	static var Lowpass: EStereoDelayFiltertype;
+	static var Highpass: EStereoDelayFiltertype;
+	static var Bandpass: EStereoDelayFiltertype;
+	static var Notch: EStereoDelayFiltertype;
+	static var Count: EStereoDelayFiltertype;
+	static var EStereoDelayFiltertype_MAX: EStereoDelayFiltertype;
 }

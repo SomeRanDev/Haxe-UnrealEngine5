@@ -5,10 +5,9 @@ package ue;
 @:include("K2Node_GetClassDefaults.h")
 @:structAccess
 extern class K2Node_GetClassDefaults extends K2Node {
-	public var BlueprintSubscribedTo: cpp.Star<Blueprint>;
-	public var ShowPinForProperties: TArray<OptionalPinFromProperty>;
-	public var bExcludeObjectContainers: Bool;
-	public var bExcludeObjectArrays_DEPRECATED: Bool;
+	private var BlueprintSubscribedTo: cpp.Star<Blueprint>;
+	private var ShowPinForProperties: TArray<OptionalPinFromProperty>;
+	private var bExcludeObjectContainers: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +15,6 @@ extern class K2Node_GetClassDefaults extends K2Node {
 @:forward()
 @:nativeGen
 abstract ConstK2Node_GetClassDefaults(K2Node_GetClassDefaults) from K2Node_GetClassDefaults {
-	public extern var BlueprintSubscribedTo(get, never): cpp.Star<Blueprint.ConstBlueprint>;
-	public inline extern function get_BlueprintSubscribedTo(): cpp.Star<Blueprint.ConstBlueprint> return this.BlueprintSubscribedTo;
-	public extern var ShowPinForProperties(get, never): TArray<OptionalPinFromProperty>;
-	public inline extern function get_ShowPinForProperties(): TArray<OptionalPinFromProperty> return this.ShowPinForProperties;
-	public extern var bExcludeObjectContainers(get, never): Bool;
-	public inline extern function get_bExcludeObjectContainers(): Bool return this.bExcludeObjectContainers;
-	public extern var bExcludeObjectArrays_DEPRECATED(get, never): Bool;
-	public inline extern function get_bExcludeObjectArrays_DEPRECATED(): Bool return this.bExcludeObjectArrays_DEPRECATED;
 }
 
 @:forward

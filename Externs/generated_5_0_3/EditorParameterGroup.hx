@@ -6,10 +6,10 @@ package ue;
 @:structAccess
 extern class EditorParameterGroup {
 	public var GroupName: FName;
-	public var GroupAssociation: EMaterialParameterAssociation;
+	public var GroupAssociation: TEnumAsByte<EMaterialParameterAssociation>;
 	public var Parameters: TArray<cpp.Star<DEditorParameterValue>>;
 	public var GroupSortPriority: cpp.Int32;
 
 	@:native("FEditorParameterGroup") public function new();
-	@:native("FEditorParameterGroup") public static function make(GroupName: FName, GroupAssociation: EMaterialParameterAssociation, Parameters: TArray<cpp.Star<DEditorParameterValue>>, GroupSortPriority: cpp.Int32): EditorParameterGroup ;
+	@:native("FEditorParameterGroup") public static function make(GroupName: FName, GroupAssociation: TEnumAsByte<EMaterialParameterAssociation>, Parameters: TArray<cpp.Star<DEditorParameterValue>>, GroupSortPriority: cpp.Int32): EditorParameterGroup ;
 }

@@ -75,7 +75,7 @@ extern class LandscapeEditorObject extends Object {
 	public var bExportEditLayer: Bool;
 	public var HeightmapImportDescriptor: LandscapeImportDescriptor;
 	public var HeightmapImportDescriptorIndex: cpp.Int32;
-	public var ImportLandscape_Data: TArray<cpp.UInt16>;
+	private var ImportLandscape_Data: TArray<cpp.UInt16>;
 	public var bCanHaveLayersContent: Bool;
 	public var bFlipYAxis: Bool;
 	public var WorldPartitionGridSize: cpp.UInt32;
@@ -92,7 +92,7 @@ extern class LandscapeEditorObject extends Object {
 	public var bUseWorldSpacePatternBrush: Bool;
 	public var WorldSpacePatternBrushSettings: LandscapePatternBrushWorldSpaceSettings;
 	public var AlphaTexture: cpp.Star<Texture2D>;
-	public var AlphaTextureChannel: EColorChannel;
+	public var AlphaTextureChannel: TEnumAsByte<EColorChannel>;
 	public var AlphaTextureSizeX: cpp.Int32;
 	public var AlphaTextureSizeY: cpp.Int32;
 	public var AlphaTextureData: TArray<cpp.UInt8>;
@@ -248,8 +248,6 @@ abstract ConstLandscapeEditorObject(LandscapeEditorObject) from LandscapeEditorO
 	public inline extern function get_HeightmapImportDescriptor(): LandscapeImportDescriptor return this.HeightmapImportDescriptor;
 	public extern var HeightmapImportDescriptorIndex(get, never): cpp.Int32;
 	public inline extern function get_HeightmapImportDescriptorIndex(): cpp.Int32 return this.HeightmapImportDescriptorIndex;
-	public extern var ImportLandscape_Data(get, never): TArray<cpp.UInt16>;
-	public inline extern function get_ImportLandscape_Data(): TArray<cpp.UInt16> return this.ImportLandscape_Data;
 	public extern var bCanHaveLayersContent(get, never): Bool;
 	public inline extern function get_bCanHaveLayersContent(): Bool return this.bCanHaveLayersContent;
 	public extern var bFlipYAxis(get, never): Bool;
@@ -282,8 +280,8 @@ abstract ConstLandscapeEditorObject(LandscapeEditorObject) from LandscapeEditorO
 	public inline extern function get_WorldSpacePatternBrushSettings(): LandscapePatternBrushWorldSpaceSettings return this.WorldSpacePatternBrushSettings;
 	public extern var AlphaTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
 	public inline extern function get_AlphaTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.AlphaTexture;
-	public extern var AlphaTextureChannel(get, never): EColorChannel;
-	public inline extern function get_AlphaTextureChannel(): EColorChannel return this.AlphaTextureChannel;
+	public extern var AlphaTextureChannel(get, never): TEnumAsByte<EColorChannel>;
+	public inline extern function get_AlphaTextureChannel(): TEnumAsByte<EColorChannel> return this.AlphaTextureChannel;
 	public extern var AlphaTextureSizeX(get, never): cpp.Int32;
 	public inline extern function get_AlphaTextureSizeX(): cpp.Int32 return this.AlphaTextureSizeX;
 	public extern var AlphaTextureSizeY(get, never): cpp.Int32;

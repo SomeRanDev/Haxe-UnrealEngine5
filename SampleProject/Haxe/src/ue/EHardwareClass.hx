@@ -3,9 +3,9 @@ package ue;
 
 @:native("EHardwareClass")
 @:include("HardwareTargetingSettings.h")
-extern enum EHardwareClass {
-	Unspecified;
-	Desktop;
-	Mobile;
-	EHardwareClass_MAX;
+extern class EHardwareClass {
+	static var Unspecified: EHardwareClass;
+	static var Desktop: EHardwareClass;
+	static var Mobile: EHardwareClass;
+	static var EHardwareClass_MAX: EHardwareClass;
 }

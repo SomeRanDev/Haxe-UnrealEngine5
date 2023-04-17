@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESequencerZoomPosition")
 @:include("SequencerSettings.h")
-extern enum ESequencerZoomPosition {
-	SZP_CurrentTime;
-	SZP_MousePosition;
-	SZP_MAX;
+extern class ESequencerZoomPosition {
+	static var SZP_CurrentTime: ESequencerZoomPosition;
+	static var SZP_MousePosition: ESequencerZoomPosition;
+	static var SZP_MAX: ESequencerZoomPosition;
 }

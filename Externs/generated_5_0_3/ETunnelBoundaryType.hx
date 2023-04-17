@@ -3,10 +3,10 @@ package ue;
 
 @:native("ETunnelBoundaryType")
 @:include("K2Node_TunnelBoundary.h")
-extern enum ETunnelBoundaryType {
-	Unknown;
-	EntrySite;
-	InputSite;
-	OutputSite;
-	ETunnelBoundaryType_MAX;
+extern class ETunnelBoundaryType {
+	static var Unknown: ETunnelBoundaryType;
+	static var EntrySite: ETunnelBoundaryType;
+	static var InputSite: ETunnelBoundaryType;
+	static var OutputSite: ETunnelBoundaryType;
+	static var ETunnelBoundaryType_MAX: ETunnelBoundaryType;
 }

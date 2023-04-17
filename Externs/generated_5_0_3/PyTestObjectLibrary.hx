@@ -5,8 +5,8 @@ package ue;
 @:include("PyTest.h")
 @:structAccess
 extern class PyTestObjectLibrary extends BlueprintFunctionLibrary {
-	public function IsBoolSet(InObj: cpp.Star<PyTestObject.ConstPyTestObject>): cpp.Reference<Bool>;
-	public function GetOtherConstantValue(): cpp.Reference<cpp.Int32>;
+	private function IsBoolSet(InObj: cpp.Star<PyTestObject.ConstPyTestObject>): Bool;
+	private function GetOtherConstantValue(): cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

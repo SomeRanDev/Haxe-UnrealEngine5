@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class PlatformInterfaceData {
 	public var DataName: FName;
-	public var Type: EPlatformInterfaceDataType;
+	public var Type: TEnumAsByte<EPlatformInterfaceDataType>;
 	public var IntValue: cpp.Int32;
 	public var FloatValue: cpp.Float32;
 	public var StringValue: FString;

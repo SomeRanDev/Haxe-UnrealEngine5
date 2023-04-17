@@ -6,18 +6,18 @@ package ue;
 @:structAccess
 extern class KismetNodeHelperLibrary extends BlueprintFunctionLibrary {
 	public function MarkBit(Data: cpp.Reference<cpp.Int32>, Index: cpp.Int32): Void;
-	public function HasUnmarkedBit(Data: cpp.Int32, NumBits: cpp.Int32): cpp.Reference<Bool>;
-	public function HasMarkedBit(Data: cpp.Int32, NumBits: cpp.Int32): cpp.Reference<Bool>;
-	public function GetValidValue(Enum: cpp.Star<Enum.ConstEnum>, EnumeratorValue: cpp.UInt8): cpp.Reference<cpp.UInt8>;
-	public function GetUnmarkedBit(Data: cpp.Int32, StartIdx: cpp.Int32, NumBits: cpp.Int32, bRandom: Bool): cpp.Reference<cpp.Int32>;
-	public function GetRandomUnmarkedBit(Data: cpp.Int32, StartIdx: cpp.Int32, NumBits: cpp.Int32): cpp.Reference<cpp.Int32>;
-	public function GetFirstUnmarkedBit(Data: cpp.Int32, StartIdx: cpp.Int32, NumBits: cpp.Int32): cpp.Reference<cpp.Int32>;
-	public function GetEnumeratorValueFromIndex(Enum: cpp.Star<Enum.ConstEnum>, EnumeratorIndex: cpp.UInt8): cpp.Reference<cpp.UInt8>;
-	public function GetEnumeratorUserFriendlyName(Enum: cpp.Star<Enum.ConstEnum>, EnumeratorValue: cpp.UInt8): cpp.Reference<FString>;
-	public function GetEnumeratorName(Enum: cpp.Star<Enum.ConstEnum>, EnumeratorValue: cpp.UInt8): cpp.Reference<FName>;
+	public function HasUnmarkedBit(Data: cpp.Int32, NumBits: cpp.Int32): Bool;
+	public function HasMarkedBit(Data: cpp.Int32, NumBits: cpp.Int32): Bool;
+	public function GetValidValue(Enum: cpp.Star<Enum.ConstEnum>, EnumeratorValue: cpp.UInt8): cpp.UInt8;
+	public function GetUnmarkedBit(Data: cpp.Int32, StartIdx: cpp.Int32, NumBits: cpp.Int32, bRandom: Bool): cpp.Int32;
+	public function GetRandomUnmarkedBit(Data: cpp.Int32, StartIdx: cpp.Int32, NumBits: cpp.Int32): cpp.Int32;
+	public function GetFirstUnmarkedBit(Data: cpp.Int32, StartIdx: cpp.Int32, NumBits: cpp.Int32): cpp.Int32;
+	public function GetEnumeratorValueFromIndex(Enum: cpp.Star<Enum.ConstEnum>, EnumeratorIndex: cpp.UInt8): cpp.UInt8;
+	public function GetEnumeratorUserFriendlyName(Enum: cpp.Star<Enum.ConstEnum>, EnumeratorValue: cpp.UInt8): FString;
+	public function GetEnumeratorName(Enum: cpp.Star<Enum.ConstEnum>, EnumeratorValue: cpp.UInt8): FName;
 	public function ClearBit(Data: cpp.Reference<cpp.Int32>, Index: cpp.Int32): Void;
 	public function ClearAllBits(Data: cpp.Reference<cpp.Int32>): Void;
-	public function BitIsMarked(Data: cpp.Int32, Index: cpp.Int32): cpp.Reference<Bool>;
+	public function BitIsMarked(Data: cpp.Int32, Index: cpp.Int32): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

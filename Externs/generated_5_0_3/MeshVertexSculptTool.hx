@@ -8,8 +8,8 @@ extern class MeshVertexSculptTool extends MeshSculptToolBase {
 	public var SculptProperties: cpp.Star<VertexBrushSculptProperties>;
 	public var AlphaProperties: cpp.Star<VertexBrushAlphaProperties>;
 	public var BrushAlpha: cpp.Star<Texture2D>;
-	public var PreviewMeshActor: cpp.Star<InternalToolFrameworkActor>;
-	public var DynamicMeshComponent: cpp.Star<DynamicMeshComp>;
+	@:protected public var PreviewMeshActor: cpp.Star<InternalToolFrameworkActor>;
+	@:protected public var DynamicMeshComponent: cpp.Star<DynamicMeshComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -23,10 +23,6 @@ abstract ConstMeshVertexSculptTool(MeshVertexSculptTool) from MeshVertexSculptTo
 	public inline extern function get_AlphaProperties(): cpp.Star<VertexBrushAlphaProperties.ConstVertexBrushAlphaProperties> return this.AlphaProperties;
 	public extern var BrushAlpha(get, never): cpp.Star<Texture2D.ConstTexture2D>;
 	public inline extern function get_BrushAlpha(): cpp.Star<Texture2D.ConstTexture2D> return this.BrushAlpha;
-	public extern var PreviewMeshActor(get, never): cpp.Star<InternalToolFrameworkActor.ConstInternalToolFrameworkActor>;
-	public inline extern function get_PreviewMeshActor(): cpp.Star<InternalToolFrameworkActor.ConstInternalToolFrameworkActor> return this.PreviewMeshActor;
-	public extern var DynamicMeshComponent(get, never): cpp.Star<DynamicMeshComp.ConstDynamicMeshComp>;
-	public inline extern function get_DynamicMeshComponent(): cpp.Star<DynamicMeshComp.ConstDynamicMeshComp> return this.DynamicMeshComponent;
 }
 
 @:forward

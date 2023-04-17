@@ -5,7 +5,7 @@ package ue;
 @:include("ViewModels/Stack/NiagaraStackSimulationStageGroup.h")
 @:structAccess
 extern class NiagaraStackSimulationStageGroup extends NiagaraStackScriptItemGroup {
-	public var SimulationStageProperties: cpp.Star<NiagaraStackSimulationStagePropertiesItem>;
+	private var SimulationStageProperties: cpp.Star<NiagaraStackSimulationStagePropertiesItem>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class NiagaraStackSimulationStageGroup extends NiagaraStackScriptItemGrou
 @:forward()
 @:nativeGen
 abstract ConstNiagaraStackSimulationStageGroup(NiagaraStackSimulationStageGroup) from NiagaraStackSimulationStageGroup {
-	public extern var SimulationStageProperties(get, never): cpp.Star<NiagaraStackSimulationStagePropertiesItem.ConstNiagaraStackSimulationStagePropertiesItem>;
-	public inline extern function get_SimulationStageProperties(): cpp.Star<NiagaraStackSimulationStagePropertiesItem.ConstNiagaraStackSimulationStagePropertiesItem> return this.SimulationStageProperties;
 }
 
 @:forward

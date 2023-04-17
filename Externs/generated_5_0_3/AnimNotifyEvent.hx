@@ -5,7 +5,6 @@ package ue;
 @:include("Animation/AnimTypes.h")
 @:structAccess
 extern class AnimNotifyEvent extends AnimLinkableElement {
-	public var DisplayTime_DEPRECATED: cpp.Float32;
 	public var TriggerTimeOffset: cpp.Float32;
 	public var EndTriggerTimeOffset: cpp.Float32;
 	public var TriggerWeightThreshold: cpp.Float32;
@@ -15,14 +14,12 @@ extern class AnimNotifyEvent extends AnimLinkableElement {
 	public var Duration: cpp.Float32;
 	public var EndLink: AnimLinkableElement;
 	public var bConvertedFromBranchingPoint: Bool;
-	public var MontageTickType: EMontageNotifyTickType;
+	public var MontageTickType: TEnumAsByte<EMontageNotifyTickType>;
 	public var NotifyTriggerChance: cpp.Float32;
-	public var NotifyFilterType: ENotifyFilterType;
+	public var NotifyFilterType: TEnumAsByte<ENotifyFilterType>;
 	public var NotifyFilterLOD: cpp.Int32;
 	public var bTriggerOnDedicatedServer: Bool;
 	public var bTriggerOnFollower: Bool;
-	public var NotifyColor: Color;
-	public var Guid: Guid;
 	public var TrackIndex: cpp.Int32;
 
 	@:native("FAnimNotifyEvent") public function new();

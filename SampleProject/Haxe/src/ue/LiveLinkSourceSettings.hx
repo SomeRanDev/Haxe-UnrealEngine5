@@ -9,7 +9,6 @@ extern class LiveLinkSourceSettings extends Object {
 	public var BufferSettings: LiveLinkSourceBufferManagementSettings;
 	public var ConnectionString: FString;
 	public var Factory: TSubclassOf<LiveLinkSourceFactory>;
-	public var SourceDebugInfos_DEPRECATED: TArray<LiveLinkSourceDebugInfo>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -25,8 +24,6 @@ abstract ConstLiveLinkSourceSettings(LiveLinkSourceSettings) from LiveLinkSource
 	public inline extern function get_ConnectionString(): FString return this.ConnectionString;
 	public extern var Factory(get, never): TSubclassOf<LiveLinkSourceFactory.ConstLiveLinkSourceFactory>;
 	public inline extern function get_Factory(): TSubclassOf<LiveLinkSourceFactory.ConstLiveLinkSourceFactory> return this.Factory;
-	public extern var SourceDebugInfos_DEPRECATED(get, never): TArray<LiveLinkSourceDebugInfo>;
-	public inline extern function get_SourceDebugInfos_DEPRECATED(): TArray<LiveLinkSourceDebugInfo> return this.SourceDebugInfos_DEPRECATED;
 }
 
 @:forward

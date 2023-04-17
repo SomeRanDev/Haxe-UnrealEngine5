@@ -20,11 +20,11 @@ extern class Canvas extends Object {
 	public var GradientTexture0: cpp.Star<Texture2D>;
 	public var ReporterGraph: cpp.Star<ReporterGraph>;
 
-	public function K2_TextSize(RenderFont: cpp.Star<Font>, RenderText: FString, Scale: Vector2D): cpp.Reference<Vector2D>;
-	public function K2_StrLen(RenderFont: cpp.Star<Font>, RenderText: FString): cpp.Reference<Vector2D>;
-	public function K2_Project(WorldLocation: Vector): cpp.Reference<Vector>;
+	public function K2_TextSize(RenderFont: cpp.Star<Font>, RenderText: FString, Scale: Vector2D): Vector2D;
+	public function K2_StrLen(RenderFont: cpp.Star<Font>, RenderText: FString): Vector2D;
+	public function K2_Project(WorldLocation: Vector): Vector;
 	public function K2_DrawTriangle(RenderTexture: cpp.Star<Texture>, Triangles: TArray<CanvasUVTri>): Void;
-	public function K2_DrawTexture(RenderTexture: cpp.Star<Texture>, ScreenPosition: Vector2D, ScreenSize: Vector2D, CoordinatePosition: Vector2D, CoordinateSize: Vector2D, RenderColor: LinearColor, BlendMode: EBlendMode, Rotation: cpp.Float32, PivotPoint: Vector2D): Void;
+	public function K2_DrawTexture(RenderTexture: cpp.Star<Texture>, ScreenPosition: Vector2D, ScreenSize: Vector2D, CoordinatePosition: Vector2D, CoordinateSize: Vector2D, RenderColor: LinearColor, BlendMode: TEnumAsByte<EBlendMode>, Rotation: cpp.Float32, PivotPoint: Vector2D): Void;
 	public function K2_DrawText(RenderFont: cpp.Star<Font>, RenderText: FString, ScreenPosition: Vector2D, Scale: Vector2D, RenderColor: LinearColor, Kerning: cpp.Float32, ShadowColor: LinearColor, ShadowOffset: Vector2D, bCentreX: Bool, bCentreY: Bool, bOutlined: Bool, OutlineColor: LinearColor): Void;
 	public function K2_DrawPolygon(RenderTexture: cpp.Star<Texture>, ScreenPosition: Vector2D, Radius: Vector2D, NumberOfSides: cpp.Int32, RenderColor: LinearColor): Void;
 	public function K2_DrawMaterialTriangle(RenderMaterial: cpp.Star<MaterialInterface>, Triangles: TArray<CanvasUVTri>): Void;

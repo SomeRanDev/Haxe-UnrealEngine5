@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMaterialAttributeBlend.Type")
 @:include("Materials/MaterialExpressionBlendMaterialAttributes.h")
-extern enum EMaterialAttributeBlend {
-	Blend;
-	UseA;
-	UseB;
-	EMaterialAttributeBlend_MAX;
+extern class EMaterialAttributeBlend {
+	static var Blend: EMaterialAttributeBlend;
+	static var UseA: EMaterialAttributeBlend;
+	static var UseB: EMaterialAttributeBlend;
+	static var EMaterialAttributeBlend_MAX: EMaterialAttributeBlend;
 }

@@ -8,8 +8,8 @@ extern class DistributionVectorUniform extends DistributionVector {
 	public var Max: Vector;
 	public var Min: Vector;
 	public var bLockAxes: Bool;
-	public var LockedAxes: EDistributionVectorLockFlags;
-	public var MirrorFlags: EDistributionVectorMirrorFlags;
+	public var LockedAxes: TEnumAsByte<EDistributionVectorLockFlags>;
+	public var MirrorFlags: TEnumAsByte<EDistributionVectorMirrorFlags>;
 	public var bUseExtremes: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -24,10 +24,10 @@ abstract ConstDistributionVectorUniform(DistributionVectorUniform) from Distribu
 	public inline extern function get_Min(): Vector return this.Min;
 	public extern var bLockAxes(get, never): Bool;
 	public inline extern function get_bLockAxes(): Bool return this.bLockAxes;
-	public extern var LockedAxes(get, never): EDistributionVectorLockFlags;
-	public inline extern function get_LockedAxes(): EDistributionVectorLockFlags return this.LockedAxes;
-	public extern var MirrorFlags(get, never): EDistributionVectorMirrorFlags;
-	public inline extern function get_MirrorFlags(): EDistributionVectorMirrorFlags return this.MirrorFlags;
+	public extern var LockedAxes(get, never): TEnumAsByte<EDistributionVectorLockFlags>;
+	public inline extern function get_LockedAxes(): TEnumAsByte<EDistributionVectorLockFlags> return this.LockedAxes;
+	public extern var MirrorFlags(get, never): TEnumAsByte<EDistributionVectorMirrorFlags>;
+	public inline extern function get_MirrorFlags(): TEnumAsByte<EDistributionVectorMirrorFlags> return this.MirrorFlags;
 	public extern var bUseExtremes(get, never): Bool;
 	public inline extern function get_bUseExtremes(): Bool return this.bUseExtremes;
 }

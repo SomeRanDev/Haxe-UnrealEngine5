@@ -3,9 +3,9 @@ package ue;
 
 @:native("EContentBrowserDataMenuContext_AddNewMenuDomain")
 @:include("ContentBrowserDataMenuContexts.h")
-extern enum EContentBrowserDataMenuContext_AddNewMenuDomain {
-	Toolbar;
-	AssetView;
-	PathView;
-	EContentBrowserDataMenuContext_MAX;
+extern class EContentBrowserDataMenuContext_AddNewMenuDomain {
+	static var Toolbar: EContentBrowserDataMenuContext_AddNewMenuDomain;
+	static var AssetView: EContentBrowserDataMenuContext_AddNewMenuDomain;
+	static var PathView: EContentBrowserDataMenuContext_AddNewMenuDomain;
+	static var EContentBrowserDataMenuContext_MAX: EContentBrowserDataMenuContext_AddNewMenuDomain;
 }

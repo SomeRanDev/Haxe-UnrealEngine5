@@ -3,9 +3,9 @@ package ue;
 
 @:native("EEditorScriptingStringMatchType")
 @:include("EditorFilterLibrary.h")
-extern enum EEditorScriptingStringMatchType {
-	Contains;
-	MatchesWildcard;
-	ExactMatch;
-	EEditorScriptingStringMatchType_MAX;
+extern class EEditorScriptingStringMatchType {
+	static var Contains: EEditorScriptingStringMatchType;
+	static var MatchesWildcard: EEditorScriptingStringMatchType;
+	static var ExactMatch: EEditorScriptingStringMatchType;
+	static var EEditorScriptingStringMatchType_MAX: EEditorScriptingStringMatchType;
 }

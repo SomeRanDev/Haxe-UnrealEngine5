@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class AnimNode_ObserveBone extends AnimNode_SkeletalControlBase {
 	public var BoneToObserve: BoneReference;
-	public var DisplaySpace: EBoneControlSpace;
+	public var DisplaySpace: TEnumAsByte<EBoneControlSpace>;
 	public var bRelativeToRefPose: Bool;
 	public var Translation: Vector;
 	public var Rotation: Rotator;

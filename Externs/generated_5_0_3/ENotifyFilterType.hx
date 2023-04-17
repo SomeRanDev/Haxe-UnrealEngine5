@@ -3,8 +3,8 @@ package ue;
 
 @:native("ENotifyFilterType.Type")
 @:include("Animation/AnimTypes.h")
-extern enum ENotifyFilterType {
-	NoFiltering;
-	LOD;
-	ENotifyFilterType_MAX;
+extern class ENotifyFilterType {
+	static var NoFiltering: ENotifyFilterType;
+	static var LOD: ENotifyFilterType;
+	static var ENotifyFilterType_MAX: ENotifyFilterType;
 }

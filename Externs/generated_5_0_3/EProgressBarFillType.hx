@@ -3,13 +3,13 @@ package ue;
 
 @:native("EProgressBarFillType.Type")
 @:include("Widgets/Notifications/SProgressBar.h")
-extern enum EProgressBarFillType {
-	LeftToRight;
-	RightToLeft;
-	FillFromCenter;
-	FillFromCenterHorizontal;
-	FillFromCenterVertical;
-	TopToBottom;
-	BottomToTop;
-	EProgressBarFillType_MAX;
+extern class EProgressBarFillType {
+	static var LeftToRight: EProgressBarFillType;
+	static var RightToLeft: EProgressBarFillType;
+	static var FillFromCenter: EProgressBarFillType;
+	static var FillFromCenterHorizontal: EProgressBarFillType;
+	static var FillFromCenterVertical: EProgressBarFillType;
+	static var TopToBottom: EProgressBarFillType;
+	static var BottomToTop: EProgressBarFillType;
+	static var EProgressBarFillType_MAX: EProgressBarFillType;
 }

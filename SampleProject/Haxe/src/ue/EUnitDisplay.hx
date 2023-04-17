@@ -3,10 +3,10 @@ package ue;
 
 @:native("EUnitDisplay")
 @:include("Settings/EditorProjectSettings.h")
-extern enum EUnitDisplay {
-	None;
-	Metric;
-	Imperial;
-	Invalid;
-	EUnitDisplay_MAX;
+extern class EUnitDisplay {
+	static var None: EUnitDisplay;
+	static var Metric: EUnitDisplay;
+	static var Imperial: EUnitDisplay;
+	static var Invalid: EUnitDisplay;
+	static var EUnitDisplay_MAX: EUnitDisplay;
 }

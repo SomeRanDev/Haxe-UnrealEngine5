@@ -5,7 +5,7 @@ package ue;
 @:include("GeometryCacheCodecRaw.h")
 @:structAccess
 extern class GeometryCacheCodecRaw extends GeometryCacheCodecBase {
-	public var DummyProperty: cpp.Int32;
+	private var DummyProperty: cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class GeometryCacheCodecRaw extends GeometryCacheCodecBase {
 @:forward()
 @:nativeGen
 abstract ConstGeometryCacheCodecRaw(GeometryCacheCodecRaw) from GeometryCacheCodecRaw {
-	public extern var DummyProperty(get, never): cpp.Int32;
-	public inline extern function get_DummyProperty(): cpp.Int32 return this.DummyProperty;
 }
 
 @:forward

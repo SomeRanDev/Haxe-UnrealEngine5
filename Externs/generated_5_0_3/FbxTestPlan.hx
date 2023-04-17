@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class FbxTestPlan extends Object {
 	public var TestPlanName: FString;
-	public var Action: EFBXTestPlanActionType;
+	public var Action: TEnumAsByte<EFBXTestPlanActionType>;
 	public var LodIndex: cpp.Int32;
 	public var bDeleteFolderAssets: Bool;
 	public var ExpectedResult: TArray<FbxTestPlanExpectedResult>;
@@ -20,8 +20,8 @@ extern class FbxTestPlan extends Object {
 abstract ConstFbxTestPlan(FbxTestPlan) from FbxTestPlan {
 	public extern var TestPlanName(get, never): FString;
 	public inline extern function get_TestPlanName(): FString return this.TestPlanName;
-	public extern var Action(get, never): EFBXTestPlanActionType;
-	public inline extern function get_Action(): EFBXTestPlanActionType return this.Action;
+	public extern var Action(get, never): TEnumAsByte<EFBXTestPlanActionType>;
+	public inline extern function get_Action(): TEnumAsByte<EFBXTestPlanActionType> return this.Action;
 	public extern var LodIndex(get, never): cpp.Int32;
 	public inline extern function get_LodIndex(): cpp.Int32 return this.LodIndex;
 	public extern var bDeleteFolderAssets(get, never): Bool;

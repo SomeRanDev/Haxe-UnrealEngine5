@@ -8,13 +8,13 @@ extern class NiagaraBaselineController extends Object {
 	public var TestDuration: cpp.Float32;
 	public var EffectType: cpp.Star<NiagaraEffectType>;
 	public var Owner: cpp.Star<NiagaraPerfBaselineActor>;
-	public var System: TSoftObjectPtr<NiagaraSystem>;
+	private var System: TSoftObjectPtr<NiagaraSystem>;
 
-	public function OnTickTest(): cpp.Reference<Bool>;
+	public function OnTickTest(): Bool;
 	public function OnOwnerTick(DeltaTime: cpp.Float32): Void;
 	public function OnEndTest(Stats: NiagaraPerfBaselineStats): Void;
 	public function OnBeginTest(): Void;
-	public function GetSystem(): cpp.Reference<cpp.Star<NiagaraSystem>>;
+	public function GetSystem(): cpp.Star<NiagaraSystem>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -28,8 +28,6 @@ abstract ConstNiagaraBaselineController(NiagaraBaselineController) from NiagaraB
 	public inline extern function get_EffectType(): cpp.Star<NiagaraEffectType.ConstNiagaraEffectType> return this.EffectType;
 	public extern var Owner(get, never): cpp.Star<NiagaraPerfBaselineActor.ConstNiagaraPerfBaselineActor>;
 	public inline extern function get_Owner(): cpp.Star<NiagaraPerfBaselineActor.ConstNiagaraPerfBaselineActor> return this.Owner;
-	public extern var System(get, never): TSoftObjectPtr<NiagaraSystem.ConstNiagaraSystem>;
-	public inline extern function get_System(): TSoftObjectPtr<NiagaraSystem.ConstNiagaraSystem> return this.System;
 }
 
 @:forward

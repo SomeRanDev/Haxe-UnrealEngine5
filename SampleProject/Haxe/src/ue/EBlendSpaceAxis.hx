@@ -3,9 +3,9 @@ package ue;
 
 @:native("EBlendSpaceAxis")
 @:include("Animation/BlendSpace.h")
-extern enum EBlendSpaceAxis {
-	BSA_None;
-	BSA_X;
-	BSA_Y;
-	BSA_MAX;
+extern class EBlendSpaceAxis {
+	static var BSA_None: EBlendSpaceAxis;
+	static var BSA_X: EBlendSpaceAxis;
+	static var BSA_Y: EBlendSpaceAxis;
+	static var BSA_MAX: EBlendSpaceAxis;
 }

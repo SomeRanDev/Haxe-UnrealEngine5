@@ -5,11 +5,11 @@ package ue;
 @:include("Engine/StaticMeshActor.h")
 @:structAccess
 extern class StaticMeshActor extends Actor {
-	public var StaticMeshComponent: cpp.Star<StaticMeshComp>;
+	private var StaticMeshComponent: cpp.Star<StaticMeshComp>;
 	public var bStaticMeshReplicateMovement: Bool;
 	public var NavigationGeometryGatheringMode: ENavDataGatheringMode;
 
-	public function SetMobility(InMobility: EComponentMobility): Void;
+	public function SetMobility(InMobility: TEnumAsByte<EComponentMobility>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,8 +17,6 @@ extern class StaticMeshActor extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstStaticMeshActor(StaticMeshActor) from StaticMeshActor {
-	public extern var StaticMeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_StaticMeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.StaticMeshComponent;
 	public extern var bStaticMeshReplicateMovement(get, never): Bool;
 	public inline extern function get_bStaticMeshReplicateMovement(): Bool return this.bStaticMeshReplicateMovement;
 	public extern var NavigationGeometryGatheringMode(get, never): ENavDataGatheringMode;

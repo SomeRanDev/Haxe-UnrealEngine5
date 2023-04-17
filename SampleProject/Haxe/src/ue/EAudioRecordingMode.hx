@@ -3,8 +3,8 @@ package ue;
 
 @:native("EAudioRecordingMode")
 @:include("SequenceRecorderSettings.h")
-extern enum EAudioRecordingMode {
-	None;
-	AudioTrack;
-	EAudioRecordingMode_MAX;
+extern class EAudioRecordingMode {
+	static var None: EAudioRecordingMode;
+	static var AudioTrack: EAudioRecordingMode;
+	static var EAudioRecordingMode_MAX: EAudioRecordingMode;
 }

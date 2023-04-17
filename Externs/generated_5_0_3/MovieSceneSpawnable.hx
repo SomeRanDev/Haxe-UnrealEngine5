@@ -10,12 +10,11 @@ extern class MovieSceneSpawnable {
 	public var bContinuouslyRespawn: Bool;
 	public var bNetAddressableName: Bool;
 	public var bEvaluateTracksWhenNotSpawned: Bool;
-	public var Guid: Guid;
-	public var Name: FString;
-	public var ObjectTemplate: cpp.Star<Object>;
-	public var ChildPossessables: TArray<Guid>;
-	public var Ownership: ESpawnOwnership;
-	public var GeneratedClass_DEPRECATED: TSubclassOf<Object>;
+	private var Guid: Guid;
+	private var Name: FString;
+	private var ObjectTemplate: cpp.Star<Object>;
+	private var ChildPossessables: TArray<Guid>;
+	private var Ownership: ESpawnOwnership;
 	public var LevelName: FName;
 
 	@:native("FMovieSceneSpawnable") public function new();

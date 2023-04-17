@@ -3,8 +3,8 @@ package ue;
 
 @:native("ELocationSkelVertSurfaceSource")
 @:include("Particles/Location/ParticleModuleLocationSkelVertSurface.h")
-extern enum ELocationSkelVertSurfaceSource {
-	VERTSURFACESOURCE_Vert;
-	VERTSURFACESOURCE_Surface;
-	VERTSURFACESOURCE_MAX;
+extern class ELocationSkelVertSurfaceSource {
+	static var VERTSURFACESOURCE_Vert: ELocationSkelVertSurfaceSource;
+	static var VERTSURFACESOURCE_Surface: ELocationSkelVertSurfaceSource;
+	static var VERTSURFACESOURCE_MAX: ELocationSkelVertSurfaceSource;
 }

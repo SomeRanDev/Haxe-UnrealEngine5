@@ -10,13 +10,6 @@ extern class AnimBlueprint extends Blueprint {
 	public var bIsTemplate: Bool;
 	public var bUseMultiThreadedAnimationUpdate: Bool;
 	public var bWarnAboutBlueprintUsage: Bool;
-	public var ParentAssetOverrides: TArray<AnimParentNodeAssetOverride>;
-	public var PoseWatchFolders: TArray<cpp.Star<PoseWatchFolder>>;
-	public var PoseWatches: TArray<cpp.Star<PoseWatch>>;
-	public var PreviewSkeletalMesh: TSoftObjectPtr<SkeletalMesh>;
-	public var PreviewAnimationBlueprint: TSoftObjectPtr<AnimBlueprint>;
-	public var PreviewAnimationBlueprintApplicationMethod: EPreviewAnimationBlueprintApplicationMethod;
-	public var PreviewAnimationBlueprintTag: FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -34,20 +27,6 @@ abstract ConstAnimBlueprint(AnimBlueprint) from AnimBlueprint {
 	public inline extern function get_bUseMultiThreadedAnimationUpdate(): Bool return this.bUseMultiThreadedAnimationUpdate;
 	public extern var bWarnAboutBlueprintUsage(get, never): Bool;
 	public inline extern function get_bWarnAboutBlueprintUsage(): Bool return this.bWarnAboutBlueprintUsage;
-	public extern var ParentAssetOverrides(get, never): TArray<AnimParentNodeAssetOverride>;
-	public inline extern function get_ParentAssetOverrides(): TArray<AnimParentNodeAssetOverride> return this.ParentAssetOverrides;
-	public extern var PoseWatchFolders(get, never): TArray<cpp.Star<PoseWatchFolder.ConstPoseWatchFolder>>;
-	public inline extern function get_PoseWatchFolders(): TArray<cpp.Star<PoseWatchFolder.ConstPoseWatchFolder>> return this.PoseWatchFolders;
-	public extern var PoseWatches(get, never): TArray<cpp.Star<PoseWatch.ConstPoseWatch>>;
-	public inline extern function get_PoseWatches(): TArray<cpp.Star<PoseWatch.ConstPoseWatch>> return this.PoseWatches;
-	public extern var PreviewSkeletalMesh(get, never): TSoftObjectPtr<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_PreviewSkeletalMesh(): TSoftObjectPtr<SkeletalMesh.ConstSkeletalMesh> return this.PreviewSkeletalMesh;
-	public extern var PreviewAnimationBlueprint(get, never): TSoftObjectPtr<AnimBlueprint.ConstAnimBlueprint>;
-	public inline extern function get_PreviewAnimationBlueprint(): TSoftObjectPtr<AnimBlueprint.ConstAnimBlueprint> return this.PreviewAnimationBlueprint;
-	public extern var PreviewAnimationBlueprintApplicationMethod(get, never): EPreviewAnimationBlueprintApplicationMethod;
-	public inline extern function get_PreviewAnimationBlueprintApplicationMethod(): EPreviewAnimationBlueprintApplicationMethod return this.PreviewAnimationBlueprintApplicationMethod;
-	public extern var PreviewAnimationBlueprintTag(get, never): FName;
-	public inline extern function get_PreviewAnimationBlueprintTag(): FName return this.PreviewAnimationBlueprintTag;
 }
 
 @:forward

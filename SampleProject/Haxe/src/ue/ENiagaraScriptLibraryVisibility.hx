@@ -3,10 +3,10 @@ package ue;
 
 @:native("ENiagaraScriptLibraryVisibility")
 @:include("NiagaraScript.h")
-extern enum ENiagaraScriptLibraryVisibility {
-	Invalid;
-	Unexposed;
-	Library;
-	Hidden;
-	ENiagaraScriptLibraryVisibility_MAX;
+extern class ENiagaraScriptLibraryVisibility {
+	static var Invalid: ENiagaraScriptLibraryVisibility;
+	static var Unexposed: ENiagaraScriptLibraryVisibility;
+	static var Library: ENiagaraScriptLibraryVisibility;
+	static var Hidden: ENiagaraScriptLibraryVisibility;
+	static var ENiagaraScriptLibraryVisibility_MAX: ENiagaraScriptLibraryVisibility;
 }

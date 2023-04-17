@@ -3,9 +3,9 @@ package ue;
 
 @:native("EWindowMode.Type")
 @:include("GameFramework/GameUserSettings.h")
-extern enum EWindowMode {
-	Fullscreen;
-	WindowedFullscreen;
-	Windowed;
-	EWindowMode_MAX;
+extern class EWindowMode {
+	static var Fullscreen: EWindowMode;
+	static var WindowedFullscreen: EWindowMode;
+	static var Windowed: EWindowMode;
+	static var EWindowMode_MAX: EWindowMode;
 }

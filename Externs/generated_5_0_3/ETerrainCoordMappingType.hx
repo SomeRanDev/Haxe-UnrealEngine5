@@ -3,10 +3,10 @@ package ue;
 
 @:native("ETerrainCoordMappingType")
 @:include("Materials/MaterialExpressionLandscapeLayerCoords.h")
-extern enum ETerrainCoordMappingType {
-	TCMT_Auto;
-	TCMT_XY;
-	TCMT_XZ;
-	TCMT_YZ;
-	TCMT_MAX;
+extern class ETerrainCoordMappingType {
+	static var TCMT_Auto: ETerrainCoordMappingType;
+	static var TCMT_XY: ETerrainCoordMappingType;
+	static var TCMT_XZ: ETerrainCoordMappingType;
+	static var TCMT_YZ: ETerrainCoordMappingType;
+	static var TCMT_MAX: ETerrainCoordMappingType;
 }

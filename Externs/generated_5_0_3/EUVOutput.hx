@@ -3,8 +3,8 @@ package ue;
 
 @:native("EUVOutput")
 @:include("Engine/MeshMerging.h")
-extern enum EUVOutput {
-	DoNotOutputChannel;
-	OutputChannel;
-	EUVOutput_MAX;
+extern class EUVOutput {
+	static var DoNotOutputChannel: EUVOutput;
+	static var OutputChannel: EUVOutput;
+	static var EUVOutput_MAX: EUVOutput;
 }

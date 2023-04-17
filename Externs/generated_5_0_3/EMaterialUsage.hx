@@ -3,25 +3,25 @@ package ue;
 
 @:native("EMaterialUsage")
 @:include("Materials/MaterialInterface.h")
-extern enum EMaterialUsage {
-	MATUSAGE_SkeletalMesh;
-	MATUSAGE_ParticleSprites;
-	MATUSAGE_BeamTrails;
-	MATUSAGE_MeshParticles;
-	MATUSAGE_StaticLighting;
-	MATUSAGE_MorphTargets;
-	MATUSAGE_SplineMesh;
-	MATUSAGE_InstancedStaticMeshes;
-	MATUSAGE_GeometryCollections;
-	MATUSAGE_Clothing;
-	MATUSAGE_NiagaraSprites;
-	MATUSAGE_NiagaraRibbons;
-	MATUSAGE_NiagaraMeshParticles;
-	MATUSAGE_GeometryCache;
-	MATUSAGE_Water;
-	MATUSAGE_HairStrands;
-	MATUSAGE_LidarPointCloud;
-	MATUSAGE_VirtualHeightfieldMesh;
-	MATUSAGE_Nanite;
-	MATUSAGE_MAX;
+extern class EMaterialUsage {
+	static var MATUSAGE_SkeletalMesh: EMaterialUsage;
+	static var MATUSAGE_ParticleSprites: EMaterialUsage;
+	static var MATUSAGE_BeamTrails: EMaterialUsage;
+	static var MATUSAGE_MeshParticles: EMaterialUsage;
+	static var MATUSAGE_StaticLighting: EMaterialUsage;
+	static var MATUSAGE_MorphTargets: EMaterialUsage;
+	static var MATUSAGE_SplineMesh: EMaterialUsage;
+	static var MATUSAGE_InstancedStaticMeshes: EMaterialUsage;
+	static var MATUSAGE_GeometryCollections: EMaterialUsage;
+	static var MATUSAGE_Clothing: EMaterialUsage;
+	static var MATUSAGE_NiagaraSprites: EMaterialUsage;
+	static var MATUSAGE_NiagaraRibbons: EMaterialUsage;
+	static var MATUSAGE_NiagaraMeshParticles: EMaterialUsage;
+	static var MATUSAGE_GeometryCache: EMaterialUsage;
+	static var MATUSAGE_Water: EMaterialUsage;
+	static var MATUSAGE_HairStrands: EMaterialUsage;
+	static var MATUSAGE_LidarPointCloud: EMaterialUsage;
+	static var MATUSAGE_VirtualHeightfieldMesh: EMaterialUsage;
+	static var MATUSAGE_Nanite: EMaterialUsage;
+	static var MATUSAGE_MAX: EMaterialUsage;
 }

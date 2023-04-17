@@ -3,8 +3,8 @@ package ue;
 
 @:native("EPaperSpriteAtlasPadding")
 @:include("PaperSpriteAtlas.h")
-extern enum EPaperSpriteAtlasPadding {
-	DilateBorder;
-	PadWithZero;
-	EPaperSpriteAtlasPadding_MAX;
+extern class EPaperSpriteAtlasPadding {
+	static var DilateBorder: EPaperSpriteAtlasPadding;
+	static var PadWithZero: EPaperSpriteAtlasPadding;
+	static var EPaperSpriteAtlasPadding_MAX: EPaperSpriteAtlasPadding;
 }

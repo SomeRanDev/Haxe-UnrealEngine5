@@ -3,11 +3,11 @@ package ue;
 
 @:native("EPawnActionResult.Type")
 @:include("AITypes.h")
-extern enum EPawnActionResult {
-	NotStarted;
-	InProgress;
-	Success;
-	Failed;
-	Aborted;
-	EPawnActionResult_MAX;
+extern class EPawnActionResult {
+	static var NotStarted: EPawnActionResult;
+	static var InProgress: EPawnActionResult;
+	static var Success: EPawnActionResult;
+	static var Failed: EPawnActionResult;
+	static var Aborted: EPawnActionResult;
+	static var EPawnActionResult_MAX: EPawnActionResult;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EVerticalTextAligment")
 @:include("Components/TextRenderComponent.h")
-extern enum EVerticalTextAligment {
-	EVRTA_TextTop;
-	EVRTA_TextCenter;
-	EVRTA_TextBottom;
-	EVRTA_QuadTop;
-	EVRTA_MAX;
+extern class EVerticalTextAligment {
+	static var EVRTA_TextTop: EVerticalTextAligment;
+	static var EVRTA_TextCenter: EVerticalTextAligment;
+	static var EVRTA_TextBottom: EVerticalTextAligment;
+	static var EVRTA_QuadTop: EVerticalTextAligment;
+	static var EVRTA_MAX: EVerticalTextAligment;
 }

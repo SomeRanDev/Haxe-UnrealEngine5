@@ -5,18 +5,18 @@ package ue;
 @:include("MeshSpaceDeformerTool.h")
 @:structAccess
 extern class MeshSpaceDeformerTool extends SingleSelectionMeshEditingTool {
-	public var Settings: cpp.Star<MeshSpaceDeformerToolProperties>;
-	public var ToolActions: cpp.Star<MeshSpaceDeformerToolActionPropertySet>;
-	public var StateTarget: cpp.Star<GizmoTransformChangeStateTarget>;
-	public var DragAlignmentMechanic: cpp.Star<DragAlignmentMechanic>;
-	public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	public var OriginalMeshPreview: cpp.Star<PreviewMesh>;
-	public var IntervalGizmo: cpp.Star<IntervalGizmo>;
-	public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	public var TransformProxy: cpp.Star<TransformProxy>;
-	public var UpIntervalSource: cpp.Star<GizmoLocalFloatParameterSource>;
-	public var DownIntervalSource: cpp.Star<GizmoLocalFloatParameterSource>;
-	public var ForwardIntervalSource: cpp.Star<GizmoLocalFloatParameterSource>;
+	@:protected public var Settings: cpp.Star<MeshSpaceDeformerToolProperties>;
+	@:protected public var ToolActions: cpp.Star<MeshSpaceDeformerToolActionPropertySet>;
+	@:protected public var StateTarget: cpp.Star<GizmoTransformChangeStateTarget>;
+	@:protected public var DragAlignmentMechanic: cpp.Star<DragAlignmentMechanic>;
+	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var OriginalMeshPreview: cpp.Star<PreviewMesh>;
+	@:protected public var IntervalGizmo: cpp.Star<IntervalGizmo>;
+	@:protected public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
+	@:protected public var TransformProxy: cpp.Star<TransformProxy>;
+	@:protected public var UpIntervalSource: cpp.Star<GizmoLocalFloatParameterSource>;
+	@:protected public var DownIntervalSource: cpp.Star<GizmoLocalFloatParameterSource>;
+	@:protected public var ForwardIntervalSource: cpp.Star<GizmoLocalFloatParameterSource>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -24,30 +24,6 @@ extern class MeshSpaceDeformerTool extends SingleSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstMeshSpaceDeformerTool(MeshSpaceDeformerTool) from MeshSpaceDeformerTool {
-	public extern var Settings(get, never): cpp.Star<MeshSpaceDeformerToolProperties.ConstMeshSpaceDeformerToolProperties>;
-	public inline extern function get_Settings(): cpp.Star<MeshSpaceDeformerToolProperties.ConstMeshSpaceDeformerToolProperties> return this.Settings;
-	public extern var ToolActions(get, never): cpp.Star<MeshSpaceDeformerToolActionPropertySet.ConstMeshSpaceDeformerToolActionPropertySet>;
-	public inline extern function get_ToolActions(): cpp.Star<MeshSpaceDeformerToolActionPropertySet.ConstMeshSpaceDeformerToolActionPropertySet> return this.ToolActions;
-	public extern var StateTarget(get, never): cpp.Star<GizmoTransformChangeStateTarget.ConstGizmoTransformChangeStateTarget>;
-	public inline extern function get_StateTarget(): cpp.Star<GizmoTransformChangeStateTarget.ConstGizmoTransformChangeStateTarget> return this.StateTarget;
-	public extern var DragAlignmentMechanic(get, never): cpp.Star<DragAlignmentMechanic.ConstDragAlignmentMechanic>;
-	public inline extern function get_DragAlignmentMechanic(): cpp.Star<DragAlignmentMechanic.ConstDragAlignmentMechanic> return this.DragAlignmentMechanic;
-	public extern var Preview(get, never): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
-	public inline extern function get_Preview(): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.Preview;
-	public extern var OriginalMeshPreview(get, never): cpp.Star<PreviewMesh.ConstPreviewMesh>;
-	public inline extern function get_OriginalMeshPreview(): cpp.Star<PreviewMesh.ConstPreviewMesh> return this.OriginalMeshPreview;
-	public extern var IntervalGizmo(get, never): cpp.Star<IntervalGizmo.ConstIntervalGizmo>;
-	public inline extern function get_IntervalGizmo(): cpp.Star<IntervalGizmo.ConstIntervalGizmo> return this.IntervalGizmo;
-	public extern var TransformGizmo(get, never): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo>;
-	public inline extern function get_TransformGizmo(): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo> return this.TransformGizmo;
-	public extern var TransformProxy(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
-	public inline extern function get_TransformProxy(): cpp.Star<TransformProxy.ConstTransformProxy> return this.TransformProxy;
-	public extern var UpIntervalSource(get, never): cpp.Star<GizmoLocalFloatParameterSource.ConstGizmoLocalFloatParameterSource>;
-	public inline extern function get_UpIntervalSource(): cpp.Star<GizmoLocalFloatParameterSource.ConstGizmoLocalFloatParameterSource> return this.UpIntervalSource;
-	public extern var DownIntervalSource(get, never): cpp.Star<GizmoLocalFloatParameterSource.ConstGizmoLocalFloatParameterSource>;
-	public inline extern function get_DownIntervalSource(): cpp.Star<GizmoLocalFloatParameterSource.ConstGizmoLocalFloatParameterSource> return this.DownIntervalSource;
-	public extern var ForwardIntervalSource(get, never): cpp.Star<GizmoLocalFloatParameterSource.ConstGizmoLocalFloatParameterSource>;
-	public inline extern function get_ForwardIntervalSource(): cpp.Star<GizmoLocalFloatParameterSource.ConstGizmoLocalFloatParameterSource> return this.ForwardIntervalSource;
 }
 
 @:forward

@@ -3,11 +3,11 @@ package ue;
 
 @:native("EAudioFaderCurve")
 @:include("Components/AudioComponent.h")
-extern enum EAudioFaderCurve {
-	Linear;
-	Logarithmic;
-	SCurve;
-	Sin;
-	Count;
-	EAudioFaderCurve_MAX;
+extern class EAudioFaderCurve {
+	static var Linear: EAudioFaderCurve;
+	static var Logarithmic: EAudioFaderCurve;
+	static var SCurve: EAudioFaderCurve;
+	static var Sin: EAudioFaderCurve;
+	static var Count: EAudioFaderCurve;
+	static var EAudioFaderCurve_MAX: EAudioFaderCurve;
 }

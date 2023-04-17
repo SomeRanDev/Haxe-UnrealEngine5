@@ -3,8 +3,8 @@ package ue;
 
 @:native("EInitialWaveOscillatorOffsetType")
 @:include("WaveOscillatorCameraShakePattern.h")
-extern enum EInitialWaveOscillatorOffsetType {
-	Random;
-	Zero;
-	EInitialWaveOscillatorOffsetType_MAX;
+extern class EInitialWaveOscillatorOffsetType {
+	static var Random: EInitialWaveOscillatorOffsetType;
+	static var Zero: EInitialWaveOscillatorOffsetType;
+	static var EInitialWaveOscillatorOffsetType_MAX: EInitialWaveOscillatorOffsetType;
 }

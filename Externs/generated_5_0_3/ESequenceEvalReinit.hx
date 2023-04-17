@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESequenceEvalReinit.Type")
 @:include("AnimNodes/AnimNode_SequenceEvaluator.h")
-extern enum ESequenceEvalReinit {
-	NoReset;
-	StartPosition;
-	ExplicitTime;
-	ESequenceEvalReinit_MAX;
+extern class ESequenceEvalReinit {
+	static var NoReset: ESequenceEvalReinit;
+	static var StartPosition: ESequenceEvalReinit;
+	static var ExplicitTime: ESequenceEvalReinit;
+	static var ESequenceEvalReinit_MAX: ESequenceEvalReinit;
 }

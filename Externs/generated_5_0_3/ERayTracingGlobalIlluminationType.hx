@@ -3,9 +3,9 @@ package ue;
 
 @:native("ERayTracingGlobalIlluminationType")
 @:include("Engine/Scene.h")
-extern enum ERayTracingGlobalIlluminationType {
-	Disabled;
-	BruteForce;
-	FinalGather;
-	ERayTracingGlobalIlluminationType_MAX;
+extern class ERayTracingGlobalIlluminationType {
+	static var Disabled: ERayTracingGlobalIlluminationType;
+	static var BruteForce: ERayTracingGlobalIlluminationType;
+	static var FinalGather: ERayTracingGlobalIlluminationType;
+	static var ERayTracingGlobalIlluminationType_MAX: ERayTracingGlobalIlluminationType;
 }

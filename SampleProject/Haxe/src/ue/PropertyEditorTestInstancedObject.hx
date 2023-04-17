@@ -5,7 +5,7 @@ package ue;
 @:include("Editor/PropertyEditorTestObject.h")
 @:structAccess
 extern class PropertyEditorTestInstancedObject extends Object {
-	public var Number: cpp.Int32;
+	private var Number: cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class PropertyEditorTestInstancedObject extends Object {
 @:forward()
 @:nativeGen
 abstract ConstPropertyEditorTestInstancedObject(PropertyEditorTestInstancedObject) from PropertyEditorTestInstancedObject {
-	public extern var Number(get, never): cpp.Int32;
-	public inline extern function get_Number(): cpp.Int32 return this.Number;
 }
 
 @:forward

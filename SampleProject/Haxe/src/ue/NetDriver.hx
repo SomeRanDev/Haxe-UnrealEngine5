@@ -32,8 +32,8 @@ extern class NetDriver extends Object {
 	public var NetDriverName: FName;
 	public var ChannelDefinitions: TArray<ChannelDefinition>;
 	public var ChannelDefinitionMap: TMap<FName, ChannelDefinition>;
-	public var ActorChannelPool: TArray<cpp.Star<Channel>>;
-	public var ReplicationDriver: cpp.Star<ReplicationDriver>;
+	private var ActorChannelPool: TArray<cpp.Star<Channel>>;
+	private var ReplicationDriver: cpp.Star<ReplicationDriver>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -95,10 +95,6 @@ abstract ConstNetDriver(NetDriver) from NetDriver {
 	public inline extern function get_ChannelDefinitions(): TArray<ChannelDefinition> return this.ChannelDefinitions;
 	public extern var ChannelDefinitionMap(get, never): TMap<FName, ChannelDefinition>;
 	public inline extern function get_ChannelDefinitionMap(): TMap<FName, ChannelDefinition> return this.ChannelDefinitionMap;
-	public extern var ActorChannelPool(get, never): TArray<cpp.Star<Channel.ConstChannel>>;
-	public inline extern function get_ActorChannelPool(): TArray<cpp.Star<Channel.ConstChannel>> return this.ActorChannelPool;
-	public extern var ReplicationDriver(get, never): cpp.Star<ReplicationDriver.ConstReplicationDriver>;
-	public inline extern function get_ReplicationDriver(): cpp.Star<ReplicationDriver.ConstReplicationDriver> return this.ReplicationDriver;
 }
 
 @:forward

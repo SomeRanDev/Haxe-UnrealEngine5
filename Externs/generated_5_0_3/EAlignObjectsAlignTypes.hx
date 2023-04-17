@@ -3,8 +3,8 @@ package ue;
 
 @:native("EAlignObjectsAlignTypes")
 @:include("AlignObjectsTool.h")
-extern enum EAlignObjectsAlignTypes {
-	Pivots;
-	BoundingBoxes;
-	EAlignObjectsAlignTypes_MAX;
+extern class EAlignObjectsAlignTypes {
+	static var Pivots: EAlignObjectsAlignTypes;
+	static var BoundingBoxes: EAlignObjectsAlignTypes;
+	static var EAlignObjectsAlignTypes_MAX: EAlignObjectsAlignTypes;
 }

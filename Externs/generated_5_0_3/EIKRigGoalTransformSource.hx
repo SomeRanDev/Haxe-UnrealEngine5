@@ -3,9 +3,9 @@ package ue;
 
 @:native("EIKRigGoalTransformSource")
 @:include("IKRigDataTypes.h")
-extern enum EIKRigGoalTransformSource {
-	Manual;
-	Bone;
-	ActorComponent;
-	EIKRigGoalTransformSource_MAX;
+extern class EIKRigGoalTransformSource {
+	static var Manual: EIKRigGoalTransformSource;
+	static var Bone: EIKRigGoalTransformSource;
+	static var ActorComponent: EIKRigGoalTransformSource;
+	static var EIKRigGoalTransformSource_MAX: EIKRigGoalTransformSource;
 }

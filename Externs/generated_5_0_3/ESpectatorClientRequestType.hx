@@ -3,12 +3,12 @@ package ue;
 
 @:native("ESpectatorClientRequestType")
 @:include("SpectatorBeaconClient.h")
-extern enum ESpectatorClientRequestType {
-	NonePending;
-	ExistingSessionReservation;
-	ReservationUpdate;
-	EmptyServerReservation;
-	Reconnect;
-	Abandon;
-	ESpectatorClientRequestType_MAX;
+extern class ESpectatorClientRequestType {
+	static var NonePending: ESpectatorClientRequestType;
+	static var ExistingSessionReservation: ESpectatorClientRequestType;
+	static var ReservationUpdate: ESpectatorClientRequestType;
+	static var EmptyServerReservation: ESpectatorClientRequestType;
+	static var Reconnect: ESpectatorClientRequestType;
+	static var Abandon: ESpectatorClientRequestType;
+	static var ESpectatorClientRequestType_MAX: ESpectatorClientRequestType;
 }

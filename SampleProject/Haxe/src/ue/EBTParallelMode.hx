@@ -3,8 +3,8 @@ package ue;
 
 @:native("EBTParallelMode.Type")
 @:include("BehaviorTree/Composites/BTComposite_SimpleParallel.h")
-extern enum EBTParallelMode {
-	AbortBackground;
-	WaitForBackground;
-	EBTParallelMode_MAX;
+extern class EBTParallelMode {
+	static var AbortBackground: EBTParallelMode;
+	static var WaitForBackground: EBTParallelMode;
+	static var EBTParallelMode_MAX: EBTParallelMode;
 }

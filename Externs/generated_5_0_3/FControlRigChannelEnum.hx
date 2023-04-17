@@ -3,21 +3,21 @@ package ue;
 
 @:native("FControlRigChannelEnum")
 @:include("MovieSceneToolsUserSettings.h")
-extern enum FControlRigChannelEnum {
-	Bool;
-	Enum;
-	Integer;
-	Float;
-	Vector2DX;
-	Vector2DY;
-	PositionX;
-	PositionY;
-	PositionZ;
-	RotatorX;
-	RotatorY;
-	RotatorZ;
-	ScaleX;
-	ScaleY;
-	ScaleZ;
-	FControlRigChannelEnum_MAX;
+extern class FControlRigChannelEnum {
+	static var Bool: FControlRigChannelEnum;
+	static var Enum: FControlRigChannelEnum;
+	static var Integer: FControlRigChannelEnum;
+	static var Float: FControlRigChannelEnum;
+	static var Vector2DX: FControlRigChannelEnum;
+	static var Vector2DY: FControlRigChannelEnum;
+	static var PositionX: FControlRigChannelEnum;
+	static var PositionY: FControlRigChannelEnum;
+	static var PositionZ: FControlRigChannelEnum;
+	static var RotatorX: FControlRigChannelEnum;
+	static var RotatorY: FControlRigChannelEnum;
+	static var RotatorZ: FControlRigChannelEnum;
+	static var ScaleX: FControlRigChannelEnum;
+	static var ScaleY: FControlRigChannelEnum;
+	static var ScaleZ: FControlRigChannelEnum;
+	static var FControlRigChannelEnum_MAX: FControlRigChannelEnum;
 }

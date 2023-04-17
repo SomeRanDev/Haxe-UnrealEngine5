@@ -5,7 +5,7 @@ package ue;
 @:include("FractureToolFixTinyGeo.h")
 @:structAccess
 extern class FractureToolFixTinyGeo extends FractureToolCutterBase {
-	public var TinyGeoSettings: cpp.Star<FractureTinyGeoSettings>;
+	private var TinyGeoSettings: cpp.Star<FractureTinyGeoSettings>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class FractureToolFixTinyGeo extends FractureToolCutterBase {
 @:forward()
 @:nativeGen
 abstract ConstFractureToolFixTinyGeo(FractureToolFixTinyGeo) from FractureToolFixTinyGeo {
-	public extern var TinyGeoSettings(get, never): cpp.Star<FractureTinyGeoSettings.ConstFractureTinyGeoSettings>;
-	public inline extern function get_TinyGeoSettings(): cpp.Star<FractureTinyGeoSettings.ConstFractureTinyGeoSettings> return this.TinyGeoSettings;
 }
 
 @:forward

@@ -7,10 +7,10 @@ package ue;
 extern class ObjectLibrary extends Object {
 	public var ObjectBaseClass: TSubclassOf<Object>;
 	public var bHasBlueprintClasses: Bool;
-	public var Objects: TArray<cpp.Star<Object>>;
-	public var WeakObjects: TArray<TWeakObjectPtr<Object>>;
-	public var bUseWeakReferences: Bool;
-	public var bIsFullyLoaded: Bool;
+	@:protected public var Objects: TArray<cpp.Star<Object>>;
+	@:protected public var WeakObjects: TArray<TWeakObjectPtr<Object>>;
+	@:protected public var bUseWeakReferences: Bool;
+	@:protected public var bIsFullyLoaded: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -22,14 +22,6 @@ abstract ConstObjectLibrary(ObjectLibrary) from ObjectLibrary {
 	public inline extern function get_ObjectBaseClass(): TSubclassOf<Object.ConstObject> return this.ObjectBaseClass;
 	public extern var bHasBlueprintClasses(get, never): Bool;
 	public inline extern function get_bHasBlueprintClasses(): Bool return this.bHasBlueprintClasses;
-	public extern var Objects(get, never): TArray<cpp.Star<Object.ConstObject>>;
-	public inline extern function get_Objects(): TArray<cpp.Star<Object.ConstObject>> return this.Objects;
-	public extern var WeakObjects(get, never): TArray<TWeakObjectPtr<Object.ConstObject>>;
-	public inline extern function get_WeakObjects(): TArray<TWeakObjectPtr<Object.ConstObject>> return this.WeakObjects;
-	public extern var bUseWeakReferences(get, never): Bool;
-	public inline extern function get_bUseWeakReferences(): Bool return this.bUseWeakReferences;
-	public extern var bIsFullyLoaded(get, never): Bool;
-	public inline extern function get_bIsFullyLoaded(): Bool return this.bIsFullyLoaded;
 }
 
 @:forward

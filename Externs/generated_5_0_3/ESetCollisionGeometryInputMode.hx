@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESetCollisionGeometryInputMode")
 @:include("Physics/SetCollisionGeometryTool.h")
-extern enum ESetCollisionGeometryInputMode {
-	CombineAll;
-	PerInputObject;
-	PerMeshComponent;
-	PerMeshGroup;
-	ESetCollisionGeometryInputMode_MAX;
+extern class ESetCollisionGeometryInputMode {
+	static var CombineAll: ESetCollisionGeometryInputMode;
+	static var PerInputObject: ESetCollisionGeometryInputMode;
+	static var PerMeshComponent: ESetCollisionGeometryInputMode;
+	static var PerMeshGroup: ESetCollisionGeometryInputMode;
+	static var ESetCollisionGeometryInputMode_MAX: ESetCollisionGeometryInputMode;
 }

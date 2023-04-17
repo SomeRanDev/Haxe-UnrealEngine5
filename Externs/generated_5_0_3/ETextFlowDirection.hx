@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETextFlowDirection")
 @:include("Framework/Text/TextLayout.h")
-extern enum ETextFlowDirection {
-	Auto;
-	LeftToRight;
-	RightToLeft;
-	ETextFlowDirection_MAX;
+extern class ETextFlowDirection {
+	static var Auto: ETextFlowDirection;
+	static var LeftToRight: ETextFlowDirection;
+	static var RightToLeft: ETextFlowDirection;
+	static var ETextFlowDirection_MAX: ETextFlowDirection;
 }

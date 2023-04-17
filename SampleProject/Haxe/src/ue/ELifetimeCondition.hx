@@ -3,22 +3,22 @@ package ue;
 
 @:native("ELifetimeCondition")
 @:include("UObject/CoreNetTypes.h")
-extern enum ELifetimeCondition {
-	COND_None;
-	COND_InitialOnly;
-	COND_OwnerOnly;
-	COND_SkipOwner;
-	COND_SimulatedOnly;
-	COND_AutonomousOnly;
-	COND_SimulatedOrPhysics;
-	COND_InitialOrOwner;
-	COND_Custom;
-	COND_ReplayOrOwner;
-	COND_ReplayOnly;
-	COND_SimulatedOnlyNoReplay;
-	COND_SimulatedOrPhysicsNoReplay;
-	COND_SkipReplay;
-	COND_Never;
-	COND_Max;
-	COND_MAX;
+extern class ELifetimeCondition {
+	static var COND_None: ELifetimeCondition;
+	static var COND_InitialOnly: ELifetimeCondition;
+	static var COND_OwnerOnly: ELifetimeCondition;
+	static var COND_SkipOwner: ELifetimeCondition;
+	static var COND_SimulatedOnly: ELifetimeCondition;
+	static var COND_AutonomousOnly: ELifetimeCondition;
+	static var COND_SimulatedOrPhysics: ELifetimeCondition;
+	static var COND_InitialOrOwner: ELifetimeCondition;
+	static var COND_Custom: ELifetimeCondition;
+	static var COND_ReplayOrOwner: ELifetimeCondition;
+	static var COND_ReplayOnly: ELifetimeCondition;
+	static var COND_SimulatedOnlyNoReplay: ELifetimeCondition;
+	static var COND_SimulatedOrPhysicsNoReplay: ELifetimeCondition;
+	static var COND_SkipReplay: ELifetimeCondition;
+	static var COND_Never: ELifetimeCondition;
+	static var COND_Max: ELifetimeCondition;
+	static var COND_MAX: ELifetimeCondition;
 }

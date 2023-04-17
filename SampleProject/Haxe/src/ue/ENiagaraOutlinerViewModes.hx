@@ -3,8 +3,8 @@ package ue;
 
 @:native("ENiagaraOutlinerViewModes")
 @:include("Private/NiagaraOutliner.h")
-extern enum ENiagaraOutlinerViewModes {
-	State;
-	Performance;
-	ENiagaraOutlinerViewModes_MAX;
+extern class ENiagaraOutlinerViewModes {
+	static var State: ENiagaraOutlinerViewModes;
+	static var Performance: ENiagaraOutlinerViewModes;
+	static var ENiagaraOutlinerViewModes_MAX: ENiagaraOutlinerViewModes;
 }

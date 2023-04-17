@@ -7,17 +7,11 @@ package ue;
 extern class CameraRig_Rail extends Actor {
 	public var CurrentPositionOnRail: cpp.Float32;
 	public var bLockOrientationToRail: Bool;
-	public var bShowRailVisualization: Bool;
-	public var PreviewMeshScale: cpp.Float32;
-	public var TransformComponent: cpp.Star<SceneComp>;
-	public var RailSplineComponent: cpp.Star<SplineComp>;
-	public var RailCameraMount: cpp.Star<SceneComp>;
-	public var PreviewMesh_Rail: cpp.Star<SplineMeshComp>;
-	public var PreviewRailMeshSegments: TArray<cpp.Star<SplineMeshComp>>;
-	public var PreviewRailStaticMesh: cpp.Star<StaticMesh>;
-	public var PreviewMesh_Mount: cpp.Star<StaticMeshComp>;
+	private var TransformComponent: cpp.Star<SceneComp>;
+	private var RailSplineComponent: cpp.Star<SplineComp>;
+	private var RailCameraMount: cpp.Star<SceneComp>;
 
-	public function GetRailSplineComponent(): cpp.Reference<cpp.Star<SplineComp>>;
+	public function GetRailSplineComponent(): cpp.Star<SplineComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -29,24 +23,6 @@ abstract ConstCameraRig_Rail(CameraRig_Rail) from CameraRig_Rail {
 	public inline extern function get_CurrentPositionOnRail(): cpp.Float32 return this.CurrentPositionOnRail;
 	public extern var bLockOrientationToRail(get, never): Bool;
 	public inline extern function get_bLockOrientationToRail(): Bool return this.bLockOrientationToRail;
-	public extern var bShowRailVisualization(get, never): Bool;
-	public inline extern function get_bShowRailVisualization(): Bool return this.bShowRailVisualization;
-	public extern var PreviewMeshScale(get, never): cpp.Float32;
-	public inline extern function get_PreviewMeshScale(): cpp.Float32 return this.PreviewMeshScale;
-	public extern var TransformComponent(get, never): cpp.Star<SceneComp.ConstSceneComp>;
-	public inline extern function get_TransformComponent(): cpp.Star<SceneComp.ConstSceneComp> return this.TransformComponent;
-	public extern var RailSplineComponent(get, never): cpp.Star<SplineComp.ConstSplineComp>;
-	public inline extern function get_RailSplineComponent(): cpp.Star<SplineComp.ConstSplineComp> return this.RailSplineComponent;
-	public extern var RailCameraMount(get, never): cpp.Star<SceneComp.ConstSceneComp>;
-	public inline extern function get_RailCameraMount(): cpp.Star<SceneComp.ConstSceneComp> return this.RailCameraMount;
-	public extern var PreviewMesh_Rail(get, never): cpp.Star<SplineMeshComp.ConstSplineMeshComp>;
-	public inline extern function get_PreviewMesh_Rail(): cpp.Star<SplineMeshComp.ConstSplineMeshComp> return this.PreviewMesh_Rail;
-	public extern var PreviewRailMeshSegments(get, never): TArray<cpp.Star<SplineMeshComp.ConstSplineMeshComp>>;
-	public inline extern function get_PreviewRailMeshSegments(): TArray<cpp.Star<SplineMeshComp.ConstSplineMeshComp>> return this.PreviewRailMeshSegments;
-	public extern var PreviewRailStaticMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_PreviewRailStaticMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.PreviewRailStaticMesh;
-	public extern var PreviewMesh_Mount(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_PreviewMesh_Mount(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.PreviewMesh_Mount;
 }
 
 @:forward

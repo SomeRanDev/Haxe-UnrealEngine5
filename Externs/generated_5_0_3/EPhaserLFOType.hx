@@ -3,14 +3,14 @@ package ue;
 
 @:native("EPhaserLFOType")
 @:include("SourceEffects/SourceEffectPhaser.h")
-extern enum EPhaserLFOType {
-	Sine;
-	UpSaw;
-	DownSaw;
-	Square;
-	Triangle;
-	Exponential;
-	RandomSampleHold;
-	Count;
-	EPhaserLFOType_MAX;
+extern class EPhaserLFOType {
+	static var Sine: EPhaserLFOType;
+	static var UpSaw: EPhaserLFOType;
+	static var DownSaw: EPhaserLFOType;
+	static var Square: EPhaserLFOType;
+	static var Triangle: EPhaserLFOType;
+	static var Exponential: EPhaserLFOType;
+	static var RandomSampleHold: EPhaserLFOType;
+	static var Count: EPhaserLFOType;
+	static var EPhaserLFOType_MAX: EPhaserLFOType;
 }

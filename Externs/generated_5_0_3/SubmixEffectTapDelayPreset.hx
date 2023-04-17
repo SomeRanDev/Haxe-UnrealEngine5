@@ -13,7 +13,7 @@ extern class SubmixEffectTapDelayPreset extends SoundEffectSubmixPreset {
 	public function RemoveTap(TapId: cpp.Int32): Void;
 	public function GetTapIds(TapIds: cpp.Reference<TArray<cpp.Int32>>): Void;
 	public function GetTap(TapId: cpp.Int32, TapInfo: cpp.Reference<TapDelayInfo>): Void;
-	public function GetMaxDelayInMilliseconds(): cpp.Reference<cpp.Float32>;
+	public function GetMaxDelayInMilliseconds(): cpp.Float32;
 	public function AddTap(TapId: cpp.Reference<cpp.Int32>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;

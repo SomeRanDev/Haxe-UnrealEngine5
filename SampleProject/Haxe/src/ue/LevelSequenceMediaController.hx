@@ -5,28 +5,20 @@ package ue;
 @:include("SequenceMediaController.h")
 @:structAccess
 extern class LevelSequenceMediaController extends Actor {
-	public var Sequence: cpp.Star<LevelSequenceActor>;
-	public var MediaComponent: cpp.Star<MediaComp>;
-	public var ServerStartTimeSeconds: cpp.Float32;
+	public function GetSequence(): cpp.Star<LevelSequenceActor>;
+	public function GetMediaComponent(): cpp.Star<MediaComp>;
+	private var ServerStartTimeSeconds: cpp.Float32;
 
 	public function SynchronizeToServer(DesyncThresholdSeconds: cpp.Float32): Void;
 	public function Play(): Void;
-	public function OnRep_ServerStartTimeSeconds(): Void;
-	public function GetSequence(): cpp.Reference<cpp.Star<LevelSequenceActor>>;
-	public function GetMediaComponent(): cpp.Reference<cpp.Star<MediaComp>>;
+	private function OnRep_ServerStartTimeSeconds(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
 
-@:forward(GetSequence, GetMediaComponent)
+@:forward()
 @:nativeGen
 abstract ConstLevelSequenceMediaController(LevelSequenceMediaController) from LevelSequenceMediaController {
-	public extern var Sequence(get, never): cpp.Star<LevelSequenceActor.ConstLevelSequenceActor>;
-	public inline extern function get_Sequence(): cpp.Star<LevelSequenceActor.ConstLevelSequenceActor> return this.Sequence;
-	public extern var MediaComponent(get, never): cpp.Star<MediaComp.ConstMediaComp>;
-	public inline extern function get_MediaComponent(): cpp.Star<MediaComp.ConstMediaComp> return this.MediaComponent;
-	public extern var ServerStartTimeSeconds(get, never): cpp.Float32;
-	public inline extern function get_ServerStartTimeSeconds(): cpp.Float32 return this.ServerStartTimeSeconds;
 }
 
 @:forward

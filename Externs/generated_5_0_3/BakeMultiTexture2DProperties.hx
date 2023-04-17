@@ -10,7 +10,7 @@ extern class BakeMultiTexture2DProperties extends InteractiveToolPropertySet {
 	public var UVLayerNamesList: TArray<FString>;
 	public var AllSourceTextures: TArray<cpp.Star<Texture2D>>;
 
-	public function GetUVLayerNamesFunc(): cpp.Reference<TArray<FString>>;
+	public function GetUVLayerNamesFunc(): TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

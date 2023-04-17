@@ -18,7 +18,6 @@ extern class GroomAsset extends Object {
 	public var MinLOD: PerPlatformInt;
 	public var DisableBelowMinLodStripping: PerPlatformBool;
 	public var EffectiveLODBias: TArray<cpp.Float32>;
-	public var AssetImportData: cpp.Star<AssetImportData>;
 	public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -53,8 +52,6 @@ abstract ConstGroomAsset(GroomAsset) from GroomAsset {
 	public inline extern function get_DisableBelowMinLodStripping(): PerPlatformBool return this.DisableBelowMinLodStripping;
 	public extern var EffectiveLODBias(get, never): TArray<cpp.Float32>;
 	public inline extern function get_EffectiveLODBias(): TArray<cpp.Float32> return this.EffectiveLODBias;
-	public extern var AssetImportData(get, never): cpp.Star<AssetImportData.ConstAssetImportData>;
-	public inline extern function get_AssetImportData(): cpp.Star<AssetImportData.ConstAssetImportData> return this.AssetImportData;
 	public extern var AssetUserData(get, never): TArray<cpp.Star<AssetUserData.ConstAssetUserData>>;
 	public inline extern function get_AssetUserData(): TArray<cpp.Star<AssetUserData.ConstAssetUserData>> return this.AssetUserData;
 }

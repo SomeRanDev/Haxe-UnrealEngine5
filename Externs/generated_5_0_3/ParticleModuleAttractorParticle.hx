@@ -10,7 +10,7 @@ extern class ParticleModuleAttractorParticle extends ParticleModuleAttractorBase
 	public var bStrengthByDistance: Bool;
 	public var Strength: RawDistributionFloat;
 	public var bAffectBaseVelocity: Bool;
-	public var SelectionMethod: EAttractorParticleSelectionMethod;
+	public var SelectionMethod: TEnumAsByte<EAttractorParticleSelectionMethod>;
 	public var bRenewSource: Bool;
 	public var bInheritSourceVel: Bool;
 	public var LastSelIndex: cpp.Int32;
@@ -31,8 +31,8 @@ abstract ConstParticleModuleAttractorParticle(ParticleModuleAttractorParticle) f
 	public inline extern function get_Strength(): RawDistributionFloat return this.Strength;
 	public extern var bAffectBaseVelocity(get, never): Bool;
 	public inline extern function get_bAffectBaseVelocity(): Bool return this.bAffectBaseVelocity;
-	public extern var SelectionMethod(get, never): EAttractorParticleSelectionMethod;
-	public inline extern function get_SelectionMethod(): EAttractorParticleSelectionMethod return this.SelectionMethod;
+	public extern var SelectionMethod(get, never): TEnumAsByte<EAttractorParticleSelectionMethod>;
+	public inline extern function get_SelectionMethod(): TEnumAsByte<EAttractorParticleSelectionMethod> return this.SelectionMethod;
 	public extern var bRenewSource(get, never): Bool;
 	public inline extern function get_bRenewSource(): Bool return this.bRenewSource;
 	public extern var bInheritSourceVel(get, never): Bool;

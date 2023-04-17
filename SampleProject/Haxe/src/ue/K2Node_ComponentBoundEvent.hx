@@ -8,7 +8,7 @@ extern class K2Node_ComponentBoundEvent extends K2Node_Event {
 	public var DelegatePropertyName: FName;
 	public var DelegateOwnerClass: TSubclassOf<Object>;
 	public var ComponentPropertyName: FName;
-	public var DelegatePropertyDisplayName: FText;
+	private var DelegatePropertyDisplayName: FText;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -22,8 +22,6 @@ abstract ConstK2Node_ComponentBoundEvent(K2Node_ComponentBoundEvent) from K2Node
 	public inline extern function get_DelegateOwnerClass(): TSubclassOf<Object.ConstObject> return this.DelegateOwnerClass;
 	public extern var ComponentPropertyName(get, never): FName;
 	public inline extern function get_ComponentPropertyName(): FName return this.ComponentPropertyName;
-	public extern var DelegatePropertyDisplayName(get, never): FText;
-	public inline extern function get_DelegatePropertyDisplayName(): FText return this.DelegatePropertyDisplayName;
 }
 
 @:forward

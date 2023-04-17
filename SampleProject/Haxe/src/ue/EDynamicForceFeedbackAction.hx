@@ -3,9 +3,9 @@ package ue;
 
 @:native("EDynamicForceFeedbackAction.Type")
 @:include("GameFramework/PlayerController.h")
-extern enum EDynamicForceFeedbackAction {
-	Start;
-	Update;
-	Stop;
-	EDynamicForceFeedbackAction_MAX;
+extern class EDynamicForceFeedbackAction {
+	static var Start: EDynamicForceFeedbackAction;
+	static var Update: EDynamicForceFeedbackAction;
+	static var Stop: EDynamicForceFeedbackAction;
+	static var EDynamicForceFeedbackAction_MAX: EDynamicForceFeedbackAction;
 }

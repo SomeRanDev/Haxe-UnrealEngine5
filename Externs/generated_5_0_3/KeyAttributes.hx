@@ -5,20 +5,20 @@ package ue;
 @:include("CurveDataAbstraction.h")
 @:structAccess
 extern class KeyAttributes {
-	public var bHasArriveTangent: Bool;
-	public var bHasLeaveTangent: Bool;
-	public var bHasInterpMode: Bool;
-	public var bHasTangentMode: Bool;
-	public var bHasTangentWeightMode: Bool;
-	public var bHasArriveTangentWeight: Bool;
-	public var bHasLeaveTangentWeight: Bool;
-	public var ArriveTangent: cpp.Float32;
-	public var LeaveTangent: cpp.Float32;
-	public var InterpMode: ERichCurveInterpMode;
-	public var TangentMode: ERichCurveTangentMode;
-	public var TangentWeightMode: ERichCurveTangentWeightMode;
-	public var ArriveTangentWeight: cpp.Float32;
-	public var LeaveTangentWeight: cpp.Float32;
+	private var bHasArriveTangent: Bool;
+	private var bHasLeaveTangent: Bool;
+	private var bHasInterpMode: Bool;
+	private var bHasTangentMode: Bool;
+	private var bHasTangentWeightMode: Bool;
+	private var bHasArriveTangentWeight: Bool;
+	private var bHasLeaveTangentWeight: Bool;
+	private var ArriveTangent: cpp.Float32;
+	private var LeaveTangent: cpp.Float32;
+	private var InterpMode: TEnumAsByte<ERichCurveInterpMode>;
+	private var TangentMode: TEnumAsByte<ERichCurveTangentMode>;
+	private var TangentWeightMode: TEnumAsByte<ERichCurveTangentWeightMode>;
+	private var ArriveTangentWeight: cpp.Float32;
+	private var LeaveTangentWeight: cpp.Float32;
 
 	@:native("FKeyAttributes") public function new();
 }

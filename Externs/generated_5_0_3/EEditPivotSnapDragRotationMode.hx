@@ -3,10 +3,10 @@ package ue;
 
 @:native("EEditPivotSnapDragRotationMode")
 @:include("EditPivotTool.h")
-extern enum EEditPivotSnapDragRotationMode {
-	Ignore;
-	Align;
-	AlignFlipped;
-	LastValue;
-	EEditPivotSnapDragRotationMode_MAX;
+extern class EEditPivotSnapDragRotationMode {
+	static var Ignore: EEditPivotSnapDragRotationMode;
+	static var Align: EEditPivotSnapDragRotationMode;
+	static var AlignFlipped: EEditPivotSnapDragRotationMode;
+	static var LastValue: EEditPivotSnapDragRotationMode;
+	static var EEditPivotSnapDragRotationMode_MAX: EEditPivotSnapDragRotationMode;
 }

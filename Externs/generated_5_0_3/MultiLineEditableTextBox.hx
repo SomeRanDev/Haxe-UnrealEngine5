@@ -14,13 +14,8 @@ extern class MultiLineEditableTextBox extends TextLayoutWidget {
 	public var AllowContextMenu: Bool;
 	public var VirtualKeyboardOptions: VirtualKeyboardOptions;
 	public var VirtualKeyboardDismissAction: EVirtualKeyboardDismissAction;
-	public var Style_DEPRECATED: cpp.Star<SlateWidgetStyleAsset>;
-	public var Font_DEPRECATED: SlateFontInfo;
-	public var ForegroundColor_DEPRECATED: LinearColor;
-	public var BackgroundColor_DEPRECATED: LinearColor;
-	public var ReadOnlyForegroundColor_DEPRECATED: LinearColor;
 	public var OnTextChanged: HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>) -> Void>;
-	public var OnTextCommitted: HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, ETextCommit) -> Void>;
+	public var OnTextCommitted: HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, TEnumAsByte<ETextCommit>) -> Void>;
 
 	public function SetTextStyle(InTextStyle: cpp.Reference<TextBlockStyle>): Void;
 	public function SetText(InText: FText): Void;
@@ -28,10 +23,10 @@ extern class MultiLineEditableTextBox extends TextLayoutWidget {
 	public function SetHintText(InHintText: FText): Void;
 	public function SetForegroundColor(color: LinearColor): Void;
 	public function SetError(InError: FText): Void;
-	public function OnMultiLineEditableTextBoxCommittedEvent__DelegateSignature(Text: cpp.Reference<FText>, CommitMethod: ETextCommit): Void;
+	public function OnMultiLineEditableTextBoxCommittedEvent__DelegateSignature(Text: cpp.Reference<FText>, CommitMethod: TEnumAsByte<ETextCommit>): Void;
 	public function OnMultiLineEditableTextBoxChangedEvent__DelegateSignature(Text: cpp.Reference<FText>): Void;
-	public function GetText(): cpp.Reference<FText>;
-	public function GetHintText(): cpp.Reference<FText>;
+	public function GetText(): FText;
+	public function GetHintText(): FText;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -57,20 +52,10 @@ abstract ConstMultiLineEditableTextBox(MultiLineEditableTextBox) from MultiLineE
 	public inline extern function get_VirtualKeyboardOptions(): VirtualKeyboardOptions return this.VirtualKeyboardOptions;
 	public extern var VirtualKeyboardDismissAction(get, never): EVirtualKeyboardDismissAction;
 	public inline extern function get_VirtualKeyboardDismissAction(): EVirtualKeyboardDismissAction return this.VirtualKeyboardDismissAction;
-	public extern var Style_DEPRECATED(get, never): cpp.Star<SlateWidgetStyleAsset.ConstSlateWidgetStyleAsset>;
-	public inline extern function get_Style_DEPRECATED(): cpp.Star<SlateWidgetStyleAsset.ConstSlateWidgetStyleAsset> return this.Style_DEPRECATED;
-	public extern var Font_DEPRECATED(get, never): SlateFontInfo;
-	public inline extern function get_Font_DEPRECATED(): SlateFontInfo return this.Font_DEPRECATED;
-	public extern var ForegroundColor_DEPRECATED(get, never): LinearColor;
-	public inline extern function get_ForegroundColor_DEPRECATED(): LinearColor return this.ForegroundColor_DEPRECATED;
-	public extern var BackgroundColor_DEPRECATED(get, never): LinearColor;
-	public inline extern function get_BackgroundColor_DEPRECATED(): LinearColor return this.BackgroundColor_DEPRECATED;
-	public extern var ReadOnlyForegroundColor_DEPRECATED(get, never): LinearColor;
-	public inline extern function get_ReadOnlyForegroundColor_DEPRECATED(): LinearColor return this.ReadOnlyForegroundColor_DEPRECATED;
 	public extern var OnTextChanged(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>) -> Void>;
 	public inline extern function get_OnTextChanged(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>) -> Void> return this.OnTextChanged;
-	public extern var OnTextCommitted(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, ETextCommit) -> Void>;
-	public inline extern function get_OnTextCommitted(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, ETextCommit) -> Void> return this.OnTextCommitted;
+	public extern var OnTextCommitted(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, TEnumAsByte<ETextCommit>) -> Void>;
+	public inline extern function get_OnTextCommitted(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, TEnumAsByte<ETextCommit>) -> Void> return this.OnTextCommitted;
 }
 
 @:forward

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EFlowDirectionPreference")
 @:include("Layout/FlowDirection.h")
-extern enum EFlowDirectionPreference {
-	Inherit;
-	Culture;
-	LeftToRight;
-	RightToLeft;
-	EFlowDirectionPreference_MAX;
+extern class EFlowDirectionPreference {
+	static var Inherit: EFlowDirectionPreference;
+	static var Culture: EFlowDirectionPreference;
+	static var LeftToRight: EFlowDirectionPreference;
+	static var RightToLeft: EFlowDirectionPreference;
+	static var EFlowDirectionPreference_MAX: EFlowDirectionPreference;
 }

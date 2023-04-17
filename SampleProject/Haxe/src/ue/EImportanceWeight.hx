@@ -3,11 +3,11 @@ package ue;
 
 @:native("EImportanceWeight.Type")
 @:include("Kismet/ImportanceSamplingLibrary.h")
-extern enum EImportanceWeight {
-	Luminance;
-	Red;
-	Green;
-	Blue;
-	Alpha;
-	EImportanceWeight_MAX;
+extern class EImportanceWeight {
+	static var Luminance: EImportanceWeight;
+	static var Red: EImportanceWeight;
+	static var Green: EImportanceWeight;
+	static var Blue: EImportanceWeight;
+	static var Alpha: EImportanceWeight;
+	static var EImportanceWeight_MAX: EImportanceWeight;
 }

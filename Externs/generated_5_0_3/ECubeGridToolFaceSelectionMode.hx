@@ -3,10 +3,10 @@ package ue;
 
 @:native("ECubeGridToolFaceSelectionMode")
 @:include("CubeGridTool.h")
-extern enum ECubeGridToolFaceSelectionMode {
-	OutsideBasedOnNormal;
-	InsideBasedOnNormal;
-	OutsideBasedOnViewRay;
-	InsideBasedOnViewRay;
-	ECubeGridToolFaceSelectionMode_MAX;
+extern class ECubeGridToolFaceSelectionMode {
+	static var OutsideBasedOnNormal: ECubeGridToolFaceSelectionMode;
+	static var InsideBasedOnNormal: ECubeGridToolFaceSelectionMode;
+	static var OutsideBasedOnViewRay: ECubeGridToolFaceSelectionMode;
+	static var InsideBasedOnViewRay: ECubeGridToolFaceSelectionMode;
+	static var ECubeGridToolFaceSelectionMode_MAX: ECubeGridToolFaceSelectionMode;
 }

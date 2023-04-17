@@ -3,22 +3,22 @@ package ue;
 
 @:native("EPartyReservationResult.Type")
 @:include("PartyBeaconState.h")
-extern enum EPartyReservationResult {
-	NoResult;
-	RequestPending;
-	GeneralError;
-	PartyLimitReached;
-	IncorrectPlayerCount;
-	RequestTimedOut;
-	ReservationDuplicate;
-	ReservationNotFound;
-	ReservationAccepted;
-	ReservationDenied;
-	ReservationDenied_CrossPlayRestriction;
-	ReservationDenied_Banned;
-	ReservationRequestCanceled;
-	ReservationInvalid;
-	BadSessionId;
-	ReservationDenied_ContainsExistingPlayers;
-	EPartyReservationResult_MAX;
+extern class EPartyReservationResult {
+	static var NoResult: EPartyReservationResult;
+	static var RequestPending: EPartyReservationResult;
+	static var GeneralError: EPartyReservationResult;
+	static var PartyLimitReached: EPartyReservationResult;
+	static var IncorrectPlayerCount: EPartyReservationResult;
+	static var RequestTimedOut: EPartyReservationResult;
+	static var ReservationDuplicate: EPartyReservationResult;
+	static var ReservationNotFound: EPartyReservationResult;
+	static var ReservationAccepted: EPartyReservationResult;
+	static var ReservationDenied: EPartyReservationResult;
+	static var ReservationDenied_CrossPlayRestriction: EPartyReservationResult;
+	static var ReservationDenied_Banned: EPartyReservationResult;
+	static var ReservationRequestCanceled: EPartyReservationResult;
+	static var ReservationInvalid: EPartyReservationResult;
+	static var BadSessionId: EPartyReservationResult;
+	static var ReservationDenied_ContainsExistingPlayers: EPartyReservationResult;
+	static var EPartyReservationResult_MAX: EPartyReservationResult;
 }

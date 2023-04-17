@@ -5,7 +5,7 @@ package ue;
 @:include("K2Node_GetSubsystem.h")
 @:structAccess
 extern class K2Node_GetSubsystem extends K2Node {
-	public var CustomClass: TSubclassOf<Subsystem>;
+	@:protected public var CustomClass: TSubclassOf<Subsystem>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class K2Node_GetSubsystem extends K2Node {
 @:forward()
 @:nativeGen
 abstract ConstK2Node_GetSubsystem(K2Node_GetSubsystem) from K2Node_GetSubsystem {
-	public extern var CustomClass(get, never): TSubclassOf<Subsystem.ConstSubsystem>;
-	public inline extern function get_CustomClass(): TSubclassOf<Subsystem.ConstSubsystem> return this.CustomClass;
 }
 
 @:forward

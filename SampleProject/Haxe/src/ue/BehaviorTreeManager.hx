@@ -6,8 +6,8 @@ package ue;
 @:structAccess
 extern class BehaviorTreeManager extends Object {
 	public var MaxDebuggerSteps: cpp.Int32;
-	public var LoadedTemplates: TArray<BehaviorTreeTemplateInfo>;
-	public var ActiveComponents: TArray<cpp.Star<BehaviorTreeComp>>;
+	@:protected public var LoadedTemplates: TArray<BehaviorTreeTemplateInfo>;
+	@:protected public var ActiveComponents: TArray<cpp.Star<BehaviorTreeComp>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,10 +17,6 @@ extern class BehaviorTreeManager extends Object {
 abstract ConstBehaviorTreeManager(BehaviorTreeManager) from BehaviorTreeManager {
 	public extern var MaxDebuggerSteps(get, never): cpp.Int32;
 	public inline extern function get_MaxDebuggerSteps(): cpp.Int32 return this.MaxDebuggerSteps;
-	public extern var LoadedTemplates(get, never): TArray<BehaviorTreeTemplateInfo>;
-	public inline extern function get_LoadedTemplates(): TArray<BehaviorTreeTemplateInfo> return this.LoadedTemplates;
-	public extern var ActiveComponents(get, never): TArray<cpp.Star<BehaviorTreeComp.ConstBehaviorTreeComp>>;
-	public inline extern function get_ActiveComponents(): TArray<cpp.Star<BehaviorTreeComp.ConstBehaviorTreeComp>> return this.ActiveComponents;
 }
 
 @:forward

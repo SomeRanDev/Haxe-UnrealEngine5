@@ -3,9 +3,9 @@ package ue;
 
 @:native("EModulationRouting")
 @:include("Sound/SoundModulationDestination.h")
-extern enum EModulationRouting {
-	Disable;
-	Inherit;
-	Override;
-	EModulationRouting_MAX;
+extern class EModulationRouting {
+	static var Disable: EModulationRouting;
+	static var Inherit: EModulationRouting;
+	static var Override: EModulationRouting;
+	static var EModulationRouting_MAX: EModulationRouting;
 }

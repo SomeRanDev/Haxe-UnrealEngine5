@@ -7,7 +7,6 @@ package ue;
 extern class BrushComp extends PrimitiveComp {
 	public var Brush: cpp.Star<Model>;
 	public var BrushBodySetup: cpp.Star<BodySetup>;
-	public var PrePivot_DEPRECATED: Vector;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,8 +18,6 @@ abstract ConstBrushComp(BrushComp) from BrushComp {
 	public inline extern function get_Brush(): cpp.Star<Model.ConstModel> return this.Brush;
 	public extern var BrushBodySetup(get, never): cpp.Star<BodySetup.ConstBodySetup>;
 	public inline extern function get_BrushBodySetup(): cpp.Star<BodySetup.ConstBodySetup> return this.BrushBodySetup;
-	public extern var PrePivot_DEPRECATED(get, never): Vector;
-	public inline extern function get_PrePivot_DEPRECATED(): Vector return this.PrePivot_DEPRECATED;
 }
 
 @:forward

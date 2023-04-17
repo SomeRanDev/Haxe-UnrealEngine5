@@ -3,8 +3,8 @@ package ue;
 
 @:native("EditConditionTestEnum")
 @:include("Private/EditConditionParserTests.h")
-extern enum EditConditionTestEnum {
-	First;
-	Second;
-	EditConditionTestEnum_MAX;
+extern class EditConditionTestEnum {
+	static var First: EditConditionTestEnum;
+	static var Second: EditConditionTestEnum;
+	static var EditConditionTestEnum_MAX: EditConditionTestEnum;
 }

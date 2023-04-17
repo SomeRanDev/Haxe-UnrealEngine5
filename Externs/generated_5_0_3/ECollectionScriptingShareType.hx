@@ -3,9 +3,9 @@ package ue;
 
 @:native("ECollectionScriptingShareType")
 @:include("AssetTagsSubsystem.h")
-extern enum ECollectionScriptingShareType {
-	Local;
-	Private;
-	Shared;
-	ECollectionScriptingShareType_MAX;
+extern class ECollectionScriptingShareType {
+	static var Local: ECollectionScriptingShareType;
+	static var Private: ECollectionScriptingShareType;
+	static var Shared: ECollectionScriptingShareType;
+	static var ECollectionScriptingShareType_MAX: ECollectionScriptingShareType;
 }

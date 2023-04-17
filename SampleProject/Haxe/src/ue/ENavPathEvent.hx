@@ -3,14 +3,14 @@ package ue;
 
 @:native("ENavPathEvent.Type")
 @:include("AI/Navigation/NavigationTypes.h")
-extern enum ENavPathEvent {
-	Cleared;
-	NewPath;
-	UpdatedDueToGoalMoved;
-	UpdatedDueToNavigationChanged;
-	Invalidated;
-	RePathFailed;
-	MetaPathUpdate;
-	Custom;
-	ENavPathEvent_MAX;
+extern class ENavPathEvent {
+	static var Cleared: ENavPathEvent;
+	static var NewPath: ENavPathEvent;
+	static var UpdatedDueToGoalMoved: ENavPathEvent;
+	static var UpdatedDueToNavigationChanged: ENavPathEvent;
+	static var Invalidated: ENavPathEvent;
+	static var RePathFailed: ENavPathEvent;
+	static var MetaPathUpdate: ENavPathEvent;
+	static var Custom: ENavPathEvent;
+	static var ENavPathEvent_MAX: ENavPathEvent;
 }

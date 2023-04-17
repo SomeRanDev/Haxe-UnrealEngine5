@@ -5,8 +5,8 @@ package ue;
 @:include("GameplayTagsManager.h")
 @:structAccess
 extern class GameplayTagsManager extends Object {
-	public var TagSources: TMap<FName, GameplayTagSource>;
-	public var GameplayTagTables: TArray<cpp.Star<DataTable>>;
+	private var TagSources: TMap<FName, GameplayTagSource>;
+	private var GameplayTagTables: TArray<cpp.Star<DataTable>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class GameplayTagsManager extends Object {
 @:forward()
 @:nativeGen
 abstract ConstGameplayTagsManager(GameplayTagsManager) from GameplayTagsManager {
-	public extern var TagSources(get, never): TMap<FName, GameplayTagSource>;
-	public inline extern function get_TagSources(): TMap<FName, GameplayTagSource> return this.TagSources;
-	public extern var GameplayTagTables(get, never): TArray<cpp.Star<DataTable.ConstDataTable>>;
-	public inline extern function get_GameplayTagTables(): TArray<cpp.Star<DataTable.ConstDataTable>> return this.GameplayTagTables;
 }
 
 @:forward

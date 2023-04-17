@@ -3,9 +3,9 @@ package ue;
 
 @:native("EProxyNormalComputationMethod.Type")
 @:include("Engine/MeshMerging.h")
-extern enum EProxyNormalComputationMethod {
-	AngleWeighted;
-	AreaWeighted;
-	EqualWeighted;
-	EProxyNormalComputationMethod_MAX;
+extern class EProxyNormalComputationMethod {
+	static var AngleWeighted: EProxyNormalComputationMethod;
+	static var AreaWeighted: EProxyNormalComputationMethod;
+	static var EqualWeighted: EProxyNormalComputationMethod;
+	static var EProxyNormalComputationMethod_MAX: EProxyNormalComputationMethod;
 }

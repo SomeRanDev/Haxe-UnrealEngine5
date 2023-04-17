@@ -3,11 +3,11 @@ package ue;
 
 @:native("EMeshCameraFacingUpAxis")
 @:include("Particles/TypeData/ParticleModuleTypeDataMesh.h")
-extern enum EMeshCameraFacingUpAxis {
-	CameraFacing_NoneUP;
-	CameraFacing_ZUp;
-	CameraFacing_NegativeZUp;
-	CameraFacing_YUp;
-	CameraFacing_NegativeYUp;
-	CameraFacing_MAX;
+extern class EMeshCameraFacingUpAxis {
+	static var CameraFacing_NoneUP: EMeshCameraFacingUpAxis;
+	static var CameraFacing_ZUp: EMeshCameraFacingUpAxis;
+	static var CameraFacing_NegativeZUp: EMeshCameraFacingUpAxis;
+	static var CameraFacing_YUp: EMeshCameraFacingUpAxis;
+	static var CameraFacing_NegativeYUp: EMeshCameraFacingUpAxis;
+	static var CameraFacing_MAX: EMeshCameraFacingUpAxis;
 }

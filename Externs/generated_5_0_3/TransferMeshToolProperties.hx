@@ -13,8 +13,8 @@ extern class TransferMeshToolProperties extends InteractiveToolPropertySet {
 	public var TargetLODNamesList: TArray<FString>;
 	public var bIsStaticMeshTarget: Bool;
 
-	public function GetTargetLODNamesFunc(): cpp.Reference<TArray<FString>>;
-	public function GetSourceLODNamesFunc(): cpp.Reference<TArray<FString>>;
+	public function GetTargetLODNamesFunc(): TArray<FString>;
+	public function GetSourceLODNamesFunc(): TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -8,7 +8,7 @@ extern class InterchangeGenericAssetsPipeline extends InterchangePipelineBase {
 	public var bUseSourceNameForAsset: Bool;
 	public var bImportLods: Bool;
 	public var bBakeMeshes: Bool;
-	public var VertexColorImportOption: EInterchangeVertexColorImportOption;
+	public var VertexColorImportOption: TEnumAsByte<EInterchangeVertexColorImportOption>;
 	public var VertexOverrideColor: Color;
 	public var bImportStaticMeshes: Bool;
 	public var bCombineStaticMeshes: Bool;
@@ -20,9 +20,6 @@ extern class InterchangeGenericAssetsPipeline extends InterchangePipelineBase {
 	public var PhysicsAsset: cpp.Star<PhysicsAsset>;
 	public var bImportMaterials: Bool;
 	public var bImportTextures: Bool;
-	public var bDetectNormalMapTexture: Bool;
-	public var bFlipNormalMapGreenChannel: Bool;
-	public var FileExtensionsToImportAsLongLatCubemap: TSet<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -36,8 +33,8 @@ abstract ConstInterchangeGenericAssetsPipeline(InterchangeGenericAssetsPipeline)
 	public inline extern function get_bImportLods(): Bool return this.bImportLods;
 	public extern var bBakeMeshes(get, never): Bool;
 	public inline extern function get_bBakeMeshes(): Bool return this.bBakeMeshes;
-	public extern var VertexColorImportOption(get, never): EInterchangeVertexColorImportOption;
-	public inline extern function get_VertexColorImportOption(): EInterchangeVertexColorImportOption return this.VertexColorImportOption;
+	public extern var VertexColorImportOption(get, never): TEnumAsByte<EInterchangeVertexColorImportOption>;
+	public inline extern function get_VertexColorImportOption(): TEnumAsByte<EInterchangeVertexColorImportOption> return this.VertexColorImportOption;
 	public extern var VertexOverrideColor(get, never): Color;
 	public inline extern function get_VertexOverrideColor(): Color return this.VertexOverrideColor;
 	public extern var bImportStaticMeshes(get, never): Bool;
@@ -60,12 +57,6 @@ abstract ConstInterchangeGenericAssetsPipeline(InterchangeGenericAssetsPipeline)
 	public inline extern function get_bImportMaterials(): Bool return this.bImportMaterials;
 	public extern var bImportTextures(get, never): Bool;
 	public inline extern function get_bImportTextures(): Bool return this.bImportTextures;
-	public extern var bDetectNormalMapTexture(get, never): Bool;
-	public inline extern function get_bDetectNormalMapTexture(): Bool return this.bDetectNormalMapTexture;
-	public extern var bFlipNormalMapGreenChannel(get, never): Bool;
-	public inline extern function get_bFlipNormalMapGreenChannel(): Bool return this.bFlipNormalMapGreenChannel;
-	public extern var FileExtensionsToImportAsLongLatCubemap(get, never): TSet<FString>;
-	public inline extern function get_FileExtensionsToImportAsLongLatCubemap(): TSet<FString> return this.FileExtensionsToImportAsLongLatCubemap;
 }
 
 @:forward

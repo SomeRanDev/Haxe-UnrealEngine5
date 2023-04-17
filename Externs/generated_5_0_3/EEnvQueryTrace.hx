@@ -3,11 +3,11 @@ package ue;
 
 @:native("EEnvQueryTrace.Type")
 @:include("EnvironmentQuery/EnvQueryTypes.h")
-extern enum EEnvQueryTrace {
-	None;
-	Navigation;
-	GeometryByChannel;
-	GeometryByProfile;
-	NavigationOverLedges;
-	EEnvQueryTrace_MAX;
+extern class EEnvQueryTrace {
+	static var None: EEnvQueryTrace;
+	static var Navigation: EEnvQueryTrace;
+	static var GeometryByChannel: EEnvQueryTrace;
+	static var GeometryByProfile: EEnvQueryTrace;
+	static var NavigationOverLedges: EEnvQueryTrace;
+	static var EEnvQueryTrace_MAX: EEnvQueryTrace;
 }

@@ -5,7 +5,7 @@ package ue;
 @:include("Net/Core/Connection/StateStruct.h")
 @:structAccess
 extern class StatePerObjectConfig extends Object {
-	public var PerObjectConfigSection: FString;
+	private var PerObjectConfigSection: FString;
 	public var bEnabled: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -14,8 +14,6 @@ extern class StatePerObjectConfig extends Object {
 @:forward()
 @:nativeGen
 abstract ConstStatePerObjectConfig(StatePerObjectConfig) from StatePerObjectConfig {
-	public extern var PerObjectConfigSection(get, never): FString;
-	public inline extern function get_PerObjectConfigSection(): FString return this.PerObjectConfigSection;
 	public extern var bEnabled(get, never): Bool;
 	public inline extern function get_bEnabled(): Bool return this.bEnabled;
 }

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EComponentMobility.Type")
 @:include("Engine/EngineTypes.h")
-extern enum EComponentMobility {
-	Static;
-	Stationary;
-	Movable;
-	EComponentMobility_MAX;
+extern class EComponentMobility {
+	static var Static: EComponentMobility;
+	static var Stationary: EComponentMobility;
+	static var Movable: EComponentMobility;
+	static var EComponentMobility_MAX: EComponentMobility;
 }

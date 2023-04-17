@@ -3,8 +3,8 @@ package ue;
 
 @:native("EBlackBoardEntryComparison.Type")
 @:include("BehaviorTree/Decorators/BTDecorator_CompareBBEntries.h")
-extern enum EBlackBoardEntryComparison {
-	Equal;
-	NotEqual;
-	EBlackBoardEntryComparison_MAX;
+extern class EBlackBoardEntryComparison {
+	static var Equal: EBlackBoardEntryComparison;
+	static var NotEqual: EBlackBoardEntryComparison;
+	static var EBlackBoardEntryComparison_MAX: EBlackBoardEntryComparison;
 }

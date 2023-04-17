@@ -11,7 +11,7 @@ extern class AnimNotifyState_TimedNiagaraEffect extends AnimNotifyState {
 	public var RotationOffset: Rotator;
 	public var bDestroyAtEnd: Bool;
 
-	public function GetSpawnedEffect(MeshComp: cpp.Star<MeshComp>): cpp.Reference<cpp.Star<FXSystemComp>>;
+	public function GetSpawnedEffect(MeshComp: cpp.Star<MeshComp>): cpp.Star<FXSystemComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

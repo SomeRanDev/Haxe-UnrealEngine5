@@ -7,8 +7,8 @@ package ue;
 extern class BranchingPointMarker {
 	public var NotifyIndex: cpp.Int32;
 	public var TriggerTime: cpp.Float32;
-	public var NotifyEventType: EAnimNotifyEventType;
+	public var NotifyEventType: TEnumAsByte<EAnimNotifyEventType>;
 
 	@:native("FBranchingPointMarker") public function new();
-	@:native("FBranchingPointMarker") public static function make(NotifyIndex: cpp.Int32, TriggerTime: cpp.Float32, NotifyEventType: EAnimNotifyEventType): BranchingPointMarker ;
+	@:native("FBranchingPointMarker") public static function make(NotifyIndex: cpp.Int32, TriggerTime: cpp.Float32, NotifyEventType: TEnumAsByte<EAnimNotifyEventType>): BranchingPointMarker ;
 }

@@ -8,7 +8,7 @@ extern class MovieSceneCVarSection extends MovieSceneSection {
 	public var ConsoleVariables: MovieSceneCVarOverrides;
 
 	public function SetFromString(InString: FString): Void;
-	public function GetString(): cpp.Reference<FString>;
+	public function GetString(): FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

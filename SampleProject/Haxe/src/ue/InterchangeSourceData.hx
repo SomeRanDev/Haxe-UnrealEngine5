@@ -5,10 +5,10 @@ package ue;
 @:include("InterchangeSourceData.h")
 @:structAccess
 extern class InterchangeSourceData extends Object {
-	public var Filename: FString;
+	private var Filename: FString;
 
-	public function SetFilename(InFilename: FString): cpp.Reference<Bool>;
-	public function GetFilename(): cpp.Reference<FString>;
+	public function SetFilename(InFilename: FString): Bool;
+	public function GetFilename(): FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,6 @@ extern class InterchangeSourceData extends Object {
 @:forward(GetFilename)
 @:nativeGen
 abstract ConstInterchangeSourceData(InterchangeSourceData) from InterchangeSourceData {
-	public extern var Filename(get, never): FString;
-	public inline extern function get_Filename(): FString return this.Filename;
 }
 
 @:forward

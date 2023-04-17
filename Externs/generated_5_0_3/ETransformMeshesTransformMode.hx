@@ -3,10 +3,10 @@ package ue;
 
 @:native("ETransformMeshesTransformMode")
 @:include("TransformMeshesTool.h")
-extern enum ETransformMeshesTransformMode {
-	SharedGizmo;
-	SharedGizmoLocal;
-	PerObjectGizmo;
-	LastValue;
-	ETransformMeshesTransformMode_MAX;
+extern class ETransformMeshesTransformMode {
+	static var SharedGizmo: ETransformMeshesTransformMode;
+	static var SharedGizmoLocal: ETransformMeshesTransformMode;
+	static var PerObjectGizmo: ETransformMeshesTransformMode;
+	static var LastValue: ETransformMeshesTransformMode;
+	static var ETransformMeshesTransformMode_MAX: ETransformMeshesTransformMode;
 }

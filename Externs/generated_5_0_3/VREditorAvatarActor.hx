@@ -5,21 +5,21 @@ package ue;
 @:include("VREditorAvatarActor.h")
 @:structAccess
 extern class VREditorAvatarActor extends Actor {
-	public var HeadMeshComponent: cpp.Star<StaticMeshComp>;
-	public var WorldMovementGridMeshComponent: cpp.Star<StaticMeshComp>;
-	public var WorldMovementGridMID: cpp.Star<MaterialInstanceDynamic>;
-	public var WorldMovementGridOpacity: cpp.Float32;
-	public var bIsDrawingWorldMovementPostProcess: Bool;
-	public var WorldMovementPostProcessMaterial: cpp.Star<MaterialInstanceDynamic>;
-	public var ScaleProgressMeshComponent: cpp.Star<StaticMeshComp>;
-	public var CurrentScaleProgressMeshComponent: cpp.Star<StaticMeshComp>;
-	public var UserScaleIndicatorText: cpp.Star<TextRenderComp>;
-	public var FixedUserScaleMID: cpp.Star<MaterialInstanceDynamic>;
-	public var TranslucentFixedUserScaleMID: cpp.Star<MaterialInstanceDynamic>;
-	public var CurrentUserScaleMID: cpp.Star<MaterialInstanceDynamic>;
-	public var TranslucentCurrentUserScaleMID: cpp.Star<MaterialInstanceDynamic>;
-	public var PostProcessComponent: cpp.Star<PostProcessComp>;
-	public var VRMode: cpp.Star<VREditorMode>;
+	private var HeadMeshComponent: cpp.Star<StaticMeshComp>;
+	private var WorldMovementGridMeshComponent: cpp.Star<StaticMeshComp>;
+	private var WorldMovementGridMID: cpp.Star<MaterialInstanceDynamic>;
+	private var WorldMovementGridOpacity: cpp.Float32;
+	private var bIsDrawingWorldMovementPostProcess: Bool;
+	private var WorldMovementPostProcessMaterial: cpp.Star<MaterialInstanceDynamic>;
+	private var ScaleProgressMeshComponent: cpp.Star<StaticMeshComp>;
+	private var CurrentScaleProgressMeshComponent: cpp.Star<StaticMeshComp>;
+	private var UserScaleIndicatorText: cpp.Star<TextRenderComp>;
+	private var FixedUserScaleMID: cpp.Star<MaterialInstanceDynamic>;
+	private var TranslucentFixedUserScaleMID: cpp.Star<MaterialInstanceDynamic>;
+	private var CurrentUserScaleMID: cpp.Star<MaterialInstanceDynamic>;
+	private var TranslucentCurrentUserScaleMID: cpp.Star<MaterialInstanceDynamic>;
+	private var PostProcessComponent: cpp.Star<PostProcessComp>;
+	private var VRMode: cpp.Star<VREditorMode>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -27,36 +27,6 @@ extern class VREditorAvatarActor extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstVREditorAvatarActor(VREditorAvatarActor) from VREditorAvatarActor {
-	public extern var HeadMeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_HeadMeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.HeadMeshComponent;
-	public extern var WorldMovementGridMeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_WorldMovementGridMeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.WorldMovementGridMeshComponent;
-	public extern var WorldMovementGridMID(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_WorldMovementGridMID(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.WorldMovementGridMID;
-	public extern var WorldMovementGridOpacity(get, never): cpp.Float32;
-	public inline extern function get_WorldMovementGridOpacity(): cpp.Float32 return this.WorldMovementGridOpacity;
-	public extern var bIsDrawingWorldMovementPostProcess(get, never): Bool;
-	public inline extern function get_bIsDrawingWorldMovementPostProcess(): Bool return this.bIsDrawingWorldMovementPostProcess;
-	public extern var WorldMovementPostProcessMaterial(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_WorldMovementPostProcessMaterial(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.WorldMovementPostProcessMaterial;
-	public extern var ScaleProgressMeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_ScaleProgressMeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.ScaleProgressMeshComponent;
-	public extern var CurrentScaleProgressMeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_CurrentScaleProgressMeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.CurrentScaleProgressMeshComponent;
-	public extern var UserScaleIndicatorText(get, never): cpp.Star<TextRenderComp.ConstTextRenderComp>;
-	public inline extern function get_UserScaleIndicatorText(): cpp.Star<TextRenderComp.ConstTextRenderComp> return this.UserScaleIndicatorText;
-	public extern var FixedUserScaleMID(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_FixedUserScaleMID(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.FixedUserScaleMID;
-	public extern var TranslucentFixedUserScaleMID(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_TranslucentFixedUserScaleMID(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.TranslucentFixedUserScaleMID;
-	public extern var CurrentUserScaleMID(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_CurrentUserScaleMID(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.CurrentUserScaleMID;
-	public extern var TranslucentCurrentUserScaleMID(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_TranslucentCurrentUserScaleMID(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.TranslucentCurrentUserScaleMID;
-	public extern var PostProcessComponent(get, never): cpp.Star<PostProcessComp.ConstPostProcessComp>;
-	public inline extern function get_PostProcessComponent(): cpp.Star<PostProcessComp.ConstPostProcessComp> return this.PostProcessComponent;
-	public extern var VRMode(get, never): cpp.Star<VREditorMode.ConstVREditorMode>;
-	public inline extern function get_VRMode(): cpp.Star<VREditorMode.ConstVREditorMode> return this.VRMode;
 }
 
 @:forward

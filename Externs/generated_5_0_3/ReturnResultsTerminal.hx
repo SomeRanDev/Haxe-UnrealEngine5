@@ -5,7 +5,7 @@ package ue;
 @:include("Field/FieldSystemObjects.h")
 @:structAccess
 extern class ReturnResultsTerminal extends FieldNodeBase {
-	public function SetReturnResultsTerminal(): cpp.Reference<cpp.Star<ReturnResultsTerminal>>;
+	public function SetReturnResultsTerminal(): cpp.Star<ReturnResultsTerminal>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

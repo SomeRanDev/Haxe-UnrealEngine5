@@ -5,7 +5,7 @@ package ue;
 @:include("TexAligner/TexAligner.h")
 @:structAccess
 extern class TexAligner extends Object {
-	public var DefTexAlign: ETexAlign;
+	public var DefTexAlign: TEnumAsByte<ETexAlign>;
 	public var TAxis: cpp.UInt8;
 	public var UTile: cpp.Float32;
 	public var VTile: cpp.Float32;
@@ -17,8 +17,8 @@ extern class TexAligner extends Object {
 @:forward()
 @:nativeGen
 abstract ConstTexAligner(TexAligner) from TexAligner {
-	public extern var DefTexAlign(get, never): ETexAlign;
-	public inline extern function get_DefTexAlign(): ETexAlign return this.DefTexAlign;
+	public extern var DefTexAlign(get, never): TEnumAsByte<ETexAlign>;
+	public inline extern function get_DefTexAlign(): TEnumAsByte<ETexAlign> return this.DefTexAlign;
 	public extern var TAxis(get, never): cpp.UInt8;
 	public inline extern function get_TAxis(): cpp.UInt8 return this.TAxis;
 	public extern var UTile(get, never): cpp.Float32;

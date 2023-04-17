@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMakeMeshPolygroupMode")
 @:include("AddPrimitiveTool.h")
-extern enum EMakeMeshPolygroupMode {
-	PerShape;
-	PerFace;
-	PerQuad;
-	EMakeMeshPolygroupMode_MAX;
+extern class EMakeMeshPolygroupMode {
+	static var PerShape: EMakeMeshPolygroupMode;
+	static var PerFace: EMakeMeshPolygroupMode;
+	static var PerQuad: EMakeMeshPolygroupMode;
+	static var EMakeMeshPolygroupMode_MAX: EMakeMeshPolygroupMode;
 }

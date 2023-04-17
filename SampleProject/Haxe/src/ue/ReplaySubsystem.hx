@@ -8,10 +8,10 @@ extern class ReplaySubsystem extends GameInstanceSubsystem {
 	public var bLoadDefaultMapOnStop: Bool;
 
 	public function RequestCheckpoint(): Void;
-	public function IsRecording(): cpp.Reference<Bool>;
-	public function IsPlaying(): cpp.Reference<Bool>;
-	public function GetReplayCurrentTime(): cpp.Reference<cpp.Float32>;
-	public function GetActiveReplayName(): cpp.Reference<FString>;
+	public function IsRecording(): Bool;
+	public function IsPlaying(): Bool;
+	public function GetReplayCurrentTime(): cpp.Float32;
+	public function GetActiveReplayName(): FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

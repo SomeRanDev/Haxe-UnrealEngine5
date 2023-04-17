@@ -3,9 +3,9 @@ package ue;
 
 @:native("FAIDistanceType")
 @:include("AITypes.h")
-extern enum FAIDistanceType {
-	Distance3D;
-	Distance2D;
-	DistanceZ;
-	MAX;
+extern class FAIDistanceType {
+	static var Distance3D: FAIDistanceType;
+	static var Distance2D: FAIDistanceType;
+	static var DistanceZ: FAIDistanceType;
+	static var MAX: FAIDistanceType;
 }

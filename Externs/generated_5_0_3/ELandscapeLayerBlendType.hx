@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELandscapeLayerBlendType")
 @:include("Materials/MaterialExpressionLandscapeLayerBlend.h")
-extern enum ELandscapeLayerBlendType {
-	LB_WeightBlend;
-	LB_AlphaBlend;
-	LB_HeightBlend;
-	LB_MAX;
+extern class ELandscapeLayerBlendType {
+	static var LB_WeightBlend: ELandscapeLayerBlendType;
+	static var LB_AlphaBlend: ELandscapeLayerBlendType;
+	static var LB_HeightBlend: ELandscapeLayerBlendType;
+	static var LB_MAX: ELandscapeLayerBlendType;
 }

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EAISenseNotifyType")
 @:include("Perception/AIPerceptionTypes.h")
-extern enum EAISenseNotifyType {
-	OnEveryPerception;
-	OnPerceptionChange;
-	EAISenseNotifyType_MAX;
+extern class EAISenseNotifyType {
+	static var OnEveryPerception: EAISenseNotifyType;
+	static var OnPerceptionChange: EAISenseNotifyType;
+	static var EAISenseNotifyType_MAX: EAISenseNotifyType;
 }

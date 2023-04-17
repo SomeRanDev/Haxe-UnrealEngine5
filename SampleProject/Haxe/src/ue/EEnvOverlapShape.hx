@@ -3,9 +3,9 @@ package ue;
 
 @:native("EEnvOverlapShape.Type")
 @:include("EnvironmentQuery/EnvQueryTypes.h")
-extern enum EEnvOverlapShape {
-	Box;
-	Sphere;
-	Capsule;
-	EEnvOverlapShape_MAX;
+extern class EEnvOverlapShape {
+	static var Box: EEnvOverlapShape;
+	static var Sphere: EEnvOverlapShape;
+	static var Capsule: EEnvOverlapShape;
+	static var EEnvOverlapShape_MAX: EEnvOverlapShape;
 }

@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESpriteExtractMode")
 @:include("Private/ExtractSprites/PaperExtractSpritesSettings.h")
-extern enum ESpriteExtractMode {
-	Auto;
-	Grid;
-	ESpriteExtractMode_MAX;
+extern class ESpriteExtractMode {
+	static var Auto: ESpriteExtractMode;
+	static var Grid: ESpriteExtractMode;
+	static var ESpriteExtractMode_MAX: ESpriteExtractMode;
 }

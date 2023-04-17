@@ -3,9 +3,9 @@ package ue;
 
 @:native("EPlayOnPakFileMode")
 @:include("Settings/LevelEditorPlaySettings.h")
-extern enum EPlayOnPakFileMode {
-	NoPak;
-	PakNoCompress;
-	PakCompress;
-	EPlayOnPakFileMode_MAX;
+extern class EPlayOnPakFileMode {
+	static var NoPak: EPlayOnPakFileMode;
+	static var PakNoCompress: EPlayOnPakFileMode;
+	static var PakCompress: EPlayOnPakFileMode;
+	static var EPlayOnPakFileMode_MAX: EPlayOnPakFileMode;
 }

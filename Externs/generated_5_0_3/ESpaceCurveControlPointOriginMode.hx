@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESpaceCurveControlPointOriginMode")
 @:include("Mechanics/SpaceCurveDeformationMechanic.h")
-extern enum ESpaceCurveControlPointOriginMode {
-	Shared;
-	First;
-	Last;
-	ESpaceCurveControlPointOriginMode_MAX;
+extern class ESpaceCurveControlPointOriginMode {
+	static var Shared: ESpaceCurveControlPointOriginMode;
+	static var First: ESpaceCurveControlPointOriginMode;
+	static var Last: ESpaceCurveControlPointOriginMode;
+	static var ESpaceCurveControlPointOriginMode_MAX: ESpaceCurveControlPointOriginMode;
 }

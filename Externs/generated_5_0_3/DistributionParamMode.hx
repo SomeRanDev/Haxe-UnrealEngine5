@@ -3,9 +3,9 @@ package ue;
 
 @:native("DistributionParamMode")
 @:include("Distributions/Distribution.h")
-extern enum DistributionParamMode {
-	DPM_Normal;
-	DPM_Abs;
-	DPM_Direct;
-	DPM_MAX;
+extern class DistributionParamMode {
+	static var DPM_Normal: DistributionParamMode;
+	static var DPM_Abs: DistributionParamMode;
+	static var DPM_Direct: DistributionParamMode;
+	static var DPM_MAX: DistributionParamMode;
 }

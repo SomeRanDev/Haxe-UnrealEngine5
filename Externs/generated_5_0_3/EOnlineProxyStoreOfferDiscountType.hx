@@ -3,10 +3,10 @@ package ue;
 
 @:native("EOnlineProxyStoreOfferDiscountType")
 @:include("InAppPurchaseQueryCallbackProxy2.h")
-extern enum EOnlineProxyStoreOfferDiscountType {
-	NotOnSale;
-	Percentage;
-	DiscountAmount;
-	PayAmount;
-	EOnlineProxyStoreOfferDiscountType_MAX;
+extern class EOnlineProxyStoreOfferDiscountType {
+	static var NotOnSale: EOnlineProxyStoreOfferDiscountType;
+	static var Percentage: EOnlineProxyStoreOfferDiscountType;
+	static var DiscountAmount: EOnlineProxyStoreOfferDiscountType;
+	static var PayAmount: EOnlineProxyStoreOfferDiscountType;
+	static var EOnlineProxyStoreOfferDiscountType_MAX: EOnlineProxyStoreOfferDiscountType;
 }

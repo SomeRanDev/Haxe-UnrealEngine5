@@ -4,7 +4,7 @@ package ue;
 @:native("UMovieSceneTransformOrigin")
 @:structAccess
 extern class MovieSceneTransformOrigin extends Interface {
-	public function BP_GetTransformOrigin(): cpp.Reference<Transform>;
+	@:protected public function BP_GetTransformOrigin(): Transform;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -5,9 +5,9 @@ package ue;
 @:include("BakeMultiMeshAttributeMapsTool.h")
 @:structAccess
 extern class BakeMultiMeshAttributeMapsTool extends BakeMeshAttributeMapsToolBase {
-	public var Settings: cpp.Star<BakeMultiMeshAttributeMapsToolProperties>;
-	public var InputMeshSettings: cpp.Star<BakeMultiMeshInputToolProperties>;
-	public var ResultSettings: cpp.Star<BakeMeshAttributeMapsResultToolProperties>;
+	@:protected public var Settings: cpp.Star<BakeMultiMeshAttributeMapsToolProperties>;
+	@:protected public var InputMeshSettings: cpp.Star<BakeMultiMeshInputToolProperties>;
+	@:protected public var ResultSettings: cpp.Star<BakeMeshAttributeMapsResultToolProperties>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class BakeMultiMeshAttributeMapsTool extends BakeMeshAttributeMapsToolBas
 @:forward()
 @:nativeGen
 abstract ConstBakeMultiMeshAttributeMapsTool(BakeMultiMeshAttributeMapsTool) from BakeMultiMeshAttributeMapsTool {
-	public extern var Settings(get, never): cpp.Star<BakeMultiMeshAttributeMapsToolProperties.ConstBakeMultiMeshAttributeMapsToolProperties>;
-	public inline extern function get_Settings(): cpp.Star<BakeMultiMeshAttributeMapsToolProperties.ConstBakeMultiMeshAttributeMapsToolProperties> return this.Settings;
-	public extern var InputMeshSettings(get, never): cpp.Star<BakeMultiMeshInputToolProperties.ConstBakeMultiMeshInputToolProperties>;
-	public inline extern function get_InputMeshSettings(): cpp.Star<BakeMultiMeshInputToolProperties.ConstBakeMultiMeshInputToolProperties> return this.InputMeshSettings;
-	public extern var ResultSettings(get, never): cpp.Star<BakeMeshAttributeMapsResultToolProperties.ConstBakeMeshAttributeMapsResultToolProperties>;
-	public inline extern function get_ResultSettings(): cpp.Star<BakeMeshAttributeMapsResultToolProperties.ConstBakeMeshAttributeMapsResultToolProperties> return this.ResultSettings;
 }
 
 @:forward

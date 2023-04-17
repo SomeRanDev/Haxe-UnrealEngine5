@@ -3,9 +3,9 @@ package ue;
 
 @:native("EKeyGroupMode")
 @:include("ISequencer.h")
-extern enum EKeyGroupMode {
-	KeyChanged;
-	KeyGroup;
-	KeyAll;
-	EKeyGroupMode_MAX;
+extern class EKeyGroupMode {
+	static var KeyChanged: EKeyGroupMode;
+	static var KeyGroup: EKeyGroupMode;
+	static var KeyAll: EKeyGroupMode;
+	static var EKeyGroupMode_MAX: EKeyGroupMode;
 }

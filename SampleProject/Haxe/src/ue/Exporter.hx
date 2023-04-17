@@ -16,9 +16,9 @@ extern class Exporter extends Object {
 	public var bForceFileOperations: Bool;
 	public var ExportTask: cpp.Star<AssetExportTask>;
 
-	public function ScriptRunAssetExportTask(Task: cpp.Star<AssetExportTask>): cpp.Reference<Bool>;
-	public function RunAssetExportTasks(ExportTasks: cpp.Reference<TArray<cpp.Star<AssetExportTask>>>): cpp.Reference<Bool>;
-	public function RunAssetExportTask(Task: cpp.Star<AssetExportTask>): cpp.Reference<Bool>;
+	public function ScriptRunAssetExportTask(Task: cpp.Star<AssetExportTask>): Bool;
+	public function RunAssetExportTasks(ExportTasks: cpp.Reference<TArray<cpp.Star<AssetExportTask>>>): Bool;
+	public function RunAssetExportTask(Task: cpp.Star<AssetExportTask>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -3,12 +3,12 @@ package ue;
 
 @:native("EClusterConnectionTypeEnum")
 @:include("Chaos/ChaosSolverActor.h")
-extern enum EClusterConnectionTypeEnum {
-	Chaos_PointImplicit;
-	Chaos_DelaunayTriangulation;
-	Chaos_MinimalSpanningSubsetDelaunayTriangulation;
-	Chaos_PointImplicitAugmentedWithMinimalDelaunay;
-	Chaos_None;
-	Chaos_EClsuterCreationParameters_Max;
-	Chaos_MAX;
+extern class EClusterConnectionTypeEnum {
+	static var Chaos_PointImplicit: EClusterConnectionTypeEnum;
+	static var Chaos_DelaunayTriangulation: EClusterConnectionTypeEnum;
+	static var Chaos_MinimalSpanningSubsetDelaunayTriangulation: EClusterConnectionTypeEnum;
+	static var Chaos_PointImplicitAugmentedWithMinimalDelaunay: EClusterConnectionTypeEnum;
+	static var Chaos_None: EClusterConnectionTypeEnum;
+	static var Chaos_EClsuterCreationParameters_Max: EClusterConnectionTypeEnum;
+	static var Chaos_MAX: EClusterConnectionTypeEnum;
 }

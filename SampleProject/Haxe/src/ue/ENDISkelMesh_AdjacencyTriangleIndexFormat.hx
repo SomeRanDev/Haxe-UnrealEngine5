@@ -3,8 +3,8 @@ package ue;
 
 @:native("ENDISkelMesh_AdjacencyTriangleIndexFormat.Type")
 @:include("NiagaraSettings.h")
-extern enum ENDISkelMesh_AdjacencyTriangleIndexFormat {
-	Full;
-	Half;
-	ENDISkelMesh_MAX;
+extern class ENDISkelMesh_AdjacencyTriangleIndexFormat {
+	static var Full: ENDISkelMesh_AdjacencyTriangleIndexFormat;
+	static var Half: ENDISkelMesh_AdjacencyTriangleIndexFormat;
+	static var ENDISkelMesh_MAX: ENDISkelMesh_AdjacencyTriangleIndexFormat;
 }

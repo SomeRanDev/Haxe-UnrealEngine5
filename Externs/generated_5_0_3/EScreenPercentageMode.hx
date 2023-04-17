@@ -3,9 +3,9 @@ package ue;
 
 @:native("EScreenPercentageMode")
 @:include("LegacyScreenPercentageDriver.h")
-extern enum EScreenPercentageMode {
-	Manual;
-	BasedOnDisplayResolution;
-	BasedOnDPIScale;
-	EScreenPercentageMode_MAX;
+extern class EScreenPercentageMode {
+	static var Manual: EScreenPercentageMode;
+	static var BasedOnDisplayResolution: EScreenPercentageMode;
+	static var BasedOnDPIScale: EScreenPercentageMode;
+	static var EScreenPercentageMode_MAX: EScreenPercentageMode;
 }

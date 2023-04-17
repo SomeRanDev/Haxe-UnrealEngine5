@@ -3,11 +3,11 @@ package ue;
 
 @:native("EDistributionVectorLockFlags")
 @:include("Distributions/DistributionVector.h")
-extern enum EDistributionVectorLockFlags {
-	EDVLF_None;
-	EDVLF_XY;
-	EDVLF_XZ;
-	EDVLF_YZ;
-	EDVLF_XYZ;
-	EDVLF_MAX;
+extern class EDistributionVectorLockFlags {
+	static var EDVLF_None: EDistributionVectorLockFlags;
+	static var EDVLF_XY: EDistributionVectorLockFlags;
+	static var EDVLF_XZ: EDistributionVectorLockFlags;
+	static var EDVLF_YZ: EDistributionVectorLockFlags;
+	static var EDVLF_XYZ: EDistributionVectorLockFlags;
+	static var EDVLF_MAX: EDistributionVectorLockFlags;
 }

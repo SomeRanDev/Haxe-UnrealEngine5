@@ -3,8 +3,8 @@ package ue;
 
 @:native("ETemperatureMethod")
 @:include("Engine/Scene.h")
-extern enum ETemperatureMethod {
-	TEMP_WhiteBalance;
-	TEMP_ColorTemperature;
-	TEMP_MAX;
+extern class ETemperatureMethod {
+	static var TEMP_WhiteBalance: ETemperatureMethod;
+	static var TEMP_ColorTemperature: ETemperatureMethod;
+	static var TEMP_MAX: ETemperatureMethod;
 }

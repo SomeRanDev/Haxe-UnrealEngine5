@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELocalizedTextCollapseMode")
 @:include("PortableObjectPipeline.h")
-extern enum ELocalizedTextCollapseMode {
-	IdenticalTextIdAndSource;
-	IdenticalPackageIdTextIdAndSource;
-	IdenticalNamespaceAndSource;
-	ELocalizedTextCollapseMode_MAX;
+extern class ELocalizedTextCollapseMode {
+	static var IdenticalTextIdAndSource: ELocalizedTextCollapseMode;
+	static var IdenticalPackageIdTextIdAndSource: ELocalizedTextCollapseMode;
+	static var IdenticalNamespaceAndSource: ELocalizedTextCollapseMode;
+	static var ELocalizedTextCollapseMode_MAX: ELocalizedTextCollapseMode;
 }

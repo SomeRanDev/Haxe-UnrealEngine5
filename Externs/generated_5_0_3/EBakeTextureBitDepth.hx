@@ -3,8 +3,8 @@ package ue;
 
 @:native("EBakeTextureBitDepth")
 @:include("BakeMeshAttributeMapsToolBase.h")
-extern enum EBakeTextureBitDepth {
-	ChannelBits8;
-	ChannelBits16;
-	EBakeTextureBitDepth_MAX;
+extern class EBakeTextureBitDepth {
+	static var ChannelBits8: EBakeTextureBitDepth;
+	static var ChannelBits16: EBakeTextureBitDepth;
+	static var EBakeTextureBitDepth_MAX: EBakeTextureBitDepth;
 }

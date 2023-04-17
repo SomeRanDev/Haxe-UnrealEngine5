@@ -46,8 +46,8 @@ extern class RecastNavMesh extends NavigationData {
 	public var DefaultDrawDistance: cpp.Float32;
 	public var DefaultMaxSearchNodes: cpp.Float32;
 	public var DefaultMaxHierarchicalSearchNodes: cpp.Float32;
-	public var RegionPartitioning: ERecastPartitioning;
-	public var LayerPartitioning: ERecastPartitioning;
+	public var RegionPartitioning: TEnumAsByte<ERecastPartitioning>;
+	public var LayerPartitioning: TEnumAsByte<ERecastPartitioning>;
 	public var RegionChunkSplits: cpp.Int32;
 	public var LayerChunkSplits: cpp.Int32;
 	public var bSortNavigationAreasByCost: Bool;
@@ -63,12 +63,12 @@ extern class RecastNavMesh extends NavigationData {
 	public var bUseVirtualFilters: Bool;
 	public var bUseVirtualGeometryFilteringAndDirtying: Bool;
 	public var bAllowNavLinkAsPathEnd: Bool;
-	public var bUseVoxelCache: Bool;
-	public var TileSetUpdateInterval: cpp.Float32;
+	private var bUseVoxelCache: Bool;
+	private var TileSetUpdateInterval: cpp.Float32;
 	public var HeuristicScale: cpp.Float32;
 	public var VerticalDeviationFromGroundCompensation: cpp.Float32;
 
-	public function K2_ReplaceAreaInTileBounds(Bounds: Box, OldArea: TSubclassOf<NavArea>, NewArea: TSubclassOf<NavArea>, ReplaceLinks: Bool): cpp.Reference<Bool>;
+	public function K2_ReplaceAreaInTileBounds(Bounds: Box, OldArea: TSubclassOf<NavArea>, NewArea: TSubclassOf<NavArea>, ReplaceLinks: Bool): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -158,10 +158,10 @@ abstract ConstRecastNavMesh(RecastNavMesh) from RecastNavMesh {
 	public inline extern function get_DefaultMaxSearchNodes(): cpp.Float32 return this.DefaultMaxSearchNodes;
 	public extern var DefaultMaxHierarchicalSearchNodes(get, never): cpp.Float32;
 	public inline extern function get_DefaultMaxHierarchicalSearchNodes(): cpp.Float32 return this.DefaultMaxHierarchicalSearchNodes;
-	public extern var RegionPartitioning(get, never): ERecastPartitioning;
-	public inline extern function get_RegionPartitioning(): ERecastPartitioning return this.RegionPartitioning;
-	public extern var LayerPartitioning(get, never): ERecastPartitioning;
-	public inline extern function get_LayerPartitioning(): ERecastPartitioning return this.LayerPartitioning;
+	public extern var RegionPartitioning(get, never): TEnumAsByte<ERecastPartitioning>;
+	public inline extern function get_RegionPartitioning(): TEnumAsByte<ERecastPartitioning> return this.RegionPartitioning;
+	public extern var LayerPartitioning(get, never): TEnumAsByte<ERecastPartitioning>;
+	public inline extern function get_LayerPartitioning(): TEnumAsByte<ERecastPartitioning> return this.LayerPartitioning;
 	public extern var RegionChunkSplits(get, never): cpp.Int32;
 	public inline extern function get_RegionChunkSplits(): cpp.Int32 return this.RegionChunkSplits;
 	public extern var LayerChunkSplits(get, never): cpp.Int32;
@@ -192,10 +192,6 @@ abstract ConstRecastNavMesh(RecastNavMesh) from RecastNavMesh {
 	public inline extern function get_bUseVirtualGeometryFilteringAndDirtying(): Bool return this.bUseVirtualGeometryFilteringAndDirtying;
 	public extern var bAllowNavLinkAsPathEnd(get, never): Bool;
 	public inline extern function get_bAllowNavLinkAsPathEnd(): Bool return this.bAllowNavLinkAsPathEnd;
-	public extern var bUseVoxelCache(get, never): Bool;
-	public inline extern function get_bUseVoxelCache(): Bool return this.bUseVoxelCache;
-	public extern var TileSetUpdateInterval(get, never): cpp.Float32;
-	public inline extern function get_TileSetUpdateInterval(): cpp.Float32 return this.TileSetUpdateInterval;
 	public extern var HeuristicScale(get, never): cpp.Float32;
 	public inline extern function get_HeuristicScale(): cpp.Float32 return this.HeuristicScale;
 	public extern var VerticalDeviationFromGroundCompensation(get, never): cpp.Float32;

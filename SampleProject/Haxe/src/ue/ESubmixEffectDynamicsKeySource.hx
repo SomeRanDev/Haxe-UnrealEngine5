@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESubmixEffectDynamicsKeySource")
 @:include("SubmixEffects/AudioMixerSubmixEffectDynamicsProcessor.h")
-extern enum ESubmixEffectDynamicsKeySource {
-	Default;
-	AudioBus;
-	Submix;
-	Count;
-	ESubmixEffectDynamicsKeySource_MAX;
+extern class ESubmixEffectDynamicsKeySource {
+	static var Default: ESubmixEffectDynamicsKeySource;
+	static var AudioBus: ESubmixEffectDynamicsKeySource;
+	static var Submix: ESubmixEffectDynamicsKeySource;
+	static var Count: ESubmixEffectDynamicsKeySource;
+	static var ESubmixEffectDynamicsKeySource_MAX: ESubmixEffectDynamicsKeySource;
 }

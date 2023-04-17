@@ -5,8 +5,6 @@ package ue;
 @:include("Engine/DocumentationActor.h")
 @:structAccess
 extern class DocumentationActor extends Actor {
-	public var DocumentLink: FString;
-	public var Billboard: cpp.Star<MaterialBillboardComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +12,6 @@ extern class DocumentationActor extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstDocumentationActor(DocumentationActor) from DocumentationActor {
-	public extern var DocumentLink(get, never): FString;
-	public inline extern function get_DocumentLink(): FString return this.DocumentLink;
-	public extern var Billboard(get, never): cpp.Star<MaterialBillboardComp.ConstMaterialBillboardComp>;
-	public inline extern function get_Billboard(): cpp.Star<MaterialBillboardComp.ConstMaterialBillboardComp> return this.Billboard;
 }
 
 @:forward

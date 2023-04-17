@@ -18,7 +18,6 @@ extern class SubmixEffectDynamicsProcessorSettings {
 	public var KeySource: ESubmixEffectDynamicsKeySource;
 	public var ExternalAudioBus: cpp.Star<AudioBus>;
 	public var ExternalSubmix: cpp.Star<SoundSubmix>;
-	public var bChannelLinked_DEPRECATED: Bool;
 	public var bAnalogMode: Bool;
 	public var bBypass: Bool;
 	public var bKeyAudition: Bool;

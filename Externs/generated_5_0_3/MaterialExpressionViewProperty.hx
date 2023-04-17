@@ -5,7 +5,7 @@ package ue;
 @:include("Materials/MaterialExpressionViewProperty.h")
 @:structAccess
 extern class MaterialExpressionViewProperty extends MaterialExpression {
-	public var Property: EMaterialExposedViewProperty;
+	public var Property: TEnumAsByte<EMaterialExposedViewProperty>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,8 @@ extern class MaterialExpressionViewProperty extends MaterialExpression {
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionViewProperty(MaterialExpressionViewProperty) from MaterialExpressionViewProperty {
-	public extern var Property(get, never): EMaterialExposedViewProperty;
-	public inline extern function get_Property(): EMaterialExposedViewProperty return this.Property;
+	public extern var Property(get, never): TEnumAsByte<EMaterialExposedViewProperty>;
+	public inline extern function get_Property(): TEnumAsByte<EMaterialExposedViewProperty> return this.Property;
 }
 
 @:forward

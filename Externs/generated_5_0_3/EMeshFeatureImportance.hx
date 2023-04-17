@@ -3,12 +3,12 @@ package ue;
 
 @:native("EMeshFeatureImportance.Type")
 @:include("Engine/MeshMerging.h")
-extern enum EMeshFeatureImportance {
-	Off;
-	Lowest;
-	Low;
-	Normal;
-	High;
-	Highest;
-	EMeshFeatureImportance_MAX;
+extern class EMeshFeatureImportance {
+	static var Off: EMeshFeatureImportance;
+	static var Lowest: EMeshFeatureImportance;
+	static var Low: EMeshFeatureImportance;
+	static var Normal: EMeshFeatureImportance;
+	static var High: EMeshFeatureImportance;
+	static var Highest: EMeshFeatureImportance;
+	static var EMeshFeatureImportance_MAX: EMeshFeatureImportance;
 }

@@ -5,7 +5,7 @@ package ue;
 @:include("Styling/SlateTypes.h")
 @:structAccess
 extern class CheckBoxStyle extends SlateWidgetStyle {
-	public var CheckBoxType: ESlateCheckBoxType;
+	public var CheckBoxType: TEnumAsByte<ESlateCheckBoxType>;
 	public var UncheckedImage: SlateBrush;
 	public var UncheckedHoveredImage: SlateBrush;
 	public var UncheckedPressedImage: SlateBrush;
@@ -30,9 +30,6 @@ extern class CheckBoxStyle extends SlateWidgetStyle {
 	public var CheckedSlateSound: SlateSound;
 	public var UncheckedSlateSound: SlateSound;
 	public var HoveredSlateSound: SlateSound;
-	public var CheckedSound_DEPRECATED: FName;
-	public var UncheckedSound_DEPRECATED: FName;
-	public var HoveredSound_DEPRECATED: FName;
 
 	@:native("FCheckBoxStyle") public function new();
 }

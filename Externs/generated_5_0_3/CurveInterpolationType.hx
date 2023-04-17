@@ -3,9 +3,9 @@ package ue;
 
 @:native("CurveInterpolationType")
 @:include("SynthComponents/SynthComponentMonoWaveTable.h")
-extern enum CurveInterpolationType {
-	AUTOINTERP;
-	LINEAR;
-	CONSTANT;
-	CurveInterpolationType_MAX;
+extern class CurveInterpolationType {
+	static var AUTOINTERP: CurveInterpolationType;
+	static var LINEAR: CurveInterpolationType;
+	static var CONSTANT: CurveInterpolationType;
+	static var CurveInterpolationType_MAX: CurveInterpolationType;
 }

@@ -3,12 +3,12 @@ package ue;
 
 @:native("EGroomStrandsSize")
 @:include("GroomAssetPhysics.h")
-extern enum EGroomStrandsSize {
-	None;
-	Size2;
-	Size4;
-	Size8;
-	Size16;
-	Size32;
-	EGroomStrandsSize_MAX;
+extern class EGroomStrandsSize {
+	static var None: EGroomStrandsSize;
+	static var Size2: EGroomStrandsSize;
+	static var Size4: EGroomStrandsSize;
+	static var Size8: EGroomStrandsSize;
+	static var Size16: EGroomStrandsSize;
+	static var Size32: EGroomStrandsSize;
+	static var EGroomStrandsSize_MAX: EGroomStrandsSize;
 }

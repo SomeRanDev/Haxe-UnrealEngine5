@@ -5,7 +5,7 @@ package ue;
 @:include("BlueprintBoundEventNodeSpawner.h")
 @:structAccess
 extern class BlueprintBoundEventNodeSpawner extends BlueprintEventNodeSpawner {
-	public var EventDelegate: TFieldPath<FMulticastDelegateProperty>;
+	private var EventDelegate: TFieldPath<FMulticastDelegateProperty>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class BlueprintBoundEventNodeSpawner extends BlueprintEventNodeSpawner {
 @:forward()
 @:nativeGen
 abstract ConstBlueprintBoundEventNodeSpawner(BlueprintBoundEventNodeSpawner) from BlueprintBoundEventNodeSpawner {
-	public extern var EventDelegate(get, never): TFieldPath<FMulticastDelegateProperty>;
-	public inline extern function get_EventDelegate(): TFieldPath<FMulticastDelegateProperty> return this.EventDelegate;
 }
 
 @:forward

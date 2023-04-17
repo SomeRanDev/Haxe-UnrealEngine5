@@ -5,7 +5,7 @@ package ue;
 @:include("Materials/MaterialExpressionSceneDepthWithoutWater.h")
 @:structAccess
 extern class MaterialExpressionSceneDepthWithoutWater extends MaterialExpression {
-	public var InputMode: EMaterialSceneAttributeInputMode;
+	public var InputMode: TEnumAsByte<EMaterialSceneAttributeInputMode>;
 	public var Input: ExpressionInput;
 	public var ConstInput: Vector2D;
 	public var FallbackDepth: cpp.Float32;
@@ -16,8 +16,8 @@ extern class MaterialExpressionSceneDepthWithoutWater extends MaterialExpression
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionSceneDepthWithoutWater(MaterialExpressionSceneDepthWithoutWater) from MaterialExpressionSceneDepthWithoutWater {
-	public extern var InputMode(get, never): EMaterialSceneAttributeInputMode;
-	public inline extern function get_InputMode(): EMaterialSceneAttributeInputMode return this.InputMode;
+	public extern var InputMode(get, never): TEnumAsByte<EMaterialSceneAttributeInputMode>;
+	public inline extern function get_InputMode(): TEnumAsByte<EMaterialSceneAttributeInputMode> return this.InputMode;
 	public extern var Input(get, never): ExpressionInput;
 	public inline extern function get_Input(): ExpressionInput return this.Input;
 	public extern var ConstInput(get, never): Vector2D;

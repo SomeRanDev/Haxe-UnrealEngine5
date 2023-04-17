@@ -5,13 +5,13 @@ package ue;
 @:include("Components/SinglePropertyView.h")
 @:structAccess
 extern class SinglePropertyView extends PropertyViewBase {
-	public var PropertyName: FName;
-	public var NameOverride: FText;
+	private var PropertyName: FName;
+	private var NameOverride: FText;
 
 	public function SetPropertyName(NewPropertyName: FName): Void;
 	public function SetNameOverride(NewPropertyName: FText): Void;
-	public function GetPropertyName(): cpp.Reference<FName>;
-	public function GetNameOverride(): cpp.Reference<FText>;
+	public function GetPropertyName(): FName;
+	public function GetNameOverride(): FText;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,10 +19,6 @@ extern class SinglePropertyView extends PropertyViewBase {
 @:forward(GetPropertyName, GetNameOverride)
 @:nativeGen
 abstract ConstSinglePropertyView(SinglePropertyView) from SinglePropertyView {
-	public extern var PropertyName(get, never): FName;
-	public inline extern function get_PropertyName(): FName return this.PropertyName;
-	public extern var NameOverride(get, never): FText;
-	public inline extern function get_NameOverride(): FText return this.NameOverride;
 }
 
 @:forward

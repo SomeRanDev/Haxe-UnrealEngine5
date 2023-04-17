@@ -5,7 +5,7 @@ package ue;
 @:include("Preferences/PersonaOptions.h")
 @:structAccess
 extern class ViewportConfigOptions {
-	public var ViewModeIndex: EViewModeIndex;
+	public var ViewModeIndex: TEnumAsByte<EViewModeIndex>;
 	public var ViewFOV: cpp.Float32;
 	public var CameraSpeedSetting: cpp.Int32;
 	public var CameraSpeedScalar: cpp.Float32;

@@ -3,10 +3,10 @@ package ue;
 
 @:native("ENiagaraDebugHUDPerfGraphMode")
 @:include("NiagaraDebuggerCommon.h")
-extern enum ENiagaraDebugHUDPerfGraphMode {
-	None;
-	GameThread;
-	RenderThread;
-	GPU;
-	ENiagaraDebugHUDPerfGraphMode_MAX;
+extern class ENiagaraDebugHUDPerfGraphMode {
+	static var None: ENiagaraDebugHUDPerfGraphMode;
+	static var GameThread: ENiagaraDebugHUDPerfGraphMode;
+	static var RenderThread: ENiagaraDebugHUDPerfGraphMode;
+	static var GPU: ENiagaraDebugHUDPerfGraphMode;
+	static var ENiagaraDebugHUDPerfGraphMode_MAX: ENiagaraDebugHUDPerfGraphMode;
 }

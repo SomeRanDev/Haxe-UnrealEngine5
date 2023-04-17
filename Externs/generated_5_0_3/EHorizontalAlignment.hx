@@ -3,10 +3,10 @@ package ue;
 
 @:native("EHorizontalAlignment")
 @:include("Types/SlateEnums.h")
-extern enum EHorizontalAlignment {
-	HAlign_Fill;
-	HAlign_Left;
-	HAlign_Center;
-	HAlign_Right;
-	HAlign_MAX;
+extern class EHorizontalAlignment {
+	static var HAlign_Fill: EHorizontalAlignment;
+	static var HAlign_Left: EHorizontalAlignment;
+	static var HAlign_Center: EHorizontalAlignment;
+	static var HAlign_Right: EHorizontalAlignment;
+	static var HAlign_MAX: EHorizontalAlignment;
 }

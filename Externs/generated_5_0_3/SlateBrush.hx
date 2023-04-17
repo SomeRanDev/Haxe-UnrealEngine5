@@ -7,18 +7,16 @@ package ue;
 extern class SlateBrush {
 	public var ImageSize: Vector2D;
 	public var Margin: Margin;
-	public var Tint_DEPRECATED: LinearColor;
 	public var TintColor: SlateColor;
 	public var OutlineSettings: SlateBrushOutlineSettings;
-	public var ResourceObject: cpp.Star<Object>;
-	public var ResourceName: FName;
-	public var UVRegion: Box2f;
-	public var DrawAs: ESlateBrushDrawType;
-	public var Tiling: ESlateBrushTileType;
-	public var Mirroring: ESlateBrushMirrorType;
-	public var ImageType: ESlateBrushImageType;
-	public var bIsDynamicallyLoaded: Bool;
-	public var bHasUObject_DEPRECATED: Bool;
+	private var ResourceObject: cpp.Star<Object>;
+	@:protected public var ResourceName: FName;
+	@:protected public var UVRegion: Box2f;
+	public var DrawAs: TEnumAsByte<ESlateBrushDrawType>;
+	public var Tiling: TEnumAsByte<ESlateBrushTileType>;
+	public var Mirroring: TEnumAsByte<ESlateBrushMirrorType>;
+	public var ImageType: TEnumAsByte<ESlateBrushImageType>;
+	@:protected public var bIsDynamicallyLoaded: Bool;
 
 	@:native("FSlateBrush") public function new();
 }

@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESearchDir.Type")
 @:include("UObject/NoExportTypes.h")
-extern enum ESearchDir {
-	FromStart;
-	FromEnd;
-	ESearchDir_MAX;
+extern class ESearchDir {
+	static var FromStart: ESearchDir;
+	static var FromEnd: ESearchDir;
+	static var ESearchDir_MAX: ESearchDir;
 }

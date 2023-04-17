@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class PlayerCameraManager extends Actor {
 	public var PCOwner: cpp.Star<PlayerController>;
-	public var TransformComponent: cpp.Star<SceneComp>;
+	private var TransformComponent: cpp.Star<SceneComp>;
 	public var DefaultFOV: cpp.Float32;
 	public var DefaultOrthoWidth: cpp.Float32;
 	public var DefaultAspectRatio: cpp.Float32;
@@ -14,21 +14,21 @@ extern class PlayerCameraManager extends Actor {
 	public var LastFrameCameraCache: CameraCacheEntry;
 	public var ViewTarget: TViewTarget;
 	public var PendingViewTarget: TViewTarget;
-	public var CameraCachePrivate: CameraCacheEntry;
-	public var LastFrameCameraCachePrivate: CameraCacheEntry;
-	public var ModifierList: TArray<cpp.Star<CameraModifier>>;
+	private var CameraCachePrivate: CameraCacheEntry;
+	private var LastFrameCameraCachePrivate: CameraCacheEntry;
+	@:protected public var ModifierList: TArray<cpp.Star<CameraModifier>>;
 	public var DefaultModifiers: TArray<TSubclassOf<CameraModifier>>;
 	public var FreeCamDistance: cpp.Float32;
 	public var FreeCamOffset: Vector;
 	public var ViewTargetOffset: Vector;
 	public var OnAudioFadeChangeEvent: HaxeMulticastSparseDelegateProperty<(Bool, cpp.Float32) -> Void>;
-	public var CameraLensEffects: TArray<CameraLensEffectInterface>;
-	public var CachedCameraShakeMod: cpp.Star<CameraModifier_CameraShake>;
-	public var AnimInstPool: cpp.Star<CameraAnimInst>;
-	public var PostProcessBlendCache: TArray<PostProcessSettings>;
+	@:protected public var CameraLensEffects: TArray<CameraLensEffectInterface>;
+	@:protected public var CachedCameraShakeMod: cpp.Star<CameraModifier_CameraShake>;
+	@:protected public var AnimInstPool: cpp.Star<CameraAnimInst>;
+	@:protected public var PostProcessBlendCache: TArray<PostProcessSettings>;
 	public var ActiveAnims: TArray<cpp.Star<CameraAnimInst>>;
-	public var FreeAnims: TArray<cpp.Star<CameraAnimInst>>;
-	public var AnimCameraActor: cpp.Star<CameraActor>;
+	@:protected public var FreeAnims: TArray<cpp.Star<CameraAnimInst>>;
+	@:protected public var AnimCameraActor: cpp.Star<CameraActor>;
 	public var bIsOrthographic: Bool;
 	public var bDefaultConstrainAspectRatio: Bool;
 	public var bClientSimulatingViewTarget: Bool;
@@ -40,9 +40,9 @@ extern class PlayerCameraManager extends Actor {
 	public var ViewYawMax: cpp.Float32;
 	public var ViewRollMin: cpp.Float32;
 	public var ViewRollMax: cpp.Float32;
-	public var ServerUpdateCameraTimeout: cpp.Float32;
+	private var ServerUpdateCameraTimeout: cpp.Float32;
 
-	public function SwapPendingViewTargetWhenUsingClientSideCameraUpdates(): Void;
+	@:protected public function SwapPendingViewTargetWhenUsingClientSideCameraUpdates(): Void;
 	public function StopCameraShake(ShakeInstance: cpp.Star<CameraShakeBase>, bImmediately: Bool): Void;
 	public function StopCameraFade(): Void;
 	public function StopCameraAnimInst(AnimInst: cpp.Star<CameraAnimInst>, bImmediate: Bool): Void;
@@ -52,30 +52,30 @@ extern class PlayerCameraManager extends Actor {
 	public function StopAllCameraShakesFromSource(SourceComponent: cpp.Star<CameraShakeSourceComp>, bImmediately: Bool): Void;
 	public function StopAllCameraShakes(bImmediately: Bool): Void;
 	public function StopAllCameraAnims(bImmediate: Bool): Void;
-	public function StartCameraShakeFromSource(ShakeClass: TSubclassOf<CameraShakeBase>, SourceComponent: cpp.Star<CameraShakeSourceComp>, Scale: cpp.Float32, PlaySpace: ECameraShakePlaySpace, UserPlaySpaceRot: Rotator): cpp.Reference<cpp.Star<CameraShakeBase>>;
-	public function StartCameraShake(ShakeClass: TSubclassOf<CameraShakeBase>, Scale: cpp.Float32, PlaySpace: ECameraShakePlaySpace, UserPlaySpaceRot: Rotator): cpp.Reference<cpp.Star<CameraShakeBase>>;
+	public function StartCameraShakeFromSource(ShakeClass: TSubclassOf<CameraShakeBase>, SourceComponent: cpp.Star<CameraShakeSourceComp>, Scale: cpp.Float32, PlaySpace: ECameraShakePlaySpace, UserPlaySpaceRot: Rotator): cpp.Star<CameraShakeBase>;
+	public function StartCameraShake(ShakeClass: TSubclassOf<CameraShakeBase>, Scale: cpp.Float32, PlaySpace: ECameraShakePlaySpace, UserPlaySpaceRot: Rotator): cpp.Star<CameraShakeBase>;
 	public function StartCameraFade(FromAlpha: cpp.Float32, ToAlpha: cpp.Float32, Duration: cpp.Float32, Color: LinearColor, bShouldFadeAudio: Bool, bHoldWhenFinished: Bool): Void;
 	public function SetManualCameraFade(InFadeAmount: cpp.Float32, Color: LinearColor, bInFadeAudio: Bool): Void;
 	public function SetGameCameraCutThisFrame(): Void;
 	public function RemoveGenericCameraLensEffect(Emitter: CameraLensEffectInterface): Void;
-	public function RemoveCameraModifier(ModifierToRemove: cpp.Star<CameraModifier>): cpp.Reference<Bool>;
+	public function RemoveCameraModifier(ModifierToRemove: cpp.Star<CameraModifier>): Bool;
 	public function RemoveCameraLensEffect(Emitter: cpp.Star<EmitterCameraLensEffectBase>): Void;
-	public function PlayCameraAnim(Anim: cpp.Star<CameraAnim>, Rate: cpp.Float32, Scale: cpp.Float32, BlendInTime: cpp.Float32, BlendOutTime: cpp.Float32, bLoop: Bool, bRandomStartTime: Bool, Duration: cpp.Float32, PlaySpace: ECameraShakePlaySpace, UserPlaySpaceRot: Rotator): cpp.Reference<cpp.Star<CameraAnimInst>>;
+	public function PlayCameraAnim(Anim: cpp.Star<CameraAnim>, Rate: cpp.Float32, Scale: cpp.Float32, BlendInTime: cpp.Float32, BlendOutTime: cpp.Float32, bLoop: Bool, bRandomStartTime: Bool, Duration: cpp.Float32, PlaySpace: ECameraShakePlaySpace, UserPlaySpaceRot: Rotator): cpp.Star<CameraAnimInst>;
 	public function PhotographyCameraModify(NewCameraLocation: Vector, PreviousCameraLocation: Vector, OriginalCameraLocation: Vector, ResultCameraLocation: cpp.Reference<Vector>): Void;
 	public function OnPhotographySessionStart(): Void;
 	public function OnPhotographySessionEnd(): Void;
 	public function OnPhotographyMultiPartCaptureStart(): Void;
 	public function OnPhotographyMultiPartCaptureEnd(): Void;
-	public function GetOwningPlayerController(): cpp.Reference<cpp.Star<PlayerController>>;
-	public function GetFOVAngle(): cpp.Reference<cpp.Float32>;
-	public function GetCameraRotation(): cpp.Reference<Rotator>;
-	public function GetCameraLocation(): cpp.Reference<Vector>;
-	public function FindCameraModifierByClass(ModifierClass: TSubclassOf<CameraModifier>): cpp.Reference<cpp.Star<CameraModifier>>;
+	public function GetOwningPlayerController(): cpp.Star<PlayerController>;
+	public function GetFOVAngle(): cpp.Float32;
+	public function GetCameraRotation(): Rotator;
+	public function GetCameraLocation(): Vector;
+	public function FindCameraModifierByClass(ModifierClass: TSubclassOf<CameraModifier>): cpp.Star<CameraModifier>;
 	public function ClearCameraLensEffects(): Void;
-	public function BlueprintUpdateCamera(CameraTarget: cpp.Star<Actor>, NewCameraLocation: cpp.Reference<Vector>, NewCameraRotation: cpp.Reference<Rotator>, NewCameraFOV: cpp.Reference<cpp.Float32>): cpp.Reference<Bool>;
-	public function AddNewCameraModifier(ModifierClass: TSubclassOf<CameraModifier>): cpp.Reference<cpp.Star<CameraModifier>>;
-	public function AddGenericCameraLensEffect(LensEffectEmitterClass: TSubclassOf<Actor>): cpp.Reference<CameraLensEffectInterface>;
-	public function AddCameraLensEffect(LensEffectEmitterClass: TSubclassOf<EmitterCameraLensEffectBase>): cpp.Reference<cpp.Star<EmitterCameraLensEffectBase>>;
+	public function BlueprintUpdateCamera(CameraTarget: cpp.Star<Actor>, NewCameraLocation: cpp.Reference<Vector>, NewCameraRotation: cpp.Reference<Rotator>, NewCameraFOV: cpp.Reference<cpp.Float32>): Bool;
+	public function AddNewCameraModifier(ModifierClass: TSubclassOf<CameraModifier>): cpp.Star<CameraModifier>;
+	public function AddGenericCameraLensEffect(LensEffectEmitterClass: TSubclassOf<Actor>): CameraLensEffectInterface;
+	public function AddCameraLensEffect(LensEffectEmitterClass: TSubclassOf<EmitterCameraLensEffectBase>): cpp.Star<EmitterCameraLensEffectBase>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -85,8 +85,6 @@ extern class PlayerCameraManager extends Actor {
 abstract ConstPlayerCameraManager(PlayerCameraManager) from PlayerCameraManager {
 	public extern var PCOwner(get, never): cpp.Star<PlayerController.ConstPlayerController>;
 	public inline extern function get_PCOwner(): cpp.Star<PlayerController.ConstPlayerController> return this.PCOwner;
-	public extern var TransformComponent(get, never): cpp.Star<SceneComp.ConstSceneComp>;
-	public inline extern function get_TransformComponent(): cpp.Star<SceneComp.ConstSceneComp> return this.TransformComponent;
 	public extern var DefaultFOV(get, never): cpp.Float32;
 	public inline extern function get_DefaultFOV(): cpp.Float32 return this.DefaultFOV;
 	public extern var DefaultOrthoWidth(get, never): cpp.Float32;
@@ -101,12 +99,6 @@ abstract ConstPlayerCameraManager(PlayerCameraManager) from PlayerCameraManager 
 	public inline extern function get_ViewTarget(): TViewTarget return this.ViewTarget;
 	public extern var PendingViewTarget(get, never): TViewTarget;
 	public inline extern function get_PendingViewTarget(): TViewTarget return this.PendingViewTarget;
-	public extern var CameraCachePrivate(get, never): CameraCacheEntry;
-	public inline extern function get_CameraCachePrivate(): CameraCacheEntry return this.CameraCachePrivate;
-	public extern var LastFrameCameraCachePrivate(get, never): CameraCacheEntry;
-	public inline extern function get_LastFrameCameraCachePrivate(): CameraCacheEntry return this.LastFrameCameraCachePrivate;
-	public extern var ModifierList(get, never): TArray<cpp.Star<CameraModifier.ConstCameraModifier>>;
-	public inline extern function get_ModifierList(): TArray<cpp.Star<CameraModifier.ConstCameraModifier>> return this.ModifierList;
 	public extern var DefaultModifiers(get, never): TArray<TSubclassOf<CameraModifier.ConstCameraModifier>>;
 	public inline extern function get_DefaultModifiers(): TArray<TSubclassOf<CameraModifier.ConstCameraModifier>> return this.DefaultModifiers;
 	public extern var FreeCamDistance(get, never): cpp.Float32;
@@ -117,20 +109,8 @@ abstract ConstPlayerCameraManager(PlayerCameraManager) from PlayerCameraManager 
 	public inline extern function get_ViewTargetOffset(): Vector return this.ViewTargetOffset;
 	public extern var OnAudioFadeChangeEvent(get, never): HaxeMulticastSparseDelegateProperty<(Bool, cpp.Float32) -> Void>;
 	public inline extern function get_OnAudioFadeChangeEvent(): HaxeMulticastSparseDelegateProperty<(Bool, cpp.Float32) -> Void> return this.OnAudioFadeChangeEvent;
-	public extern var CameraLensEffects(get, never): TArray<CameraLensEffectInterface.ConstCameraLensEffectInterface>;
-	public inline extern function get_CameraLensEffects(): TArray<CameraLensEffectInterface.ConstCameraLensEffectInterface> return this.CameraLensEffects;
-	public extern var CachedCameraShakeMod(get, never): cpp.Star<CameraModifier_CameraShake.ConstCameraModifier_CameraShake>;
-	public inline extern function get_CachedCameraShakeMod(): cpp.Star<CameraModifier_CameraShake.ConstCameraModifier_CameraShake> return this.CachedCameraShakeMod;
-	public extern var AnimInstPool(get, never): cpp.Star<CameraAnimInst.ConstCameraAnimInst>;
-	public inline extern function get_AnimInstPool(): cpp.Star<CameraAnimInst.ConstCameraAnimInst> return this.AnimInstPool;
-	public extern var PostProcessBlendCache(get, never): TArray<PostProcessSettings>;
-	public inline extern function get_PostProcessBlendCache(): TArray<PostProcessSettings> return this.PostProcessBlendCache;
 	public extern var ActiveAnims(get, never): TArray<cpp.Star<CameraAnimInst.ConstCameraAnimInst>>;
 	public inline extern function get_ActiveAnims(): TArray<cpp.Star<CameraAnimInst.ConstCameraAnimInst>> return this.ActiveAnims;
-	public extern var FreeAnims(get, never): TArray<cpp.Star<CameraAnimInst.ConstCameraAnimInst>>;
-	public inline extern function get_FreeAnims(): TArray<cpp.Star<CameraAnimInst.ConstCameraAnimInst>> return this.FreeAnims;
-	public extern var AnimCameraActor(get, never): cpp.Star<CameraActor.ConstCameraActor>;
-	public inline extern function get_AnimCameraActor(): cpp.Star<CameraActor.ConstCameraActor> return this.AnimCameraActor;
 	public extern var bIsOrthographic(get, never): Bool;
 	public inline extern function get_bIsOrthographic(): Bool return this.bIsOrthographic;
 	public extern var bDefaultConstrainAspectRatio(get, never): Bool;
@@ -153,8 +133,6 @@ abstract ConstPlayerCameraManager(PlayerCameraManager) from PlayerCameraManager 
 	public inline extern function get_ViewRollMin(): cpp.Float32 return this.ViewRollMin;
 	public extern var ViewRollMax(get, never): cpp.Float32;
 	public inline extern function get_ViewRollMax(): cpp.Float32 return this.ViewRollMax;
-	public extern var ServerUpdateCameraTimeout(get, never): cpp.Float32;
-	public inline extern function get_ServerUpdateCameraTimeout(): cpp.Float32 return this.ServerUpdateCameraTimeout;
 }
 
 @:forward

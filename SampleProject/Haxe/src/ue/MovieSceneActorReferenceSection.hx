@@ -5,9 +5,7 @@ package ue;
 @:include("Sections/MovieSceneActorReferenceSection.h")
 @:structAccess
 extern class MovieSceneActorReferenceSection extends MovieSceneSection {
-	public var ActorReferenceData: MovieSceneActorReferenceData;
-	public var ActorGuidIndexCurve_DEPRECATED: IntegralCurve;
-	public var ActorGuidStrings_DEPRECATED: TArray<FString>;
+	private var ActorReferenceData: MovieSceneActorReferenceData;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +13,6 @@ extern class MovieSceneActorReferenceSection extends MovieSceneSection {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneActorReferenceSection(MovieSceneActorReferenceSection) from MovieSceneActorReferenceSection {
-	public extern var ActorReferenceData(get, never): MovieSceneActorReferenceData;
-	public inline extern function get_ActorReferenceData(): MovieSceneActorReferenceData return this.ActorReferenceData;
-	public extern var ActorGuidIndexCurve_DEPRECATED(get, never): IntegralCurve;
-	public inline extern function get_ActorGuidIndexCurve_DEPRECATED(): IntegralCurve return this.ActorGuidIndexCurve_DEPRECATED;
-	public extern var ActorGuidStrings_DEPRECATED(get, never): TArray<FString>;
-	public inline extern function get_ActorGuidStrings_DEPRECATED(): TArray<FString> return this.ActorGuidStrings_DEPRECATED;
 }
 
 @:forward

@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class RigVMRuntimeSettings {
 	public var MaximumArraySize: cpp.Int32;
-	public var bEnableProfiling: Bool;
 
 	@:native("FRigVMRuntimeSettings") public function new();
 	@:native("FRigVMRuntimeSettings") public static function make(MaximumArraySize: cpp.Int32, bEnableProfiling: Bool): RigVMRuntimeSettings ;

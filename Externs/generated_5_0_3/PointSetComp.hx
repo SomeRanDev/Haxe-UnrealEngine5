@@ -5,9 +5,9 @@ package ue;
 @:include("Drawing/PointSetComponent.h")
 @:structAccess
 extern class PointSetComp extends MeshComp {
-	public var PointMaterial: cpp.Star<MaterialInterface>;
-	public var Bounds: BoxSphereBounds;
-	public var bBoundsDirty: Bool;
+	private var PointMaterial: cpp.Star<MaterialInterface>;
+	private var Bounds: BoxSphereBounds;
+	private var bBoundsDirty: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class PointSetComp extends MeshComp {
 @:forward()
 @:nativeGen
 abstract ConstPointSetComp(PointSetComp) from PointSetComp {
-	public extern var PointMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_PointMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.PointMaterial;
-	public extern var Bounds(get, never): BoxSphereBounds;
-	public inline extern function get_Bounds(): BoxSphereBounds return this.Bounds;
-	public extern var bBoundsDirty(get, never): Bool;
-	public inline extern function get_bBoundsDirty(): Bool return this.bBoundsDirty;
 }
 
 @:forward

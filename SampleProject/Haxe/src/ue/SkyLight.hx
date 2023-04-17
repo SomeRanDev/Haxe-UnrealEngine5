@@ -5,7 +5,7 @@ package ue;
 @:include("Engine/SkyLight.h")
 @:structAccess
 extern class SkyLight extends Info {
-	public var LightComponent: cpp.Star<SkyLightComp>;
+	private var LightComponent: cpp.Star<SkyLightComp>;
 	public var bEnabled: Bool;
 
 	public function OnRep_bEnabled(): Void;
@@ -16,8 +16,6 @@ extern class SkyLight extends Info {
 @:forward()
 @:nativeGen
 abstract ConstSkyLight(SkyLight) from SkyLight {
-	public extern var LightComponent(get, never): cpp.Star<SkyLightComp.ConstSkyLightComp>;
-	public inline extern function get_LightComponent(): cpp.Star<SkyLightComp.ConstSkyLightComp> return this.LightComponent;
 	public extern var bEnabled(get, never): Bool;
 	public inline extern function get_bEnabled(): Bool return this.bEnabled;
 }

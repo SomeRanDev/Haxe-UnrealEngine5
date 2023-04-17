@@ -5,7 +5,7 @@ package ue;
 @:include("ToolTargetManager.h")
 @:structAccess
 extern class ToolTargetManager extends Object {
-	public var Factories: TArray<cpp.Star<ToolTargetFactory>>;
+	@:protected public var Factories: TArray<cpp.Star<ToolTargetFactory>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class ToolTargetManager extends Object {
 @:forward()
 @:nativeGen
 abstract ConstToolTargetManager(ToolTargetManager) from ToolTargetManager {
-	public extern var Factories(get, never): TArray<cpp.Star<ToolTargetFactory.ConstToolTargetFactory>>;
-	public inline extern function get_Factories(): TArray<cpp.Star<ToolTargetFactory.ConstToolTargetFactory>> return this.Factories;
 }
 
 @:forward

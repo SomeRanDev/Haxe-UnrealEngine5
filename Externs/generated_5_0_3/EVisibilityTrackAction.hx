@@ -3,9 +3,9 @@ package ue;
 
 @:native("EVisibilityTrackAction")
 @:include("Matinee/InterpTrackVisibility.h")
-extern enum EVisibilityTrackAction {
-	EVTA_Hide;
-	EVTA_Show;
-	EVTA_Toggle;
-	EVTA_MAX;
+extern class EVisibilityTrackAction {
+	static var EVTA_Hide: EVisibilityTrackAction;
+	static var EVTA_Show: EVisibilityTrackAction;
+	static var EVTA_Toggle: EVisibilityTrackAction;
+	static var EVTA_MAX: EVisibilityTrackAction;
 }

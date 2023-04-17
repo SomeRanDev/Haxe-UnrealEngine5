@@ -5,22 +5,22 @@ package ue;
 @:include("Engine/Texture.h")
 @:structAccess
 extern class TextureSource {
-	public var Id: Guid;
-	public var BaseBlockX: cpp.Int32;
-	public var BaseBlockY: cpp.Int32;
-	public var SizeX: cpp.Int32;
-	public var SizeY: cpp.Int32;
-	public var NumSlices: cpp.Int32;
-	public var NumMips: cpp.Int32;
-	public var NumLayers: cpp.Int32;
-	public var bPNGCompressed: Bool;
-	public var bLongLatCubemap: Bool;
-	public var CompressionFormat: ETextureSourceCompressionFormat;
-	public var bGuidIsHash: Bool;
-	public var Format: ETextureSourceFormat;
-	public var LayerFormat: TArray<ETextureSourceFormat>;
-	public var Blocks: TArray<TextureSourceBlock>;
-	public var BlockDataOffsets: TArray<cpp.Int64>;
+	private var Id: Guid;
+	private var BaseBlockX: cpp.Int32;
+	private var BaseBlockY: cpp.Int32;
+	private var SizeX: cpp.Int32;
+	private var SizeY: cpp.Int32;
+	private var NumSlices: cpp.Int32;
+	private var NumMips: cpp.Int32;
+	private var NumLayers: cpp.Int32;
+	private var bPNGCompressed: Bool;
+	private var bLongLatCubemap: Bool;
+	private var CompressionFormat: TEnumAsByte<ETextureSourceCompressionFormat>;
+	private var bGuidIsHash: Bool;
+	private var Format: TEnumAsByte<ETextureSourceFormat>;
+	private var LayerFormat: TArray<TEnumAsByte<ETextureSourceFormat>>;
+	private var Blocks: TArray<TextureSourceBlock>;
+	private var BlockDataOffsets: TArray<cpp.Int64>;
 
 	@:native("FTextureSource") public function new();
 }

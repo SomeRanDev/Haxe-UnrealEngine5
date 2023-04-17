@@ -5,7 +5,7 @@ package ue;
 @:include("Graph/NodeSpawners/ControlRigUnitNodeSpawner.h")
 @:structAccess
 extern class ControlRigUnitNodeSpawner extends BlueprintNodeSpawner {
-	public var StructTemplate: cpp.Star<ScriptStruct>;
+	private var StructTemplate: cpp.Star<ScriptStruct>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class ControlRigUnitNodeSpawner extends BlueprintNodeSpawner {
 @:forward()
 @:nativeGen
 abstract ConstControlRigUnitNodeSpawner(ControlRigUnitNodeSpawner) from ControlRigUnitNodeSpawner {
-	public extern var StructTemplate(get, never): cpp.Star<ScriptStruct.ConstScriptStruct>;
-	public inline extern function get_StructTemplate(): cpp.Star<ScriptStruct.ConstScriptStruct> return this.StructTemplate;
 }
 
 @:forward

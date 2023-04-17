@@ -49,7 +49,24 @@ class MyActor extends Actor {
 		trace("begin play!!!");
 
 		// Test Reflectable
-		dynamicActorTest = new scripting.Reflectable<MyActor>(toPtr());
+		//dynamicActorTest = new scripting.Reflectable<MyActor>();
+		{
+			final variant: Dynamic = scripting.Variant.make(Vector.make(12, 0, 0));
+			//final variantList: scripting.Variant.VariantList = scripting.Variant.makeList(variant);
+			final variant2: Dynamic = scripting.Variant.fromReflect(toPtr(), new scripting.Reflectable<MyActor>());
+			if(variant2 is scripting.Variant) {
+				//(variant2 : scripting.Variant).dynCall("AddActorWorldOffset", scripting.Variant.makeList(variant));
+				final bla = (variant2 : scripting.Variant).dynCall("GetActorLocation", scripting.Variant.makeList());
+				final bla2 = bla.dynCall("GetAbsMax", scripting.Variant.makeList());
+				trace(bla2.getVal());
+			}
+			//dynamicActorTest.dynCall(untyped __cpp__("reinterpret_cast<void*>({0})", toPtr()), "AddActorWorldOffset", variantList);
+		}
+
+		//AddActorWorldOffset(Vector.make(20, 0, 0));
+
+		//var bla = new TArray<Int>();
+		//var bla2 = bla.get();
 
 		// Test helper class
 		final subCls = new MyActorHelperClassTest(toPtr());
@@ -58,7 +75,7 @@ class MyActor extends Actor {
 
 	override function Tick(DeltaTime: cpp.Float64) {
 		// Once again, testing Haxe-based data structures
-		testMap["test"].AddWorldOffset(Vector.make(DeltaTime, 0, 0));
+		//testMap["test"].AddWorldOffset(Vector.make(DeltaTime, 0, 0));
 	}
 
 	// This function does not need @:ueExport since it is not called from C++

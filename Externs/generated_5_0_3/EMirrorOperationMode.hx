@@ -3,8 +3,8 @@ package ue;
 
 @:native("EMirrorOperationMode")
 @:include("MirrorTool.h")
-extern enum EMirrorOperationMode {
-	MirrorAndAppend;
-	MirrorExisting;
-	EMirrorOperationMode_MAX;
+extern class EMirrorOperationMode {
+	static var MirrorAndAppend: EMirrorOperationMode;
+	static var MirrorExisting: EMirrorOperationMode;
+	static var EMirrorOperationMode_MAX: EMirrorOperationMode;
 }

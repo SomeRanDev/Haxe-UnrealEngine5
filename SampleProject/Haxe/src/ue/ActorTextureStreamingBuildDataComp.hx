@@ -5,8 +5,6 @@ package ue;
 @:include("Streaming/ActorTextureStreamingBuildDataComponent.h")
 @:structAccess
 extern class ActorTextureStreamingBuildDataComp extends ActorComp {
-	public var StreamableTextures: TArray<StreamableTexture>;
-	public var PackedTextureStreamingQualityLevelFeatureLevel: cpp.UInt32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +12,6 @@ extern class ActorTextureStreamingBuildDataComp extends ActorComp {
 @:forward()
 @:nativeGen
 abstract ConstActorTextureStreamingBuildDataComp(ActorTextureStreamingBuildDataComp) from ActorTextureStreamingBuildDataComp {
-	public extern var StreamableTextures(get, never): TArray<StreamableTexture>;
-	public inline extern function get_StreamableTextures(): TArray<StreamableTexture> return this.StreamableTextures;
-	public extern var PackedTextureStreamingQualityLevelFeatureLevel(get, never): cpp.UInt32;
-	public inline extern function get_PackedTextureStreamingQualityLevelFeatureLevel(): cpp.UInt32 return this.PackedTextureStreamingQualityLevelFeatureLevel;
 }
 
 @:forward

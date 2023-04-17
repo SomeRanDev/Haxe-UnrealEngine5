@@ -10,7 +10,6 @@ extern class SkinnedMeshComp extends MeshComp {
 	public var SkinCacheUsage: TArray<ESkinCacheUsage>;
 	public var MeshDeformer: cpp.Star<MeshDeformer>;
 	public var MeshDeformerInstance: cpp.Star<MeshDeformerInstance>;
-	public var WireframeColor_DEPRECATED: Color;
 	public var PhysicsAssetOverride: cpp.Star<PhysicsAsset>;
 	public var ForcedLodModel: cpp.Int32;
 	public var MinLodModel: cpp.Int32;
@@ -20,7 +19,6 @@ extern class SkinnedMeshComp extends MeshComp {
 	public var bOverrideMinLod: Bool;
 	public var bUseBoundsFromMasterPoseComponent: Bool;
 	public var bForceWireframe: Bool;
-	public var bDisplayBones_DEPRECATED: Bool;
 	public var bDisableMorphTarget: Bool;
 	public var bHideSkin: Bool;
 	public var bPerBoneMotionBlur: Bool;
@@ -36,12 +34,12 @@ extern class SkinnedMeshComp extends MeshComp {
 	public var bDisplayDebugUpdateRateOptimizations: Bool;
 	public var bRenderStatic: Bool;
 	public var bIgnoreMasterPoseComponentLOD: Bool;
-	public var bCachedLocalBoundsUpToDate: Bool;
-	public var bCachedWorldSpaceBoundsUpToDate: Bool;
-	public var bForceMeshObjectUpdate: Bool;
+	@:protected public var bCachedLocalBoundsUpToDate: Bool;
+	@:protected public var bCachedWorldSpaceBoundsUpToDate: Bool;
+	private var bForceMeshObjectUpdate: Bool;
 	public var CapsuleIndirectShadowMinVisibility: cpp.Float32;
-	public var CachedWorldOrLocalSpaceBounds: BoxSphereBounds;
-	public var CachedWorldToLocalTransform: Matrix;
+	@:protected public var CachedWorldOrLocalSpaceBounds: BoxSphereBounds;
+	@:protected public var CachedWorldToLocalTransform: Matrix;
 
 	public function UnloadSkinWeightProfile(InProfileName: FName): Void;
 	public function UnHideBoneByName(BoneName: FName): Void;
@@ -51,7 +49,7 @@ extern class SkinnedMeshComp extends MeshComp {
 	public function ShowAllMaterialSections(LODIndex: cpp.Int32): Void;
 	public function SetVertexOffsetUsage(LODIndex: cpp.Int32, Usage: cpp.Int32): Void;
 	public function SetVertexColorOverride_LinearColor(LODIndex: cpp.Int32, VertexColors: cpp.Reference<TArray<LinearColor>>): Void;
-	public function SetSkinWeightProfile(InProfileName: FName): cpp.Reference<Bool>;
+	public function SetSkinWeightProfile(InProfileName: FName): Bool;
 	public function SetSkinWeightOverride(LODIndex: cpp.Int32, SkinWeights: cpp.Reference<TArray<SkelMeshSkinWeightInfo>>): Void;
 	public function SetSkeletalMesh(NewMesh: cpp.Star<SkeletalMesh>, bReinitPose: Bool): Void;
 	public function SetRenderStatic(bNewValue: Bool): Void;
@@ -65,28 +63,28 @@ extern class SkinnedMeshComp extends MeshComp {
 	public function SetCastCapsuleIndirectShadow(bNewValue: Bool): Void;
 	public function SetCastCapsuleDirectShadow(bNewValue: Bool): Void;
 	public function SetCapsuleIndirectShadowMinVisibility(NewValue: cpp.Float32): Void;
-	public function IsUsingSkinWeightProfile(): cpp.Reference<Bool>;
-	public function IsMaterialSectionShown(MaterialID: cpp.Int32, LODIndex: cpp.Int32): cpp.Reference<Bool>;
-	public function IsBoneHiddenByName(BoneName: FName): cpp.Reference<Bool>;
-	public function HideBoneByName(BoneName: FName, PhysBodyOption: EPhysBodyOp): Void;
-	public function GetVertexOffsetUsage(LODIndex: cpp.Int32): cpp.Reference<cpp.Int32>;
-	public function GetTwistAndSwingAngleOfDeltaRotationFromRefPose(BoneName: FName, OutTwistAngle: cpp.Reference<cpp.Float32>, OutSwingAngle: cpp.Reference<cpp.Float32>): cpp.Reference<Bool>;
-	public function GetSocketBoneName(InSocketName: FName): cpp.Reference<FName>;
-	public function GetRefPoseTransform(BoneIndex: cpp.Int32): cpp.Reference<Transform>;
-	public function GetRefPosePosition(BoneIndex: cpp.Int32): cpp.Reference<Vector>;
-	public function GetParentBone(BoneName: FName): cpp.Reference<FName>;
-	public function GetNumLODs(): cpp.Reference<cpp.Int32>;
-	public function GetNumBones(): cpp.Reference<cpp.Int32>;
-	public function GetForcedLOD(): cpp.Reference<cpp.Int32>;
-	public function GetDeltaTransformFromRefPose(BoneName: FName, BaseName: FName): cpp.Reference<Transform>;
-	public function GetCurrentSkinWeightProfileName(): cpp.Reference<FName>;
-	public function GetBoneName(BoneIndex: cpp.Int32): cpp.Reference<FName>;
-	public function GetBoneIndex(BoneName: FName): cpp.Reference<cpp.Int32>;
-	public function FindClosestBone_K2(TestLocation: Vector, BoneLocation: cpp.Reference<Vector>, IgnoreScale: cpp.Float32, bRequirePhysicsAsset: Bool): cpp.Reference<FName>;
+	public function IsUsingSkinWeightProfile(): Bool;
+	public function IsMaterialSectionShown(MaterialID: cpp.Int32, LODIndex: cpp.Int32): Bool;
+	public function IsBoneHiddenByName(BoneName: FName): Bool;
+	public function HideBoneByName(BoneName: FName, PhysBodyOption: TEnumAsByte<EPhysBodyOp>): Void;
+	public function GetVertexOffsetUsage(LODIndex: cpp.Int32): cpp.Int32;
+	public function GetTwistAndSwingAngleOfDeltaRotationFromRefPose(BoneName: FName, OutTwistAngle: cpp.Reference<cpp.Float32>, OutSwingAngle: cpp.Reference<cpp.Float32>): Bool;
+	public function GetSocketBoneName(InSocketName: FName): FName;
+	public function GetRefPoseTransform(BoneIndex: cpp.Int32): Transform;
+	public function GetRefPosePosition(BoneIndex: cpp.Int32): Vector;
+	public function GetParentBone(BoneName: FName): FName;
+	public function GetNumLODs(): cpp.Int32;
+	public function GetNumBones(): cpp.Int32;
+	public function GetForcedLOD(): cpp.Int32;
+	public function GetDeltaTransformFromRefPose(BoneName: FName, BaseName: FName): Transform;
+	public function GetCurrentSkinWeightProfileName(): FName;
+	public function GetBoneName(BoneIndex: cpp.Int32): FName;
+	public function GetBoneIndex(BoneName: FName): cpp.Int32;
+	public function FindClosestBone_K2(TestLocation: Vector, BoneLocation: cpp.Reference<Vector>, IgnoreScale: cpp.Float32, bRequirePhysicsAsset: Bool): FName;
 	public function ClearVertexColorOverride(LODIndex: cpp.Int32): Void;
 	public function ClearSkinWeightProfile(): Void;
 	public function ClearSkinWeightOverride(LODIndex: cpp.Int32): Void;
-	public function BoneIsChildOf(BoneName: FName, ParentBoneName: FName): cpp.Reference<Bool>;
+	public function BoneIsChildOf(BoneName: FName, ParentBoneName: FName): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -109,8 +107,6 @@ abstract ConstSkinnedMeshComp(SkinnedMeshComp) from SkinnedMeshComp {
 	public inline extern function get_MeshDeformer(): cpp.Star<MeshDeformer.ConstMeshDeformer> return this.MeshDeformer;
 	public extern var MeshDeformerInstance(get, never): cpp.Star<MeshDeformerInstance.ConstMeshDeformerInstance>;
 	public inline extern function get_MeshDeformerInstance(): cpp.Star<MeshDeformerInstance.ConstMeshDeformerInstance> return this.MeshDeformerInstance;
-	public extern var WireframeColor_DEPRECATED(get, never): Color;
-	public inline extern function get_WireframeColor_DEPRECATED(): Color return this.WireframeColor_DEPRECATED;
 	public extern var PhysicsAssetOverride(get, never): cpp.Star<PhysicsAsset.ConstPhysicsAsset>;
 	public inline extern function get_PhysicsAssetOverride(): cpp.Star<PhysicsAsset.ConstPhysicsAsset> return this.PhysicsAssetOverride;
 	public extern var ForcedLodModel(get, never): cpp.Int32;
@@ -129,8 +125,6 @@ abstract ConstSkinnedMeshComp(SkinnedMeshComp) from SkinnedMeshComp {
 	public inline extern function get_bUseBoundsFromMasterPoseComponent(): Bool return this.bUseBoundsFromMasterPoseComponent;
 	public extern var bForceWireframe(get, never): Bool;
 	public inline extern function get_bForceWireframe(): Bool return this.bForceWireframe;
-	public extern var bDisplayBones_DEPRECATED(get, never): Bool;
-	public inline extern function get_bDisplayBones_DEPRECATED(): Bool return this.bDisplayBones_DEPRECATED;
 	public extern var bDisableMorphTarget(get, never): Bool;
 	public inline extern function get_bDisableMorphTarget(): Bool return this.bDisableMorphTarget;
 	public extern var bHideSkin(get, never): Bool;
@@ -161,18 +155,8 @@ abstract ConstSkinnedMeshComp(SkinnedMeshComp) from SkinnedMeshComp {
 	public inline extern function get_bRenderStatic(): Bool return this.bRenderStatic;
 	public extern var bIgnoreMasterPoseComponentLOD(get, never): Bool;
 	public inline extern function get_bIgnoreMasterPoseComponentLOD(): Bool return this.bIgnoreMasterPoseComponentLOD;
-	public extern var bCachedLocalBoundsUpToDate(get, never): Bool;
-	public inline extern function get_bCachedLocalBoundsUpToDate(): Bool return this.bCachedLocalBoundsUpToDate;
-	public extern var bCachedWorldSpaceBoundsUpToDate(get, never): Bool;
-	public inline extern function get_bCachedWorldSpaceBoundsUpToDate(): Bool return this.bCachedWorldSpaceBoundsUpToDate;
-	public extern var bForceMeshObjectUpdate(get, never): Bool;
-	public inline extern function get_bForceMeshObjectUpdate(): Bool return this.bForceMeshObjectUpdate;
 	public extern var CapsuleIndirectShadowMinVisibility(get, never): cpp.Float32;
 	public inline extern function get_CapsuleIndirectShadowMinVisibility(): cpp.Float32 return this.CapsuleIndirectShadowMinVisibility;
-	public extern var CachedWorldOrLocalSpaceBounds(get, never): BoxSphereBounds;
-	public inline extern function get_CachedWorldOrLocalSpaceBounds(): BoxSphereBounds return this.CachedWorldOrLocalSpaceBounds;
-	public extern var CachedWorldToLocalTransform(get, never): Matrix;
-	public inline extern function get_CachedWorldToLocalTransform(): Matrix return this.CachedWorldToLocalTransform;
 }
 
 @:forward

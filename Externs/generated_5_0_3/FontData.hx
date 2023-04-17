@@ -5,13 +5,11 @@ package ue;
 @:include("Fonts/CompositeFont.h")
 @:structAccess
 extern class FontData {
-	public var FontFilename: FString;
-	public var Hinting: EFontHinting;
-	public var LoadingPolicy: EFontLoadingPolicy;
-	public var SubFaceIndex: cpp.Int32;
-	public var FontFaceAsset: cpp.Star<Object>;
-	public var BulkDataPtr_DEPRECATED: cpp.Star<FontBulkData>;
-	public var FontData_DEPRECATED: TArray<cpp.UInt8>;
+	private var FontFilename: FString;
+	private var Hinting: EFontHinting;
+	private var LoadingPolicy: EFontLoadingPolicy;
+	private var SubFaceIndex: cpp.Int32;
+	private var FontFaceAsset: cpp.Star<Object>;
 
 	@:native("FFontData") public function new();
 }

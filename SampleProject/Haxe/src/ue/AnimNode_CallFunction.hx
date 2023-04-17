@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class AnimNode_CallFunction extends AnimNode_Base {
 	public var Source: PoseLink;
-	public var Function: AnimNodeFunctionRef;
 	public var CallSite: EAnimFunctionCallSite;
 
 	@:native("FAnimNode_CallFunction") public function new();

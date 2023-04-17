@@ -5,8 +5,7 @@ package ue;
 @:include("PhysicsEngine/RadialForceActor.h")
 @:structAccess
 extern class RadialForceActor extends RigidBodyBase {
-	public var ForceComponent: cpp.Star<RadialForceComp>;
-	public var SpriteComponent: cpp.Star<BillboardComp>;
+	private var ForceComponent: cpp.Star<RadialForceComp>;
 
 	public function ToggleForce(): Void;
 	public function FireImpulse(): Void;
@@ -19,10 +18,6 @@ extern class RadialForceActor extends RigidBodyBase {
 @:forward()
 @:nativeGen
 abstract ConstRadialForceActor(RadialForceActor) from RadialForceActor {
-	public extern var ForceComponent(get, never): cpp.Star<RadialForceComp.ConstRadialForceComp>;
-	public inline extern function get_ForceComponent(): cpp.Star<RadialForceComp.ConstRadialForceComp> return this.ForceComponent;
-	public extern var SpriteComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
-	public inline extern function get_SpriteComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
 }
 
 @:forward

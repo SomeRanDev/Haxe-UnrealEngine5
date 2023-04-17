@@ -5,7 +5,7 @@ package ue;
 @:include("GameplayTagContainer.h")
 @:structAccess
 extern class GameplayTag {
-	public var TagName: FName;
+	@:protected public var TagName: FName;
 
 	@:native("FGameplayTag") public function new();
 	@:native("FGameplayTag") public static function make(TagName: FName): GameplayTag ;

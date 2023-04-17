@@ -3,8 +3,8 @@ package ue;
 
 @:native("EEQSNormalizationType")
 @:include("EnvironmentQuery/EnvQueryTest.h")
-extern enum EEQSNormalizationType {
-	Absolute;
-	RelativeToScores;
-	EEQSNormalizationType_MAX;
+extern class EEQSNormalizationType {
+	static var Absolute: EEQSNormalizationType;
+	static var RelativeToScores: EEQSNormalizationType;
+	static var EEQSNormalizationType_MAX: EEQSNormalizationType;
 }

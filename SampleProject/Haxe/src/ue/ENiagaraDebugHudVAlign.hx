@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENiagaraDebugHudVAlign")
 @:include("NiagaraDebuggerCommon.h")
-extern enum ENiagaraDebugHudVAlign {
-	Top;
-	Center;
-	Bottom;
-	ENiagaraDebugHudVAlign_MAX;
+extern class ENiagaraDebugHudVAlign {
+	static var Top: ENiagaraDebugHudVAlign;
+	static var Center: ENiagaraDebugHudVAlign;
+	static var Bottom: ENiagaraDebugHudVAlign;
+	static var ENiagaraDebugHudVAlign_MAX: ENiagaraDebugHudVAlign;
 }

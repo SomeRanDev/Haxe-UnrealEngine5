@@ -4,8 +4,8 @@ package ue;
 @:native("UCameraLensEffectInterface")
 @:structAccess
 extern class CameraLensEffectInterface extends Interface {
-	public function GetPrimaryParticleComponent(): cpp.Reference<cpp.Star<FXSystemComp>>;
-	public function GetParticleComponents(): cpp.Reference<TArray<cpp.Star<FXSystemComp>>>;
+	public function GetPrimaryParticleComponent(): cpp.Star<FXSystemComp>;
+	public function GetParticleComponents(): TArray<cpp.Star<FXSystemComp>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -10,7 +10,7 @@ extern class DistributionVectorParameterBase extends DistributionVectorConstant 
 	public var MaxInput: Vector;
 	public var MinOutput: Vector;
 	public var MaxOutput: Vector;
-	public var ParamModes: DistributionParamMode;
+	public var ParamModes: TEnumAsByte<DistributionParamMode>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -28,8 +28,8 @@ abstract ConstDistributionVectorParameterBase(DistributionVectorParameterBase) f
 	public inline extern function get_MinOutput(): Vector return this.MinOutput;
 	public extern var MaxOutput(get, never): Vector;
 	public inline extern function get_MaxOutput(): Vector return this.MaxOutput;
-	public extern var ParamModes(get, never): DistributionParamMode;
-	public inline extern function get_ParamModes(): DistributionParamMode return this.ParamModes;
+	public extern var ParamModes(get, never): TEnumAsByte<DistributionParamMode>;
+	public inline extern function get_ParamModes(): TEnumAsByte<DistributionParamMode> return this.ParamModes;
 }
 
 @:forward

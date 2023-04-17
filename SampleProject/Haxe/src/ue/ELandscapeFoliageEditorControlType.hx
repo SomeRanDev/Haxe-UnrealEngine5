@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELandscapeFoliageEditorControlType")
 @:include("Settings/LevelEditorViewportSettings.h")
-extern enum ELandscapeFoliageEditorControlType {
-	IgnoreCtrl;
-	RequireCtrl;
-	RequireNoCtrl;
-	ELandscapeFoliageEditorControlType_MAX;
+extern class ELandscapeFoliageEditorControlType {
+	static var IgnoreCtrl: ELandscapeFoliageEditorControlType;
+	static var RequireCtrl: ELandscapeFoliageEditorControlType;
+	static var RequireNoCtrl: ELandscapeFoliageEditorControlType;
+	static var ELandscapeFoliageEditorControlType_MAX: ELandscapeFoliageEditorControlType;
 }

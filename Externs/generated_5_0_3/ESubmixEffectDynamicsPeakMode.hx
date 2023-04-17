@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESubmixEffectDynamicsPeakMode")
 @:include("SubmixEffects/AudioMixerSubmixEffectDynamicsProcessor.h")
-extern enum ESubmixEffectDynamicsPeakMode {
-	MeanSquared;
-	RootMeanSquared;
-	Peak;
-	Count;
-	ESubmixEffectDynamicsPeakMode_MAX;
+extern class ESubmixEffectDynamicsPeakMode {
+	static var MeanSquared: ESubmixEffectDynamicsPeakMode;
+	static var RootMeanSquared: ESubmixEffectDynamicsPeakMode;
+	static var Peak: ESubmixEffectDynamicsPeakMode;
+	static var Count: ESubmixEffectDynamicsPeakMode;
+	static var ESubmixEffectDynamicsPeakMode_MAX: ESubmixEffectDynamicsPeakMode;
 }

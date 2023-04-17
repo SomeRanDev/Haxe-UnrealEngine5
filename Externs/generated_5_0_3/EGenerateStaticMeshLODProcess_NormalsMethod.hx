@@ -3,9 +3,9 @@ package ue;
 
 @:native("EGenerateStaticMeshLODProcess_NormalsMethod")
 @:include("Graphs/GenerateStaticMeshLODProcess.h")
-extern enum EGenerateStaticMeshLODProcess_NormalsMethod {
-	FromAngleThreshold;
-	PerVertex;
-	PerTriangle;
-	EGenerateStaticMeshLODProcess_MAX;
+extern class EGenerateStaticMeshLODProcess_NormalsMethod {
+	static var FromAngleThreshold: EGenerateStaticMeshLODProcess_NormalsMethod;
+	static var PerVertex: EGenerateStaticMeshLODProcess_NormalsMethod;
+	static var PerTriangle: EGenerateStaticMeshLODProcess_NormalsMethod;
+	static var EGenerateStaticMeshLODProcess_MAX: EGenerateStaticMeshLODProcess_NormalsMethod;
 }

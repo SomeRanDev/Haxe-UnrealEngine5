@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class ResonanceAudioBlueprintFunctionLibrary extends BlueprintFunctionLibrary {
 	public function SetGlobalReverbPreset(InPreset: cpp.Star<ResonanceAudioReverbPluginPreset>): Void;
-	public function GetGlobalReverbPreset(): cpp.Reference<cpp.Star<ResonanceAudioReverbPluginPreset>>;
+	public function GetGlobalReverbPreset(): cpp.Star<ResonanceAudioReverbPluginPreset>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

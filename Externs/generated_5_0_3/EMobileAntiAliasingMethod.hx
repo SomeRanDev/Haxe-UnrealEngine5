@@ -3,10 +3,10 @@ package ue;
 
 @:native("EMobileAntiAliasingMethod.Type")
 @:include("Engine/RendererSettings.h")
-extern enum EMobileAntiAliasingMethod {
-	None;
-	FXAA;
-	TemporalAA;
-	MSAA;
-	EMobileAntiAliasingMethod_MAX;
+extern class EMobileAntiAliasingMethod {
+	static var None: EMobileAntiAliasingMethod;
+	static var FXAA: EMobileAntiAliasingMethod;
+	static var TemporalAA: EMobileAntiAliasingMethod;
+	static var MSAA: EMobileAntiAliasingMethod;
+	static var EMobileAntiAliasingMethod_MAX: EMobileAntiAliasingMethod;
 }

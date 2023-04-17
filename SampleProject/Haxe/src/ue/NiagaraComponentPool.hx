@@ -5,7 +5,7 @@ package ue;
 @:include("NiagaraComponentPool.h")
 @:structAccess
 extern class NiagaraComponentPool extends Object {
-	public var WorldParticleSystemPools: TMap<cpp.Star<NiagaraSystem>, NCPool>;
+	private var WorldParticleSystemPools: TMap<cpp.Star<NiagaraSystem>, NCPool>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class NiagaraComponentPool extends Object {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraComponentPool(NiagaraComponentPool) from NiagaraComponentPool {
-	public extern var WorldParticleSystemPools(get, never): TMap<cpp.Star<NiagaraSystem.ConstNiagaraSystem>, NCPool>;
-	public inline extern function get_WorldParticleSystemPools(): TMap<cpp.Star<NiagaraSystem.ConstNiagaraSystem>, NCPool> return this.WorldParticleSystemPools;
 }
 
 @:forward

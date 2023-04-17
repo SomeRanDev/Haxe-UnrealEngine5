@@ -3,11 +3,11 @@ package ue;
 
 @:native("EMeshPaintTextureIndex")
 @:include("MeshVertexPaintingTool.h")
-extern enum EMeshPaintTextureIndex {
-	TextureOne;
-	TextureTwo;
-	TextureThree;
-	TextureFour;
-	TextureFive;
-	EMeshPaintTextureIndex_MAX;
+extern class EMeshPaintTextureIndex {
+	static var TextureOne: EMeshPaintTextureIndex;
+	static var TextureTwo: EMeshPaintTextureIndex;
+	static var TextureThree: EMeshPaintTextureIndex;
+	static var TextureFour: EMeshPaintTextureIndex;
+	static var TextureFive: EMeshPaintTextureIndex;
+	static var EMeshPaintTextureIndex_MAX: EMeshPaintTextureIndex;
 }

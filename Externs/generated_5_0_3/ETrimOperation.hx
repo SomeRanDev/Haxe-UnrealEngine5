@@ -3,8 +3,8 @@ package ue;
 
 @:native("ETrimOperation")
 @:include("CompositionOps/BooleanMeshesOp.h")
-extern enum ETrimOperation {
-	TrimA;
-	TrimB;
-	ETrimOperation_MAX;
+extern class ETrimOperation {
+	static var TrimA: ETrimOperation;
+	static var TrimB: ETrimOperation;
+	static var ETrimOperation_MAX: ETrimOperation;
 }

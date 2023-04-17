@@ -5,14 +5,13 @@ package ue;
 @:include("Particles/Location/ParticleModuleLocationSkelVertSurface.h")
 @:structAccess
 extern class ParticleModuleLocationSkelVertSurface extends ParticleModuleLocationBase {
-	public var SourceType: ELocationSkelVertSurfaceSource;
+	public var SourceType: TEnumAsByte<ELocationSkelVertSurfaceSource>;
 	public var UniversalOffset: Vector;
 	public var bUpdatePositionEachFrame: Bool;
 	public var bOrientMeshEmitters: Bool;
 	public var bInheritBoneVelocity: Bool;
 	public var InheritVelocityScale: cpp.Float32;
 	public var SkelMeshActorParamName: FName;
-	public var EditorSkelMesh: cpp.Star<SkeletalMesh>;
 	public var ValidAssociatedBones: TArray<FName>;
 	public var bEnforceNormalCheck: Bool;
 	public var NormalToCompare: Vector;
@@ -29,8 +28,8 @@ extern class ParticleModuleLocationSkelVertSurface extends ParticleModuleLocatio
 @:forward()
 @:nativeGen
 abstract ConstParticleModuleLocationSkelVertSurface(ParticleModuleLocationSkelVertSurface) from ParticleModuleLocationSkelVertSurface {
-	public extern var SourceType(get, never): ELocationSkelVertSurfaceSource;
-	public inline extern function get_SourceType(): ELocationSkelVertSurfaceSource return this.SourceType;
+	public extern var SourceType(get, never): TEnumAsByte<ELocationSkelVertSurfaceSource>;
+	public inline extern function get_SourceType(): TEnumAsByte<ELocationSkelVertSurfaceSource> return this.SourceType;
 	public extern var UniversalOffset(get, never): Vector;
 	public inline extern function get_UniversalOffset(): Vector return this.UniversalOffset;
 	public extern var bUpdatePositionEachFrame(get, never): Bool;
@@ -43,8 +42,6 @@ abstract ConstParticleModuleLocationSkelVertSurface(ParticleModuleLocationSkelVe
 	public inline extern function get_InheritVelocityScale(): cpp.Float32 return this.InheritVelocityScale;
 	public extern var SkelMeshActorParamName(get, never): FName;
 	public inline extern function get_SkelMeshActorParamName(): FName return this.SkelMeshActorParamName;
-	public extern var EditorSkelMesh(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_EditorSkelMesh(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.EditorSkelMesh;
 	public extern var ValidAssociatedBones(get, never): TArray<FName>;
 	public inline extern function get_ValidAssociatedBones(): TArray<FName> return this.ValidAssociatedBones;
 	public extern var bEnforceNormalCheck(get, never): Bool;

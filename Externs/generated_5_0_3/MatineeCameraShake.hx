@@ -21,13 +21,13 @@ extern class MatineeCameraShake extends CameraShakeBase {
 	public var bRandomAnimSegment: Bool;
 	public var OscillatorTimeRemaining: cpp.Float32;
 	public var AnimInst: cpp.Star<CameraAnimInst>;
-	public var SequenceShakePattern: cpp.Star<SequenceCameraShakePattern>;
+	@:protected public var SequenceShakePattern: cpp.Star<SequenceCameraShakePattern>;
 
-	public function StartMatineeCameraShakeFromSource(PlayerCameraManager: cpp.Star<PlayerCameraManager>, ShakeClass: TSubclassOf<MatineeCameraShake>, SourceComponent: cpp.Star<CameraShakeSourceComp>, Scale: cpp.Float32, PlaySpace: ECameraShakePlaySpace, UserPlaySpaceRot: Rotator): cpp.Reference<cpp.Star<MatineeCameraShake>>;
-	public function StartMatineeCameraShake(PlayerCameraManager: cpp.Star<PlayerCameraManager>, ShakeClass: TSubclassOf<MatineeCameraShake>, Scale: cpp.Float32, PlaySpace: ECameraShakePlaySpace, UserPlaySpaceRot: Rotator): cpp.Reference<cpp.Star<MatineeCameraShake>>;
+	public function StartMatineeCameraShakeFromSource(PlayerCameraManager: cpp.Star<PlayerCameraManager>, ShakeClass: TSubclassOf<MatineeCameraShake>, SourceComponent: cpp.Star<CameraShakeSourceComp>, Scale: cpp.Float32, PlaySpace: ECameraShakePlaySpace, UserPlaySpaceRot: Rotator): cpp.Star<MatineeCameraShake>;
+	public function StartMatineeCameraShake(PlayerCameraManager: cpp.Star<PlayerCameraManager>, ShakeClass: TSubclassOf<MatineeCameraShake>, Scale: cpp.Float32, PlaySpace: ECameraShakePlaySpace, UserPlaySpaceRot: Rotator): cpp.Star<MatineeCameraShake>;
 	public function ReceiveStopShake(bImmediately: Bool): Void;
 	public function ReceivePlayShake(Scale: cpp.Float32): Void;
-	public function ReceiveIsFinished(): cpp.Reference<Bool>;
+	public function ReceiveIsFinished(): Bool;
 	public function BlueprintUpdateCameraShake(DeltaTime: cpp.Float32, Alpha: cpp.Float32, POV: cpp.Reference<MinimalViewInfo>, ModifiedPOV: cpp.Reference<MinimalViewInfo>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -68,8 +68,6 @@ abstract ConstMatineeCameraShake(MatineeCameraShake) from MatineeCameraShake {
 	public inline extern function get_OscillatorTimeRemaining(): cpp.Float32 return this.OscillatorTimeRemaining;
 	public extern var AnimInst(get, never): cpp.Star<CameraAnimInst.ConstCameraAnimInst>;
 	public inline extern function get_AnimInst(): cpp.Star<CameraAnimInst.ConstCameraAnimInst> return this.AnimInst;
-	public extern var SequenceShakePattern(get, never): cpp.Star<SequenceCameraShakePattern.ConstSequenceCameraShakePattern>;
-	public inline extern function get_SequenceShakePattern(): cpp.Star<SequenceCameraShakePattern.ConstSequenceCameraShakePattern> return this.SequenceShakePattern;
 }
 
 @:forward

@@ -10,7 +10,6 @@ extern class DirectionalLightComp extends LightComp {
 	public var OcclusionMaskDarkness: cpp.Float32;
 	public var OcclusionDepthRange: cpp.Float32;
 	public var LightShaftOverrideDirection: Vector;
-	public var WholeSceneDynamicShadowRadius_DEPRECATED: cpp.Float32;
 	public var DynamicShadowDistanceMovableLight: cpp.Float32;
 	public var DynamicShadowDistanceStationaryLight: cpp.Float32;
 	public var DynamicShadowCascades: cpp.Int32;
@@ -25,7 +24,6 @@ extern class DirectionalLightComp extends LightComp {
 	public var LightSourceSoftAngle: cpp.Float32;
 	public var ShadowSourceAngleFactor: cpp.Float32;
 	public var TraceDistance: cpp.Float32;
-	public var bUsedAsAtmosphereSunLight_DEPRECATED: Bool;
 	public var bAtmosphereSunLight: Bool;
 	public var AtmosphereSunLightIndex: cpp.Int32;
 	public var AtmosphereSunDiskColorScale: LinearColor;
@@ -80,8 +78,6 @@ abstract ConstDirectionalLightComp(DirectionalLightComp) from DirectionalLightCo
 	public inline extern function get_OcclusionDepthRange(): cpp.Float32 return this.OcclusionDepthRange;
 	public extern var LightShaftOverrideDirection(get, never): Vector;
 	public inline extern function get_LightShaftOverrideDirection(): Vector return this.LightShaftOverrideDirection;
-	public extern var WholeSceneDynamicShadowRadius_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_WholeSceneDynamicShadowRadius_DEPRECATED(): cpp.Float32 return this.WholeSceneDynamicShadowRadius_DEPRECATED;
 	public extern var DynamicShadowDistanceMovableLight(get, never): cpp.Float32;
 	public inline extern function get_DynamicShadowDistanceMovableLight(): cpp.Float32 return this.DynamicShadowDistanceMovableLight;
 	public extern var DynamicShadowDistanceStationaryLight(get, never): cpp.Float32;
@@ -110,8 +106,6 @@ abstract ConstDirectionalLightComp(DirectionalLightComp) from DirectionalLightCo
 	public inline extern function get_ShadowSourceAngleFactor(): cpp.Float32 return this.ShadowSourceAngleFactor;
 	public extern var TraceDistance(get, never): cpp.Float32;
 	public inline extern function get_TraceDistance(): cpp.Float32 return this.TraceDistance;
-	public extern var bUsedAsAtmosphereSunLight_DEPRECATED(get, never): Bool;
-	public inline extern function get_bUsedAsAtmosphereSunLight_DEPRECATED(): Bool return this.bUsedAsAtmosphereSunLight_DEPRECATED;
 	public extern var bAtmosphereSunLight(get, never): Bool;
 	public inline extern function get_bAtmosphereSunLight(): Bool return this.bAtmosphereSunLight;
 	public extern var AtmosphereSunLightIndex(get, never): cpp.Int32;

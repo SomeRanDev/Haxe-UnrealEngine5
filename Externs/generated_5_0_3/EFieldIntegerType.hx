@@ -3,12 +3,12 @@ package ue;
 
 @:native("EFieldIntegerType")
 @:include("Field/FieldSystemTypes.h")
-extern enum EFieldIntegerType {
-	Integer_DynamicState;
-	Integer_ActivateDisabled;
-	Integer_CollisionGroup;
-	Integer_PositionAnimated;
-	Integer_PositionStatic;
-	Integer_TargetMax;
-	Integer_MAX;
+extern class EFieldIntegerType {
+	static var Integer_DynamicState: EFieldIntegerType;
+	static var Integer_ActivateDisabled: EFieldIntegerType;
+	static var Integer_CollisionGroup: EFieldIntegerType;
+	static var Integer_PositionAnimated: EFieldIntegerType;
+	static var Integer_PositionStatic: EFieldIntegerType;
+	static var Integer_TargetMax: EFieldIntegerType;
+	static var Integer_MAX: EFieldIntegerType;
 }

@@ -5,8 +5,8 @@ package ue;
 @:include("ToolActivities/PolyEditInsertEdgeActivity.h")
 @:structAccess
 extern class PolyEditInsertEdgeActivity extends InteractiveToolActivity {
-	public var Settings: cpp.Star<GroupEdgeInsertionProperties>;
-	public var ActivityContext: cpp.Star<PolyEditActivityContext>;
+	@:protected public var Settings: cpp.Star<GroupEdgeInsertionProperties>;
+	@:protected public var ActivityContext: cpp.Star<PolyEditActivityContext>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class PolyEditInsertEdgeActivity extends InteractiveToolActivity {
 @:forward()
 @:nativeGen
 abstract ConstPolyEditInsertEdgeActivity(PolyEditInsertEdgeActivity) from PolyEditInsertEdgeActivity {
-	public extern var Settings(get, never): cpp.Star<GroupEdgeInsertionProperties.ConstGroupEdgeInsertionProperties>;
-	public inline extern function get_Settings(): cpp.Star<GroupEdgeInsertionProperties.ConstGroupEdgeInsertionProperties> return this.Settings;
-	public extern var ActivityContext(get, never): cpp.Star<PolyEditActivityContext.ConstPolyEditActivityContext>;
-	public inline extern function get_ActivityContext(): cpp.Star<PolyEditActivityContext.ConstPolyEditActivityContext> return this.ActivityContext;
 }
 
 @:forward

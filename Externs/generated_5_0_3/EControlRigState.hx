@@ -3,9 +3,9 @@ package ue;
 
 @:native("EControlRigState")
 @:include("Units/RigUnitContext.h")
-extern enum EControlRigState {
-	Init;
-	Update;
-	Invalid;
-	EControlRigState_MAX;
+extern class EControlRigState {
+	static var Init: EControlRigState;
+	static var Update: EControlRigState;
+	static var Invalid: EControlRigState;
+	static var EControlRigState_MAX: EControlRigState;
 }

@@ -10,12 +10,12 @@ extern class LODSyncComp extends ActorComp {
 	public var MinLOD: cpp.Int32;
 	public var ComponentsToSync: TArray<ComponentSync>;
 	public var CustomLODMapping: TMap<FName, LODMappingData>;
-	public var CurrentLOD: cpp.Int32;
-	public var CurrentNumLODs: cpp.Int32;
-	public var DriveComponents: TArray<cpp.Star<PrimitiveComp>>;
-	public var SubComponents: TArray<cpp.Star<PrimitiveComp>>;
+	private var CurrentLOD: cpp.Int32;
+	private var CurrentNumLODs: cpp.Int32;
+	private var DriveComponents: TArray<cpp.Star<PrimitiveComp>>;
+	private var SubComponents: TArray<cpp.Star<PrimitiveComp>>;
 
-	public function GetLODSyncDebugText(): cpp.Reference<FString>;
+	public function GetLODSyncDebugText(): FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -33,14 +33,6 @@ abstract ConstLODSyncComp(LODSyncComp) from LODSyncComp {
 	public inline extern function get_ComponentsToSync(): TArray<ComponentSync> return this.ComponentsToSync;
 	public extern var CustomLODMapping(get, never): TMap<FName, LODMappingData>;
 	public inline extern function get_CustomLODMapping(): TMap<FName, LODMappingData> return this.CustomLODMapping;
-	public extern var CurrentLOD(get, never): cpp.Int32;
-	public inline extern function get_CurrentLOD(): cpp.Int32 return this.CurrentLOD;
-	public extern var CurrentNumLODs(get, never): cpp.Int32;
-	public inline extern function get_CurrentNumLODs(): cpp.Int32 return this.CurrentNumLODs;
-	public extern var DriveComponents(get, never): TArray<cpp.Star<PrimitiveComp.ConstPrimitiveComp>>;
-	public inline extern function get_DriveComponents(): TArray<cpp.Star<PrimitiveComp.ConstPrimitiveComp>> return this.DriveComponents;
-	public extern var SubComponents(get, never): TArray<cpp.Star<PrimitiveComp.ConstPrimitiveComp>>;
-	public inline extern function get_SubComponents(): TArray<cpp.Star<PrimitiveComp.ConstPrimitiveComp>> return this.SubComponents;
 }
 
 @:forward

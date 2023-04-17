@@ -8,7 +8,7 @@ extern class NavigationSystemConfig extends Object {
 	public var NavigationSystemClass: SoftClassPath;
 	public var SupportedAgentsMask: NavAgentSelector;
 	public var DefaultAgentName: FName;
-	public var bIsOverriden: Bool;
+	@:protected public var bIsOverriden: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -22,8 +22,6 @@ abstract ConstNavigationSystemConfig(NavigationSystemConfig) from NavigationSyst
 	public inline extern function get_SupportedAgentsMask(): NavAgentSelector return this.SupportedAgentsMask;
 	public extern var DefaultAgentName(get, never): FName;
 	public inline extern function get_DefaultAgentName(): FName return this.DefaultAgentName;
-	public extern var bIsOverriden(get, never): Bool;
-	public inline extern function get_bIsOverriden(): Bool return this.bIsOverriden;
 }
 
 @:forward

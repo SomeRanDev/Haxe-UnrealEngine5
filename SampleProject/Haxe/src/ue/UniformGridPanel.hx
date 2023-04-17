@@ -12,7 +12,7 @@ extern class UniformGridPanel extends PanelWidget {
 	public function SetSlotPadding(InSlotPadding: Margin): Void;
 	public function SetMinDesiredSlotWidth(InMinDesiredSlotWidth: cpp.Float32): Void;
 	public function SetMinDesiredSlotHeight(InMinDesiredSlotHeight: cpp.Float32): Void;
-	public function AddChildToUniformGrid(Content: cpp.Star<Widget>, InRow: cpp.Int32, InColumn: cpp.Int32): cpp.Reference<cpp.Star<UniformGridSlot>>;
+	public function AddChildToUniformGrid(Content: cpp.Star<Widget>, InRow: cpp.Int32, InColumn: cpp.Int32): cpp.Star<UniformGridSlot>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

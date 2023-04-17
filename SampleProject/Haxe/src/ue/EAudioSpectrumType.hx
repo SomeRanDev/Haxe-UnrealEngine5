@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAudioSpectrumType")
 @:include("Sound/SoundSubmix.h")
-extern enum EAudioSpectrumType {
-	MagnitudeSpectrum;
-	PowerSpectrum;
-	Decibel;
-	EAudioSpectrumType_MAX;
+extern class EAudioSpectrumType {
+	static var MagnitudeSpectrum: EAudioSpectrumType;
+	static var PowerSpectrum: EAudioSpectrumType;
+	static var Decibel: EAudioSpectrumType;
+	static var EAudioSpectrumType_MAX: EAudioSpectrumType;
 }

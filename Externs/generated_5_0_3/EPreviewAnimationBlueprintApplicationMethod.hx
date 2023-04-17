@@ -3,8 +3,8 @@ package ue;
 
 @:native("EPreviewAnimationBlueprintApplicationMethod")
 @:include("Animation/AnimBlueprint.h")
-extern enum EPreviewAnimationBlueprintApplicationMethod {
-	LinkedLayers;
-	LinkedAnimGraph;
-	EPreviewAnimationBlueprintApplicationMethod_MAX;
+extern class EPreviewAnimationBlueprintApplicationMethod {
+	static var LinkedLayers: EPreviewAnimationBlueprintApplicationMethod;
+	static var LinkedAnimGraph: EPreviewAnimationBlueprintApplicationMethod;
+	static var EPreviewAnimationBlueprintApplicationMethod_MAX: EPreviewAnimationBlueprintApplicationMethod;
 }

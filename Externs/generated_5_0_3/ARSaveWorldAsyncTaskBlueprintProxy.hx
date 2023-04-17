@@ -8,7 +8,7 @@ extern class ARSaveWorldAsyncTaskBlueprintProxy extends ARBaseAsyncTaskBlueprint
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.UInt8>>) -> Void>;
 	public var OnFailed: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.UInt8>>) -> Void>;
 
-	public function ARSaveWorld(WorldContextObject: cpp.Star<Object>): cpp.Reference<cpp.Star<ARSaveWorldAsyncTaskBlueprintProxy>>;
+	public function ARSaveWorld(WorldContextObject: cpp.Star<Object>): cpp.Star<ARSaveWorldAsyncTaskBlueprintProxy>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

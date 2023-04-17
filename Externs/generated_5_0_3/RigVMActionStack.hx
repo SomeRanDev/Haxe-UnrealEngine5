@@ -5,15 +5,15 @@ package ue;
 @:include("RigVMModel/RigVMControllerActions.h")
 @:structAccess
 extern class RigVMActionStack extends Object {
-	public var ActionIndex: cpp.Int32;
-	public var UndoActions: TArray<RigVMActionKey>;
-	public var RedoActions: TArray<RigVMActionKey>;
+	private var ActionIndex: cpp.Int32;
+	private var UndoActions: TArray<RigVMActionKey>;
+	private var RedoActions: TArray<RigVMActionKey>;
 
-	public function Undo(InController: cpp.Star<RigVMController>): cpp.Reference<Bool>;
-	public function Redo(InController: cpp.Star<RigVMController>): cpp.Reference<Bool>;
-	public function OpenUndoBracket(InTitle: FString): cpp.Reference<Bool>;
-	public function CloseUndoBracket(): cpp.Reference<Bool>;
-	public function CancelUndoBracket(): cpp.Reference<Bool>;
+	public function Undo(InController: cpp.Star<RigVMController>): Bool;
+	public function Redo(InController: cpp.Star<RigVMController>): Bool;
+	public function OpenUndoBracket(InTitle: FString): Bool;
+	public function CloseUndoBracket(): Bool;
+	public function CancelUndoBracket(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -21,12 +21,6 @@ extern class RigVMActionStack extends Object {
 @:forward()
 @:nativeGen
 abstract ConstRigVMActionStack(RigVMActionStack) from RigVMActionStack {
-	public extern var ActionIndex(get, never): cpp.Int32;
-	public inline extern function get_ActionIndex(): cpp.Int32 return this.ActionIndex;
-	public extern var UndoActions(get, never): TArray<RigVMActionKey>;
-	public inline extern function get_UndoActions(): TArray<RigVMActionKey> return this.UndoActions;
-	public extern var RedoActions(get, never): TArray<RigVMActionKey>;
-	public inline extern function get_RedoActions(): TArray<RigVMActionKey> return this.RedoActions;
 }
 
 @:forward

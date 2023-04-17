@@ -12,17 +12,17 @@ extern class MeshReductionSettings {
 	public var WeldingThreshold: cpp.Float32;
 	public var HardAngleThreshold: cpp.Float32;
 	public var BaseLODModel: cpp.Int32;
-	public var SilhouetteImportance: EMeshFeatureImportance;
-	public var TextureImportance: EMeshFeatureImportance;
-	public var ShadingImportance: EMeshFeatureImportance;
+	public var SilhouetteImportance: TEnumAsByte<EMeshFeatureImportance>;
+	public var TextureImportance: TEnumAsByte<EMeshFeatureImportance>;
+	public var ShadingImportance: TEnumAsByte<EMeshFeatureImportance>;
 	public var bRecalculateNormals: Bool;
 	public var bGenerateUniqueLightmapUVs: Bool;
 	public var bKeepSymmetry: Bool;
 	public var bVisibilityAided: Bool;
 	public var bCullOccluded: Bool;
 	public var TerminationCriterion: EStaticMeshReductionTerimationCriterion;
-	public var VisibilityAggressiveness: EMeshFeatureImportance;
-	public var VertexColorImportance: EMeshFeatureImportance;
+	public var VisibilityAggressiveness: TEnumAsByte<EMeshFeatureImportance>;
+	public var VertexColorImportance: TEnumAsByte<EMeshFeatureImportance>;
 
 	@:native("FMeshReductionSettings") public function new();
 }

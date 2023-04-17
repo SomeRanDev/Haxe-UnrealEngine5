@@ -5,7 +5,7 @@ package ue;
 @:include("Animation/BuiltInAttributeTypes.h")
 @:structAccess
 extern class BuiltInAttributesExtensions extends BlueprintFunctionLibrary {
-	public function AddTransformAttribute(AnimSequenceBase: cpp.Star<AnimSequenceBase>, AttributeName: cpp.Reference<FName>, BoneName: cpp.Reference<FName>, Keys: cpp.Reference<TArray<cpp.Float32>>, Values: cpp.Reference<TArray<Transform>>): cpp.Reference<Bool>;
+	public function AddTransformAttribute(AnimSequenceBase: cpp.Star<AnimSequenceBase>, AttributeName: cpp.Reference<FName>, BoneName: cpp.Reference<FName>, Keys: cpp.Reference<TArray<cpp.Float32>>, Values: cpp.Reference<TArray<Transform>>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

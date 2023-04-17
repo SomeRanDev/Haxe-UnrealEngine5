@@ -6,8 +6,6 @@ package ue;
 @:structAccess
 extern class AnimBoneCompressionSettings extends Object {
 	public var Codecs: TArray<cpp.Star<AnimBoneCompressionCodec>>;
-	public var ErrorThreshold: cpp.Float32;
-	public var bForceBelowThreshold: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,10 +15,6 @@ extern class AnimBoneCompressionSettings extends Object {
 abstract ConstAnimBoneCompressionSettings(AnimBoneCompressionSettings) from AnimBoneCompressionSettings {
 	public extern var Codecs(get, never): TArray<cpp.Star<AnimBoneCompressionCodec.ConstAnimBoneCompressionCodec>>;
 	public inline extern function get_Codecs(): TArray<cpp.Star<AnimBoneCompressionCodec.ConstAnimBoneCompressionCodec>> return this.Codecs;
-	public extern var ErrorThreshold(get, never): cpp.Float32;
-	public inline extern function get_ErrorThreshold(): cpp.Float32 return this.ErrorThreshold;
-	public extern var bForceBelowThreshold(get, never): Bool;
-	public inline extern function get_bForceBelowThreshold(): Bool return this.bForceBelowThreshold;
 }
 
 @:forward

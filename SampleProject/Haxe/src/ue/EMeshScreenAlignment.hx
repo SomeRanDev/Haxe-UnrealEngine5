@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMeshScreenAlignment")
 @:include("Particles/TypeData/ParticleModuleTypeDataMesh.h")
-extern enum EMeshScreenAlignment {
-	PSMA_MeshFaceCameraWithRoll;
-	PSMA_MeshFaceCameraWithSpin;
-	PSMA_MeshFaceCameraWithLockedAxis;
-	PSMA_MAX;
+extern class EMeshScreenAlignment {
+	static var PSMA_MeshFaceCameraWithRoll: EMeshScreenAlignment;
+	static var PSMA_MeshFaceCameraWithSpin: EMeshScreenAlignment;
+	static var PSMA_MeshFaceCameraWithLockedAxis: EMeshScreenAlignment;
+	static var PSMA_MAX: EMeshScreenAlignment;
 }

@@ -3,11 +3,11 @@ package ue;
 
 @:native("EAIRequestPriority.Type")
 @:include("AITypes.h")
-extern enum EAIRequestPriority {
-	SoftScript;
-	Logic;
-	HardScript;
-	Reaction;
-	Ultimate;
-	MAX;
+extern class EAIRequestPriority {
+	static var SoftScript: EAIRequestPriority;
+	static var Logic: EAIRequestPriority;
+	static var HardScript: EAIRequestPriority;
+	static var Reaction: EAIRequestPriority;
+	static var Ultimate: EAIRequestPriority;
+	static var MAX: EAIRequestPriority;
 }

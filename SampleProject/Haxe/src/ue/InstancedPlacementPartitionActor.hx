@@ -5,7 +5,6 @@ package ue;
 @:include("Instances/InstancedPlacementPartitionActor.h")
 @:structAccess
 extern class InstancedPlacementPartitionActor extends ISMPartitionActor {
-	public var PlacementGridGuid: Guid;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +12,6 @@ extern class InstancedPlacementPartitionActor extends ISMPartitionActor {
 @:forward()
 @:nativeGen
 abstract ConstInstancedPlacementPartitionActor(InstancedPlacementPartitionActor) from InstancedPlacementPartitionActor {
-	public extern var PlacementGridGuid(get, never): Guid;
-	public inline extern function get_PlacementGridGuid(): Guid return this.PlacementGridGuid;
 }
 
 @:forward

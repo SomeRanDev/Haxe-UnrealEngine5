@@ -3,11 +3,11 @@ package ue;
 
 @:native("EDesignPreviewSizeMode")
 @:include("Blueprint/UserWidget.h")
-extern enum EDesignPreviewSizeMode {
-	FillScreen;
-	Custom;
-	CustomOnScreen;
-	Desired;
-	DesiredOnScreen;
-	EDesignPreviewSizeMode_MAX;
+extern class EDesignPreviewSizeMode {
+	static var FillScreen: EDesignPreviewSizeMode;
+	static var Custom: EDesignPreviewSizeMode;
+	static var CustomOnScreen: EDesignPreviewSizeMode;
+	static var Desired: EDesignPreviewSizeMode;
+	static var DesiredOnScreen: EDesignPreviewSizeMode;
+	static var EDesignPreviewSizeMode_MAX: EDesignPreviewSizeMode;
 }

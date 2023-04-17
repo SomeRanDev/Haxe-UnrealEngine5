@@ -3,8 +3,8 @@ package ue;
 
 @:native("EOcclusionCombineMode")
 @:include("Engine/EngineTypes.h")
-extern enum EOcclusionCombineMode {
-	OCM_Minimum;
-	OCM_Multiply;
-	OCM_MAX;
+extern class EOcclusionCombineMode {
+	static var OCM_Minimum: EOcclusionCombineMode;
+	static var OCM_Multiply: EOcclusionCombineMode;
+	static var OCM_MAX: EOcclusionCombineMode;
 }

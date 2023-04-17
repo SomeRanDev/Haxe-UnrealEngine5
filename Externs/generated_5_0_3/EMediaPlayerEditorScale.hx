@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMediaPlayerEditorScale")
 @:include("Private/Shared/MediaPlayerEditorSettings.h")
-extern enum EMediaPlayerEditorScale {
-	Fill;
-	Fit;
-	Original;
-	EMediaPlayerEditorScale_MAX;
+extern class EMediaPlayerEditorScale {
+	static var Fill: EMediaPlayerEditorScale;
+	static var Fit: EMediaPlayerEditorScale;
+	static var Original: EMediaPlayerEditorScale;
+	static var EMediaPlayerEditorScale_MAX: EMediaPlayerEditorScale;
 }

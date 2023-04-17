@@ -3,17 +3,17 @@ package ue;
 
 @:native("ETextureRenderTargetFormat")
 @:include("Engine/TextureRenderTarget2D.h")
-extern enum ETextureRenderTargetFormat {
-	RTF_R8;
-	RTF_RG8;
-	RTF_RGBA8;
-	RTF_RGBA8_SRGB;
-	RTF_R16f;
-	RTF_RG16f;
-	RTF_RGBA16f;
-	RTF_R32f;
-	RTF_RG32f;
-	RTF_RGBA32f;
-	RTF_RGB10A2;
-	RTF_MAX;
+extern class ETextureRenderTargetFormat {
+	static var RTF_R8: ETextureRenderTargetFormat;
+	static var RTF_RG8: ETextureRenderTargetFormat;
+	static var RTF_RGBA8: ETextureRenderTargetFormat;
+	static var RTF_RGBA8_SRGB: ETextureRenderTargetFormat;
+	static var RTF_R16f: ETextureRenderTargetFormat;
+	static var RTF_RG16f: ETextureRenderTargetFormat;
+	static var RTF_RGBA16f: ETextureRenderTargetFormat;
+	static var RTF_R32f: ETextureRenderTargetFormat;
+	static var RTF_RG32f: ETextureRenderTargetFormat;
+	static var RTF_RGBA32f: ETextureRenderTargetFormat;
+	static var RTF_RGB10A2: ETextureRenderTargetFormat;
+	static var RTF_MAX: ETextureRenderTargetFormat;
 }

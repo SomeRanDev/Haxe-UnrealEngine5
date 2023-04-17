@@ -9,6 +9,7 @@ extern class IFName {
 	public function new(cStr: cpp.ConstCharStar);
 }
 
+@:native("FName")
 @:nativeGen
 extern abstract FName(IFName) from IFName to IFName {
 	@:from public extern inline static function FromString(str: String): FName {

@@ -5,9 +5,9 @@ package ue;
 @:include("UObject/NoExportTypes.h")
 @:structAccess
 extern class FrameNumberRangeBound {
-	public var Type: ERangeBoundTypes;
-	public var Value: FrameNumber;
+	private var Type: TEnumAsByte<ERangeBoundTypes>;
+	private var Value: FrameNumber;
 
 	@:native("FFrameNumberRangeBound") public function new();
-	@:native("FFrameNumberRangeBound") public static function make(Type: ERangeBoundTypes, Value: FrameNumber): FrameNumberRangeBound ;
+	@:native("FFrameNumberRangeBound") public static function make(Type: TEnumAsByte<ERangeBoundTypes>, Value: FrameNumber): FrameNumberRangeBound ;
 }

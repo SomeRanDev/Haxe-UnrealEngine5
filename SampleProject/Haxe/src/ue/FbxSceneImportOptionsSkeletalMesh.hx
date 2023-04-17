@@ -16,7 +16,7 @@ extern class FbxSceneImportOptionsSkeletalMesh extends Object {
 	public var ThresholdUV: cpp.Float32;
 	public var MorphThresholdPosition: cpp.Float32;
 	public var bImportAnimations: Bool;
-	public var AnimationLength: EFBXAnimationLengthImportType;
+	public var AnimationLength: TEnumAsByte<EFBXAnimationLengthImportType>;
 	public var FrameImportRange: Int32Interval;
 	public var bUseDefaultSampleRate: Bool;
 	public var CustomSampleRate: cpp.Int32;
@@ -54,8 +54,8 @@ abstract ConstFbxSceneImportOptionsSkeletalMesh(FbxSceneImportOptionsSkeletalMes
 	public inline extern function get_MorphThresholdPosition(): cpp.Float32 return this.MorphThresholdPosition;
 	public extern var bImportAnimations(get, never): Bool;
 	public inline extern function get_bImportAnimations(): Bool return this.bImportAnimations;
-	public extern var AnimationLength(get, never): EFBXAnimationLengthImportType;
-	public inline extern function get_AnimationLength(): EFBXAnimationLengthImportType return this.AnimationLength;
+	public extern var AnimationLength(get, never): TEnumAsByte<EFBXAnimationLengthImportType>;
+	public inline extern function get_AnimationLength(): TEnumAsByte<EFBXAnimationLengthImportType> return this.AnimationLength;
 	public extern var FrameImportRange(get, never): Int32Interval;
 	public inline extern function get_FrameImportRange(): Int32Interval return this.FrameImportRange;
 	public extern var bUseDefaultSampleRate(get, never): Bool;

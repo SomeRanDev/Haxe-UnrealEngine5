@@ -3,9 +3,9 @@ package ue;
 
 @:native("EEmitterNormalsMode")
 @:include("Particles/ParticleModuleRequired.h")
-extern enum EEmitterNormalsMode {
-	ENM_CameraFacing;
-	ENM_Spherical;
-	ENM_Cylindrical;
-	ENM_MAX;
+extern class EEmitterNormalsMode {
+	static var ENM_CameraFacing: EEmitterNormalsMode;
+	static var ENM_Spherical: EEmitterNormalsMode;
+	static var ENM_Cylindrical: EEmitterNormalsMode;
+	static var ENM_MAX: EEmitterNormalsMode;
 }

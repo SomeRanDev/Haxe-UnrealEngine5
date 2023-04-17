@@ -6,20 +6,20 @@ package ue;
 @:structAccess
 extern class NavMovementComp extends MovementComp {
 	public var NavAgentProps: NavAgentProperties;
-	public var FixedPathBrakingDistance: cpp.Float32;
-	public var bUpdateNavAgentWithOwnersCollision: Bool;
-	public var bUseAccelerationForPaths: Bool;
-	public var bUseFixedBrakingDistanceForPaths: Bool;
+	@:protected public var FixedPathBrakingDistance: cpp.Float32;
+	@:protected public var bUpdateNavAgentWithOwnersCollision: Bool;
+	@:protected public var bUseAccelerationForPaths: Bool;
+	@:protected public var bUseFixedBrakingDistanceForPaths: Bool;
 	public var MovementState: MovementProperties;
-	public var PathFollowingComp: cpp.Star<Object>;
+	private var PathFollowingComp: cpp.Star<Object>;
 
 	public function StopMovementKeepPathing(): Void;
 	public function StopActiveMovement(): Void;
-	public function IsSwimming(): cpp.Reference<Bool>;
-	public function IsMovingOnGround(): cpp.Reference<Bool>;
-	public function IsFlying(): cpp.Reference<Bool>;
-	public function IsFalling(): cpp.Reference<Bool>;
-	public function IsCrouching(): cpp.Reference<Bool>;
+	public function IsSwimming(): Bool;
+	public function IsMovingOnGround(): Bool;
+	public function IsFlying(): Bool;
+	public function IsFalling(): Bool;
+	public function IsCrouching(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -29,18 +29,8 @@ extern class NavMovementComp extends MovementComp {
 abstract ConstNavMovementComp(NavMovementComp) from NavMovementComp {
 	public extern var NavAgentProps(get, never): NavAgentProperties;
 	public inline extern function get_NavAgentProps(): NavAgentProperties return this.NavAgentProps;
-	public extern var FixedPathBrakingDistance(get, never): cpp.Float32;
-	public inline extern function get_FixedPathBrakingDistance(): cpp.Float32 return this.FixedPathBrakingDistance;
-	public extern var bUpdateNavAgentWithOwnersCollision(get, never): Bool;
-	public inline extern function get_bUpdateNavAgentWithOwnersCollision(): Bool return this.bUpdateNavAgentWithOwnersCollision;
-	public extern var bUseAccelerationForPaths(get, never): Bool;
-	public inline extern function get_bUseAccelerationForPaths(): Bool return this.bUseAccelerationForPaths;
-	public extern var bUseFixedBrakingDistanceForPaths(get, never): Bool;
-	public inline extern function get_bUseFixedBrakingDistanceForPaths(): Bool return this.bUseFixedBrakingDistanceForPaths;
 	public extern var MovementState(get, never): MovementProperties;
 	public inline extern function get_MovementState(): MovementProperties return this.MovementState;
-	public extern var PathFollowingComp(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_PathFollowingComp(): cpp.Star<Object.ConstObject> return this.PathFollowingComp;
 }
 
 @:forward

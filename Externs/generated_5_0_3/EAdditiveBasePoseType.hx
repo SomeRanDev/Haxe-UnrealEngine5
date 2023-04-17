@@ -3,11 +3,11 @@ package ue;
 
 @:native("EAdditiveBasePoseType")
 @:include("Animation/AnimEnums.h")
-extern enum EAdditiveBasePoseType {
-	ABPT_None;
-	ABPT_RefPose;
-	ABPT_AnimScaled;
-	ABPT_AnimFrame;
-	ABPT_LocalAnimFrame;
-	ABPT_MAX;
+extern class EAdditiveBasePoseType {
+	static var ABPT_None: EAdditiveBasePoseType;
+	static var ABPT_RefPose: EAdditiveBasePoseType;
+	static var ABPT_AnimScaled: EAdditiveBasePoseType;
+	static var ABPT_AnimFrame: EAdditiveBasePoseType;
+	static var ABPT_LocalAnimFrame: EAdditiveBasePoseType;
+	static var ABPT_MAX: EAdditiveBasePoseType;
 }

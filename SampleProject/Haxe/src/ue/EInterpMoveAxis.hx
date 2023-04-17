@@ -3,12 +3,12 @@ package ue;
 
 @:native("EInterpMoveAxis")
 @:include("Matinee/InterpTrackMoveAxis.h")
-extern enum EInterpMoveAxis {
-	AXIS_TranslationX;
-	AXIS_TranslationY;
-	AXIS_TranslationZ;
-	AXIS_RotationX;
-	AXIS_RotationY;
-	AXIS_RotationZ;
-	AXIS_MAX;
+extern class EInterpMoveAxis {
+	static var AXIS_TranslationX: EInterpMoveAxis;
+	static var AXIS_TranslationY: EInterpMoveAxis;
+	static var AXIS_TranslationZ: EInterpMoveAxis;
+	static var AXIS_RotationX: EInterpMoveAxis;
+	static var AXIS_RotationY: EInterpMoveAxis;
+	static var AXIS_RotationZ: EInterpMoveAxis;
+	static var AXIS_MAX: EInterpMoveAxis;
 }

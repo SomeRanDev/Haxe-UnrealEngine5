@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class DeviceProfileManager extends Object {
 	public var Profiles: TArray<cpp.Star<DeviceProfile>>;
-	public var BackupProfiles: TArray<cpp.Star<DeviceProfile>>;
+	private var BackupProfiles: TArray<cpp.Star<DeviceProfile>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,6 @@ extern class DeviceProfileManager extends Object {
 abstract ConstDeviceProfileManager(DeviceProfileManager) from DeviceProfileManager {
 	public extern var Profiles(get, never): TArray<cpp.Star<DeviceProfile.ConstDeviceProfile>>;
 	public inline extern function get_Profiles(): TArray<cpp.Star<DeviceProfile.ConstDeviceProfile>> return this.Profiles;
-	public extern var BackupProfiles(get, never): TArray<cpp.Star<DeviceProfile.ConstDeviceProfile>>;
-	public inline extern function get_BackupProfiles(): TArray<cpp.Star<DeviceProfile.ConstDeviceProfile>> return this.BackupProfiles;
 }
 
 @:forward

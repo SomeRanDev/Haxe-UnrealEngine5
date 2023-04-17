@@ -3,13 +3,13 @@ package ue;
 
 @:native("EMultiBoxType")
 @:include("Framework/MultiBox/MultiBoxDefs.h")
-extern enum EMultiBoxType {
-	MenuBar;
-	ToolBar;
-	VerticalToolBar;
-	SlimHorizontalToolBar;
-	UniformToolBar;
-	Menu;
-	ButtonRow;
-	EMultiBoxType_MAX;
+extern class EMultiBoxType {
+	static var MenuBar: EMultiBoxType;
+	static var ToolBar: EMultiBoxType;
+	static var VerticalToolBar: EMultiBoxType;
+	static var SlimHorizontalToolBar: EMultiBoxType;
+	static var UniformToolBar: EMultiBoxType;
+	static var Menu: EMultiBoxType;
+	static var ButtonRow: EMultiBoxType;
+	static var EMultiBoxType_MAX: EMultiBoxType;
 }

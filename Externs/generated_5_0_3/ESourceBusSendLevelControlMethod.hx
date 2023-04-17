@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESourceBusSendLevelControlMethod")
 @:include("Sound/SoundSourceBusSend.h")
-extern enum ESourceBusSendLevelControlMethod {
-	Linear;
-	CustomCurve;
-	Manual;
-	ESourceBusSendLevelControlMethod_MAX;
+extern class ESourceBusSendLevelControlMethod {
+	static var Linear: ESourceBusSendLevelControlMethod;
+	static var CustomCurve: ESourceBusSendLevelControlMethod;
+	static var Manual: ESourceBusSendLevelControlMethod;
+	static var ESourceBusSendLevelControlMethod_MAX: ESourceBusSendLevelControlMethod;
 }

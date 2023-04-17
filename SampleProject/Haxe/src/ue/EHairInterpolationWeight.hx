@@ -3,10 +3,10 @@ package ue;
 
 @:native("EHairInterpolationWeight")
 @:include("GroomAssetInterpolation.h")
-extern enum EHairInterpolationWeight {
-	Parametric;
-	Root;
-	Index;
-	Unknown;
-	EHairInterpolationWeight_MAX;
+extern class EHairInterpolationWeight {
+	static var Parametric: EHairInterpolationWeight;
+	static var Root: EHairInterpolationWeight;
+	static var Index: EHairInterpolationWeight;
+	static var Unknown: EHairInterpolationWeight;
+	static var EHairInterpolationWeight_MAX: EHairInterpolationWeight;
 }

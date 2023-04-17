@@ -5,8 +5,6 @@ package ue;
 @:include("Animation/PoseAsset.h")
 @:structAccess
 extern class PoseData {
-	public var SourceLocalSpacePose: TArray<Transform>;
-	public var SourceCurveData: TArray<cpp.Float32>;
 	public var LocalSpacePose: TArray<Transform>;
 	public var CurveData: TArray<cpp.Float32>;
 

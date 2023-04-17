@@ -5,17 +5,17 @@ package ue;
 @:include("SequencerTools.h")
 @:structAccess
 extern class SequencerToolsFunctionLibrary extends BlueprintFunctionLibrary {
-	public function RenderMovie(InCaptureSettings: cpp.Star<MovieSceneCapture>, OnFinishedCallback: HaxeDelegateProperty<(Bool) -> Void>): cpp.Reference<Bool>;
-	public function IsRenderingMovie(): cpp.Reference<Bool>;
-	public function IsEventEndpointValid(InEndpoint: cpp.Reference<SequencerQuickBindingResult>): cpp.Reference<Bool>;
-	public function ImportLevelSequenceFBX(InWorld: cpp.Star<World>, InSequence: cpp.Star<LevelSequence>, InBindings: cpp.Reference<TArray<SequencerBindingProxy>>, InImportFBXSettings: cpp.Star<MovieSceneUserImportFBXSettings>, InImportFilename: FString): cpp.Reference<Bool>;
-	public function ImportFBXToControlRig(World: cpp.Star<World>, InSequence: cpp.Star<LevelSequence>, ActorWithControlRigTrack: FString, SelectedControlRigNames: cpp.Reference<TArray<FString>>, ImportFBXControlRigSettings: cpp.Star<MovieSceneUserImportFBXControlRigSettings>, ImportFilename: FString): cpp.Reference<Bool>;
-	public function GetObjectBindings(InWorld: cpp.Star<World>, InSequence: cpp.Star<LevelSequence>, InObject: cpp.Reference<TArray<cpp.Star<Object>>>, InRange: cpp.Reference<SequencerScriptingRange>): cpp.Reference<TArray<SequencerBoundObjects>>;
-	public function GetBoundObjects(InWorld: cpp.Star<World>, InSequence: cpp.Star<LevelSequence>, InBindings: cpp.Reference<TArray<SequencerBindingProxy>>, InRange: cpp.Reference<SequencerScriptingRange>): cpp.Reference<TArray<SequencerBoundObjects>>;
-	public function ExportLevelSequenceFBX(InWorld: cpp.Star<World>, InSequence: cpp.Star<LevelSequence>, InBindings: cpp.Reference<TArray<SequencerBindingProxy>>, InMasterTracks: cpp.Reference<TArray<cpp.Star<MovieSceneTrack>>>, OverrideOptions: cpp.Star<FbxExportOption>, InFBXFileName: FString): cpp.Reference<Bool>;
-	public function ExportAnimSequence(World: cpp.Star<World>, Sequence: cpp.Star<LevelSequence>, AnimSequence: cpp.Star<AnimSequence>, ExportOption: cpp.Star<AnimSeqExportOption>, Binding: cpp.Reference<SequencerBindingProxy>): cpp.Reference<Bool>;
-	public function CreateQuickBinding(InSequence: cpp.Star<MovieSceneSequence>, InObject: cpp.Star<Object>, InFunctionName: FString, bCallInEditor: Bool): cpp.Reference<SequencerQuickBindingResult>;
-	public function CreateEvent(InSequence: cpp.Star<MovieSceneSequence>, InSection: cpp.Star<MovieSceneEventSectionBase>, InEndpoint: cpp.Reference<SequencerQuickBindingResult>, InPayload: cpp.Reference<TArray<FString>>): cpp.Reference<MovieSceneEvent>;
+	public function RenderMovie(InCaptureSettings: cpp.Star<MovieSceneCapture>, OnFinishedCallback: HaxeDelegateProperty<(Bool) -> Void>): Bool;
+	public function IsRenderingMovie(): Bool;
+	public function IsEventEndpointValid(InEndpoint: cpp.Reference<SequencerQuickBindingResult>): Bool;
+	public function ImportLevelSequenceFBX(InWorld: cpp.Star<World>, InSequence: cpp.Star<LevelSequence>, InBindings: cpp.Reference<TArray<SequencerBindingProxy>>, InImportFBXSettings: cpp.Star<MovieSceneUserImportFBXSettings>, InImportFilename: FString): Bool;
+	public function ImportFBXToControlRig(World: cpp.Star<World>, InSequence: cpp.Star<LevelSequence>, ActorWithControlRigTrack: FString, SelectedControlRigNames: cpp.Reference<TArray<FString>>, ImportFBXControlRigSettings: cpp.Star<MovieSceneUserImportFBXControlRigSettings>, ImportFilename: FString): Bool;
+	public function GetObjectBindings(InWorld: cpp.Star<World>, InSequence: cpp.Star<LevelSequence>, InObject: cpp.Reference<TArray<cpp.Star<Object>>>, InRange: cpp.Reference<SequencerScriptingRange>): TArray<SequencerBoundObjects>;
+	public function GetBoundObjects(InWorld: cpp.Star<World>, InSequence: cpp.Star<LevelSequence>, InBindings: cpp.Reference<TArray<SequencerBindingProxy>>, InRange: cpp.Reference<SequencerScriptingRange>): TArray<SequencerBoundObjects>;
+	public function ExportLevelSequenceFBX(InWorld: cpp.Star<World>, InSequence: cpp.Star<LevelSequence>, InBindings: cpp.Reference<TArray<SequencerBindingProxy>>, InMasterTracks: cpp.Reference<TArray<cpp.Star<MovieSceneTrack>>>, OverrideOptions: cpp.Star<FbxExportOption>, InFBXFileName: FString): Bool;
+	public function ExportAnimSequence(World: cpp.Star<World>, Sequence: cpp.Star<LevelSequence>, AnimSequence: cpp.Star<AnimSequence>, ExportOption: cpp.Star<AnimSeqExportOption>, Binding: cpp.Reference<SequencerBindingProxy>): Bool;
+	public function CreateQuickBinding(InSequence: cpp.Star<MovieSceneSequence>, InObject: cpp.Star<Object>, InFunctionName: FString, bCallInEditor: Bool): SequencerQuickBindingResult;
+	public function CreateEvent(InSequence: cpp.Star<MovieSceneSequence>, InSection: cpp.Star<MovieSceneEventSectionBase>, InEndpoint: cpp.Reference<SequencerQuickBindingResult>, InPayload: cpp.Reference<TArray<FString>>): MovieSceneEvent;
 	public function CancelMovieRender(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;

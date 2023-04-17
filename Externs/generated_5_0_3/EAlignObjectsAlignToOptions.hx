@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAlignObjectsAlignToOptions")
 @:include("AlignObjectsTool.h")
-extern enum EAlignObjectsAlignToOptions {
-	FirstSelected;
-	LastSelected;
-	Combined;
-	EAlignObjectsAlignToOptions_MAX;
+extern class EAlignObjectsAlignToOptions {
+	static var FirstSelected: EAlignObjectsAlignToOptions;
+	static var LastSelected: EAlignObjectsAlignToOptions;
+	static var Combined: EAlignObjectsAlignToOptions;
+	static var EAlignObjectsAlignToOptions_MAX: EAlignObjectsAlignToOptions;
 }

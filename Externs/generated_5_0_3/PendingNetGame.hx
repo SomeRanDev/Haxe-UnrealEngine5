@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class PendingNetGame extends Object {
 	public var NetDriver: cpp.Star<NetDriver>;
-	public var DemoNetDriver: cpp.Star<DemoNetDriver>;
+	private var DemoNetDriver: cpp.Star<DemoNetDriver>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,6 @@ extern class PendingNetGame extends Object {
 abstract ConstPendingNetGame(PendingNetGame) from PendingNetGame {
 	public extern var NetDriver(get, never): cpp.Star<NetDriver.ConstNetDriver>;
 	public inline extern function get_NetDriver(): cpp.Star<NetDriver.ConstNetDriver> return this.NetDriver;
-	public extern var DemoNetDriver(get, never): cpp.Star<DemoNetDriver.ConstDemoNetDriver>;
-	public inline extern function get_DemoNetDriver(): cpp.Star<DemoNetDriver.ConstDemoNetDriver> return this.DemoNetDriver;
 }
 
 @:forward

@@ -5,14 +5,9 @@ package ue;
 @:include("Graph/ControlRigGraphNode.h")
 @:structAccess
 extern class ControlRigGraphNode extends EdGraphNode {
-	public var ModelNodePath: FString;
-	public var CachedModelNode: cpp.Star<RigVMNode>;
-	public var CachedModelPins: TMap<FString, cpp.Star<RigVMPin>>;
-	public var PropertyName_DEPRECATED: FName;
-	public var StructPath_DEPRECATED: FString;
-	public var PinType_DEPRECATED: EdGraphPinType;
-	public var ParameterType_DEPRECATED: cpp.Int32;
-	public var ExpandedPins_DEPRECATED: TArray<FString>;
+	private var ModelNodePath: FString;
+	private var CachedModelNode: cpp.Star<RigVMNode>;
+	private var CachedModelPins: TMap<FString, cpp.Star<RigVMPin>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -20,22 +15,6 @@ extern class ControlRigGraphNode extends EdGraphNode {
 @:forward()
 @:nativeGen
 abstract ConstControlRigGraphNode(ControlRigGraphNode) from ControlRigGraphNode {
-	public extern var ModelNodePath(get, never): FString;
-	public inline extern function get_ModelNodePath(): FString return this.ModelNodePath;
-	public extern var CachedModelNode(get, never): cpp.Star<RigVMNode.ConstRigVMNode>;
-	public inline extern function get_CachedModelNode(): cpp.Star<RigVMNode.ConstRigVMNode> return this.CachedModelNode;
-	public extern var CachedModelPins(get, never): TMap<FString, cpp.Star<RigVMPin.ConstRigVMPin>>;
-	public inline extern function get_CachedModelPins(): TMap<FString, cpp.Star<RigVMPin.ConstRigVMPin>> return this.CachedModelPins;
-	public extern var PropertyName_DEPRECATED(get, never): FName;
-	public inline extern function get_PropertyName_DEPRECATED(): FName return this.PropertyName_DEPRECATED;
-	public extern var StructPath_DEPRECATED(get, never): FString;
-	public inline extern function get_StructPath_DEPRECATED(): FString return this.StructPath_DEPRECATED;
-	public extern var PinType_DEPRECATED(get, never): EdGraphPinType;
-	public inline extern function get_PinType_DEPRECATED(): EdGraphPinType return this.PinType_DEPRECATED;
-	public extern var ParameterType_DEPRECATED(get, never): cpp.Int32;
-	public inline extern function get_ParameterType_DEPRECATED(): cpp.Int32 return this.ParameterType_DEPRECATED;
-	public extern var ExpandedPins_DEPRECATED(get, never): TArray<FString>;
-	public inline extern function get_ExpandedPins_DEPRECATED(): TArray<FString> return this.ExpandedPins_DEPRECATED;
 }
 
 @:forward

@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELocalizationTargetConflictStatus")
 @:include("LocalizationTargetTypes.h")
-extern enum ELocalizationTargetConflictStatus {
-	Unknown;
-	ConflictsPresent;
-	Clear;
-	ELocalizationTargetConflictStatus_MAX;
+extern class ELocalizationTargetConflictStatus {
+	static var Unknown: ELocalizationTargetConflictStatus;
+	static var ConflictsPresent: ELocalizationTargetConflictStatus;
+	static var Clear: ELocalizationTargetConflictStatus;
+	static var ELocalizationTargetConflictStatus_MAX: ELocalizationTargetConflictStatus;
 }

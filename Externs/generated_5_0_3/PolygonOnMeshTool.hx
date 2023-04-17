@@ -5,12 +5,12 @@ package ue;
 @:include("PolygonOnMeshTool.h")
 @:structAccess
 extern class PolygonOnMeshTool extends SingleSelectionMeshEditingTool {
-	public var BasicProperties: cpp.Star<PolygonOnMeshToolProperties>;
-	public var ActionProperties: cpp.Star<PolygonOnMeshToolActionPropertySet>;
-	public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	public var DrawnLineSet: cpp.Star<LineSetComp>;
-	public var PlaneMechanic: cpp.Star<ConstructionPlaneMechanic>;
-	public var DrawPolygonMechanic: cpp.Star<CollectSurfacePathMechanic>;
+	@:protected public var BasicProperties: cpp.Star<PolygonOnMeshToolProperties>;
+	@:protected public var ActionProperties: cpp.Star<PolygonOnMeshToolActionPropertySet>;
+	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var DrawnLineSet: cpp.Star<LineSetComp>;
+	@:protected public var PlaneMechanic: cpp.Star<ConstructionPlaneMechanic>;
+	@:protected public var DrawPolygonMechanic: cpp.Star<CollectSurfacePathMechanic>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,18 +18,6 @@ extern class PolygonOnMeshTool extends SingleSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstPolygonOnMeshTool(PolygonOnMeshTool) from PolygonOnMeshTool {
-	public extern var BasicProperties(get, never): cpp.Star<PolygonOnMeshToolProperties.ConstPolygonOnMeshToolProperties>;
-	public inline extern function get_BasicProperties(): cpp.Star<PolygonOnMeshToolProperties.ConstPolygonOnMeshToolProperties> return this.BasicProperties;
-	public extern var ActionProperties(get, never): cpp.Star<PolygonOnMeshToolActionPropertySet.ConstPolygonOnMeshToolActionPropertySet>;
-	public inline extern function get_ActionProperties(): cpp.Star<PolygonOnMeshToolActionPropertySet.ConstPolygonOnMeshToolActionPropertySet> return this.ActionProperties;
-	public extern var Preview(get, never): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
-	public inline extern function get_Preview(): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.Preview;
-	public extern var DrawnLineSet(get, never): cpp.Star<LineSetComp.ConstLineSetComp>;
-	public inline extern function get_DrawnLineSet(): cpp.Star<LineSetComp.ConstLineSetComp> return this.DrawnLineSet;
-	public extern var PlaneMechanic(get, never): cpp.Star<ConstructionPlaneMechanic.ConstConstructionPlaneMechanic>;
-	public inline extern function get_PlaneMechanic(): cpp.Star<ConstructionPlaneMechanic.ConstConstructionPlaneMechanic> return this.PlaneMechanic;
-	public extern var DrawPolygonMechanic(get, never): cpp.Star<CollectSurfacePathMechanic.ConstCollectSurfacePathMechanic>;
-	public inline extern function get_DrawPolygonMechanic(): cpp.Star<CollectSurfacePathMechanic.ConstCollectSurfacePathMechanic> return this.DrawPolygonMechanic;
 }
 
 @:forward

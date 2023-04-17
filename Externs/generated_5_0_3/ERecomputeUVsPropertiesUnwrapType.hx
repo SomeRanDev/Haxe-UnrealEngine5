@@ -3,9 +3,9 @@ package ue;
 
 @:native("ERecomputeUVsPropertiesUnwrapType")
 @:include("Properties/RecomputeUVsProperties.h")
-extern enum ERecomputeUVsPropertiesUnwrapType {
-	ExpMap;
-	Conformal;
-	IslandMerging;
-	ERecomputeUVsPropertiesUnwrapType_MAX;
+extern class ERecomputeUVsPropertiesUnwrapType {
+	static var ExpMap: ERecomputeUVsPropertiesUnwrapType;
+	static var Conformal: ERecomputeUVsPropertiesUnwrapType;
+	static var IslandMerging: ERecomputeUVsPropertiesUnwrapType;
+	static var ERecomputeUVsPropertiesUnwrapType_MAX: ERecomputeUVsPropertiesUnwrapType;
 }

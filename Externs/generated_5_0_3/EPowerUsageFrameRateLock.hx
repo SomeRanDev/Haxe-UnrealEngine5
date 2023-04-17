@@ -3,10 +3,10 @@ package ue;
 
 @:native("EPowerUsageFrameRateLock")
 @:include("IOSRuntimeSettings.h")
-extern enum EPowerUsageFrameRateLock {
-	PUFRL_None;
-	PUFRL_20;
-	PUFRL_30;
-	PUFRL_60;
-	PUFRL_MAX;
+extern class EPowerUsageFrameRateLock {
+	static var PUFRL_None: EPowerUsageFrameRateLock;
+	static var PUFRL_20: EPowerUsageFrameRateLock;
+	static var PUFRL_30: EPowerUsageFrameRateLock;
+	static var PUFRL_60: EPowerUsageFrameRateLock;
+	static var PUFRL_MAX: EPowerUsageFrameRateLock;
 }

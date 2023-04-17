@@ -5,12 +5,12 @@ package ue;
 @:include("Sound/AudioVolume.h")
 @:structAccess
 extern class AudioVolume extends Volume {
-	public var Priority: cpp.Float32;
-	public var bEnabled: Bool;
-	public var Settings: ReverbSettings;
-	public var AmbientZoneSettings: InteriorSettings;
-	public var SubmixSendSettings: TArray<AudioVolumeSubmixSendSettings>;
-	public var SubmixOverrideSettings: TArray<AudioVolumeSubmixOverrideSettings>;
+	private var Priority: cpp.Float32;
+	private var bEnabled: Bool;
+	private var Settings: ReverbSettings;
+	private var AmbientZoneSettings: InteriorSettings;
+	private var SubmixSendSettings: TArray<AudioVolumeSubmixSendSettings>;
+	private var SubmixOverrideSettings: TArray<AudioVolumeSubmixOverrideSettings>;
 
 	public function SetSubmixSendSettings(NewSubmixSendSettings: cpp.Reference<TArray<AudioVolumeSubmixSendSettings>>): Void;
 	public function SetSubmixOverrideSettings(NewSubmixOverrideSettings: cpp.Reference<TArray<AudioVolumeSubmixOverrideSettings>>): Void;
@@ -18,7 +18,7 @@ extern class AudioVolume extends Volume {
 	public function SetPriority(NewPriority: cpp.Float32): Void;
 	public function SetInteriorSettings(NewInteriorSettings: cpp.Reference<InteriorSettings>): Void;
 	public function SetEnabled(bNewEnabled: Bool): Void;
-	public function OnRep_bEnabled(): Void;
+	private function OnRep_bEnabled(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -26,18 +26,6 @@ extern class AudioVolume extends Volume {
 @:forward()
 @:nativeGen
 abstract ConstAudioVolume(AudioVolume) from AudioVolume {
-	public extern var Priority(get, never): cpp.Float32;
-	public inline extern function get_Priority(): cpp.Float32 return this.Priority;
-	public extern var bEnabled(get, never): Bool;
-	public inline extern function get_bEnabled(): Bool return this.bEnabled;
-	public extern var Settings(get, never): ReverbSettings;
-	public inline extern function get_Settings(): ReverbSettings return this.Settings;
-	public extern var AmbientZoneSettings(get, never): InteriorSettings;
-	public inline extern function get_AmbientZoneSettings(): InteriorSettings return this.AmbientZoneSettings;
-	public extern var SubmixSendSettings(get, never): TArray<AudioVolumeSubmixSendSettings>;
-	public inline extern function get_SubmixSendSettings(): TArray<AudioVolumeSubmixSendSettings> return this.SubmixSendSettings;
-	public extern var SubmixOverrideSettings(get, never): TArray<AudioVolumeSubmixOverrideSettings>;
-	public inline extern function get_SubmixOverrideSettings(): TArray<AudioVolumeSubmixOverrideSettings> return this.SubmixOverrideSettings;
 }
 
 @:forward

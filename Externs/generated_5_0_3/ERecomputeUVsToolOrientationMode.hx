@@ -3,8 +3,8 @@ package ue;
 
 @:native("ERecomputeUVsToolOrientationMode")
 @:include("Properties/RecomputeUVsProperties.h")
-extern enum ERecomputeUVsToolOrientationMode {
-	None;
-	MinBounds;
-	ERecomputeUVsToolOrientationMode_MAX;
+extern class ERecomputeUVsToolOrientationMode {
+	static var None: ERecomputeUVsToolOrientationMode;
+	static var MinBounds: ERecomputeUVsToolOrientationMode;
+	static var ERecomputeUVsToolOrientationMode_MAX: ERecomputeUVsToolOrientationMode;
 }

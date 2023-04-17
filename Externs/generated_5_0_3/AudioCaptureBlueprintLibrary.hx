@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class AudioCaptureBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function GetAvailableAudioInputDevices(WorldContextObject: cpp.Star<Object.ConstObject>, OnObtainDevicesEvent: cpp.Reference<HaxeDelegateProperty<(cpp.Reference<TArray<AudioInputDeviceInfo>>) -> Void>>): Void;
-	public function Conv_AudioInputDeviceInfoToString(info: cpp.Reference<AudioInputDeviceInfo>): cpp.Reference<FString>;
+	public function Conv_AudioInputDeviceInfoToString(info: cpp.Reference<AudioInputDeviceInfo>): FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

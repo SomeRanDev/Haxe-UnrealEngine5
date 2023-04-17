@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class PolyEditBevelEdgeActivity extends InteractiveToolActivity {
 	public var BevelProperties: cpp.Star<PolyEditBevelEdgeProperties>;
-	public var ActivityContext: cpp.Star<PolyEditActivityContext>;
+	@:protected public var ActivityContext: cpp.Star<PolyEditActivityContext>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,6 @@ extern class PolyEditBevelEdgeActivity extends InteractiveToolActivity {
 abstract ConstPolyEditBevelEdgeActivity(PolyEditBevelEdgeActivity) from PolyEditBevelEdgeActivity {
 	public extern var BevelProperties(get, never): cpp.Star<PolyEditBevelEdgeProperties.ConstPolyEditBevelEdgeProperties>;
 	public inline extern function get_BevelProperties(): cpp.Star<PolyEditBevelEdgeProperties.ConstPolyEditBevelEdgeProperties> return this.BevelProperties;
-	public extern var ActivityContext(get, never): cpp.Star<PolyEditActivityContext.ConstPolyEditActivityContext>;
-	public inline extern function get_ActivityContext(): cpp.Star<PolyEditActivityContext.ConstPolyEditActivityContext> return this.ActivityContext;
 }
 
 @:forward

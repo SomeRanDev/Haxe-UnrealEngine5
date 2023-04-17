@@ -5,21 +5,21 @@ package ue;
 @:include("GooglePADFunctionLibrary.h")
 @:structAccess
 extern class GooglePADFunctionLibrary extends BlueprintFunctionLibrary {
-	public function ShowCellularDataConfirmation(): cpp.Reference<EGooglePADErrorCode>;
-	public function RequestRemoval(Name: FString): cpp.Reference<EGooglePADErrorCode>;
-	public function RequestInfo(AssetPacks: TArray<FString>): cpp.Reference<EGooglePADErrorCode>;
-	public function RequestDownload(AssetPacks: TArray<FString>): cpp.Reference<EGooglePADErrorCode>;
+	public function ShowCellularDataConfirmation(): EGooglePADErrorCode;
+	public function RequestRemoval(Name: FString): EGooglePADErrorCode;
+	public function RequestInfo(AssetPacks: TArray<FString>): EGooglePADErrorCode;
+	public function RequestDownload(AssetPacks: TArray<FString>): EGooglePADErrorCode;
 	public function ReleaseDownloadState(State: cpp.Int32): Void;
 	public function ReleaseAssetPackLocation(Location: cpp.Int32): Void;
-	public function GetTotalBytesToDownload(State: cpp.Int32): cpp.Reference<cpp.Int32>;
-	public function GetStorageMethod(Location: cpp.Int32): cpp.Reference<EGooglePADStorageMethod>;
-	public function GetShowCellularDataConfirmationStatus(Status: cpp.Reference<EGooglePADCellularDataConfirmStatus>): cpp.Reference<EGooglePADErrorCode>;
-	public function GetDownloadStatus(State: cpp.Int32): cpp.Reference<EGooglePADDownloadStatus>;
-	public function GetDownloadState(Name: FString, State: cpp.Reference<cpp.Int32>): cpp.Reference<EGooglePADErrorCode>;
-	public function GetBytesDownloaded(State: cpp.Int32): cpp.Reference<cpp.Int32>;
-	public function GetAssetsPath(Location: cpp.Int32): cpp.Reference<FString>;
-	public function GetAssetPackLocation(Name: FString, Location: cpp.Reference<cpp.Int32>): cpp.Reference<EGooglePADErrorCode>;
-	public function CancelDownload(AssetPacks: TArray<FString>): cpp.Reference<EGooglePADErrorCode>;
+	public function GetTotalBytesToDownload(State: cpp.Int32): cpp.Int32;
+	public function GetStorageMethod(Location: cpp.Int32): EGooglePADStorageMethod;
+	public function GetShowCellularDataConfirmationStatus(Status: cpp.Reference<EGooglePADCellularDataConfirmStatus>): EGooglePADErrorCode;
+	public function GetDownloadStatus(State: cpp.Int32): EGooglePADDownloadStatus;
+	public function GetDownloadState(Name: FString, State: cpp.Reference<cpp.Int32>): EGooglePADErrorCode;
+	public function GetBytesDownloaded(State: cpp.Int32): cpp.Int32;
+	public function GetAssetsPath(Location: cpp.Int32): FString;
+	public function GetAssetPackLocation(Name: FString, Location: cpp.Reference<cpp.Int32>): EGooglePADErrorCode;
+	public function CancelDownload(AssetPacks: TArray<FString>): EGooglePADErrorCode;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

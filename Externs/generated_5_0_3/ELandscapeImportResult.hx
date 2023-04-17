@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELandscapeImportResult")
 @:include("LandscapeFileFormatInterface.h")
-extern enum ELandscapeImportResult {
-	Success;
-	Warning;
-	Error;
-	ELandscapeImportResult_MAX;
+extern class ELandscapeImportResult {
+	static var Success: ELandscapeImportResult;
+	static var Warning: ELandscapeImportResult;
+	static var Error: ELandscapeImportResult;
+	static var ELandscapeImportResult_MAX: ELandscapeImportResult;
 }

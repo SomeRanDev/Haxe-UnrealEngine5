@@ -9,9 +9,9 @@ extern class InterchangeAssetImportData extends AssetImportData {
 	public var NodeUniqueID: FString;
 	public var Pipelines: TArray<cpp.Star<InterchangePipelineBase>>;
 
-	public function ScriptGetFirstFilename(): cpp.Reference<FString>;
-	public function ScriptExtractFilenames(): cpp.Reference<TArray<FString>>;
-	public function ScriptExtractDisplayLabels(): cpp.Reference<TArray<FString>>;
+	public function ScriptGetFirstFilename(): FString;
+	public function ScriptExtractFilenames(): TArray<FString>;
+	public function ScriptExtractDisplayLabels(): TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

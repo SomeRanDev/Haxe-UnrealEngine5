@@ -5,7 +5,7 @@ package ue;
 @:include("K2Node_PromotableOperator.h")
 @:structAccess
 extern class K2Node_PromotableOperator extends K2Node_CallFunction {
-	public var NumAdditionalInputs: cpp.Int32;
+	private var NumAdditionalInputs: cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class K2Node_PromotableOperator extends K2Node_CallFunction {
 @:forward()
 @:nativeGen
 abstract ConstK2Node_PromotableOperator(K2Node_PromotableOperator) from K2Node_PromotableOperator {
-	public extern var NumAdditionalInputs(get, never): cpp.Int32;
-	public inline extern function get_NumAdditionalInputs(): cpp.Int32 return this.NumAdditionalInputs;
 }
 
 @:forward

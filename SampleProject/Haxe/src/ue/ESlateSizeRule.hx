@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESlateSizeRule.Type")
 @:include("Components/SlateWrapperTypes.h")
-extern enum ESlateSizeRule {
-	Automatic;
-	Fill;
-	ESlateSizeRule_MAX;
+extern class ESlateSizeRule {
+	static var Automatic: ESlateSizeRule;
+	static var Fill: ESlateSizeRule;
+	static var ESlateSizeRule_MAX: ESlateSizeRule;
 }

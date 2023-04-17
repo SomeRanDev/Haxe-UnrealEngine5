@@ -5,8 +5,8 @@ package ue;
 @:include("ModelingObjectsCreationAPI.h")
 @:structAccess
 extern class ModelingObjectsCreationAPI extends Object {
-	public function CreateTextureObject(CreateTexParams: cpp.Reference<CreateTextureObjectParams>): cpp.Reference<CreateTextureObjectResult>;
-	public function CreateMeshObject(CreateMeshParams: cpp.Reference<CreateMeshObjectParams>): cpp.Reference<CreateMeshObjectResult>;
+	public function CreateTextureObject(CreateTexParams: cpp.Reference<CreateTextureObjectParams>): CreateTextureObjectResult;
+	public function CreateMeshObject(CreateMeshParams: cpp.Reference<CreateMeshObjectParams>): CreateMeshObjectResult;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

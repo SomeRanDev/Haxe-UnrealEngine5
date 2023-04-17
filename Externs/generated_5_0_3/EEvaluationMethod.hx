@@ -3,8 +3,8 @@ package ue;
 
 @:native("EEvaluationMethod")
 @:include("Evaluation/MovieSceneEvaluationTrack.h")
-extern enum EEvaluationMethod {
-	Static;
-	Swept;
-	EEvaluationMethod_MAX;
+extern class EEvaluationMethod {
+	static var Static: EEvaluationMethod;
+	static var Swept: EEvaluationMethod;
+	static var EEvaluationMethod_MAX: EEvaluationMethod;
 }

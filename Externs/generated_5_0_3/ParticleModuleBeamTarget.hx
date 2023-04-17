@@ -5,12 +5,12 @@ package ue;
 @:include("Particles/Beam/ParticleModuleBeamTarget.h")
 @:structAccess
 extern class ParticleModuleBeamTarget extends ParticleModuleBeamBase {
-	public var TargetMethod: Beam2SourceTargetMethod;
+	public var TargetMethod: TEnumAsByte<Beam2SourceTargetMethod>;
 	public var TargetName: FName;
 	public var Target: RawDistributionVector;
 	public var bTargetAbsolute: Bool;
 	public var bLockTarget: Bool;
-	public var TargetTangentMethod: Beam2SourceTargetTangentMethod;
+	public var TargetTangentMethod: TEnumAsByte<Beam2SourceTargetTangentMethod>;
 	public var TargetTangent: RawDistributionVector;
 	public var bLockTargetTangent: Bool;
 	public var TargetStrength: RawDistributionFloat;
@@ -23,8 +23,8 @@ extern class ParticleModuleBeamTarget extends ParticleModuleBeamBase {
 @:forward()
 @:nativeGen
 abstract ConstParticleModuleBeamTarget(ParticleModuleBeamTarget) from ParticleModuleBeamTarget {
-	public extern var TargetMethod(get, never): Beam2SourceTargetMethod;
-	public inline extern function get_TargetMethod(): Beam2SourceTargetMethod return this.TargetMethod;
+	public extern var TargetMethod(get, never): TEnumAsByte<Beam2SourceTargetMethod>;
+	public inline extern function get_TargetMethod(): TEnumAsByte<Beam2SourceTargetMethod> return this.TargetMethod;
 	public extern var TargetName(get, never): FName;
 	public inline extern function get_TargetName(): FName return this.TargetName;
 	public extern var Target(get, never): RawDistributionVector;
@@ -33,8 +33,8 @@ abstract ConstParticleModuleBeamTarget(ParticleModuleBeamTarget) from ParticleMo
 	public inline extern function get_bTargetAbsolute(): Bool return this.bTargetAbsolute;
 	public extern var bLockTarget(get, never): Bool;
 	public inline extern function get_bLockTarget(): Bool return this.bLockTarget;
-	public extern var TargetTangentMethod(get, never): Beam2SourceTargetTangentMethod;
-	public inline extern function get_TargetTangentMethod(): Beam2SourceTargetTangentMethod return this.TargetTangentMethod;
+	public extern var TargetTangentMethod(get, never): TEnumAsByte<Beam2SourceTargetTangentMethod>;
+	public inline extern function get_TargetTangentMethod(): TEnumAsByte<Beam2SourceTargetTangentMethod> return this.TargetTangentMethod;
 	public extern var TargetTangent(get, never): RawDistributionVector;
 	public inline extern function get_TargetTangent(): RawDistributionVector return this.TargetTangent;
 	public extern var bLockTargetTangent(get, never): Bool;

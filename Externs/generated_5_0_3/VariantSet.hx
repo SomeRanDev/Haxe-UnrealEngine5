@@ -5,22 +5,21 @@ package ue;
 @:include("VariantSet.h")
 @:structAccess
 extern class VariantSet extends Object {
-	public var DisplayText_DEPRECATED: FText;
-	public var bExpanded: Bool;
-	public var Variants: TArray<cpp.Star<Variant>>;
-	public var Thumbnail: cpp.Star<Texture2D>;
+	private var bExpanded: Bool;
+	private var Variants: TArray<cpp.Star<Variant>>;
+	private var Thumbnail: cpp.Star<Texture2D>;
 
 	public function SetThumbnailFromTexture(NewThumbnail: cpp.Star<Texture2D>): Void;
 	public function SetThumbnailFromFile(FilePath: FString): Void;
 	public function SetThumbnailFromEditorViewport(): Void;
 	public function SetThumbnailFromCamera(WorldContextObject: cpp.Star<Object>, CameraTransform: cpp.Reference<Transform>, FOVDegrees: cpp.Float32, MinZ: cpp.Float32, Gamma: cpp.Float32): Void;
 	public function SetDisplayText(NewDisplayText: cpp.Reference<FText>): Void;
-	public function GetVariantByName(VariantName: FString): cpp.Reference<cpp.Star<Variant>>;
-	public function GetVariant(VariantIndex: cpp.Int32): cpp.Reference<cpp.Star<Variant>>;
-	public function GetThumbnail(): cpp.Reference<cpp.Star<Texture2D>>;
-	public function GetParent(): cpp.Reference<cpp.Star<LevelVariantSets>>;
-	public function GetNumVariants(): cpp.Reference<cpp.Int32>;
-	public function GetDisplayText(): cpp.Reference<FText>;
+	public function GetVariantByName(VariantName: FString): cpp.Star<Variant>;
+	public function GetVariant(VariantIndex: cpp.Int32): cpp.Star<Variant>;
+	public function GetThumbnail(): cpp.Star<Texture2D>;
+	public function GetParent(): cpp.Star<LevelVariantSets>;
+	public function GetNumVariants(): cpp.Int32;
+	public function GetDisplayText(): FText;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -28,14 +27,6 @@ extern class VariantSet extends Object {
 @:forward(GetNumVariants, GetDisplayText)
 @:nativeGen
 abstract ConstVariantSet(VariantSet) from VariantSet {
-	public extern var DisplayText_DEPRECATED(get, never): FText;
-	public inline extern function get_DisplayText_DEPRECATED(): FText return this.DisplayText_DEPRECATED;
-	public extern var bExpanded(get, never): Bool;
-	public inline extern function get_bExpanded(): Bool return this.bExpanded;
-	public extern var Variants(get, never): TArray<cpp.Star<Variant.ConstVariant>>;
-	public inline extern function get_Variants(): TArray<cpp.Star<Variant.ConstVariant>> return this.Variants;
-	public extern var Thumbnail(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_Thumbnail(): cpp.Star<Texture2D.ConstTexture2D> return this.Thumbnail;
 }
 
 @:forward

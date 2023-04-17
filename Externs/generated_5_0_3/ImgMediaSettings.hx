@@ -13,8 +13,8 @@ extern class ImgMediaSettings extends Object {
 	public var GlobalCacheSizeGB: cpp.Float32;
 	public var UseGlobalCache: Bool;
 	public var ExrDecoderThreads: cpp.UInt32;
-	public var DefaultProxy: FString;
-	public var UseDefaultProxy: Bool;
+	private var DefaultProxy: FString;
+	private var UseDefaultProxy: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -38,10 +38,6 @@ abstract ConstImgMediaSettings(ImgMediaSettings) from ImgMediaSettings {
 	public inline extern function get_UseGlobalCache(): Bool return this.UseGlobalCache;
 	public extern var ExrDecoderThreads(get, never): cpp.UInt32;
 	public inline extern function get_ExrDecoderThreads(): cpp.UInt32 return this.ExrDecoderThreads;
-	public extern var DefaultProxy(get, never): FString;
-	public inline extern function get_DefaultProxy(): FString return this.DefaultProxy;
-	public extern var UseDefaultProxy(get, never): Bool;
-	public inline extern function get_UseDefaultProxy(): Bool return this.UseDefaultProxy;
 }
 
 @:forward

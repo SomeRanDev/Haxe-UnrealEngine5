@@ -3,10 +3,10 @@ package ue;
 
 @:native("ENiagaraOutlinerSortMode")
 @:include("Private/NiagaraOutliner.h")
-extern enum ENiagaraOutlinerSortMode {
-	Auto;
-	FilterMatches;
-	AverageTime;
-	MaxTime;
-	ENiagaraOutlinerSortMode_MAX;
+extern class ENiagaraOutlinerSortMode {
+	static var Auto: ENiagaraOutlinerSortMode;
+	static var FilterMatches: ENiagaraOutlinerSortMode;
+	static var AverageTime: ENiagaraOutlinerSortMode;
+	static var MaxTime: ENiagaraOutlinerSortMode;
+	static var ENiagaraOutlinerSortMode_MAX: ENiagaraOutlinerSortMode;
 }

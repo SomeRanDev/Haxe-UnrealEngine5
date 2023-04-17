@@ -5,11 +5,11 @@ package ue;
 @:include("Evaluation/MovieSceneEvaluationField.h")
 @:structAccess
 extern class MovieSceneEntityComponentField {
-	public var PersistentEntityTree: MovieSceneEvaluationFieldEntityTree;
-	public var OneShotEntityTree: MovieSceneEvaluationFieldEntityTree;
-	public var Entities: TArray<MovieSceneEvaluationFieldEntity>;
-	public var EntityMetaData: TArray<MovieSceneEvaluationFieldEntityMetaData>;
-	public var SharedMetaData: TArray<MovieSceneEvaluationFieldSharedEntityMetaData>;
+	private var PersistentEntityTree: MovieSceneEvaluationFieldEntityTree;
+	private var OneShotEntityTree: MovieSceneEvaluationFieldEntityTree;
+	private var Entities: TArray<MovieSceneEvaluationFieldEntity>;
+	private var EntityMetaData: TArray<MovieSceneEvaluationFieldEntityMetaData>;
+	private var SharedMetaData: TArray<MovieSceneEvaluationFieldSharedEntityMetaData>;
 
 	@:native("FMovieSceneEntityComponentField") public function new();
 	@:native("FMovieSceneEntityComponentField") public static function make(PersistentEntityTree: MovieSceneEvaluationFieldEntityTree, OneShotEntityTree: MovieSceneEvaluationFieldEntityTree, Entities: TArray<MovieSceneEvaluationFieldEntity>, EntityMetaData: TArray<MovieSceneEvaluationFieldEntityMetaData>, SharedMetaData: TArray<MovieSceneEvaluationFieldSharedEntityMetaData>): MovieSceneEntityComponentField ;

@@ -5,7 +5,7 @@ package ue;
 @:include("Animation/AnimNode_SequencePlayer.h")
 @:structAccess
 extern class AnimNode_SequencePlayerBase extends AnimNode_AssetPlayerBase {
-	public var PlayRateScaleBiasClampState: InputScaleBiasClampState;
+	@:protected public var PlayRateScaleBiasClampState: InputScaleBiasClampState;
 
 	@:native("FAnimNode_SequencePlayerBase") public function new();
 	@:native("FAnimNode_SequencePlayerBase") public static function make(PlayRateScaleBiasClampState: InputScaleBiasClampState): AnimNode_SequencePlayerBase ;

@@ -3,9 +3,9 @@ package ue;
 
 @:native("ERigUnitVisualDebugPointMode")
 @:include("Private/Units/Debug/RigUnit_VisualDebug.h")
-extern enum ERigUnitVisualDebugPointMode {
-	Point;
-	Vector;
-	Max;
-	ERigUnitVisualDebugPointMode_MAX;
+extern class ERigUnitVisualDebugPointMode {
+	static var Point: ERigUnitVisualDebugPointMode;
+	static var Vector: ERigUnitVisualDebugPointMode;
+	static var Max: ERigUnitVisualDebugPointMode;
+	static var ERigUnitVisualDebugPointMode_MAX: ERigUnitVisualDebugPointMode;
 }

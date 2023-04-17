@@ -3,13 +3,13 @@ package ue;
 
 @:native("EAssetEditorOpenLocation")
 @:include("EditorStyleSettings.h")
-extern enum EAssetEditorOpenLocation {
-	Default;
-	NewWindow;
-	MainWindow;
-	ContentBrowser;
-	LastDockedWindowOrNewWindow;
-	LastDockedWindowOrMainWindow;
-	LastDockedWindowOrContentBrowser;
-	EAssetEditorOpenLocation_MAX;
+extern class EAssetEditorOpenLocation {
+	static var Default: EAssetEditorOpenLocation;
+	static var NewWindow: EAssetEditorOpenLocation;
+	static var MainWindow: EAssetEditorOpenLocation;
+	static var ContentBrowser: EAssetEditorOpenLocation;
+	static var LastDockedWindowOrNewWindow: EAssetEditorOpenLocation;
+	static var LastDockedWindowOrMainWindow: EAssetEditorOpenLocation;
+	static var LastDockedWindowOrContentBrowser: EAssetEditorOpenLocation;
+	static var EAssetEditorOpenLocation_MAX: EAssetEditorOpenLocation;
 }

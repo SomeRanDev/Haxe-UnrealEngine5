@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class LevelCapture extends MovieSceneCapture {
 	public var bAutoStartCapture: Bool;
-	public var PrerequisiteActorId: Guid;
+	private var PrerequisiteActorId: Guid;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,6 @@ extern class LevelCapture extends MovieSceneCapture {
 abstract ConstLevelCapture(LevelCapture) from LevelCapture {
 	public extern var bAutoStartCapture(get, never): Bool;
 	public inline extern function get_bAutoStartCapture(): Bool return this.bAutoStartCapture;
-	public extern var PrerequisiteActorId(get, never): Guid;
-	public inline extern function get_PrerequisiteActorId(): Guid return this.PrerequisiteActorId;
 }
 
 @:forward

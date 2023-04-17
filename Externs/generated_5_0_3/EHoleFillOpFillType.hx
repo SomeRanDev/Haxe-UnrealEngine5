@@ -3,11 +3,11 @@ package ue;
 
 @:native("EHoleFillOpFillType")
 @:include("CleaningOps/HoleFillOp.h")
-extern enum EHoleFillOpFillType {
-	TriangleFan;
-	PolygonEarClipping;
-	Planar;
-	Minimal;
-	Smooth;
-	EHoleFillOpFillType_MAX;
+extern class EHoleFillOpFillType {
+	static var TriangleFan: EHoleFillOpFillType;
+	static var PolygonEarClipping: EHoleFillOpFillType;
+	static var Planar: EHoleFillOpFillType;
+	static var Minimal: EHoleFillOpFillType;
+	static var Smooth: EHoleFillOpFillType;
+	static var EHoleFillOpFillType_MAX: EHoleFillOpFillType;
 }

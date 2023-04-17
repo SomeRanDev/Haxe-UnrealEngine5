@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENDISkelMesh_GpuMaxInfluences.Type")
 @:include("NiagaraSettings.h")
-extern enum ENDISkelMesh_GpuMaxInfluences {
-	AllowMax4;
-	AllowMax8;
-	Unlimited;
-	ENDISkelMesh_MAX;
+extern class ENDISkelMesh_GpuMaxInfluences {
+	static var AllowMax4: ENDISkelMesh_GpuMaxInfluences;
+	static var AllowMax8: ENDISkelMesh_GpuMaxInfluences;
+	static var Unlimited: ENDISkelMesh_GpuMaxInfluences;
+	static var ENDISkelMesh_MAX: ENDISkelMesh_GpuMaxInfluences;
 }

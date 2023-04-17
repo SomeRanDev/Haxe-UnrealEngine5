@@ -3,7 +3,7 @@ package ue;
 
 @:native("ENiagaraSystemSpawnSectionStartBehavior")
 @:include("MovieScene/MovieSceneNiagaraSystemSpawnSection.h")
-extern enum ENiagaraSystemSpawnSectionStartBehavior {
-	Activate;
-	ENiagaraSystemSpawnSectionStartBehavior_MAX;
+extern class ENiagaraSystemSpawnSectionStartBehavior {
+	static var Activate: ENiagaraSystemSpawnSectionStartBehavior;
+	static var ENiagaraSystemSpawnSectionStartBehavior_MAX: ENiagaraSystemSpawnSectionStartBehavior;
 }

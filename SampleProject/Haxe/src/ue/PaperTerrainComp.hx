@@ -11,11 +11,11 @@ extern class PaperTerrainComp extends PrimitiveComp {
 	public var AssociatedSpline: cpp.Star<PaperTerrainSplineComp>;
 	public var RandomSeed: cpp.Int32;
 	public var SegmentOverlapAmount: cpp.Float32;
-	public var TerrainColor: LinearColor;
-	public var ReparamStepsPerSegment: cpp.Int32;
-	public var SpriteCollisionDomain: ESpriteCollisionMode;
-	public var CollisionThickness: cpp.Float32;
-	public var CachedBodySetup: cpp.Star<BodySetup>;
+	@:protected public var TerrainColor: LinearColor;
+	@:protected public var ReparamStepsPerSegment: cpp.Int32;
+	@:protected public var SpriteCollisionDomain: TEnumAsByte<ESpriteCollisionMode>;
+	@:protected public var CollisionThickness: cpp.Float32;
+	@:protected public var CachedBodySetup: cpp.Star<BodySetup>;
 
 	public function SetTerrainColor(NewColor: LinearColor): Void;
 
@@ -37,16 +37,6 @@ abstract ConstPaperTerrainComp(PaperTerrainComp) from PaperTerrainComp {
 	public inline extern function get_RandomSeed(): cpp.Int32 return this.RandomSeed;
 	public extern var SegmentOverlapAmount(get, never): cpp.Float32;
 	public inline extern function get_SegmentOverlapAmount(): cpp.Float32 return this.SegmentOverlapAmount;
-	public extern var TerrainColor(get, never): LinearColor;
-	public inline extern function get_TerrainColor(): LinearColor return this.TerrainColor;
-	public extern var ReparamStepsPerSegment(get, never): cpp.Int32;
-	public inline extern function get_ReparamStepsPerSegment(): cpp.Int32 return this.ReparamStepsPerSegment;
-	public extern var SpriteCollisionDomain(get, never): ESpriteCollisionMode;
-	public inline extern function get_SpriteCollisionDomain(): ESpriteCollisionMode return this.SpriteCollisionDomain;
-	public extern var CollisionThickness(get, never): cpp.Float32;
-	public inline extern function get_CollisionThickness(): cpp.Float32 return this.CollisionThickness;
-	public extern var CachedBodySetup(get, never): cpp.Star<BodySetup.ConstBodySetup>;
-	public inline extern function get_CachedBodySetup(): cpp.Star<BodySetup.ConstBodySetup> return this.CachedBodySetup;
 }
 
 @:forward

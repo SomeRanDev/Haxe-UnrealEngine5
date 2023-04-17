@@ -5,10 +5,10 @@ package ue;
 @:include("Engine/DemoNetDriver.h")
 @:structAccess
 extern class DemoNetDriver extends NetDriver {
-	public var RollbackNetStartupActors: TMap<FString, RollbackNetStartupActorInfo>;
-	public var CheckpointSaveMaxMSPerFrame: cpp.Float32;
-	public var MulticastRecordOptions: TArray<MulticastRecordOptions>;
-	public var SpectatorControllers: TArray<cpp.Star<PlayerController>>;
+	private var RollbackNetStartupActors: TMap<FString, RollbackNetStartupActorInfo>;
+	private var CheckpointSaveMaxMSPerFrame: cpp.Float32;
+	private var MulticastRecordOptions: TArray<MulticastRecordOptions>;
+	private var SpectatorControllers: TArray<cpp.Star<PlayerController>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class DemoNetDriver extends NetDriver {
 @:forward()
 @:nativeGen
 abstract ConstDemoNetDriver(DemoNetDriver) from DemoNetDriver {
-	public extern var RollbackNetStartupActors(get, never): TMap<FString, RollbackNetStartupActorInfo>;
-	public inline extern function get_RollbackNetStartupActors(): TMap<FString, RollbackNetStartupActorInfo> return this.RollbackNetStartupActors;
-	public extern var CheckpointSaveMaxMSPerFrame(get, never): cpp.Float32;
-	public inline extern function get_CheckpointSaveMaxMSPerFrame(): cpp.Float32 return this.CheckpointSaveMaxMSPerFrame;
-	public extern var MulticastRecordOptions(get, never): TArray<MulticastRecordOptions>;
-	public inline extern function get_MulticastRecordOptions(): TArray<MulticastRecordOptions> return this.MulticastRecordOptions;
-	public extern var SpectatorControllers(get, never): TArray<cpp.Star<PlayerController.ConstPlayerController>>;
-	public inline extern function get_SpectatorControllers(): TArray<cpp.Star<PlayerController.ConstPlayerController>> return this.SpectatorControllers;
 }
 
 @:forward

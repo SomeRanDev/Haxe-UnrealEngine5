@@ -3,8 +3,8 @@ package ue;
 
 @:native("EPhysBodyOp")
 @:include("Components/SkinnedMeshComponent.h")
-extern enum EPhysBodyOp {
-	PBO_None;
-	PBO_Term;
-	PBO_MAX;
+extern class EPhysBodyOp {
+	static var PBO_None: EPhysBodyOp;
+	static var PBO_Term: EPhysBodyOp;
+	static var PBO_MAX: EPhysBodyOp;
 }

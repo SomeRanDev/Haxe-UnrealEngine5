@@ -5,12 +5,12 @@ package ue;
 @:include("MediaSource.h")
 @:structAccess
 extern class MediaSource extends Object {
-	public function Validate(): cpp.Reference<Bool>;
+	public function Validate(): Bool;
 	public function SetMediaOptionString(Key: cpp.Reference<FName>, Value: FString): Void;
 	public function SetMediaOptionInt64(Key: cpp.Reference<FName>, Value: cpp.Int64): Void;
 	public function SetMediaOptionFloat(Key: cpp.Reference<FName>, Value: cpp.Float32): Void;
 	public function SetMediaOptionBool(Key: cpp.Reference<FName>, Value: Bool): Void;
-	public function GetUrl(): cpp.Reference<FString>;
+	public function GetUrl(): FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

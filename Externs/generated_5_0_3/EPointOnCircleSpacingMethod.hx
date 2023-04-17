@@ -3,8 +3,8 @@ package ue;
 
 @:native("EPointOnCircleSpacingMethod")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_OnCircle.h")
-extern enum EPointOnCircleSpacingMethod {
-	BySpaceBetween;
-	ByNumberOfPoints;
-	EPointOnCircleSpacingMethod_MAX;
+extern class EPointOnCircleSpacingMethod {
+	static var BySpaceBetween: EPointOnCircleSpacingMethod;
+	static var ByNumberOfPoints: EPointOnCircleSpacingMethod;
+	static var EPointOnCircleSpacingMethod_MAX: EPointOnCircleSpacingMethod;
 }

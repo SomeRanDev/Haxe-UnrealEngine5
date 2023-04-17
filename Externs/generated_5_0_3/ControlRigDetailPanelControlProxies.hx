@@ -5,8 +5,8 @@ package ue;
 @:include("EditMode/ControlRigControlsProxy.h")
 @:structAccess
 extern class ControlRigDetailPanelControlProxies extends Object {
-	public var AllProxies: TMap<FName, cpp.Star<ControlRigControlsProxy>>;
-	public var SelectedProxies: TArray<cpp.Star<ControlRigControlsProxy>>;
+	@:protected public var AllProxies: TMap<FName, cpp.Star<ControlRigControlsProxy>>;
+	@:protected public var SelectedProxies: TArray<cpp.Star<ControlRigControlsProxy>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class ControlRigDetailPanelControlProxies extends Object {
 @:forward()
 @:nativeGen
 abstract ConstControlRigDetailPanelControlProxies(ControlRigDetailPanelControlProxies) from ControlRigDetailPanelControlProxies {
-	public extern var AllProxies(get, never): TMap<FName, cpp.Star<ControlRigControlsProxy.ConstControlRigControlsProxy>>;
-	public inline extern function get_AllProxies(): TMap<FName, cpp.Star<ControlRigControlsProxy.ConstControlRigControlsProxy>> return this.AllProxies;
-	public extern var SelectedProxies(get, never): TArray<cpp.Star<ControlRigControlsProxy.ConstControlRigControlsProxy>>;
-	public inline extern function get_SelectedProxies(): TArray<cpp.Star<ControlRigControlsProxy.ConstControlRigControlsProxy>> return this.SelectedProxies;
 }
 
 @:forward

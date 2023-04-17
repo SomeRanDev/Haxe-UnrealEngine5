@@ -5,9 +5,9 @@ package ue;
 @:include("BlueprintComponentNodeSpawner.h")
 @:structAccess
 extern class BlueprintComponentNodeSpawner extends BlueprintNodeSpawner {
-	public var ComponentClass: TSubclassOf<ActorComp>;
-	public var ComponentName: FString;
-	public var ComponentAssetName: FString;
+	private var ComponentClass: TSubclassOf<ActorComp>;
+	private var ComponentName: FString;
+	private var ComponentAssetName: FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class BlueprintComponentNodeSpawner extends BlueprintNodeSpawner {
 @:forward()
 @:nativeGen
 abstract ConstBlueprintComponentNodeSpawner(BlueprintComponentNodeSpawner) from BlueprintComponentNodeSpawner {
-	public extern var ComponentClass(get, never): TSubclassOf<ActorComp.ConstActorComp>;
-	public inline extern function get_ComponentClass(): TSubclassOf<ActorComp.ConstActorComp> return this.ComponentClass;
-	public extern var ComponentName(get, never): FString;
-	public inline extern function get_ComponentName(): FString return this.ComponentName;
-	public extern var ComponentAssetName(get, never): FString;
-	public inline extern function get_ComponentAssetName(): FString return this.ComponentAssetName;
 }
 
 @:forward

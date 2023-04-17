@@ -5,7 +5,7 @@ package ue;
 @:include("EntitySystem/MovieSceneEntitySystemGraphs.h")
 @:structAccess
 extern class MovieSceneEntitySystemGraph {
-	public var Nodes: MovieSceneEntitySystemGraphNodes;
+	private var Nodes: MovieSceneEntitySystemGraphNodes;
 
 	@:native("FMovieSceneEntitySystemGraph") public function new();
 	@:native("FMovieSceneEntitySystemGraph") public static function make(Nodes: MovieSceneEntitySystemGraphNodes): MovieSceneEntitySystemGraph ;

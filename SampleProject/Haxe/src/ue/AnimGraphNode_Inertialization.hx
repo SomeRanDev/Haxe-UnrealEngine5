@@ -5,7 +5,7 @@ package ue;
 @:include("AnimGraphNode_Inertialization.h")
 @:structAccess
 extern class AnimGraphNode_Inertialization extends AnimGraphNode_Base {
-	public var Node: AnimNode_Inertialization;
+	private var Node: AnimNode_Inertialization;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class AnimGraphNode_Inertialization extends AnimGraphNode_Base {
 @:forward()
 @:nativeGen
 abstract ConstAnimGraphNode_Inertialization(AnimGraphNode_Inertialization) from AnimGraphNode_Inertialization {
-	public extern var Node(get, never): AnimNode_Inertialization;
-	public inline extern function get_Node(): AnimNode_Inertialization return this.Node;
 }
 
 @:forward

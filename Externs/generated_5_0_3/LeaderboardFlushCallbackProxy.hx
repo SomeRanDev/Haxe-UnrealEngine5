@@ -8,7 +8,7 @@ extern class LeaderboardFlushCallbackProxy extends Object {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(FName) -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<(FName) -> Void>;
 
-	public function CreateProxyObjectForFlush(PlayerController: cpp.Star<PlayerController>, SessionName: FName): cpp.Reference<cpp.Star<LeaderboardFlushCallbackProxy>>;
+	public function CreateProxyObjectForFlush(PlayerController: cpp.Star<PlayerController>, SessionName: FName): cpp.Star<LeaderboardFlushCallbackProxy>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

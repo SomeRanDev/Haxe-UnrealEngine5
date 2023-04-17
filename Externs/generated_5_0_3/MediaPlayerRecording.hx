@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class MediaPlayerRecording extends SequenceRecordingBase {
 	public var RecordingSettings: MediaPlayerRecordingSettings;
-	public var MediaPlayerToRecord: TWeakObjectPtr<MediaPlayer>;
+	private var MediaPlayerToRecord: TWeakObjectPtr<MediaPlayer>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,6 @@ extern class MediaPlayerRecording extends SequenceRecordingBase {
 abstract ConstMediaPlayerRecording(MediaPlayerRecording) from MediaPlayerRecording {
 	public extern var RecordingSettings(get, never): MediaPlayerRecordingSettings;
 	public inline extern function get_RecordingSettings(): MediaPlayerRecordingSettings return this.RecordingSettings;
-	public extern var MediaPlayerToRecord(get, never): TWeakObjectPtr<MediaPlayer.ConstMediaPlayer>;
-	public inline extern function get_MediaPlayerToRecord(): TWeakObjectPtr<MediaPlayer.ConstMediaPlayer> return this.MediaPlayerToRecord;
 }
 
 @:forward

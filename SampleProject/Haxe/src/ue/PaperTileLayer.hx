@@ -6,21 +6,18 @@ package ue;
 @:structAccess
 extern class PaperTileLayer extends Object {
 	public var LayerName: FText;
-	public var LayerWidth: cpp.Int32;
-	public var LayerHeight: cpp.Int32;
-	public var bHiddenInEditor: Bool;
-	public var bHiddenInGame: Bool;
-	public var bLayerCollides: Bool;
-	public var bOverrideCollisionThickness: Bool;
-	public var bOverrideCollisionOffset: Bool;
-	public var CollisionThicknessOverride: cpp.Float32;
-	public var CollisionOffsetOverride: cpp.Float32;
-	public var LayerColor: LinearColor;
-	public var AllocatedWidth: cpp.Int32;
-	public var AllocatedHeight: cpp.Int32;
-	public var AllocatedCells: TArray<PaperTileInfo>;
-	public var TileSet_DEPRECATED: cpp.Star<PaperTileSet>;
-	public var AllocatedGrid_DEPRECATED: TArray<cpp.Int32>;
+	private var LayerWidth: cpp.Int32;
+	private var LayerHeight: cpp.Int32;
+	private var bHiddenInGame: Bool;
+	private var bLayerCollides: Bool;
+	private var bOverrideCollisionThickness: Bool;
+	private var bOverrideCollisionOffset: Bool;
+	private var CollisionThicknessOverride: cpp.Float32;
+	private var CollisionOffsetOverride: cpp.Float32;
+	private var LayerColor: LinearColor;
+	private var AllocatedWidth: cpp.Int32;
+	private var AllocatedHeight: cpp.Int32;
+	private var AllocatedCells: TArray<PaperTileInfo>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -30,36 +27,6 @@ extern class PaperTileLayer extends Object {
 abstract ConstPaperTileLayer(PaperTileLayer) from PaperTileLayer {
 	public extern var LayerName(get, never): FText;
 	public inline extern function get_LayerName(): FText return this.LayerName;
-	public extern var LayerWidth(get, never): cpp.Int32;
-	public inline extern function get_LayerWidth(): cpp.Int32 return this.LayerWidth;
-	public extern var LayerHeight(get, never): cpp.Int32;
-	public inline extern function get_LayerHeight(): cpp.Int32 return this.LayerHeight;
-	public extern var bHiddenInEditor(get, never): Bool;
-	public inline extern function get_bHiddenInEditor(): Bool return this.bHiddenInEditor;
-	public extern var bHiddenInGame(get, never): Bool;
-	public inline extern function get_bHiddenInGame(): Bool return this.bHiddenInGame;
-	public extern var bLayerCollides(get, never): Bool;
-	public inline extern function get_bLayerCollides(): Bool return this.bLayerCollides;
-	public extern var bOverrideCollisionThickness(get, never): Bool;
-	public inline extern function get_bOverrideCollisionThickness(): Bool return this.bOverrideCollisionThickness;
-	public extern var bOverrideCollisionOffset(get, never): Bool;
-	public inline extern function get_bOverrideCollisionOffset(): Bool return this.bOverrideCollisionOffset;
-	public extern var CollisionThicknessOverride(get, never): cpp.Float32;
-	public inline extern function get_CollisionThicknessOverride(): cpp.Float32 return this.CollisionThicknessOverride;
-	public extern var CollisionOffsetOverride(get, never): cpp.Float32;
-	public inline extern function get_CollisionOffsetOverride(): cpp.Float32 return this.CollisionOffsetOverride;
-	public extern var LayerColor(get, never): LinearColor;
-	public inline extern function get_LayerColor(): LinearColor return this.LayerColor;
-	public extern var AllocatedWidth(get, never): cpp.Int32;
-	public inline extern function get_AllocatedWidth(): cpp.Int32 return this.AllocatedWidth;
-	public extern var AllocatedHeight(get, never): cpp.Int32;
-	public inline extern function get_AllocatedHeight(): cpp.Int32 return this.AllocatedHeight;
-	public extern var AllocatedCells(get, never): TArray<PaperTileInfo>;
-	public inline extern function get_AllocatedCells(): TArray<PaperTileInfo> return this.AllocatedCells;
-	public extern var TileSet_DEPRECATED(get, never): cpp.Star<PaperTileSet.ConstPaperTileSet>;
-	public inline extern function get_TileSet_DEPRECATED(): cpp.Star<PaperTileSet.ConstPaperTileSet> return this.TileSet_DEPRECATED;
-	public extern var AllocatedGrid_DEPRECATED(get, never): TArray<cpp.Int32>;
-	public inline extern function get_AllocatedGrid_DEPRECATED(): TArray<cpp.Int32> return this.AllocatedGrid_DEPRECATED;
 }
 
 @:forward

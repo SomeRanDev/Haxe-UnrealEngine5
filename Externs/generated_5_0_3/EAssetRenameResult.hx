@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAssetRenameResult")
 @:include("IAssetTools.h")
-extern enum EAssetRenameResult {
-	Failure;
-	Success;
-	Pending;
-	EAssetRenameResult_MAX;
+extern class EAssetRenameResult {
+	static var Failure: EAssetRenameResult;
+	static var Success: EAssetRenameResult;
+	static var Pending: EAssetRenameResult;
+	static var EAssetRenameResult_MAX: EAssetRenameResult;
 }

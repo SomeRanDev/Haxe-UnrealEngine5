@@ -5,31 +5,24 @@ package ue;
 @:include("WorldPartition/DataLayer/DataLayer.h")
 @:structAccess
 extern class DataLayer extends Object {
-	public var bIsInitiallyActive_DEPRECATED: Bool;
-	public var bIsVisible: Bool;
-	public var bIsInitiallyVisible: Bool;
-	public var bIsInitiallyLoadedInEditor: Bool;
-	public var bIsLoadedInEditor: Bool;
-	public var bIsLoadedInEditorChangedByUserOperation: Bool;
-	public var bIsLocked: Bool;
-	public var DataLayerLabel: FName;
-	public var bIsRuntime: Bool;
-	public var InitialRuntimeState: EDataLayerRuntimeState;
-	public var DebugColor: Color;
-	public var Parent: cpp.Star<DataLayer>;
-	public var Children: TArray<cpp.Star<DataLayer>>;
+	private var DataLayerLabel: FName;
+	private var bIsRuntime: Bool;
+	private var InitialRuntimeState: EDataLayerRuntimeState;
+	private var DebugColor: Color;
+	private var Parent: cpp.Star<DataLayer>;
+	private var Children: TArray<cpp.Star<DataLayer>>;
 
-	public function IsVisible(): cpp.Reference<Bool>;
-	public function IsRuntime(): cpp.Reference<Bool>;
-	public function IsInitiallyVisible(): cpp.Reference<Bool>;
-	public function IsInitiallyActive(): cpp.Reference<Bool>;
-	public function IsEffectiveVisible(): cpp.Reference<Bool>;
-	public function IsDynamicallyLoaded(): cpp.Reference<Bool>;
-	public function GetInitialState(): cpp.Reference<EDataLayerState>;
-	public function GetInitialRuntimeState(): cpp.Reference<EDataLayerRuntimeState>;
-	public function GetDebugColor(): cpp.Reference<Color>;
-	public function GetDataLayerLabel(): cpp.Reference<FName>;
-	public function Equals(ActorDataLayer: cpp.Reference<ActorDataLayer>): cpp.Reference<Bool>;
+	public function IsVisible(): Bool;
+	public function IsRuntime(): Bool;
+	public function IsInitiallyVisible(): Bool;
+	public function IsInitiallyActive(): Bool;
+	public function IsEffectiveVisible(): Bool;
+	public function IsDynamicallyLoaded(): Bool;
+	public function GetInitialState(): EDataLayerState;
+	public function GetInitialRuntimeState(): EDataLayerRuntimeState;
+	public function GetDebugColor(): Color;
+	public function GetDataLayerLabel(): FName;
+	public function Equals(ActorDataLayer: cpp.Reference<ActorDataLayer>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -41,32 +34,6 @@ extern class DataLayer extends Object {
 )
 @:nativeGen
 abstract ConstDataLayer(DataLayer) from DataLayer {
-	public extern var bIsInitiallyActive_DEPRECATED(get, never): Bool;
-	public inline extern function get_bIsInitiallyActive_DEPRECATED(): Bool return this.bIsInitiallyActive_DEPRECATED;
-	public extern var bIsVisible(get, never): Bool;
-	public inline extern function get_bIsVisible(): Bool return this.bIsVisible;
-	public extern var bIsInitiallyVisible(get, never): Bool;
-	public inline extern function get_bIsInitiallyVisible(): Bool return this.bIsInitiallyVisible;
-	public extern var bIsInitiallyLoadedInEditor(get, never): Bool;
-	public inline extern function get_bIsInitiallyLoadedInEditor(): Bool return this.bIsInitiallyLoadedInEditor;
-	public extern var bIsLoadedInEditor(get, never): Bool;
-	public inline extern function get_bIsLoadedInEditor(): Bool return this.bIsLoadedInEditor;
-	public extern var bIsLoadedInEditorChangedByUserOperation(get, never): Bool;
-	public inline extern function get_bIsLoadedInEditorChangedByUserOperation(): Bool return this.bIsLoadedInEditorChangedByUserOperation;
-	public extern var bIsLocked(get, never): Bool;
-	public inline extern function get_bIsLocked(): Bool return this.bIsLocked;
-	public extern var DataLayerLabel(get, never): FName;
-	public inline extern function get_DataLayerLabel(): FName return this.DataLayerLabel;
-	public extern var bIsRuntime(get, never): Bool;
-	public inline extern function get_bIsRuntime(): Bool return this.bIsRuntime;
-	public extern var InitialRuntimeState(get, never): EDataLayerRuntimeState;
-	public inline extern function get_InitialRuntimeState(): EDataLayerRuntimeState return this.InitialRuntimeState;
-	public extern var DebugColor(get, never): Color;
-	public inline extern function get_DebugColor(): Color return this.DebugColor;
-	public extern var Parent(get, never): cpp.Star<DataLayer.ConstDataLayer>;
-	public inline extern function get_Parent(): cpp.Star<DataLayer.ConstDataLayer> return this.Parent;
-	public extern var Children(get, never): TArray<cpp.Star<DataLayer.ConstDataLayer>>;
-	public inline extern function get_Children(): TArray<cpp.Star<DataLayer.ConstDataLayer>> return this.Children;
 }
 
 @:forward

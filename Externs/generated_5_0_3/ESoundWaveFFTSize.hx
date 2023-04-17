@@ -3,11 +3,11 @@ package ue;
 
 @:native("ESoundWaveFFTSize")
 @:include("Sound/SoundWave.h")
-extern enum ESoundWaveFFTSize {
-	VerySmall_64;
-	Small_256;
-	Medium_512;
-	Large_1024;
-	VeryLarge_2048;
-	ESoundWaveFFTSize_MAX;
+extern class ESoundWaveFFTSize {
+	static var VerySmall_64: ESoundWaveFFTSize;
+	static var Small_256: ESoundWaveFFTSize;
+	static var Medium_512: ESoundWaveFFTSize;
+	static var Large_1024: ESoundWaveFFTSize;
+	static var VeryLarge_2048: ESoundWaveFFTSize;
+	static var ESoundWaveFFTSize_MAX: ESoundWaveFFTSize;
 }

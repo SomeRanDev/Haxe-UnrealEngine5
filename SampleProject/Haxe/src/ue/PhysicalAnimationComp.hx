@@ -6,11 +6,11 @@ package ue;
 @:structAccess
 extern class PhysicalAnimationComp extends ActorComp {
 	public var StrengthMultiplyer: cpp.Float32;
-	public var SkeletalMeshComponent: cpp.Star<SkeletalMeshComp>;
+	private var SkeletalMeshComponent: cpp.Star<SkeletalMeshComp>;
 
 	public function SetStrengthMultiplyer(InStrengthMultiplyer: cpp.Float32): Void;
 	public function SetSkeletalMeshComponent(InSkeletalMeshComponent: cpp.Star<SkeletalMeshComp>): Void;
-	public function GetBodyTargetTransform(BodyName: FName): cpp.Reference<Transform>;
+	public function GetBodyTargetTransform(BodyName: FName): Transform;
 	public function ApplyPhysicalAnimationSettingsBelow(BodyName: FName, PhysicalAnimationData: cpp.Reference<PhysicalAnimationData>, bIncludeSelf: Bool): Void;
 	public function ApplyPhysicalAnimationSettings(BodyName: FName, PhysicalAnimationData: cpp.Reference<PhysicalAnimationData>): Void;
 	public function ApplyPhysicalAnimationProfileBelow(BodyName: FName, ProfileName: FName, bIncludeSelf: Bool, bClearNotFound: Bool): Void;
@@ -23,8 +23,6 @@ extern class PhysicalAnimationComp extends ActorComp {
 abstract ConstPhysicalAnimationComp(PhysicalAnimationComp) from PhysicalAnimationComp {
 	public extern var StrengthMultiplyer(get, never): cpp.Float32;
 	public inline extern function get_StrengthMultiplyer(): cpp.Float32 return this.StrengthMultiplyer;
-	public extern var SkeletalMeshComponent(get, never): cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp>;
-	public inline extern function get_SkeletalMeshComponent(): cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp> return this.SkeletalMeshComponent;
 }
 
 @:forward

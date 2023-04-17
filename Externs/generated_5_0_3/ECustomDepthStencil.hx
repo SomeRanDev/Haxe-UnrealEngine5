@@ -3,10 +3,10 @@ package ue;
 
 @:native("ECustomDepthStencil.Type")
 @:include("Engine/RendererSettings.h")
-extern enum ECustomDepthStencil {
-	Disabled;
-	Enabled;
-	EnabledOnDemand;
-	EnabledWithStencil;
-	ECustomDepthStencil_MAX;
+extern class ECustomDepthStencil {
+	static var Disabled: ECustomDepthStencil;
+	static var Enabled: ECustomDepthStencil;
+	static var EnabledOnDemand: ECustomDepthStencil;
+	static var EnabledWithStencil: ECustomDepthStencil;
+	static var ECustomDepthStencil_MAX: ECustomDepthStencil;
 }

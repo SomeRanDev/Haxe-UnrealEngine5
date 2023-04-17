@@ -3,10 +3,10 @@ package ue;
 
 @:native("EColorChannel.Type")
 @:include("LandscapeEditorObject.h")
-extern enum EColorChannel {
-	Red;
-	Green;
-	Blue;
-	Alpha;
-	EColorChannel_MAX;
+extern class EColorChannel {
+	static var Red: EColorChannel;
+	static var Green: EColorChannel;
+	static var Blue: EColorChannel;
+	static var Alpha: EColorChannel;
+	static var EColorChannel_MAX: EColorChannel;
 }

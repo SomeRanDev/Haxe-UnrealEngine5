@@ -3,9 +3,9 @@ package ue;
 
 @:native("EStereoChannelMode")
 @:include("SourceEffects/SourceEffectMidSideSpreader.h")
-extern enum EStereoChannelMode {
-	MidSide;
-	LeftRight;
-	count;
-	EStereoChannelMode_MAX;
+extern class EStereoChannelMode {
+	static var MidSide: EStereoChannelMode;
+	static var LeftRight: EStereoChannelMode;
+	static var count: EStereoChannelMode;
+	static var EStereoChannelMode_MAX: EStereoChannelMode;
 }

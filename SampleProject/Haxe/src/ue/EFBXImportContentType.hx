@@ -3,9 +3,9 @@ package ue;
 
 @:native("EFBXImportContentType")
 @:include("Factories/FbxSkeletalMeshImportData.h")
-extern enum EFBXImportContentType {
-	FBXICT_All;
-	FBXICT_Geometry;
-	FBXICT_SkinningWeights;
-	FBXICT_MAX;
+extern class EFBXImportContentType {
+	static var FBXICT_All: EFBXImportContentType;
+	static var FBXICT_Geometry: EFBXImportContentType;
+	static var FBXICT_SkinningWeights: EFBXImportContentType;
+	static var FBXICT_MAX: EFBXImportContentType;
 }

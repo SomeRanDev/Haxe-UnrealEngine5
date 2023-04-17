@@ -9,7 +9,7 @@ extern class TextureRenderTargetVolume extends TextureRenderTarget {
 	public var SizeY: cpp.Int32;
 	public var SizeZ: cpp.Int32;
 	public var ClearColor: LinearColor;
-	public var OverrideFormat: EPixelFormat;
+	public var OverrideFormat: TEnumAsByte<EPixelFormat>;
 	public var bHDR: Bool;
 	public var bForceLinearGamma: Bool;
 
@@ -27,8 +27,8 @@ abstract ConstTextureRenderTargetVolume(TextureRenderTargetVolume) from TextureR
 	public inline extern function get_SizeZ(): cpp.Int32 return this.SizeZ;
 	public extern var ClearColor(get, never): LinearColor;
 	public inline extern function get_ClearColor(): LinearColor return this.ClearColor;
-	public extern var OverrideFormat(get, never): EPixelFormat;
-	public inline extern function get_OverrideFormat(): EPixelFormat return this.OverrideFormat;
+	public extern var OverrideFormat(get, never): TEnumAsByte<EPixelFormat>;
+	public inline extern function get_OverrideFormat(): TEnumAsByte<EPixelFormat> return this.OverrideFormat;
 	public extern var bHDR(get, never): Bool;
 	public inline extern function get_bHDR(): Bool return this.bHDR;
 	public extern var bForceLinearGamma(get, never): Bool;

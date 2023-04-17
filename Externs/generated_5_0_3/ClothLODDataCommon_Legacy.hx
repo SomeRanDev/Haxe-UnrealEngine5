@@ -5,10 +5,8 @@ package ue;
 @:include("ClothLODData_Legacy.h")
 @:structAccess
 extern class ClothLODDataCommon_Legacy extends Object {
-	public var PhysicalMeshData_DEPRECATED: cpp.Star<ClothPhysicalMeshDataBase_Legacy>;
 	public var ClothPhysicalMeshData: ClothPhysicalMeshData;
 	public var CollisionData: ClothCollisionData;
-	public var ParameterMasks: TArray<PointWeightMap>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +14,10 @@ extern class ClothLODDataCommon_Legacy extends Object {
 @:forward()
 @:nativeGen
 abstract ConstClothLODDataCommon_Legacy(ClothLODDataCommon_Legacy) from ClothLODDataCommon_Legacy {
-	public extern var PhysicalMeshData_DEPRECATED(get, never): cpp.Star<ClothPhysicalMeshDataBase_Legacy.ConstClothPhysicalMeshDataBase_Legacy>;
-	public inline extern function get_PhysicalMeshData_DEPRECATED(): cpp.Star<ClothPhysicalMeshDataBase_Legacy.ConstClothPhysicalMeshDataBase_Legacy> return this.PhysicalMeshData_DEPRECATED;
 	public extern var ClothPhysicalMeshData(get, never): ClothPhysicalMeshData;
 	public inline extern function get_ClothPhysicalMeshData(): ClothPhysicalMeshData return this.ClothPhysicalMeshData;
 	public extern var CollisionData(get, never): ClothCollisionData;
 	public inline extern function get_CollisionData(): ClothCollisionData return this.CollisionData;
-	public extern var ParameterMasks(get, never): TArray<PointWeightMap>;
-	public inline extern function get_ParameterMasks(): TArray<PointWeightMap> return this.ParameterMasks;
 }
 
 @:forward

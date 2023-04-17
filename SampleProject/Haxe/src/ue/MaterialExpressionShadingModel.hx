@@ -5,7 +5,7 @@ package ue;
 @:include("Materials/MaterialExpressionShadingModel.h")
 @:structAccess
 extern class MaterialExpressionShadingModel extends MaterialExpression {
-	public var ShadingModel: EMaterialShadingModel;
+	public var ShadingModel: TEnumAsByte<EMaterialShadingModel>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,8 @@ extern class MaterialExpressionShadingModel extends MaterialExpression {
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionShadingModel(MaterialExpressionShadingModel) from MaterialExpressionShadingModel {
-	public extern var ShadingModel(get, never): EMaterialShadingModel;
-	public inline extern function get_ShadingModel(): EMaterialShadingModel return this.ShadingModel;
+	public extern var ShadingModel(get, never): TEnumAsByte<EMaterialShadingModel>;
+	public inline extern function get_ShadingModel(): TEnumAsByte<EMaterialShadingModel> return this.ShadingModel;
 }
 
 @:forward

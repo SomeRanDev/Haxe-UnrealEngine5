@@ -3,10 +3,10 @@ package ue;
 
 @:native("ENiagaraCullReaction")
 @:include("NiagaraEffectType.h")
-extern enum ENiagaraCullReaction {
-	Deactivate;
-	DeactivateImmediate;
-	DeactivateResume;
-	DeactivateImmediateResume;
-	ENiagaraCullReaction_MAX;
+extern class ENiagaraCullReaction {
+	static var Deactivate: ENiagaraCullReaction;
+	static var DeactivateImmediate: ENiagaraCullReaction;
+	static var DeactivateResume: ENiagaraCullReaction;
+	static var DeactivateImmediateResume: ENiagaraCullReaction;
+	static var ENiagaraCullReaction_MAX: ENiagaraCullReaction;
 }

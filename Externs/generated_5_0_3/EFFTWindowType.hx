@@ -3,10 +3,10 @@ package ue;
 
 @:native("EFFTWindowType")
 @:include("Sound/SoundSubmix.h")
-extern enum EFFTWindowType {
-	None;
-	Hamming;
-	Hann;
-	Blackman;
-	EFFTWindowType_MAX;
+extern class EFFTWindowType {
+	static var None: EFFTWindowType;
+	static var Hamming: EFFTWindowType;
+	static var Hann: EFFTWindowType;
+	static var Blackman: EFFTWindowType;
+	static var EFFTWindowType_MAX: EFFTWindowType;
 }

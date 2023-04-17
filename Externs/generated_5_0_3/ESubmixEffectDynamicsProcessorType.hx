@@ -3,12 +3,12 @@ package ue;
 
 @:native("ESubmixEffectDynamicsProcessorType")
 @:include("SubmixEffects/AudioMixerSubmixEffectDynamicsProcessor.h")
-extern enum ESubmixEffectDynamicsProcessorType {
-	Compressor;
-	Limiter;
-	Expander;
-	Gate;
-	UpwardsCompressor;
-	Count;
-	ESubmixEffectDynamicsProcessorType_MAX;
+extern class ESubmixEffectDynamicsProcessorType {
+	static var Compressor: ESubmixEffectDynamicsProcessorType;
+	static var Limiter: ESubmixEffectDynamicsProcessorType;
+	static var Expander: ESubmixEffectDynamicsProcessorType;
+	static var Gate: ESubmixEffectDynamicsProcessorType;
+	static var UpwardsCompressor: ESubmixEffectDynamicsProcessorType;
+	static var Count: ESubmixEffectDynamicsProcessorType;
+	static var ESubmixEffectDynamicsProcessorType_MAX: ESubmixEffectDynamicsProcessorType;
 }

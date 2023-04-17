@@ -15,7 +15,7 @@ extern class NiagaraNamespaceMetadata {
 	public var SortId: cpp.Int32;
 	public var OptionalNamespaceModifiers: TArray<FName>;
 	public var Options: TArray<ENiagaraNamespaceMetadataOptions>;
-	public var Guid: Guid;
+	private var Guid: Guid;
 
 	@:native("FNiagaraNamespaceMetadata") public function new();
 }

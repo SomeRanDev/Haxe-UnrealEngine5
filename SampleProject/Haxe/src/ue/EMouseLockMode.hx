@@ -3,10 +3,10 @@ package ue;
 
 @:native("EMouseLockMode")
 @:include("Engine/EngineBaseTypes.h")
-extern enum EMouseLockMode {
-	DoNotLock;
-	LockOnCapture;
-	LockAlways;
-	LockInFullscreen;
-	EMouseLockMode_MAX;
+extern class EMouseLockMode {
+	static var DoNotLock: EMouseLockMode;
+	static var LockOnCapture: EMouseLockMode;
+	static var LockAlways: EMouseLockMode;
+	static var LockInFullscreen: EMouseLockMode;
+	static var EMouseLockMode_MAX: EMouseLockMode;
 }

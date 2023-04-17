@@ -3,10 +3,10 @@ package ue;
 
 @:native("EAutoPossessAI")
 @:include("Engine/EngineTypes.h")
-extern enum EAutoPossessAI {
-	Disabled;
-	PlacedInWorld;
-	Spawned;
-	PlacedInWorldOrSpawned;
-	EAutoPossessAI_MAX;
+extern class EAutoPossessAI {
+	static var Disabled: EAutoPossessAI;
+	static var PlacedInWorld: EAutoPossessAI;
+	static var Spawned: EAutoPossessAI;
+	static var PlacedInWorldOrSpawned: EAutoPossessAI;
+	static var EAutoPossessAI_MAX: EAutoPossessAI;
 }

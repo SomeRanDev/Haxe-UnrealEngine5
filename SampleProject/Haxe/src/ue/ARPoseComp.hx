@@ -5,10 +5,10 @@ package ue;
 @:include("ARComponent.h")
 @:structAccess
 extern class ARPoseComp extends ARComp {
-	public var ReplicatedPayload: ARPoseUpdatePayload;
+	@:protected public var ReplicatedPayload: ARPoseUpdatePayload;
 
 	public function SetPoseComponentDebugMode(NewDebugMode: EPoseComponentDebugMode): Void;
-	public function ServerUpdatePayload(NewPayload: cpp.Reference<ARPoseUpdatePayload>): Void;
+	@:protected public function ServerUpdatePayload(NewPayload: ARPoseUpdatePayload): Void;
 	public function ReceiveUpdate(Payload: cpp.Reference<ARPoseUpdatePayload>): Void;
 	public function ReceiveAdd(Payload: cpp.Reference<ARPoseUpdatePayload>): Void;
 
@@ -18,8 +18,6 @@ extern class ARPoseComp extends ARComp {
 @:forward()
 @:nativeGen
 abstract ConstARPoseComp(ARPoseComp) from ARPoseComp {
-	public extern var ReplicatedPayload(get, never): ARPoseUpdatePayload;
-	public inline extern function get_ReplicatedPayload(): ARPoseUpdatePayload return this.ReplicatedPayload;
 }
 
 @:forward

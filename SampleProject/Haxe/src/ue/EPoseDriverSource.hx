@@ -3,8 +3,8 @@ package ue;
 
 @:native("EPoseDriverSource")
 @:include("AnimNodes/AnimNode_PoseDriver.h")
-extern enum EPoseDriverSource {
-	Rotation;
-	Translation;
-	EPoseDriverSource_MAX;
+extern class EPoseDriverSource {
+	static var Rotation: EPoseDriverSource;
+	static var Translation: EPoseDriverSource;
+	static var EPoseDriverSource_MAX: EPoseDriverSource;
 }

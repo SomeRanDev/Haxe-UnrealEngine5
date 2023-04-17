@@ -3,8 +3,8 @@ package ue;
 
 @:native("ENiagaraDebugHUDPerfSampleMode")
 @:include("NiagaraDebuggerCommon.h")
-extern enum ENiagaraDebugHUDPerfSampleMode {
-	FrameTotal;
-	PerInstanceAverage;
-	ENiagaraDebugHUDPerfSampleMode_MAX;
+extern class ENiagaraDebugHUDPerfSampleMode {
+	static var FrameTotal: ENiagaraDebugHUDPerfSampleMode;
+	static var PerInstanceAverage: ENiagaraDebugHUDPerfSampleMode;
+	static var ENiagaraDebugHUDPerfSampleMode_MAX: ENiagaraDebugHUDPerfSampleMode;
 }

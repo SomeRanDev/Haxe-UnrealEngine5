@@ -5,8 +5,8 @@ package ue;
 @:include("ResonanceAudioDirectivityVisualizer.h")
 @:structAccess
 extern class ResonanceAudioDirectivityVisualizer extends Actor {
-	public var Material: cpp.Star<Material>;
-	public var Settings: cpp.Star<ResonanceAudioSpatializationSourceSettings>;
+	private var Material: cpp.Star<Material>;
+	private var Settings: cpp.Star<ResonanceAudioSpatializationSourceSettings>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class ResonanceAudioDirectivityVisualizer extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstResonanceAudioDirectivityVisualizer(ResonanceAudioDirectivityVisualizer) from ResonanceAudioDirectivityVisualizer {
-	public extern var Material(get, never): cpp.Star<Material.ConstMaterial>;
-	public inline extern function get_Material(): cpp.Star<Material.ConstMaterial> return this.Material;
-	public extern var Settings(get, never): cpp.Star<ResonanceAudioSpatializationSourceSettings.ConstResonanceAudioSpatializationSourceSettings>;
-	public inline extern function get_Settings(): cpp.Star<ResonanceAudioSpatializationSourceSettings.ConstResonanceAudioSpatializationSourceSettings> return this.Settings;
 }
 
 @:forward

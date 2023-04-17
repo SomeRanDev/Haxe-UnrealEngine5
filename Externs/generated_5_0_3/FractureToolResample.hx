@@ -5,7 +5,7 @@ package ue;
 @:include("FractureToolResample.h")
 @:structAccess
 extern class FractureToolResample extends FractureToolCutterBase {
-	public var ResampleSettings: cpp.Star<FractureResampleSettings>;
+	private var ResampleSettings: cpp.Star<FractureResampleSettings>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class FractureToolResample extends FractureToolCutterBase {
 @:forward()
 @:nativeGen
 abstract ConstFractureToolResample(FractureToolResample) from FractureToolResample {
-	public extern var ResampleSettings(get, never): cpp.Star<FractureResampleSettings.ConstFractureResampleSettings>;
-	public inline extern function get_ResampleSettings(): cpp.Star<FractureResampleSettings.ConstFractureResampleSettings> return this.ResampleSettings;
 }
 
 @:forward

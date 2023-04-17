@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETickMode")
 @:include("Components/WidgetComponent.h")
-extern enum ETickMode {
-	Disabled;
-	Enabled;
-	Automatic;
-	ETickMode_MAX;
+extern class ETickMode {
+	static var Disabled: ETickMode;
+	static var Enabled: ETickMode;
+	static var Automatic: ETickMode;
+	static var ETickMode_MAX: ETickMode;
 }

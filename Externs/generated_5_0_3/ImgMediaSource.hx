@@ -9,14 +9,13 @@ extern class ImgMediaSource extends BaseMediaSource {
 	public var FrameRateOverride: FrameRate;
 	public var ProxyOverride: FString;
 	public var bFillGapsInSequence: Bool;
-	public var SequenceProxy: ImgMediaSourceCustomizationSequenceProxy;
-	public var SequencePath: DirectoryPath;
+	@:protected public var SequencePath: DirectoryPath;
 
 	public function SetSequencePath(Path: FString): Void;
 	public function SetMipLevelDistance(Distance: cpp.Float32): Void;
 	public function RemoveTargetObject(InActor: cpp.Star<Actor>): Void;
 	public function RemoveGlobalCamera(InActor: cpp.Star<Actor>): Void;
-	public function GetSequencePath(): cpp.Reference<FString>;
+	public function GetSequencePath(): FString;
 	public function GetProxies(OutProxies: cpp.Reference<TArray<FString>>): Void;
 	public function AddTargetObject(InActor: cpp.Star<Actor>, Width: cpp.Float32): Void;
 	public function AddGlobalCamera(InActor: cpp.Star<Actor>): Void;
@@ -35,10 +34,6 @@ abstract ConstImgMediaSource(ImgMediaSource) from ImgMediaSource {
 	public inline extern function get_ProxyOverride(): FString return this.ProxyOverride;
 	public extern var bFillGapsInSequence(get, never): Bool;
 	public inline extern function get_bFillGapsInSequence(): Bool return this.bFillGapsInSequence;
-	public extern var SequenceProxy(get, never): ImgMediaSourceCustomizationSequenceProxy;
-	public inline extern function get_SequenceProxy(): ImgMediaSourceCustomizationSequenceProxy return this.SequenceProxy;
-	public extern var SequencePath(get, never): DirectoryPath;
-	public inline extern function get_SequencePath(): DirectoryPath return this.SequencePath;
 }
 
 @:forward

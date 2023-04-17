@@ -5,19 +5,19 @@ package ue;
 @:include("GameplayDebuggerCategoryReplicator.h")
 @:structAccess
 extern class GameplayDebuggerCategoryReplicator extends Actor {
-	public var OwnerPC: cpp.Star<PlayerController>;
-	public var bIsEnabled: Bool;
-	public var ReplicatedData: GameplayDebuggerNetPack;
-	public var DebugActor: GameplayDebuggerDebugActor;
-	public var VisLogSync: GameplayDebuggerVisLogSync;
-	public var RenderingComp: cpp.Star<GameplayDebuggerRenderingComp>;
+	@:protected public var OwnerPC: cpp.Star<PlayerController>;
+	@:protected public var bIsEnabled: Bool;
+	@:protected public var ReplicatedData: GameplayDebuggerNetPack;
+	@:protected public var DebugActor: GameplayDebuggerDebugActor;
+	@:protected public var VisLogSync: GameplayDebuggerVisLogSync;
+	@:protected public var RenderingComp: cpp.Star<GameplayDebuggerRenderingComp>;
 
-	public function ServerSetViewPoint(InViewLocation: cpp.Reference<Vector>, InViewDirection: cpp.Reference<Vector>): Void;
-	public function ServerSetEnabled(bEnable: Bool): Void;
-	public function ServerSetDebugActor(Actor: cpp.Star<Actor>, bSelectInEditor: Bool): Void;
-	public function ServerSetCategoryEnabled(CategoryId: cpp.Int32, bEnable: Bool): Void;
-	public function ServerSendExtensionInputEvent(ExtensionId: cpp.Int32, HandlerId: cpp.Int32): Void;
-	public function ServerSendCategoryInputEvent(CategoryId: cpp.Int32, HandlerId: cpp.Int32): Void;
+	@:protected public function ServerSetViewPoint(InViewLocation: Vector, InViewDirection: Vector): Void;
+	@:protected public function ServerSetEnabled(bEnable: Bool): Void;
+	@:protected public function ServerSetDebugActor(Actor: cpp.Star<Actor>, bSelectInEditor: Bool): Void;
+	@:protected public function ServerSetCategoryEnabled(CategoryId: cpp.Int32, bEnable: Bool): Void;
+	@:protected public function ServerSendExtensionInputEvent(ExtensionId: cpp.Int32, HandlerId: cpp.Int32): Void;
+	@:protected public function ServerSendCategoryInputEvent(CategoryId: cpp.Int32, HandlerId: cpp.Int32): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -25,18 +25,6 @@ extern class GameplayDebuggerCategoryReplicator extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstGameplayDebuggerCategoryReplicator(GameplayDebuggerCategoryReplicator) from GameplayDebuggerCategoryReplicator {
-	public extern var OwnerPC(get, never): cpp.Star<PlayerController.ConstPlayerController>;
-	public inline extern function get_OwnerPC(): cpp.Star<PlayerController.ConstPlayerController> return this.OwnerPC;
-	public extern var bIsEnabled(get, never): Bool;
-	public inline extern function get_bIsEnabled(): Bool return this.bIsEnabled;
-	public extern var ReplicatedData(get, never): GameplayDebuggerNetPack;
-	public inline extern function get_ReplicatedData(): GameplayDebuggerNetPack return this.ReplicatedData;
-	public extern var DebugActor(get, never): GameplayDebuggerDebugActor;
-	public inline extern function get_DebugActor(): GameplayDebuggerDebugActor return this.DebugActor;
-	public extern var VisLogSync(get, never): GameplayDebuggerVisLogSync;
-	public inline extern function get_VisLogSync(): GameplayDebuggerVisLogSync return this.VisLogSync;
-	public extern var RenderingComp(get, never): cpp.Star<GameplayDebuggerRenderingComp.ConstGameplayDebuggerRenderingComp>;
-	public inline extern function get_RenderingComp(): cpp.Star<GameplayDebuggerRenderingComp.ConstGameplayDebuggerRenderingComp> return this.RenderingComp;
 }
 
 @:forward

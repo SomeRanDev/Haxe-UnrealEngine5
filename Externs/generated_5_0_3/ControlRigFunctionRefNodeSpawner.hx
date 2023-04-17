@@ -5,10 +5,10 @@ package ue;
 @:include("Graph/NodeSpawners/ControlRigFunctionRefNodeSpawner.h")
 @:structAccess
 extern class ControlRigFunctionRefNodeSpawner extends BlueprintNodeSpawner {
-	public var ReferencedFunctionPtr: TWeakObjectPtr<RigVMLibraryNode>;
-	public var ReferencedAssetObjectPath: FName;
-	public var ReferencedPublicFunctionData: ControlRigPublicFunctionData;
-	public var bIsLocalFunction: Bool;
+	private var ReferencedFunctionPtr: TWeakObjectPtr<RigVMLibraryNode>;
+	private var ReferencedAssetObjectPath: FName;
+	private var ReferencedPublicFunctionData: ControlRigPublicFunctionData;
+	private var bIsLocalFunction: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class ControlRigFunctionRefNodeSpawner extends BlueprintNodeSpawner {
 @:forward()
 @:nativeGen
 abstract ConstControlRigFunctionRefNodeSpawner(ControlRigFunctionRefNodeSpawner) from ControlRigFunctionRefNodeSpawner {
-	public extern var ReferencedFunctionPtr(get, never): TWeakObjectPtr<RigVMLibraryNode.ConstRigVMLibraryNode>;
-	public inline extern function get_ReferencedFunctionPtr(): TWeakObjectPtr<RigVMLibraryNode.ConstRigVMLibraryNode> return this.ReferencedFunctionPtr;
-	public extern var ReferencedAssetObjectPath(get, never): FName;
-	public inline extern function get_ReferencedAssetObjectPath(): FName return this.ReferencedAssetObjectPath;
-	public extern var ReferencedPublicFunctionData(get, never): ControlRigPublicFunctionData;
-	public inline extern function get_ReferencedPublicFunctionData(): ControlRigPublicFunctionData return this.ReferencedPublicFunctionData;
-	public extern var bIsLocalFunction(get, never): Bool;
-	public inline extern function get_bIsLocalFunction(): Bool return this.bIsLocalFunction;
 }
 
 @:forward

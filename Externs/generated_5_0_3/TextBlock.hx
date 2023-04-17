@@ -16,10 +16,9 @@ extern class TextBlock extends TextLayoutWidget {
 	public var ShadowColorAndOpacityDelegate: HaxeDelegateProperty<() -> Void>;
 	public var MinDesiredWidth: cpp.Float32;
 	public var bWrapWithInvalidationPanel: Bool;
-	public var bAutoWrapText_DEPRECATED: Bool;
 	public var TextTransformPolicy: ETextTransformPolicy;
 	public var TextOverflowPolicy: ETextOverflowPolicy;
-	public var bSimpleTextMode: Bool;
+	@:protected public var bSimpleTextMode: Bool;
 
 	public function SetTextTransformPolicy(InTransformPolicy: ETextTransformPolicy): Void;
 	public function SetTextOverflowPolicy(InOverflowPolicy: ETextOverflowPolicy): Void;
@@ -32,9 +31,9 @@ extern class TextBlock extends TextLayoutWidget {
 	public function SetFont(InFontInfo: SlateFontInfo): Void;
 	public function SetColorAndOpacity(InColorAndOpacity: SlateColor): Void;
 	public function SetAutoWrapText(InAutoTextWrap: Bool): Void;
-	public function GetText(): cpp.Reference<FText>;
-	public function GetDynamicOutlineMaterial(): cpp.Reference<cpp.Star<MaterialInstanceDynamic>>;
-	public function GetDynamicFontMaterial(): cpp.Reference<cpp.Star<MaterialInstanceDynamic>>;
+	public function GetText(): FText;
+	public function GetDynamicOutlineMaterial(): cpp.Star<MaterialInstanceDynamic>;
+	public function GetDynamicFontMaterial(): cpp.Star<MaterialInstanceDynamic>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -64,14 +63,10 @@ abstract ConstTextBlock(TextBlock) from TextBlock {
 	public inline extern function get_MinDesiredWidth(): cpp.Float32 return this.MinDesiredWidth;
 	public extern var bWrapWithInvalidationPanel(get, never): Bool;
 	public inline extern function get_bWrapWithInvalidationPanel(): Bool return this.bWrapWithInvalidationPanel;
-	public extern var bAutoWrapText_DEPRECATED(get, never): Bool;
-	public inline extern function get_bAutoWrapText_DEPRECATED(): Bool return this.bAutoWrapText_DEPRECATED;
 	public extern var TextTransformPolicy(get, never): ETextTransformPolicy;
 	public inline extern function get_TextTransformPolicy(): ETextTransformPolicy return this.TextTransformPolicy;
 	public extern var TextOverflowPolicy(get, never): ETextOverflowPolicy;
 	public inline extern function get_TextOverflowPolicy(): ETextOverflowPolicy return this.TextOverflowPolicy;
-	public extern var bSimpleTextMode(get, never): Bool;
-	public inline extern function get_bSimpleTextMode(): Bool return this.bSimpleTextMode;
 }
 
 @:forward

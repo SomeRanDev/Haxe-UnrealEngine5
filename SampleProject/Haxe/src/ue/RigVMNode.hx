@@ -5,53 +5,53 @@ package ue;
 @:include("RigVMModel/RigVMNode.h")
 @:structAccess
 extern class RigVMNode extends Object {
-	public var NodeTitle: FString;
-	public var Position: Vector2D;
-	public var Size: Vector2D;
-	public var NodeColor: LinearColor;
-	public var PreviousName: FName;
-	public var bHasBreakpoint: Bool;
-	public var bHaltedAtThisNode: Bool;
-	public var Pins: TArray<cpp.Star<RigVMPin>>;
-	public var OrphanedPins: TArray<cpp.Star<RigVMPin>>;
+	@:protected public var NodeTitle: FString;
+	@:protected public var Position: Vector2D;
+	@:protected public var Size: Vector2D;
+	@:protected public var NodeColor: LinearColor;
+	@:protected public var PreviousName: FName;
+	@:protected public var bHasBreakpoint: Bool;
+	@:protected public var bHaltedAtThisNode: Bool;
+	private var Pins: TArray<cpp.Star<RigVMPin>>;
+	private var OrphanedPins: TArray<cpp.Star<RigVMPin>>;
 
 	public function SetHasBreakpoint(bValue: Bool): Void;
 	public function SetExecutionIsHaltedAtThisNode(bValue: Bool): Void;
-	public function IsVisibleInUI(): cpp.Reference<Bool>;
-	public function IsSelected(): cpp.Reference<Bool>;
-	public function IsPure(): cpp.Reference<Bool>;
-	public function IsMutable(): cpp.Reference<Bool>;
-	public function IsLinkedTo(InNode: cpp.Star<RigVMNode>): cpp.Reference<Bool>;
-	public function IsInjected(): cpp.Reference<Bool>;
-	public function IsEvent(): cpp.Reference<Bool>;
-	public function IsDefinedAsVarying(): cpp.Reference<Bool>;
-	public function IsDefinedAsConstant(): cpp.Reference<Bool>;
-	public function HasPinOfDirection(InDirection: ERigVMPinDirection): cpp.Reference<Bool>;
-	public function HasOutputPin(bIncludeIO: Bool): cpp.Reference<Bool>;
-	public function HasOrphanedPins(): cpp.Reference<Bool>;
-	public function HasIOPin(): cpp.Reference<Bool>;
-	public function HasInputPin(bIncludeIO: Bool): cpp.Reference<Bool>;
-	public function HasBreakpoint(): cpp.Reference<Bool>;
-	public function GetToolTipText(): cpp.Reference<FText>;
-	public function GetSize(): cpp.Reference<Vector2D>;
-	public function GetRootGraph(): cpp.Reference<cpp.Star<RigVMGraph>>;
-	public function GetPreviousFName(): cpp.Reference<FName>;
-	public function GetPosition(): cpp.Reference<Vector2D>;
-	public function GetPins(): cpp.Reference<TArray<cpp.Star<RigVMPin>>>;
-	public function GetOrphanedPins(): cpp.Reference<TArray<cpp.Star<RigVMPin>>>;
-	public function GetNodeTitle(): cpp.Reference<FString>;
-	public function GetNodePath(bRecursive: Bool): cpp.Reference<FString>;
-	public function GetNodeIndex(): cpp.Reference<cpp.Int32>;
-	public function GetNodeColor(): cpp.Reference<LinearColor>;
-	public function GetLinks(): cpp.Reference<TArray<cpp.Star<RigVMLink>>>;
-	public function GetLinkedTargetNodes(): cpp.Reference<TArray<cpp.Star<RigVMNode>>>;
-	public function GetLinkedSourceNodes(): cpp.Reference<TArray<cpp.Star<RigVMNode>>>;
-	public function GetInjectionInfo(): cpp.Reference<cpp.Star<RigVMInjectionInfo>>;
-	public function GetGraph(): cpp.Reference<cpp.Star<RigVMGraph>>;
-	public function GetEventName(): cpp.Reference<FName>;
-	public function GetAllPinsRecursively(): cpp.Reference<TArray<cpp.Star<RigVMPin>>>;
-	public function FindPin(InPinPath: FString): cpp.Reference<cpp.Star<RigVMPin>>;
-	public function ExecutionIsHaltedAtThisNode(): cpp.Reference<Bool>;
+	public function IsVisibleInUI(): Bool;
+	public function IsSelected(): Bool;
+	public function IsPure(): Bool;
+	public function IsMutable(): Bool;
+	public function IsLinkedTo(InNode: cpp.Star<RigVMNode>): Bool;
+	public function IsInjected(): Bool;
+	public function IsEvent(): Bool;
+	public function IsDefinedAsVarying(): Bool;
+	public function IsDefinedAsConstant(): Bool;
+	public function HasPinOfDirection(InDirection: ERigVMPinDirection): Bool;
+	public function HasOutputPin(bIncludeIO: Bool): Bool;
+	public function HasOrphanedPins(): Bool;
+	public function HasIOPin(): Bool;
+	public function HasInputPin(bIncludeIO: Bool): Bool;
+	public function HasBreakpoint(): Bool;
+	public function GetToolTipText(): FText;
+	public function GetSize(): Vector2D;
+	public function GetRootGraph(): cpp.Star<RigVMGraph>;
+	public function GetPreviousFName(): FName;
+	public function GetPosition(): Vector2D;
+	public function GetPins(): TArray<cpp.Star<RigVMPin>>;
+	public function GetOrphanedPins(): TArray<cpp.Star<RigVMPin>>;
+	public function GetNodeTitle(): FString;
+	public function GetNodePath(bRecursive: Bool): FString;
+	public function GetNodeIndex(): cpp.Int32;
+	public function GetNodeColor(): LinearColor;
+	public function GetLinks(): TArray<cpp.Star<RigVMLink>>;
+	public function GetLinkedTargetNodes(): TArray<cpp.Star<RigVMNode>>;
+	public function GetLinkedSourceNodes(): TArray<cpp.Star<RigVMNode>>;
+	public function GetInjectionInfo(): cpp.Star<RigVMInjectionInfo>;
+	public function GetGraph(): cpp.Star<RigVMGraph>;
+	public function GetEventName(): FName;
+	public function GetAllPinsRecursively(): TArray<cpp.Star<RigVMPin>>;
+	public function FindPin(InPinPath: FString): cpp.Star<RigVMPin>;
+	public function ExecutionIsHaltedAtThisNode(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -67,24 +67,6 @@ extern class RigVMNode extends Object {
 )
 @:nativeGen
 abstract ConstRigVMNode(RigVMNode) from RigVMNode {
-	public extern var NodeTitle(get, never): FString;
-	public inline extern function get_NodeTitle(): FString return this.NodeTitle;
-	public extern var Position(get, never): Vector2D;
-	public inline extern function get_Position(): Vector2D return this.Position;
-	public extern var Size(get, never): Vector2D;
-	public inline extern function get_Size(): Vector2D return this.Size;
-	public extern var NodeColor(get, never): LinearColor;
-	public inline extern function get_NodeColor(): LinearColor return this.NodeColor;
-	public extern var PreviousName(get, never): FName;
-	public inline extern function get_PreviousName(): FName return this.PreviousName;
-	public extern var bHasBreakpoint(get, never): Bool;
-	public inline extern function get_bHasBreakpoint(): Bool return this.bHasBreakpoint;
-	public extern var bHaltedAtThisNode(get, never): Bool;
-	public inline extern function get_bHaltedAtThisNode(): Bool return this.bHaltedAtThisNode;
-	public extern var Pins(get, never): TArray<cpp.Star<RigVMPin.ConstRigVMPin>>;
-	public inline extern function get_Pins(): TArray<cpp.Star<RigVMPin.ConstRigVMPin>> return this.Pins;
-	public extern var OrphanedPins(get, never): TArray<cpp.Star<RigVMPin.ConstRigVMPin>>;
-	public inline extern function get_OrphanedPins(): TArray<cpp.Star<RigVMPin.ConstRigVMPin>> return this.OrphanedPins;
 }
 
 @:forward

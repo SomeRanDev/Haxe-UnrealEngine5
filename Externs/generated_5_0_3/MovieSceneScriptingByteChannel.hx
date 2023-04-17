@@ -8,10 +8,10 @@ extern class MovieSceneScriptingByteChannel extends MovieSceneScriptingChannel {
 	public function SetDefault(InDefaultValue: cpp.UInt8): Void;
 	public function RemoveKey(Key: cpp.Star<MovieSceneScriptingKey>): Void;
 	public function RemoveDefault(): Void;
-	public function HasDefault(): cpp.Reference<Bool>;
-	public function GetKeys(): cpp.Reference<TArray<cpp.Star<MovieSceneScriptingKey>>>;
-	public function GetDefault(): cpp.Reference<cpp.UInt8>;
-	public function AddKey(InTime: cpp.Reference<FrameNumber>, NewValue: cpp.UInt8, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit, InInterpolation: EMovieSceneKeyInterpolation): cpp.Reference<cpp.Star<MovieSceneScriptingByteKey>>;
+	public function HasDefault(): Bool;
+	public function GetKeys(): TArray<cpp.Star<MovieSceneScriptingKey>>;
+	public function GetDefault(): cpp.UInt8;
+	public function AddKey(InTime: cpp.Reference<FrameNumber>, NewValue: cpp.UInt8, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit, InInterpolation: EMovieSceneKeyInterpolation): cpp.Star<MovieSceneScriptingByteKey>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

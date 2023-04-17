@@ -13,8 +13,6 @@ extern class NiagaraFunctionSignature {
 	public var bRequiresExecPin: Bool;
 	public var bMemberFunction: Bool;
 	public var bExperimental: Bool;
-	public var ExperimentalMessage: FText;
-	public var FunctionVersion: cpp.UInt32;
 	public var bSupportsCPU: Bool;
 	public var bSupportsGPU: Bool;
 	public var bWriteFunction: Bool;
@@ -24,9 +22,6 @@ extern class NiagaraFunctionSignature {
 	public var ModuleUsageBitmask: cpp.Int32;
 	public var ContextStageIndex: cpp.Int32;
 	public var FunctionSpecifiers: TMap<FName, FName>;
-	public var Description: FText;
-	public var InputDescriptions: TMap<NiagaraVariableBase, FText>;
-	public var OutputDescriptions: TMap<NiagaraVariableBase, FText>;
 
 	@:native("FNiagaraFunctionSignature") public function new();
 }

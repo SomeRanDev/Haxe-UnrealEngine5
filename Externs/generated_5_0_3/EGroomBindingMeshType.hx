@@ -3,8 +3,8 @@ package ue;
 
 @:native("EGroomBindingMeshType")
 @:include("GroomBindingAsset.h")
-extern enum EGroomBindingMeshType {
-	SkeletalMesh;
-	GeometryCache;
-	EGroomBindingMeshType_MAX;
+extern class EGroomBindingMeshType {
+	static var SkeletalMesh: EGroomBindingMeshType;
+	static var GeometryCache: EGroomBindingMeshType;
+	static var EGroomBindingMeshType_MAX: EGroomBindingMeshType;
 }

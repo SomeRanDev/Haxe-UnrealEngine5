@@ -6,16 +6,10 @@ package ue;
 @:structAccess
 extern class MovieSceneTrack extends MovieSceneSignedObject {
 	public var EvalOptions: MovieSceneTrackEvalOptions;
-	public var DisplayOptions: MovieSceneTrackDisplayOptions;
-	public var bIsEvalDisabled: Bool;
-	public var RowsDisabled: TArray<cpp.Int32>;
-	public var EvaluationFieldGuid: Guid;
-	public var EvaluationFieldVersion: cpp.Int8;
-	public var EvaluationField: MovieSceneTrackEvaluationField;
-	public var ObjectBindingID: Guid;
-	public var TrackTint: Color;
-	public var SortingOrder: cpp.Int32;
-	public var bSupportsDefaultSections: Bool;
+	@:protected public var bIsEvalDisabled: Bool;
+	@:protected public var RowsDisabled: TArray<cpp.Int32>;
+	private var EvaluationFieldGuid: Guid;
+	private var EvaluationField: MovieSceneTrackEvaluationField;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -25,26 +19,6 @@ extern class MovieSceneTrack extends MovieSceneSignedObject {
 abstract ConstMovieSceneTrack(MovieSceneTrack) from MovieSceneTrack {
 	public extern var EvalOptions(get, never): MovieSceneTrackEvalOptions;
 	public inline extern function get_EvalOptions(): MovieSceneTrackEvalOptions return this.EvalOptions;
-	public extern var DisplayOptions(get, never): MovieSceneTrackDisplayOptions;
-	public inline extern function get_DisplayOptions(): MovieSceneTrackDisplayOptions return this.DisplayOptions;
-	public extern var bIsEvalDisabled(get, never): Bool;
-	public inline extern function get_bIsEvalDisabled(): Bool return this.bIsEvalDisabled;
-	public extern var RowsDisabled(get, never): TArray<cpp.Int32>;
-	public inline extern function get_RowsDisabled(): TArray<cpp.Int32> return this.RowsDisabled;
-	public extern var EvaluationFieldGuid(get, never): Guid;
-	public inline extern function get_EvaluationFieldGuid(): Guid return this.EvaluationFieldGuid;
-	public extern var EvaluationFieldVersion(get, never): cpp.Int8;
-	public inline extern function get_EvaluationFieldVersion(): cpp.Int8 return this.EvaluationFieldVersion;
-	public extern var EvaluationField(get, never): MovieSceneTrackEvaluationField;
-	public inline extern function get_EvaluationField(): MovieSceneTrackEvaluationField return this.EvaluationField;
-	public extern var ObjectBindingID(get, never): Guid;
-	public inline extern function get_ObjectBindingID(): Guid return this.ObjectBindingID;
-	public extern var TrackTint(get, never): Color;
-	public inline extern function get_TrackTint(): Color return this.TrackTint;
-	public extern var SortingOrder(get, never): cpp.Int32;
-	public inline extern function get_SortingOrder(): cpp.Int32 return this.SortingOrder;
-	public extern var bSupportsDefaultSections(get, never): Bool;
-	public inline extern function get_bSupportsDefaultSections(): Bool return this.bSupportsDefaultSections;
 }
 
 @:forward

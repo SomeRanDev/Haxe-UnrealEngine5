@@ -3,9 +3,9 @@ package ue;
 
 @:native("EOrientPositionSelector.Type")
 @:include("HeadMountedDisplayTypes.h")
-extern enum EOrientPositionSelector {
-	Orientation;
-	Position;
-	OrientationAndPosition;
-	EOrientPositionSelector_MAX;
+extern class EOrientPositionSelector {
+	static var Orientation: EOrientPositionSelector;
+	static var Position: EOrientPositionSelector;
+	static var OrientationAndPosition: EOrientPositionSelector;
+	static var EOrientPositionSelector_MAX: EOrientPositionSelector;
 }

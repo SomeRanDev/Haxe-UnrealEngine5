@@ -5,7 +5,7 @@ package ue;
 @:include("Engine/SplineMeshActor.h")
 @:structAccess
 extern class SplineMeshActor extends Actor {
-	public var SplineMeshComponent: cpp.Star<SplineMeshComp>;
+	private var SplineMeshComponent: cpp.Star<SplineMeshComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class SplineMeshActor extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstSplineMeshActor(SplineMeshActor) from SplineMeshActor {
-	public extern var SplineMeshComponent(get, never): cpp.Star<SplineMeshComp.ConstSplineMeshComp>;
-	public inline extern function get_SplineMeshComponent(): cpp.Star<SplineMeshComp.ConstSplineMeshComp> return this.SplineMeshComponent;
 }
 
 @:forward

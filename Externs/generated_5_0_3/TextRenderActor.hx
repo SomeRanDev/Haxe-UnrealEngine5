@@ -5,8 +5,7 @@ package ue;
 @:include("Engine/TextRenderActor.h")
 @:structAccess
 extern class TextRenderActor extends Actor {
-	public var TextRender: cpp.Star<TextRenderComp>;
-	public var SpriteComponent: cpp.Star<BillboardComp>;
+	private var TextRender: cpp.Star<TextRenderComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +13,6 @@ extern class TextRenderActor extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstTextRenderActor(TextRenderActor) from TextRenderActor {
-	public extern var TextRender(get, never): cpp.Star<TextRenderComp.ConstTextRenderComp>;
-	public inline extern function get_TextRender(): cpp.Star<TextRenderComp.ConstTextRenderComp> return this.TextRender;
-	public extern var SpriteComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
-	public inline extern function get_SpriteComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
 }
 
 @:forward

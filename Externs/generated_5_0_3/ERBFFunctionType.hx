@@ -3,12 +3,12 @@ package ue;
 
 @:native("ERBFFunctionType")
 @:include("RBF/RBFSolver.h")
-extern enum ERBFFunctionType {
-	Gaussian;
-	Exponential;
-	Linear;
-	Cubic;
-	Quintic;
-	DefaultFunction;
-	ERBFFunctionType_MAX;
+extern class ERBFFunctionType {
+	static var Gaussian: ERBFFunctionType;
+	static var Exponential: ERBFFunctionType;
+	static var Linear: ERBFFunctionType;
+	static var Cubic: ERBFFunctionType;
+	static var Quintic: ERBFFunctionType;
+	static var DefaultFunction: ERBFFunctionType;
+	static var ERBFFunctionType_MAX: ERBFFunctionType;
 }

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EBoneAxis")
 @:include("Animation/AnimTypes.h")
-extern enum EBoneAxis {
-	BA_X;
-	BA_Y;
-	BA_Z;
-	BA_MAX;
+extern class EBoneAxis {
+	static var BA_X: EBoneAxis;
+	static var BA_Y: EBoneAxis;
+	static var BA_Z: EBoneAxis;
+	static var BA_MAX: EBoneAxis;
 }

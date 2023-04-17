@@ -3,10 +3,10 @@ package ue;
 
 @:native("ETestEnumFlags")
 @:include("Editor/PropertyEditorTestObject.h")
-extern enum ETestEnumFlags {
-	None;
-	One;
-	Two;
-	Four;
-	ETestEnumFlags_MAX;
+extern class ETestEnumFlags {
+	static var None: ETestEnumFlags;
+	static var One: ETestEnumFlags;
+	static var Two: ETestEnumFlags;
+	static var Four: ETestEnumFlags;
+	static var ETestEnumFlags_MAX: ETestEnumFlags;
 }

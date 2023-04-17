@@ -5,7 +5,7 @@ package ue;
 @:include("SoundFields.h")
 @:structAccess
 extern class AmbisonicsEncodingSettings extends SoundfieldEncodingSettingsBase {
-	public var AmbisonicsOrder: cpp.Int32;
+	@:protected public var AmbisonicsOrder: cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class AmbisonicsEncodingSettings extends SoundfieldEncodingSettingsBase {
 @:forward()
 @:nativeGen
 abstract ConstAmbisonicsEncodingSettings(AmbisonicsEncodingSettings) from AmbisonicsEncodingSettings {
-	public extern var AmbisonicsOrder(get, never): cpp.Int32;
-	public inline extern function get_AmbisonicsOrder(): cpp.Int32 return this.AmbisonicsOrder;
 }
 
 @:forward

@@ -4,7 +4,7 @@ package ue;
 @:native("UAnimGraphNodeCustomizationInterface")
 @:structAccess
 extern class AnimGraphNodeCustomizationInterface extends Interface {
-	public function GetTitleColor(): cpp.Reference<LinearColor>;
+	public function GetTitleColor(): LinearColor;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

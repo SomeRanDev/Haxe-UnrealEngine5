@@ -3,11 +3,11 @@ package ue;
 
 @:native("ESubmixFilterType")
 @:include("SubmixEffects/SubmixEffectFilter.h")
-extern enum ESubmixFilterType {
-	LowPass;
-	HighPass;
-	BandPass;
-	BandStop;
-	Count;
-	ESubmixFilterType_MAX;
+extern class ESubmixFilterType {
+	static var LowPass: ESubmixFilterType;
+	static var HighPass: ESubmixFilterType;
+	static var BandPass: ESubmixFilterType;
+	static var BandStop: ESubmixFilterType;
+	static var Count: ESubmixFilterType;
+	static var ESubmixFilterType_MAX: ESubmixFilterType;
 }

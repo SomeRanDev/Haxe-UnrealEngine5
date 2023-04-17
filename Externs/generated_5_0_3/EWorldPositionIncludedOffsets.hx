@@ -3,10 +3,10 @@ package ue;
 
 @:native("EWorldPositionIncludedOffsets")
 @:include("Materials/MaterialExpressionWorldPosition.h")
-extern enum EWorldPositionIncludedOffsets {
-	WPT_Default;
-	WPT_ExcludeAllShaderOffsets;
-	WPT_CameraRelative;
-	WPT_CameraRelativeNoOffsets;
-	WPT_MAX;
+extern class EWorldPositionIncludedOffsets {
+	static var WPT_Default: EWorldPositionIncludedOffsets;
+	static var WPT_ExcludeAllShaderOffsets: EWorldPositionIncludedOffsets;
+	static var WPT_CameraRelative: EWorldPositionIncludedOffsets;
+	static var WPT_CameraRelativeNoOffsets: EWorldPositionIncludedOffsets;
+	static var WPT_MAX: EWorldPositionIncludedOffsets;
 }

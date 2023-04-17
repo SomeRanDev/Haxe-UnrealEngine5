@@ -5,19 +5,19 @@ package ue;
 @:include("Nodes/InterchangeBaseNodeContainer.h")
 @:structAccess
 extern class InterchangeBaseNodeContainer extends Object {
-	public var Nodes: TMap<FString, cpp.Star<InterchangeBaseNode>>;
+	private var Nodes: TMap<FString, cpp.Star<InterchangeBaseNode>>;
 
-	public function SetNodeParentUid(NodeUniqueID: FString, NewParentNodeUid: FString): cpp.Reference<Bool>;
+	public function SetNodeParentUid(NodeUniqueID: FString, NewParentNodeUid: FString): Bool;
 	public function SaveToFile(Filename: FString): Void;
 	public function LoadFromFile(Filename: FString): Void;
-	public function IsNodeUidValid(NodeUniqueID: FString): cpp.Reference<Bool>;
+	public function IsNodeUidValid(NodeUniqueID: FString): Bool;
 	public function GetRoots(RootNodes: cpp.Reference<TArray<FString>>): Void;
 	public function GetNodes(ClassNode: cpp.Star<Class>, OutNodes: cpp.Reference<TArray<FString>>): Void;
-	public function GetNodeChildrenUids(NodeUniqueID: FString): cpp.Reference<TArray<FString>>;
-	public function GetNodeChildrenCount(NodeUniqueID: FString): cpp.Reference<cpp.Int32>;
-	public function GetNodeChildren(NodeUniqueID: FString, ChildIndex: cpp.Int32): cpp.Reference<cpp.Star<InterchangeBaseNode>>;
-	public function GetNode(NodeUniqueID: FString): cpp.Reference<cpp.Star<InterchangeBaseNode>>;
-	public function AddNode(Node: cpp.Star<InterchangeBaseNode>): cpp.Reference<FString>;
+	public function GetNodeChildrenUids(NodeUniqueID: FString): TArray<FString>;
+	public function GetNodeChildrenCount(NodeUniqueID: FString): cpp.Int32;
+	public function GetNodeChildren(NodeUniqueID: FString, ChildIndex: cpp.Int32): cpp.Star<InterchangeBaseNode>;
+	public function GetNode(NodeUniqueID: FString): cpp.Star<InterchangeBaseNode>;
+	public function AddNode(Node: cpp.Star<InterchangeBaseNode>): FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -25,8 +25,6 @@ extern class InterchangeBaseNodeContainer extends Object {
 @:forward(IsNodeUidValid, GetRoots, GetNodes, GetNodeChildrenUids, GetNodeChildrenCount)
 @:nativeGen
 abstract ConstInterchangeBaseNodeContainer(InterchangeBaseNodeContainer) from InterchangeBaseNodeContainer {
-	public extern var Nodes(get, never): TMap<FString, cpp.Star<InterchangeBaseNode.ConstInterchangeBaseNode>>;
-	public inline extern function get_Nodes(): TMap<FString, cpp.Star<InterchangeBaseNode.ConstInterchangeBaseNode>> return this.Nodes;
 }
 
 @:forward

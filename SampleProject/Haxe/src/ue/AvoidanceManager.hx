@@ -10,13 +10,12 @@ extern class AvoidanceManager extends Object {
 	public var LockTimeAfterClean: cpp.Float32;
 	public var DeltaTimeToPredict: cpp.Float32;
 	public var ArtificialRadiusExpansion: cpp.Float32;
-	public var TestHeightDifference_DEPRECATED: cpp.Float32;
 	public var HeightCheckMargin: cpp.Float32;
 
-	public function RegisterMovementComponent(MovementComp: cpp.Star<MovementComp>, AvoidanceWeight: cpp.Float32): cpp.Reference<Bool>;
-	public function GetObjectCount(): cpp.Reference<cpp.Int32>;
-	public function GetNewAvoidanceUID(): cpp.Reference<cpp.Int32>;
-	public function GetAvoidanceVelocityForComponent(MovementComp: cpp.Star<MovementComp>): cpp.Reference<Vector>;
+	public function RegisterMovementComponent(MovementComp: cpp.Star<MovementComp>, AvoidanceWeight: cpp.Float32): Bool;
+	public function GetObjectCount(): cpp.Int32;
+	public function GetNewAvoidanceUID(): cpp.Int32;
+	public function GetAvoidanceVelocityForComponent(MovementComp: cpp.Star<MovementComp>): Vector;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -34,8 +33,6 @@ abstract ConstAvoidanceManager(AvoidanceManager) from AvoidanceManager {
 	public inline extern function get_DeltaTimeToPredict(): cpp.Float32 return this.DeltaTimeToPredict;
 	public extern var ArtificialRadiusExpansion(get, never): cpp.Float32;
 	public inline extern function get_ArtificialRadiusExpansion(): cpp.Float32 return this.ArtificialRadiusExpansion;
-	public extern var TestHeightDifference_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_TestHeightDifference_DEPRECATED(): cpp.Float32 return this.TestHeightDifference_DEPRECATED;
 	public extern var HeightCheckMargin(get, never): cpp.Float32;
 	public inline extern function get_HeightCheckMargin(): cpp.Float32 return this.HeightCheckMargin;
 }

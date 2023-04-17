@@ -3,8 +3,8 @@ package ue;
 
 @:native("EAnimNotifyEventType.Type")
 @:include("Animation/AnimMontage.h")
-extern enum EAnimNotifyEventType {
-	Begin;
-	End;
-	EAnimNotifyEventType_MAX;
+extern class EAnimNotifyEventType {
+	static var Begin: EAnimNotifyEventType;
+	static var End: EAnimNotifyEventType;
+	static var EAnimNotifyEventType_MAX: EAnimNotifyEventType;
 }

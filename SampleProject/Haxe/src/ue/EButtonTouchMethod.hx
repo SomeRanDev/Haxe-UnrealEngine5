@@ -3,9 +3,9 @@ package ue;
 
 @:native("EButtonTouchMethod.Type")
 @:include("Types/SlateEnums.h")
-extern enum EButtonTouchMethod {
-	DownAndUp;
-	Down;
-	PreciseTap;
-	EButtonTouchMethod_MAX;
+extern class EButtonTouchMethod {
+	static var DownAndUp: EButtonTouchMethod;
+	static var Down: EButtonTouchMethod;
+	static var PreciseTap: EButtonTouchMethod;
+	static var EButtonTouchMethod_MAX: EButtonTouchMethod;
 }

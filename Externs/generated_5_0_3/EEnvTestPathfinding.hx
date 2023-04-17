@@ -3,9 +3,9 @@ package ue;
 
 @:native("EEnvTestPathfinding.Type")
 @:include("EnvironmentQuery/Tests/EnvQueryTest_Pathfinding.h")
-extern enum EEnvTestPathfinding {
-	PathExist;
-	PathCost;
-	PathLength;
-	EEnvTestPathfinding_MAX;
+extern class EEnvTestPathfinding {
+	static var PathExist: EEnvTestPathfinding;
+	static var PathCost: EEnvTestPathfinding;
+	static var PathLength: EEnvTestPathfinding;
+	static var EEnvTestPathfinding_MAX: EEnvTestPathfinding;
 }

@@ -5,8 +5,8 @@ package ue;
 @:include("NiagaraPreviewGrid.h")
 @:structAccess
 extern class NiagaraPreviewAxis_InterpParamBase extends NiagaraPreviewAxis {
-	public var Param: FName;
-	public var Count: cpp.Int32;
+	@:protected public var Param: FName;
+	@:protected public var Count: cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class NiagaraPreviewAxis_InterpParamBase extends NiagaraPreviewAxis {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraPreviewAxis_InterpParamBase(NiagaraPreviewAxis_InterpParamBase) from NiagaraPreviewAxis_InterpParamBase {
-	public extern var Param(get, never): FName;
-	public inline extern function get_Param(): FName return this.Param;
-	public extern var Count(get, never): cpp.Int32;
-	public inline extern function get_Count(): cpp.Int32 return this.Count;
 }
 
 @:forward

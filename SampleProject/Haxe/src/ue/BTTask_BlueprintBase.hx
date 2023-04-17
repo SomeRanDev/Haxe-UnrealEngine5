@@ -5,24 +5,23 @@ package ue;
 @:include("BehaviorTree/Tasks/BTTask_BlueprintBase.h")
 @:structAccess
 extern class BTTask_BlueprintBase extends BTTaskNode {
-	public var AIOwner: cpp.Star<AIController>;
-	public var ActorOwner: cpp.Star<Actor>;
-	public var TickInterval: IntervalCountdown;
-	public var CustomDescription: FString;
-	public var bShowPropertyDetails: Bool;
+	@:protected public var AIOwner: cpp.Star<AIController>;
+	@:protected public var ActorOwner: cpp.Star<Actor>;
+	@:protected public var TickInterval: IntervalCountdown;
+	@:protected public var bShowPropertyDetails: Bool;
 
-	public function SetFinishOnMessageWithId(MessageName: FName, RequestID: cpp.Int32): Void;
-	public function SetFinishOnMessage(MessageName: FName): Void;
-	public function ReceiveTickAI(OwnerController: cpp.Star<AIController>, ControlledPawn: cpp.Star<Pawn>, DeltaSeconds: cpp.Float32): Void;
-	public function ReceiveTick(OwnerActor: cpp.Star<Actor>, DeltaSeconds: cpp.Float32): Void;
-	public function ReceiveExecuteAI(OwnerController: cpp.Star<AIController>, ControlledPawn: cpp.Star<Pawn>): Void;
-	public function ReceiveExecute(OwnerActor: cpp.Star<Actor>): Void;
-	public function ReceiveAbortAI(OwnerController: cpp.Star<AIController>, ControlledPawn: cpp.Star<Pawn>): Void;
-	public function ReceiveAbort(OwnerActor: cpp.Star<Actor>): Void;
-	public function IsTaskExecuting(): cpp.Reference<Bool>;
-	public function IsTaskAborting(): cpp.Reference<Bool>;
-	public function FinishExecute(bSuccess: Bool): Void;
-	public function FinishAbort(): Void;
+	@:protected public function SetFinishOnMessageWithId(MessageName: FName, RequestID: cpp.Int32): Void;
+	@:protected public function SetFinishOnMessage(MessageName: FName): Void;
+	@:protected public function ReceiveTickAI(OwnerController: cpp.Star<AIController>, ControlledPawn: cpp.Star<Pawn>, DeltaSeconds: cpp.Float32): Void;
+	@:protected public function ReceiveTick(OwnerActor: cpp.Star<Actor>, DeltaSeconds: cpp.Float32): Void;
+	@:protected public function ReceiveExecuteAI(OwnerController: cpp.Star<AIController>, ControlledPawn: cpp.Star<Pawn>): Void;
+	@:protected public function ReceiveExecute(OwnerActor: cpp.Star<Actor>): Void;
+	@:protected public function ReceiveAbortAI(OwnerController: cpp.Star<AIController>, ControlledPawn: cpp.Star<Pawn>): Void;
+	@:protected public function ReceiveAbort(OwnerActor: cpp.Star<Actor>): Void;
+	@:protected public function IsTaskExecuting(): Bool;
+	@:protected public function IsTaskAborting(): Bool;
+	@:protected public function FinishExecute(bSuccess: Bool): Void;
+	@:protected public function FinishAbort(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -30,16 +29,6 @@ extern class BTTask_BlueprintBase extends BTTaskNode {
 @:forward(IsTaskExecuting, IsTaskAborting)
 @:nativeGen
 abstract ConstBTTask_BlueprintBase(BTTask_BlueprintBase) from BTTask_BlueprintBase {
-	public extern var AIOwner(get, never): cpp.Star<AIController.ConstAIController>;
-	public inline extern function get_AIOwner(): cpp.Star<AIController.ConstAIController> return this.AIOwner;
-	public extern var ActorOwner(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_ActorOwner(): cpp.Star<Actor.ConstActor> return this.ActorOwner;
-	public extern var TickInterval(get, never): IntervalCountdown;
-	public inline extern function get_TickInterval(): IntervalCountdown return this.TickInterval;
-	public extern var CustomDescription(get, never): FString;
-	public inline extern function get_CustomDescription(): FString return this.CustomDescription;
-	public extern var bShowPropertyDetails(get, never): Bool;
-	public inline extern function get_bShowPropertyDetails(): Bool return this.bShowPropertyDetails;
 }
 
 @:forward

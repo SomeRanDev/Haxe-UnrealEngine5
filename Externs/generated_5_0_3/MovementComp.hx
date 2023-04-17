@@ -8,8 +8,8 @@ extern class MovementComp extends ActorComp {
 	public var UpdatedComponent: cpp.Star<SceneComp>;
 	public var UpdatedPrimitive: cpp.Star<PrimitiveComp>;
 	public var Velocity: Vector;
-	public var PlaneConstraintNormal: Vector;
-	public var PlaneConstraintOrigin: Vector;
+	@:protected public var PlaneConstraintNormal: Vector;
+	@:protected public var PlaneConstraintOrigin: Vector;
 	public var bUpdateOnlyIfRendered: Bool;
 	public var bAutoUpdateTickRegistration: Bool;
 	public var bTickBeforeOwner: Bool;
@@ -18,7 +18,7 @@ extern class MovementComp extends ActorComp {
 	public var bSnapToPlaneAtStart: Bool;
 	public var bAutoRegisterPhysicsVolumeUpdates: Bool;
 	public var bComponentShouldUpdatePhysicsVolume: Bool;
-	public var PlaneConstraintAxisSetting: EPlaneConstraintAxisSetting;
+	private var PlaneConstraintAxisSetting: EPlaneConstraintAxisSetting;
 
 	public function StopMovementImmediately(): Void;
 	public function SnapUpdatedComponentToPlane(): Void;
@@ -29,17 +29,17 @@ extern class MovementComp extends ActorComp {
 	public function SetPlaneConstraintEnabled(bEnabled: Bool): Void;
 	public function SetPlaneConstraintAxisSetting(NewAxisSetting: EPlaneConstraintAxisSetting): Void;
 	public function PhysicsVolumeChanged(NewVolume: cpp.Star<PhysicsVolume>): Void;
-	public function K2_MoveUpdatedComponent(Delta: Vector, NewRotation: Rotator, OutHit: cpp.Reference<HitResult>, bSweep: Bool, bTeleport: Bool): cpp.Reference<Bool>;
-	public function IsExceedingMaxSpeed(MaxSpeed: cpp.Float32): cpp.Reference<Bool>;
-	public function GetPlaneConstraintOrigin(): cpp.Reference<Vector>;
-	public function GetPlaneConstraintNormal(): cpp.Reference<Vector>;
-	public function GetPlaneConstraintAxisSetting(): cpp.Reference<EPlaneConstraintAxisSetting>;
-	public function GetPhysicsVolume(): cpp.Reference<cpp.Star<PhysicsVolume>>;
-	public function GetMaxSpeed(): cpp.Reference<cpp.Float32>;
-	public function GetGravityZ(): cpp.Reference<cpp.Float32>;
-	public function ConstrainNormalToPlane(Normal: Vector): cpp.Reference<Vector>;
-	public function ConstrainLocationToPlane(Location: Vector): cpp.Reference<Vector>;
-	public function ConstrainDirectionToPlane(Direction: Vector): cpp.Reference<Vector>;
+	public function K2_MoveUpdatedComponent(Delta: Vector, NewRotation: Rotator, OutHit: cpp.Reference<HitResult>, bSweep: Bool, bTeleport: Bool): Bool;
+	public function IsExceedingMaxSpeed(MaxSpeed: cpp.Float32): Bool;
+	public function GetPlaneConstraintOrigin(): Vector;
+	public function GetPlaneConstraintNormal(): Vector;
+	public function GetPlaneConstraintAxisSetting(): EPlaneConstraintAxisSetting;
+	public function GetPhysicsVolume(): cpp.Star<PhysicsVolume>;
+	public function GetMaxSpeed(): cpp.Float32;
+	public function GetGravityZ(): cpp.Float32;
+	public function ConstrainNormalToPlane(Normal: Vector): Vector;
+	public function ConstrainLocationToPlane(Location: Vector): Vector;
+	public function ConstrainDirectionToPlane(Direction: Vector): Vector;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -56,10 +56,6 @@ abstract ConstMovementComp(MovementComp) from MovementComp {
 	public inline extern function get_UpdatedPrimitive(): cpp.Star<PrimitiveComp.ConstPrimitiveComp> return this.UpdatedPrimitive;
 	public extern var Velocity(get, never): Vector;
 	public inline extern function get_Velocity(): Vector return this.Velocity;
-	public extern var PlaneConstraintNormal(get, never): Vector;
-	public inline extern function get_PlaneConstraintNormal(): Vector return this.PlaneConstraintNormal;
-	public extern var PlaneConstraintOrigin(get, never): Vector;
-	public inline extern function get_PlaneConstraintOrigin(): Vector return this.PlaneConstraintOrigin;
 	public extern var bUpdateOnlyIfRendered(get, never): Bool;
 	public inline extern function get_bUpdateOnlyIfRendered(): Bool return this.bUpdateOnlyIfRendered;
 	public extern var bAutoUpdateTickRegistration(get, never): Bool;
@@ -76,8 +72,6 @@ abstract ConstMovementComp(MovementComp) from MovementComp {
 	public inline extern function get_bAutoRegisterPhysicsVolumeUpdates(): Bool return this.bAutoRegisterPhysicsVolumeUpdates;
 	public extern var bComponentShouldUpdatePhysicsVolume(get, never): Bool;
 	public inline extern function get_bComponentShouldUpdatePhysicsVolume(): Bool return this.bComponentShouldUpdatePhysicsVolume;
-	public extern var PlaneConstraintAxisSetting(get, never): EPlaneConstraintAxisSetting;
-	public inline extern function get_PlaneConstraintAxisSetting(): EPlaneConstraintAxisSetting return this.PlaneConstraintAxisSetting;
 }
 
 @:forward

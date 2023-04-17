@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENotifyTriggerMode.Type")
 @:include("Animation/BlendSpace.h")
-extern enum ENotifyTriggerMode {
-	AllAnimations;
-	HighestWeightedAnimation;
-	None;
-	ENotifyTriggerMode_MAX;
+extern class ENotifyTriggerMode {
+	static var AllAnimations: ENotifyTriggerMode;
+	static var HighestWeightedAnimation: ENotifyTriggerMode;
+	static var None: ENotifyTriggerMode;
+	static var ENotifyTriggerMode_MAX: ENotifyTriggerMode;
 }

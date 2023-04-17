@@ -3,8 +3,8 @@ package ue;
 
 @:native("EFBXNormalGenerationMethod.Type")
 @:include("Factories/FbxMeshImportData.h")
-extern enum EFBXNormalGenerationMethod {
-	BuiltIn;
-	MikkTSpace;
-	EFBXNormalGenerationMethod_MAX;
+extern class EFBXNormalGenerationMethod {
+	static var BuiltIn: EFBXNormalGenerationMethod;
+	static var MikkTSpace: EFBXNormalGenerationMethod;
+	static var EFBXNormalGenerationMethod_MAX: EFBXNormalGenerationMethod;
 }

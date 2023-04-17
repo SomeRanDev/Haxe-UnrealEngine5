@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAREnvironmentCaptureProbeType")
 @:include("ARSessionConfig.h")
-extern enum EAREnvironmentCaptureProbeType {
-	None;
-	Manual;
-	Automatic;
-	EAREnvironmentCaptureProbeType_MAX;
+extern class EAREnvironmentCaptureProbeType {
+	static var None: EAREnvironmentCaptureProbeType;
+	static var Manual: EAREnvironmentCaptureProbeType;
+	static var Automatic: EAREnvironmentCaptureProbeType;
+	static var EAREnvironmentCaptureProbeType_MAX: EAREnvironmentCaptureProbeType;
 }

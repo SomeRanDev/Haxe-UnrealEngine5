@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETextureUniversalTiling")
 @:include("TextureEncodingSettings.h")
-extern enum ETextureUniversalTiling {
-	Disabled;
-	Enabled_256KB;
-	Enabled_64KB;
-	ETextureUniversalTiling_MAX;
+extern class ETextureUniversalTiling {
+	static var Disabled: ETextureUniversalTiling;
+	static var Enabled_256KB: ETextureUniversalTiling;
+	static var Enabled_64KB: ETextureUniversalTiling;
+	static var ETextureUniversalTiling_MAX: ETextureUniversalTiling;
 }

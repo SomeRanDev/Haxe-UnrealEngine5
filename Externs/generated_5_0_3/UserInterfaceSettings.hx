@@ -6,15 +6,8 @@ package ue;
 @:structAccess
 extern class UserInterfaceSettings extends DeveloperSettings {
 	public var RenderFocusRule: ERenderFocusRule;
-	public var HardwareCursors: TMap<EMouseCursor, HardwareCursorReference>;
-	public var SoftwareCursors: TMap<EMouseCursor, SoftClassPath>;
-	public var DefaultCursor_DEPRECATED: SoftClassPath;
-	public var TextEditBeamCursor_DEPRECATED: SoftClassPath;
-	public var CrosshairsCursor_DEPRECATED: SoftClassPath;
-	public var HandCursor_DEPRECATED: SoftClassPath;
-	public var GrabHandCursor_DEPRECATED: SoftClassPath;
-	public var GrabHandClosedCursor_DEPRECATED: SoftClassPath;
-	public var SlashedCircleCursor_DEPRECATED: SoftClassPath;
+	public var HardwareCursors: TMap<TEnumAsByte<EMouseCursor>, HardwareCursorReference>;
+	public var SoftwareCursors: TMap<TEnumAsByte<EMouseCursor>, SoftClassPath>;
 	public var ApplicationScale: cpp.Float32;
 	public var UIScaleRule: EUIScalingRule;
 	public var CustomScalingRuleClass: SoftClassPath;
@@ -22,9 +15,9 @@ extern class UserInterfaceSettings extends DeveloperSettings {
 	public var bAllowHighDPIInGameMode: Bool;
 	public var DesignScreenSize: IntPoint;
 	public var bLoadWidgetsOnDedicatedServer: Bool;
-	public var CursorClasses: TArray<cpp.Star<Object>>;
-	public var CustomScalingRuleClassInstance: TSubclassOf<Object>;
-	public var CustomScalingRule: cpp.Star<DPICustomScalingRule>;
+	private var CursorClasses: TArray<cpp.Star<Object>>;
+	private var CustomScalingRuleClassInstance: TSubclassOf<Object>;
+	private var CustomScalingRule: cpp.Star<DPICustomScalingRule>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -34,24 +27,10 @@ extern class UserInterfaceSettings extends DeveloperSettings {
 abstract ConstUserInterfaceSettings(UserInterfaceSettings) from UserInterfaceSettings {
 	public extern var RenderFocusRule(get, never): ERenderFocusRule;
 	public inline extern function get_RenderFocusRule(): ERenderFocusRule return this.RenderFocusRule;
-	public extern var HardwareCursors(get, never): TMap<EMouseCursor, HardwareCursorReference>;
-	public inline extern function get_HardwareCursors(): TMap<EMouseCursor, HardwareCursorReference> return this.HardwareCursors;
-	public extern var SoftwareCursors(get, never): TMap<EMouseCursor, SoftClassPath>;
-	public inline extern function get_SoftwareCursors(): TMap<EMouseCursor, SoftClassPath> return this.SoftwareCursors;
-	public extern var DefaultCursor_DEPRECATED(get, never): SoftClassPath;
-	public inline extern function get_DefaultCursor_DEPRECATED(): SoftClassPath return this.DefaultCursor_DEPRECATED;
-	public extern var TextEditBeamCursor_DEPRECATED(get, never): SoftClassPath;
-	public inline extern function get_TextEditBeamCursor_DEPRECATED(): SoftClassPath return this.TextEditBeamCursor_DEPRECATED;
-	public extern var CrosshairsCursor_DEPRECATED(get, never): SoftClassPath;
-	public inline extern function get_CrosshairsCursor_DEPRECATED(): SoftClassPath return this.CrosshairsCursor_DEPRECATED;
-	public extern var HandCursor_DEPRECATED(get, never): SoftClassPath;
-	public inline extern function get_HandCursor_DEPRECATED(): SoftClassPath return this.HandCursor_DEPRECATED;
-	public extern var GrabHandCursor_DEPRECATED(get, never): SoftClassPath;
-	public inline extern function get_GrabHandCursor_DEPRECATED(): SoftClassPath return this.GrabHandCursor_DEPRECATED;
-	public extern var GrabHandClosedCursor_DEPRECATED(get, never): SoftClassPath;
-	public inline extern function get_GrabHandClosedCursor_DEPRECATED(): SoftClassPath return this.GrabHandClosedCursor_DEPRECATED;
-	public extern var SlashedCircleCursor_DEPRECATED(get, never): SoftClassPath;
-	public inline extern function get_SlashedCircleCursor_DEPRECATED(): SoftClassPath return this.SlashedCircleCursor_DEPRECATED;
+	public extern var HardwareCursors(get, never): TMap<TEnumAsByte<EMouseCursor>, HardwareCursorReference>;
+	public inline extern function get_HardwareCursors(): TMap<TEnumAsByte<EMouseCursor>, HardwareCursorReference> return this.HardwareCursors;
+	public extern var SoftwareCursors(get, never): TMap<TEnumAsByte<EMouseCursor>, SoftClassPath>;
+	public inline extern function get_SoftwareCursors(): TMap<TEnumAsByte<EMouseCursor>, SoftClassPath> return this.SoftwareCursors;
 	public extern var ApplicationScale(get, never): cpp.Float32;
 	public inline extern function get_ApplicationScale(): cpp.Float32 return this.ApplicationScale;
 	public extern var UIScaleRule(get, never): EUIScalingRule;
@@ -66,12 +45,6 @@ abstract ConstUserInterfaceSettings(UserInterfaceSettings) from UserInterfaceSet
 	public inline extern function get_DesignScreenSize(): IntPoint return this.DesignScreenSize;
 	public extern var bLoadWidgetsOnDedicatedServer(get, never): Bool;
 	public inline extern function get_bLoadWidgetsOnDedicatedServer(): Bool return this.bLoadWidgetsOnDedicatedServer;
-	public extern var CursorClasses(get, never): TArray<cpp.Star<Object.ConstObject>>;
-	public inline extern function get_CursorClasses(): TArray<cpp.Star<Object.ConstObject>> return this.CursorClasses;
-	public extern var CustomScalingRuleClassInstance(get, never): TSubclassOf<Object.ConstObject>;
-	public inline extern function get_CustomScalingRuleClassInstance(): TSubclassOf<Object.ConstObject> return this.CustomScalingRuleClassInstance;
-	public extern var CustomScalingRule(get, never): cpp.Star<DPICustomScalingRule.ConstDPICustomScalingRule>;
-	public inline extern function get_CustomScalingRule(): cpp.Star<DPICustomScalingRule.ConstDPICustomScalingRule> return this.CustomScalingRule;
 }
 
 @:forward

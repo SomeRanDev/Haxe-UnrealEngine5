@@ -3,11 +3,11 @@ package ue;
 
 @:native("EGenerateStaticMeshLODProjectedHullAxisMode")
 @:include("Graphs/GenerateStaticMeshLODProcess.h")
-extern enum EGenerateStaticMeshLODProjectedHullAxisMode {
-	X;
-	Y;
-	Z;
-	SmallestBoxDimension;
-	SmallestVolume;
-	EGenerateStaticMeshLODProjectedHullAxisMode_MAX;
+extern class EGenerateStaticMeshLODProjectedHullAxisMode {
+	static var X: EGenerateStaticMeshLODProjectedHullAxisMode;
+	static var Y: EGenerateStaticMeshLODProjectedHullAxisMode;
+	static var Z: EGenerateStaticMeshLODProjectedHullAxisMode;
+	static var SmallestBoxDimension: EGenerateStaticMeshLODProjectedHullAxisMode;
+	static var SmallestVolume: EGenerateStaticMeshLODProjectedHullAxisMode;
+	static var EGenerateStaticMeshLODProjectedHullAxisMode_MAX: EGenerateStaticMeshLODProjectedHullAxisMode;
 }

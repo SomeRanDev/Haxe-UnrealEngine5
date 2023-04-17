@@ -3,12 +3,12 @@ package ue;
 
 @:native("EWeightMapTargetCommon")
 @:include("PointWeightMap.h")
-extern enum EWeightMapTargetCommon {
-	None;
-	MaxDistance;
-	BackstopDistance;
-	BackstopRadius;
-	AnimDriveStiffness;
-	AnimDriveDamping_DEPRECATED;
-	EWeightMapTargetCommon_MAX;
+extern class EWeightMapTargetCommon {
+	static var None: EWeightMapTargetCommon;
+	static var MaxDistance: EWeightMapTargetCommon;
+	static var BackstopDistance: EWeightMapTargetCommon;
+	static var BackstopRadius: EWeightMapTargetCommon;
+	static var AnimDriveStiffness: EWeightMapTargetCommon;
+	static var AnimDriveDamping_DEPRECATED: EWeightMapTargetCommon;
+	static var EWeightMapTargetCommon_MAX: EWeightMapTargetCommon;
 }

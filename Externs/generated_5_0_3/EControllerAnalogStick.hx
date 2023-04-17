@@ -3,8 +3,8 @@ package ue;
 
 @:native("EControllerAnalogStick.Type")
 @:include("Components/InputComponent.h")
-extern enum EControllerAnalogStick {
-	CAS_LeftStick;
-	CAS_RightStick;
-	CAS_MAX;
+extern class EControllerAnalogStick {
+	static var CAS_LeftStick: EControllerAnalogStick;
+	static var CAS_RightStick: EControllerAnalogStick;
+	static var CAS_MAX: EControllerAnalogStick;
 }

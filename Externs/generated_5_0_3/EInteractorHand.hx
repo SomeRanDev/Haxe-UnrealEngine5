@@ -3,8 +3,8 @@ package ue;
 
 @:native("EInteractorHand")
 @:include("VRModeSettings.h")
-extern enum EInteractorHand {
-	Right;
-	Left;
-	EInteractorHand_MAX;
+extern class EInteractorHand {
+	static var Right: EInteractorHand;
+	static var Left: EInteractorHand;
+	static var EInteractorHand_MAX: EInteractorHand;
 }

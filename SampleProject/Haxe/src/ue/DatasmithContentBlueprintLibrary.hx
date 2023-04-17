@@ -5,9 +5,9 @@ package ue;
 @:include("DatasmithContentBlueprintLibrary.h")
 @:structAccess
 extern class DatasmithContentBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function GetDatasmithUserDataValueForKey(Object: cpp.Star<Object>, Key: FName): cpp.Reference<FString>;
+	public function GetDatasmithUserDataValueForKey(Object: cpp.Star<Object>, Key: FName): FString;
 	public function GetDatasmithUserDataKeysAndValuesForValue(Object: cpp.Star<Object>, StringToMatch: FString, OutKeys: cpp.Reference<TArray<FName>>, OutValues: cpp.Reference<TArray<FString>>): Void;
-	public function GetDatasmithUserData(Object: cpp.Star<Object>): cpp.Reference<cpp.Star<DatasmithAssetUserData>>;
+	public function GetDatasmithUserData(Object: cpp.Star<Object>): cpp.Star<DatasmithAssetUserData>;
 	public function GetAllObjectsAndValuesForKey(Key: FName, ObjectClass: TSubclassOf<Object>, OutObjects: cpp.Reference<TArray<cpp.Star<Object>>>, OutValues: cpp.Reference<TArray<FString>>): Void;
 	public function GetAllDatasmithUserData(ObjectClass: TSubclassOf<Object>, OutUserData: cpp.Reference<TArray<cpp.Star<DatasmithAssetUserData>>>): Void;
 

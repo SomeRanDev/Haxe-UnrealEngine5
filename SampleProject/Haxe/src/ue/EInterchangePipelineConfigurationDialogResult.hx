@@ -3,9 +3,9 @@ package ue;
 
 @:native("EInterchangePipelineConfigurationDialogResult")
 @:include("InterchangePipelineConfigurationBase.h")
-extern enum EInterchangePipelineConfigurationDialogResult {
-	Cancel;
-	Import;
-	ImportAll;
-	EInterchangePipelineConfigurationDialogResult_MAX;
+extern class EInterchangePipelineConfigurationDialogResult {
+	static var Cancel: EInterchangePipelineConfigurationDialogResult;
+	static var Import: EInterchangePipelineConfigurationDialogResult;
+	static var ImportAll: EInterchangePipelineConfigurationDialogResult;
+	static var EInterchangePipelineConfigurationDialogResult_MAX: EInterchangePipelineConfigurationDialogResult;
 }

@@ -3,9 +3,9 @@ package ue;
 
 @:native("ECollisionResponse")
 @:include("Engine/EngineTypes.h")
-extern enum ECollisionResponse {
-	ECR_Ignore;
-	ECR_Overlap;
-	ECR_Block;
-	ECR_MAX;
+extern class ECollisionResponse {
+	static var ECR_Ignore: ECollisionResponse;
+	static var ECR_Overlap: ECollisionResponse;
+	static var ECR_Block: ECollisionResponse;
+	static var ECR_MAX: ECollisionResponse;
 }

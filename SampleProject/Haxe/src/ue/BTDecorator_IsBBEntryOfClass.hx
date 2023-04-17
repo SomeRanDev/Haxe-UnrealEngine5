@@ -5,7 +5,7 @@ package ue;
 @:include("BehaviorTree/Decorators/BTDecorator_IsBBEntryOfClass.h")
 @:structAccess
 extern class BTDecorator_IsBBEntryOfClass extends BTDecorator_BlackboardBase {
-	public var TestClass: TSubclassOf<Object>;
+	@:protected public var TestClass: TSubclassOf<Object>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class BTDecorator_IsBBEntryOfClass extends BTDecorator_BlackboardBase {
 @:forward()
 @:nativeGen
 abstract ConstBTDecorator_IsBBEntryOfClass(BTDecorator_IsBBEntryOfClass) from BTDecorator_IsBBEntryOfClass {
-	public extern var TestClass(get, never): TSubclassOf<Object.ConstObject>;
-	public inline extern function get_TestClass(): TSubclassOf<Object.ConstObject> return this.TestClass;
 }
 
 @:forward

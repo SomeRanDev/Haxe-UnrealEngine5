@@ -7,7 +7,7 @@ package ue;
 extern class IKRig_PoleSolver extends IKRigSolver {
 	public var RootName: FName;
 	public var EndName: FName;
-	public var Effector: cpp.Star<IKRig_PoleSolverEffector>;
+	private var Effector: cpp.Star<IKRig_PoleSolverEffector>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,8 +19,6 @@ abstract ConstIKRig_PoleSolver(IKRig_PoleSolver) from IKRig_PoleSolver {
 	public inline extern function get_RootName(): FName return this.RootName;
 	public extern var EndName(get, never): FName;
 	public inline extern function get_EndName(): FName return this.EndName;
-	public extern var Effector(get, never): cpp.Star<IKRig_PoleSolverEffector.ConstIKRig_PoleSolverEffector>;
-	public inline extern function get_Effector(): cpp.Star<IKRig_PoleSolverEffector.ConstIKRig_PoleSolverEffector> return this.Effector;
 }
 
 @:forward

@@ -5,7 +5,6 @@ package ue;
 @:include("ClothCollisionPrim.h")
 @:structAccess
 extern class ClothCollisionPrim_Convex {
-	public var Planes_DEPRECATED: TArray<Plane>;
 	public var Faces: TArray<ClothCollisionPrim_ConvexFace>;
 	public var SurfacePoints: TArray<Vector>;
 	public var BoneIndex: cpp.Int32;

@@ -5,8 +5,8 @@ package ue;
 @:include("NiagaraPreviewGrid.h")
 @:structAccess
 extern class NiagaraPreviewAxis_InterpParamVector extends NiagaraPreviewAxis_InterpParamBase {
-	public var Min: Vector;
-	public var Max: Vector;
+	private var Min: Vector;
+	private var Max: Vector;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class NiagaraPreviewAxis_InterpParamVector extends NiagaraPreviewAxis_Int
 @:forward()
 @:nativeGen
 abstract ConstNiagaraPreviewAxis_InterpParamVector(NiagaraPreviewAxis_InterpParamVector) from NiagaraPreviewAxis_InterpParamVector {
-	public extern var Min(get, never): Vector;
-	public inline extern function get_Min(): Vector return this.Min;
-	public extern var Max(get, never): Vector;
-	public inline extern function get_Max(): Vector return this.Max;
 }
 
 @:forward

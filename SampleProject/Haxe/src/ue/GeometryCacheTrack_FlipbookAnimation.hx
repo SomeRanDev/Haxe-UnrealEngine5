@@ -5,7 +5,7 @@ package ue;
 @:include("GeometryCacheTrackFlipbookAnimation.h")
 @:structAccess
 extern class GeometryCacheTrack_FlipbookAnimation extends GeometryCacheTrack {
-	public var NumMeshSamples: cpp.UInt32;
+	private var NumMeshSamples: cpp.UInt32;
 
 	public function AddMeshSample(MeshData: cpp.Reference<GeometryCacheMeshData>, SampleTime: cpp.Float32): Void;
 
@@ -15,8 +15,6 @@ extern class GeometryCacheTrack_FlipbookAnimation extends GeometryCacheTrack {
 @:forward()
 @:nativeGen
 abstract ConstGeometryCacheTrack_FlipbookAnimation(GeometryCacheTrack_FlipbookAnimation) from GeometryCacheTrack_FlipbookAnimation {
-	public extern var NumMeshSamples(get, never): cpp.UInt32;
-	public inline extern function get_NumMeshSamples(): cpp.UInt32 return this.NumMeshSamples;
 }
 
 @:forward

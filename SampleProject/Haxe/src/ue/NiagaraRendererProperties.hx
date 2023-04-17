@@ -11,7 +11,6 @@ extern class NiagaraRendererProperties extends NiagaraMergeable {
 	public var RendererEnabledBinding: NiagaraVariableAttributeBinding;
 	public var bIsEnabled: Bool;
 	public var bAllowInCullProxies: Bool;
-	public var bMotionBlurEnabled_DEPRECATED: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -31,8 +30,6 @@ abstract ConstNiagaraRendererProperties(NiagaraRendererProperties) from NiagaraR
 	public inline extern function get_bIsEnabled(): Bool return this.bIsEnabled;
 	public extern var bAllowInCullProxies(get, never): Bool;
 	public inline extern function get_bAllowInCullProxies(): Bool return this.bAllowInCullProxies;
-	public extern var bMotionBlurEnabled_DEPRECATED(get, never): Bool;
-	public inline extern function get_bMotionBlurEnabled_DEPRECATED(): Bool return this.bMotionBlurEnabled_DEPRECATED;
 }
 
 @:forward

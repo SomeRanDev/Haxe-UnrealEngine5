@@ -3,10 +3,10 @@ package ue;
 
 @:native("EAxis.Type")
 @:include("UObject/NoExportTypes.h")
-extern enum EAxis {
-	None;
-	X;
-	Y;
-	Z;
-	EAxis_MAX;
+extern class EAxis {
+	static var None: EAxis;
+	static var X: EAxis;
+	static var Y: EAxis;
+	static var Z: EAxis;
+	static var EAxis_MAX: EAxis;
 }

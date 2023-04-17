@@ -3,9 +3,9 @@ package ue;
 
 @:native("EProcessRootMotionMode")
 @:include("Animation/DebugSkelMeshComponent.h")
-extern enum EProcessRootMotionMode {
-	Ignore;
-	Loop;
-	LoopAndReset;
-	EProcessRootMotionMode_MAX;
+extern class EProcessRootMotionMode {
+	static var Ignore: EProcessRootMotionMode;
+	static var Loop: EProcessRootMotionMode;
+	static var LoopAndReset: EProcessRootMotionMode;
+	static var EProcessRootMotionMode_MAX: EProcessRootMotionMode;
 }

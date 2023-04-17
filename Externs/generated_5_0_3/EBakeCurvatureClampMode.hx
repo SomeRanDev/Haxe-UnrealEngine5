@@ -3,9 +3,9 @@ package ue;
 
 @:native("EBakeCurvatureClampMode")
 @:include("BakeMeshAttributeToolCommon.h")
-extern enum EBakeCurvatureClampMode {
-	None;
-	OnlyPositive;
-	OnlyNegative;
-	EBakeCurvatureClampMode_MAX;
+extern class EBakeCurvatureClampMode {
+	static var None: EBakeCurvatureClampMode;
+	static var OnlyPositive: EBakeCurvatureClampMode;
+	static var OnlyNegative: EBakeCurvatureClampMode;
+	static var EBakeCurvatureClampMode_MAX: EBakeCurvatureClampMode;
 }

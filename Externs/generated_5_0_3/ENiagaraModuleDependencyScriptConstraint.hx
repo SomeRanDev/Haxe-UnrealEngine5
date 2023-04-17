@@ -3,8 +3,8 @@ package ue;
 
 @:native("ENiagaraModuleDependencyScriptConstraint")
 @:include("NiagaraScript.h")
-extern enum ENiagaraModuleDependencyScriptConstraint {
-	SameScript;
-	AllScripts;
-	ENiagaraModuleDependencyScriptConstraint_MAX;
+extern class ENiagaraModuleDependencyScriptConstraint {
+	static var SameScript: ENiagaraModuleDependencyScriptConstraint;
+	static var AllScripts: ENiagaraModuleDependencyScriptConstraint;
+	static var ENiagaraModuleDependencyScriptConstraint_MAX: ENiagaraModuleDependencyScriptConstraint;
 }

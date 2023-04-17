@@ -5,9 +5,8 @@ package ue;
 @:include("PhysicsEngine/PhysicsAsset.h")
 @:structAccess
 extern class SkeletalBodySetup extends BodySetup {
-	public var CurrentPhysicalAnimationProfile: PhysicalAnimationProfile;
 	public var bSkipScaleFromAnimation: Bool;
-	public var PhysicalAnimationData: TArray<PhysicalAnimationProfile>;
+	private var PhysicalAnimationData: TArray<PhysicalAnimationProfile>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +14,8 @@ extern class SkeletalBodySetup extends BodySetup {
 @:forward()
 @:nativeGen
 abstract ConstSkeletalBodySetup(SkeletalBodySetup) from SkeletalBodySetup {
-	public extern var CurrentPhysicalAnimationProfile(get, never): PhysicalAnimationProfile;
-	public inline extern function get_CurrentPhysicalAnimationProfile(): PhysicalAnimationProfile return this.CurrentPhysicalAnimationProfile;
 	public extern var bSkipScaleFromAnimation(get, never): Bool;
 	public inline extern function get_bSkipScaleFromAnimation(): Bool return this.bSkipScaleFromAnimation;
-	public extern var PhysicalAnimationData(get, never): TArray<PhysicalAnimationProfile>;
-	public inline extern function get_PhysicalAnimationData(): TArray<PhysicalAnimationProfile> return this.PhysicalAnimationData;
 }
 
 @:forward

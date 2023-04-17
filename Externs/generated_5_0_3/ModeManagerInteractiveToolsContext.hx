@@ -5,7 +5,7 @@ package ue;
 @:include("EdModeInteractiveToolsContext.h")
 @:structAccess
 extern class ModeManagerInteractiveToolsContext extends EditorInteractiveToolsContext {
-	public var EdModeToolsContexts: TArray<cpp.Star<EdModeInteractiveToolsContext>>;
+	@:protected public var EdModeToolsContexts: TArray<cpp.Star<EdModeInteractiveToolsContext>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class ModeManagerInteractiveToolsContext extends EditorInteractiveToolsCo
 @:forward()
 @:nativeGen
 abstract ConstModeManagerInteractiveToolsContext(ModeManagerInteractiveToolsContext) from ModeManagerInteractiveToolsContext {
-	public extern var EdModeToolsContexts(get, never): TArray<cpp.Star<EdModeInteractiveToolsContext.ConstEdModeInteractiveToolsContext>>;
-	public inline extern function get_EdModeToolsContexts(): TArray<cpp.Star<EdModeInteractiveToolsContext.ConstEdModeInteractiveToolsContext>> return this.EdModeToolsContexts;
 }
 
 @:forward

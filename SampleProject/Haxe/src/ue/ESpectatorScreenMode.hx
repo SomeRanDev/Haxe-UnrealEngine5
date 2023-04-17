@@ -3,14 +3,14 @@ package ue;
 
 @:native("ESpectatorScreenMode")
 @:include("HeadMountedDisplayTypes.h")
-extern enum ESpectatorScreenMode {
-	Disabled;
-	SingleEyeLetterboxed;
-	Undistorted;
-	Distorted;
-	SingleEye;
-	SingleEyeCroppedToFill;
-	Texture;
-	TexturePlusEye;
-	ESpectatorScreenMode_MAX;
+extern class ESpectatorScreenMode {
+	static var Disabled: ESpectatorScreenMode;
+	static var SingleEyeLetterboxed: ESpectatorScreenMode;
+	static var Undistorted: ESpectatorScreenMode;
+	static var Distorted: ESpectatorScreenMode;
+	static var SingleEye: ESpectatorScreenMode;
+	static var SingleEyeCroppedToFill: ESpectatorScreenMode;
+	static var Texture: ESpectatorScreenMode;
+	static var TexturePlusEye: ESpectatorScreenMode;
+	static var ESpectatorScreenMode_MAX: ESpectatorScreenMode;
 }

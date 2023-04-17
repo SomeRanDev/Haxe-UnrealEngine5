@@ -3,11 +3,11 @@ package ue;
 
 @:native("EPIEPreviewDeviceType")
 @:include("PIEPreviewDeviceSpecification.h")
-extern enum EPIEPreviewDeviceType {
-	Unset;
-	Android;
-	IOS;
-	TVOS;
-	Switch;
-	MAX;
+extern class EPIEPreviewDeviceType {
+	static var Unset: EPIEPreviewDeviceType;
+	static var Android: EPIEPreviewDeviceType;
+	static var IOS: EPIEPreviewDeviceType;
+	static var TVOS: EPIEPreviewDeviceType;
+	static var Switch: EPIEPreviewDeviceType;
+	static var MAX: EPIEPreviewDeviceType;
 }

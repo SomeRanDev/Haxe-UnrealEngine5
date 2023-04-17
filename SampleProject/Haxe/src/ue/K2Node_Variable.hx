@@ -6,10 +6,7 @@ package ue;
 @:structAccess
 extern class K2Node_Variable extends K2Node {
 	public var VariableReference: MemberReference;
-	public var SelfContextInfo: ESelfContextInfo;
-	public var VariableSourceClass_DEPRECATED: TSubclassOf<Object>;
-	public var VariableName_DEPRECATED: FName;
-	public var bSelfContext_DEPRECATED: Bool;
+	public var SelfContextInfo: TEnumAsByte<ESelfContextInfo>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,14 +16,8 @@ extern class K2Node_Variable extends K2Node {
 abstract ConstK2Node_Variable(K2Node_Variable) from K2Node_Variable {
 	public extern var VariableReference(get, never): MemberReference;
 	public inline extern function get_VariableReference(): MemberReference return this.VariableReference;
-	public extern var SelfContextInfo(get, never): ESelfContextInfo;
-	public inline extern function get_SelfContextInfo(): ESelfContextInfo return this.SelfContextInfo;
-	public extern var VariableSourceClass_DEPRECATED(get, never): TSubclassOf<Object.ConstObject>;
-	public inline extern function get_VariableSourceClass_DEPRECATED(): TSubclassOf<Object.ConstObject> return this.VariableSourceClass_DEPRECATED;
-	public extern var VariableName_DEPRECATED(get, never): FName;
-	public inline extern function get_VariableName_DEPRECATED(): FName return this.VariableName_DEPRECATED;
-	public extern var bSelfContext_DEPRECATED(get, never): Bool;
-	public inline extern function get_bSelfContext_DEPRECATED(): Bool return this.bSelfContext_DEPRECATED;
+	public extern var SelfContextInfo(get, never): TEnumAsByte<ESelfContextInfo>;
+	public inline extern function get_SelfContextInfo(): TEnumAsByte<ESelfContextInfo> return this.SelfContextInfo;
 }
 
 @:forward

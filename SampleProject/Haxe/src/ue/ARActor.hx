@@ -5,7 +5,7 @@ package ue;
 @:include("ARActor.h")
 @:structAccess
 extern class ARActor extends Actor {
-	public function AddARComponent(InComponentClass: TSubclassOf<ARComp>, NativeID: cpp.Reference<Guid>): cpp.Reference<cpp.Star<ARComp>>;
+	public function AddARComponent(InComponentClass: TSubclassOf<ARComp>, NativeID: cpp.Reference<Guid>): cpp.Star<ARComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

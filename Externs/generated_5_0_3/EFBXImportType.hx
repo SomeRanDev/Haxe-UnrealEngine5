@@ -3,9 +3,9 @@ package ue;
 
 @:native("EFBXImportType")
 @:include("Factories/FbxImportUI.h")
-extern enum EFBXImportType {
-	FBXIT_StaticMesh;
-	FBXIT_SkeletalMesh;
-	FBXIT_Animation;
-	FBXIT_MAX;
+extern class EFBXImportType {
+	static var FBXIT_StaticMesh: EFBXImportType;
+	static var FBXIT_SkeletalMesh: EFBXImportType;
+	static var FBXIT_Animation: EFBXImportType;
+	static var FBXIT_MAX: EFBXImportType;
 }

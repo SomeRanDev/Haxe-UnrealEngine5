@@ -5,21 +5,14 @@ package ue;
 @:include("Retargeter/IKRetargeter.h")
 @:structAccess
 extern class IKRetargeter extends Object {
-	public var SourceIKRigAsset: cpp.Star<IKRigDefinition>;
-	public var TargetIKRigAsset: cpp.Star<IKRigDefinition>;
-	public var TargetPreviewMesh: cpp.Star<SkeletalMesh>;
+	private var SourceIKRigAsset: cpp.Star<IKRigDefinition>;
+	private var TargetIKRigAsset: cpp.Star<IKRigDefinition>;
 	public var bRetargetRoot: Bool;
 	public var bRetargetFK: Bool;
 	public var bRetargetIK: Bool;
-	public var TargetActorOffset: cpp.Float32;
-	public var TargetActorScale: cpp.Float32;
-	public var BoneDrawSize: cpp.Float32;
-	public var bEditRetargetPoseMode: Bool;
-	public var Controller: cpp.Star<Object>;
-	public var RetargetPoses: TMap<FName, IKRetargetPose>;
-	public var ChainMapping_DEPRECATED: TArray<RetargetChainMap>;
-	public var ChainSettings: TArray<cpp.Star<RetargetChainSettings>>;
-	public var CurrentRetargetPose: FName;
+	private var RetargetPoses: TMap<FName, IKRetargetPose>;
+	private var ChainSettings: TArray<cpp.Star<RetargetChainSettings>>;
+	private var CurrentRetargetPose: FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -27,36 +20,12 @@ extern class IKRetargeter extends Object {
 @:forward()
 @:nativeGen
 abstract ConstIKRetargeter(IKRetargeter) from IKRetargeter {
-	public extern var SourceIKRigAsset(get, never): cpp.Star<IKRigDefinition.ConstIKRigDefinition>;
-	public inline extern function get_SourceIKRigAsset(): cpp.Star<IKRigDefinition.ConstIKRigDefinition> return this.SourceIKRigAsset;
-	public extern var TargetIKRigAsset(get, never): cpp.Star<IKRigDefinition.ConstIKRigDefinition>;
-	public inline extern function get_TargetIKRigAsset(): cpp.Star<IKRigDefinition.ConstIKRigDefinition> return this.TargetIKRigAsset;
-	public extern var TargetPreviewMesh(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_TargetPreviewMesh(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.TargetPreviewMesh;
 	public extern var bRetargetRoot(get, never): Bool;
 	public inline extern function get_bRetargetRoot(): Bool return this.bRetargetRoot;
 	public extern var bRetargetFK(get, never): Bool;
 	public inline extern function get_bRetargetFK(): Bool return this.bRetargetFK;
 	public extern var bRetargetIK(get, never): Bool;
 	public inline extern function get_bRetargetIK(): Bool return this.bRetargetIK;
-	public extern var TargetActorOffset(get, never): cpp.Float32;
-	public inline extern function get_TargetActorOffset(): cpp.Float32 return this.TargetActorOffset;
-	public extern var TargetActorScale(get, never): cpp.Float32;
-	public inline extern function get_TargetActorScale(): cpp.Float32 return this.TargetActorScale;
-	public extern var BoneDrawSize(get, never): cpp.Float32;
-	public inline extern function get_BoneDrawSize(): cpp.Float32 return this.BoneDrawSize;
-	public extern var bEditRetargetPoseMode(get, never): Bool;
-	public inline extern function get_bEditRetargetPoseMode(): Bool return this.bEditRetargetPoseMode;
-	public extern var Controller(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_Controller(): cpp.Star<Object.ConstObject> return this.Controller;
-	public extern var RetargetPoses(get, never): TMap<FName, IKRetargetPose>;
-	public inline extern function get_RetargetPoses(): TMap<FName, IKRetargetPose> return this.RetargetPoses;
-	public extern var ChainMapping_DEPRECATED(get, never): TArray<RetargetChainMap>;
-	public inline extern function get_ChainMapping_DEPRECATED(): TArray<RetargetChainMap> return this.ChainMapping_DEPRECATED;
-	public extern var ChainSettings(get, never): TArray<cpp.Star<RetargetChainSettings.ConstRetargetChainSettings>>;
-	public inline extern function get_ChainSettings(): TArray<cpp.Star<RetargetChainSettings.ConstRetargetChainSettings>> return this.ChainSettings;
-	public extern var CurrentRetargetPose(get, never): FName;
-	public inline extern function get_CurrentRetargetPose(): FName return this.CurrentRetargetPose;
 }
 
 @:forward

@@ -17,7 +17,7 @@ extern class NetConnection extends Player {
 	public var InternalAck: Bool;
 	public var PlayerId: UniqueNetIdRepl;
 	public var LastReceiveTime: cpp.Float64;
-	public var ChannelsToTick: TArray<cpp.Star<Channel>>;
+	private var ChannelsToTick: TArray<cpp.Star<Channel>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -49,8 +49,6 @@ abstract ConstNetConnection(NetConnection) from NetConnection {
 	public inline extern function get_PlayerId(): UniqueNetIdRepl return this.PlayerId;
 	public extern var LastReceiveTime(get, never): cpp.Float64;
 	public inline extern function get_LastReceiveTime(): cpp.Float64 return this.LastReceiveTime;
-	public extern var ChannelsToTick(get, never): TArray<cpp.Star<Channel.ConstChannel>>;
-	public inline extern function get_ChannelsToTick(): TArray<cpp.Star<Channel.ConstChannel>> return this.ChannelsToTick;
 }
 
 @:forward

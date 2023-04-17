@@ -3,11 +3,11 @@ package ue;
 
 @:native("EStreamingVolumeUsage")
 @:include("Engine/LevelStreamingVolume.h")
-extern enum EStreamingVolumeUsage {
-	SVB_Loading;
-	SVB_LoadingAndVisibility;
-	SVB_VisibilityBlockingOnLoad;
-	SVB_BlockingOnLoad;
-	SVB_LoadingNotVisible;
-	SVB_MAX;
+extern class EStreamingVolumeUsage {
+	static var SVB_Loading: EStreamingVolumeUsage;
+	static var SVB_LoadingAndVisibility: EStreamingVolumeUsage;
+	static var SVB_VisibilityBlockingOnLoad: EStreamingVolumeUsage;
+	static var SVB_BlockingOnLoad: EStreamingVolumeUsage;
+	static var SVB_LoadingNotVisible: EStreamingVolumeUsage;
+	static var SVB_MAX: EStreamingVolumeUsage;
 }

@@ -5,18 +5,18 @@ package ue;
 @:include("EnvironmentQuery/EnvQueryInstanceBlueprintWrapper.h")
 @:structAccess
 extern class EnvQueryInstanceBlueprintWrapper extends Object {
-	public var QueryID: cpp.Int32;
-	public var ItemType: TSubclassOf<EnvQueryItemType>;
-	public var OptionIndex: cpp.Int32;
-	public var OnQueryFinishedEvent: HaxeMulticastSparseDelegateProperty<(cpp.Star<EnvQueryInstanceBlueprintWrapper>, EEnvQueryStatus) -> Void>;
+	@:protected public var QueryID: cpp.Int32;
+	@:protected public var ItemType: TSubclassOf<EnvQueryItemType>;
+	@:protected public var OptionIndex: cpp.Int32;
+	@:protected public var OnQueryFinishedEvent: HaxeMulticastSparseDelegateProperty<(cpp.Star<EnvQueryInstanceBlueprintWrapper>, TEnumAsByte<EEnvQueryStatus>) -> Void>;
 
 	public function SetNamedParam(ParamName: FName, Value: cpp.Float32): Void;
-	public function GetResultsAsLocations(): cpp.Reference<TArray<Vector>>;
-	public function GetResultsAsActors(): cpp.Reference<TArray<cpp.Star<Actor>>>;
-	public function GetQueryResultsAsLocations(ResultLocations: cpp.Reference<TArray<Vector>>): cpp.Reference<Bool>;
-	public function GetQueryResultsAsActors(ResultActors: cpp.Reference<TArray<cpp.Star<Actor>>>): cpp.Reference<Bool>;
-	public function GetItemScore(ItemIndex: cpp.Int32): cpp.Reference<cpp.Float32>;
-	public function EQSQueryDoneSignature__DelegateSignature(QueryInstance: cpp.Star<EnvQueryInstanceBlueprintWrapper>, QueryStatus: EEnvQueryStatus): Void;
+	public function GetResultsAsLocations(): TArray<Vector>;
+	public function GetResultsAsActors(): TArray<cpp.Star<Actor>>;
+	public function GetQueryResultsAsLocations(ResultLocations: cpp.Reference<TArray<Vector>>): Bool;
+	public function GetQueryResultsAsActors(ResultActors: cpp.Reference<TArray<cpp.Star<Actor>>>): Bool;
+	public function GetItemScore(ItemIndex: cpp.Int32): cpp.Float32;
+	public function EQSQueryDoneSignature__DelegateSignature(QueryInstance: cpp.Star<EnvQueryInstanceBlueprintWrapper>, QueryStatus: TEnumAsByte<EEnvQueryStatus>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -24,14 +24,6 @@ extern class EnvQueryInstanceBlueprintWrapper extends Object {
 @:forward(GetResultsAsLocations, GetResultsAsActors, GetQueryResultsAsLocations, GetQueryResultsAsActors, GetItemScore)
 @:nativeGen
 abstract ConstEnvQueryInstanceBlueprintWrapper(EnvQueryInstanceBlueprintWrapper) from EnvQueryInstanceBlueprintWrapper {
-	public extern var QueryID(get, never): cpp.Int32;
-	public inline extern function get_QueryID(): cpp.Int32 return this.QueryID;
-	public extern var ItemType(get, never): TSubclassOf<EnvQueryItemType.ConstEnvQueryItemType>;
-	public inline extern function get_ItemType(): TSubclassOf<EnvQueryItemType.ConstEnvQueryItemType> return this.ItemType;
-	public extern var OptionIndex(get, never): cpp.Int32;
-	public inline extern function get_OptionIndex(): cpp.Int32 return this.OptionIndex;
-	public extern var OnQueryFinishedEvent(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<EnvQueryInstanceBlueprintWrapper.ConstEnvQueryInstanceBlueprintWrapper>, EEnvQueryStatus) -> Void>;
-	public inline extern function get_OnQueryFinishedEvent(): HaxeMulticastSparseDelegateProperty<(cpp.Star<EnvQueryInstanceBlueprintWrapper.ConstEnvQueryInstanceBlueprintWrapper>, EEnvQueryStatus) -> Void> return this.OnQueryFinishedEvent;
 }
 
 @:forward

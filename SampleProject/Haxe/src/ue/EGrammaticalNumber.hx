@@ -3,8 +3,8 @@ package ue;
 
 @:native("EGrammaticalNumber.Type")
 @:include("Sound/DialogueTypes.h")
-extern enum EGrammaticalNumber {
-	Singular;
-	Plural;
-	EGrammaticalNumber_MAX;
+extern class EGrammaticalNumber {
+	static var Singular: EGrammaticalNumber;
+	static var Plural: EGrammaticalNumber;
+	static var EGrammaticalNumber_MAX: EGrammaticalNumber;
 }

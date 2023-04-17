@@ -3,11 +3,11 @@ package ue;
 
 @:native("EInputEvent")
 @:include("Engine/EngineBaseTypes.h")
-extern enum EInputEvent {
-	IE_Pressed;
-	IE_Released;
-	IE_Repeat;
-	IE_DoubleClick;
-	IE_Axis;
-	IE_MAX;
+extern class EInputEvent {
+	static var IE_Pressed: EInputEvent;
+	static var IE_Released: EInputEvent;
+	static var IE_Repeat: EInputEvent;
+	static var IE_DoubleClick: EInputEvent;
+	static var IE_Axis: EInputEvent;
+	static var IE_MAX: EInputEvent;
 }

@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESlateBrushRoundingType.Type")
 @:include("Styling/SlateBrush.h")
-extern enum ESlateBrushRoundingType {
-	FixedRadius;
-	HalfHeightRadius;
-	ESlateBrushRoundingType_MAX;
+extern class ESlateBrushRoundingType {
+	static var FixedRadius: ESlateBrushRoundingType;
+	static var HalfHeightRadius: ESlateBrushRoundingType;
+	static var ESlateBrushRoundingType_MAX: ESlateBrushRoundingType;
 }

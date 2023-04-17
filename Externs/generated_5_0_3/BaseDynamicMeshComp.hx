@@ -7,8 +7,8 @@ package ue;
 extern class BaseDynamicMeshComp extends MeshComp {
 	public var bExplicitShowWireframe: Bool;
 	public var bEnableViewModeOverrides: Bool;
-	public var OverrideRenderMaterial: cpp.Star<MaterialInterface>;
-	public var SecondaryRenderMaterial: cpp.Star<MaterialInterface>;
+	@:protected public var OverrideRenderMaterial: cpp.Star<MaterialInterface>;
+	@:protected public var SecondaryRenderMaterial: cpp.Star<MaterialInterface>;
 	public var bEnableRaytracing: Bool;
 	public var BaseMaterials: TArray<cpp.Star<MaterialInterface>>;
 
@@ -19,15 +19,15 @@ extern class BaseDynamicMeshComp extends MeshComp {
 	public function SetOverrideRenderMaterial(Material: cpp.Star<MaterialInterface>): Void;
 	public function SetEnableWireframeRenderPass(bEnable: Bool): Void;
 	public function SetEnableRaytracing(bSetEnabled: Bool): Void;
-	public function HasOverrideRenderMaterial(k: cpp.Int32): cpp.Reference<Bool>;
-	public function GetViewModeOverridesEnabled(): cpp.Reference<Bool>;
-	public function GetShadowsEnabled(): cpp.Reference<Bool>;
-	public function GetSecondaryRenderMaterial(): cpp.Reference<cpp.Star<MaterialInterface>>;
-	public function GetSecondaryBuffersVisibility(): cpp.Reference<Bool>;
-	public function GetOverrideRenderMaterial(MaterialIndex: cpp.Int32): cpp.Reference<cpp.Star<MaterialInterface>>;
-	public function GetEnableWireframeRenderPass(): cpp.Reference<Bool>;
-	public function GetEnableRaytracing(): cpp.Reference<Bool>;
-	public function GetDynamicMesh(): cpp.Reference<cpp.Star<DynamicMesh>>;
+	public function HasOverrideRenderMaterial(k: cpp.Int32): Bool;
+	public function GetViewModeOverridesEnabled(): Bool;
+	public function GetShadowsEnabled(): Bool;
+	public function GetSecondaryRenderMaterial(): cpp.Star<MaterialInterface>;
+	public function GetSecondaryBuffersVisibility(): Bool;
+	public function GetOverrideRenderMaterial(MaterialIndex: cpp.Int32): cpp.Star<MaterialInterface>;
+	public function GetEnableWireframeRenderPass(): Bool;
+	public function GetEnableRaytracing(): Bool;
+	public function GetDynamicMesh(): cpp.Star<DynamicMesh>;
 	public function ClearSecondaryRenderMaterial(): Void;
 	public function ClearOverrideRenderMaterial(): Void;
 
@@ -41,10 +41,6 @@ abstract ConstBaseDynamicMeshComp(BaseDynamicMeshComp) from BaseDynamicMeshComp 
 	public inline extern function get_bExplicitShowWireframe(): Bool return this.bExplicitShowWireframe;
 	public extern var bEnableViewModeOverrides(get, never): Bool;
 	public inline extern function get_bEnableViewModeOverrides(): Bool return this.bEnableViewModeOverrides;
-	public extern var OverrideRenderMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_OverrideRenderMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.OverrideRenderMaterial;
-	public extern var SecondaryRenderMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_SecondaryRenderMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.SecondaryRenderMaterial;
 	public extern var bEnableRaytracing(get, never): Bool;
 	public inline extern function get_bEnableRaytracing(): Bool return this.bEnableRaytracing;
 	public extern var BaseMaterials(get, never): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>>;

@@ -9,7 +9,7 @@ extern class TestBTTask_SetValue extends BTTaskNode {
 	public var Value: cpp.Int32;
 	public var OnAbortKeyName: FName;
 	public var OnAbortValue: cpp.Int32;
-	public var TaskResult: EBTNodeResult;
+	public var TaskResult: TEnumAsByte<EBTNodeResult>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -25,8 +25,8 @@ abstract ConstTestBTTask_SetValue(TestBTTask_SetValue) from TestBTTask_SetValue 
 	public inline extern function get_OnAbortKeyName(): FName return this.OnAbortKeyName;
 	public extern var OnAbortValue(get, never): cpp.Int32;
 	public inline extern function get_OnAbortValue(): cpp.Int32 return this.OnAbortValue;
-	public extern var TaskResult(get, never): EBTNodeResult;
-	public inline extern function get_TaskResult(): EBTNodeResult return this.TaskResult;
+	public extern var TaskResult(get, never): TEnumAsByte<EBTNodeResult>;
+	public inline extern function get_TaskResult(): TEnumAsByte<EBTNodeResult> return this.TaskResult;
 }
 
 @:forward

@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class ImageSequenceProtocol_EXR extends ImageSequenceProtocol {
 	public var bCompressed: Bool;
-	public var CaptureGamut: EHDRCaptureGamut;
+	public var CaptureGamut: TEnumAsByte<EHDRCaptureGamut>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,8 @@ extern class ImageSequenceProtocol_EXR extends ImageSequenceProtocol {
 abstract ConstImageSequenceProtocol_EXR(ImageSequenceProtocol_EXR) from ImageSequenceProtocol_EXR {
 	public extern var bCompressed(get, never): Bool;
 	public inline extern function get_bCompressed(): Bool return this.bCompressed;
-	public extern var CaptureGamut(get, never): EHDRCaptureGamut;
-	public inline extern function get_CaptureGamut(): EHDRCaptureGamut return this.CaptureGamut;
+	public extern var CaptureGamut(get, never): TEnumAsByte<EHDRCaptureGamut>;
+	public inline extern function get_CaptureGamut(): TEnumAsByte<EHDRCaptureGamut> return this.CaptureGamut;
 }
 
 @:forward

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAlembicSamplingType")
 @:include("AbcImportSettings.h")
-extern enum EAlembicSamplingType {
-	PerFrame;
-	PerXFrames;
-	PerTimeStep;
-	EAlembicSamplingType_MAX;
+extern class EAlembicSamplingType {
+	static var PerFrame: EAlembicSamplingType;
+	static var PerXFrames: EAlembicSamplingType;
+	static var PerTimeStep: EAlembicSamplingType;
+	static var EAlembicSamplingType_MAX: EAlembicSamplingType;
 }

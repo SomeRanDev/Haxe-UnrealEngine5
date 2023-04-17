@@ -5,7 +5,7 @@ package ue;
 @:include("MeshBoundaryToolBase.h")
 @:structAccess
 extern class MeshBoundaryToolBase extends SingleSelectionMeshEditingTool {
-	public var SelectionMechanic: cpp.Star<PolygonSelectionMechanic>;
+	@:protected public var SelectionMechanic: cpp.Star<PolygonSelectionMechanic>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MeshBoundaryToolBase extends SingleSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstMeshBoundaryToolBase(MeshBoundaryToolBase) from MeshBoundaryToolBase {
-	public extern var SelectionMechanic(get, never): cpp.Star<PolygonSelectionMechanic.ConstPolygonSelectionMechanic>;
-	public inline extern function get_SelectionMechanic(): cpp.Star<PolygonSelectionMechanic.ConstPolygonSelectionMechanic> return this.SelectionMechanic;
 }
 
 @:forward

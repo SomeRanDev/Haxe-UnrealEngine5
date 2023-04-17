@@ -3,8 +3,8 @@ package ue;
 
 @:native("EBspConversionMode")
 @:include("BspConversionTool.h")
-extern enum EBspConversionMode {
-	ConvertFirst;
-	CombineFirst;
-	EBspConversionMode_MAX;
+extern class EBspConversionMode {
+	static var ConvertFirst: EBspConversionMode;
+	static var CombineFirst: EBspConversionMode;
+	static var EBspConversionMode_MAX: EBspConversionMode;
 }

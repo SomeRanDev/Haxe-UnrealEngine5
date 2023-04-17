@@ -6,14 +6,14 @@ package ue;
 @:structAccess
 extern class GameplayTasksComp extends ActorComp {
 	public var bIsNetDirty: Bool;
-	public var SimulatedTasks: TArray<cpp.Star<GameplayTask>>;
-	public var TaskPriorityQueue: TArray<cpp.Star<GameplayTask>>;
-	public var TickingTasks: TArray<cpp.Star<GameplayTask>>;
-	public var KnownTasks: TArray<cpp.Star<GameplayTask>>;
+	@:protected public var SimulatedTasks: TArray<cpp.Star<GameplayTask>>;
+	@:protected public var TaskPriorityQueue: TArray<cpp.Star<GameplayTask>>;
+	@:protected public var TickingTasks: TArray<cpp.Star<GameplayTask>>;
+	@:protected public var KnownTasks: TArray<cpp.Star<GameplayTask>>;
 	public var OnClaimedResourcesChange: HaxeMulticastSparseDelegateProperty<(GameplayResourceSet, GameplayResourceSet) -> Void>;
 
 	public function OnRep_SimulatedTasks(): Void;
-	public function K2_RunGameplayTask(TaskOwner: GameplayTaskOwnerInterface, Task: cpp.Star<GameplayTask>, Priority: cpp.UInt8, AdditionalRequiredResources: TArray<TSubclassOf<GameplayTaskResource>>, AdditionalClaimedResources: TArray<TSubclassOf<GameplayTaskResource>>): cpp.Reference<EGameplayTaskRunResult>;
+	public function K2_RunGameplayTask(TaskOwner: GameplayTaskOwnerInterface, Task: cpp.Star<GameplayTask>, Priority: cpp.UInt8, AdditionalRequiredResources: TArray<TSubclassOf<GameplayTaskResource>>, AdditionalClaimedResources: TArray<TSubclassOf<GameplayTaskResource>>): EGameplayTaskRunResult;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -23,14 +23,6 @@ extern class GameplayTasksComp extends ActorComp {
 abstract ConstGameplayTasksComp(GameplayTasksComp) from GameplayTasksComp {
 	public extern var bIsNetDirty(get, never): Bool;
 	public inline extern function get_bIsNetDirty(): Bool return this.bIsNetDirty;
-	public extern var SimulatedTasks(get, never): TArray<cpp.Star<GameplayTask.ConstGameplayTask>>;
-	public inline extern function get_SimulatedTasks(): TArray<cpp.Star<GameplayTask.ConstGameplayTask>> return this.SimulatedTasks;
-	public extern var TaskPriorityQueue(get, never): TArray<cpp.Star<GameplayTask.ConstGameplayTask>>;
-	public inline extern function get_TaskPriorityQueue(): TArray<cpp.Star<GameplayTask.ConstGameplayTask>> return this.TaskPriorityQueue;
-	public extern var TickingTasks(get, never): TArray<cpp.Star<GameplayTask.ConstGameplayTask>>;
-	public inline extern function get_TickingTasks(): TArray<cpp.Star<GameplayTask.ConstGameplayTask>> return this.TickingTasks;
-	public extern var KnownTasks(get, never): TArray<cpp.Star<GameplayTask.ConstGameplayTask>>;
-	public inline extern function get_KnownTasks(): TArray<cpp.Star<GameplayTask.ConstGameplayTask>> return this.KnownTasks;
 	public extern var OnClaimedResourcesChange(get, never): HaxeMulticastSparseDelegateProperty<(GameplayResourceSet, GameplayResourceSet) -> Void>;
 	public inline extern function get_OnClaimedResourcesChange(): HaxeMulticastSparseDelegateProperty<(GameplayResourceSet, GameplayResourceSet) -> Void> return this.OnClaimedResourcesChange;
 }

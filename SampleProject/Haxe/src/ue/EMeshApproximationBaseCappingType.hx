@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMeshApproximationBaseCappingType")
 @:include("Engine/MeshMerging.h")
-extern enum EMeshApproximationBaseCappingType {
-	NoBaseCapping;
-	ConvexPolygon;
-	ConvexSolid;
-	EMeshApproximationBaseCappingType_MAX;
+extern class EMeshApproximationBaseCappingType {
+	static var NoBaseCapping: EMeshApproximationBaseCappingType;
+	static var ConvexPolygon: EMeshApproximationBaseCappingType;
+	static var ConvexSolid: EMeshApproximationBaseCappingType;
+	static var EMeshApproximationBaseCappingType_MAX: EMeshApproximationBaseCappingType;
 }

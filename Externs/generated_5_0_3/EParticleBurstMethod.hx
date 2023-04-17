@@ -3,8 +3,8 @@ package ue;
 
 @:native("EParticleBurstMethod")
 @:include("Particles/ParticleEmitter.h")
-extern enum EParticleBurstMethod {
-	EPBM_Instant;
-	EPBM_Interpolated;
-	EPBM_MAX;
+extern class EParticleBurstMethod {
+	static var EPBM_Instant: EParticleBurstMethod;
+	static var EPBM_Interpolated: EParticleBurstMethod;
+	static var EPBM_MAX: EParticleBurstMethod;
 }

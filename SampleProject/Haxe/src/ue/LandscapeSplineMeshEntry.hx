@@ -11,9 +11,8 @@ extern class LandscapeSplineMeshEntry {
 	public var CenterAdjust: Vector2D;
 	public var bScaleToWidth: Bool;
 	public var Scale: Vector;
-	public var Orientation_DEPRECATED: LandscapeSplineMeshOrientation;
-	public var ForwardAxis: ESplineMeshAxis;
-	public var UpAxis: ESplineMeshAxis;
+	public var ForwardAxis: TEnumAsByte<ESplineMeshAxis>;
+	public var UpAxis: TEnumAsByte<ESplineMeshAxis>;
 
 	@:native("FLandscapeSplineMeshEntry") public function new();
 }

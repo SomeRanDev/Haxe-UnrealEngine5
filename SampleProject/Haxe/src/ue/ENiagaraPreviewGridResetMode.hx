@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENiagaraPreviewGridResetMode")
 @:include("NiagaraPreviewGrid.h")
-extern enum ENiagaraPreviewGridResetMode {
-	Never;
-	Individual;
-	All;
-	ENiagaraPreviewGridResetMode_MAX;
+extern class ENiagaraPreviewGridResetMode {
+	static var Never: ENiagaraPreviewGridResetMode;
+	static var Individual: ENiagaraPreviewGridResetMode;
+	static var All: ENiagaraPreviewGridResetMode;
+	static var ENiagaraPreviewGridResetMode_MAX: ENiagaraPreviewGridResetMode;
 }

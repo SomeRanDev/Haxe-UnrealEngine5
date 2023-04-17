@@ -3,16 +3,16 @@ package ue;
 
 @:native("EMPMatchOutcome.Outcome")
 @:include("Interfaces/OnlineTurnBasedInterface.h")
-extern enum EMPMatchOutcome {
-	None;
-	Quit;
-	Won;
-	Lost;
-	Tied;
-	TimeExpired;
-	First;
-	Second;
-	Third;
-	Fourth;
-	EMPMatchOutcome_MAX;
+extern class EMPMatchOutcome {
+	static var None: EMPMatchOutcome;
+	static var Quit: EMPMatchOutcome;
+	static var Won: EMPMatchOutcome;
+	static var Lost: EMPMatchOutcome;
+	static var Tied: EMPMatchOutcome;
+	static var TimeExpired: EMPMatchOutcome;
+	static var First: EMPMatchOutcome;
+	static var Second: EMPMatchOutcome;
+	static var Third: EMPMatchOutcome;
+	static var Fourth: EMPMatchOutcome;
+	static var EMPMatchOutcome_MAX: EMPMatchOutcome;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EDecoratorLogicMode.Type")
 @:include("BehaviorTreeDecoratorGraphNode_Logic.h")
-extern enum EDecoratorLogicMode {
-	Sink;
-	And;
-	Or;
-	Not;
-	EDecoratorLogicMode_MAX;
+extern class EDecoratorLogicMode {
+	static var Sink: EDecoratorLogicMode;
+	static var And: EDecoratorLogicMode;
+	static var Or: EDecoratorLogicMode;
+	static var Not: EDecoratorLogicMode;
+	static var EDecoratorLogicMode_MAX: EDecoratorLogicMode;
 }

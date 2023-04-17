@@ -6,10 +6,10 @@ package ue;
 @:structAccess
 extern class VREditorFloatingUI extends VREditorBaseActor {
 	public var CreationContext: VREditorFloatingUICreationContext;
-	public var UserWidget: cpp.Star<UserWidget>;
-	public var WidgetComponent: cpp.Star<VREditorWidgetComp>;
-	public var WindowMeshComponent: cpp.Star<StaticMeshComp>;
-	public var UserWidgetClass: TSubclassOf<Object>;
+	@:protected public var UserWidget: cpp.Star<UserWidget>;
+	@:protected public var WidgetComponent: cpp.Star<VREditorWidgetComp>;
+	@:protected public var WindowMeshComponent: cpp.Star<StaticMeshComp>;
+	private var UserWidgetClass: TSubclassOf<Object>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,14 +19,6 @@ extern class VREditorFloatingUI extends VREditorBaseActor {
 abstract ConstVREditorFloatingUI(VREditorFloatingUI) from VREditorFloatingUI {
 	public extern var CreationContext(get, never): VREditorFloatingUICreationContext;
 	public inline extern function get_CreationContext(): VREditorFloatingUICreationContext return this.CreationContext;
-	public extern var UserWidget(get, never): cpp.Star<UserWidget.ConstUserWidget>;
-	public inline extern function get_UserWidget(): cpp.Star<UserWidget.ConstUserWidget> return this.UserWidget;
-	public extern var WidgetComponent(get, never): cpp.Star<VREditorWidgetComp.ConstVREditorWidgetComp>;
-	public inline extern function get_WidgetComponent(): cpp.Star<VREditorWidgetComp.ConstVREditorWidgetComp> return this.WidgetComponent;
-	public extern var WindowMeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_WindowMeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.WindowMeshComponent;
-	public extern var UserWidgetClass(get, never): TSubclassOf<Object.ConstObject>;
-	public inline extern function get_UserWidgetClass(): TSubclassOf<Object.ConstObject> return this.UserWidgetClass;
 }
 
 @:forward

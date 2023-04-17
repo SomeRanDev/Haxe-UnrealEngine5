@@ -5,8 +5,8 @@ package ue;
 @:include("MeshVertexPaintingTool.h")
 @:structAccess
 extern class MeshVertexPaintingTool extends BaseBrushTool {
-	public var SelectionMechanic: cpp.Star<MeshPaintSelectionMechanic>;
-	public var VertexProperties: cpp.Star<MeshVertexPaintingToolProperties>;
+	@:protected public var SelectionMechanic: cpp.Star<MeshPaintSelectionMechanic>;
+	private var VertexProperties: cpp.Star<MeshVertexPaintingToolProperties>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class MeshVertexPaintingTool extends BaseBrushTool {
 @:forward()
 @:nativeGen
 abstract ConstMeshVertexPaintingTool(MeshVertexPaintingTool) from MeshVertexPaintingTool {
-	public extern var SelectionMechanic(get, never): cpp.Star<MeshPaintSelectionMechanic.ConstMeshPaintSelectionMechanic>;
-	public inline extern function get_SelectionMechanic(): cpp.Star<MeshPaintSelectionMechanic.ConstMeshPaintSelectionMechanic> return this.SelectionMechanic;
-	public extern var VertexProperties(get, never): cpp.Star<MeshVertexPaintingToolProperties.ConstMeshVertexPaintingToolProperties>;
-	public inline extern function get_VertexProperties(): cpp.Star<MeshVertexPaintingToolProperties.ConstMeshVertexPaintingToolProperties> return this.VertexProperties;
 }
 
 @:forward

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EWASDType")
 @:include("Settings/LevelEditorViewportSettings.h")
-extern enum EWASDType {
-	WASD_Always;
-	WASD_RMBOnly;
-	WASD_Never;
-	WASD_MAX;
+extern class EWASDType {
+	static var WASD_Always: EWASDType;
+	static var WASD_RMBOnly: EWASDType;
+	static var WASD_Never: EWASDType;
+	static var WASD_MAX: EWASDType;
 }

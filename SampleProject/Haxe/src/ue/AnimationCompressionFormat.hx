@@ -3,13 +3,13 @@ package ue;
 
 @:native("AnimationCompressionFormat")
 @:include("Animation/AnimEnums.h")
-extern enum AnimationCompressionFormat {
-	ACF_None;
-	ACF_Float96NoW;
-	ACF_Fixed48NoW;
-	ACF_IntervalFixed32NoW;
-	ACF_Fixed32NoW;
-	ACF_Float32NoW;
-	ACF_Identity;
-	ACF_MAX;
+extern class AnimationCompressionFormat {
+	static var ACF_None: AnimationCompressionFormat;
+	static var ACF_Float96NoW: AnimationCompressionFormat;
+	static var ACF_Fixed48NoW: AnimationCompressionFormat;
+	static var ACF_IntervalFixed32NoW: AnimationCompressionFormat;
+	static var ACF_Fixed32NoW: AnimationCompressionFormat;
+	static var ACF_Float32NoW: AnimationCompressionFormat;
+	static var ACF_Identity: AnimationCompressionFormat;
+	static var ACF_MAX: AnimationCompressionFormat;
 }

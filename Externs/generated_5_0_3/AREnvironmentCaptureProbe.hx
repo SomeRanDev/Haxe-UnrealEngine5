@@ -5,11 +5,11 @@ package ue;
 @:include("ARTrackable.h")
 @:structAccess
 extern class AREnvironmentCaptureProbe extends ARTrackedGeometry {
-	public var Extent: Vector;
-	public var EnvironmentCaptureTexture: cpp.Star<AREnvironmentCaptureProbeTexture>;
+	@:protected public var Extent: Vector;
+	@:protected public var EnvironmentCaptureTexture: cpp.Star<AREnvironmentCaptureProbeTexture>;
 
-	public function GetExtent(): cpp.Reference<Vector>;
-	public function GetEnvironmentCaptureTexture(): cpp.Reference<cpp.Star<AREnvironmentCaptureProbeTexture>>;
+	public function GetExtent(): Vector;
+	public function GetEnvironmentCaptureTexture(): cpp.Star<AREnvironmentCaptureProbeTexture>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,10 +17,6 @@ extern class AREnvironmentCaptureProbe extends ARTrackedGeometry {
 @:forward(GetExtent)
 @:nativeGen
 abstract ConstAREnvironmentCaptureProbe(AREnvironmentCaptureProbe) from AREnvironmentCaptureProbe {
-	public extern var Extent(get, never): Vector;
-	public inline extern function get_Extent(): Vector return this.Extent;
-	public extern var EnvironmentCaptureTexture(get, never): cpp.Star<AREnvironmentCaptureProbeTexture.ConstAREnvironmentCaptureProbeTexture>;
-	public inline extern function get_EnvironmentCaptureTexture(): cpp.Star<AREnvironmentCaptureProbeTexture.ConstAREnvironmentCaptureProbeTexture> return this.EnvironmentCaptureTexture;
 }
 
 @:forward

@@ -5,27 +5,27 @@ package ue;
 @:include("EditMeshPolygonsTool.h")
 @:structAccess
 extern class EditMeshPolygonsTool extends SingleSelectionMeshEditingTool {
-	public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	public var CommonProps: cpp.Star<PolyEditCommonProperties>;
-	public var EditActions: cpp.Star<EditMeshPolygonsToolActions>;
-	public var EditActions_Triangles: cpp.Star<EditMeshPolygonsToolActions_Triangles>;
-	public var EditEdgeActions: cpp.Star<EditMeshPolygonsToolEdgeActions>;
-	public var EditEdgeActions_Triangles: cpp.Star<EditMeshPolygonsToolEdgeActions_Triangles>;
-	public var EditUVActions: cpp.Star<EditMeshPolygonsToolUVActions>;
-	public var CancelAction: cpp.Star<EditMeshPolygonsToolCancelAction>;
-	public var AcceptCancelAction: cpp.Star<EditMeshPolygonsToolAcceptCancelAction>;
-	public var ExtrudeActivity: cpp.Star<PolyEditExtrudeActivity>;
-	public var InsetOutsetActivity: cpp.Star<PolyEditInsetOutsetActivity>;
-	public var CutFacesActivity: cpp.Star<PolyEditCutFacesActivity>;
-	public var PlanarProjectionUVActivity: cpp.Star<PolyEditPlanarProjectionUVActivity>;
-	public var InsertEdgeActivity: cpp.Star<PolyEditInsertEdgeActivity>;
-	public var InsertEdgeLoopActivity: cpp.Star<PolyEditInsertEdgeLoopActivity>;
-	public var BevelEdgeActivity: cpp.Star<PolyEditBevelEdgeActivity>;
-	public var ActivityContext: cpp.Star<PolyEditActivityContext>;
-	public var SelectionMechanic: cpp.Star<PolygonSelectionMechanic>;
-	public var DragAlignmentMechanic: cpp.Star<DragAlignmentMechanic>;
-	public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	public var TransformProxy: cpp.Star<TransformProxy>;
+	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var CommonProps: cpp.Star<PolyEditCommonProperties>;
+	@:protected public var EditActions: cpp.Star<EditMeshPolygonsToolActions>;
+	@:protected public var EditActions_Triangles: cpp.Star<EditMeshPolygonsToolActions_Triangles>;
+	@:protected public var EditEdgeActions: cpp.Star<EditMeshPolygonsToolEdgeActions>;
+	@:protected public var EditEdgeActions_Triangles: cpp.Star<EditMeshPolygonsToolEdgeActions_Triangles>;
+	@:protected public var EditUVActions: cpp.Star<EditMeshPolygonsToolUVActions>;
+	@:protected public var CancelAction: cpp.Star<EditMeshPolygonsToolCancelAction>;
+	@:protected public var AcceptCancelAction: cpp.Star<EditMeshPolygonsToolAcceptCancelAction>;
+	@:protected public var ExtrudeActivity: cpp.Star<PolyEditExtrudeActivity>;
+	@:protected public var InsetOutsetActivity: cpp.Star<PolyEditInsetOutsetActivity>;
+	@:protected public var CutFacesActivity: cpp.Star<PolyEditCutFacesActivity>;
+	@:protected public var PlanarProjectionUVActivity: cpp.Star<PolyEditPlanarProjectionUVActivity>;
+	@:protected public var InsertEdgeActivity: cpp.Star<PolyEditInsertEdgeActivity>;
+	@:protected public var InsertEdgeLoopActivity: cpp.Star<PolyEditInsertEdgeLoopActivity>;
+	@:protected public var BevelEdgeActivity: cpp.Star<PolyEditBevelEdgeActivity>;
+	@:protected public var ActivityContext: cpp.Star<PolyEditActivityContext>;
+	@:protected public var SelectionMechanic: cpp.Star<PolygonSelectionMechanic>;
+	@:protected public var DragAlignmentMechanic: cpp.Star<DragAlignmentMechanic>;
+	@:protected public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
+	@:protected public var TransformProxy: cpp.Star<TransformProxy>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -33,48 +33,6 @@ extern class EditMeshPolygonsTool extends SingleSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstEditMeshPolygonsTool(EditMeshPolygonsTool) from EditMeshPolygonsTool {
-	public extern var Preview(get, never): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
-	public inline extern function get_Preview(): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.Preview;
-	public extern var CommonProps(get, never): cpp.Star<PolyEditCommonProperties.ConstPolyEditCommonProperties>;
-	public inline extern function get_CommonProps(): cpp.Star<PolyEditCommonProperties.ConstPolyEditCommonProperties> return this.CommonProps;
-	public extern var EditActions(get, never): cpp.Star<EditMeshPolygonsToolActions.ConstEditMeshPolygonsToolActions>;
-	public inline extern function get_EditActions(): cpp.Star<EditMeshPolygonsToolActions.ConstEditMeshPolygonsToolActions> return this.EditActions;
-	public extern var EditActions_Triangles(get, never): cpp.Star<EditMeshPolygonsToolActions_Triangles.ConstEditMeshPolygonsToolActions_Triangles>;
-	public inline extern function get_EditActions_Triangles(): cpp.Star<EditMeshPolygonsToolActions_Triangles.ConstEditMeshPolygonsToolActions_Triangles> return this.EditActions_Triangles;
-	public extern var EditEdgeActions(get, never): cpp.Star<EditMeshPolygonsToolEdgeActions.ConstEditMeshPolygonsToolEdgeActions>;
-	public inline extern function get_EditEdgeActions(): cpp.Star<EditMeshPolygonsToolEdgeActions.ConstEditMeshPolygonsToolEdgeActions> return this.EditEdgeActions;
-	public extern var EditEdgeActions_Triangles(get, never): cpp.Star<EditMeshPolygonsToolEdgeActions_Triangles.ConstEditMeshPolygonsToolEdgeActions_Triangles>;
-	public inline extern function get_EditEdgeActions_Triangles(): cpp.Star<EditMeshPolygonsToolEdgeActions_Triangles.ConstEditMeshPolygonsToolEdgeActions_Triangles> return this.EditEdgeActions_Triangles;
-	public extern var EditUVActions(get, never): cpp.Star<EditMeshPolygonsToolUVActions.ConstEditMeshPolygonsToolUVActions>;
-	public inline extern function get_EditUVActions(): cpp.Star<EditMeshPolygonsToolUVActions.ConstEditMeshPolygonsToolUVActions> return this.EditUVActions;
-	public extern var CancelAction(get, never): cpp.Star<EditMeshPolygonsToolCancelAction.ConstEditMeshPolygonsToolCancelAction>;
-	public inline extern function get_CancelAction(): cpp.Star<EditMeshPolygonsToolCancelAction.ConstEditMeshPolygonsToolCancelAction> return this.CancelAction;
-	public extern var AcceptCancelAction(get, never): cpp.Star<EditMeshPolygonsToolAcceptCancelAction.ConstEditMeshPolygonsToolAcceptCancelAction>;
-	public inline extern function get_AcceptCancelAction(): cpp.Star<EditMeshPolygonsToolAcceptCancelAction.ConstEditMeshPolygonsToolAcceptCancelAction> return this.AcceptCancelAction;
-	public extern var ExtrudeActivity(get, never): cpp.Star<PolyEditExtrudeActivity.ConstPolyEditExtrudeActivity>;
-	public inline extern function get_ExtrudeActivity(): cpp.Star<PolyEditExtrudeActivity.ConstPolyEditExtrudeActivity> return this.ExtrudeActivity;
-	public extern var InsetOutsetActivity(get, never): cpp.Star<PolyEditInsetOutsetActivity.ConstPolyEditInsetOutsetActivity>;
-	public inline extern function get_InsetOutsetActivity(): cpp.Star<PolyEditInsetOutsetActivity.ConstPolyEditInsetOutsetActivity> return this.InsetOutsetActivity;
-	public extern var CutFacesActivity(get, never): cpp.Star<PolyEditCutFacesActivity.ConstPolyEditCutFacesActivity>;
-	public inline extern function get_CutFacesActivity(): cpp.Star<PolyEditCutFacesActivity.ConstPolyEditCutFacesActivity> return this.CutFacesActivity;
-	public extern var PlanarProjectionUVActivity(get, never): cpp.Star<PolyEditPlanarProjectionUVActivity.ConstPolyEditPlanarProjectionUVActivity>;
-	public inline extern function get_PlanarProjectionUVActivity(): cpp.Star<PolyEditPlanarProjectionUVActivity.ConstPolyEditPlanarProjectionUVActivity> return this.PlanarProjectionUVActivity;
-	public extern var InsertEdgeActivity(get, never): cpp.Star<PolyEditInsertEdgeActivity.ConstPolyEditInsertEdgeActivity>;
-	public inline extern function get_InsertEdgeActivity(): cpp.Star<PolyEditInsertEdgeActivity.ConstPolyEditInsertEdgeActivity> return this.InsertEdgeActivity;
-	public extern var InsertEdgeLoopActivity(get, never): cpp.Star<PolyEditInsertEdgeLoopActivity.ConstPolyEditInsertEdgeLoopActivity>;
-	public inline extern function get_InsertEdgeLoopActivity(): cpp.Star<PolyEditInsertEdgeLoopActivity.ConstPolyEditInsertEdgeLoopActivity> return this.InsertEdgeLoopActivity;
-	public extern var BevelEdgeActivity(get, never): cpp.Star<PolyEditBevelEdgeActivity.ConstPolyEditBevelEdgeActivity>;
-	public inline extern function get_BevelEdgeActivity(): cpp.Star<PolyEditBevelEdgeActivity.ConstPolyEditBevelEdgeActivity> return this.BevelEdgeActivity;
-	public extern var ActivityContext(get, never): cpp.Star<PolyEditActivityContext.ConstPolyEditActivityContext>;
-	public inline extern function get_ActivityContext(): cpp.Star<PolyEditActivityContext.ConstPolyEditActivityContext> return this.ActivityContext;
-	public extern var SelectionMechanic(get, never): cpp.Star<PolygonSelectionMechanic.ConstPolygonSelectionMechanic>;
-	public inline extern function get_SelectionMechanic(): cpp.Star<PolygonSelectionMechanic.ConstPolygonSelectionMechanic> return this.SelectionMechanic;
-	public extern var DragAlignmentMechanic(get, never): cpp.Star<DragAlignmentMechanic.ConstDragAlignmentMechanic>;
-	public inline extern function get_DragAlignmentMechanic(): cpp.Star<DragAlignmentMechanic.ConstDragAlignmentMechanic> return this.DragAlignmentMechanic;
-	public extern var TransformGizmo(get, never): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo>;
-	public inline extern function get_TransformGizmo(): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo> return this.TransformGizmo;
-	public extern var TransformProxy(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
-	public inline extern function get_TransformProxy(): cpp.Star<TransformProxy.ConstTransformProxy> return this.TransformProxy;
 }
 
 @:forward

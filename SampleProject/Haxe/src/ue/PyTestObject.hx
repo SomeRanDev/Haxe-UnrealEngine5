@@ -23,25 +23,25 @@ extern class PyTestObject extends Object {
 	public var BoolInstanceOnly: Bool;
 	public var BoolDefaultsOnly: Bool;
 
-	public function ReturnSet(): cpp.Reference<TSet<cpp.Int32>>;
-	public function ReturnMap(): cpp.Reference<TMap<cpp.Int32, Bool>>;
-	public function ReturnArray(): cpp.Reference<TArray<cpp.Int32>>;
+	public function ReturnSet(): TSet<cpp.Int32>;
+	public function ReturnMap(): TMap<cpp.Int32, Bool>;
+	public function ReturnArray(): TArray<cpp.Int32>;
 	public function MulticastDelegatePropertyCallback(InStr: FString): Void;
 	public function LegacyFuncTakingPyTestStruct(InStruct: cpp.Reference<PyTestStruct>): Void;
-	public function GetConstantValue(): cpp.Reference<cpp.Int32>;
+	public function GetConstantValue(): cpp.Int32;
 	public function FuncTakingPyTestStructDefault(InStruct: cpp.Reference<PyTestStruct>): Void;
 	public function FuncTakingPyTestStruct(InStruct: cpp.Reference<PyTestStruct>): Void;
-	public function FuncTakingPyTestDelegate(InDelegate: cpp.Reference<HaxeDelegateProperty<(cpp.Int32) -> Void>>, InValue: cpp.Int32): cpp.Reference<cpp.Int32>;
+	public function FuncTakingPyTestDelegate(InDelegate: cpp.Reference<HaxeDelegateProperty<(cpp.Int32) -> Void>>, InValue: cpp.Int32): cpp.Int32;
 	public function FuncTakingPyTestChildStruct(InStruct: cpp.Reference<PyTestChildStruct>): Void;
 	public function FuncBlueprintNativeRef(InOutStruct: cpp.Reference<PyTestStruct>): Void;
-	public function FuncBlueprintNative(InValue: cpp.Int32): cpp.Reference<cpp.Int32>;
-	public function FuncBlueprintImplementable(InValue: cpp.Int32): cpp.Reference<cpp.Int32>;
+	public function FuncBlueprintNative(InValue: cpp.Int32): cpp.Int32;
+	public function FuncBlueprintImplementable(InValue: cpp.Int32): cpp.Int32;
 	public function EmitScriptWarning(): Void;
 	public function EmitScriptError(): Void;
-	public function DelegatePropertyCallback(InValue: cpp.Int32): cpp.Reference<cpp.Int32>;
+	public function DelegatePropertyCallback(InValue: cpp.Int32): cpp.Int32;
 	public function CallFuncBlueprintNativeRef(InOutStruct: cpp.Reference<PyTestStruct>): Void;
-	public function CallFuncBlueprintNative(InValue: cpp.Int32): cpp.Reference<cpp.Int32>;
-	public function CallFuncBlueprintImplementable(InValue: cpp.Int32): cpp.Reference<cpp.Int32>;
+	public function CallFuncBlueprintNative(InValue: cpp.Int32): cpp.Int32;
+	public function CallFuncBlueprintImplementable(InValue: cpp.Int32): cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

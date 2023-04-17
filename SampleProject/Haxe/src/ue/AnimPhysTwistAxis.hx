@@ -3,9 +3,9 @@ package ue;
 
 @:native("AnimPhysTwistAxis")
 @:include("Animation/AnimPhysicsSolver.h")
-extern enum AnimPhysTwistAxis {
-	AxisX;
-	AxisY;
-	AxisZ;
-	AnimPhysTwistAxis_MAX;
+extern class AnimPhysTwistAxis {
+	static var AxisX: AnimPhysTwistAxis;
+	static var AxisY: AnimPhysTwistAxis;
+	static var AxisZ: AnimPhysTwistAxis;
+	static var AnimPhysTwistAxis_MAX: AnimPhysTwistAxis;
 }

@@ -5,18 +5,18 @@ package ue;
 @:include("SpectatorBeaconClient.h")
 @:structAccess
 extern class SpectatorBeaconClient extends OnlineBeaconClient {
-	public var DestSessionId: FString;
-	public var PendingReservation: SpectatorReservation;
-	public var RequestType: ESpectatorClientRequestType;
-	public var bPendingReservationSent: Bool;
-	public var bCancelReservation: Bool;
+	@:protected public var DestSessionId: FString;
+	@:protected public var PendingReservation: SpectatorReservation;
+	@:protected public var RequestType: ESpectatorClientRequestType;
+	@:protected public var bPendingReservationSent: Bool;
+	@:protected public var bCancelReservation: Bool;
 
-	public function ServerReservationRequest(SessionId: FString, Reservation: cpp.Reference<SpectatorReservation>): Void;
-	public function ServerCancelReservationRequest(Spectator: cpp.Reference<UniqueNetIdRepl>): Void;
+	@:protected public function ServerReservationRequest(SessionId: FString, Reservation: SpectatorReservation): Void;
+	@:protected public function ServerCancelReservationRequest(Spectator: UniqueNetIdRepl): Void;
 	public function ClientSendReservationUpdates(NumRemainingReservations: cpp.Int32): Void;
 	public function ClientSendReservationFull(): Void;
-	public function ClientReservationResponse(ReservationResponse: ESpectatorReservationResult): Void;
-	public function ClientCancelReservationResponse(ReservationResponse: ESpectatorReservationResult): Void;
+	public function ClientReservationResponse(ReservationResponse: TEnumAsByte<ESpectatorReservationResult>): Void;
+	public function ClientCancelReservationResponse(ReservationResponse: TEnumAsByte<ESpectatorReservationResult>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -24,16 +24,6 @@ extern class SpectatorBeaconClient extends OnlineBeaconClient {
 @:forward()
 @:nativeGen
 abstract ConstSpectatorBeaconClient(SpectatorBeaconClient) from SpectatorBeaconClient {
-	public extern var DestSessionId(get, never): FString;
-	public inline extern function get_DestSessionId(): FString return this.DestSessionId;
-	public extern var PendingReservation(get, never): SpectatorReservation;
-	public inline extern function get_PendingReservation(): SpectatorReservation return this.PendingReservation;
-	public extern var RequestType(get, never): ESpectatorClientRequestType;
-	public inline extern function get_RequestType(): ESpectatorClientRequestType return this.RequestType;
-	public extern var bPendingReservationSent(get, never): Bool;
-	public inline extern function get_bPendingReservationSent(): Bool return this.bPendingReservationSent;
-	public extern var bCancelReservation(get, never): Bool;
-	public inline extern function get_bCancelReservation(): Bool return this.bCancelReservation;
 }
 
 @:forward

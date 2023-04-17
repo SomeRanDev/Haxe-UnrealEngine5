@@ -5,7 +5,7 @@ package ue;
 @:include("AnimPreviewInstance.h")
 @:structAccess
 extern class AnimPreviewInstance extends AnimSingleNodeInstance {
-	public var MontagePreviewType: EMontagePreviewType;
+	public var MontagePreviewType: TEnumAsByte<EMontagePreviewType>;
 	public var MontagePreviewStartSectionIdx: cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -14,8 +14,8 @@ extern class AnimPreviewInstance extends AnimSingleNodeInstance {
 @:forward()
 @:nativeGen
 abstract ConstAnimPreviewInstance(AnimPreviewInstance) from AnimPreviewInstance {
-	public extern var MontagePreviewType(get, never): EMontagePreviewType;
-	public inline extern function get_MontagePreviewType(): EMontagePreviewType return this.MontagePreviewType;
+	public extern var MontagePreviewType(get, never): TEnumAsByte<EMontagePreviewType>;
+	public inline extern function get_MontagePreviewType(): TEnumAsByte<EMontagePreviewType> return this.MontagePreviewType;
 	public extern var MontagePreviewStartSectionIdx(get, never): cpp.Int32;
 	public inline extern function get_MontagePreviewStartSectionIdx(): cpp.Int32 return this.MontagePreviewStartSectionIdx;
 }

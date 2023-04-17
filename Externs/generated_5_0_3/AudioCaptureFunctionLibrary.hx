@@ -5,7 +5,7 @@ package ue;
 @:include("AudioCapture.h")
 @:structAccess
 extern class AudioCaptureFunctionLibrary extends BlueprintFunctionLibrary {
-	public function CreateAudioCapture(): cpp.Reference<cpp.Star<AudioCapture>>;
+	public function CreateAudioCapture(): cpp.Star<AudioCapture>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

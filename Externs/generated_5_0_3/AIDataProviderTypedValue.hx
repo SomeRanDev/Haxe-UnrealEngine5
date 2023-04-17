@@ -5,7 +5,6 @@ package ue;
 @:include("DataProviders/AIDataProvider.h")
 @:structAccess
 extern class AIDataProviderTypedValue extends AIDataProviderValue {
-	public var PropertyType_DEPRECATED: TSubclassOf<Object>;
 
 	@:native("FAIDataProviderTypedValue") public function new();
 	@:native("FAIDataProviderTypedValue") public static function make(PropertyType_DEPRECATED: TSubclassOf<Object>): AIDataProviderTypedValue ;

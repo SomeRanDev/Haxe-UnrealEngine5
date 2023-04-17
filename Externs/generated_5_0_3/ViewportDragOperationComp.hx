@@ -5,8 +5,8 @@ package ue;
 @:include("ViewportDragOperation.h")
 @:structAccess
 extern class ViewportDragOperationComp extends ActorComp {
-	public var DragOperation: cpp.Star<ViewportDragOperation>;
-	public var DragOperationSubclass: TSubclassOf<ViewportDragOperation>;
+	private var DragOperation: cpp.Star<ViewportDragOperation>;
+	private var DragOperationSubclass: TSubclassOf<ViewportDragOperation>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class ViewportDragOperationComp extends ActorComp {
 @:forward()
 @:nativeGen
 abstract ConstViewportDragOperationComp(ViewportDragOperationComp) from ViewportDragOperationComp {
-	public extern var DragOperation(get, never): cpp.Star<ViewportDragOperation.ConstViewportDragOperation>;
-	public inline extern function get_DragOperation(): cpp.Star<ViewportDragOperation.ConstViewportDragOperation> return this.DragOperation;
-	public extern var DragOperationSubclass(get, never): TSubclassOf<ViewportDragOperation.ConstViewportDragOperation>;
-	public inline extern function get_DragOperationSubclass(): TSubclassOf<ViewportDragOperation.ConstViewportDragOperation> return this.DragOperationSubclass;
 }
 
 @:forward

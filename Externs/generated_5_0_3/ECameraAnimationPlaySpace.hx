@@ -3,9 +3,9 @@ package ue;
 
 @:native("ECameraAnimationPlaySpace")
 @:include("CameraAnimationCameraModifier.h")
-extern enum ECameraAnimationPlaySpace {
-	CameraLocal;
-	World;
-	UserDefined;
-	ECameraAnimationPlaySpace_MAX;
+extern class ECameraAnimationPlaySpace {
+	static var CameraLocal: ECameraAnimationPlaySpace;
+	static var World: ECameraAnimationPlaySpace;
+	static var UserDefined: ECameraAnimationPlaySpace;
+	static var ECameraAnimationPlaySpace_MAX: ECameraAnimationPlaySpace;
 }

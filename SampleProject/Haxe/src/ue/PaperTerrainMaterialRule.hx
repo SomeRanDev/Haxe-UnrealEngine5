@@ -13,7 +13,6 @@ extern class PaperTerrainMaterialRule {
 	public var bEnableCollision: Bool;
 	public var CollisionOffset: cpp.Float32;
 	public var DrawOrder: cpp.Int32;
-	public var Description: FText;
 
 	@:native("FPaperTerrainMaterialRule") public function new();
 }

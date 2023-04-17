@@ -3,10 +3,10 @@ package ue;
 
 @:native("EMeshLODSelectionType")
 @:include("Engine/MeshMerging.h")
-extern enum EMeshLODSelectionType {
-	AllLODs;
-	SpecificLOD;
-	CalculateLOD;
-	LowestDetailLOD;
-	EMeshLODSelectionType_MAX;
+extern class EMeshLODSelectionType {
+	static var AllLODs: EMeshLODSelectionType;
+	static var SpecificLOD: EMeshLODSelectionType;
+	static var CalculateLOD: EMeshLODSelectionType;
+	static var LowestDetailLOD: EMeshLODSelectionType;
+	static var EMeshLODSelectionType_MAX: EMeshLODSelectionType;
 }

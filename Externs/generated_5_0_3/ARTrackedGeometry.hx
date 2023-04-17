@@ -6,26 +6,26 @@ package ue;
 @:structAccess
 extern class ARTrackedGeometry extends Object {
 	public var UniqueId: Guid;
-	public var LocalToTrackingTransform: Transform;
-	public var LocalToAlignedTrackingTransform: Transform;
-	public var TrackingState: EARTrackingState;
-	public var UnderlyingMesh: cpp.Star<MRMeshComp>;
-	public var ObjectClassification: EARObjectClassification;
-	public var SpatialMeshUsageFlags: EARSpatialMeshUsageFlags;
-	public var LastUpdateFrameNumber: cpp.Int32;
-	public var DebugName: FName;
+	@:protected public var LocalToTrackingTransform: Transform;
+	@:protected public var LocalToAlignedTrackingTransform: Transform;
+	@:protected public var TrackingState: EARTrackingState;
+	@:protected public var UnderlyingMesh: cpp.Star<MRMeshComp>;
+	@:protected public var ObjectClassification: EARObjectClassification;
+	@:protected public var SpatialMeshUsageFlags: EARSpatialMeshUsageFlags;
+	private var LastUpdateFrameNumber: cpp.Int32;
+	private var DebugName: FName;
 
-	public function IsTracked(): cpp.Reference<Bool>;
-	public function HasSpatialMeshUsageFlag(InFlag: EARSpatialMeshUsageFlags): cpp.Reference<Bool>;
-	public function GetUnderlyingMesh(): cpp.Reference<cpp.Star<MRMeshComp>>;
-	public function GetTrackingState(): cpp.Reference<EARTrackingState>;
-	public function GetObjectClassification(): cpp.Reference<EARObjectClassification>;
-	public function GetName(): cpp.Reference<FString>;
-	public function GetLocalToWorldTransform(): cpp.Reference<Transform>;
-	public function GetLocalToTrackingTransform(): cpp.Reference<Transform>;
-	public function GetLastUpdateTimestamp(): cpp.Reference<cpp.Float32>;
-	public function GetLastUpdateFrameNumber(): cpp.Reference<cpp.Int32>;
-	public function GetDebugName(): cpp.Reference<FName>;
+	public function IsTracked(): Bool;
+	public function HasSpatialMeshUsageFlag(InFlag: EARSpatialMeshUsageFlags): Bool;
+	public function GetUnderlyingMesh(): cpp.Star<MRMeshComp>;
+	public function GetTrackingState(): EARTrackingState;
+	public function GetObjectClassification(): EARObjectClassification;
+	public function GetName(): FString;
+	public function GetLocalToWorldTransform(): Transform;
+	public function GetLocalToTrackingTransform(): Transform;
+	public function GetLastUpdateTimestamp(): cpp.Float32;
+	public function GetLastUpdateFrameNumber(): cpp.Int32;
+	public function GetDebugName(): FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -38,22 +38,6 @@ extern class ARTrackedGeometry extends Object {
 abstract ConstARTrackedGeometry(ARTrackedGeometry) from ARTrackedGeometry {
 	public extern var UniqueId(get, never): Guid;
 	public inline extern function get_UniqueId(): Guid return this.UniqueId;
-	public extern var LocalToTrackingTransform(get, never): Transform;
-	public inline extern function get_LocalToTrackingTransform(): Transform return this.LocalToTrackingTransform;
-	public extern var LocalToAlignedTrackingTransform(get, never): Transform;
-	public inline extern function get_LocalToAlignedTrackingTransform(): Transform return this.LocalToAlignedTrackingTransform;
-	public extern var TrackingState(get, never): EARTrackingState;
-	public inline extern function get_TrackingState(): EARTrackingState return this.TrackingState;
-	public extern var UnderlyingMesh(get, never): cpp.Star<MRMeshComp.ConstMRMeshComp>;
-	public inline extern function get_UnderlyingMesh(): cpp.Star<MRMeshComp.ConstMRMeshComp> return this.UnderlyingMesh;
-	public extern var ObjectClassification(get, never): EARObjectClassification;
-	public inline extern function get_ObjectClassification(): EARObjectClassification return this.ObjectClassification;
-	public extern var SpatialMeshUsageFlags(get, never): EARSpatialMeshUsageFlags;
-	public inline extern function get_SpatialMeshUsageFlags(): EARSpatialMeshUsageFlags return this.SpatialMeshUsageFlags;
-	public extern var LastUpdateFrameNumber(get, never): cpp.Int32;
-	public inline extern function get_LastUpdateFrameNumber(): cpp.Int32 return this.LastUpdateFrameNumber;
-	public extern var DebugName(get, never): FName;
-	public inline extern function get_DebugName(): FName return this.DebugName;
 }
 
 @:forward

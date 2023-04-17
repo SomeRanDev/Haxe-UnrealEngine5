@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESamplerSourceMode")
 @:include("Engine/EngineTypes.h")
-extern enum ESamplerSourceMode {
-	SSM_FromTextureAsset;
-	SSM_Wrap_WorldGroupSettings;
-	SSM_Clamp_WorldGroupSettings;
-	SSM_MAX;
+extern class ESamplerSourceMode {
+	static var SSM_FromTextureAsset: ESamplerSourceMode;
+	static var SSM_Wrap_WorldGroupSettings: ESamplerSourceMode;
+	static var SSM_Clamp_WorldGroupSettings: ESamplerSourceMode;
+	static var SSM_MAX: ESamplerSourceMode;
 }

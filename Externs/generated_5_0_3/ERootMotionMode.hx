@@ -3,10 +3,10 @@ package ue;
 
 @:native("ERootMotionMode.Type")
 @:include("Animation/AnimEnums.h")
-extern enum ERootMotionMode {
-	NoRootMotionExtraction;
-	IgnoreRootMotion;
-	RootMotionFromEverything;
-	RootMotionFromMontagesOnly;
-	ERootMotionMode_MAX;
+extern class ERootMotionMode {
+	static var NoRootMotionExtraction: ERootMotionMode;
+	static var IgnoreRootMotion: ERootMotionMode;
+	static var RootMotionFromEverything: ERootMotionMode;
+	static var RootMotionFromMontagesOnly: ERootMotionMode;
+	static var ERootMotionMode_MAX: ERootMotionMode;
 }

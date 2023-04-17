@@ -3,19 +3,19 @@ package ue;
 
 @:native("ENiagaraScriptUsage")
 @:include("NiagaraCommon.h")
-extern enum ENiagaraScriptUsage {
-	Function;
-	Module;
-	DynamicInput;
-	ParticleSpawnScript;
-	ParticleSpawnScriptInterpolated;
-	ParticleUpdateScript;
-	ParticleEventScript;
-	ParticleSimulationStageScript;
-	ParticleGPUComputeScript;
-	EmitterSpawnScript;
-	EmitterUpdateScript;
-	SystemSpawnScript;
-	SystemUpdateScript;
-	ENiagaraScriptUsage_MAX;
+extern class ENiagaraScriptUsage {
+	static var Function: ENiagaraScriptUsage;
+	static var Module: ENiagaraScriptUsage;
+	static var DynamicInput: ENiagaraScriptUsage;
+	static var ParticleSpawnScript: ENiagaraScriptUsage;
+	static var ParticleSpawnScriptInterpolated: ENiagaraScriptUsage;
+	static var ParticleUpdateScript: ENiagaraScriptUsage;
+	static var ParticleEventScript: ENiagaraScriptUsage;
+	static var ParticleSimulationStageScript: ENiagaraScriptUsage;
+	static var ParticleGPUComputeScript: ENiagaraScriptUsage;
+	static var EmitterSpawnScript: ENiagaraScriptUsage;
+	static var EmitterUpdateScript: ENiagaraScriptUsage;
+	static var SystemSpawnScript: ENiagaraScriptUsage;
+	static var SystemUpdateScript: ENiagaraScriptUsage;
+	static var ENiagaraScriptUsage_MAX: ENiagaraScriptUsage;
 }

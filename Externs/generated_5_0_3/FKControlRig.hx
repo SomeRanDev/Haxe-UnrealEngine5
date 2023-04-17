@@ -5,8 +5,8 @@ package ue;
 @:include("Rigs/FKControlRig.h")
 @:structAccess
 extern class FKControlRig extends ControlRig {
-	public var IsControlActive: TArray<Bool>;
-	public var ApplyMode: EControlRigFKRigExecuteMode;
+	private var IsControlActive: TArray<Bool>;
+	private var ApplyMode: EControlRigFKRigExecuteMode;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class FKControlRig extends ControlRig {
 @:forward()
 @:nativeGen
 abstract ConstFKControlRig(FKControlRig) from FKControlRig {
-	public extern var IsControlActive(get, never): TArray<Bool>;
-	public inline extern function get_IsControlActive(): TArray<Bool> return this.IsControlActive;
-	public extern var ApplyMode(get, never): EControlRigFKRigExecuteMode;
-	public inline extern function get_ApplyMode(): EControlRigFKRigExecuteMode return this.ApplyMode;
 }
 
 @:forward

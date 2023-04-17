@@ -5,7 +5,7 @@ package ue;
 @:include("MeshPaintMode.h")
 @:structAccess
 extern class MeshPaintMode extends EdMode {
-	public var ModeSettings: cpp.Star<MeshPaintModeSettings>;
+	@:protected public var ModeSettings: cpp.Star<MeshPaintModeSettings>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MeshPaintMode extends EdMode {
 @:forward()
 @:nativeGen
 abstract ConstMeshPaintMode(MeshPaintMode) from MeshPaintMode {
-	public extern var ModeSettings(get, never): cpp.Star<MeshPaintModeSettings.ConstMeshPaintModeSettings>;
-	public inline extern function get_ModeSettings(): cpp.Star<MeshPaintModeSettings.ConstMeshPaintModeSettings> return this.ModeSettings;
 }
 
 @:forward

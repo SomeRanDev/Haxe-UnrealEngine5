@@ -3,8 +3,8 @@ package ue;
 
 @:native("EShadowMapFlags")
 @:include("Engine/EngineTypes.h")
-extern enum EShadowMapFlags {
-	SMF_None;
-	SMF_Streamed;
-	SMF_MAX;
+extern class EShadowMapFlags {
+	static var SMF_None: EShadowMapFlags;
+	static var SMF_Streamed: EShadowMapFlags;
+	static var SMF_MAX: EShadowMapFlags;
 }

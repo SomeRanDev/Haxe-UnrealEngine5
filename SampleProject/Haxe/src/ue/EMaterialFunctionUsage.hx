@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMaterialFunctionUsage")
 @:include("Materials/MaterialFunctionInterface.h")
-extern enum EMaterialFunctionUsage {
-	Default;
-	MaterialLayer;
-	MaterialLayerBlend;
-	EMaterialFunctionUsage_MAX;
+extern class EMaterialFunctionUsage {
+	static var Default: EMaterialFunctionUsage;
+	static var MaterialLayer: EMaterialFunctionUsage;
+	static var MaterialLayerBlend: EMaterialFunctionUsage;
+	static var EMaterialFunctionUsage_MAX: EMaterialFunctionUsage;
 }

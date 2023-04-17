@@ -5,17 +5,17 @@ package ue;
 @:include("UVProjectionTool.h")
 @:structAccess
 extern class UVProjectionTool extends SingleSelectionMeshEditingTool {
-	public var UVChannelProperties: cpp.Star<MeshUVChannelProperties>;
-	public var BasicProperties: cpp.Star<UVProjectionToolProperties>;
-	public var EditActions: cpp.Star<UVProjectionToolEditActions>;
-	public var MaterialSettings: cpp.Star<ExistingMeshMaterialProperties>;
-	public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	public var CheckerMaterial: cpp.Star<MaterialInstanceDynamic>;
-	public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	public var TransformProxy: cpp.Star<TransformProxy>;
-	public var OperatorFactory: cpp.Star<UVProjectionOperatorFactory>;
-	public var EdgeRenderer: cpp.Star<PreviewGeometry>;
-	public var ClickToSetPlaneBehavior: cpp.Star<SingleClickInputBehavior>;
+	@:protected public var UVChannelProperties: cpp.Star<MeshUVChannelProperties>;
+	@:protected public var BasicProperties: cpp.Star<UVProjectionToolProperties>;
+	@:protected public var EditActions: cpp.Star<UVProjectionToolEditActions>;
+	@:protected public var MaterialSettings: cpp.Star<ExistingMeshMaterialProperties>;
+	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var CheckerMaterial: cpp.Star<MaterialInstanceDynamic>;
+	@:protected public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
+	@:protected public var TransformProxy: cpp.Star<TransformProxy>;
+	@:protected public var OperatorFactory: cpp.Star<UVProjectionOperatorFactory>;
+	@:protected public var EdgeRenderer: cpp.Star<PreviewGeometry>;
+	@:protected public var ClickToSetPlaneBehavior: cpp.Star<SingleClickInputBehavior>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -23,28 +23,6 @@ extern class UVProjectionTool extends SingleSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstUVProjectionTool(UVProjectionTool) from UVProjectionTool {
-	public extern var UVChannelProperties(get, never): cpp.Star<MeshUVChannelProperties.ConstMeshUVChannelProperties>;
-	public inline extern function get_UVChannelProperties(): cpp.Star<MeshUVChannelProperties.ConstMeshUVChannelProperties> return this.UVChannelProperties;
-	public extern var BasicProperties(get, never): cpp.Star<UVProjectionToolProperties.ConstUVProjectionToolProperties>;
-	public inline extern function get_BasicProperties(): cpp.Star<UVProjectionToolProperties.ConstUVProjectionToolProperties> return this.BasicProperties;
-	public extern var EditActions(get, never): cpp.Star<UVProjectionToolEditActions.ConstUVProjectionToolEditActions>;
-	public inline extern function get_EditActions(): cpp.Star<UVProjectionToolEditActions.ConstUVProjectionToolEditActions> return this.EditActions;
-	public extern var MaterialSettings(get, never): cpp.Star<ExistingMeshMaterialProperties.ConstExistingMeshMaterialProperties>;
-	public inline extern function get_MaterialSettings(): cpp.Star<ExistingMeshMaterialProperties.ConstExistingMeshMaterialProperties> return this.MaterialSettings;
-	public extern var Preview(get, never): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
-	public inline extern function get_Preview(): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.Preview;
-	public extern var CheckerMaterial(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_CheckerMaterial(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.CheckerMaterial;
-	public extern var TransformGizmo(get, never): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo>;
-	public inline extern function get_TransformGizmo(): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo> return this.TransformGizmo;
-	public extern var TransformProxy(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
-	public inline extern function get_TransformProxy(): cpp.Star<TransformProxy.ConstTransformProxy> return this.TransformProxy;
-	public extern var OperatorFactory(get, never): cpp.Star<UVProjectionOperatorFactory.ConstUVProjectionOperatorFactory>;
-	public inline extern function get_OperatorFactory(): cpp.Star<UVProjectionOperatorFactory.ConstUVProjectionOperatorFactory> return this.OperatorFactory;
-	public extern var EdgeRenderer(get, never): cpp.Star<PreviewGeometry.ConstPreviewGeometry>;
-	public inline extern function get_EdgeRenderer(): cpp.Star<PreviewGeometry.ConstPreviewGeometry> return this.EdgeRenderer;
-	public extern var ClickToSetPlaneBehavior(get, never): cpp.Star<SingleClickInputBehavior.ConstSingleClickInputBehavior>;
-	public inline extern function get_ClickToSetPlaneBehavior(): cpp.Star<SingleClickInputBehavior.ConstSingleClickInputBehavior> return this.ClickToSetPlaneBehavior;
 }
 
 @:forward

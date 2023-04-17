@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAnimGraphNodePropertyBindingType")
 @:include("AnimGraphNode_Base.h")
-extern enum EAnimGraphNodePropertyBindingType {
-	None;
-	Property;
-	Function;
-	EAnimGraphNodePropertyBindingType_MAX;
+extern class EAnimGraphNodePropertyBindingType {
+	static var None: EAnimGraphNodePropertyBindingType;
+	static var Property: EAnimGraphNodePropertyBindingType;
+	static var Function: EAnimGraphNodePropertyBindingType;
+	static var EAnimGraphNodePropertyBindingType_MAX: EAnimGraphNodePropertyBindingType;
 }

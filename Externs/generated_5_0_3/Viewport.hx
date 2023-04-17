@@ -7,12 +7,12 @@ package ue;
 extern class Viewport extends ContentWidget {
 	public var BackgroundColor: LinearColor;
 
-	public function Spawn(ActorClass: TSubclassOf<Actor>): cpp.Reference<cpp.Star<Actor>>;
+	public function Spawn(ActorClass: TSubclassOf<Actor>): cpp.Star<Actor>;
 	public function SetViewRotation(Rotation: Rotator): Void;
 	public function SetViewLocation(Location: Vector): Void;
-	public function GetViewRotation(): cpp.Reference<Rotator>;
-	public function GetViewportWorld(): cpp.Reference<cpp.Star<World>>;
-	public function GetViewLocation(): cpp.Reference<Vector>;
+	public function GetViewRotation(): Rotator;
+	public function GetViewportWorld(): cpp.Star<World>;
+	public function GetViewLocation(): Vector;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

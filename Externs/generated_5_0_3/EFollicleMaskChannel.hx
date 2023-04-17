@@ -3,10 +3,10 @@ package ue;
 
 @:native("EFollicleMaskChannel")
 @:include("GroomCreateFollicleMaskOptions.h")
-extern enum EFollicleMaskChannel {
-	R;
-	G;
-	B;
-	A;
-	EFollicleMaskChannel_MAX;
+extern class EFollicleMaskChannel {
+	static var R: EFollicleMaskChannel;
+	static var G: EFollicleMaskChannel;
+	static var B: EFollicleMaskChannel;
+	static var A: EFollicleMaskChannel;
+	static var EFollicleMaskChannel_MAX: EFollicleMaskChannel;
 }

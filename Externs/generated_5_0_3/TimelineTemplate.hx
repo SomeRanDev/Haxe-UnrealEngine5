@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class TimelineTemplate extends Object {
 	public var TimelineLength: cpp.Float32;
-	public var LengthMode: ETimelineLengthMode;
+	public var LengthMode: TEnumAsByte<ETimelineLengthMode>;
 	public var bAutoPlay: Bool;
 	public var bLoop: Bool;
 	public var bReplicated: Bool;
@@ -17,12 +17,11 @@ extern class TimelineTemplate extends Object {
 	public var LinearColorTracks: TArray<TTLinearColorTrack>;
 	public var MetaDataArray: TArray<BPVariableMetaDataEntry>;
 	public var TimelineGuid: Guid;
-	public var TimelineTickGroup: ETickingGroup;
-	public var VariableName: FName;
-	public var DirectionPropertyName: FName;
-	public var UpdateFunctionName: FName;
-	public var FinishedFunctionName: FName;
-	public var TrackDisplayOrder: TArray<TTTrackId>;
+	public var TimelineTickGroup: TEnumAsByte<ETickingGroup>;
+	private var VariableName: FName;
+	private var DirectionPropertyName: FName;
+	private var UpdateFunctionName: FName;
+	private var FinishedFunctionName: FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -32,8 +31,8 @@ extern class TimelineTemplate extends Object {
 abstract ConstTimelineTemplate(TimelineTemplate) from TimelineTemplate {
 	public extern var TimelineLength(get, never): cpp.Float32;
 	public inline extern function get_TimelineLength(): cpp.Float32 return this.TimelineLength;
-	public extern var LengthMode(get, never): ETimelineLengthMode;
-	public inline extern function get_LengthMode(): ETimelineLengthMode return this.LengthMode;
+	public extern var LengthMode(get, never): TEnumAsByte<ETimelineLengthMode>;
+	public inline extern function get_LengthMode(): TEnumAsByte<ETimelineLengthMode> return this.LengthMode;
 	public extern var bAutoPlay(get, never): Bool;
 	public inline extern function get_bAutoPlay(): Bool return this.bAutoPlay;
 	public extern var bLoop(get, never): Bool;
@@ -54,18 +53,8 @@ abstract ConstTimelineTemplate(TimelineTemplate) from TimelineTemplate {
 	public inline extern function get_MetaDataArray(): TArray<BPVariableMetaDataEntry> return this.MetaDataArray;
 	public extern var TimelineGuid(get, never): Guid;
 	public inline extern function get_TimelineGuid(): Guid return this.TimelineGuid;
-	public extern var TimelineTickGroup(get, never): ETickingGroup;
-	public inline extern function get_TimelineTickGroup(): ETickingGroup return this.TimelineTickGroup;
-	public extern var VariableName(get, never): FName;
-	public inline extern function get_VariableName(): FName return this.VariableName;
-	public extern var DirectionPropertyName(get, never): FName;
-	public inline extern function get_DirectionPropertyName(): FName return this.DirectionPropertyName;
-	public extern var UpdateFunctionName(get, never): FName;
-	public inline extern function get_UpdateFunctionName(): FName return this.UpdateFunctionName;
-	public extern var FinishedFunctionName(get, never): FName;
-	public inline extern function get_FinishedFunctionName(): FName return this.FinishedFunctionName;
-	public extern var TrackDisplayOrder(get, never): TArray<TTTrackId>;
-	public inline extern function get_TrackDisplayOrder(): TArray<TTTrackId> return this.TrackDisplayOrder;
+	public extern var TimelineTickGroup(get, never): TEnumAsByte<ETickingGroup>;
+	public inline extern function get_TimelineTickGroup(): TEnumAsByte<ETickingGroup> return this.TimelineTickGroup;
 }
 
 @:forward

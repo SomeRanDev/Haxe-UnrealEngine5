@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETextureFormatASTCCompressor")
 @:include("CookerSettings.h")
-extern enum ETextureFormatASTCCompressor {
-	IntelISPC;
-	Arm;
-	Max;
-	ETextureFormatASTCCompressor_MAX;
+extern class ETextureFormatASTCCompressor {
+	static var IntelISPC: ETextureFormatASTCCompressor;
+	static var Arm: ETextureFormatASTCCompressor;
+	static var Max: ETextureFormatASTCCompressor;
+	static var ETextureFormatASTCCompressor_MAX: ETextureFormatASTCCompressor;
 }

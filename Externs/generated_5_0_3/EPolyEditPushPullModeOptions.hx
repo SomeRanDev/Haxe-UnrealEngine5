@@ -3,10 +3,10 @@ package ue;
 
 @:native("EPolyEditPushPullModeOptions")
 @:include("ToolActivities/PolyEditExtrudeActivity.h")
-extern enum EPolyEditPushPullModeOptions {
-	SelectedTriangleNormals;
-	SelectedTriangleNormalsEven;
-	SingleDirection;
-	VertexNormals;
-	EPolyEditPushPullModeOptions_MAX;
+extern class EPolyEditPushPullModeOptions {
+	static var SelectedTriangleNormals: EPolyEditPushPullModeOptions;
+	static var SelectedTriangleNormalsEven: EPolyEditPushPullModeOptions;
+	static var SingleDirection: EPolyEditPushPullModeOptions;
+	static var VertexNormals: EPolyEditPushPullModeOptions;
+	static var EPolyEditPushPullModeOptions_MAX: EPolyEditPushPullModeOptions;
 }

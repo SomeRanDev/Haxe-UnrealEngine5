@@ -5,7 +5,7 @@ package ue;
 @:include("AnimNotifies/AnimNotify_PlayMontageNotify.h")
 @:structAccess
 extern class AnimNotify_PlayMontageNotifyWindow extends AnimNotifyState {
-	public var NotifyName: FName;
+	@:protected public var NotifyName: FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class AnimNotify_PlayMontageNotifyWindow extends AnimNotifyState {
 @:forward()
 @:nativeGen
 abstract ConstAnimNotify_PlayMontageNotifyWindow(AnimNotify_PlayMontageNotifyWindow) from AnimNotify_PlayMontageNotifyWindow {
-	public extern var NotifyName(get, never): FName;
-	public inline extern function get_NotifyName(): FName return this.NotifyName;
 }
 
 @:forward

@@ -5,15 +5,14 @@ package ue;
 @:include("Channels/MovieSceneDoubleChannel.h")
 @:structAccess
 extern class MovieSceneDoubleChannel extends MovieSceneChannel {
-	public var PreInfinityExtrap: ERichCurveExtrapolation;
-	public var PostInfinityExtrap: ERichCurveExtrapolation;
-	public var Times: TArray<FrameNumber>;
-	public var Values: TArray<MovieSceneDoubleValue>;
-	public var DefaultValue: cpp.Float64;
-	public var bHasDefaultValue: Bool;
-	public var KeyHandles: MovieSceneKeyHandleMap;
-	public var TickResolution: FrameRate;
-	public var bShowCurve: Bool;
+	public var PreInfinityExtrap: TEnumAsByte<ERichCurveExtrapolation>;
+	public var PostInfinityExtrap: TEnumAsByte<ERichCurveExtrapolation>;
+	private var Times: TArray<FrameNumber>;
+	private var Values: TArray<MovieSceneDoubleValue>;
+	private var DefaultValue: cpp.Float64;
+	private var bHasDefaultValue: Bool;
+	private var KeyHandles: MovieSceneKeyHandleMap;
+	private var TickResolution: FrameRate;
 
 	@:native("FMovieSceneDoubleChannel") public function new();
 }

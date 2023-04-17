@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class LightComponentBase extends SceneComp {
 	public var LightGuid: Guid;
-	public var Brightness_DEPRECATED: cpp.Float32;
 	public var Intensity: cpp.Float32;
 	public var LightColor: Color;
 	public var bAffectsWorld: Bool;
@@ -17,28 +16,23 @@ extern class LightComponentBase extends SceneComp {
 	public var bTransmission: Bool;
 	public var bCastVolumetricShadow: Bool;
 	public var bCastDeepShadow: Bool;
-	public var bCastRaytracedShadow_DEPRECATED: Bool;
-	public var CastRaytracedShadow: ECastRayTracedShadow;
+	public var CastRaytracedShadow: TEnumAsByte<ECastRayTracedShadow>;
 	public var bAffectReflection: Bool;
 	public var bAffectGlobalIllumination: Bool;
 	public var DeepShadowLayerDistribution: cpp.Float32;
 	public var IndirectLightingIntensity: cpp.Float32;
 	public var VolumetricScatteringIntensity: cpp.Float32;
 	public var SamplesPerPixel: cpp.Int32;
-	public var StaticEditorTexture: cpp.Star<Texture2D>;
-	public var StaticEditorTextureScale: cpp.Float32;
-	public var DynamicEditorTexture: cpp.Star<Texture2D>;
-	public var DynamicEditorTextureScale: cpp.Float32;
 
 	public function SetSamplesPerPixel(NewValue: cpp.Int32): Void;
 	public function SetCastVolumetricShadow(bNewValue: Bool): Void;
 	public function SetCastShadows(bNewValue: Bool): Void;
-	public function SetCastRaytracedShadows(bNewValue: ECastRayTracedShadow): Void;
+	public function SetCastRaytracedShadows(bNewValue: TEnumAsByte<ECastRayTracedShadow>): Void;
 	public function SetCastRaytracedShadow(bNewValue: Bool): Void;
 	public function SetCastDeepShadow(bNewValue: Bool): Void;
 	public function SetAffectReflection(bNewValue: Bool): Void;
 	public function SetAffectGlobalIllumination(bNewValue: Bool): Void;
-	public function GetLightColor(): cpp.Reference<LinearColor>;
+	public function GetLightColor(): LinearColor;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -48,8 +42,6 @@ extern class LightComponentBase extends SceneComp {
 abstract ConstLightComponentBase(LightComponentBase) from LightComponentBase {
 	public extern var LightGuid(get, never): Guid;
 	public inline extern function get_LightGuid(): Guid return this.LightGuid;
-	public extern var Brightness_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_Brightness_DEPRECATED(): cpp.Float32 return this.Brightness_DEPRECATED;
 	public extern var Intensity(get, never): cpp.Float32;
 	public inline extern function get_Intensity(): cpp.Float32 return this.Intensity;
 	public extern var LightColor(get, never): Color;
@@ -70,10 +62,8 @@ abstract ConstLightComponentBase(LightComponentBase) from LightComponentBase {
 	public inline extern function get_bCastVolumetricShadow(): Bool return this.bCastVolumetricShadow;
 	public extern var bCastDeepShadow(get, never): Bool;
 	public inline extern function get_bCastDeepShadow(): Bool return this.bCastDeepShadow;
-	public extern var bCastRaytracedShadow_DEPRECATED(get, never): Bool;
-	public inline extern function get_bCastRaytracedShadow_DEPRECATED(): Bool return this.bCastRaytracedShadow_DEPRECATED;
-	public extern var CastRaytracedShadow(get, never): ECastRayTracedShadow;
-	public inline extern function get_CastRaytracedShadow(): ECastRayTracedShadow return this.CastRaytracedShadow;
+	public extern var CastRaytracedShadow(get, never): TEnumAsByte<ECastRayTracedShadow>;
+	public inline extern function get_CastRaytracedShadow(): TEnumAsByte<ECastRayTracedShadow> return this.CastRaytracedShadow;
 	public extern var bAffectReflection(get, never): Bool;
 	public inline extern function get_bAffectReflection(): Bool return this.bAffectReflection;
 	public extern var bAffectGlobalIllumination(get, never): Bool;
@@ -86,14 +76,6 @@ abstract ConstLightComponentBase(LightComponentBase) from LightComponentBase {
 	public inline extern function get_VolumetricScatteringIntensity(): cpp.Float32 return this.VolumetricScatteringIntensity;
 	public extern var SamplesPerPixel(get, never): cpp.Int32;
 	public inline extern function get_SamplesPerPixel(): cpp.Int32 return this.SamplesPerPixel;
-	public extern var StaticEditorTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_StaticEditorTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.StaticEditorTexture;
-	public extern var StaticEditorTextureScale(get, never): cpp.Float32;
-	public inline extern function get_StaticEditorTextureScale(): cpp.Float32 return this.StaticEditorTextureScale;
-	public extern var DynamicEditorTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_DynamicEditorTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.DynamicEditorTexture;
-	public extern var DynamicEditorTextureScale(get, never): cpp.Float32;
-	public inline extern function get_DynamicEditorTextureScale(): cpp.Float32 return this.DynamicEditorTextureScale;
 }
 
 @:forward

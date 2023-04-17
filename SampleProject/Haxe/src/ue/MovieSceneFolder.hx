@@ -5,12 +5,10 @@ package ue;
 @:include("MovieSceneFolder.h")
 @:structAccess
 extern class MovieSceneFolder extends Object {
-	public var FolderName: FName;
-	public var ChildFolders: TArray<cpp.Star<MovieSceneFolder>>;
-	public var ChildMasterTracks: TArray<cpp.Star<MovieSceneTrack>>;
-	public var ChildObjectBindingStrings: TArray<FString>;
-	public var FolderColor: Color;
-	public var SortingOrder: cpp.Int32;
+	private var FolderName: FName;
+	private var ChildFolders: TArray<cpp.Star<MovieSceneFolder>>;
+	private var ChildMasterTracks: TArray<cpp.Star<MovieSceneTrack>>;
+	private var ChildObjectBindingStrings: TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,18 +16,6 @@ extern class MovieSceneFolder extends Object {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneFolder(MovieSceneFolder) from MovieSceneFolder {
-	public extern var FolderName(get, never): FName;
-	public inline extern function get_FolderName(): FName return this.FolderName;
-	public extern var ChildFolders(get, never): TArray<cpp.Star<MovieSceneFolder.ConstMovieSceneFolder>>;
-	public inline extern function get_ChildFolders(): TArray<cpp.Star<MovieSceneFolder.ConstMovieSceneFolder>> return this.ChildFolders;
-	public extern var ChildMasterTracks(get, never): TArray<cpp.Star<MovieSceneTrack.ConstMovieSceneTrack>>;
-	public inline extern function get_ChildMasterTracks(): TArray<cpp.Star<MovieSceneTrack.ConstMovieSceneTrack>> return this.ChildMasterTracks;
-	public extern var ChildObjectBindingStrings(get, never): TArray<FString>;
-	public inline extern function get_ChildObjectBindingStrings(): TArray<FString> return this.ChildObjectBindingStrings;
-	public extern var FolderColor(get, never): Color;
-	public inline extern function get_FolderColor(): Color return this.FolderColor;
-	public extern var SortingOrder(get, never): cpp.Int32;
-	public inline extern function get_SortingOrder(): cpp.Int32 return this.SortingOrder;
 }
 
 @:forward

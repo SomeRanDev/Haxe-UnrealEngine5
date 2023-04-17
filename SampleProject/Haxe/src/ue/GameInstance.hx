@@ -5,15 +5,15 @@ package ue;
 @:include("Engine/GameInstance.h")
 @:structAccess
 extern class GameInstance extends Object {
-	public var LocalPlayers: TArray<cpp.Star<LocalPlayer>>;
-	public var OnlineSession: cpp.Star<OnlineSession>;
-	public var ReferencedObjects: TArray<cpp.Star<Object>>;
-	public var OnPawnControllerChangedDelegates: HaxeMulticastSparseDelegateProperty<(cpp.Star<Pawn>, cpp.Star<Controller>) -> Void>;
+	@:protected public var LocalPlayers: TArray<cpp.Star<LocalPlayer>>;
+	@:protected public var OnlineSession: cpp.Star<OnlineSession>;
+	@:protected public var ReferencedObjects: TArray<cpp.Star<Object>>;
+	@:protected public var OnPawnControllerChangedDelegates: HaxeMulticastSparseDelegateProperty<(cpp.Star<Pawn>, cpp.Star<Controller>) -> Void>;
 
 	public function ReceiveShutdown(): Void;
 	public function ReceiveInit(): Void;
-	public function HandleTravelError(FailureType: ETravelFailure): Void;
-	public function HandleNetworkError(FailureType: ENetworkFailure, bIsServer: Bool): Void;
+	public function HandleTravelError(FailureType: TEnumAsByte<ETravelFailure>): Void;
+	public function HandleNetworkError(FailureType: TEnumAsByte<ENetworkFailure>, bIsServer: Bool): Void;
 	public function DebugRemovePlayer(ControllerId: cpp.Int32): Void;
 	public function DebugCreatePlayer(ControllerId: cpp.Int32): Void;
 
@@ -23,14 +23,6 @@ extern class GameInstance extends Object {
 @:forward()
 @:nativeGen
 abstract ConstGameInstance(GameInstance) from GameInstance {
-	public extern var LocalPlayers(get, never): TArray<cpp.Star<LocalPlayer.ConstLocalPlayer>>;
-	public inline extern function get_LocalPlayers(): TArray<cpp.Star<LocalPlayer.ConstLocalPlayer>> return this.LocalPlayers;
-	public extern var OnlineSession(get, never): cpp.Star<OnlineSession.ConstOnlineSession>;
-	public inline extern function get_OnlineSession(): cpp.Star<OnlineSession.ConstOnlineSession> return this.OnlineSession;
-	public extern var ReferencedObjects(get, never): TArray<cpp.Star<Object.ConstObject>>;
-	public inline extern function get_ReferencedObjects(): TArray<cpp.Star<Object.ConstObject>> return this.ReferencedObjects;
-	public extern var OnPawnControllerChangedDelegates(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Pawn.ConstPawn>, cpp.Star<Controller.ConstController>) -> Void>;
-	public inline extern function get_OnPawnControllerChangedDelegates(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Pawn.ConstPawn>, cpp.Star<Controller.ConstController>) -> Void> return this.OnPawnControllerChangedDelegates;
 }
 
 @:forward

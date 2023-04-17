@@ -5,7 +5,7 @@ package ue;
 @:include("Engine/DataAsset.h")
 @:structAccess
 extern class DataAsset extends Object {
-	public var NativeClass: TSubclassOf<DataAsset>;
+	private var NativeClass: TSubclassOf<DataAsset>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class DataAsset extends Object {
 @:forward()
 @:nativeGen
 abstract ConstDataAsset(DataAsset) from DataAsset {
-	public extern var NativeClass(get, never): TSubclassOf<DataAsset.ConstDataAsset>;
-	public inline extern function get_NativeClass(): TSubclassOf<DataAsset.ConstDataAsset> return this.NativeClass;
 }
 
 @:forward

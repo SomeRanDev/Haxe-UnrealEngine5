@@ -3,8 +3,8 @@ package ue;
 
 @:native("EPoseComponentDebugMode")
 @:include("ARComponent.h")
-extern enum EPoseComponentDebugMode {
-	None;
-	ShowSkeleton;
-	EPoseComponentDebugMode_MAX;
+extern class EPoseComponentDebugMode {
+	static var None: EPoseComponentDebugMode;
+	static var ShowSkeleton: EPoseComponentDebugMode;
+	static var EPoseComponentDebugMode_MAX: EPoseComponentDebugMode;
 }

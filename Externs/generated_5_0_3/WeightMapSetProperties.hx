@@ -9,7 +9,7 @@ extern class WeightMapSetProperties extends InteractiveToolPropertySet {
 	public var WeightMapsList: TArray<FString>;
 	public var bInvertWeightMap: Bool;
 
-	public function GetWeightMapsFunc(): cpp.Reference<TArray<FString>>;
+	public function GetWeightMapsFunc(): TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

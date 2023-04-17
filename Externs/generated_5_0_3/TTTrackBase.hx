@@ -5,10 +5,8 @@ package ue;
 @:include("Engine/TimelineTemplate.h")
 @:structAccess
 extern class TTTrackBase {
-	public var TrackName: FName;
+	private var TrackName: FName;
 	public var bIsExternalCurve: Bool;
-	public var bIsExpanded: Bool;
-	public var bIsCurveViewSynchronized: Bool;
 
 	@:native("FTTTrackBase") public function new();
 	@:native("FTTTrackBase") public static function make(TrackName: FName, bIsExternalCurve: Bool, bIsExpanded: Bool, bIsCurveViewSynchronized: Bool): TTTrackBase ;

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EFieldOperationType")
 @:include("Field/FieldSystemTypes.h")
-extern enum EFieldOperationType {
-	Field_Multiply;
-	Field_Divide;
-	Field_Add;
-	Field_Substract;
-	Field_Operation_Max;
+extern class EFieldOperationType {
+	static var Field_Multiply: EFieldOperationType;
+	static var Field_Divide: EFieldOperationType;
+	static var Field_Add: EFieldOperationType;
+	static var Field_Substract: EFieldOperationType;
+	static var Field_Operation_Max: EFieldOperationType;
 }

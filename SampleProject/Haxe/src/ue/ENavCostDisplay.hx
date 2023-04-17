@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENavCostDisplay.Type")
 @:include("NavigationTestingActor.h")
-extern enum ENavCostDisplay {
-	TotalCost;
-	HeuristicOnly;
-	RealCostOnly;
-	ENavCostDisplay_MAX;
+extern class ENavCostDisplay {
+	static var TotalCost: ENavCostDisplay;
+	static var HeuristicOnly: ENavCostDisplay;
+	static var RealCostOnly: ENavCostDisplay;
+	static var ENavCostDisplay_MAX: ENavCostDisplay;
 }

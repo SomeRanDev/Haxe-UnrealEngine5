@@ -3,16 +3,16 @@ package ue;
 
 @:native("EDragPivot")
 @:include("Blueprint/DragDropOperation.h")
-extern enum EDragPivot {
-	MouseDown;
-	TopLeft;
-	TopCenter;
-	TopRight;
-	CenterLeft;
-	CenterCenter;
-	CenterRight;
-	BottomLeft;
-	BottomCenter;
-	BottomRight;
-	EDragPivot_MAX;
+extern class EDragPivot {
+	static var MouseDown: EDragPivot;
+	static var TopLeft: EDragPivot;
+	static var TopCenter: EDragPivot;
+	static var TopRight: EDragPivot;
+	static var CenterLeft: EDragPivot;
+	static var CenterCenter: EDragPivot;
+	static var CenterRight: EDragPivot;
+	static var BottomLeft: EDragPivot;
+	static var BottomCenter: EDragPivot;
+	static var BottomRight: EDragPivot;
+	static var EDragPivot_MAX: EDragPivot;
 }

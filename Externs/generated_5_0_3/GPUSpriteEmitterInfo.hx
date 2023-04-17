@@ -23,10 +23,10 @@ extern class GPUSpriteEmitterInfo {
 	public var InvRotationRateScale: cpp.Float32;
 	public var MaxLifetime: cpp.Float32;
 	public var MaxParticleCount: cpp.Int32;
-	public var ScreenAlignment: EParticleScreenAlignment;
-	public var LockAxisFlag: EParticleAxisLock;
+	public var ScreenAlignment: TEnumAsByte<EParticleScreenAlignment>;
+	public var LockAxisFlag: TEnumAsByte<EParticleAxisLock>;
 	public var bEnableCollision: Bool;
-	public var CollisionMode: EParticleCollisionMode;
+	public var CollisionMode: TEnumAsByte<EParticleCollisionMode>;
 	public var bRemoveHMDRoll: Bool;
 	public var MinFacingCameraBlendDistance: cpp.Float32;
 	public var MaxFacingCameraBlendDistance: cpp.Float32;

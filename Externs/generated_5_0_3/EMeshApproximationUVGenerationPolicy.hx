@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMeshApproximationUVGenerationPolicy")
 @:include("Engine/MeshMerging.h")
-extern enum EMeshApproximationUVGenerationPolicy {
-	PreferUVAtlas;
-	PreferXAtlas;
-	PreferPatchBuilder;
-	EMeshApproximationUVGenerationPolicy_MAX;
+extern class EMeshApproximationUVGenerationPolicy {
+	static var PreferUVAtlas: EMeshApproximationUVGenerationPolicy;
+	static var PreferXAtlas: EMeshApproximationUVGenerationPolicy;
+	static var PreferPatchBuilder: EMeshApproximationUVGenerationPolicy;
+	static var EMeshApproximationUVGenerationPolicy_MAX: EMeshApproximationUVGenerationPolicy;
 }

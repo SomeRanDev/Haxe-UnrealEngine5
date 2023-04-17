@@ -8,7 +8,7 @@ extern class MeshUVChannelProperties extends InteractiveToolPropertySet {
 	public var UVChannel: FString;
 	public var UVChannelNamesList: TArray<FString>;
 
-	public function GetUVChannelNamesFunc(): cpp.Reference<TArray<FString>>;
+	public function GetUVChannelNamesFunc(): TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

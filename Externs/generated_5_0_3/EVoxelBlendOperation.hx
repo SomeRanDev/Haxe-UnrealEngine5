@@ -3,8 +3,8 @@ package ue;
 
 @:native("EVoxelBlendOperation")
 @:include("VoxelBlendMeshesTool.h")
-extern enum EVoxelBlendOperation {
-	Union;
-	Subtract;
-	EVoxelBlendOperation_MAX;
+extern class EVoxelBlendOperation {
+	static var Union: EVoxelBlendOperation;
+	static var Subtract: EVoxelBlendOperation;
+	static var EVoxelBlendOperation_MAX: EVoxelBlendOperation;
 }

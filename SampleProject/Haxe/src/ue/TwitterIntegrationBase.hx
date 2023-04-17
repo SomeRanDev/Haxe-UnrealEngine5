@@ -5,13 +5,13 @@ package ue;
 @:include("Engine/TwitterIntegrationBase.h")
 @:structAccess
 extern class TwitterIntegrationBase extends PlatformInterfaceBase {
-	public function TwitterRequest(URL: FString, ParamKeysAndValues: cpp.Reference<TArray<FString>>, RequestMethod: ETwitterRequestMethod, AccountIndex: cpp.Int32): cpp.Reference<Bool>;
-	public function ShowTweetUI(InitialMessage: FString, URL: FString, Picture: FString): cpp.Reference<Bool>;
+	public function TwitterRequest(URL: FString, ParamKeysAndValues: cpp.Reference<TArray<FString>>, RequestMethod: TEnumAsByte<ETwitterRequestMethod>, AccountIndex: cpp.Int32): Bool;
+	public function ShowTweetUI(InitialMessage: FString, URL: FString, Picture: FString): Bool;
 	public function Init(): Void;
-	public function GetNumAccounts(): cpp.Reference<cpp.Int32>;
-	public function GetAccountName(AccountIndex: cpp.Int32): cpp.Reference<FString>;
-	public function CanShowTweetUI(): cpp.Reference<Bool>;
-	public function AuthorizeAccounts(): cpp.Reference<Bool>;
+	public function GetNumAccounts(): cpp.Int32;
+	public function GetAccountName(AccountIndex: cpp.Int32): FString;
+	public function CanShowTweetUI(): Bool;
+	public function AuthorizeAccounts(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

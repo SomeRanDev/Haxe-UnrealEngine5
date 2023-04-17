@@ -3,9 +3,9 @@ package ue;
 
 @:native("EBakeCurvatureColorMode")
 @:include("BakeMeshAttributeToolCommon.h")
-extern enum EBakeCurvatureColorMode {
-	Grayscale;
-	RedBlue;
-	RedGreenBlue;
-	EBakeCurvatureColorMode_MAX;
+extern class EBakeCurvatureColorMode {
+	static var Grayscale: EBakeCurvatureColorMode;
+	static var RedBlue: EBakeCurvatureColorMode;
+	static var RedGreenBlue: EBakeCurvatureColorMode;
+	static var EBakeCurvatureColorMode_MAX: EBakeCurvatureColorMode;
 }

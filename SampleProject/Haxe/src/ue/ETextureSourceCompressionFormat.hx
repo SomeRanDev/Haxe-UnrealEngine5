@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETextureSourceCompressionFormat")
 @:include("Engine/TextureDefines.h")
-extern enum ETextureSourceCompressionFormat {
-	TSCF_None;
-	TSCF_PNG;
-	TSCF_JPEG;
-	TSCF_MAX;
+extern class ETextureSourceCompressionFormat {
+	static var TSCF_None: ETextureSourceCompressionFormat;
+	static var TSCF_PNG: ETextureSourceCompressionFormat;
+	static var TSCF_JPEG: ETextureSourceCompressionFormat;
+	static var TSCF_MAX: ETextureSourceCompressionFormat;
 }

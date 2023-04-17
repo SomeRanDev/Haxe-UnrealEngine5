@@ -3,10 +3,10 @@ package ue;
 
 @:native("ERigSpaceType")
 @:include("Rigs/RigSpaceHierarchy.h")
-extern enum ERigSpaceType {
-	Global;
-	Bone;
-	Control;
-	Space;
-	ERigSpaceType_MAX;
+extern class ERigSpaceType {
+	static var Global: ERigSpaceType;
+	static var Bone: ERigSpaceType;
+	static var Control: ERigSpaceType;
+	static var Space: ERigSpaceType;
+	static var ERigSpaceType_MAX: ERigSpaceType;
 }

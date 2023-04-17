@@ -3,12 +3,12 @@ package ue;
 
 @:native("EPlatformInterfaceDataType")
 @:include("Engine/PlatformInterfaceBase.h")
-extern enum EPlatformInterfaceDataType {
-	PIDT_None;
-	PIDT_Int;
-	PIDT_Float;
-	PIDT_String;
-	PIDT_Object;
-	PIDT_Custom;
-	PIDT_MAX;
+extern class EPlatformInterfaceDataType {
+	static var PIDT_None: EPlatformInterfaceDataType;
+	static var PIDT_Int: EPlatformInterfaceDataType;
+	static var PIDT_Float: EPlatformInterfaceDataType;
+	static var PIDT_String: EPlatformInterfaceDataType;
+	static var PIDT_Object: EPlatformInterfaceDataType;
+	static var PIDT_Custom: EPlatformInterfaceDataType;
+	static var PIDT_MAX: EPlatformInterfaceDataType;
 }

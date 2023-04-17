@@ -3,14 +3,14 @@ package ue;
 
 @:native("EFieldVectorType")
 @:include("Field/FieldSystemTypes.h")
-extern enum EFieldVectorType {
-	Vector_LinearForce;
-	Vector_LinearVelocity;
-	Vector_AngularVelocity;
-	Vector_AngularTorque;
-	Vector_PositionTarget;
-	Vector_InitialLinearVelocity;
-	Vector_InitialAngularVelocity;
-	Vector_TargetMax;
-	Vector_MAX;
+extern class EFieldVectorType {
+	static var Vector_LinearForce: EFieldVectorType;
+	static var Vector_LinearVelocity: EFieldVectorType;
+	static var Vector_AngularVelocity: EFieldVectorType;
+	static var Vector_AngularTorque: EFieldVectorType;
+	static var Vector_PositionTarget: EFieldVectorType;
+	static var Vector_InitialLinearVelocity: EFieldVectorType;
+	static var Vector_InitialAngularVelocity: EFieldVectorType;
+	static var Vector_TargetMax: EFieldVectorType;
+	static var Vector_MAX: EFieldVectorType;
 }

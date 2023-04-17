@@ -5,7 +5,7 @@ package ue;
 @:include("GeometryCacheCodecBase.h")
 @:structAccess
 extern class GeometryCacheCodecBase extends Object {
-	public var TopologyRanges: TArray<cpp.Int32>;
+	@:protected public var TopologyRanges: TArray<cpp.Int32>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class GeometryCacheCodecBase extends Object {
 @:forward()
 @:nativeGen
 abstract ConstGeometryCacheCodecBase(GeometryCacheCodecBase) from GeometryCacheCodecBase {
-	public extern var TopologyRanges(get, never): TArray<cpp.Int32>;
-	public inline extern function get_TopologyRanges(): TArray<cpp.Int32> return this.TopologyRanges;
 }
 
 @:forward

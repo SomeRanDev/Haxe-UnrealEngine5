@@ -18,8 +18,8 @@ extern class BrowserBinding extends Object {
 	public function OnDroppedCallback(OnDroppedJSCallback: WebJSFunction): Void;
 	public function OnDropDiscardedCallback(OnDropDiscardedJSCallback: WebJSFunction): Void;
 	public function Logout(): Void;
-	public function GetProjectPath(): cpp.Reference<FString>;
-	public function GetAuthToken(): cpp.Reference<FString>;
+	public function GetProjectPath(): FString;
+	public function GetAuthToken(): FString;
 	public function ExportDataToMSPlugin(Data: FString): Void;
 	public function DragStarted(ImageUrl: TArray<FString>, IDs: TArray<FString>, Types: TArray<FString>): Void;
 	public function DialogSuccessCallback(DialogJSCallback: WebJSFunction): Void;

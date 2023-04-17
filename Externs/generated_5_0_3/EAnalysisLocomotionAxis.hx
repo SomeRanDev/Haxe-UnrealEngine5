@@ -3,13 +3,13 @@ package ue;
 
 @:native("EAnalysisLocomotionAxis")
 @:include("LocomotionAnalysis.h")
-extern enum EAnalysisLocomotionAxis {
-	Speed;
-	Direction;
-	ForwardSpeed;
-	RightwardSpeed;
-	UpwardSpeed;
-	ForwardSlope;
-	RightwardSlope;
-	EAnalysisLocomotionAxis_MAX;
+extern class EAnalysisLocomotionAxis {
+	static var Speed: EAnalysisLocomotionAxis;
+	static var Direction: EAnalysisLocomotionAxis;
+	static var ForwardSpeed: EAnalysisLocomotionAxis;
+	static var RightwardSpeed: EAnalysisLocomotionAxis;
+	static var UpwardSpeed: EAnalysisLocomotionAxis;
+	static var ForwardSlope: EAnalysisLocomotionAxis;
+	static var RightwardSlope: EAnalysisLocomotionAxis;
+	static var EAnalysisLocomotionAxis_MAX: EAnalysisLocomotionAxis;
 }

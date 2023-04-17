@@ -3,13 +3,13 @@ package ue;
 
 @:native("ETransitionType")
 @:include("Engine/Engine.h")
-extern enum ETransitionType {
-	None;
-	Paused;
-	Loading;
-	Saving;
-	Connecting;
-	Precaching;
-	WaitingToConnect;
-	MAX;
+extern class ETransitionType {
+	static var None: ETransitionType;
+	static var Paused: ETransitionType;
+	static var Loading: ETransitionType;
+	static var Saving: ETransitionType;
+	static var Connecting: ETransitionType;
+	static var Precaching: ETransitionType;
+	static var WaitingToConnect: ETransitionType;
+	static var MAX: ETransitionType;
 }

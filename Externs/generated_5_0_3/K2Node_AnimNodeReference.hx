@@ -5,7 +5,7 @@ package ue;
 @:include("K2Node_AnimNodeReference.h")
 @:structAccess
 extern class K2Node_AnimNodeReference extends K2Node {
-	public var Tag: FName;
+	private var Tag: FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class K2Node_AnimNodeReference extends K2Node {
 @:forward()
 @:nativeGen
 abstract ConstK2Node_AnimNodeReference(K2Node_AnimNodeReference) from K2Node_AnimNodeReference {
-	public extern var Tag(get, never): FName;
-	public inline extern function get_Tag(): FName return this.Tag;
 }
 
 @:forward

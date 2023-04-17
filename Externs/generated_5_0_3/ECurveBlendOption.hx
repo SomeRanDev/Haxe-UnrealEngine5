@@ -3,13 +3,13 @@ package ue;
 
 @:native("ECurveBlendOption.Type")
 @:include("Animation/AnimTypes.h")
-extern enum ECurveBlendOption {
-	Override;
-	DoNotOverride;
-	NormalizeByWeight;
-	BlendByWeight;
-	UseBasePose;
-	UseMaxValue;
-	UseMinValue;
-	ECurveBlendOption_MAX;
+extern class ECurveBlendOption {
+	static var Override: ECurveBlendOption;
+	static var DoNotOverride: ECurveBlendOption;
+	static var NormalizeByWeight: ECurveBlendOption;
+	static var BlendByWeight: ECurveBlendOption;
+	static var UseBasePose: ECurveBlendOption;
+	static var UseMaxValue: ECurveBlendOption;
+	static var UseMinValue: ECurveBlendOption;
+	static var ECurveBlendOption_MAX: ECurveBlendOption;
 }

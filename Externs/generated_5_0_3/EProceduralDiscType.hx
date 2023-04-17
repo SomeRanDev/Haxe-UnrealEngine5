@@ -3,8 +3,8 @@ package ue;
 
 @:native("EProceduralDiscType")
 @:include("AddPrimitiveTool.h")
-extern enum EProceduralDiscType {
-	Disc;
-	PuncturedDisc;
-	EProceduralDiscType_MAX;
+extern class EProceduralDiscType {
+	static var Disc: EProceduralDiscType;
+	static var PuncturedDisc: EProceduralDiscType;
+	static var EProceduralDiscType_MAX: EProceduralDiscType;
 }

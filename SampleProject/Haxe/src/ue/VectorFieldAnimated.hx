@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class VectorFieldAnimated extends VectorField {
 	public var Texture: cpp.Star<Texture2D>;
-	public var ConstructionOp: EVectorFieldConstructionOp;
+	public var ConstructionOp: TEnumAsByte<EVectorFieldConstructionOp>;
 	public var VolumeSizeX: cpp.Int32;
 	public var VolumeSizeY: cpp.Int32;
 	public var VolumeSizeZ: cpp.Int32;
@@ -27,8 +27,8 @@ extern class VectorFieldAnimated extends VectorField {
 abstract ConstVectorFieldAnimated(VectorFieldAnimated) from VectorFieldAnimated {
 	public extern var Texture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
 	public inline extern function get_Texture(): cpp.Star<Texture2D.ConstTexture2D> return this.Texture;
-	public extern var ConstructionOp(get, never): EVectorFieldConstructionOp;
-	public inline extern function get_ConstructionOp(): EVectorFieldConstructionOp return this.ConstructionOp;
+	public extern var ConstructionOp(get, never): TEnumAsByte<EVectorFieldConstructionOp>;
+	public inline extern function get_ConstructionOp(): TEnumAsByte<EVectorFieldConstructionOp> return this.ConstructionOp;
 	public extern var VolumeSizeX(get, never): cpp.Int32;
 	public inline extern function get_VolumeSizeX(): cpp.Int32 return this.VolumeSizeX;
 	public extern var VolumeSizeY(get, never): cpp.Int32;

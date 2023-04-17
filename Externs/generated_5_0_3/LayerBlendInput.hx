@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class LayerBlendInput {
 	public var LayerName: FName;
-	public var BlendType: ELandscapeLayerBlendType;
+	public var BlendType: TEnumAsByte<ELandscapeLayerBlendType>;
 	public var LayerInput: ExpressionInput;
 	public var HeightInput: ExpressionInput;
 	public var PreviewWeight: cpp.Float32;

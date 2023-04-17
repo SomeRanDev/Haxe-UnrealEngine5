@@ -3,13 +3,13 @@ package ue;
 
 @:native("EMaterialDomain")
 @:include("MaterialShared.h")
-extern enum EMaterialDomain {
-	MD_Surface;
-	MD_DeferredDecal;
-	MD_LightFunction;
-	MD_Volume;
-	MD_PostProcess;
-	MD_UI;
-	MD_RuntimeVirtualTexture;
-	MD_MAX;
+extern class EMaterialDomain {
+	static var MD_Surface: EMaterialDomain;
+	static var MD_DeferredDecal: EMaterialDomain;
+	static var MD_LightFunction: EMaterialDomain;
+	static var MD_Volume: EMaterialDomain;
+	static var MD_PostProcess: EMaterialDomain;
+	static var MD_UI: EMaterialDomain;
+	static var MD_RuntimeVirtualTexture: EMaterialDomain;
+	static var MD_MAX: EMaterialDomain;
 }

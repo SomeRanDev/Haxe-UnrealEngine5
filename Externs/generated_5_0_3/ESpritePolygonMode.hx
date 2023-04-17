@@ -3,11 +3,11 @@ package ue;
 
 @:native("ESpritePolygonMode.Type")
 @:include("SpriteEditorOnlyTypes.h")
-extern enum ESpritePolygonMode {
-	SourceBoundingBox;
-	TightBoundingBox;
-	ShrinkWrapped;
-	FullyCustom;
-	Diced;
-	ESpritePolygonMode_MAX;
+extern class ESpritePolygonMode {
+	static var SourceBoundingBox: ESpritePolygonMode;
+	static var TightBoundingBox: ESpritePolygonMode;
+	static var ShrinkWrapped: ESpritePolygonMode;
+	static var FullyCustom: ESpritePolygonMode;
+	static var Diced: ESpritePolygonMode;
+	static var ESpritePolygonMode_MAX: ESpritePolygonMode;
 }

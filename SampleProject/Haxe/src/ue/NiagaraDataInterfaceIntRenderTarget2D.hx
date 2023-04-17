@@ -6,10 +6,8 @@ package ue;
 @:structAccess
 extern class NiagaraDataInterfaceIntRenderTarget2D extends NiagaraDataInterfaceRWBase {
 	public var Size: IntPoint;
-	public var bPreviewRenderTarget: Bool;
-	public var PreviewDisplayRange: Vector2D;
 	public var RenderTargetUserParameter: NiagaraUserParameterBinding;
-	public var ManagedRenderTargets: TMap<cpp.UInt64, cpp.Star<TextureRenderTarget2D>>;
+	@:protected public var ManagedRenderTargets: TMap<cpp.UInt64, cpp.Star<TextureRenderTarget2D>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,14 +17,8 @@ extern class NiagaraDataInterfaceIntRenderTarget2D extends NiagaraDataInterfaceR
 abstract ConstNiagaraDataInterfaceIntRenderTarget2D(NiagaraDataInterfaceIntRenderTarget2D) from NiagaraDataInterfaceIntRenderTarget2D {
 	public extern var Size(get, never): IntPoint;
 	public inline extern function get_Size(): IntPoint return this.Size;
-	public extern var bPreviewRenderTarget(get, never): Bool;
-	public inline extern function get_bPreviewRenderTarget(): Bool return this.bPreviewRenderTarget;
-	public extern var PreviewDisplayRange(get, never): Vector2D;
-	public inline extern function get_PreviewDisplayRange(): Vector2D return this.PreviewDisplayRange;
 	public extern var RenderTargetUserParameter(get, never): NiagaraUserParameterBinding;
 	public inline extern function get_RenderTargetUserParameter(): NiagaraUserParameterBinding return this.RenderTargetUserParameter;
-	public extern var ManagedRenderTargets(get, never): TMap<cpp.UInt64, cpp.Star<TextureRenderTarget2D.ConstTextureRenderTarget2D>>;
-	public inline extern function get_ManagedRenderTargets(): TMap<cpp.UInt64, cpp.Star<TextureRenderTarget2D.ConstTextureRenderTarget2D>> return this.ManagedRenderTargets;
 }
 
 @:forward

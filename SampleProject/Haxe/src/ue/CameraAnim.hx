@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class CameraAnim extends Object {
 	public var CameraInterpGroup: cpp.Star<InterpGroup>;
-	public var PreviewInterpGroup: cpp.Star<InterpGroup>;
 	public var AnimLength: cpp.Float32;
 	public var BoundingBox: Box;
 	public var bRelativeToInitialTransform: Bool;
@@ -23,8 +22,6 @@ extern class CameraAnim extends Object {
 abstract ConstCameraAnim(CameraAnim) from CameraAnim {
 	public extern var CameraInterpGroup(get, never): cpp.Star<InterpGroup.ConstInterpGroup>;
 	public inline extern function get_CameraInterpGroup(): cpp.Star<InterpGroup.ConstInterpGroup> return this.CameraInterpGroup;
-	public extern var PreviewInterpGroup(get, never): cpp.Star<InterpGroup.ConstInterpGroup>;
-	public inline extern function get_PreviewInterpGroup(): cpp.Star<InterpGroup.ConstInterpGroup> return this.PreviewInterpGroup;
 	public extern var AnimLength(get, never): cpp.Float32;
 	public inline extern function get_AnimLength(): cpp.Float32 return this.AnimLength;
 	public extern var BoundingBox(get, never): Box;

@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESlateBrushMirrorType.Type")
 @:include("Styling/SlateBrush.h")
-extern enum ESlateBrushMirrorType {
-	NoMirror;
-	Horizontal;
-	Vertical;
-	Both;
-	ESlateBrushMirrorType_MAX;
+extern class ESlateBrushMirrorType {
+	static var NoMirror: ESlateBrushMirrorType;
+	static var Horizontal: ESlateBrushMirrorType;
+	static var Vertical: ESlateBrushMirrorType;
+	static var Both: ESlateBrushMirrorType;
+	static var ESlateBrushMirrorType_MAX: ESlateBrushMirrorType;
 }

@@ -5,8 +5,8 @@ package ue;
 @:include("ShapeSprayTool.h")
 @:structAccess
 extern class ShapeSprayTool extends DynamicMeshBrushTool {
-	public var Settings: cpp.Star<ShapeSprayToolProperties>;
-	public var AccumMeshComponent: cpp.Star<DynamicMeshComp>;
+	@:protected public var Settings: cpp.Star<ShapeSprayToolProperties>;
+	@:protected public var AccumMeshComponent: cpp.Star<DynamicMeshComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class ShapeSprayTool extends DynamicMeshBrushTool {
 @:forward()
 @:nativeGen
 abstract ConstShapeSprayTool(ShapeSprayTool) from ShapeSprayTool {
-	public extern var Settings(get, never): cpp.Star<ShapeSprayToolProperties.ConstShapeSprayToolProperties>;
-	public inline extern function get_Settings(): cpp.Star<ShapeSprayToolProperties.ConstShapeSprayToolProperties> return this.Settings;
-	public extern var AccumMeshComponent(get, never): cpp.Star<DynamicMeshComp.ConstDynamicMeshComp>;
-	public inline extern function get_AccumMeshComponent(): cpp.Star<DynamicMeshComp.ConstDynamicMeshComp> return this.AccumMeshComponent;
 }
 
 @:forward

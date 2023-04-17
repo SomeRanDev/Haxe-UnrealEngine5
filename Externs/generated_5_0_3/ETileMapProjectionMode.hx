@@ -3,10 +3,10 @@ package ue;
 
 @:native("ETileMapProjectionMode.Type")
 @:include("PaperTileMap.h")
-extern enum ETileMapProjectionMode {
-	Orthogonal;
-	IsometricDiamond;
-	IsometricStaggered;
-	HexagonalStaggered;
-	ETileMapProjectionMode_MAX;
+extern class ETileMapProjectionMode {
+	static var Orthogonal: ETileMapProjectionMode;
+	static var IsometricDiamond: ETileMapProjectionMode;
+	static var IsometricStaggered: ETileMapProjectionMode;
+	static var HexagonalStaggered: ETileMapProjectionMode;
+	static var ETileMapProjectionMode_MAX: ETileMapProjectionMode;
 }

@@ -7,8 +7,8 @@ package ue;
 extern class ControlRigPoseMirrorSettings extends Object {
 	public var RightSide: FString;
 	public var LeftSide: FString;
-	public var MirrorAxis: EAxis;
-	public var AxisToFlip: EAxis;
+	public var MirrorAxis: TEnumAsByte<EAxis>;
+	public var AxisToFlip: TEnumAsByte<EAxis>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -20,10 +20,10 @@ abstract ConstControlRigPoseMirrorSettings(ControlRigPoseMirrorSettings) from Co
 	public inline extern function get_RightSide(): FString return this.RightSide;
 	public extern var LeftSide(get, never): FString;
 	public inline extern function get_LeftSide(): FString return this.LeftSide;
-	public extern var MirrorAxis(get, never): EAxis;
-	public inline extern function get_MirrorAxis(): EAxis return this.MirrorAxis;
-	public extern var AxisToFlip(get, never): EAxis;
-	public inline extern function get_AxisToFlip(): EAxis return this.AxisToFlip;
+	public extern var MirrorAxis(get, never): TEnumAsByte<EAxis>;
+	public inline extern function get_MirrorAxis(): TEnumAsByte<EAxis> return this.MirrorAxis;
+	public extern var AxisToFlip(get, never): TEnumAsByte<EAxis>;
+	public inline extern function get_AxisToFlip(): TEnumAsByte<EAxis> return this.AxisToFlip;
 }
 
 @:forward

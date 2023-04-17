@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAnimationMode.Type")
 @:include("Components/SkeletalMeshComponent.h")
-extern enum EAnimationMode {
-	AnimationBlueprint;
-	AnimationSingleNode;
-	AnimationCustomMode;
-	EAnimationMode_MAX;
+extern class EAnimationMode {
+	static var AnimationBlueprint: EAnimationMode;
+	static var AnimationSingleNode: EAnimationMode;
+	static var AnimationCustomMode: EAnimationMode;
+	static var EAnimationMode_MAX: EAnimationMode;
 }

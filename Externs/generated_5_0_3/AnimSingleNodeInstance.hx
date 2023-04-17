@@ -20,9 +20,9 @@ extern class AnimSingleNodeInstance extends AnimInstance {
 	public function SetBlendSpacePosition(InPosition: cpp.Reference<Vector>): Void;
 	public function SetAnimationAsset(NewAsset: cpp.Star<AnimationAsset>, bIsLooping: Bool, InPlayRate: cpp.Float32): Void;
 	public function PlayAnim(bIsLooping: Bool, InPlayRate: cpp.Float32, InStartPosition: cpp.Float32): Void;
-	public function GetMirrorDataTable(): cpp.Reference<cpp.Star<MirrorDataTable.ConstMirrorDataTable>>;
-	public function GetLength(): cpp.Reference<cpp.Float32>;
-	public function GetAnimationAsset(): cpp.Reference<cpp.Star<AnimationAsset>>;
+	public function GetMirrorDataTable(): cpp.Star<MirrorDataTable.ConstMirrorDataTable>;
+	public function GetLength(): cpp.Float32;
+	public function GetAnimationAsset(): cpp.Star<AnimationAsset>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

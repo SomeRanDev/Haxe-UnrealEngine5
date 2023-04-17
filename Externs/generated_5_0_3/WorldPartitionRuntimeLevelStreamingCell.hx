@@ -5,12 +5,10 @@ package ue;
 @:include("WorldPartition/WorldPartitionRuntimeLevelStreamingCell.h")
 @:structAccess
 extern class WorldPartitionRuntimeLevelStreamingCell extends WorldPartitionRuntimeSpatialHashCell {
-	public var Packages: TArray<WorldPartitionRuntimeCellObjectMapping>;
-	public var ActorFolders: TSet<Guid>;
-	public var LevelStreaming: cpp.Star<WorldPartitionLevelStreamingDynamic>;
+	private var LevelStreaming: cpp.Star<WorldPartitionLevelStreamingDynamic>;
 
-	public function OnLevelShown(): Void;
-	public function OnLevelHidden(): Void;
+	private function OnLevelShown(): Void;
+	private function OnLevelHidden(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,12 +16,6 @@ extern class WorldPartitionRuntimeLevelStreamingCell extends WorldPartitionRunti
 @:forward()
 @:nativeGen
 abstract ConstWorldPartitionRuntimeLevelStreamingCell(WorldPartitionRuntimeLevelStreamingCell) from WorldPartitionRuntimeLevelStreamingCell {
-	public extern var Packages(get, never): TArray<WorldPartitionRuntimeCellObjectMapping>;
-	public inline extern function get_Packages(): TArray<WorldPartitionRuntimeCellObjectMapping> return this.Packages;
-	public extern var ActorFolders(get, never): TSet<Guid>;
-	public inline extern function get_ActorFolders(): TSet<Guid> return this.ActorFolders;
-	public extern var LevelStreaming(get, never): cpp.Star<WorldPartitionLevelStreamingDynamic.ConstWorldPartitionLevelStreamingDynamic>;
-	public inline extern function get_LevelStreaming(): cpp.Star<WorldPartitionLevelStreamingDynamic.ConstWorldPartitionLevelStreamingDynamic> return this.LevelStreaming;
 }
 
 @:forward

@@ -7,7 +7,7 @@ package ue;
 extern class InteractiveToolManager extends Object {
 	public var ActiveLeftTool: cpp.Star<InteractiveTool>;
 	public var ActiveRightTool: cpp.Star<InteractiveTool>;
-	public var ToolBuilders: TMap<FString, cpp.Star<InteractiveToolBuilder>>;
+	@:protected public var ToolBuilders: TMap<FString, cpp.Star<InteractiveToolBuilder>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,8 +19,6 @@ abstract ConstInteractiveToolManager(InteractiveToolManager) from InteractiveToo
 	public inline extern function get_ActiveLeftTool(): cpp.Star<InteractiveTool.ConstInteractiveTool> return this.ActiveLeftTool;
 	public extern var ActiveRightTool(get, never): cpp.Star<InteractiveTool.ConstInteractiveTool>;
 	public inline extern function get_ActiveRightTool(): cpp.Star<InteractiveTool.ConstInteractiveTool> return this.ActiveRightTool;
-	public extern var ToolBuilders(get, never): TMap<FString, cpp.Star<InteractiveToolBuilder.ConstInteractiveToolBuilder>>;
-	public inline extern function get_ToolBuilders(): TMap<FString, cpp.Star<InteractiveToolBuilder.ConstInteractiveToolBuilder>> return this.ToolBuilders;
 }
 
 @:forward

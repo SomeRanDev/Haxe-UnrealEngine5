@@ -5,8 +5,8 @@ package ue;
 @:include("Engine/EngineBaseTypes.h")
 @:structAccess
 extern class TickFunction {
-	public var TickGroup: ETickingGroup;
-	public var EndTickGroup: ETickingGroup;
+	public var TickGroup: TEnumAsByte<ETickingGroup>;
+	public var EndTickGroup: TEnumAsByte<ETickingGroup>;
 	public var bTickEvenWhenPaused: Bool;
 	public var bCanEverTick: Bool;
 	public var bStartWithTickEnabled: Bool;

@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class SceneCaptureComp extends SceneComp {
 	public var PrimitiveRenderMode: ESceneCapturePrimitiveRenderMode;
-	public var CaptureSource: ESceneCaptureSource;
+	public var CaptureSource: TEnumAsByte<ESceneCaptureSource>;
 	public var bCaptureEveryFrame: Bool;
 	public var bCaptureOnMovement: Bool;
 	public var bAlwaysPersistRenderingState: Bool;
@@ -20,7 +20,6 @@ extern class SceneCaptureComp extends SceneComp {
 	public var bUseRayTracingIfEnabled: Bool;
 	public var ShowFlagSettings: TArray<EngineShowFlagsSetting>;
 	public var ProfilingEventName: FString;
-	public var CaptureMesh: cpp.Star<StaticMesh>;
 
 	public function ShowOnlyComponent(InComponent: cpp.Star<PrimitiveComp>): Void;
 	public function ShowOnlyActorComponents(InActor: cpp.Star<Actor>, bIncludeFromChildActors: Bool): Void;
@@ -40,8 +39,8 @@ extern class SceneCaptureComp extends SceneComp {
 abstract ConstSceneCaptureComp(SceneCaptureComp) from SceneCaptureComp {
 	public extern var PrimitiveRenderMode(get, never): ESceneCapturePrimitiveRenderMode;
 	public inline extern function get_PrimitiveRenderMode(): ESceneCapturePrimitiveRenderMode return this.PrimitiveRenderMode;
-	public extern var CaptureSource(get, never): ESceneCaptureSource;
-	public inline extern function get_CaptureSource(): ESceneCaptureSource return this.CaptureSource;
+	public extern var CaptureSource(get, never): TEnumAsByte<ESceneCaptureSource>;
+	public inline extern function get_CaptureSource(): TEnumAsByte<ESceneCaptureSource> return this.CaptureSource;
 	public extern var bCaptureEveryFrame(get, never): Bool;
 	public inline extern function get_bCaptureEveryFrame(): Bool return this.bCaptureEveryFrame;
 	public extern var bCaptureOnMovement(get, never): Bool;
@@ -68,8 +67,6 @@ abstract ConstSceneCaptureComp(SceneCaptureComp) from SceneCaptureComp {
 	public inline extern function get_ShowFlagSettings(): TArray<EngineShowFlagsSetting> return this.ShowFlagSettings;
 	public extern var ProfilingEventName(get, never): FString;
 	public inline extern function get_ProfilingEventName(): FString return this.ProfilingEventName;
-	public extern var CaptureMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_CaptureMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.CaptureMesh;
 }
 
 @:forward

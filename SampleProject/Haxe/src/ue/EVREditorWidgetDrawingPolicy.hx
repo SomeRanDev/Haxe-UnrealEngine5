@@ -3,8 +3,8 @@ package ue;
 
 @:native("EVREditorWidgetDrawingPolicy")
 @:include("VREditorWidgetComponent.h")
-extern enum EVREditorWidgetDrawingPolicy {
-	Always;
-	Hovering;
-	EVREditorWidgetDrawingPolicy_MAX;
+extern class EVREditorWidgetDrawingPolicy {
+	static var Always: EVREditorWidgetDrawingPolicy;
+	static var Hovering: EVREditorWidgetDrawingPolicy;
+	static var EVREditorWidgetDrawingPolicy_MAX: EVREditorWidgetDrawingPolicy;
 }

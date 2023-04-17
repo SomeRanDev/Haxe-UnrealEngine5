@@ -5,8 +5,8 @@ package ue;
 @:include("AutomationBlueprintFunctionLibrary.h")
 @:structAccess
 extern class AutomationEditorTask extends Object {
-	public function IsValidTask(): cpp.Reference<Bool>;
-	public function IsTaskDone(): cpp.Reference<Bool>;
+	public function IsValidTask(): Bool;
+	public function IsTaskDone(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

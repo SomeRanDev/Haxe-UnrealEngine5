@@ -3,10 +3,10 @@ package ue;
 
 @:native("ELandscapeToolPasteMode")
 @:include("LandscapeEditorObject.h")
-extern enum ELandscapeToolPasteMode {
-	Invalid;
-	Both;
-	Raise;
-	Lower;
-	ELandscapeToolPasteMode_MAX;
+extern class ELandscapeToolPasteMode {
+	static var Invalid: ELandscapeToolPasteMode;
+	static var Both: ELandscapeToolPasteMode;
+	static var Raise: ELandscapeToolPasteMode;
+	static var Lower: ELandscapeToolPasteMode;
+	static var ELandscapeToolPasteMode_MAX: ELandscapeToolPasteMode;
 }

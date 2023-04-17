@@ -5,8 +5,6 @@ package ue;
 @:include("PhysicsEngine/BoxElem.h")
 @:structAccess
 extern class KBoxElem extends KShapeElem {
-	public var TM_DEPRECATED: Matrix;
-	public var Orientation_DEPRECATED: Quat;
 	public var Center: Vector;
 	public var Rotation: Rotator;
 	public var X: cpp.Float32;

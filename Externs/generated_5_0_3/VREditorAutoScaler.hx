@@ -5,7 +5,7 @@ package ue;
 @:include("Teleporter/VREditorAutoScaler.h")
 @:structAccess
 extern class VREditorAutoScaler extends Object {
-	public var VRMode: cpp.Star<VREditorMode>;
+	private var VRMode: cpp.Star<VREditorMode>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class VREditorAutoScaler extends Object {
 @:forward()
 @:nativeGen
 abstract ConstVREditorAutoScaler(VREditorAutoScaler) from VREditorAutoScaler {
-	public extern var VRMode(get, never): cpp.Star<VREditorMode.ConstVREditorMode>;
-	public inline extern function get_VRMode(): cpp.Star<VREditorMode.ConstVREditorMode> return this.VRMode;
 }
 
 @:forward

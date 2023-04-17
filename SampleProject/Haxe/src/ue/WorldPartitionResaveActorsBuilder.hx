@@ -5,11 +5,11 @@ package ue;
 @:include("WorldPartition/WorldPartitionResaveActorsBuilder.h")
 @:structAccess
 extern class WorldPartitionResaveActorsBuilder extends WorldPartitionBuilder {
-	public var ActorClassName: FString;
-	public var bReportOnly: Bool;
-	public var bResaveDirtyActorDescsOnly: Bool;
-	public var bSwitchActorPackagingSchemeToReduced: Bool;
-	public var bEnableActorFolders: Bool;
+	private var ActorClassName: FString;
+	private var bReportOnly: Bool;
+	private var bResaveDirtyActorDescsOnly: Bool;
+	private var bSwitchActorPackagingSchemeToReduced: Bool;
+	private var bEnableActorFolders: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,16 +17,6 @@ extern class WorldPartitionResaveActorsBuilder extends WorldPartitionBuilder {
 @:forward()
 @:nativeGen
 abstract ConstWorldPartitionResaveActorsBuilder(WorldPartitionResaveActorsBuilder) from WorldPartitionResaveActorsBuilder {
-	public extern var ActorClassName(get, never): FString;
-	public inline extern function get_ActorClassName(): FString return this.ActorClassName;
-	public extern var bReportOnly(get, never): Bool;
-	public inline extern function get_bReportOnly(): Bool return this.bReportOnly;
-	public extern var bResaveDirtyActorDescsOnly(get, never): Bool;
-	public inline extern function get_bResaveDirtyActorDescsOnly(): Bool return this.bResaveDirtyActorDescsOnly;
-	public extern var bSwitchActorPackagingSchemeToReduced(get, never): Bool;
-	public inline extern function get_bSwitchActorPackagingSchemeToReduced(): Bool return this.bSwitchActorPackagingSchemeToReduced;
-	public extern var bEnableActorFolders(get, never): Bool;
-	public inline extern function get_bEnableActorFolders(): Bool return this.bEnableActorFolders;
 }
 
 @:forward

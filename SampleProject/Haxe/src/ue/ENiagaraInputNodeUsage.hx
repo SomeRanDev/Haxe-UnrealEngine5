@@ -3,12 +3,12 @@ package ue;
 
 @:native("ENiagaraInputNodeUsage")
 @:include("NiagaraCommon.h")
-extern enum ENiagaraInputNodeUsage {
-	Undefined;
-	Parameter;
-	Attribute;
-	SystemConstant;
-	TranslatorConstant;
-	RapidIterationParameter;
-	ENiagaraInputNodeUsage_MAX;
+extern class ENiagaraInputNodeUsage {
+	static var Undefined: ENiagaraInputNodeUsage;
+	static var Parameter: ENiagaraInputNodeUsage;
+	static var Attribute: ENiagaraInputNodeUsage;
+	static var SystemConstant: ENiagaraInputNodeUsage;
+	static var TranslatorConstant: ENiagaraInputNodeUsage;
+	static var RapidIterationParameter: ENiagaraInputNodeUsage;
+	static var ENiagaraInputNodeUsage_MAX: ENiagaraInputNodeUsage;
 }

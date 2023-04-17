@@ -6,24 +6,24 @@ package ue;
 @:structAccess
 extern class EnvQueryTest extends EnvQueryNode {
 	public var TestOrder: cpp.Int32;
-	public var TestPurpose: EEnvTestPurpose;
+	public var TestPurpose: TEnumAsByte<EEnvTestPurpose>;
 	public var TestComment: FString;
-	public var MultipleContextFilterOp: EEnvTestFilterOperator;
-	public var MultipleContextScoreOp: EEnvTestScoreOperator;
-	public var FilterType: EEnvTestFilterType;
+	public var MultipleContextFilterOp: TEnumAsByte<EEnvTestFilterOperator>;
+	public var MultipleContextScoreOp: TEnumAsByte<EEnvTestScoreOperator>;
+	public var FilterType: TEnumAsByte<EEnvTestFilterType>;
 	public var BoolValue: AIDataProviderBoolValue;
 	public var FloatValueMin: AIDataProviderFloatValue;
 	public var FloatValueMax: AIDataProviderFloatValue;
-	public var ScoringEquation: EEnvTestScoreEquation;
-	public var ClampMinType: EEnvQueryTestClamping;
-	public var ClampMaxType: EEnvQueryTestClamping;
+	public var ScoringEquation: TEnumAsByte<EEnvTestScoreEquation>;
+	public var ClampMinType: TEnumAsByte<EEnvQueryTestClamping>;
+	public var ClampMaxType: TEnumAsByte<EEnvQueryTestClamping>;
 	public var NormalizationType: EEQSNormalizationType;
 	public var ScoreClampMin: AIDataProviderFloatValue;
 	public var ScoreClampMax: AIDataProviderFloatValue;
 	public var ScoringFactor: AIDataProviderFloatValue;
 	public var ReferenceValue: AIDataProviderFloatValue;
 	public var bDefineReferenceValue: Bool;
-	public var bWorkOnFloatValues: Bool;
+	private var bWorkOnFloatValues: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -33,28 +33,28 @@ extern class EnvQueryTest extends EnvQueryNode {
 abstract ConstEnvQueryTest(EnvQueryTest) from EnvQueryTest {
 	public extern var TestOrder(get, never): cpp.Int32;
 	public inline extern function get_TestOrder(): cpp.Int32 return this.TestOrder;
-	public extern var TestPurpose(get, never): EEnvTestPurpose;
-	public inline extern function get_TestPurpose(): EEnvTestPurpose return this.TestPurpose;
+	public extern var TestPurpose(get, never): TEnumAsByte<EEnvTestPurpose>;
+	public inline extern function get_TestPurpose(): TEnumAsByte<EEnvTestPurpose> return this.TestPurpose;
 	public extern var TestComment(get, never): FString;
 	public inline extern function get_TestComment(): FString return this.TestComment;
-	public extern var MultipleContextFilterOp(get, never): EEnvTestFilterOperator;
-	public inline extern function get_MultipleContextFilterOp(): EEnvTestFilterOperator return this.MultipleContextFilterOp;
-	public extern var MultipleContextScoreOp(get, never): EEnvTestScoreOperator;
-	public inline extern function get_MultipleContextScoreOp(): EEnvTestScoreOperator return this.MultipleContextScoreOp;
-	public extern var FilterType(get, never): EEnvTestFilterType;
-	public inline extern function get_FilterType(): EEnvTestFilterType return this.FilterType;
+	public extern var MultipleContextFilterOp(get, never): TEnumAsByte<EEnvTestFilterOperator>;
+	public inline extern function get_MultipleContextFilterOp(): TEnumAsByte<EEnvTestFilterOperator> return this.MultipleContextFilterOp;
+	public extern var MultipleContextScoreOp(get, never): TEnumAsByte<EEnvTestScoreOperator>;
+	public inline extern function get_MultipleContextScoreOp(): TEnumAsByte<EEnvTestScoreOperator> return this.MultipleContextScoreOp;
+	public extern var FilterType(get, never): TEnumAsByte<EEnvTestFilterType>;
+	public inline extern function get_FilterType(): TEnumAsByte<EEnvTestFilterType> return this.FilterType;
 	public extern var BoolValue(get, never): AIDataProviderBoolValue;
 	public inline extern function get_BoolValue(): AIDataProviderBoolValue return this.BoolValue;
 	public extern var FloatValueMin(get, never): AIDataProviderFloatValue;
 	public inline extern function get_FloatValueMin(): AIDataProviderFloatValue return this.FloatValueMin;
 	public extern var FloatValueMax(get, never): AIDataProviderFloatValue;
 	public inline extern function get_FloatValueMax(): AIDataProviderFloatValue return this.FloatValueMax;
-	public extern var ScoringEquation(get, never): EEnvTestScoreEquation;
-	public inline extern function get_ScoringEquation(): EEnvTestScoreEquation return this.ScoringEquation;
-	public extern var ClampMinType(get, never): EEnvQueryTestClamping;
-	public inline extern function get_ClampMinType(): EEnvQueryTestClamping return this.ClampMinType;
-	public extern var ClampMaxType(get, never): EEnvQueryTestClamping;
-	public inline extern function get_ClampMaxType(): EEnvQueryTestClamping return this.ClampMaxType;
+	public extern var ScoringEquation(get, never): TEnumAsByte<EEnvTestScoreEquation>;
+	public inline extern function get_ScoringEquation(): TEnumAsByte<EEnvTestScoreEquation> return this.ScoringEquation;
+	public extern var ClampMinType(get, never): TEnumAsByte<EEnvQueryTestClamping>;
+	public inline extern function get_ClampMinType(): TEnumAsByte<EEnvQueryTestClamping> return this.ClampMinType;
+	public extern var ClampMaxType(get, never): TEnumAsByte<EEnvQueryTestClamping>;
+	public inline extern function get_ClampMaxType(): TEnumAsByte<EEnvQueryTestClamping> return this.ClampMaxType;
 	public extern var NormalizationType(get, never): EEQSNormalizationType;
 	public inline extern function get_NormalizationType(): EEQSNormalizationType return this.NormalizationType;
 	public extern var ScoreClampMin(get, never): AIDataProviderFloatValue;
@@ -67,8 +67,6 @@ abstract ConstEnvQueryTest(EnvQueryTest) from EnvQueryTest {
 	public inline extern function get_ReferenceValue(): AIDataProviderFloatValue return this.ReferenceValue;
 	public extern var bDefineReferenceValue(get, never): Bool;
 	public inline extern function get_bDefineReferenceValue(): Bool return this.bDefineReferenceValue;
-	public extern var bWorkOnFloatValues(get, never): Bool;
-	public inline extern function get_bWorkOnFloatValues(): Bool return this.bWorkOnFloatValues;
 }
 
 @:forward

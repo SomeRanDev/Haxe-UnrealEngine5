@@ -3,11 +3,11 @@ package ue;
 
 @:native("EAudioDeviceChangedRole")
 @:include("AudioDeviceNotificationSubsystem.h")
-extern enum EAudioDeviceChangedRole {
-	Invalid;
-	Console;
-	Multimedia;
-	Communications;
-	Count;
-	EAudioDeviceChangedRole_MAX;
+extern class EAudioDeviceChangedRole {
+	static var Invalid: EAudioDeviceChangedRole;
+	static var Console: EAudioDeviceChangedRole;
+	static var Multimedia: EAudioDeviceChangedRole;
+	static var Communications: EAudioDeviceChangedRole;
+	static var Count: EAudioDeviceChangedRole;
+	static var EAudioDeviceChangedRole_MAX: EAudioDeviceChangedRole;
 }

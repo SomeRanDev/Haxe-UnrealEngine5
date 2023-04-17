@@ -5,7 +5,7 @@ package ue;
 @:include("MeshVertexPaintingTool.h")
 @:structAccess
 extern class MeshWeightPaintingTool extends MeshVertexPaintingTool {
-	public var WeightProperties: cpp.Star<MeshWeightPaintingToolProperties>;
+	private var WeightProperties: cpp.Star<MeshWeightPaintingToolProperties>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MeshWeightPaintingTool extends MeshVertexPaintingTool {
 @:forward()
 @:nativeGen
 abstract ConstMeshWeightPaintingTool(MeshWeightPaintingTool) from MeshWeightPaintingTool {
-	public extern var WeightProperties(get, never): cpp.Star<MeshWeightPaintingToolProperties.ConstMeshWeightPaintingToolProperties>;
-	public inline extern function get_WeightProperties(): cpp.Star<MeshWeightPaintingToolProperties.ConstMeshWeightPaintingToolProperties> return this.WeightProperties;
 }
 
 @:forward

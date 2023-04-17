@@ -3,8 +3,8 @@ package ue;
 
 @:native("ECurveEditorFFTFilterType")
 @:include("Private/Filters/CurveEditorFFTFilter.h")
-extern enum ECurveEditorFFTFilterType {
-	Lowpass;
-	Highpass;
-	ECurveEditorFFTFilterType_MAX;
+extern class ECurveEditorFFTFilterType {
+	static var Lowpass: ECurveEditorFFTFilterType;
+	static var Highpass: ECurveEditorFFTFilterType;
+	static var ECurveEditorFFTFilterType_MAX: ECurveEditorFFTFilterType;
 }

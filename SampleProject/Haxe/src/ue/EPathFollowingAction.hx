@@ -3,11 +3,11 @@ package ue;
 
 @:native("EPathFollowingAction.Type")
 @:include("Navigation/PathFollowingComponent.h")
-extern enum EPathFollowingAction {
-	Error;
-	NoMove;
-	DirectMove;
-	PartialPath;
-	PathToGoal;
-	EPathFollowingAction_MAX;
+extern class EPathFollowingAction {
+	static var Error: EPathFollowingAction;
+	static var NoMove: EPathFollowingAction;
+	static var DirectMove: EPathFollowingAction;
+	static var PartialPath: EPathFollowingAction;
+	static var PathToGoal: EPathFollowingAction;
+	static var EPathFollowingAction_MAX: EPathFollowingAction;
 }

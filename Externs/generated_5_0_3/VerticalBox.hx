@@ -5,7 +5,7 @@ package ue;
 @:include("Components/VerticalBox.h")
 @:structAccess
 extern class VerticalBox extends PanelWidget {
-	public function AddChildToVerticalBox(Content: cpp.Star<Widget>): cpp.Reference<cpp.Star<VerticalBoxSlot>>;
+	public function AddChildToVerticalBox(Content: cpp.Star<Widget>): cpp.Star<VerticalBoxSlot>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

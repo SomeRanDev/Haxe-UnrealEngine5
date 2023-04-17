@@ -5,7 +5,6 @@ package ue;
 @:include("PhysicsEngine/SphereElem.h")
 @:structAccess
 extern class KSphereElem extends KShapeElem {
-	public var TM_DEPRECATED: Matrix;
 	public var Center: Vector;
 	public var Radius: cpp.Float32;
 

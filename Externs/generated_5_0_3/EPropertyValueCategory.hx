@@ -3,15 +3,15 @@ package ue;
 
 @:native("EPropertyValueCategory")
 @:include("PropertyValue.h")
-extern enum EPropertyValueCategory {
-	Undefined;
-	Generic;
-	RelativeLocation;
-	RelativeRotation;
-	RelativeScale3D;
-	Visibility;
-	Material;
-	Color;
-	Option;
-	EPropertyValueCategory_MAX;
+extern class EPropertyValueCategory {
+	static var Undefined: EPropertyValueCategory;
+	static var Generic: EPropertyValueCategory;
+	static var RelativeLocation: EPropertyValueCategory;
+	static var RelativeRotation: EPropertyValueCategory;
+	static var RelativeScale3D: EPropertyValueCategory;
+	static var Visibility: EPropertyValueCategory;
+	static var Material: EPropertyValueCategory;
+	static var Color: EPropertyValueCategory;
+	static var Option: EPropertyValueCategory;
+	static var EPropertyValueCategory_MAX: EPropertyValueCategory;
 }

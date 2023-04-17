@@ -8,8 +8,6 @@ extern class MaterialExpressionScalarParameter extends MaterialExpressionParamet
 	public var DefaultValue: cpp.Float32;
 	public var bUseCustomPrimitiveData: Bool;
 	public var PrimitiveDataIndex: cpp.UInt8;
-	public var SliderMin: cpp.Float32;
-	public var SliderMax: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -23,10 +21,6 @@ abstract ConstMaterialExpressionScalarParameter(MaterialExpressionScalarParamete
 	public inline extern function get_bUseCustomPrimitiveData(): Bool return this.bUseCustomPrimitiveData;
 	public extern var PrimitiveDataIndex(get, never): cpp.UInt8;
 	public inline extern function get_PrimitiveDataIndex(): cpp.UInt8 return this.PrimitiveDataIndex;
-	public extern var SliderMin(get, never): cpp.Float32;
-	public inline extern function get_SliderMin(): cpp.Float32 return this.SliderMin;
-	public extern var SliderMax(get, never): cpp.Float32;
-	public inline extern function get_SliderMax(): cpp.Float32 return this.SliderMax;
 }
 
 @:forward

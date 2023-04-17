@@ -3,10 +3,10 @@ package ue;
 
 @:native("EPropertyEditorTestUnderscores")
 @:include("Editor/PropertyEditorTestObject.h")
-extern enum EPropertyEditorTestUnderscores {
-	_One;
-	_Two;
-	_Three;
-	NotUnderscore;
-	EPropertyEditorTestUnderscores_MAX;
+extern class EPropertyEditorTestUnderscores {
+	static var _One: EPropertyEditorTestUnderscores;
+	static var _Two: EPropertyEditorTestUnderscores;
+	static var _Three: EPropertyEditorTestUnderscores;
+	static var NotUnderscore: EPropertyEditorTestUnderscores;
+	static var EPropertyEditorTestUnderscores_MAX: EPropertyEditorTestUnderscores;
 }

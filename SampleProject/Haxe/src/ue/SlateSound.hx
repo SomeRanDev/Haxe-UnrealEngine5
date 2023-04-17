@@ -5,7 +5,7 @@ package ue;
 @:include("Sound/SlateSound.h")
 @:structAccess
 extern class SlateSound {
-	public var ResourceObject: cpp.Star<Object>;
+	@:protected public var ResourceObject: cpp.Star<Object>;
 
 	@:native("FSlateSound") public function new();
 	@:native("FSlateSound") public static function make(ResourceObject: cpp.Star<Object>): SlateSound ;

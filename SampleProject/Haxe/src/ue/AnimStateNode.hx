@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class AnimStateNode extends AnimStateNodeBase {
 	public var BoundGraph: cpp.Star<EdGraph>;
-	public var StateType: EAnimStateType;
+	public var StateType: TEnumAsByte<EAnimStateType>;
 	public var StateEntered: AnimNotifyEvent;
 	public var StateLeft: AnimNotifyEvent;
 	public var StateFullyBlended: AnimNotifyEvent;
@@ -20,8 +20,8 @@ extern class AnimStateNode extends AnimStateNodeBase {
 abstract ConstAnimStateNode(AnimStateNode) from AnimStateNode {
 	public extern var BoundGraph(get, never): cpp.Star<EdGraph.ConstEdGraph>;
 	public inline extern function get_BoundGraph(): cpp.Star<EdGraph.ConstEdGraph> return this.BoundGraph;
-	public extern var StateType(get, never): EAnimStateType;
-	public inline extern function get_StateType(): EAnimStateType return this.StateType;
+	public extern var StateType(get, never): TEnumAsByte<EAnimStateType>;
+	public inline extern function get_StateType(): TEnumAsByte<EAnimStateType> return this.StateType;
 	public extern var StateEntered(get, never): AnimNotifyEvent;
 	public inline extern function get_StateEntered(): AnimNotifyEvent return this.StateEntered;
 	public extern var StateLeft(get, never): AnimNotifyEvent;

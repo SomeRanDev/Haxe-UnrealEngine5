@@ -3,10 +3,10 @@ package ue;
 
 @:native("ERecomputeUVsPropertiesLayoutType")
 @:include("Properties/RecomputeUVsProperties.h")
-extern enum ERecomputeUVsPropertiesLayoutType {
-	None;
-	Repack;
-	NormalizeToBounds;
-	NormalizeToWorld;
-	ERecomputeUVsPropertiesLayoutType_MAX;
+extern class ERecomputeUVsPropertiesLayoutType {
+	static var None: ERecomputeUVsPropertiesLayoutType;
+	static var Repack: ERecomputeUVsPropertiesLayoutType;
+	static var NormalizeToBounds: ERecomputeUVsPropertiesLayoutType;
+	static var NormalizeToWorld: ERecomputeUVsPropertiesLayoutType;
+	static var ERecomputeUVsPropertiesLayoutType_MAX: ERecomputeUVsPropertiesLayoutType;
 }

@@ -11,12 +11,12 @@ extern class SequencerScriptingRangeExtensions extends BlueprintFunctionLibrary 
 	public function SetEndFrame(Range: cpp.Reference<SequencerScriptingRange>, End: cpp.Int32): Void;
 	public function RemoveStart(Range: cpp.Reference<SequencerScriptingRange>): Void;
 	public function RemoveEnd(Range: cpp.Reference<SequencerScriptingRange>): Void;
-	public function HasStart(Range: cpp.Reference<SequencerScriptingRange>): cpp.Reference<Bool>;
-	public function HasEnd(Range: cpp.Reference<SequencerScriptingRange>): cpp.Reference<Bool>;
-	public function GetStartSeconds(Range: cpp.Reference<SequencerScriptingRange>): cpp.Reference<cpp.Float32>;
-	public function GetStartFrame(Range: cpp.Reference<SequencerScriptingRange>): cpp.Reference<cpp.Int32>;
-	public function GetEndSeconds(Range: cpp.Reference<SequencerScriptingRange>): cpp.Reference<cpp.Float32>;
-	public function GetEndFrame(Range: cpp.Reference<SequencerScriptingRange>): cpp.Reference<cpp.Int32>;
+	public function HasStart(Range: cpp.Reference<SequencerScriptingRange>): Bool;
+	public function HasEnd(Range: cpp.Reference<SequencerScriptingRange>): Bool;
+	public function GetStartSeconds(Range: cpp.Reference<SequencerScriptingRange>): cpp.Float32;
+	public function GetStartFrame(Range: cpp.Reference<SequencerScriptingRange>): cpp.Int32;
+	public function GetEndSeconds(Range: cpp.Reference<SequencerScriptingRange>): cpp.Float32;
+	public function GetEndFrame(Range: cpp.Reference<SequencerScriptingRange>): cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

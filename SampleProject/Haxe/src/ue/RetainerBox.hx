@@ -5,20 +5,20 @@ package ue;
 @:include("Components/RetainerBox.h")
 @:structAccess
 extern class RetainerBox extends ContentWidget {
-	public var bRetainRender: Bool;
+	@:protected public var bRetainRender: Bool;
 	public var RenderOnInvalidation: Bool;
 	public var RenderOnPhase: Bool;
 	public var Phase: cpp.Int32;
 	public var PhaseCount: cpp.Int32;
-	public var EffectMaterial: cpp.Star<MaterialInterface>;
-	public var TextureParameter: FName;
+	@:protected public var EffectMaterial: cpp.Star<MaterialInterface>;
+	@:protected public var TextureParameter: FName;
 
 	public function SetTextureParameter(TextureParameter: FName): Void;
 	public function SetRetainRendering(bInRetainRendering: Bool): Void;
 	public function SetRenderingPhase(RenderPhase: cpp.Int32, TotalPhases: cpp.Int32): Void;
 	public function SetEffectMaterial(EffectMaterial: cpp.Star<MaterialInterface>): Void;
 	public function RequestRender(): Void;
-	public function GetEffectMaterial(): cpp.Reference<cpp.Star<MaterialInstanceDynamic>>;
+	public function GetEffectMaterial(): cpp.Star<MaterialInstanceDynamic>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -26,8 +26,6 @@ extern class RetainerBox extends ContentWidget {
 @:forward(GetEffectMaterial)
 @:nativeGen
 abstract ConstRetainerBox(RetainerBox) from RetainerBox {
-	public extern var bRetainRender(get, never): Bool;
-	public inline extern function get_bRetainRender(): Bool return this.bRetainRender;
 	public extern var RenderOnInvalidation(get, never): Bool;
 	public inline extern function get_RenderOnInvalidation(): Bool return this.RenderOnInvalidation;
 	public extern var RenderOnPhase(get, never): Bool;
@@ -36,10 +34,6 @@ abstract ConstRetainerBox(RetainerBox) from RetainerBox {
 	public inline extern function get_Phase(): cpp.Int32 return this.Phase;
 	public extern var PhaseCount(get, never): cpp.Int32;
 	public inline extern function get_PhaseCount(): cpp.Int32 return this.PhaseCount;
-	public extern var EffectMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_EffectMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.EffectMaterial;
-	public extern var TextureParameter(get, never): FName;
-	public inline extern function get_TextureParameter(): FName return this.TextureParameter;
 }
 
 @:forward

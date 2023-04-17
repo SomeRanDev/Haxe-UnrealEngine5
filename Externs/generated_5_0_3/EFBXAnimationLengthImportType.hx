@@ -3,9 +3,9 @@ package ue;
 
 @:native("EFBXAnimationLengthImportType")
 @:include("Factories/FbxAnimSequenceImportData.h")
-extern enum EFBXAnimationLengthImportType {
-	FBXALIT_ExportedTime;
-	FBXALIT_AnimatedKey;
-	FBXALIT_SetRange;
-	FBXALIT_MAX;
+extern class EFBXAnimationLengthImportType {
+	static var FBXALIT_ExportedTime: EFBXAnimationLengthImportType;
+	static var FBXALIT_AnimatedKey: EFBXAnimationLengthImportType;
+	static var FBXALIT_SetRange: EFBXAnimationLengthImportType;
+	static var FBXALIT_MAX: EFBXAnimationLengthImportType;
 }

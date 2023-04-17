@@ -3,10 +3,10 @@ package ue;
 
 @:native("EChildActorComponentTreeViewVisualizationMode")
 @:include("Components/ChildActorComponent.h")
-extern enum EChildActorComponentTreeViewVisualizationMode {
-	UseDefault;
-	ComponentOnly;
-	ComponentWithChildActor;
-	ChildActorOnly;
-	EChildActorComponentTreeViewVisualizationMode_MAX;
+extern class EChildActorComponentTreeViewVisualizationMode {
+	static var UseDefault: EChildActorComponentTreeViewVisualizationMode;
+	static var ComponentOnly: EChildActorComponentTreeViewVisualizationMode;
+	static var ComponentWithChildActor: EChildActorComponentTreeViewVisualizationMode;
+	static var ChildActorOnly: EChildActorComponentTreeViewVisualizationMode;
+	static var EChildActorComponentTreeViewVisualizationMode_MAX: EChildActorComponentTreeViewVisualizationMode;
 }

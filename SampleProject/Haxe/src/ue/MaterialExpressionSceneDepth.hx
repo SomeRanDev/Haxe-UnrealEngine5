@@ -5,9 +5,8 @@ package ue;
 @:include("Materials/MaterialExpressionSceneDepth.h")
 @:structAccess
 extern class MaterialExpressionSceneDepth extends MaterialExpression {
-	public var InputMode: EMaterialSceneAttributeInputMode;
+	public var InputMode: TEnumAsByte<EMaterialSceneAttributeInputMode>;
 	public var Input: ExpressionInput;
-	public var Coordinates_DEPRECATED: ExpressionInput;
 	public var ConstInput: Vector2D;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -16,12 +15,10 @@ extern class MaterialExpressionSceneDepth extends MaterialExpression {
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionSceneDepth(MaterialExpressionSceneDepth) from MaterialExpressionSceneDepth {
-	public extern var InputMode(get, never): EMaterialSceneAttributeInputMode;
-	public inline extern function get_InputMode(): EMaterialSceneAttributeInputMode return this.InputMode;
+	public extern var InputMode(get, never): TEnumAsByte<EMaterialSceneAttributeInputMode>;
+	public inline extern function get_InputMode(): TEnumAsByte<EMaterialSceneAttributeInputMode> return this.InputMode;
 	public extern var Input(get, never): ExpressionInput;
 	public inline extern function get_Input(): ExpressionInput return this.Input;
-	public extern var Coordinates_DEPRECATED(get, never): ExpressionInput;
-	public inline extern function get_Coordinates_DEPRECATED(): ExpressionInput return this.Coordinates_DEPRECATED;
 	public extern var ConstInput(get, never): Vector2D;
 	public inline extern function get_ConstInput(): Vector2D return this.ConstInput;
 }

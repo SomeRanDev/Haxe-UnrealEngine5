@@ -5,11 +5,11 @@ package ue;
 @:include("EditorTutorial.h")
 @:structAccess
 extern class TutorialContent {
-	public var Type: ETutorialContent;
+	public var Type: TEnumAsByte<ETutorialContent>;
 	public var Content: FString;
 	public var ExcerptName: FString;
 	public var Text: FText;
 
 	@:native("FTutorialContent") public function new();
-	@:native("FTutorialContent") public static function make(Type: ETutorialContent, Content: FString, ExcerptName: FString, Text: FText): TutorialContent ;
+	@:native("FTutorialContent") public static function make(Type: TEnumAsByte<ETutorialContent>, Content: FString, ExcerptName: FString, Text: FText): TutorialContent ;
 }

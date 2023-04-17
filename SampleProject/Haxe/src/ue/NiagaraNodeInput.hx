@@ -9,7 +9,7 @@ extern class NiagaraNodeInput extends NiagaraNode {
 	public var Usage: ENiagaraInputNodeUsage;
 	public var CallSortPriority: cpp.Int32;
 	public var ExposureOptions: NiagaraInputExposureOptions;
-	public var DataInterface: cpp.Star<NiagaraDataInterface>;
+	private var DataInterface: cpp.Star<NiagaraDataInterface>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -25,8 +25,6 @@ abstract ConstNiagaraNodeInput(NiagaraNodeInput) from NiagaraNodeInput {
 	public inline extern function get_CallSortPriority(): cpp.Int32 return this.CallSortPriority;
 	public extern var ExposureOptions(get, never): NiagaraInputExposureOptions;
 	public inline extern function get_ExposureOptions(): NiagaraInputExposureOptions return this.ExposureOptions;
-	public extern var DataInterface(get, never): cpp.Star<NiagaraDataInterface.ConstNiagaraDataInterface>;
-	public inline extern function get_DataInterface(): cpp.Star<NiagaraDataInterface.ConstNiagaraDataInterface> return this.DataInterface;
 }
 
 @:forward

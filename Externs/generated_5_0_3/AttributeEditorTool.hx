@@ -5,13 +5,13 @@ package ue;
 @:include("AttributeEditorTool.h")
 @:structAccess
 extern class AttributeEditorTool extends MultiSelectionMeshEditingTool {
-	public var NormalsActions: cpp.Star<AttributeEditorNormalsActions>;
-	public var UVActions: cpp.Star<AttributeEditorUVActions>;
-	public var LightmapUVActions: cpp.Star<AttributeEditorLightmapUVActions>;
-	public var AttributeProps: cpp.Star<AttributeEditorAttribProperties>;
-	public var NewAttributeProps: cpp.Star<AttributeEditorNewAttributeActions>;
-	public var ModifyAttributeProps: cpp.Star<AttributeEditorModifyAttributeActions>;
-	public var CopyAttributeProps: cpp.Star<AttributeEditorCopyAttributeActions>;
+	@:protected public var NormalsActions: cpp.Star<AttributeEditorNormalsActions>;
+	@:protected public var UVActions: cpp.Star<AttributeEditorUVActions>;
+	@:protected public var LightmapUVActions: cpp.Star<AttributeEditorLightmapUVActions>;
+	@:protected public var AttributeProps: cpp.Star<AttributeEditorAttribProperties>;
+	@:protected public var NewAttributeProps: cpp.Star<AttributeEditorNewAttributeActions>;
+	@:protected public var ModifyAttributeProps: cpp.Star<AttributeEditorModifyAttributeActions>;
+	@:protected public var CopyAttributeProps: cpp.Star<AttributeEditorCopyAttributeActions>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,20 +19,6 @@ extern class AttributeEditorTool extends MultiSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstAttributeEditorTool(AttributeEditorTool) from AttributeEditorTool {
-	public extern var NormalsActions(get, never): cpp.Star<AttributeEditorNormalsActions.ConstAttributeEditorNormalsActions>;
-	public inline extern function get_NormalsActions(): cpp.Star<AttributeEditorNormalsActions.ConstAttributeEditorNormalsActions> return this.NormalsActions;
-	public extern var UVActions(get, never): cpp.Star<AttributeEditorUVActions.ConstAttributeEditorUVActions>;
-	public inline extern function get_UVActions(): cpp.Star<AttributeEditorUVActions.ConstAttributeEditorUVActions> return this.UVActions;
-	public extern var LightmapUVActions(get, never): cpp.Star<AttributeEditorLightmapUVActions.ConstAttributeEditorLightmapUVActions>;
-	public inline extern function get_LightmapUVActions(): cpp.Star<AttributeEditorLightmapUVActions.ConstAttributeEditorLightmapUVActions> return this.LightmapUVActions;
-	public extern var AttributeProps(get, never): cpp.Star<AttributeEditorAttribProperties.ConstAttributeEditorAttribProperties>;
-	public inline extern function get_AttributeProps(): cpp.Star<AttributeEditorAttribProperties.ConstAttributeEditorAttribProperties> return this.AttributeProps;
-	public extern var NewAttributeProps(get, never): cpp.Star<AttributeEditorNewAttributeActions.ConstAttributeEditorNewAttributeActions>;
-	public inline extern function get_NewAttributeProps(): cpp.Star<AttributeEditorNewAttributeActions.ConstAttributeEditorNewAttributeActions> return this.NewAttributeProps;
-	public extern var ModifyAttributeProps(get, never): cpp.Star<AttributeEditorModifyAttributeActions.ConstAttributeEditorModifyAttributeActions>;
-	public inline extern function get_ModifyAttributeProps(): cpp.Star<AttributeEditorModifyAttributeActions.ConstAttributeEditorModifyAttributeActions> return this.ModifyAttributeProps;
-	public extern var CopyAttributeProps(get, never): cpp.Star<AttributeEditorCopyAttributeActions.ConstAttributeEditorCopyAttributeActions>;
-	public inline extern function get_CopyAttributeProps(): cpp.Star<AttributeEditorCopyAttributeActions.ConstAttributeEditorCopyAttributeActions> return this.CopyAttributeProps;
 }
 
 @:forward

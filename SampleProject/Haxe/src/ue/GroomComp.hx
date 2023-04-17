@@ -21,12 +21,10 @@ extern class GroomComp extends MeshComp {
 	public var AttachmentName: FString;
 	public var GroomGroupsDesc: TArray<HairGroupDesc>;
 	public var bUseCards: Bool;
-	public var bRunning: Bool;
-	public var bLooping: Bool;
-	public var bManualTick: Bool;
-	public var ElapsedTime: cpp.Float32;
-	public var GroomAssetBeingLoaded: cpp.Star<GroomAsset>;
-	public var BindingAssetBeingLoaded: cpp.Star<GroomBindingAsset>;
+	private var bRunning: Bool;
+	private var bLooping: Bool;
+	private var bManualTick: Bool;
+	private var ElapsedTime: cpp.Float32;
 
 	public function SetPhysicsAsset(InPhysicsAsset: cpp.Star<PhysicsAsset>): Void;
 	public function SetHairLengthScaleEnable(bEnable: Bool): Void;
@@ -36,7 +34,7 @@ extern class GroomComp extends MeshComp {
 	public function SetBindingAsset(InBinding: cpp.Star<GroomBindingAsset>): Void;
 	public function ResetSimulation(): Void;
 	public function ResetCollisionComponents(): Void;
-	public function GetIsHairLengthScaleEnabled(): cpp.Reference<Bool>;
+	public function GetIsHairLengthScaleEnabled(): Bool;
 	public function AddCollisionComponent(SkeletalMeshComponent: cpp.Star<SkeletalMeshComp>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -77,18 +75,6 @@ abstract ConstGroomComp(GroomComp) from GroomComp {
 	public inline extern function get_GroomGroupsDesc(): TArray<HairGroupDesc> return this.GroomGroupsDesc;
 	public extern var bUseCards(get, never): Bool;
 	public inline extern function get_bUseCards(): Bool return this.bUseCards;
-	public extern var bRunning(get, never): Bool;
-	public inline extern function get_bRunning(): Bool return this.bRunning;
-	public extern var bLooping(get, never): Bool;
-	public inline extern function get_bLooping(): Bool return this.bLooping;
-	public extern var bManualTick(get, never): Bool;
-	public inline extern function get_bManualTick(): Bool return this.bManualTick;
-	public extern var ElapsedTime(get, never): cpp.Float32;
-	public inline extern function get_ElapsedTime(): cpp.Float32 return this.ElapsedTime;
-	public extern var GroomAssetBeingLoaded(get, never): cpp.Star<GroomAsset.ConstGroomAsset>;
-	public inline extern function get_GroomAssetBeingLoaded(): cpp.Star<GroomAsset.ConstGroomAsset> return this.GroomAssetBeingLoaded;
-	public extern var BindingAssetBeingLoaded(get, never): cpp.Star<GroomBindingAsset.ConstGroomBindingAsset>;
-	public inline extern function get_BindingAssetBeingLoaded(): cpp.Star<GroomBindingAsset.ConstGroomBindingAsset> return this.BindingAssetBeingLoaded;
 }
 
 @:forward

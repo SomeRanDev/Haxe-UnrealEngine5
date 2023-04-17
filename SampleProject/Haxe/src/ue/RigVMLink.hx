@@ -5,14 +5,14 @@ package ue;
 @:include("RigVMModel/RigVMLink.h")
 @:structAccess
 extern class RigVMLink extends Object {
-	public var SourcePinPath: FString;
-	public var TargetPinPath: FString;
+	private var SourcePinPath: FString;
+	private var TargetPinPath: FString;
 
-	public function GetTargetPin(): cpp.Reference<cpp.Star<RigVMPin>>;
-	public function GetSourcePin(): cpp.Reference<cpp.Star<RigVMPin>>;
-	public function GetPinPathRepresentation(): cpp.Reference<FString>;
-	public function GetLinkIndex(): cpp.Reference<cpp.Int32>;
-	public function GetGraph(): cpp.Reference<cpp.Star<RigVMGraph>>;
+	public function GetTargetPin(): cpp.Star<RigVMPin>;
+	public function GetSourcePin(): cpp.Star<RigVMPin>;
+	public function GetPinPathRepresentation(): FString;
+	public function GetLinkIndex(): cpp.Int32;
+	public function GetGraph(): cpp.Star<RigVMGraph>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -20,10 +20,6 @@ extern class RigVMLink extends Object {
 @:forward(GetLinkIndex, GetGraph)
 @:nativeGen
 abstract ConstRigVMLink(RigVMLink) from RigVMLink {
-	public extern var SourcePinPath(get, never): FString;
-	public inline extern function get_SourcePinPath(): FString return this.SourcePinPath;
-	public extern var TargetPinPath(get, never): FString;
-	public inline extern function get_TargetPinPath(): FString return this.TargetPinPath;
 }
 
 @:forward

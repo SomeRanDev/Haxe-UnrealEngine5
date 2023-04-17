@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMeasuringToolUnits")
 @:include("Settings/LevelEditorViewportSettings.h")
-extern enum EMeasuringToolUnits {
-	MeasureUnits_Centimeters;
-	MeasureUnits_Meters;
-	MeasureUnits_Kilometers;
-	MeasureUnits_MAX;
+extern class EMeasuringToolUnits {
+	static var MeasureUnits_Centimeters: EMeasuringToolUnits;
+	static var MeasureUnits_Meters: EMeasuringToolUnits;
+	static var MeasureUnits_Kilometers: EMeasuringToolUnits;
+	static var MeasureUnits_MAX: EMeasuringToolUnits;
 }

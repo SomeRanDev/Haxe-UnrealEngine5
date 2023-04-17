@@ -3,12 +3,12 @@ package ue;
 
 @:native("ELocationAccuracy")
 @:include("LocationServicesBPLibrary.h")
-extern enum ELocationAccuracy {
-	LA_ThreeKilometers;
-	LA_OneKilometer;
-	LA_HundredMeters;
-	LA_TenMeters;
-	LA_Best;
-	LA_Navigation;
-	LA_MAX;
+extern class ELocationAccuracy {
+	static var LA_ThreeKilometers: ELocationAccuracy;
+	static var LA_OneKilometer: ELocationAccuracy;
+	static var LA_HundredMeters: ELocationAccuracy;
+	static var LA_TenMeters: ELocationAccuracy;
+	static var LA_Best: ELocationAccuracy;
+	static var LA_Navigation: ELocationAccuracy;
+	static var LA_MAX: ELocationAccuracy;
 }

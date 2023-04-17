@@ -5,7 +5,7 @@ package ue;
 @:include("Animation/MovieScene2DTransformSection.h")
 @:structAccess
 extern class MovieScene2DTransformMask {
-	public var Mask: cpp.UInt32;
+	private var Mask: cpp.UInt32;
 
 	@:native("FMovieScene2DTransformMask") public function new();
 	@:native("FMovieScene2DTransformMask") public static function make(Mask: cpp.UInt32): MovieScene2DTransformMask ;

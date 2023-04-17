@@ -3,8 +3,8 @@ package ue;
 
 @:native("EARFrameSyncMode")
 @:include("ARSessionConfig.h")
-extern enum EARFrameSyncMode {
-	SyncTickWithCameraImage;
-	SyncTickWithoutCameraImage;
-	EARFrameSyncMode_MAX;
+extern class EARFrameSyncMode {
+	static var SyncTickWithCameraImage: EARFrameSyncMode;
+	static var SyncTickWithoutCameraImage: EARFrameSyncMode;
+	static var EARFrameSyncMode_MAX: EARFrameSyncMode;
 }

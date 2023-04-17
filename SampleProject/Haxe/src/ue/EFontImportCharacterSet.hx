@@ -3,9 +3,9 @@ package ue;
 
 @:native("EFontImportCharacterSet")
 @:include("Engine/FontImportOptions.h")
-extern enum EFontImportCharacterSet {
-	FontICS_Default;
-	FontICS_Ansi;
-	FontICS_Symbol;
-	FontICS_MAX;
+extern class EFontImportCharacterSet {
+	static var FontICS_Default: EFontImportCharacterSet;
+	static var FontICS_Ansi: EFontImportCharacterSet;
+	static var FontICS_Symbol: EFontImportCharacterSet;
+	static var FontICS_MAX: EFontImportCharacterSet;
 }

@@ -10,7 +10,7 @@ extern class DistributionFloatParameterBase extends DistributionFloatConstant {
 	public var MaxInput: cpp.Float32;
 	public var MinOutput: cpp.Float32;
 	public var MaxOutput: cpp.Float32;
-	public var ParamMode: DistributionParamMode;
+	public var ParamMode: TEnumAsByte<DistributionParamMode>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -28,8 +28,8 @@ abstract ConstDistributionFloatParameterBase(DistributionFloatParameterBase) fro
 	public inline extern function get_MinOutput(): cpp.Float32 return this.MinOutput;
 	public extern var MaxOutput(get, never): cpp.Float32;
 	public inline extern function get_MaxOutput(): cpp.Float32 return this.MaxOutput;
-	public extern var ParamMode(get, never): DistributionParamMode;
-	public inline extern function get_ParamMode(): DistributionParamMode return this.ParamMode;
+	public extern var ParamMode(get, never): TEnumAsByte<DistributionParamMode>;
+	public inline extern function get_ParamMode(): TEnumAsByte<DistributionParamMode> return this.ParamMode;
 }
 
 @:forward

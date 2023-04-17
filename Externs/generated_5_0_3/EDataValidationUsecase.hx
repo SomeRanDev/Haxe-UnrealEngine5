@@ -3,12 +3,12 @@ package ue;
 
 @:native("EDataValidationUsecase")
 @:include("DataValidationModule.h")
-extern enum EDataValidationUsecase {
-	None;
-	Manual;
-	Commandlet;
-	Save;
-	PreSubmit;
-	Script;
-	EDataValidationUsecase_MAX;
+extern class EDataValidationUsecase {
+	static var None: EDataValidationUsecase;
+	static var Manual: EDataValidationUsecase;
+	static var Commandlet: EDataValidationUsecase;
+	static var Save: EDataValidationUsecase;
+	static var PreSubmit: EDataValidationUsecase;
+	static var Script: EDataValidationUsecase;
+	static var EDataValidationUsecase_MAX: EDataValidationUsecase;
 }

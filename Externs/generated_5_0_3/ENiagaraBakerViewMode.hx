@@ -3,14 +3,14 @@ package ue;
 
 @:native("ENiagaraBakerViewMode")
 @:include("NiagaraBakerSettings.h")
-extern enum ENiagaraBakerViewMode {
-	Perspective;
-	OrthoFront;
-	OrthoBack;
-	OrthoLeft;
-	OrthoRight;
-	OrthoTop;
-	OrthoBottom;
-	Num;
-	ENiagaraBakerViewMode_MAX;
+extern class ENiagaraBakerViewMode {
+	static var Perspective: ENiagaraBakerViewMode;
+	static var OrthoFront: ENiagaraBakerViewMode;
+	static var OrthoBack: ENiagaraBakerViewMode;
+	static var OrthoLeft: ENiagaraBakerViewMode;
+	static var OrthoRight: ENiagaraBakerViewMode;
+	static var OrthoTop: ENiagaraBakerViewMode;
+	static var OrthoBottom: ENiagaraBakerViewMode;
+	static var Num: ENiagaraBakerViewMode;
+	static var ENiagaraBakerViewMode_MAX: ENiagaraBakerViewMode;
 }

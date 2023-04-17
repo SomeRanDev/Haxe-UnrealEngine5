@@ -13,14 +13,6 @@ extern class LevelSimplificationDetails {
 	public var LandscapeMaterialSettings: MaterialProxySettings;
 	public var bBakeFoliageToLandscape: Bool;
 	public var bBakeGrassToLandscape: Bool;
-	public var bGenerateMeshNormalMap_DEPRECATED: Bool;
-	public var bGenerateMeshMetallicMap_DEPRECATED: Bool;
-	public var bGenerateMeshRoughnessMap_DEPRECATED: Bool;
-	public var bGenerateMeshSpecularMap_DEPRECATED: Bool;
-	public var bGenerateLandscapeNormalMap_DEPRECATED: Bool;
-	public var bGenerateLandscapeMetallicMap_DEPRECATED: Bool;
-	public var bGenerateLandscapeRoughnessMap_DEPRECATED: Bool;
-	public var bGenerateLandscapeSpecularMap_DEPRECATED: Bool;
 
 	@:native("FLevelSimplificationDetails") public function new();
 }

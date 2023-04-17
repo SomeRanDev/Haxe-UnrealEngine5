@@ -5,7 +5,7 @@ package ue;
 @:include("Sound/AmbientSound.h")
 @:structAccess
 extern class AmbientSound extends Actor {
-	public var AudioComponent: cpp.Star<AudioComp>;
+	private var AudioComponent: cpp.Star<AudioComp>;
 
 	public function Stop(): Void;
 	public function Play(StartTime: cpp.Float32): Void;
@@ -19,8 +19,6 @@ extern class AmbientSound extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstAmbientSound(AmbientSound) from AmbientSound {
-	public extern var AudioComponent(get, never): cpp.Star<AudioComp.ConstAudioComp>;
-	public inline extern function get_AudioComponent(): cpp.Star<AudioComp.ConstAudioComp> return this.AudioComponent;
 }
 
 @:forward

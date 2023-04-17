@@ -5,9 +5,6 @@ package ue;
 @:include("LandscapeProxy.h")
 @:structAccess
 extern class LandscapeImportLayerInfo {
-	public var LayerName: FName;
-	public var LayerInfo: cpp.Star<LandscapeLayerInfoObject>;
-	public var SourceFilePath: FString;
 
 	@:native("FLandscapeImportLayerInfo") public function new();
 	@:native("FLandscapeImportLayerInfo") public static function make(LayerName: FName, LayerInfo: cpp.Star<LandscapeLayerInfoObject>, SourceFilePath: FString): LandscapeImportLayerInfo ;

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMeshGroupPaintVisibilityType")
 @:include("MeshGroupPaintTool.h")
-extern enum EMeshGroupPaintVisibilityType {
-	None;
-	FrontFacing;
-	Unoccluded;
-	EMeshGroupPaintVisibilityType_MAX;
+extern class EMeshGroupPaintVisibilityType {
+	static var None: EMeshGroupPaintVisibilityType;
+	static var FrontFacing: EMeshGroupPaintVisibilityType;
+	static var Unoccluded: EMeshGroupPaintVisibilityType;
+	static var EMeshGroupPaintVisibilityType_MAX: EMeshGroupPaintVisibilityType;
 }

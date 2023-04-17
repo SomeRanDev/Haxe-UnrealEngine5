@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESpaceCurveControlPointTransformMode")
 @:include("Mechanics/SpaceCurveDeformationMechanic.h")
-extern enum ESpaceCurveControlPointTransformMode {
-	Shared;
-	PerVertex;
-	ESpaceCurveControlPointTransformMode_MAX;
+extern class ESpaceCurveControlPointTransformMode {
+	static var Shared: ESpaceCurveControlPointTransformMode;
+	static var PerVertex: ESpaceCurveControlPointTransformMode;
+	static var ESpaceCurveControlPointTransformMode_MAX: ESpaceCurveControlPointTransformMode;
 }

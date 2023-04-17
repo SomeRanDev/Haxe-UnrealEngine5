@@ -6,9 +6,9 @@ package ue;
 @:structAccess
 extern class MovieSceneSequenceReplProperties {
 	public var LastKnownPosition: FrameTime;
-	public var LastKnownStatus: EMovieScenePlayerStatus;
+	public var LastKnownStatus: TEnumAsByte<EMovieScenePlayerStatus>;
 	public var LastKnownNumLoops: cpp.Int32;
 
 	@:native("FMovieSceneSequenceReplProperties") public function new();
-	@:native("FMovieSceneSequenceReplProperties") public static function make(LastKnownPosition: FrameTime, LastKnownStatus: EMovieScenePlayerStatus, LastKnownNumLoops: cpp.Int32): MovieSceneSequenceReplProperties ;
+	@:native("FMovieSceneSequenceReplProperties") public static function make(LastKnownPosition: FrameTime, LastKnownStatus: TEnumAsByte<EMovieScenePlayerStatus>, LastKnownNumLoops: cpp.Int32): MovieSceneSequenceReplProperties ;
 }

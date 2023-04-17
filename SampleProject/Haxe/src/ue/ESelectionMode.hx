@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESelectionMode.Type")
 @:include("Framework/Views/ITypedTableView.h")
-extern enum ESelectionMode {
-	None;
-	Single;
-	SingleToggle;
-	Multi;
-	ESelectionMode_MAX;
+extern class ESelectionMode {
+	static var None: ESelectionMode;
+	static var Single: ESelectionMode;
+	static var SingleToggle: ESelectionMode;
+	static var Multi: ESelectionMode;
+	static var ESelectionMode_MAX: ESelectionMode;
 }

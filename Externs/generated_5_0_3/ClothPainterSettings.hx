@@ -5,8 +5,8 @@ package ue;
 @:include("ClothPaintSettings.h")
 @:structAccess
 extern class ClothPainterSettings extends MeshPaintSettings {
-	public var ViewMin: cpp.Float32;
-	public var ViewMax: cpp.Float32;
+	@:protected public var ViewMin: cpp.Float32;
+	@:protected public var ViewMax: cpp.Float32;
 	public var bAutoViewRange: Bool;
 	public var AutoCalculatedViewMin: cpp.Float32;
 	public var AutoCalculatedViewMax: cpp.Float32;
@@ -21,10 +21,6 @@ extern class ClothPainterSettings extends MeshPaintSettings {
 @:forward()
 @:nativeGen
 abstract ConstClothPainterSettings(ClothPainterSettings) from ClothPainterSettings {
-	public extern var ViewMin(get, never): cpp.Float32;
-	public inline extern function get_ViewMin(): cpp.Float32 return this.ViewMin;
-	public extern var ViewMax(get, never): cpp.Float32;
-	public inline extern function get_ViewMax(): cpp.Float32 return this.ViewMax;
 	public extern var bAutoViewRange(get, never): Bool;
 	public inline extern function get_bAutoViewRange(): Bool return this.bAutoViewRange;
 	public extern var AutoCalculatedViewMin(get, never): cpp.Float32;

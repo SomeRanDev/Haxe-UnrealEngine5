@@ -18,7 +18,6 @@ extern class ParticleModule extends Object {
 	public var bSupportsRandomSeed: Bool;
 	public var bRequiresLoopingNotification: Bool;
 	public var LODValidity: cpp.UInt8;
-	public var ModuleEditorColor: Color;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -52,8 +51,6 @@ abstract ConstParticleModule(ParticleModule) from ParticleModule {
 	public inline extern function get_bRequiresLoopingNotification(): Bool return this.bRequiresLoopingNotification;
 	public extern var LODValidity(get, never): cpp.UInt8;
 	public inline extern function get_LODValidity(): cpp.UInt8 return this.LODValidity;
-	public extern var ModuleEditorColor(get, never): Color;
-	public inline extern function get_ModuleEditorColor(): Color return this.ModuleEditorColor;
 }
 
 @:forward

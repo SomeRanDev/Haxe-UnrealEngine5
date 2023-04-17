@@ -11,9 +11,6 @@ extern class MovieSceneEditorData {
 	public var ViewEnd: cpp.Float64;
 	public var WorkStart: cpp.Float64;
 	public var WorkEnd: cpp.Float64;
-	public var MarkedFrames_DEPRECATED: TSet<FrameNumber>;
-	public var WorkingRange_DEPRECATED: FloatRange;
-	public var ViewRange_DEPRECATED: FloatRange;
 
 	@:native("FMovieSceneEditorData") public function new();
 }

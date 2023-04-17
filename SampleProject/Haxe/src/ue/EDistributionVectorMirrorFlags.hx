@@ -3,9 +3,9 @@ package ue;
 
 @:native("EDistributionVectorMirrorFlags")
 @:include("Distributions/DistributionVector.h")
-extern enum EDistributionVectorMirrorFlags {
-	EDVMF_Same;
-	EDVMF_Different;
-	EDVMF_Mirror;
-	EDVMF_MAX;
+extern class EDistributionVectorMirrorFlags {
+	static var EDVMF_Same: EDistributionVectorMirrorFlags;
+	static var EDVMF_Different: EDistributionVectorMirrorFlags;
+	static var EDVMF_Mirror: EDistributionVectorMirrorFlags;
+	static var EDVMF_MAX: EDistributionVectorMirrorFlags;
 }

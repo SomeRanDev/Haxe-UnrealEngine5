@@ -5,11 +5,6 @@ package ue;
 @:include("ActorFolder.h")
 @:structAccess
 extern class ActorFolder extends Object {
-	public var ParentFolderGuid: Guid;
-	public var FolderGuid: Guid;
-	public var FolderLabel: FString;
-	public var bFolderInitiallyExpanded: Bool;
-	public var bIsDeleted: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,16 +12,6 @@ extern class ActorFolder extends Object {
 @:forward()
 @:nativeGen
 abstract ConstActorFolder(ActorFolder) from ActorFolder {
-	public extern var ParentFolderGuid(get, never): Guid;
-	public inline extern function get_ParentFolderGuid(): Guid return this.ParentFolderGuid;
-	public extern var FolderGuid(get, never): Guid;
-	public inline extern function get_FolderGuid(): Guid return this.FolderGuid;
-	public extern var FolderLabel(get, never): FString;
-	public inline extern function get_FolderLabel(): FString return this.FolderLabel;
-	public extern var bFolderInitiallyExpanded(get, never): Bool;
-	public inline extern function get_bFolderInitiallyExpanded(): Bool return this.bFolderInitiallyExpanded;
-	public extern var bIsDeleted(get, never): Bool;
-	public inline extern function get_bIsDeleted(): Bool return this.bIsDeleted;
 }
 
 @:forward

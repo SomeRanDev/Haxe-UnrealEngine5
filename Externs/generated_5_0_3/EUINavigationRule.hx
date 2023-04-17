@@ -3,13 +3,13 @@ package ue;
 
 @:native("EUINavigationRule")
 @:include("Input/NavigationReply.h")
-extern enum EUINavigationRule {
-	Escape;
-	Explicit;
-	Wrap;
-	Stop;
-	Custom;
-	CustomBoundary;
-	Invalid;
-	EUINavigationRule_MAX;
+extern class EUINavigationRule {
+	static var Escape: EUINavigationRule;
+	static var Explicit: EUINavigationRule;
+	static var Wrap: EUINavigationRule;
+	static var Stop: EUINavigationRule;
+	static var Custom: EUINavigationRule;
+	static var CustomBoundary: EUINavigationRule;
+	static var Invalid: EUINavigationRule;
+	static var EUINavigationRule_MAX: EUINavigationRule;
 }

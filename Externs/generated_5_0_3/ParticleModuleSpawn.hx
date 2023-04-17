@@ -7,7 +7,7 @@ package ue;
 extern class ParticleModuleSpawn extends ParticleModuleSpawnBase {
 	public var Rate: RawDistributionFloat;
 	public var RateScale: RawDistributionFloat;
-	public var ParticleBurstMethod: EParticleBurstMethod;
+	public var ParticleBurstMethod: TEnumAsByte<EParticleBurstMethod>;
 	public var BurstList: TArray<ParticleBurst>;
 	public var BurstScale: RawDistributionFloat;
 	public var bApplyGlobalSpawnRateScale: Bool;
@@ -22,8 +22,8 @@ abstract ConstParticleModuleSpawn(ParticleModuleSpawn) from ParticleModuleSpawn 
 	public inline extern function get_Rate(): RawDistributionFloat return this.Rate;
 	public extern var RateScale(get, never): RawDistributionFloat;
 	public inline extern function get_RateScale(): RawDistributionFloat return this.RateScale;
-	public extern var ParticleBurstMethod(get, never): EParticleBurstMethod;
-	public inline extern function get_ParticleBurstMethod(): EParticleBurstMethod return this.ParticleBurstMethod;
+	public extern var ParticleBurstMethod(get, never): TEnumAsByte<EParticleBurstMethod>;
+	public inline extern function get_ParticleBurstMethod(): TEnumAsByte<EParticleBurstMethod> return this.ParticleBurstMethod;
 	public extern var BurstList(get, never): TArray<ParticleBurst>;
 	public inline extern function get_BurstList(): TArray<ParticleBurst> return this.BurstList;
 	public extern var BurstScale(get, never): RawDistributionFloat;

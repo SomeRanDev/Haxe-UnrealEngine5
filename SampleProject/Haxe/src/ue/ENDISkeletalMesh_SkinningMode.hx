@@ -3,10 +3,10 @@ package ue;
 
 @:native("ENDISkeletalMesh_SkinningMode")
 @:include("NiagaraDataInterfaceSkeletalMesh.h")
-extern enum ENDISkeletalMesh_SkinningMode {
-	Invalid;
-	None;
-	SkinOnTheFly;
-	PreSkin;
-	ENDISkeletalMesh_MAX;
+extern class ENDISkeletalMesh_SkinningMode {
+	static var Invalid: ENDISkeletalMesh_SkinningMode;
+	static var None: ENDISkeletalMesh_SkinningMode;
+	static var SkinOnTheFly: ENDISkeletalMesh_SkinningMode;
+	static var PreSkin: ENDISkeletalMesh_SkinningMode;
+	static var ENDISkeletalMesh_MAX: ENDISkeletalMesh_SkinningMode;
 }

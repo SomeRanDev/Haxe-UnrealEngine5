@@ -5,10 +5,10 @@ package ue;
 @:include("WeldMeshEdgesTool.h")
 @:structAccess
 extern class WeldMeshEdgesTool extends SingleSelectionMeshEditingTool {
-	public var Settings: cpp.Star<WeldMeshEdgesToolProperties>;
-	public var PreviewCompute: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	public var MeshElementsDisplay: cpp.Star<MeshElementsVisualizer>;
-	public var OperatorFactory: cpp.Star<WeldMeshEdgesOperatorFactory>;
+	@:protected public var Settings: cpp.Star<WeldMeshEdgesToolProperties>;
+	@:protected public var PreviewCompute: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var MeshElementsDisplay: cpp.Star<MeshElementsVisualizer>;
+	@:protected public var OperatorFactory: cpp.Star<WeldMeshEdgesOperatorFactory>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class WeldMeshEdgesTool extends SingleSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstWeldMeshEdgesTool(WeldMeshEdgesTool) from WeldMeshEdgesTool {
-	public extern var Settings(get, never): cpp.Star<WeldMeshEdgesToolProperties.ConstWeldMeshEdgesToolProperties>;
-	public inline extern function get_Settings(): cpp.Star<WeldMeshEdgesToolProperties.ConstWeldMeshEdgesToolProperties> return this.Settings;
-	public extern var PreviewCompute(get, never): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
-	public inline extern function get_PreviewCompute(): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.PreviewCompute;
-	public extern var MeshElementsDisplay(get, never): cpp.Star<MeshElementsVisualizer.ConstMeshElementsVisualizer>;
-	public inline extern function get_MeshElementsDisplay(): cpp.Star<MeshElementsVisualizer.ConstMeshElementsVisualizer> return this.MeshElementsDisplay;
-	public extern var OperatorFactory(get, never): cpp.Star<WeldMeshEdgesOperatorFactory.ConstWeldMeshEdgesOperatorFactory>;
-	public inline extern function get_OperatorFactory(): cpp.Star<WeldMeshEdgesOperatorFactory.ConstWeldMeshEdgesOperatorFactory> return this.OperatorFactory;
 }
 
 @:forward

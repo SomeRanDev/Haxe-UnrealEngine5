@@ -5,20 +5,20 @@ package ue;
 @:include("ARPin.h")
 @:structAccess
 extern class ARPin extends Object {
-	public var TrackedGeometry: cpp.Star<ARTrackedGeometry>;
-	public var PinnedComponent: cpp.Star<SceneComp>;
-	public var LocalToTrackingTransform: Transform;
-	public var LocalToAlignedTrackingTransform: Transform;
-	public var TrackingState: EARTrackingState;
-	public var OnARTrackingStateChanged: HaxeMulticastSparseDelegateProperty<(EARTrackingState) -> Void>;
-	public var OnARTransformUpdated: HaxeMulticastSparseDelegateProperty<(cpp.Reference<Transform>) -> Void>;
+	private var TrackedGeometry: cpp.Star<ARTrackedGeometry>;
+	private var PinnedComponent: cpp.Star<SceneComp>;
+	private var LocalToTrackingTransform: Transform;
+	private var LocalToAlignedTrackingTransform: Transform;
+	private var TrackingState: EARTrackingState;
+	private var OnARTrackingStateChanged: HaxeMulticastSparseDelegateProperty<(EARTrackingState) -> Void>;
+	private var OnARTransformUpdated: HaxeMulticastSparseDelegateProperty<(cpp.Reference<Transform>) -> Void>;
 
-	public function GetTrackingState(): cpp.Reference<EARTrackingState>;
-	public function GetTrackedGeometry(): cpp.Reference<cpp.Star<ARTrackedGeometry>>;
-	public function GetPinnedComponent(): cpp.Reference<cpp.Star<SceneComp>>;
-	public function GetLocalToWorldTransform(): cpp.Reference<Transform>;
-	public function GetLocalToTrackingTransform(): cpp.Reference<Transform>;
-	public function GetDebugName(): cpp.Reference<FName>;
+	public function GetTrackingState(): EARTrackingState;
+	public function GetTrackedGeometry(): cpp.Star<ARTrackedGeometry>;
+	public function GetPinnedComponent(): cpp.Star<SceneComp>;
+	public function GetLocalToWorldTransform(): Transform;
+	public function GetLocalToTrackingTransform(): Transform;
+	public function GetDebugName(): FName;
 	public function DebugDraw(World: cpp.Star<World>, Color: cpp.Reference<LinearColor>, Scale: cpp.Float32, PersistForSeconds: cpp.Float32): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -27,20 +27,6 @@ extern class ARPin extends Object {
 @:forward(GetTrackingState, GetTrackedGeometry, GetPinnedComponent, GetLocalToWorldTransform, GetLocalToTrackingTransform, GetDebugName, DebugDraw)
 @:nativeGen
 abstract ConstARPin(ARPin) from ARPin {
-	public extern var TrackedGeometry(get, never): cpp.Star<ARTrackedGeometry.ConstARTrackedGeometry>;
-	public inline extern function get_TrackedGeometry(): cpp.Star<ARTrackedGeometry.ConstARTrackedGeometry> return this.TrackedGeometry;
-	public extern var PinnedComponent(get, never): cpp.Star<SceneComp.ConstSceneComp>;
-	public inline extern function get_PinnedComponent(): cpp.Star<SceneComp.ConstSceneComp> return this.PinnedComponent;
-	public extern var LocalToTrackingTransform(get, never): Transform;
-	public inline extern function get_LocalToTrackingTransform(): Transform return this.LocalToTrackingTransform;
-	public extern var LocalToAlignedTrackingTransform(get, never): Transform;
-	public inline extern function get_LocalToAlignedTrackingTransform(): Transform return this.LocalToAlignedTrackingTransform;
-	public extern var TrackingState(get, never): EARTrackingState;
-	public inline extern function get_TrackingState(): EARTrackingState return this.TrackingState;
-	public extern var OnARTrackingStateChanged(get, never): HaxeMulticastSparseDelegateProperty<(EARTrackingState) -> Void>;
-	public inline extern function get_OnARTrackingStateChanged(): HaxeMulticastSparseDelegateProperty<(EARTrackingState) -> Void> return this.OnARTrackingStateChanged;
-	public extern var OnARTransformUpdated(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<Transform>) -> Void>;
-	public inline extern function get_OnARTransformUpdated(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<Transform>) -> Void> return this.OnARTransformUpdated;
 }
 
 @:forward

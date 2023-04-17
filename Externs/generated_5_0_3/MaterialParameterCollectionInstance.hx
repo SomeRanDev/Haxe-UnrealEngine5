@@ -5,7 +5,7 @@ package ue;
 @:include("Materials/MaterialParameterCollectionInstance.h")
 @:structAccess
 extern class MaterialParameterCollectionInstance extends Object {
-	public var Collection: cpp.Star<MaterialParameterCollection>;
+	@:protected public var Collection: cpp.Star<MaterialParameterCollection>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MaterialParameterCollectionInstance extends Object {
 @:forward()
 @:nativeGen
 abstract ConstMaterialParameterCollectionInstance(MaterialParameterCollectionInstance) from MaterialParameterCollectionInstance {
-	public extern var Collection(get, never): cpp.Star<MaterialParameterCollection.ConstMaterialParameterCollection>;
-	public inline extern function get_Collection(): cpp.Star<MaterialParameterCollection.ConstMaterialParameterCollection> return this.Collection;
 }
 
 @:forward

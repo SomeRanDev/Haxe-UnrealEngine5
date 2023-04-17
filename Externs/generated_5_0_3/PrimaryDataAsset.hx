@@ -5,7 +5,6 @@ package ue;
 @:include("Engine/DataAsset.h")
 @:structAccess
 extern class PrimaryDataAsset extends DataAsset {
-	public var AssetBundleData: AssetBundleData;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +12,6 @@ extern class PrimaryDataAsset extends DataAsset {
 @:forward()
 @:nativeGen
 abstract ConstPrimaryDataAsset(PrimaryDataAsset) from PrimaryDataAsset {
-	public extern var AssetBundleData(get, never): AssetBundleData;
-	public inline extern function get_AssetBundleData(): AssetBundleData return this.AssetBundleData;
 }
 
 @:forward

@@ -3,12 +3,12 @@ package ue;
 
 @:native("EParticleEventType")
 @:include("Particles/ParticleSystemComponent.h")
-extern enum EParticleEventType {
-	EPET_Any;
-	EPET_Spawn;
-	EPET_Death;
-	EPET_Collision;
-	EPET_Burst;
-	EPET_Blueprint;
-	EPET_MAX;
+extern class EParticleEventType {
+	static var EPET_Any: EParticleEventType;
+	static var EPET_Spawn: EParticleEventType;
+	static var EPET_Death: EParticleEventType;
+	static var EPET_Collision: EParticleEventType;
+	static var EPET_Burst: EParticleEventType;
+	static var EPET_Blueprint: EParticleEventType;
+	static var EPET_MAX: EParticleEventType;
 }

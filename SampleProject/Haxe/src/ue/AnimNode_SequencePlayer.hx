@@ -5,18 +5,6 @@ package ue;
 @:include("Animation/AnimNode_SequencePlayer.h")
 @:structAccess
 extern class AnimNode_SequencePlayer extends AnimNode_SequencePlayerBase {
-	public var GroupName: FName;
-	public var GroupRole: EAnimGroupRole;
-	public var Method: EAnimSyncMethod;
-	public var bIgnoreForRelevancyTest: Bool;
-	public var Sequence: cpp.Star<AnimSequenceBase>;
-	public var PlayRateBasis: cpp.Float32;
-	public var PlayRate: cpp.Float32;
-	public var PlayRateScaleBiasClampConstants: InputScaleBiasClampConstants;
-	public var PlayRateScaleBiasClamp_DEPRECATED: InputScaleBiasClamp;
-	public var StartPosition: cpp.Float32;
-	public var bLoopAnimation: Bool;
-	public var bStartFromMatchingPose: Bool;
 
 	@:native("FAnimNode_SequencePlayer") public function new();
 }

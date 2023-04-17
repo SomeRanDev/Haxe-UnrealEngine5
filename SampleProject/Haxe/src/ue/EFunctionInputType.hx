@@ -3,17 +3,17 @@ package ue;
 
 @:native("EFunctionInputType")
 @:include("Materials/MaterialExpressionFunctionInput.h")
-extern enum EFunctionInputType {
-	FunctionInput_Scalar;
-	FunctionInput_Vector2;
-	FunctionInput_Vector3;
-	FunctionInput_Vector4;
-	FunctionInput_Texture2D;
-	FunctionInput_TextureCube;
-	FunctionInput_Texture2DArray;
-	FunctionInput_VolumeTexture;
-	FunctionInput_StaticBool;
-	FunctionInput_MaterialAttributes;
-	FunctionInput_TextureExternal;
-	FunctionInput_MAX;
+extern class EFunctionInputType {
+	static var FunctionInput_Scalar: EFunctionInputType;
+	static var FunctionInput_Vector2: EFunctionInputType;
+	static var FunctionInput_Vector3: EFunctionInputType;
+	static var FunctionInput_Vector4: EFunctionInputType;
+	static var FunctionInput_Texture2D: EFunctionInputType;
+	static var FunctionInput_TextureCube: EFunctionInputType;
+	static var FunctionInput_Texture2DArray: EFunctionInputType;
+	static var FunctionInput_VolumeTexture: EFunctionInputType;
+	static var FunctionInput_StaticBool: EFunctionInputType;
+	static var FunctionInput_MaterialAttributes: EFunctionInputType;
+	static var FunctionInput_TextureExternal: EFunctionInputType;
+	static var FunctionInput_MAX: EFunctionInputType;
 }

@@ -31,7 +31,7 @@ extern class BlueprintEditorSettings extends DeveloperSettings {
 	public var bEnableNamespaceImportingFeatures: Bool;
 	public var NamespacesToAlwaysInclude: TArray<FString>;
 	public var bFavorPureCastNodes: Bool;
-	public var SaveOnCompile: ESaveOnCompile;
+	public var SaveOnCompile: TEnumAsByte<ESaveOnCompile>;
 	public var bJumpToNodeErrors: Bool;
 	public var bAllowExplicitImpureNodeDisabling: Bool;
 	public var bShowActionMenuItemSignatures: Bool;
@@ -110,8 +110,8 @@ abstract ConstBlueprintEditorSettings(BlueprintEditorSettings) from BlueprintEdi
 	public inline extern function get_NamespacesToAlwaysInclude(): TArray<FString> return this.NamespacesToAlwaysInclude;
 	public extern var bFavorPureCastNodes(get, never): Bool;
 	public inline extern function get_bFavorPureCastNodes(): Bool return this.bFavorPureCastNodes;
-	public extern var SaveOnCompile(get, never): ESaveOnCompile;
-	public inline extern function get_SaveOnCompile(): ESaveOnCompile return this.SaveOnCompile;
+	public extern var SaveOnCompile(get, never): TEnumAsByte<ESaveOnCompile>;
+	public inline extern function get_SaveOnCompile(): TEnumAsByte<ESaveOnCompile> return this.SaveOnCompile;
 	public extern var bJumpToNodeErrors(get, never): Bool;
 	public inline extern function get_bJumpToNodeErrors(): Bool return this.bJumpToNodeErrors;
 	public extern var bAllowExplicitImpureNodeDisabling(get, never): Bool;

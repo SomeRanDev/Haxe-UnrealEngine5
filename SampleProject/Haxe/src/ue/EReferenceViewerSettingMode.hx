@@ -3,9 +3,9 @@ package ue;
 
 @:native("EReferenceViewerSettingMode")
 @:include("Settings/EditorProjectSettings.h")
-extern enum EReferenceViewerSettingMode {
-	NoPreference;
-	ShowByDefault;
-	HideByDefault;
-	EReferenceViewerSettingMode_MAX;
+extern class EReferenceViewerSettingMode {
+	static var NoPreference: EReferenceViewerSettingMode;
+	static var ShowByDefault: EReferenceViewerSettingMode;
+	static var HideByDefault: EReferenceViewerSettingMode;
+	static var EReferenceViewerSettingMode_MAX: EReferenceViewerSettingMode;
 }

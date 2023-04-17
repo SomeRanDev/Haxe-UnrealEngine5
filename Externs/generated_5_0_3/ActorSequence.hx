@@ -5,9 +5,8 @@ package ue;
 @:include("ActorSequence.h")
 @:structAccess
 extern class ActorSequence extends MovieSceneSequence {
-	public var MovieScene: cpp.Star<MovieScene>;
-	public var ObjectReferences: ActorSequenceObjectReferenceMap;
-	public var bHasBeenInitialized: Bool;
+	private var MovieScene: cpp.Star<MovieScene>;
+	private var ObjectReferences: ActorSequenceObjectReferenceMap;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +14,6 @@ extern class ActorSequence extends MovieSceneSequence {
 @:forward()
 @:nativeGen
 abstract ConstActorSequence(ActorSequence) from ActorSequence {
-	public extern var MovieScene(get, never): cpp.Star<MovieScene.ConstMovieScene>;
-	public inline extern function get_MovieScene(): cpp.Star<MovieScene.ConstMovieScene> return this.MovieScene;
-	public extern var ObjectReferences(get, never): ActorSequenceObjectReferenceMap;
-	public inline extern function get_ObjectReferences(): ActorSequenceObjectReferenceMap return this.ObjectReferences;
-	public extern var bHasBeenInitialized(get, never): Bool;
-	public inline extern function get_bHasBeenInitialized(): Bool return this.bHasBeenInitialized;
 }
 
 @:forward

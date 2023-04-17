@@ -5,7 +5,7 @@ package ue;
 @:include("AnimationDataSource.h")
 @:structAccess
 extern class AnimationDataSourceRegistry extends Object {
-	public var DataSources: TMap<FName, TWeakObjectPtr<Object>>;
+	private var DataSources: TMap<FName, TWeakObjectPtr<Object>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class AnimationDataSourceRegistry extends Object {
 @:forward()
 @:nativeGen
 abstract ConstAnimationDataSourceRegistry(AnimationDataSourceRegistry) from AnimationDataSourceRegistry {
-	public extern var DataSources(get, never): TMap<FName, TWeakObjectPtr<Object.ConstObject>>;
-	public inline extern function get_DataSources(): TMap<FName, TWeakObjectPtr<Object.ConstObject>> return this.DataSources;
 }
 
 @:forward

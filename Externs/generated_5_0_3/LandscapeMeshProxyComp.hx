@@ -5,9 +5,9 @@ package ue;
 @:include("LandscapeMeshProxyComponent.h")
 @:structAccess
 extern class LandscapeMeshProxyComp extends StaticMeshComp {
-	public var LandscapeGuid: Guid;
-	public var ProxyComponentBases: TArray<IntPoint>;
-	public var ProxyLOD: cpp.Int8;
+	private var LandscapeGuid: Guid;
+	private var ProxyComponentBases: TArray<IntPoint>;
+	private var ProxyLOD: cpp.Int8;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class LandscapeMeshProxyComp extends StaticMeshComp {
 @:forward()
 @:nativeGen
 abstract ConstLandscapeMeshProxyComp(LandscapeMeshProxyComp) from LandscapeMeshProxyComp {
-	public extern var LandscapeGuid(get, never): Guid;
-	public inline extern function get_LandscapeGuid(): Guid return this.LandscapeGuid;
-	public extern var ProxyComponentBases(get, never): TArray<IntPoint>;
-	public inline extern function get_ProxyComponentBases(): TArray<IntPoint> return this.ProxyComponentBases;
-	public extern var ProxyLOD(get, never): cpp.Int8;
-	public inline extern function get_ProxyLOD(): cpp.Int8 return this.ProxyLOD;
 }
 
 @:forward

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EEditorUserScreenPercentageModeOverride")
 @:include("Editor/EditorPerformanceSettings.h")
-extern enum EEditorUserScreenPercentageModeOverride {
-	ProjectDefault;
-	Manual;
-	BasedOnDisplayResolution;
-	BasedOnDPIScale;
-	EEditorUserScreenPercentageModeOverride_MAX;
+extern class EEditorUserScreenPercentageModeOverride {
+	static var ProjectDefault: EEditorUserScreenPercentageModeOverride;
+	static var Manual: EEditorUserScreenPercentageModeOverride;
+	static var BasedOnDisplayResolution: EEditorUserScreenPercentageModeOverride;
+	static var BasedOnDPIScale: EEditorUserScreenPercentageModeOverride;
+	static var EEditorUserScreenPercentageModeOverride_MAX: EEditorUserScreenPercentageModeOverride;
 }

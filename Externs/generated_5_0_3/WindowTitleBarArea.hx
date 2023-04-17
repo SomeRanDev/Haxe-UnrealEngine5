@@ -8,9 +8,9 @@ extern class WindowTitleBarArea extends ContentWidget {
 	public var bWindowButtonsEnabled: Bool;
 	public var bDoubleClickTogglesFullscreen: Bool;
 
-	public function SetVerticalAlignment(InVerticalAlignment: EVerticalAlignment): Void;
+	public function SetVerticalAlignment(InVerticalAlignment: TEnumAsByte<EVerticalAlignment>): Void;
 	public function SetPadding(InPadding: Margin): Void;
-	public function SetHorizontalAlignment(InHorizontalAlignment: EHorizontalAlignment): Void;
+	public function SetHorizontalAlignment(InHorizontalAlignment: TEnumAsByte<EHorizontalAlignment>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

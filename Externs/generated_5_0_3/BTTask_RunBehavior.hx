@@ -5,7 +5,7 @@ package ue;
 @:include("BehaviorTree/Tasks/BTTask_RunBehavior.h")
 @:structAccess
 extern class BTTask_RunBehavior extends BTTaskNode {
-	public var BehaviorAsset: cpp.Star<BehaviorTree>;
+	@:protected public var BehaviorAsset: cpp.Star<BehaviorTree>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class BTTask_RunBehavior extends BTTaskNode {
 @:forward()
 @:nativeGen
 abstract ConstBTTask_RunBehavior(BTTask_RunBehavior) from BTTask_RunBehavior {
-	public extern var BehaviorAsset(get, never): cpp.Star<BehaviorTree.ConstBehaviorTree>;
-	public inline extern function get_BehaviorAsset(): cpp.Star<BehaviorTree.ConstBehaviorTree> return this.BehaviorAsset;
 }
 
 @:forward

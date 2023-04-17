@@ -8,7 +8,7 @@ extern class AnimNode_RetargetPoseFromMesh extends AnimNode_Base {
 	public var SourceMeshComponent: TWeakObjectPtr<SkeletalMeshComp>;
 	public var bUseAttachedParent: Bool;
 	public var IKRetargeterAsset: cpp.Star<IKRetargeter>;
-	public var Processor: cpp.Star<IKRetargetProcessor>;
+	private var Processor: cpp.Star<IKRetargetProcessor>;
 
 	@:native("FAnimNode_RetargetPoseFromMesh") public function new();
 	@:native("FAnimNode_RetargetPoseFromMesh") public static function make(SourceMeshComponent: TWeakObjectPtr<SkeletalMeshComp>, bUseAttachedParent: Bool, IKRetargeterAsset: cpp.Star<IKRetargeter>, Processor: cpp.Star<IKRetargetProcessor>): AnimNode_RetargetPoseFromMesh ;

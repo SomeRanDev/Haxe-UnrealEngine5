@@ -5,7 +5,7 @@ package ue;
 @:include("Particles/Event/ParticleModuleEventReceiverBase.h")
 @:structAccess
 extern class ParticleModuleEventReceiverBase extends ParticleModuleEventBase {
-	public var EventGeneratorType: EParticleEventType;
+	public var EventGeneratorType: TEnumAsByte<EParticleEventType>;
 	public var EventName: FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -14,8 +14,8 @@ extern class ParticleModuleEventReceiverBase extends ParticleModuleEventBase {
 @:forward()
 @:nativeGen
 abstract ConstParticleModuleEventReceiverBase(ParticleModuleEventReceiverBase) from ParticleModuleEventReceiverBase {
-	public extern var EventGeneratorType(get, never): EParticleEventType;
-	public inline extern function get_EventGeneratorType(): EParticleEventType return this.EventGeneratorType;
+	public extern var EventGeneratorType(get, never): TEnumAsByte<EParticleEventType>;
+	public inline extern function get_EventGeneratorType(): TEnumAsByte<EParticleEventType> return this.EventGeneratorType;
 	public extern var EventName(get, never): FName;
 	public inline extern function get_EventName(): FName return this.EventName;
 }

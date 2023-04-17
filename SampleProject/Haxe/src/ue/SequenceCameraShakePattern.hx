@@ -12,8 +12,8 @@ extern class SequenceCameraShakePattern extends CameraShakePattern {
 	public var BlendOutTime: cpp.Float32;
 	public var RandomSegmentDuration: cpp.Float32;
 	public var bRandomSegment: Bool;
-	public var Player: cpp.Star<CameraAnimationSequencePlayer>;
-	public var CameraStandIn: cpp.Star<CameraAnimationSequenceCameraStandIn>;
+	private var Player: cpp.Star<CameraAnimationSequencePlayer>;
+	private var CameraStandIn: cpp.Star<CameraAnimationSequenceCameraStandIn>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -35,10 +35,6 @@ abstract ConstSequenceCameraShakePattern(SequenceCameraShakePattern) from Sequen
 	public inline extern function get_RandomSegmentDuration(): cpp.Float32 return this.RandomSegmentDuration;
 	public extern var bRandomSegment(get, never): Bool;
 	public inline extern function get_bRandomSegment(): Bool return this.bRandomSegment;
-	public extern var Player(get, never): cpp.Star<CameraAnimationSequencePlayer.ConstCameraAnimationSequencePlayer>;
-	public inline extern function get_Player(): cpp.Star<CameraAnimationSequencePlayer.ConstCameraAnimationSequencePlayer> return this.Player;
-	public extern var CameraStandIn(get, never): cpp.Star<CameraAnimationSequenceCameraStandIn.ConstCameraAnimationSequenceCameraStandIn>;
-	public inline extern function get_CameraStandIn(): cpp.Star<CameraAnimationSequenceCameraStandIn.ConstCameraAnimationSequenceCameraStandIn> return this.CameraStandIn;
 }
 
 @:forward

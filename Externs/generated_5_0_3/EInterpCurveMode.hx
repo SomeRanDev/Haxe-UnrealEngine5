@@ -3,12 +3,12 @@ package ue;
 
 @:native("EInterpCurveMode")
 @:include("UObject/NoExportTypes.h")
-extern enum EInterpCurveMode {
-	CIM_Linear;
-	CIM_CurveAuto;
-	CIM_Constant;
-	CIM_CurveUser;
-	CIM_CurveBreak;
-	CIM_CurveAutoClamped;
-	CIM_MAX;
+extern class EInterpCurveMode {
+	static var CIM_Linear: EInterpCurveMode;
+	static var CIM_CurveAuto: EInterpCurveMode;
+	static var CIM_Constant: EInterpCurveMode;
+	static var CIM_CurveUser: EInterpCurveMode;
+	static var CIM_CurveBreak: EInterpCurveMode;
+	static var CIM_CurveAutoClamped: EInterpCurveMode;
+	static var CIM_MAX: EInterpCurveMode;
 }

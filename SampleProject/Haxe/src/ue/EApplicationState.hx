@@ -3,10 +3,10 @@ package ue;
 
 @:native("EApplicationState.Type")
 @:include("Kismet/BlueprintPlatformLibrary.h")
-extern enum EApplicationState {
-	Unknown;
-	Inactive;
-	Background;
-	Active;
-	EApplicationState_MAX;
+extern class EApplicationState {
+	static var Unknown: EApplicationState;
+	static var Inactive: EApplicationState;
+	static var Background: EApplicationState;
+	static var Active: EApplicationState;
+	static var EApplicationState_MAX: EApplicationState;
 }

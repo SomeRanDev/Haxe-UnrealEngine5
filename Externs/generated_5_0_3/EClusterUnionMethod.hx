@@ -3,11 +3,11 @@ package ue;
 
 @:native("EClusterUnionMethod")
 @:include("ChaosSolverConfiguration.h")
-extern enum EClusterUnionMethod {
-	PointImplicit;
-	DelaunayTriangulation;
-	MinimalSpanningSubsetDelaunayTriangulation;
-	PointImplicitAugmentedWithMinimalDelaunay;
-	None;
-	EClusterUnionMethod_MAX;
+extern class EClusterUnionMethod {
+	static var PointImplicit: EClusterUnionMethod;
+	static var DelaunayTriangulation: EClusterUnionMethod;
+	static var MinimalSpanningSubsetDelaunayTriangulation: EClusterUnionMethod;
+	static var PointImplicitAugmentedWithMinimalDelaunay: EClusterUnionMethod;
+	static var None: EClusterUnionMethod;
+	static var EClusterUnionMethod_MAX: EClusterUnionMethod;
 }

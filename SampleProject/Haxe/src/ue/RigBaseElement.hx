@@ -5,10 +5,10 @@ package ue;
 @:include("Rigs/RigHierarchyElements.h")
 @:structAccess
 extern class RigBaseElement {
-	public var Key: RigElementKey;
-	public var Index: cpp.Int32;
-	public var SubIndex: cpp.Int32;
-	public var bSelected: Bool;
+	@:protected public var Key: RigElementKey;
+	@:protected public var Index: cpp.Int32;
+	@:protected public var SubIndex: cpp.Int32;
+	@:protected public var bSelected: Bool;
 
 	@:native("FRigBaseElement") public function new();
 	@:native("FRigBaseElement") public static function make(Key: RigElementKey, Index: cpp.Int32, SubIndex: cpp.Int32, bSelected: Bool): RigBaseElement ;

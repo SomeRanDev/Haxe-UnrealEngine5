@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESpriteShapeType")
 @:include("SpriteEditorOnlyTypes.h")
-extern enum ESpriteShapeType {
-	Box;
-	Circle;
-	Polygon;
-	ESpriteShapeType_MAX;
+extern class ESpriteShapeType {
+	static var Box: ESpriteShapeType;
+	static var Circle: ESpriteShapeType;
+	static var Polygon: ESpriteShapeType;
+	static var ESpriteShapeType_MAX: ESpriteShapeType;
 }

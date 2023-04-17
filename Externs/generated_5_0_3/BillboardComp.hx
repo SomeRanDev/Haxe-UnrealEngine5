@@ -13,9 +13,6 @@ extern class BillboardComp extends PrimitiveComp {
 	public var V: cpp.Float32;
 	public var VL: cpp.Float32;
 	public var OpacityMaskRefVal: cpp.Float32;
-	public var SpriteCategoryName_DEPRECATED: FName;
-	public var SpriteInfo: SpriteCategoryInfo;
-	public var bUseInEditorScaling: Bool;
 
 	public function SetUV(NewU: cpp.Int32, NewUL: cpp.Int32, NewV: cpp.Int32, NewVL: cpp.Int32): Void;
 	public function SetSpriteAndUV(NewSprite: cpp.Star<Texture2D>, NewU: cpp.Int32, NewUL: cpp.Int32, NewV: cpp.Int32, NewVL: cpp.Int32): Void;
@@ -44,12 +41,6 @@ abstract ConstBillboardComp(BillboardComp) from BillboardComp {
 	public inline extern function get_VL(): cpp.Float32 return this.VL;
 	public extern var OpacityMaskRefVal(get, never): cpp.Float32;
 	public inline extern function get_OpacityMaskRefVal(): cpp.Float32 return this.OpacityMaskRefVal;
-	public extern var SpriteCategoryName_DEPRECATED(get, never): FName;
-	public inline extern function get_SpriteCategoryName_DEPRECATED(): FName return this.SpriteCategoryName_DEPRECATED;
-	public extern var SpriteInfo(get, never): SpriteCategoryInfo;
-	public inline extern function get_SpriteInfo(): SpriteCategoryInfo return this.SpriteInfo;
-	public extern var bUseInEditorScaling(get, never): Bool;
-	public inline extern function get_bUseInEditorScaling(): Bool return this.bUseInEditorScaling;
 }
 
 @:forward

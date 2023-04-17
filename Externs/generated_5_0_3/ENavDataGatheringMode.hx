@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENavDataGatheringMode")
 @:include("AI/Navigation/NavigationTypes.h")
-extern enum ENavDataGatheringMode {
-	Default;
-	Instant;
-	Lazy;
-	ENavDataGatheringMode_MAX;
+extern class ENavDataGatheringMode {
+	static var Default: ENavDataGatheringMode;
+	static var Instant: ENavDataGatheringMode;
+	static var Lazy: ENavDataGatheringMode;
+	static var ENavDataGatheringMode_MAX: ENavDataGatheringMode;
 }

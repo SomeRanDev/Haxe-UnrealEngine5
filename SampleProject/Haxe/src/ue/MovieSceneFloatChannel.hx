@@ -5,15 +5,14 @@ package ue;
 @:include("Channels/MovieSceneFloatChannel.h")
 @:structAccess
 extern class MovieSceneFloatChannel extends MovieSceneChannel {
-	public var PreInfinityExtrap: ERichCurveExtrapolation;
-	public var PostInfinityExtrap: ERichCurveExtrapolation;
-	public var Times: TArray<FrameNumber>;
-	public var Values: TArray<MovieSceneFloatValue>;
-	public var DefaultValue: cpp.Float32;
-	public var bHasDefaultValue: Bool;
-	public var KeyHandles: MovieSceneKeyHandleMap;
-	public var TickResolution: FrameRate;
-	public var bShowCurve: Bool;
+	public var PreInfinityExtrap: TEnumAsByte<ERichCurveExtrapolation>;
+	public var PostInfinityExtrap: TEnumAsByte<ERichCurveExtrapolation>;
+	private var Times: TArray<FrameNumber>;
+	private var Values: TArray<MovieSceneFloatValue>;
+	private var DefaultValue: cpp.Float32;
+	private var bHasDefaultValue: Bool;
+	private var KeyHandles: MovieSceneKeyHandleMap;
+	private var TickResolution: FrameRate;
 
 	@:native("FMovieSceneFloatChannel") public function new();
 }

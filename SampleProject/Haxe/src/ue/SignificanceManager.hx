@@ -5,7 +5,7 @@ package ue;
 @:include("SignificanceManager.h")
 @:structAccess
 extern class SignificanceManager extends Object {
-	public var SignificanceManagerClassName: SoftClassPath;
+	private var SignificanceManagerClassName: SoftClassPath;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class SignificanceManager extends Object {
 @:forward()
 @:nativeGen
 abstract ConstSignificanceManager(SignificanceManager) from SignificanceManager {
-	public extern var SignificanceManagerClassName(get, never): SoftClassPath;
-	public inline extern function get_SignificanceManagerClassName(): SoftClassPath return this.SignificanceManagerClassName;
 }
 
 @:forward

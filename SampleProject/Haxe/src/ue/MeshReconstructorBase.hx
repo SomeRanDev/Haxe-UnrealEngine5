@@ -8,8 +8,8 @@ extern class MeshReconstructorBase extends Object {
 	public function StopReconstruction(): Void;
 	public function StartReconstruction(): Void;
 	public function PauseReconstruction(): Void;
-	public function IsReconstructionStarted(): cpp.Reference<Bool>;
-	public function IsReconstructionPaused(): cpp.Reference<Bool>;
+	public function IsReconstructionStarted(): Bool;
+	public function IsReconstructionPaused(): Bool;
 	public function DisconnectMRMesh(): Void;
 	public function ConnectMRMesh(Mesh: cpp.Star<MRMeshComp>): Void;
 

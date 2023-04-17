@@ -6,8 +6,8 @@ package ue;
 @:structAccess
 extern class MovieSceneScriptingEventChannel extends MovieSceneScriptingChannel {
 	public function RemoveKey(Key: cpp.Star<MovieSceneScriptingKey>): Void;
-	public function GetKeys(): cpp.Reference<TArray<cpp.Star<MovieSceneScriptingKey>>>;
-	public function AddKey(InTime: cpp.Reference<FrameNumber>, NewValue: MovieSceneEvent, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): cpp.Reference<cpp.Star<MovieSceneScriptingEventKey>>;
+	public function GetKeys(): TArray<cpp.Star<MovieSceneScriptingKey>>;
+	public function AddKey(InTime: cpp.Reference<FrameNumber>, NewValue: MovieSceneEvent, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): cpp.Star<MovieSceneScriptingEventKey>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

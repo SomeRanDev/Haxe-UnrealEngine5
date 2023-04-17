@@ -3,10 +3,10 @@ package ue;
 
 @:native("MediaTextureOrientation")
 @:include("MediaTexture.h")
-extern enum MediaTextureOrientation {
-	MTORI_Original;
-	MTORI_CW90;
-	MTORI_CW180;
-	MTORI_CW270;
-	MTORI_MAX;
+extern class MediaTextureOrientation {
+	static var MTORI_Original: MediaTextureOrientation;
+	static var MTORI_CW90: MediaTextureOrientation;
+	static var MTORI_CW180: MediaTextureOrientation;
+	static var MTORI_CW270: MediaTextureOrientation;
+	static var MTORI_MAX: MediaTextureOrientation;
 }

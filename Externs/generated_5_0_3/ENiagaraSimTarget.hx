@@ -3,8 +3,8 @@ package ue;
 
 @:native("ENiagaraSimTarget")
 @:include("NiagaraCommon.h")
-extern enum ENiagaraSimTarget {
-	CPUSim;
-	GPUComputeSim;
-	ENiagaraSimTarget_MAX;
+extern class ENiagaraSimTarget {
+	static var CPUSim: ENiagaraSimTarget;
+	static var GPUComputeSim: ENiagaraSimTarget;
+	static var ENiagaraSimTarget_MAX: ENiagaraSimTarget;
 }

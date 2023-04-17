@@ -3,8 +3,8 @@ package ue;
 
 @:native("EEvaluateCurveTableResult.Type")
 @:include("Kismet/DataTableFunctionLibrary.h")
-extern enum EEvaluateCurveTableResult {
-	RowFound;
-	RowNotFound;
-	EEvaluateCurveTableResult_MAX;
+extern class EEvaluateCurveTableResult {
+	static var RowFound: EEvaluateCurveTableResult;
+	static var RowNotFound: EEvaluateCurveTableResult;
+	static var EEvaluateCurveTableResult_MAX: EEvaluateCurveTableResult;
 }

@@ -11,7 +11,7 @@ extern class LandscapeLayer {
 	public var bLocked: Bool;
 	public var HeightmapAlpha: cpp.Float32;
 	public var WeightmapAlpha: cpp.Float32;
-	public var BlendMode: ELandscapeBlendMode;
+	public var BlendMode: TEnumAsByte<ELandscapeBlendMode>;
 	public var Brushes: TArray<LandscapeLayerBrush>;
 	public var WeightmapLayerAllocationBlend: TMap<cpp.Star<LandscapeLayerInfoObject>, Bool>;
 

@@ -5,7 +5,7 @@ package ue;
 @:include("Engine/SphereReflectionCapture.h")
 @:structAccess
 extern class SphereReflectionCapture extends ReflectionCapture {
-	public var DrawCaptureRadius: cpp.Star<DrawSphereComp>;
+	private var DrawCaptureRadius: cpp.Star<DrawSphereComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class SphereReflectionCapture extends ReflectionCapture {
 @:forward()
 @:nativeGen
 abstract ConstSphereReflectionCapture(SphereReflectionCapture) from SphereReflectionCapture {
-	public extern var DrawCaptureRadius(get, never): cpp.Star<DrawSphereComp.ConstDrawSphereComp>;
-	public inline extern function get_DrawCaptureRadius(): cpp.Star<DrawSphereComp.ConstDrawSphereComp> return this.DrawCaptureRadius;
 }
 
 @:forward

@@ -5,15 +5,12 @@ package ue;
 @:include("NiagaraParameterStore.h")
 @:structAccess
 extern class NiagaraParameterStore {
-	public var Owner: cpp.Star<Object>;
-	public var ParameterOffsets: TMap<NiagaraVariable, cpp.Int32>;
-	public var SortedParameterOffsets: TArray<NiagaraVariableWithOffset>;
-	public var ParameterData: TArray<cpp.UInt8>;
-	public var DataInterfaces: TArray<cpp.Star<NiagaraDataInterface>>;
-	public var UObjects: TArray<cpp.Star<Object>>;
-	public var OriginalPositionData: TArray<NiagaraPositionSource>;
-	public var DebugName: FString;
-	public var ParameterGuidMapping: TMap<NiagaraVariable, Guid>;
+	private var Owner: cpp.Star<Object>;
+	private var SortedParameterOffsets: TArray<NiagaraVariableWithOffset>;
+	private var ParameterData: TArray<cpp.UInt8>;
+	private var DataInterfaces: TArray<cpp.Star<NiagaraDataInterface>>;
+	private var UObjects: TArray<cpp.Star<Object>>;
+	private var OriginalPositionData: TArray<NiagaraPositionSource>;
 
 	@:native("FNiagaraParameterStore") public function new();
 }

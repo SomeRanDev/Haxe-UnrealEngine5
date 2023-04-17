@@ -3,11 +3,11 @@ package ue;
 
 @:native("EHandleSourcesMethod")
 @:include("PropertySets/OnAcceptProperties.h")
-extern enum EHandleSourcesMethod {
-	DeleteSources;
-	HideSources;
-	KeepSources;
-	KeepFirstSource;
-	KeepLastSource;
-	EHandleSourcesMethod_MAX;
+extern class EHandleSourcesMethod {
+	static var DeleteSources: EHandleSourcesMethod;
+	static var HideSources: EHandleSourcesMethod;
+	static var KeepSources: EHandleSourcesMethod;
+	static var KeepFirstSource: EHandleSourcesMethod;
+	static var KeepLastSource: EHandleSourcesMethod;
+	static var EHandleSourcesMethod_MAX: EHandleSourcesMethod;
 }

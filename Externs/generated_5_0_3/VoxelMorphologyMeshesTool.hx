@@ -5,7 +5,7 @@ package ue;
 @:include("VoxelMorphologyMeshesTool.h")
 @:structAccess
 extern class VoxelMorphologyMeshesTool extends BaseVoxelTool {
-	public var MorphologyProperties: cpp.Star<VoxelMorphologyMeshesToolProperties>;
+	@:protected public var MorphologyProperties: cpp.Star<VoxelMorphologyMeshesToolProperties>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class VoxelMorphologyMeshesTool extends BaseVoxelTool {
 @:forward()
 @:nativeGen
 abstract ConstVoxelMorphologyMeshesTool(VoxelMorphologyMeshesTool) from VoxelMorphologyMeshesTool {
-	public extern var MorphologyProperties(get, never): cpp.Star<VoxelMorphologyMeshesToolProperties.ConstVoxelMorphologyMeshesToolProperties>;
-	public inline extern function get_MorphologyProperties(): cpp.Star<VoxelMorphologyMeshesToolProperties.ConstVoxelMorphologyMeshesToolProperties> return this.MorphologyProperties;
 }
 
 @:forward

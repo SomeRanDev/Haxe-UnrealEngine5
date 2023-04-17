@@ -3,12 +3,12 @@ package ue;
 
 @:native("EViewTargetBlendFunction")
 @:include("Camera/PlayerCameraManager.h")
-extern enum EViewTargetBlendFunction {
-	VTBlend_Linear;
-	VTBlend_Cubic;
-	VTBlend_EaseIn;
-	VTBlend_EaseOut;
-	VTBlend_EaseInOut;
-	VTBlend_PreBlended;
-	VTBlend_MAX;
+extern class EViewTargetBlendFunction {
+	static var VTBlend_Linear: EViewTargetBlendFunction;
+	static var VTBlend_Cubic: EViewTargetBlendFunction;
+	static var VTBlend_EaseIn: EViewTargetBlendFunction;
+	static var VTBlend_EaseOut: EViewTargetBlendFunction;
+	static var VTBlend_EaseInOut: EViewTargetBlendFunction;
+	static var VTBlend_PreBlended: EViewTargetBlendFunction;
+	static var VTBlend_MAX: EViewTargetBlendFunction;
 }

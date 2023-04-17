@@ -12,14 +12,9 @@ extern class AnimNode_PoseDriver extends AnimNode_PoseHandler {
 	public var EvalSpaceBone: BoneReference;
 	public var bEvalFromRefPose: Bool;
 	public var RBFParams: RBFParams;
-	public var SourceBone_DEPRECATED: BoneReference;
-	public var TwistAxis_DEPRECATED: EBoneAxis;
-	public var Type_DEPRECATED: EPoseDriverType;
-	public var RadialScaling_DEPRECATED: cpp.Float32;
 	public var DriveSource: EPoseDriverSource;
 	public var DriveOutput: EPoseDriverOutput;
 	public var bOnlyDriveSelectedBones: Bool;
-	public var bSoloDrivenOnly: Bool;
 	public var LODThreshold: cpp.Int32;
 
 	@:native("FAnimNode_PoseDriver") public function new();

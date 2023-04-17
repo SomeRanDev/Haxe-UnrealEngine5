@@ -3,8 +3,8 @@ package ue;
 
 @:native("CopyBoneDeltaMode")
 @:include("BoneControllers/AnimNode_CopyBoneDelta.h")
-extern enum CopyBoneDeltaMode {
-	Accumulate;
-	Copy;
-	CopyBoneDeltaMode_MAX;
+extern class CopyBoneDeltaMode {
+	static var Accumulate: CopyBoneDeltaMode;
+	static var Copy: CopyBoneDeltaMode;
+	static var CopyBoneDeltaMode_MAX: CopyBoneDeltaMode;
 }

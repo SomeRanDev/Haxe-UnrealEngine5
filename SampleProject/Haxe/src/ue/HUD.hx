@@ -16,11 +16,11 @@ extern class HUD extends Actor {
 	public var PostRenderedActors: TArray<cpp.Star<Actor>>;
 	public var DebugDisplay: TArray<FName>;
 	public var ToggledDebugCategories: TArray<FName>;
-	public var Canvas: cpp.Star<Canvas>;
-	public var DebugCanvas: cpp.Star<Canvas>;
-	public var DebugTextList: TArray<DebugTextInfo>;
-	public var ShowDebugTargetDesiredClass: TSubclassOf<Actor>;
-	public var ShowDebugTargetActor: cpp.Star<Actor>;
+	@:protected public var Canvas: cpp.Star<Canvas>;
+	@:protected public var DebugCanvas: cpp.Star<Canvas>;
+	@:protected public var DebugTextList: TArray<DebugTextInfo>;
+	@:protected public var ShowDebugTargetDesiredClass: TSubclassOf<Actor>;
+	@:protected public var ShowDebugTargetActor: cpp.Star<Actor>;
 
 	public function ShowHUD(): Void;
 	public function ShowDebugToggleSubCategory(Category: FName): Void;
@@ -33,15 +33,15 @@ extern class HUD extends Actor {
 	public function ReceiveHitBoxClick(BoxName: FName): Void;
 	public function ReceiveHitBoxBeginCursorOver(BoxName: FName): Void;
 	public function ReceiveDrawHUD(SizeX: cpp.Int32, SizeY: cpp.Int32): Void;
-	public function Project(Location: Vector, bClampToZeroPlane: Bool): cpp.Reference<Vector>;
+	public function Project(Location: Vector, bClampToZeroPlane: Bool): Vector;
 	public function PreviousDebugTarget(): Void;
 	public function NextDebugTarget(): Void;
 	public function GetTextSize(Text: FString, OutWidth: cpp.Reference<cpp.Float32>, OutHeight: cpp.Reference<cpp.Float32>, Font: cpp.Star<Font>, Scale: cpp.Float32): Void;
-	public function GetOwningPlayerController(): cpp.Reference<cpp.Star<PlayerController>>;
-	public function GetOwningPawn(): cpp.Reference<cpp.Star<Pawn>>;
+	public function GetOwningPlayerController(): cpp.Star<PlayerController>;
+	public function GetOwningPawn(): cpp.Star<Pawn>;
 	public function GetActorsInSelectionRectangle(ClassFilter: TSubclassOf<Actor>, FirstPoint: cpp.Reference<Vector2D>, SecondPoint: cpp.Reference<Vector2D>, OutActors: cpp.Reference<TArray<cpp.Star<Actor>>>, bIncludeNonCollidingComponents: Bool, bActorMustBeFullyEnclosed: Bool): Void;
 	public function DrawTextureSimple(Texture: cpp.Star<Texture>, ScreenX: cpp.Float32, ScreenY: cpp.Float32, Scale: cpp.Float32, bScalePosition: Bool): Void;
-	public function DrawTexture(Texture: cpp.Star<Texture>, ScreenX: cpp.Float32, ScreenY: cpp.Float32, ScreenW: cpp.Float32, ScreenH: cpp.Float32, TextureU: cpp.Float32, TextureV: cpp.Float32, TextureUWidth: cpp.Float32, TextureVHeight: cpp.Float32, TintColor: LinearColor, BlendMode: EBlendMode, Scale: cpp.Float32, bScalePosition: Bool, Rotation: cpp.Float32, RotPivot: Vector2D): Void;
+	public function DrawTexture(Texture: cpp.Star<Texture>, ScreenX: cpp.Float32, ScreenY: cpp.Float32, ScreenW: cpp.Float32, ScreenH: cpp.Float32, TextureU: cpp.Float32, TextureV: cpp.Float32, TextureUWidth: cpp.Float32, TextureVHeight: cpp.Float32, TintColor: LinearColor, BlendMode: TEnumAsByte<EBlendMode>, Scale: cpp.Float32, bScalePosition: Bool, Rotation: cpp.Float32, RotPivot: Vector2D): Void;
 	public function DrawText(Text: FString, TextColor: LinearColor, ScreenX: cpp.Float32, ScreenY: cpp.Float32, Font: cpp.Star<Font>, Scale: cpp.Float32, bScalePosition: Bool): Void;
 	public function DrawRect(RectColor: LinearColor, ScreenX: cpp.Float32, ScreenY: cpp.Float32, ScreenW: cpp.Float32, ScreenH: cpp.Float32): Void;
 	public function DrawMaterialTriangle(Material: cpp.Star<MaterialInterface>, V0_Pos: Vector2D, V1_Pos: Vector2D, V2_Pos: Vector2D, V0_UV: Vector2D, V1_UV: Vector2D, V2_UV: Vector2D, V0_Color: LinearColor, V1_Color: LinearColor, V2_Color: LinearColor): Void;
@@ -80,16 +80,6 @@ abstract ConstHUD(HUD) from HUD {
 	public inline extern function get_DebugDisplay(): TArray<FName> return this.DebugDisplay;
 	public extern var ToggledDebugCategories(get, never): TArray<FName>;
 	public inline extern function get_ToggledDebugCategories(): TArray<FName> return this.ToggledDebugCategories;
-	public extern var Canvas(get, never): cpp.Star<Canvas.ConstCanvas>;
-	public inline extern function get_Canvas(): cpp.Star<Canvas.ConstCanvas> return this.Canvas;
-	public extern var DebugCanvas(get, never): cpp.Star<Canvas.ConstCanvas>;
-	public inline extern function get_DebugCanvas(): cpp.Star<Canvas.ConstCanvas> return this.DebugCanvas;
-	public extern var DebugTextList(get, never): TArray<DebugTextInfo>;
-	public inline extern function get_DebugTextList(): TArray<DebugTextInfo> return this.DebugTextList;
-	public extern var ShowDebugTargetDesiredClass(get, never): TSubclassOf<Actor.ConstActor>;
-	public inline extern function get_ShowDebugTargetDesiredClass(): TSubclassOf<Actor.ConstActor> return this.ShowDebugTargetDesiredClass;
-	public extern var ShowDebugTargetActor(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_ShowDebugTargetActor(): cpp.Star<Actor.ConstActor> return this.ShowDebugTargetActor;
 }
 
 @:forward

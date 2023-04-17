@@ -7,7 +7,7 @@ package ue;
 extern class NiagaraDataInterfaceAsyncGpuTrace extends NiagaraDataInterface {
 	public var MaxTracesPerParticle: cpp.Int32;
 	public var MaxRetraces: cpp.Int32;
-	public var TraceProvider: ENDICollisionQuery_AsyncGpuTraceProvider;
+	public var TraceProvider: TEnumAsByte<ENDICollisionQuery_AsyncGpuTraceProvider>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,8 +19,8 @@ abstract ConstNiagaraDataInterfaceAsyncGpuTrace(NiagaraDataInterfaceAsyncGpuTrac
 	public inline extern function get_MaxTracesPerParticle(): cpp.Int32 return this.MaxTracesPerParticle;
 	public extern var MaxRetraces(get, never): cpp.Int32;
 	public inline extern function get_MaxRetraces(): cpp.Int32 return this.MaxRetraces;
-	public extern var TraceProvider(get, never): ENDICollisionQuery_AsyncGpuTraceProvider;
-	public inline extern function get_TraceProvider(): ENDICollisionQuery_AsyncGpuTraceProvider return this.TraceProvider;
+	public extern var TraceProvider(get, never): TEnumAsByte<ENDICollisionQuery_AsyncGpuTraceProvider>;
+	public inline extern function get_TraceProvider(): TEnumAsByte<ENDICollisionQuery_AsyncGpuTraceProvider> return this.TraceProvider;
 }
 
 @:forward

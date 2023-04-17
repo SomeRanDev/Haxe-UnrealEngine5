@@ -3,10 +3,10 @@ package ue;
 
 @:native("EFractureAutoClusterMode")
 @:include("Private/FractureToolAutoCluster.h")
-extern enum EFractureAutoClusterMode {
-	BoundingBox;
-	Proximity;
-	Distance;
-	Voronoi;
-	EFractureAutoClusterMode_MAX;
+extern class EFractureAutoClusterMode {
+	static var BoundingBox: EFractureAutoClusterMode;
+	static var Proximity: EFractureAutoClusterMode;
+	static var Distance: EFractureAutoClusterMode;
+	static var Voronoi: EFractureAutoClusterMode;
+	static var EFractureAutoClusterMode_MAX: EFractureAutoClusterMode;
 }

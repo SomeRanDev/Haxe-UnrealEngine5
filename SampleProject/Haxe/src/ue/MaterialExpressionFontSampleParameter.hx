@@ -8,7 +8,6 @@ extern class MaterialExpressionFontSampleParameter extends MaterialExpressionFon
 	public var ParameterName: FName;
 	public var ExpressionGUID: Guid;
 	public var Group: FName;
-	public var SortPriority: cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -22,8 +21,6 @@ abstract ConstMaterialExpressionFontSampleParameter(MaterialExpressionFontSample
 	public inline extern function get_ExpressionGUID(): Guid return this.ExpressionGUID;
 	public extern var Group(get, never): FName;
 	public inline extern function get_Group(): FName return this.Group;
-	public extern var SortPriority(get, never): cpp.Int32;
-	public inline extern function get_SortPriority(): cpp.Int32 return this.SortPriority;
 }
 
 @:forward

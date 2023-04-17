@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMediaPlayerOptionBooleanOverride")
 @:include("MediaPlayerOptions.h")
-extern enum EMediaPlayerOptionBooleanOverride {
-	UseMediaPlayerSetting;
-	Enabled;
-	Disabled;
-	EMediaPlayerOptionBooleanOverride_MAX;
+extern class EMediaPlayerOptionBooleanOverride {
+	static var UseMediaPlayerSetting: EMediaPlayerOptionBooleanOverride;
+	static var Enabled: EMediaPlayerOptionBooleanOverride;
+	static var Disabled: EMediaPlayerOptionBooleanOverride;
+	static var EMediaPlayerOptionBooleanOverride_MAX: EMediaPlayerOptionBooleanOverride;
 }

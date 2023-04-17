@@ -3,9 +3,9 @@ package ue;
 
 @:native("ECurveEditorTangentVisibility")
 @:include("CurveEditorSettings.h")
-extern enum ECurveEditorTangentVisibility {
-	AllTangents;
-	SelectedKeys;
-	NoTangents;
-	ECurveEditorTangentVisibility_MAX;
+extern class ECurveEditorTangentVisibility {
+	static var AllTangents: ECurveEditorTangentVisibility;
+	static var SelectedKeys: ECurveEditorTangentVisibility;
+	static var NoTangents: ECurveEditorTangentVisibility;
+	static var ECurveEditorTangentVisibility_MAX: ECurveEditorTangentVisibility;
 }

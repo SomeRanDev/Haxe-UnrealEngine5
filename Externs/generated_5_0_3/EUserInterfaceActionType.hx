@@ -3,12 +3,12 @@ package ue;
 
 @:native("EUserInterfaceActionType")
 @:include("Framework/Commands/UICommandInfo.h")
-extern enum EUserInterfaceActionType {
-	None;
-	Button;
-	ToggleButton;
-	RadioButton;
-	Check;
-	CollapsedButton;
-	EUserInterfaceActionType_MAX;
+extern class EUserInterfaceActionType {
+	static var None: EUserInterfaceActionType;
+	static var Button: EUserInterfaceActionType;
+	static var ToggleButton: EUserInterfaceActionType;
+	static var RadioButton: EUserInterfaceActionType;
+	static var Check: EUserInterfaceActionType;
+	static var CollapsedButton: EUserInterfaceActionType;
+	static var EUserInterfaceActionType_MAX: EUserInterfaceActionType;
 }

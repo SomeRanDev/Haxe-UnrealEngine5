@@ -6,8 +6,8 @@ package ue;
 @:structAccess
 extern class ToggleTrackKey {
 	public var Time: cpp.Float32;
-	public var ToggleAction: ETrackToggleAction;
+	public var ToggleAction: TEnumAsByte<ETrackToggleAction>;
 
 	@:native("FToggleTrackKey") public function new();
-	@:native("FToggleTrackKey") public static function make(Time: cpp.Float32, ToggleAction: ETrackToggleAction): ToggleTrackKey ;
+	@:native("FToggleTrackKey") public static function make(Time: cpp.Float32, ToggleAction: TEnumAsByte<ETrackToggleAction>): ToggleTrackKey ;
 }

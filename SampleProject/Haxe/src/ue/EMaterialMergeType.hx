@@ -3,8 +3,8 @@ package ue;
 
 @:native("EMaterialMergeType")
 @:include("Engine/MaterialMerging.h")
-extern enum EMaterialMergeType {
-	MaterialMergeType_Default;
-	MaterialMergeType_Simplygon;
-	MaterialMergeType_MAX;
+extern class EMaterialMergeType {
+	static var MaterialMergeType_Default: EMaterialMergeType;
+	static var MaterialMergeType_Simplygon: EMaterialMergeType;
+	static var MaterialMergeType_MAX: EMaterialMergeType;
 }

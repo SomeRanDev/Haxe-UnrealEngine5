@@ -5,15 +5,14 @@ package ue;
 @:include("RigVMModel/RigVMFunctionLibrary.h")
 @:structAccess
 extern class RigVMFunctionLibrary extends RigVMGraph {
-	public var FunctionReferences_DEPRECATED: TMap<cpp.Star<RigVMLibraryNode>, RigVMFunctionReferenceArray>;
-	public var LocalizedFunctions: TMap<FString, cpp.Star<RigVMLibraryNode>>;
+	private var LocalizedFunctions: TMap<FString, cpp.Star<RigVMLibraryNode>>;
 
-	public function GetReferencesForFunction(InFunctionName: cpp.Reference<FName>): cpp.Reference<TArray<TSoftObjectPtr<RigVMFunctionReferenceNode>>>;
-	public function GetReferencePathsForFunction(InFunctionName: cpp.Reference<FName>): cpp.Reference<TArray<FString>>;
-	public function GetFunctions(): cpp.Reference<TArray<cpp.Star<RigVMLibraryNode>>>;
-	public function GetBuildData(): cpp.Reference<cpp.Star<RigVMBuildData>>;
-	public function FindFunctionForNode(InNode: cpp.Star<RigVMNode>): cpp.Reference<cpp.Star<RigVMLibraryNode>>;
-	public function FindFunction(InFunctionName: cpp.Reference<FName>): cpp.Reference<cpp.Star<RigVMLibraryNode>>;
+	public function GetReferencesForFunction(InFunctionName: cpp.Reference<FName>): TArray<TSoftObjectPtr<RigVMFunctionReferenceNode>>;
+	public function GetReferencePathsForFunction(InFunctionName: cpp.Reference<FName>): TArray<FString>;
+	public function GetFunctions(): TArray<cpp.Star<RigVMLibraryNode>>;
+	public function GetBuildData(): cpp.Star<RigVMBuildData>;
+	public function FindFunctionForNode(InNode: cpp.Star<RigVMNode>): cpp.Star<RigVMLibraryNode>;
+	public function FindFunction(InFunctionName: cpp.Reference<FName>): cpp.Star<RigVMLibraryNode>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -21,10 +20,6 @@ extern class RigVMFunctionLibrary extends RigVMGraph {
 @:forward(GetFunctions, GetBuildData, FindFunctionForNode, FindFunction)
 @:nativeGen
 abstract ConstRigVMFunctionLibrary(RigVMFunctionLibrary) from RigVMFunctionLibrary {
-	public extern var FunctionReferences_DEPRECATED(get, never): TMap<cpp.Star<RigVMLibraryNode.ConstRigVMLibraryNode>, RigVMFunctionReferenceArray>;
-	public inline extern function get_FunctionReferences_DEPRECATED(): TMap<cpp.Star<RigVMLibraryNode.ConstRigVMLibraryNode>, RigVMFunctionReferenceArray> return this.FunctionReferences_DEPRECATED;
-	public extern var LocalizedFunctions(get, never): TMap<FString, cpp.Star<RigVMLibraryNode.ConstRigVMLibraryNode>>;
-	public inline extern function get_LocalizedFunctions(): TMap<FString, cpp.Star<RigVMLibraryNode.ConstRigVMLibraryNode>> return this.LocalizedFunctions;
 }
 
 @:forward

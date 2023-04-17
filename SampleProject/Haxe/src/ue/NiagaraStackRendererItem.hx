@@ -5,7 +5,7 @@ package ue;
 @:include("ViewModels/Stack/NiagaraStackRendererItem.h")
 @:structAccess
 extern class NiagaraStackRendererItem extends NiagaraStackItem {
-	public var RendererObject: cpp.Star<NiagaraStackObject>;
+	private var RendererObject: cpp.Star<NiagaraStackObject>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class NiagaraStackRendererItem extends NiagaraStackItem {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraStackRendererItem(NiagaraStackRendererItem) from NiagaraStackRendererItem {
-	public extern var RendererObject(get, never): cpp.Star<NiagaraStackObject.ConstNiagaraStackObject>;
-	public inline extern function get_RendererObject(): cpp.Star<NiagaraStackObject.ConstNiagaraStackObject> return this.RendererObject;
 }
 
 @:forward

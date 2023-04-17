@@ -5,19 +5,19 @@ package ue;
 @:include("PartyBeaconState.h")
 @:structAccess
 extern class PartyBeaconState extends Object {
-	public var SessionName: FName;
-	public var NumConsumedReservations: cpp.Int32;
-	public var MaxReservations: cpp.Int32;
-	public var NumTeams: cpp.Int32;
-	public var NumPlayersPerTeam: cpp.Int32;
-	public var TeamAssignmentMethod: FName;
-	public var ReservedHostTeamNum: cpp.Int32;
-	public var ForceTeamNum: cpp.Int32;
-	public var bRestrictCrossConsole: Bool;
-	public var PlatformCrossplayRestrictions: TArray<FString>;
-	public var PlatformTypeMapping: TArray<PartyBeaconCrossplayPlatformMapping>;
-	public var bEnableRemovalRequests: Bool;
-	public var Reservations: TArray<PartyReservation>;
+	@:protected public var SessionName: FName;
+	@:protected public var NumConsumedReservations: cpp.Int32;
+	@:protected public var MaxReservations: cpp.Int32;
+	@:protected public var NumTeams: cpp.Int32;
+	@:protected public var NumPlayersPerTeam: cpp.Int32;
+	@:protected public var TeamAssignmentMethod: FName;
+	@:protected public var ReservedHostTeamNum: cpp.Int32;
+	@:protected public var ForceTeamNum: cpp.Int32;
+	@:protected public var bRestrictCrossConsole: Bool;
+	@:protected public var PlatformCrossplayRestrictions: TArray<FString>;
+	@:protected public var PlatformTypeMapping: TArray<PartyBeaconCrossplayPlatformMapping>;
+	@:protected public var bEnableRemovalRequests: Bool;
+	@:protected public var Reservations: TArray<PartyReservation>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -25,32 +25,6 @@ extern class PartyBeaconState extends Object {
 @:forward()
 @:nativeGen
 abstract ConstPartyBeaconState(PartyBeaconState) from PartyBeaconState {
-	public extern var SessionName(get, never): FName;
-	public inline extern function get_SessionName(): FName return this.SessionName;
-	public extern var NumConsumedReservations(get, never): cpp.Int32;
-	public inline extern function get_NumConsumedReservations(): cpp.Int32 return this.NumConsumedReservations;
-	public extern var MaxReservations(get, never): cpp.Int32;
-	public inline extern function get_MaxReservations(): cpp.Int32 return this.MaxReservations;
-	public extern var NumTeams(get, never): cpp.Int32;
-	public inline extern function get_NumTeams(): cpp.Int32 return this.NumTeams;
-	public extern var NumPlayersPerTeam(get, never): cpp.Int32;
-	public inline extern function get_NumPlayersPerTeam(): cpp.Int32 return this.NumPlayersPerTeam;
-	public extern var TeamAssignmentMethod(get, never): FName;
-	public inline extern function get_TeamAssignmentMethod(): FName return this.TeamAssignmentMethod;
-	public extern var ReservedHostTeamNum(get, never): cpp.Int32;
-	public inline extern function get_ReservedHostTeamNum(): cpp.Int32 return this.ReservedHostTeamNum;
-	public extern var ForceTeamNum(get, never): cpp.Int32;
-	public inline extern function get_ForceTeamNum(): cpp.Int32 return this.ForceTeamNum;
-	public extern var bRestrictCrossConsole(get, never): Bool;
-	public inline extern function get_bRestrictCrossConsole(): Bool return this.bRestrictCrossConsole;
-	public extern var PlatformCrossplayRestrictions(get, never): TArray<FString>;
-	public inline extern function get_PlatformCrossplayRestrictions(): TArray<FString> return this.PlatformCrossplayRestrictions;
-	public extern var PlatformTypeMapping(get, never): TArray<PartyBeaconCrossplayPlatformMapping>;
-	public inline extern function get_PlatformTypeMapping(): TArray<PartyBeaconCrossplayPlatformMapping> return this.PlatformTypeMapping;
-	public extern var bEnableRemovalRequests(get, never): Bool;
-	public inline extern function get_bEnableRemovalRequests(): Bool return this.bEnableRemovalRequests;
-	public extern var Reservations(get, never): TArray<PartyReservation>;
-	public inline extern function get_Reservations(): TArray<PartyReservation> return this.Reservations;
 }
 
 @:forward

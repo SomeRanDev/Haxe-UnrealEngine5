@@ -3,12 +3,12 @@ package ue;
 
 @:native("ENiagaraMessageSeverity")
 @:include("NiagaraMessages.h")
-extern enum ENiagaraMessageSeverity {
-	CriticalError;
-	Error;
-	PerformanceWarning;
-	Warning;
-	Info;
-	CustomNote;
-	ENiagaraMessageSeverity_MAX;
+extern class ENiagaraMessageSeverity {
+	static var CriticalError: ENiagaraMessageSeverity;
+	static var Error: ENiagaraMessageSeverity;
+	static var PerformanceWarning: ENiagaraMessageSeverity;
+	static var Warning: ENiagaraMessageSeverity;
+	static var Info: ENiagaraMessageSeverity;
+	static var CustomNote: ENiagaraMessageSeverity;
+	static var ENiagaraMessageSeverity_MAX: ENiagaraMessageSeverity;
 }

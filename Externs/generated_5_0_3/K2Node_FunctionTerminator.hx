@@ -6,8 +6,6 @@ package ue;
 @:structAccess
 extern class K2Node_FunctionTerminator extends K2Node_EditablePinBase {
 	public var FunctionReference: MemberReference;
-	public var SignatureClass_DEPRECATED: TSubclassOf<Object>;
-	public var SignatureName_DEPRECATED: FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,10 +15,6 @@ extern class K2Node_FunctionTerminator extends K2Node_EditablePinBase {
 abstract ConstK2Node_FunctionTerminator(K2Node_FunctionTerminator) from K2Node_FunctionTerminator {
 	public extern var FunctionReference(get, never): MemberReference;
 	public inline extern function get_FunctionReference(): MemberReference return this.FunctionReference;
-	public extern var SignatureClass_DEPRECATED(get, never): TSubclassOf<Object.ConstObject>;
-	public inline extern function get_SignatureClass_DEPRECATED(): TSubclassOf<Object.ConstObject> return this.SignatureClass_DEPRECATED;
-	public extern var SignatureName_DEPRECATED(get, never): FName;
-	public inline extern function get_SignatureName_DEPRECATED(): FName return this.SignatureName_DEPRECATED;
 }
 
 @:forward

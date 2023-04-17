@@ -15,11 +15,11 @@ extern class GlobalEditorUtilityBase extends Object {
 	public function SelectNothing(): Void;
 	public function RenameAsset(Asset: cpp.Star<Object>, NewName: FString): Void;
 	public function OnDefaultActionClicked(): Void;
-	public function GetSelectionSet(): cpp.Reference<TArray<cpp.Star<Actor>>>;
+	public function GetSelectionSet(): TArray<cpp.Star<Actor>>;
 	public function GetSelectionBounds(Origin: cpp.Reference<Vector>, BoxExtent: cpp.Reference<Vector>, SphereRadius: cpp.Reference<cpp.Float32>): Void;
-	public function GetSelectedAssets(): cpp.Reference<TArray<cpp.Star<Object>>>;
-	public function GetEditorUserSettings(): cpp.Reference<cpp.Star<EditorPerProjectUserSettings>>;
-	public function GetActorReference(PathToActor: FString): cpp.Reference<cpp.Star<Actor>>;
+	public function GetSelectedAssets(): TArray<cpp.Star<Object>>;
+	public function GetEditorUserSettings(): cpp.Star<EditorPerProjectUserSettings>;
+	public function GetActorReference(PathToActor: FString): cpp.Star<Actor>;
 	public function ForEachSelectedAsset(): Void;
 	public function ForEachSelectedActor(): Void;
 	public function ClearActorSelectionSet(): Void;

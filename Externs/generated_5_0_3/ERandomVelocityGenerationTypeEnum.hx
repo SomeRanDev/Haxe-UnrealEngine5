@@ -3,10 +3,10 @@ package ue;
 
 @:native("ERandomVelocityGenerationTypeEnum")
 @:include("NiagaraDataInterfaceChaosDestruction.h")
-extern enum ERandomVelocityGenerationTypeEnum {
-	ChaosNiagara_RandomVelocityGenerationType_RandomDistribution;
-	ChaosNiagara_RandomVelocityGenerationType_RandomDistributionWithStreamers;
-	ChaosNiagara_RandomVelocityGenerationType_CollisionNormalBased;
-	ChaosNiagara_Max;
-	ChaosNiagara_MAX;
+extern class ERandomVelocityGenerationTypeEnum {
+	static var ChaosNiagara_RandomVelocityGenerationType_RandomDistribution: ERandomVelocityGenerationTypeEnum;
+	static var ChaosNiagara_RandomVelocityGenerationType_RandomDistributionWithStreamers: ERandomVelocityGenerationTypeEnum;
+	static var ChaosNiagara_RandomVelocityGenerationType_CollisionNormalBased: ERandomVelocityGenerationTypeEnum;
+	static var ChaosNiagara_Max: ERandomVelocityGenerationTypeEnum;
+	static var ChaosNiagara_MAX: ERandomVelocityGenerationTypeEnum;
 }

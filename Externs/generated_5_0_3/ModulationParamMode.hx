@@ -3,9 +3,9 @@ package ue;
 
 @:native("ModulationParamMode")
 @:include("Sound/SoundNodeModulatorContinuous.h")
-extern enum ModulationParamMode {
-	MPM_Normal;
-	MPM_Abs;
-	MPM_Direct;
-	MPM_MAX;
+extern class ModulationParamMode {
+	static var MPM_Normal: ModulationParamMode;
+	static var MPM_Abs: ModulationParamMode;
+	static var MPM_Direct: ModulationParamMode;
+	static var MPM_MAX: ModulationParamMode;
 }

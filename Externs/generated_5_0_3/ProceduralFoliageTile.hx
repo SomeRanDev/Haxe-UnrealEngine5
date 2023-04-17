@@ -5,8 +5,8 @@ package ue;
 @:include("ProceduralFoliageTile.h")
 @:structAccess
 extern class ProceduralFoliageTile extends Object {
-	public var FoliageSpawner: cpp.Star<ProceduralFoliageSpawner>;
-	public var InstancesArray: TArray<ProceduralFoliageInstance>;
+	private var FoliageSpawner: cpp.Star<ProceduralFoliageSpawner>;
+	private var InstancesArray: TArray<ProceduralFoliageInstance>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class ProceduralFoliageTile extends Object {
 @:forward()
 @:nativeGen
 abstract ConstProceduralFoliageTile(ProceduralFoliageTile) from ProceduralFoliageTile {
-	public extern var FoliageSpawner(get, never): cpp.Star<ProceduralFoliageSpawner.ConstProceduralFoliageSpawner>;
-	public inline extern function get_FoliageSpawner(): cpp.Star<ProceduralFoliageSpawner.ConstProceduralFoliageSpawner> return this.FoliageSpawner;
-	public extern var InstancesArray(get, never): TArray<ProceduralFoliageInstance>;
-	public inline extern function get_InstancesArray(): TArray<ProceduralFoliageInstance> return this.InstancesArray;
 }
 
 @:forward

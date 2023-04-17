@@ -10,9 +10,9 @@ extern class BoxFalloff extends FieldNodeFloat {
 	public var MaxRange: cpp.Float32;
 	public var Default: cpp.Float32;
 	public var Transform: Transform;
-	public var Falloff: EFieldFalloffType;
+	public var Falloff: TEnumAsByte<EFieldFalloffType>;
 
-	public function SetBoxFalloff(Magnitude: cpp.Float32, MinRange: cpp.Float32, MaxRange: cpp.Float32, Default: cpp.Float32, Transform: Transform, Falloff: EFieldFalloffType): cpp.Reference<cpp.Star<BoxFalloff>>;
+	public function SetBoxFalloff(Magnitude: cpp.Float32, MinRange: cpp.Float32, MaxRange: cpp.Float32, Default: cpp.Float32, Transform: Transform, Falloff: TEnumAsByte<EFieldFalloffType>): cpp.Star<BoxFalloff>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -30,8 +30,8 @@ abstract ConstBoxFalloff(BoxFalloff) from BoxFalloff {
 	public inline extern function get_Default(): cpp.Float32 return this.Default;
 	public extern var Transform(get, never): Transform;
 	public inline extern function get_Transform(): Transform return this.Transform;
-	public extern var Falloff(get, never): EFieldFalloffType;
-	public inline extern function get_Falloff(): EFieldFalloffType return this.Falloff;
+	public extern var Falloff(get, never): TEnumAsByte<EFieldFalloffType>;
+	public inline extern function get_Falloff(): TEnumAsByte<EFieldFalloffType> return this.Falloff;
 }
 
 @:forward

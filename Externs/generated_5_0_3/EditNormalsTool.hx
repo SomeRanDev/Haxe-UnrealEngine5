@@ -5,9 +5,9 @@ package ue;
 @:include("EditNormalsTool.h")
 @:structAccess
 extern class EditNormalsTool extends MultiSelectionMeshEditingTool {
-	public var BasicProperties: cpp.Star<EditNormalsToolProperties>;
-	public var AdvancedProperties: cpp.Star<EditNormalsAdvancedProperties>;
-	public var Previews: TArray<cpp.Star<MeshOpPreviewWithBackgroundCompute>>;
+	@:protected public var BasicProperties: cpp.Star<EditNormalsToolProperties>;
+	@:protected public var AdvancedProperties: cpp.Star<EditNormalsAdvancedProperties>;
+	@:protected public var Previews: TArray<cpp.Star<MeshOpPreviewWithBackgroundCompute>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class EditNormalsTool extends MultiSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstEditNormalsTool(EditNormalsTool) from EditNormalsTool {
-	public extern var BasicProperties(get, never): cpp.Star<EditNormalsToolProperties.ConstEditNormalsToolProperties>;
-	public inline extern function get_BasicProperties(): cpp.Star<EditNormalsToolProperties.ConstEditNormalsToolProperties> return this.BasicProperties;
-	public extern var AdvancedProperties(get, never): cpp.Star<EditNormalsAdvancedProperties.ConstEditNormalsAdvancedProperties>;
-	public inline extern function get_AdvancedProperties(): cpp.Star<EditNormalsAdvancedProperties.ConstEditNormalsAdvancedProperties> return this.AdvancedProperties;
-	public extern var Previews(get, never): TArray<cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>>;
-	public inline extern function get_Previews(): TArray<cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>> return this.Previews;
 }
 
 @:forward

@@ -5,10 +5,10 @@ package ue;
 @:include("Graphs/GenerateStaticMeshLODProcess.h")
 @:structAccess
 extern class GenerateStaticMeshLODProcess extends Object {
-	public var SourceStaticMesh: cpp.Star<StaticMesh>;
-	public var AllDerivedTextures: TSet<cpp.Star<Texture2D>>;
-	public var DerivedNormalMapTex: cpp.Star<Texture2D>;
-	public var DerivedMultiTextureBakeResult: cpp.Star<Texture2D>;
+	@:protected public var SourceStaticMesh: cpp.Star<StaticMesh>;
+	@:protected public var AllDerivedTextures: TSet<cpp.Star<Texture2D>>;
+	@:protected public var DerivedNormalMapTex: cpp.Star<Texture2D>;
+	@:protected public var DerivedMultiTextureBakeResult: cpp.Star<Texture2D>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class GenerateStaticMeshLODProcess extends Object {
 @:forward()
 @:nativeGen
 abstract ConstGenerateStaticMeshLODProcess(GenerateStaticMeshLODProcess) from GenerateStaticMeshLODProcess {
-	public extern var SourceStaticMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_SourceStaticMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.SourceStaticMesh;
-	public extern var AllDerivedTextures(get, never): TSet<cpp.Star<Texture2D.ConstTexture2D>>;
-	public inline extern function get_AllDerivedTextures(): TSet<cpp.Star<Texture2D.ConstTexture2D>> return this.AllDerivedTextures;
-	public extern var DerivedNormalMapTex(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_DerivedNormalMapTex(): cpp.Star<Texture2D.ConstTexture2D> return this.DerivedNormalMapTex;
-	public extern var DerivedMultiTextureBakeResult(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_DerivedMultiTextureBakeResult(): cpp.Star<Texture2D.ConstTexture2D> return this.DerivedMultiTextureBakeResult;
 }
 
 @:forward

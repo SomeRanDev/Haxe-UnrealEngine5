@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class DatasmithSceneComponentTemplate extends DatasmithObjectTemplate {
 	public var RelativeTransform: Transform;
-	public var Mobility: EComponentMobility;
+	public var Mobility: TEnumAsByte<EComponentMobility>;
 	public var AttachParent: TSoftObjectPtr<SceneComp>;
 	public var bVisible: Bool;
 	public var Tags: TSet<FName>;
@@ -19,8 +19,8 @@ extern class DatasmithSceneComponentTemplate extends DatasmithObjectTemplate {
 abstract ConstDatasmithSceneComponentTemplate(DatasmithSceneComponentTemplate) from DatasmithSceneComponentTemplate {
 	public extern var RelativeTransform(get, never): Transform;
 	public inline extern function get_RelativeTransform(): Transform return this.RelativeTransform;
-	public extern var Mobility(get, never): EComponentMobility;
-	public inline extern function get_Mobility(): EComponentMobility return this.Mobility;
+	public extern var Mobility(get, never): TEnumAsByte<EComponentMobility>;
+	public inline extern function get_Mobility(): TEnumAsByte<EComponentMobility> return this.Mobility;
 	public extern var AttachParent(get, never): TSoftObjectPtr<SceneComp.ConstSceneComp>;
 	public inline extern function get_AttachParent(): TSoftObjectPtr<SceneComp.ConstSceneComp> return this.AttachParent;
 	public extern var bVisible(get, never): Bool;

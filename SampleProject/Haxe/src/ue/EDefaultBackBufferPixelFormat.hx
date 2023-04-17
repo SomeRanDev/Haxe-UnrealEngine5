@@ -3,11 +3,11 @@ package ue;
 
 @:native("EDefaultBackBufferPixelFormat.Type")
 @:include("Engine/RendererSettings.h")
-extern enum EDefaultBackBufferPixelFormat {
-	DBBPF_B8G8R8A8;
-	DBBPF_A16B16G16R16_DEPRECATED;
-	DBBPF_FloatRGB_DEPRECATED;
-	DBBPF_FloatRGBA;
-	DBBPF_A2B10G10R10;
-	DBBPF_MAX;
+extern class EDefaultBackBufferPixelFormat {
+	static var DBBPF_B8G8R8A8: EDefaultBackBufferPixelFormat;
+	static var DBBPF_A16B16G16R16_DEPRECATED: EDefaultBackBufferPixelFormat;
+	static var DBBPF_FloatRGB_DEPRECATED: EDefaultBackBufferPixelFormat;
+	static var DBBPF_FloatRGBA: EDefaultBackBufferPixelFormat;
+	static var DBBPF_A2B10G10R10: EDefaultBackBufferPixelFormat;
+	static var DBBPF_MAX: EDefaultBackBufferPixelFormat;
 }

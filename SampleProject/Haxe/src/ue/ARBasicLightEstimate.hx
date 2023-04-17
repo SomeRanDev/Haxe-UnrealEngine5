@@ -5,13 +5,13 @@ package ue;
 @:include("ARLightEstimate.h")
 @:structAccess
 extern class ARBasicLightEstimate extends ARLightEstimate {
-	public var AmbientIntensityLumens: cpp.Float32;
-	public var AmbientColorTemperatureKelvin: cpp.Float32;
-	public var AmbientColor: LinearColor;
+	private var AmbientIntensityLumens: cpp.Float32;
+	private var AmbientColorTemperatureKelvin: cpp.Float32;
+	private var AmbientColor: LinearColor;
 
-	public function GetAmbientIntensityLumens(): cpp.Reference<cpp.Float32>;
-	public function GetAmbientColorTemperatureKelvin(): cpp.Reference<cpp.Float32>;
-	public function GetAmbientColor(): cpp.Reference<LinearColor>;
+	public function GetAmbientIntensityLumens(): cpp.Float32;
+	public function GetAmbientColorTemperatureKelvin(): cpp.Float32;
+	public function GetAmbientColor(): LinearColor;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,12 +19,6 @@ extern class ARBasicLightEstimate extends ARLightEstimate {
 @:forward(GetAmbientIntensityLumens, GetAmbientColorTemperatureKelvin, GetAmbientColor)
 @:nativeGen
 abstract ConstARBasicLightEstimate(ARBasicLightEstimate) from ARBasicLightEstimate {
-	public extern var AmbientIntensityLumens(get, never): cpp.Float32;
-	public inline extern function get_AmbientIntensityLumens(): cpp.Float32 return this.AmbientIntensityLumens;
-	public extern var AmbientColorTemperatureKelvin(get, never): cpp.Float32;
-	public inline extern function get_AmbientColorTemperatureKelvin(): cpp.Float32 return this.AmbientColorTemperatureKelvin;
-	public extern var AmbientColor(get, never): LinearColor;
-	public inline extern function get_AmbientColor(): LinearColor return this.AmbientColor;
 }
 
 @:forward

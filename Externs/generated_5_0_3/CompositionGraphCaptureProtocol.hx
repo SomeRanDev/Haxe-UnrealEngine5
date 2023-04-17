@@ -8,10 +8,10 @@ extern class CompositionGraphCaptureProtocol extends MovieSceneImageCaptureProto
 	public var IncludeRenderPasses: CompositionGraphCapturePasses;
 	public var bCaptureFramesInHDR: Bool;
 	public var HDRCompressionQuality: cpp.Int32;
-	public var CaptureGamut: EHDRCaptureGamut;
+	public var CaptureGamut: TEnumAsByte<EHDRCaptureGamut>;
 	public var PostProcessingMaterial: SoftObjectPath;
 	public var bDisableScreenPercentage: Bool;
-	public var PostProcessingMaterialPtr: cpp.Star<MaterialInterface>;
+	private var PostProcessingMaterialPtr: cpp.Star<MaterialInterface>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -25,14 +25,12 @@ abstract ConstCompositionGraphCaptureProtocol(CompositionGraphCaptureProtocol) f
 	public inline extern function get_bCaptureFramesInHDR(): Bool return this.bCaptureFramesInHDR;
 	public extern var HDRCompressionQuality(get, never): cpp.Int32;
 	public inline extern function get_HDRCompressionQuality(): cpp.Int32 return this.HDRCompressionQuality;
-	public extern var CaptureGamut(get, never): EHDRCaptureGamut;
-	public inline extern function get_CaptureGamut(): EHDRCaptureGamut return this.CaptureGamut;
+	public extern var CaptureGamut(get, never): TEnumAsByte<EHDRCaptureGamut>;
+	public inline extern function get_CaptureGamut(): TEnumAsByte<EHDRCaptureGamut> return this.CaptureGamut;
 	public extern var PostProcessingMaterial(get, never): SoftObjectPath;
 	public inline extern function get_PostProcessingMaterial(): SoftObjectPath return this.PostProcessingMaterial;
 	public extern var bDisableScreenPercentage(get, never): Bool;
 	public inline extern function get_bDisableScreenPercentage(): Bool return this.bDisableScreenPercentage;
-	public extern var PostProcessingMaterialPtr(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_PostProcessingMaterialPtr(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.PostProcessingMaterialPtr;
 }
 
 @:forward

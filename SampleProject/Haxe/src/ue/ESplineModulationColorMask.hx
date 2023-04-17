@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESplineModulationColorMask")
 @:include("LandscapeLayerInfoObject.h")
-extern enum ESplineModulationColorMask {
-	Red;
-	Green;
-	Blue;
-	Alpha;
-	ESplineModulationColorMask_MAX;
+extern class ESplineModulationColorMask {
+	static var Red: ESplineModulationColorMask;
+	static var Green: ESplineModulationColorMask;
+	static var Blue: ESplineModulationColorMask;
+	static var Alpha: ESplineModulationColorMask;
+	static var ESplineModulationColorMask_MAX: ESplineModulationColorMask;
 }

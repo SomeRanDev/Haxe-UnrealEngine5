@@ -5,11 +5,11 @@ package ue;
 @:include("FractureToolSelection.h")
 @:structAccess
 extern class FractureToolSelection extends FractureToolCutterBase {
-	public var SelectionBehaviorSet: cpp.Star<InputBehaviorSet>;
-	public var SelectionBehaviorSource: cpp.Star<LocalInputBehaviorSource>;
-	public var RectangleMarqueeManager: cpp.Star<RectangleMarqueeManager>;
-	public var UsedToolsContext: cpp.Star<InteractiveToolsContext>;
-	public var SelectionSettings: cpp.Star<FractureSelectionSettings>;
+	@:protected public var SelectionBehaviorSet: cpp.Star<InputBehaviorSet>;
+	@:protected public var SelectionBehaviorSource: cpp.Star<LocalInputBehaviorSource>;
+	@:protected public var RectangleMarqueeManager: cpp.Star<RectangleMarqueeManager>;
+	@:protected public var UsedToolsContext: cpp.Star<InteractiveToolsContext>;
+	private var SelectionSettings: cpp.Star<FractureSelectionSettings>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,16 +17,6 @@ extern class FractureToolSelection extends FractureToolCutterBase {
 @:forward()
 @:nativeGen
 abstract ConstFractureToolSelection(FractureToolSelection) from FractureToolSelection {
-	public extern var SelectionBehaviorSet(get, never): cpp.Star<InputBehaviorSet.ConstInputBehaviorSet>;
-	public inline extern function get_SelectionBehaviorSet(): cpp.Star<InputBehaviorSet.ConstInputBehaviorSet> return this.SelectionBehaviorSet;
-	public extern var SelectionBehaviorSource(get, never): cpp.Star<LocalInputBehaviorSource.ConstLocalInputBehaviorSource>;
-	public inline extern function get_SelectionBehaviorSource(): cpp.Star<LocalInputBehaviorSource.ConstLocalInputBehaviorSource> return this.SelectionBehaviorSource;
-	public extern var RectangleMarqueeManager(get, never): cpp.Star<RectangleMarqueeManager.ConstRectangleMarqueeManager>;
-	public inline extern function get_RectangleMarqueeManager(): cpp.Star<RectangleMarqueeManager.ConstRectangleMarqueeManager> return this.RectangleMarqueeManager;
-	public extern var UsedToolsContext(get, never): cpp.Star<InteractiveToolsContext.ConstInteractiveToolsContext>;
-	public inline extern function get_UsedToolsContext(): cpp.Star<InteractiveToolsContext.ConstInteractiveToolsContext> return this.UsedToolsContext;
-	public extern var SelectionSettings(get, never): cpp.Star<FractureSelectionSettings.ConstFractureSelectionSettings>;
-	public inline extern function get_SelectionSettings(): cpp.Star<FractureSelectionSettings.ConstFractureSelectionSettings> return this.SelectionSettings;
 }
 
 @:forward

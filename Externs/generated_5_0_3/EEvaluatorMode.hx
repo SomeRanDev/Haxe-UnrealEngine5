@@ -3,9 +3,9 @@ package ue;
 
 @:native("EEvaluatorMode.Mode")
 @:include("Animation/AnimNode_TransitionPoseEvaluator.h")
-extern enum EEvaluatorMode {
-	EM_Standard;
-	EM_Freeze;
-	EM_DelayedFreeze;
-	EM_MAX;
+extern class EEvaluatorMode {
+	static var EM_Standard: EEvaluatorMode;
+	static var EM_Freeze: EEvaluatorMode;
+	static var EM_DelayedFreeze: EEvaluatorMode;
+	static var EM_MAX: EEvaluatorMode;
 }

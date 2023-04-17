@@ -14,10 +14,9 @@ extern class AnimNode_BoneDrivenController extends AnimNode_SkeletalControlBase 
 	public var RemappedMax: cpp.Float32;
 	public var ParameterName: FName;
 	public var TargetBone: BoneReference;
-	public var TargetComponent_DEPRECATED: EComponentType;
 	public var DestinationMode: EDrivenDestinationMode;
 	public var ModificationMode: EDrivenBoneModificationMode;
-	public var SourceComponent: EComponentType;
+	public var SourceComponent: TEnumAsByte<EComponentType>;
 	public var bUseRange: Bool;
 	public var bAffectTargetTranslationX: Bool;
 	public var bAffectTargetTranslationY: Bool;

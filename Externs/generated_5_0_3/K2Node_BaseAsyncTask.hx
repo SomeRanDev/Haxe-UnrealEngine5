@@ -5,10 +5,10 @@ package ue;
 @:include("K2Node_BaseAsyncTask.h")
 @:structAccess
 extern class K2Node_BaseAsyncTask extends K2Node {
-	public var ProxyFactoryFunctionName: FName;
-	public var ProxyFactoryClass: TSubclassOf<Object>;
-	public var ProxyClass: TSubclassOf<Object>;
-	public var ProxyActivateFunctionName: FName;
+	@:protected public var ProxyFactoryFunctionName: FName;
+	@:protected public var ProxyFactoryClass: TSubclassOf<Object>;
+	@:protected public var ProxyClass: TSubclassOf<Object>;
+	@:protected public var ProxyActivateFunctionName: FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class K2Node_BaseAsyncTask extends K2Node {
 @:forward()
 @:nativeGen
 abstract ConstK2Node_BaseAsyncTask(K2Node_BaseAsyncTask) from K2Node_BaseAsyncTask {
-	public extern var ProxyFactoryFunctionName(get, never): FName;
-	public inline extern function get_ProxyFactoryFunctionName(): FName return this.ProxyFactoryFunctionName;
-	public extern var ProxyFactoryClass(get, never): TSubclassOf<Object.ConstObject>;
-	public inline extern function get_ProxyFactoryClass(): TSubclassOf<Object.ConstObject> return this.ProxyFactoryClass;
-	public extern var ProxyClass(get, never): TSubclassOf<Object.ConstObject>;
-	public inline extern function get_ProxyClass(): TSubclassOf<Object.ConstObject> return this.ProxyClass;
-	public extern var ProxyActivateFunctionName(get, never): FName;
-	public inline extern function get_ProxyActivateFunctionName(): FName return this.ProxyActivateFunctionName;
 }
 
 @:forward

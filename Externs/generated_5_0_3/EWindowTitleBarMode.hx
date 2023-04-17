@@ -3,8 +3,8 @@ package ue;
 
 @:native("EWindowTitleBarMode")
 @:include("Slate/SGameLayerManager.h")
-extern enum EWindowTitleBarMode {
-	Overlay;
-	VerticalBox;
-	EWindowTitleBarMode_MAX;
+extern class EWindowTitleBarMode {
+	static var Overlay: EWindowTitleBarMode;
+	static var VerticalBox: EWindowTitleBarMode;
+	static var EWindowTitleBarMode_MAX: EWindowTitleBarMode;
 }

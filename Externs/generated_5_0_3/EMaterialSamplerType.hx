@@ -3,23 +3,23 @@ package ue;
 
 @:native("EMaterialSamplerType")
 @:include("Engine/EngineTypes.h")
-extern enum EMaterialSamplerType {
-	SAMPLERTYPE_Color;
-	SAMPLERTYPE_Grayscale;
-	SAMPLERTYPE_Alpha;
-	SAMPLERTYPE_Normal;
-	SAMPLERTYPE_Masks;
-	SAMPLERTYPE_DistanceFieldFont;
-	SAMPLERTYPE_LinearColor;
-	SAMPLERTYPE_LinearGrayscale;
-	SAMPLERTYPE_Data;
-	SAMPLERTYPE_External;
-	SAMPLERTYPE_VirtualColor;
-	SAMPLERTYPE_VirtualGrayscale;
-	SAMPLERTYPE_VirtualAlpha;
-	SAMPLERTYPE_VirtualNormal;
-	SAMPLERTYPE_VirtualMasks;
-	SAMPLERTYPE_VirtualLinearColor;
-	SAMPLERTYPE_VirtualLinearGrayscale;
-	SAMPLERTYPE_MAX;
+extern class EMaterialSamplerType {
+	static var SAMPLERTYPE_Color: EMaterialSamplerType;
+	static var SAMPLERTYPE_Grayscale: EMaterialSamplerType;
+	static var SAMPLERTYPE_Alpha: EMaterialSamplerType;
+	static var SAMPLERTYPE_Normal: EMaterialSamplerType;
+	static var SAMPLERTYPE_Masks: EMaterialSamplerType;
+	static var SAMPLERTYPE_DistanceFieldFont: EMaterialSamplerType;
+	static var SAMPLERTYPE_LinearColor: EMaterialSamplerType;
+	static var SAMPLERTYPE_LinearGrayscale: EMaterialSamplerType;
+	static var SAMPLERTYPE_Data: EMaterialSamplerType;
+	static var SAMPLERTYPE_External: EMaterialSamplerType;
+	static var SAMPLERTYPE_VirtualColor: EMaterialSamplerType;
+	static var SAMPLERTYPE_VirtualGrayscale: EMaterialSamplerType;
+	static var SAMPLERTYPE_VirtualAlpha: EMaterialSamplerType;
+	static var SAMPLERTYPE_VirtualNormal: EMaterialSamplerType;
+	static var SAMPLERTYPE_VirtualMasks: EMaterialSamplerType;
+	static var SAMPLERTYPE_VirtualLinearColor: EMaterialSamplerType;
+	static var SAMPLERTYPE_VirtualLinearGrayscale: EMaterialSamplerType;
+	static var SAMPLERTYPE_MAX: EMaterialSamplerType;
 }

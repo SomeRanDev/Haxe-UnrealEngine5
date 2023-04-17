@@ -5,8 +5,8 @@ package ue;
 @:include("Sequencer/NiagaraSequence/Sections/MovieSceneNiagaraEmitterSection.h")
 @:structAccess
 extern class MovieSceneNiagaraEmitterSection extends MovieSceneNiagaraEmitterSectionBase {
-	public var NumLoops: cpp.Int32;
-	public var bStartTimeIncludedInFirstLoopOnly: Bool;
+	private var NumLoops: cpp.Int32;
+	private var bStartTimeIncludedInFirstLoopOnly: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class MovieSceneNiagaraEmitterSection extends MovieSceneNiagaraEmitterSec
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneNiagaraEmitterSection(MovieSceneNiagaraEmitterSection) from MovieSceneNiagaraEmitterSection {
-	public extern var NumLoops(get, never): cpp.Int32;
-	public inline extern function get_NumLoops(): cpp.Int32 return this.NumLoops;
-	public extern var bStartTimeIncludedInFirstLoopOnly(get, never): Bool;
-	public inline extern function get_bStartTimeIncludedInFirstLoopOnly(): Bool return this.bStartTimeIncludedInFirstLoopOnly;
 }
 
 @:forward

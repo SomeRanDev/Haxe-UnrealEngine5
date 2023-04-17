@@ -21,15 +21,15 @@ extern class QuartzClockHandle extends Object {
 	public function ResetTransportQuantized(WorldContextObject: cpp.Star<Object.ConstObject>, InQuantizationBoundary: QuartzQuantizationBoundary, InDelegate: cpp.Reference<HaxeDelegateProperty<(EQuartzCommandDelegateSubType, FName) -> Void>>, ClockHandle: cpp.Reference<cpp.Star<QuartzClockHandle>>): Void;
 	public function ResetTransport(WorldContextObject: cpp.Star<Object.ConstObject>, InDelegate: cpp.Reference<HaxeDelegateProperty<(EQuartzCommandDelegateSubType, FName) -> Void>>): Void;
 	public function PauseClock(WorldContextObject: cpp.Star<Object.ConstObject>, ClockHandle: cpp.Reference<cpp.Star<QuartzClockHandle>>): Void;
-	public function IsClockRunning(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Reference<Bool>;
-	public function GetTicksPerSecond(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Reference<cpp.Float32>;
-	public function GetThirtySecondNotesPerMinute(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Reference<cpp.Float32>;
-	public function GetSecondsPerTick(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Reference<cpp.Float32>;
-	public function GetMillisecondsPerTick(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Reference<cpp.Float32>;
-	public function GetEstimatedRunTime(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Reference<cpp.Float32>;
-	public function GetDurationOfQuantizationTypeInSeconds(WorldContextObject: cpp.Star<Object.ConstObject>, QuantizationType: cpp.Reference<EQuartzCommandQuantization>, Multiplier: cpp.Float32): cpp.Reference<cpp.Float32>;
-	public function GetCurrentTimestamp(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Reference<QuartzTransportTimeStamp>;
-	public function GetBeatsPerMinute(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Reference<cpp.Float32>;
+	public function IsClockRunning(WorldContextObject: cpp.Star<Object.ConstObject>): Bool;
+	public function GetTicksPerSecond(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Float32;
+	public function GetThirtySecondNotesPerMinute(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Float32;
+	public function GetSecondsPerTick(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Float32;
+	public function GetMillisecondsPerTick(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Float32;
+	public function GetEstimatedRunTime(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Float32;
+	public function GetDurationOfQuantizationTypeInSeconds(WorldContextObject: cpp.Star<Object.ConstObject>, QuantizationType: cpp.Reference<EQuartzCommandQuantization>, Multiplier: cpp.Float32): cpp.Float32;
+	public function GetCurrentTimestamp(WorldContextObject: cpp.Star<Object.ConstObject>): QuartzTransportTimeStamp;
+	public function GetBeatsPerMinute(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

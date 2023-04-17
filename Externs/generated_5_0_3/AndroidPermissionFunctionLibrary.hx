@@ -5,8 +5,8 @@ package ue;
 @:include("AndroidPermissionFunctionLibrary.h")
 @:structAccess
 extern class AndroidPermissionFunctionLibrary extends BlueprintFunctionLibrary {
-	public function CheckPermission(permission: FString): cpp.Reference<Bool>;
-	public function AcquirePermissions(permissions: cpp.Reference<TArray<FString>>): cpp.Reference<cpp.Star<AndroidPermissionCallbackProxy>>;
+	public function CheckPermission(permission: FString): Bool;
+	public function AcquirePermissions(permissions: cpp.Reference<TArray<FString>>): cpp.Star<AndroidPermissionCallbackProxy>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

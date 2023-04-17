@@ -15,7 +15,7 @@ extern class TestBTTask_LatentWithFlags extends BTTaskNode {
 	public var AbortHalfTicks: cpp.Int32;
 	public var KeyNameExecute: FName;
 	public var KeyNameAbort: FName;
-	public var LogResult: EBTNodeResult;
+	public var LogResult: TEnumAsByte<EBTNodeResult>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -43,8 +43,8 @@ abstract ConstTestBTTask_LatentWithFlags(TestBTTask_LatentWithFlags) from TestBT
 	public inline extern function get_KeyNameExecute(): FName return this.KeyNameExecute;
 	public extern var KeyNameAbort(get, never): FName;
 	public inline extern function get_KeyNameAbort(): FName return this.KeyNameAbort;
-	public extern var LogResult(get, never): EBTNodeResult;
-	public inline extern function get_LogResult(): EBTNodeResult return this.LogResult;
+	public extern var LogResult(get, never): TEnumAsByte<EBTNodeResult>;
+	public inline extern function get_LogResult(): TEnumAsByte<EBTNodeResult> return this.LogResult;
 }
 
 @:forward

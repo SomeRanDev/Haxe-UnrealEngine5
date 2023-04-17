@@ -3,27 +3,27 @@ package ue;
 
 @:native("EAudioMixerChannelType")
 @:include("AudioMixerBlueprintLibrary.h")
-extern enum EAudioMixerChannelType {
-	FrontLeft;
-	FrontRight;
-	FrontCenter;
-	LowFrequency;
-	BackLeft;
-	BackRight;
-	FrontLeftOfCenter;
-	FrontRightOfCenter;
-	BackCenter;
-	SideLeft;
-	SideRight;
-	TopCenter;
-	TopFrontLeft;
-	TopFrontCenter;
-	TopFrontRight;
-	TopBackLeft;
-	TopBackCenter;
-	TopBackRight;
-	Unknown;
-	ChannelTypeCount;
-	DefaultChannel;
-	EAudioMixerChannelType_MAX;
+extern class EAudioMixerChannelType {
+	static var FrontLeft: EAudioMixerChannelType;
+	static var FrontRight: EAudioMixerChannelType;
+	static var FrontCenter: EAudioMixerChannelType;
+	static var LowFrequency: EAudioMixerChannelType;
+	static var BackLeft: EAudioMixerChannelType;
+	static var BackRight: EAudioMixerChannelType;
+	static var FrontLeftOfCenter: EAudioMixerChannelType;
+	static var FrontRightOfCenter: EAudioMixerChannelType;
+	static var BackCenter: EAudioMixerChannelType;
+	static var SideLeft: EAudioMixerChannelType;
+	static var SideRight: EAudioMixerChannelType;
+	static var TopCenter: EAudioMixerChannelType;
+	static var TopFrontLeft: EAudioMixerChannelType;
+	static var TopFrontCenter: EAudioMixerChannelType;
+	static var TopFrontRight: EAudioMixerChannelType;
+	static var TopBackLeft: EAudioMixerChannelType;
+	static var TopBackCenter: EAudioMixerChannelType;
+	static var TopBackRight: EAudioMixerChannelType;
+	static var Unknown: EAudioMixerChannelType;
+	static var ChannelTypeCount: EAudioMixerChannelType;
+	static var DefaultChannel: EAudioMixerChannelType;
+	static var EAudioMixerChannelType_MAX: EAudioMixerChannelType;
 }

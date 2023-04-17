@@ -3,11 +3,11 @@ package ue;
 
 @:native("EBTDecoratorLogic.Type")
 @:include("BehaviorTree/BTCompositeNode.h")
-extern enum EBTDecoratorLogic {
-	Invalid;
-	Test;
-	And;
-	Or;
-	Not;
-	EBTDecoratorLogic_MAX;
+extern class EBTDecoratorLogic {
+	static var Invalid: EBTDecoratorLogic;
+	static var Test: EBTDecoratorLogic;
+	static var And: EBTDecoratorLogic;
+	static var Or: EBTDecoratorLogic;
+	static var Not: EBTDecoratorLogic;
+	static var EBTDecoratorLogic_MAX: EBTDecoratorLogic;
 }

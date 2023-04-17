@@ -3,9 +3,9 @@ package ue;
 
 @:native("EPreferredTriangulationDirection")
 @:include("Animation/BlendSpace.h")
-extern enum EPreferredTriangulationDirection {
-	None;
-	Tangential;
-	Radial;
-	EPreferredTriangulationDirection_MAX;
+extern class EPreferredTriangulationDirection {
+	static var None: EPreferredTriangulationDirection;
+	static var Tangential: EPreferredTriangulationDirection;
+	static var Radial: EPreferredTriangulationDirection;
+	static var EPreferredTriangulationDirection_MAX: EPreferredTriangulationDirection;
 }

@@ -5,14 +5,14 @@ package ue;
 @:include("BrainComponent.h")
 @:structAccess
 extern class BrainComp extends ActorComp {
-	public var BlackboardComp: cpp.Star<BlackboardComp>;
-	public var AIOwner: cpp.Star<AIController>;
+	@:protected public var BlackboardComp: cpp.Star<BlackboardComp>;
+	@:protected public var AIOwner: cpp.Star<AIController>;
 
 	public function StopLogic(Reason: FString): Void;
 	public function StartLogic(): Void;
 	public function RestartLogic(): Void;
-	public function IsRunning(): cpp.Reference<Bool>;
-	public function IsPaused(): cpp.Reference<Bool>;
+	public function IsRunning(): Bool;
+	public function IsPaused(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -20,10 +20,6 @@ extern class BrainComp extends ActorComp {
 @:forward(IsRunning, IsPaused)
 @:nativeGen
 abstract ConstBrainComp(BrainComp) from BrainComp {
-	public extern var BlackboardComp(get, never): cpp.Star<BlackboardComp.ConstBlackboardComp>;
-	public inline extern function get_BlackboardComp(): cpp.Star<BlackboardComp.ConstBlackboardComp> return this.BlackboardComp;
-	public extern var AIOwner(get, never): cpp.Star<AIController.ConstAIController>;
-	public inline extern function get_AIOwner(): cpp.Star<AIController.ConstAIController> return this.AIOwner;
 }
 
 @:forward

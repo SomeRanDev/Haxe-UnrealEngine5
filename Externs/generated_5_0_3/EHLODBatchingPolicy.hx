@@ -3,9 +3,9 @@ package ue;
 
 @:native("EHLODBatchingPolicy")
 @:include("HLOD/HLODBatchingPolicy.h")
-extern enum EHLODBatchingPolicy {
-	None;
-	MeshSection;
-	Instancing;
-	EHLODBatchingPolicy_MAX;
+extern class EHLODBatchingPolicy {
+	static var None: EHLODBatchingPolicy;
+	static var MeshSection: EHLODBatchingPolicy;
+	static var Instancing: EHLODBatchingPolicy;
+	static var EHLODBatchingPolicy_MAX: EHLODBatchingPolicy;
 }

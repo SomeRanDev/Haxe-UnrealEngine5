@@ -12,8 +12,6 @@ extern class NiagaraGraphScriptUsageInfo {
 	public var CompileHashFromGraph: NiagaraCompileHash;
 	public var CompileLastObjects: TArray<NiagaraCompileHashVisitorDebugInfo>;
 	public var Traversal: TArray<cpp.Star<NiagaraNode>>;
-	public var DataHash_DEPRECATED: TArray<cpp.UInt8>;
-	public var GeneratedCompileId_DEPRECATED: Guid;
 
 	@:native("FNiagaraGraphScriptUsageInfo") public function new();
 }

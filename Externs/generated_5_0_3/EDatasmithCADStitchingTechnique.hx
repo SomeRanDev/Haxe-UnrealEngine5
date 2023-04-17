@@ -3,9 +3,9 @@ package ue;
 
 @:native("EDatasmithCADStitchingTechnique")
 @:include("DatasmithImportOptions.h")
-extern enum EDatasmithCADStitchingTechnique {
-	StitchingNone;
-	StitchingHeal;
-	StitchingSew;
-	EDatasmithCADStitchingTechnique_MAX;
+extern class EDatasmithCADStitchingTechnique {
+	static var StitchingNone: EDatasmithCADStitchingTechnique;
+	static var StitchingHeal: EDatasmithCADStitchingTechnique;
+	static var StitchingSew: EDatasmithCADStitchingTechnique;
+	static var EDatasmithCADStitchingTechnique_MAX: EDatasmithCADStitchingTechnique;
 }

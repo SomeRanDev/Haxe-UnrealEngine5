@@ -3,10 +3,10 @@ package ue;
 
 @:native("EMaterialLayerLinkState")
 @:include("Materials/MaterialLayersFunctions.h")
-extern enum EMaterialLayerLinkState {
-	Uninitialized;
-	LinkedToParent;
-	UnlinkedFromParent;
-	NotFromParent;
-	EMaterialLayerLinkState_MAX;
+extern class EMaterialLayerLinkState {
+	static var Uninitialized: EMaterialLayerLinkState;
+	static var LinkedToParent: EMaterialLayerLinkState;
+	static var UnlinkedFromParent: EMaterialLayerLinkState;
+	static var NotFromParent: EMaterialLayerLinkState;
+	static var EMaterialLayerLinkState_MAX: EMaterialLayerLinkState;
 }

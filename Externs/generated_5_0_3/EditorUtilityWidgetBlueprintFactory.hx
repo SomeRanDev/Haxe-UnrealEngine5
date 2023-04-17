@@ -5,7 +5,7 @@ package ue;
 @:include("EditorUtilityWidgetBlueprintFactory.h")
 @:structAccess
 extern class EditorUtilityWidgetBlueprintFactory extends Factory {
-	public var BlueprintType: EBlueprintType;
+	public var BlueprintType: TEnumAsByte<EBlueprintType>;
 	public var ParentClass: TSubclassOf<UserWidget>;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -14,8 +14,8 @@ extern class EditorUtilityWidgetBlueprintFactory extends Factory {
 @:forward()
 @:nativeGen
 abstract ConstEditorUtilityWidgetBlueprintFactory(EditorUtilityWidgetBlueprintFactory) from EditorUtilityWidgetBlueprintFactory {
-	public extern var BlueprintType(get, never): EBlueprintType;
-	public inline extern function get_BlueprintType(): EBlueprintType return this.BlueprintType;
+	public extern var BlueprintType(get, never): TEnumAsByte<EBlueprintType>;
+	public inline extern function get_BlueprintType(): TEnumAsByte<EBlueprintType> return this.BlueprintType;
 	public extern var ParentClass(get, never): TSubclassOf<UserWidget.ConstUserWidget>;
 	public inline extern function get_ParentClass(): TSubclassOf<UserWidget.ConstUserWidget> return this.ParentClass;
 }

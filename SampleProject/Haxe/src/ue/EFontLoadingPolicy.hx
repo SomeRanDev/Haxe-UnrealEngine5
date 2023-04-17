@@ -3,9 +3,9 @@ package ue;
 
 @:native("EFontLoadingPolicy")
 @:include("Fonts/CompositeFont.h")
-extern enum EFontLoadingPolicy {
-	LazyLoad;
-	Stream;
-	Inline;
-	EFontLoadingPolicy_MAX;
+extern class EFontLoadingPolicy {
+	static var LazyLoad: EFontLoadingPolicy;
+	static var Stream: EFontLoadingPolicy;
+	static var Inline: EFontLoadingPolicy;
+	static var EFontLoadingPolicy_MAX: EFontLoadingPolicy;
 }

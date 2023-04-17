@@ -5,13 +5,13 @@ package ue;
 @:include("Animation/AnimData/CurveIdentifier.h")
 @:structAccess
 extern class AnimationCurveIdentifierExtensions extends BlueprintFunctionLibrary {
-	public function IsValid(Identifier: cpp.Reference<AnimationCurveIdentifier>): cpp.Reference<Bool>;
-	public function GetType(Identifier: cpp.Reference<AnimationCurveIdentifier>): cpp.Reference<ERawCurveTrackTypes>;
-	public function GetTransformChildCurveIdentifier(InOutIdentifier: cpp.Reference<AnimationCurveIdentifier>, Channel: ETransformCurveChannel, Axis: EVectorCurveChannel): cpp.Reference<Bool>;
-	public function GetName(Identifier: cpp.Reference<AnimationCurveIdentifier>): cpp.Reference<FName>;
-	public function GetCurveIdentifiers(InSkeleton: cpp.Star<Skeleton>, CurveType: ERawCurveTrackTypes): cpp.Reference<TArray<AnimationCurveIdentifier>>;
-	public function GetCurveIdentifier(InSkeleton: cpp.Star<Skeleton>, Name: FName, CurveType: ERawCurveTrackTypes): cpp.Reference<AnimationCurveIdentifier>;
-	public function FindCurveIdentifier(InSkeleton: cpp.Star<Skeleton.ConstSkeleton>, Name: FName, CurveType: ERawCurveTrackTypes): cpp.Reference<AnimationCurveIdentifier>;
+	public function IsValid(Identifier: cpp.Reference<AnimationCurveIdentifier>): Bool;
+	public function GetType(Identifier: cpp.Reference<AnimationCurveIdentifier>): ERawCurveTrackTypes;
+	public function GetTransformChildCurveIdentifier(InOutIdentifier: cpp.Reference<AnimationCurveIdentifier>, Channel: ETransformCurveChannel, Axis: EVectorCurveChannel): Bool;
+	public function GetName(Identifier: cpp.Reference<AnimationCurveIdentifier>): FName;
+	public function GetCurveIdentifiers(InSkeleton: cpp.Star<Skeleton>, CurveType: ERawCurveTrackTypes): TArray<AnimationCurveIdentifier>;
+	public function GetCurveIdentifier(InSkeleton: cpp.Star<Skeleton>, Name: FName, CurveType: ERawCurveTrackTypes): AnimationCurveIdentifier;
+	public function FindCurveIdentifier(InSkeleton: cpp.Star<Skeleton.ConstSkeleton>, Name: FName, CurveType: ERawCurveTrackTypes): AnimationCurveIdentifier;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

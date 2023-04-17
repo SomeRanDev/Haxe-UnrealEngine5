@@ -3,13 +3,13 @@ package ue;
 
 @:native("EFieldFilterType")
 @:include("Field/FieldSystemTypes.h")
-extern enum EFieldFilterType {
-	Field_Filter_Dynamic;
-	Field_Filter_Kinematic;
-	Field_Filter_Static;
-	Field_Filter_All;
-	Field_Filter_Sleeping;
-	Field_Filter_Disabled;
-	Field_Filter_Max;
-	Field_Filter_MAX;
+extern class EFieldFilterType {
+	static var Field_Filter_Dynamic: EFieldFilterType;
+	static var Field_Filter_Kinematic: EFieldFilterType;
+	static var Field_Filter_Static: EFieldFilterType;
+	static var Field_Filter_All: EFieldFilterType;
+	static var Field_Filter_Sleeping: EFieldFilterType;
+	static var Field_Filter_Disabled: EFieldFilterType;
+	static var Field_Filter_Max: EFieldFilterType;
+	static var Field_Filter_MAX: EFieldFilterType;
 }

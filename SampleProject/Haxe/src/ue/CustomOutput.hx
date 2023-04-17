@@ -6,8 +6,8 @@ package ue;
 @:structAccess
 extern class CustomOutput {
 	public var OutputName: FName;
-	public var OutputType: ECustomMaterialOutputType;
+	public var OutputType: TEnumAsByte<ECustomMaterialOutputType>;
 
 	@:native("FCustomOutput") public function new();
-	@:native("FCustomOutput") public static function make(OutputName: FName, OutputType: ECustomMaterialOutputType): CustomOutput ;
+	@:native("FCustomOutput") public static function make(OutputName: FName, OutputType: TEnumAsByte<ECustomMaterialOutputType>): CustomOutput ;
 }

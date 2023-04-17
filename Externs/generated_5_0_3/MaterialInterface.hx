@@ -6,25 +6,16 @@ package ue;
 @:structAccess
 extern class MaterialInterface extends Object {
 	public var SubsurfaceProfile: cpp.Star<SubsurfaceProfile>;
-	public var LightmassSettings: LightmassMaterialInterfaceSettings;
-	public var bTextureStreamingDataSorted: Bool;
-	public var TextureStreamingDataVersion: cpp.Int32;
-	public var TextureStreamingData: TArray<MaterialTextureInfo>;
-	public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
-	public var TextureStreamingDataMissingEntries: TArray<MaterialTextureInfo>;
-	public var PreviewMesh: SoftObjectPath;
-	public var ThumbnailInfo: cpp.Star<ThumbnailInfo>;
-	public var LayerParameterExpansion: TMap<FString, Bool>;
-	public var ParameterOverviewExpansion: TMap<FString, Bool>;
-	public var AssetImportData: cpp.Star<AssetImportData>;
-	public var LightingGuid: Guid;
+	@:protected public var LightmassSettings: LightmassMaterialInterfaceSettings;
+	@:protected public var TextureStreamingData: TArray<MaterialTextureInfo>;
+	@:protected public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
 
 	public function SetForceMipLevelsToBeResident(OverrideForceMiplevelsToBeResident: Bool, bForceMiplevelsToBeResidentValue: Bool, ForceDuration: cpp.Float32, CinematicTextureGroups: cpp.Int32, bFastResponse: Bool): Void;
-	public function GetPhysicalMaterialMask(): cpp.Reference<cpp.Star<PhysicalMaterialMask>>;
-	public function GetPhysicalMaterialFromMap(Index: cpp.Int32): cpp.Reference<cpp.Star<PhysicalMaterial>>;
-	public function GetPhysicalMaterial(): cpp.Reference<cpp.Star<PhysicalMaterial>>;
-	public function GetParameterInfo(Association: EMaterialParameterAssociation, ParameterName: FName, LayerFunction: cpp.Star<MaterialFunctionInterface>): cpp.Reference<MaterialParameterInfo>;
-	public function GetBaseMaterial(): cpp.Reference<cpp.Star<Material>>;
+	public function GetPhysicalMaterialMask(): cpp.Star<PhysicalMaterialMask>;
+	public function GetPhysicalMaterialFromMap(Index: cpp.Int32): cpp.Star<PhysicalMaterial>;
+	public function GetPhysicalMaterial(): cpp.Star<PhysicalMaterial>;
+	public function GetParameterInfo(Association: TEnumAsByte<EMaterialParameterAssociation>, ParameterName: FName, LayerFunction: cpp.Star<MaterialFunctionInterface>): MaterialParameterInfo;
+	public function GetBaseMaterial(): cpp.Star<Material>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -34,30 +25,6 @@ extern class MaterialInterface extends Object {
 abstract ConstMaterialInterface(MaterialInterface) from MaterialInterface {
 	public extern var SubsurfaceProfile(get, never): cpp.Star<SubsurfaceProfile.ConstSubsurfaceProfile>;
 	public inline extern function get_SubsurfaceProfile(): cpp.Star<SubsurfaceProfile.ConstSubsurfaceProfile> return this.SubsurfaceProfile;
-	public extern var LightmassSettings(get, never): LightmassMaterialInterfaceSettings;
-	public inline extern function get_LightmassSettings(): LightmassMaterialInterfaceSettings return this.LightmassSettings;
-	public extern var bTextureStreamingDataSorted(get, never): Bool;
-	public inline extern function get_bTextureStreamingDataSorted(): Bool return this.bTextureStreamingDataSorted;
-	public extern var TextureStreamingDataVersion(get, never): cpp.Int32;
-	public inline extern function get_TextureStreamingDataVersion(): cpp.Int32 return this.TextureStreamingDataVersion;
-	public extern var TextureStreamingData(get, never): TArray<MaterialTextureInfo>;
-	public inline extern function get_TextureStreamingData(): TArray<MaterialTextureInfo> return this.TextureStreamingData;
-	public extern var AssetUserData(get, never): TArray<cpp.Star<AssetUserData.ConstAssetUserData>>;
-	public inline extern function get_AssetUserData(): TArray<cpp.Star<AssetUserData.ConstAssetUserData>> return this.AssetUserData;
-	public extern var TextureStreamingDataMissingEntries(get, never): TArray<MaterialTextureInfo>;
-	public inline extern function get_TextureStreamingDataMissingEntries(): TArray<MaterialTextureInfo> return this.TextureStreamingDataMissingEntries;
-	public extern var PreviewMesh(get, never): SoftObjectPath;
-	public inline extern function get_PreviewMesh(): SoftObjectPath return this.PreviewMesh;
-	public extern var ThumbnailInfo(get, never): cpp.Star<ThumbnailInfo.ConstThumbnailInfo>;
-	public inline extern function get_ThumbnailInfo(): cpp.Star<ThumbnailInfo.ConstThumbnailInfo> return this.ThumbnailInfo;
-	public extern var LayerParameterExpansion(get, never): TMap<FString, Bool>;
-	public inline extern function get_LayerParameterExpansion(): TMap<FString, Bool> return this.LayerParameterExpansion;
-	public extern var ParameterOverviewExpansion(get, never): TMap<FString, Bool>;
-	public inline extern function get_ParameterOverviewExpansion(): TMap<FString, Bool> return this.ParameterOverviewExpansion;
-	public extern var AssetImportData(get, never): cpp.Star<AssetImportData.ConstAssetImportData>;
-	public inline extern function get_AssetImportData(): cpp.Star<AssetImportData.ConstAssetImportData> return this.AssetImportData;
-	public extern var LightingGuid(get, never): Guid;
-	public inline extern function get_LightingGuid(): Guid return this.LightingGuid;
 }
 
 @:forward

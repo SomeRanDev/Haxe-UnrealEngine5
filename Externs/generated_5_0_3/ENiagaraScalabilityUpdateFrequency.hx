@@ -3,11 +3,11 @@ package ue;
 
 @:native("ENiagaraScalabilityUpdateFrequency")
 @:include("NiagaraEffectType.h")
-extern enum ENiagaraScalabilityUpdateFrequency {
-	SpawnOnly;
-	Low;
-	Medium;
-	High;
-	Continuous;
-	ENiagaraScalabilityUpdateFrequency_MAX;
+extern class ENiagaraScalabilityUpdateFrequency {
+	static var SpawnOnly: ENiagaraScalabilityUpdateFrequency;
+	static var Low: ENiagaraScalabilityUpdateFrequency;
+	static var Medium: ENiagaraScalabilityUpdateFrequency;
+	static var High: ENiagaraScalabilityUpdateFrequency;
+	static var Continuous: ENiagaraScalabilityUpdateFrequency;
+	static var ENiagaraScalabilityUpdateFrequency_MAX: ENiagaraScalabilityUpdateFrequency;
 }

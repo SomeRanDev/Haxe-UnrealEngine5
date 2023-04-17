@@ -3,12 +3,12 @@ package ue;
 
 @:native("EAudioDeviceChangedState")
 @:include("AudioDeviceNotificationSubsystem.h")
-extern enum EAudioDeviceChangedState {
-	Invalid;
-	Active;
-	Disabled;
-	NotPresent;
-	Unplugged;
-	Count;
-	EAudioDeviceChangedState_MAX;
+extern class EAudioDeviceChangedState {
+	static var Invalid: EAudioDeviceChangedState;
+	static var Active: EAudioDeviceChangedState;
+	static var Disabled: EAudioDeviceChangedState;
+	static var NotPresent: EAudioDeviceChangedState;
+	static var Unplugged: EAudioDeviceChangedState;
+	static var Count: EAudioDeviceChangedState;
+	static var EAudioDeviceChangedState_MAX: EAudioDeviceChangedState;
 }

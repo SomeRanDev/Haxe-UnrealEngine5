@@ -8,10 +8,10 @@ extern class MovieSceneScriptingIntegerChannel extends MovieSceneScriptingChanne
 	public function SetDefault(InDefaultValue: cpp.Int32): Void;
 	public function RemoveKey(Key: cpp.Star<MovieSceneScriptingKey>): Void;
 	public function RemoveDefault(): Void;
-	public function HasDefault(): cpp.Reference<Bool>;
-	public function GetKeys(): cpp.Reference<TArray<cpp.Star<MovieSceneScriptingKey>>>;
-	public function GetDefault(): cpp.Reference<cpp.Int32>;
-	public function AddKey(InTime: cpp.Reference<FrameNumber>, NewValue: cpp.Int32, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): cpp.Reference<cpp.Star<MovieSceneScriptingIntegerKey>>;
+	public function HasDefault(): Bool;
+	public function GetKeys(): TArray<cpp.Star<MovieSceneScriptingKey>>;
+	public function GetDefault(): cpp.Int32;
+	public function AddKey(InTime: cpp.Reference<FrameNumber>, NewValue: cpp.Int32, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): cpp.Star<MovieSceneScriptingIntegerKey>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

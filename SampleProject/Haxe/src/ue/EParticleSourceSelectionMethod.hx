@@ -3,8 +3,8 @@ package ue;
 
 @:native("EParticleSourceSelectionMethod")
 @:include("Particles/ParticleModule.h")
-extern enum EParticleSourceSelectionMethod {
-	EPSSM_Random;
-	EPSSM_Sequential;
-	EPSSM_MAX;
+extern class EParticleSourceSelectionMethod {
+	static var EPSSM_Random: EParticleSourceSelectionMethod;
+	static var EPSSM_Sequential: EParticleSourceSelectionMethod;
+	static var EPSSM_MAX: EParticleSourceSelectionMethod;
 }

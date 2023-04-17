@@ -3,8 +3,8 @@ package ue;
 
 @:native("EMeshGroupPaintBrushAreaType")
 @:include("MeshGroupPaintTool.h")
-extern enum EMeshGroupPaintBrushAreaType {
-	Connected;
-	Volumetric;
-	EMeshGroupPaintBrushAreaType_MAX;
+extern class EMeshGroupPaintBrushAreaType {
+	static var Connected: EMeshGroupPaintBrushAreaType;
+	static var Volumetric: EMeshGroupPaintBrushAreaType;
+	static var EMeshGroupPaintBrushAreaType_MAX: EMeshGroupPaintBrushAreaType;
 }

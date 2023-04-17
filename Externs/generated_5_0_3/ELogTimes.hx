@@ -3,10 +3,10 @@ package ue;
 
 @:native("ELogTimes.Type")
 @:include("UObject/NoExportTypes.h")
-extern enum ELogTimes {
-	None;
-	UTC;
-	SinceGStartTime;
-	Local;
-	ELogTimes_MAX;
+extern class ELogTimes {
+	static var None: ELogTimes;
+	static var UTC: ELogTimes;
+	static var SinceGStartTime: ELogTimes;
+	static var Local: ELogTimes;
+	static var ELogTimes_MAX: ELogTimes;
 }

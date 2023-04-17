@@ -5,9 +5,7 @@ package ue;
 @:include("Sections/MovieSceneBoolSection.h")
 @:structAccess
 extern class MovieSceneBoolSection extends MovieSceneSection {
-	public var DefaultValue_DEPRECATED: Bool;
-	public var BoolCurve: MovieSceneBoolChannel;
-	public var bIsExternallyInverted: Bool;
+	@:protected public var BoolCurve: MovieSceneBoolChannel;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +13,6 @@ extern class MovieSceneBoolSection extends MovieSceneSection {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneBoolSection(MovieSceneBoolSection) from MovieSceneBoolSection {
-	public extern var DefaultValue_DEPRECATED(get, never): Bool;
-	public inline extern function get_DefaultValue_DEPRECATED(): Bool return this.DefaultValue_DEPRECATED;
-	public extern var BoolCurve(get, never): MovieSceneBoolChannel;
-	public inline extern function get_BoolCurve(): MovieSceneBoolChannel return this.BoolCurve;
-	public extern var bIsExternallyInverted(get, never): Bool;
-	public inline extern function get_bIsExternallyInverted(): Bool return this.bIsExternallyInverted;
 }
 
 @:forward

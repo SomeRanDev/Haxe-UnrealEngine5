@@ -5,15 +5,15 @@ package ue;
 @:include("Components/TileView.h")
 @:structAccess
 extern class TileView extends ListView {
-	public var EntryHeight: cpp.Float32;
-	public var EntryWidth: cpp.Float32;
-	public var TileAlignment: EListItemAlignment;
-	public var bWrapHorizontalNavigation: Bool;
+	@:protected public var EntryHeight: cpp.Float32;
+	@:protected public var EntryWidth: cpp.Float32;
+	@:protected public var TileAlignment: EListItemAlignment;
+	@:protected public var bWrapHorizontalNavigation: Bool;
 
 	public function SetEntryWidth(NewWidth: cpp.Float32): Void;
 	public function SetEntryHeight(NewHeight: cpp.Float32): Void;
-	public function GetEntryWidth(): cpp.Reference<cpp.Float32>;
-	public function GetEntryHeight(): cpp.Reference<cpp.Float32>;
+	public function GetEntryWidth(): cpp.Float32;
+	public function GetEntryHeight(): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -21,14 +21,6 @@ extern class TileView extends ListView {
 @:forward(GetEntryWidth, GetEntryHeight)
 @:nativeGen
 abstract ConstTileView(TileView) from TileView {
-	public extern var EntryHeight(get, never): cpp.Float32;
-	public inline extern function get_EntryHeight(): cpp.Float32 return this.EntryHeight;
-	public extern var EntryWidth(get, never): cpp.Float32;
-	public inline extern function get_EntryWidth(): cpp.Float32 return this.EntryWidth;
-	public extern var TileAlignment(get, never): EListItemAlignment;
-	public inline extern function get_TileAlignment(): EListItemAlignment return this.TileAlignment;
-	public extern var bWrapHorizontalNavigation(get, never): Bool;
-	public inline extern function get_bWrapHorizontalNavigation(): Bool return this.bWrapHorizontalNavigation;
 }
 
 @:forward

@@ -5,7 +5,6 @@ package ue;
 @:include("NiagaraDebuggerCommon.h")
 @:structAccess
 extern class NiagaraDebugHUDSettingsData {
-	public var bWidgetEnabled: Bool;
 	public var bHudEnabled: Bool;
 	public var bValidateSystemSimulationDataBuffers: Bool;
 	public var bValidateParticleDataBuffers: Bool;

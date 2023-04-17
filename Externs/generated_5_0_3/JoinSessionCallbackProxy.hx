@@ -8,7 +8,7 @@ extern class JoinSessionCallbackProxy extends OnlineBlueprintCallProxyBase {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
-	public function JoinSession(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, SearchResult: cpp.Reference<BlueprintSessionResult>): cpp.Reference<cpp.Star<JoinSessionCallbackProxy>>;
+	public function JoinSession(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, SearchResult: cpp.Reference<BlueprintSessionResult>): cpp.Star<JoinSessionCallbackProxy>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

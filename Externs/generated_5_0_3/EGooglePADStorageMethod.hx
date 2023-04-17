@@ -3,10 +3,10 @@ package ue;
 
 @:native("EGooglePADStorageMethod")
 @:include("GooglePADFunctionLibrary.h")
-extern enum EGooglePADStorageMethod {
-	AssetPack_STORAGE_FILES;
-	AssetPack_STORAGE_APK;
-	AssetPack_STORAGE_UNKNOWN;
-	AssetPack_STORAGE_NOT_INSTALLED;
-	AssetPack_STORAGE_MAX;
+extern class EGooglePADStorageMethod {
+	static var AssetPack_STORAGE_FILES: EGooglePADStorageMethod;
+	static var AssetPack_STORAGE_APK: EGooglePADStorageMethod;
+	static var AssetPack_STORAGE_UNKNOWN: EGooglePADStorageMethod;
+	static var AssetPack_STORAGE_NOT_INSTALLED: EGooglePADStorageMethod;
+	static var AssetPack_STORAGE_MAX: EGooglePADStorageMethod;
 }

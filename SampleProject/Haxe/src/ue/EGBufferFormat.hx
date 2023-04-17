@@ -3,10 +3,10 @@ package ue;
 
 @:native("EGBufferFormat.Type")
 @:include("Engine/EngineTypes.h")
-extern enum EGBufferFormat {
-	Force8BitsPerChannel;
-	Default;
-	HighPrecisionNormals;
-	Force16BitsPerChannel;
-	EGBufferFormat_MAX;
+extern class EGBufferFormat {
+	static var Force8BitsPerChannel: EGBufferFormat;
+	static var Default: EGBufferFormat;
+	static var HighPrecisionNormals: EGBufferFormat;
+	static var Force16BitsPerChannel: EGBufferFormat;
+	static var EGBufferFormat_MAX: EGBufferFormat;
 }

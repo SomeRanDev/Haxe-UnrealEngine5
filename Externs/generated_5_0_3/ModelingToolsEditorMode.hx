@@ -5,7 +5,7 @@ package ue;
 @:include("ModelingToolsEditorMode.h")
 @:structAccess
 extern class ModelingToolsEditorMode extends BaseLegacyWidgetEdMode {
-	public var SceneSnappingManager: cpp.Star<ModelingSceneSnappingManager>;
+	@:protected public var SceneSnappingManager: cpp.Star<ModelingSceneSnappingManager>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class ModelingToolsEditorMode extends BaseLegacyWidgetEdMode {
 @:forward()
 @:nativeGen
 abstract ConstModelingToolsEditorMode(ModelingToolsEditorMode) from ModelingToolsEditorMode {
-	public extern var SceneSnappingManager(get, never): cpp.Star<ModelingSceneSnappingManager.ConstModelingSceneSnappingManager>;
-	public inline extern function get_SceneSnappingManager(): cpp.Star<ModelingSceneSnappingManager.ConstModelingSceneSnappingManager> return this.SceneSnappingManager;
 }
 
 @:forward

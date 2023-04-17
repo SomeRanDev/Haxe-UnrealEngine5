@@ -8,7 +8,6 @@ extern class WorldPartitionRuntimeSpatialHashCell extends WorldPartitionRuntimeC
 	public var Position: Vector;
 	public var Extent: cpp.Float32;
 	public var Level: cpp.Int32;
-	public var UnsavedActorsContainer: cpp.Star<ActorContainer>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -22,8 +21,6 @@ abstract ConstWorldPartitionRuntimeSpatialHashCell(WorldPartitionRuntimeSpatialH
 	public inline extern function get_Extent(): cpp.Float32 return this.Extent;
 	public extern var Level(get, never): cpp.Int32;
 	public inline extern function get_Level(): cpp.Int32 return this.Level;
-	public extern var UnsavedActorsContainer(get, never): cpp.Star<ActorContainer.ConstActorContainer>;
-	public inline extern function get_UnsavedActorsContainer(): cpp.Star<ActorContainer.ConstActorContainer> return this.UnsavedActorsContainer;
 }
 
 @:forward

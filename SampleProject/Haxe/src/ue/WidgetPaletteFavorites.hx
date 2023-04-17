@@ -5,7 +5,7 @@ package ue;
 @:include("WidgetPaletteFavorites.h")
 @:structAccess
 extern class WidgetPaletteFavorites extends Object {
-	public var Favorites: TArray<FString>;
+	private var Favorites: TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class WidgetPaletteFavorites extends Object {
 @:forward()
 @:nativeGen
 abstract ConstWidgetPaletteFavorites(WidgetPaletteFavorites) from WidgetPaletteFavorites {
-	public extern var Favorites(get, never): TArray<FString>;
-	public inline extern function get_Favorites(): TArray<FString> return this.Favorites;
 }
 
 @:forward

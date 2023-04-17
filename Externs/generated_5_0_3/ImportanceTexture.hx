@@ -11,7 +11,7 @@ extern class ImportanceTexture {
 	public var ConditionalCDF: TArray<cpp.Float32>;
 	public var TextureData: TArray<Color>;
 	public var Texture: TWeakObjectPtr<Texture2D>;
-	public var Weighting: EImportanceWeight;
+	public var Weighting: TEnumAsByte<EImportanceWeight>;
 
 	@:native("FImportanceTexture") public function new();
 }

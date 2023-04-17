@@ -3,8 +3,8 @@ package ue;
 
 @:native("EOffsetMeshToolOffsetType")
 @:include("OffsetMeshTool.h")
-extern enum EOffsetMeshToolOffsetType {
-	Iterative;
-	Implicit;
-	EOffsetMeshToolOffsetType_MAX;
+extern class EOffsetMeshToolOffsetType {
+	static var Iterative: EOffsetMeshToolOffsetType;
+	static var Implicit: EOffsetMeshToolOffsetType;
+	static var EOffsetMeshToolOffsetType_MAX: EOffsetMeshToolOffsetType;
 }

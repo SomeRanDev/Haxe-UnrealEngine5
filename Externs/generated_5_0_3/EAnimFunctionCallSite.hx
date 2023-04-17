@@ -3,18 +3,18 @@ package ue;
 
 @:native("EAnimFunctionCallSite")
 @:include("AnimNodes/AnimNode_CallFunction.h")
-extern enum EAnimFunctionCallSite {
-	OnInitialize;
-	OnUpdate;
-	OnBecomeRelevant;
-	OnEvaluate;
-	OnInitializePostRecursion;
-	OnUpdatePostRecursion;
-	OnBecomeRelevantPostRecursion;
-	OnEvaluatePostRecursion;
-	OnStartedBlendingOut;
-	OnStartedBlendingIn;
-	OnFinishedBlendingOut;
-	OnFinishedBlendingIn;
-	EAnimFunctionCallSite_MAX;
+extern class EAnimFunctionCallSite {
+	static var OnInitialize: EAnimFunctionCallSite;
+	static var OnUpdate: EAnimFunctionCallSite;
+	static var OnBecomeRelevant: EAnimFunctionCallSite;
+	static var OnEvaluate: EAnimFunctionCallSite;
+	static var OnInitializePostRecursion: EAnimFunctionCallSite;
+	static var OnUpdatePostRecursion: EAnimFunctionCallSite;
+	static var OnBecomeRelevantPostRecursion: EAnimFunctionCallSite;
+	static var OnEvaluatePostRecursion: EAnimFunctionCallSite;
+	static var OnStartedBlendingOut: EAnimFunctionCallSite;
+	static var OnStartedBlendingIn: EAnimFunctionCallSite;
+	static var OnFinishedBlendingOut: EAnimFunctionCallSite;
+	static var OnFinishedBlendingIn: EAnimFunctionCallSite;
+	static var EAnimFunctionCallSite_MAX: EAnimFunctionCallSite;
 }

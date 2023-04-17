@@ -3,11 +3,11 @@ package ue;
 
 @:native("EMotionExtractor_MathOperation")
 @:include("MotionExtractorModifier.h")
-extern enum EMotionExtractor_MathOperation {
-	None;
-	Addition;
-	Subtraction;
-	Division;
-	Multiplication;
-	EMotionExtractor_MAX;
+extern class EMotionExtractor_MathOperation {
+	static var None: EMotionExtractor_MathOperation;
+	static var Addition: EMotionExtractor_MathOperation;
+	static var Subtraction: EMotionExtractor_MathOperation;
+	static var Division: EMotionExtractor_MathOperation;
+	static var Multiplication: EMotionExtractor_MathOperation;
+	static var EMotionExtractor_MAX: EMotionExtractor_MathOperation;
 }

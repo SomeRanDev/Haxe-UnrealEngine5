@@ -3,10 +3,10 @@ package ue;
 
 @:native("EThreePlayerSplitScreenType.Type")
 @:include("GameMapsSettings.h")
-extern enum EThreePlayerSplitScreenType {
-	FavorTop;
-	FavorBottom;
-	Vertical;
-	Horizontal;
-	EThreePlayerSplitScreenType_MAX;
+extern class EThreePlayerSplitScreenType {
+	static var FavorTop: EThreePlayerSplitScreenType;
+	static var FavorBottom: EThreePlayerSplitScreenType;
+	static var Vertical: EThreePlayerSplitScreenType;
+	static var Horizontal: EThreePlayerSplitScreenType;
+	static var EThreePlayerSplitScreenType_MAX: EThreePlayerSplitScreenType;
 }

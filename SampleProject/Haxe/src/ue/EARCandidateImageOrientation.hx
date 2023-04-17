@@ -3,8 +3,8 @@ package ue;
 
 @:native("EARCandidateImageOrientation")
 @:include("ARTypes.h")
-extern enum EARCandidateImageOrientation {
-	Landscape;
-	Portrait;
-	EARCandidateImageOrientation_MAX;
+extern class EARCandidateImageOrientation {
+	static var Landscape: EARCandidateImageOrientation;
+	static var Portrait: EARCandidateImageOrientation;
+	static var EARCandidateImageOrientation_MAX: EARCandidateImageOrientation;
 }

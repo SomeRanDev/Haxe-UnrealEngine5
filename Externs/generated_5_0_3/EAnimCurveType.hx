@@ -3,10 +3,10 @@ package ue;
 
 @:native("EAnimCurveType")
 @:include("Components/SkeletalMeshComponent.h")
-extern enum EAnimCurveType {
-	AttributeCurve;
-	MaterialCurve;
-	MorphTargetCurve;
-	MaxAnimCurveType;
-	EAnimCurveType_MAX;
+extern class EAnimCurveType {
+	static var AttributeCurve: EAnimCurveType;
+	static var MaterialCurve: EAnimCurveType;
+	static var MorphTargetCurve: EAnimCurveType;
+	static var MaxAnimCurveType: EAnimCurveType;
+	static var EAnimCurveType_MAX: EAnimCurveType;
 }

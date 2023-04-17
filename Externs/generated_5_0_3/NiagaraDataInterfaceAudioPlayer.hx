@@ -12,7 +12,6 @@ extern class NiagaraDataInterfaceAudioPlayer extends NiagaraDataInterface {
 	public var bLimitPlaysPerTick: Bool;
 	public var MaxPlaysPerTick: cpp.Int32;
 	public var bStopWhenComponentIsDestroyed: Bool;
-	public var bOnlyActiveDuringGameplay: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -34,8 +33,6 @@ abstract ConstNiagaraDataInterfaceAudioPlayer(NiagaraDataInterfaceAudioPlayer) f
 	public inline extern function get_MaxPlaysPerTick(): cpp.Int32 return this.MaxPlaysPerTick;
 	public extern var bStopWhenComponentIsDestroyed(get, never): Bool;
 	public inline extern function get_bStopWhenComponentIsDestroyed(): Bool return this.bStopWhenComponentIsDestroyed;
-	public extern var bOnlyActiveDuringGameplay(get, never): Bool;
-	public inline extern function get_bOnlyActiveDuringGameplay(): Bool return this.bOnlyActiveDuringGameplay;
 }
 
 @:forward

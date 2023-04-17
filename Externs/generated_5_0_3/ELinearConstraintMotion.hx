@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELinearConstraintMotion")
 @:include("Chaos/ChaosEngineInterface.h")
-extern enum ELinearConstraintMotion {
-	LCM_Free;
-	LCM_Limited;
-	LCM_Locked;
-	LCM_MAX;
+extern class ELinearConstraintMotion {
+	static var LCM_Free: ELinearConstraintMotion;
+	static var LCM_Limited: ELinearConstraintMotion;
+	static var LCM_Locked: ELinearConstraintMotion;
+	static var LCM_MAX: ELinearConstraintMotion;
 }

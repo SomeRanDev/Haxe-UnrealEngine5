@@ -5,8 +5,8 @@ package ue;
 @:include("RigVMModel/Nodes/RigVMLibraryNode.h")
 @:structAccess
 extern class RigVMLibraryNode extends RigVMNode {
-	public function GetLibrary(): cpp.Reference<cpp.Star<RigVMFunctionLibrary>>;
-	public function GetContainedGraph(): cpp.Reference<cpp.Star<RigVMGraph>>;
+	public function GetLibrary(): cpp.Star<RigVMFunctionLibrary>;
+	public function GetContainedGraph(): cpp.Star<RigVMGraph>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

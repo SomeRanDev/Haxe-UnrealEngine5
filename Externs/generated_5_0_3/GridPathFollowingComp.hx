@@ -5,7 +5,7 @@ package ue;
 @:include("Navigation/GridPathFollowingComponent.h")
 @:structAccess
 extern class GridPathFollowingComp extends PathFollowingComp {
-	public var GridManager: cpp.Star<NavLocalGridManager>;
+	@:protected public var GridManager: cpp.Star<NavLocalGridManager>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class GridPathFollowingComp extends PathFollowingComp {
 @:forward()
 @:nativeGen
 abstract ConstGridPathFollowingComp(GridPathFollowingComp) from GridPathFollowingComp {
-	public extern var GridManager(get, never): cpp.Star<NavLocalGridManager.ConstNavLocalGridManager>;
-	public inline extern function get_GridManager(): cpp.Star<NavLocalGridManager.ConstNavLocalGridManager> return this.GridManager;
 }
 
 @:forward

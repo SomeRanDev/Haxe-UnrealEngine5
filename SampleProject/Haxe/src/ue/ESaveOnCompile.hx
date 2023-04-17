@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESaveOnCompile")
 @:include("BlueprintEditorSettings.h")
-extern enum ESaveOnCompile {
-	SoC_Never;
-	SoC_SuccessOnly;
-	SoC_Always;
-	SoC_MAX;
+extern class ESaveOnCompile {
+	static var SoC_Never: ESaveOnCompile;
+	static var SoC_SuccessOnly: ESaveOnCompile;
+	static var SoC_Always: ESaveOnCompile;
+	static var SoC_MAX: ESaveOnCompile;
 }

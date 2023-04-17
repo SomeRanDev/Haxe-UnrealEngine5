@@ -15,16 +15,16 @@ extern class PlatformGameInstance extends GameInstance {
 	public var ApplicationRegisteredForRemoteNotificationsDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.UInt8>>) -> Void>;
 	public var ApplicationRegisteredForUserNotificationsDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
 	public var ApplicationFailedToRegisterForRemoteNotificationsDelegate: HaxeMulticastSparseDelegateProperty<(FString) -> Void>;
-	public var ApplicationReceivedRemoteNotificationDelegate: HaxeMulticastSparseDelegateProperty<(FString, EApplicationState) -> Void>;
-	public var ApplicationReceivedLocalNotificationDelegate: HaxeMulticastSparseDelegateProperty<(FString, cpp.Int32, EApplicationState) -> Void>;
-	public var ApplicationReceivedScreenOrientationChangedNotificationDelegate: HaxeMulticastSparseDelegateProperty<(EScreenOrientation) -> Void>;
+	public var ApplicationReceivedRemoteNotificationDelegate: HaxeMulticastSparseDelegateProperty<(FString, TEnumAsByte<EApplicationState>) -> Void>;
+	public var ApplicationReceivedLocalNotificationDelegate: HaxeMulticastSparseDelegateProperty<(FString, cpp.Int32, TEnumAsByte<EApplicationState>) -> Void>;
+	public var ApplicationReceivedScreenOrientationChangedNotificationDelegate: HaxeMulticastSparseDelegateProperty<(TEnumAsByte<EScreenOrientation>) -> Void>;
 
 	public function PlatformStartupArgumentsDelegate__DelegateSignature(StartupArguments: cpp.Reference<TArray<FString>>): Void;
-	public function PlatformScreenOrientationChangedDelegate__DelegateSignature(inScreenOrientation: EScreenOrientation): Void;
+	public function PlatformScreenOrientationChangedDelegate__DelegateSignature(inScreenOrientation: TEnumAsByte<EScreenOrientation>): Void;
 	public function PlatformRegisteredForUserNotificationsDelegate__DelegateSignature(inInt: cpp.Int32): Void;
 	public function PlatformRegisteredForRemoteNotificationsDelegate__DelegateSignature(inArray: cpp.Reference<TArray<cpp.UInt8>>): Void;
-	public function PlatformReceivedRemoteNotificationDelegate__DelegateSignature(inString: FString, inAppState: EApplicationState): Void;
-	public function PlatformReceivedLocalNotificationDelegate__DelegateSignature(inString: FString, inInt: cpp.Int32, inAppState: EApplicationState): Void;
+	public function PlatformReceivedRemoteNotificationDelegate__DelegateSignature(inString: FString, inAppState: TEnumAsByte<EApplicationState>): Void;
+	public function PlatformReceivedLocalNotificationDelegate__DelegateSignature(inString: FString, inInt: cpp.Int32, inAppState: TEnumAsByte<EApplicationState>): Void;
 	public function PlatformFailedToRegisterForRemoteNotificationsDelegate__DelegateSignature(inString: FString): Void;
 	public function PlatformDelegate__DelegateSignature(): Void;
 
@@ -54,12 +54,12 @@ abstract ConstPlatformGameInstance(PlatformGameInstance) from PlatformGameInstan
 	public inline extern function get_ApplicationRegisteredForUserNotificationsDelegate(): HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void> return this.ApplicationRegisteredForUserNotificationsDelegate;
 	public extern var ApplicationFailedToRegisterForRemoteNotificationsDelegate(get, never): HaxeMulticastSparseDelegateProperty<(FString) -> Void>;
 	public inline extern function get_ApplicationFailedToRegisterForRemoteNotificationsDelegate(): HaxeMulticastSparseDelegateProperty<(FString) -> Void> return this.ApplicationFailedToRegisterForRemoteNotificationsDelegate;
-	public extern var ApplicationReceivedRemoteNotificationDelegate(get, never): HaxeMulticastSparseDelegateProperty<(FString, EApplicationState) -> Void>;
-	public inline extern function get_ApplicationReceivedRemoteNotificationDelegate(): HaxeMulticastSparseDelegateProperty<(FString, EApplicationState) -> Void> return this.ApplicationReceivedRemoteNotificationDelegate;
-	public extern var ApplicationReceivedLocalNotificationDelegate(get, never): HaxeMulticastSparseDelegateProperty<(FString, cpp.Int32, EApplicationState) -> Void>;
-	public inline extern function get_ApplicationReceivedLocalNotificationDelegate(): HaxeMulticastSparseDelegateProperty<(FString, cpp.Int32, EApplicationState) -> Void> return this.ApplicationReceivedLocalNotificationDelegate;
-	public extern var ApplicationReceivedScreenOrientationChangedNotificationDelegate(get, never): HaxeMulticastSparseDelegateProperty<(EScreenOrientation) -> Void>;
-	public inline extern function get_ApplicationReceivedScreenOrientationChangedNotificationDelegate(): HaxeMulticastSparseDelegateProperty<(EScreenOrientation) -> Void> return this.ApplicationReceivedScreenOrientationChangedNotificationDelegate;
+	public extern var ApplicationReceivedRemoteNotificationDelegate(get, never): HaxeMulticastSparseDelegateProperty<(FString, TEnumAsByte<EApplicationState>) -> Void>;
+	public inline extern function get_ApplicationReceivedRemoteNotificationDelegate(): HaxeMulticastSparseDelegateProperty<(FString, TEnumAsByte<EApplicationState>) -> Void> return this.ApplicationReceivedRemoteNotificationDelegate;
+	public extern var ApplicationReceivedLocalNotificationDelegate(get, never): HaxeMulticastSparseDelegateProperty<(FString, cpp.Int32, TEnumAsByte<EApplicationState>) -> Void>;
+	public inline extern function get_ApplicationReceivedLocalNotificationDelegate(): HaxeMulticastSparseDelegateProperty<(FString, cpp.Int32, TEnumAsByte<EApplicationState>) -> Void> return this.ApplicationReceivedLocalNotificationDelegate;
+	public extern var ApplicationReceivedScreenOrientationChangedNotificationDelegate(get, never): HaxeMulticastSparseDelegateProperty<(TEnumAsByte<EScreenOrientation>) -> Void>;
+	public inline extern function get_ApplicationReceivedScreenOrientationChangedNotificationDelegate(): HaxeMulticastSparseDelegateProperty<(TEnumAsByte<EScreenOrientation>) -> Void> return this.ApplicationReceivedScreenOrientationChangedNotificationDelegate;
 }
 
 @:forward

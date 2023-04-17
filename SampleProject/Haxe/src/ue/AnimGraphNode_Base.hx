@@ -12,7 +12,7 @@ extern class AnimGraphNode_Base extends K2Node {
 	public var InitialUpdateFunction: MemberReference;
 	public var BecomeRelevantFunction: MemberReference;
 	public var UpdateFunction: MemberReference;
-	public var Tag: FName;
+	private var Tag: FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -34,8 +34,6 @@ abstract ConstAnimGraphNode_Base(AnimGraphNode_Base) from AnimGraphNode_Base {
 	public inline extern function get_BecomeRelevantFunction(): MemberReference return this.BecomeRelevantFunction;
 	public extern var UpdateFunction(get, never): MemberReference;
 	public inline extern function get_UpdateFunction(): MemberReference return this.UpdateFunction;
-	public extern var Tag(get, never): FName;
-	public inline extern function get_Tag(): FName return this.Tag;
 }
 
 @:forward

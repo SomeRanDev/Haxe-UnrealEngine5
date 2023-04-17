@@ -4,7 +4,7 @@ package ue;
 @:native("UBlackboardAssetProvider")
 @:structAccess
 extern class BlackboardAssetProvider extends Interface {
-	public function GetBlackboardAsset(): cpp.Reference<cpp.Star<BlackboardData>>;
+	public function GetBlackboardAsset(): cpp.Star<BlackboardData>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

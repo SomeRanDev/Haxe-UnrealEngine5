@@ -7,7 +7,7 @@ package ue;
 extern class VirtualTextureSpacePoolConfig {
 	public var MinTileSize: cpp.Int32;
 	public var MaxTileSize: cpp.Int32;
-	public var Formats: TArray<EPixelFormat>;
+	public var Formats: TArray<TEnumAsByte<EPixelFormat>>;
 	public var SizeInMegabyte: cpp.Int32;
 	public var bEnableResidencyMipMapBias: Bool;
 	public var bAllowSizeScale: Bool;

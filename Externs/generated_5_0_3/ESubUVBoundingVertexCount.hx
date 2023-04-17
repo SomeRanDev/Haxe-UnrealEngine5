@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESubUVBoundingVertexCount")
 @:include("Particles/SubUVAnimation.h")
-extern enum ESubUVBoundingVertexCount {
-	BVC_FourVertices;
-	BVC_EightVertices;
-	BVC_MAX;
+extern class ESubUVBoundingVertexCount {
+	static var BVC_FourVertices: ESubUVBoundingVertexCount;
+	static var BVC_EightVertices: ESubUVBoundingVertexCount;
+	static var BVC_MAX: ESubUVBoundingVertexCount;
 }

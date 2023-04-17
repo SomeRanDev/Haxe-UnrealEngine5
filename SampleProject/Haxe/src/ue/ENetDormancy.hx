@@ -3,11 +3,11 @@ package ue;
 
 @:native("ENetDormancy")
 @:include("Engine/EngineTypes.h")
-extern enum ENetDormancy {
-	DORM_Never;
-	DORM_Awake;
-	DORM_DormantAll;
-	DORM_DormantPartial;
-	DORM_Initial;
-	DORM_MAX;
+extern class ENetDormancy {
+	static var DORM_Never: ENetDormancy;
+	static var DORM_Awake: ENetDormancy;
+	static var DORM_DormantAll: ENetDormancy;
+	static var DORM_DormantPartial: ENetDormancy;
+	static var DORM_Initial: ENetDormancy;
+	static var DORM_MAX: ENetDormancy;
 }

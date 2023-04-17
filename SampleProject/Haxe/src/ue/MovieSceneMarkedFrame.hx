@@ -7,7 +7,6 @@ package ue;
 extern class MovieSceneMarkedFrame {
 	public var FrameNumber: FrameNumber;
 	public var Label: FString;
-	public var Color: LinearColor;
 	public var bIsDeterminismFence: Bool;
 
 	@:native("FMovieSceneMarkedFrame") public function new();

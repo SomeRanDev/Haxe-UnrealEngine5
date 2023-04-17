@@ -3,10 +3,10 @@ package ue;
 
 @:native("EARWorldMappingState")
 @:include("ARTypes.h")
-extern enum EARWorldMappingState {
-	NotAvailable;
-	StillMappingNotRelocalizable;
-	StillMappingRelocalizable;
-	Mapped;
-	EARWorldMappingState_MAX;
+extern class EARWorldMappingState {
+	static var NotAvailable: EARWorldMappingState;
+	static var StillMappingNotRelocalizable: EARWorldMappingState;
+	static var StillMappingRelocalizable: EARWorldMappingState;
+	static var Mapped: EARWorldMappingState;
+	static var EARWorldMappingState_MAX: EARWorldMappingState;
 }

@@ -3,8 +3,8 @@ package ue;
 
 @:native("ENiagaraDefaultRendererPixelCoverageMode")
 @:include("NiagaraSettings.h")
-extern enum ENiagaraDefaultRendererPixelCoverageMode {
-	Enabled;
-	Disabled;
-	ENiagaraDefaultRendererPixelCoverageMode_MAX;
+extern class ENiagaraDefaultRendererPixelCoverageMode {
+	static var Enabled: ENiagaraDefaultRendererPixelCoverageMode;
+	static var Disabled: ENiagaraDefaultRendererPixelCoverageMode;
+	static var ENiagaraDefaultRendererPixelCoverageMode_MAX: ENiagaraDefaultRendererPixelCoverageMode;
 }

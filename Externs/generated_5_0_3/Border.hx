@@ -5,8 +5,8 @@ package ue;
 @:include("Components/Border.h")
 @:structAccess
 extern class Border extends ContentWidget {
-	public var HorizontalAlignment: EHorizontalAlignment;
-	public var VerticalAlignment: EVerticalAlignment;
+	public var HorizontalAlignment: TEnumAsByte<EHorizontalAlignment>;
+	public var VerticalAlignment: TEnumAsByte<EVerticalAlignment>;
 	public var bShowEffectWhenDisabled: Bool;
 	public var ContentColorAndOpacity: LinearColor;
 	public var ContentColorAndOpacityDelegate: HaxeDelegateProperty<() -> Void>;
@@ -21,11 +21,10 @@ extern class Border extends ContentWidget {
 	public var OnMouseButtonUpEvent: HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void>;
 	public var OnMouseMoveEvent: HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void>;
 	public var OnMouseDoubleClickEvent: HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void>;
-	public var Brush_DEPRECATED: cpp.Star<SlateBrushAsset>;
 
-	public function SetVerticalAlignment(InVerticalAlignment: EVerticalAlignment): Void;
+	public function SetVerticalAlignment(InVerticalAlignment: TEnumAsByte<EVerticalAlignment>): Void;
 	public function SetPadding(InPadding: Margin): Void;
-	public function SetHorizontalAlignment(InHorizontalAlignment: EHorizontalAlignment): Void;
+	public function SetHorizontalAlignment(InHorizontalAlignment: TEnumAsByte<EHorizontalAlignment>): Void;
 	public function SetDesiredSizeScale(InScale: Vector2D): Void;
 	public function SetContentColorAndOpacity(InContentColorAndOpacity: LinearColor): Void;
 	public function SetBrushFromTexture(Texture: cpp.Star<Texture2D>): Void;
@@ -33,7 +32,7 @@ extern class Border extends ContentWidget {
 	public function SetBrushFromAsset(Asset: cpp.Star<SlateBrushAsset>): Void;
 	public function SetBrushColor(InBrushColor: LinearColor): Void;
 	public function SetBrush(InBrush: cpp.Reference<SlateBrush>): Void;
-	public function GetDynamicMaterial(): cpp.Reference<cpp.Star<MaterialInstanceDynamic>>;
+	public function GetDynamicMaterial(): cpp.Star<MaterialInstanceDynamic>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -41,10 +40,10 @@ extern class Border extends ContentWidget {
 @:forward()
 @:nativeGen
 abstract ConstBorder(Border) from Border {
-	public extern var HorizontalAlignment(get, never): EHorizontalAlignment;
-	public inline extern function get_HorizontalAlignment(): EHorizontalAlignment return this.HorizontalAlignment;
-	public extern var VerticalAlignment(get, never): EVerticalAlignment;
-	public inline extern function get_VerticalAlignment(): EVerticalAlignment return this.VerticalAlignment;
+	public extern var HorizontalAlignment(get, never): TEnumAsByte<EHorizontalAlignment>;
+	public inline extern function get_HorizontalAlignment(): TEnumAsByte<EHorizontalAlignment> return this.HorizontalAlignment;
+	public extern var VerticalAlignment(get, never): TEnumAsByte<EVerticalAlignment>;
+	public inline extern function get_VerticalAlignment(): TEnumAsByte<EVerticalAlignment> return this.VerticalAlignment;
 	public extern var bShowEffectWhenDisabled(get, never): Bool;
 	public inline extern function get_bShowEffectWhenDisabled(): Bool return this.bShowEffectWhenDisabled;
 	public extern var ContentColorAndOpacity(get, never): LinearColor;
@@ -73,8 +72,6 @@ abstract ConstBorder(Border) from Border {
 	public inline extern function get_OnMouseMoveEvent(): HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void> return this.OnMouseMoveEvent;
 	public extern var OnMouseDoubleClickEvent(get, never): HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void>;
 	public inline extern function get_OnMouseDoubleClickEvent(): HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void> return this.OnMouseDoubleClickEvent;
-	public extern var Brush_DEPRECATED(get, never): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset>;
-	public inline extern function get_Brush_DEPRECATED(): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset> return this.Brush_DEPRECATED;
 }
 
 @:forward

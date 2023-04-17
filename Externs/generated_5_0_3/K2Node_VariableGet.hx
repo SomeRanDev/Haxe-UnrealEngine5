@@ -5,7 +5,7 @@ package ue;
 @:include("K2Node_VariableGet.h")
 @:structAccess
 extern class K2Node_VariableGet extends K2Node_Variable {
-	public var bIsPureGet: Bool;
+	private var bIsPureGet: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class K2Node_VariableGet extends K2Node_Variable {
 @:forward()
 @:nativeGen
 abstract ConstK2Node_VariableGet(K2Node_VariableGet) from K2Node_VariableGet {
-	public extern var bIsPureGet(get, never): Bool;
-	public inline extern function get_bIsPureGet(): Bool return this.bIsPureGet;
 }
 
 @:forward

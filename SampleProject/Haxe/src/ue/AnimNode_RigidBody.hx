@@ -14,7 +14,7 @@ extern class AnimNode_RigidBody extends AnimNode_SkeletalControlBase {
 	public var SimSpaceSettings: SimSpaceSettings;
 	public var CachedBoundsScale: cpp.Float32;
 	public var BaseBoneRef: BoneReference;
-	public var OverlapChannel: ECollisionChannel;
+	public var OverlapChannel: TEnumAsByte<ECollisionChannel>;
 	public var SimulationSpace: ESimulationSpace;
 	public var bForceDisableCollisionBetweenConstraintBodies: Bool;
 	public var bEnableWorldGeometry: Bool;
@@ -24,7 +24,6 @@ extern class AnimNode_RigidBody extends AnimNode_SkeletalControlBase {
 	public var bClampLinearTranslationLimitToRefPose: Bool;
 	public var WorldSpaceMinimumScale: cpp.Float32;
 	public var EvaluationResetTime: cpp.Float32;
-	public var bComponentSpaceSimulation_DEPRECATED: Bool;
 
 	@:native("FAnimNode_RigidBody") public function new();
 }

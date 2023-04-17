@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETextShapingMethod")
 @:include("Fonts/FontCache.h")
-extern enum ETextShapingMethod {
-	Auto;
-	KerningOnly;
-	FullShaping;
-	ETextShapingMethod_MAX;
+extern class ETextShapingMethod {
+	static var Auto: ETextShapingMethod;
+	static var KerningOnly: ETextShapingMethod;
+	static var FullShaping: ETextShapingMethod;
+	static var ETextShapingMethod_MAX: ETextShapingMethod;
 }

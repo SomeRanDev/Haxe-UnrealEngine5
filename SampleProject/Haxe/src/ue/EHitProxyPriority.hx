@@ -3,10 +3,10 @@ package ue;
 
 @:native("EHitProxyPriority")
 @:include("HitProxies.h")
-extern enum EHitProxyPriority {
-	HPP_World;
-	HPP_Wireframe;
-	HPP_Foreground;
-	HPP_UI;
-	HPP_MAX;
+extern class EHitProxyPriority {
+	static var HPP_World: EHitProxyPriority;
+	static var HPP_Wireframe: EHitProxyPriority;
+	static var HPP_Foreground: EHitProxyPriority;
+	static var HPP_UI: EHitProxyPriority;
+	static var HPP_MAX: EHitProxyPriority;
 }

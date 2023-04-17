@@ -8,7 +8,7 @@ extern class PolygroupLayersProperties extends InteractiveToolPropertySet {
 	public var ActiveGroupLayer: FName;
 	public var GroupLayersList: TArray<FString>;
 
-	public function GetGroupLayersFunc(): cpp.Reference<TArray<FString>>;
+	public function GetGroupLayersFunc(): TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

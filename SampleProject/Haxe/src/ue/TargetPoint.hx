@@ -5,8 +5,6 @@ package ue;
 @:include("Engine/TargetPoint.h")
 @:structAccess
 extern class TargetPoint extends Actor {
-	public var SpriteComponent: cpp.Star<BillboardComp>;
-	public var ArrowComponent: cpp.Star<ArrowComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +12,6 @@ extern class TargetPoint extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstTargetPoint(TargetPoint) from TargetPoint {
-	public extern var SpriteComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
-	public inline extern function get_SpriteComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
-	public extern var ArrowComponent(get, never): cpp.Star<ArrowComp.ConstArrowComp>;
-	public inline extern function get_ArrowComponent(): cpp.Star<ArrowComp.ConstArrowComp> return this.ArrowComponent;
 }
 
 @:forward

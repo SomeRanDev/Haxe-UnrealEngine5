@@ -5,7 +5,6 @@ package ue;
 @:include("ControlPointMeshComponent.h")
 @:structAccess
 extern class ControlPointMeshComp extends StaticMeshComp {
-	public var bSelected: Bool;
 	public var VirtualTextureMainPassMaxDrawDistance: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -14,8 +13,6 @@ extern class ControlPointMeshComp extends StaticMeshComp {
 @:forward()
 @:nativeGen
 abstract ConstControlPointMeshComp(ControlPointMeshComp) from ControlPointMeshComp {
-	public extern var bSelected(get, never): Bool;
-	public inline extern function get_bSelected(): Bool return this.bSelected;
 	public extern var VirtualTextureMainPassMaxDrawDistance(get, never): cpp.Float32;
 	public inline extern function get_VirtualTextureMainPassMaxDrawDistance(): cpp.Float32 return this.VirtualTextureMainPassMaxDrawDistance;
 }

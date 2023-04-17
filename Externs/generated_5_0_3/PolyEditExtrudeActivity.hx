@@ -8,8 +8,8 @@ extern class PolyEditExtrudeActivity extends InteractiveToolActivity {
 	public var ExtrudeProperties: cpp.Star<PolyEditExtrudeProperties>;
 	public var OffsetProperties: cpp.Star<PolyEditOffsetProperties>;
 	public var PushPullProperties: cpp.Star<PolyEditPushPullProperties>;
-	public var ExtrudeHeightMechanic: cpp.Star<PlaneDistanceFromHitMechanic>;
-	public var ActivityContext: cpp.Star<PolyEditActivityContext>;
+	@:protected public var ExtrudeHeightMechanic: cpp.Star<PlaneDistanceFromHitMechanic>;
+	@:protected public var ActivityContext: cpp.Star<PolyEditActivityContext>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -23,10 +23,6 @@ abstract ConstPolyEditExtrudeActivity(PolyEditExtrudeActivity) from PolyEditExtr
 	public inline extern function get_OffsetProperties(): cpp.Star<PolyEditOffsetProperties.ConstPolyEditOffsetProperties> return this.OffsetProperties;
 	public extern var PushPullProperties(get, never): cpp.Star<PolyEditPushPullProperties.ConstPolyEditPushPullProperties>;
 	public inline extern function get_PushPullProperties(): cpp.Star<PolyEditPushPullProperties.ConstPolyEditPushPullProperties> return this.PushPullProperties;
-	public extern var ExtrudeHeightMechanic(get, never): cpp.Star<PlaneDistanceFromHitMechanic.ConstPlaneDistanceFromHitMechanic>;
-	public inline extern function get_ExtrudeHeightMechanic(): cpp.Star<PlaneDistanceFromHitMechanic.ConstPlaneDistanceFromHitMechanic> return this.ExtrudeHeightMechanic;
-	public extern var ActivityContext(get, never): cpp.Star<PolyEditActivityContext.ConstPolyEditActivityContext>;
-	public inline extern function get_ActivityContext(): cpp.Star<PolyEditActivityContext.ConstPolyEditActivityContext> return this.ActivityContext;
 }
 
 @:forward

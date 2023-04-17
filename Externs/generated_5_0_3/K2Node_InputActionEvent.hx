@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class K2Node_InputActionEvent extends K2Node_Event {
 	public var InputActionName: FName;
-	public var InputKeyEvent: EInputEvent;
+	public var InputKeyEvent: TEnumAsByte<EInputEvent>;
 	public var bConsumeInput: Bool;
 	public var bExecuteWhenPaused: Bool;
 	public var bOverrideParentBinding: Bool;
@@ -19,8 +19,8 @@ extern class K2Node_InputActionEvent extends K2Node_Event {
 abstract ConstK2Node_InputActionEvent(K2Node_InputActionEvent) from K2Node_InputActionEvent {
 	public extern var InputActionName(get, never): FName;
 	public inline extern function get_InputActionName(): FName return this.InputActionName;
-	public extern var InputKeyEvent(get, never): EInputEvent;
-	public inline extern function get_InputKeyEvent(): EInputEvent return this.InputKeyEvent;
+	public extern var InputKeyEvent(get, never): TEnumAsByte<EInputEvent>;
+	public inline extern function get_InputKeyEvent(): TEnumAsByte<EInputEvent> return this.InputKeyEvent;
 	public extern var bConsumeInput(get, never): Bool;
 	public inline extern function get_bConsumeInput(): Bool return this.bConsumeInput;
 	public extern var bExecuteWhenPaused(get, never): Bool;

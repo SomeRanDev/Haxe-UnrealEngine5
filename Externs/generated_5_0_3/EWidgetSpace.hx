@@ -3,8 +3,8 @@ package ue;
 
 @:native("EWidgetSpace")
 @:include("Components/WidgetComponent.h")
-extern enum EWidgetSpace {
-	World;
-	Screen;
-	EWidgetSpace_MAX;
+extern class EWidgetSpace {
+	static var World: EWidgetSpace;
+	static var Screen: EWidgetSpace;
+	static var EWidgetSpace_MAX: EWidgetSpace;
 }

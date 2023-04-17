@@ -3,14 +3,14 @@ package ue;
 
 @:native("EGroomCacheAttributes")
 @:include("GroomCacheData.h")
-extern enum EGroomCacheAttributes {
-	None;
-	Position;
-	Width;
-	Color;
-	PositionWidth;
-	PositionColor;
-	WidthColor;
-	PositionWidthColor;
-	EGroomCacheAttributes_MAX;
+extern class EGroomCacheAttributes {
+	static var None: EGroomCacheAttributes;
+	static var Position: EGroomCacheAttributes;
+	static var Width: EGroomCacheAttributes;
+	static var Color: EGroomCacheAttributes;
+	static var PositionWidth: EGroomCacheAttributes;
+	static var PositionColor: EGroomCacheAttributes;
+	static var WidthColor: EGroomCacheAttributes;
+	static var PositionWidthColor: EGroomCacheAttributes;
+	static var EGroomCacheAttributes_MAX: EGroomCacheAttributes;
 }

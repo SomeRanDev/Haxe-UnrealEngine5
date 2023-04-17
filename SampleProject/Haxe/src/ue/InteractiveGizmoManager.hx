@@ -5,8 +5,8 @@ package ue;
 @:include("InteractiveGizmoManager.h")
 @:structAccess
 extern class InteractiveGizmoManager extends Object {
-	public var ActiveGizmos: TArray<ActiveGizmo>;
-	public var GizmoBuilders: TMap<FString, cpp.Star<InteractiveGizmoBuilder>>;
+	@:protected public var ActiveGizmos: TArray<ActiveGizmo>;
+	@:protected public var GizmoBuilders: TMap<FString, cpp.Star<InteractiveGizmoBuilder>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class InteractiveGizmoManager extends Object {
 @:forward()
 @:nativeGen
 abstract ConstInteractiveGizmoManager(InteractiveGizmoManager) from InteractiveGizmoManager {
-	public extern var ActiveGizmos(get, never): TArray<ActiveGizmo>;
-	public inline extern function get_ActiveGizmos(): TArray<ActiveGizmo> return this.ActiveGizmos;
-	public extern var GizmoBuilders(get, never): TMap<FString, cpp.Star<InteractiveGizmoBuilder.ConstInteractiveGizmoBuilder>>;
-	public inline extern function get_GizmoBuilders(): TMap<FString, cpp.Star<InteractiveGizmoBuilder.ConstInteractiveGizmoBuilder>> return this.GizmoBuilders;
 }
 
 @:forward

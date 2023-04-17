@@ -7,7 +7,7 @@ package ue;
 extern class AnimStateAliasNode extends AnimStateNodeBase {
 	public var bGlobalAlias: Bool;
 	public var StateAliasName: FString;
-	public var AliasedStateNodes: TSet<TWeakObjectPtr<AnimStateNodeBase>>;
+	private var AliasedStateNodes: TSet<TWeakObjectPtr<AnimStateNodeBase>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,8 +19,6 @@ abstract ConstAnimStateAliasNode(AnimStateAliasNode) from AnimStateAliasNode {
 	public inline extern function get_bGlobalAlias(): Bool return this.bGlobalAlias;
 	public extern var StateAliasName(get, never): FString;
 	public inline extern function get_StateAliasName(): FString return this.StateAliasName;
-	public extern var AliasedStateNodes(get, never): TSet<TWeakObjectPtr<AnimStateNodeBase.ConstAnimStateNodeBase>>;
-	public inline extern function get_AliasedStateNodes(): TSet<TWeakObjectPtr<AnimStateNodeBase.ConstAnimStateNodeBase>> return this.AliasedStateNodes;
 }
 
 @:forward

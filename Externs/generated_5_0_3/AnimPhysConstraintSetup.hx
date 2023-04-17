@@ -14,9 +14,6 @@ extern class AnimPhysConstraintSetup {
 	public var TwistAxis: AnimPhysTwistAxis;
 	public var AngularTargetAxis: AnimPhysTwistAxis;
 	public var ConeAngle: cpp.Float32;
-	public var AngularXAngle_DEPRECATED: cpp.Float32;
-	public var AngularYAngle_DEPRECATED: cpp.Float32;
-	public var AngularZAngle_DEPRECATED: cpp.Float32;
 	public var AngularLimitsMin: Vector;
 	public var AngularLimitsMax: Vector;
 	public var AngularTarget: Vector;

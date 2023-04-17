@@ -3,10 +3,10 @@ package ue;
 
 @:native("EVerticalAlignment")
 @:include("Types/SlateEnums.h")
-extern enum EVerticalAlignment {
-	VAlign_Fill;
-	VAlign_Top;
-	VAlign_Center;
-	VAlign_Bottom;
-	VAlign_MAX;
+extern class EVerticalAlignment {
+	static var VAlign_Fill: EVerticalAlignment;
+	static var VAlign_Top: EVerticalAlignment;
+	static var VAlign_Center: EVerticalAlignment;
+	static var VAlign_Bottom: EVerticalAlignment;
+	static var VAlign_MAX: EVerticalAlignment;
 }

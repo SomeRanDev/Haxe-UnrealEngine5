@@ -6,8 +6,8 @@ package ue;
 @:structAccess
 extern class BackgroundBlur extends ContentWidget {
 	public var Padding: Margin;
-	public var HorizontalAlignment: EHorizontalAlignment;
-	public var VerticalAlignment: EVerticalAlignment;
+	public var HorizontalAlignment: TEnumAsByte<EHorizontalAlignment>;
+	public var VerticalAlignment: TEnumAsByte<EVerticalAlignment>;
 	public var bApplyAlphaToBlur: Bool;
 	public var BlurStrength: cpp.Float32;
 	public var bOverrideAutoRadiusCalculation: Bool;
@@ -15,10 +15,10 @@ extern class BackgroundBlur extends ContentWidget {
 	public var CornerRadius: Vector4;
 	public var LowQualityFallbackBrush: SlateBrush;
 
-	public function SetVerticalAlignment(InVerticalAlignment: EVerticalAlignment): Void;
+	public function SetVerticalAlignment(InVerticalAlignment: TEnumAsByte<EVerticalAlignment>): Void;
 	public function SetPadding(InPadding: Margin): Void;
 	public function SetLowQualityFallbackBrush(InBrush: cpp.Reference<SlateBrush>): Void;
-	public function SetHorizontalAlignment(InHorizontalAlignment: EHorizontalAlignment): Void;
+	public function SetHorizontalAlignment(InHorizontalAlignment: TEnumAsByte<EHorizontalAlignment>): Void;
 	public function SetCornerRadius(InCornerRadius: Vector4): Void;
 	public function SetBlurStrength(InStrength: cpp.Float32): Void;
 	public function SetBlurRadius(InBlurRadius: cpp.Int32): Void;
@@ -32,10 +32,10 @@ extern class BackgroundBlur extends ContentWidget {
 abstract ConstBackgroundBlur(BackgroundBlur) from BackgroundBlur {
 	public extern var Padding(get, never): Margin;
 	public inline extern function get_Padding(): Margin return this.Padding;
-	public extern var HorizontalAlignment(get, never): EHorizontalAlignment;
-	public inline extern function get_HorizontalAlignment(): EHorizontalAlignment return this.HorizontalAlignment;
-	public extern var VerticalAlignment(get, never): EVerticalAlignment;
-	public inline extern function get_VerticalAlignment(): EVerticalAlignment return this.VerticalAlignment;
+	public extern var HorizontalAlignment(get, never): TEnumAsByte<EHorizontalAlignment>;
+	public inline extern function get_HorizontalAlignment(): TEnumAsByte<EHorizontalAlignment> return this.HorizontalAlignment;
+	public extern var VerticalAlignment(get, never): TEnumAsByte<EVerticalAlignment>;
+	public inline extern function get_VerticalAlignment(): TEnumAsByte<EVerticalAlignment> return this.VerticalAlignment;
 	public extern var bApplyAlphaToBlur(get, never): Bool;
 	public inline extern function get_bApplyAlphaToBlur(): Bool return this.bApplyAlphaToBlur;
 	public extern var BlurStrength(get, never): cpp.Float32;

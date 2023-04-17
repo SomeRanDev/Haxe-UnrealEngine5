@@ -3,8 +3,8 @@ package ue;
 
 @:native("EPyTestEnum")
 @:include("Private/PyTest.h")
-extern enum EPyTestEnum {
-	One;
-	Two;
-	EPyTestEnum_MAX;
+extern class EPyTestEnum {
+	static var One: EPyTestEnum;
+	static var Two: EPyTestEnum;
+	static var EPyTestEnum_MAX: EPyTestEnum;
 }

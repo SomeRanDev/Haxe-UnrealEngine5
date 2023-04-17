@@ -3,10 +3,10 @@ package ue;
 
 @:native("EDisplayOnCompile")
 @:include("Settings/WidgetDesignerSettings.h")
-extern enum EDisplayOnCompile {
-	DoC_ErrorsOrWarnings;
-	DoC_ErrorsOnly;
-	DoC_WarningsOnly;
-	DoC_Never;
-	DoC_MAX;
+extern class EDisplayOnCompile {
+	static var DoC_ErrorsOrWarnings: EDisplayOnCompile;
+	static var DoC_ErrorsOnly: EDisplayOnCompile;
+	static var DoC_WarningsOnly: EDisplayOnCompile;
+	static var DoC_Never: EDisplayOnCompile;
+	static var DoC_MAX: EDisplayOnCompile;
 }

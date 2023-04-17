@@ -6,8 +6,8 @@ package ue;
 @:structAccess
 extern class ARSharedWorldPlayerController extends PlayerController {
 	public function ServerMarkReadyForReceiving(): Void;
-	public function ClientUpdatePreviewImageData(Offset: cpp.Int32, Buffer: cpp.Reference<TArray<cpp.UInt8>>): Void;
-	public function ClientUpdateARWorldData(Offset: cpp.Int32, Buffer: cpp.Reference<TArray<cpp.UInt8>>): Void;
+	public function ClientUpdatePreviewImageData(Offset: cpp.Int32, Buffer: TArray<cpp.UInt8>): Void;
+	public function ClientUpdateARWorldData(Offset: cpp.Int32, Buffer: TArray<cpp.UInt8>): Void;
 	public function ClientInitSharedWorld(PreviewImageSize: cpp.Int32, ARWorldDataSize: cpp.Int32): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;

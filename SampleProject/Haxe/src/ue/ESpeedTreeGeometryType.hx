@@ -3,11 +3,11 @@ package ue;
 
 @:native("ESpeedTreeGeometryType")
 @:include("Materials/MaterialExpressionSpeedTree.h")
-extern enum ESpeedTreeGeometryType {
-	STG_Branch;
-	STG_Frond;
-	STG_Leaf;
-	STG_FacingLeaf;
-	STG_Billboard;
-	STG_MAX;
+extern class ESpeedTreeGeometryType {
+	static var STG_Branch: ESpeedTreeGeometryType;
+	static var STG_Frond: ESpeedTreeGeometryType;
+	static var STG_Leaf: ESpeedTreeGeometryType;
+	static var STG_FacingLeaf: ESpeedTreeGeometryType;
+	static var STG_Billboard: ESpeedTreeGeometryType;
+	static var STG_MAX: ESpeedTreeGeometryType;
 }

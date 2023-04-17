@@ -5,7 +5,6 @@ package ue;
 @:include("Materials/MaterialInstance.h")
 @:structAccess
 extern class FontParameterValue {
-	public var ParameterName_DEPRECATED: FName;
 	public var ParameterInfo: MaterialParameterInfo;
 	public var FontValue: cpp.Star<Font>;
 	public var FontPage: cpp.Int32;

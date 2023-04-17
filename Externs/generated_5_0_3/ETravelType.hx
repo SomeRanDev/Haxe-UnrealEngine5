@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETravelType")
 @:include("Engine/EngineBaseTypes.h")
-extern enum ETravelType {
-	TRAVEL_Absolute;
-	TRAVEL_Partial;
-	TRAVEL_Relative;
-	TRAVEL_MAX;
+extern class ETravelType {
+	static var TRAVEL_Absolute: ETravelType;
+	static var TRAVEL_Partial: ETravelType;
+	static var TRAVEL_Relative: ETravelType;
+	static var TRAVEL_MAX: ETravelType;
 }

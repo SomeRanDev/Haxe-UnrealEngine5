@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETrailWidthMode")
 @:include("Engine/EngineTypes.h")
-extern enum ETrailWidthMode {
-	ETrailWidthMode_FromCentre;
-	ETrailWidthMode_FromFirst;
-	ETrailWidthMode_FromSecond;
-	ETrailWidthMode_MAX;
+extern class ETrailWidthMode {
+	static var ETrailWidthMode_FromCentre: ETrailWidthMode;
+	static var ETrailWidthMode_FromFirst: ETrailWidthMode;
+	static var ETrailWidthMode_FromSecond: ETrailWidthMode;
+	static var ETrailWidthMode_MAX: ETrailWidthMode;
 }

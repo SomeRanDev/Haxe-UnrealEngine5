@@ -3,10 +3,10 @@ package ue;
 
 @:native("ERuntimeVirtualTextureMipValueMode")
 @:include("Materials/MaterialExpressionRuntimeVirtualTextureSample.h")
-extern enum ERuntimeVirtualTextureMipValueMode {
-	RVTMVM_None;
-	RVTMVM_MipLevel;
-	RVTMVM_MipBias;
-	RVTMVM_RecalculateDerivatives;
-	RVTMVM_MAX;
+extern class ERuntimeVirtualTextureMipValueMode {
+	static var RVTMVM_None: ERuntimeVirtualTextureMipValueMode;
+	static var RVTMVM_MipLevel: ERuntimeVirtualTextureMipValueMode;
+	static var RVTMVM_MipBias: ERuntimeVirtualTextureMipValueMode;
+	static var RVTMVM_RecalculateDerivatives: ERuntimeVirtualTextureMipValueMode;
+	static var RVTMVM_MAX: ERuntimeVirtualTextureMipValueMode;
 }

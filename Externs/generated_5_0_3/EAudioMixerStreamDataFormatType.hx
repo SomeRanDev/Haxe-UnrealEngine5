@@ -3,10 +3,10 @@ package ue;
 
 @:native("EAudioMixerStreamDataFormatType")
 @:include("AudioMixerBlueprintLibrary.h")
-extern enum EAudioMixerStreamDataFormatType {
-	Unknown;
-	Float;
-	Int16;
-	Unsupported;
-	EAudioMixerStreamDataFormatType_MAX;
+extern class EAudioMixerStreamDataFormatType {
+	static var Unknown: EAudioMixerStreamDataFormatType;
+	static var Float: EAudioMixerStreamDataFormatType;
+	static var Int16: EAudioMixerStreamDataFormatType;
+	static var Unsupported: EAudioMixerStreamDataFormatType;
+	static var EAudioMixerStreamDataFormatType_MAX: EAudioMixerStreamDataFormatType;
 }

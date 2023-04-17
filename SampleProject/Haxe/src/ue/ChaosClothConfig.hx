@@ -41,15 +41,6 @@ extern class ChaosClothConfig extends ClothConfigCommon {
 	public var bUseTetrahedralConstraints: Bool;
 	public var bUseThinShellVolumeConstraints: Bool;
 	public var bUseContinuousCollisionDetection: Bool;
-	public var EdgeStiffness_DEPRECATED: cpp.Float32;
-	public var BendingStiffness_DEPRECATED: cpp.Float32;
-	public var AreaStiffness_DEPRECATED: cpp.Float32;
-	public var TetherMode_DEPRECATED: EChaosClothTetherMode;
-	public var LimitScale_DEPRECATED: cpp.Float32;
-	public var DragCoefficient_DEPRECATED: cpp.Float32;
-	public var LiftCoefficient_DEPRECATED: cpp.Float32;
-	public var AnimDriveSpringStiffness_DEPRECATED: cpp.Float32;
-	public var StrainLimitingStiffness_DEPRECATED: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -129,24 +120,6 @@ abstract ConstChaosClothConfig(ChaosClothConfig) from ChaosClothConfig {
 	public inline extern function get_bUseThinShellVolumeConstraints(): Bool return this.bUseThinShellVolumeConstraints;
 	public extern var bUseContinuousCollisionDetection(get, never): Bool;
 	public inline extern function get_bUseContinuousCollisionDetection(): Bool return this.bUseContinuousCollisionDetection;
-	public extern var EdgeStiffness_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_EdgeStiffness_DEPRECATED(): cpp.Float32 return this.EdgeStiffness_DEPRECATED;
-	public extern var BendingStiffness_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_BendingStiffness_DEPRECATED(): cpp.Float32 return this.BendingStiffness_DEPRECATED;
-	public extern var AreaStiffness_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_AreaStiffness_DEPRECATED(): cpp.Float32 return this.AreaStiffness_DEPRECATED;
-	public extern var TetherMode_DEPRECATED(get, never): EChaosClothTetherMode;
-	public inline extern function get_TetherMode_DEPRECATED(): EChaosClothTetherMode return this.TetherMode_DEPRECATED;
-	public extern var LimitScale_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_LimitScale_DEPRECATED(): cpp.Float32 return this.LimitScale_DEPRECATED;
-	public extern var DragCoefficient_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_DragCoefficient_DEPRECATED(): cpp.Float32 return this.DragCoefficient_DEPRECATED;
-	public extern var LiftCoefficient_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_LiftCoefficient_DEPRECATED(): cpp.Float32 return this.LiftCoefficient_DEPRECATED;
-	public extern var AnimDriveSpringStiffness_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_AnimDriveSpringStiffness_DEPRECATED(): cpp.Float32 return this.AnimDriveSpringStiffness_DEPRECATED;
-	public extern var StrainLimitingStiffness_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_StrainLimitingStiffness_DEPRECATED(): cpp.Float32 return this.StrainLimitingStiffness_DEPRECATED;
 }
 
 @:forward

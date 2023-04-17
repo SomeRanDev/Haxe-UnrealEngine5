@@ -5,7 +5,7 @@ package ue;
 @:include("VoxelBlendMeshesTool.h")
 @:structAccess
 extern class VoxelBlendMeshesTool extends BaseVoxelTool {
-	public var BlendProperties: cpp.Star<VoxelBlendMeshesToolProperties>;
+	@:protected public var BlendProperties: cpp.Star<VoxelBlendMeshesToolProperties>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class VoxelBlendMeshesTool extends BaseVoxelTool {
 @:forward()
 @:nativeGen
 abstract ConstVoxelBlendMeshesTool(VoxelBlendMeshesTool) from VoxelBlendMeshesTool {
-	public extern var BlendProperties(get, never): cpp.Star<VoxelBlendMeshesToolProperties.ConstVoxelBlendMeshesToolProperties>;
-	public inline extern function get_BlendProperties(): cpp.Star<VoxelBlendMeshesToolProperties.ConstVoxelBlendMeshesToolProperties> return this.BlendProperties;
 }
 
 @:forward

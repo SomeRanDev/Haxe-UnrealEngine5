@@ -6,12 +6,12 @@ package ue;
 @:structAccess
 extern class PrimaryAssetTypeInfo {
 	public var PrimaryAssetType: FName;
-	public var AssetBaseClass: TSoftClassPtr<Class>;
+	private var AssetBaseClass: TSoftClassPtr<Class>;
 	public var AssetBaseClassLoaded: TSubclassOf<Object>;
 	public var bHasBlueprintClasses: Bool;
 	public var bIsEditorOnly: Bool;
-	public var Directories: TArray<DirectoryPath>;
-	public var SpecificAssets: TArray<SoftObjectPath>;
+	private var Directories: TArray<DirectoryPath>;
+	private var SpecificAssets: TArray<SoftObjectPath>;
 	public var Rules: PrimaryAssetRules;
 	public var AssetScanPaths: TArray<FString>;
 	public var bIsDynamicAsset: Bool;

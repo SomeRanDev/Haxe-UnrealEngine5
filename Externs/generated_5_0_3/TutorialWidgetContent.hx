@@ -7,8 +7,8 @@ package ue;
 extern class TutorialWidgetContent {
 	public var Content: TutorialContent;
 	public var WidgetAnchor: TutorialContentAnchor;
-	public var HorizontalAlignment: EHorizontalAlignment;
-	public var VerticalAlignment: EVerticalAlignment;
+	public var HorizontalAlignment: TEnumAsByte<EHorizontalAlignment>;
+	public var VerticalAlignment: TEnumAsByte<EVerticalAlignment>;
 	public var Offset: Vector2D;
 	public var ContentWidth: cpp.Float32;
 	public var bAutoFocus: Bool;

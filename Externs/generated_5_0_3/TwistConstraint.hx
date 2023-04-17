@@ -6,8 +6,8 @@ package ue;
 @:structAccess
 extern class TwistConstraint extends ConstraintBaseParams {
 	public var TwistLimitDegrees: cpp.Float32;
-	public var TwistMotion: EAngularConstraintMotion;
+	public var TwistMotion: TEnumAsByte<EAngularConstraintMotion>;
 
 	@:native("FTwistConstraint") public function new();
-	@:native("FTwistConstraint") public static function make(TwistLimitDegrees: cpp.Float32, TwistMotion: EAngularConstraintMotion): TwistConstraint ;
+	@:native("FTwistConstraint") public static function make(TwistLimitDegrees: cpp.Float32, TwistMotion: TEnumAsByte<EAngularConstraintMotion>): TwistConstraint ;
 }

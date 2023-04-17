@@ -3,20 +3,20 @@ package ue;
 
 @:native("EARObjectClassification")
 @:include("ARTypes.h")
-extern enum EARObjectClassification {
-	NotApplicable;
-	Unknown;
-	Wall;
-	Ceiling;
-	Floor;
-	Table;
-	Seat;
-	Face;
-	Image;
-	World;
-	SceneObject;
-	HandMesh;
-	Door;
-	Window;
-	EARObjectClassification_MAX;
+extern class EARObjectClassification {
+	static var NotApplicable: EARObjectClassification;
+	static var Unknown: EARObjectClassification;
+	static var Wall: EARObjectClassification;
+	static var Ceiling: EARObjectClassification;
+	static var Floor: EARObjectClassification;
+	static var Table: EARObjectClassification;
+	static var Seat: EARObjectClassification;
+	static var Face: EARObjectClassification;
+	static var Image: EARObjectClassification;
+	static var World: EARObjectClassification;
+	static var SceneObject: EARObjectClassification;
+	static var HandMesh: EARObjectClassification;
+	static var Door: EARObjectClassification;
+	static var Window: EARObjectClassification;
+	static var EARObjectClassification_MAX: EARObjectClassification;
 }

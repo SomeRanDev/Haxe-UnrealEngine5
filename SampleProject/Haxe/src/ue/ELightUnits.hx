@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELightUnits")
 @:include("Engine/Scene.h")
-extern enum ELightUnits {
-	Unitless;
-	Candelas;
-	Lumens;
-	ELightUnits_MAX;
+extern class ELightUnits {
+	static var Unitless: ELightUnits;
+	static var Candelas: ELightUnits;
+	static var Lumens: ELightUnits;
+	static var ELightUnits_MAX: ELightUnits;
 }

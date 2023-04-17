@@ -3,10 +3,10 @@ package ue;
 
 @:native("EARGeoTrackingAccuracy")
 @:include("ARGeoTrackingSupport.h")
-extern enum EARGeoTrackingAccuracy {
-	Undetermined;
-	Low;
-	Medium;
-	High;
-	EARGeoTrackingAccuracy_MAX;
+extern class EARGeoTrackingAccuracy {
+	static var Undetermined: EARGeoTrackingAccuracy;
+	static var Low: EARGeoTrackingAccuracy;
+	static var Medium: EARGeoTrackingAccuracy;
+	static var High: EARGeoTrackingAccuracy;
+	static var EARGeoTrackingAccuracy_MAX: EARGeoTrackingAccuracy;
 }

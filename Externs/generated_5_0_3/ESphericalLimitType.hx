@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESphericalLimitType")
 @:include("BoneControllers/AnimNode_AnimDynamics.h")
-extern enum ESphericalLimitType {
-	Inner;
-	Outer;
-	ESphericalLimitType_MAX;
+extern class ESphericalLimitType {
+	static var Inner: ESphericalLimitType;
+	static var Outer: ESphericalLimitType;
+	static var ESphericalLimitType_MAX: ESphericalLimitType;
 }

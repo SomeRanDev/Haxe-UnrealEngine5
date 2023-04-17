@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESourceEffectMotionFilterTopology")
 @:include("SourceEffects/SourceEffectMotionFilter.h")
-extern enum ESourceEffectMotionFilterTopology {
-	SerialMode;
-	ParallelMode;
-	Count;
-	ESourceEffectMotionFilterTopology_MAX;
+extern class ESourceEffectMotionFilterTopology {
+	static var SerialMode: ESourceEffectMotionFilterTopology;
+	static var ParallelMode: ESourceEffectMotionFilterTopology;
+	static var Count: ESourceEffectMotionFilterTopology;
+	static var ESourceEffectMotionFilterTopology_MAX: ESourceEffectMotionFilterTopology;
 }

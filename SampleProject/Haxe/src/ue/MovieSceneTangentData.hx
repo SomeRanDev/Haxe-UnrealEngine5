@@ -9,8 +9,8 @@ extern class MovieSceneTangentData {
 	public var LeaveTangent: cpp.Float32;
 	public var ArriveTangentWeight: cpp.Float32;
 	public var LeaveTangentWeight: cpp.Float32;
-	public var TangentWeightMode: ERichCurveTangentWeightMode;
+	public var TangentWeightMode: TEnumAsByte<ERichCurveTangentWeightMode>;
 
 	@:native("FMovieSceneTangentData") public function new();
-	@:native("FMovieSceneTangentData") public static function make(ArriveTangent: cpp.Float32, LeaveTangent: cpp.Float32, ArriveTangentWeight: cpp.Float32, LeaveTangentWeight: cpp.Float32, TangentWeightMode: ERichCurveTangentWeightMode): MovieSceneTangentData ;
+	@:native("FMovieSceneTangentData") public static function make(ArriveTangent: cpp.Float32, LeaveTangent: cpp.Float32, ArriveTangentWeight: cpp.Float32, LeaveTangentWeight: cpp.Float32, TangentWeightMode: TEnumAsByte<ERichCurveTangentWeightMode>): MovieSceneTangentData ;
 }

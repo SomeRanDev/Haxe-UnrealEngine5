@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class NiagaraDataInterfaceStaticMesh extends NiagaraDataInterface {
 	public var SourceMode: ENDIStaticMesh_SourceMode;
-	public var PreviewMesh: TSoftObjectPtr<StaticMesh>;
 	public var DefaultMesh: cpp.Star<StaticMesh>;
 	public var Source: cpp.Star<Actor>;
 	public var SourceComponent: cpp.Star<StaticMeshComp>;
@@ -22,8 +21,6 @@ extern class NiagaraDataInterfaceStaticMesh extends NiagaraDataInterface {
 abstract ConstNiagaraDataInterfaceStaticMesh(NiagaraDataInterfaceStaticMesh) from NiagaraDataInterfaceStaticMesh {
 	public extern var SourceMode(get, never): ENDIStaticMesh_SourceMode;
 	public inline extern function get_SourceMode(): ENDIStaticMesh_SourceMode return this.SourceMode;
-	public extern var PreviewMesh(get, never): TSoftObjectPtr<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_PreviewMesh(): TSoftObjectPtr<StaticMesh.ConstStaticMesh> return this.PreviewMesh;
 	public extern var DefaultMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
 	public inline extern function get_DefaultMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.DefaultMesh;
 	public extern var Source(get, never): cpp.Star<Actor.ConstActor>;

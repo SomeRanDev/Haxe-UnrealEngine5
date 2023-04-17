@@ -3,10 +3,10 @@ package ue;
 
 @:native("ENDIStaticMesh_SourceMode")
 @:include("Private/DataInterface/NiagaraDataInterfaceStaticMesh.h")
-extern enum ENDIStaticMesh_SourceMode {
-	Default;
-	Source;
-	AttachParent;
-	DefaultMeshOnly;
-	ENDIStaticMesh_MAX;
+extern class ENDIStaticMesh_SourceMode {
+	static var Default: ENDIStaticMesh_SourceMode;
+	static var Source: ENDIStaticMesh_SourceMode;
+	static var AttachParent: ENDIStaticMesh_SourceMode;
+	static var DefaultMeshOnly: ENDIStaticMesh_SourceMode;
+	static var ENDIStaticMesh_MAX: ENDIStaticMesh_SourceMode;
 }

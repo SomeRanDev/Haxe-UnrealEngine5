@@ -5,8 +5,8 @@ package ue;
 @:include("SoundSubmixGraph/SoundSubmixGraph.h")
 @:structAccess
 extern class SoundSubmixGraph extends EdGraph {
-	public var RootSoundSubmix: cpp.Star<SoundSubmixBase>;
-	public var StaleRoots: TArray<cpp.Star<SoundSubmixBase>>;
+	private var RootSoundSubmix: cpp.Star<SoundSubmixBase>;
+	private var StaleRoots: TArray<cpp.Star<SoundSubmixBase>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class SoundSubmixGraph extends EdGraph {
 @:forward()
 @:nativeGen
 abstract ConstSoundSubmixGraph(SoundSubmixGraph) from SoundSubmixGraph {
-	public extern var RootSoundSubmix(get, never): cpp.Star<SoundSubmixBase.ConstSoundSubmixBase>;
-	public inline extern function get_RootSoundSubmix(): cpp.Star<SoundSubmixBase.ConstSoundSubmixBase> return this.RootSoundSubmix;
-	public extern var StaleRoots(get, never): TArray<cpp.Star<SoundSubmixBase.ConstSoundSubmixBase>>;
-	public inline extern function get_StaleRoots(): TArray<cpp.Star<SoundSubmixBase.ConstSoundSubmixBase>> return this.StaleRoots;
 }
 
 @:forward

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EGroomOverrideType")
 @:include("GroomAssetInterpolation.h")
-extern enum EGroomOverrideType {
-	Auto;
-	Enable;
-	Disable;
-	EGroomOverrideType_MAX;
+extern class EGroomOverrideType {
+	static var Auto: EGroomOverrideType;
+	static var Enable: EGroomOverrideType;
+	static var Disable: EGroomOverrideType;
+	static var EGroomOverrideType_MAX: EGroomOverrideType;
 }

@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class ReverbSettings {
 	public var bApplyReverb: Bool;
-	public var ReverbType_DEPRECATED: ReverbPreset;
 	public var ReverbEffect: cpp.Star<ReverbEffect>;
 	public var ReverbPluginEffect: cpp.Star<SoundEffectSubmixPreset>;
 	public var Volume: cpp.Float32;

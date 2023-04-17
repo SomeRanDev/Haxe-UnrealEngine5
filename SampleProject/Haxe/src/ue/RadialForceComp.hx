@@ -6,17 +6,17 @@ package ue;
 @:structAccess
 extern class RadialForceComp extends SceneComp {
 	public var Radius: cpp.Float32;
-	public var Falloff: ERadialImpulseFalloff;
+	public var Falloff: TEnumAsByte<ERadialImpulseFalloff>;
 	public var ImpulseStrength: cpp.Float32;
 	public var bImpulseVelChange: Bool;
 	public var bIgnoreOwningActor: Bool;
 	public var ForceStrength: cpp.Float32;
 	public var DestructibleDamage: cpp.Float32;
-	public var ObjectTypesToAffect: TArray<EObjectTypeQuery>;
+	@:protected public var ObjectTypesToAffect: TArray<TEnumAsByte<EObjectTypeQuery>>;
 
-	public function RemoveObjectTypeToAffect(ObjectType: EObjectTypeQuery): Void;
+	public function RemoveObjectTypeToAffect(ObjectType: TEnumAsByte<EObjectTypeQuery>): Void;
 	public function FireImpulse(): Void;
-	public function AddObjectTypeToAffect(ObjectType: EObjectTypeQuery): Void;
+	public function AddObjectTypeToAffect(ObjectType: TEnumAsByte<EObjectTypeQuery>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -26,8 +26,8 @@ extern class RadialForceComp extends SceneComp {
 abstract ConstRadialForceComp(RadialForceComp) from RadialForceComp {
 	public extern var Radius(get, never): cpp.Float32;
 	public inline extern function get_Radius(): cpp.Float32 return this.Radius;
-	public extern var Falloff(get, never): ERadialImpulseFalloff;
-	public inline extern function get_Falloff(): ERadialImpulseFalloff return this.Falloff;
+	public extern var Falloff(get, never): TEnumAsByte<ERadialImpulseFalloff>;
+	public inline extern function get_Falloff(): TEnumAsByte<ERadialImpulseFalloff> return this.Falloff;
 	public extern var ImpulseStrength(get, never): cpp.Float32;
 	public inline extern function get_ImpulseStrength(): cpp.Float32 return this.ImpulseStrength;
 	public extern var bImpulseVelChange(get, never): Bool;
@@ -38,8 +38,6 @@ abstract ConstRadialForceComp(RadialForceComp) from RadialForceComp {
 	public inline extern function get_ForceStrength(): cpp.Float32 return this.ForceStrength;
 	public extern var DestructibleDamage(get, never): cpp.Float32;
 	public inline extern function get_DestructibleDamage(): cpp.Float32 return this.DestructibleDamage;
-	public extern var ObjectTypesToAffect(get, never): TArray<EObjectTypeQuery>;
-	public inline extern function get_ObjectTypesToAffect(): TArray<EObjectTypeQuery> return this.ObjectTypesToAffect;
 }
 
 @:forward

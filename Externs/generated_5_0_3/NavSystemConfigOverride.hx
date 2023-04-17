@@ -5,10 +5,9 @@ package ue;
 @:include("NavSystemConfigOverride.h")
 @:structAccess
 extern class NavSystemConfigOverride extends Actor {
-	public var SpriteComponent: cpp.Star<BillboardComp>;
-	public var NavigationSystemConfig: cpp.Star<NavigationSystemConfig>;
-	public var OverridePolicy: ENavSystemOverridePolicy;
-	public var bLoadOnClient: Bool;
+	@:protected public var NavigationSystemConfig: cpp.Star<NavigationSystemConfig>;
+	@:protected public var OverridePolicy: ENavSystemOverridePolicy;
+	@:protected public var bLoadOnClient: Bool;
 
 	public function ApplyChanges(): Void;
 
@@ -18,14 +17,6 @@ extern class NavSystemConfigOverride extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstNavSystemConfigOverride(NavSystemConfigOverride) from NavSystemConfigOverride {
-	public extern var SpriteComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
-	public inline extern function get_SpriteComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
-	public extern var NavigationSystemConfig(get, never): cpp.Star<NavigationSystemConfig.ConstNavigationSystemConfig>;
-	public inline extern function get_NavigationSystemConfig(): cpp.Star<NavigationSystemConfig.ConstNavigationSystemConfig> return this.NavigationSystemConfig;
-	public extern var OverridePolicy(get, never): ENavSystemOverridePolicy;
-	public inline extern function get_OverridePolicy(): ENavSystemOverridePolicy return this.OverridePolicy;
-	public extern var bLoadOnClient(get, never): Bool;
-	public inline extern function get_bLoadOnClient(): Bool return this.bLoadOnClient;
 }
 
 @:forward

@@ -3,8 +3,8 @@ package ue;
 
 @:native("ENiagaraDebugHudFont")
 @:include("NiagaraDebuggerCommon.h")
-extern enum ENiagaraDebugHudFont {
-	Small;
-	Normal;
-	ENiagaraDebugHudFont_MAX;
+extern class ENiagaraDebugHudFont {
+	static var Small: ENiagaraDebugHudFont;
+	static var Normal: ENiagaraDebugHudFont;
+	static var ENiagaraDebugHudFont_MAX: ENiagaraDebugHudFont;
 }

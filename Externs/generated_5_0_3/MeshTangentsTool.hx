@@ -5,10 +5,10 @@ package ue;
 @:include("MeshTangentsTool.h")
 @:structAccess
 extern class MeshTangentsTool extends SingleSelectionMeshEditingTool {
-	public var Settings: cpp.Star<MeshTangentsToolProperties>;
-	public var DefaultMaterial: cpp.Star<MaterialInterface>;
-	public var PreviewMesh: cpp.Star<PreviewMesh>;
-	public var PreviewGeometry: cpp.Star<PreviewGeometry>;
+	@:protected public var Settings: cpp.Star<MeshTangentsToolProperties>;
+	@:protected public var DefaultMaterial: cpp.Star<MaterialInterface>;
+	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
+	@:protected public var PreviewGeometry: cpp.Star<PreviewGeometry>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class MeshTangentsTool extends SingleSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstMeshTangentsTool(MeshTangentsTool) from MeshTangentsTool {
-	public extern var Settings(get, never): cpp.Star<MeshTangentsToolProperties.ConstMeshTangentsToolProperties>;
-	public inline extern function get_Settings(): cpp.Star<MeshTangentsToolProperties.ConstMeshTangentsToolProperties> return this.Settings;
-	public extern var DefaultMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_DefaultMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.DefaultMaterial;
-	public extern var PreviewMesh(get, never): cpp.Star<PreviewMesh.ConstPreviewMesh>;
-	public inline extern function get_PreviewMesh(): cpp.Star<PreviewMesh.ConstPreviewMesh> return this.PreviewMesh;
-	public extern var PreviewGeometry(get, never): cpp.Star<PreviewGeometry.ConstPreviewGeometry>;
-	public inline extern function get_PreviewGeometry(): cpp.Star<PreviewGeometry.ConstPreviewGeometry> return this.PreviewGeometry;
 }
 
 @:forward

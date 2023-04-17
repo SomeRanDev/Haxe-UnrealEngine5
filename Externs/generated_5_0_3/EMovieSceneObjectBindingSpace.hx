@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMovieSceneObjectBindingSpace")
 @:include("MovieSceneObjectBindingID.h")
-extern enum EMovieSceneObjectBindingSpace {
-	Local;
-	Root;
-	Unused;
-	EMovieSceneObjectBindingSpace_MAX;
+extern class EMovieSceneObjectBindingSpace {
+	static var Local: EMovieSceneObjectBindingSpace;
+	static var Root: EMovieSceneObjectBindingSpace;
+	static var Unused: EMovieSceneObjectBindingSpace;
+	static var EMovieSceneObjectBindingSpace_MAX: EMovieSceneObjectBindingSpace;
 }

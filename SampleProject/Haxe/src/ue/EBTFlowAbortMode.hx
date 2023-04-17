@@ -3,10 +3,10 @@ package ue;
 
 @:native("EBTFlowAbortMode.Type")
 @:include("BehaviorTree/BehaviorTreeTypes.h")
-extern enum EBTFlowAbortMode {
-	None;
-	LowerPriority;
-	Self;
-	Both;
-	EBTFlowAbortMode_MAX;
+extern class EBTFlowAbortMode {
+	static var None: EBTFlowAbortMode;
+	static var LowerPriority: EBTFlowAbortMode;
+	static var Self: EBTFlowAbortMode;
+	static var Both: EBTFlowAbortMode;
+	static var EBTFlowAbortMode_MAX: EBTFlowAbortMode;
 }

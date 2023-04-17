@@ -5,7 +5,6 @@ package ue;
 @:include("BaseWidgetBlueprint.h")
 @:structAccess
 extern class BaseWidgetBlueprint extends UserWidgetBlueprint {
-	public var WidgetTree: cpp.Star<WidgetTree>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +12,6 @@ extern class BaseWidgetBlueprint extends UserWidgetBlueprint {
 @:forward()
 @:nativeGen
 abstract ConstBaseWidgetBlueprint(BaseWidgetBlueprint) from BaseWidgetBlueprint {
-	public extern var WidgetTree(get, never): cpp.Star<WidgetTree.ConstWidgetTree>;
-	public inline extern function get_WidgetTree(): cpp.Star<WidgetTree.ConstWidgetTree> return this.WidgetTree;
 }
 
 @:forward

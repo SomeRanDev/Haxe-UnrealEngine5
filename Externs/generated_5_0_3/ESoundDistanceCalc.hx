@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESoundDistanceCalc")
 @:include("Sound/SoundAttenuation.h")
-extern enum ESoundDistanceCalc {
-	SOUNDDISTANCE_Normal;
-	SOUNDDISTANCE_InfiniteXYPlane;
-	SOUNDDISTANCE_InfiniteXZPlane;
-	SOUNDDISTANCE_InfiniteYZPlane;
-	SOUNDDISTANCE_MAX;
+extern class ESoundDistanceCalc {
+	static var SOUNDDISTANCE_Normal: ESoundDistanceCalc;
+	static var SOUNDDISTANCE_InfiniteXYPlane: ESoundDistanceCalc;
+	static var SOUNDDISTANCE_InfiniteXZPlane: ESoundDistanceCalc;
+	static var SOUNDDISTANCE_InfiniteYZPlane: ESoundDistanceCalc;
+	static var SOUNDDISTANCE_MAX: ESoundDistanceCalc;
 }

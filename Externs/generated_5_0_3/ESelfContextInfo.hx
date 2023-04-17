@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESelfContextInfo.Type")
 @:include("K2Node_Variable.h")
-extern enum ESelfContextInfo {
-	Unspecified;
-	NotSelfContext;
-	ESelfContextInfo_MAX;
+extern class ESelfContextInfo {
+	static var Unspecified: ESelfContextInfo;
+	static var NotSelfContext: ESelfContextInfo;
+	static var ESelfContextInfo_MAX: ESelfContextInfo;
 }

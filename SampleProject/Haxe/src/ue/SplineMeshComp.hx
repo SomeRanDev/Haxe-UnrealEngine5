@@ -14,9 +14,8 @@ extern class SplineMeshComp extends StaticMeshComp {
 	public var bAllowSplineEditingPerInstance: Bool;
 	public var bSmoothInterpRollScale: Bool;
 	public var bMeshDirty: Bool;
-	public var ForwardAxis: ESplineMeshAxis;
+	public var ForwardAxis: TEnumAsByte<ESplineMeshAxis>;
 	public var VirtualTextureMainPassMaxDrawDistance: cpp.Float32;
-	public var bSelected: Bool;
 
 	public function UpdateMesh(): Void;
 	public function SetStartTangent(StartTangent: Vector, bUpdateMesh: Bool): Void;
@@ -26,7 +25,7 @@ extern class SplineMeshComp extends StaticMeshComp {
 	public function SetStartOffset(StartOffset: Vector2D, bUpdateMesh: Bool): Void;
 	public function SetStartAndEnd(StartPos: Vector, StartTangent: Vector, EndPos: Vector, EndTangent: Vector, bUpdateMesh: Bool): Void;
 	public function SetSplineUpDir(InSplineUpDir: cpp.Reference<Vector>, bUpdateMesh: Bool): Void;
-	public function SetForwardAxis(InForwardAxis: ESplineMeshAxis, bUpdateMesh: Bool): Void;
+	public function SetForwardAxis(InForwardAxis: TEnumAsByte<ESplineMeshAxis>, bUpdateMesh: Bool): Void;
 	public function SetEndTangent(EndTangent: Vector, bUpdateMesh: Bool): Void;
 	public function SetEndScale(EndScale: Vector2D, bUpdateMesh: Bool): Void;
 	public function SetEndRoll(EndRoll: cpp.Float32, bUpdateMesh: Bool): Void;
@@ -34,20 +33,20 @@ extern class SplineMeshComp extends StaticMeshComp {
 	public function SetEndOffset(EndOffset: Vector2D, bUpdateMesh: Bool): Void;
 	public function SetBoundaryMin(InBoundaryMin: cpp.Float32, bUpdateMesh: Bool): Void;
 	public function SetBoundaryMax(InBoundaryMax: cpp.Float32, bUpdateMesh: Bool): Void;
-	public function GetStartTangent(): cpp.Reference<Vector>;
-	public function GetStartScale(): cpp.Reference<Vector2D>;
-	public function GetStartRoll(): cpp.Reference<cpp.Float32>;
-	public function GetStartPosition(): cpp.Reference<Vector>;
-	public function GetStartOffset(): cpp.Reference<Vector2D>;
-	public function GetSplineUpDir(): cpp.Reference<Vector>;
-	public function GetForwardAxis(): cpp.Reference<ESplineMeshAxis>;
-	public function GetEndTangent(): cpp.Reference<Vector>;
-	public function GetEndScale(): cpp.Reference<Vector2D>;
-	public function GetEndRoll(): cpp.Reference<cpp.Float32>;
-	public function GetEndPosition(): cpp.Reference<Vector>;
-	public function GetEndOffset(): cpp.Reference<Vector2D>;
-	public function GetBoundaryMin(): cpp.Reference<cpp.Float32>;
-	public function GetBoundaryMax(): cpp.Reference<cpp.Float32>;
+	public function GetStartTangent(): Vector;
+	public function GetStartScale(): Vector2D;
+	public function GetStartRoll(): cpp.Float32;
+	public function GetStartPosition(): Vector;
+	public function GetStartOffset(): Vector2D;
+	public function GetSplineUpDir(): Vector;
+	public function GetForwardAxis(): TEnumAsByte<ESplineMeshAxis>;
+	public function GetEndTangent(): Vector;
+	public function GetEndScale(): Vector2D;
+	public function GetEndRoll(): cpp.Float32;
+	public function GetEndPosition(): Vector;
+	public function GetEndOffset(): Vector2D;
+	public function GetBoundaryMin(): cpp.Float32;
+	public function GetBoundaryMax(): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -77,12 +76,10 @@ abstract ConstSplineMeshComp(SplineMeshComp) from SplineMeshComp {
 	public inline extern function get_bSmoothInterpRollScale(): Bool return this.bSmoothInterpRollScale;
 	public extern var bMeshDirty(get, never): Bool;
 	public inline extern function get_bMeshDirty(): Bool return this.bMeshDirty;
-	public extern var ForwardAxis(get, never): ESplineMeshAxis;
-	public inline extern function get_ForwardAxis(): ESplineMeshAxis return this.ForwardAxis;
+	public extern var ForwardAxis(get, never): TEnumAsByte<ESplineMeshAxis>;
+	public inline extern function get_ForwardAxis(): TEnumAsByte<ESplineMeshAxis> return this.ForwardAxis;
 	public extern var VirtualTextureMainPassMaxDrawDistance(get, never): cpp.Float32;
 	public inline extern function get_VirtualTextureMainPassMaxDrawDistance(): cpp.Float32 return this.VirtualTextureMainPassMaxDrawDistance;
-	public extern var bSelected(get, never): Bool;
-	public inline extern function get_bSelected(): Bool return this.bSelected;
 }
 
 @:forward

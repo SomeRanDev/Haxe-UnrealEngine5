@@ -10,7 +10,7 @@ extern class TraceQueryTestResults extends Object {
 	public var ProfileResults: TraceQueryTestResultsInner;
 	public var BatchOptions: TraceChannelTestBatchOptions;
 
-	public function ToString(): cpp.Reference<FString>;
+	public function ToString(): FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

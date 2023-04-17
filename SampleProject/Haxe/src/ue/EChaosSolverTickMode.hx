@@ -3,10 +3,10 @@ package ue;
 
 @:native("EChaosSolverTickMode")
 @:include("PhysicsCoreTypes.h")
-extern enum EChaosSolverTickMode {
-	Fixed;
-	Variable;
-	VariableCapped;
-	VariableCappedWithTarget;
-	EChaosSolverTickMode_MAX;
+extern class EChaosSolverTickMode {
+	static var Fixed: EChaosSolverTickMode;
+	static var Variable: EChaosSolverTickMode;
+	static var VariableCapped: EChaosSolverTickMode;
+	static var VariableCappedWithTarget: EChaosSolverTickMode;
+	static var EChaosSolverTickMode_MAX: EChaosSolverTickMode;
 }

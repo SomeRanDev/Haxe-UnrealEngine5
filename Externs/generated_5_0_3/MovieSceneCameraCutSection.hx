@@ -6,14 +6,12 @@ package ue;
 @:structAccess
 extern class MovieSceneCameraCutSection extends MovieSceneSection {
 	public var bLockPreviousCamera: Bool;
-	public var CameraGuid_DEPRECATED: Guid;
-	public var CameraBindingID: MovieSceneObjectBindingID;
-	public var InitialCameraCutTransform: Transform;
-	public var bHasInitialCameraCutTransform: Bool;
-	public var ThumbnailReferenceOffset: cpp.Float32;
+	private var CameraBindingID: MovieSceneObjectBindingID;
+	private var InitialCameraCutTransform: Transform;
+	private var bHasInitialCameraCutTransform: Bool;
 
 	public function SetCameraBindingID(InCameraBindingID: cpp.Reference<MovieSceneObjectBindingID>): Void;
-	public function GetCameraBindingID(): cpp.Reference<MovieSceneObjectBindingID>;
+	public function GetCameraBindingID(): MovieSceneObjectBindingID;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -23,16 +21,6 @@ extern class MovieSceneCameraCutSection extends MovieSceneSection {
 abstract ConstMovieSceneCameraCutSection(MovieSceneCameraCutSection) from MovieSceneCameraCutSection {
 	public extern var bLockPreviousCamera(get, never): Bool;
 	public inline extern function get_bLockPreviousCamera(): Bool return this.bLockPreviousCamera;
-	public extern var CameraGuid_DEPRECATED(get, never): Guid;
-	public inline extern function get_CameraGuid_DEPRECATED(): Guid return this.CameraGuid_DEPRECATED;
-	public extern var CameraBindingID(get, never): MovieSceneObjectBindingID;
-	public inline extern function get_CameraBindingID(): MovieSceneObjectBindingID return this.CameraBindingID;
-	public extern var InitialCameraCutTransform(get, never): Transform;
-	public inline extern function get_InitialCameraCutTransform(): Transform return this.InitialCameraCutTransform;
-	public extern var bHasInitialCameraCutTransform(get, never): Bool;
-	public inline extern function get_bHasInitialCameraCutTransform(): Bool return this.bHasInitialCameraCutTransform;
-	public extern var ThumbnailReferenceOffset(get, never): cpp.Float32;
-	public inline extern function get_ThumbnailReferenceOffset(): cpp.Float32 return this.ThumbnailReferenceOffset;
 }
 
 @:forward

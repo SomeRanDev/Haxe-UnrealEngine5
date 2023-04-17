@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAndroidInstallLocation.Type")
 @:include("AndroidRuntimeSettings.h")
-extern enum EAndroidInstallLocation {
-	InternalOnly;
-	PreferExternal;
-	Auto;
-	EAndroidInstallLocation_MAX;
+extern class EAndroidInstallLocation {
+	static var InternalOnly: EAndroidInstallLocation;
+	static var PreferExternal: EAndroidInstallLocation;
+	static var Auto: EAndroidInstallLocation;
+	static var EAndroidInstallLocation_MAX: EAndroidInstallLocation;
 }

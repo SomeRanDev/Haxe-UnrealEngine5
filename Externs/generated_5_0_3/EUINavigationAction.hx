@@ -3,10 +3,10 @@ package ue;
 
 @:native("EUINavigationAction")
 @:include("Types/SlateEnums.h")
-extern enum EUINavigationAction {
-	Accept;
-	Back;
-	Num;
-	Invalid;
-	EUINavigationAction_MAX;
+extern class EUINavigationAction {
+	static var Accept: EUINavigationAction;
+	static var Back: EUINavigationAction;
+	static var Num: EUINavigationAction;
+	static var Invalid: EUINavigationAction;
+	static var EUINavigationAction_MAX: EUINavigationAction;
 }

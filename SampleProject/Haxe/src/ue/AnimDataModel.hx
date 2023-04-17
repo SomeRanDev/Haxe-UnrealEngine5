@@ -5,35 +5,35 @@ package ue;
 @:include("Animation/AnimData/AnimDataModel.h")
 @:structAccess
 extern class AnimDataModel extends Object {
-	public var BracketCounter: cpp.Int32;
-	public var ModifiedEventDynamic: HaxeMulticastSparseDelegateProperty<(EAnimDataModelNotifyType, cpp.Star<AnimDataModel>, cpp.Reference<AnimDataModelNotifPayload>) -> Void>;
-	public var BoneAnimationTracks: TArray<BoneAnimationTrack>;
-	public var PlayLength: cpp.Float32;
-	public var FrameRate: FrameRate;
-	public var NumberOfFrames: cpp.Int32;
-	public var NumberOfKeys: cpp.Int32;
-	public var CurveData: AnimationCurveData;
-	public var AnimatedBoneAttributes: TArray<AnimatedBoneAttribute>;
-	public var RawAnimationTracks: TArray<RawAnimSequenceTrack>;
-	public var RawAnimationTrackNames: TArray<FName>;
-	public var RawAnimationTrackSkeletonMappings: TArray<TrackToSkeletonMap>;
-	public var RawCurveTracks: RawCurveTracks;
+	private var BracketCounter: cpp.Int32;
+	private var ModifiedEventDynamic: HaxeMulticastSparseDelegateProperty<(EAnimDataModelNotifyType, cpp.Star<AnimDataModel>, cpp.Reference<AnimDataModelNotifPayload>) -> Void>;
+	private var BoneAnimationTracks: TArray<BoneAnimationTrack>;
+	private var PlayLength: cpp.Float32;
+	private var FrameRate: FrameRate;
+	private var NumberOfFrames: cpp.Int32;
+	private var NumberOfKeys: cpp.Int32;
+	private var CurveData: AnimationCurveData;
+	private var AnimatedBoneAttributes: TArray<AnimatedBoneAttribute>;
+	private var RawAnimationTracks: TArray<RawAnimSequenceTrack>;
+	private var RawAnimationTrackNames: TArray<FName>;
+	private var RawAnimationTrackSkeletonMappings: TArray<TrackToSkeletonMap>;
+	private var RawCurveTracks: RawCurveTracks;
 
-	public function IsValidBoneTrackIndex(TrackIndex: cpp.Int32): cpp.Reference<Bool>;
-	public function GetPlayLength(): cpp.Reference<cpp.Float32>;
-	public function GetNumBoneTracks(): cpp.Reference<cpp.Int32>;
-	public function GetNumberOfTransformCurves(): cpp.Reference<cpp.Int32>;
-	public function GetNumberOfKeys(): cpp.Reference<cpp.Int32>;
-	public function GetNumberOfFrames(): cpp.Reference<cpp.Int32>;
-	public function GetNumberOfFloatCurves(): cpp.Reference<cpp.Int32>;
-	public function GetFrameRate(): cpp.Reference<FrameRate>;
+	public function IsValidBoneTrackIndex(TrackIndex: cpp.Int32): Bool;
+	public function GetPlayLength(): cpp.Float32;
+	public function GetNumBoneTracks(): cpp.Int32;
+	public function GetNumberOfTransformCurves(): cpp.Int32;
+	public function GetNumberOfKeys(): cpp.Int32;
+	public function GetNumberOfFrames(): cpp.Int32;
+	public function GetNumberOfFloatCurves(): cpp.Int32;
+	public function GetFrameRate(): FrameRate;
 	public function GetBoneTrackNames(OutNames: cpp.Reference<TArray<FName>>): Void;
-	public function GetBoneTrackIndexByName(TrackName: FName): cpp.Reference<cpp.Int32>;
-	public function GetBoneTrackIndex(Track: cpp.Reference<BoneAnimationTrack>): cpp.Reference<cpp.Int32>;
-	public function GetBoneTrackByName(TrackName: FName): cpp.Reference<BoneAnimationTrack>;
-	public function GetBoneTrackByIndex(TrackIndex: cpp.Int32): cpp.Reference<BoneAnimationTrack>;
-	public function GetBoneAnimationTracks(): cpp.Reference<TArray<BoneAnimationTrack>>;
-	public function GetAnimationSequence(): cpp.Reference<cpp.Star<AnimSequence>>;
+	public function GetBoneTrackIndexByName(TrackName: FName): cpp.Int32;
+	public function GetBoneTrackIndex(Track: cpp.Reference<BoneAnimationTrack>): cpp.Int32;
+	public function GetBoneTrackByName(TrackName: FName): BoneAnimationTrack;
+	public function GetBoneTrackByIndex(TrackIndex: cpp.Int32): BoneAnimationTrack;
+	public function GetBoneAnimationTracks(): TArray<BoneAnimationTrack>;
+	public function GetAnimationSequence(): cpp.Star<AnimSequence>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -45,32 +45,6 @@ extern class AnimDataModel extends Object {
 )
 @:nativeGen
 abstract ConstAnimDataModel(AnimDataModel) from AnimDataModel {
-	public extern var BracketCounter(get, never): cpp.Int32;
-	public inline extern function get_BracketCounter(): cpp.Int32 return this.BracketCounter;
-	public extern var ModifiedEventDynamic(get, never): HaxeMulticastSparseDelegateProperty<(EAnimDataModelNotifyType, cpp.Star<AnimDataModel.ConstAnimDataModel>, cpp.Reference<AnimDataModelNotifPayload>) -> Void>;
-	public inline extern function get_ModifiedEventDynamic(): HaxeMulticastSparseDelegateProperty<(EAnimDataModelNotifyType, cpp.Star<AnimDataModel.ConstAnimDataModel>, cpp.Reference<AnimDataModelNotifPayload>) -> Void> return this.ModifiedEventDynamic;
-	public extern var BoneAnimationTracks(get, never): TArray<BoneAnimationTrack>;
-	public inline extern function get_BoneAnimationTracks(): TArray<BoneAnimationTrack> return this.BoneAnimationTracks;
-	public extern var PlayLength(get, never): cpp.Float32;
-	public inline extern function get_PlayLength(): cpp.Float32 return this.PlayLength;
-	public extern var FrameRate(get, never): FrameRate;
-	public inline extern function get_FrameRate(): FrameRate return this.FrameRate;
-	public extern var NumberOfFrames(get, never): cpp.Int32;
-	public inline extern function get_NumberOfFrames(): cpp.Int32 return this.NumberOfFrames;
-	public extern var NumberOfKeys(get, never): cpp.Int32;
-	public inline extern function get_NumberOfKeys(): cpp.Int32 return this.NumberOfKeys;
-	public extern var CurveData(get, never): AnimationCurveData;
-	public inline extern function get_CurveData(): AnimationCurveData return this.CurveData;
-	public extern var AnimatedBoneAttributes(get, never): TArray<AnimatedBoneAttribute>;
-	public inline extern function get_AnimatedBoneAttributes(): TArray<AnimatedBoneAttribute> return this.AnimatedBoneAttributes;
-	public extern var RawAnimationTracks(get, never): TArray<RawAnimSequenceTrack>;
-	public inline extern function get_RawAnimationTracks(): TArray<RawAnimSequenceTrack> return this.RawAnimationTracks;
-	public extern var RawAnimationTrackNames(get, never): TArray<FName>;
-	public inline extern function get_RawAnimationTrackNames(): TArray<FName> return this.RawAnimationTrackNames;
-	public extern var RawAnimationTrackSkeletonMappings(get, never): TArray<TrackToSkeletonMap>;
-	public inline extern function get_RawAnimationTrackSkeletonMappings(): TArray<TrackToSkeletonMap> return this.RawAnimationTrackSkeletonMappings;
-	public extern var RawCurveTracks(get, never): RawCurveTracks;
-	public inline extern function get_RawCurveTracks(): RawCurveTracks return this.RawCurveTracks;
 }
 
 @:forward

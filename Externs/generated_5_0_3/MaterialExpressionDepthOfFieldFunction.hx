@@ -5,7 +5,7 @@ package ue;
 @:include("Materials/MaterialExpressionDepthOfFieldFunction.h")
 @:structAccess
 extern class MaterialExpressionDepthOfFieldFunction extends MaterialExpression {
-	public var FunctionValue: EDepthOfFieldFunctionValue;
+	public var FunctionValue: TEnumAsByte<EDepthOfFieldFunctionValue>;
 	public var Depth: ExpressionInput;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -14,8 +14,8 @@ extern class MaterialExpressionDepthOfFieldFunction extends MaterialExpression {
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionDepthOfFieldFunction(MaterialExpressionDepthOfFieldFunction) from MaterialExpressionDepthOfFieldFunction {
-	public extern var FunctionValue(get, never): EDepthOfFieldFunctionValue;
-	public inline extern function get_FunctionValue(): EDepthOfFieldFunctionValue return this.FunctionValue;
+	public extern var FunctionValue(get, never): TEnumAsByte<EDepthOfFieldFunctionValue>;
+	public inline extern function get_FunctionValue(): TEnumAsByte<EDepthOfFieldFunctionValue> return this.FunctionValue;
 	public extern var Depth(get, never): ExpressionInput;
 	public inline extern function get_Depth(): ExpressionInput return this.Depth;
 }

@@ -5,10 +5,10 @@ package ue;
 @:include("InterchangeActorFactoryNode.h")
 @:structAccess
 extern class InterchangeActorFactoryNode extends InterchangeBaseNode {
-	public function SetCustomGlobalTransform(AttributeValue: cpp.Reference<Transform>): cpp.Reference<Bool>;
-	public function SetCustomActorClassName(AttributeValue: FString): cpp.Reference<Bool>;
-	public function GetCustomGlobalTransform(AttributeValue: cpp.Reference<Transform>): cpp.Reference<Bool>;
-	public function GetCustomActorClassName(AttributeValue: cpp.Reference<FString>): cpp.Reference<Bool>;
+	public function SetCustomGlobalTransform(AttributeValue: cpp.Reference<Transform>): Bool;
+	public function SetCustomActorClassName(AttributeValue: FString): Bool;
+	public function GetCustomGlobalTransform(AttributeValue: cpp.Reference<Transform>): Bool;
+	public function GetCustomActorClassName(AttributeValue: cpp.Reference<FString>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

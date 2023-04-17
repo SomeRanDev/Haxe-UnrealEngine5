@@ -3,8 +3,8 @@ package ue;
 
 @:native("EToolContextCoordinateSystem")
 @:include("ToolContextInterfaces.h")
-extern enum EToolContextCoordinateSystem {
-	World;
-	Local;
-	EToolContextCoordinateSystem_MAX;
+extern class EToolContextCoordinateSystem {
+	static var World: EToolContextCoordinateSystem;
+	static var Local: EToolContextCoordinateSystem;
+	static var EToolContextCoordinateSystem_MAX: EToolContextCoordinateSystem;
 }

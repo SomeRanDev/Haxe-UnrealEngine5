@@ -3,9 +3,9 @@ package ue;
 
 @:native("EImportGeometryType")
 @:include("SpeedTreeImportData.h")
-extern enum EImportGeometryType {
-	IGT_3D;
-	IGT_Billboards;
-	IGT_Both;
-	IGT_MAX;
+extern class EImportGeometryType {
+	static var IGT_3D: EImportGeometryType;
+	static var IGT_Billboards: EImportGeometryType;
+	static var IGT_Both: EImportGeometryType;
+	static var IGT_MAX: EImportGeometryType;
 }

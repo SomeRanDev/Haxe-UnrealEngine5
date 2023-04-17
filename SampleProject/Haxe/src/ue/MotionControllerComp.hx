@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class MotionControllerComp extends PrimitiveComp {
 	public var PlayerIndex: cpp.Int32;
-	public var Hand_DEPRECATED: EControllerHand;
 	public var MotionSource: FName;
 	public var bDisableLowLatencyUpdate: Bool;
 	public var CurrentTrackingStatus: ETrackingStatus;
@@ -14,7 +13,7 @@ extern class MotionControllerComp extends PrimitiveComp {
 	public var DisplayModelSource: FName;
 	public var CustomDisplayMesh: cpp.Star<StaticMesh>;
 	public var DisplayMeshMaterialOverrides: TArray<cpp.Star<MaterialInterface>>;
-	public var DisplayComponent: cpp.Star<PrimitiveComp>;
+	private var DisplayComponent: cpp.Star<PrimitiveComp>;
 
 	public function SetTrackingSource(NewSource: EControllerHand): Void;
 	public function SetTrackingMotionSource(NewSource: FName): Void;
@@ -22,11 +21,11 @@ extern class MotionControllerComp extends PrimitiveComp {
 	public function SetDisplayModelSource(NewDisplayModelSource: FName): Void;
 	public function SetCustomDisplayMesh(NewDisplayMesh: cpp.Star<StaticMesh>): Void;
 	public function SetAssociatedPlayerIndex(NewPlayer: cpp.Int32): Void;
-	public function OnMotionControllerUpdated(): Void;
-	public function IsTracked(): cpp.Reference<Bool>;
-	public function GetTrackingSource(): cpp.Reference<EControllerHand>;
-	public function GetParameterValue(InName: FName, bValueFound: cpp.Reference<Bool>): cpp.Reference<cpp.Float32>;
-	public function GetHandJointPosition(jointIndex: cpp.Int32, bValueFound: cpp.Reference<Bool>): cpp.Reference<Vector>;
+	@:protected public function OnMotionControllerUpdated(): Void;
+	public function IsTracked(): Bool;
+	public function GetTrackingSource(): EControllerHand;
+	@:protected public function GetParameterValue(InName: FName, bValueFound: cpp.Reference<Bool>): cpp.Float32;
+	@:protected public function GetHandJointPosition(jointIndex: cpp.Int32, bValueFound: cpp.Reference<Bool>): Vector;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -36,8 +35,6 @@ extern class MotionControllerComp extends PrimitiveComp {
 abstract ConstMotionControllerComp(MotionControllerComp) from MotionControllerComp {
 	public extern var PlayerIndex(get, never): cpp.Int32;
 	public inline extern function get_PlayerIndex(): cpp.Int32 return this.PlayerIndex;
-	public extern var Hand_DEPRECATED(get, never): EControllerHand;
-	public inline extern function get_Hand_DEPRECATED(): EControllerHand return this.Hand_DEPRECATED;
 	public extern var MotionSource(get, never): FName;
 	public inline extern function get_MotionSource(): FName return this.MotionSource;
 	public extern var bDisableLowLatencyUpdate(get, never): Bool;
@@ -52,8 +49,6 @@ abstract ConstMotionControllerComp(MotionControllerComp) from MotionControllerCo
 	public inline extern function get_CustomDisplayMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.CustomDisplayMesh;
 	public extern var DisplayMeshMaterialOverrides(get, never): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>>;
 	public inline extern function get_DisplayMeshMaterialOverrides(): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>> return this.DisplayMeshMaterialOverrides;
-	public extern var DisplayComponent(get, never): cpp.Star<PrimitiveComp.ConstPrimitiveComp>;
-	public inline extern function get_DisplayComponent(): cpp.Star<PrimitiveComp.ConstPrimitiveComp> return this.DisplayComponent;
 }
 
 @:forward

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EPhysAssetFitVertWeight")
 @:include("PhysicsAssetUtils.h")
-extern enum EPhysAssetFitVertWeight {
-	EVW_AnyWeight;
-	EVW_DominantWeight;
-	EVW_MAX;
+extern class EPhysAssetFitVertWeight {
+	static var EVW_AnyWeight: EPhysAssetFitVertWeight;
+	static var EVW_DominantWeight: EPhysAssetFitVertWeight;
+	static var EVW_MAX: EPhysAssetFitVertWeight;
 }

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EGranularSynthSeekType")
 @:include("SynthComponents/SynthComponentGranulator.h")
-extern enum EGranularSynthSeekType {
-	FromBeginning;
-	FromCurrentPosition;
-	Count;
-	EGranularSynthSeekType_MAX;
+extern class EGranularSynthSeekType {
+	static var FromBeginning: EGranularSynthSeekType;
+	static var FromCurrentPosition: EGranularSynthSeekType;
+	static var Count: EGranularSynthSeekType;
+	static var EGranularSynthSeekType_MAX: EGranularSynthSeekType;
 }

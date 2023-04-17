@@ -3,8 +3,8 @@ package ue;
 
 @:native("EMontageNotifyTickType.Type")
 @:include("Animation/AnimTypes.h")
-extern enum EMontageNotifyTickType {
-	Queued;
-	BranchingPoint;
-	EMontageNotifyTickType_MAX;
+extern class EMontageNotifyTickType {
+	static var Queued: EMontageNotifyTickType;
+	static var BranchingPoint: EMontageNotifyTickType;
+	static var EMontageNotifyTickType_MAX: EMontageNotifyTickType;
 }

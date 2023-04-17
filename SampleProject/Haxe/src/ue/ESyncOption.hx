@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESyncOption")
 @:include("Components/LODSyncComponent.h")
-extern enum ESyncOption {
-	Drive;
-	Passive;
-	Disabled;
-	ESyncOption_MAX;
+extern class ESyncOption {
+	static var Drive: ESyncOption;
+	static var Passive: ESyncOption;
+	static var Disabled: ESyncOption;
+	static var ESyncOption_MAX: ESyncOption;
 }

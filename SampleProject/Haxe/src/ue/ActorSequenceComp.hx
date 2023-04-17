@@ -5,9 +5,9 @@ package ue;
 @:include("ActorSequenceComponent.h")
 @:structAccess
 extern class ActorSequenceComp extends ActorComp {
-	public var PlaybackSettings: MovieSceneSequencePlaybackSettings;
-	public var Sequence: cpp.Star<ActorSequence>;
-	public var SequencePlayer: cpp.Star<ActorSequencePlayer>;
+	@:protected public var PlaybackSettings: MovieSceneSequencePlaybackSettings;
+	@:protected public var Sequence: cpp.Star<ActorSequence>;
+	@:protected public var SequencePlayer: cpp.Star<ActorSequencePlayer>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class ActorSequenceComp extends ActorComp {
 @:forward()
 @:nativeGen
 abstract ConstActorSequenceComp(ActorSequenceComp) from ActorSequenceComp {
-	public extern var PlaybackSettings(get, never): MovieSceneSequencePlaybackSettings;
-	public inline extern function get_PlaybackSettings(): MovieSceneSequencePlaybackSettings return this.PlaybackSettings;
-	public extern var Sequence(get, never): cpp.Star<ActorSequence.ConstActorSequence>;
-	public inline extern function get_Sequence(): cpp.Star<ActorSequence.ConstActorSequence> return this.Sequence;
-	public extern var SequencePlayer(get, never): cpp.Star<ActorSequencePlayer.ConstActorSequencePlayer>;
-	public inline extern function get_SequencePlayer(): cpp.Star<ActorSequencePlayer.ConstActorSequencePlayer> return this.SequencePlayer;
 }
 
 @:forward

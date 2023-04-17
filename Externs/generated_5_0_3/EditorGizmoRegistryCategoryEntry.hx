@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class EditorGizmoRegistryCategoryEntry extends Object {
 	public var GizmoTypes: TArray<cpp.Star<InteractiveGizmoBuilder>>;
-	public var CategoryName: FString;
+	@:protected public var CategoryName: FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,6 @@ extern class EditorGizmoRegistryCategoryEntry extends Object {
 abstract ConstEditorGizmoRegistryCategoryEntry(EditorGizmoRegistryCategoryEntry) from EditorGizmoRegistryCategoryEntry {
 	public extern var GizmoTypes(get, never): TArray<cpp.Star<InteractiveGizmoBuilder.ConstInteractiveGizmoBuilder>>;
 	public inline extern function get_GizmoTypes(): TArray<cpp.Star<InteractiveGizmoBuilder.ConstInteractiveGizmoBuilder>> return this.GizmoTypes;
-	public extern var CategoryName(get, never): FString;
-	public inline extern function get_CategoryName(): FString return this.CategoryName;
 }
 
 @:forward

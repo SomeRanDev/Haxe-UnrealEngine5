@@ -5,9 +5,9 @@ package ue;
 @:include("Blueprint/IUserListEntry.h")
 @:structAccess
 extern class UserListEntryLibrary extends BlueprintFunctionLibrary {
-	public function IsListItemSelected(UserListEntry: UserListEntry): cpp.Reference<Bool>;
-	public function IsListItemExpanded(UserListEntry: UserListEntry): cpp.Reference<Bool>;
-	public function GetOwningListView(UserListEntry: UserListEntry): cpp.Reference<cpp.Star<ListViewBase>>;
+	public function IsListItemSelected(UserListEntry: UserListEntry): Bool;
+	public function IsListItemExpanded(UserListEntry: UserListEntry): Bool;
+	public function GetOwningListView(UserListEntry: UserListEntry): cpp.Star<ListViewBase>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -5,10 +5,10 @@ package ue;
 @:include("LatticeDeformerTool.h")
 @:structAccess
 extern class LatticeDeformerTool extends SingleSelectionMeshEditingTool {
-	public var ControlPointsMechanic: cpp.Star<LatticeControlPointsMechanic>;
-	public var Settings: cpp.Star<LatticeDeformerToolProperties>;
-	public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	public var bLatticeDeformed: Bool;
+	@:protected public var ControlPointsMechanic: cpp.Star<LatticeControlPointsMechanic>;
+	@:protected public var Settings: cpp.Star<LatticeDeformerToolProperties>;
+	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var bLatticeDeformed: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class LatticeDeformerTool extends SingleSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstLatticeDeformerTool(LatticeDeformerTool) from LatticeDeformerTool {
-	public extern var ControlPointsMechanic(get, never): cpp.Star<LatticeControlPointsMechanic.ConstLatticeControlPointsMechanic>;
-	public inline extern function get_ControlPointsMechanic(): cpp.Star<LatticeControlPointsMechanic.ConstLatticeControlPointsMechanic> return this.ControlPointsMechanic;
-	public extern var Settings(get, never): cpp.Star<LatticeDeformerToolProperties.ConstLatticeDeformerToolProperties>;
-	public inline extern function get_Settings(): cpp.Star<LatticeDeformerToolProperties.ConstLatticeDeformerToolProperties> return this.Settings;
-	public extern var Preview(get, never): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
-	public inline extern function get_Preview(): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.Preview;
-	public extern var bLatticeDeformed(get, never): Bool;
-	public inline extern function get_bLatticeDeformed(): Bool return this.bLatticeDeformed;
 }
 
 @:forward

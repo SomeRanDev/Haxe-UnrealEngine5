@@ -3,13 +3,13 @@ package ue;
 
 @:native("EARSessionStatus")
 @:include("ARTypes.h")
-extern enum EARSessionStatus {
-	NotStarted;
-	Running;
-	NotSupported;
-	FatalError;
-	PermissionNotGranted;
-	UnsupportedConfiguration;
-	Other;
-	EARSessionStatus_MAX;
+extern class EARSessionStatus {
+	static var NotStarted: EARSessionStatus;
+	static var Running: EARSessionStatus;
+	static var NotSupported: EARSessionStatus;
+	static var FatalError: EARSessionStatus;
+	static var PermissionNotGranted: EARSessionStatus;
+	static var UnsupportedConfiguration: EARSessionStatus;
+	static var Other: EARSessionStatus;
+	static var EARSessionStatus_MAX: EARSessionStatus;
 }

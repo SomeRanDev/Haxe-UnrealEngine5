@@ -5,18 +5,18 @@ package ue;
 @:include("Commandlets/WorldPartitionConvertCommandlet.h")
 @:structAccess
 extern class WorldPartitionConvertCommandlet extends Commandlet {
-	public var EditorHashClass: TSubclassOf<WorldPartitionEditorHash>;
-	public var RuntimeHashClass: TSubclassOf<WorldPartitionRuntimeHash>;
-	public var ExcludedLevels: TArray<FString>;
-	public var bConvertActorsNotReferencedByLevelScript: Bool;
-	public var WorldOrigin: Vector;
-	public var WorldExtent: Vector;
-	public var HLODLayerAssetsPath: FString;
-	public var DefaultHLODLayerName: FString;
-	public var FoliageTypePath: FString;
-	public var HLODLayersForActorClasses: TArray<HLODLayerActorMapping>;
-	public var HLODLayers: TMap<FString, cpp.Star<HLODLayer>>;
-	public var LandscapeGridSize: cpp.UInt32;
+	@:protected public var EditorHashClass: TSubclassOf<WorldPartitionEditorHash>;
+	@:protected public var RuntimeHashClass: TSubclassOf<WorldPartitionRuntimeHash>;
+	@:protected public var ExcludedLevels: TArray<FString>;
+	@:protected public var bConvertActorsNotReferencedByLevelScript: Bool;
+	@:protected public var WorldOrigin: Vector;
+	@:protected public var WorldExtent: Vector;
+	@:protected public var HLODLayerAssetsPath: FString;
+	@:protected public var DefaultHLODLayerName: FString;
+	@:protected public var FoliageTypePath: FString;
+	@:protected public var HLODLayersForActorClasses: TArray<HLODLayerActorMapping>;
+	@:protected public var HLODLayers: TMap<FString, cpp.Star<HLODLayer>>;
+	@:protected public var LandscapeGridSize: cpp.UInt32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -24,30 +24,6 @@ extern class WorldPartitionConvertCommandlet extends Commandlet {
 @:forward()
 @:nativeGen
 abstract ConstWorldPartitionConvertCommandlet(WorldPartitionConvertCommandlet) from WorldPartitionConvertCommandlet {
-	public extern var EditorHashClass(get, never): TSubclassOf<WorldPartitionEditorHash.ConstWorldPartitionEditorHash>;
-	public inline extern function get_EditorHashClass(): TSubclassOf<WorldPartitionEditorHash.ConstWorldPartitionEditorHash> return this.EditorHashClass;
-	public extern var RuntimeHashClass(get, never): TSubclassOf<WorldPartitionRuntimeHash.ConstWorldPartitionRuntimeHash>;
-	public inline extern function get_RuntimeHashClass(): TSubclassOf<WorldPartitionRuntimeHash.ConstWorldPartitionRuntimeHash> return this.RuntimeHashClass;
-	public extern var ExcludedLevels(get, never): TArray<FString>;
-	public inline extern function get_ExcludedLevels(): TArray<FString> return this.ExcludedLevels;
-	public extern var bConvertActorsNotReferencedByLevelScript(get, never): Bool;
-	public inline extern function get_bConvertActorsNotReferencedByLevelScript(): Bool return this.bConvertActorsNotReferencedByLevelScript;
-	public extern var WorldOrigin(get, never): Vector;
-	public inline extern function get_WorldOrigin(): Vector return this.WorldOrigin;
-	public extern var WorldExtent(get, never): Vector;
-	public inline extern function get_WorldExtent(): Vector return this.WorldExtent;
-	public extern var HLODLayerAssetsPath(get, never): FString;
-	public inline extern function get_HLODLayerAssetsPath(): FString return this.HLODLayerAssetsPath;
-	public extern var DefaultHLODLayerName(get, never): FString;
-	public inline extern function get_DefaultHLODLayerName(): FString return this.DefaultHLODLayerName;
-	public extern var FoliageTypePath(get, never): FString;
-	public inline extern function get_FoliageTypePath(): FString return this.FoliageTypePath;
-	public extern var HLODLayersForActorClasses(get, never): TArray<HLODLayerActorMapping>;
-	public inline extern function get_HLODLayersForActorClasses(): TArray<HLODLayerActorMapping> return this.HLODLayersForActorClasses;
-	public extern var HLODLayers(get, never): TMap<FString, cpp.Star<HLODLayer.ConstHLODLayer>>;
-	public inline extern function get_HLODLayers(): TMap<FString, cpp.Star<HLODLayer.ConstHLODLayer>> return this.HLODLayers;
-	public extern var LandscapeGridSize(get, never): cpp.UInt32;
-	public inline extern function get_LandscapeGridSize(): cpp.UInt32 return this.LandscapeGridSize;
 }
 
 @:forward

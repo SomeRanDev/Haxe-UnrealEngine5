@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETextJustify.Type")
 @:include("Framework/Text/TextLayout.h")
-extern enum ETextJustify {
-	Left;
-	Center;
-	Right;
-	ETextJustify_MAX;
+extern class ETextJustify {
+	static var Left: ETextJustify;
+	static var Center: ETextJustify;
+	static var Right: ETextJustify;
+	static var ETextJustify_MAX: ETextJustify;
 }

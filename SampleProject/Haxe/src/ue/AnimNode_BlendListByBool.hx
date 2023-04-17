@@ -5,7 +5,6 @@ package ue;
 @:include("AnimNodes/AnimNode_BlendListByBool.h")
 @:structAccess
 extern class AnimNode_BlendListByBool extends AnimNode_BlendListBase {
-	public var bActiveValue: Bool;
 
 	@:native("FAnimNode_BlendListByBool") public function new();
 	@:native("FAnimNode_BlendListByBool") public static function make(bActiveValue: Bool): AnimNode_BlendListByBool ;

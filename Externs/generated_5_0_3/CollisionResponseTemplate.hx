@@ -6,11 +6,10 @@ package ue;
 @:structAccess
 extern class CollisionResponseTemplate {
 	public var Name: FName;
-	public var CollisionEnabled: ECollisionEnabled;
+	public var CollisionEnabled: TEnumAsByte<ECollisionEnabled>;
 	public var bCanModify: Bool;
 	public var ObjectTypeName: FName;
 	public var CustomResponses: TArray<ResponseChannel>;
-	public var HelpMessage: FString;
 
 	@:native("FCollisionResponseTemplate") public function new();
 }

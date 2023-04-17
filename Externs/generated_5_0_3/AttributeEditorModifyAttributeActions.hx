@@ -8,7 +8,7 @@ extern class AttributeEditorModifyAttributeActions extends AttributeEditorAction
 	public var Attribute: FString;
 	public var AttributeNamesList: TArray<FString>;
 
-	public function GetAttributeNamesFunc(): cpp.Reference<TArray<FString>>;
+	public function GetAttributeNamesFunc(): TArray<FString>;
 	public function DeleteSelected(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;

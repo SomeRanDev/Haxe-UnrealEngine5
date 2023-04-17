@@ -7,17 +7,17 @@ package ue;
 extern class NiagaraPythonScriptModuleInput extends Object {
 	public var Input: cpp.Star<NiagaraClipboardFunctionInput>;
 
-	public function IsSet(): cpp.Reference<Bool>;
-	public function IsLocalValue(): cpp.Reference<Bool>;
-	public function AsVec4(): cpp.Reference<Vector4>;
-	public function AsVec3(): cpp.Reference<Vector>;
-	public function AsVec2(): cpp.Reference<Vector2D>;
-	public function AsQuat(): cpp.Reference<Quat>;
-	public function AsInt(): cpp.Reference<cpp.Int32>;
-	public function AsFloat(): cpp.Reference<cpp.Float32>;
-	public function AsEnum(): cpp.Reference<FString>;
-	public function AsColor(): cpp.Reference<LinearColor>;
-	public function AsBool(): cpp.Reference<Bool>;
+	public function IsSet(): Bool;
+	public function IsLocalValue(): Bool;
+	public function AsVec4(): Vector4;
+	public function AsVec3(): Vector;
+	public function AsVec2(): Vector2D;
+	public function AsQuat(): Quat;
+	public function AsInt(): cpp.Int32;
+	public function AsFloat(): cpp.Float32;
+	public function AsEnum(): FString;
+	public function AsColor(): LinearColor;
+	public function AsBool(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

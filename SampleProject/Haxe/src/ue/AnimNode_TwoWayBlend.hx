@@ -9,7 +9,7 @@ extern class AnimNode_TwoWayBlend extends AnimNode_Base {
 	public var B: PoseLink;
 	public var AlphaInputType: EAnimAlphaInputType;
 	public var bAlphaBoolEnabled: Bool;
-	public var bResetChildOnActivation: Bool;
+	@:protected public var bResetChildOnActivation: Bool;
 	public var Alpha: cpp.Float32;
 	public var AlphaScaleBias: InputScaleBias;
 	public var AlphaBoolBlend: InputAlphaBoolBlend;

@@ -3,10 +3,10 @@ package ue;
 
 @:native("Beam2SourceTargetTangentMethod")
 @:include("Particles/Beam/ParticleModuleBeamBase.h")
-extern enum Beam2SourceTargetTangentMethod {
-	PEB2STTM_Direct;
-	PEB2STTM_UserSet;
-	PEB2STTM_Distribution;
-	PEB2STTM_Emitter;
-	PEB2STTM_MAX;
+extern class Beam2SourceTargetTangentMethod {
+	static var PEB2STTM_Direct: Beam2SourceTargetTangentMethod;
+	static var PEB2STTM_UserSet: Beam2SourceTargetTangentMethod;
+	static var PEB2STTM_Distribution: Beam2SourceTargetTangentMethod;
+	static var PEB2STTM_Emitter: Beam2SourceTargetTangentMethod;
+	static var PEB2STTM_MAX: Beam2SourceTargetTangentMethod;
 }

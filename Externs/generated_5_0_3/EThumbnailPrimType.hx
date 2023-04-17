@@ -3,11 +3,11 @@ package ue;
 
 @:native("EThumbnailPrimType")
 @:include("ThumbnailRendering/ThumbnailManager.h")
-extern enum EThumbnailPrimType {
-	TPT_None;
-	TPT_Sphere;
-	TPT_Cube;
-	TPT_Plane;
-	TPT_Cylinder;
-	TPT_MAX;
+extern class EThumbnailPrimType {
+	static var TPT_None: EThumbnailPrimType;
+	static var TPT_Sphere: EThumbnailPrimType;
+	static var TPT_Cube: EThumbnailPrimType;
+	static var TPT_Plane: EThumbnailPrimType;
+	static var TPT_Cylinder: EThumbnailPrimType;
+	static var TPT_MAX: EThumbnailPrimType;
 }

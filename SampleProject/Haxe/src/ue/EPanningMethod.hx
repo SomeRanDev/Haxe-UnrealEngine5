@@ -3,8 +3,8 @@ package ue;
 
 @:native("EPanningMethod")
 @:include("Sound/AudioSettings.h")
-extern enum EPanningMethod {
-	Linear;
-	EqualPower;
-	EPanningMethod_MAX;
+extern class EPanningMethod {
+	static var Linear: EPanningMethod;
+	static var EqualPower: EPanningMethod;
+	static var EPanningMethod_MAX: EPanningMethod;
 }

@@ -5,7 +5,6 @@ package ue;
 @:include("Components/Image.h")
 @:structAccess
 extern class Image extends Widget {
-	public var Image_DEPRECATED: cpp.Star<SlateBrushAsset>;
 	public var Brush: SlateBrush;
 	public var BrushDelegate: HaxeDelegateProperty<() -> Void>;
 	public var ColorAndOpacity: LinearColor;
@@ -26,7 +25,7 @@ extern class Image extends Widget {
 	public function SetBrushFromAtlasInterface(AtlasRegion: SlateTextureAtlasInterface, bMatchSize: Bool): Void;
 	public function SetBrushFromAsset(Asset: cpp.Star<SlateBrushAsset>): Void;
 	public function SetBrush(InBrush: cpp.Reference<SlateBrush>): Void;
-	public function GetDynamicMaterial(): cpp.Reference<cpp.Star<MaterialInstanceDynamic>>;
+	public function GetDynamicMaterial(): cpp.Star<MaterialInstanceDynamic>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -34,8 +33,6 @@ extern class Image extends Widget {
 @:forward()
 @:nativeGen
 abstract ConstImage(Image) from Image {
-	public extern var Image_DEPRECATED(get, never): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset>;
-	public inline extern function get_Image_DEPRECATED(): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset> return this.Image_DEPRECATED;
 	public extern var Brush(get, never): SlateBrush;
 	public inline extern function get_Brush(): SlateBrush return this.Brush;
 	public extern var BrushDelegate(get, never): HaxeDelegateProperty<() -> Void>;

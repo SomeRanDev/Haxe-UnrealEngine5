@@ -3,13 +3,13 @@ package ue;
 
 @:native("EMaterialVectorCoordTransform")
 @:include("Materials/MaterialExpressionTransform.h")
-extern enum EMaterialVectorCoordTransform {
-	TRANSFORM_Tangent;
-	TRANSFORM_Local;
-	TRANSFORM_World;
-	TRANSFORM_View;
-	TRANSFORM_Camera;
-	TRANSFORM_ParticleWorld;
-	TRANSFORM_Instance;
-	TRANSFORM_MAX;
+extern class EMaterialVectorCoordTransform {
+	static var TRANSFORM_Tangent: EMaterialVectorCoordTransform;
+	static var TRANSFORM_Local: EMaterialVectorCoordTransform;
+	static var TRANSFORM_World: EMaterialVectorCoordTransform;
+	static var TRANSFORM_View: EMaterialVectorCoordTransform;
+	static var TRANSFORM_Camera: EMaterialVectorCoordTransform;
+	static var TRANSFORM_ParticleWorld: EMaterialVectorCoordTransform;
+	static var TRANSFORM_Instance: EMaterialVectorCoordTransform;
+	static var TRANSFORM_MAX: EMaterialVectorCoordTransform;
 }

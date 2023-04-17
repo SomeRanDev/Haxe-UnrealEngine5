@@ -19,14 +19,14 @@ extern class CanvasPanelSlot extends PanelSlot {
 	public function SetAutoSize(InbAutoSize: Bool): Void;
 	public function SetAnchors(InAnchors: Anchors): Void;
 	public function SetAlignment(InAlignment: Vector2D): Void;
-	public function GetZOrder(): cpp.Reference<cpp.Int32>;
-	public function GetSize(): cpp.Reference<Vector2D>;
-	public function GetPosition(): cpp.Reference<Vector2D>;
-	public function GetOffsets(): cpp.Reference<Margin>;
-	public function GetLayout(): cpp.Reference<AnchorData>;
-	public function GetAutoSize(): cpp.Reference<Bool>;
-	public function GetAnchors(): cpp.Reference<Anchors>;
-	public function GetAlignment(): cpp.Reference<Vector2D>;
+	public function GetZOrder(): cpp.Int32;
+	public function GetSize(): Vector2D;
+	public function GetPosition(): Vector2D;
+	public function GetOffsets(): Margin;
+	public function GetLayout(): AnchorData;
+	public function GetAutoSize(): Bool;
+	public function GetAnchors(): Anchors;
+	public function GetAlignment(): Vector2D;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

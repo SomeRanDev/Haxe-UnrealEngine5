@@ -9,7 +9,7 @@ extern class SpringArmComp extends SceneComp {
 	public var SocketOffset: Vector;
 	public var TargetOffset: Vector;
 	public var ProbeSize: cpp.Float32;
-	public var ProbeChannel: ECollisionChannel;
+	public var ProbeChannel: TEnumAsByte<ECollisionChannel>;
 	public var bDoCollisionTest: Bool;
 	public var bUsePawnControlRotation: Bool;
 	public var bInheritPitch: Bool;
@@ -25,9 +25,9 @@ extern class SpringArmComp extends SceneComp {
 	public var CameraLagMaxDistance: cpp.Float32;
 	public var bClampToMaxPhysicsDeltaTime: Bool;
 
-	public function IsCollisionFixApplied(): cpp.Reference<Bool>;
-	public function GetUnfixedCameraPosition(): cpp.Reference<Vector>;
-	public function GetTargetRotation(): cpp.Reference<Rotator>;
+	public function IsCollisionFixApplied(): Bool;
+	public function GetUnfixedCameraPosition(): Vector;
+	public function GetTargetRotation(): Rotator;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -43,8 +43,8 @@ abstract ConstSpringArmComp(SpringArmComp) from SpringArmComp {
 	public inline extern function get_TargetOffset(): Vector return this.TargetOffset;
 	public extern var ProbeSize(get, never): cpp.Float32;
 	public inline extern function get_ProbeSize(): cpp.Float32 return this.ProbeSize;
-	public extern var ProbeChannel(get, never): ECollisionChannel;
-	public inline extern function get_ProbeChannel(): ECollisionChannel return this.ProbeChannel;
+	public extern var ProbeChannel(get, never): TEnumAsByte<ECollisionChannel>;
+	public inline extern function get_ProbeChannel(): TEnumAsByte<ECollisionChannel> return this.ProbeChannel;
 	public extern var bDoCollisionTest(get, never): Bool;
 	public inline extern function get_bDoCollisionTest(): Bool return this.bDoCollisionTest;
 	public extern var bUsePawnControlRotation(get, never): Bool;

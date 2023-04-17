@@ -3,10 +3,10 @@ package ue;
 
 @:native("EARServiceInstallRequestResult")
 @:include("ARDependencyHandler.h")
-extern enum EARServiceInstallRequestResult {
-	Installed;
-	DeviceNotCompatible;
-	UserDeclinedInstallation;
-	FatalError;
-	EARServiceInstallRequestResult_MAX;
+extern class EARServiceInstallRequestResult {
+	static var Installed: EARServiceInstallRequestResult;
+	static var DeviceNotCompatible: EARServiceInstallRequestResult;
+	static var UserDeclinedInstallation: EARServiceInstallRequestResult;
+	static var FatalError: EARServiceInstallRequestResult;
+	static var EARServiceInstallRequestResult_MAX: EARServiceInstallRequestResult;
 }

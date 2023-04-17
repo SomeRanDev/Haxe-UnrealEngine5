@@ -6,9 +6,9 @@ package ue;
 @:structAccess
 extern class OnlineBeaconHost extends OnlineBeacon {
 	public var ListenPort: cpp.Int32;
-	public var bAuthRequired: Bool;
-	public var MaxAuthTokenSize: cpp.UInt32;
-	public var ClientActors: TArray<cpp.Star<OnlineBeaconClient>>;
+	@:protected public var bAuthRequired: Bool;
+	@:protected public var MaxAuthTokenSize: cpp.UInt32;
+	private var ClientActors: TArray<cpp.Star<OnlineBeaconClient>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,12 +18,6 @@ extern class OnlineBeaconHost extends OnlineBeacon {
 abstract ConstOnlineBeaconHost(OnlineBeaconHost) from OnlineBeaconHost {
 	public extern var ListenPort(get, never): cpp.Int32;
 	public inline extern function get_ListenPort(): cpp.Int32 return this.ListenPort;
-	public extern var bAuthRequired(get, never): Bool;
-	public inline extern function get_bAuthRequired(): Bool return this.bAuthRequired;
-	public extern var MaxAuthTokenSize(get, never): cpp.UInt32;
-	public inline extern function get_MaxAuthTokenSize(): cpp.UInt32 return this.MaxAuthTokenSize;
-	public extern var ClientActors(get, never): TArray<cpp.Star<OnlineBeaconClient.ConstOnlineBeaconClient>>;
-	public inline extern function get_ClientActors(): TArray<cpp.Star<OnlineBeaconClient.ConstOnlineBeaconClient>> return this.ClientActors;
 }
 
 @:forward

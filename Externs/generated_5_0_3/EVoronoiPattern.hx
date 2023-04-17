@@ -3,11 +3,11 @@ package ue;
 
 @:native("EVoronoiPattern")
 @:include("Private/FractureToolCustomVoronoi.h")
-extern enum EVoronoiPattern {
-	Centered;
-	Uniform;
-	Grid;
-	MeshVertices;
-	SelectedBones;
-	EVoronoiPattern_MAX;
+extern class EVoronoiPattern {
+	static var Centered: EVoronoiPattern;
+	static var Uniform: EVoronoiPattern;
+	static var Grid: EVoronoiPattern;
+	static var MeshVertices: EVoronoiPattern;
+	static var SelectedBones: EVoronoiPattern;
+	static var EVoronoiPattern_MAX: EVoronoiPattern;
 }

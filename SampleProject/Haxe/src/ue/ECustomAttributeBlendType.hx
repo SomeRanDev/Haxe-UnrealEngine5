@@ -3,8 +3,8 @@ package ue;
 
 @:native("ECustomAttributeBlendType")
 @:include("Animation/CustomAttributes.h")
-extern enum ECustomAttributeBlendType {
-	Override;
-	Blend;
-	ECustomAttributeBlendType_MAX;
+extern class ECustomAttributeBlendType {
+	static var Override: ECustomAttributeBlendType;
+	static var Blend: ECustomAttributeBlendType;
+	static var ECustomAttributeBlendType_MAX: ECustomAttributeBlendType;
 }

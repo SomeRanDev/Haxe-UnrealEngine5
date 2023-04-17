@@ -3,12 +3,12 @@ package ue;
 
 @:native("EDatasmithImportLightmapMin")
 @:include("DatasmithImportOptions.h")
-extern enum EDatasmithImportLightmapMin {
-	LIGHTMAP_16;
-	LIGHTMAP_32;
-	LIGHTMAP_64;
-	LIGHTMAP_128;
-	LIGHTMAP_256;
-	LIGHTMAP_512;
-	LIGHTMAP_MAX;
+extern class EDatasmithImportLightmapMin {
+	static var LIGHTMAP_16: EDatasmithImportLightmapMin;
+	static var LIGHTMAP_32: EDatasmithImportLightmapMin;
+	static var LIGHTMAP_64: EDatasmithImportLightmapMin;
+	static var LIGHTMAP_128: EDatasmithImportLightmapMin;
+	static var LIGHTMAP_256: EDatasmithImportLightmapMin;
+	static var LIGHTMAP_512: EDatasmithImportLightmapMin;
+	static var LIGHTMAP_MAX: EDatasmithImportLightmapMin;
 }

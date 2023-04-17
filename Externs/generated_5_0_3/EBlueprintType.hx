@@ -3,12 +3,12 @@ package ue;
 
 @:native("EBlueprintType")
 @:include("Engine/Blueprint.h")
-extern enum EBlueprintType {
-	BPTYPE_Normal;
-	BPTYPE_Const;
-	BPTYPE_MacroLibrary;
-	BPTYPE_Interface;
-	BPTYPE_LevelScript;
-	BPTYPE_FunctionLibrary;
-	BPTYPE_MAX;
+extern class EBlueprintType {
+	static var BPTYPE_Normal: EBlueprintType;
+	static var BPTYPE_Const: EBlueprintType;
+	static var BPTYPE_MacroLibrary: EBlueprintType;
+	static var BPTYPE_Interface: EBlueprintType;
+	static var BPTYPE_LevelScript: EBlueprintType;
+	static var BPTYPE_FunctionLibrary: EBlueprintType;
+	static var BPTYPE_MAX: EBlueprintType;
 }

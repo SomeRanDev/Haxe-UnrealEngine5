@@ -3,11 +3,11 @@ package ue;
 
 @:native("ESlateColorStylingMode")
 @:include("Styling/SlateColor.h")
-extern enum ESlateColorStylingMode {
-	UseColor_Specified;
-	UseColor_ColorTable;
-	UseColor_Foreground;
-	UseColor_Foreground_Subdued;
-	UseColor_UseStyle;
-	UseColor_MAX;
+extern class ESlateColorStylingMode {
+	static var UseColor_Specified: ESlateColorStylingMode;
+	static var UseColor_ColorTable: ESlateColorStylingMode;
+	static var UseColor_Foreground: ESlateColorStylingMode;
+	static var UseColor_Foreground_Subdued: ESlateColorStylingMode;
+	static var UseColor_UseStyle: ESlateColorStylingMode;
+	static var UseColor_MAX: ESlateColorStylingMode;
 }

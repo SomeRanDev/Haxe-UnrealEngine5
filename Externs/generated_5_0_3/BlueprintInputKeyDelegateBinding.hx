@@ -6,9 +6,9 @@ package ue;
 @:structAccess
 extern class BlueprintInputKeyDelegateBinding extends BlueprintInputDelegateBinding {
 	public var InputChord: InputChord;
-	public var InputKeyEvent: EInputEvent;
+	public var InputKeyEvent: TEnumAsByte<EInputEvent>;
 	public var FunctionNameToBind: FName;
 
 	@:native("FBlueprintInputKeyDelegateBinding") public function new();
-	@:native("FBlueprintInputKeyDelegateBinding") public static function make(InputChord: InputChord, InputKeyEvent: EInputEvent, FunctionNameToBind: FName): BlueprintInputKeyDelegateBinding ;
+	@:native("FBlueprintInputKeyDelegateBinding") public static function make(InputChord: InputChord, InputKeyEvent: TEnumAsByte<EInputEvent>, FunctionNameToBind: FName): BlueprintInputKeyDelegateBinding ;
 }

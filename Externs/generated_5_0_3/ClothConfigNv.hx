@@ -32,11 +32,6 @@ extern class ClothConfigNv extends ClothConfigCommon {
 	public var CollisionThickness: cpp.Float32;
 	public var AnimDriveSpringStiffness: cpp.Float32;
 	public var AnimDriveDamperStiffness: cpp.Float32;
-	public var WindMethod_DEPRECATED: EClothingWindMethod_Legacy;
-	public var VerticalConstraintConfig_DEPRECATED: ClothConstraintSetup_Legacy;
-	public var HorizontalConstraintConfig_DEPRECATED: ClothConstraintSetup_Legacy;
-	public var BendConstraintConfig_DEPRECATED: ClothConstraintSetup_Legacy;
-	public var ShearConstraintConfig_DEPRECATED: ClothConstraintSetup_Legacy;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -98,16 +93,6 @@ abstract ConstClothConfigNv(ClothConfigNv) from ClothConfigNv {
 	public inline extern function get_AnimDriveSpringStiffness(): cpp.Float32 return this.AnimDriveSpringStiffness;
 	public extern var AnimDriveDamperStiffness(get, never): cpp.Float32;
 	public inline extern function get_AnimDriveDamperStiffness(): cpp.Float32 return this.AnimDriveDamperStiffness;
-	public extern var WindMethod_DEPRECATED(get, never): EClothingWindMethod_Legacy;
-	public inline extern function get_WindMethod_DEPRECATED(): EClothingWindMethod_Legacy return this.WindMethod_DEPRECATED;
-	public extern var VerticalConstraintConfig_DEPRECATED(get, never): ClothConstraintSetup_Legacy;
-	public inline extern function get_VerticalConstraintConfig_DEPRECATED(): ClothConstraintSetup_Legacy return this.VerticalConstraintConfig_DEPRECATED;
-	public extern var HorizontalConstraintConfig_DEPRECATED(get, never): ClothConstraintSetup_Legacy;
-	public inline extern function get_HorizontalConstraintConfig_DEPRECATED(): ClothConstraintSetup_Legacy return this.HorizontalConstraintConfig_DEPRECATED;
-	public extern var BendConstraintConfig_DEPRECATED(get, never): ClothConstraintSetup_Legacy;
-	public inline extern function get_BendConstraintConfig_DEPRECATED(): ClothConstraintSetup_Legacy return this.BendConstraintConfig_DEPRECATED;
-	public extern var ShearConstraintConfig_DEPRECATED(get, never): ClothConstraintSetup_Legacy;
-	public inline extern function get_ShearConstraintConfig_DEPRECATED(): ClothConstraintSetup_Legacy return this.ShearConstraintConfig_DEPRECATED;
 }
 
 @:forward

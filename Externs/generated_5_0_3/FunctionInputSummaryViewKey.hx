@@ -5,9 +5,9 @@ package ue;
 @:include("NiagaraEditorCommon.h")
 @:structAccess
 extern class FunctionInputSummaryViewKey {
-	public var FunctionGuid: Guid;
-	public var InputGuid: Guid;
-	public var InputName: FName;
+	private var FunctionGuid: Guid;
+	private var InputGuid: Guid;
+	private var InputName: FName;
 
 	@:native("FFunctionInputSummaryViewKey") public function new();
 	@:native("FFunctionInputSummaryViewKey") public static function make(FunctionGuid: Guid, InputGuid: Guid, InputName: FName): FunctionInputSummaryViewKey ;

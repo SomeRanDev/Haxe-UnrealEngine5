@@ -3,8 +3,8 @@ package ue;
 
 @:native("ECameraShakeAttenuation")
 @:include("Camera/CameraShakeSourceComponent.h")
-extern enum ECameraShakeAttenuation {
-	Linear;
-	Quadratic;
-	ECameraShakeAttenuation_MAX;
+extern class ECameraShakeAttenuation {
+	static var Linear: ECameraShakeAttenuation;
+	static var Quadratic: ECameraShakeAttenuation;
+	static var ECameraShakeAttenuation_MAX: ECameraShakeAttenuation;
 }

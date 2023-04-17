@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETeleportType")
 @:include("Engine/EngineTypes.h")
-extern enum ETeleportType {
-	None;
-	TeleportPhysics;
-	ResetPhysics;
-	ETeleportType_MAX;
+extern class ETeleportType {
+	static var None: ETeleportType;
+	static var TeleportPhysics: ETeleportType;
+	static var ResetPhysics: ETeleportType;
+	static var ETeleportType_MAX: ETeleportType;
 }

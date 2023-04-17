@@ -3,14 +3,14 @@ package ue;
 
 @:native("EUINavigation")
 @:include("Types/SlateEnums.h")
-extern enum EUINavigation {
-	Left;
-	Right;
-	Up;
-	Down;
-	Next;
-	Previous;
-	Num;
-	Invalid;
-	EUINavigation_MAX;
+extern class EUINavigation {
+	static var Left: EUINavigation;
+	static var Right: EUINavigation;
+	static var Up: EUINavigation;
+	static var Down: EUINavigation;
+	static var Next: EUINavigation;
+	static var Previous: EUINavigation;
+	static var Num: EUINavigation;
+	static var Invalid: EUINavigation;
+	static var EUINavigation_MAX: EUINavigation;
 }

@@ -13,7 +13,7 @@ extern class SkeletalMeshSocket extends Object {
 	public var bForceAlwaysAnimated: Bool;
 
 	public function InitializeSocketFromLocation(SkelComp: cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp>, WorldLocation: Vector, WorldNormal: Vector): Void;
-	public function GetSocketLocation(SkelComp: cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp>): cpp.Reference<Vector>;
+	public function GetSocketLocation(SkelComp: cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp>): Vector;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

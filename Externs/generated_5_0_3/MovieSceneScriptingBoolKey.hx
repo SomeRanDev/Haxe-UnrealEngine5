@@ -7,8 +7,8 @@ package ue;
 extern class MovieSceneScriptingBoolKey extends MovieSceneScriptingKey {
 	public function SetValue(InNewValue: Bool): Void;
 	public function SetTime(NewFrameNumber: cpp.Reference<FrameNumber>, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): Void;
-	public function GetValue(): cpp.Reference<Bool>;
-	public function GetTime(TimeUnit: ESequenceTimeUnit): cpp.Reference<FrameTime>;
+	public function GetValue(): Bool;
+	public function GetTime(TimeUnit: ESequenceTimeUnit): FrameTime;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

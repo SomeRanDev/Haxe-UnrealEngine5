@@ -5,13 +5,13 @@ package ue;
 @:include("AnimPose.h")
 @:structAccess
 extern class AnimPose {
-	public var BoneNames: TArray<FName>;
-	public var BoneIndices: TArray<cpp.Int32>;
-	public var ParentBoneIndices: TArray<cpp.Int32>;
-	public var LocalSpacePoses: TArray<Transform>;
-	public var WorldSpacePoses: TArray<Transform>;
-	public var RefLocalSpacePoses: TArray<Transform>;
-	public var RefWorldSpacePoses: TArray<Transform>;
+	@:protected public var BoneNames: TArray<FName>;
+	@:protected public var BoneIndices: TArray<cpp.Int32>;
+	@:protected public var ParentBoneIndices: TArray<cpp.Int32>;
+	@:protected public var LocalSpacePoses: TArray<Transform>;
+	@:protected public var WorldSpacePoses: TArray<Transform>;
+	@:protected public var RefLocalSpacePoses: TArray<Transform>;
+	@:protected public var RefWorldSpacePoses: TArray<Transform>;
 
 	@:native("FAnimPose") public function new();
 }

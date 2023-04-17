@@ -5,17 +5,13 @@ package ue;
 @:include("NiagaraDataInterfaceCurveBase.h")
 @:structAccess
 extern class NiagaraDataInterfaceCurveBase extends NiagaraDataInterface {
-	public var ShaderLUT: TArray<cpp.Float32>;
-	public var LUTMinTime: cpp.Float32;
-	public var LUTMaxTime: cpp.Float32;
-	public var LUTInvTimeRange: cpp.Float32;
-	public var LUTNumSamplesMinusOne: cpp.Float32;
+	@:protected public var ShaderLUT: TArray<cpp.Float32>;
+	@:protected public var LUTMinTime: cpp.Float32;
+	@:protected public var LUTMaxTime: cpp.Float32;
+	@:protected public var LUTInvTimeRange: cpp.Float32;
+	@:protected public var LUTNumSamplesMinusOne: cpp.Float32;
 	public var bUseLUT: Bool;
 	public var bExposeCurve: Bool;
-	public var bOptimizeLUT: Bool;
-	public var bOverrideOptimizeThreshold: Bool;
-	public var HasEditorData: Bool;
-	public var OptimizeThreshold: cpp.Float32;
 	public var ExposedName: FName;
 	public var ExposedTexture: cpp.Star<Texture2D>;
 
@@ -25,28 +21,10 @@ extern class NiagaraDataInterfaceCurveBase extends NiagaraDataInterface {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfaceCurveBase(NiagaraDataInterfaceCurveBase) from NiagaraDataInterfaceCurveBase {
-	public extern var ShaderLUT(get, never): TArray<cpp.Float32>;
-	public inline extern function get_ShaderLUT(): TArray<cpp.Float32> return this.ShaderLUT;
-	public extern var LUTMinTime(get, never): cpp.Float32;
-	public inline extern function get_LUTMinTime(): cpp.Float32 return this.LUTMinTime;
-	public extern var LUTMaxTime(get, never): cpp.Float32;
-	public inline extern function get_LUTMaxTime(): cpp.Float32 return this.LUTMaxTime;
-	public extern var LUTInvTimeRange(get, never): cpp.Float32;
-	public inline extern function get_LUTInvTimeRange(): cpp.Float32 return this.LUTInvTimeRange;
-	public extern var LUTNumSamplesMinusOne(get, never): cpp.Float32;
-	public inline extern function get_LUTNumSamplesMinusOne(): cpp.Float32 return this.LUTNumSamplesMinusOne;
 	public extern var bUseLUT(get, never): Bool;
 	public inline extern function get_bUseLUT(): Bool return this.bUseLUT;
 	public extern var bExposeCurve(get, never): Bool;
 	public inline extern function get_bExposeCurve(): Bool return this.bExposeCurve;
-	public extern var bOptimizeLUT(get, never): Bool;
-	public inline extern function get_bOptimizeLUT(): Bool return this.bOptimizeLUT;
-	public extern var bOverrideOptimizeThreshold(get, never): Bool;
-	public inline extern function get_bOverrideOptimizeThreshold(): Bool return this.bOverrideOptimizeThreshold;
-	public extern var HasEditorData(get, never): Bool;
-	public inline extern function get_HasEditorData(): Bool return this.HasEditorData;
-	public extern var OptimizeThreshold(get, never): cpp.Float32;
-	public inline extern function get_OptimizeThreshold(): cpp.Float32 return this.OptimizeThreshold;
 	public extern var ExposedName(get, never): FName;
 	public inline extern function get_ExposedName(): FName return this.ExposedName;
 	public extern var ExposedTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;

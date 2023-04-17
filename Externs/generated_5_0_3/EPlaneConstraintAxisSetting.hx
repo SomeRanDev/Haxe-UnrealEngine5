@@ -3,11 +3,11 @@ package ue;
 
 @:native("EPlaneConstraintAxisSetting")
 @:include("GameFramework/MovementComponent.h")
-extern enum EPlaneConstraintAxisSetting {
-	Custom;
-	X;
-	Y;
-	Z;
-	UseGlobalPhysicsSetting;
-	EPlaneConstraintAxisSetting_MAX;
+extern class EPlaneConstraintAxisSetting {
+	static var Custom: EPlaneConstraintAxisSetting;
+	static var X: EPlaneConstraintAxisSetting;
+	static var Y: EPlaneConstraintAxisSetting;
+	static var Z: EPlaneConstraintAxisSetting;
+	static var UseGlobalPhysicsSetting: EPlaneConstraintAxisSetting;
+	static var EPlaneConstraintAxisSetting_MAX: EPlaneConstraintAxisSetting;
 }

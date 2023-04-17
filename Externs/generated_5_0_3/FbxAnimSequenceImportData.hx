@@ -6,9 +6,7 @@ package ue;
 @:structAccess
 extern class FbxAnimSequenceImportData extends FbxAssetImportData {
 	public var bImportMeshesInBoneHierarchy: Bool;
-	public var AnimationLength: EFBXAnimationLengthImportType;
-	public var StartFrame_DEPRECATED: cpp.Int32;
-	public var EndFrame_DEPRECATED: cpp.Int32;
+	public var AnimationLength: TEnumAsByte<EFBXAnimationLengthImportType>;
 	public var FrameImportRange: Int32Interval;
 	public var bUseDefaultSampleRate: Bool;
 	public var CustomSampleRate: cpp.Int32;
@@ -32,12 +30,8 @@ extern class FbxAnimSequenceImportData extends FbxAssetImportData {
 abstract ConstFbxAnimSequenceImportData(FbxAnimSequenceImportData) from FbxAnimSequenceImportData {
 	public extern var bImportMeshesInBoneHierarchy(get, never): Bool;
 	public inline extern function get_bImportMeshesInBoneHierarchy(): Bool return this.bImportMeshesInBoneHierarchy;
-	public extern var AnimationLength(get, never): EFBXAnimationLengthImportType;
-	public inline extern function get_AnimationLength(): EFBXAnimationLengthImportType return this.AnimationLength;
-	public extern var StartFrame_DEPRECATED(get, never): cpp.Int32;
-	public inline extern function get_StartFrame_DEPRECATED(): cpp.Int32 return this.StartFrame_DEPRECATED;
-	public extern var EndFrame_DEPRECATED(get, never): cpp.Int32;
-	public inline extern function get_EndFrame_DEPRECATED(): cpp.Int32 return this.EndFrame_DEPRECATED;
+	public extern var AnimationLength(get, never): TEnumAsByte<EFBXAnimationLengthImportType>;
+	public inline extern function get_AnimationLength(): TEnumAsByte<EFBXAnimationLengthImportType> return this.AnimationLength;
 	public extern var FrameImportRange(get, never): Int32Interval;
 	public inline extern function get_FrameImportRange(): Int32Interval return this.FrameImportRange;
 	public extern var bUseDefaultSampleRate(get, never): Bool;

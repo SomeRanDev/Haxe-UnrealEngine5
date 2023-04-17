@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENiagaraMipMapGeneration")
 @:include("NiagaraCommon.h")
-extern enum ENiagaraMipMapGeneration {
-	Disabled;
-	PostStage;
-	PostSimulate;
-	ENiagaraMipMapGeneration_MAX;
+extern class ENiagaraMipMapGeneration {
+	static var Disabled: ENiagaraMipMapGeneration;
+	static var PostStage: ENiagaraMipMapGeneration;
+	static var PostSimulate: ENiagaraMipMapGeneration;
+	static var ENiagaraMipMapGeneration_MAX: ENiagaraMipMapGeneration;
 }

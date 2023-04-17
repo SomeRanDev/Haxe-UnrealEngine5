@@ -7,8 +7,8 @@ package ue;
 extern class EditPivotTool extends MultiSelectionMeshEditingTool {
 	public var TransformProps: cpp.Star<EditPivotToolProperties>;
 	public var EditPivotActions: cpp.Star<EditPivotToolActionPropertySet>;
-	public var ActiveGizmos: TArray<EditPivotTarget>;
-	public var DragAlignmentMechanic: cpp.Star<DragAlignmentMechanic>;
+	@:protected public var ActiveGizmos: TArray<EditPivotTarget>;
+	@:protected public var DragAlignmentMechanic: cpp.Star<DragAlignmentMechanic>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -20,10 +20,6 @@ abstract ConstEditPivotTool(EditPivotTool) from EditPivotTool {
 	public inline extern function get_TransformProps(): cpp.Star<EditPivotToolProperties.ConstEditPivotToolProperties> return this.TransformProps;
 	public extern var EditPivotActions(get, never): cpp.Star<EditPivotToolActionPropertySet.ConstEditPivotToolActionPropertySet>;
 	public inline extern function get_EditPivotActions(): cpp.Star<EditPivotToolActionPropertySet.ConstEditPivotToolActionPropertySet> return this.EditPivotActions;
-	public extern var ActiveGizmos(get, never): TArray<EditPivotTarget>;
-	public inline extern function get_ActiveGizmos(): TArray<EditPivotTarget> return this.ActiveGizmos;
-	public extern var DragAlignmentMechanic(get, never): cpp.Star<DragAlignmentMechanic.ConstDragAlignmentMechanic>;
-	public inline extern function get_DragAlignmentMechanic(): cpp.Star<DragAlignmentMechanic.ConstDragAlignmentMechanic> return this.DragAlignmentMechanic;
 }
 
 @:forward

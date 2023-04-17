@@ -5,7 +5,7 @@ package ue;
 @:structAccess
 extern class GizmoVec2ParameterSource extends Interface {
 	public function SetParameter(NewValue: cpp.Reference<Vector2D>): Void;
-	public function GetParameter(): cpp.Reference<Vector2D>;
+	public function GetParameter(): Vector2D;
 	public function EndModify(): Void;
 	public function BeginModify(): Void;
 

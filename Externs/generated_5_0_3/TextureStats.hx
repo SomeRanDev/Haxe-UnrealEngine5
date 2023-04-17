@@ -11,8 +11,8 @@ extern class TextureStats extends Object {
 	public var Virtual: FString;
 	public var MaxDim: Vector2D;
 	public var CurrentDim: Vector2D;
-	public var Format: EPixelFormat;
-	public var Group: TextureGroup;
+	public var Format: TEnumAsByte<EPixelFormat>;
+	public var Group: TEnumAsByte<TextureGroup>;
 	public var LODBias: cpp.Int32;
 	public var CurrentKB: cpp.Float32;
 	public var FullyLoadedKB: cpp.Float32;
@@ -38,10 +38,10 @@ abstract ConstTextureStats(TextureStats) from TextureStats {
 	public inline extern function get_MaxDim(): Vector2D return this.MaxDim;
 	public extern var CurrentDim(get, never): Vector2D;
 	public inline extern function get_CurrentDim(): Vector2D return this.CurrentDim;
-	public extern var Format(get, never): EPixelFormat;
-	public inline extern function get_Format(): EPixelFormat return this.Format;
-	public extern var Group(get, never): TextureGroup;
-	public inline extern function get_Group(): TextureGroup return this.Group;
+	public extern var Format(get, never): TEnumAsByte<EPixelFormat>;
+	public inline extern function get_Format(): TEnumAsByte<EPixelFormat> return this.Format;
+	public extern var Group(get, never): TEnumAsByte<TextureGroup>;
+	public inline extern function get_Group(): TEnumAsByte<TextureGroup> return this.Group;
 	public extern var LODBias(get, never): cpp.Int32;
 	public inline extern function get_LODBias(): cpp.Int32 return this.LODBias;
 	public extern var CurrentKB(get, never): cpp.Float32;

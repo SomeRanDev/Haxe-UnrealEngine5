@@ -3,15 +3,15 @@ package ue;
 
 @:native("FTransformChannelEnum")
 @:include("MovieSceneToolsUserSettings.h")
-extern enum FTransformChannelEnum {
-	TranslateX;
-	TranslateY;
-	TranslateZ;
-	RotateX;
-	RotateY;
-	RotateZ;
-	ScaleX;
-	ScaleY;
-	ScaleZ;
-	FTransformChannelEnum_MAX;
+extern class FTransformChannelEnum {
+	static var TranslateX: FTransformChannelEnum;
+	static var TranslateY: FTransformChannelEnum;
+	static var TranslateZ: FTransformChannelEnum;
+	static var RotateX: FTransformChannelEnum;
+	static var RotateY: FTransformChannelEnum;
+	static var RotateZ: FTransformChannelEnum;
+	static var ScaleX: FTransformChannelEnum;
+	static var ScaleY: FTransformChannelEnum;
+	static var ScaleZ: FTransformChannelEnum;
+	static var FTransformChannelEnum_MAX: FTransformChannelEnum;
 }

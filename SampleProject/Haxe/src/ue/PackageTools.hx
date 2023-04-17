@@ -5,7 +5,7 @@ package ue;
 @:include("PackageTools.h")
 @:structAccess
 extern class PackageTools extends Object {
-	public function SanitizePackageName(InPackageName: FString): cpp.Reference<FString>;
+	public function SanitizePackageName(InPackageName: FString): FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

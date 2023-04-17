@@ -6,8 +6,8 @@ package ue;
 @:structAccess
 extern class MaterialEditorSettings extends Object {
 	public var MaliOfflineCompilerPath: FilePath;
-	public var DefaultPreviewWidth: cpp.Int32;
-	public var DefaultPreviewHeight: cpp.Int32;
+	@:protected public var DefaultPreviewWidth: cpp.Int32;
+	@:protected public var DefaultPreviewHeight: cpp.Int32;
 	public var PreviewBackground: PreviewBackgroundSettings;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -18,10 +18,6 @@ extern class MaterialEditorSettings extends Object {
 abstract ConstMaterialEditorSettings(MaterialEditorSettings) from MaterialEditorSettings {
 	public extern var MaliOfflineCompilerPath(get, never): FilePath;
 	public inline extern function get_MaliOfflineCompilerPath(): FilePath return this.MaliOfflineCompilerPath;
-	public extern var DefaultPreviewWidth(get, never): cpp.Int32;
-	public inline extern function get_DefaultPreviewWidth(): cpp.Int32 return this.DefaultPreviewWidth;
-	public extern var DefaultPreviewHeight(get, never): cpp.Int32;
-	public inline extern function get_DefaultPreviewHeight(): cpp.Int32 return this.DefaultPreviewHeight;
 	public extern var PreviewBackground(get, never): PreviewBackgroundSettings;
 	public inline extern function get_PreviewBackground(): PreviewBackgroundSettings return this.PreviewBackground;
 }

@@ -5,8 +5,8 @@ package ue;
 @:include("WorldPartition/NavigationData/NavigationDataChunkActor.h")
 @:structAccess
 extern class NavigationDataChunkActor extends PartitionActor {
-	public var NavDataChunks: TArray<cpp.Star<NavigationDataChunk>>;
-	public var DataChunkActorBounds: Box;
+	@:protected public var NavDataChunks: TArray<cpp.Star<NavigationDataChunk>>;
+	@:protected public var DataChunkActorBounds: Box;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class NavigationDataChunkActor extends PartitionActor {
 @:forward()
 @:nativeGen
 abstract ConstNavigationDataChunkActor(NavigationDataChunkActor) from NavigationDataChunkActor {
-	public extern var NavDataChunks(get, never): TArray<cpp.Star<NavigationDataChunk.ConstNavigationDataChunk>>;
-	public inline extern function get_NavDataChunks(): TArray<cpp.Star<NavigationDataChunk.ConstNavigationDataChunk>> return this.NavDataChunks;
-	public extern var DataChunkActorBounds(get, never): Box;
-	public inline extern function get_DataChunkActorBounds(): Box return this.DataChunkActorBounds;
 }
 
 @:forward

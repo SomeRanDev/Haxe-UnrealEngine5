@@ -3,9 +3,9 @@ package ue;
 
 @:native("NetworkEmulationTarget")
 @:include("Settings/LevelEditorPlayNetworkEmulationSettings.h")
-extern enum NetworkEmulationTarget {
-	Server;
-	Client;
-	Any;
-	NetworkEmulationTarget_MAX;
+extern class NetworkEmulationTarget {
+	static var Server: NetworkEmulationTarget;
+	static var Client: NetworkEmulationTarget;
+	static var Any: NetworkEmulationTarget;
+	static var NetworkEmulationTarget_MAX: NetworkEmulationTarget;
 }

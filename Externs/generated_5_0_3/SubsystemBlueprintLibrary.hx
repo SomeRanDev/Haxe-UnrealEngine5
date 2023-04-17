@@ -5,12 +5,12 @@ package ue;
 @:include("Subsystems/SubsystemBlueprintLibrary.h")
 @:structAccess
 extern class SubsystemBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function GetWorldSubsystem(ContextObject: cpp.Star<Object>, Class: TSubclassOf<WorldSubsystem>): cpp.Reference<cpp.Star<WorldSubsystem>>;
-	public function GetLocalPlayerSubSystemFromPlayerController(PlayerController: cpp.Star<PlayerController>, Class: TSubclassOf<LocalPlayerSubsystem>): cpp.Reference<cpp.Star<LocalPlayerSubsystem>>;
-	public function GetLocalPlayerSubsystem(ContextObject: cpp.Star<Object>, Class: TSubclassOf<LocalPlayerSubsystem>): cpp.Reference<cpp.Star<LocalPlayerSubsystem>>;
-	public function GetGameInstanceSubsystem(ContextObject: cpp.Star<Object>, Class: TSubclassOf<GameInstanceSubsystem>): cpp.Reference<cpp.Star<GameInstanceSubsystem>>;
-	public function GetEngineSubsystem(Class: TSubclassOf<EngineSubsystem>): cpp.Reference<cpp.Star<EngineSubsystem>>;
-	public function GetAudioEngineSubsystem(ContextObject: cpp.Star<Object>, Class: TSubclassOf<AudioEngineSubsystem>): cpp.Reference<cpp.Star<AudioEngineSubsystem>>;
+	public function GetWorldSubsystem(ContextObject: cpp.Star<Object>, Class: TSubclassOf<WorldSubsystem>): cpp.Star<WorldSubsystem>;
+	public function GetLocalPlayerSubSystemFromPlayerController(PlayerController: cpp.Star<PlayerController>, Class: TSubclassOf<LocalPlayerSubsystem>): cpp.Star<LocalPlayerSubsystem>;
+	public function GetLocalPlayerSubsystem(ContextObject: cpp.Star<Object>, Class: TSubclassOf<LocalPlayerSubsystem>): cpp.Star<LocalPlayerSubsystem>;
+	public function GetGameInstanceSubsystem(ContextObject: cpp.Star<Object>, Class: TSubclassOf<GameInstanceSubsystem>): cpp.Star<GameInstanceSubsystem>;
+	public function GetEngineSubsystem(Class: TSubclassOf<EngineSubsystem>): cpp.Star<EngineSubsystem>;
+	public function GetAudioEngineSubsystem(ContextObject: cpp.Star<Object>, Class: TSubclassOf<AudioEngineSubsystem>): cpp.Star<AudioEngineSubsystem>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

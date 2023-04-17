@@ -7,7 +7,7 @@ package ue;
 extern class EditConditionTestObject extends Object {
 	public var BoolProperty: Bool;
 	public var EnumProperty: EditConditionTestEnum;
-	public var ByteEnumProperty: EditConditionByteEnum;
+	public var ByteEnumProperty: TEnumAsByte<EditConditionByteEnum>;
 	public var DoubleProperty: cpp.Float64;
 	public var IntegerProperty: cpp.Int32;
 	public var UintBitfieldProperty: Bool;
@@ -25,8 +25,8 @@ abstract ConstEditConditionTestObject(EditConditionTestObject) from EditConditio
 	public inline extern function get_BoolProperty(): Bool return this.BoolProperty;
 	public extern var EnumProperty(get, never): EditConditionTestEnum;
 	public inline extern function get_EnumProperty(): EditConditionTestEnum return this.EnumProperty;
-	public extern var ByteEnumProperty(get, never): EditConditionByteEnum;
-	public inline extern function get_ByteEnumProperty(): EditConditionByteEnum return this.ByteEnumProperty;
+	public extern var ByteEnumProperty(get, never): TEnumAsByte<EditConditionByteEnum>;
+	public inline extern function get_ByteEnumProperty(): TEnumAsByte<EditConditionByteEnum> return this.ByteEnumProperty;
 	public extern var DoubleProperty(get, never): cpp.Float64;
 	public inline extern function get_DoubleProperty(): cpp.Float64 return this.DoubleProperty;
 	public extern var IntegerProperty(get, never): cpp.Int32;

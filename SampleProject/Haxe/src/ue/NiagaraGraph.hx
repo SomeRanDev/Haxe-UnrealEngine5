@@ -5,13 +5,12 @@ package ue;
 @:include("NiagaraGraph.h")
 @:structAccess
 extern class NiagaraGraph extends EdGraph {
-	public var ChangeId: Guid;
-	public var ForceRebuildId: Guid;
-	public var LastBuiltTraversalDataChangeId: Guid;
-	public var CachedUsageInfo: TArray<NiagaraGraphScriptUsageInfo>;
-	public var VariableToMetaData_DEPRECATED: TMap<NiagaraVariable, NiagaraVariableMetaData>;
-	public var VariableToScriptVariable: TMap<NiagaraVariable, cpp.Star<NiagaraScriptVariable>>;
-	public var ParameterToReferencesMap: TMap<NiagaraVariable, NiagaraGraphParameterReferenceCollection>;
+	private var ChangeId: Guid;
+	private var ForceRebuildId: Guid;
+	private var LastBuiltTraversalDataChangeId: Guid;
+	private var CachedUsageInfo: TArray<NiagaraGraphScriptUsageInfo>;
+	private var VariableToScriptVariable: TMap<NiagaraVariable, cpp.Star<NiagaraScriptVariable>>;
+	private var ParameterToReferencesMap: TMap<NiagaraVariable, NiagaraGraphParameterReferenceCollection>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,20 +18,6 @@ extern class NiagaraGraph extends EdGraph {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraGraph(NiagaraGraph) from NiagaraGraph {
-	public extern var ChangeId(get, never): Guid;
-	public inline extern function get_ChangeId(): Guid return this.ChangeId;
-	public extern var ForceRebuildId(get, never): Guid;
-	public inline extern function get_ForceRebuildId(): Guid return this.ForceRebuildId;
-	public extern var LastBuiltTraversalDataChangeId(get, never): Guid;
-	public inline extern function get_LastBuiltTraversalDataChangeId(): Guid return this.LastBuiltTraversalDataChangeId;
-	public extern var CachedUsageInfo(get, never): TArray<NiagaraGraphScriptUsageInfo>;
-	public inline extern function get_CachedUsageInfo(): TArray<NiagaraGraphScriptUsageInfo> return this.CachedUsageInfo;
-	public extern var VariableToMetaData_DEPRECATED(get, never): TMap<NiagaraVariable, NiagaraVariableMetaData>;
-	public inline extern function get_VariableToMetaData_DEPRECATED(): TMap<NiagaraVariable, NiagaraVariableMetaData> return this.VariableToMetaData_DEPRECATED;
-	public extern var VariableToScriptVariable(get, never): TMap<NiagaraVariable, cpp.Star<NiagaraScriptVariable.ConstNiagaraScriptVariable>>;
-	public inline extern function get_VariableToScriptVariable(): TMap<NiagaraVariable, cpp.Star<NiagaraScriptVariable.ConstNiagaraScriptVariable>> return this.VariableToScriptVariable;
-	public extern var ParameterToReferencesMap(get, never): TMap<NiagaraVariable, NiagaraGraphParameterReferenceCollection>;
-	public inline extern function get_ParameterToReferencesMap(): TMap<NiagaraVariable, NiagaraGraphParameterReferenceCollection> return this.ParameterToReferencesMap;
 }
 
 @:forward

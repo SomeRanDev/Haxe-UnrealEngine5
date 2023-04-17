@@ -3,13 +3,13 @@ package ue;
 
 @:native("EObjectStateTypeEnum")
 @:include("GeometryCollection/GeometryCollectionSimulationTypes.h")
-extern enum EObjectStateTypeEnum {
-	Chaos_NONE;
-	Chaos_Object_Sleeping;
-	Chaos_Object_Kinematic;
-	Chaos_Object_Static;
-	Chaos_Object_Dynamic;
-	Chaos_Object_UserDefined;
-	Chaos_Max;
-	Chaos_MAX;
+extern class EObjectStateTypeEnum {
+	static var Chaos_NONE: EObjectStateTypeEnum;
+	static var Chaos_Object_Sleeping: EObjectStateTypeEnum;
+	static var Chaos_Object_Kinematic: EObjectStateTypeEnum;
+	static var Chaos_Object_Static: EObjectStateTypeEnum;
+	static var Chaos_Object_Dynamic: EObjectStateTypeEnum;
+	static var Chaos_Object_UserDefined: EObjectStateTypeEnum;
+	static var Chaos_Max: EObjectStateTypeEnum;
+	static var Chaos_MAX: EObjectStateTypeEnum;
 }

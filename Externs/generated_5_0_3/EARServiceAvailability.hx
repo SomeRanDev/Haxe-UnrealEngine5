@@ -3,13 +3,13 @@ package ue;
 
 @:native("EARServiceAvailability")
 @:include("ARDependencyHandler.h")
-extern enum EARServiceAvailability {
-	UnknownError;
-	UnknownChecking;
-	UnknownTimedOut;
-	UnsupportedDeviceNotCapable;
-	SupportedNotInstalled;
-	SupportedVersionTooOld;
-	SupportedInstalled;
-	EARServiceAvailability_MAX;
+extern class EARServiceAvailability {
+	static var UnknownError: EARServiceAvailability;
+	static var UnknownChecking: EARServiceAvailability;
+	static var UnknownTimedOut: EARServiceAvailability;
+	static var UnsupportedDeviceNotCapable: EARServiceAvailability;
+	static var SupportedNotInstalled: EARServiceAvailability;
+	static var SupportedVersionTooOld: EARServiceAvailability;
+	static var SupportedInstalled: EARServiceAvailability;
+	static var EARServiceAvailability_MAX: EARServiceAvailability;
 }

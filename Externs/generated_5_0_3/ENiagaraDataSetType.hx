@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENiagaraDataSetType")
 @:include("NiagaraCommon.h")
-extern enum ENiagaraDataSetType {
-	ParticleData;
-	Shared;
-	Event;
-	ENiagaraDataSetType_MAX;
+extern class ENiagaraDataSetType {
+	static var ParticleData: ENiagaraDataSetType;
+	static var Shared: ENiagaraDataSetType;
+	static var Event: ENiagaraDataSetType;
+	static var ENiagaraDataSetType_MAX: ENiagaraDataSetType;
 }

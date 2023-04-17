@@ -3,8 +3,8 @@ package ue;
 
 @:native("ERotationGridMode")
 @:include("Settings/LevelEditorViewportSettings.h")
-extern enum ERotationGridMode {
-	GridMode_DivisionsOf360;
-	GridMode_Common;
-	GridMode_MAX;
+extern class ERotationGridMode {
+	static var GridMode_DivisionsOf360: ERotationGridMode;
+	static var GridMode_Common: ERotationGridMode;
+	static var GridMode_MAX: ERotationGridMode;
 }

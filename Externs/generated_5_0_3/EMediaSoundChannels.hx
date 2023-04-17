@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMediaSoundChannels")
 @:include("MediaSoundComponent.h")
-extern enum EMediaSoundChannels {
-	Mono;
-	Stereo;
-	Surround;
-	EMediaSoundChannels_MAX;
+extern class EMediaSoundChannels {
+	static var Mono: EMediaSoundChannels;
+	static var Stereo: EMediaSoundChannels;
+	static var Surround: EMediaSoundChannels;
+	static var EMediaSoundChannels_MAX: EMediaSoundChannels;
 }

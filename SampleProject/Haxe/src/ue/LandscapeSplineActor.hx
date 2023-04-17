@@ -5,7 +5,7 @@ package ue;
 @:include("LandscapeSplineActor.h")
 @:structAccess
 extern class LandscapeSplineActor extends Actor {
-	public var LandscapeGuid: Guid;
+	@:protected public var LandscapeGuid: Guid;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class LandscapeSplineActor extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstLandscapeSplineActor(LandscapeSplineActor) from LandscapeSplineActor {
-	public extern var LandscapeGuid(get, never): Guid;
-	public inline extern function get_LandscapeGuid(): Guid return this.LandscapeGuid;
 }
 
 @:forward

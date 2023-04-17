@@ -5,29 +5,20 @@ package ue;
 @:include("LandscapeProxy.h")
 @:structAccess
 extern class LandscapeProxy extends PartitionActor {
-	public var SplineComponent: cpp.Star<LandscapeSplinesComp>;
-	public var LandscapeGuid: Guid;
+	@:protected public var SplineComponent: cpp.Star<LandscapeSplinesComp>;
+	@:protected public var LandscapeGuid: Guid;
 	public var LandscapeSectionOffset: IntPoint;
 	public var MaxLODLevel: cpp.Int32;
-	public var LODDistanceFactor_DEPRECATED: cpp.Float32;
-	public var LODFalloff_DEPRECATED: ELandscapeLODFalloff;
 	public var ComponentScreenSizeToUseSubSections: cpp.Float32;
 	public var LOD0ScreenSize: cpp.Float32;
 	public var LOD0DistributionSetting: cpp.Float32;
 	public var LODDistributionSetting: cpp.Float32;
-	public var ExportLOD: cpp.Int32;
-	public var TargetDisplayOrderList: TArray<FName>;
-	public var TargetDisplayOrder: ELandscapeLayerDisplayMode;
 	public var StaticLightingLOD: cpp.Int32;
 	public var DefaultPhysMaterial: cpp.Star<PhysicalMaterial>;
 	public var StreamingDistanceMultiplier: cpp.Float32;
 	public var LandscapeMaterial: cpp.Star<MaterialInterface>;
 	public var LandscapeHoleMaterial: cpp.Star<MaterialInterface>;
 	public var LandscapeMaterialsOverride: TArray<LandscapeProxyMaterialOverride>;
-	public var PreEditLandscapeMaterial: cpp.Star<MaterialInterface>;
-	public var PreEditLandscapeHoleMaterial: cpp.Star<MaterialInterface>;
-	public var PreEditLandscapeMaterialsOverride: TArray<LandscapeProxyMaterialOverride>;
-	public var bIsPerformingInteractiveActionOnLandscapeMaterialOverride: Bool;
 	public var bMeshHoles: Bool;
 	public var MeshHolesMaxLod: cpp.UInt8;
 	public var RuntimeVirtualTextures: TArray<cpp.Star<RuntimeVirtualTexture>>;
@@ -56,7 +47,6 @@ extern class LandscapeProxy extends PartitionActor {
 	public var CustomDepthStencilWriteMask: ERendererStencilMask;
 	public var CustomDepthStencilValue: cpp.Int32;
 	public var LDMaxDrawDistance: cpp.Float32;
-	public var bIsMovingToLevel: Bool;
 	public var LightmassSettings: LightmassPrimitiveSettings;
 	public var CollisionMipLevel: cpp.Int32;
 	public var SimpleCollisionMipLevel: cpp.Int32;
@@ -64,11 +54,6 @@ extern class LandscapeProxy extends PartitionActor {
 	public var BodyInstance: BodyInstance;
 	public var bGenerateOverlapEvents: Bool;
 	public var bBakeMaterialPositionOffsetIntoCollision: Bool;
-	public var EditorCachedLayerInfos_DEPRECATED: TArray<cpp.Star<LandscapeLayerInfoObject>>;
-	public var ReimportHeightmapFilePath: FString;
-	public var ReimportDestinationLayerGuid: Guid;
-	public var EditorLayerSettings: TArray<LandscapeEditorLayerSettings>;
-	public var WeightmapUsageMap: TMap<cpp.Star<Texture2D>, cpp.Star<LandscapeWeightmapUsage>>;
 	public var ComponentSizeQuads: cpp.Int32;
 	public var SubsectionSizeQuads: cpp.Int32;
 	public var NumSubsections: cpp.Int32;
@@ -76,17 +61,16 @@ extern class LandscapeProxy extends PartitionActor {
 	public var bFillCollisionUnderLandscapeForNavmesh: Bool;
 	public var bUseDynamicMaterialInstance: Bool;
 	public var NavigationGeometryGatheringMode: ENavDataGatheringMode;
-	public var MaxPaintedLayersPerComponent: cpp.Int32;
 	public var bUseLandscapeForCullingInvisibleHLODVertices: Bool;
 	public var bHasLayersContent: Bool;
 
 	public function SetLandscapeMaterialVectorParameterValue(ParameterName: FName, Value: LinearColor): Void;
 	public function SetLandscapeMaterialTextureParameterValue(ParameterName: FName, Value: cpp.Star<Texture>): Void;
 	public function SetLandscapeMaterialScalarParameterValue(ParameterName: FName, Value: cpp.Float32): Void;
-	public function LandscapeImportWeightmapFromRenderTarget(InRenderTarget: cpp.Star<TextureRenderTarget2D>, InLayerName: FName): cpp.Reference<Bool>;
-	public function LandscapeImportHeightmapFromRenderTarget(InRenderTarget: cpp.Star<TextureRenderTarget2D>, InImportHeightFromRGChannel: Bool): cpp.Reference<Bool>;
-	public function LandscapeExportWeightmapToRenderTarget(InRenderTarget: cpp.Star<TextureRenderTarget2D>, InLayerName: FName): cpp.Reference<Bool>;
-	public function LandscapeExportHeightmapToRenderTarget(InRenderTarget: cpp.Star<TextureRenderTarget2D>, InExportHeightIntoRGChannel: Bool, InExportLandscapeProxies: Bool): cpp.Reference<Bool>;
+	public function LandscapeImportWeightmapFromRenderTarget(InRenderTarget: cpp.Star<TextureRenderTarget2D>, InLayerName: FName): Bool;
+	public function LandscapeImportHeightmapFromRenderTarget(InRenderTarget: cpp.Star<TextureRenderTarget2D>, InImportHeightFromRGChannel: Bool): Bool;
+	public function LandscapeExportWeightmapToRenderTarget(InRenderTarget: cpp.Star<TextureRenderTarget2D>, InLayerName: FName): Bool;
+	public function LandscapeExportHeightmapToRenderTarget(InRenderTarget: cpp.Star<TextureRenderTarget2D>, InExportHeightIntoRGChannel: Bool, InExportLandscapeProxies: Bool): Bool;
 	public function EditorSetLandscapeMaterial(NewLandscapeMaterial: cpp.Star<MaterialInterface>): Void;
 	public function EditorApplySpline(InSplineComponent: cpp.Star<SplineComp>, StartWidth: cpp.Float32, EndWidth: cpp.Float32, StartSideFalloff: cpp.Float32, EndSideFalloff: cpp.Float32, StartRoll: cpp.Float32, EndRoll: cpp.Float32, NumSubdivisions: cpp.Int32, bRaiseHeights: Bool, bLowerHeights: Bool, PaintLayer: cpp.Star<LandscapeLayerInfoObject>, EditLayerName: FName): Void;
 	public function ChangeLODDistanceFactor(InLODDistanceFactor: cpp.Float32): Void;
@@ -98,18 +82,10 @@ extern class LandscapeProxy extends PartitionActor {
 @:forward()
 @:nativeGen
 abstract ConstLandscapeProxy(LandscapeProxy) from LandscapeProxy {
-	public extern var SplineComponent(get, never): cpp.Star<LandscapeSplinesComp.ConstLandscapeSplinesComp>;
-	public inline extern function get_SplineComponent(): cpp.Star<LandscapeSplinesComp.ConstLandscapeSplinesComp> return this.SplineComponent;
-	public extern var LandscapeGuid(get, never): Guid;
-	public inline extern function get_LandscapeGuid(): Guid return this.LandscapeGuid;
 	public extern var LandscapeSectionOffset(get, never): IntPoint;
 	public inline extern function get_LandscapeSectionOffset(): IntPoint return this.LandscapeSectionOffset;
 	public extern var MaxLODLevel(get, never): cpp.Int32;
 	public inline extern function get_MaxLODLevel(): cpp.Int32 return this.MaxLODLevel;
-	public extern var LODDistanceFactor_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_LODDistanceFactor_DEPRECATED(): cpp.Float32 return this.LODDistanceFactor_DEPRECATED;
-	public extern var LODFalloff_DEPRECATED(get, never): ELandscapeLODFalloff;
-	public inline extern function get_LODFalloff_DEPRECATED(): ELandscapeLODFalloff return this.LODFalloff_DEPRECATED;
 	public extern var ComponentScreenSizeToUseSubSections(get, never): cpp.Float32;
 	public inline extern function get_ComponentScreenSizeToUseSubSections(): cpp.Float32 return this.ComponentScreenSizeToUseSubSections;
 	public extern var LOD0ScreenSize(get, never): cpp.Float32;
@@ -118,12 +94,6 @@ abstract ConstLandscapeProxy(LandscapeProxy) from LandscapeProxy {
 	public inline extern function get_LOD0DistributionSetting(): cpp.Float32 return this.LOD0DistributionSetting;
 	public extern var LODDistributionSetting(get, never): cpp.Float32;
 	public inline extern function get_LODDistributionSetting(): cpp.Float32 return this.LODDistributionSetting;
-	public extern var ExportLOD(get, never): cpp.Int32;
-	public inline extern function get_ExportLOD(): cpp.Int32 return this.ExportLOD;
-	public extern var TargetDisplayOrderList(get, never): TArray<FName>;
-	public inline extern function get_TargetDisplayOrderList(): TArray<FName> return this.TargetDisplayOrderList;
-	public extern var TargetDisplayOrder(get, never): ELandscapeLayerDisplayMode;
-	public inline extern function get_TargetDisplayOrder(): ELandscapeLayerDisplayMode return this.TargetDisplayOrder;
 	public extern var StaticLightingLOD(get, never): cpp.Int32;
 	public inline extern function get_StaticLightingLOD(): cpp.Int32 return this.StaticLightingLOD;
 	public extern var DefaultPhysMaterial(get, never): cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>;
@@ -136,14 +106,6 @@ abstract ConstLandscapeProxy(LandscapeProxy) from LandscapeProxy {
 	public inline extern function get_LandscapeHoleMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.LandscapeHoleMaterial;
 	public extern var LandscapeMaterialsOverride(get, never): TArray<LandscapeProxyMaterialOverride>;
 	public inline extern function get_LandscapeMaterialsOverride(): TArray<LandscapeProxyMaterialOverride> return this.LandscapeMaterialsOverride;
-	public extern var PreEditLandscapeMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_PreEditLandscapeMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.PreEditLandscapeMaterial;
-	public extern var PreEditLandscapeHoleMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_PreEditLandscapeHoleMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.PreEditLandscapeHoleMaterial;
-	public extern var PreEditLandscapeMaterialsOverride(get, never): TArray<LandscapeProxyMaterialOverride>;
-	public inline extern function get_PreEditLandscapeMaterialsOverride(): TArray<LandscapeProxyMaterialOverride> return this.PreEditLandscapeMaterialsOverride;
-	public extern var bIsPerformingInteractiveActionOnLandscapeMaterialOverride(get, never): Bool;
-	public inline extern function get_bIsPerformingInteractiveActionOnLandscapeMaterialOverride(): Bool return this.bIsPerformingInteractiveActionOnLandscapeMaterialOverride;
 	public extern var bMeshHoles(get, never): Bool;
 	public inline extern function get_bMeshHoles(): Bool return this.bMeshHoles;
 	public extern var MeshHolesMaxLod(get, never): cpp.UInt8;
@@ -200,8 +162,6 @@ abstract ConstLandscapeProxy(LandscapeProxy) from LandscapeProxy {
 	public inline extern function get_CustomDepthStencilValue(): cpp.Int32 return this.CustomDepthStencilValue;
 	public extern var LDMaxDrawDistance(get, never): cpp.Float32;
 	public inline extern function get_LDMaxDrawDistance(): cpp.Float32 return this.LDMaxDrawDistance;
-	public extern var bIsMovingToLevel(get, never): Bool;
-	public inline extern function get_bIsMovingToLevel(): Bool return this.bIsMovingToLevel;
 	public extern var LightmassSettings(get, never): LightmassPrimitiveSettings;
 	public inline extern function get_LightmassSettings(): LightmassPrimitiveSettings return this.LightmassSettings;
 	public extern var CollisionMipLevel(get, never): cpp.Int32;
@@ -216,16 +176,6 @@ abstract ConstLandscapeProxy(LandscapeProxy) from LandscapeProxy {
 	public inline extern function get_bGenerateOverlapEvents(): Bool return this.bGenerateOverlapEvents;
 	public extern var bBakeMaterialPositionOffsetIntoCollision(get, never): Bool;
 	public inline extern function get_bBakeMaterialPositionOffsetIntoCollision(): Bool return this.bBakeMaterialPositionOffsetIntoCollision;
-	public extern var EditorCachedLayerInfos_DEPRECATED(get, never): TArray<cpp.Star<LandscapeLayerInfoObject.ConstLandscapeLayerInfoObject>>;
-	public inline extern function get_EditorCachedLayerInfos_DEPRECATED(): TArray<cpp.Star<LandscapeLayerInfoObject.ConstLandscapeLayerInfoObject>> return this.EditorCachedLayerInfos_DEPRECATED;
-	public extern var ReimportHeightmapFilePath(get, never): FString;
-	public inline extern function get_ReimportHeightmapFilePath(): FString return this.ReimportHeightmapFilePath;
-	public extern var ReimportDestinationLayerGuid(get, never): Guid;
-	public inline extern function get_ReimportDestinationLayerGuid(): Guid return this.ReimportDestinationLayerGuid;
-	public extern var EditorLayerSettings(get, never): TArray<LandscapeEditorLayerSettings>;
-	public inline extern function get_EditorLayerSettings(): TArray<LandscapeEditorLayerSettings> return this.EditorLayerSettings;
-	public extern var WeightmapUsageMap(get, never): TMap<cpp.Star<Texture2D.ConstTexture2D>, cpp.Star<LandscapeWeightmapUsage.ConstLandscapeWeightmapUsage>>;
-	public inline extern function get_WeightmapUsageMap(): TMap<cpp.Star<Texture2D.ConstTexture2D>, cpp.Star<LandscapeWeightmapUsage.ConstLandscapeWeightmapUsage>> return this.WeightmapUsageMap;
 	public extern var ComponentSizeQuads(get, never): cpp.Int32;
 	public inline extern function get_ComponentSizeQuads(): cpp.Int32 return this.ComponentSizeQuads;
 	public extern var SubsectionSizeQuads(get, never): cpp.Int32;
@@ -240,8 +190,6 @@ abstract ConstLandscapeProxy(LandscapeProxy) from LandscapeProxy {
 	public inline extern function get_bUseDynamicMaterialInstance(): Bool return this.bUseDynamicMaterialInstance;
 	public extern var NavigationGeometryGatheringMode(get, never): ENavDataGatheringMode;
 	public inline extern function get_NavigationGeometryGatheringMode(): ENavDataGatheringMode return this.NavigationGeometryGatheringMode;
-	public extern var MaxPaintedLayersPerComponent(get, never): cpp.Int32;
-	public inline extern function get_MaxPaintedLayersPerComponent(): cpp.Int32 return this.MaxPaintedLayersPerComponent;
 	public extern var bUseLandscapeForCullingInvisibleHLODVertices(get, never): Bool;
 	public inline extern function get_bUseLandscapeForCullingInvisibleHLODVertices(): Bool return this.bUseLandscapeForCullingInvisibleHLODVertices;
 	public extern var bHasLayersContent(get, never): Bool;

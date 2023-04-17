@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class ParticleSysParam {
 	public var Name: FName;
-	public var ParamType: EParticleSysParamType;
+	public var ParamType: TEnumAsByte<EParticleSysParamType>;
 	public var Scalar: cpp.Float32;
 	public var Scalar_Low: cpp.Float32;
 	public var Vector: Vector;

@@ -3,15 +3,15 @@ package ue;
 
 @:native("EMeshEditingMaterialModes")
 @:include("Properties/MeshMaterialProperties.h")
-extern enum EMeshEditingMaterialModes {
-	ExistingMaterial;
-	Diffuse;
-	Grey;
-	Soft;
-	Transparent;
-	TangentNormal;
-	VertexColor;
-	CustomImage;
-	Custom;
-	EMeshEditingMaterialModes_MAX;
+extern class EMeshEditingMaterialModes {
+	static var ExistingMaterial: EMeshEditingMaterialModes;
+	static var Diffuse: EMeshEditingMaterialModes;
+	static var Grey: EMeshEditingMaterialModes;
+	static var Soft: EMeshEditingMaterialModes;
+	static var Transparent: EMeshEditingMaterialModes;
+	static var TangentNormal: EMeshEditingMaterialModes;
+	static var VertexColor: EMeshEditingMaterialModes;
+	static var CustomImage: EMeshEditingMaterialModes;
+	static var Custom: EMeshEditingMaterialModes;
+	static var EMeshEditingMaterialModes_MAX: EMeshEditingMaterialModes;
 }

@@ -3,11 +3,11 @@ package ue;
 
 @:native("EVectorNoiseFunction")
 @:include("Materials/MaterialExpressionVectorNoise.h")
-extern enum EVectorNoiseFunction {
-	VNF_CellnoiseALU;
-	VNF_VectorALU;
-	VNF_GradientALU;
-	VNF_CurlALU;
-	VNF_VoronoiALU;
-	VNF_MAX;
+extern class EVectorNoiseFunction {
+	static var VNF_CellnoiseALU: EVectorNoiseFunction;
+	static var VNF_VectorALU: EVectorNoiseFunction;
+	static var VNF_GradientALU: EVectorNoiseFunction;
+	static var VNF_CurlALU: EVectorNoiseFunction;
+	static var VNF_VoronoiALU: EVectorNoiseFunction;
+	static var VNF_MAX: EVectorNoiseFunction;
 }

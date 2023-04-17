@@ -5,7 +5,7 @@ package ue;
 @:include("MovieSceneMediaTrack.h")
 @:structAccess
 extern class MovieSceneMediaTrack extends MovieSceneNameableTrack {
-	public var MediaSections: TArray<cpp.Star<MovieSceneSection>>;
+	private var MediaSections: TArray<cpp.Star<MovieSceneSection>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MovieSceneMediaTrack extends MovieSceneNameableTrack {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneMediaTrack(MovieSceneMediaTrack) from MovieSceneMediaTrack {
-	public extern var MediaSections(get, never): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>>;
-	public inline extern function get_MediaSections(): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>> return this.MediaSections;
 }
 
 @:forward

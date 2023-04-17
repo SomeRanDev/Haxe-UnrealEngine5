@@ -3,8 +3,8 @@ package ue;
 
 @:native("EMIDCreationFlags")
 @:include("Kismet/KismetMaterialLibrary.h")
-extern enum EMIDCreationFlags {
-	None;
-	Transient;
-	EMIDCreationFlags_MAX;
+extern class EMIDCreationFlags {
+	static var None: EMIDCreationFlags;
+	static var Transient: EMIDCreationFlags;
+	static var EMIDCreationFlags_MAX: EMIDCreationFlags;
 }

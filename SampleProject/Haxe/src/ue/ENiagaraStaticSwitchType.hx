@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENiagaraStaticSwitchType")
 @:include("Private/NiagaraNodeStaticSwitch.h")
-extern enum ENiagaraStaticSwitchType {
-	Bool;
-	Integer;
-	Enum;
-	ENiagaraStaticSwitchType_MAX;
+extern class ENiagaraStaticSwitchType {
+	static var Bool: ENiagaraStaticSwitchType;
+	static var Integer: ENiagaraStaticSwitchType;
+	static var Enum: ENiagaraStaticSwitchType;
+	static var ENiagaraStaticSwitchType_MAX: ENiagaraStaticSwitchType;
 }

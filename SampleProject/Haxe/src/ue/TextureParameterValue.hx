@@ -5,7 +5,6 @@ package ue;
 @:include("Materials/MaterialInstance.h")
 @:structAccess
 extern class TextureParameterValue {
-	public var ParameterName_DEPRECATED: FName;
 	public var ParameterInfo: MaterialParameterInfo;
 	public var ParameterValue: cpp.Star<Texture>;
 	public var ExpressionGUID: Guid;

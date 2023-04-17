@@ -3,10 +3,10 @@ package ue;
 
 @:native("EPropertyBindingPermissionLevel")
 @:include("UMGEditorProjectSettings.h")
-extern enum EPropertyBindingPermissionLevel {
-	Allow;
-	Prevent;
-	PreventAndWarn;
-	PreventAndError;
-	EPropertyBindingPermissionLevel_MAX;
+extern class EPropertyBindingPermissionLevel {
+	static var Allow: EPropertyBindingPermissionLevel;
+	static var Prevent: EPropertyBindingPermissionLevel;
+	static var PreventAndWarn: EPropertyBindingPermissionLevel;
+	static var PreventAndError: EPropertyBindingPermissionLevel;
+	static var EPropertyBindingPermissionLevel_MAX: EPropertyBindingPermissionLevel;
 }

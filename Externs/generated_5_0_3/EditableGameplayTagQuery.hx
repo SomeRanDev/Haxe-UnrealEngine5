@@ -7,7 +7,7 @@ package ue;
 extern class EditableGameplayTagQuery extends Object {
 	public var UserDescription: FString;
 	public var RootExpression: cpp.Star<EditableGameplayTagQueryExpression>;
-	public var TagQueryExportText_Helper: GameplayTagQuery;
+	private var TagQueryExportText_Helper: GameplayTagQuery;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,8 +19,6 @@ abstract ConstEditableGameplayTagQuery(EditableGameplayTagQuery) from EditableGa
 	public inline extern function get_UserDescription(): FString return this.UserDescription;
 	public extern var RootExpression(get, never): cpp.Star<EditableGameplayTagQueryExpression.ConstEditableGameplayTagQueryExpression>;
 	public inline extern function get_RootExpression(): cpp.Star<EditableGameplayTagQueryExpression.ConstEditableGameplayTagQueryExpression> return this.RootExpression;
-	public extern var TagQueryExportText_Helper(get, never): GameplayTagQuery;
-	public inline extern function get_TagQueryExportText_Helper(): GameplayTagQuery return this.TagQueryExportText_Helper;
 }
 
 @:forward

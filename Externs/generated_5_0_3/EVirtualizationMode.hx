@@ -3,9 +3,9 @@ package ue;
 
 @:native("EVirtualizationMode")
 @:include("Sound/SoundBase.h")
-extern enum EVirtualizationMode {
-	Disabled;
-	PlayWhenSilent;
-	Restart;
-	EVirtualizationMode_MAX;
+extern class EVirtualizationMode {
+	static var Disabled: EVirtualizationMode;
+	static var PlayWhenSilent: EVirtualizationMode;
+	static var Restart: EVirtualizationMode;
+	static var EVirtualizationMode_MAX: EVirtualizationMode;
 }

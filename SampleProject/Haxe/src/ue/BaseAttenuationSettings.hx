@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class BaseAttenuationSettings {
 	public var DistanceAlgorithm: EAttenuationDistanceModel;
-	public var AttenuationShape: EAttenuationShape;
+	public var AttenuationShape: TEnumAsByte<EAttenuationShape>;
 	public var dBAttenuationAtMax: cpp.Float32;
 	public var FalloffMode: ENaturalSoundFalloffMode;
 	public var AttenuationShapeExtents: Vector;

@@ -6,8 +6,7 @@ package ue;
 @:structAccess
 extern class PhysicsSettings extends PhysicsSettingsCore {
 	public var PhysicErrorCorrection: RigidBodyErrorCorrection;
-	public var LockedAxis_DEPRECATED: ESettingsLockedAxis;
-	public var DefaultDegreesOfFreedom: ESettingsDOF;
+	public var DefaultDegreesOfFreedom: TEnumAsByte<ESettingsDOF>;
 	public var bSuppressFaceRemapTable: Bool;
 	public var bSupportUVFromHitResults: Bool;
 	public var bDisableActiveActors: Bool;
@@ -41,10 +40,8 @@ extern class PhysicsSettings extends PhysicsSettingsCore {
 abstract ConstPhysicsSettings(PhysicsSettings) from PhysicsSettings {
 	public extern var PhysicErrorCorrection(get, never): RigidBodyErrorCorrection;
 	public inline extern function get_PhysicErrorCorrection(): RigidBodyErrorCorrection return this.PhysicErrorCorrection;
-	public extern var LockedAxis_DEPRECATED(get, never): ESettingsLockedAxis;
-	public inline extern function get_LockedAxis_DEPRECATED(): ESettingsLockedAxis return this.LockedAxis_DEPRECATED;
-	public extern var DefaultDegreesOfFreedom(get, never): ESettingsDOF;
-	public inline extern function get_DefaultDegreesOfFreedom(): ESettingsDOF return this.DefaultDegreesOfFreedom;
+	public extern var DefaultDegreesOfFreedom(get, never): TEnumAsByte<ESettingsDOF>;
+	public inline extern function get_DefaultDegreesOfFreedom(): TEnumAsByte<ESettingsDOF> return this.DefaultDegreesOfFreedom;
 	public extern var bSuppressFaceRemapTable(get, never): Bool;
 	public inline extern function get_bSuppressFaceRemapTable(): Bool return this.bSuppressFaceRemapTable;
 	public extern var bSupportUVFromHitResults(get, never): Bool;

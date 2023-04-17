@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENiagaraOutlinerTimeUnits")
 @:include("Private/NiagaraOutliner.h")
-extern enum ENiagaraOutlinerTimeUnits {
-	Microseconds;
-	Milliseconds;
-	Seconds;
-	ENiagaraOutlinerTimeUnits_MAX;
+extern class ENiagaraOutlinerTimeUnits {
+	static var Microseconds: ENiagaraOutlinerTimeUnits;
+	static var Milliseconds: ENiagaraOutlinerTimeUnits;
+	static var Seconds: ENiagaraOutlinerTimeUnits;
+	static var ENiagaraOutlinerTimeUnits_MAX: ENiagaraOutlinerTimeUnits;
 }

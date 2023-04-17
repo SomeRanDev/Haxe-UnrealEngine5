@@ -6,15 +6,15 @@ package ue;
 @:structAccess
 extern class MeshComp extends PrimitiveComp {
 	public var OverrideMaterials: TArray<cpp.Star<MaterialInterface>>;
-	public var bEnableMaterialParameterCaching: Bool;
+	@:protected public var bEnableMaterialParameterCaching: Bool;
 
 	public function SetVectorParameterValueOnMaterials(ParameterName: FName, ParameterValue: Vector): Void;
 	public function SetScalarParameterValueOnMaterials(ParameterName: FName, ParameterValue: cpp.Float32): Void;
 	public function PrestreamTextures(Seconds: cpp.Float32, bPrioritizeCharacterTextures: Bool, CinematicTextureGroups: cpp.Int32): Void;
-	public function IsMaterialSlotNameValid(MaterialSlotName: FName): cpp.Reference<Bool>;
-	public function GetMaterialSlotNames(): cpp.Reference<TArray<FName>>;
-	public function GetMaterials(): cpp.Reference<TArray<cpp.Star<MaterialInterface>>>;
-	public function GetMaterialIndex(MaterialSlotName: FName): cpp.Reference<cpp.Int32>;
+	public function IsMaterialSlotNameValid(MaterialSlotName: FName): Bool;
+	public function GetMaterialSlotNames(): TArray<FName>;
+	public function GetMaterials(): TArray<cpp.Star<MaterialInterface>>;
+	public function GetMaterialIndex(MaterialSlotName: FName): cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -24,8 +24,6 @@ extern class MeshComp extends PrimitiveComp {
 abstract ConstMeshComp(MeshComp) from MeshComp {
 	public extern var OverrideMaterials(get, never): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>>;
 	public inline extern function get_OverrideMaterials(): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>> return this.OverrideMaterials;
-	public extern var bEnableMaterialParameterCaching(get, never): Bool;
-	public inline extern function get_bEnableMaterialParameterCaching(): Bool return this.bEnableMaterialParameterCaching;
 }
 
 @:forward

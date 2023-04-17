@@ -5,10 +5,10 @@ package ue;
 @:include("AnimNodes/AnimNode_Sync.h")
 @:structAccess
 extern class AnimNode_Sync extends AnimNode_Base {
-	public var Source: PoseLink;
-	public var GroupName: FName;
-	public var GroupRole: EAnimGroupRole;
+	private var Source: PoseLink;
+	private var GroupName: FName;
+	private var GroupRole: TEnumAsByte<EAnimGroupRole>;
 
 	@:native("FAnimNode_Sync") public function new();
-	@:native("FAnimNode_Sync") public static function make(Source: PoseLink, GroupName: FName, GroupRole: EAnimGroupRole): AnimNode_Sync ;
+	@:native("FAnimNode_Sync") public static function make(Source: PoseLink, GroupName: FName, GroupRole: TEnumAsByte<EAnimGroupRole>): AnimNode_Sync ;
 }

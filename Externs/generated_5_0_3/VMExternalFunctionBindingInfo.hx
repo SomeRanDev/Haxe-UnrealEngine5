@@ -10,7 +10,6 @@ extern class VMExternalFunctionBindingInfo {
 	public var InputParamLocations: TArray<Bool>;
 	public var NumOutputs: cpp.Int32;
 	public var FunctionSpecifiers: TArray<VMFunctionSpecifier>;
-	public var Specifiers_DEPRECATED: TMap<FName, FName>;
 
 	@:native("FVMExternalFunctionBindingInfo") public function new();
 }

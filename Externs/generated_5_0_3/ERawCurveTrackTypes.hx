@@ -3,9 +3,9 @@ package ue;
 
 @:native("ERawCurveTrackTypes")
 @:include("Animation/AnimCurveTypes.h")
-extern enum ERawCurveTrackTypes {
-	RCT_Float;
-	RCT_Vector;
-	RCT_Transform;
-	RCT_MAX;
+extern class ERawCurveTrackTypes {
+	static var RCT_Float: ERawCurveTrackTypes;
+	static var RCT_Vector: ERawCurveTrackTypes;
+	static var RCT_Transform: ERawCurveTrackTypes;
+	static var RCT_MAX: ERawCurveTrackTypes;
 }

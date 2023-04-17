@@ -5,9 +5,9 @@ package ue;
 @:include("CutMeshWithMeshTool.h")
 @:structAccess
 extern class CutMeshWithMeshTool extends BaseCreateFromSelectedTool {
-	public var CutProperties: cpp.Star<CutMeshWithMeshToolProperties>;
-	public var IntersectPreviewMesh: cpp.Star<PreviewMesh>;
-	public var DrawnLineSet: cpp.Star<LineSetComp>;
+	@:protected public var CutProperties: cpp.Star<CutMeshWithMeshToolProperties>;
+	@:protected public var IntersectPreviewMesh: cpp.Star<PreviewMesh>;
+	@:protected public var DrawnLineSet: cpp.Star<LineSetComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class CutMeshWithMeshTool extends BaseCreateFromSelectedTool {
 @:forward()
 @:nativeGen
 abstract ConstCutMeshWithMeshTool(CutMeshWithMeshTool) from CutMeshWithMeshTool {
-	public extern var CutProperties(get, never): cpp.Star<CutMeshWithMeshToolProperties.ConstCutMeshWithMeshToolProperties>;
-	public inline extern function get_CutProperties(): cpp.Star<CutMeshWithMeshToolProperties.ConstCutMeshWithMeshToolProperties> return this.CutProperties;
-	public extern var IntersectPreviewMesh(get, never): cpp.Star<PreviewMesh.ConstPreviewMesh>;
-	public inline extern function get_IntersectPreviewMesh(): cpp.Star<PreviewMesh.ConstPreviewMesh> return this.IntersectPreviewMesh;
-	public extern var DrawnLineSet(get, never): cpp.Star<LineSetComp.ConstLineSetComp>;
-	public inline extern function get_DrawnLineSet(): cpp.Star<LineSetComp.ConstLineSetComp> return this.DrawnLineSet;
 }
 
 @:forward

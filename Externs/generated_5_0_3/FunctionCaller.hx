@@ -6,8 +6,6 @@ package ue;
 @:structAccess
 extern class FunctionCaller {
 	public var FunctionName: FName;
-	public var FunctionEntry: TWeakObjectPtr<Object>;
-	public var DisplayOrder: cpp.UInt32;
 
 	@:native("FFunctionCaller") public function new();
 	@:native("FFunctionCaller") public static function make(FunctionName: FName, FunctionEntry: TWeakObjectPtr<Object>, DisplayOrder: cpp.UInt32): FunctionCaller ;

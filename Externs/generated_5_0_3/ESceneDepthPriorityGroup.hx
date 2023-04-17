@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESceneDepthPriorityGroup")
 @:include("Engine/EngineTypes.h")
-extern enum ESceneDepthPriorityGroup {
-	SDPG_World;
-	SDPG_Foreground;
-	SDPG_MAX;
+extern class ESceneDepthPriorityGroup {
+	static var SDPG_World: ESceneDepthPriorityGroup;
+	static var SDPG_Foreground: ESceneDepthPriorityGroup;
+	static var SDPG_MAX: ESceneDepthPriorityGroup;
 }

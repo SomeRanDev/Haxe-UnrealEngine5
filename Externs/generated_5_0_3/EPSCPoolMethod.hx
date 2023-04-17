@@ -3,11 +3,11 @@ package ue;
 
 @:native("EPSCPoolMethod")
 @:include("Particles/WorldPSCPool.h")
-extern enum EPSCPoolMethod {
-	None;
-	AutoRelease;
-	ManualRelease;
-	ManualRelease_OnComplete;
-	FreeInPool;
-	EPSCPoolMethod_MAX;
+extern class EPSCPoolMethod {
+	static var None: EPSCPoolMethod;
+	static var AutoRelease: EPSCPoolMethod;
+	static var ManualRelease: EPSCPoolMethod;
+	static var ManualRelease_OnComplete: EPSCPoolMethod;
+	static var FreeInPool: EPSCPoolMethod;
+	static var EPSCPoolMethod_MAX: EPSCPoolMethod;
 }

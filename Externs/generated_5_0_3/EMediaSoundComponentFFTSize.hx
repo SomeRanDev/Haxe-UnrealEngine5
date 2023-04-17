@@ -3,10 +3,10 @@ package ue;
 
 @:native("EMediaSoundComponentFFTSize")
 @:include("MediaSoundComponent.h")
-extern enum EMediaSoundComponentFFTSize {
-	Min_64;
-	Small_256;
-	Medium_512;
-	Large_1024;
-	EMediaSoundComponentFFTSize_MAX;
+extern class EMediaSoundComponentFFTSize {
+	static var Min_64: EMediaSoundComponentFFTSize;
+	static var Small_256: EMediaSoundComponentFFTSize;
+	static var Medium_512: EMediaSoundComponentFFTSize;
+	static var Large_1024: EMediaSoundComponentFFTSize;
+	static var EMediaSoundComponentFFTSize_MAX: EMediaSoundComponentFFTSize;
 }

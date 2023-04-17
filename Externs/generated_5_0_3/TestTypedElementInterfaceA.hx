@@ -4,8 +4,8 @@ package ue;
 @:native("UTestTypedElementInterfaceA")
 @:structAccess
 extern class TestTypedElementInterfaceA extends Interface {
-	public function SetDisplayName(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InNewName: FText, bNotify: Bool): cpp.Reference<Bool>;
-	public function GetDisplayName(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): cpp.Reference<FText>;
+	public function SetDisplayName(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InNewName: FText, bNotify: Bool): Bool;
+	public function GetDisplayName(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): FText;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

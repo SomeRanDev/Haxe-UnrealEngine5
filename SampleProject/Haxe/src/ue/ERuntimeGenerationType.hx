@@ -3,10 +3,10 @@ package ue;
 
 @:native("ERuntimeGenerationType")
 @:include("NavigationData.h")
-extern enum ERuntimeGenerationType {
-	Static;
-	DynamicModifiersOnly;
-	Dynamic;
-	LegacyGeneration;
-	ERuntimeGenerationType_MAX;
+extern class ERuntimeGenerationType {
+	static var Static: ERuntimeGenerationType;
+	static var DynamicModifiersOnly: ERuntimeGenerationType;
+	static var Dynamic: ERuntimeGenerationType;
+	static var LegacyGeneration: ERuntimeGenerationType;
+	static var ERuntimeGenerationType_MAX: ERuntimeGenerationType;
 }

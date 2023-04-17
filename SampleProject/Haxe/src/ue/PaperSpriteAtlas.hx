@@ -5,22 +5,6 @@ package ue;
 @:include("PaperSpriteAtlas.h")
 @:structAccess
 extern class PaperSpriteAtlas extends Object {
-	public var AtlasDescription: FString;
-	public var MaxWidth: cpp.Int32;
-	public var MaxHeight: cpp.Int32;
-	public var MipCount: cpp.Int32;
-	public var PaddingType: EPaperSpriteAtlasPadding;
-	public var Padding: cpp.Int32;
-	public var CompressionSettings: TextureCompressionSettings;
-	public var Filter: TextureFilter;
-	public var GeneratedTextures: TArray<cpp.Star<Texture>>;
-	public var AtlasGUID: Guid;
-	public var bRebuildAtlas: Bool;
-	public var AtlasSlots: TArray<PaperSpriteAtlasSlot>;
-	public var NumIncrementalBuilds: cpp.Int32;
-	public var BuiltWidth: cpp.Int32;
-	public var BuiltHeight: cpp.Int32;
-	public var BuiltPadding: cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -28,38 +12,6 @@ extern class PaperSpriteAtlas extends Object {
 @:forward()
 @:nativeGen
 abstract ConstPaperSpriteAtlas(PaperSpriteAtlas) from PaperSpriteAtlas {
-	public extern var AtlasDescription(get, never): FString;
-	public inline extern function get_AtlasDescription(): FString return this.AtlasDescription;
-	public extern var MaxWidth(get, never): cpp.Int32;
-	public inline extern function get_MaxWidth(): cpp.Int32 return this.MaxWidth;
-	public extern var MaxHeight(get, never): cpp.Int32;
-	public inline extern function get_MaxHeight(): cpp.Int32 return this.MaxHeight;
-	public extern var MipCount(get, never): cpp.Int32;
-	public inline extern function get_MipCount(): cpp.Int32 return this.MipCount;
-	public extern var PaddingType(get, never): EPaperSpriteAtlasPadding;
-	public inline extern function get_PaddingType(): EPaperSpriteAtlasPadding return this.PaddingType;
-	public extern var Padding(get, never): cpp.Int32;
-	public inline extern function get_Padding(): cpp.Int32 return this.Padding;
-	public extern var CompressionSettings(get, never): TextureCompressionSettings;
-	public inline extern function get_CompressionSettings(): TextureCompressionSettings return this.CompressionSettings;
-	public extern var Filter(get, never): TextureFilter;
-	public inline extern function get_Filter(): TextureFilter return this.Filter;
-	public extern var GeneratedTextures(get, never): TArray<cpp.Star<Texture.ConstTexture>>;
-	public inline extern function get_GeneratedTextures(): TArray<cpp.Star<Texture.ConstTexture>> return this.GeneratedTextures;
-	public extern var AtlasGUID(get, never): Guid;
-	public inline extern function get_AtlasGUID(): Guid return this.AtlasGUID;
-	public extern var bRebuildAtlas(get, never): Bool;
-	public inline extern function get_bRebuildAtlas(): Bool return this.bRebuildAtlas;
-	public extern var AtlasSlots(get, never): TArray<PaperSpriteAtlasSlot>;
-	public inline extern function get_AtlasSlots(): TArray<PaperSpriteAtlasSlot> return this.AtlasSlots;
-	public extern var NumIncrementalBuilds(get, never): cpp.Int32;
-	public inline extern function get_NumIncrementalBuilds(): cpp.Int32 return this.NumIncrementalBuilds;
-	public extern var BuiltWidth(get, never): cpp.Int32;
-	public inline extern function get_BuiltWidth(): cpp.Int32 return this.BuiltWidth;
-	public extern var BuiltHeight(get, never): cpp.Int32;
-	public inline extern function get_BuiltHeight(): cpp.Int32 return this.BuiltHeight;
-	public extern var BuiltPadding(get, never): cpp.Int32;
-	public inline extern function get_BuiltPadding(): cpp.Int32 return this.BuiltPadding;
 }
 
 @:forward

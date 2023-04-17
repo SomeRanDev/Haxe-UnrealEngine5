@@ -15,7 +15,6 @@ extern class AudioSettings extends DeveloperSettings {
 	public var ReverbSubmix: SoftObjectPath;
 	public var EQSubmix: SoftObjectPath;
 	public var VoiPSampleRate: EVoiceSampleRate;
-	public var DefaultReverbSendLevel_DEPRECATED: cpp.Float32;
 	public var MaximumConcurrentStreams: cpp.Int32;
 	public var GlobalMinPitchScale: cpp.Float32;
 	public var GlobalMaxPitchScale: cpp.Float32;
@@ -29,9 +28,9 @@ extern class AudioSettings extends DeveloperSettings {
 	public var DialogueFilenameFormat: FString;
 	public var DebugSounds: TArray<SoundDebugEntry>;
 	public var DefaultAudioBuses: TArray<DefaultAudioBusSettings>;
-	public var DefaultSoundClass: cpp.Star<SoundClass>;
-	public var DefaultMediaSoundClass: cpp.Star<SoundClass>;
-	public var DefaultSoundConcurrency: cpp.Star<SoundConcurrency>;
+	private var DefaultSoundClass: cpp.Star<SoundClass>;
+	private var DefaultMediaSoundClass: cpp.Star<SoundClass>;
+	private var DefaultSoundConcurrency: cpp.Star<SoundConcurrency>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -59,8 +58,6 @@ abstract ConstAudioSettings(AudioSettings) from AudioSettings {
 	public inline extern function get_EQSubmix(): SoftObjectPath return this.EQSubmix;
 	public extern var VoiPSampleRate(get, never): EVoiceSampleRate;
 	public inline extern function get_VoiPSampleRate(): EVoiceSampleRate return this.VoiPSampleRate;
-	public extern var DefaultReverbSendLevel_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_DefaultReverbSendLevel_DEPRECATED(): cpp.Float32 return this.DefaultReverbSendLevel_DEPRECATED;
 	public extern var MaximumConcurrentStreams(get, never): cpp.Int32;
 	public inline extern function get_MaximumConcurrentStreams(): cpp.Int32 return this.MaximumConcurrentStreams;
 	public extern var GlobalMinPitchScale(get, never): cpp.Float32;
@@ -87,12 +84,6 @@ abstract ConstAudioSettings(AudioSettings) from AudioSettings {
 	public inline extern function get_DebugSounds(): TArray<SoundDebugEntry> return this.DebugSounds;
 	public extern var DefaultAudioBuses(get, never): TArray<DefaultAudioBusSettings>;
 	public inline extern function get_DefaultAudioBuses(): TArray<DefaultAudioBusSettings> return this.DefaultAudioBuses;
-	public extern var DefaultSoundClass(get, never): cpp.Star<SoundClass.ConstSoundClass>;
-	public inline extern function get_DefaultSoundClass(): cpp.Star<SoundClass.ConstSoundClass> return this.DefaultSoundClass;
-	public extern var DefaultMediaSoundClass(get, never): cpp.Star<SoundClass.ConstSoundClass>;
-	public inline extern function get_DefaultMediaSoundClass(): cpp.Star<SoundClass.ConstSoundClass> return this.DefaultMediaSoundClass;
-	public extern var DefaultSoundConcurrency(get, never): cpp.Star<SoundConcurrency.ConstSoundConcurrency>;
-	public inline extern function get_DefaultSoundConcurrency(): cpp.Star<SoundConcurrency.ConstSoundConcurrency> return this.DefaultSoundConcurrency;
 }
 
 @:forward

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EPhysicsAssetSolverType")
 @:include("PhysicsEngine/PhysicsAsset.h")
-extern enum EPhysicsAssetSolverType {
-	RBAN;
-	World;
-	EPhysicsAssetSolverType_MAX;
+extern class EPhysicsAssetSolverType {
+	static var RBAN: EPhysicsAssetSolverType;
+	static var World: EPhysicsAssetSolverType;
+	static var EPhysicsAssetSolverType_MAX: EPhysicsAssetSolverType;
 }

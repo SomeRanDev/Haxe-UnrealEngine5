@@ -3,9 +3,9 @@ package ue;
 
 @:native("EEnvTestPurpose.Type")
 @:include("EnvironmentQuery/EnvQueryTypes.h")
-extern enum EEnvTestPurpose {
-	Filter;
-	Score;
-	FilterAndScore;
-	EEnvTestPurpose_MAX;
+extern class EEnvTestPurpose {
+	static var Filter: EEnvTestPurpose;
+	static var Score: EEnvTestPurpose;
+	static var FilterAndScore: EEnvTestPurpose;
+	static var EEnvTestPurpose_MAX: EEnvTestPurpose;
 }

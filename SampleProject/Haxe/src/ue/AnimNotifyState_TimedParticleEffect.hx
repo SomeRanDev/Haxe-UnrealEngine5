@@ -10,8 +10,6 @@ extern class AnimNotifyState_TimedParticleEffect extends AnimNotifyState {
 	public var LocationOffset: Vector;
 	public var RotationOffset: Rotator;
 	public var bDestroyAtEnd: Bool;
-	public var PreviousPSTemplates: TArray<cpp.Star<ParticleSystem>>;
-	public var PreviousSocketNames: TArray<FName>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -29,10 +27,6 @@ abstract ConstAnimNotifyState_TimedParticleEffect(AnimNotifyState_TimedParticleE
 	public inline extern function get_RotationOffset(): Rotator return this.RotationOffset;
 	public extern var bDestroyAtEnd(get, never): Bool;
 	public inline extern function get_bDestroyAtEnd(): Bool return this.bDestroyAtEnd;
-	public extern var PreviousPSTemplates(get, never): TArray<cpp.Star<ParticleSystem.ConstParticleSystem>>;
-	public inline extern function get_PreviousPSTemplates(): TArray<cpp.Star<ParticleSystem.ConstParticleSystem>> return this.PreviousPSTemplates;
-	public extern var PreviousSocketNames(get, never): TArray<FName>;
-	public inline extern function get_PreviousSocketNames(): TArray<FName> return this.PreviousSocketNames;
 }
 
 @:forward

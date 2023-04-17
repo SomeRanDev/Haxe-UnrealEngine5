@@ -49,10 +49,10 @@ extern class NiagaraDataInterfaceChaosDestruction extends NiagaraDataInterface {
 	public var FinalVelocityMagnitudeMinMax: Vector2D;
 	public var MaxLatency: cpp.Float32;
 	public var DebugType: EDebugTypeEnum;
-	public var LastSpawnedPointID: cpp.Int32;
-	public var LastSpawnTime: cpp.Float32;
-	public var SolverTime: cpp.Float32;
-	public var TimeStampOfLastProcessedData: cpp.Float32;
+	@:protected public var LastSpawnedPointID: cpp.Int32;
+	@:protected public var LastSpawnTime: cpp.Float32;
+	@:protected public var SolverTime: cpp.Float32;
+	@:protected public var TimeStampOfLastProcessedData: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -148,14 +148,6 @@ abstract ConstNiagaraDataInterfaceChaosDestruction(NiagaraDataInterfaceChaosDest
 	public inline extern function get_MaxLatency(): cpp.Float32 return this.MaxLatency;
 	public extern var DebugType(get, never): EDebugTypeEnum;
 	public inline extern function get_DebugType(): EDebugTypeEnum return this.DebugType;
-	public extern var LastSpawnedPointID(get, never): cpp.Int32;
-	public inline extern function get_LastSpawnedPointID(): cpp.Int32 return this.LastSpawnedPointID;
-	public extern var LastSpawnTime(get, never): cpp.Float32;
-	public inline extern function get_LastSpawnTime(): cpp.Float32 return this.LastSpawnTime;
-	public extern var SolverTime(get, never): cpp.Float32;
-	public inline extern function get_SolverTime(): cpp.Float32 return this.SolverTime;
-	public extern var TimeStampOfLastProcessedData(get, never): cpp.Float32;
-	public inline extern function get_TimeStampOfLastProcessedData(): cpp.Float32 return this.TimeStampOfLastProcessedData;
 }
 
 @:forward

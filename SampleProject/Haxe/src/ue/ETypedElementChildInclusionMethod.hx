@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETypedElementChildInclusionMethod")
 @:include("Elements/Interfaces/TypedElementSelectionInterface.h")
-extern enum ETypedElementChildInclusionMethod {
-	None;
-	Immediate;
-	Recursive;
-	ETypedElementChildInclusionMethod_MAX;
+extern class ETypedElementChildInclusionMethod {
+	static var None: ETypedElementChildInclusionMethod;
+	static var Immediate: ETypedElementChildInclusionMethod;
+	static var Recursive: ETypedElementChildInclusionMethod;
+	static var ETypedElementChildInclusionMethod_MAX: ETypedElementChildInclusionMethod;
 }

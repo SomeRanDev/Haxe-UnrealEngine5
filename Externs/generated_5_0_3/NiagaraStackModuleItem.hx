@@ -5,9 +5,9 @@ package ue;
 @:include("ViewModels/Stack/NiagaraStackModuleItem.h")
 @:structAccess
 extern class NiagaraStackModuleItem extends NiagaraStackItem {
-	public var LinkedInputCollection: cpp.Star<NiagaraStackModuleItemLinkedInputCollection>;
-	public var InputCollection: cpp.Star<NiagaraStackFunctionInputCollection>;
-	public var OutputCollection: cpp.Star<NiagaraStackModuleItemOutputCollection>;
+	private var LinkedInputCollection: cpp.Star<NiagaraStackModuleItemLinkedInputCollection>;
+	private var InputCollection: cpp.Star<NiagaraStackFunctionInputCollection>;
+	private var OutputCollection: cpp.Star<NiagaraStackModuleItemOutputCollection>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class NiagaraStackModuleItem extends NiagaraStackItem {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraStackModuleItem(NiagaraStackModuleItem) from NiagaraStackModuleItem {
-	public extern var LinkedInputCollection(get, never): cpp.Star<NiagaraStackModuleItemLinkedInputCollection.ConstNiagaraStackModuleItemLinkedInputCollection>;
-	public inline extern function get_LinkedInputCollection(): cpp.Star<NiagaraStackModuleItemLinkedInputCollection.ConstNiagaraStackModuleItemLinkedInputCollection> return this.LinkedInputCollection;
-	public extern var InputCollection(get, never): cpp.Star<NiagaraStackFunctionInputCollection.ConstNiagaraStackFunctionInputCollection>;
-	public inline extern function get_InputCollection(): cpp.Star<NiagaraStackFunctionInputCollection.ConstNiagaraStackFunctionInputCollection> return this.InputCollection;
-	public extern var OutputCollection(get, never): cpp.Star<NiagaraStackModuleItemOutputCollection.ConstNiagaraStackModuleItemOutputCollection>;
-	public inline extern function get_OutputCollection(): cpp.Star<NiagaraStackModuleItemOutputCollection.ConstNiagaraStackModuleItemOutputCollection> return this.OutputCollection;
 }
 
 @:forward

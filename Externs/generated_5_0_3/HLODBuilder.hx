@@ -5,7 +5,6 @@ package ue;
 @:include("WorldPartition/HLOD/HLODBuilder.h")
 @:structAccess
 extern class HLODBuilder extends Object {
-	public var HLODBuilderSettings: cpp.Star<HLODBuilderSettings>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +12,6 @@ extern class HLODBuilder extends Object {
 @:forward()
 @:nativeGen
 abstract ConstHLODBuilder(HLODBuilder) from HLODBuilder {
-	public extern var HLODBuilderSettings(get, never): cpp.Star<HLODBuilderSettings.ConstHLODBuilderSettings>;
-	public inline extern function get_HLODBuilderSettings(): cpp.Star<HLODBuilderSettings.ConstHLODBuilderSettings> return this.HLODBuilderSettings;
 }
 
 @:forward

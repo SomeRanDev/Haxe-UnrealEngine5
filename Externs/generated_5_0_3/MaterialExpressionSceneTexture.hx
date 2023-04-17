@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class MaterialExpressionSceneTexture extends MaterialExpression {
 	public var Coordinates: ExpressionInput;
-	public var SceneTextureId: ESceneTextureId;
+	public var SceneTextureId: TEnumAsByte<ESceneTextureId>;
 	public var bFiltered: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -17,8 +17,8 @@ extern class MaterialExpressionSceneTexture extends MaterialExpression {
 abstract ConstMaterialExpressionSceneTexture(MaterialExpressionSceneTexture) from MaterialExpressionSceneTexture {
 	public extern var Coordinates(get, never): ExpressionInput;
 	public inline extern function get_Coordinates(): ExpressionInput return this.Coordinates;
-	public extern var SceneTextureId(get, never): ESceneTextureId;
-	public inline extern function get_SceneTextureId(): ESceneTextureId return this.SceneTextureId;
+	public extern var SceneTextureId(get, never): TEnumAsByte<ESceneTextureId>;
+	public inline extern function get_SceneTextureId(): TEnumAsByte<ESceneTextureId> return this.SceneTextureId;
 	public extern var bFiltered(get, never): Bool;
 	public inline extern function get_bFiltered(): Bool return this.bFiltered;
 }

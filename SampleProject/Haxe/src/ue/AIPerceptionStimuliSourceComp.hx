@@ -5,8 +5,8 @@ package ue;
 @:include("Perception/AIPerceptionStimuliSourceComponent.h")
 @:structAccess
 extern class AIPerceptionStimuliSourceComp extends ActorComp {
-	public var bAutoRegisterAsSource: Bool;
-	public var RegisterAsSourceForSenses: TArray<TSubclassOf<AISense>>;
+	@:protected public var bAutoRegisterAsSource: Bool;
+	@:protected public var RegisterAsSourceForSenses: TArray<TSubclassOf<AISense>>;
 
 	public function UnregisterFromSense(SenseClass: TSubclassOf<AISense>): Void;
 	public function UnregisterFromPerceptionSystem(): Void;
@@ -19,10 +19,6 @@ extern class AIPerceptionStimuliSourceComp extends ActorComp {
 @:forward()
 @:nativeGen
 abstract ConstAIPerceptionStimuliSourceComp(AIPerceptionStimuliSourceComp) from AIPerceptionStimuliSourceComp {
-	public extern var bAutoRegisterAsSource(get, never): Bool;
-	public inline extern function get_bAutoRegisterAsSource(): Bool return this.bAutoRegisterAsSource;
-	public extern var RegisterAsSourceForSenses(get, never): TArray<TSubclassOf<AISense.ConstAISense>>;
-	public inline extern function get_RegisterAsSourceForSenses(): TArray<TSubclassOf<AISense.ConstAISense>> return this.RegisterAsSourceForSenses;
 }
 
 @:forward

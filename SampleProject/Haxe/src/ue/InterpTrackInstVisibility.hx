@@ -5,7 +5,7 @@ package ue;
 @:include("Matinee/InterpTrackInstVisibility.h")
 @:structAccess
 extern class InterpTrackInstVisibility extends InterpTrackInst {
-	public var Action: EVisibilityTrackAction;
+	public var Action: TEnumAsByte<EVisibilityTrackAction>;
 	public var LastUpdatePosition: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -14,8 +14,8 @@ extern class InterpTrackInstVisibility extends InterpTrackInst {
 @:forward()
 @:nativeGen
 abstract ConstInterpTrackInstVisibility(InterpTrackInstVisibility) from InterpTrackInstVisibility {
-	public extern var Action(get, never): EVisibilityTrackAction;
-	public inline extern function get_Action(): EVisibilityTrackAction return this.Action;
+	public extern var Action(get, never): TEnumAsByte<EVisibilityTrackAction>;
+	public inline extern function get_Action(): TEnumAsByte<EVisibilityTrackAction> return this.Action;
 	public extern var LastUpdatePosition(get, never): cpp.Float32;
 	public inline extern function get_LastUpdatePosition(): cpp.Float32 return this.LastUpdatePosition;
 }

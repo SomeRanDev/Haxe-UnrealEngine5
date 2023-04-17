@@ -7,14 +7,14 @@ package ue;
 extern class AnimExecutionContextLibrary extends BlueprintFunctionLibrary {
 	public function Prototype_ThreadSafeAnimUpdateCall(Context: cpp.Reference<AnimUpdateContext>, Node: cpp.Reference<AnimNodeReference>): Void;
 	public function Prototype_ThreadSafeAnimNodeCall(Context: cpp.Reference<AnimExecutionContext>, Node: cpp.Reference<AnimNodeReference>): Void;
-	public function GetDeltaTime(Context: cpp.Reference<AnimUpdateContext>): cpp.Reference<cpp.Float32>;
-	public function GetCurrentWeight(Context: cpp.Reference<AnimUpdateContext>): cpp.Reference<cpp.Float32>;
-	public function GetAnimNodeReference(Instance: cpp.Star<AnimInstance>, Index: cpp.Int32): cpp.Reference<AnimNodeReference>;
-	public function GetAnimInstance(Context: cpp.Reference<AnimExecutionContext>): cpp.Reference<cpp.Star<AnimInstance>>;
-	public function ConvertToUpdateContext(Context: cpp.Reference<AnimExecutionContext>, Result: cpp.Reference<EAnimExecutionContextConversionResult>): cpp.Reference<AnimUpdateContext>;
-	public function ConvertToPoseContext(Context: cpp.Reference<AnimExecutionContext>, Result: cpp.Reference<EAnimExecutionContextConversionResult>): cpp.Reference<AnimPoseContext>;
-	public function ConvertToInitializationContext(Context: cpp.Reference<AnimExecutionContext>, Result: cpp.Reference<EAnimExecutionContextConversionResult>): cpp.Reference<AnimInitializationContext>;
-	public function ConvertToComponentSpacePoseContext(Context: cpp.Reference<AnimExecutionContext>, Result: cpp.Reference<EAnimExecutionContextConversionResult>): cpp.Reference<AnimComponentSpacePoseContext>;
+	public function GetDeltaTime(Context: cpp.Reference<AnimUpdateContext>): cpp.Float32;
+	public function GetCurrentWeight(Context: cpp.Reference<AnimUpdateContext>): cpp.Float32;
+	public function GetAnimNodeReference(Instance: cpp.Star<AnimInstance>, Index: cpp.Int32): AnimNodeReference;
+	public function GetAnimInstance(Context: cpp.Reference<AnimExecutionContext>): cpp.Star<AnimInstance>;
+	public function ConvertToUpdateContext(Context: cpp.Reference<AnimExecutionContext>, Result: cpp.Reference<EAnimExecutionContextConversionResult>): AnimUpdateContext;
+	public function ConvertToPoseContext(Context: cpp.Reference<AnimExecutionContext>, Result: cpp.Reference<EAnimExecutionContextConversionResult>): AnimPoseContext;
+	public function ConvertToInitializationContext(Context: cpp.Reference<AnimExecutionContext>, Result: cpp.Reference<EAnimExecutionContextConversionResult>): AnimInitializationContext;
+	public function ConvertToComponentSpacePoseContext(Context: cpp.Reference<AnimExecutionContext>, Result: cpp.Reference<EAnimExecutionContextConversionResult>): AnimComponentSpacePoseContext;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

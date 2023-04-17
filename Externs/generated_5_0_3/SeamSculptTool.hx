@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class SeamSculptTool extends DynamicMeshBrushTool {
 	public var Settings: cpp.Star<SeamSculptToolProperties>;
-	public var PreviewGeom: cpp.Star<PreviewGeometry>;
+	@:protected public var PreviewGeom: cpp.Star<PreviewGeometry>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,6 @@ extern class SeamSculptTool extends DynamicMeshBrushTool {
 abstract ConstSeamSculptTool(SeamSculptTool) from SeamSculptTool {
 	public extern var Settings(get, never): cpp.Star<SeamSculptToolProperties.ConstSeamSculptToolProperties>;
 	public inline extern function get_Settings(): cpp.Star<SeamSculptToolProperties.ConstSeamSculptToolProperties> return this.Settings;
-	public extern var PreviewGeom(get, never): cpp.Star<PreviewGeometry.ConstPreviewGeometry>;
-	public inline extern function get_PreviewGeom(): cpp.Star<PreviewGeometry.ConstPreviewGeometry> return this.PreviewGeom;
 }
 
 @:forward

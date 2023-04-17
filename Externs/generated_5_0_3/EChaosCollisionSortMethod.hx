@@ -3,12 +3,12 @@ package ue;
 
 @:native("EChaosCollisionSortMethod")
 @:include("ChaosCollisionEventFilter.h")
-extern enum EChaosCollisionSortMethod {
-	SortNone;
-	SortByHighestMass;
-	SortByHighestSpeed;
-	SortByHighestImpulse;
-	SortByNearestFirst;
-	Count;
-	EChaosCollisionSortMethod_MAX;
+extern class EChaosCollisionSortMethod {
+	static var SortNone: EChaosCollisionSortMethod;
+	static var SortByHighestMass: EChaosCollisionSortMethod;
+	static var SortByHighestSpeed: EChaosCollisionSortMethod;
+	static var SortByHighestImpulse: EChaosCollisionSortMethod;
+	static var SortByNearestFirst: EChaosCollisionSortMethod;
+	static var Count: EChaosCollisionSortMethod;
+	static var EChaosCollisionSortMethod_MAX: EChaosCollisionSortMethod;
 }

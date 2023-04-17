@@ -9,7 +9,6 @@ extern class MovieSceneTrackEvalOptions {
 	public var bEvalNearestSection: Bool;
 	public var bEvaluateInPreroll: Bool;
 	public var bEvaluateInPostroll: Bool;
-	public var bEvaluateNearestSection_DEPRECATED: Bool;
 
 	@:native("FMovieSceneTrackEvalOptions") public function new();
 	@:native("FMovieSceneTrackEvalOptions") public static function make(bCanEvaluateNearestSection: Bool, bEvalNearestSection: Bool, bEvaluateInPreroll: Bool, bEvaluateInPostroll: Bool, bEvaluateNearestSection_DEPRECATED: Bool): MovieSceneTrackEvalOptions ;

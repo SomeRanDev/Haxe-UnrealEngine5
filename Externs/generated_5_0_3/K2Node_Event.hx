@@ -5,8 +5,6 @@ package ue;
 @:include("K2Node_Event.h")
 @:structAccess
 extern class K2Node_Event extends K2Node_EditablePinBase {
-	public var EventSignatureName_DEPRECATED: FName;
-	public var EventSignatureClass_DEPRECATED: TSubclassOf<Object>;
 	public var EventReference: MemberReference;
 	public var bOverrideFunction: Bool;
 	public var bInternalEvent: Bool;
@@ -19,10 +17,6 @@ extern class K2Node_Event extends K2Node_EditablePinBase {
 @:forward()
 @:nativeGen
 abstract ConstK2Node_Event(K2Node_Event) from K2Node_Event {
-	public extern var EventSignatureName_DEPRECATED(get, never): FName;
-	public inline extern function get_EventSignatureName_DEPRECATED(): FName return this.EventSignatureName_DEPRECATED;
-	public extern var EventSignatureClass_DEPRECATED(get, never): TSubclassOf<Object.ConstObject>;
-	public inline extern function get_EventSignatureClass_DEPRECATED(): TSubclassOf<Object.ConstObject> return this.EventSignatureClass_DEPRECATED;
 	public extern var EventReference(get, never): MemberReference;
 	public inline extern function get_EventReference(): MemberReference return this.EventReference;
 	public extern var bOverrideFunction(get, never): Bool;

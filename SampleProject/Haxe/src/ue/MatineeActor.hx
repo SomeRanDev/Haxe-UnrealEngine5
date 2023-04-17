@@ -28,15 +28,12 @@ extern class MatineeActor extends Actor {
 	public var bShouldShowGore: Bool;
 	public var GroupInst: TArray<cpp.Star<InterpGroupInst>>;
 	public var CameraCuts: TArray<CameraCutInfo>;
-	public var SpriteComponent: cpp.Star<BillboardComp>;
-	public var bIsBeingEdited: Bool;
-	public var bIsScrubbing: Bool;
 	public var bIsPlaying: Bool;
 	public var bReversePlayback: Bool;
 	public var bPaused: Bool;
 	public var bPendingStop: Bool;
 	public var InterpPosition: cpp.Float32;
-	public var ReplicationForceIsPlaying: cpp.UInt8;
+	private var ReplicationForceIsPlaying: cpp.UInt8;
 	public var OnPlay: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnStop: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnPause: HaxeMulticastSparseDelegateProperty<() -> Void>;
@@ -102,12 +99,6 @@ abstract ConstMatineeActor(MatineeActor) from MatineeActor {
 	public inline extern function get_GroupInst(): TArray<cpp.Star<InterpGroupInst.ConstInterpGroupInst>> return this.GroupInst;
 	public extern var CameraCuts(get, never): TArray<CameraCutInfo>;
 	public inline extern function get_CameraCuts(): TArray<CameraCutInfo> return this.CameraCuts;
-	public extern var SpriteComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
-	public inline extern function get_SpriteComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
-	public extern var bIsBeingEdited(get, never): Bool;
-	public inline extern function get_bIsBeingEdited(): Bool return this.bIsBeingEdited;
-	public extern var bIsScrubbing(get, never): Bool;
-	public inline extern function get_bIsScrubbing(): Bool return this.bIsScrubbing;
 	public extern var bIsPlaying(get, never): Bool;
 	public inline extern function get_bIsPlaying(): Bool return this.bIsPlaying;
 	public extern var bReversePlayback(get, never): Bool;
@@ -118,8 +109,6 @@ abstract ConstMatineeActor(MatineeActor) from MatineeActor {
 	public inline extern function get_bPendingStop(): Bool return this.bPendingStop;
 	public extern var InterpPosition(get, never): cpp.Float32;
 	public inline extern function get_InterpPosition(): cpp.Float32 return this.InterpPosition;
-	public extern var ReplicationForceIsPlaying(get, never): cpp.UInt8;
-	public inline extern function get_ReplicationForceIsPlaying(): cpp.UInt8 return this.ReplicationForceIsPlaying;
 	public extern var OnPlay(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnPlay(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnPlay;
 	public extern var OnStop(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;

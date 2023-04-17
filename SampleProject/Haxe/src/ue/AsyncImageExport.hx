@@ -6,11 +6,11 @@ package ue;
 @:structAccess
 extern class AsyncImageExport extends BlueprintAsyncActionBase {
 	public var Complete: HaxeMulticastSparseDelegateProperty<(Bool) -> Void>;
-	public var TextureToExport: cpp.Star<Texture>;
-	public var Quality: cpp.Int32;
-	public var TargetFile: FString;
+	private var TextureToExport: cpp.Star<Texture>;
+	private var Quality: cpp.Int32;
+	private var TargetFile: FString;
 
-	public function ExportImageAsync(Texture: cpp.Star<Texture>, OutputFile: FString, Quality: cpp.Int32): cpp.Reference<cpp.Star<AsyncImageExport>>;
+	public function ExportImageAsync(Texture: cpp.Star<Texture>, OutputFile: FString, Quality: cpp.Int32): cpp.Star<AsyncImageExport>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -20,12 +20,6 @@ extern class AsyncImageExport extends BlueprintAsyncActionBase {
 abstract ConstAsyncImageExport(AsyncImageExport) from AsyncImageExport {
 	public extern var Complete(get, never): HaxeMulticastSparseDelegateProperty<(Bool) -> Void>;
 	public inline extern function get_Complete(): HaxeMulticastSparseDelegateProperty<(Bool) -> Void> return this.Complete;
-	public extern var TextureToExport(get, never): cpp.Star<Texture.ConstTexture>;
-	public inline extern function get_TextureToExport(): cpp.Star<Texture.ConstTexture> return this.TextureToExport;
-	public extern var Quality(get, never): cpp.Int32;
-	public inline extern function get_Quality(): cpp.Int32 return this.Quality;
-	public extern var TargetFile(get, never): FString;
-	public inline extern function get_TargetFile(): FString return this.TargetFile;
 }
 
 @:forward

@@ -3,12 +3,12 @@ package ue;
 
 @:native("EAnalysisLinearAxis")
 @:include("BlendSpaceAnalysis.h")
-extern enum EAnalysisLinearAxis {
-	PlusX;
-	PlusY;
-	PlusZ;
-	MinusX;
-	MinusY;
-	MinusZ;
-	EAnalysisLinearAxis_MAX;
+extern class EAnalysisLinearAxis {
+	static var PlusX: EAnalysisLinearAxis;
+	static var PlusY: EAnalysisLinearAxis;
+	static var PlusZ: EAnalysisLinearAxis;
+	static var MinusX: EAnalysisLinearAxis;
+	static var MinusY: EAnalysisLinearAxis;
+	static var MinusZ: EAnalysisLinearAxis;
+	static var EAnalysisLinearAxis_MAX: EAnalysisLinearAxis;
 }

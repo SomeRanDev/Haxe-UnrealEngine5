@@ -5,9 +5,9 @@ package ue;
 @:include("SequenceRecorderBlueprintLibrary.h")
 @:structAccess
 extern class SequenceRecorderBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function StopRecordingSequence(): Void;
-	public function StartRecordingSequence(ActorsToRecord: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
-	public function IsRecordingSequence(): cpp.Reference<Bool>;
+	private function StopRecordingSequence(): Void;
+	private function StartRecordingSequence(ActorsToRecord: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
+	private function IsRecordingSequence(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -6,7 +6,7 @@ package ue;
 extern class SKEL_BP_ThirdPersonCharacter_C extends HaxeForUnrealCharacter {
 	public var UberGraphFrame: PointerToUberGraphFrame;
 
-	public function ReceiveBeginPlay(): Void;
+	@:protected public function ReceiveBeginPlay(): Void;
 	public function ReceiveActorBeginOverlap(OtherActor: cpp.Star<Actor>): Void;
 	public function ReceiveTick(DeltaSeconds: cpp.Float32): Void;
 	public function UserConstructionScript(): Void;

@@ -7,14 +7,14 @@ package ue;
 extern class ScalableSphereGizmo extends InteractiveGizmo {
 	public var HitErrorThreshold: cpp.Float32;
 	public var TransactionDescription: FText;
-	public var Radius: cpp.Float32;
-	public var bIsHovering: Bool;
-	public var bIsDragging: Bool;
-	public var ActiveTarget: cpp.Star<TransformProxy>;
-	public var ActiveAxis: Vector;
-	public var DragStartWorldPosition: Vector;
-	public var DragCurrentPositionProjected: Vector;
-	public var InteractionStartParameter: cpp.Float32;
+	private var Radius: cpp.Float32;
+	private var bIsHovering: Bool;
+	private var bIsDragging: Bool;
+	private var ActiveTarget: cpp.Star<TransformProxy>;
+	private var ActiveAxis: Vector;
+	private var DragStartWorldPosition: Vector;
+	private var DragCurrentPositionProjected: Vector;
+	private var InteractionStartParameter: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -26,22 +26,6 @@ abstract ConstScalableSphereGizmo(ScalableSphereGizmo) from ScalableSphereGizmo 
 	public inline extern function get_HitErrorThreshold(): cpp.Float32 return this.HitErrorThreshold;
 	public extern var TransactionDescription(get, never): FText;
 	public inline extern function get_TransactionDescription(): FText return this.TransactionDescription;
-	public extern var Radius(get, never): cpp.Float32;
-	public inline extern function get_Radius(): cpp.Float32 return this.Radius;
-	public extern var bIsHovering(get, never): Bool;
-	public inline extern function get_bIsHovering(): Bool return this.bIsHovering;
-	public extern var bIsDragging(get, never): Bool;
-	public inline extern function get_bIsDragging(): Bool return this.bIsDragging;
-	public extern var ActiveTarget(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
-	public inline extern function get_ActiveTarget(): cpp.Star<TransformProxy.ConstTransformProxy> return this.ActiveTarget;
-	public extern var ActiveAxis(get, never): Vector;
-	public inline extern function get_ActiveAxis(): Vector return this.ActiveAxis;
-	public extern var DragStartWorldPosition(get, never): Vector;
-	public inline extern function get_DragStartWorldPosition(): Vector return this.DragStartWorldPosition;
-	public extern var DragCurrentPositionProjected(get, never): Vector;
-	public inline extern function get_DragCurrentPositionProjected(): Vector return this.DragCurrentPositionProjected;
-	public extern var InteractionStartParameter(get, never): cpp.Float32;
-	public inline extern function get_InteractionStartParameter(): cpp.Float32 return this.InteractionStartParameter;
 }
 
 @:forward

@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELerpInterpolationMode.Type")
 @:include("Kismet/KismetMathLibrary.h")
-extern enum ELerpInterpolationMode {
-	QuatInterp;
-	EulerInterp;
-	DualQuatInterp;
-	ELerpInterpolationMode_MAX;
+extern class ELerpInterpolationMode {
+	static var QuatInterp: ELerpInterpolationMode;
+	static var EulerInterp: ELerpInterpolationMode;
+	static var DualQuatInterp: ELerpInterpolationMode;
+	static var ELerpInterpolationMode_MAX: ELerpInterpolationMode;
 }

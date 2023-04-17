@@ -5,7 +5,7 @@ package ue;
 @:include("Subsystems/PlacementSubsystem.h")
 @:structAccess
 extern class PlacementSubsystem extends EditorSubsystem {
-	public var AssetFactories: TArray<AssetFactoryInterface>;
+	private var AssetFactories: TArray<AssetFactoryInterface>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class PlacementSubsystem extends EditorSubsystem {
 @:forward()
 @:nativeGen
 abstract ConstPlacementSubsystem(PlacementSubsystem) from PlacementSubsystem {
-	public extern var AssetFactories(get, never): TArray<AssetFactoryInterface.ConstAssetFactoryInterface>;
-	public inline extern function get_AssetFactories(): TArray<AssetFactoryInterface.ConstAssetFactoryInterface> return this.AssetFactories;
 }
 
 @:forward

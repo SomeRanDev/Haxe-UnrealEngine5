@@ -7,11 +7,11 @@ package ue;
 extern class CameraShakeBase extends Object {
 	public var bSingleInstance: Bool;
 	public var ShakeScale: cpp.Float32;
-	public var RootShakePattern: cpp.Star<CameraShakePattern>;
-	public var CameraManager: cpp.Star<PlayerCameraManager>;
+	private var RootShakePattern: cpp.Star<CameraShakePattern>;
+	private var CameraManager: cpp.Star<PlayerCameraManager>;
 
 	public function SetRootShakePattern(InPattern: cpp.Star<CameraShakePattern>): Void;
-	public function GetRootShakePattern(): cpp.Reference<cpp.Star<CameraShakePattern>>;
+	public function GetRootShakePattern(): cpp.Star<CameraShakePattern>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -23,10 +23,6 @@ abstract ConstCameraShakeBase(CameraShakeBase) from CameraShakeBase {
 	public inline extern function get_bSingleInstance(): Bool return this.bSingleInstance;
 	public extern var ShakeScale(get, never): cpp.Float32;
 	public inline extern function get_ShakeScale(): cpp.Float32 return this.ShakeScale;
-	public extern var RootShakePattern(get, never): cpp.Star<CameraShakePattern.ConstCameraShakePattern>;
-	public inline extern function get_RootShakePattern(): cpp.Star<CameraShakePattern.ConstCameraShakePattern> return this.RootShakePattern;
-	public extern var CameraManager(get, never): cpp.Star<PlayerCameraManager.ConstPlayerCameraManager>;
-	public inline extern function get_CameraManager(): cpp.Star<PlayerCameraManager.ConstPlayerCameraManager> return this.CameraManager;
 }
 
 @:forward

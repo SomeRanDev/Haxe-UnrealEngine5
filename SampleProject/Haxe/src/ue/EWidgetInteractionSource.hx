@@ -3,10 +3,10 @@ package ue;
 
 @:native("EWidgetInteractionSource")
 @:include("Components/WidgetInteractionComponent.h")
-extern enum EWidgetInteractionSource {
-	World;
-	Mouse;
-	CenterScreen;
-	Custom;
-	EWidgetInteractionSource_MAX;
+extern class EWidgetInteractionSource {
+	static var World: EWidgetInteractionSource;
+	static var Mouse: EWidgetInteractionSource;
+	static var CenterScreen: EWidgetInteractionSource;
+	static var Custom: EWidgetInteractionSource;
+	static var EWidgetInteractionSource_MAX: EWidgetInteractionSource;
 }

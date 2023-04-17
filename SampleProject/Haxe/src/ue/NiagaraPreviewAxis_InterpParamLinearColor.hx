@@ -5,8 +5,8 @@ package ue;
 @:include("NiagaraPreviewGrid.h")
 @:structAccess
 extern class NiagaraPreviewAxis_InterpParamLinearColor extends NiagaraPreviewAxis_InterpParamBase {
-	public var Min: LinearColor;
-	public var Max: LinearColor;
+	private var Min: LinearColor;
+	private var Max: LinearColor;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class NiagaraPreviewAxis_InterpParamLinearColor extends NiagaraPreviewAxi
 @:forward()
 @:nativeGen
 abstract ConstNiagaraPreviewAxis_InterpParamLinearColor(NiagaraPreviewAxis_InterpParamLinearColor) from NiagaraPreviewAxis_InterpParamLinearColor {
-	public extern var Min(get, never): LinearColor;
-	public inline extern function get_Min(): LinearColor return this.Min;
-	public extern var Max(get, never): LinearColor;
-	public inline extern function get_Max(): LinearColor return this.Max;
 }
 
 @:forward

@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESubmixSendMethod")
 @:include("Sound/SoundAttenuation.h")
-extern enum ESubmixSendMethod {
-	Linear;
-	CustomCurve;
-	Manual;
-	ESubmixSendMethod_MAX;
+extern class ESubmixSendMethod {
+	static var Linear: ESubmixSendMethod;
+	static var CustomCurve: ESubmixSendMethod;
+	static var Manual: ESubmixSendMethod;
+	static var ESubmixSendMethod_MAX: ESubmixSendMethod;
 }

@@ -5,7 +5,7 @@ package ue;
 @:include("RigVMCore/RigVMByteCode.h")
 @:structAccess
 extern class RigVMInstructionArray {
-	public var Instructions: TArray<RigVMInstruction>;
+	private var Instructions: TArray<RigVMInstruction>;
 
 	@:native("FRigVMInstructionArray") public function new();
 	@:native("FRigVMInstructionArray") public static function make(Instructions: TArray<RigVMInstruction>): RigVMInstructionArray ;

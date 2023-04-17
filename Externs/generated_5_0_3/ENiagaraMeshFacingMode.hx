@@ -3,10 +3,10 @@ package ue;
 
 @:native("ENiagaraMeshFacingMode")
 @:include("NiagaraMeshRendererProperties.h")
-extern enum ENiagaraMeshFacingMode {
-	Default;
-	Velocity;
-	CameraPosition;
-	CameraPlane;
-	ENiagaraMeshFacingMode_MAX;
+extern class ENiagaraMeshFacingMode {
+	static var Default: ENiagaraMeshFacingMode;
+	static var Velocity: ENiagaraMeshFacingMode;
+	static var CameraPosition: ENiagaraMeshFacingMode;
+	static var CameraPlane: ENiagaraMeshFacingMode;
+	static var ENiagaraMeshFacingMode_MAX: ENiagaraMeshFacingMode;
 }

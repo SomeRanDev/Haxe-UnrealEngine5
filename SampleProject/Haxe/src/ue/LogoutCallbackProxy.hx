@@ -8,7 +8,7 @@ extern class LogoutCallbackProxy extends BlueprintAsyncActionBase {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerController>) -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerController>) -> Void>;
 
-	public function Logout(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>): cpp.Reference<cpp.Star<LogoutCallbackProxy>>;
+	public function Logout(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>): cpp.Star<LogoutCallbackProxy>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

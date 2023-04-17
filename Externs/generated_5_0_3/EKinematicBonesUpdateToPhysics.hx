@@ -3,8 +3,8 @@ package ue;
 
 @:native("EKinematicBonesUpdateToPhysics.Type")
 @:include("Components/SkeletalMeshComponent.h")
-extern enum EKinematicBonesUpdateToPhysics {
-	SkipSimulatingBones;
-	SkipAllBones;
-	EKinematicBonesUpdateToPhysics_MAX;
+extern class EKinematicBonesUpdateToPhysics {
+	static var SkipSimulatingBones: EKinematicBonesUpdateToPhysics;
+	static var SkipAllBones: EKinematicBonesUpdateToPhysics;
+	static var EKinematicBonesUpdateToPhysics_MAX: EKinematicBonesUpdateToPhysics;
 }

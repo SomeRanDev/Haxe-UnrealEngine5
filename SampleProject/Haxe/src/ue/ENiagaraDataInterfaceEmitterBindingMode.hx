@@ -3,8 +3,8 @@ package ue;
 
 @:native("ENiagaraDataInterfaceEmitterBindingMode")
 @:include("NiagaraDataInterfaceEmitterBinding.h")
-extern enum ENiagaraDataInterfaceEmitterBindingMode {
-	Self;
-	Other;
-	ENiagaraDataInterfaceEmitterBindingMode_MAX;
+extern class ENiagaraDataInterfaceEmitterBindingMode {
+	static var Self: ENiagaraDataInterfaceEmitterBindingMode;
+	static var Other: ENiagaraDataInterfaceEmitterBindingMode;
+	static var ENiagaraDataInterfaceEmitterBindingMode_MAX: ENiagaraDataInterfaceEmitterBindingMode;
 }

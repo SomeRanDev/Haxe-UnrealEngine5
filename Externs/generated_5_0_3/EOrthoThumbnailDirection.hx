@@ -3,12 +3,12 @@ package ue;
 
 @:native("EOrthoThumbnailDirection.Type")
 @:include("ThumbnailRendering/WorldThumbnailInfo.h")
-extern enum EOrthoThumbnailDirection {
-	Top;
-	Bottom;
-	Left;
-	Right;
-	Front;
-	Back;
-	EOrthoThumbnailDirection_MAX;
+extern class EOrthoThumbnailDirection {
+	static var Top: EOrthoThumbnailDirection;
+	static var Bottom: EOrthoThumbnailDirection;
+	static var Left: EOrthoThumbnailDirection;
+	static var Right: EOrthoThumbnailDirection;
+	static var Front: EOrthoThumbnailDirection;
+	static var Back: EOrthoThumbnailDirection;
+	static var EOrthoThumbnailDirection_MAX: EOrthoThumbnailDirection;
 }

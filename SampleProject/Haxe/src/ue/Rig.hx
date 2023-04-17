@@ -5,8 +5,8 @@ package ue;
 @:include("Animation/Rig.h")
 @:structAccess
 extern class Rig extends Object {
-	public var TransformBases: TArray<TransformBase>;
-	public var Nodes: TArray<Node>;
+	private var TransformBases: TArray<TransformBase>;
+	private var Nodes: TArray<Node>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class Rig extends Object {
 @:forward()
 @:nativeGen
 abstract ConstRig(Rig) from Rig {
-	public extern var TransformBases(get, never): TArray<TransformBase>;
-	public inline extern function get_TransformBases(): TArray<TransformBase> return this.TransformBases;
-	public extern var Nodes(get, never): TArray<Node>;
-	public inline extern function get_Nodes(): TArray<Node> return this.Nodes;
 }
 
 @:forward

@@ -5,9 +5,9 @@ package ue;
 @:include("EditorUtilityWidget.h")
 @:structAccess
 extern class EditorUtilityWidget extends UserWidget {
-	public var HelpText: FString;
-	public var bAlwaysReregisterWithWindowsMenu: Bool;
-	public var bAutoRunDefaultAction: Bool;
+	@:protected public var HelpText: FString;
+	@:protected public var bAlwaysReregisterWithWindowsMenu: Bool;
+	@:protected public var bAutoRunDefaultAction: Bool;
 
 	public function Run(): Void;
 
@@ -17,12 +17,6 @@ extern class EditorUtilityWidget extends UserWidget {
 @:forward()
 @:nativeGen
 abstract ConstEditorUtilityWidget(EditorUtilityWidget) from EditorUtilityWidget {
-	public extern var HelpText(get, never): FString;
-	public inline extern function get_HelpText(): FString return this.HelpText;
-	public extern var bAlwaysReregisterWithWindowsMenu(get, never): Bool;
-	public inline extern function get_bAlwaysReregisterWithWindowsMenu(): Bool return this.bAlwaysReregisterWithWindowsMenu;
-	public extern var bAutoRunDefaultAction(get, never): Bool;
-	public inline extern function get_bAutoRunDefaultAction(): Bool return this.bAutoRunDefaultAction;
 }
 
 @:forward

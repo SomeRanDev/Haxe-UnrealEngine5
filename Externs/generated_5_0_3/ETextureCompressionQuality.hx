@@ -3,12 +3,12 @@ package ue;
 
 @:native("ETextureCompressionQuality")
 @:include("Engine/Texture.h")
-extern enum ETextureCompressionQuality {
-	TCQ_Default;
-	TCQ_Lowest;
-	TCQ_Low;
-	TCQ_Medium;
-	TCQ_High;
-	TCQ_Highest;
-	TCQ_MAX;
+extern class ETextureCompressionQuality {
+	static var TCQ_Default: ETextureCompressionQuality;
+	static var TCQ_Lowest: ETextureCompressionQuality;
+	static var TCQ_Low: ETextureCompressionQuality;
+	static var TCQ_Medium: ETextureCompressionQuality;
+	static var TCQ_High: ETextureCompressionQuality;
+	static var TCQ_Highest: ETextureCompressionQuality;
+	static var TCQ_MAX: ETextureCompressionQuality;
 }

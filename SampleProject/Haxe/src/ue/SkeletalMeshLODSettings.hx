@@ -5,13 +5,13 @@ package ue;
 @:include("Engine/SkeletalMeshLODSettings.h")
 @:structAccess
 extern class SkeletalMeshLODSettings extends DataAsset {
-	public var MinLod: PerPlatformInt;
-	public var DisableBelowMinLodStripping: PerPlatformBool;
-	public var bOverrideLODStreamingSettings: Bool;
-	public var bSupportLODStreaming: PerPlatformBool;
-	public var MaxNumStreamedLODs: PerPlatformInt;
-	public var MaxNumOptionalLODs: PerPlatformInt;
-	public var LODGroups: TArray<SkeletalMeshLODGroupSettings>;
+	@:protected public var MinLod: PerPlatformInt;
+	@:protected public var DisableBelowMinLodStripping: PerPlatformBool;
+	@:protected public var bOverrideLODStreamingSettings: Bool;
+	@:protected public var bSupportLODStreaming: PerPlatformBool;
+	@:protected public var MaxNumStreamedLODs: PerPlatformInt;
+	@:protected public var MaxNumOptionalLODs: PerPlatformInt;
+	@:protected public var LODGroups: TArray<SkeletalMeshLODGroupSettings>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,20 +19,6 @@ extern class SkeletalMeshLODSettings extends DataAsset {
 @:forward()
 @:nativeGen
 abstract ConstSkeletalMeshLODSettings(SkeletalMeshLODSettings) from SkeletalMeshLODSettings {
-	public extern var MinLod(get, never): PerPlatformInt;
-	public inline extern function get_MinLod(): PerPlatformInt return this.MinLod;
-	public extern var DisableBelowMinLodStripping(get, never): PerPlatformBool;
-	public inline extern function get_DisableBelowMinLodStripping(): PerPlatformBool return this.DisableBelowMinLodStripping;
-	public extern var bOverrideLODStreamingSettings(get, never): Bool;
-	public inline extern function get_bOverrideLODStreamingSettings(): Bool return this.bOverrideLODStreamingSettings;
-	public extern var bSupportLODStreaming(get, never): PerPlatformBool;
-	public inline extern function get_bSupportLODStreaming(): PerPlatformBool return this.bSupportLODStreaming;
-	public extern var MaxNumStreamedLODs(get, never): PerPlatformInt;
-	public inline extern function get_MaxNumStreamedLODs(): PerPlatformInt return this.MaxNumStreamedLODs;
-	public extern var MaxNumOptionalLODs(get, never): PerPlatformInt;
-	public inline extern function get_MaxNumOptionalLODs(): PerPlatformInt return this.MaxNumOptionalLODs;
-	public extern var LODGroups(get, never): TArray<SkeletalMeshLODGroupSettings>;
-	public inline extern function get_LODGroups(): TArray<SkeletalMeshLODGroupSettings> return this.LODGroups;
 }
 
 @:forward

@@ -7,9 +7,9 @@ package ue;
 extern class CullingField extends FieldNodeBase {
 	public var Culling: cpp.Star<FieldNodeBase>;
 	public var Field: cpp.Star<FieldNodeBase>;
-	public var Operation: EFieldCullingOperationType;
+	public var Operation: TEnumAsByte<EFieldCullingOperationType>;
 
-	public function SetCullingField(Culling: cpp.Star<FieldNodeBase.ConstFieldNodeBase>, Field: cpp.Star<FieldNodeBase.ConstFieldNodeBase>, Operation: EFieldCullingOperationType): cpp.Reference<cpp.Star<CullingField>>;
+	public function SetCullingField(Culling: cpp.Star<FieldNodeBase.ConstFieldNodeBase>, Field: cpp.Star<FieldNodeBase.ConstFieldNodeBase>, Operation: TEnumAsByte<EFieldCullingOperationType>): cpp.Star<CullingField>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -21,8 +21,8 @@ abstract ConstCullingField(CullingField) from CullingField {
 	public inline extern function get_Culling(): cpp.Star<FieldNodeBase.ConstFieldNodeBase> return this.Culling;
 	public extern var Field(get, never): cpp.Star<FieldNodeBase.ConstFieldNodeBase>;
 	public inline extern function get_Field(): cpp.Star<FieldNodeBase.ConstFieldNodeBase> return this.Field;
-	public extern var Operation(get, never): EFieldCullingOperationType;
-	public inline extern function get_Operation(): EFieldCullingOperationType return this.Operation;
+	public extern var Operation(get, never): TEnumAsByte<EFieldCullingOperationType>;
+	public inline extern function get_Operation(): TEnumAsByte<EFieldCullingOperationType> return this.Operation;
 }
 
 @:forward

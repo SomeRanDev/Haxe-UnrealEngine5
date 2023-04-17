@@ -3,8 +3,8 @@ package ue;
 
 @:native("EGameplayContainerMatchType")
 @:include("GameplayTagContainer.h")
-extern enum EGameplayContainerMatchType {
-	Any;
-	All;
-	EGameplayContainerMatchType_MAX;
+extern class EGameplayContainerMatchType {
+	static var Any: EGameplayContainerMatchType;
+	static var All: EGameplayContainerMatchType;
+	static var EGameplayContainerMatchType_MAX: EGameplayContainerMatchType;
 }

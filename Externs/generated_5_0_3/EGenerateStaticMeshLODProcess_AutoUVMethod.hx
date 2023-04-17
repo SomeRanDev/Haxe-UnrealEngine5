@@ -3,9 +3,9 @@ package ue;
 
 @:native("EGenerateStaticMeshLODProcess_AutoUVMethod")
 @:include("Graphs/GenerateStaticMeshLODProcess.h")
-extern enum EGenerateStaticMeshLODProcess_AutoUVMethod {
-	PatchBuilder;
-	UVAtlas;
-	XAtlas;
-	EGenerateStaticMeshLODProcess_MAX;
+extern class EGenerateStaticMeshLODProcess_AutoUVMethod {
+	static var PatchBuilder: EGenerateStaticMeshLODProcess_AutoUVMethod;
+	static var UVAtlas: EGenerateStaticMeshLODProcess_AutoUVMethod;
+	static var XAtlas: EGenerateStaticMeshLODProcess_AutoUVMethod;
+	static var EGenerateStaticMeshLODProcess_MAX: EGenerateStaticMeshLODProcess_AutoUVMethod;
 }

@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESubdivisionOutputNormals")
 @:include("Operations/SubdividePoly.h")
-extern enum ESubdivisionOutputNormals {
-	Interpolated;
-	Generated;
-	None;
-	ESubdivisionOutputNormals_MAX;
+extern class ESubdivisionOutputNormals {
+	static var Interpolated: ESubdivisionOutputNormals;
+	static var Generated: ESubdivisionOutputNormals;
+	static var None: ESubdivisionOutputNormals;
+	static var ESubdivisionOutputNormals_MAX: ESubdivisionOutputNormals;
 }

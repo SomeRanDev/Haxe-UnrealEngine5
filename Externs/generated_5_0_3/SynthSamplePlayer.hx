@@ -14,10 +14,10 @@ extern class SynthSamplePlayer extends SynthComp {
 	public function SetScrubMode(bScrubMode: Bool): Void;
 	public function SetPitch(InPitch: cpp.Float32, TimeSec: cpp.Float32): Void;
 	public function SeekToTime(TimeSec: cpp.Float32, SeekType: ESamplePlayerSeekType, bWrap: Bool): Void;
-	public function IsLoaded(): cpp.Reference<Bool>;
-	public function GetSampleDuration(): cpp.Reference<cpp.Float32>;
-	public function GetCurrentPlaybackProgressTime(): cpp.Reference<cpp.Float32>;
-	public function GetCurrentPlaybackProgressPercent(): cpp.Reference<cpp.Float32>;
+	public function IsLoaded(): Bool;
+	public function GetSampleDuration(): cpp.Float32;
+	public function GetCurrentPlaybackProgressTime(): cpp.Float32;
+	public function GetCurrentPlaybackProgressPercent(): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -19,7 +19,6 @@ extern class ReverbEffect extends Object {
 	public var LateGain: cpp.Float32;
 	public var Gain: cpp.Float32;
 	public var RoomRolloffFactor: cpp.Float32;
-	public var bChanged: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -55,8 +54,6 @@ abstract ConstReverbEffect(ReverbEffect) from ReverbEffect {
 	public inline extern function get_Gain(): cpp.Float32 return this.Gain;
 	public extern var RoomRolloffFactor(get, never): cpp.Float32;
 	public inline extern function get_RoomRolloffFactor(): cpp.Float32 return this.RoomRolloffFactor;
-	public extern var bChanged(get, never): Bool;
-	public inline extern function get_bChanged(): Bool return this.bChanged;
 }
 
 @:forward

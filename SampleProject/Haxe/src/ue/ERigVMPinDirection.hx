@@ -3,12 +3,12 @@ package ue;
 
 @:native("ERigVMPinDirection")
 @:include("RigVMCore/RigVMFunction.h")
-extern enum ERigVMPinDirection {
-	Input;
-	Output;
-	IO;
-	Visible;
-	Hidden;
-	Invalid;
-	ERigVMPinDirection_MAX;
+extern class ERigVMPinDirection {
+	static var Input: ERigVMPinDirection;
+	static var Output: ERigVMPinDirection;
+	static var IO: ERigVMPinDirection;
+	static var Visible: ERigVMPinDirection;
+	static var Hidden: ERigVMPinDirection;
+	static var Invalid: ERigVMPinDirection;
+	static var ERigVMPinDirection_MAX: ERigVMPinDirection;
 }

@@ -7,13 +7,6 @@ package ue;
 extern class LandscapeGrassType extends Object {
 	public var GrassVarieties: TArray<GrassVariety>;
 	public var bEnableDensityScaling: Bool;
-	public var GrassMesh_DEPRECATED: cpp.Star<StaticMesh>;
-	public var GrassDensity_DEPRECATED: cpp.Float32;
-	public var PlacementJitter_DEPRECATED: cpp.Float32;
-	public var StartCullDistance_DEPRECATED: cpp.Int32;
-	public var EndCullDistance_DEPRECATED: cpp.Int32;
-	public var RandomRotation_DEPRECATED: Bool;
-	public var AlignToSurface_DEPRECATED: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -25,20 +18,6 @@ abstract ConstLandscapeGrassType(LandscapeGrassType) from LandscapeGrassType {
 	public inline extern function get_GrassVarieties(): TArray<GrassVariety> return this.GrassVarieties;
 	public extern var bEnableDensityScaling(get, never): Bool;
 	public inline extern function get_bEnableDensityScaling(): Bool return this.bEnableDensityScaling;
-	public extern var GrassMesh_DEPRECATED(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_GrassMesh_DEPRECATED(): cpp.Star<StaticMesh.ConstStaticMesh> return this.GrassMesh_DEPRECATED;
-	public extern var GrassDensity_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_GrassDensity_DEPRECATED(): cpp.Float32 return this.GrassDensity_DEPRECATED;
-	public extern var PlacementJitter_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_PlacementJitter_DEPRECATED(): cpp.Float32 return this.PlacementJitter_DEPRECATED;
-	public extern var StartCullDistance_DEPRECATED(get, never): cpp.Int32;
-	public inline extern function get_StartCullDistance_DEPRECATED(): cpp.Int32 return this.StartCullDistance_DEPRECATED;
-	public extern var EndCullDistance_DEPRECATED(get, never): cpp.Int32;
-	public inline extern function get_EndCullDistance_DEPRECATED(): cpp.Int32 return this.EndCullDistance_DEPRECATED;
-	public extern var RandomRotation_DEPRECATED(get, never): Bool;
-	public inline extern function get_RandomRotation_DEPRECATED(): Bool return this.RandomRotation_DEPRECATED;
-	public extern var AlignToSurface_DEPRECATED(get, never): Bool;
-	public inline extern function get_AlignToSurface_DEPRECATED(): Bool return this.AlignToSurface_DEPRECATED;
 }
 
 @:forward

@@ -5,7 +5,7 @@ package ue;
 @:include("InteractiveGizmo.h")
 @:structAccess
 extern class InteractiveGizmo extends Object {
-	public var InputBehaviors: cpp.Star<InputBehaviorSet>;
+	@:protected public var InputBehaviors: cpp.Star<InputBehaviorSet>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class InteractiveGizmo extends Object {
 @:forward()
 @:nativeGen
 abstract ConstInteractiveGizmo(InteractiveGizmo) from InteractiveGizmo {
-	public extern var InputBehaviors(get, never): cpp.Star<InputBehaviorSet.ConstInputBehaviorSet>;
-	public inline extern function get_InputBehaviors(): cpp.Star<InputBehaviorSet.ConstInputBehaviorSet> return this.InputBehaviors;
 }
 
 @:forward

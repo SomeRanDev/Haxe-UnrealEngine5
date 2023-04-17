@@ -3,9 +3,9 @@ package ue;
 
 @:native("EFourPlayerSplitScreenType")
 @:include("GameMapsSettings.h")
-extern enum EFourPlayerSplitScreenType {
-	Grid;
-	Vertical;
-	Horizontal;
-	EFourPlayerSplitScreenType_MAX;
+extern class EFourPlayerSplitScreenType {
+	static var Grid: EFourPlayerSplitScreenType;
+	static var Vertical: EFourPlayerSplitScreenType;
+	static var Horizontal: EFourPlayerSplitScreenType;
+	static var EFourPlayerSplitScreenType_MAX: EFourPlayerSplitScreenType;
 }

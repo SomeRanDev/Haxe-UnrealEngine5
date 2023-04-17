@@ -6,9 +6,9 @@ package ue;
 @:structAccess
 extern class BodySetupCore extends Object {
 	public var BoneName: FName;
-	public var PhysicsType: EPhysicsType;
-	public var CollisionTraceFlag: ECollisionTraceFlag;
-	public var CollisionReponse: EBodyCollisionResponse;
+	public var PhysicsType: TEnumAsByte<EPhysicsType>;
+	public var CollisionTraceFlag: TEnumAsByte<ECollisionTraceFlag>;
+	public var CollisionReponse: TEnumAsByte<EBodyCollisionResponse>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,12 +18,12 @@ extern class BodySetupCore extends Object {
 abstract ConstBodySetupCore(BodySetupCore) from BodySetupCore {
 	public extern var BoneName(get, never): FName;
 	public inline extern function get_BoneName(): FName return this.BoneName;
-	public extern var PhysicsType(get, never): EPhysicsType;
-	public inline extern function get_PhysicsType(): EPhysicsType return this.PhysicsType;
-	public extern var CollisionTraceFlag(get, never): ECollisionTraceFlag;
-	public inline extern function get_CollisionTraceFlag(): ECollisionTraceFlag return this.CollisionTraceFlag;
-	public extern var CollisionReponse(get, never): EBodyCollisionResponse;
-	public inline extern function get_CollisionReponse(): EBodyCollisionResponse return this.CollisionReponse;
+	public extern var PhysicsType(get, never): TEnumAsByte<EPhysicsType>;
+	public inline extern function get_PhysicsType(): TEnumAsByte<EPhysicsType> return this.PhysicsType;
+	public extern var CollisionTraceFlag(get, never): TEnumAsByte<ECollisionTraceFlag>;
+	public inline extern function get_CollisionTraceFlag(): TEnumAsByte<ECollisionTraceFlag> return this.CollisionTraceFlag;
+	public extern var CollisionReponse(get, never): TEnumAsByte<EBodyCollisionResponse>;
+	public inline extern function get_CollisionReponse(): TEnumAsByte<EBodyCollisionResponse> return this.CollisionReponse;
 }
 
 @:forward

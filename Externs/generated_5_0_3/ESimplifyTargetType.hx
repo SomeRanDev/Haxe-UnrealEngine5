@@ -3,11 +3,11 @@ package ue;
 
 @:native("ESimplifyTargetType")
 @:include("CleaningOps/SimplifyMeshOp.h")
-extern enum ESimplifyTargetType {
-	Percentage;
-	TriangleCount;
-	VertexCount;
-	EdgeLength;
-	MinimalPlanar;
-	ESimplifyTargetType_MAX;
+extern class ESimplifyTargetType {
+	static var Percentage: ESimplifyTargetType;
+	static var TriangleCount: ESimplifyTargetType;
+	static var VertexCount: ESimplifyTargetType;
+	static var EdgeLength: ESimplifyTargetType;
+	static var MinimalPlanar: ESimplifyTargetType;
+	static var ESimplifyTargetType_MAX: ESimplifyTargetType;
 }

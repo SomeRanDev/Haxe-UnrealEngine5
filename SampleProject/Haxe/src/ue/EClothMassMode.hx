@@ -3,10 +3,10 @@ package ue;
 
 @:native("EClothMassMode")
 @:include("ClothConfig.h")
-extern enum EClothMassMode {
-	UniformMass;
-	TotalMass;
-	Density;
-	MaxClothMassMode;
-	EClothMassMode_MAX;
+extern class EClothMassMode {
+	static var UniformMass: EClothMassMode;
+	static var TotalMass: EClothMassMode;
+	static var Density: EClothMassMode;
+	static var MaxClothMassMode: EClothMassMode;
+	static var EClothMassMode_MAX: EClothMassMode;
 }

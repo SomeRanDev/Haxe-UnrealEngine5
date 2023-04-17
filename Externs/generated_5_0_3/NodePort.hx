@@ -5,8 +5,8 @@ package ue;
 @:include("NodePort.h")
 @:structAccess
 extern class NodePort extends Object {
-	public function IsNodeRunning(): cpp.Reference<Bool>;
-	public function GetNodePort(): cpp.Reference<FString>;
+	public function IsNodeRunning(): Bool;
+	public function GetNodePort(): FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

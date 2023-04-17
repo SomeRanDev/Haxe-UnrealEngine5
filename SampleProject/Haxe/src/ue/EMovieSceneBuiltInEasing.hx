@@ -3,28 +3,28 @@ package ue;
 
 @:native("EMovieSceneBuiltInEasing")
 @:include("Generators/MovieSceneEasingCurves.h")
-extern enum EMovieSceneBuiltInEasing {
-	Linear;
-	SinIn;
-	SinOut;
-	SinInOut;
-	QuadIn;
-	QuadOut;
-	QuadInOut;
-	CubicIn;
-	CubicOut;
-	CubicInOut;
-	QuartIn;
-	QuartOut;
-	QuartInOut;
-	QuintIn;
-	QuintOut;
-	QuintInOut;
-	ExpoIn;
-	ExpoOut;
-	ExpoInOut;
-	CircIn;
-	CircOut;
-	CircInOut;
-	EMovieSceneBuiltInEasing_MAX;
+extern class EMovieSceneBuiltInEasing {
+	static var Linear: EMovieSceneBuiltInEasing;
+	static var SinIn: EMovieSceneBuiltInEasing;
+	static var SinOut: EMovieSceneBuiltInEasing;
+	static var SinInOut: EMovieSceneBuiltInEasing;
+	static var QuadIn: EMovieSceneBuiltInEasing;
+	static var QuadOut: EMovieSceneBuiltInEasing;
+	static var QuadInOut: EMovieSceneBuiltInEasing;
+	static var CubicIn: EMovieSceneBuiltInEasing;
+	static var CubicOut: EMovieSceneBuiltInEasing;
+	static var CubicInOut: EMovieSceneBuiltInEasing;
+	static var QuartIn: EMovieSceneBuiltInEasing;
+	static var QuartOut: EMovieSceneBuiltInEasing;
+	static var QuartInOut: EMovieSceneBuiltInEasing;
+	static var QuintIn: EMovieSceneBuiltInEasing;
+	static var QuintOut: EMovieSceneBuiltInEasing;
+	static var QuintInOut: EMovieSceneBuiltInEasing;
+	static var ExpoIn: EMovieSceneBuiltInEasing;
+	static var ExpoOut: EMovieSceneBuiltInEasing;
+	static var ExpoInOut: EMovieSceneBuiltInEasing;
+	static var CircIn: EMovieSceneBuiltInEasing;
+	static var CircOut: EMovieSceneBuiltInEasing;
+	static var CircInOut: EMovieSceneBuiltInEasing;
+	static var EMovieSceneBuiltInEasing_MAX: EMovieSceneBuiltInEasing;
 }

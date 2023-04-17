@@ -8,11 +8,11 @@ extern class SpaceCurveDeformationMechanic extends InteractionMechanic {
 	public var ClickBehavior: cpp.Star<SingleClickInputBehavior>;
 	public var HoverBehavior: cpp.Star<MouseHoverBehavior>;
 	public var TransformProperties: cpp.Star<SpaceCurveDeformationMechanicPropertySet>;
-	public var PreviewGeometryActor: cpp.Star<PreviewGeometryActor>;
-	public var RenderPoints: cpp.Star<PointSetComp>;
-	public var RenderSegments: cpp.Star<LineSetComp>;
-	public var PointTransformProxy: cpp.Star<TransformProxy>;
-	public var PointTransformGizmo: cpp.Star<CombinedTransformGizmo>;
+	@:protected public var PreviewGeometryActor: cpp.Star<PreviewGeometryActor>;
+	@:protected public var RenderPoints: cpp.Star<PointSetComp>;
+	@:protected public var RenderSegments: cpp.Star<LineSetComp>;
+	@:protected public var PointTransformProxy: cpp.Star<TransformProxy>;
+	@:protected public var PointTransformGizmo: cpp.Star<CombinedTransformGizmo>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -26,16 +26,6 @@ abstract ConstSpaceCurveDeformationMechanic(SpaceCurveDeformationMechanic) from 
 	public inline extern function get_HoverBehavior(): cpp.Star<MouseHoverBehavior.ConstMouseHoverBehavior> return this.HoverBehavior;
 	public extern var TransformProperties(get, never): cpp.Star<SpaceCurveDeformationMechanicPropertySet.ConstSpaceCurveDeformationMechanicPropertySet>;
 	public inline extern function get_TransformProperties(): cpp.Star<SpaceCurveDeformationMechanicPropertySet.ConstSpaceCurveDeformationMechanicPropertySet> return this.TransformProperties;
-	public extern var PreviewGeometryActor(get, never): cpp.Star<PreviewGeometryActor.ConstPreviewGeometryActor>;
-	public inline extern function get_PreviewGeometryActor(): cpp.Star<PreviewGeometryActor.ConstPreviewGeometryActor> return this.PreviewGeometryActor;
-	public extern var RenderPoints(get, never): cpp.Star<PointSetComp.ConstPointSetComp>;
-	public inline extern function get_RenderPoints(): cpp.Star<PointSetComp.ConstPointSetComp> return this.RenderPoints;
-	public extern var RenderSegments(get, never): cpp.Star<LineSetComp.ConstLineSetComp>;
-	public inline extern function get_RenderSegments(): cpp.Star<LineSetComp.ConstLineSetComp> return this.RenderSegments;
-	public extern var PointTransformProxy(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
-	public inline extern function get_PointTransformProxy(): cpp.Star<TransformProxy.ConstTransformProxy> return this.PointTransformProxy;
-	public extern var PointTransformGizmo(get, never): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo>;
-	public inline extern function get_PointTransformGizmo(): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo> return this.PointTransformGizmo;
 }
 
 @:forward

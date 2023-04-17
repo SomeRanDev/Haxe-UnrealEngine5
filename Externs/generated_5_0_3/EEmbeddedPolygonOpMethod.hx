@@ -3,10 +3,10 @@ package ue;
 
 @:native("EEmbeddedPolygonOpMethod")
 @:include("CuttingOps/EmbedPolygonsOp.h")
-extern enum EEmbeddedPolygonOpMethod {
-	TrimOutside;
-	TrimInside;
-	InsertPolygon;
-	CutThrough;
-	EEmbeddedPolygonOpMethod_MAX;
+extern class EEmbeddedPolygonOpMethod {
+	static var TrimOutside: EEmbeddedPolygonOpMethod;
+	static var TrimInside: EEmbeddedPolygonOpMethod;
+	static var InsertPolygon: EEmbeddedPolygonOpMethod;
+	static var CutThrough: EEmbeddedPolygonOpMethod;
+	static var EEmbeddedPolygonOpMethod_MAX: EEmbeddedPolygonOpMethod;
 }

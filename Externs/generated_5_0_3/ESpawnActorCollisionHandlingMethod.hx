@@ -3,11 +3,11 @@ package ue;
 
 @:native("ESpawnActorCollisionHandlingMethod")
 @:include("Engine/EngineTypes.h")
-extern enum ESpawnActorCollisionHandlingMethod {
-	Undefined;
-	AlwaysSpawn;
-	AdjustIfPossibleButAlwaysSpawn;
-	AdjustIfPossibleButDontSpawnIfColliding;
-	DontSpawnIfColliding;
-	ESpawnActorCollisionHandlingMethod_MAX;
+extern class ESpawnActorCollisionHandlingMethod {
+	static var Undefined: ESpawnActorCollisionHandlingMethod;
+	static var AlwaysSpawn: ESpawnActorCollisionHandlingMethod;
+	static var AdjustIfPossibleButAlwaysSpawn: ESpawnActorCollisionHandlingMethod;
+	static var AdjustIfPossibleButDontSpawnIfColliding: ESpawnActorCollisionHandlingMethod;
+	static var DontSpawnIfColliding: ESpawnActorCollisionHandlingMethod;
+	static var ESpawnActorCollisionHandlingMethod_MAX: ESpawnActorCollisionHandlingMethod;
 }

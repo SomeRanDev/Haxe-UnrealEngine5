@@ -8,7 +8,7 @@ extern class ParticleModuleLocationPrimitiveCylinder extends ParticleModuleLocat
 	public var RadialVelocity: Bool;
 	public var StartRadius: RawDistributionFloat;
 	public var StartHeight: RawDistributionFloat;
-	public var HeightAxis: CylinderHeightAxis;
+	public var HeightAxis: TEnumAsByte<CylinderHeightAxis>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -22,8 +22,8 @@ abstract ConstParticleModuleLocationPrimitiveCylinder(ParticleModuleLocationPrim
 	public inline extern function get_StartRadius(): RawDistributionFloat return this.StartRadius;
 	public extern var StartHeight(get, never): RawDistributionFloat;
 	public inline extern function get_StartHeight(): RawDistributionFloat return this.StartHeight;
-	public extern var HeightAxis(get, never): CylinderHeightAxis;
-	public inline extern function get_HeightAxis(): CylinderHeightAxis return this.HeightAxis;
+	public extern var HeightAxis(get, never): TEnumAsByte<CylinderHeightAxis>;
+	public inline extern function get_HeightAxis(): TEnumAsByte<CylinderHeightAxis> return this.HeightAxis;
 }
 
 @:forward

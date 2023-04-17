@@ -5,10 +5,10 @@ package ue;
 @:include("ToolActivities/PolyEditCutFacesActivity.h")
 @:structAccess
 extern class PolyEditCutFacesActivity extends InteractiveToolActivity {
-	public var CutProperties: cpp.Star<PolyEditCutProperties>;
-	public var EditPreview: cpp.Star<PolyEditPreviewMesh>;
-	public var SurfacePathMechanic: cpp.Star<CollectSurfacePathMechanic>;
-	public var ActivityContext: cpp.Star<PolyEditActivityContext>;
+	@:protected public var CutProperties: cpp.Star<PolyEditCutProperties>;
+	@:protected public var EditPreview: cpp.Star<PolyEditPreviewMesh>;
+	@:protected public var SurfacePathMechanic: cpp.Star<CollectSurfacePathMechanic>;
+	@:protected public var ActivityContext: cpp.Star<PolyEditActivityContext>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class PolyEditCutFacesActivity extends InteractiveToolActivity {
 @:forward()
 @:nativeGen
 abstract ConstPolyEditCutFacesActivity(PolyEditCutFacesActivity) from PolyEditCutFacesActivity {
-	public extern var CutProperties(get, never): cpp.Star<PolyEditCutProperties.ConstPolyEditCutProperties>;
-	public inline extern function get_CutProperties(): cpp.Star<PolyEditCutProperties.ConstPolyEditCutProperties> return this.CutProperties;
-	public extern var EditPreview(get, never): cpp.Star<PolyEditPreviewMesh.ConstPolyEditPreviewMesh>;
-	public inline extern function get_EditPreview(): cpp.Star<PolyEditPreviewMesh.ConstPolyEditPreviewMesh> return this.EditPreview;
-	public extern var SurfacePathMechanic(get, never): cpp.Star<CollectSurfacePathMechanic.ConstCollectSurfacePathMechanic>;
-	public inline extern function get_SurfacePathMechanic(): cpp.Star<CollectSurfacePathMechanic.ConstCollectSurfacePathMechanic> return this.SurfacePathMechanic;
-	public extern var ActivityContext(get, never): cpp.Star<PolyEditActivityContext.ConstPolyEditActivityContext>;
-	public inline extern function get_ActivityContext(): cpp.Star<PolyEditActivityContext.ConstPolyEditActivityContext> return this.ActivityContext;
 }
 
 @:forward

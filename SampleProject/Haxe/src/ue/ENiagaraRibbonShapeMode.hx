@@ -3,10 +3,10 @@ package ue;
 
 @:native("ENiagaraRibbonShapeMode")
 @:include("NiagaraRibbonRendererProperties.h")
-extern enum ENiagaraRibbonShapeMode {
-	Plane;
-	MultiPlane;
-	Tube;
-	Custom;
-	ENiagaraRibbonShapeMode_MAX;
+extern class ENiagaraRibbonShapeMode {
+	static var Plane: ENiagaraRibbonShapeMode;
+	static var MultiPlane: ENiagaraRibbonShapeMode;
+	static var Tube: ENiagaraRibbonShapeMode;
+	static var Custom: ENiagaraRibbonShapeMode;
+	static var ENiagaraRibbonShapeMode_MAX: ENiagaraRibbonShapeMode;
 }

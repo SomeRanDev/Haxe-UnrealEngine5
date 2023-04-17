@@ -5,17 +5,16 @@ package ue;
 @:include("WorldPartition/DataLayer/WorldDataLayers.h")
 @:structAccess
 extern class WorldDataLayers extends Info {
-	public var bAllowRuntimeDataLayerEditing: Bool;
-	public var WorldDataLayers: TSet<cpp.Star<DataLayer>>;
-	public var RepActiveDataLayerNames: TArray<FName>;
-	public var RepLoadedDataLayerNames: TArray<FName>;
-	public var RepEffectiveActiveDataLayerNames: TArray<FName>;
-	public var RepEffectiveLoadedDataLayerNames: TArray<FName>;
+	private var WorldDataLayers: TSet<cpp.Star<DataLayer>>;
+	private var RepActiveDataLayerNames: TArray<FName>;
+	private var RepLoadedDataLayerNames: TArray<FName>;
+	private var RepEffectiveActiveDataLayerNames: TArray<FName>;
+	private var RepEffectiveLoadedDataLayerNames: TArray<FName>;
 
-	public function OnRep_LoadedDataLayerNames(): Void;
-	public function OnRep_EffectiveLoadedDataLayerNames(): Void;
-	public function OnRep_EffectiveActiveDataLayerNames(): Void;
-	public function OnRep_ActiveDataLayerNames(): Void;
+	@:protected public function OnRep_LoadedDataLayerNames(): Void;
+	@:protected public function OnRep_EffectiveLoadedDataLayerNames(): Void;
+	@:protected public function OnRep_EffectiveActiveDataLayerNames(): Void;
+	@:protected public function OnRep_ActiveDataLayerNames(): Void;
 	public function OnDataLayerRuntimeStateChanged(InDataLayer: cpp.Star<DataLayer.ConstDataLayer>, InState: EDataLayerRuntimeState): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -24,18 +23,6 @@ extern class WorldDataLayers extends Info {
 @:forward()
 @:nativeGen
 abstract ConstWorldDataLayers(WorldDataLayers) from WorldDataLayers {
-	public extern var bAllowRuntimeDataLayerEditing(get, never): Bool;
-	public inline extern function get_bAllowRuntimeDataLayerEditing(): Bool return this.bAllowRuntimeDataLayerEditing;
-	public extern var WorldDataLayers(get, never): TSet<cpp.Star<DataLayer.ConstDataLayer>>;
-	public inline extern function get_WorldDataLayers(): TSet<cpp.Star<DataLayer.ConstDataLayer>> return this.WorldDataLayers;
-	public extern var RepActiveDataLayerNames(get, never): TArray<FName>;
-	public inline extern function get_RepActiveDataLayerNames(): TArray<FName> return this.RepActiveDataLayerNames;
-	public extern var RepLoadedDataLayerNames(get, never): TArray<FName>;
-	public inline extern function get_RepLoadedDataLayerNames(): TArray<FName> return this.RepLoadedDataLayerNames;
-	public extern var RepEffectiveActiveDataLayerNames(get, never): TArray<FName>;
-	public inline extern function get_RepEffectiveActiveDataLayerNames(): TArray<FName> return this.RepEffectiveActiveDataLayerNames;
-	public extern var RepEffectiveLoadedDataLayerNames(get, never): TArray<FName>;
-	public inline extern function get_RepEffectiveLoadedDataLayerNames(): TArray<FName> return this.RepEffectiveLoadedDataLayerNames;
 }
 
 @:forward

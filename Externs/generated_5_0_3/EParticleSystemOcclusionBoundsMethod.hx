@@ -3,9 +3,9 @@ package ue;
 
 @:native("EParticleSystemOcclusionBoundsMethod")
 @:include("Particles/ParticleSystem.h")
-extern enum EParticleSystemOcclusionBoundsMethod {
-	EPSOBM_None;
-	EPSOBM_ParticleBounds;
-	EPSOBM_CustomBounds;
-	EPSOBM_MAX;
+extern class EParticleSystemOcclusionBoundsMethod {
+	static var EPSOBM_None: EParticleSystemOcclusionBoundsMethod;
+	static var EPSOBM_ParticleBounds: EParticleSystemOcclusionBoundsMethod;
+	static var EPSOBM_CustomBounds: EParticleSystemOcclusionBoundsMethod;
+	static var EPSOBM_MAX: EParticleSystemOcclusionBoundsMethod;
 }

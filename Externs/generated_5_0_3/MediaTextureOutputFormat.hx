@@ -3,8 +3,8 @@ package ue;
 
 @:native("MediaTextureOutputFormat")
 @:include("MediaTexture.h")
-extern enum MediaTextureOutputFormat {
-	MTOF_Default;
-	MTOF_SRGB_LINOUT;
-	MTOF_MAX;
+extern class MediaTextureOutputFormat {
+	static var MTOF_Default: MediaTextureOutputFormat;
+	static var MTOF_SRGB_LINOUT: MediaTextureOutputFormat;
+	static var MTOF_MAX: MediaTextureOutputFormat;
 }

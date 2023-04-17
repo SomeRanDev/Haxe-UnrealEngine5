@@ -21,9 +21,7 @@ extern class NiagaraVariableMetaData {
 	public var VisibleCondition: NiagaraInputConditionMetadata;
 	public var PropertyMetaData: TMap<FName, FString>;
 	public var ParentAttribute: FName;
-	public var VariableGuid: Guid;
-	public var bIsStaticSwitch_DEPRECATED: Bool;
-	public var StaticSwitchDefaultValue_DEPRECATED: cpp.Int32;
+	private var VariableGuid: Guid;
 
 	@:native("FNiagaraVariableMetaData") public function new();
 }

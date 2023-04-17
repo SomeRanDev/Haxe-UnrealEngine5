@@ -5,10 +5,10 @@ package ue;
 @:include("AnimationModifier.h")
 @:structAccess
 extern class AnimationModifier extends Object {
-	public var RevisionGuid: Guid;
-	public var AppliedGuid: Guid;
-	public var StoredNativeRevision: cpp.Int32;
-	public var PreviouslyAppliedModifier: cpp.Star<AnimationModifier>;
+	private var RevisionGuid: Guid;
+	private var AppliedGuid: Guid;
+	private var StoredNativeRevision: cpp.Int32;
+	private var PreviouslyAppliedModifier: cpp.Star<AnimationModifier>;
 
 	public function OnRevert(AnimationSequence: cpp.Star<AnimSequence>): Void;
 	public function OnApply(AnimationSequence: cpp.Star<AnimSequence>): Void;
@@ -19,14 +19,6 @@ extern class AnimationModifier extends Object {
 @:forward()
 @:nativeGen
 abstract ConstAnimationModifier(AnimationModifier) from AnimationModifier {
-	public extern var RevisionGuid(get, never): Guid;
-	public inline extern function get_RevisionGuid(): Guid return this.RevisionGuid;
-	public extern var AppliedGuid(get, never): Guid;
-	public inline extern function get_AppliedGuid(): Guid return this.AppliedGuid;
-	public extern var StoredNativeRevision(get, never): cpp.Int32;
-	public inline extern function get_StoredNativeRevision(): cpp.Int32 return this.StoredNativeRevision;
-	public extern var PreviouslyAppliedModifier(get, never): cpp.Star<AnimationModifier.ConstAnimationModifier>;
-	public inline extern function get_PreviouslyAppliedModifier(): cpp.Star<AnimationModifier.ConstAnimationModifier> return this.PreviouslyAppliedModifier;
 }
 
 @:forward

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMobilePlanarReflectionMode.Type")
 @:include("Engine/Scene.h")
-extern enum EMobilePlanarReflectionMode {
-	Usual;
-	MobilePPRExclusive;
-	MobilePPR;
-	EMobilePlanarReflectionMode_MAX;
+extern class EMobilePlanarReflectionMode {
+	static var Usual: EMobilePlanarReflectionMode;
+	static var MobilePPRExclusive: EMobilePlanarReflectionMode;
+	static var MobilePPR: EMobilePlanarReflectionMode;
+	static var EMobilePlanarReflectionMode_MAX: EMobilePlanarReflectionMode;
 }

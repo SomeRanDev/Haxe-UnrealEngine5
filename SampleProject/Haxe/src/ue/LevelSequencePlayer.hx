@@ -7,8 +7,8 @@ package ue;
 extern class LevelSequencePlayer extends MovieSceneSequencePlayer {
 	public var OnCameraCut: HaxeMulticastSparseDelegateProperty<(cpp.Star<CameraComp>) -> Void>;
 
-	public function GetActiveCameraComponent(): cpp.Reference<cpp.Star<CameraComp>>;
-	public function CreateLevelSequencePlayer(WorldContextObject: cpp.Star<Object>, LevelSequence: cpp.Star<LevelSequence>, Settings: MovieSceneSequencePlaybackSettings, OutActor: cpp.Reference<cpp.Star<LevelSequenceActor>>): cpp.Reference<cpp.Star<LevelSequencePlayer>>;
+	public function GetActiveCameraComponent(): cpp.Star<CameraComp>;
+	public function CreateLevelSequencePlayer(WorldContextObject: cpp.Star<Object>, LevelSequence: cpp.Star<LevelSequence>, Settings: MovieSceneSequencePlaybackSettings, OutActor: cpp.Reference<cpp.Star<LevelSequenceActor>>): cpp.Star<LevelSequencePlayer>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

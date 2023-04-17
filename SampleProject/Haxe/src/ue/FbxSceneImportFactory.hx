@@ -12,7 +12,7 @@ extern class FbxSceneImportFactory extends SceneImportFactory {
 	public var SkeletalMeshImportData: cpp.Star<FbxSkeletalMeshImportData>;
 	public var AnimSequenceImportData: cpp.Star<FbxAnimSequenceImportData>;
 	public var TextureImportData: cpp.Star<FbxTextureImportData>;
-	public var ReimportData: cpp.Star<FbxSceneImportData>;
+	@:protected public var ReimportData: cpp.Star<FbxSceneImportData>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -34,8 +34,6 @@ abstract ConstFbxSceneImportFactory(FbxSceneImportFactory) from FbxSceneImportFa
 	public inline extern function get_AnimSequenceImportData(): cpp.Star<FbxAnimSequenceImportData.ConstFbxAnimSequenceImportData> return this.AnimSequenceImportData;
 	public extern var TextureImportData(get, never): cpp.Star<FbxTextureImportData.ConstFbxTextureImportData>;
 	public inline extern function get_TextureImportData(): cpp.Star<FbxTextureImportData.ConstFbxTextureImportData> return this.TextureImportData;
-	public extern var ReimportData(get, never): cpp.Star<FbxSceneImportData.ConstFbxSceneImportData>;
-	public inline extern function get_ReimportData(): cpp.Star<FbxSceneImportData.ConstFbxSceneImportData> return this.ReimportData;
 }
 
 @:forward

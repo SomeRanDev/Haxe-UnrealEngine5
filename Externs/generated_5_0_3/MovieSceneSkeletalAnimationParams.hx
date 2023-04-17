@@ -16,8 +16,6 @@ extern class MovieSceneSkeletalAnimationParams {
 	public var Weight: MovieSceneFloatChannel;
 	public var bSkipAnimNotifiers: Bool;
 	public var bForceCustomMode: Bool;
-	public var StartOffset_DEPRECATED: cpp.Float32;
-	public var EndOffset_DEPRECATED: cpp.Float32;
 
 	@:native("FMovieSceneSkeletalAnimationParams") public function new();
 }

@@ -11,7 +11,7 @@ extern class LevelEditorContextMenuContext extends Object {
 	public var SelectedComponents: TArray<cpp.Star<ActorComp>>;
 	public var HitProxyActor: cpp.Star<Actor>;
 
-	public function GetScriptHitProxyElement(): cpp.Reference<ScriptTypedElementHandle>;
+	public function GetScriptHitProxyElement(): ScriptTypedElementHandle;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

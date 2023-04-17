@@ -3,10 +3,10 @@ package ue;
 
 @:native("EMaterialBoundaryConstraint")
 @:include("Properties/RemeshProperties.h")
-extern enum EMaterialBoundaryConstraint {
-	Fixed;
-	Refine;
-	Free;
-	Ignore;
-	EMaterialBoundaryConstraint_MAX;
+extern class EMaterialBoundaryConstraint {
+	static var Fixed: EMaterialBoundaryConstraint;
+	static var Refine: EMaterialBoundaryConstraint;
+	static var Free: EMaterialBoundaryConstraint;
+	static var Ignore: EMaterialBoundaryConstraint;
+	static var EMaterialBoundaryConstraint_MAX: EMaterialBoundaryConstraint;
 }

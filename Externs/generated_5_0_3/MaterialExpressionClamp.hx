@@ -8,7 +8,7 @@ extern class MaterialExpressionClamp extends MaterialExpression {
 	public var Input: ExpressionInput;
 	public var Min: ExpressionInput;
 	public var Max: ExpressionInput;
-	public var ClampMode: EClampMode;
+	public var ClampMode: TEnumAsByte<EClampMode>;
 	public var MinDefault: cpp.Float32;
 	public var MaxDefault: cpp.Float32;
 
@@ -24,8 +24,8 @@ abstract ConstMaterialExpressionClamp(MaterialExpressionClamp) from MaterialExpr
 	public inline extern function get_Min(): ExpressionInput return this.Min;
 	public extern var Max(get, never): ExpressionInput;
 	public inline extern function get_Max(): ExpressionInput return this.Max;
-	public extern var ClampMode(get, never): EClampMode;
-	public inline extern function get_ClampMode(): EClampMode return this.ClampMode;
+	public extern var ClampMode(get, never): TEnumAsByte<EClampMode>;
+	public inline extern function get_ClampMode(): TEnumAsByte<EClampMode> return this.ClampMode;
 	public extern var MinDefault(get, never): cpp.Float32;
 	public inline extern function get_MinDefault(): cpp.Float32 return this.MinDefault;
 	public extern var MaxDefault(get, never): cpp.Float32;

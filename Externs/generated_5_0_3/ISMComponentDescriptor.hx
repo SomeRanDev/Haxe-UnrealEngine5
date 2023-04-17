@@ -10,13 +10,13 @@ extern class ISMComponentDescriptor {
 	public var StaticMesh: cpp.Star<StaticMesh>;
 	public var OverrideMaterials: TArray<cpp.Star<MaterialInterface>>;
 	public var RuntimeVirtualTextures: TArray<cpp.Star<RuntimeVirtualTexture>>;
-	public var Mobility: EComponentMobility;
+	public var Mobility: TEnumAsByte<EComponentMobility>;
 	public var VirtualTextureRenderPassType: ERuntimeVirtualTextureMainPassType;
 	public var LightmapType: ELightmapType;
 	public var LightingChannels: LightingChannels;
 	public var RayTracingGroupId: cpp.Int32;
 	public var RayTracingGroupCullingPriority: ERayTracingGroupCullingPriority;
-	public var bHasCustomNavigableGeometry: EHasCustomNavigableGeometry;
+	public var bHasCustomNavigableGeometry: TEnumAsByte<EHasCustomNavigableGeometry>;
 	public var CustomDepthStencilWriteMask: ERendererStencilMask;
 	public var BodyInstance: BodyInstance;
 	public var InstanceStartCullDistance: cpp.Int32;

@@ -10,7 +10,7 @@ extern class GridPanel extends PanelWidget {
 
 	public function SetRowFill(ColumnIndex: cpp.Int32, Coefficient: cpp.Float32): Void;
 	public function SetColumnFill(ColumnIndex: cpp.Int32, Coefficient: cpp.Float32): Void;
-	public function AddChildToGrid(Content: cpp.Star<Widget>, InRow: cpp.Int32, InColumn: cpp.Int32): cpp.Reference<cpp.Star<GridSlot>>;
+	public function AddChildToGrid(Content: cpp.Star<Widget>, InRow: cpp.Int32, InColumn: cpp.Int32): cpp.Star<GridSlot>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

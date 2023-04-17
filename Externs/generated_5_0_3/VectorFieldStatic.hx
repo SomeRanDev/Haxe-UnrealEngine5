@@ -9,8 +9,6 @@ extern class VectorFieldStatic extends VectorField {
 	public var SizeY: cpp.Int32;
 	public var SizeZ: cpp.Int32;
 	public var bAllowCPUAccess: Bool;
-	public var SourceFilePath_DEPRECATED: FString;
-	public var AssetImportData: cpp.Star<AssetImportData>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -26,10 +24,6 @@ abstract ConstVectorFieldStatic(VectorFieldStatic) from VectorFieldStatic {
 	public inline extern function get_SizeZ(): cpp.Int32 return this.SizeZ;
 	public extern var bAllowCPUAccess(get, never): Bool;
 	public inline extern function get_bAllowCPUAccess(): Bool return this.bAllowCPUAccess;
-	public extern var SourceFilePath_DEPRECATED(get, never): FString;
-	public inline extern function get_SourceFilePath_DEPRECATED(): FString return this.SourceFilePath_DEPRECATED;
-	public extern var AssetImportData(get, never): cpp.Star<AssetImportData.ConstAssetImportData>;
-	public inline extern function get_AssetImportData(): cpp.Star<AssetImportData.ConstAssetImportData> return this.AssetImportData;
 }
 
 @:forward

@@ -5,9 +5,9 @@ package ue;
 @:include("OnlineBeacon.h")
 @:structAccess
 extern class OnlineBeacon extends Actor {
-	public var BeaconConnectionInitialTimeout: cpp.Float32;
-	public var BeaconConnectionTimeout: cpp.Float32;
-	public var NetDriver: cpp.Star<NetDriver>;
+	@:protected public var BeaconConnectionInitialTimeout: cpp.Float32;
+	@:protected public var BeaconConnectionTimeout: cpp.Float32;
+	@:protected public var NetDriver: cpp.Star<NetDriver>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class OnlineBeacon extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstOnlineBeacon(OnlineBeacon) from OnlineBeacon {
-	public extern var BeaconConnectionInitialTimeout(get, never): cpp.Float32;
-	public inline extern function get_BeaconConnectionInitialTimeout(): cpp.Float32 return this.BeaconConnectionInitialTimeout;
-	public extern var BeaconConnectionTimeout(get, never): cpp.Float32;
-	public inline extern function get_BeaconConnectionTimeout(): cpp.Float32 return this.BeaconConnectionTimeout;
-	public extern var NetDriver(get, never): cpp.Star<NetDriver.ConstNetDriver>;
-	public inline extern function get_NetDriver(): cpp.Star<NetDriver.ConstNetDriver> return this.NetDriver;
 }
 
 @:forward

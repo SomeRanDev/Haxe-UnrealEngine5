@@ -5,13 +5,13 @@ package ue;
 @:include("GameFramework/LightWeightInstanceManager.h")
 @:structAccess
 extern class LightWeightInstanceManager extends Actor {
-	public var RepresentedClass: TSubclassOf<Actor>;
-	public var AcceptedClass: TSubclassOf<Actor>;
-	public var InstanceTransforms: TArray<Transform>;
-	public var FreeIndices: TArray<cpp.Int32>;
-	public var ValidIndices: TArray<Bool>;
+	@:protected public var RepresentedClass: TSubclassOf<Actor>;
+	@:protected public var AcceptedClass: TSubclassOf<Actor>;
+	@:protected public var InstanceTransforms: TArray<Transform>;
+	@:protected public var FreeIndices: TArray<cpp.Int32>;
+	@:protected public var ValidIndices: TArray<Bool>;
 
-	public function OnRep_Transforms(): Void;
+	@:protected public function OnRep_Transforms(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,16 +19,6 @@ extern class LightWeightInstanceManager extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstLightWeightInstanceManager(LightWeightInstanceManager) from LightWeightInstanceManager {
-	public extern var RepresentedClass(get, never): TSubclassOf<Actor.ConstActor>;
-	public inline extern function get_RepresentedClass(): TSubclassOf<Actor.ConstActor> return this.RepresentedClass;
-	public extern var AcceptedClass(get, never): TSubclassOf<Actor.ConstActor>;
-	public inline extern function get_AcceptedClass(): TSubclassOf<Actor.ConstActor> return this.AcceptedClass;
-	public extern var InstanceTransforms(get, never): TArray<Transform>;
-	public inline extern function get_InstanceTransforms(): TArray<Transform> return this.InstanceTransforms;
-	public extern var FreeIndices(get, never): TArray<cpp.Int32>;
-	public inline extern function get_FreeIndices(): TArray<cpp.Int32> return this.FreeIndices;
-	public extern var ValidIndices(get, never): TArray<Bool>;
-	public inline extern function get_ValidIndices(): TArray<Bool> return this.ValidIndices;
 }
 
 @:forward

@@ -3,10 +3,10 @@ package ue;
 
 @:native("ELandscapeConvertMode")
 @:include("LandscapeEditorObject.h")
-extern enum ELandscapeConvertMode {
-	Invalid;
-	Expand;
-	Clip;
-	Resample;
-	ELandscapeConvertMode_MAX;
+extern class ELandscapeConvertMode {
+	static var Invalid: ELandscapeConvertMode;
+	static var Expand: ELandscapeConvertMode;
+	static var Clip: ELandscapeConvertMode;
+	static var Resample: ELandscapeConvertMode;
+	static var ELandscapeConvertMode_MAX: ELandscapeConvertMode;
 }

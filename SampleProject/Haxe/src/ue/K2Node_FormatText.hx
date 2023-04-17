@@ -5,7 +5,7 @@ package ue;
 @:include("K2Node_FormatText.h")
 @:structAccess
 extern class K2Node_FormatText extends K2Node {
-	public var PinNames: TArray<FName>;
+	private var PinNames: TArray<FName>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class K2Node_FormatText extends K2Node {
 @:forward()
 @:nativeGen
 abstract ConstK2Node_FormatText(K2Node_FormatText) from K2Node_FormatText {
-	public extern var PinNames(get, never): TArray<FName>;
-	public inline extern function get_PinNames(): TArray<FName> return this.PinNames;
 }
 
 @:forward

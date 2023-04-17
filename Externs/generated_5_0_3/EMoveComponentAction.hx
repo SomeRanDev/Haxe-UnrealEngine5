@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMoveComponentAction.Type")
 @:include("Kismet/KismetSystemLibrary.h")
-extern enum EMoveComponentAction {
-	Move;
-	Stop;
-	Return;
-	EMoveComponentAction_MAX;
+extern class EMoveComponentAction {
+	static var Move: EMoveComponentAction;
+	static var Stop: EMoveComponentAction;
+	static var Return: EMoveComponentAction;
+	static var EMoveComponentAction_MAX: EMoveComponentAction;
 }

@@ -12,7 +12,6 @@ extern class InputSettings extends Object {
 	public var bEnableMouseSmoothing: Bool;
 	public var bEnableFOVScaling: Bool;
 	public var bCaptureMouseOnLaunch: Bool;
-	public var bDefaultViewportMouseLock_DEPRECATED: Bool;
 	public var bEnableLegacyInputScales: Bool;
 	public var bAlwaysShowTouchInterface: Bool;
 	public var bShowConsoleOnFourFingerTap: Bool;
@@ -25,19 +24,18 @@ extern class InputSettings extends Object {
 	public var DefaultViewportMouseLockMode: EMouseLockMode;
 	public var FOVScale: cpp.Float32;
 	public var DoubleClickTime: cpp.Float32;
-	public var ActionMappings: TArray<InputActionKeyMapping>;
-	public var AxisMappings: TArray<InputAxisKeyMapping>;
-	public var SpeechMappings: TArray<InputActionSpeechMapping>;
-	public var DefaultPlayerInputClass: TSoftClassPtr<Class>;
-	public var DefaultInputComponentClass: TSoftClassPtr<Class>;
+	private var ActionMappings: TArray<InputActionKeyMapping>;
+	private var AxisMappings: TArray<InputAxisKeyMapping>;
+	private var SpeechMappings: TArray<InputActionSpeechMapping>;
+	private var DefaultPlayerInputClass: TSoftClassPtr<Class>;
+	private var DefaultInputComponentClass: TSoftClassPtr<Class>;
 	public var DefaultTouchInterface: SoftObjectPath;
-	public var ConsoleKey_DEPRECATED: Key;
 	public var ConsoleKeys: TArray<Key>;
 
 	public function SaveKeyMappings(): Void;
 	public function RemoveAxisMapping(KeyMapping: cpp.Reference<InputAxisKeyMapping>, bForceRebuildKeymaps: Bool): Void;
 	public function RemoveActionMapping(KeyMapping: cpp.Reference<InputActionKeyMapping>, bForceRebuildKeymaps: Bool): Void;
-	public function GetInputSettings(): cpp.Reference<cpp.Star<InputSettings>>;
+	public function GetInputSettings(): cpp.Star<InputSettings>;
 	public function GetAxisNames(AxisNames: cpp.Reference<TArray<FName>>): Void;
 	public function GetAxisMappingByName(InAxisName: FName, OutMappings: cpp.Reference<TArray<InputAxisKeyMapping>>): Void;
 	public function GetActionNames(ActionNames: cpp.Reference<TArray<FName>>): Void;
@@ -66,8 +64,6 @@ abstract ConstInputSettings(InputSettings) from InputSettings {
 	public inline extern function get_bEnableFOVScaling(): Bool return this.bEnableFOVScaling;
 	public extern var bCaptureMouseOnLaunch(get, never): Bool;
 	public inline extern function get_bCaptureMouseOnLaunch(): Bool return this.bCaptureMouseOnLaunch;
-	public extern var bDefaultViewportMouseLock_DEPRECATED(get, never): Bool;
-	public inline extern function get_bDefaultViewportMouseLock_DEPRECATED(): Bool return this.bDefaultViewportMouseLock_DEPRECATED;
 	public extern var bEnableLegacyInputScales(get, never): Bool;
 	public inline extern function get_bEnableLegacyInputScales(): Bool return this.bEnableLegacyInputScales;
 	public extern var bAlwaysShowTouchInterface(get, never): Bool;
@@ -92,20 +88,8 @@ abstract ConstInputSettings(InputSettings) from InputSettings {
 	public inline extern function get_FOVScale(): cpp.Float32 return this.FOVScale;
 	public extern var DoubleClickTime(get, never): cpp.Float32;
 	public inline extern function get_DoubleClickTime(): cpp.Float32 return this.DoubleClickTime;
-	public extern var ActionMappings(get, never): TArray<InputActionKeyMapping>;
-	public inline extern function get_ActionMappings(): TArray<InputActionKeyMapping> return this.ActionMappings;
-	public extern var AxisMappings(get, never): TArray<InputAxisKeyMapping>;
-	public inline extern function get_AxisMappings(): TArray<InputAxisKeyMapping> return this.AxisMappings;
-	public extern var SpeechMappings(get, never): TArray<InputActionSpeechMapping>;
-	public inline extern function get_SpeechMappings(): TArray<InputActionSpeechMapping> return this.SpeechMappings;
-	public extern var DefaultPlayerInputClass(get, never): TSoftClassPtr<Class.ConstClass>;
-	public inline extern function get_DefaultPlayerInputClass(): TSoftClassPtr<Class.ConstClass> return this.DefaultPlayerInputClass;
-	public extern var DefaultInputComponentClass(get, never): TSoftClassPtr<Class.ConstClass>;
-	public inline extern function get_DefaultInputComponentClass(): TSoftClassPtr<Class.ConstClass> return this.DefaultInputComponentClass;
 	public extern var DefaultTouchInterface(get, never): SoftObjectPath;
 	public inline extern function get_DefaultTouchInterface(): SoftObjectPath return this.DefaultTouchInterface;
-	public extern var ConsoleKey_DEPRECATED(get, never): Key;
-	public inline extern function get_ConsoleKey_DEPRECATED(): Key return this.ConsoleKey_DEPRECATED;
 	public extern var ConsoleKeys(get, never): TArray<Key>;
 	public inline extern function get_ConsoleKeys(): TArray<Key> return this.ConsoleKeys;
 }

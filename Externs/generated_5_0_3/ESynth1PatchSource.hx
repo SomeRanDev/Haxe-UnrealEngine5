@@ -3,11 +3,11 @@ package ue;
 
 @:native("ESynth1PatchSource")
 @:include("EpicSynth1Types.h")
-extern enum ESynth1PatchSource {
-	LFO1;
-	LFO2;
-	Envelope;
-	BiasEnvelope;
-	Count;
-	ESynth1PatchSource_MAX;
+extern class ESynth1PatchSource {
+	static var LFO1: ESynth1PatchSource;
+	static var LFO2: ESynth1PatchSource;
+	static var Envelope: ESynth1PatchSource;
+	static var BiasEnvelope: ESynth1PatchSource;
+	static var Count: ESynth1PatchSource;
+	static var ESynth1PatchSource_MAX: ESynth1PatchSource;
 }

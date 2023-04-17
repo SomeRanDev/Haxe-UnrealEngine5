@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class FormatArgumentData {
 	public var ArgumentName: FString;
-	public var ArgumentValueType: EFormatArgumentType;
+	public var ArgumentValueType: TEnumAsByte<EFormatArgumentType>;
 	public var ArgumentValue: FText;
 	public var ArgumentValueInt: cpp.Int64;
 	public var ArgumentValueFloat: cpp.Float32;

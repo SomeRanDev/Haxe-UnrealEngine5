@@ -6,8 +6,8 @@ package ue;
 @:structAccess
 extern class SlateChildSize {
 	public var Value: cpp.Float32;
-	public var SizeRule: ESlateSizeRule;
+	public var SizeRule: TEnumAsByte<ESlateSizeRule>;
 
 	@:native("FSlateChildSize") public function new();
-	@:native("FSlateChildSize") public static function make(Value: cpp.Float32, SizeRule: ESlateSizeRule): SlateChildSize ;
+	@:native("FSlateChildSize") public static function make(Value: cpp.Float32, SizeRule: TEnumAsByte<ESlateSizeRule>): SlateChildSize ;
 }

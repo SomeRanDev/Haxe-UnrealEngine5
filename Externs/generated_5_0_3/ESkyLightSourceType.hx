@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESkyLightSourceType")
 @:include("Components/SkyLightComponent.h")
-extern enum ESkyLightSourceType {
-	SLS_CapturedScene;
-	SLS_SpecifiedCubemap;
-	SLS_MAX;
+extern class ESkyLightSourceType {
+	static var SLS_CapturedScene: ESkyLightSourceType;
+	static var SLS_SpecifiedCubemap: ESkyLightSourceType;
+	static var SLS_MAX: ESkyLightSourceType;
 }

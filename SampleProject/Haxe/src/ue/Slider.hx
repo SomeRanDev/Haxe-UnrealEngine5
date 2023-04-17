@@ -10,7 +10,7 @@ extern class Slider extends Widget {
 	public var MinValue: cpp.Float32;
 	public var MaxValue: cpp.Float32;
 	public var WidgetStyle: SliderStyle;
-	public var Orientation: EOrientation;
+	public var Orientation: TEnumAsByte<EOrientation>;
 	public var SliderBarColor: LinearColor;
 	public var SliderHandleColor: LinearColor;
 	public var IndentHandle: Bool;
@@ -33,8 +33,8 @@ extern class Slider extends Widget {
 	public function SetMaxValue(InValue: cpp.Float32): Void;
 	public function SetLocked(InValue: Bool): Void;
 	public function SetIndentHandle(InValue: Bool): Void;
-	public function GetValue(): cpp.Reference<cpp.Float32>;
-	public function GetNormalizedValue(): cpp.Reference<cpp.Float32>;
+	public function GetValue(): cpp.Float32;
+	public function GetNormalizedValue(): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -52,8 +52,8 @@ abstract ConstSlider(Slider) from Slider {
 	public inline extern function get_MaxValue(): cpp.Float32 return this.MaxValue;
 	public extern var WidgetStyle(get, never): SliderStyle;
 	public inline extern function get_WidgetStyle(): SliderStyle return this.WidgetStyle;
-	public extern var Orientation(get, never): EOrientation;
-	public inline extern function get_Orientation(): EOrientation return this.Orientation;
+	public extern var Orientation(get, never): TEnumAsByte<EOrientation>;
+	public inline extern function get_Orientation(): TEnumAsByte<EOrientation> return this.Orientation;
 	public extern var SliderBarColor(get, never): LinearColor;
 	public inline extern function get_SliderBarColor(): LinearColor return this.SliderBarColor;
 	public extern var SliderHandleColor(get, never): LinearColor;

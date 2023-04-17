@@ -6,14 +6,14 @@ package ue;
 @:structAccess
 extern class DataTableFunctionLibrary extends BlueprintFunctionLibrary {
 	public function GetDataTableRowNames(Table: cpp.Star<DataTable>, OutRowNames: cpp.Reference<TArray<FName>>): Void;
-	public function GetDataTableRowFromName(Table: cpp.Star<DataTable>, RowName: FName, OutRow: cpp.Reference<TableRowBase>): cpp.Reference<Bool>;
-	public function GetDataTableColumnAsString(DataTable: cpp.Star<DataTable.ConstDataTable>, PropertyName: FName): cpp.Reference<TArray<FString>>;
-	public function FillDataTableFromJSONString(DataTable: cpp.Star<DataTable>, JSONString: FString): cpp.Reference<Bool>;
-	public function FillDataTableFromJSONFile(DataTable: cpp.Star<DataTable>, JSONFilePath: FString, ImportRowStruct: cpp.Star<ScriptStruct>): cpp.Reference<Bool>;
-	public function FillDataTableFromCSVString(DataTable: cpp.Star<DataTable>, CSVString: FString): cpp.Reference<Bool>;
-	public function FillDataTableFromCSVFile(DataTable: cpp.Star<DataTable>, CSVFilePath: FString): cpp.Reference<Bool>;
-	public function EvaluateCurveTableRow(CurveTable: cpp.Star<CurveTable>, RowName: FName, InXY: cpp.Float32, OutResult: cpp.Reference<EEvaluateCurveTableResult>, OutXY: cpp.Reference<cpp.Float32>, ContextString: FString): Void;
-	public function DoesDataTableRowExist(Table: cpp.Star<DataTable>, RowName: FName): cpp.Reference<Bool>;
+	public function GetDataTableRowFromName(Table: cpp.Star<DataTable>, RowName: FName, OutRow: cpp.Reference<TableRowBase>): Bool;
+	public function GetDataTableColumnAsString(DataTable: cpp.Star<DataTable.ConstDataTable>, PropertyName: FName): TArray<FString>;
+	public function FillDataTableFromJSONString(DataTable: cpp.Star<DataTable>, JSONString: FString): Bool;
+	public function FillDataTableFromJSONFile(DataTable: cpp.Star<DataTable>, JSONFilePath: FString, ImportRowStruct: cpp.Star<ScriptStruct>): Bool;
+	public function FillDataTableFromCSVString(DataTable: cpp.Star<DataTable>, CSVString: FString): Bool;
+	public function FillDataTableFromCSVFile(DataTable: cpp.Star<DataTable>, CSVFilePath: FString): Bool;
+	public function EvaluateCurveTableRow(CurveTable: cpp.Star<CurveTable>, RowName: FName, InXY: cpp.Float32, OutResult: cpp.Reference<TEnumAsByte<EEvaluateCurveTableResult>>, OutXY: cpp.Reference<cpp.Float32>, ContextString: FString): Void;
+	public function DoesDataTableRowExist(Table: cpp.Star<DataTable>, RowName: FName): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

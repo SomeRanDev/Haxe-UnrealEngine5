@@ -3,11 +3,11 @@ package ue;
 
 @:native("EProjectPackagingBuildConfigurations")
 @:include("Settings/ProjectPackagingSettings.h")
-extern enum EProjectPackagingBuildConfigurations {
-	PPBC_Debug;
-	PPBC_DebugGame;
-	PPBC_Development;
-	PPBC_Test;
-	PPBC_Shipping;
-	PPBC_MAX;
+extern class EProjectPackagingBuildConfigurations {
+	static var PPBC_Debug: EProjectPackagingBuildConfigurations;
+	static var PPBC_DebugGame: EProjectPackagingBuildConfigurations;
+	static var PPBC_Development: EProjectPackagingBuildConfigurations;
+	static var PPBC_Test: EProjectPackagingBuildConfigurations;
+	static var PPBC_Shipping: EProjectPackagingBuildConfigurations;
+	static var PPBC_MAX: EProjectPackagingBuildConfigurations;
 }

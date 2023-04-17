@@ -5,26 +5,15 @@ package ue;
 @:include("Sound/SoundWave.h")
 @:structAccess
 extern class SoundWave extends SoundBase {
-	public var CompressionQuality: cpp.Int32;
+	private var CompressionQuality: cpp.Int32;
 	public var StreamingPriority: cpp.Int32;
 	public var SampleRateQuality: ESoundwaveSampleRateSettings;
-	public var SoundGroup: ESoundGroup;
+	public var SoundGroup: TEnumAsByte<ESoundGroup>;
 	public var bLooping: Bool;
 	public var bStreaming: Bool;
-	public var SoundAssetCompressionType: ESoundAssetCompressionType;
-	public var bSeekableStreaming: Bool;
-	public var bUseBinkAudio: Bool;
-	public var OverrideSoundToUseForAnalysis: cpp.Star<SoundWave>;
-	public var TreatFileAsLoopingForAnalysis: Bool;
-	public var bEnableBakedFFTAnalysis: Bool;
-	public var bEnableAmplitudeEnvelopeAnalysis: Bool;
-	public var FFTSize: ESoundWaveFFTSize;
-	public var FFTAnalysisFrameSize: cpp.Int32;
-	public var FFTAnalysisAttackTime: cpp.Int32;
-	public var FFTAnalysisReleaseTime: cpp.Int32;
-	public var EnvelopeFollowerFrameSize: cpp.Int32;
-	public var EnvelopeFollowerAttackTime: cpp.Int32;
-	public var EnvelopeFollowerReleaseTime: cpp.Int32;
+	private var SoundAssetCompressionType: ESoundAssetCompressionType;
+	private var bSeekableStreaming: Bool;
+	private var bUseBinkAudio: Bool;
 	public var ModulationSettings: SoundModulationDefaultRoutingSettings;
 	public var FrequenciesToAnalyze: TArray<cpp.Float32>;
 	public var CookedSpectralTimeData: TArray<SoundWaveSpectralTimeData>;
@@ -33,29 +22,20 @@ extern class SoundWave extends SoundBase {
 	public var bMature: Bool;
 	public var bManualWordWrap: Bool;
 	public var bSingleLine: Bool;
-	public var bVirtualizeWhenSilent_DEPRECATED: Bool;
 	public var bIsAmbisonics: Bool;
 	public var LoadingBehavior: ESoundWaveLoadingBehavior;
-	public var SpokenText_DEPRECATED: FString;
 	public var SubtitlePriority: cpp.Float32;
 	public var Volume: cpp.Float32;
 	public var Pitch: cpp.Float32;
 	public var NumChannels: cpp.Int32;
 	public var CuePoints: TArray<SoundWaveCuePoint>;
-	public var ChannelOffsets: TArray<cpp.Int32>;
-	public var ChannelSizes: TArray<cpp.Int32>;
-	public var SampleRate: cpp.Int32;
-	public var ImportedSampleRate: cpp.Int32;
+	@:protected public var SampleRate: cpp.Int32;
 	public var Subtitles: TArray<SubtitleCue>;
-	public var Comment: FString;
-	public var SourceFilePath_DEPRECATED: FString;
-	public var SourceFileTimestamp_DEPRECATED: FString;
-	public var AssetImportData: cpp.Star<AssetImportData>;
-	public var Curves: cpp.Star<CurveTable>;
-	public var InternalCurves: cpp.Star<CurveTable>;
+	@:protected public var Curves: cpp.Star<CurveTable>;
+	@:protected public var InternalCurves: cpp.Star<CurveTable>;
 
 	public function SetSoundAssetCompressionType(InSoundAssetCompressionType: ESoundAssetCompressionType): Void;
-	public function GetSoundAssetCompressionType(): cpp.Reference<ESoundAssetCompressionType>;
+	public function GetSoundAssetCompressionType(): ESoundAssetCompressionType;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -63,46 +43,16 @@ extern class SoundWave extends SoundBase {
 @:forward(GetSoundAssetCompressionType)
 @:nativeGen
 abstract ConstSoundWave(SoundWave) from SoundWave {
-	public extern var CompressionQuality(get, never): cpp.Int32;
-	public inline extern function get_CompressionQuality(): cpp.Int32 return this.CompressionQuality;
 	public extern var StreamingPriority(get, never): cpp.Int32;
 	public inline extern function get_StreamingPriority(): cpp.Int32 return this.StreamingPriority;
 	public extern var SampleRateQuality(get, never): ESoundwaveSampleRateSettings;
 	public inline extern function get_SampleRateQuality(): ESoundwaveSampleRateSettings return this.SampleRateQuality;
-	public extern var SoundGroup(get, never): ESoundGroup;
-	public inline extern function get_SoundGroup(): ESoundGroup return this.SoundGroup;
+	public extern var SoundGroup(get, never): TEnumAsByte<ESoundGroup>;
+	public inline extern function get_SoundGroup(): TEnumAsByte<ESoundGroup> return this.SoundGroup;
 	public extern var bLooping(get, never): Bool;
 	public inline extern function get_bLooping(): Bool return this.bLooping;
 	public extern var bStreaming(get, never): Bool;
 	public inline extern function get_bStreaming(): Bool return this.bStreaming;
-	public extern var SoundAssetCompressionType(get, never): ESoundAssetCompressionType;
-	public inline extern function get_SoundAssetCompressionType(): ESoundAssetCompressionType return this.SoundAssetCompressionType;
-	public extern var bSeekableStreaming(get, never): Bool;
-	public inline extern function get_bSeekableStreaming(): Bool return this.bSeekableStreaming;
-	public extern var bUseBinkAudio(get, never): Bool;
-	public inline extern function get_bUseBinkAudio(): Bool return this.bUseBinkAudio;
-	public extern var OverrideSoundToUseForAnalysis(get, never): cpp.Star<SoundWave.ConstSoundWave>;
-	public inline extern function get_OverrideSoundToUseForAnalysis(): cpp.Star<SoundWave.ConstSoundWave> return this.OverrideSoundToUseForAnalysis;
-	public extern var TreatFileAsLoopingForAnalysis(get, never): Bool;
-	public inline extern function get_TreatFileAsLoopingForAnalysis(): Bool return this.TreatFileAsLoopingForAnalysis;
-	public extern var bEnableBakedFFTAnalysis(get, never): Bool;
-	public inline extern function get_bEnableBakedFFTAnalysis(): Bool return this.bEnableBakedFFTAnalysis;
-	public extern var bEnableAmplitudeEnvelopeAnalysis(get, never): Bool;
-	public inline extern function get_bEnableAmplitudeEnvelopeAnalysis(): Bool return this.bEnableAmplitudeEnvelopeAnalysis;
-	public extern var FFTSize(get, never): ESoundWaveFFTSize;
-	public inline extern function get_FFTSize(): ESoundWaveFFTSize return this.FFTSize;
-	public extern var FFTAnalysisFrameSize(get, never): cpp.Int32;
-	public inline extern function get_FFTAnalysisFrameSize(): cpp.Int32 return this.FFTAnalysisFrameSize;
-	public extern var FFTAnalysisAttackTime(get, never): cpp.Int32;
-	public inline extern function get_FFTAnalysisAttackTime(): cpp.Int32 return this.FFTAnalysisAttackTime;
-	public extern var FFTAnalysisReleaseTime(get, never): cpp.Int32;
-	public inline extern function get_FFTAnalysisReleaseTime(): cpp.Int32 return this.FFTAnalysisReleaseTime;
-	public extern var EnvelopeFollowerFrameSize(get, never): cpp.Int32;
-	public inline extern function get_EnvelopeFollowerFrameSize(): cpp.Int32 return this.EnvelopeFollowerFrameSize;
-	public extern var EnvelopeFollowerAttackTime(get, never): cpp.Int32;
-	public inline extern function get_EnvelopeFollowerAttackTime(): cpp.Int32 return this.EnvelopeFollowerAttackTime;
-	public extern var EnvelopeFollowerReleaseTime(get, never): cpp.Int32;
-	public inline extern function get_EnvelopeFollowerReleaseTime(): cpp.Int32 return this.EnvelopeFollowerReleaseTime;
 	public extern var ModulationSettings(get, never): SoundModulationDefaultRoutingSettings;
 	public inline extern function get_ModulationSettings(): SoundModulationDefaultRoutingSettings return this.ModulationSettings;
 	public extern var FrequenciesToAnalyze(get, never): TArray<cpp.Float32>;
@@ -119,14 +69,10 @@ abstract ConstSoundWave(SoundWave) from SoundWave {
 	public inline extern function get_bManualWordWrap(): Bool return this.bManualWordWrap;
 	public extern var bSingleLine(get, never): Bool;
 	public inline extern function get_bSingleLine(): Bool return this.bSingleLine;
-	public extern var bVirtualizeWhenSilent_DEPRECATED(get, never): Bool;
-	public inline extern function get_bVirtualizeWhenSilent_DEPRECATED(): Bool return this.bVirtualizeWhenSilent_DEPRECATED;
 	public extern var bIsAmbisonics(get, never): Bool;
 	public inline extern function get_bIsAmbisonics(): Bool return this.bIsAmbisonics;
 	public extern var LoadingBehavior(get, never): ESoundWaveLoadingBehavior;
 	public inline extern function get_LoadingBehavior(): ESoundWaveLoadingBehavior return this.LoadingBehavior;
-	public extern var SpokenText_DEPRECATED(get, never): FString;
-	public inline extern function get_SpokenText_DEPRECATED(): FString return this.SpokenText_DEPRECATED;
 	public extern var SubtitlePriority(get, never): cpp.Float32;
 	public inline extern function get_SubtitlePriority(): cpp.Float32 return this.SubtitlePriority;
 	public extern var Volume(get, never): cpp.Float32;
@@ -137,28 +83,8 @@ abstract ConstSoundWave(SoundWave) from SoundWave {
 	public inline extern function get_NumChannels(): cpp.Int32 return this.NumChannels;
 	public extern var CuePoints(get, never): TArray<SoundWaveCuePoint>;
 	public inline extern function get_CuePoints(): TArray<SoundWaveCuePoint> return this.CuePoints;
-	public extern var ChannelOffsets(get, never): TArray<cpp.Int32>;
-	public inline extern function get_ChannelOffsets(): TArray<cpp.Int32> return this.ChannelOffsets;
-	public extern var ChannelSizes(get, never): TArray<cpp.Int32>;
-	public inline extern function get_ChannelSizes(): TArray<cpp.Int32> return this.ChannelSizes;
-	public extern var SampleRate(get, never): cpp.Int32;
-	public inline extern function get_SampleRate(): cpp.Int32 return this.SampleRate;
-	public extern var ImportedSampleRate(get, never): cpp.Int32;
-	public inline extern function get_ImportedSampleRate(): cpp.Int32 return this.ImportedSampleRate;
 	public extern var Subtitles(get, never): TArray<SubtitleCue>;
 	public inline extern function get_Subtitles(): TArray<SubtitleCue> return this.Subtitles;
-	public extern var Comment(get, never): FString;
-	public inline extern function get_Comment(): FString return this.Comment;
-	public extern var SourceFilePath_DEPRECATED(get, never): FString;
-	public inline extern function get_SourceFilePath_DEPRECATED(): FString return this.SourceFilePath_DEPRECATED;
-	public extern var SourceFileTimestamp_DEPRECATED(get, never): FString;
-	public inline extern function get_SourceFileTimestamp_DEPRECATED(): FString return this.SourceFileTimestamp_DEPRECATED;
-	public extern var AssetImportData(get, never): cpp.Star<AssetImportData.ConstAssetImportData>;
-	public inline extern function get_AssetImportData(): cpp.Star<AssetImportData.ConstAssetImportData> return this.AssetImportData;
-	public extern var Curves(get, never): cpp.Star<CurveTable.ConstCurveTable>;
-	public inline extern function get_Curves(): cpp.Star<CurveTable.ConstCurveTable> return this.Curves;
-	public extern var InternalCurves(get, never): cpp.Star<CurveTable.ConstCurveTable>;
-	public inline extern function get_InternalCurves(): cpp.Star<CurveTable.ConstCurveTable> return this.InternalCurves;
 }
 
 @:forward

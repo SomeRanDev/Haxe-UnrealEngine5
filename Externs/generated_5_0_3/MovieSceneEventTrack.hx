@@ -8,7 +8,7 @@ extern class MovieSceneEventTrack extends MovieSceneNameableTrack {
 	public var bFireEventsWhenForwards: Bool;
 	public var bFireEventsWhenBackwards: Bool;
 	public var EventPosition: EFireEventsAtPosition;
-	public var Sections: TArray<cpp.Star<MovieSceneSection>>;
+	private var Sections: TArray<cpp.Star<MovieSceneSection>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -22,8 +22,6 @@ abstract ConstMovieSceneEventTrack(MovieSceneEventTrack) from MovieSceneEventTra
 	public inline extern function get_bFireEventsWhenBackwards(): Bool return this.bFireEventsWhenBackwards;
 	public extern var EventPosition(get, never): EFireEventsAtPosition;
 	public inline extern function get_EventPosition(): EFireEventsAtPosition return this.EventPosition;
-	public extern var Sections(get, never): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>>;
-	public inline extern function get_Sections(): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>> return this.Sections;
 }
 
 @:forward

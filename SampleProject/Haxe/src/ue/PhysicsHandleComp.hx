@@ -28,7 +28,7 @@ extern class PhysicsHandleComp extends ActorComp {
 	public function GrabComponentAtLocation(Component: cpp.Star<PrimitiveComp>, InBoneName: FName, GrabLocation: Vector): Void;
 	public function GrabComponent(Component: cpp.Star<PrimitiveComp>, InBoneName: FName, GrabLocation: Vector, bConstrainRotation: Bool): Void;
 	public function GetTargetLocationAndRotation(TargetLocation: cpp.Reference<Vector>, TargetRotation: cpp.Reference<Rotator>): Void;
-	public function GetGrabbedComponent(): cpp.Reference<cpp.Star<PrimitiveComp>>;
+	public function GetGrabbedComponent(): cpp.Star<PrimitiveComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

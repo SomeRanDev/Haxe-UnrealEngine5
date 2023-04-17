@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class ControlRigDrawInstruction {
 	public var Name: FName;
-	public var PrimitiveType: EControlRigDrawSettings;
+	public var PrimitiveType: TEnumAsByte<EControlRigDrawSettings>;
 	public var Positions: TArray<Vector>;
 	public var Color: LinearColor;
 	public var Thickness: cpp.Float32;

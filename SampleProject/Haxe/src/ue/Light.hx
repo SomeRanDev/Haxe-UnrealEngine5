@@ -5,7 +5,7 @@ package ue;
 @:include("Engine/Light.h")
 @:structAccess
 extern class Light extends Actor {
-	public var LightComponent: cpp.Star<LightComp>;
+	private var LightComponent: cpp.Star<LightComp>;
 	public var bEnabled: Bool;
 
 	public function ToggleEnabled(): Void;
@@ -18,9 +18,9 @@ extern class Light extends Actor {
 	public function SetBrightness(NewBrightness: cpp.Float32): Void;
 	public function SetAffectTranslucentLighting(bNewValue: Bool): Void;
 	public function OnRep_bEnabled(): Void;
-	public function IsEnabled(): cpp.Reference<Bool>;
-	public function GetLightColor(): cpp.Reference<LinearColor>;
-	public function GetBrightness(): cpp.Reference<cpp.Float32>;
+	public function IsEnabled(): Bool;
+	public function GetLightColor(): LinearColor;
+	public function GetBrightness(): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -28,8 +28,6 @@ extern class Light extends Actor {
 @:forward(IsEnabled, GetLightColor, GetBrightness)
 @:nativeGen
 abstract ConstLight(Light) from Light {
-	public extern var LightComponent(get, never): cpp.Star<LightComp.ConstLightComp>;
-	public inline extern function get_LightComponent(): cpp.Star<LightComp.ConstLightComp> return this.LightComponent;
 	public extern var bEnabled(get, never): Bool;
 	public inline extern function get_bEnabled(): Bool return this.bEnabled;
 }

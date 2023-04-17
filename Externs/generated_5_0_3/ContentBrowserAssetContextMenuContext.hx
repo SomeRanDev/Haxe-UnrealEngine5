@@ -9,7 +9,7 @@ extern class ContentBrowserAssetContextMenuContext extends Object {
 	public var CommonClass: TSubclassOf<Object>;
 	public var bCanBeModified: Bool;
 
-	public function GetSelectedObjects(): cpp.Reference<TArray<cpp.Star<Object>>>;
+	public function GetSelectedObjects(): TArray<cpp.Star<Object>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

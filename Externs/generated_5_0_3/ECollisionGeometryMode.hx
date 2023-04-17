@@ -3,10 +3,10 @@ package ue;
 
 @:native("ECollisionGeometryMode")
 @:include("Physics/CollisionPropertySets.h")
-extern enum ECollisionGeometryMode {
-	Default;
-	SimpleAndComplex;
-	UseSimpleAsComplex;
-	UseComplexAsSimple;
-	ECollisionGeometryMode_MAX;
+extern class ECollisionGeometryMode {
+	static var Default: ECollisionGeometryMode;
+	static var SimpleAndComplex: ECollisionGeometryMode;
+	static var UseSimpleAsComplex: ECollisionGeometryMode;
+	static var UseComplexAsSimple: ECollisionGeometryMode;
+	static var ECollisionGeometryMode_MAX: ECollisionGeometryMode;
 }

@@ -3,11 +3,11 @@ package ue;
 
 @:native("EProjectPackagingInternationalizationPresets")
 @:include("Settings/ProjectPackagingSettings.h")
-extern enum EProjectPackagingInternationalizationPresets {
-	English;
-	EFIGS;
-	EFIGSCJK;
-	CJK;
-	All;
-	EProjectPackagingInternationalizationPresets_MAX;
+extern class EProjectPackagingInternationalizationPresets {
+	static var English: EProjectPackagingInternationalizationPresets;
+	static var EFIGS: EProjectPackagingInternationalizationPresets;
+	static var EFIGSCJK: EProjectPackagingInternationalizationPresets;
+	static var CJK: EProjectPackagingInternationalizationPresets;
+	static var All: EProjectPackagingInternationalizationPresets;
+	static var EProjectPackagingInternationalizationPresets_MAX: EProjectPackagingInternationalizationPresets;
 }

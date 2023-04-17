@@ -3,14 +3,14 @@ package ue;
 
 @:native("EAppMsgType.Type")
 @:include("UObject/NoExportTypes.h")
-extern enum EAppMsgType {
-	Ok;
-	YesNo;
-	OkCancel;
-	YesNoCancel;
-	CancelRetryContinue;
-	YesNoYesAllNoAll;
-	YesNoYesAllNoAllCancel;
-	YesNoYesAll;
-	EAppMsgType_MAX;
+extern class EAppMsgType {
+	static var Ok: EAppMsgType;
+	static var YesNo: EAppMsgType;
+	static var OkCancel: EAppMsgType;
+	static var YesNoCancel: EAppMsgType;
+	static var CancelRetryContinue: EAppMsgType;
+	static var YesNoYesAllNoAll: EAppMsgType;
+	static var YesNoYesAllNoAllCancel: EAppMsgType;
+	static var YesNoYesAll: EAppMsgType;
+	static var EAppMsgType_MAX: EAppMsgType;
 }

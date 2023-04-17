@@ -7,7 +7,7 @@ package ue;
 extern class FieldSystemMetaDataIteration extends FieldSystemMetaData {
 	public var Iterations: cpp.Int32;
 
-	public function SetMetaDataIteration(Iterations: cpp.Int32): cpp.Reference<cpp.Star<FieldSystemMetaDataIteration>>;
+	public function SetMetaDataIteration(Iterations: cpp.Int32): cpp.Star<FieldSystemMetaDataIteration>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

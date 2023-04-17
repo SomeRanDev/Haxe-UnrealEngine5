@@ -5,11 +5,11 @@ package ue;
 @:include("Animation/UMGSequencePlayer.h")
 @:structAccess
 extern class UMGSequencePlayer extends Object {
-	public var Animation: cpp.Star<WidgetAnimation>;
-	public var RootTemplateInstance: MovieSceneRootEvaluationTemplateInstance;
+	private var Animation: cpp.Star<WidgetAnimation>;
+	private var RootTemplateInstance: MovieSceneRootEvaluationTemplateInstance;
 
 	public function SetUserTag(InUserTag: FName): Void;
-	public function GetUserTag(): cpp.Reference<FName>;
+	public function GetUserTag(): FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,10 +17,6 @@ extern class UMGSequencePlayer extends Object {
 @:forward(GetUserTag)
 @:nativeGen
 abstract ConstUMGSequencePlayer(UMGSequencePlayer) from UMGSequencePlayer {
-	public extern var Animation(get, never): cpp.Star<WidgetAnimation.ConstWidgetAnimation>;
-	public inline extern function get_Animation(): cpp.Star<WidgetAnimation.ConstWidgetAnimation> return this.Animation;
-	public extern var RootTemplateInstance(get, never): MovieSceneRootEvaluationTemplateInstance;
-	public inline extern function get_RootTemplateInstance(): MovieSceneRootEvaluationTemplateInstance return this.RootTemplateInstance;
 }
 
 @:forward

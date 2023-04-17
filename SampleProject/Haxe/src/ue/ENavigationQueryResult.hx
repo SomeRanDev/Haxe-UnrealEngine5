@@ -3,10 +3,10 @@ package ue;
 
 @:native("ENavigationQueryResult.Type")
 @:include("AI/Navigation/NavigationTypes.h")
-extern enum ENavigationQueryResult {
-	Invalid;
-	Error;
-	Fail;
-	Success;
-	ENavigationQueryResult_MAX;
+extern class ENavigationQueryResult {
+	static var Invalid: ENavigationQueryResult;
+	static var Error: ENavigationQueryResult;
+	static var Fail: ENavigationQueryResult;
+	static var Success: ENavigationQueryResult;
+	static var ENavigationQueryResult_MAX: ENavigationQueryResult;
 }

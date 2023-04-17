@@ -3,10 +3,10 @@ package ue;
 
 @:native("ETextCommit.Type")
 @:include("Types/SlateEnums.h")
-extern enum ETextCommit {
-	Default;
-	OnEnter;
-	OnUserMovedFocus;
-	OnCleared;
-	ETextCommit_MAX;
+extern class ETextCommit {
+	static var Default: ETextCommit;
+	static var OnEnter: ETextCommit;
+	static var OnUserMovedFocus: ETextCommit;
+	static var OnCleared: ETextCommit;
+	static var ETextCommit_MAX: ETextCommit;
 }

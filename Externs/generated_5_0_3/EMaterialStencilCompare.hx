@@ -3,15 +3,15 @@ package ue;
 
 @:native("EMaterialStencilCompare")
 @:include("Engine/EngineTypes.h")
-extern enum EMaterialStencilCompare {
-	MSC_Less;
-	MSC_LessEqual;
-	MSC_Greater;
-	MSC_GreaterEqual;
-	MSC_Equal;
-	MSC_NotEqual;
-	MSC_Never;
-	MSC_Always;
-	MSC_Count;
-	MSC_MAX;
+extern class EMaterialStencilCompare {
+	static var MSC_Less: EMaterialStencilCompare;
+	static var MSC_LessEqual: EMaterialStencilCompare;
+	static var MSC_Greater: EMaterialStencilCompare;
+	static var MSC_GreaterEqual: EMaterialStencilCompare;
+	static var MSC_Equal: EMaterialStencilCompare;
+	static var MSC_NotEqual: EMaterialStencilCompare;
+	static var MSC_Never: EMaterialStencilCompare;
+	static var MSC_Always: EMaterialStencilCompare;
+	static var MSC_Count: EMaterialStencilCompare;
+	static var MSC_MAX: EMaterialStencilCompare;
 }

@@ -3,11 +3,11 @@ package ue;
 
 @:native("EBlendableLocation")
 @:include("Engine/BlendableInterface.h")
-extern enum EBlendableLocation {
-	BL_AfterTonemapping;
-	BL_BeforeTonemapping;
-	BL_BeforeTranslucency;
-	BL_ReplacingTonemapper;
-	BL_SSRInput;
-	BL_MAX;
+extern class EBlendableLocation {
+	static var BL_AfterTonemapping: EBlendableLocation;
+	static var BL_BeforeTonemapping: EBlendableLocation;
+	static var BL_BeforeTranslucency: EBlendableLocation;
+	static var BL_ReplacingTonemapper: EBlendableLocation;
+	static var BL_SSRInput: EBlendableLocation;
+	static var BL_MAX: EBlendableLocation;
 }

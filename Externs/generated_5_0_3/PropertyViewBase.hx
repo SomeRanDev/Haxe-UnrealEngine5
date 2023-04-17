@@ -5,13 +5,12 @@ package ue;
 @:include("Components/PropertyViewBase.h")
 @:structAccess
 extern class PropertyViewBase extends Widget {
-	public var Object: TSoftObjectPtr<Object>;
-	public var SoftObjectPath_DEPRECATED: SoftObjectPath;
-	public var bAutoLoadAsset: Bool;
-	public var OnPropertyChanged: HaxeMulticastSparseDelegateProperty<(FName) -> Void>;
+	@:protected public var Object: TSoftObjectPtr<Object>;
+	@:protected public var bAutoLoadAsset: Bool;
+	@:protected public var OnPropertyChanged: HaxeMulticastSparseDelegateProperty<(FName) -> Void>;
 
 	public function SetObject(NewObject: cpp.Star<Object>): Void;
-	public function GetObject(): cpp.Reference<cpp.Star<Object>>;
+	public function GetObject(): cpp.Star<Object>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,14 +18,6 @@ extern class PropertyViewBase extends Widget {
 @:forward(GetObject)
 @:nativeGen
 abstract ConstPropertyViewBase(PropertyViewBase) from PropertyViewBase {
-	public extern var Object(get, never): TSoftObjectPtr<Object.ConstObject>;
-	public inline extern function get_Object(): TSoftObjectPtr<Object.ConstObject> return this.Object;
-	public extern var SoftObjectPath_DEPRECATED(get, never): SoftObjectPath;
-	public inline extern function get_SoftObjectPath_DEPRECATED(): SoftObjectPath return this.SoftObjectPath_DEPRECATED;
-	public extern var bAutoLoadAsset(get, never): Bool;
-	public inline extern function get_bAutoLoadAsset(): Bool return this.bAutoLoadAsset;
-	public extern var OnPropertyChanged(get, never): HaxeMulticastSparseDelegateProperty<(FName) -> Void>;
-	public inline extern function get_OnPropertyChanged(): HaxeMulticastSparseDelegateProperty<(FName) -> Void> return this.OnPropertyChanged;
 }
 
 @:forward

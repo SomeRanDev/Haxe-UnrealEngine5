@@ -3,20 +3,20 @@ package ue;
 
 @:native("ETextureDownscaleOptions")
 @:include("Engine/TextureDefines.h")
-extern enum ETextureDownscaleOptions {
-	Default;
-	Unfiltered;
-	SimpleAverage;
-	Sharpen0;
-	Sharpen1;
-	Sharpen2;
-	Sharpen3;
-	Sharpen4;
-	Sharpen5;
-	Sharpen6;
-	Sharpen7;
-	Sharpen8;
-	Sharpen9;
-	Sharpen10;
-	ETextureDownscaleOptions_MAX;
+extern class ETextureDownscaleOptions {
+	static var Default: ETextureDownscaleOptions;
+	static var Unfiltered: ETextureDownscaleOptions;
+	static var SimpleAverage: ETextureDownscaleOptions;
+	static var Sharpen0: ETextureDownscaleOptions;
+	static var Sharpen1: ETextureDownscaleOptions;
+	static var Sharpen2: ETextureDownscaleOptions;
+	static var Sharpen3: ETextureDownscaleOptions;
+	static var Sharpen4: ETextureDownscaleOptions;
+	static var Sharpen5: ETextureDownscaleOptions;
+	static var Sharpen6: ETextureDownscaleOptions;
+	static var Sharpen7: ETextureDownscaleOptions;
+	static var Sharpen8: ETextureDownscaleOptions;
+	static var Sharpen9: ETextureDownscaleOptions;
+	static var Sharpen10: ETextureDownscaleOptions;
+	static var ETextureDownscaleOptions_MAX: ETextureDownscaleOptions;
 }

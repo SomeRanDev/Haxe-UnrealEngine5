@@ -3,8 +3,8 @@ package ue;
 
 @:native("EImportLODType")
 @:include("SpeedTreeImportData.h")
-extern enum EImportLODType {
-	ILT_PaintedFoliage;
-	ILT_IndividualActors;
-	ILT_MAX;
+extern class EImportLODType {
+	static var ILT_PaintedFoliage: EImportLODType;
+	static var ILT_IndividualActors: EImportLODType;
+	static var ILT_MAX: EImportLODType;
 }

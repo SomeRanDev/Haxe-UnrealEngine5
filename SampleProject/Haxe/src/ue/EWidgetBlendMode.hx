@@ -3,9 +3,9 @@ package ue;
 
 @:native("EWidgetBlendMode")
 @:include("Components/WidgetComponent.h")
-extern enum EWidgetBlendMode {
-	Opaque;
-	Masked;
-	Transparent;
-	EWidgetBlendMode_MAX;
+extern class EWidgetBlendMode {
+	static var Opaque: EWidgetBlendMode;
+	static var Masked: EWidgetBlendMode;
+	static var Transparent: EWidgetBlendMode;
+	static var EWidgetBlendMode_MAX: EWidgetBlendMode;
 }

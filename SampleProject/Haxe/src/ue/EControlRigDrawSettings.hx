@@ -3,10 +3,10 @@ package ue;
 
 @:native("EControlRigDrawSettings.Primitive")
 @:include("Drawing/ControlRigDrawInstruction.h")
-extern enum EControlRigDrawSettings {
-	Points;
-	Lines;
-	LineStrip;
-	DynamicMesh;
-	EControlRigDrawSettings_MAX;
+extern class EControlRigDrawSettings {
+	static var Points: EControlRigDrawSettings;
+	static var Lines: EControlRigDrawSettings;
+	static var LineStrip: EControlRigDrawSettings;
+	static var DynamicMesh: EControlRigDrawSettings;
+	static var EControlRigDrawSettings_MAX: EControlRigDrawSettings;
 }

@@ -5,9 +5,9 @@ package ue;
 @:include("VIBaseTransformGizmo.h")
 @:structAccess
 extern class BaseTransformGizmo extends Actor {
-	public var SceneComponent: cpp.Star<SceneComp>;
-	public var AllHandleGroups: TArray<cpp.Star<GizmoHandleGroup>>;
-	public var WorldInteraction: cpp.Star<ViewportWorldInteraction>;
+	@:protected public var SceneComponent: cpp.Star<SceneComp>;
+	@:protected public var AllHandleGroups: TArray<cpp.Star<GizmoHandleGroup>>;
+	@:protected public var WorldInteraction: cpp.Star<ViewportWorldInteraction>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class BaseTransformGizmo extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstBaseTransformGizmo(BaseTransformGizmo) from BaseTransformGizmo {
-	public extern var SceneComponent(get, never): cpp.Star<SceneComp.ConstSceneComp>;
-	public inline extern function get_SceneComponent(): cpp.Star<SceneComp.ConstSceneComp> return this.SceneComponent;
-	public extern var AllHandleGroups(get, never): TArray<cpp.Star<GizmoHandleGroup.ConstGizmoHandleGroup>>;
-	public inline extern function get_AllHandleGroups(): TArray<cpp.Star<GizmoHandleGroup.ConstGizmoHandleGroup>> return this.AllHandleGroups;
-	public extern var WorldInteraction(get, never): cpp.Star<ViewportWorldInteraction.ConstViewportWorldInteraction>;
-	public inline extern function get_WorldInteraction(): cpp.Star<ViewportWorldInteraction.ConstViewportWorldInteraction> return this.WorldInteraction;
 }
 
 @:forward

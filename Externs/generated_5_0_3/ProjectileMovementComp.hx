@@ -46,9 +46,9 @@ extern class ProjectileMovementComp extends MovementComp {
 	public function OnProjectileStopDelegate__DelegateSignature(ImpactResult: cpp.Reference<HitResult>): Void;
 	public function OnProjectileBounceDelegate__DelegateSignature(ImpactResult: cpp.Reference<HitResult>, ImpactVelocity: cpp.Reference<Vector>): Void;
 	public function MoveInterpolationTarget(NewLocation: cpp.Reference<Vector>, NewRotation: cpp.Reference<Rotator>): Void;
-	public function LimitVelocity(NewVelocity: Vector): cpp.Reference<Vector>;
-	public function IsVelocityUnderSimulationThreshold(): cpp.Reference<Bool>;
-	public function IsInterpolationComplete(): cpp.Reference<Bool>;
+	public function LimitVelocity(NewVelocity: Vector): Vector;
+	public function IsVelocityUnderSimulationThreshold(): Bool;
+	public function IsInterpolationComplete(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

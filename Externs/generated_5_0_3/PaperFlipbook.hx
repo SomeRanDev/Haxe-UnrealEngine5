@@ -5,18 +5,18 @@ package ue;
 @:include("PaperFlipbook.h")
 @:structAccess
 extern class PaperFlipbook extends Object {
-	public var FramesPerSecond: cpp.Float32;
-	public var KeyFrames: TArray<PaperFlipbookKeyFrame>;
-	public var DefaultMaterial: cpp.Star<MaterialInterface>;
-	public var CollisionSource: EFlipbookCollisionMode;
+	@:protected public var FramesPerSecond: cpp.Float32;
+	@:protected public var KeyFrames: TArray<PaperFlipbookKeyFrame>;
+	@:protected public var DefaultMaterial: cpp.Star<MaterialInterface>;
+	@:protected public var CollisionSource: TEnumAsByte<EFlipbookCollisionMode>;
 
-	public function IsValidKeyFrameIndex(Index: cpp.Int32): cpp.Reference<Bool>;
-	public function GetTotalDuration(): cpp.Reference<cpp.Float32>;
-	public function GetSpriteAtTime(Time: cpp.Float32, bClampToEnds: Bool): cpp.Reference<cpp.Star<PaperSprite>>;
-	public function GetSpriteAtFrame(FrameIndex: cpp.Int32): cpp.Reference<cpp.Star<PaperSprite>>;
-	public function GetNumKeyFrames(): cpp.Reference<cpp.Int32>;
-	public function GetNumFrames(): cpp.Reference<cpp.Int32>;
-	public function GetKeyFrameIndexAtTime(Time: cpp.Float32, bClampToEnds: Bool): cpp.Reference<cpp.Int32>;
+	public function IsValidKeyFrameIndex(Index: cpp.Int32): Bool;
+	public function GetTotalDuration(): cpp.Float32;
+	public function GetSpriteAtTime(Time: cpp.Float32, bClampToEnds: Bool): cpp.Star<PaperSprite>;
+	public function GetSpriteAtFrame(FrameIndex: cpp.Int32): cpp.Star<PaperSprite>;
+	public function GetNumKeyFrames(): cpp.Int32;
+	public function GetNumFrames(): cpp.Int32;
+	public function GetKeyFrameIndexAtTime(Time: cpp.Float32, bClampToEnds: Bool): cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -24,14 +24,6 @@ extern class PaperFlipbook extends Object {
 @:forward(IsValidKeyFrameIndex, GetTotalDuration, GetSpriteAtTime, GetSpriteAtFrame, GetNumKeyFrames, GetNumFrames, GetKeyFrameIndexAtTime)
 @:nativeGen
 abstract ConstPaperFlipbook(PaperFlipbook) from PaperFlipbook {
-	public extern var FramesPerSecond(get, never): cpp.Float32;
-	public inline extern function get_FramesPerSecond(): cpp.Float32 return this.FramesPerSecond;
-	public extern var KeyFrames(get, never): TArray<PaperFlipbookKeyFrame>;
-	public inline extern function get_KeyFrames(): TArray<PaperFlipbookKeyFrame> return this.KeyFrames;
-	public extern var DefaultMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_DefaultMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.DefaultMaterial;
-	public extern var CollisionSource(get, never): EFlipbookCollisionMode;
-	public inline extern function get_CollisionSource(): EFlipbookCollisionMode return this.CollisionSource;
 }
 
 @:forward

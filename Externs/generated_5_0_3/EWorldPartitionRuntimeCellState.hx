@@ -3,9 +3,9 @@ package ue;
 
 @:native("EWorldPartitionRuntimeCellState")
 @:include("WorldPartition/WorldPartitionRuntimeCell.h")
-extern enum EWorldPartitionRuntimeCellState {
-	Unloaded;
-	Loaded;
-	Activated;
-	EWorldPartitionRuntimeCellState_MAX;
+extern class EWorldPartitionRuntimeCellState {
+	static var Unloaded: EWorldPartitionRuntimeCellState;
+	static var Loaded: EWorldPartitionRuntimeCellState;
+	static var Activated: EWorldPartitionRuntimeCellState;
+	static var EWorldPartitionRuntimeCellState_MAX: EWorldPartitionRuntimeCellState;
 }

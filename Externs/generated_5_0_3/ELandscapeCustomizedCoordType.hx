@@ -3,11 +3,11 @@ package ue;
 
 @:native("ELandscapeCustomizedCoordType")
 @:include("Materials/MaterialExpressionLandscapeLayerCoords.h")
-extern enum ELandscapeCustomizedCoordType {
-	LCCT_None;
-	LCCT_CustomUV0;
-	LCCT_CustomUV1;
-	LCCT_CustomUV2;
-	LCCT_WeightMapUV;
-	LCCT_MAX;
+extern class ELandscapeCustomizedCoordType {
+	static var LCCT_None: ELandscapeCustomizedCoordType;
+	static var LCCT_CustomUV0: ELandscapeCustomizedCoordType;
+	static var LCCT_CustomUV1: ELandscapeCustomizedCoordType;
+	static var LCCT_CustomUV2: ELandscapeCustomizedCoordType;
+	static var LCCT_WeightMapUV: ELandscapeCustomizedCoordType;
+	static var LCCT_MAX: ELandscapeCustomizedCoordType;
 }

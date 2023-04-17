@@ -5,9 +5,6 @@ package ue;
 @:include("Instances/InstancedPlacementClientInfo.h")
 @:structAccess
 extern class InstancedPlacemenClientSettings extends Object {
-	public var UpdateGuid: Guid;
-	public var ObjectPath: SoftObjectPath;
-	public var InstancedComponentSettings: ISMComponentDescriptor;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +12,6 @@ extern class InstancedPlacemenClientSettings extends Object {
 @:forward()
 @:nativeGen
 abstract ConstInstancedPlacemenClientSettings(InstancedPlacemenClientSettings) from InstancedPlacemenClientSettings {
-	public extern var UpdateGuid(get, never): Guid;
-	public inline extern function get_UpdateGuid(): Guid return this.UpdateGuid;
-	public extern var ObjectPath(get, never): SoftObjectPath;
-	public inline extern function get_ObjectPath(): SoftObjectPath return this.ObjectPath;
-	public extern var InstancedComponentSettings(get, never): ISMComponentDescriptor;
-	public inline extern function get_InstancedComponentSettings(): ISMComponentDescriptor return this.InstancedComponentSettings;
 }
 
 @:forward

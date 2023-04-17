@@ -3,12 +3,12 @@ package ue;
 
 @:native("SkeletalMeshTerminationCriterion")
 @:include("SkeletalMeshReductionSettings.h")
-extern enum SkeletalMeshTerminationCriterion {
-	SMTC_NumOfTriangles;
-	SMTC_NumOfVerts;
-	SMTC_TriangleOrVert;
-	SMTC_AbsNumOfTriangles;
-	SMTC_AbsNumOfVerts;
-	SMTC_AbsTriangleOrVert;
-	SMTC_MAX;
+extern class SkeletalMeshTerminationCriterion {
+	static var SMTC_NumOfTriangles: SkeletalMeshTerminationCriterion;
+	static var SMTC_NumOfVerts: SkeletalMeshTerminationCriterion;
+	static var SMTC_TriangleOrVert: SkeletalMeshTerminationCriterion;
+	static var SMTC_AbsNumOfTriangles: SkeletalMeshTerminationCriterion;
+	static var SMTC_AbsNumOfVerts: SkeletalMeshTerminationCriterion;
+	static var SMTC_AbsTriangleOrVert: SkeletalMeshTerminationCriterion;
+	static var SMTC_MAX: SkeletalMeshTerminationCriterion;
 }

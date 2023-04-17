@@ -5,15 +5,15 @@ package ue;
 @:include("UI/VREditorDockableWindow.h")
 @:structAccess
 extern class VREditorDockableWindow extends VREditorFloatingUI {
-	public var DockButtonMeshComponent: cpp.Star<StaticMeshComp>;
-	public var SelectionBarMeshComponent: cpp.Star<StaticMeshComp>;
-	public var CloseButtonMeshComponent: cpp.Star<StaticMeshComp>;
-	public var DockButtonMID: cpp.Star<MaterialInstanceDynamic>;
-	public var SelectionBarMID: cpp.Star<MaterialInstanceDynamic>;
-	public var SelectionBarTranslucentMID: cpp.Star<MaterialInstanceDynamic>;
-	public var CloseButtonMID: cpp.Star<MaterialInstanceDynamic>;
-	public var CloseButtonTranslucentMID: cpp.Star<MaterialInstanceDynamic>;
-	public var DragOperationComponent: cpp.Star<ViewportDragOperationComp>;
+	private var DockButtonMeshComponent: cpp.Star<StaticMeshComp>;
+	private var SelectionBarMeshComponent: cpp.Star<StaticMeshComp>;
+	private var CloseButtonMeshComponent: cpp.Star<StaticMeshComp>;
+	private var DockButtonMID: cpp.Star<MaterialInstanceDynamic>;
+	private var SelectionBarMID: cpp.Star<MaterialInstanceDynamic>;
+	private var SelectionBarTranslucentMID: cpp.Star<MaterialInstanceDynamic>;
+	private var CloseButtonMID: cpp.Star<MaterialInstanceDynamic>;
+	private var CloseButtonTranslucentMID: cpp.Star<MaterialInstanceDynamic>;
+	private var DragOperationComponent: cpp.Star<ViewportDragOperationComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -21,24 +21,6 @@ extern class VREditorDockableWindow extends VREditorFloatingUI {
 @:forward()
 @:nativeGen
 abstract ConstVREditorDockableWindow(VREditorDockableWindow) from VREditorDockableWindow {
-	public extern var DockButtonMeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_DockButtonMeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.DockButtonMeshComponent;
-	public extern var SelectionBarMeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_SelectionBarMeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.SelectionBarMeshComponent;
-	public extern var CloseButtonMeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_CloseButtonMeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.CloseButtonMeshComponent;
-	public extern var DockButtonMID(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_DockButtonMID(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.DockButtonMID;
-	public extern var SelectionBarMID(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_SelectionBarMID(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.SelectionBarMID;
-	public extern var SelectionBarTranslucentMID(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_SelectionBarTranslucentMID(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.SelectionBarTranslucentMID;
-	public extern var CloseButtonMID(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_CloseButtonMID(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.CloseButtonMID;
-	public extern var CloseButtonTranslucentMID(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_CloseButtonTranslucentMID(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.CloseButtonTranslucentMID;
-	public extern var DragOperationComponent(get, never): cpp.Star<ViewportDragOperationComp.ConstViewportDragOperationComp>;
-	public inline extern function get_DragOperationComponent(): cpp.Star<ViewportDragOperationComp.ConstViewportDragOperationComp> return this.DragOperationComponent;
 }
 
 @:forward

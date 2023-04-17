@@ -5,9 +5,9 @@ package ue;
 @:include("ConvertToPolygonsTool.h")
 @:structAccess
 extern class ConvertToPolygonsTool extends SingleSelectionMeshEditingTool {
-	public var Settings: cpp.Star<ConvertToPolygonsToolProperties>;
-	public var PreviewCompute: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	public var PreviewGeometry: cpp.Star<PreviewGeometry>;
+	@:protected public var Settings: cpp.Star<ConvertToPolygonsToolProperties>;
+	@:protected public var PreviewCompute: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var PreviewGeometry: cpp.Star<PreviewGeometry>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class ConvertToPolygonsTool extends SingleSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstConvertToPolygonsTool(ConvertToPolygonsTool) from ConvertToPolygonsTool {
-	public extern var Settings(get, never): cpp.Star<ConvertToPolygonsToolProperties.ConstConvertToPolygonsToolProperties>;
-	public inline extern function get_Settings(): cpp.Star<ConvertToPolygonsToolProperties.ConstConvertToPolygonsToolProperties> return this.Settings;
-	public extern var PreviewCompute(get, never): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
-	public inline extern function get_PreviewCompute(): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.PreviewCompute;
-	public extern var PreviewGeometry(get, never): cpp.Star<PreviewGeometry.ConstPreviewGeometry>;
-	public inline extern function get_PreviewGeometry(): cpp.Star<PreviewGeometry.ConstPreviewGeometry> return this.PreviewGeometry;
 }
 
 @:forward

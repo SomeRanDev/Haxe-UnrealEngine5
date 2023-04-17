@@ -9,10 +9,10 @@ extern class MaterialParameterCollection extends Object {
 	public var ScalarParameters: TArray<CollectionScalarParameter>;
 	public var VectorParameters: TArray<CollectionVectorParameter>;
 
-	public function GetVectorParameterNames(): cpp.Reference<TArray<FName>>;
-	public function GetVectorParameterDefaultValue(ParameterName: FName, bParameterFound: cpp.Reference<Bool>): cpp.Reference<LinearColor>;
-	public function GetScalarParameterNames(): cpp.Reference<TArray<FName>>;
-	public function GetScalarParameterDefaultValue(ParameterName: FName, bParameterFound: cpp.Reference<Bool>): cpp.Reference<cpp.Float32>;
+	public function GetVectorParameterNames(): TArray<FName>;
+	public function GetVectorParameterDefaultValue(ParameterName: FName, bParameterFound: cpp.Reference<Bool>): LinearColor;
+	public function GetScalarParameterNames(): TArray<FName>;
+	public function GetScalarParameterDefaultValue(ParameterName: FName, bParameterFound: cpp.Reference<Bool>): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

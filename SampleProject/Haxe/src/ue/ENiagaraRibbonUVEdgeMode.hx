@@ -3,8 +3,8 @@ package ue;
 
 @:native("ENiagaraRibbonUVEdgeMode")
 @:include("NiagaraRibbonRendererProperties.h")
-extern enum ENiagaraRibbonUVEdgeMode {
-	SmoothTransition;
-	Locked;
-	ENiagaraRibbonUVEdgeMode_MAX;
+extern class ENiagaraRibbonUVEdgeMode {
+	static var SmoothTransition: ENiagaraRibbonUVEdgeMode;
+	static var Locked: ENiagaraRibbonUVEdgeMode;
+	static var ENiagaraRibbonUVEdgeMode_MAX: ENiagaraRibbonUVEdgeMode;
 }

@@ -3,16 +3,16 @@ package ue;
 
 @:native("EParticleAxisLock")
 @:include("Particles/Orientation/ParticleModuleOrientationAxisLock.h")
-extern enum EParticleAxisLock {
-	EPAL_NONE;
-	EPAL_X;
-	EPAL_Y;
-	EPAL_Z;
-	EPAL_NEGATIVE_X;
-	EPAL_NEGATIVE_Y;
-	EPAL_NEGATIVE_Z;
-	EPAL_ROTATE_X;
-	EPAL_ROTATE_Y;
-	EPAL_ROTATE_Z;
-	EPAL_MAX;
+extern class EParticleAxisLock {
+	static var EPAL_NONE: EParticleAxisLock;
+	static var EPAL_X: EParticleAxisLock;
+	static var EPAL_Y: EParticleAxisLock;
+	static var EPAL_Z: EParticleAxisLock;
+	static var EPAL_NEGATIVE_X: EParticleAxisLock;
+	static var EPAL_NEGATIVE_Y: EParticleAxisLock;
+	static var EPAL_NEGATIVE_Z: EParticleAxisLock;
+	static var EPAL_ROTATE_X: EParticleAxisLock;
+	static var EPAL_ROTATE_Y: EParticleAxisLock;
+	static var EPAL_ROTATE_Z: EParticleAxisLock;
+	static var EPAL_MAX: EParticleAxisLock;
 }

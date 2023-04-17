@@ -7,8 +7,8 @@ package ue;
 extern class SafeZoneSlot extends PanelSlot {
 	public var bIsTitleSafe: Bool;
 	public var SafeAreaScale: Margin;
-	public var HAlign: EHorizontalAlignment;
-	public var VAlign: EVerticalAlignment;
+	public var HAlign: TEnumAsByte<EHorizontalAlignment>;
+	public var VAlign: TEnumAsByte<EVerticalAlignment>;
 	public var Padding: Margin;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -21,10 +21,10 @@ abstract ConstSafeZoneSlot(SafeZoneSlot) from SafeZoneSlot {
 	public inline extern function get_bIsTitleSafe(): Bool return this.bIsTitleSafe;
 	public extern var SafeAreaScale(get, never): Margin;
 	public inline extern function get_SafeAreaScale(): Margin return this.SafeAreaScale;
-	public extern var HAlign(get, never): EHorizontalAlignment;
-	public inline extern function get_HAlign(): EHorizontalAlignment return this.HAlign;
-	public extern var VAlign(get, never): EVerticalAlignment;
-	public inline extern function get_VAlign(): EVerticalAlignment return this.VAlign;
+	public extern var HAlign(get, never): TEnumAsByte<EHorizontalAlignment>;
+	public inline extern function get_HAlign(): TEnumAsByte<EHorizontalAlignment> return this.HAlign;
+	public extern var VAlign(get, never): TEnumAsByte<EVerticalAlignment>;
+	public inline extern function get_VAlign(): TEnumAsByte<EVerticalAlignment> return this.VAlign;
 	public extern var Padding(get, never): Margin;
 	public inline extern function get_Padding(): Margin return this.Padding;
 }

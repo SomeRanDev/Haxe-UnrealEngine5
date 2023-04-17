@@ -3,9 +3,9 @@ package ue;
 
 @:native("EPathFollowingRequestResult.Type")
 @:include("Navigation/PathFollowingComponent.h")
-extern enum EPathFollowingRequestResult {
-	Failed;
-	AlreadyAtGoal;
-	RequestSuccessful;
-	EPathFollowingRequestResult_MAX;
+extern class EPathFollowingRequestResult {
+	static var Failed: EPathFollowingRequestResult;
+	static var AlreadyAtGoal: EPathFollowingRequestResult;
+	static var RequestSuccessful: EPathFollowingRequestResult;
+	static var EPathFollowingRequestResult_MAX: EPathFollowingRequestResult;
 }

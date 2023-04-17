@@ -8,9 +8,7 @@ extern class InputKeySelector extends Widget {
 	public var WidgetStyle: ButtonStyle;
 	public var TextStyle: TextBlockStyle;
 	public var SelectedKey: InputChord;
-	public var Font_DEPRECATED: SlateFontInfo;
 	public var Margin: Margin;
-	public var ColorAndOpacity_DEPRECATED: LinearColor;
 	public var KeySelectionText: FText;
 	public var NoKeySpecifiedText: FText;
 	public var bAllowModifierKeys: Bool;
@@ -28,7 +26,7 @@ extern class InputKeySelector extends Widget {
 	public function SetAllowGamepadKeys(bInAllowGamepadKeys: Bool): Void;
 	public function OnKeySelected__DelegateSignature(SelectedKey: InputChord): Void;
 	public function OnIsSelectingKeyChanged__DelegateSignature(): Void;
-	public function GetIsSelectingKey(): cpp.Reference<Bool>;
+	public function GetIsSelectingKey(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -42,12 +40,8 @@ abstract ConstInputKeySelector(InputKeySelector) from InputKeySelector {
 	public inline extern function get_TextStyle(): TextBlockStyle return this.TextStyle;
 	public extern var SelectedKey(get, never): InputChord;
 	public inline extern function get_SelectedKey(): InputChord return this.SelectedKey;
-	public extern var Font_DEPRECATED(get, never): SlateFontInfo;
-	public inline extern function get_Font_DEPRECATED(): SlateFontInfo return this.Font_DEPRECATED;
 	public extern var Margin(get, never): Margin;
 	public inline extern function get_Margin(): Margin return this.Margin;
-	public extern var ColorAndOpacity_DEPRECATED(get, never): LinearColor;
-	public inline extern function get_ColorAndOpacity_DEPRECATED(): LinearColor return this.ColorAndOpacity_DEPRECATED;
 	public extern var KeySelectionText(get, never): FText;
 	public inline extern function get_KeySelectionText(): FText return this.KeySelectionText;
 	public extern var NoKeySpecifiedText(get, never): FText;

@@ -15,12 +15,10 @@ extern class NiagaraNodeFunctionCall extends NiagaraNodeWithDynamicPins {
 	public var PythonUpgradeScriptWarnings: FString;
 	public var DebugState: ENiagaraFunctionDebugState;
 	public var bInheritDebugStatus: Bool;
-	public var CachedChangeId: Guid;
-	public var InvalidScriptVersionReference: Guid;
-	public var FunctionDisplayName: FString;
-	public var MessageKeyToMessageMap: TMap<Guid, cpp.Star<NiagaraMessageData>>;
-	public var StackMessages: TArray<NiagaraStackMessage>;
-	public var BoundPinNames: TMap<Guid, FName>;
+	@:protected public var CachedChangeId: Guid;
+	@:protected public var InvalidScriptVersionReference: Guid;
+	@:protected public var FunctionDisplayName: FString;
+	@:protected public var BoundPinNames: TMap<Guid, FName>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -48,18 +46,6 @@ abstract ConstNiagaraNodeFunctionCall(NiagaraNodeFunctionCall) from NiagaraNodeF
 	public inline extern function get_DebugState(): ENiagaraFunctionDebugState return this.DebugState;
 	public extern var bInheritDebugStatus(get, never): Bool;
 	public inline extern function get_bInheritDebugStatus(): Bool return this.bInheritDebugStatus;
-	public extern var CachedChangeId(get, never): Guid;
-	public inline extern function get_CachedChangeId(): Guid return this.CachedChangeId;
-	public extern var InvalidScriptVersionReference(get, never): Guid;
-	public inline extern function get_InvalidScriptVersionReference(): Guid return this.InvalidScriptVersionReference;
-	public extern var FunctionDisplayName(get, never): FString;
-	public inline extern function get_FunctionDisplayName(): FString return this.FunctionDisplayName;
-	public extern var MessageKeyToMessageMap(get, never): TMap<Guid, cpp.Star<NiagaraMessageData.ConstNiagaraMessageData>>;
-	public inline extern function get_MessageKeyToMessageMap(): TMap<Guid, cpp.Star<NiagaraMessageData.ConstNiagaraMessageData>> return this.MessageKeyToMessageMap;
-	public extern var StackMessages(get, never): TArray<NiagaraStackMessage>;
-	public inline extern function get_StackMessages(): TArray<NiagaraStackMessage> return this.StackMessages;
-	public extern var BoundPinNames(get, never): TMap<Guid, FName>;
-	public inline extern function get_BoundPinNames(): TMap<Guid, FName> return this.BoundPinNames;
 }
 
 @:forward

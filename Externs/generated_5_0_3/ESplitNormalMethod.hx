@@ -3,11 +3,11 @@ package ue;
 
 @:native("ESplitNormalMethod")
 @:include("CleaningOps/EditNormalsOp.h")
-extern enum ESplitNormalMethod {
-	UseExistingTopology;
-	FaceNormalThreshold;
-	FaceGroupID;
-	PerTriangle;
-	PerVertex;
-	ESplitNormalMethod_MAX;
+extern class ESplitNormalMethod {
+	static var UseExistingTopology: ESplitNormalMethod;
+	static var FaceNormalThreshold: ESplitNormalMethod;
+	static var FaceGroupID: ESplitNormalMethod;
+	static var PerTriangle: ESplitNormalMethod;
+	static var PerVertex: ESplitNormalMethod;
+	static var ESplitNormalMethod_MAX: ESplitNormalMethod;
 }

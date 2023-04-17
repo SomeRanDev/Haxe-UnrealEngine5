@@ -5,10 +5,9 @@ package ue;
 @:include("NavigationTestingActor.h")
 @:structAccess
 extern class NavigationTestingActor extends Actor {
-	public var CapsuleComponent: cpp.Star<CapsuleComp>;
-	public var EdRenderComp: cpp.Star<NavTestRenderingComp>;
-	public var InvokerComponent: cpp.Star<NavigationInvokerComp>;
-	public var bActAsNavigationInvoker: Bool;
+	private var CapsuleComponent: cpp.Star<CapsuleComp>;
+	private var InvokerComponent: cpp.Star<NavigationInvokerComp>;
+	private var bActAsNavigationInvoker: Bool;
 	public var NavAgentProps: NavAgentProperties;
 	public var QueryingExtent: Vector;
 	public var MyNavData: cpp.Star<NavigationData>;
@@ -25,7 +24,7 @@ extern class NavigationTestingActor extends Actor {
 	public var bShowBestPath: Bool;
 	public var bShowDiffWithPreviousStep: Bool;
 	public var bShouldBeVisibleInGame: Bool;
-	public var CostDisplayMode: ENavCostDisplay;
+	public var CostDisplayMode: TEnumAsByte<ENavCostDisplay>;
 	public var TextCanvasOffset: Vector2D;
 	public var bPathExist: Bool;
 	public var bPathIsPartial: Bool;
@@ -44,14 +43,6 @@ extern class NavigationTestingActor extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstNavigationTestingActor(NavigationTestingActor) from NavigationTestingActor {
-	public extern var CapsuleComponent(get, never): cpp.Star<CapsuleComp.ConstCapsuleComp>;
-	public inline extern function get_CapsuleComponent(): cpp.Star<CapsuleComp.ConstCapsuleComp> return this.CapsuleComponent;
-	public extern var EdRenderComp(get, never): cpp.Star<NavTestRenderingComp.ConstNavTestRenderingComp>;
-	public inline extern function get_EdRenderComp(): cpp.Star<NavTestRenderingComp.ConstNavTestRenderingComp> return this.EdRenderComp;
-	public extern var InvokerComponent(get, never): cpp.Star<NavigationInvokerComp.ConstNavigationInvokerComp>;
-	public inline extern function get_InvokerComponent(): cpp.Star<NavigationInvokerComp.ConstNavigationInvokerComp> return this.InvokerComponent;
-	public extern var bActAsNavigationInvoker(get, never): Bool;
-	public inline extern function get_bActAsNavigationInvoker(): Bool return this.bActAsNavigationInvoker;
 	public extern var NavAgentProps(get, never): NavAgentProperties;
 	public inline extern function get_NavAgentProps(): NavAgentProperties return this.NavAgentProps;
 	public extern var QueryingExtent(get, never): Vector;
@@ -84,8 +75,8 @@ abstract ConstNavigationTestingActor(NavigationTestingActor) from NavigationTest
 	public inline extern function get_bShowDiffWithPreviousStep(): Bool return this.bShowDiffWithPreviousStep;
 	public extern var bShouldBeVisibleInGame(get, never): Bool;
 	public inline extern function get_bShouldBeVisibleInGame(): Bool return this.bShouldBeVisibleInGame;
-	public extern var CostDisplayMode(get, never): ENavCostDisplay;
-	public inline extern function get_CostDisplayMode(): ENavCostDisplay return this.CostDisplayMode;
+	public extern var CostDisplayMode(get, never): TEnumAsByte<ENavCostDisplay>;
+	public inline extern function get_CostDisplayMode(): TEnumAsByte<ENavCostDisplay> return this.CostDisplayMode;
 	public extern var TextCanvasOffset(get, never): Vector2D;
 	public inline extern function get_TextCanvasOffset(): Vector2D return this.TextCanvasOffset;
 	public extern var bPathExist(get, never): Bool;

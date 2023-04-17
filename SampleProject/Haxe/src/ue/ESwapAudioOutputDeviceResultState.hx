@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESwapAudioOutputDeviceResultState")
 @:include("AudioMixerBlueprintLibrary.h")
-extern enum ESwapAudioOutputDeviceResultState {
-	Failure;
-	Success;
-	None;
-	ESwapAudioOutputDeviceResultState_MAX;
+extern class ESwapAudioOutputDeviceResultState {
+	static var Failure: ESwapAudioOutputDeviceResultState;
+	static var Success: ESwapAudioOutputDeviceResultState;
+	static var None: ESwapAudioOutputDeviceResultState;
+	static var ESwapAudioOutputDeviceResultState_MAX: ESwapAudioOutputDeviceResultState;
 }

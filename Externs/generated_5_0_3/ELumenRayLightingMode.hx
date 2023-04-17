@@ -3,8 +3,8 @@ package ue;
 
 @:native("ELumenRayLightingMode")
 @:include("Engine/RendererSettings.h")
-extern enum ELumenRayLightingMode {
-	SurfaceCache;
-	HitLighting;
-	ELumenRayLightingMode_MAX;
+extern class ELumenRayLightingMode {
+	static var SurfaceCache: ELumenRayLightingMode;
+	static var HitLighting: ELumenRayLightingMode;
+	static var ELumenRayLightingMode_MAX: ELumenRayLightingMode;
 }

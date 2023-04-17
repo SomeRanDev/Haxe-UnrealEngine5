@@ -55,7 +55,7 @@ extern class ModularSynthComp extends SynthComp {
 	public function SetEnableUnison(EnableUnison: Bool): Void;
 	public function SetEnableRetrigger(RetriggerEnabled: Bool): Void;
 	public function SetEnablePolyphony(bEnablePolyphony: Bool): Void;
-	public function SetEnablePatch(PatchId: PatchId, bIsEnabled: Bool): cpp.Reference<Bool>;
+	public function SetEnablePatch(PatchId: PatchId, bIsEnabled: Bool): Bool;
 	public function SetEnableLegato(LegatoEnabled: Bool): Void;
 	public function SetDecayTime(DecayTimeMsec: cpp.Float32): Void;
 	public function SetChorusFrequency(Frequency: cpp.Float32): Void;
@@ -65,7 +65,7 @@ extern class ModularSynthComp extends SynthComp {
 	public function SetAttackTime(AttackTimeMsec: cpp.Float32): Void;
 	public function NoteOn(Note: cpp.Float32, Velocity: cpp.Int32, Duration: cpp.Float32): Void;
 	public function NoteOff(Note: cpp.Float32, bAllNotesOff: Bool, bKillAllNotes: Bool): Void;
-	public function CreatePatch(PatchSource: ESynth1PatchSource, PatchCables: cpp.Reference<TArray<Synth1PatchCable>>, bEnableByDefault: Bool): cpp.Reference<PatchId>;
+	public function CreatePatch(PatchSource: ESynth1PatchSource, PatchCables: cpp.Reference<TArray<Synth1PatchCable>>, bEnableByDefault: Bool): PatchId;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

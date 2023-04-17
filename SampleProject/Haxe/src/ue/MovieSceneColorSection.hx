@@ -5,10 +5,10 @@ package ue;
 @:include("Sections/MovieSceneColorSection.h")
 @:structAccess
 extern class MovieSceneColorSection extends MovieSceneSection {
-	public var RedCurve: MovieSceneFloatChannel;
-	public var GreenCurve: MovieSceneFloatChannel;
-	public var BlueCurve: MovieSceneFloatChannel;
-	public var AlphaCurve: MovieSceneFloatChannel;
+	private var RedCurve: MovieSceneFloatChannel;
+	private var GreenCurve: MovieSceneFloatChannel;
+	private var BlueCurve: MovieSceneFloatChannel;
+	private var AlphaCurve: MovieSceneFloatChannel;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class MovieSceneColorSection extends MovieSceneSection {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneColorSection(MovieSceneColorSection) from MovieSceneColorSection {
-	public extern var RedCurve(get, never): MovieSceneFloatChannel;
-	public inline extern function get_RedCurve(): MovieSceneFloatChannel return this.RedCurve;
-	public extern var GreenCurve(get, never): MovieSceneFloatChannel;
-	public inline extern function get_GreenCurve(): MovieSceneFloatChannel return this.GreenCurve;
-	public extern var BlueCurve(get, never): MovieSceneFloatChannel;
-	public inline extern function get_BlueCurve(): MovieSceneFloatChannel return this.BlueCurve;
-	public extern var AlphaCurve(get, never): MovieSceneFloatChannel;
-	public inline extern function get_AlphaCurve(): MovieSceneFloatChannel return this.AlphaCurve;
 }
 
 @:forward

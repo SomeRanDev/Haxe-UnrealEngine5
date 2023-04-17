@@ -3,10 +3,10 @@ package ue;
 
 @:native("EInterpToBehaviourType")
 @:include("Components/InterpToMovementComponent.h")
-extern enum EInterpToBehaviourType {
-	OneShot;
-	OneShot_Reverse;
-	Loop_Reset;
-	PingPong;
-	EInterpToBehaviourType_MAX;
+extern class EInterpToBehaviourType {
+	static var OneShot: EInterpToBehaviourType;
+	static var OneShot_Reverse: EInterpToBehaviourType;
+	static var Loop_Reset: EInterpToBehaviourType;
+	static var PingPong: EInterpToBehaviourType;
+	static var EInterpToBehaviourType_MAX: EInterpToBehaviourType;
 }

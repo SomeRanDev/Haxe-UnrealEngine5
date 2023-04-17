@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESkinWeightsBindType")
 @:include("SkinWeightsBindingTool.h")
-extern enum ESkinWeightsBindType {
-	DirectDistance;
-	GeodesicVoxel;
-	ESkinWeightsBindType_MAX;
+extern class ESkinWeightsBindType {
+	static var DirectDistance: ESkinWeightsBindType;
+	static var GeodesicVoxel: ESkinWeightsBindType;
+	static var ESkinWeightsBindType_MAX: ESkinWeightsBindType;
 }

@@ -5,11 +5,11 @@ package ue;
 @:include("Tasks/AITask_MoveTo.h")
 @:structAccess
 extern class AITask_MoveTo extends AITask {
-	public var OnRequestFailed: HaxeMulticastSparseDelegateProperty<() -> Void>;
-	public var OnMoveFinished: HaxeMulticastSparseDelegateProperty<(EPathFollowingResult, cpp.Star<AIController>) -> Void>;
-	public var MoveRequest: AIMoveRequest;
+	@:protected public var OnRequestFailed: HaxeMulticastSparseDelegateProperty<() -> Void>;
+	@:protected public var OnMoveFinished: HaxeMulticastSparseDelegateProperty<(TEnumAsByte<EPathFollowingResult>, cpp.Star<AIController>) -> Void>;
+	@:protected public var MoveRequest: AIMoveRequest;
 
-	public function AIMoveTo(Controller: cpp.Star<AIController>, GoalLocation: Vector, GoalActor: cpp.Star<Actor>, AcceptanceRadius: cpp.Float32, StopOnOverlap: EAIOptionFlag, AcceptPartialPath: EAIOptionFlag, bUsePathfinding: Bool, bLockAILogic: Bool, bUseContinuosGoalTracking: Bool, ProjectGoalOnNavigation: EAIOptionFlag): cpp.Reference<cpp.Star<AITask_MoveTo>>;
+	public function AIMoveTo(Controller: cpp.Star<AIController>, GoalLocation: Vector, GoalActor: cpp.Star<Actor>, AcceptanceRadius: cpp.Float32, StopOnOverlap: TEnumAsByte<EAIOptionFlag>, AcceptPartialPath: TEnumAsByte<EAIOptionFlag>, bUsePathfinding: Bool, bLockAILogic: Bool, bUseContinuosGoalTracking: Bool, ProjectGoalOnNavigation: TEnumAsByte<EAIOptionFlag>): cpp.Star<AITask_MoveTo>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,12 +17,6 @@ extern class AITask_MoveTo extends AITask {
 @:forward()
 @:nativeGen
 abstract ConstAITask_MoveTo(AITask_MoveTo) from AITask_MoveTo {
-	public extern var OnRequestFailed(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
-	public inline extern function get_OnRequestFailed(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnRequestFailed;
-	public extern var OnMoveFinished(get, never): HaxeMulticastSparseDelegateProperty<(EPathFollowingResult, cpp.Star<AIController.ConstAIController>) -> Void>;
-	public inline extern function get_OnMoveFinished(): HaxeMulticastSparseDelegateProperty<(EPathFollowingResult, cpp.Star<AIController.ConstAIController>) -> Void> return this.OnMoveFinished;
-	public extern var MoveRequest(get, never): AIMoveRequest;
-	public inline extern function get_MoveRequest(): AIMoveRequest return this.MoveRequest;
 }
 
 @:forward

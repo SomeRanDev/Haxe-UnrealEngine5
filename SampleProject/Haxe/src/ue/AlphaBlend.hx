@@ -5,9 +5,9 @@ package ue;
 @:include("AlphaBlend.h")
 @:structAccess
 extern class AlphaBlend {
-	public var CustomCurve: cpp.Star<CurveFloat>;
-	public var BlendTime: cpp.Float32;
-	public var BlendOption: EAlphaBlendOption;
+	private var CustomCurve: cpp.Star<CurveFloat>;
+	private var BlendTime: cpp.Float32;
+	private var BlendOption: EAlphaBlendOption;
 
 	@:native("FAlphaBlend") public function new();
 	@:native("FAlphaBlend") public static function make(CustomCurve: cpp.Star<CurveFloat>, BlendTime: cpp.Float32, BlendOption: EAlphaBlendOption): AlphaBlend ;

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EMeshTangentsType")
 @:include("ParameterizationOps/CalculateTangentsOp.h")
-extern enum EMeshTangentsType {
-	MikkTSpace;
-	FastMikkTSpace;
-	PerTriangle;
-	CopyExisting;
-	EMeshTangentsType_MAX;
+extern class EMeshTangentsType {
+	static var MikkTSpace: EMeshTangentsType;
+	static var FastMikkTSpace: EMeshTangentsType;
+	static var PerTriangle: EMeshTangentsType;
+	static var CopyExisting: EMeshTangentsType;
+	static var EMeshTangentsType_MAX: EMeshTangentsType;
 }

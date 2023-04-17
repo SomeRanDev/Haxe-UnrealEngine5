@@ -3,14 +3,14 @@ package ue;
 
 @:native("EARSessionType")
 @:include("ARSessionConfig.h")
-extern enum EARSessionType {
-	None;
-	Orientation;
-	World;
-	Face;
-	Image;
-	ObjectScanning;
-	PoseTracking;
-	GeoTracking;
-	EARSessionType_MAX;
+extern class EARSessionType {
+	static var None: EARSessionType;
+	static var Orientation: EARSessionType;
+	static var World: EARSessionType;
+	static var Face: EARSessionType;
+	static var Image: EARSessionType;
+	static var ObjectScanning: EARSessionType;
+	static var PoseTracking: EARSessionType;
+	static var GeoTracking: EARSessionType;
+	static var EARSessionType_MAX: EARSessionType;
 }

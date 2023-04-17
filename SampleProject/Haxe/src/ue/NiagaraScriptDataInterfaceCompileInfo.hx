@@ -8,7 +8,6 @@ extern class NiagaraScriptDataInterfaceCompileInfo {
 	public var Name: FName;
 	public var UserPtrIdx: cpp.Int32;
 	public var Type: NiagaraTypeDefinition;
-	public var RegisteredFunctions: TArray<NiagaraFunctionSignature>;
 	public var RegisteredParameterMapRead: FName;
 	public var RegisteredParameterMapWrite: FName;
 	public var bIsPlaceholder: Bool;

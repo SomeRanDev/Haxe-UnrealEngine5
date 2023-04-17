@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESequenceTimeUnit")
 @:include("SequenceTimeUnit.h")
-extern enum ESequenceTimeUnit {
-	DisplayRate;
-	TickResolution;
-	ESequenceTimeUnit_MAX;
+extern class ESequenceTimeUnit {
+	static var DisplayRate: ESequenceTimeUnit;
+	static var TickResolution: ESequenceTimeUnit;
+	static var ESequenceTimeUnit_MAX: ESequenceTimeUnit;
 }

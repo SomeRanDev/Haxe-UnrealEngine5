@@ -3,9 +3,9 @@ package ue;
 
 @:native("EVisibilityTrackCondition")
 @:include("Matinee/InterpTrackVisibility.h")
-extern enum EVisibilityTrackCondition {
-	EVTC_Always;
-	EVTC_GoreEnabled;
-	EVTC_GoreDisabled;
-	EVTC_MAX;
+extern class EVisibilityTrackCondition {
+	static var EVTC_Always: EVisibilityTrackCondition;
+	static var EVTC_GoreEnabled: EVisibilityTrackCondition;
+	static var EVTC_GoreDisabled: EVisibilityTrackCondition;
+	static var EVTC_MAX: EVisibilityTrackCondition;
 }

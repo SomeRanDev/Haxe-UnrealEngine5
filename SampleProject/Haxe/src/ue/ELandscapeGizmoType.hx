@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELandscapeGizmoType")
 @:include("LandscapeGizmoActiveActor.h")
-extern enum ELandscapeGizmoType {
-	LGT_None;
-	LGT_Height;
-	LGT_Weight;
-	LGT_MAX;
+extern class ELandscapeGizmoType {
+	static var LGT_None: ELandscapeGizmoType;
+	static var LGT_Height: ELandscapeGizmoType;
+	static var LGT_Weight: ELandscapeGizmoType;
+	static var LGT_MAX: ELandscapeGizmoType;
 }

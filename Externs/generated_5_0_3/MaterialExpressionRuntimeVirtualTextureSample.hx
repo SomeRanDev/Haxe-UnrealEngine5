@@ -12,8 +12,8 @@ extern class MaterialExpressionRuntimeVirtualTextureSample extends MaterialExpre
 	public var MaterialType: ERuntimeVirtualTextureMaterialType;
 	public var bSinglePhysicalSpace: Bool;
 	public var bAdaptive: Bool;
-	public var MipValueMode: ERuntimeVirtualTextureMipValueMode;
-	public var TextureAddressMode: ERuntimeVirtualTextureTextureAddressMode;
+	public var MipValueMode: TEnumAsByte<ERuntimeVirtualTextureMipValueMode>;
+	public var TextureAddressMode: TEnumAsByte<ERuntimeVirtualTextureTextureAddressMode>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -35,10 +35,10 @@ abstract ConstMaterialExpressionRuntimeVirtualTextureSample(MaterialExpressionRu
 	public inline extern function get_bSinglePhysicalSpace(): Bool return this.bSinglePhysicalSpace;
 	public extern var bAdaptive(get, never): Bool;
 	public inline extern function get_bAdaptive(): Bool return this.bAdaptive;
-	public extern var MipValueMode(get, never): ERuntimeVirtualTextureMipValueMode;
-	public inline extern function get_MipValueMode(): ERuntimeVirtualTextureMipValueMode return this.MipValueMode;
-	public extern var TextureAddressMode(get, never): ERuntimeVirtualTextureTextureAddressMode;
-	public inline extern function get_TextureAddressMode(): ERuntimeVirtualTextureTextureAddressMode return this.TextureAddressMode;
+	public extern var MipValueMode(get, never): TEnumAsByte<ERuntimeVirtualTextureMipValueMode>;
+	public inline extern function get_MipValueMode(): TEnumAsByte<ERuntimeVirtualTextureMipValueMode> return this.MipValueMode;
+	public extern var TextureAddressMode(get, never): TEnumAsByte<ERuntimeVirtualTextureTextureAddressMode>;
+	public inline extern function get_TextureAddressMode(): TEnumAsByte<ERuntimeVirtualTextureTextureAddressMode> return this.TextureAddressMode;
 }
 
 @:forward

@@ -3,23 +3,23 @@ package ue;
 
 @:native("EDecalBlendMode")
 @:include("Materials/Material.h")
-extern enum EDecalBlendMode {
-	DBM_Translucent;
-	DBM_Stain;
-	DBM_Normal;
-	DBM_Emissive;
-	DBM_DBuffer_ColorNormalRoughness;
-	DBM_DBuffer_Color;
-	DBM_DBuffer_ColorNormal;
-	DBM_DBuffer_ColorRoughness;
-	DBM_DBuffer_Normal;
-	DBM_DBuffer_NormalRoughness;
-	DBM_DBuffer_Roughness;
-	DBM_DBuffer_Emissive;
-	DBM_DBuffer_AlphaComposite;
-	DBM_DBuffer_EmissiveAlphaComposite;
-	DBM_Volumetric_DistanceFunction;
-	DBM_AlphaComposite;
-	DBM_AmbientOcclusion;
-	DBM_MAX;
+extern class EDecalBlendMode {
+	static var DBM_Translucent: EDecalBlendMode;
+	static var DBM_Stain: EDecalBlendMode;
+	static var DBM_Normal: EDecalBlendMode;
+	static var DBM_Emissive: EDecalBlendMode;
+	static var DBM_DBuffer_ColorNormalRoughness: EDecalBlendMode;
+	static var DBM_DBuffer_Color: EDecalBlendMode;
+	static var DBM_DBuffer_ColorNormal: EDecalBlendMode;
+	static var DBM_DBuffer_ColorRoughness: EDecalBlendMode;
+	static var DBM_DBuffer_Normal: EDecalBlendMode;
+	static var DBM_DBuffer_NormalRoughness: EDecalBlendMode;
+	static var DBM_DBuffer_Roughness: EDecalBlendMode;
+	static var DBM_DBuffer_Emissive: EDecalBlendMode;
+	static var DBM_DBuffer_AlphaComposite: EDecalBlendMode;
+	static var DBM_DBuffer_EmissiveAlphaComposite: EDecalBlendMode;
+	static var DBM_Volumetric_DistanceFunction: EDecalBlendMode;
+	static var DBM_AlphaComposite: EDecalBlendMode;
+	static var DBM_AmbientOcclusion: EDecalBlendMode;
+	static var DBM_MAX: EDecalBlendMode;
 }

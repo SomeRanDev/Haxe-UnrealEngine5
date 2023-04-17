@@ -3,9 +3,9 @@ package ue;
 
 @:native("TextureAddress")
 @:include("Engine/Texture.h")
-extern enum TextureAddress {
-	TA_Wrap;
-	TA_Clamp;
-	TA_Mirror;
-	TA_MAX;
+extern class TextureAddress {
+	static var TA_Wrap: TextureAddress;
+	static var TA_Clamp: TextureAddress;
+	static var TA_Mirror: TextureAddress;
+	static var TA_MAX: TextureAddress;
 }

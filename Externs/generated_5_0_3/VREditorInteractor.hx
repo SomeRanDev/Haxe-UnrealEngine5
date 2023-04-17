@@ -5,45 +5,45 @@ package ue;
 @:include("VREditorInteractor.h")
 @:structAccess
 extern class VREditorInteractor extends ViewportInteractor {
-	public var bIsUndoRedoSwipeEnabled: Bool;
-	public var MotionControllerComponent: cpp.Star<MotionControllerComp>;
-	public var HandMeshComponent: cpp.Star<StaticMeshComp>;
-	public var LaserSplineComponent: cpp.Star<SplineComp>;
-	public var LaserSplineMeshComponents: TArray<cpp.Star<SplineMeshComp>>;
-	public var LaserPointerMID: cpp.Star<MaterialInstanceDynamic>;
-	public var TranslucentLaserPointerMID: cpp.Star<MaterialInstanceDynamic>;
-	public var HoverMeshComponent: cpp.Star<StaticMeshComp>;
-	public var HoverPointLightComponent: cpp.Star<PointLightComp>;
-	public var HandMeshMID: cpp.Star<MaterialInstanceDynamic>;
-	public var OwningAvatar: cpp.Star<Actor>;
-	public var ControllerType: EControllerType;
-	public var OverrideControllerType: EControllerType;
-	public var ControllerMotionSource: FName;
-	public var VRMode: cpp.Star<VREditorMode>;
+	@:protected public var bIsUndoRedoSwipeEnabled: Bool;
+	@:protected public var MotionControllerComponent: cpp.Star<MotionControllerComp>;
+	@:protected public var HandMeshComponent: cpp.Star<StaticMeshComp>;
+	private var LaserSplineComponent: cpp.Star<SplineComp>;
+	private var LaserSplineMeshComponents: TArray<cpp.Star<SplineMeshComp>>;
+	private var LaserPointerMID: cpp.Star<MaterialInstanceDynamic>;
+	private var TranslucentLaserPointerMID: cpp.Star<MaterialInstanceDynamic>;
+	private var HoverMeshComponent: cpp.Star<StaticMeshComp>;
+	private var HoverPointLightComponent: cpp.Star<PointLightComp>;
+	private var HandMeshMID: cpp.Star<MaterialInstanceDynamic>;
+	private var OwningAvatar: cpp.Star<Actor>;
+	private var ControllerType: EControllerType;
+	private var OverrideControllerType: EControllerType;
+	@:protected public var ControllerMotionSource: FName;
+	@:protected public var VRMode: cpp.Star<VREditorMode>;
 
-	public function TryOverrideControllerType(InControllerType: EControllerType): cpp.Reference<Bool>;
+	public function TryOverrideControllerType(InControllerType: EControllerType): Bool;
 	public function SetupComponent(OwningActor: cpp.Star<Actor>): Void;
 	public function SetForceShowLaser(bInForceShow: Bool): Void;
 	public function SetForceLaserColor(InColor: cpp.Reference<LinearColor>): Void;
 	public function SetControllerType(InControllerType: EControllerType): Void;
 	public function SetControllerHandSide(InControllerHandSide: FName): Void;
 	public function ReplaceHandMeshComponent(NewMesh: cpp.Star<StaticMesh>): Void;
-	public function IsTouchingTrackpad(): cpp.Reference<Bool>;
-	public function IsHoveringOverUI(): cpp.Reference<Bool>;
-	public function IsClickingOnUI(): cpp.Reference<Bool>;
+	public function IsTouchingTrackpad(): Bool;
+	public function IsHoveringOverUI(): Bool;
+	public function IsClickingOnUI(): Bool;
 	public function Init(InVRMode: cpp.Star<VREditorMode>): Void;
-	public function GetTrackpadPosition(): cpp.Reference<Vector2D>;
-	public function GetTeleportActor(): cpp.Reference<cpp.Star<VREditorTeleporter>>;
-	public function GetSlideDelta(): cpp.Reference<cpp.Float32>;
-	public function GetSelectAndMoveTriggerValue(): cpp.Reference<cpp.Float32>;
-	public function GetMotionControllerComponent(): cpp.Reference<cpp.Star<MotionControllerComp>>;
-	public function GetLastTrackpadPosition(): cpp.Reference<Vector2D>;
-	public function GetLaserStart(): cpp.Reference<Vector>;
-	public function GetLaserEnd(): cpp.Reference<Vector>;
-	public function GetHMDDeviceType(): cpp.Reference<FName>;
-	public function GetControllerType(): cpp.Reference<EControllerType>;
-	public function GetControllerSide(): cpp.Reference<EControllerHand>;
-	public function GetControllerHandSide(): cpp.Reference<FName>;
+	public function GetTrackpadPosition(): Vector2D;
+	public function GetTeleportActor(): cpp.Star<VREditorTeleporter>;
+	public function GetSlideDelta(): cpp.Float32;
+	public function GetSelectAndMoveTriggerValue(): cpp.Float32;
+	public function GetMotionControllerComponent(): cpp.Star<MotionControllerComp>;
+	public function GetLastTrackpadPosition(): Vector2D;
+	public function GetLaserStart(): Vector;
+	public function GetLaserEnd(): Vector;
+	public function GetHMDDeviceType(): FName;
+	public function GetControllerType(): EControllerType;
+	public function GetControllerSide(): EControllerHand;
+	public function GetControllerHandSide(): FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -55,36 +55,6 @@ extern class VREditorInteractor extends ViewportInteractor {
 )
 @:nativeGen
 abstract ConstVREditorInteractor(VREditorInteractor) from VREditorInteractor {
-	public extern var bIsUndoRedoSwipeEnabled(get, never): Bool;
-	public inline extern function get_bIsUndoRedoSwipeEnabled(): Bool return this.bIsUndoRedoSwipeEnabled;
-	public extern var MotionControllerComponent(get, never): cpp.Star<MotionControllerComp.ConstMotionControllerComp>;
-	public inline extern function get_MotionControllerComponent(): cpp.Star<MotionControllerComp.ConstMotionControllerComp> return this.MotionControllerComponent;
-	public extern var HandMeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_HandMeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.HandMeshComponent;
-	public extern var LaserSplineComponent(get, never): cpp.Star<SplineComp.ConstSplineComp>;
-	public inline extern function get_LaserSplineComponent(): cpp.Star<SplineComp.ConstSplineComp> return this.LaserSplineComponent;
-	public extern var LaserSplineMeshComponents(get, never): TArray<cpp.Star<SplineMeshComp.ConstSplineMeshComp>>;
-	public inline extern function get_LaserSplineMeshComponents(): TArray<cpp.Star<SplineMeshComp.ConstSplineMeshComp>> return this.LaserSplineMeshComponents;
-	public extern var LaserPointerMID(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_LaserPointerMID(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.LaserPointerMID;
-	public extern var TranslucentLaserPointerMID(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_TranslucentLaserPointerMID(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.TranslucentLaserPointerMID;
-	public extern var HoverMeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_HoverMeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.HoverMeshComponent;
-	public extern var HoverPointLightComponent(get, never): cpp.Star<PointLightComp.ConstPointLightComp>;
-	public inline extern function get_HoverPointLightComponent(): cpp.Star<PointLightComp.ConstPointLightComp> return this.HoverPointLightComponent;
-	public extern var HandMeshMID(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_HandMeshMID(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.HandMeshMID;
-	public extern var OwningAvatar(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_OwningAvatar(): cpp.Star<Actor.ConstActor> return this.OwningAvatar;
-	public extern var ControllerType(get, never): EControllerType;
-	public inline extern function get_ControllerType(): EControllerType return this.ControllerType;
-	public extern var OverrideControllerType(get, never): EControllerType;
-	public inline extern function get_OverrideControllerType(): EControllerType return this.OverrideControllerType;
-	public extern var ControllerMotionSource(get, never): FName;
-	public inline extern function get_ControllerMotionSource(): FName return this.ControllerMotionSource;
-	public extern var VRMode(get, never): cpp.Star<VREditorMode.ConstVREditorMode>;
-	public inline extern function get_VRMode(): cpp.Star<VREditorMode.ConstVREditorMode> return this.VRMode;
 }
 
 @:forward

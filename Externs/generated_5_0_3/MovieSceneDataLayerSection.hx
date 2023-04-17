@@ -5,19 +5,19 @@ package ue;
 @:include("Sections/MovieSceneDataLayerSection.h")
 @:structAccess
 extern class MovieSceneDataLayerSection extends MovieSceneSection {
-	public var DataLayers: TArray<ActorDataLayer>;
-	public var DesiredState: EDataLayerRuntimeState;
-	public var PrerollState: EDataLayerRuntimeState;
-	public var bFlushOnUnload: Bool;
+	private var DataLayers: TArray<ActorDataLayer>;
+	private var DesiredState: EDataLayerRuntimeState;
+	private var PrerollState: EDataLayerRuntimeState;
+	private var bFlushOnUnload: Bool;
 
 	public function SetPrerollState(InPrerollState: EDataLayerRuntimeState): Void;
 	public function SetFlushOnUnload(bFlushOnUnload: Bool): Void;
 	public function SetDesiredState(InDesiredState: EDataLayerRuntimeState): Void;
 	public function SetDataLayers(InDataLayers: cpp.Reference<TArray<ActorDataLayer>>): Void;
-	public function GetPrerollState(): cpp.Reference<EDataLayerRuntimeState>;
-	public function GetFlushOnUnload(): cpp.Reference<Bool>;
-	public function GetDesiredState(): cpp.Reference<EDataLayerRuntimeState>;
-	public function GetDataLayers(): cpp.Reference<TArray<ActorDataLayer>>;
+	public function GetPrerollState(): EDataLayerRuntimeState;
+	public function GetFlushOnUnload(): Bool;
+	public function GetDesiredState(): EDataLayerRuntimeState;
+	public function GetDataLayers(): TArray<ActorDataLayer>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -25,14 +25,6 @@ extern class MovieSceneDataLayerSection extends MovieSceneSection {
 @:forward(GetPrerollState, GetFlushOnUnload, GetDesiredState, GetDataLayers)
 @:nativeGen
 abstract ConstMovieSceneDataLayerSection(MovieSceneDataLayerSection) from MovieSceneDataLayerSection {
-	public extern var DataLayers(get, never): TArray<ActorDataLayer>;
-	public inline extern function get_DataLayers(): TArray<ActorDataLayer> return this.DataLayers;
-	public extern var DesiredState(get, never): EDataLayerRuntimeState;
-	public inline extern function get_DesiredState(): EDataLayerRuntimeState return this.DesiredState;
-	public extern var PrerollState(get, never): EDataLayerRuntimeState;
-	public inline extern function get_PrerollState(): EDataLayerRuntimeState return this.PrerollState;
-	public extern var bFlushOnUnload(get, never): Bool;
-	public inline extern function get_bFlushOnUnload(): Bool return this.bFlushOnUnload;
 }
 
 @:forward

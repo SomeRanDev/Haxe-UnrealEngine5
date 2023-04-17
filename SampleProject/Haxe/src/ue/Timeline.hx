@@ -5,21 +5,21 @@ package ue;
 @:include("Components/TimelineComponent.h")
 @:structAccess
 extern class Timeline {
-	public var LengthMode: ETimelineLengthMode;
-	public var bLooping: Bool;
-	public var bReversePlayback: Bool;
-	public var bPlaying: Bool;
-	public var Length: cpp.Float32;
-	public var PlayRate: cpp.Float32;
-	public var Position: cpp.Float32;
-	public var Events: TArray<TimelineEventEntry>;
-	public var InterpVectors: TArray<TimelineVectorTrack>;
-	public var InterpFloats: TArray<TimelineFloatTrack>;
-	public var InterpLinearColors: TArray<TimelineLinearColorTrack>;
-	public var TimelinePostUpdateFunc: HaxeDelegateProperty<() -> Void>;
-	public var TimelineFinishedFunc: HaxeDelegateProperty<() -> Void>;
-	public var PropertySetObject: TWeakObjectPtr<Object>;
-	public var DirectionPropertyName: FName;
+	private var LengthMode: TEnumAsByte<ETimelineLengthMode>;
+	private var bLooping: Bool;
+	private var bReversePlayback: Bool;
+	private var bPlaying: Bool;
+	private var Length: cpp.Float32;
+	private var PlayRate: cpp.Float32;
+	private var Position: cpp.Float32;
+	private var Events: TArray<TimelineEventEntry>;
+	private var InterpVectors: TArray<TimelineVectorTrack>;
+	private var InterpFloats: TArray<TimelineFloatTrack>;
+	private var InterpLinearColors: TArray<TimelineLinearColorTrack>;
+	private var TimelinePostUpdateFunc: HaxeDelegateProperty<() -> Void>;
+	private var TimelineFinishedFunc: HaxeDelegateProperty<() -> Void>;
+	private var PropertySetObject: TWeakObjectPtr<Object>;
+	private var DirectionPropertyName: FName;
 
 	@:native("FTimeline") public function new();
 }

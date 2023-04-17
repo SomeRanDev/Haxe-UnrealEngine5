@@ -5,13 +5,11 @@ package ue;
 @:include("GeometryCache.h")
 @:structAccess
 extern class GeometryCache extends Object {
-	public var AssetImportData: cpp.Star<AssetImportData>;
-	public var ThumbnailInfo: cpp.Star<ThumbnailInfo>;
 	public var Materials: TArray<cpp.Star<MaterialInterface>>;
 	public var Tracks: TArray<cpp.Star<GeometryCacheTrack>>;
-	public var StartFrame: cpp.Int32;
-	public var EndFrame: cpp.Int32;
-	public var Hash: cpp.UInt64;
+	@:protected public var StartFrame: cpp.Int32;
+	@:protected public var EndFrame: cpp.Int32;
+	@:protected public var Hash: cpp.UInt64;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,20 +17,10 @@ extern class GeometryCache extends Object {
 @:forward()
 @:nativeGen
 abstract ConstGeometryCache(GeometryCache) from GeometryCache {
-	public extern var AssetImportData(get, never): cpp.Star<AssetImportData.ConstAssetImportData>;
-	public inline extern function get_AssetImportData(): cpp.Star<AssetImportData.ConstAssetImportData> return this.AssetImportData;
-	public extern var ThumbnailInfo(get, never): cpp.Star<ThumbnailInfo.ConstThumbnailInfo>;
-	public inline extern function get_ThumbnailInfo(): cpp.Star<ThumbnailInfo.ConstThumbnailInfo> return this.ThumbnailInfo;
 	public extern var Materials(get, never): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>>;
 	public inline extern function get_Materials(): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>> return this.Materials;
 	public extern var Tracks(get, never): TArray<cpp.Star<GeometryCacheTrack.ConstGeometryCacheTrack>>;
 	public inline extern function get_Tracks(): TArray<cpp.Star<GeometryCacheTrack.ConstGeometryCacheTrack>> return this.Tracks;
-	public extern var StartFrame(get, never): cpp.Int32;
-	public inline extern function get_StartFrame(): cpp.Int32 return this.StartFrame;
-	public extern var EndFrame(get, never): cpp.Int32;
-	public inline extern function get_EndFrame(): cpp.Int32 return this.EndFrame;
-	public extern var Hash(get, never): cpp.UInt64;
-	public inline extern function get_Hash(): cpp.UInt64 return this.Hash;
 }
 
 @:forward

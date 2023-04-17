@@ -7,7 +7,7 @@ package ue;
 extern class GameplayTask_WaitDelay extends GameplayTask {
 	public var OnFinish: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
-	public function TaskWaitDelay(TaskOwner: GameplayTaskOwnerInterface, Time: cpp.Float32, Priority: cpp.UInt8): cpp.Reference<cpp.Star<GameplayTask_WaitDelay>>;
+	public function TaskWaitDelay(TaskOwner: GameplayTaskOwnerInterface, Time: cpp.Float32, Priority: cpp.UInt8): cpp.Star<GameplayTask_WaitDelay>;
 	public function TaskDelayDelegate__DelegateSignature(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;

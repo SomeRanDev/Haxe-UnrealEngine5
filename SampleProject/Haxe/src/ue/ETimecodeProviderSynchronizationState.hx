@@ -3,10 +3,10 @@ package ue;
 
 @:native("ETimecodeProviderSynchronizationState")
 @:include("Engine/TimecodeProvider.h")
-extern enum ETimecodeProviderSynchronizationState {
-	Closed;
-	Error;
-	Synchronized;
-	Synchronizing;
-	ETimecodeProviderSynchronizationState_MAX;
+extern class ETimecodeProviderSynchronizationState {
+	static var Closed: ETimecodeProviderSynchronizationState;
+	static var Error: ETimecodeProviderSynchronizationState;
+	static var Synchronized: ETimecodeProviderSynchronizationState;
+	static var Synchronizing: ETimecodeProviderSynchronizationState;
+	static var ETimecodeProviderSynchronizationState_MAX: ETimecodeProviderSynchronizationState;
 }

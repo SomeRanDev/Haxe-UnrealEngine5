@@ -10,7 +10,6 @@ extern class StaticParameterSet {
 	public var TerrainLayerWeightParameters: TArray<StaticTerrainLayerWeightParameter>;
 	public var MaterialLayers: MaterialLayersFunctions;
 	public var bHasMaterialLayers: Bool;
-	public var MaterialLayersParameters_DEPRECATED: TArray<StaticMaterialLayersParameter>;
 
 	@:native("FStaticParameterSet") public function new();
 }

@@ -5,17 +5,17 @@ package ue;
 @:include("Engine/StreamableRenderAsset.h")
 @:structAccess
 extern class StreamableRenderAsset extends Object {
-	public var ForceMipLevelsToBeResidentTimestamp: cpp.Float64;
+	@:protected public var ForceMipLevelsToBeResidentTimestamp: cpp.Float64;
 	public var NumCinematicMipLevels: cpp.Int32;
-	public var NoRefStreamingLODBias: PerQualityLevelInt;
-	public var StreamingIndex: cpp.Int32;
-	public var CachedCombinedLODBias: cpp.Int32;
+	@:protected public var NoRefStreamingLODBias: PerQualityLevelInt;
+	@:protected public var StreamingIndex: cpp.Int32;
+	@:protected public var CachedCombinedLODBias: cpp.Int32;
 	public var NeverStream: Bool;
 	public var bGlobalForceMipLevelsToBeResident: Bool;
 	public var bHasStreamingUpdatePending: Bool;
 	public var bForceMiplevelsToBeResident: Bool;
 	public var bIgnoreStreamingMipBias: Bool;
-	public var bUseCinematicMipLevels: Bool;
+	@:protected public var bUseCinematicMipLevels: Bool;
 
 	public function SetForceMipLevelsToBeResident(Seconds: cpp.Float32, CinematicLODGroupMask: cpp.Int32): Void;
 
@@ -25,16 +25,8 @@ extern class StreamableRenderAsset extends Object {
 @:forward()
 @:nativeGen
 abstract ConstStreamableRenderAsset(StreamableRenderAsset) from StreamableRenderAsset {
-	public extern var ForceMipLevelsToBeResidentTimestamp(get, never): cpp.Float64;
-	public inline extern function get_ForceMipLevelsToBeResidentTimestamp(): cpp.Float64 return this.ForceMipLevelsToBeResidentTimestamp;
 	public extern var NumCinematicMipLevels(get, never): cpp.Int32;
 	public inline extern function get_NumCinematicMipLevels(): cpp.Int32 return this.NumCinematicMipLevels;
-	public extern var NoRefStreamingLODBias(get, never): PerQualityLevelInt;
-	public inline extern function get_NoRefStreamingLODBias(): PerQualityLevelInt return this.NoRefStreamingLODBias;
-	public extern var StreamingIndex(get, never): cpp.Int32;
-	public inline extern function get_StreamingIndex(): cpp.Int32 return this.StreamingIndex;
-	public extern var CachedCombinedLODBias(get, never): cpp.Int32;
-	public inline extern function get_CachedCombinedLODBias(): cpp.Int32 return this.CachedCombinedLODBias;
 	public extern var NeverStream(get, never): Bool;
 	public inline extern function get_NeverStream(): Bool return this.NeverStream;
 	public extern var bGlobalForceMipLevelsToBeResident(get, never): Bool;
@@ -45,8 +37,6 @@ abstract ConstStreamableRenderAsset(StreamableRenderAsset) from StreamableRender
 	public inline extern function get_bForceMiplevelsToBeResident(): Bool return this.bForceMiplevelsToBeResident;
 	public extern var bIgnoreStreamingMipBias(get, never): Bool;
 	public inline extern function get_bIgnoreStreamingMipBias(): Bool return this.bIgnoreStreamingMipBias;
-	public extern var bUseCinematicMipLevels(get, never): Bool;
-	public inline extern function get_bUseCinematicMipLevels(): Bool return this.bUseCinematicMipLevels;
 }
 
 @:forward

@@ -5,8 +5,6 @@ package ue;
 @:include("Engine/DirectionalLight.h")
 @:structAccess
 extern class DirectionalLight extends Light {
-	public var ArrowComponent: cpp.Star<ArrowComp>;
-	public var DirectionalLightComponent: cpp.Star<DirectionalLightComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +12,6 @@ extern class DirectionalLight extends Light {
 @:forward()
 @:nativeGen
 abstract ConstDirectionalLight(DirectionalLight) from DirectionalLight {
-	public extern var ArrowComponent(get, never): cpp.Star<ArrowComp.ConstArrowComp>;
-	public inline extern function get_ArrowComponent(): cpp.Star<ArrowComp.ConstArrowComp> return this.ArrowComponent;
-	public extern var DirectionalLightComponent(get, never): cpp.Star<DirectionalLightComp.ConstDirectionalLightComp>;
-	public inline extern function get_DirectionalLightComponent(): cpp.Star<DirectionalLightComp.ConstDirectionalLightComp> return this.DirectionalLightComponent;
 }
 
 @:forward

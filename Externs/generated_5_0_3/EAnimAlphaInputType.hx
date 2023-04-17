@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAnimAlphaInputType")
 @:include("Animation/InputScaleBias.h")
-extern enum EAnimAlphaInputType {
-	Float;
-	Bool;
-	Curve;
-	EAnimAlphaInputType_MAX;
+extern class EAnimAlphaInputType {
+	static var Float: EAnimAlphaInputType;
+	static var Bool: EAnimAlphaInputType;
+	static var Curve: EAnimAlphaInputType;
+	static var EAnimAlphaInputType_MAX: EAnimAlphaInputType;
 }

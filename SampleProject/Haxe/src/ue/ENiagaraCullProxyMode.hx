@@ -3,8 +3,8 @@ package ue;
 
 @:native("ENiagaraCullProxyMode")
 @:include("NiagaraEffectType.h")
-extern enum ENiagaraCullProxyMode {
-	None;
-	Instanced_Rendered;
-	ENiagaraCullProxyMode_MAX;
+extern class ENiagaraCullProxyMode {
+	static var None: ENiagaraCullProxyMode;
+	static var Instanced_Rendered: ENiagaraCullProxyMode;
+	static var ENiagaraCullProxyMode_MAX: ENiagaraCullProxyMode;
 }

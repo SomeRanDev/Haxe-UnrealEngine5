@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENiagaraScriptTemplateSpecification")
 @:include("NiagaraScript.h")
-extern enum ENiagaraScriptTemplateSpecification {
-	None;
-	Template;
-	Behavior;
-	ENiagaraScriptTemplateSpecification_MAX;
+extern class ENiagaraScriptTemplateSpecification {
+	static var None: ENiagaraScriptTemplateSpecification;
+	static var Template: ENiagaraScriptTemplateSpecification;
+	static var Behavior: ENiagaraScriptTemplateSpecification;
+	static var ENiagaraScriptTemplateSpecification_MAX: ENiagaraScriptTemplateSpecification;
 }

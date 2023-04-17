@@ -3,10 +3,10 @@ package ue;
 
 @:native("EAFSActiveType.Type")
 @:include("AndroidFileServerBPLibrary.h")
-extern enum EAFSActiveType {
-	None;
-	USBOnly;
-	NetworkOnly;
-	Combined;
-	EAFSActiveType_MAX;
+extern class EAFSActiveType {
+	static var None: EAFSActiveType;
+	static var USBOnly: EAFSActiveType;
+	static var NetworkOnly: EAFSActiveType;
+	static var Combined: EAFSActiveType;
+	static var EAFSActiveType_MAX: EAFSActiveType;
 }

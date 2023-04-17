@@ -3,9 +3,9 @@ package ue;
 
 @:native("ECameraShakePlaySpace")
 @:include("Camera/CameraTypes.h")
-extern enum ECameraShakePlaySpace {
-	CameraLocal;
-	World;
-	UserDefined;
-	ECameraShakePlaySpace_MAX;
+extern class ECameraShakePlaySpace {
+	static var CameraLocal: ECameraShakePlaySpace;
+	static var World: ECameraShakePlaySpace;
+	static var UserDefined: ECameraShakePlaySpace;
+	static var ECameraShakePlaySpace_MAX: ECameraShakePlaySpace;
 }

@@ -7,7 +7,7 @@ package ue;
 extern class AnimGraphNode_UseCachedPose extends AnimGraphNode_Base {
 	public var Node: AnimNode_UseCachedPose;
 	public var SaveCachedPoseNode: TWeakObjectPtr<AnimGraphNode_SaveCachedPose>;
-	public var NameOfCache: FString;
+	private var NameOfCache: FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,8 +19,6 @@ abstract ConstAnimGraphNode_UseCachedPose(AnimGraphNode_UseCachedPose) from Anim
 	public inline extern function get_Node(): AnimNode_UseCachedPose return this.Node;
 	public extern var SaveCachedPoseNode(get, never): TWeakObjectPtr<AnimGraphNode_SaveCachedPose.ConstAnimGraphNode_SaveCachedPose>;
 	public inline extern function get_SaveCachedPoseNode(): TWeakObjectPtr<AnimGraphNode_SaveCachedPose.ConstAnimGraphNode_SaveCachedPose> return this.SaveCachedPoseNode;
-	public extern var NameOfCache(get, never): FString;
-	public inline extern function get_NameOfCache(): FString return this.NameOfCache;
 }
 
 @:forward

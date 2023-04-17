@@ -5,7 +5,7 @@ package ue;
 @:include("RigEditor/IKRigAnimInstance.h")
 @:structAccess
 extern class IKRigAnimInstance extends AnimPreviewInstance {
-	public var IKRigNode: AnimNode_IKRig;
+	@:protected public var IKRigNode: AnimNode_IKRig;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class IKRigAnimInstance extends AnimPreviewInstance {
 @:forward()
 @:nativeGen
 abstract ConstIKRigAnimInstance(IKRigAnimInstance) from IKRigAnimInstance {
-	public extern var IKRigNode(get, never): AnimNode_IKRig;
-	public inline extern function get_IKRigNode(): AnimNode_IKRig return this.IKRigNode;
 }
 
 @:forward

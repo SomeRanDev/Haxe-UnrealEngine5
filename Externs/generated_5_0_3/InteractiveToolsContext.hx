@@ -10,7 +10,7 @@ extern class InteractiveToolsContext extends Object {
 	public var ToolManager: cpp.Star<InteractiveToolManager>;
 	public var GizmoManager: cpp.Star<InteractiveGizmoManager>;
 	public var ContextObjectStore: cpp.Star<ContextObjectStore>;
-	public var ToolManagerClass: TSoftClassPtr<Class>;
+	@:protected public var ToolManagerClass: TSoftClassPtr<Class>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -28,8 +28,6 @@ abstract ConstInteractiveToolsContext(InteractiveToolsContext) from InteractiveT
 	public inline extern function get_GizmoManager(): cpp.Star<InteractiveGizmoManager.ConstInteractiveGizmoManager> return this.GizmoManager;
 	public extern var ContextObjectStore(get, never): cpp.Star<ContextObjectStore.ConstContextObjectStore>;
 	public inline extern function get_ContextObjectStore(): cpp.Star<ContextObjectStore.ConstContextObjectStore> return this.ContextObjectStore;
-	public extern var ToolManagerClass(get, never): TSoftClassPtr<Class.ConstClass>;
-	public inline extern function get_ToolManagerClass(): TSoftClassPtr<Class.ConstClass> return this.ToolManagerClass;
 }
 
 @:forward

@@ -3,8 +3,8 @@ package ue;
 
 @:native("ELayeredBoneBlendMode")
 @:include("AnimNodes/AnimNode_LayeredBoneBlend.h")
-extern enum ELayeredBoneBlendMode {
-	BranchFilter;
-	BlendMask;
-	ELayeredBoneBlendMode_MAX;
+extern class ELayeredBoneBlendMode {
+	static var BranchFilter: ELayeredBoneBlendMode;
+	static var BlendMask: ELayeredBoneBlendMode;
+	static var ELayeredBoneBlendMode_MAX: ELayeredBoneBlendMode;
 }

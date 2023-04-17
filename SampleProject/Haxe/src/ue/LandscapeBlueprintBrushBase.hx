@@ -5,14 +5,9 @@ package ue;
 @:include("LandscapeBlueprintBrushBase.h")
 @:structAccess
 extern class LandscapeBlueprintBrushBase extends Actor {
-	public var OwningLandscape: cpp.Star<Landscape>;
-	public var AffectHeightmap: Bool;
-	public var AffectWeightmap: Bool;
-	public var AffectedWeightmapLayers: TArray<FName>;
-	public var bIsVisible: Bool;
 
 	public function RequestLandscapeUpdate(): Void;
-	public function Render(InIsHeightmap: Bool, InCombinedResult: cpp.Star<TextureRenderTarget2D>, InWeightmapLayerName: cpp.Reference<FName>): cpp.Reference<cpp.Star<TextureRenderTarget2D>>;
+	public function Render(InIsHeightmap: Bool, InCombinedResult: cpp.Star<TextureRenderTarget2D>, InWeightmapLayerName: cpp.Reference<FName>): cpp.Star<TextureRenderTarget2D>;
 	public function Initialize(InLandscapeTransform: cpp.Reference<Transform>, InLandscapeSize: cpp.Reference<IntPoint>, InLandscapeRenderTargetSize: cpp.Reference<IntPoint>): Void;
 	public function GetBlueprintRenderDependencies(OutStreamableAssets: cpp.Reference<TArray<cpp.Star<Object>>>): Void;
 
@@ -22,16 +17,6 @@ extern class LandscapeBlueprintBrushBase extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstLandscapeBlueprintBrushBase(LandscapeBlueprintBrushBase) from LandscapeBlueprintBrushBase {
-	public extern var OwningLandscape(get, never): cpp.Star<Landscape.ConstLandscape>;
-	public inline extern function get_OwningLandscape(): cpp.Star<Landscape.ConstLandscape> return this.OwningLandscape;
-	public extern var AffectHeightmap(get, never): Bool;
-	public inline extern function get_AffectHeightmap(): Bool return this.AffectHeightmap;
-	public extern var AffectWeightmap(get, never): Bool;
-	public inline extern function get_AffectWeightmap(): Bool return this.AffectWeightmap;
-	public extern var AffectedWeightmapLayers(get, never): TArray<FName>;
-	public inline extern function get_AffectedWeightmapLayers(): TArray<FName> return this.AffectedWeightmapLayers;
-	public extern var bIsVisible(get, never): Bool;
-	public inline extern function get_bIsVisible(): Bool return this.bIsVisible;
 }
 
 @:forward

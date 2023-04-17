@@ -3,9 +3,9 @@ package ue;
 
 @:native("EParticleCameraOffsetUpdateMethod")
 @:include("Particles/Camera/ParticleModuleCameraOffset.h")
-extern enum EParticleCameraOffsetUpdateMethod {
-	EPCOUM_DirectSet;
-	EPCOUM_Additive;
-	EPCOUM_Scalar;
-	EPCOUM_MAX;
+extern class EParticleCameraOffsetUpdateMethod {
+	static var EPCOUM_DirectSet: EParticleCameraOffsetUpdateMethod;
+	static var EPCOUM_Additive: EParticleCameraOffsetUpdateMethod;
+	static var EPCOUM_Scalar: EParticleCameraOffsetUpdateMethod;
+	static var EPCOUM_MAX: EParticleCameraOffsetUpdateMethod;
 }

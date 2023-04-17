@@ -3,10 +3,10 @@ package ue;
 
 @:native("ERichCurveInterpMode")
 @:include("Curves/RealCurve.h")
-extern enum ERichCurveInterpMode {
-	RCIM_Linear;
-	RCIM_Constant;
-	RCIM_Cubic;
-	RCIM_None;
-	RCIM_MAX;
+extern class ERichCurveInterpMode {
+	static var RCIM_Linear: ERichCurveInterpMode;
+	static var RCIM_Constant: ERichCurveInterpMode;
+	static var RCIM_Cubic: ERichCurveInterpMode;
+	static var RCIM_None: ERichCurveInterpMode;
+	static var RCIM_MAX: ERichCurveInterpMode;
 }

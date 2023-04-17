@@ -14,9 +14,6 @@ extern class StructVariableDescription {
 	public var SubCategoryObject: TSoftObjectPtr<Object>;
 	public var PinValueType: EdGraphTerminalType;
 	public var ContainerType: EPinContainerType;
-	public var bIsArray_DEPRECATED: Bool;
-	public var bIsSet_DEPRECATED: Bool;
-	public var bIsMap_DEPRECATED: Bool;
 	public var bInvalidMember: Bool;
 	public var bDontEditOnInstance: Bool;
 	public var bEnableSaveGame: Bool;

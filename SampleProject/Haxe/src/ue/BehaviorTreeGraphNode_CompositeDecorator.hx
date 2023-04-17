@@ -9,8 +9,8 @@ extern class BehaviorTreeGraphNode_CompositeDecorator extends BehaviorTreeGraphN
 	public var CompositeName: FString;
 	public var bShowOperations: Bool;
 	public var bCanAbortFlow: Bool;
-	public var ParentNodeInstance: cpp.Star<BTCompositeNode>;
-	public var CachedDescription: FString;
+	@:protected public var ParentNodeInstance: cpp.Star<BTCompositeNode>;
+	@:protected public var CachedDescription: FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -26,10 +26,6 @@ abstract ConstBehaviorTreeGraphNode_CompositeDecorator(BehaviorTreeGraphNode_Com
 	public inline extern function get_bShowOperations(): Bool return this.bShowOperations;
 	public extern var bCanAbortFlow(get, never): Bool;
 	public inline extern function get_bCanAbortFlow(): Bool return this.bCanAbortFlow;
-	public extern var ParentNodeInstance(get, never): cpp.Star<BTCompositeNode.ConstBTCompositeNode>;
-	public inline extern function get_ParentNodeInstance(): cpp.Star<BTCompositeNode.ConstBTCompositeNode> return this.ParentNodeInstance;
-	public extern var CachedDescription(get, never): FString;
-	public inline extern function get_CachedDescription(): FString return this.CachedDescription;
 }
 
 @:forward

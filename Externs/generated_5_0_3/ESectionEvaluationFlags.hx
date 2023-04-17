@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESectionEvaluationFlags")
 @:include("Evaluation/MovieSceneSegment.h")
-extern enum ESectionEvaluationFlags {
-	None;
-	PreRoll;
-	PostRoll;
-	ESectionEvaluationFlags_MAX;
+extern class ESectionEvaluationFlags {
+	static var None: ESectionEvaluationFlags;
+	static var PreRoll: ESectionEvaluationFlags;
+	static var PostRoll: ESectionEvaluationFlags;
+	static var ESectionEvaluationFlags_MAX: ESectionEvaluationFlags;
 }

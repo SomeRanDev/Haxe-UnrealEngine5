@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAnimSyncMethod")
 @:include("Animation/AnimationAsset.h")
-extern enum EAnimSyncMethod {
-	DoNotSync;
-	SyncGroup;
-	Graph;
-	EAnimSyncMethod_MAX;
+extern class EAnimSyncMethod {
+	static var DoNotSync: EAnimSyncMethod;
+	static var SyncGroup: EAnimSyncMethod;
+	static var Graph: EAnimSyncMethod;
+	static var EAnimSyncMethod_MAX: EAnimSyncMethod;
 }

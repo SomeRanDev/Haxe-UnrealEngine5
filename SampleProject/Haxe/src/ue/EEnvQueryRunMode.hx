@@ -3,10 +3,10 @@ package ue;
 
 @:native("EEnvQueryRunMode.Type")
 @:include("EnvironmentQuery/EnvQueryTypes.h")
-extern enum EEnvQueryRunMode {
-	SingleResult;
-	RandomBest5Pct;
-	RandomBest25Pct;
-	AllMatching;
-	EEnvQueryRunMode_MAX;
+extern class EEnvQueryRunMode {
+	static var SingleResult: EEnvQueryRunMode;
+	static var RandomBest5Pct: EEnvQueryRunMode;
+	static var RandomBest25Pct: EEnvQueryRunMode;
+	static var AllMatching: EEnvQueryRunMode;
+	static var EEnvQueryRunMode_MAX: EEnvQueryRunMode;
 }

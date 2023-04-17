@@ -3,9 +3,9 @@ package ue;
 
 @:native("EConsumeMouseWheel")
 @:include("Styling/SlateTypes.h")
-extern enum EConsumeMouseWheel {
-	WhenScrollingPossible;
-	Always;
-	Never;
-	EConsumeMouseWheel_MAX;
+extern class EConsumeMouseWheel {
+	static var WhenScrollingPossible: EConsumeMouseWheel;
+	static var Always: EConsumeMouseWheel;
+	static var Never: EConsumeMouseWheel;
+	static var EConsumeMouseWheel_MAX: EConsumeMouseWheel;
 }

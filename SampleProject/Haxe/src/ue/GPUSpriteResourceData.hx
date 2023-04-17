@@ -39,8 +39,8 @@ extern class GPUSpriteResourceData {
 	public var OneMinusFriction: cpp.Float32;
 	public var RotationRateScale: cpp.Float32;
 	public var CameraMotionBlurAmount: cpp.Float32;
-	public var ScreenAlignment: EParticleScreenAlignment;
-	public var LockAxisFlag: EParticleAxisLock;
+	public var ScreenAlignment: TEnumAsByte<EParticleScreenAlignment>;
+	public var LockAxisFlag: TEnumAsByte<EParticleAxisLock>;
 	public var PivotOffset: Vector2D;
 	public var bRemoveHMDRoll: Bool;
 	public var MinFacingCameraBlendDistance: cpp.Float32;

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EMaterialFloatPrecisionMode")
 @:include("Engine/EngineTypes.h")
-extern enum EMaterialFloatPrecisionMode {
-	MFPM_Default;
-	MFPM_Full_MaterialExpressionOnly;
-	MFPM_Full;
-	MFPM_Half;
-	MFPM_MAX;
+extern class EMaterialFloatPrecisionMode {
+	static var MFPM_Default: EMaterialFloatPrecisionMode;
+	static var MFPM_Full_MaterialExpressionOnly: EMaterialFloatPrecisionMode;
+	static var MFPM_Full: EMaterialFloatPrecisionMode;
+	static var MFPM_Half: EMaterialFloatPrecisionMode;
+	static var MFPM_MAX: EMaterialFloatPrecisionMode;
 }

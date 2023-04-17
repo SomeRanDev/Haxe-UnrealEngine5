@@ -9,7 +9,7 @@ extern class GetGeoLocationAsyncTaskBlueprintProxy extends ARBaseAsyncTaskBluepr
 	public var OnFailed: HaxeMulticastSparseDelegateProperty<(cpp.Float32, cpp.Float32, cpp.Float32, FString) -> Void>;
 
 	public function GetGeoLocationDelegate__DelegateSignature(Longitude: cpp.Float32, Latitude: cpp.Float32, Altitude: cpp.Float32, Error: FString): Void;
-	public function GetGeoLocationAtWorldPosition(WorldContextObject: cpp.Star<Object>, WorldPosition: cpp.Reference<Vector>): cpp.Reference<cpp.Star<GetGeoLocationAsyncTaskBlueprintProxy>>;
+	public function GetGeoLocationAtWorldPosition(WorldContextObject: cpp.Star<Object>, WorldPosition: cpp.Reference<Vector>): cpp.Star<GetGeoLocationAsyncTaskBlueprintProxy>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

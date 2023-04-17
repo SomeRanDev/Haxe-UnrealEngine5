@@ -3,8 +3,8 @@ package ue;
 
 @:native("EBlueprintPinStyleType")
 @:include("EdGraph/EdGraphPin.h")
-extern enum EBlueprintPinStyleType {
-	BPST_Original;
-	BPST_VariantA;
-	BPST_MAX;
+extern class EBlueprintPinStyleType {
+	static var BPST_Original: EBlueprintPinStyleType;
+	static var BPST_VariantA: EBlueprintPinStyleType;
+	static var BPST_MAX: EBlueprintPinStyleType;
 }

@@ -3,17 +3,17 @@ package ue;
 
 @:native("EComponentType.Type")
 @:include("Animation/AnimTypes.h")
-extern enum EComponentType {
-	None;
-	TranslationX;
-	TranslationY;
-	TranslationZ;
-	RotationX;
-	RotationY;
-	RotationZ;
-	Scale;
-	ScaleX;
-	ScaleY;
-	ScaleZ;
-	EComponentType_MAX;
+extern class EComponentType {
+	static var None: EComponentType;
+	static var TranslationX: EComponentType;
+	static var TranslationY: EComponentType;
+	static var TranslationZ: EComponentType;
+	static var RotationX: EComponentType;
+	static var RotationY: EComponentType;
+	static var RotationZ: EComponentType;
+	static var Scale: EComponentType;
+	static var ScaleX: EComponentType;
+	static var ScaleY: EComponentType;
+	static var ScaleZ: EComponentType;
+	static var EComponentType_MAX: EComponentType;
 }

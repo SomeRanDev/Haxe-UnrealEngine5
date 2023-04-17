@@ -3,15 +3,15 @@ package ue;
 
 @:native("ERayTracingGroupCullingPriority")
 @:include("Components/PrimitiveComponent.h")
-extern enum ERayTracingGroupCullingPriority {
-	CP_0_NEVER_CULL;
-	CP_1;
-	CP_2;
-	CP_3;
-	CP_4_DEFAULT;
-	CP_5;
-	CP_6;
-	CP_7;
-	CP_8_QUICKLY_CULL;
-	CP_MAX;
+extern class ERayTracingGroupCullingPriority {
+	static var CP_0_NEVER_CULL: ERayTracingGroupCullingPriority;
+	static var CP_1: ERayTracingGroupCullingPriority;
+	static var CP_2: ERayTracingGroupCullingPriority;
+	static var CP_3: ERayTracingGroupCullingPriority;
+	static var CP_4_DEFAULT: ERayTracingGroupCullingPriority;
+	static var CP_5: ERayTracingGroupCullingPriority;
+	static var CP_6: ERayTracingGroupCullingPriority;
+	static var CP_7: ERayTracingGroupCullingPriority;
+	static var CP_8_QUICKLY_CULL: ERayTracingGroupCullingPriority;
+	static var CP_MAX: ERayTracingGroupCullingPriority;
 }

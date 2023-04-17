@@ -3,21 +3,21 @@ package ue;
 
 @:native("EEasingFuncType")
 @:include("CommonAnimationTypes.h")
-extern enum EEasingFuncType {
-	Linear;
-	Sinusoidal;
-	Cubic;
-	QuadraticInOut;
-	CubicInOut;
-	HermiteCubic;
-	QuarticInOut;
-	QuinticInOut;
-	CircularIn;
-	CircularOut;
-	CircularInOut;
-	ExpIn;
-	ExpOut;
-	ExpInOut;
-	CustomCurve;
-	EEasingFuncType_MAX;
+extern class EEasingFuncType {
+	static var Linear: EEasingFuncType;
+	static var Sinusoidal: EEasingFuncType;
+	static var Cubic: EEasingFuncType;
+	static var QuadraticInOut: EEasingFuncType;
+	static var CubicInOut: EEasingFuncType;
+	static var HermiteCubic: EEasingFuncType;
+	static var QuarticInOut: EEasingFuncType;
+	static var QuinticInOut: EEasingFuncType;
+	static var CircularIn: EEasingFuncType;
+	static var CircularOut: EEasingFuncType;
+	static var CircularInOut: EEasingFuncType;
+	static var ExpIn: EEasingFuncType;
+	static var ExpOut: EEasingFuncType;
+	static var ExpInOut: EEasingFuncType;
+	static var CustomCurve: EEasingFuncType;
+	static var EEasingFuncType_MAX: EEasingFuncType;
 }

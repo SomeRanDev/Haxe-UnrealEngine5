@@ -3,12 +3,12 @@ package ue;
 
 @:native("EHDRCaptureGamut")
 @:include("Protocols/CompositionGraphCaptureProtocol.h")
-extern enum EHDRCaptureGamut {
-	HCGM_Rec709;
-	HCGM_P3DCI;
-	HCGM_Rec2020;
-	HCGM_ACES;
-	HCGM_ACEScg;
-	HCGM_Linear;
-	HCGM_MAX;
+extern class EHDRCaptureGamut {
+	static var HCGM_Rec709: EHDRCaptureGamut;
+	static var HCGM_P3DCI: EHDRCaptureGamut;
+	static var HCGM_Rec2020: EHDRCaptureGamut;
+	static var HCGM_ACES: EHDRCaptureGamut;
+	static var HCGM_ACEScg: EHDRCaptureGamut;
+	static var HCGM_Linear: EHDRCaptureGamut;
+	static var HCGM_MAX: EHDRCaptureGamut;
 }

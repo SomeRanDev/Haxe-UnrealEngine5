@@ -3,8 +3,8 @@ package ue;
 
 @:native("EMontagePlayReturnType")
 @:include("Animation/AnimInstance.h")
-extern enum EMontagePlayReturnType {
-	MontageLength;
-	Duration;
-	EMontagePlayReturnType_MAX;
+extern class EMontagePlayReturnType {
+	static var MontageLength: EMontagePlayReturnType;
+	static var Duration: EMontagePlayReturnType;
+	static var EMontagePlayReturnType_MAX: EMontagePlayReturnType;
 }

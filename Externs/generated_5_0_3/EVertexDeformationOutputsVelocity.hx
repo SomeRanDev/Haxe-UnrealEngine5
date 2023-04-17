@@ -3,9 +3,9 @@ package ue;
 
 @:native("EVertexDeformationOutputsVelocity.Type")
 @:include("Engine/RendererSettings.h")
-extern enum EVertexDeformationOutputsVelocity {
-	Off;
-	On;
-	Auto;
-	EVertexDeformationOutputsVelocity_MAX;
+extern class EVertexDeformationOutputsVelocity {
+	static var Off: EVertexDeformationOutputsVelocity;
+	static var On: EVertexDeformationOutputsVelocity;
+	static var Auto: EVertexDeformationOutputsVelocity;
+	static var EVertexDeformationOutputsVelocity_MAX: EVertexDeformationOutputsVelocity;
 }

@@ -3,9 +3,9 @@ package ue;
 
 @:native("ECheckBoxState")
 @:include("Styling/SlateTypes.h")
-extern enum ECheckBoxState {
-	Unchecked;
-	Checked;
-	Undetermined;
-	ECheckBoxState_MAX;
+extern class ECheckBoxState {
+	static var Unchecked: ECheckBoxState;
+	static var Checked: ECheckBoxState;
+	static var Undetermined: ECheckBoxState;
+	static var ECheckBoxState_MAX: ECheckBoxState;
 }

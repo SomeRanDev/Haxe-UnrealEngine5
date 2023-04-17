@@ -15,7 +15,6 @@ extern class PyTestStruct {
 	public var StringArray: TArray<FString>;
 	public var StringSet: TSet<FString>;
 	public var StringIntMap: TMap<FString, cpp.Int32>;
-	public var LegacyInt_DEPRECATED: cpp.Int32;
 	public var BoolInstanceOnly: Bool;
 	public var BoolDefaultsOnly: Bool;
 

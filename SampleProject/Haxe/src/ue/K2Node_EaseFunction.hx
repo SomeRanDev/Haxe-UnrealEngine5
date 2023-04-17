@@ -5,7 +5,7 @@ package ue;
 @:include("K2Node_EaseFunction.h")
 @:structAccess
 extern class K2Node_EaseFunction extends K2Node {
-	public var EaseFunctionName: FName;
+	private var EaseFunctionName: FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class K2Node_EaseFunction extends K2Node {
 @:forward()
 @:nativeGen
 abstract ConstK2Node_EaseFunction(K2Node_EaseFunction) from K2Node_EaseFunction {
-	public extern var EaseFunctionName(get, never): FName;
-	public inline extern function get_EaseFunctionName(): FName return this.EaseFunctionName;
 }
 
 @:forward

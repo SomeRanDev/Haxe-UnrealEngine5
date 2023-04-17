@@ -3,10 +3,10 @@ package ue;
 
 @:native("TextureFilter")
 @:include("Engine/Texture.h")
-extern enum TextureFilter {
-	TF_Nearest;
-	TF_Bilinear;
-	TF_Trilinear;
-	TF_Default;
-	TF_MAX;
+extern class TextureFilter {
+	static var TF_Nearest: TextureFilter;
+	static var TF_Bilinear: TextureFilter;
+	static var TF_Trilinear: TextureFilter;
+	static var TF_Default: TextureFilter;
+	static var TF_MAX: TextureFilter;
 }

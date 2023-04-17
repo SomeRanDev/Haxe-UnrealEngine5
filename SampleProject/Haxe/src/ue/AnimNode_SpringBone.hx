@@ -10,7 +10,6 @@ extern class AnimNode_SpringBone extends AnimNode_SkeletalControlBase {
 	public var SpringStiffness: cpp.Float32;
 	public var SpringDamping: cpp.Float32;
 	public var ErrorResetThresh: cpp.Float32;
-	public var bNoZSpring_DEPRECATED: Bool;
 	public var bLimitDisplacement: Bool;
 	public var bTranslateX: Bool;
 	public var bTranslateY: Bool;

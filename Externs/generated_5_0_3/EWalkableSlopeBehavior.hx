@@ -3,11 +3,11 @@ package ue;
 
 @:native("EWalkableSlopeBehavior")
 @:include("Engine/EngineTypes.h")
-extern enum EWalkableSlopeBehavior {
-	WalkableSlope_Default;
-	WalkableSlope_Increase;
-	WalkableSlope_Decrease;
-	WalkableSlope_Unwalkable;
-	WalkableSlope_Max;
-	WalkableSlope_MAX;
+extern class EWalkableSlopeBehavior {
+	static var WalkableSlope_Default: EWalkableSlopeBehavior;
+	static var WalkableSlope_Increase: EWalkableSlopeBehavior;
+	static var WalkableSlope_Decrease: EWalkableSlopeBehavior;
+	static var WalkableSlope_Unwalkable: EWalkableSlopeBehavior;
+	static var WalkableSlope_Max: EWalkableSlopeBehavior;
+	static var WalkableSlope_MAX: EWalkableSlopeBehavior;
 }

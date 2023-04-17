@@ -3,8 +3,8 @@ package ue;
 
 @:native("EAngularDriveMode.Type")
 @:include("PhysicsEngine/ConstraintDrives.h")
-extern enum EAngularDriveMode {
-	SLERP;
-	TwistAndSwing;
-	EAngularDriveMode_MAX;
+extern class EAngularDriveMode {
+	static var SLERP: EAngularDriveMode;
+	static var TwistAndSwing: EAngularDriveMode;
+	static var EAngularDriveMode_MAX: EAngularDriveMode;
 }

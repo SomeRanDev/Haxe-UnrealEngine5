@@ -5,22 +5,22 @@ package ue;
 @:include("MRMeshComponent.h")
 @:structAccess
 extern class MRMeshComp extends PrimitiveComp {
-	public var Material: cpp.Star<MaterialInterface>;
-	public var WireframeMaterial: cpp.Star<MaterialInterface>;
-	public var bCreateMeshProxySections: Bool;
-	public var bUpdateNavMeshOnMeshUpdate: Bool;
-	public var bNeverCreateCollisionMesh: Bool;
-	public var BodyHolders: TArray<cpp.Star<MRMeshBodyHolder>>;
+	private var Material: cpp.Star<MaterialInterface>;
+	private var WireframeMaterial: cpp.Star<MaterialInterface>;
+	private var bCreateMeshProxySections: Bool;
+	private var bUpdateNavMeshOnMeshUpdate: Bool;
+	private var bNeverCreateCollisionMesh: Bool;
+	private var BodyHolders: TArray<cpp.Star<MRMeshBodyHolder>>;
 
 	public function SetWireframeMaterial(InMaterial: cpp.Star<MaterialInterface>): Void;
 	public function SetWireframeColor(InColor: cpp.Reference<LinearColor>): Void;
 	public function SetUseWireframe(bUseWireframe: Bool): Void;
 	public function SetEnableMeshOcclusion(bEnable: Bool): Void;
 	public function RequestNavMeshUpdate(): Void;
-	public function IsConnected(): cpp.Reference<Bool>;
-	public function GetWireframeColor(): cpp.Reference<LinearColor>;
-	public function GetUseWireframe(): cpp.Reference<Bool>;
-	public function GetEnableMeshOcclusion(): cpp.Reference<Bool>;
+	public function IsConnected(): Bool;
+	public function GetWireframeColor(): LinearColor;
+	public function GetUseWireframe(): Bool;
+	public function GetEnableMeshOcclusion(): Bool;
 	public function ForceNavMeshUpdate(): Void;
 	public function Clear(): Void;
 
@@ -30,18 +30,6 @@ extern class MRMeshComp extends PrimitiveComp {
 @:forward(IsConnected, GetWireframeColor, GetUseWireframe, GetEnableMeshOcclusion)
 @:nativeGen
 abstract ConstMRMeshComp(MRMeshComp) from MRMeshComp {
-	public extern var Material(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_Material(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.Material;
-	public extern var WireframeMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_WireframeMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.WireframeMaterial;
-	public extern var bCreateMeshProxySections(get, never): Bool;
-	public inline extern function get_bCreateMeshProxySections(): Bool return this.bCreateMeshProxySections;
-	public extern var bUpdateNavMeshOnMeshUpdate(get, never): Bool;
-	public inline extern function get_bUpdateNavMeshOnMeshUpdate(): Bool return this.bUpdateNavMeshOnMeshUpdate;
-	public extern var bNeverCreateCollisionMesh(get, never): Bool;
-	public inline extern function get_bNeverCreateCollisionMesh(): Bool return this.bNeverCreateCollisionMesh;
-	public extern var BodyHolders(get, never): TArray<cpp.Star<MRMeshBodyHolder.ConstMRMeshBodyHolder>>;
-	public inline extern function get_BodyHolders(): TArray<cpp.Star<MRMeshBodyHolder.ConstMRMeshBodyHolder>> return this.BodyHolders;
 }
 
 @:forward

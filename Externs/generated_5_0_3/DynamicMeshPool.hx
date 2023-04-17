@@ -5,12 +5,12 @@ package ue;
 @:include("UDynamicMesh.h")
 @:structAccess
 extern class DynamicMeshPool extends Object {
-	public var CachedMeshes: TArray<cpp.Star<DynamicMesh>>;
-	public var AllCreatedMeshes: TArray<cpp.Star<DynamicMesh>>;
+	@:protected public var CachedMeshes: TArray<cpp.Star<DynamicMesh>>;
+	@:protected public var AllCreatedMeshes: TArray<cpp.Star<DynamicMesh>>;
 
 	public function ReturnMesh(Mesh: cpp.Star<DynamicMesh>): Void;
 	public function ReturnAllMeshes(): Void;
-	public function RequestMesh(): cpp.Reference<cpp.Star<DynamicMesh>>;
+	public function RequestMesh(): cpp.Star<DynamicMesh>;
 	public function FreeAllMeshes(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -19,10 +19,6 @@ extern class DynamicMeshPool extends Object {
 @:forward()
 @:nativeGen
 abstract ConstDynamicMeshPool(DynamicMeshPool) from DynamicMeshPool {
-	public extern var CachedMeshes(get, never): TArray<cpp.Star<DynamicMesh.ConstDynamicMesh>>;
-	public inline extern function get_CachedMeshes(): TArray<cpp.Star<DynamicMesh.ConstDynamicMesh>> return this.CachedMeshes;
-	public extern var AllCreatedMeshes(get, never): TArray<cpp.Star<DynamicMesh.ConstDynamicMesh>>;
-	public inline extern function get_AllCreatedMeshes(): TArray<cpp.Star<DynamicMesh.ConstDynamicMesh>> return this.AllCreatedMeshes;
 }
 
 @:forward

@@ -17,8 +17,6 @@ extern class ButtonStyle extends SlateWidgetStyle {
 	public var PressedPadding: Margin;
 	public var PressedSlateSound: SlateSound;
 	public var HoveredSlateSound: SlateSound;
-	public var PressedSound_DEPRECATED: FName;
-	public var HoveredSound_DEPRECATED: FName;
 
 	@:native("FButtonStyle") public function new();
 }

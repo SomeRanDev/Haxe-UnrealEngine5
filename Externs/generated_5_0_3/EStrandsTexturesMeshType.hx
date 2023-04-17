@@ -3,8 +3,8 @@ package ue;
 
 @:native("EStrandsTexturesMeshType")
 @:include("GroomCreateStrandsTexturesOptions.h")
-extern enum EStrandsTexturesMeshType {
-	Static;
-	Skeletal;
-	EStrandsTexturesMeshType_MAX;
+extern class EStrandsTexturesMeshType {
+	static var Static: EStrandsTexturesMeshType;
+	static var Skeletal: EStrandsTexturesMeshType;
+	static var EStrandsTexturesMeshType_MAX: EStrandsTexturesMeshType;
 }

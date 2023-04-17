@@ -3,10 +3,10 @@ package ue;
 
 @:native("EDatasmithImportAssetConflictPolicy")
 @:include("DatasmithImportOptions.h")
-extern enum EDatasmithImportAssetConflictPolicy {
-	Replace;
-	Update;
-	Use;
-	Ignore;
-	EDatasmithImportAssetConflictPolicy_MAX;
+extern class EDatasmithImportAssetConflictPolicy {
+	static var Replace: EDatasmithImportAssetConflictPolicy;
+	static var Update: EDatasmithImportAssetConflictPolicy;
+	static var Use: EDatasmithImportAssetConflictPolicy;
+	static var Ignore: EDatasmithImportAssetConflictPolicy;
+	static var EDatasmithImportAssetConflictPolicy_MAX: EDatasmithImportAssetConflictPolicy;
 }

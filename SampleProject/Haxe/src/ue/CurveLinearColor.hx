@@ -14,9 +14,9 @@ extern class CurveLinearColor extends CurveBase {
 	public var AdjustMinAlpha: cpp.Float32;
 	public var AdjustMaxAlpha: cpp.Float32;
 
-	public function GetUnadjustedLinearColorValue(InTime: cpp.Float32): cpp.Reference<LinearColor>;
-	public function GetLinearColorValue(InTime: cpp.Float32): cpp.Reference<LinearColor>;
-	public function GetClampedLinearColorValue(InTime: cpp.Float32): cpp.Reference<LinearColor>;
+	public function GetUnadjustedLinearColorValue(InTime: cpp.Float32): LinearColor;
+	public function GetLinearColorValue(InTime: cpp.Float32): LinearColor;
+	public function GetClampedLinearColorValue(InTime: cpp.Float32): LinearColor;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

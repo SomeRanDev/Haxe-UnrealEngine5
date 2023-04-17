@@ -3,9 +3,9 @@ package ue;
 
 @:native("EGroomGeometryType")
 @:include("GroomAssetInterpolation.h")
-extern enum EGroomGeometryType {
-	Strands;
-	Cards;
-	Meshes;
-	EGroomGeometryType_MAX;
+extern class EGroomGeometryType {
+	static var Strands: EGroomGeometryType;
+	static var Cards: EGroomGeometryType;
+	static var Meshes: EGroomGeometryType;
+	static var EGroomGeometryType_MAX: EGroomGeometryType;
 }

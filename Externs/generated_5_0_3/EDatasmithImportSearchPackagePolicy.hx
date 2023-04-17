@@ -3,8 +3,8 @@ package ue;
 
 @:native("EDatasmithImportSearchPackagePolicy")
 @:include("DatasmithImportOptions.h")
-extern enum EDatasmithImportSearchPackagePolicy {
-	Current;
-	All;
-	EDatasmithImportSearchPackagePolicy_MAX;
+extern class EDatasmithImportSearchPackagePolicy {
+	static var Current: EDatasmithImportSearchPackagePolicy;
+	static var All: EDatasmithImportSearchPackagePolicy;
+	static var EDatasmithImportSearchPackagePolicy_MAX: EDatasmithImportSearchPackagePolicy;
 }

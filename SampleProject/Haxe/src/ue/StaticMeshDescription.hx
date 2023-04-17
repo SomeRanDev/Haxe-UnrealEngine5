@@ -7,7 +7,7 @@ package ue;
 extern class StaticMeshDescription extends MeshDescriptionBase {
 	public function SetVertexInstanceUV(VertexInstanceID: VertexInstanceID, UV: Vector2D, UVIndex: cpp.Int32): Void;
 	public function SetPolygonGroupMaterialSlotName(PolygonGroupID: PolygonGroupID, SlotName: cpp.Reference<FName>): Void;
-	public function GetVertexInstanceUV(VertexInstanceID: VertexInstanceID, UVIndex: cpp.Int32): cpp.Reference<Vector2D>;
+	public function GetVertexInstanceUV(VertexInstanceID: VertexInstanceID, UVIndex: cpp.Int32): Vector2D;
 	public function CreateCube(Center: Vector, HalfExtents: Vector, PolygonGroup: PolygonGroupID, PolygonID_PlusX: cpp.Reference<PolygonID>, PolygonID_MinusX: cpp.Reference<PolygonID>, PolygonID_PlusY: cpp.Reference<PolygonID>, PolygonID_MinusY: cpp.Reference<PolygonID>, PolygonID_PlusZ: cpp.Reference<PolygonID>, PolygonID_MinusZ: cpp.Reference<PolygonID>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;

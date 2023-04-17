@@ -7,14 +7,14 @@ package ue;
 extern class PhysAssetCreateParams {
 	public var MinBoneSize: cpp.Float32;
 	public var MinWeldSize: cpp.Float32;
-	public var GeomType: EPhysAssetFitGeomType;
-	public var VertWeight: EPhysAssetFitVertWeight;
+	public var GeomType: TEnumAsByte<EPhysAssetFitGeomType>;
+	public var VertWeight: TEnumAsByte<EPhysAssetFitVertWeight>;
 	public var bAutoOrientToBone: Bool;
 	public var bCreateConstraints: Bool;
 	public var bWalkPastSmall: Bool;
 	public var bBodyForAll: Bool;
 	public var bDisableCollisionsByDefault: Bool;
-	public var AngularConstraintMode: EAngularConstraintMotion;
+	public var AngularConstraintMode: TEnumAsByte<EAngularConstraintMotion>;
 	public var HullCount: cpp.Int32;
 	public var MaxHullVerts: cpp.Int32;
 

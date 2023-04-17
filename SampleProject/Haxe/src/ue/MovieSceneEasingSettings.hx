@@ -13,10 +13,6 @@ extern class MovieSceneEasingSettings {
 	public var EaseOut: MovieSceneEasingFunction;
 	public var bManualEaseOut: Bool;
 	public var ManualEaseOutDuration: cpp.Int32;
-	public var AutoEaseInTime_DEPRECATED: cpp.Float32;
-	public var AutoEaseOutTime_DEPRECATED: cpp.Float32;
-	public var ManualEaseInTime_DEPRECATED: cpp.Float32;
-	public var ManualEaseOutTime_DEPRECATED: cpp.Float32;
 
 	@:native("FMovieSceneEasingSettings") public function new();
 }

@@ -3,12 +3,12 @@ package ue;
 
 @:native("EAudioComponentPlayState")
 @:include("Components/AudioComponent.h")
-extern enum EAudioComponentPlayState {
-	Playing;
-	Stopped;
-	Paused;
-	FadingIn;
-	FadingOut;
-	Count;
-	EAudioComponentPlayState_MAX;
+extern class EAudioComponentPlayState {
+	static var Playing: EAudioComponentPlayState;
+	static var Stopped: EAudioComponentPlayState;
+	static var Paused: EAudioComponentPlayState;
+	static var FadingIn: EAudioComponentPlayState;
+	static var FadingOut: EAudioComponentPlayState;
+	static var Count: EAudioComponentPlayState;
+	static var EAudioComponentPlayState_MAX: EAudioComponentPlayState;
 }

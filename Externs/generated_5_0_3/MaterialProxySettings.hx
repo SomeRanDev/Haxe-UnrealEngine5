@@ -5,7 +5,7 @@ package ue;
 @:include("Engine/MaterialMerging.h")
 @:structAccess
 extern class MaterialProxySettings {
-	public var TextureSizingType: ETextureSizingType;
+	public var TextureSizingType: TEnumAsByte<ETextureSizingType>;
 	public var TextureSize: IntPoint;
 	public var TargetTexelDensityPerMeter: cpp.Float32;
 	public var MeshMaxScreenSizePercent: cpp.Float32;
@@ -18,8 +18,8 @@ extern class MaterialProxySettings {
 	public var OpacityConstant: cpp.Float32;
 	public var OpacityMaskConstant: cpp.Float32;
 	public var AmbientOcclusionConstant: cpp.Float32;
-	public var MaterialMergeType: EMaterialMergeType;
-	public var BlendMode: EBlendMode;
+	public var MaterialMergeType: TEnumAsByte<EMaterialMergeType>;
+	public var BlendMode: TEnumAsByte<EBlendMode>;
 	public var bAllowTwoSidedMaterial: Bool;
 	public var bNormalMap: Bool;
 	public var bTangentMap: Bool;

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EMovieSceneToolsPropertyTrackType")
 @:include("MovieSceneToolsProjectSettings.h")
-extern enum EMovieSceneToolsPropertyTrackType {
-	FloatTrack;
-	DoubleTrack;
-	EMovieSceneToolsPropertyTrackType_MAX;
+extern class EMovieSceneToolsPropertyTrackType {
+	static var FloatTrack: EMovieSceneToolsPropertyTrackType;
+	static var DoubleTrack: EMovieSceneToolsPropertyTrackType;
+	static var EMovieSceneToolsPropertyTrackType_MAX: EMovieSceneToolsPropertyTrackType;
 }

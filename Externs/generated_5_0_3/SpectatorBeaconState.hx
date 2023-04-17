@@ -5,11 +5,11 @@ package ue;
 @:include("SpectatorBeaconState.h")
 @:structAccess
 extern class SpectatorBeaconState extends Object {
-	public var SessionName: FName;
-	public var NumConsumedReservations: cpp.Int32;
-	public var MaxReservations: cpp.Int32;
-	public var bRestrictCrossConsole: Bool;
-	public var Reservations: TArray<SpectatorReservation>;
+	@:protected public var SessionName: FName;
+	@:protected public var NumConsumedReservations: cpp.Int32;
+	@:protected public var MaxReservations: cpp.Int32;
+	@:protected public var bRestrictCrossConsole: Bool;
+	@:protected public var Reservations: TArray<SpectatorReservation>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,16 +17,6 @@ extern class SpectatorBeaconState extends Object {
 @:forward()
 @:nativeGen
 abstract ConstSpectatorBeaconState(SpectatorBeaconState) from SpectatorBeaconState {
-	public extern var SessionName(get, never): FName;
-	public inline extern function get_SessionName(): FName return this.SessionName;
-	public extern var NumConsumedReservations(get, never): cpp.Int32;
-	public inline extern function get_NumConsumedReservations(): cpp.Int32 return this.NumConsumedReservations;
-	public extern var MaxReservations(get, never): cpp.Int32;
-	public inline extern function get_MaxReservations(): cpp.Int32 return this.MaxReservations;
-	public extern var bRestrictCrossConsole(get, never): Bool;
-	public inline extern function get_bRestrictCrossConsole(): Bool return this.bRestrictCrossConsole;
-	public extern var Reservations(get, never): TArray<SpectatorReservation>;
-	public inline extern function get_Reservations(): TArray<SpectatorReservation> return this.Reservations;
 }
 
 @:forward

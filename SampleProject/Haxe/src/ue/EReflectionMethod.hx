@@ -3,10 +3,10 @@ package ue;
 
 @:native("EReflectionMethod.Type")
 @:include("Engine/EngineTypes.h")
-extern enum EReflectionMethod {
-	None;
-	Lumen;
-	ScreenSpace;
-	RayTraced;
-	EReflectionMethod_MAX;
+extern class EReflectionMethod {
+	static var None: EReflectionMethod;
+	static var Lumen: EReflectionMethod;
+	static var ScreenSpace: EReflectionMethod;
+	static var RayTraced: EReflectionMethod;
+	static var EReflectionMethod_MAX: EReflectionMethod;
 }

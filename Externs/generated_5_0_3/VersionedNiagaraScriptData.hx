@@ -32,7 +32,7 @@ extern class VersionedNiagaraScriptData {
 	public var PythonUpdateScript: FString;
 	public var ScriptAsset: FilePath;
 	public var ParameterDefinitionsSubscriptions: TArray<ParameterDefinitionsSubscription>;
-	public var Source: cpp.Star<NiagaraScriptSourceBase>;
+	private var Source: cpp.Star<NiagaraScriptSourceBase>;
 
 	@:native("FVersionedNiagaraScriptData") public function new();
 }

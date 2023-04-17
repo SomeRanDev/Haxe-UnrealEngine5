@@ -8,9 +8,9 @@ extern class OperatorField extends FieldNodeBase {
 	public var Magnitude: cpp.Float32;
 	public var RightField: cpp.Star<FieldNodeBase>;
 	public var LeftField: cpp.Star<FieldNodeBase>;
-	public var Operation: EFieldOperationType;
+	public var Operation: TEnumAsByte<EFieldOperationType>;
 
-	public function SetOperatorField(Magnitude: cpp.Float32, LeftField: cpp.Star<FieldNodeBase.ConstFieldNodeBase>, RightField: cpp.Star<FieldNodeBase.ConstFieldNodeBase>, Operation: EFieldOperationType): cpp.Reference<cpp.Star<OperatorField>>;
+	public function SetOperatorField(Magnitude: cpp.Float32, LeftField: cpp.Star<FieldNodeBase.ConstFieldNodeBase>, RightField: cpp.Star<FieldNodeBase.ConstFieldNodeBase>, Operation: TEnumAsByte<EFieldOperationType>): cpp.Star<OperatorField>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -24,8 +24,8 @@ abstract ConstOperatorField(OperatorField) from OperatorField {
 	public inline extern function get_RightField(): cpp.Star<FieldNodeBase.ConstFieldNodeBase> return this.RightField;
 	public extern var LeftField(get, never): cpp.Star<FieldNodeBase.ConstFieldNodeBase>;
 	public inline extern function get_LeftField(): cpp.Star<FieldNodeBase.ConstFieldNodeBase> return this.LeftField;
-	public extern var Operation(get, never): EFieldOperationType;
-	public inline extern function get_Operation(): EFieldOperationType return this.Operation;
+	public extern var Operation(get, never): TEnumAsByte<EFieldOperationType>;
+	public inline extern function get_Operation(): TEnumAsByte<EFieldOperationType> return this.Operation;
 }
 
 @:forward

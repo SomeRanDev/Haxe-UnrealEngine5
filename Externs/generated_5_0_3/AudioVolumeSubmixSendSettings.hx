@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class AudioVolumeSubmixSendSettings {
 	public var ListenerLocationState: EAudioVolumeLocationState;
-	public var SourceLocationState_DEPRECATED: EAudioVolumeLocationState;
 	public var SubmixSends: TArray<SoundSubmixSendInfo>;
 
 	@:native("FAudioVolumeSubmixSendSettings") public function new();

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EInterfaceValidResult")
 @:include("Camera/CameraLensEffectInterface.h")
-extern enum EInterfaceValidResult {
-	Valid;
-	Invalid;
-	EInterfaceValidResult_MAX;
+extern class EInterfaceValidResult {
+	static var Valid: EInterfaceValidResult;
+	static var Invalid: EInterfaceValidResult;
+	static var EInterfaceValidResult_MAX: EInterfaceValidResult;
 }

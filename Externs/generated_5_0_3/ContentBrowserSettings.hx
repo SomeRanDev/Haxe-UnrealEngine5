@@ -17,16 +17,16 @@ extern class ContentBrowserSettings extends Object {
 	public var bDisplayFriendlyNameForPluginFolders: Bool;
 	public var NumObjectsInRecentList: cpp.Int32;
 	public var bEnableRealtimeMaterialInstanceThumbnails: Bool;
-	public var DisplayEngineFolder: Bool;
-	public var DisplayDevelopersFolder: Bool;
-	public var DisplayL10NFolder: Bool;
-	public var DisplayPluginFolders: Bool;
-	public var DisplayFavorites: Bool;
-	public var DockCollections: Bool;
-	public var DisplayCppFolders: Bool;
-	public var IncludeClassNames: Bool;
-	public var IncludeAssetPaths: Bool;
-	public var IncludeCollectionNames: Bool;
+	private var DisplayEngineFolder: Bool;
+	private var DisplayDevelopersFolder: Bool;
+	private var DisplayL10NFolder: Bool;
+	private var DisplayPluginFolders: Bool;
+	private var DisplayFavorites: Bool;
+	private var DockCollections: Bool;
+	private var DisplayCppFolders: Bool;
+	private var IncludeClassNames: Bool;
+	private var IncludeAssetPaths: Bool;
+	private var IncludeCollectionNames: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -58,26 +58,6 @@ abstract ConstContentBrowserSettings(ContentBrowserSettings) from ContentBrowser
 	public inline extern function get_NumObjectsInRecentList(): cpp.Int32 return this.NumObjectsInRecentList;
 	public extern var bEnableRealtimeMaterialInstanceThumbnails(get, never): Bool;
 	public inline extern function get_bEnableRealtimeMaterialInstanceThumbnails(): Bool return this.bEnableRealtimeMaterialInstanceThumbnails;
-	public extern var DisplayEngineFolder(get, never): Bool;
-	public inline extern function get_DisplayEngineFolder(): Bool return this.DisplayEngineFolder;
-	public extern var DisplayDevelopersFolder(get, never): Bool;
-	public inline extern function get_DisplayDevelopersFolder(): Bool return this.DisplayDevelopersFolder;
-	public extern var DisplayL10NFolder(get, never): Bool;
-	public inline extern function get_DisplayL10NFolder(): Bool return this.DisplayL10NFolder;
-	public extern var DisplayPluginFolders(get, never): Bool;
-	public inline extern function get_DisplayPluginFolders(): Bool return this.DisplayPluginFolders;
-	public extern var DisplayFavorites(get, never): Bool;
-	public inline extern function get_DisplayFavorites(): Bool return this.DisplayFavorites;
-	public extern var DockCollections(get, never): Bool;
-	public inline extern function get_DockCollections(): Bool return this.DockCollections;
-	public extern var DisplayCppFolders(get, never): Bool;
-	public inline extern function get_DisplayCppFolders(): Bool return this.DisplayCppFolders;
-	public extern var IncludeClassNames(get, never): Bool;
-	public inline extern function get_IncludeClassNames(): Bool return this.IncludeClassNames;
-	public extern var IncludeAssetPaths(get, never): Bool;
-	public inline extern function get_IncludeAssetPaths(): Bool return this.IncludeAssetPaths;
-	public extern var IncludeCollectionNames(get, never): Bool;
-	public inline extern function get_IncludeCollectionNames(): Bool return this.IncludeCollectionNames;
 }
 
 @:forward

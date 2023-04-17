@@ -7,15 +7,6 @@ package ue;
 extern class GeometryCollectionSizeSpecificData {
 	public var MaxSize: cpp.Float32;
 	public var CollisionShapes: TArray<GeometryCollectionCollisionTypeData>;
-	public var CollisionType_DEPRECATED: ECollisionTypeEnum;
-	public var ImplicitType_DEPRECATED: EImplicitTypeEnum;
-	public var MinLevelSetResolution_DEPRECATED: cpp.Int32;
-	public var MaxLevelSetResolution_DEPRECATED: cpp.Int32;
-	public var MinClusterLevelSetResolution_DEPRECATED: cpp.Int32;
-	public var MaxClusterLevelSetResolution_DEPRECATED: cpp.Int32;
-	public var CollisionObjectReductionPercentage_DEPRECATED: cpp.Int32;
-	public var CollisionParticlesFraction_DEPRECATED: cpp.Float32;
-	public var MaximumCollisionParticles_DEPRECATED: cpp.Int32;
 	public var DamageThreshold: cpp.Int32;
 
 	@:native("FGeometryCollectionSizeSpecificData") public function new();

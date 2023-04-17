@@ -5,19 +5,17 @@ package ue;
 @:include("Animation/WidgetAnimation.h")
 @:structAccess
 extern class WidgetAnimation extends MovieSceneSequence {
-	public var OnAnimationStarted_DEPRECATED: HaxeMulticastSparseDelegateProperty<() -> Void>;
-	public var OnAnimationFinished_DEPRECATED: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var MovieScene: cpp.Star<MovieScene>;
 	public var AnimationBindings: TArray<WidgetAnimationBinding>;
-	public var bLegacyFinishOnStop: Bool;
-	public var DisplayLabel: FString;
+	private var bLegacyFinishOnStop: Bool;
+	private var DisplayLabel: FString;
 
 	public function UnbindFromAnimationStarted(Widget: cpp.Star<UserWidget>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
 	public function UnbindFromAnimationFinished(Widget: cpp.Star<UserWidget>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
 	public function UnbindAllFromAnimationStarted(Widget: cpp.Star<UserWidget>): Void;
 	public function UnbindAllFromAnimationFinished(Widget: cpp.Star<UserWidget>): Void;
-	public function GetStartTime(): cpp.Reference<cpp.Float32>;
-	public function GetEndTime(): cpp.Reference<cpp.Float32>;
+	public function GetStartTime(): cpp.Float32;
+	public function GetEndTime(): cpp.Float32;
 	public function BindToAnimationStarted(Widget: cpp.Star<UserWidget>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
 	public function BindToAnimationFinished(Widget: cpp.Star<UserWidget>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
 
@@ -27,18 +25,10 @@ extern class WidgetAnimation extends MovieSceneSequence {
 @:forward(GetStartTime, GetEndTime)
 @:nativeGen
 abstract ConstWidgetAnimation(WidgetAnimation) from WidgetAnimation {
-	public extern var OnAnimationStarted_DEPRECATED(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
-	public inline extern function get_OnAnimationStarted_DEPRECATED(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnAnimationStarted_DEPRECATED;
-	public extern var OnAnimationFinished_DEPRECATED(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
-	public inline extern function get_OnAnimationFinished_DEPRECATED(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnAnimationFinished_DEPRECATED;
 	public extern var MovieScene(get, never): cpp.Star<MovieScene.ConstMovieScene>;
 	public inline extern function get_MovieScene(): cpp.Star<MovieScene.ConstMovieScene> return this.MovieScene;
 	public extern var AnimationBindings(get, never): TArray<WidgetAnimationBinding>;
 	public inline extern function get_AnimationBindings(): TArray<WidgetAnimationBinding> return this.AnimationBindings;
-	public extern var bLegacyFinishOnStop(get, never): Bool;
-	public inline extern function get_bLegacyFinishOnStop(): Bool return this.bLegacyFinishOnStop;
-	public extern var DisplayLabel(get, never): FString;
-	public inline extern function get_DisplayLabel(): FString return this.DisplayLabel;
 }
 
 @:forward

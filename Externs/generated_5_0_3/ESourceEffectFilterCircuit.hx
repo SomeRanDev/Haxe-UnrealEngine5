@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESourceEffectFilterCircuit")
 @:include("SourceEffects/SourceEffectFilter.h")
-extern enum ESourceEffectFilterCircuit {
-	OnePole;
-	StateVariable;
-	Ladder;
-	Count;
-	ESourceEffectFilterCircuit_MAX;
+extern class ESourceEffectFilterCircuit {
+	static var OnePole: ESourceEffectFilterCircuit;
+	static var StateVariable: ESourceEffectFilterCircuit;
+	static var Ladder: ESourceEffectFilterCircuit;
+	static var Count: ESourceEffectFilterCircuit;
+	static var ESourceEffectFilterCircuit_MAX: ESourceEffectFilterCircuit;
 }

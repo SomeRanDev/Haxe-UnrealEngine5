@@ -3,9 +3,9 @@ package ue;
 
 @:native("EARDepthAccuracy")
 @:include("ARTextures.h")
-extern enum EARDepthAccuracy {
-	Unkown;
-	Approximate;
-	Accurate;
-	EARDepthAccuracy_MAX;
+extern class EARDepthAccuracy {
+	static var Unkown: EARDepthAccuracy;
+	static var Approximate: EARDepthAccuracy;
+	static var Accurate: EARDepthAccuracy;
+	static var EARDepthAccuracy_MAX: EARDepthAccuracy;
 }

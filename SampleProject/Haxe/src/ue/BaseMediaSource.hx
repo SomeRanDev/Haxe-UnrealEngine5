@@ -5,8 +5,7 @@ package ue;
 @:include("BaseMediaSource.h")
 @:structAccess
 extern class BaseMediaSource extends MediaSource {
-	public var PlatformPlayerNames: TMap<FString, FName>;
-	public var PlayerName: FName;
+	private var PlayerName: FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +13,6 @@ extern class BaseMediaSource extends MediaSource {
 @:forward()
 @:nativeGen
 abstract ConstBaseMediaSource(BaseMediaSource) from BaseMediaSource {
-	public extern var PlatformPlayerNames(get, never): TMap<FString, FName>;
-	public inline extern function get_PlatformPlayerNames(): TMap<FString, FName> return this.PlatformPlayerNames;
-	public extern var PlayerName(get, never): FName;
-	public inline extern function get_PlayerName(): FName return this.PlayerName;
 }
 
 @:forward

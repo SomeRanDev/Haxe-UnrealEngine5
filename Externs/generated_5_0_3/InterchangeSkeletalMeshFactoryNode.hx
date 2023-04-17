@@ -5,26 +5,26 @@ package ue;
 @:include("InterchangeSkeletalMeshFactoryNode.h")
 @:structAccess
 extern class InterchangeSkeletalMeshFactoryNode extends InterchangeBaseNode {
-	public function SetCustomVertexColorReplace(AttributeValue: cpp.Reference<Bool>): cpp.Reference<Bool>;
-	public function SetCustomVertexColorOverride(AttributeValue: cpp.Reference<Color>): cpp.Reference<Bool>;
-	public function SetCustomVertexColorIgnore(AttributeValue: cpp.Reference<Bool>): cpp.Reference<Bool>;
-	public function SetCustomSkeletonSoftObjectPath(AttributeValue: cpp.Reference<SoftObjectPath>): cpp.Reference<Bool>;
-	public function SetCustomPhysicAssetSoftObjectPath(AttributeValue: cpp.Reference<SoftObjectPath>): cpp.Reference<Bool>;
-	public function SetCustomImportMorphTarget(AttributeValue: cpp.Reference<Bool>): cpp.Reference<Bool>;
-	public function SetCustomCreatePhysicsAsset(AttributeValue: cpp.Reference<Bool>): cpp.Reference<Bool>;
-	public function RemoveLodDataUniqueId(LodDataUniqueId: FString): cpp.Reference<Bool>;
+	public function SetCustomVertexColorReplace(AttributeValue: cpp.Reference<Bool>): Bool;
+	public function SetCustomVertexColorOverride(AttributeValue: cpp.Reference<Color>): Bool;
+	public function SetCustomVertexColorIgnore(AttributeValue: cpp.Reference<Bool>): Bool;
+	public function SetCustomSkeletonSoftObjectPath(AttributeValue: cpp.Reference<SoftObjectPath>): Bool;
+	public function SetCustomPhysicAssetSoftObjectPath(AttributeValue: cpp.Reference<SoftObjectPath>): Bool;
+	public function SetCustomImportMorphTarget(AttributeValue: cpp.Reference<Bool>): Bool;
+	public function SetCustomCreatePhysicsAsset(AttributeValue: cpp.Reference<Bool>): Bool;
+	public function RemoveLodDataUniqueId(LodDataUniqueId: FString): Bool;
 	public function InitializeSkeletalMeshNode(UniqueID: FString, DisplayLabel: FString, InAssetClass: FString): Void;
-	public function GetObjectClass(): cpp.Reference<cpp.Star<Class>>;
+	public function GetObjectClass(): cpp.Star<Class>;
 	public function GetLodDataUniqueIds(OutLodDataUniqueIds: cpp.Reference<TArray<FString>>): Void;
-	public function GetLodDataCount(): cpp.Reference<cpp.Int32>;
-	public function GetCustomVertexColorReplace(AttributeValue: cpp.Reference<Bool>): cpp.Reference<Bool>;
-	public function GetCustomVertexColorOverride(AttributeValue: cpp.Reference<Color>): cpp.Reference<Bool>;
-	public function GetCustomVertexColorIgnore(AttributeValue: cpp.Reference<Bool>): cpp.Reference<Bool>;
-	public function GetCustomSkeletonSoftObjectPath(AttributeValue: cpp.Reference<SoftObjectPath>): cpp.Reference<Bool>;
-	public function GetCustomPhysicAssetSoftObjectPath(AttributeValue: cpp.Reference<SoftObjectPath>): cpp.Reference<Bool>;
-	public function GetCustomImportMorphTarget(AttributeValue: cpp.Reference<Bool>): cpp.Reference<Bool>;
-	public function GetCustomCreatePhysicsAsset(AttributeValue: cpp.Reference<Bool>): cpp.Reference<Bool>;
-	public function AddLodDataUniqueId(LodDataUniqueId: FString): cpp.Reference<Bool>;
+	public function GetLodDataCount(): cpp.Int32;
+	public function GetCustomVertexColorReplace(AttributeValue: cpp.Reference<Bool>): Bool;
+	public function GetCustomVertexColorOverride(AttributeValue: cpp.Reference<Color>): Bool;
+	public function GetCustomVertexColorIgnore(AttributeValue: cpp.Reference<Bool>): Bool;
+	public function GetCustomSkeletonSoftObjectPath(AttributeValue: cpp.Reference<SoftObjectPath>): Bool;
+	public function GetCustomPhysicAssetSoftObjectPath(AttributeValue: cpp.Reference<SoftObjectPath>): Bool;
+	public function GetCustomImportMorphTarget(AttributeValue: cpp.Reference<Bool>): Bool;
+	public function GetCustomCreatePhysicsAsset(AttributeValue: cpp.Reference<Bool>): Bool;
+	public function AddLodDataUniqueId(LodDataUniqueId: FString): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

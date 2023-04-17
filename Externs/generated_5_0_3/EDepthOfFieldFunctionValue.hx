@@ -3,10 +3,10 @@ package ue;
 
 @:native("EDepthOfFieldFunctionValue")
 @:include("Materials/MaterialExpressionDepthOfFieldFunction.h")
-extern enum EDepthOfFieldFunctionValue {
-	TDOF_NearAndFarMask;
-	TDOF_NearMask;
-	TDOF_FarMask;
-	TDOF_CircleOfConfusionRadius;
-	TDOF_MAX;
+extern class EDepthOfFieldFunctionValue {
+	static var TDOF_NearAndFarMask: EDepthOfFieldFunctionValue;
+	static var TDOF_NearMask: EDepthOfFieldFunctionValue;
+	static var TDOF_FarMask: EDepthOfFieldFunctionValue;
+	static var TDOF_CircleOfConfusionRadius: EDepthOfFieldFunctionValue;
+	static var TDOF_MAX: EDepthOfFieldFunctionValue;
 }

@@ -3,12 +3,12 @@ package ue;
 
 @:native("EXRTrackedDeviceType")
 @:include("HeadMountedDisplayTypes.h")
-extern enum EXRTrackedDeviceType {
-	HeadMountedDisplay;
-	Controller;
-	TrackingReference;
-	Other;
-	Invalid;
-	Any;
-	EXRTrackedDeviceType_MAX;
+extern class EXRTrackedDeviceType {
+	static var HeadMountedDisplay: EXRTrackedDeviceType;
+	static var Controller: EXRTrackedDeviceType;
+	static var TrackingReference: EXRTrackedDeviceType;
+	static var Other: EXRTrackedDeviceType;
+	static var Invalid: EXRTrackedDeviceType;
+	static var Any: EXRTrackedDeviceType;
+	static var EXRTrackedDeviceType_MAX: EXRTrackedDeviceType;
 }

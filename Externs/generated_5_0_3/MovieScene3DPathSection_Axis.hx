@@ -3,12 +3,12 @@ package ue;
 
 @:native("MovieScene3DPathSection_Axis")
 @:include("Sections/MovieScene3DPathSection.h")
-extern enum MovieScene3DPathSection_Axis {
-	X;
-	Y;
-	Z;
-	NEG_X;
-	NEG_Y;
-	NEG_Z;
-	MovieScene3DPathSection_MAX;
+extern class MovieScene3DPathSection_Axis {
+	static var X: MovieScene3DPathSection_Axis;
+	static var Y: MovieScene3DPathSection_Axis;
+	static var Z: MovieScene3DPathSection_Axis;
+	static var NEG_X: MovieScene3DPathSection_Axis;
+	static var NEG_Y: MovieScene3DPathSection_Axis;
+	static var NEG_Z: MovieScene3DPathSection_Axis;
+	static var MovieScene3DPathSection_MAX: MovieScene3DPathSection_Axis;
 }

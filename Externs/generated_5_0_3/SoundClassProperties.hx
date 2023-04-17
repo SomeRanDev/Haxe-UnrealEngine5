@@ -22,7 +22,7 @@ extern class SoundClassProperties {
 	public var bReverb: Bool;
 	public var Default2DReverbSendAmount: cpp.Float32;
 	public var ModulationSettings: SoundModulationDefaultSettings;
-	public var OutputTarget: EAudioOutputTarget;
+	public var OutputTarget: TEnumAsByte<EAudioOutputTarget>;
 	public var LoadingBehavior: ESoundWaveLoadingBehavior;
 	public var DefaultSubmix: cpp.Star<SoundSubmix>;
 

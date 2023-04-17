@@ -3,8 +3,8 @@ package ue;
 
 @:native("EPinnedCommandListType")
 @:include("Private/PinnedCommandListSettings.h")
-extern enum EPinnedCommandListType {
-	Command;
-	CustomWidget;
-	EPinnedCommandListType_MAX;
+extern class EPinnedCommandListType {
+	static var Command: EPinnedCommandListType;
+	static var CustomWidget: EPinnedCommandListType;
+	static var EPinnedCommandListType_MAX: EPinnedCommandListType;
 }

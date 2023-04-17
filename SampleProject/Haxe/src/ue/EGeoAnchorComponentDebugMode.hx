@@ -3,8 +3,8 @@ package ue;
 
 @:native("EGeoAnchorComponentDebugMode")
 @:include("ARComponent.h")
-extern enum EGeoAnchorComponentDebugMode {
-	None;
-	ShowGeoData;
-	EGeoAnchorComponentDebugMode_MAX;
+extern class EGeoAnchorComponentDebugMode {
+	static var None: EGeoAnchorComponentDebugMode;
+	static var ShowGeoData: EGeoAnchorComponentDebugMode;
+	static var EGeoAnchorComponentDebugMode_MAX: EGeoAnchorComponentDebugMode;
 }

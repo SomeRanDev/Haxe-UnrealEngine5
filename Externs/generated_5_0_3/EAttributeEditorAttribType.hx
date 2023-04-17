@@ -3,14 +3,14 @@ package ue;
 
 @:native("EAttributeEditorAttribType")
 @:include("AttributeEditorTool.h")
-extern enum EAttributeEditorAttribType {
-	Int32;
-	Boolean;
-	Float;
-	Vector2;
-	Vector3;
-	Vector4;
-	String;
-	Unknown;
-	EAttributeEditorAttribType_MAX;
+extern class EAttributeEditorAttribType {
+	static var Int32: EAttributeEditorAttribType;
+	static var Boolean: EAttributeEditorAttribType;
+	static var Float: EAttributeEditorAttribType;
+	static var Vector2: EAttributeEditorAttribType;
+	static var Vector3: EAttributeEditorAttribType;
+	static var Vector4: EAttributeEditorAttribType;
+	static var String: EAttributeEditorAttribType;
+	static var Unknown: EAttributeEditorAttribType;
+	static var EAttributeEditorAttribType_MAX: EAttributeEditorAttribType;
 }

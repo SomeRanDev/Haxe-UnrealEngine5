@@ -8,13 +8,6 @@ extern class ChaosClothSharedSimConfig extends ClothSharedConfigCommon {
 	public var IterationCount: cpp.Int32;
 	public var MaxIterationCount: cpp.Int32;
 	public var SubdivisionCount: cpp.Int32;
-	public var SelfCollisionThickness_DEPRECATED: cpp.Float32;
-	public var CollisionThickness_DEPRECATED: cpp.Float32;
-	public var bUseDampingOverride_DEPRECATED: Bool;
-	public var Damping_DEPRECATED: cpp.Float32;
-	public var bUseGravityOverride_DEPRECATED: Bool;
-	public var GravityScale_DEPRECATED: cpp.Float32;
-	public var Gravity_DEPRECATED: Vector;
 	public var bUseLocalSpaceSimulation: Bool;
 	public var bUseXPBDConstraints: Bool;
 
@@ -30,20 +23,6 @@ abstract ConstChaosClothSharedSimConfig(ChaosClothSharedSimConfig) from ChaosClo
 	public inline extern function get_MaxIterationCount(): cpp.Int32 return this.MaxIterationCount;
 	public extern var SubdivisionCount(get, never): cpp.Int32;
 	public inline extern function get_SubdivisionCount(): cpp.Int32 return this.SubdivisionCount;
-	public extern var SelfCollisionThickness_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_SelfCollisionThickness_DEPRECATED(): cpp.Float32 return this.SelfCollisionThickness_DEPRECATED;
-	public extern var CollisionThickness_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_CollisionThickness_DEPRECATED(): cpp.Float32 return this.CollisionThickness_DEPRECATED;
-	public extern var bUseDampingOverride_DEPRECATED(get, never): Bool;
-	public inline extern function get_bUseDampingOverride_DEPRECATED(): Bool return this.bUseDampingOverride_DEPRECATED;
-	public extern var Damping_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_Damping_DEPRECATED(): cpp.Float32 return this.Damping_DEPRECATED;
-	public extern var bUseGravityOverride_DEPRECATED(get, never): Bool;
-	public inline extern function get_bUseGravityOverride_DEPRECATED(): Bool return this.bUseGravityOverride_DEPRECATED;
-	public extern var GravityScale_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_GravityScale_DEPRECATED(): cpp.Float32 return this.GravityScale_DEPRECATED;
-	public extern var Gravity_DEPRECATED(get, never): Vector;
-	public inline extern function get_Gravity_DEPRECATED(): Vector return this.Gravity_DEPRECATED;
 	public extern var bUseLocalSpaceSimulation(get, never): Bool;
 	public inline extern function get_bUseLocalSpaceSimulation(): Bool return this.bUseLocalSpaceSimulation;
 	public extern var bUseXPBDConstraints(get, never): Bool;

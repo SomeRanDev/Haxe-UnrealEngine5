@@ -8,8 +8,8 @@ extern class MaterialExpressionBlendMaterialAttributes extends MaterialExpressio
 	public var A: MaterialAttributesInput;
 	public var B: MaterialAttributesInput;
 	public var Alpha: ExpressionInput;
-	public var PixelAttributeBlendType: EMaterialAttributeBlend;
-	public var VertexAttributeBlendType: EMaterialAttributeBlend;
+	public var PixelAttributeBlendType: TEnumAsByte<EMaterialAttributeBlend>;
+	public var VertexAttributeBlendType: TEnumAsByte<EMaterialAttributeBlend>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -23,10 +23,10 @@ abstract ConstMaterialExpressionBlendMaterialAttributes(MaterialExpressionBlendM
 	public inline extern function get_B(): MaterialAttributesInput return this.B;
 	public extern var Alpha(get, never): ExpressionInput;
 	public inline extern function get_Alpha(): ExpressionInput return this.Alpha;
-	public extern var PixelAttributeBlendType(get, never): EMaterialAttributeBlend;
-	public inline extern function get_PixelAttributeBlendType(): EMaterialAttributeBlend return this.PixelAttributeBlendType;
-	public extern var VertexAttributeBlendType(get, never): EMaterialAttributeBlend;
-	public inline extern function get_VertexAttributeBlendType(): EMaterialAttributeBlend return this.VertexAttributeBlendType;
+	public extern var PixelAttributeBlendType(get, never): TEnumAsByte<EMaterialAttributeBlend>;
+	public inline extern function get_PixelAttributeBlendType(): TEnumAsByte<EMaterialAttributeBlend> return this.PixelAttributeBlendType;
+	public extern var VertexAttributeBlendType(get, never): TEnumAsByte<EMaterialAttributeBlend>;
+	public inline extern function get_VertexAttributeBlendType(): TEnumAsByte<EMaterialAttributeBlend> return this.VertexAttributeBlendType;
 }
 
 @:forward

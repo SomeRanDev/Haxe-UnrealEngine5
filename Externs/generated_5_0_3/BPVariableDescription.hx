@@ -12,7 +12,7 @@ extern class BPVariableDescription {
 	public var Category: FText;
 	public var PropertyFlags: cpp.UInt64;
 	public var RepNotifyFunc: FName;
-	public var ReplicationCondition: ELifetimeCondition;
+	public var ReplicationCondition: TEnumAsByte<ELifetimeCondition>;
 	public var MetaDataArray: TArray<BPVariableMetaDataEntry>;
 	public var DefaultValue: FString;
 

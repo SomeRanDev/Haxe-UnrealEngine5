@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESequencerLoopMode")
 @:include("SequencerSettings.h")
-extern enum ESequencerLoopMode {
-	SLM_NoLoop;
-	SLM_Loop;
-	SLM_LoopSelectionRange;
-	SLM_MAX;
+extern class ESequencerLoopMode {
+	static var SLM_NoLoop: ESequencerLoopMode;
+	static var SLM_Loop: ESequencerLoopMode;
+	static var SLM_LoopSelectionRange: ESequencerLoopMode;
+	static var SLM_MAX: ESequencerLoopMode;
 }

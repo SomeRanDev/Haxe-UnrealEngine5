@@ -3,8 +3,8 @@ package ue;
 
 @:native("EAnimNodeReferenceConversionResult")
 @:include("Animation/AnimNodeReference.h")
-extern enum EAnimNodeReferenceConversionResult {
-	Succeeded;
-	Failed;
-	EAnimNodeReferenceConversionResult_MAX;
+extern class EAnimNodeReferenceConversionResult {
+	static var Succeeded: EAnimNodeReferenceConversionResult;
+	static var Failed: EAnimNodeReferenceConversionResult;
+	static var EAnimNodeReferenceConversionResult_MAX: EAnimNodeReferenceConversionResult;
 }

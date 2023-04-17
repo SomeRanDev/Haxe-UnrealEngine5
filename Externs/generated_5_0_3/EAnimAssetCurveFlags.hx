@@ -3,14 +3,14 @@ package ue;
 
 @:native("EAnimAssetCurveFlags")
 @:include("Animation/AnimCurveTypes.h")
-extern enum EAnimAssetCurveFlags {
-	AACF_NONE;
-	AACF_DriveMorphTarget_DEPRECATED;
-	AACF_DriveAttribute_DEPRECATED;
-	AACF_Editable;
-	AACF_DriveMaterial_DEPRECATED;
-	AACF_Metadata;
-	AACF_DriveTrack;
-	AACF_Disabled;
-	AACF_MAX;
+extern class EAnimAssetCurveFlags {
+	static var AACF_NONE: EAnimAssetCurveFlags;
+	static var AACF_DriveMorphTarget_DEPRECATED: EAnimAssetCurveFlags;
+	static var AACF_DriveAttribute_DEPRECATED: EAnimAssetCurveFlags;
+	static var AACF_Editable: EAnimAssetCurveFlags;
+	static var AACF_DriveMaterial_DEPRECATED: EAnimAssetCurveFlags;
+	static var AACF_Metadata: EAnimAssetCurveFlags;
+	static var AACF_DriveTrack: EAnimAssetCurveFlags;
+	static var AACF_Disabled: EAnimAssetCurveFlags;
+	static var AACF_MAX: EAnimAssetCurveFlags;
 }

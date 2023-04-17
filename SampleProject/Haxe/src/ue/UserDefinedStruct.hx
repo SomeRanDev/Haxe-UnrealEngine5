@@ -5,10 +5,7 @@ package ue;
 @:include("Engine/UserDefinedStruct.h")
 @:structAccess
 extern class UserDefinedStruct extends ScriptStruct {
-	public var PrimaryStruct: TWeakObjectPtr<UserDefinedStruct>;
-	public var ErrorMessage: FString;
-	public var EditorData: cpp.Star<Object>;
-	public var Status: EUserDefinedStructureStatus;
+	public var Status: TEnumAsByte<EUserDefinedStructureStatus>;
 	public var Guid: Guid;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -17,14 +14,8 @@ extern class UserDefinedStruct extends ScriptStruct {
 @:forward()
 @:nativeGen
 abstract ConstUserDefinedStruct(UserDefinedStruct) from UserDefinedStruct {
-	public extern var PrimaryStruct(get, never): TWeakObjectPtr<UserDefinedStruct.ConstUserDefinedStruct>;
-	public inline extern function get_PrimaryStruct(): TWeakObjectPtr<UserDefinedStruct.ConstUserDefinedStruct> return this.PrimaryStruct;
-	public extern var ErrorMessage(get, never): FString;
-	public inline extern function get_ErrorMessage(): FString return this.ErrorMessage;
-	public extern var EditorData(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_EditorData(): cpp.Star<Object.ConstObject> return this.EditorData;
-	public extern var Status(get, never): EUserDefinedStructureStatus;
-	public inline extern function get_Status(): EUserDefinedStructureStatus return this.Status;
+	public extern var Status(get, never): TEnumAsByte<EUserDefinedStructureStatus>;
+	public inline extern function get_Status(): TEnumAsByte<EUserDefinedStructureStatus> return this.Status;
 	public extern var Guid(get, never): Guid;
 	public inline extern function get_Guid(): Guid return this.Guid;
 }

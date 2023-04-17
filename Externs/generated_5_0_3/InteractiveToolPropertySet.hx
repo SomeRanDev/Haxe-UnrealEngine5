@@ -5,8 +5,8 @@ package ue;
 @:include("InteractiveTool.h")
 @:structAccess
 extern class InteractiveToolPropertySet extends Object {
-	public var CachedPropertiesMap: TMap<FString, cpp.Star<InteractiveToolPropertySet>>;
-	public var bIsPropertySetEnabled: Bool;
+	@:protected public var CachedPropertiesMap: TMap<FString, cpp.Star<InteractiveToolPropertySet>>;
+	@:protected public var bIsPropertySetEnabled: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class InteractiveToolPropertySet extends Object {
 @:forward()
 @:nativeGen
 abstract ConstInteractiveToolPropertySet(InteractiveToolPropertySet) from InteractiveToolPropertySet {
-	public extern var CachedPropertiesMap(get, never): TMap<FString, cpp.Star<InteractiveToolPropertySet.ConstInteractiveToolPropertySet>>;
-	public inline extern function get_CachedPropertiesMap(): TMap<FString, cpp.Star<InteractiveToolPropertySet.ConstInteractiveToolPropertySet>> return this.CachedPropertiesMap;
-	public extern var bIsPropertySetEnabled(get, never): Bool;
-	public inline extern function get_bIsPropertySetEnabled(): Bool return this.bIsPropertySetEnabled;
 }
 
 @:forward

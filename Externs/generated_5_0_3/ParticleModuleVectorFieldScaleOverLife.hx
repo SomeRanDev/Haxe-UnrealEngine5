@@ -5,7 +5,6 @@ package ue;
 @:include("Particles/VectorField/ParticleModuleVectorFieldScaleOverLife.h")
 @:structAccess
 extern class ParticleModuleVectorFieldScaleOverLife extends ParticleModuleVectorFieldBase {
-	public var VectorFieldScaleOverLife_DEPRECATED: cpp.Star<DistributionFloat>;
 	public var VectorFieldScaleOverLifeRaw: RawDistributionFloat;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -14,8 +13,6 @@ extern class ParticleModuleVectorFieldScaleOverLife extends ParticleModuleVector
 @:forward()
 @:nativeGen
 abstract ConstParticleModuleVectorFieldScaleOverLife(ParticleModuleVectorFieldScaleOverLife) from ParticleModuleVectorFieldScaleOverLife {
-	public extern var VectorFieldScaleOverLife_DEPRECATED(get, never): cpp.Star<DistributionFloat.ConstDistributionFloat>;
-	public inline extern function get_VectorFieldScaleOverLife_DEPRECATED(): cpp.Star<DistributionFloat.ConstDistributionFloat> return this.VectorFieldScaleOverLife_DEPRECATED;
 	public extern var VectorFieldScaleOverLifeRaw(get, never): RawDistributionFloat;
 	public inline extern function get_VectorFieldScaleOverLifeRaw(): RawDistributionFloat return this.VectorFieldScaleOverLifeRaw;
 }

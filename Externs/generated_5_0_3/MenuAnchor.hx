@@ -8,20 +8,20 @@ extern class MenuAnchor extends ContentWidget {
 	public var MenuClass: TSubclassOf<UserWidget>;
 	public var OnGetMenuContentEvent: HaxeDelegateProperty<() -> Void>;
 	public var OnGetUserMenuContentEvent: HaxeDelegateProperty<() -> Void>;
-	public var Placement: EMenuPlacement;
+	public var Placement: TEnumAsByte<EMenuPlacement>;
 	public var bFitInWindow: Bool;
 	public var ShouldDeferPaintingAfterWindowContent: Bool;
 	public var UseApplicationMenuStack: Bool;
 	public var OnMenuOpenChanged: HaxeMulticastSparseDelegateProperty<(Bool) -> Void>;
 
 	public function ToggleOpen(bFocusOnOpen: Bool): Void;
-	public function ShouldOpenDueToClick(): cpp.Reference<Bool>;
-	public function SetPlacement(InPlacement: EMenuPlacement): Void;
+	public function ShouldOpenDueToClick(): Bool;
+	public function SetPlacement(InPlacement: TEnumAsByte<EMenuPlacement>): Void;
 	public function Open(bFocusMenu: Bool): Void;
-	public function IsOpen(): cpp.Reference<Bool>;
-	public function HasOpenSubMenus(): cpp.Reference<Bool>;
-	public function GetUserWidget__DelegateSignature(): cpp.Reference<cpp.Star<UserWidget>>;
-	public function GetMenuPosition(): cpp.Reference<Vector2D>;
+	public function IsOpen(): Bool;
+	public function HasOpenSubMenus(): Bool;
+	public function GetUserWidget__DelegateSignature(): cpp.Star<UserWidget>;
+	public function GetMenuPosition(): Vector2D;
 	public function FitInWindow(bFit: Bool): Void;
 	public function Close(): Void;
 
@@ -37,8 +37,8 @@ abstract ConstMenuAnchor(MenuAnchor) from MenuAnchor {
 	public inline extern function get_OnGetMenuContentEvent(): HaxeDelegateProperty<() -> Void> return this.OnGetMenuContentEvent;
 	public extern var OnGetUserMenuContentEvent(get, never): HaxeDelegateProperty<() -> Void>;
 	public inline extern function get_OnGetUserMenuContentEvent(): HaxeDelegateProperty<() -> Void> return this.OnGetUserMenuContentEvent;
-	public extern var Placement(get, never): EMenuPlacement;
-	public inline extern function get_Placement(): EMenuPlacement return this.Placement;
+	public extern var Placement(get, never): TEnumAsByte<EMenuPlacement>;
+	public inline extern function get_Placement(): TEnumAsByte<EMenuPlacement> return this.Placement;
 	public extern var bFitInWindow(get, never): Bool;
 	public inline extern function get_bFitInWindow(): Bool return this.bFitInWindow;
 	public extern var ShouldDeferPaintingAfterWindowContent(get, never): Bool;

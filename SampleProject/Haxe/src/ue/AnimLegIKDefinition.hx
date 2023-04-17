@@ -9,8 +9,8 @@ extern class AnimLegIKDefinition {
 	public var FKFootBone: BoneReference;
 	public var NumBonesInLimb: cpp.Int32;
 	public var MinRotationAngle: cpp.Float32;
-	public var FootBoneForwardAxis: EAxis;
-	public var HingeRotationAxis: EAxis;
+	public var FootBoneForwardAxis: TEnumAsByte<EAxis>;
+	public var HingeRotationAxis: TEnumAsByte<EAxis>;
 	public var bEnableRotationLimit: Bool;
 	public var bEnableKneeTwistCorrection: Bool;
 

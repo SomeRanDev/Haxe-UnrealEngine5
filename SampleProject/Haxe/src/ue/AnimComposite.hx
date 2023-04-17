@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class AnimComposite extends AnimCompositeBase {
 	public var AnimationTrack: AnimTrack;
-	public var PreviewBasePose: cpp.Star<AnimSequence>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +15,6 @@ extern class AnimComposite extends AnimCompositeBase {
 abstract ConstAnimComposite(AnimComposite) from AnimComposite {
 	public extern var AnimationTrack(get, never): AnimTrack;
 	public inline extern function get_AnimationTrack(): AnimTrack return this.AnimationTrack;
-	public extern var PreviewBasePose(get, never): cpp.Star<AnimSequence.ConstAnimSequence>;
-	public inline extern function get_PreviewBasePose(): cpp.Star<AnimSequence.ConstAnimSequence> return this.PreviewBasePose;
 }
 
 @:forward

@@ -5,8 +5,6 @@ package ue;
 @:include("StructViewerProjectSettings.h")
 @:structAccess
 extern class StructViewerProjectSettings extends Object {
-	public var InternalOnlyPaths: TArray<DirectoryPath>;
-	public var InternalOnlyStructs: TArray<TSoftObjectPtr<ScriptStruct>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +12,6 @@ extern class StructViewerProjectSettings extends Object {
 @:forward()
 @:nativeGen
 abstract ConstStructViewerProjectSettings(StructViewerProjectSettings) from StructViewerProjectSettings {
-	public extern var InternalOnlyPaths(get, never): TArray<DirectoryPath>;
-	public inline extern function get_InternalOnlyPaths(): TArray<DirectoryPath> return this.InternalOnlyPaths;
-	public extern var InternalOnlyStructs(get, never): TArray<TSoftObjectPtr<ScriptStruct.ConstScriptStruct>>;
-	public inline extern function get_InternalOnlyStructs(): TArray<TSoftObjectPtr<ScriptStruct.ConstScriptStruct>> return this.InternalOnlyStructs;
 }
 
 @:forward

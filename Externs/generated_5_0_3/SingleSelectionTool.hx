@@ -5,7 +5,7 @@ package ue;
 @:include("SingleSelectionTool.h")
 @:structAccess
 extern class SingleSelectionTool extends InteractiveTool {
-	public var Target: cpp.Star<ToolTarget>;
+	@:protected public var Target: cpp.Star<ToolTarget>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class SingleSelectionTool extends InteractiveTool {
 @:forward()
 @:nativeGen
 abstract ConstSingleSelectionTool(SingleSelectionTool) from SingleSelectionTool {
-	public extern var Target(get, never): cpp.Star<ToolTarget.ConstToolTarget>;
-	public inline extern function get_Target(): cpp.Star<ToolTarget.ConstToolTarget> return this.Target;
 }
 
 @:forward

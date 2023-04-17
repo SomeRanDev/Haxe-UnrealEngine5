@@ -3,12 +3,12 @@ package ue;
 
 @:native("ESlateGesture")
 @:include("Kismet/KismetInputLibrary.h")
-extern enum ESlateGesture {
-	None;
-	Scroll;
-	Magnify;
-	Swipe;
-	Rotate;
-	LongPress;
-	ESlateGesture_MAX;
+extern class ESlateGesture {
+	static var None: ESlateGesture;
+	static var Scroll: ESlateGesture;
+	static var Magnify: ESlateGesture;
+	static var Swipe: ESlateGesture;
+	static var Rotate: ESlateGesture;
+	static var LongPress: ESlateGesture;
+	static var ESlateGesture_MAX: ESlateGesture;
 }

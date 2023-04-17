@@ -16,8 +16,6 @@ extern class EditorProjectAppearanceSettings extends DeveloperSettings {
 	public var ForceUnits: EUnit;
 	public var ShowSearchableNames: EReferenceViewerSettingMode;
 	public var ReferenceViewerDefaultMaxSearchBreadth: cpp.Int32;
-	public var UnitDisplay_DEPRECATED: EUnitDisplay;
-	public var DefaultInputUnits_DEPRECATED: EDefaultLocationUnit;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -47,10 +45,6 @@ abstract ConstEditorProjectAppearanceSettings(EditorProjectAppearanceSettings) f
 	public inline extern function get_ShowSearchableNames(): EReferenceViewerSettingMode return this.ShowSearchableNames;
 	public extern var ReferenceViewerDefaultMaxSearchBreadth(get, never): cpp.Int32;
 	public inline extern function get_ReferenceViewerDefaultMaxSearchBreadth(): cpp.Int32 return this.ReferenceViewerDefaultMaxSearchBreadth;
-	public extern var UnitDisplay_DEPRECATED(get, never): EUnitDisplay;
-	public inline extern function get_UnitDisplay_DEPRECATED(): EUnitDisplay return this.UnitDisplay_DEPRECATED;
-	public extern var DefaultInputUnits_DEPRECATED(get, never): EDefaultLocationUnit;
-	public inline extern function get_DefaultInputUnits_DEPRECATED(): EDefaultLocationUnit return this.DefaultInputUnits_DEPRECATED;
 }
 
 @:forward

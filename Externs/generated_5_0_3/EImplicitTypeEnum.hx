@@ -3,13 +3,13 @@ package ue;
 
 @:native("EImplicitTypeEnum")
 @:include("GeometryCollection/GeometryCollectionSimulationTypes.h")
-extern enum EImplicitTypeEnum {
-	Chaos_Implicit_Box;
-	Chaos_Implicit_Sphere;
-	Chaos_Implicit_Capsule;
-	Chaos_Implicit_LevelSet;
-	Chaos_Implicit_None;
-	Chaos_Implicit_Convex;
-	Chaos_Max;
-	Chaos_MAX;
+extern class EImplicitTypeEnum {
+	static var Chaos_Implicit_Box: EImplicitTypeEnum;
+	static var Chaos_Implicit_Sphere: EImplicitTypeEnum;
+	static var Chaos_Implicit_Capsule: EImplicitTypeEnum;
+	static var Chaos_Implicit_LevelSet: EImplicitTypeEnum;
+	static var Chaos_Implicit_None: EImplicitTypeEnum;
+	static var Chaos_Implicit_Convex: EImplicitTypeEnum;
+	static var Chaos_Max: EImplicitTypeEnum;
+	static var Chaos_MAX: EImplicitTypeEnum;
 }

@@ -5,7 +5,7 @@ package ue;
 @:include("MovieSceneSequenceID.h")
 @:structAccess
 extern class MovieSceneSequenceID {
-	public var Value: cpp.UInt32;
+	private var Value: cpp.UInt32;
 
 	@:native("FMovieSceneSequenceID") public function new();
 	@:native("FMovieSceneSequenceID") public static function make(Value: cpp.UInt32): MovieSceneSequenceID ;

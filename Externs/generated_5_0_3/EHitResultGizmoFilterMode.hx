@@ -3,9 +3,9 @@ package ue;
 
 @:native("EHitResultGizmoFilterMode")
 @:include("ViewportInteractor.h")
-extern enum EHitResultGizmoFilterMode {
-	All;
-	NoGizmos;
-	GizmosOnly;
-	EHitResultGizmoFilterMode_MAX;
+extern class EHitResultGizmoFilterMode {
+	static var All: EHitResultGizmoFilterMode;
+	static var NoGizmos: EHitResultGizmoFilterMode;
+	static var GizmosOnly: EHitResultGizmoFilterMode;
+	static var EHitResultGizmoFilterMode_MAX: EHitResultGizmoFilterMode;
 }

@@ -5,9 +5,9 @@ package ue;
 @:include("Selection/PersistentMeshSelectionManager.h")
 @:structAccess
 extern class PersistentMeshSelectionManager extends Object {
-	public var ParentContext: cpp.Star<InteractiveToolsContext>;
-	public var ActiveSelection: cpp.Star<PersistentMeshSelection>;
-	public var SelectionDisplay: cpp.Star<PreviewGeometry>;
+	@:protected public var ParentContext: cpp.Star<InteractiveToolsContext>;
+	@:protected public var ActiveSelection: cpp.Star<PersistentMeshSelection>;
+	@:protected public var SelectionDisplay: cpp.Star<PreviewGeometry>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class PersistentMeshSelectionManager extends Object {
 @:forward()
 @:nativeGen
 abstract ConstPersistentMeshSelectionManager(PersistentMeshSelectionManager) from PersistentMeshSelectionManager {
-	public extern var ParentContext(get, never): cpp.Star<InteractiveToolsContext.ConstInteractiveToolsContext>;
-	public inline extern function get_ParentContext(): cpp.Star<InteractiveToolsContext.ConstInteractiveToolsContext> return this.ParentContext;
-	public extern var ActiveSelection(get, never): cpp.Star<PersistentMeshSelection.ConstPersistentMeshSelection>;
-	public inline extern function get_ActiveSelection(): cpp.Star<PersistentMeshSelection.ConstPersistentMeshSelection> return this.ActiveSelection;
-	public extern var SelectionDisplay(get, never): cpp.Star<PreviewGeometry.ConstPreviewGeometry>;
-	public inline extern function get_SelectionDisplay(): cpp.Star<PreviewGeometry.ConstPreviewGeometry> return this.SelectionDisplay;
 }
 
 @:forward

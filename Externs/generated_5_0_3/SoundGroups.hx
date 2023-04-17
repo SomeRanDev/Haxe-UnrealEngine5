@@ -5,7 +5,7 @@ package ue;
 @:include("Sound/SoundGroups.h")
 @:structAccess
 extern class SoundGroups extends Object {
-	public var SoundGroupProfiles: TArray<SoundGroup>;
+	private var SoundGroupProfiles: TArray<SoundGroup>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class SoundGroups extends Object {
 @:forward()
 @:nativeGen
 abstract ConstSoundGroups(SoundGroups) from SoundGroups {
-	public extern var SoundGroupProfiles(get, never): TArray<SoundGroup>;
-	public inline extern function get_SoundGroupProfiles(): TArray<SoundGroup> return this.SoundGroupProfiles;
 }
 
 @:forward

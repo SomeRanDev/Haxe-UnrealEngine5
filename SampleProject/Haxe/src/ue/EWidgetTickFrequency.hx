@@ -3,8 +3,8 @@ package ue;
 
 @:native("EWidgetTickFrequency")
 @:include("Blueprint/UserWidget.h")
-extern enum EWidgetTickFrequency {
-	Never;
-	Auto;
-	EWidgetTickFrequency_MAX;
+extern class EWidgetTickFrequency {
+	static var Never: EWidgetTickFrequency;
+	static var Auto: EWidgetTickFrequency;
+	static var EWidgetTickFrequency_MAX: EWidgetTickFrequency;
 }

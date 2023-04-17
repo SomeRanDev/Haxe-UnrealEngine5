@@ -3,11 +3,11 @@ package ue;
 
 @:native("ENiagaraSortMode")
 @:include("NiagaraGPUSortInfo.h")
-extern enum ENiagaraSortMode {
-	None;
-	ViewDepth;
-	ViewDistance;
-	CustomAscending;
-	CustomDecending;
-	ENiagaraSortMode_MAX;
+extern class ENiagaraSortMode {
+	static var None: ENiagaraSortMode;
+	static var ViewDepth: ENiagaraSortMode;
+	static var ViewDistance: ENiagaraSortMode;
+	static var CustomAscending: ENiagaraSortMode;
+	static var CustomDecending: ENiagaraSortMode;
+	static var ENiagaraSortMode_MAX: ENiagaraSortMode;
 }

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMovieSceneControlRigSpaceType")
 @:include("Sequencer/MovieSceneControlRigSpaceChannel.h")
-extern enum EMovieSceneControlRigSpaceType {
-	Parent;
-	World;
-	ControlRig;
-	EMovieSceneControlRigSpaceType_MAX;
+extern class EMovieSceneControlRigSpaceType {
+	static var Parent: EMovieSceneControlRigSpaceType;
+	static var World: EMovieSceneControlRigSpaceType;
+	static var ControlRig: EMovieSceneControlRigSpaceType;
+	static var EMovieSceneControlRigSpaceType_MAX: EMovieSceneControlRigSpaceType;
 }

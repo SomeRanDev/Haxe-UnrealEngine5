@@ -5,8 +5,7 @@ package ue;
 @:include("VectorField/VectorFieldVolume.h")
 @:structAccess
 extern class VectorFieldVolume extends Actor {
-	public var VectorFieldComponent: cpp.Star<VectorFieldComp>;
-	public var SpriteComponent: cpp.Star<BillboardComp>;
+	private var VectorFieldComponent: cpp.Star<VectorFieldComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +13,6 @@ extern class VectorFieldVolume extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstVectorFieldVolume(VectorFieldVolume) from VectorFieldVolume {
-	public extern var VectorFieldComponent(get, never): cpp.Star<VectorFieldComp.ConstVectorFieldComp>;
-	public inline extern function get_VectorFieldComponent(): cpp.Star<VectorFieldComp.ConstVectorFieldComp> return this.VectorFieldComponent;
-	public extern var SpriteComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
-	public inline extern function get_SpriteComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
 }
 
 @:forward

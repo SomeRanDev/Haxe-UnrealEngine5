@@ -3,10 +3,10 @@ package ue;
 
 @:native("EChaosBufferMode")
 @:include("PhysicsCoreTypes.h")
-extern enum EChaosBufferMode {
-	Double;
-	Triple;
-	Num;
-	Invalid;
-	EChaosBufferMode_MAX;
+extern class EChaosBufferMode {
+	static var Double: EChaosBufferMode;
+	static var Triple: EChaosBufferMode;
+	static var Num: EChaosBufferMode;
+	static var Invalid: EChaosBufferMode;
+	static var EChaosBufferMode_MAX: EChaosBufferMode;
 }

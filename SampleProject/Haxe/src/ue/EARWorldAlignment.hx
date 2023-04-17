@@ -3,9 +3,9 @@ package ue;
 
 @:native("EARWorldAlignment")
 @:include("ARSessionConfig.h")
-extern enum EARWorldAlignment {
-	Gravity;
-	GravityAndHeading;
-	Camera;
-	EARWorldAlignment_MAX;
+extern class EARWorldAlignment {
+	static var Gravity: EARWorldAlignment;
+	static var GravityAndHeading: EARWorldAlignment;
+	static var Camera: EARWorldAlignment;
+	static var EARWorldAlignment_MAX: EARWorldAlignment;
 }

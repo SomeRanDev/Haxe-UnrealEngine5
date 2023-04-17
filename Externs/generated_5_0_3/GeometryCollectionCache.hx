@@ -5,9 +5,9 @@ package ue;
 @:include("GeometryCollection/GeometryCollectionCache.h")
 @:structAccess
 extern class GeometryCollectionCache extends Object {
-	public var RecordedData: RecordedTransformTrack;
-	public var SupportedCollection: cpp.Star<GeometryCollection>;
-	public var CompatibleCollectionState: Guid;
+	private var RecordedData: RecordedTransformTrack;
+	private var SupportedCollection: cpp.Star<GeometryCollection>;
+	private var CompatibleCollectionState: Guid;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class GeometryCollectionCache extends Object {
 @:forward()
 @:nativeGen
 abstract ConstGeometryCollectionCache(GeometryCollectionCache) from GeometryCollectionCache {
-	public extern var RecordedData(get, never): RecordedTransformTrack;
-	public inline extern function get_RecordedData(): RecordedTransformTrack return this.RecordedData;
-	public extern var SupportedCollection(get, never): cpp.Star<GeometryCollection.ConstGeometryCollection>;
-	public inline extern function get_SupportedCollection(): cpp.Star<GeometryCollection.ConstGeometryCollection> return this.SupportedCollection;
-	public extern var CompatibleCollectionState(get, never): Guid;
-	public inline extern function get_CompatibleCollectionState(): Guid return this.CompatibleCollectionState;
 }
 
 @:forward

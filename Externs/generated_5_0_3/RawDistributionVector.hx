@@ -5,10 +5,10 @@ package ue;
 @:include("Distributions/DistributionVector.h")
 @:structAccess
 extern class RawDistributionVector extends RawDistribution {
-	public var MinValue: cpp.Float32;
-	public var MaxValue: cpp.Float32;
-	public var MinValueVec: Vector;
-	public var MaxValueVec: Vector;
+	private var MinValue: cpp.Float32;
+	private var MaxValue: cpp.Float32;
+	private var MinValueVec: Vector;
+	private var MaxValueVec: Vector;
 	public var Distribution: cpp.Star<DistributionVector>;
 
 	@:native("FRawDistributionVector") public function new();

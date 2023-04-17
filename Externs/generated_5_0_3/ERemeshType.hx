@@ -3,9 +3,9 @@ package ue;
 
 @:native("ERemeshType")
 @:include("CleaningOps/RemeshMeshOp.h")
-extern enum ERemeshType {
-	Standard;
-	FullPass;
-	NormalFlow;
-	ERemeshType_MAX;
+extern class ERemeshType {
+	static var Standard: ERemeshType;
+	static var FullPass: ERemeshType;
+	static var NormalFlow: ERemeshType;
+	static var ERemeshType_MAX: ERemeshType;
 }

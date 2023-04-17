@@ -5,7 +5,7 @@ package ue;
 @:include("AI/Navigation/NavCollisionBase.h")
 @:structAccess
 extern class NavCollisionBase extends Object {
-	public var bIsDynamicObstacle: Bool;
+	@:protected public var bIsDynamicObstacle: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class NavCollisionBase extends Object {
 @:forward()
 @:nativeGen
 abstract ConstNavCollisionBase(NavCollisionBase) from NavCollisionBase {
-	public extern var bIsDynamicObstacle(get, never): Bool;
-	public inline extern function get_bIsDynamicObstacle(): Bool return this.bIsDynamicObstacle;
 }
 
 @:forward

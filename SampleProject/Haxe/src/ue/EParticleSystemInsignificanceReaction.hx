@@ -3,11 +3,11 @@ package ue;
 
 @:native("EParticleSystemInsignificanceReaction")
 @:include("ParticleHelper.h")
-extern enum EParticleSystemInsignificanceReaction {
-	Auto;
-	Complete;
-	DisableTick;
-	DisableTickAndKill;
-	Num;
-	EParticleSystemInsignificanceReaction_MAX;
+extern class EParticleSystemInsignificanceReaction {
+	static var Auto: EParticleSystemInsignificanceReaction;
+	static var Complete: EParticleSystemInsignificanceReaction;
+	static var DisableTick: EParticleSystemInsignificanceReaction;
+	static var DisableTickAndKill: EParticleSystemInsignificanceReaction;
+	static var Num: EParticleSystemInsignificanceReaction;
+	static var EParticleSystemInsignificanceReaction_MAX: EParticleSystemInsignificanceReaction;
 }

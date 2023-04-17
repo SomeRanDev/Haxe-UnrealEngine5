@@ -8,15 +8,15 @@ extern class ToolMenuEntryScript extends Object {
 	public var Data: ToolMenuEntryScriptData;
 
 	public function RegisterMenuEntry(): Void;
-	public function IsVisible(Context: cpp.Reference<ToolMenuContext>): cpp.Reference<Bool>;
+	public function IsVisible(Context: cpp.Reference<ToolMenuContext>): Bool;
 	public function InitEntry(OwnerName: FName, Menu: FName, Section: FName, Name: FName, Label: cpp.Reference<FText>, ToolTip: cpp.Reference<FText>): Void;
-	public function GetToolTip(Context: cpp.Reference<ToolMenuContext>): cpp.Reference<FText>;
-	public function GetLabel(Context: cpp.Reference<ToolMenuContext>): cpp.Reference<FText>;
-	public function GetIcon(Context: cpp.Reference<ToolMenuContext>): cpp.Reference<ScriptSlateIcon>;
-	public function GetCheckState(Context: cpp.Reference<ToolMenuContext>): cpp.Reference<ECheckBoxState>;
+	public function GetToolTip(Context: cpp.Reference<ToolMenuContext>): FText;
+	public function GetLabel(Context: cpp.Reference<ToolMenuContext>): FText;
+	public function GetIcon(Context: cpp.Reference<ToolMenuContext>): ScriptSlateIcon;
+	public function GetCheckState(Context: cpp.Reference<ToolMenuContext>): ECheckBoxState;
 	public function Execute(Context: cpp.Reference<ToolMenuContext>): Void;
 	public function ConstructMenuEntry(Menu: cpp.Star<ToolMenu>, SectionName: FName, Context: cpp.Reference<ToolMenuContext>): Void;
-	public function CanExecute(Context: cpp.Reference<ToolMenuContext>): cpp.Reference<Bool>;
+	public function CanExecute(Context: cpp.Reference<ToolMenuContext>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

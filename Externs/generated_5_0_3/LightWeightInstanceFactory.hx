@@ -5,7 +5,7 @@ package ue;
 @:include("Factories/LightWeightInstanceFactory.h")
 @:structAccess
 extern class LightWeightInstanceFactory extends Factory {
-	public var ParentClass: TSubclassOf<Object>;
+	@:protected public var ParentClass: TSubclassOf<Object>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class LightWeightInstanceFactory extends Factory {
 @:forward()
 @:nativeGen
 abstract ConstLightWeightInstanceFactory(LightWeightInstanceFactory) from LightWeightInstanceFactory {
-	public extern var ParentClass(get, never): TSubclassOf<Object.ConstObject>;
-	public inline extern function get_ParentClass(): TSubclassOf<Object.ConstObject> return this.ParentClass;
 }
 
 @:forward

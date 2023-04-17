@@ -3,10 +3,10 @@ package ue;
 
 @:native("ERigControlValueType")
 @:include("Rigs/RigHierarchyDefines.h")
-extern enum ERigControlValueType {
-	Initial;
-	Current;
-	Minimum;
-	Maximum;
-	ERigControlValueType_MAX;
+extern class ERigControlValueType {
+	static var Initial: ERigControlValueType;
+	static var Current: ERigControlValueType;
+	static var Minimum: ERigControlValueType;
+	static var Maximum: ERigControlValueType;
+	static var ERigControlValueType_MAX: ERigControlValueType;
 }

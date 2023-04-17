@@ -5,7 +5,6 @@ package ue;
 @:include("NiagaraParameterDefinitionsBase.h")
 @:structAccess
 extern class NiagaraParameterDefinitionsBase extends Object {
-	public var UniqueId: Guid;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +12,6 @@ extern class NiagaraParameterDefinitionsBase extends Object {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraParameterDefinitionsBase(NiagaraParameterDefinitionsBase) from NiagaraParameterDefinitionsBase {
-	public extern var UniqueId(get, never): Guid;
-	public inline extern function get_UniqueId(): Guid return this.UniqueId;
 }
 
 @:forward

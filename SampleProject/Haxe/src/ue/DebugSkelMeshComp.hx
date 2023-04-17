@@ -25,7 +25,6 @@ extern class DebugSkelMeshComp extends SkeletalMeshComp {
 	public var bDisplayBound: Bool;
 	public var bDisplayVertexColors: Bool;
 	public var WireframeMeshOverlayColor: LinearColor;
-	public var bPreviewRootMotion_DEPRECATED: Bool;
 	public var ProcessRootMotionMode: EProcessRootMotionMode;
 	public var ConsumeRootMotionPreviousPlaybackTime: cpp.Float32;
 	public var bShowClothData: Bool;
@@ -93,8 +92,6 @@ abstract ConstDebugSkelMeshComp(DebugSkelMeshComp) from DebugSkelMeshComp {
 	public inline extern function get_bDisplayVertexColors(): Bool return this.bDisplayVertexColors;
 	public extern var WireframeMeshOverlayColor(get, never): LinearColor;
 	public inline extern function get_WireframeMeshOverlayColor(): LinearColor return this.WireframeMeshOverlayColor;
-	public extern var bPreviewRootMotion_DEPRECATED(get, never): Bool;
-	public inline extern function get_bPreviewRootMotion_DEPRECATED(): Bool return this.bPreviewRootMotion_DEPRECATED;
 	public extern var ProcessRootMotionMode(get, never): EProcessRootMotionMode;
 	public inline extern function get_ProcessRootMotionMode(): EProcessRootMotionMode return this.ProcessRootMotionMode;
 	public extern var ConsumeRootMotionPreviousPlaybackTime(get, never): cpp.Float32;

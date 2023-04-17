@@ -3,8 +3,8 @@ package ue;
 
 @:native("EAnimSyncGroupScope")
 @:include("Animation/AnimationAsset.h")
-extern enum EAnimSyncGroupScope {
-	Local;
-	Component;
-	EAnimSyncGroupScope_MAX;
+extern class EAnimSyncGroupScope {
+	static var Local: EAnimSyncGroupScope;
+	static var Component: EAnimSyncGroupScope;
+	static var EAnimSyncGroupScope_MAX: EAnimSyncGroupScope;
 }

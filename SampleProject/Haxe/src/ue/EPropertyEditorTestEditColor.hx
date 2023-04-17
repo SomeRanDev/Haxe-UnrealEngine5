@@ -3,16 +3,16 @@ package ue;
 
 @:native("EPropertyEditorTestEditColor")
 @:include("Editor/PropertyEditorTestObject.h")
-extern enum EPropertyEditorTestEditColor {
-	Red;
-	Orange;
-	Yellow;
-	Green;
-	Blue;
-	Indigo;
-	Violet;
-	Pink;
-	Magenta;
-	Cyan;
-	EPropertyEditorTestEditColor_MAX;
+extern class EPropertyEditorTestEditColor {
+	static var Red: EPropertyEditorTestEditColor;
+	static var Orange: EPropertyEditorTestEditColor;
+	static var Yellow: EPropertyEditorTestEditColor;
+	static var Green: EPropertyEditorTestEditColor;
+	static var Blue: EPropertyEditorTestEditColor;
+	static var Indigo: EPropertyEditorTestEditColor;
+	static var Violet: EPropertyEditorTestEditColor;
+	static var Pink: EPropertyEditorTestEditColor;
+	static var Magenta: EPropertyEditorTestEditColor;
+	static var Cyan: EPropertyEditorTestEditColor;
+	static var EPropertyEditorTestEditColor_MAX: EPropertyEditorTestEditColor;
 }

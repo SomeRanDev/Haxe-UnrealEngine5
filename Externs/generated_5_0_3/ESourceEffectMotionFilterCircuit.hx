@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESourceEffectMotionFilterCircuit")
 @:include("SourceEffects/SourceEffectMotionFilter.h")
-extern enum ESourceEffectMotionFilterCircuit {
-	OnePole;
-	StateVariable;
-	Ladder;
-	Count;
-	ESourceEffectMotionFilterCircuit_MAX;
+extern class ESourceEffectMotionFilterCircuit {
+	static var OnePole: ESourceEffectMotionFilterCircuit;
+	static var StateVariable: ESourceEffectMotionFilterCircuit;
+	static var Ladder: ESourceEffectMotionFilterCircuit;
+	static var Count: ESourceEffectMotionFilterCircuit;
+	static var ESourceEffectMotionFilterCircuit_MAX: ESourceEffectMotionFilterCircuit;
 }

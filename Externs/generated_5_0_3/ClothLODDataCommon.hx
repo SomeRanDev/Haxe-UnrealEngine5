@@ -10,8 +10,6 @@ extern class ClothLODDataCommon {
 	public var bUseMultipleInfluences: Bool;
 	public var SkinningKernelRadius: cpp.Float32;
 	public var bSmoothTransition: Bool;
-	public var ParameterMasks_DEPRECATED: TArray<ClothParameterMask_Legacy>;
-	public var PointWeightMaps: TArray<PointWeightMap>;
 
 	@:native("FClothLODDataCommon") public function new();
 }

@@ -5,9 +5,9 @@ package ue;
 @:include("SequencerAnimEditPivotTool.h")
 @:structAccess
 extern class SequencerPivotTool extends MultiSelectionTool {
-	public var ClickBehavior: cpp.Star<SingleClickInputBehavior>;
-	public var TransformProxy: cpp.Star<TransformProxy>;
-	public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
+	@:protected public var ClickBehavior: cpp.Star<SingleClickInputBehavior>;
+	@:protected public var TransformProxy: cpp.Star<TransformProxy>;
+	@:protected public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class SequencerPivotTool extends MultiSelectionTool {
 @:forward()
 @:nativeGen
 abstract ConstSequencerPivotTool(SequencerPivotTool) from SequencerPivotTool {
-	public extern var ClickBehavior(get, never): cpp.Star<SingleClickInputBehavior.ConstSingleClickInputBehavior>;
-	public inline extern function get_ClickBehavior(): cpp.Star<SingleClickInputBehavior.ConstSingleClickInputBehavior> return this.ClickBehavior;
-	public extern var TransformProxy(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
-	public inline extern function get_TransformProxy(): cpp.Star<TransformProxy.ConstTransformProxy> return this.TransformProxy;
-	public extern var TransformGizmo(get, never): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo>;
-	public inline extern function get_TransformGizmo(): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo> return this.TransformGizmo;
 }
 
 @:forward

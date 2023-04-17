@@ -3,9 +3,9 @@ package ue;
 
 @:native("EFBXNormalImportMethod")
 @:include("Factories/FbxMeshImportData.h")
-extern enum EFBXNormalImportMethod {
-	FBXNIM_ComputeNormals;
-	FBXNIM_ImportNormals;
-	FBXNIM_ImportNormalsAndTangents;
-	FBXNIM_MAX;
+extern class EFBXNormalImportMethod {
+	static var FBXNIM_ComputeNormals: EFBXNormalImportMethod;
+	static var FBXNIM_ImportNormals: EFBXNormalImportMethod;
+	static var FBXNIM_ImportNormalsAndTangents: EFBXNormalImportMethod;
+	static var FBXNIM_MAX: EFBXNormalImportMethod;
 }

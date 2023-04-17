@@ -3,8 +3,8 @@ package ue;
 
 @:native("EFeaturePackDetailLevel")
 @:include("FeaturePackContentSource.h")
-extern enum EFeaturePackDetailLevel {
-	Standard;
-	High;
-	EFeaturePackDetailLevel_MAX;
+extern class EFeaturePackDetailLevel {
+	static var Standard: EFeaturePackDetailLevel;
+	static var High: EFeaturePackDetailLevel;
+	static var EFeaturePackDetailLevel_MAX: EFeaturePackDetailLevel;
 }

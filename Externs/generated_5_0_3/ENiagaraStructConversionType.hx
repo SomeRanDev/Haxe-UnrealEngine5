@@ -3,12 +3,12 @@ package ue;
 
 @:native("ENiagaraStructConversionType")
 @:include("NiagaraTypes.h")
-extern enum ENiagaraStructConversionType {
-	CopyOnly;
-	DoubleToFloat;
-	Vector2;
-	Vector3;
-	Vector4;
-	Quat;
-	ENiagaraStructConversionType_MAX;
+extern class ENiagaraStructConversionType {
+	static var CopyOnly: ENiagaraStructConversionType;
+	static var DoubleToFloat: ENiagaraStructConversionType;
+	static var Vector2: ENiagaraStructConversionType;
+	static var Vector3: ENiagaraStructConversionType;
+	static var Vector4: ENiagaraStructConversionType;
+	static var Quat: ENiagaraStructConversionType;
+	static var ENiagaraStructConversionType_MAX: ENiagaraStructConversionType;
 }

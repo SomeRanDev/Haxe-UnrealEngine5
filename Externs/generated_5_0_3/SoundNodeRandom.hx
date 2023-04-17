@@ -12,7 +12,6 @@ extern class SoundNodeRandom extends SoundNode {
 	public var bShouldExcludeFromBranchCulling: Bool;
 	public var bSoundCueExcludedFromBranchCulling: Bool;
 	public var bRandomizeWithoutReplacement: Bool;
-	public var PIEHiddenNodes: TArray<cpp.Int32>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -34,8 +33,6 @@ abstract ConstSoundNodeRandom(SoundNodeRandom) from SoundNodeRandom {
 	public inline extern function get_bSoundCueExcludedFromBranchCulling(): Bool return this.bSoundCueExcludedFromBranchCulling;
 	public extern var bRandomizeWithoutReplacement(get, never): Bool;
 	public inline extern function get_bRandomizeWithoutReplacement(): Bool return this.bRandomizeWithoutReplacement;
-	public extern var PIEHiddenNodes(get, never): TArray<cpp.Int32>;
-	public inline extern function get_PIEHiddenNodes(): TArray<cpp.Int32> return this.PIEHiddenNodes;
 }
 
 @:forward

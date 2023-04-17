@@ -3,8 +3,8 @@ package ue;
 
 @:native("EEnvTestFilterOperator.Type")
 @:include("EnvironmentQuery/EnvQueryTypes.h")
-extern enum EEnvTestFilterOperator {
-	AllPass;
-	AnyPass;
-	EEnvTestFilterOperator_MAX;
+extern class EEnvTestFilterOperator {
+	static var AllPass: EEnvTestFilterOperator;
+	static var AnyPass: EEnvTestFilterOperator;
+	static var EEnvTestFilterOperator_MAX: EEnvTestFilterOperator;
 }

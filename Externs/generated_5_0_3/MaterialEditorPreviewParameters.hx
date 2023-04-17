@@ -9,8 +9,6 @@ extern class MaterialEditorPreviewParameters extends Object {
 	public var PreviewMaterial: cpp.Star<Material>;
 	public var OriginalFunction: cpp.Star<MaterialFunction>;
 	public var OriginalMaterial: cpp.Star<Material>;
-	public var StoredLayerPreviews: TArray<cpp.Star<MaterialInstanceConstant>>;
-	public var StoredBlendPreviews: TArray<cpp.Star<MaterialInstanceConstant>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -26,10 +24,6 @@ abstract ConstMaterialEditorPreviewParameters(MaterialEditorPreviewParameters) f
 	public inline extern function get_OriginalFunction(): cpp.Star<MaterialFunction.ConstMaterialFunction> return this.OriginalFunction;
 	public extern var OriginalMaterial(get, never): cpp.Star<Material.ConstMaterial>;
 	public inline extern function get_OriginalMaterial(): cpp.Star<Material.ConstMaterial> return this.OriginalMaterial;
-	public extern var StoredLayerPreviews(get, never): TArray<cpp.Star<MaterialInstanceConstant.ConstMaterialInstanceConstant>>;
-	public inline extern function get_StoredLayerPreviews(): TArray<cpp.Star<MaterialInstanceConstant.ConstMaterialInstanceConstant>> return this.StoredLayerPreviews;
-	public extern var StoredBlendPreviews(get, never): TArray<cpp.Star<MaterialInstanceConstant.ConstMaterialInstanceConstant>>;
-	public inline extern function get_StoredBlendPreviews(): TArray<cpp.Star<MaterialInstanceConstant.ConstMaterialInstanceConstant>> return this.StoredBlendPreviews;
 }
 
 @:forward

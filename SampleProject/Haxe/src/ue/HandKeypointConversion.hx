@@ -5,7 +5,7 @@ package ue;
 @:include("HeadMountedDisplayTypes.h")
 @:structAccess
 extern class HandKeypointConversion extends BlueprintFunctionLibrary {
-	public function Conv_HandKeypointToInt32(input: EHandKeypoint): cpp.Reference<cpp.Int32>;
+	public function Conv_HandKeypointToInt32(input: EHandKeypoint): cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

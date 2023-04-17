@@ -3,8 +3,8 @@ package ue;
 
 @:native("EAnimPoseSpaces")
 @:include("AnimPose.h")
-extern enum EAnimPoseSpaces {
-	Local;
-	World;
-	EAnimPoseSpaces_MAX;
+extern class EAnimPoseSpaces {
+	static var Local: EAnimPoseSpaces;
+	static var World: EAnimPoseSpaces;
+	static var EAnimPoseSpaces_MAX: EAnimPoseSpaces;
 }

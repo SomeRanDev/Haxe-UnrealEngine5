@@ -17,7 +17,6 @@ extern class GameplayTagsSettings extends GameplayTagsList {
 	public var NumBitsForContainerSize: cpp.Int32;
 	public var NetIndexFirstBitSegment: cpp.Int32;
 	public var RestrictedConfigFiles: TArray<RestrictedConfigInfo>;
-	public var RestrictedTagList: FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -49,8 +48,6 @@ abstract ConstGameplayTagsSettings(GameplayTagsSettings) from GameplayTagsSettin
 	public inline extern function get_NetIndexFirstBitSegment(): cpp.Int32 return this.NetIndexFirstBitSegment;
 	public extern var RestrictedConfigFiles(get, never): TArray<RestrictedConfigInfo>;
 	public inline extern function get_RestrictedConfigFiles(): TArray<RestrictedConfigInfo> return this.RestrictedConfigFiles;
-	public extern var RestrictedTagList(get, never): FString;
-	public inline extern function get_RestrictedTagList(): FString return this.RestrictedTagList;
 }
 
 @:forward

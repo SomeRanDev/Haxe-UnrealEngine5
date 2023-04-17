@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class MaterialExpressionDBufferTexture extends MaterialExpression {
 	public var Coordinates: ExpressionInput;
-	public var DBufferTextureId: EDBufferTextureId;
+	public var DBufferTextureId: TEnumAsByte<EDBufferTextureId>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,8 @@ extern class MaterialExpressionDBufferTexture extends MaterialExpression {
 abstract ConstMaterialExpressionDBufferTexture(MaterialExpressionDBufferTexture) from MaterialExpressionDBufferTexture {
 	public extern var Coordinates(get, never): ExpressionInput;
 	public inline extern function get_Coordinates(): ExpressionInput return this.Coordinates;
-	public extern var DBufferTextureId(get, never): EDBufferTextureId;
-	public inline extern function get_DBufferTextureId(): EDBufferTextureId return this.DBufferTextureId;
+	public extern var DBufferTextureId(get, never): TEnumAsByte<EDBufferTextureId>;
+	public inline extern function get_DBufferTextureId(): TEnumAsByte<EDBufferTextureId> return this.DBufferTextureId;
 }
 
 @:forward

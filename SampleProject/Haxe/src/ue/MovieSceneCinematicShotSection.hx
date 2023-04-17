@@ -5,12 +5,10 @@ package ue;
 @:include("Sections/MovieSceneCinematicShotSection.h")
 @:structAccess
 extern class MovieSceneCinematicShotSection extends MovieSceneSubSection {
-	public var ShotDisplayName: FString;
-	public var DisplayName_DEPRECATED: FText;
-	public var ThumbnailReferenceOffset: cpp.Float32;
+	private var ShotDisplayName: FString;
 
 	public function SetShotDisplayName(InShotDisplayName: FString): Void;
-	public function GetShotDisplayName(): cpp.Reference<FString>;
+	public function GetShotDisplayName(): FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,12 +16,6 @@ extern class MovieSceneCinematicShotSection extends MovieSceneSubSection {
 @:forward(GetShotDisplayName)
 @:nativeGen
 abstract ConstMovieSceneCinematicShotSection(MovieSceneCinematicShotSection) from MovieSceneCinematicShotSection {
-	public extern var ShotDisplayName(get, never): FString;
-	public inline extern function get_ShotDisplayName(): FString return this.ShotDisplayName;
-	public extern var DisplayName_DEPRECATED(get, never): FText;
-	public inline extern function get_DisplayName_DEPRECATED(): FText return this.DisplayName_DEPRECATED;
-	public extern var ThumbnailReferenceOffset(get, never): cpp.Float32;
-	public inline extern function get_ThumbnailReferenceOffset(): cpp.Float32 return this.ThumbnailReferenceOffset;
 }
 
 @:forward

@@ -5,7 +5,7 @@ package ue;
 @:include("Selection.h")
 @:structAccess
 extern class Selection extends Object {
-	public var ElementSelectionSet: cpp.Star<TypedElementSelectionSet>;
+	private var ElementSelectionSet: cpp.Star<TypedElementSelectionSet>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class Selection extends Object {
 @:forward()
 @:nativeGen
 abstract ConstSelection(Selection) from Selection {
-	public extern var ElementSelectionSet(get, never): cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet>;
-	public inline extern function get_ElementSelectionSet(): cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet> return this.ElementSelectionSet;
 }
 
 @:forward

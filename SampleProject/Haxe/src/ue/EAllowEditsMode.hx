@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAllowEditsMode")
 @:include("ISequencer.h")
-extern enum EAllowEditsMode {
-	AllEdits;
-	AllowSequencerEditsOnly;
-	AllowLevelEditsOnly;
-	EAllowEditsMode_MAX;
+extern class EAllowEditsMode {
+	static var AllEdits: EAllowEditsMode;
+	static var AllowSequencerEditsOnly: EAllowEditsMode;
+	static var AllowLevelEditsOnly: EAllowEditsMode;
+	static var EAllowEditsMode_MAX: EAllowEditsMode;
 }

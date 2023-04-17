@@ -3,8 +3,8 @@ package ue;
 
 @:native("EOutlinerItemNameEnum")
 @:include("Private/SGeometryCollectionOutliner.h")
-extern enum EOutlinerItemNameEnum {
-	BoneName;
-	BoneIndex;
-	EOutlinerItemNameEnum_MAX;
+extern class EOutlinerItemNameEnum {
+	static var BoneName: EOutlinerItemNameEnum;
+	static var BoneIndex: EOutlinerItemNameEnum;
+	static var EOutlinerItemNameEnum_MAX: EOutlinerItemNameEnum;
 }

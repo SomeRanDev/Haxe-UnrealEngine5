@@ -6,13 +6,6 @@ package ue;
 @:structAccess
 extern class MovieSceneSkeletalAnimationSection extends MovieSceneSection {
 	public var Params: MovieSceneSkeletalAnimationParams;
-	public var AnimSequence_DEPRECATED: cpp.Star<AnimSequence>;
-	public var Animation_DEPRECATED: cpp.Star<AnimSequenceBase>;
-	public var StartOffset_DEPRECATED: cpp.Float32;
-	public var EndOffset_DEPRECATED: cpp.Float32;
-	public var PlayRate_DEPRECATED: cpp.Float32;
-	public var bReverse_DEPRECATED: Bool;
-	public var SlotName_DEPRECATED: FName;
 	public var StartLocationOffset: Vector;
 	public var StartRotationOffset: Rotator;
 	public var bMatchWithPrevious: Bool;
@@ -24,7 +17,6 @@ extern class MovieSceneSkeletalAnimationSection extends MovieSceneSection {
 	public var bMatchRotationYaw: Bool;
 	public var bMatchRotationPitch: Bool;
 	public var bMatchRotationRoll: Bool;
-	public var bShowSkeleton: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -34,20 +26,6 @@ extern class MovieSceneSkeletalAnimationSection extends MovieSceneSection {
 abstract ConstMovieSceneSkeletalAnimationSection(MovieSceneSkeletalAnimationSection) from MovieSceneSkeletalAnimationSection {
 	public extern var Params(get, never): MovieSceneSkeletalAnimationParams;
 	public inline extern function get_Params(): MovieSceneSkeletalAnimationParams return this.Params;
-	public extern var AnimSequence_DEPRECATED(get, never): cpp.Star<AnimSequence.ConstAnimSequence>;
-	public inline extern function get_AnimSequence_DEPRECATED(): cpp.Star<AnimSequence.ConstAnimSequence> return this.AnimSequence_DEPRECATED;
-	public extern var Animation_DEPRECATED(get, never): cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>;
-	public inline extern function get_Animation_DEPRECATED(): cpp.Star<AnimSequenceBase.ConstAnimSequenceBase> return this.Animation_DEPRECATED;
-	public extern var StartOffset_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_StartOffset_DEPRECATED(): cpp.Float32 return this.StartOffset_DEPRECATED;
-	public extern var EndOffset_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_EndOffset_DEPRECATED(): cpp.Float32 return this.EndOffset_DEPRECATED;
-	public extern var PlayRate_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_PlayRate_DEPRECATED(): cpp.Float32 return this.PlayRate_DEPRECATED;
-	public extern var bReverse_DEPRECATED(get, never): Bool;
-	public inline extern function get_bReverse_DEPRECATED(): Bool return this.bReverse_DEPRECATED;
-	public extern var SlotName_DEPRECATED(get, never): FName;
-	public inline extern function get_SlotName_DEPRECATED(): FName return this.SlotName_DEPRECATED;
 	public extern var StartLocationOffset(get, never): Vector;
 	public inline extern function get_StartLocationOffset(): Vector return this.StartLocationOffset;
 	public extern var StartRotationOffset(get, never): Rotator;
@@ -70,8 +48,6 @@ abstract ConstMovieSceneSkeletalAnimationSection(MovieSceneSkeletalAnimationSect
 	public inline extern function get_bMatchRotationPitch(): Bool return this.bMatchRotationPitch;
 	public extern var bMatchRotationRoll(get, never): Bool;
 	public inline extern function get_bMatchRotationRoll(): Bool return this.bMatchRotationRoll;
-	public extern var bShowSkeleton(get, never): Bool;
-	public inline extern function get_bShowSkeleton(): Bool return this.bShowSkeleton;
 }
 
 @:forward

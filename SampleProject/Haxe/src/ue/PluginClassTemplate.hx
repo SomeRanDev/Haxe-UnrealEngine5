@@ -5,7 +5,7 @@ package ue;
 @:include("ClassTemplateEditorSubsystem.h")
 @:structAccess
 extern class PluginClassTemplate extends ClassTemplate {
-	public var PluginName: FString;
+	@:protected public var PluginName: FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class PluginClassTemplate extends ClassTemplate {
 @:forward()
 @:nativeGen
 abstract ConstPluginClassTemplate(PluginClassTemplate) from PluginClassTemplate {
-	public extern var PluginName(get, never): FString;
-	public inline extern function get_PluginName(): FString return this.PluginName;
 }
 
 @:forward

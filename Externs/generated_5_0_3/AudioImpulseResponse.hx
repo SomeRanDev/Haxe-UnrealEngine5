@@ -10,7 +10,6 @@ extern class AudioImpulseResponse extends Object {
 	public var SampleRate: cpp.Int32;
 	public var NormalizationVolumeDb: cpp.Float32;
 	public var bTrueStereo: Bool;
-	public var IRData_DEPRECATED: TArray<cpp.Float32>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -28,8 +27,6 @@ abstract ConstAudioImpulseResponse(AudioImpulseResponse) from AudioImpulseRespon
 	public inline extern function get_NormalizationVolumeDb(): cpp.Float32 return this.NormalizationVolumeDb;
 	public extern var bTrueStereo(get, never): Bool;
 	public inline extern function get_bTrueStereo(): Bool return this.bTrueStereo;
-	public extern var IRData_DEPRECATED(get, never): TArray<cpp.Float32>;
-	public inline extern function get_IRData_DEPRECATED(): TArray<cpp.Float32> return this.IRData_DEPRECATED;
 }
 
 @:forward

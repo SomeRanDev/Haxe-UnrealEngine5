@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class CameraAnimInst extends Object {
 	public var CamAnim: cpp.Star<CameraAnim>;
-	public var InterpGroupInst: cpp.Star<InterpGroupInst>;
+	private var InterpGroupInst: cpp.Star<InterpGroupInst>;
 	public var PlayRate: cpp.Float32;
 	public var MoveTrack: cpp.Star<InterpTrackMove>;
 	public var MoveInst: cpp.Star<InterpTrackInstMove>;
@@ -24,8 +24,6 @@ extern class CameraAnimInst extends Object {
 abstract ConstCameraAnimInst(CameraAnimInst) from CameraAnimInst {
 	public extern var CamAnim(get, never): cpp.Star<CameraAnim.ConstCameraAnim>;
 	public inline extern function get_CamAnim(): cpp.Star<CameraAnim.ConstCameraAnim> return this.CamAnim;
-	public extern var InterpGroupInst(get, never): cpp.Star<InterpGroupInst.ConstInterpGroupInst>;
-	public inline extern function get_InterpGroupInst(): cpp.Star<InterpGroupInst.ConstInterpGroupInst> return this.InterpGroupInst;
 	public extern var PlayRate(get, never): cpp.Float32;
 	public inline extern function get_PlayRate(): cpp.Float32 return this.PlayRate;
 	public extern var MoveTrack(get, never): cpp.Star<InterpTrackMove.ConstInterpTrackMove>;

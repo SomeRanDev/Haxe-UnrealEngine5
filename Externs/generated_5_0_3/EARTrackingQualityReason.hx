@@ -3,13 +3,13 @@ package ue;
 
 @:native("EARTrackingQualityReason")
 @:include("ARTypes.h")
-extern enum EARTrackingQualityReason {
-	None;
-	Initializing;
-	Relocalizing;
-	ExcessiveMotion;
-	InsufficientFeatures;
-	InsufficientLight;
-	BadState;
-	EARTrackingQualityReason_MAX;
+extern class EARTrackingQualityReason {
+	static var None: EARTrackingQualityReason;
+	static var Initializing: EARTrackingQualityReason;
+	static var Relocalizing: EARTrackingQualityReason;
+	static var ExcessiveMotion: EARTrackingQualityReason;
+	static var InsufficientFeatures: EARTrackingQualityReason;
+	static var InsufficientLight: EARTrackingQualityReason;
+	static var BadState: EARTrackingQualityReason;
+	static var EARTrackingQualityReason_MAX: EARTrackingQualityReason;
 }

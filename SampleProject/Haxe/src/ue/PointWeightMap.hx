@@ -6,9 +6,6 @@ package ue;
 @:structAccess
 extern class PointWeightMap {
 	public var Values: TArray<cpp.Float32>;
-	public var Name: FName;
-	public var CurrentTarget: cpp.UInt8;
-	public var bEnabled: Bool;
 
 	@:native("FPointWeightMap") public function new();
 	@:native("FPointWeightMap") public static function make(Values: TArray<cpp.Float32>, Name: FName, CurrentTarget: cpp.UInt8, bEnabled: Bool): PointWeightMap ;

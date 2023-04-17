@@ -6,8 +6,6 @@ package ue;
 @:structAccess
 extern class BlackboardEntry {
 	public var EntryName: FName;
-	public var EntryDescription: FString;
-	public var EntryCategory: FName;
 	public var KeyType: cpp.Star<BlackboardKeyType>;
 	public var bInstanceSynced: Bool;
 

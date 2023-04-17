@@ -3,11 +3,11 @@ package ue;
 
 @:native("EMouseCaptureMode")
 @:include("Engine/EngineBaseTypes.h")
-extern enum EMouseCaptureMode {
-	NoCapture;
-	CapturePermanently;
-	CapturePermanently_IncludingInitialMouseDown;
-	CaptureDuringMouseDown;
-	CaptureDuringRightMouseDown;
-	EMouseCaptureMode_MAX;
+extern class EMouseCaptureMode {
+	static var NoCapture: EMouseCaptureMode;
+	static var CapturePermanently: EMouseCaptureMode;
+	static var CapturePermanently_IncludingInitialMouseDown: EMouseCaptureMode;
+	static var CaptureDuringMouseDown: EMouseCaptureMode;
+	static var CaptureDuringRightMouseDown: EMouseCaptureMode;
+	static var EMouseCaptureMode_MAX: EMouseCaptureMode;
 }

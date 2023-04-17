@@ -3,9 +3,9 @@ package ue;
 
 @:native("EFbxSceneVertexColorImportOption")
 @:include("Factories/FbxSceneImportOptionsStaticMesh.h")
-extern enum EFbxSceneVertexColorImportOption {
-	Replace;
-	Ignore;
-	Override;
-	EFbxSceneVertexColorImportOption_MAX;
+extern class EFbxSceneVertexColorImportOption {
+	static var Replace: EFbxSceneVertexColorImportOption;
+	static var Ignore: EFbxSceneVertexColorImportOption;
+	static var Override: EFbxSceneVertexColorImportOption;
+	static var EFbxSceneVertexColorImportOption_MAX: EFbxSceneVertexColorImportOption;
 }

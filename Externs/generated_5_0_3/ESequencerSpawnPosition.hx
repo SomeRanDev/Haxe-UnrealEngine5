@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESequencerSpawnPosition")
 @:include("SequencerSettings.h")
-extern enum ESequencerSpawnPosition {
-	SSP_Origin;
-	SSP_PlaceInFrontOfCamera;
-	SSP_MAX;
+extern class ESequencerSpawnPosition {
+	static var SSP_Origin: ESequencerSpawnPosition;
+	static var SSP_PlaceInFrontOfCamera: ESequencerSpawnPosition;
+	static var SSP_MAX: ESequencerSpawnPosition;
 }

@@ -6,11 +6,9 @@ package ue;
 @:structAccess
 extern class MaterialExpressionMaterialFunctionCall extends MaterialExpression {
 	public var MaterialFunction: cpp.Star<MaterialFunctionInterface>;
-	public var FunctionInputs: TArray<FunctionExpressionInput>;
-	public var FunctionOutputs: TArray<FunctionExpressionOutput>;
 	public var FunctionParameterInfo: MaterialParameterInfo;
 
-	public function SetMaterialFunction(NewMaterialFunction: cpp.Star<MaterialFunctionInterface>): cpp.Reference<Bool>;
+	public function SetMaterialFunction(NewMaterialFunction: cpp.Star<MaterialFunctionInterface>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -20,10 +18,6 @@ extern class MaterialExpressionMaterialFunctionCall extends MaterialExpression {
 abstract ConstMaterialExpressionMaterialFunctionCall(MaterialExpressionMaterialFunctionCall) from MaterialExpressionMaterialFunctionCall {
 	public extern var MaterialFunction(get, never): cpp.Star<MaterialFunctionInterface.ConstMaterialFunctionInterface>;
 	public inline extern function get_MaterialFunction(): cpp.Star<MaterialFunctionInterface.ConstMaterialFunctionInterface> return this.MaterialFunction;
-	public extern var FunctionInputs(get, never): TArray<FunctionExpressionInput>;
-	public inline extern function get_FunctionInputs(): TArray<FunctionExpressionInput> return this.FunctionInputs;
-	public extern var FunctionOutputs(get, never): TArray<FunctionExpressionOutput>;
-	public inline extern function get_FunctionOutputs(): TArray<FunctionExpressionOutput> return this.FunctionOutputs;
 	public extern var FunctionParameterInfo(get, never): MaterialParameterInfo;
 	public inline extern function get_FunctionParameterInfo(): MaterialParameterInfo return this.FunctionParameterInfo;
 }

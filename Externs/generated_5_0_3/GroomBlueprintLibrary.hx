@@ -5,10 +5,10 @@ package ue;
 @:include("GroomBlueprintLibrary.h")
 @:structAccess
 extern class GroomBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function CreateNewGroomBindingAssetWithPath(InDesiredPackagePath: FString, InGroomAsset: cpp.Star<GroomAsset>, InSkeletalMesh: cpp.Star<SkeletalMesh>, InNumInterpolationPoints: cpp.Int32, InSourceSkeletalMeshForTransfer: cpp.Star<SkeletalMesh>, InMatchingSection: cpp.Int32): cpp.Reference<cpp.Star<GroomBindingAsset>>;
-	public function CreateNewGroomBindingAsset(InGroomAsset: cpp.Star<GroomAsset>, InSkeletalMesh: cpp.Star<SkeletalMesh>, InNumInterpolationPoints: cpp.Int32, InSourceSkeletalMeshForTransfer: cpp.Star<SkeletalMesh>, InMatchingSection: cpp.Int32): cpp.Reference<cpp.Star<GroomBindingAsset>>;
-	public function CreateNewGeometryCacheGroomBindingAssetWithPath(DesiredPackagePath: FString, GroomAsset: cpp.Star<GroomAsset>, GeometryCache: cpp.Star<GeometryCache>, NumInterpolationPoints: cpp.Int32, SourceGeometryCacheForTransfer: cpp.Star<GeometryCache>, MatchingSection: cpp.Int32): cpp.Reference<cpp.Star<GroomBindingAsset>>;
-	public function CreateNewGeometryCacheGroomBindingAsset(GroomAsset: cpp.Star<GroomAsset>, GeometryCache: cpp.Star<GeometryCache>, NumInterpolationPoints: cpp.Int32, SourceGeometryCacheForTransfer: cpp.Star<GeometryCache>, MatchingSection: cpp.Int32): cpp.Reference<cpp.Star<GroomBindingAsset>>;
+	public function CreateNewGroomBindingAssetWithPath(InDesiredPackagePath: FString, InGroomAsset: cpp.Star<GroomAsset>, InSkeletalMesh: cpp.Star<SkeletalMesh>, InNumInterpolationPoints: cpp.Int32, InSourceSkeletalMeshForTransfer: cpp.Star<SkeletalMesh>, InMatchingSection: cpp.Int32): cpp.Star<GroomBindingAsset>;
+	public function CreateNewGroomBindingAsset(InGroomAsset: cpp.Star<GroomAsset>, InSkeletalMesh: cpp.Star<SkeletalMesh>, InNumInterpolationPoints: cpp.Int32, InSourceSkeletalMeshForTransfer: cpp.Star<SkeletalMesh>, InMatchingSection: cpp.Int32): cpp.Star<GroomBindingAsset>;
+	public function CreateNewGeometryCacheGroomBindingAssetWithPath(DesiredPackagePath: FString, GroomAsset: cpp.Star<GroomAsset>, GeometryCache: cpp.Star<GeometryCache>, NumInterpolationPoints: cpp.Int32, SourceGeometryCacheForTransfer: cpp.Star<GeometryCache>, MatchingSection: cpp.Int32): cpp.Star<GroomBindingAsset>;
+	public function CreateNewGeometryCacheGroomBindingAsset(GroomAsset: cpp.Star<GroomAsset>, GeometryCache: cpp.Star<GeometryCache>, NumInterpolationPoints: cpp.Int32, SourceGeometryCacheForTransfer: cpp.Star<GeometryCache>, MatchingSection: cpp.Int32): cpp.Star<GroomBindingAsset>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

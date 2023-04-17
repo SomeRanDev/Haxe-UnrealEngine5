@@ -9,21 +9,21 @@ extern class GameStateBase extends Info {
 	public var AuthorityGameMode: cpp.Star<GameModeBase>;
 	public var SpectatorClass: TSubclassOf<SpectatorPawn>;
 	public var PlayerArray: TArray<cpp.Star<PlayerState>>;
-	public var bReplicatedHasBegunPlay: Bool;
-	public var ReplicatedWorldTimeSeconds: cpp.Float32;
-	public var ServerWorldTimeSecondsDelta: cpp.Float32;
-	public var ServerWorldTimeSecondsUpdateFrequency: cpp.Float32;
+	@:protected public var bReplicatedHasBegunPlay: Bool;
+	@:protected public var ReplicatedWorldTimeSeconds: cpp.Float32;
+	@:protected public var ServerWorldTimeSecondsDelta: cpp.Float32;
+	@:protected public var ServerWorldTimeSecondsUpdateFrequency: cpp.Float32;
 
-	public function OnRep_SpectatorClass(): Void;
-	public function OnRep_ReplicatedWorldTimeSeconds(): Void;
-	public function OnRep_ReplicatedHasBegunPlay(): Void;
-	public function OnRep_GameModeClass(): Void;
-	public function HasMatchStarted(): cpp.Reference<Bool>;
-	public function HasMatchEnded(): cpp.Reference<Bool>;
-	public function HasBegunPlay(): cpp.Reference<Bool>;
-	public function GetServerWorldTimeSeconds(): cpp.Reference<cpp.Float32>;
-	public function GetPlayerStartTime(Controller: cpp.Star<Controller>): cpp.Reference<cpp.Float32>;
-	public function GetPlayerRespawnDelay(Controller: cpp.Star<Controller>): cpp.Reference<cpp.Float32>;
+	@:protected public function OnRep_SpectatorClass(): Void;
+	@:protected public function OnRep_ReplicatedWorldTimeSeconds(): Void;
+	@:protected public function OnRep_ReplicatedHasBegunPlay(): Void;
+	@:protected public function OnRep_GameModeClass(): Void;
+	public function HasMatchStarted(): Bool;
+	public function HasMatchEnded(): Bool;
+	public function HasBegunPlay(): Bool;
+	public function GetServerWorldTimeSeconds(): cpp.Float32;
+	public function GetPlayerStartTime(Controller: cpp.Star<Controller>): cpp.Float32;
+	public function GetPlayerRespawnDelay(Controller: cpp.Star<Controller>): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -39,14 +39,6 @@ abstract ConstGameStateBase(GameStateBase) from GameStateBase {
 	public inline extern function get_SpectatorClass(): TSubclassOf<SpectatorPawn.ConstSpectatorPawn> return this.SpectatorClass;
 	public extern var PlayerArray(get, never): TArray<cpp.Star<PlayerState.ConstPlayerState>>;
 	public inline extern function get_PlayerArray(): TArray<cpp.Star<PlayerState.ConstPlayerState>> return this.PlayerArray;
-	public extern var bReplicatedHasBegunPlay(get, never): Bool;
-	public inline extern function get_bReplicatedHasBegunPlay(): Bool return this.bReplicatedHasBegunPlay;
-	public extern var ReplicatedWorldTimeSeconds(get, never): cpp.Float32;
-	public inline extern function get_ReplicatedWorldTimeSeconds(): cpp.Float32 return this.ReplicatedWorldTimeSeconds;
-	public extern var ServerWorldTimeSecondsDelta(get, never): cpp.Float32;
-	public inline extern function get_ServerWorldTimeSecondsDelta(): cpp.Float32 return this.ServerWorldTimeSecondsDelta;
-	public extern var ServerWorldTimeSecondsUpdateFrequency(get, never): cpp.Float32;
-	public inline extern function get_ServerWorldTimeSecondsUpdateFrequency(): cpp.Float32 return this.ServerWorldTimeSecondsUpdateFrequency;
 }
 
 @:forward

@@ -12,7 +12,6 @@ extern class MaterialExpressionIf extends MaterialExpression {
 	public var ALessThanB: ExpressionInput;
 	public var EqualsThreshold: cpp.Float32;
 	public var ConstB: cpp.Float32;
-	public var ConstAEqualsB_DEPRECATED: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -34,8 +33,6 @@ abstract ConstMaterialExpressionIf(MaterialExpressionIf) from MaterialExpression
 	public inline extern function get_EqualsThreshold(): cpp.Float32 return this.EqualsThreshold;
 	public extern var ConstB(get, never): cpp.Float32;
 	public inline extern function get_ConstB(): cpp.Float32 return this.ConstB;
-	public extern var ConstAEqualsB_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_ConstAEqualsB_DEPRECATED(): cpp.Float32 return this.ConstAEqualsB_DEPRECATED;
 }
 
 @:forward

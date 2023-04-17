@@ -5,9 +5,9 @@ package ue;
 @:include("ToolMenus.h")
 @:structAccess
 extern class ToolMenus extends Object {
-	public var CustomizedMenus: TArray<CustomizedToolMenu>;
-	public var MenuSubstitutionsDuringGenerate: TMap<FName, FName>;
-	public var Menus: TMap<FName, cpp.Star<ToolMenu>>;
+	private var CustomizedMenus: TArray<CustomizedToolMenu>;
+	private var MenuSubstitutionsDuringGenerate: TMap<FName, FName>;
+	private var Menus: TMap<FName, cpp.Star<ToolMenu>>;
 
 	public function UnregisterOwnerByName(InOwnerName: FName): Void;
 	public function SetSectionPosition(MenuName: FName, SectionName: FName, OtherSectionName: FName, PositionType: EToolMenuInsertType): Void;
@@ -15,15 +15,15 @@ extern class ToolMenus extends Object {
 	public function RemoveSection(MenuName: FName, Section: FName): Void;
 	public function RemoveMenu(MenuName: FName): Void;
 	public function RemoveEntry(MenuName: FName, Section: FName, Name: FName): Void;
-	public function RegisterMenu(Name: FName, Parent: FName, Type: EMultiBoxType, bWarnIfAlreadyRegistered: Bool): cpp.Reference<cpp.Star<ToolMenu>>;
-	public function RefreshMenuWidget(Name: FName): cpp.Reference<Bool>;
+	public function RegisterMenu(Name: FName, Parent: FName, Type: EMultiBoxType, bWarnIfAlreadyRegistered: Bool): cpp.Star<ToolMenu>;
+	public function RefreshMenuWidget(Name: FName): Bool;
 	public function RefreshAllWidgets(): Void;
-	public function IsMenuRegistered(Name: FName): cpp.Reference<Bool>;
-	public function Get(): cpp.Reference<cpp.Star<ToolMenus>>;
-	public function FindMenu(Name: FName): cpp.Reference<cpp.Star<ToolMenu>>;
-	public function FindContext(InContext: cpp.Reference<ToolMenuContext>, InClass: cpp.Star<Class>): cpp.Reference<cpp.Star<Object>>;
-	public function ExtendMenu(Name: FName): cpp.Reference<cpp.Star<ToolMenu>>;
-	public function AddMenuEntryObject(MenuEntryObject: cpp.Star<ToolMenuEntryScript>): cpp.Reference<Bool>;
+	public function IsMenuRegistered(Name: FName): Bool;
+	public function Get(): cpp.Star<ToolMenus>;
+	public function FindMenu(Name: FName): cpp.Star<ToolMenu>;
+	public function FindContext(InContext: cpp.Reference<ToolMenuContext>, InClass: cpp.Star<Class>): cpp.Star<Object>;
+	public function ExtendMenu(Name: FName): cpp.Star<ToolMenu>;
+	public function AddMenuEntryObject(MenuEntryObject: cpp.Star<ToolMenuEntryScript>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -31,12 +31,6 @@ extern class ToolMenus extends Object {
 @:forward(IsMenuRegistered)
 @:nativeGen
 abstract ConstToolMenus(ToolMenus) from ToolMenus {
-	public extern var CustomizedMenus(get, never): TArray<CustomizedToolMenu>;
-	public inline extern function get_CustomizedMenus(): TArray<CustomizedToolMenu> return this.CustomizedMenus;
-	public extern var MenuSubstitutionsDuringGenerate(get, never): TMap<FName, FName>;
-	public inline extern function get_MenuSubstitutionsDuringGenerate(): TMap<FName, FName> return this.MenuSubstitutionsDuringGenerate;
-	public extern var Menus(get, never): TMap<FName, cpp.Star<ToolMenu.ConstToolMenu>>;
-	public inline extern function get_Menus(): TMap<FName, cpp.Star<ToolMenu.ConstToolMenu>> return this.Menus;
 }
 
 @:forward

@@ -3,12 +3,12 @@ package ue;
 
 @:native("EFormatArgumentType.Type")
 @:include("Kismet/KismetTextLibrary.h")
-extern enum EFormatArgumentType {
-	Int;
-	UInt;
-	Float;
-	Double;
-	Text;
-	Gender;
-	EFormatArgumentType_MAX;
+extern class EFormatArgumentType {
+	static var Int: EFormatArgumentType;
+	static var UInt: EFormatArgumentType;
+	static var Float: EFormatArgumentType;
+	static var Double: EFormatArgumentType;
+	static var Text: EFormatArgumentType;
+	static var Gender: EFormatArgumentType;
+	static var EFormatArgumentType_MAX: EFormatArgumentType;
 }

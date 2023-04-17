@@ -3,9 +3,9 @@ package ue;
 
 @:native("EFlareProfileType")
 @:include("MeshSpaceDeformerTool.h")
-extern enum EFlareProfileType {
-	SinMode;
-	SinSquaredMode;
-	TriangleMode;
-	EFlareProfileType_MAX;
+extern class EFlareProfileType {
+	static var SinMode: EFlareProfileType;
+	static var SinSquaredMode: EFlareProfileType;
+	static var TriangleMode: EFlareProfileType;
+	static var EFlareProfileType_MAX: EFlareProfileType;
 }

@@ -5,7 +5,7 @@ package ue;
 @:include("SubobjectEditorMenuContext.h")
 @:structAccess
 extern class SubobjectEditorMenuContext extends Object {
-	public function GetSelectedObjects(): cpp.Reference<TArray<cpp.Star<Object>>>;
+	public function GetSelectedObjects(): TArray<cpp.Star<Object>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

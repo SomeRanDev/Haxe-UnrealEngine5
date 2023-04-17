@@ -3,8 +3,8 @@ package ue;
 
 @:native("EWindowVisibility")
 @:include("Components/WidgetComponent.h")
-extern enum EWindowVisibility {
-	Visible;
-	SelfHitTestInvisible;
-	EWindowVisibility_MAX;
+extern class EWindowVisibility {
+	static var Visible: EWindowVisibility;
+	static var SelfHitTestInvisible: EWindowVisibility;
+	static var EWindowVisibility_MAX: EWindowVisibility;
 }

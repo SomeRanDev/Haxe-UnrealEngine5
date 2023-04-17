@@ -5,9 +5,8 @@ package ue;
 @:include("LevelSequenceBindingReference.h")
 @:structAccess
 extern class LevelSequenceBindingReference {
-	public var PackageName_DEPRECATED: FString;
-	public var ExternalObjectPath: SoftObjectPath;
-	public var ObjectPath: FString;
+	private var ExternalObjectPath: SoftObjectPath;
+	private var ObjectPath: FString;
 
 	@:native("FLevelSequenceBindingReference") public function new();
 	@:native("FLevelSequenceBindingReference") public static function make(PackageName_DEPRECATED: FString, ExternalObjectPath: SoftObjectPath, ObjectPath: FString): LevelSequenceBindingReference ;

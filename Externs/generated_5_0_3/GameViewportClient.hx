@@ -8,8 +8,8 @@ extern class GameViewportClient extends ScriptViewportClient {
 	public var ViewportConsole: cpp.Star<Console>;
 	public var DebugProperties: TArray<DebugDisplayProperty>;
 	public var MaxSplitscreenPlayers: cpp.Int32;
-	public var World: cpp.Star<World>;
-	public var GameInstance: cpp.Star<GameInstance>;
+	@:protected public var World: cpp.Star<World>;
+	@:protected public var GameInstance: cpp.Star<GameInstance>;
 
 	public function SSSwapControllers(): Void;
 	public function ShowTitleSafeArea(): Void;
@@ -27,10 +27,6 @@ abstract ConstGameViewportClient(GameViewportClient) from GameViewportClient {
 	public inline extern function get_DebugProperties(): TArray<DebugDisplayProperty> return this.DebugProperties;
 	public extern var MaxSplitscreenPlayers(get, never): cpp.Int32;
 	public inline extern function get_MaxSplitscreenPlayers(): cpp.Int32 return this.MaxSplitscreenPlayers;
-	public extern var World(get, never): cpp.Star<World.ConstWorld>;
-	public inline extern function get_World(): cpp.Star<World.ConstWorld> return this.World;
-	public extern var GameInstance(get, never): cpp.Star<GameInstance.ConstGameInstance>;
-	public inline extern function get_GameInstance(): cpp.Star<GameInstance.ConstGameInstance> return this.GameInstance;
 }
 
 @:forward

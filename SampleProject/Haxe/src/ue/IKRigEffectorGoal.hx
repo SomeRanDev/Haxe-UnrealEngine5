@@ -11,11 +11,6 @@ extern class IKRigEffectorGoal extends Object {
 	public var RotationAlpha: cpp.Float32;
 	public var CurrentTransform: Transform;
 	public var InitialTransform: Transform;
-	public var PreviewMode: EIKRigGoalPreviewMode;
-	public var SizeMultiplier: cpp.Float32;
-	public var ThicknessMultiplier: cpp.Float32;
-	public var bExposePosition: Bool;
-	public var bExposeRotation: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -35,16 +30,6 @@ abstract ConstIKRigEffectorGoal(IKRigEffectorGoal) from IKRigEffectorGoal {
 	public inline extern function get_CurrentTransform(): Transform return this.CurrentTransform;
 	public extern var InitialTransform(get, never): Transform;
 	public inline extern function get_InitialTransform(): Transform return this.InitialTransform;
-	public extern var PreviewMode(get, never): EIKRigGoalPreviewMode;
-	public inline extern function get_PreviewMode(): EIKRigGoalPreviewMode return this.PreviewMode;
-	public extern var SizeMultiplier(get, never): cpp.Float32;
-	public inline extern function get_SizeMultiplier(): cpp.Float32 return this.SizeMultiplier;
-	public extern var ThicknessMultiplier(get, never): cpp.Float32;
-	public inline extern function get_ThicknessMultiplier(): cpp.Float32 return this.ThicknessMultiplier;
-	public extern var bExposePosition(get, never): Bool;
-	public inline extern function get_bExposePosition(): Bool return this.bExposePosition;
-	public extern var bExposeRotation(get, never): Bool;
-	public inline extern function get_bExposeRotation(): Bool return this.bExposeRotation;
 }
 
 @:forward

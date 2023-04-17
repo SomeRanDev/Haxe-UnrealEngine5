@@ -7,7 +7,6 @@ package ue;
 extern class ControlRigGraph extends EdGraph {
 	public var ModelNodePath: FString;
 	public var bIsFunctionDefinition: Bool;
-	public var TemplateController: cpp.Star<RigVMController>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,8 +18,6 @@ abstract ConstControlRigGraph(ControlRigGraph) from ControlRigGraph {
 	public inline extern function get_ModelNodePath(): FString return this.ModelNodePath;
 	public extern var bIsFunctionDefinition(get, never): Bool;
 	public inline extern function get_bIsFunctionDefinition(): Bool return this.bIsFunctionDefinition;
-	public extern var TemplateController(get, never): cpp.Star<RigVMController.ConstRigVMController>;
-	public inline extern function get_TemplateController(): cpp.Star<RigVMController.ConstRigVMController> return this.TemplateController;
 }
 
 @:forward

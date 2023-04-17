@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENiagaraRibbonFacingMode")
 @:include("NiagaraRibbonRendererProperties.h")
-extern enum ENiagaraRibbonFacingMode {
-	Screen;
-	Custom;
-	CustomSideVector;
-	ENiagaraRibbonFacingMode_MAX;
+extern class ENiagaraRibbonFacingMode {
+	static var Screen: ENiagaraRibbonFacingMode;
+	static var Custom: ENiagaraRibbonFacingMode;
+	static var CustomSideVector: ENiagaraRibbonFacingMode;
+	static var ENiagaraRibbonFacingMode_MAX: ENiagaraRibbonFacingMode;
 }

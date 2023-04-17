@@ -3,10 +3,10 @@ package ue;
 
 @:native("EChaosClothTetherMode")
 @:include("ChaosCloth/ChaosClothConfig.h")
-extern enum EChaosClothTetherMode {
-	FastTetherFastLength;
-	AccurateTetherFastLength;
-	AccurateTetherAccurateLength;
-	MaxChaosClothTetherMode;
-	EChaosClothTetherMode_MAX;
+extern class EChaosClothTetherMode {
+	static var FastTetherFastLength: EChaosClothTetherMode;
+	static var AccurateTetherFastLength: EChaosClothTetherMode;
+	static var AccurateTetherAccurateLength: EChaosClothTetherMode;
+	static var MaxChaosClothTetherMode: EChaosClothTetherMode;
+	static var EChaosClothTetherMode_MAX: EChaosClothTetherMode;
 }

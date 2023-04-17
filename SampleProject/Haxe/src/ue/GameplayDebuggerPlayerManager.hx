@@ -5,9 +5,8 @@ package ue;
 @:include("GameplayDebuggerPlayerManager.h")
 @:structAccess
 extern class GameplayDebuggerPlayerManager extends Actor {
-	public var PlayerData: TArray<GameplayDebuggerPlayerData>;
-	public var PendingRegistrations: TArray<cpp.Star<GameplayDebuggerCategoryReplicator>>;
-	public var EditorWorldData: GameplayDebuggerPlayerData;
+	@:protected public var PlayerData: TArray<GameplayDebuggerPlayerData>;
+	@:protected public var PendingRegistrations: TArray<cpp.Star<GameplayDebuggerCategoryReplicator>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +14,6 @@ extern class GameplayDebuggerPlayerManager extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstGameplayDebuggerPlayerManager(GameplayDebuggerPlayerManager) from GameplayDebuggerPlayerManager {
-	public extern var PlayerData(get, never): TArray<GameplayDebuggerPlayerData>;
-	public inline extern function get_PlayerData(): TArray<GameplayDebuggerPlayerData> return this.PlayerData;
-	public extern var PendingRegistrations(get, never): TArray<cpp.Star<GameplayDebuggerCategoryReplicator.ConstGameplayDebuggerCategoryReplicator>>;
-	public inline extern function get_PendingRegistrations(): TArray<cpp.Star<GameplayDebuggerCategoryReplicator.ConstGameplayDebuggerCategoryReplicator>> return this.PendingRegistrations;
-	public extern var EditorWorldData(get, never): GameplayDebuggerPlayerData;
-	public inline extern function get_EditorWorldData(): GameplayDebuggerPlayerData return this.EditorWorldData;
 }
 
 @:forward

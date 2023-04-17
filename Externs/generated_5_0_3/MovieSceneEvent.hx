@@ -6,13 +6,6 @@ package ue;
 @:structAccess
 extern class MovieSceneEvent {
 	public var Ptrs: MovieSceneEventPtrs;
-	public var PayloadVariables: TMap<FName, MovieSceneEventPayloadVariable>;
-	public var CompiledFunctionName: FName;
-	public var BoundObjectPinName: FName;
-	public var WeakEndpoint: TWeakObjectPtr<Object>;
-	public var GraphGuid_DEPRECATED: Guid;
-	public var NodeGuid_DEPRECATED: Guid;
-	public var FunctionEntry_DEPRECATED: TWeakObjectPtr<Object>;
 
 	@:native("FMovieSceneEvent") public function new();
 }

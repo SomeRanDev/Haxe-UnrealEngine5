@@ -7,8 +7,8 @@ package ue;
 extern class ControlRigBlueprintFactory extends Factory {
 	public var ParentClass: TSubclassOf<ControlRig>;
 
-	public function CreateNewControlRigAsset(InDesiredPackagePath: FString): cpp.Reference<cpp.Star<ControlRigBlueprint>>;
-	public function CreateControlRigFromSkeletalMeshOrSkeleton(InSelectedObject: cpp.Star<Object>): cpp.Reference<cpp.Star<ControlRigBlueprint>>;
+	public function CreateNewControlRigAsset(InDesiredPackagePath: FString): cpp.Star<ControlRigBlueprint>;
+	public function CreateControlRigFromSkeletalMeshOrSkeleton(InSelectedObject: cpp.Star<Object>): cpp.Star<ControlRigBlueprint>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

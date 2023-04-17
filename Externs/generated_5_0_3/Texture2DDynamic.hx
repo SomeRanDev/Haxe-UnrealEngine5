@@ -5,7 +5,7 @@ package ue;
 @:include("Engine/Texture2DDynamic.h")
 @:structAccess
 extern class Texture2DDynamic extends Texture {
-	public var Format: EPixelFormat;
+	public var Format: TEnumAsByte<EPixelFormat>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,8 @@ extern class Texture2DDynamic extends Texture {
 @:forward()
 @:nativeGen
 abstract ConstTexture2DDynamic(Texture2DDynamic) from Texture2DDynamic {
-	public extern var Format(get, never): EPixelFormat;
-	public inline extern function get_Format(): EPixelFormat return this.Format;
+	public extern var Format(get, never): TEnumAsByte<EPixelFormat>;
+	public inline extern function get_Format(): TEnumAsByte<EPixelFormat> return this.Format;
 }
 
 @:forward

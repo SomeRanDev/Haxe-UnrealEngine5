@@ -3,15 +3,15 @@ package ue;
 
 @:native("ESynthModEnvBiasPatch")
 @:include("EpicSynth1Types.h")
-extern enum ESynthModEnvBiasPatch {
-	PatchToNone;
-	PatchToOscFreq;
-	PatchToFilterFreq;
-	PatchToFilterQ;
-	PatchToLFO1Gain;
-	PatchToLFO2Gain;
-	PatchToLFO1Freq;
-	PatchToLFO2Freq;
-	Count;
-	ESynthModEnvBiasPatch_MAX;
+extern class ESynthModEnvBiasPatch {
+	static var PatchToNone: ESynthModEnvBiasPatch;
+	static var PatchToOscFreq: ESynthModEnvBiasPatch;
+	static var PatchToFilterFreq: ESynthModEnvBiasPatch;
+	static var PatchToFilterQ: ESynthModEnvBiasPatch;
+	static var PatchToLFO1Gain: ESynthModEnvBiasPatch;
+	static var PatchToLFO2Gain: ESynthModEnvBiasPatch;
+	static var PatchToLFO1Freq: ESynthModEnvBiasPatch;
+	static var PatchToLFO2Freq: ESynthModEnvBiasPatch;
+	static var Count: ESynthModEnvBiasPatch;
+	static var ESynthModEnvBiasPatch_MAX: ESynthModEnvBiasPatch;
 }

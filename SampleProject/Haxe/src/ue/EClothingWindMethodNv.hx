@@ -3,8 +3,8 @@ package ue;
 
 @:native("EClothingWindMethodNv")
 @:include("ClothConfigNv.h")
-extern enum EClothingWindMethodNv {
-	Legacy;
-	Accurate;
-	EClothingWindMethodNv_MAX;
+extern class EClothingWindMethodNv {
+	static var Legacy: EClothingWindMethodNv;
+	static var Accurate: EClothingWindMethodNv;
+	static var EClothingWindMethodNv_MAX: EClothingWindMethodNv;
 }

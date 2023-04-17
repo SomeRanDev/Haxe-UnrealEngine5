@@ -5,13 +5,12 @@ package ue;
 @:include("Components/DynamicEntryBox.h")
 @:structAccess
 extern class DynamicEntryBox extends DynamicEntryBoxBase {
-	public var NumDesignerPreviewEntries: cpp.Int32;
-	public var EntryWidgetClass: TSubclassOf<UserWidget>;
+	private var EntryWidgetClass: TSubclassOf<UserWidget>;
 
 	public function Reset(bDeleteWidgets: Bool): Void;
 	public function RemoveEntry(EntryWidget: cpp.Star<UserWidget>): Void;
-	public function BP_CreateEntryOfClass(EntryClass: TSubclassOf<UserWidget>): cpp.Reference<cpp.Star<UserWidget>>;
-	public function BP_CreateEntry(): cpp.Reference<cpp.Star<UserWidget>>;
+	private function BP_CreateEntryOfClass(EntryClass: TSubclassOf<UserWidget>): cpp.Star<UserWidget>;
+	private function BP_CreateEntry(): cpp.Star<UserWidget>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,10 +18,6 @@ extern class DynamicEntryBox extends DynamicEntryBoxBase {
 @:forward()
 @:nativeGen
 abstract ConstDynamicEntryBox(DynamicEntryBox) from DynamicEntryBox {
-	public extern var NumDesignerPreviewEntries(get, never): cpp.Int32;
-	public inline extern function get_NumDesignerPreviewEntries(): cpp.Int32 return this.NumDesignerPreviewEntries;
-	public extern var EntryWidgetClass(get, never): TSubclassOf<UserWidget.ConstUserWidget>;
-	public inline extern function get_EntryWidgetClass(): TSubclassOf<UserWidget.ConstUserWidget> return this.EntryWidgetClass;
 }
 
 @:forward

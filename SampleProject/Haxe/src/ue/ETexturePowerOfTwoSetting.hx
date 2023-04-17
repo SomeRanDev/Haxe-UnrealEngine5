@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETexturePowerOfTwoSetting.Type")
 @:include("Engine/TextureDefines.h")
-extern enum ETexturePowerOfTwoSetting {
-	None;
-	PadToPowerOfTwo;
-	PadToSquarePowerOfTwo;
-	ETexturePowerOfTwoSetting_MAX;
+extern class ETexturePowerOfTwoSetting {
+	static var None: ETexturePowerOfTwoSetting;
+	static var PadToPowerOfTwo: ETexturePowerOfTwoSetting;
+	static var PadToSquarePowerOfTwo: ETexturePowerOfTwoSetting;
+	static var ETexturePowerOfTwoSetting_MAX: ETexturePowerOfTwoSetting;
 }

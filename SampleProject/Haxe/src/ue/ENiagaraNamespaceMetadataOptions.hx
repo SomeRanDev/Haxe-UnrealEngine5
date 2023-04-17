@@ -3,15 +3,15 @@ package ue;
 
 @:native("ENiagaraNamespaceMetadataOptions")
 @:include("NiagaraEditorSettings.h")
-extern enum ENiagaraNamespaceMetadataOptions {
-	HideInScript;
-	HideInSystem;
-	AdvancedInScript;
-	AdvancedInSystem;
-	PreventEditingNamespace;
-	PreventEditingNamespaceModifier;
-	PreventEditingName;
-	PreventCreatingInSystemEditor;
-	HideInDefinitions;
-	ENiagaraNamespaceMetadataOptions_MAX;
+extern class ENiagaraNamespaceMetadataOptions {
+	static var HideInScript: ENiagaraNamespaceMetadataOptions;
+	static var HideInSystem: ENiagaraNamespaceMetadataOptions;
+	static var AdvancedInScript: ENiagaraNamespaceMetadataOptions;
+	static var AdvancedInSystem: ENiagaraNamespaceMetadataOptions;
+	static var PreventEditingNamespace: ENiagaraNamespaceMetadataOptions;
+	static var PreventEditingNamespaceModifier: ENiagaraNamespaceMetadataOptions;
+	static var PreventEditingName: ENiagaraNamespaceMetadataOptions;
+	static var PreventCreatingInSystemEditor: ENiagaraNamespaceMetadataOptions;
+	static var HideInDefinitions: ENiagaraNamespaceMetadataOptions;
+	static var ENiagaraNamespaceMetadataOptions_MAX: ENiagaraNamespaceMetadataOptions;
 }

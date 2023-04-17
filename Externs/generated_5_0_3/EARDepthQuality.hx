@@ -3,9 +3,9 @@ package ue;
 
 @:native("EARDepthQuality")
 @:include("ARTextures.h")
-extern enum EARDepthQuality {
-	Unkown;
-	Low;
-	High;
-	EARDepthQuality_MAX;
+extern class EARDepthQuality {
+	static var Unkown: EARDepthQuality;
+	static var Low: EARDepthQuality;
+	static var High: EARDepthQuality;
+	static var EARDepthQuality_MAX: EARDepthQuality;
 }

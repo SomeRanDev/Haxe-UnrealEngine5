@@ -5,9 +5,6 @@ package ue;
 @:include("Animation/AnimCurveCompressionCodec_CompressedRichCurve.h")
 @:structAccess
 extern class AnimCurveCompressionCodec_CompressedRichCurve extends AnimCurveCompressionCodec {
-	public var MaxCurveError: cpp.Float32;
-	public var UseAnimSequenceSampleRate: Bool;
-	public var ErrorSampleRate: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +12,6 @@ extern class AnimCurveCompressionCodec_CompressedRichCurve extends AnimCurveComp
 @:forward()
 @:nativeGen
 abstract ConstAnimCurveCompressionCodec_CompressedRichCurve(AnimCurveCompressionCodec_CompressedRichCurve) from AnimCurveCompressionCodec_CompressedRichCurve {
-	public extern var MaxCurveError(get, never): cpp.Float32;
-	public inline extern function get_MaxCurveError(): cpp.Float32 return this.MaxCurveError;
-	public extern var UseAnimSequenceSampleRate(get, never): Bool;
-	public inline extern function get_UseAnimSequenceSampleRate(): Bool return this.UseAnimSequenceSampleRate;
-	public extern var ErrorSampleRate(get, never): cpp.Float32;
-	public inline extern function get_ErrorSampleRate(): cpp.Float32 return this.ErrorSampleRate;
 }
 
 @:forward

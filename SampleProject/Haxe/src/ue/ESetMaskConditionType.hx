@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESetMaskConditionType")
 @:include("Field/FieldSystemTypes.h")
-extern enum ESetMaskConditionType {
-	Field_Set_Always;
-	Field_Set_IFF_NOT_Interior;
-	Field_Set_IFF_NOT_Exterior;
-	Field_MaskCondition_Max;
-	Field_MAX;
+extern class ESetMaskConditionType {
+	static var Field_Set_Always: ESetMaskConditionType;
+	static var Field_Set_IFF_NOT_Interior: ESetMaskConditionType;
+	static var Field_Set_IFF_NOT_Exterior: ESetMaskConditionType;
+	static var Field_MaskCondition_Max: ESetMaskConditionType;
+	static var Field_MAX: ESetMaskConditionType;
 }

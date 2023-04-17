@@ -13,7 +13,7 @@ extern class SlateAccessibleWidgetData extends Object {
 	public var AccessibleSummaryText: FText;
 	public var AccessibleSummaryTextDelegate: HaxeDelegateProperty<() -> Void>;
 
-	public function GetText__DelegateSignature(): cpp.Reference<FText>;
+	public function GetText__DelegateSignature(): FText;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

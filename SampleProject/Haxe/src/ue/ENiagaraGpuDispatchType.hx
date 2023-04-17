@@ -3,10 +3,10 @@ package ue;
 
 @:native("ENiagaraGpuDispatchType")
 @:include("NiagaraScriptBase.h")
-extern enum ENiagaraGpuDispatchType {
-	OneD;
-	TwoD;
-	ThreeD;
-	Custom;
-	ENiagaraGpuDispatchType_MAX;
+extern class ENiagaraGpuDispatchType {
+	static var OneD: ENiagaraGpuDispatchType;
+	static var TwoD: ENiagaraGpuDispatchType;
+	static var ThreeD: ENiagaraGpuDispatchType;
+	static var Custom: ENiagaraGpuDispatchType;
+	static var ENiagaraGpuDispatchType_MAX: ENiagaraGpuDispatchType;
 }

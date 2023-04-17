@@ -5,9 +5,6 @@ package ue;
 @:include("Editor/AssetGuideline.h")
 @:structAccess
 extern class AssetGuideline extends AssetUserData {
-	public var Plugins: TArray<FString>;
-	public var ProjectSettings: TArray<IniStringValue>;
-	public var GuidelineName: FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +12,6 @@ extern class AssetGuideline extends AssetUserData {
 @:forward()
 @:nativeGen
 abstract ConstAssetGuideline(AssetGuideline) from AssetGuideline {
-	public extern var Plugins(get, never): TArray<FString>;
-	public inline extern function get_Plugins(): TArray<FString> return this.Plugins;
-	public extern var ProjectSettings(get, never): TArray<IniStringValue>;
-	public inline extern function get_ProjectSettings(): TArray<IniStringValue> return this.ProjectSettings;
-	public extern var GuidelineName(get, never): FName;
-	public inline extern function get_GuidelineName(): FName return this.GuidelineName;
 }
 
 @:forward

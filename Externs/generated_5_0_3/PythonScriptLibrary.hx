@@ -5,10 +5,10 @@ package ue;
 @:include("PythonScriptLibrary.h")
 @:structAccess
 extern class PythonScriptLibrary extends BlueprintFunctionLibrary {
-	public function IsPythonAvailable(): cpp.Reference<Bool>;
-	public function ExecutePythonScript(PythonScript: FString, PythonInputs: cpp.Reference<TArray<FString>>, PythonOutputs: cpp.Reference<TArray<FString>>): cpp.Reference<Bool>;
-	public function ExecutePythonCommandEx(PythonCommand: FString, CommandResult: cpp.Reference<FString>, LogOutput: cpp.Reference<TArray<PythonLogOutputEntry>>, ExecutionMode: EPythonCommandExecutionMode, FileExecutionScope: EPythonFileExecutionScope): cpp.Reference<Bool>;
-	public function ExecutePythonCommand(PythonCommand: FString): cpp.Reference<Bool>;
+	public function IsPythonAvailable(): Bool;
+	public function ExecutePythonScript(PythonScript: FString, PythonInputs: cpp.Reference<TArray<FString>>, PythonOutputs: cpp.Reference<TArray<FString>>): Bool;
+	public function ExecutePythonCommandEx(PythonCommand: FString, CommandResult: cpp.Reference<FString>, LogOutput: cpp.Reference<TArray<PythonLogOutputEntry>>, ExecutionMode: EPythonCommandExecutionMode, FileExecutionScope: EPythonFileExecutionScope): Bool;
+	public function ExecutePythonCommand(PythonCommand: FString): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -29,8 +29,8 @@ extern class CableComp extends MeshComp {
 	public function SetAttachEndToComponent(Component: cpp.Star<SceneComp>, SocketName: FName): Void;
 	public function SetAttachEndTo(Actor: cpp.Star<Actor>, ComponentProperty: FName, SocketName: FName): Void;
 	public function GetCableParticleLocations(Locations: cpp.Reference<TArray<Vector>>): Void;
-	public function GetAttachedComponent(): cpp.Reference<cpp.Star<SceneComp>>;
-	public function GetAttachedActor(): cpp.Reference<cpp.Star<Actor>>;
+	public function GetAttachedComponent(): cpp.Star<SceneComp>;
+	public function GetAttachedActor(): cpp.Star<Actor>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

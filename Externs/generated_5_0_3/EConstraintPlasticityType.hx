@@ -3,9 +3,9 @@ package ue;
 
 @:native("EConstraintPlasticityType")
 @:include("Chaos/ChaosEngineInterface.h")
-extern enum EConstraintPlasticityType {
-	CCPT_Free;
-	CCPT_Shrink;
-	CCPT_Grow;
-	CCPT_MAX;
+extern class EConstraintPlasticityType {
+	static var CCPT_Free: EConstraintPlasticityType;
+	static var CCPT_Shrink: EConstraintPlasticityType;
+	static var CCPT_Grow: EConstraintPlasticityType;
+	static var CCPT_MAX: EConstraintPlasticityType;
 }

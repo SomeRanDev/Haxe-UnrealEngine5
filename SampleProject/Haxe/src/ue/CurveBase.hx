@@ -5,8 +5,6 @@ package ue;
 @:include("Curves/CurveBase.h")
 @:structAccess
 extern class CurveBase extends Object {
-	public var AssetImportData: cpp.Star<AssetImportData>;
-	public var ImportPath_DEPRECATED: FString;
 
 	public function GetValueRange(MinValue: cpp.Reference<cpp.Float32>, MaxValue: cpp.Reference<cpp.Float32>): Void;
 	public function GetTimeRange(MinTime: cpp.Reference<cpp.Float32>, MaxTime: cpp.Reference<cpp.Float32>): Void;
@@ -17,10 +15,6 @@ extern class CurveBase extends Object {
 @:forward(GetValueRange, GetTimeRange)
 @:nativeGen
 abstract ConstCurveBase(CurveBase) from CurveBase {
-	public extern var AssetImportData(get, never): cpp.Star<AssetImportData.ConstAssetImportData>;
-	public inline extern function get_AssetImportData(): cpp.Star<AssetImportData.ConstAssetImportData> return this.AssetImportData;
-	public extern var ImportPath_DEPRECATED(get, never): FString;
-	public inline extern function get_ImportPath_DEPRECATED(): FString return this.ImportPath_DEPRECATED;
 }
 
 @:forward

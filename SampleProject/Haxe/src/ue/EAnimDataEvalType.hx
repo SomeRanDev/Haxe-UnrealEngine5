@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAnimDataEvalType")
 @:include("AnimPose.h")
-extern enum EAnimDataEvalType {
-	Source;
-	Raw;
-	Compressed;
-	EAnimDataEvalType_MAX;
+extern class EAnimDataEvalType {
+	static var Source: EAnimDataEvalType;
+	static var Raw: EAnimDataEvalType;
+	static var Compressed: EAnimDataEvalType;
+	static var EAnimDataEvalType_MAX: EAnimDataEvalType;
 }

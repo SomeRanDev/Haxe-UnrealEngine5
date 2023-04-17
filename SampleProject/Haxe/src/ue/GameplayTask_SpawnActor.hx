@@ -7,11 +7,11 @@ package ue;
 extern class GameplayTask_SpawnActor extends GameplayTask {
 	public var Success: HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor>) -> Void>;
 	public var DidNotSpawn: HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor>) -> Void>;
-	public var ClassToSpawn: TSubclassOf<Actor>;
+	@:protected public var ClassToSpawn: TSubclassOf<Actor>;
 
-	public function SpawnActor(TaskOwner: GameplayTaskOwnerInterface, SpawnLocation: Vector, SpawnRotation: Rotator, Class: TSubclassOf<Actor>, bSpawnOnlyOnAuthority: Bool): cpp.Reference<cpp.Star<GameplayTask_SpawnActor>>;
+	public function SpawnActor(TaskOwner: GameplayTaskOwnerInterface, SpawnLocation: Vector, SpawnRotation: Rotator, Class: TSubclassOf<Actor>, bSpawnOnlyOnAuthority: Bool): cpp.Star<GameplayTask_SpawnActor>;
 	public function FinishSpawningActor(WorldContextObject: cpp.Star<Object>, SpawnedActor: cpp.Star<Actor>): Void;
-	public function BeginSpawningActor(WorldContextObject: cpp.Star<Object>, SpawnedActor: cpp.Reference<cpp.Star<Actor>>): cpp.Reference<Bool>;
+	public function BeginSpawningActor(WorldContextObject: cpp.Star<Object>, SpawnedActor: cpp.Reference<cpp.Star<Actor>>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -23,8 +23,6 @@ abstract ConstGameplayTask_SpawnActor(GameplayTask_SpawnActor) from GameplayTask
 	public inline extern function get_Success(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor.ConstActor>) -> Void> return this.Success;
 	public extern var DidNotSpawn(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor.ConstActor>) -> Void>;
 	public inline extern function get_DidNotSpawn(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor.ConstActor>) -> Void> return this.DidNotSpawn;
-	public extern var ClassToSpawn(get, never): TSubclassOf<Actor.ConstActor>;
-	public inline extern function get_ClassToSpawn(): TSubclassOf<Actor.ConstActor> return this.ClassToSpawn;
 }
 
 @:forward

@@ -15,7 +15,6 @@ extern class MaterialFunctionInstance extends MaterialFunctionInterface {
 	public var StaticSwitchParameterValues: TArray<StaticSwitchParameter>;
 	public var StaticComponentMaskParameterValues: TArray<StaticComponentMaskParameter>;
 	public var RuntimeVirtualTextureParameterValues: TArray<RuntimeVirtualTextureParameterValue>;
-	public var PreviewMaterial: cpp.Star<MaterialInstanceConstant>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -43,8 +42,6 @@ abstract ConstMaterialFunctionInstance(MaterialFunctionInstance) from MaterialFu
 	public inline extern function get_StaticComponentMaskParameterValues(): TArray<StaticComponentMaskParameter> return this.StaticComponentMaskParameterValues;
 	public extern var RuntimeVirtualTextureParameterValues(get, never): TArray<RuntimeVirtualTextureParameterValue>;
 	public inline extern function get_RuntimeVirtualTextureParameterValues(): TArray<RuntimeVirtualTextureParameterValue> return this.RuntimeVirtualTextureParameterValues;
-	public extern var PreviewMaterial(get, never): cpp.Star<MaterialInstanceConstant.ConstMaterialInstanceConstant>;
-	public inline extern function get_PreviewMaterial(): cpp.Star<MaterialInstanceConstant.ConstMaterialInstanceConstant> return this.PreviewMaterial;
 }
 
 @:forward

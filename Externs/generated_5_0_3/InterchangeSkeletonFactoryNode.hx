@@ -5,10 +5,10 @@ package ue;
 @:include("InterchangeSkeletonFactoryNode.h")
 @:structAccess
 extern class InterchangeSkeletonFactoryNode extends InterchangeBaseNode {
-	public function SetCustomRootJointUid(AttributeValue: FString): cpp.Reference<Bool>;
+	public function SetCustomRootJointUid(AttributeValue: FString): Bool;
 	public function InitializeSkeletonNode(UniqueID: FString, DisplayLabel: FString, InAssetClass: FString): Void;
-	public function GetObjectClass(): cpp.Reference<cpp.Star<Class>>;
-	public function GetCustomRootJointUid(AttributeValue: cpp.Reference<FString>): cpp.Reference<Bool>;
+	public function GetObjectClass(): cpp.Star<Class>;
+	public function GetCustomRootJointUid(AttributeValue: cpp.Reference<FString>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

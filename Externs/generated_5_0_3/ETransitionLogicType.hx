@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETransitionLogicType.Type")
 @:include("Animation/AnimStateMachineTypes.h")
-extern enum ETransitionLogicType {
-	TLT_StandardBlend;
-	TLT_Inertialization;
-	TLT_Custom;
-	TLT_MAX;
+extern class ETransitionLogicType {
+	static var TLT_StandardBlend: ETransitionLogicType;
+	static var TLT_Inertialization: ETransitionLogicType;
+	static var TLT_Custom: ETransitionLogicType;
+	static var TLT_MAX: ETransitionLogicType;
 }

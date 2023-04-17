@@ -5,7 +5,7 @@ package ue;
 @:include("EntitySystem/TrackInstance/MovieSceneTrackInstanceSystem.h")
 @:structAccess
 extern class MovieSceneTrackInstanceSystem extends MovieSceneEntitySystem {
-	public var Instantiator: cpp.Star<MovieSceneTrackInstanceInstantiator>;
+	private var Instantiator: cpp.Star<MovieSceneTrackInstanceInstantiator>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MovieSceneTrackInstanceSystem extends MovieSceneEntitySystem {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneTrackInstanceSystem(MovieSceneTrackInstanceSystem) from MovieSceneTrackInstanceSystem {
-	public extern var Instantiator(get, never): cpp.Star<MovieSceneTrackInstanceInstantiator.ConstMovieSceneTrackInstanceInstantiator>;
-	public inline extern function get_Instantiator(): cpp.Star<MovieSceneTrackInstanceInstantiator.ConstMovieSceneTrackInstanceInstantiator> return this.Instantiator;
 }
 
 @:forward

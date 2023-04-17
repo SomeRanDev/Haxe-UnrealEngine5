@@ -3,8 +3,8 @@ package ue;
 
 @:native("EDetachmentRule")
 @:include("Engine/EngineTypes.h")
-extern enum EDetachmentRule {
-	KeepRelative;
-	KeepWorld;
-	EDetachmentRule_MAX;
+extern class EDetachmentRule {
+	static var KeepRelative: EDetachmentRule;
+	static var KeepWorld: EDetachmentRule;
+	static var EDetachmentRule_MAX: EDetachmentRule;
 }

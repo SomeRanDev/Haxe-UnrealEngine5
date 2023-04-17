@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESimulationSpace")
 @:include("BoneControllers/AnimNode_RigidBody.h")
-extern enum ESimulationSpace {
-	ComponentSpace;
-	WorldSpace;
-	BaseBoneSpace;
-	ESimulationSpace_MAX;
+extern class ESimulationSpace {
+	static var ComponentSpace: ESimulationSpace;
+	static var WorldSpace: ESimulationSpace;
+	static var BaseBoneSpace: ESimulationSpace;
+	static var ESimulationSpace_MAX: ESimulationSpace;
 }

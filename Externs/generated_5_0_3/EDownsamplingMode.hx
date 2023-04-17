@@ -3,9 +3,9 @@ package ue;
 
 @:native("EDownsamplingMode")
 @:include("Private/FractureToolCustomVoronoi.h")
-extern enum EDownsamplingMode {
-	Random;
-	UniformSpacing;
-	KeepSharp;
-	EDownsamplingMode_MAX;
+extern class EDownsamplingMode {
+	static var Random: EDownsamplingMode;
+	static var UniformSpacing: EDownsamplingMode;
+	static var KeepSharp: EDownsamplingMode;
+	static var EDownsamplingMode_MAX: EDownsamplingMode;
 }

@@ -3,12 +3,12 @@ package ue;
 
 @:native("EParticleCollisionComplete")
 @:include("Particles/Collision/ParticleModuleCollisionBase.h")
-extern enum EParticleCollisionComplete {
-	EPCC_Kill;
-	EPCC_Freeze;
-	EPCC_HaltCollisions;
-	EPCC_FreezeTranslation;
-	EPCC_FreezeRotation;
-	EPCC_FreezeMovement;
-	EPCC_MAX;
+extern class EParticleCollisionComplete {
+	static var EPCC_Kill: EParticleCollisionComplete;
+	static var EPCC_Freeze: EParticleCollisionComplete;
+	static var EPCC_HaltCollisions: EParticleCollisionComplete;
+	static var EPCC_FreezeTranslation: EParticleCollisionComplete;
+	static var EPCC_FreezeRotation: EParticleCollisionComplete;
+	static var EPCC_FreezeMovement: EParticleCollisionComplete;
+	static var EPCC_MAX: EParticleCollisionComplete;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EStereoLayerShape")
 @:include("Components/StereoLayerComponent.h")
-extern enum EStereoLayerShape {
-	SLSH_QuadLayer;
-	SLSH_CylinderLayer;
-	SLSH_CubemapLayer;
-	SLSH_EquirectLayer;
-	SLSH_MAX;
+extern class EStereoLayerShape {
+	static var SLSH_QuadLayer: EStereoLayerShape;
+	static var SLSH_CylinderLayer: EStereoLayerShape;
+	static var SLSH_CubemapLayer: EStereoLayerShape;
+	static var SLSH_EquirectLayer: EStereoLayerShape;
+	static var SLSH_MAX: EStereoLayerShape;
 }

@@ -20,38 +20,38 @@ extern class GameModeBase extends Info {
 	public var ServerStatReplicator: cpp.Star<ServerStatReplicator>;
 	public var DefaultPlayerName: FText;
 	public var bUseSeamlessTravel: Bool;
-	public var bStartPlayersAsSpectators: Bool;
-	public var bPauseable: Bool;
+	@:protected public var bStartPlayersAsSpectators: Bool;
+	@:protected public var bPauseable: Bool;
 
 	public function StartPlay(): Void;
-	public function SpawnDefaultPawnFor(NewPlayer: cpp.Star<Controller>, StartSpot: cpp.Star<Actor>): cpp.Reference<cpp.Star<Pawn>>;
-	public function SpawnDefaultPawnAtTransform(NewPlayer: cpp.Star<Controller>, SpawnTransform: cpp.Reference<Transform>): cpp.Reference<cpp.Star<Pawn>>;
-	public function ShouldReset(ActorToReset: cpp.Star<Actor>): cpp.Reference<Bool>;
+	public function SpawnDefaultPawnFor(NewPlayer: cpp.Star<Controller>, StartSpot: cpp.Star<Actor>): cpp.Star<Pawn>;
+	public function SpawnDefaultPawnAtTransform(NewPlayer: cpp.Star<Controller>, SpawnTransform: cpp.Reference<Transform>): cpp.Star<Pawn>;
+	public function ShouldReset(ActorToReset: cpp.Star<Actor>): Bool;
 	public function ReturnToMainMenuHost(): Void;
 	public function RestartPlayerAtTransform(NewPlayer: cpp.Star<Controller>, SpawnTransform: cpp.Reference<Transform>): Void;
 	public function RestartPlayerAtPlayerStart(NewPlayer: cpp.Star<Controller>, StartSpot: cpp.Star<Actor>): Void;
 	public function RestartPlayer(NewPlayer: cpp.Star<Controller>): Void;
 	public function ResetLevel(): Void;
-	public function PlayerCanRestart(Player: cpp.Star<PlayerController>): cpp.Reference<Bool>;
-	public function MustSpectate(NewPlayerController: cpp.Star<PlayerController>): cpp.Reference<Bool>;
+	public function PlayerCanRestart(Player: cpp.Star<PlayerController>): Bool;
+	public function MustSpectate(NewPlayerController: cpp.Star<PlayerController>): Bool;
 	public function K2_PostLogin(NewPlayer: cpp.Star<PlayerController>): Void;
-	public function K2_OnSwapPlayerControllers(OldPC: cpp.Star<PlayerController>, NewPC: cpp.Star<PlayerController>): Void;
+	@:protected public function K2_OnSwapPlayerControllers(OldPC: cpp.Star<PlayerController>, NewPC: cpp.Star<PlayerController>): Void;
 	public function K2_OnRestartPlayer(NewPlayer: cpp.Star<Controller>): Void;
 	public function K2_OnLogout(ExitingController: cpp.Star<Controller>): Void;
 	public function K2_OnChangeName(Other: cpp.Star<Controller>, NewName: FString, bNameChange: Bool): Void;
-	public function K2_FindPlayerStart(Player: cpp.Star<Controller>, IncomingName: FString): cpp.Reference<cpp.Star<Actor>>;
+	public function K2_FindPlayerStart(Player: cpp.Star<Controller>, IncomingName: FString): cpp.Star<Actor>;
 	public function InitStartSpot(StartSpot: cpp.Star<Actor>, NewPlayer: cpp.Star<Controller>): Void;
-	public function InitializeHUDForPlayer(NewPlayer: cpp.Star<PlayerController>): Void;
-	public function HasMatchStarted(): cpp.Reference<Bool>;
-	public function HasMatchEnded(): cpp.Reference<Bool>;
+	@:protected public function InitializeHUDForPlayer(NewPlayer: cpp.Star<PlayerController>): Void;
+	public function HasMatchStarted(): Bool;
+	public function HasMatchEnded(): Bool;
 	public function HandleStartingNewPlayer(NewPlayer: cpp.Star<PlayerController>): Void;
-	public function GetNumSpectators(): cpp.Reference<cpp.Int32>;
-	public function GetNumPlayers(): cpp.Reference<cpp.Int32>;
-	public function GetDefaultPawnClassForController(InController: cpp.Star<Controller>): cpp.Reference<cpp.Star<Class>>;
-	public function FindPlayerStart(Player: cpp.Star<Controller>, IncomingName: FString): cpp.Reference<cpp.Star<Actor>>;
-	public function ChoosePlayerStart(Player: cpp.Star<Controller>): cpp.Reference<cpp.Star<Actor>>;
+	public function GetNumSpectators(): cpp.Int32;
+	public function GetNumPlayers(): cpp.Int32;
+	public function GetDefaultPawnClassForController(InController: cpp.Star<Controller>): cpp.Star<Class>;
+	public function FindPlayerStart(Player: cpp.Star<Controller>, IncomingName: FString): cpp.Star<Actor>;
+	public function ChoosePlayerStart(Player: cpp.Star<Controller>): cpp.Star<Actor>;
 	public function ChangeName(Controller: cpp.Star<Controller>, NewName: FString, bNameChange: Bool): Void;
-	public function CanSpectate(Viewer: cpp.Star<PlayerController>, ViewTarget: cpp.Star<PlayerState>): cpp.Reference<Bool>;
+	public function CanSpectate(Viewer: cpp.Star<PlayerController>, ViewTarget: cpp.Star<PlayerState>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -89,10 +89,6 @@ abstract ConstGameModeBase(GameModeBase) from GameModeBase {
 	public inline extern function get_DefaultPlayerName(): FText return this.DefaultPlayerName;
 	public extern var bUseSeamlessTravel(get, never): Bool;
 	public inline extern function get_bUseSeamlessTravel(): Bool return this.bUseSeamlessTravel;
-	public extern var bStartPlayersAsSpectators(get, never): Bool;
-	public inline extern function get_bStartPlayersAsSpectators(): Bool return this.bStartPlayersAsSpectators;
-	public extern var bPauseable(get, never): Bool;
-	public inline extern function get_bPauseable(): Bool return this.bPauseable;
 }
 
 @:forward

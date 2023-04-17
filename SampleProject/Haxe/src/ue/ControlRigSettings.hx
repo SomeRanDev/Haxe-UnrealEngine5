@@ -5,7 +5,6 @@ package ue;
 @:include("Settings/ControlRigSettings.h")
 @:structAccess
 extern class ControlRigSettings extends DeveloperSettings {
-	public var DefaultShapeLibrary: TSoftObjectPtr<ControlRigShapeLibrary>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +12,6 @@ extern class ControlRigSettings extends DeveloperSettings {
 @:forward()
 @:nativeGen
 abstract ConstControlRigSettings(ControlRigSettings) from ControlRigSettings {
-	public extern var DefaultShapeLibrary(get, never): TSoftObjectPtr<ControlRigShapeLibrary.ConstControlRigShapeLibrary>;
-	public inline extern function get_DefaultShapeLibrary(): TSoftObjectPtr<ControlRigShapeLibrary.ConstControlRigShapeLibrary> return this.DefaultShapeLibrary;
 }
 
 @:forward

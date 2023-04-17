@@ -5,11 +5,11 @@ package ue;
 @:include("Field/FieldSystemObjects.h")
 @:structAccess
 extern class FieldSystemMetaDataFilter extends FieldSystemMetaData {
-	public var FilterType: EFieldFilterType;
-	public var ObjectType: EFieldObjectType;
-	public var PositionType: EFieldPositionType;
+	public var FilterType: TEnumAsByte<EFieldFilterType>;
+	public var ObjectType: TEnumAsByte<EFieldObjectType>;
+	public var PositionType: TEnumAsByte<EFieldPositionType>;
 
-	public function SetMetaDataFilterType(FilterType: EFieldFilterType, ObjectType: EFieldObjectType, PositionType: EFieldPositionType): cpp.Reference<cpp.Star<FieldSystemMetaDataFilter>>;
+	public function SetMetaDataFilterType(FilterType: TEnumAsByte<EFieldFilterType>, ObjectType: TEnumAsByte<EFieldObjectType>, PositionType: TEnumAsByte<EFieldPositionType>): cpp.Star<FieldSystemMetaDataFilter>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,12 +17,12 @@ extern class FieldSystemMetaDataFilter extends FieldSystemMetaData {
 @:forward()
 @:nativeGen
 abstract ConstFieldSystemMetaDataFilter(FieldSystemMetaDataFilter) from FieldSystemMetaDataFilter {
-	public extern var FilterType(get, never): EFieldFilterType;
-	public inline extern function get_FilterType(): EFieldFilterType return this.FilterType;
-	public extern var ObjectType(get, never): EFieldObjectType;
-	public inline extern function get_ObjectType(): EFieldObjectType return this.ObjectType;
-	public extern var PositionType(get, never): EFieldPositionType;
-	public inline extern function get_PositionType(): EFieldPositionType return this.PositionType;
+	public extern var FilterType(get, never): TEnumAsByte<EFieldFilterType>;
+	public inline extern function get_FilterType(): TEnumAsByte<EFieldFilterType> return this.FilterType;
+	public extern var ObjectType(get, never): TEnumAsByte<EFieldObjectType>;
+	public inline extern function get_ObjectType(): TEnumAsByte<EFieldObjectType> return this.ObjectType;
+	public extern var PositionType(get, never): TEnumAsByte<EFieldPositionType>;
+	public inline extern function get_PositionType(): TEnumAsByte<EFieldPositionType> return this.PositionType;
 }
 
 @:forward

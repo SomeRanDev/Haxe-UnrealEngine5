@@ -3,9 +3,9 @@ package ue;
 
 @:native("EPBIKLimitType")
 @:include("PBIK_Shared.h")
-extern enum EPBIKLimitType {
-	Free;
-	Limited;
-	Locked;
-	EPBIKLimitType_MAX;
+extern class EPBIKLimitType {
+	static var Free: EPBIKLimitType;
+	static var Limited: EPBIKLimitType;
+	static var Locked: EPBIKLimitType;
+	static var EPBIKLimitType_MAX: EPBIKLimitType;
 }

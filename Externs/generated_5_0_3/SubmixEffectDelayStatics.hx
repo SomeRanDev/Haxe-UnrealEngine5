@@ -5,9 +5,9 @@ package ue;
 @:include("SubmixEffects/SubmixEffectDelay.h")
 @:structAccess
 extern class SubmixEffectDelayStatics extends BlueprintFunctionLibrary {
-	public function SetMaximumDelayLength(DelaySettings: cpp.Reference<SubmixEffectDelaySettings>, MaximumDelayLength: cpp.Float32): cpp.Reference<SubmixEffectDelaySettings>;
-	public function SetInterpolationTime(DelaySettings: cpp.Reference<SubmixEffectDelaySettings>, InterpolationTime: cpp.Float32): cpp.Reference<SubmixEffectDelaySettings>;
-	public function SetDelayLength(DelaySettings: cpp.Reference<SubmixEffectDelaySettings>, DelayLength: cpp.Float32): cpp.Reference<SubmixEffectDelaySettings>;
+	public function SetMaximumDelayLength(DelaySettings: cpp.Reference<SubmixEffectDelaySettings>, MaximumDelayLength: cpp.Float32): SubmixEffectDelaySettings;
+	public function SetInterpolationTime(DelaySettings: cpp.Reference<SubmixEffectDelaySettings>, InterpolationTime: cpp.Float32): SubmixEffectDelaySettings;
+	public function SetDelayLength(DelaySettings: cpp.Reference<SubmixEffectDelaySettings>, DelayLength: cpp.Float32): SubmixEffectDelaySettings;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

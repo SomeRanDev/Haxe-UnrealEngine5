@@ -5,7 +5,7 @@ package ue;
 @:include("MovieScene/Parameters/MovieSceneNiagaraVectorParameterTrack.h")
 @:structAccess
 extern class MovieSceneNiagaraVectorParameterTrack extends MovieSceneNiagaraParameterTrack {
-	public var ChannelsUsed: cpp.Int32;
+	private var ChannelsUsed: cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MovieSceneNiagaraVectorParameterTrack extends MovieSceneNiagaraPara
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneNiagaraVectorParameterTrack(MovieSceneNiagaraVectorParameterTrack) from MovieSceneNiagaraVectorParameterTrack {
-	public extern var ChannelsUsed(get, never): cpp.Int32;
-	public inline extern function get_ChannelsUsed(): cpp.Int32 return this.ChannelsUsed;
 }
 
 @:forward

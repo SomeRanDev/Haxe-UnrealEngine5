@@ -5,9 +5,9 @@ package ue;
 @:include("RigVMCore/RigVMMemoryCommon.h")
 @:structAccess
 extern class RigVMOperand {
-	public var MemoryType: ERigVMMemoryType;
-	public var RegisterIndex: cpp.UInt16;
-	public var RegisterOffset: cpp.UInt16;
+	private var MemoryType: ERigVMMemoryType;
+	private var RegisterIndex: cpp.UInt16;
+	private var RegisterOffset: cpp.UInt16;
 
 	@:native("FRigVMOperand") public function new();
 	@:native("FRigVMOperand") public static function make(MemoryType: ERigVMMemoryType, RegisterIndex: cpp.UInt16, RegisterOffset: cpp.UInt16): RigVMOperand ;

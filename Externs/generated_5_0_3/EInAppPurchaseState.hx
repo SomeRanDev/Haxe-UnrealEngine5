@@ -3,14 +3,14 @@ package ue;
 
 @:native("EInAppPurchaseState.Type")
 @:include("Interfaces/OnlineStoreInterface.h")
-extern enum EInAppPurchaseState {
-	Unknown;
-	Success;
-	Failed;
-	Cancelled;
-	Invalid;
-	NotAllowed;
-	Restored;
-	AlreadyOwned;
-	EInAppPurchaseState_MAX;
+extern class EInAppPurchaseState {
+	static var Unknown: EInAppPurchaseState;
+	static var Success: EInAppPurchaseState;
+	static var Failed: EInAppPurchaseState;
+	static var Cancelled: EInAppPurchaseState;
+	static var Invalid: EInAppPurchaseState;
+	static var NotAllowed: EInAppPurchaseState;
+	static var Restored: EInAppPurchaseState;
+	static var AlreadyOwned: EInAppPurchaseState;
+	static var EInAppPurchaseState_MAX: EInAppPurchaseState;
 }

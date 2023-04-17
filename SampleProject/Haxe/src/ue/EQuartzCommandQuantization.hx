@@ -3,26 +3,26 @@ package ue;
 
 @:native("EQuartzCommandQuantization")
 @:include("Sound/QuartzQuantizationUtilities.h")
-extern enum EQuartzCommandQuantization {
-	Bar;
-	Beat;
-	ThirtySecondNote;
-	SixteenthNote;
-	EighthNote;
-	QuarterNote;
-	HalfNote;
-	WholeNote;
-	DottedSixteenthNote;
-	DottedEighthNote;
-	DottedQuarterNote;
-	DottedHalfNote;
-	DottedWholeNote;
-	SixteenthNoteTriplet;
-	EighthNoteTriplet;
-	QuarterNoteTriplet;
-	HalfNoteTriplet;
-	Tick;
-	Count;
-	None;
-	EQuartzCommandQuantization_MAX;
+extern class EQuartzCommandQuantization {
+	static var Bar: EQuartzCommandQuantization;
+	static var Beat: EQuartzCommandQuantization;
+	static var ThirtySecondNote: EQuartzCommandQuantization;
+	static var SixteenthNote: EQuartzCommandQuantization;
+	static var EighthNote: EQuartzCommandQuantization;
+	static var QuarterNote: EQuartzCommandQuantization;
+	static var HalfNote: EQuartzCommandQuantization;
+	static var WholeNote: EQuartzCommandQuantization;
+	static var DottedSixteenthNote: EQuartzCommandQuantization;
+	static var DottedEighthNote: EQuartzCommandQuantization;
+	static var DottedQuarterNote: EQuartzCommandQuantization;
+	static var DottedHalfNote: EQuartzCommandQuantization;
+	static var DottedWholeNote: EQuartzCommandQuantization;
+	static var SixteenthNoteTriplet: EQuartzCommandQuantization;
+	static var EighthNoteTriplet: EQuartzCommandQuantization;
+	static var QuarterNoteTriplet: EQuartzCommandQuantization;
+	static var HalfNoteTriplet: EQuartzCommandQuantization;
+	static var Tick: EQuartzCommandQuantization;
+	static var Count: EQuartzCommandQuantization;
+	static var None: EQuartzCommandQuantization;
+	static var EQuartzCommandQuantization_MAX: EQuartzCommandQuantization;
 }

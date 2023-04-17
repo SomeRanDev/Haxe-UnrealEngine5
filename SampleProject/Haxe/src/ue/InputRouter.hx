@@ -7,7 +7,7 @@ package ue;
 extern class InputRouter extends Object {
 	public var bAutoInvalidateOnHover: Bool;
 	public var bAutoInvalidateOnCapture: Bool;
-	public var ActiveInputBehaviors: cpp.Star<InputBehaviorSet>;
+	@:protected public var ActiveInputBehaviors: cpp.Star<InputBehaviorSet>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,8 +19,6 @@ abstract ConstInputRouter(InputRouter) from InputRouter {
 	public inline extern function get_bAutoInvalidateOnHover(): Bool return this.bAutoInvalidateOnHover;
 	public extern var bAutoInvalidateOnCapture(get, never): Bool;
 	public inline extern function get_bAutoInvalidateOnCapture(): Bool return this.bAutoInvalidateOnCapture;
-	public extern var ActiveInputBehaviors(get, never): cpp.Star<InputBehaviorSet.ConstInputBehaviorSet>;
-	public inline extern function get_ActiveInputBehaviors(): cpp.Star<InputBehaviorSet.ConstInputBehaviorSet> return this.ActiveInputBehaviors;
 }
 
 @:forward

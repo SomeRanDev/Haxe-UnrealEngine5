@@ -5,7 +5,7 @@ package ue;
 @:include("NiagaraNode.h")
 @:structAccess
 extern class NiagaraNode extends EdGraphNode {
-	public var ChangeId: Guid;
+	@:protected public var ChangeId: Guid;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class NiagaraNode extends EdGraphNode {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraNode(NiagaraNode) from NiagaraNode {
-	public extern var ChangeId(get, never): Guid;
-	public inline extern function get_ChangeId(): Guid return this.ChangeId;
 }
 
 @:forward

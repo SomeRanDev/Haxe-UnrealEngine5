@@ -3,10 +3,10 @@ package ue;
 
 @:native("EVoxelCSGOperation")
 @:include("VoxelCSGMeshesTool.h")
-extern enum EVoxelCSGOperation {
-	DifferenceAB;
-	DifferenceBA;
-	Intersect;
-	Union;
-	EVoxelCSGOperation_MAX;
+extern class EVoxelCSGOperation {
+	static var DifferenceAB: EVoxelCSGOperation;
+	static var DifferenceBA: EVoxelCSGOperation;
+	static var Intersect: EVoxelCSGOperation;
+	static var Union: EVoxelCSGOperation;
+	static var EVoxelCSGOperation_MAX: EVoxelCSGOperation;
 }

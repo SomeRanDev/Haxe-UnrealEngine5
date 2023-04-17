@@ -7,13 +7,13 @@ package ue;
 extern class BlueprintMapLibrary extends BlueprintFunctionLibrary {
 	public function SetMapPropertyByName(Object: cpp.Star<Object>, PropertyName: FName, Value: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>): Void;
 	public function Map_Values(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>, Values: cpp.Reference<TArray<cpp.Int32>>): Void;
-	public function Map_Remove(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>, Key: cpp.Reference<cpp.Int32>): cpp.Reference<Bool>;
-	public function Map_Length(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>): cpp.Reference<cpp.Int32>;
+	public function Map_Remove(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>, Key: cpp.Reference<cpp.Int32>): Bool;
+	public function Map_Length(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>): cpp.Int32;
 	public function Map_Keys(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>, Keys: cpp.Reference<TArray<cpp.Int32>>): Void;
-	public function Map_IsNotEmpty(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>): cpp.Reference<Bool>;
-	public function Map_IsEmpty(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>): cpp.Reference<Bool>;
-	public function Map_Find(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>, Key: cpp.Reference<cpp.Int32>, Value: cpp.Reference<cpp.Int32>): cpp.Reference<Bool>;
-	public function Map_Contains(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>, Key: cpp.Reference<cpp.Int32>): cpp.Reference<Bool>;
+	public function Map_IsNotEmpty(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>): Bool;
+	public function Map_IsEmpty(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>): Bool;
+	public function Map_Find(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>, Key: cpp.Reference<cpp.Int32>, Value: cpp.Reference<cpp.Int32>): Bool;
+	public function Map_Contains(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>, Key: cpp.Reference<cpp.Int32>): Bool;
 	public function Map_Clear(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>): Void;
 	public function Map_Add(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>, Key: cpp.Reference<cpp.Int32>, Value: cpp.Reference<cpp.Int32>): Void;
 

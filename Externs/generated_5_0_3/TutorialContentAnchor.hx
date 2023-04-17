@@ -5,7 +5,7 @@ package ue;
 @:include("EditorTutorial.h")
 @:structAccess
 extern class TutorialContentAnchor {
-	public var Type: ETutorialAnchorIdentifier;
+	public var Type: TEnumAsByte<ETutorialAnchorIdentifier>;
 	public var WrapperIdentifier: FName;
 	public var Asset: SoftObjectPath;
 	public var bDrawHighlight: Bool;

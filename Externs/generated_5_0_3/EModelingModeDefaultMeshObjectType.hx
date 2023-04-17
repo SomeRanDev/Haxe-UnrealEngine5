@@ -3,9 +3,9 @@ package ue;
 
 @:native("EModelingModeDefaultMeshObjectType")
 @:include("ModelingToolsEditorModeSettings.h")
-extern enum EModelingModeDefaultMeshObjectType {
-	StaticMeshAsset;
-	VolumeActor;
-	DynamicMeshActor;
-	EModelingModeDefaultMeshObjectType_MAX;
+extern class EModelingModeDefaultMeshObjectType {
+	static var StaticMeshAsset: EModelingModeDefaultMeshObjectType;
+	static var VolumeActor: EModelingModeDefaultMeshObjectType;
+	static var DynamicMeshActor: EModelingModeDefaultMeshObjectType;
+	static var EModelingModeDefaultMeshObjectType_MAX: EModelingModeDefaultMeshObjectType;
 }

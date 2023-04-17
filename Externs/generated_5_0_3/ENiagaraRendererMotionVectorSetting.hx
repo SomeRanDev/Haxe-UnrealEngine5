@@ -3,10 +3,10 @@ package ue;
 
 @:native("ENiagaraRendererMotionVectorSetting")
 @:include("NiagaraCommon.h")
-extern enum ENiagaraRendererMotionVectorSetting {
-	AutoDetect;
-	Precise;
-	Approximate;
-	Disable;
-	ENiagaraRendererMotionVectorSetting_MAX;
+extern class ENiagaraRendererMotionVectorSetting {
+	static var AutoDetect: ENiagaraRendererMotionVectorSetting;
+	static var Precise: ENiagaraRendererMotionVectorSetting;
+	static var Approximate: ENiagaraRendererMotionVectorSetting;
+	static var Disable: ENiagaraRendererMotionVectorSetting;
+	static var ENiagaraRendererMotionVectorSetting_MAX: ENiagaraRendererMotionVectorSetting;
 }

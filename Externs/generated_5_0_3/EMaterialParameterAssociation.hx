@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMaterialParameterAssociation")
 @:include("Materials/MaterialLayersFunctions.h")
-extern enum EMaterialParameterAssociation {
-	LayerParameter;
-	BlendParameter;
-	GlobalParameter;
-	EMaterialParameterAssociation_MAX;
+extern class EMaterialParameterAssociation {
+	static var LayerParameter: EMaterialParameterAssociation;
+	static var BlendParameter: EMaterialParameterAssociation;
+	static var GlobalParameter: EMaterialParameterAssociation;
+	static var EMaterialParameterAssociation_MAX: EMaterialParameterAssociation;
 }

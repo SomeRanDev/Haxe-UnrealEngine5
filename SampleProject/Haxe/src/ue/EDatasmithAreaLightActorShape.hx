@@ -3,11 +3,11 @@ package ue;
 
 @:native("EDatasmithAreaLightActorShape")
 @:include("DatasmithAreaLightActor.h")
-extern enum EDatasmithAreaLightActorShape {
-	Rectangle;
-	Disc;
-	Sphere;
-	Cylinder;
-	None;
-	EDatasmithAreaLightActorShape_MAX;
+extern class EDatasmithAreaLightActorShape {
+	static var Rectangle: EDatasmithAreaLightActorShape;
+	static var Disc: EDatasmithAreaLightActorShape;
+	static var Sphere: EDatasmithAreaLightActorShape;
+	static var Cylinder: EDatasmithAreaLightActorShape;
+	static var None: EDatasmithAreaLightActorShape;
+	static var EDatasmithAreaLightActorShape_MAX: EDatasmithAreaLightActorShape;
 }

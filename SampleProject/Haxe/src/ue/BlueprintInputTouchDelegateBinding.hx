@@ -5,9 +5,9 @@ package ue;
 @:include("Engine/InputTouchDelegateBinding.h")
 @:structAccess
 extern class BlueprintInputTouchDelegateBinding extends BlueprintInputDelegateBinding {
-	public var InputKeyEvent: EInputEvent;
+	public var InputKeyEvent: TEnumAsByte<EInputEvent>;
 	public var FunctionNameToBind: FName;
 
 	@:native("FBlueprintInputTouchDelegateBinding") public function new();
-	@:native("FBlueprintInputTouchDelegateBinding") public static function make(InputKeyEvent: EInputEvent, FunctionNameToBind: FName): BlueprintInputTouchDelegateBinding ;
+	@:native("FBlueprintInputTouchDelegateBinding") public static function make(InputKeyEvent: TEnumAsByte<EInputEvent>, FunctionNameToBind: FName): BlueprintInputTouchDelegateBinding ;
 }

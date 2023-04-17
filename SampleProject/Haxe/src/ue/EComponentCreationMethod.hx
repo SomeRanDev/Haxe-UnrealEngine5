@@ -3,10 +3,10 @@ package ue;
 
 @:native("EComponentCreationMethod")
 @:include("ComponentInstanceDataCache.h")
-extern enum EComponentCreationMethod {
-	Native;
-	SimpleConstructionScript;
-	UserConstructionScript;
-	Instance;
-	EComponentCreationMethod_MAX;
+extern class EComponentCreationMethod {
+	static var Native: EComponentCreationMethod;
+	static var SimpleConstructionScript: EComponentCreationMethod;
+	static var UserConstructionScript: EComponentCreationMethod;
+	static var Instance: EComponentCreationMethod;
+	static var EComponentCreationMethod_MAX: EComponentCreationMethod;
 }

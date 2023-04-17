@@ -3,8 +3,8 @@ package ue;
 
 @:native("EExtractCollisionOutputType")
 @:include("Physics/ExtractCollisionGeometryTool.h")
-extern enum EExtractCollisionOutputType {
-	Simple;
-	Complex;
-	EExtractCollisionOutputType_MAX;
+extern class EExtractCollisionOutputType {
+	static var Simple: EExtractCollisionOutputType;
+	static var Complex: EExtractCollisionOutputType;
+	static var EExtractCollisionOutputType_MAX: EExtractCollisionOutputType;
 }

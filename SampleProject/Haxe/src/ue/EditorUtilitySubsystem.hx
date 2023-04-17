@@ -9,21 +9,21 @@ extern class EditorUtilitySubsystem extends EditorSubsystem {
 	public var StartupObjects: TArray<SoftObjectPath>;
 	public var OnBeginPIE: HaxeMulticastSparseDelegateProperty<(Bool) -> Void>;
 	public var OnEndPIE: HaxeMulticastSparseDelegateProperty<(Bool) -> Void>;
-	public var ObjectInstances: TMap<cpp.Star<Object>, cpp.Star<Object>>;
-	public var ActiveTaskStack: TArray<cpp.Star<EditorUtilityTask>>;
-	public var ReferencedObjects: TSet<cpp.Star<Object>>;
+	private var ObjectInstances: TMap<cpp.Star<Object>, cpp.Star<Object>>;
+	private var ActiveTaskStack: TArray<cpp.Star<EditorUtilityTask>>;
+	private var ReferencedObjects: TSet<cpp.Star<Object>>;
 
-	public function TryRun(Asset: cpp.Star<Object>): cpp.Reference<Bool>;
-	public function SpawnRegisteredTabByID(NewTabID: FName): cpp.Reference<Bool>;
-	public function SpawnAndRegisterTabAndGetID(InBlueprint: cpp.Star<EditorUtilityWidgetBlueprint>, NewTabID: cpp.Reference<FName>): cpp.Reference<cpp.Star<EditorUtilityWidget>>;
-	public function SpawnAndRegisterTab(InBlueprint: cpp.Star<EditorUtilityWidgetBlueprint>): cpp.Reference<cpp.Star<EditorUtilityWidget>>;
+	public function TryRun(Asset: cpp.Star<Object>): Bool;
+	public function SpawnRegisteredTabByID(NewTabID: FName): Bool;
+	public function SpawnAndRegisterTabAndGetID(InBlueprint: cpp.Star<EditorUtilityWidgetBlueprint>, NewTabID: cpp.Reference<FName>): cpp.Star<EditorUtilityWidget>;
+	public function SpawnAndRegisterTab(InBlueprint: cpp.Star<EditorUtilityWidgetBlueprint>): cpp.Star<EditorUtilityWidget>;
 	public function ReleaseInstanceOfAsset(Asset: cpp.Star<Object>): Void;
 	public function RegisterTabAndGetID(InBlueprint: cpp.Star<EditorUtilityWidgetBlueprint>, NewTabID: cpp.Reference<FName>): Void;
 	public function RegisterAndExecuteTask(NewTask: cpp.Star<EditorUtilityTask>, OptionalParentTask: cpp.Star<EditorUtilityTask>): Void;
-	public function FindUtilityWidgetFromBlueprint(InBlueprint: cpp.Star<EditorUtilityWidgetBlueprint>): cpp.Reference<cpp.Star<EditorUtilityWidget>>;
-	public function DoesTabExist(NewTabID: FName): cpp.Reference<Bool>;
-	public function CloseTabByID(NewTabID: FName): cpp.Reference<Bool>;
-	public function CanRun(Asset: cpp.Star<Object>): cpp.Reference<Bool>;
+	public function FindUtilityWidgetFromBlueprint(InBlueprint: cpp.Star<EditorUtilityWidgetBlueprint>): cpp.Star<EditorUtilityWidget>;
+	public function DoesTabExist(NewTabID: FName): Bool;
+	public function CloseTabByID(NewTabID: FName): Bool;
+	public function CanRun(Asset: cpp.Star<Object>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -39,12 +39,6 @@ abstract ConstEditorUtilitySubsystem(EditorUtilitySubsystem) from EditorUtilityS
 	public inline extern function get_OnBeginPIE(): HaxeMulticastSparseDelegateProperty<(Bool) -> Void> return this.OnBeginPIE;
 	public extern var OnEndPIE(get, never): HaxeMulticastSparseDelegateProperty<(Bool) -> Void>;
 	public inline extern function get_OnEndPIE(): HaxeMulticastSparseDelegateProperty<(Bool) -> Void> return this.OnEndPIE;
-	public extern var ObjectInstances(get, never): TMap<cpp.Star<Object.ConstObject>, cpp.Star<Object.ConstObject>>;
-	public inline extern function get_ObjectInstances(): TMap<cpp.Star<Object.ConstObject>, cpp.Star<Object.ConstObject>> return this.ObjectInstances;
-	public extern var ActiveTaskStack(get, never): TArray<cpp.Star<EditorUtilityTask.ConstEditorUtilityTask>>;
-	public inline extern function get_ActiveTaskStack(): TArray<cpp.Star<EditorUtilityTask.ConstEditorUtilityTask>> return this.ActiveTaskStack;
-	public extern var ReferencedObjects(get, never): TSet<cpp.Star<Object.ConstObject>>;
-	public inline extern function get_ReferencedObjects(): TSet<cpp.Star<Object.ConstObject>> return this.ReferencedObjects;
 }
 
 @:forward

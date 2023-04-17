@@ -7,7 +7,7 @@ package ue;
 extern class CheatManager extends Object {
 	public var DebugCameraControllerRef: cpp.Star<DebugCameraController>;
 	public var DebugCameraControllerClass: TSubclassOf<DebugCameraController>;
-	public var CheatManagerExtensions: TArray<cpp.Star<CheatManagerExtension>>;
+	@:protected public var CheatManagerExtensions: TArray<cpp.Star<CheatManagerExtension>>;
 
 	public function Walk(): Void;
 	public function ViewSelf(): Void;
@@ -32,22 +32,22 @@ extern class CheatManager extends Object {
 	public function ReceiveInitCheatManager(): Void;
 	public function ReceiveEndPlay(): Void;
 	public function PlayersOnly(): Void;
-	public function OnPlayerEndPlayed(Player: cpp.Star<Actor>, EndPlayReason: EEndPlayReason): Void;
+	public function OnPlayerEndPlayed(Player: cpp.Star<Actor>, EndPlayReason: TEnumAsByte<EEndPlayReason>): Void;
 	public function OnlyLoadLevel(PackageName: FName): Void;
 	public function LogLoc(): Void;
 	public function InvertMouse(): Void;
 	public function God(): Void;
 	public function Ghost(): Void;
-	public function GetPlayerController(): cpp.Reference<cpp.Star<PlayerController>>;
+	public function GetPlayerController(): cpp.Star<PlayerController>;
 	public function FreezeFrame(Delay: cpp.Float32): Void;
 	public function Fly(): Void;
 	public function FlushLog(): Void;
-	public function EnableDebugCamera(): Void;
+	@:protected public function EnableDebugCamera(): Void;
 	public function DumpVoiceMutingState(): Void;
 	public function DumpPartyState(): Void;
 	public function DumpOnlineSessionState(): Void;
 	public function DumpChatState(): Void;
-	public function DisableDebugCamera(): Void;
+	@:protected public function DisableDebugCamera(): Void;
 	public function DestroyTarget(): Void;
 	public function DestroyServerStatReplicator(): Void;
 	public function DestroyPawns(aClass: TSubclassOf<Pawn>): Void;
@@ -57,7 +57,7 @@ extern class CheatManager extends Object {
 	public function DebugCapsuleSweepPawn(): Void;
 	public function DebugCapsuleSweepComplex(bTraceComplex: Bool): Void;
 	public function DebugCapsuleSweepClear(): Void;
-	public function DebugCapsuleSweepChannel(Channel: ECollisionChannel): Void;
+	public function DebugCapsuleSweepChannel(Channel: TEnumAsByte<ECollisionChannel>): Void;
 	public function DebugCapsuleSweepCapture(): Void;
 	public function DebugCapsuleSweep(): Void;
 	public function DamageTarget(DamageAmount: cpp.Float32): Void;
@@ -77,8 +77,6 @@ abstract ConstCheatManager(CheatManager) from CheatManager {
 	public inline extern function get_DebugCameraControllerRef(): cpp.Star<DebugCameraController.ConstDebugCameraController> return this.DebugCameraControllerRef;
 	public extern var DebugCameraControllerClass(get, never): TSubclassOf<DebugCameraController.ConstDebugCameraController>;
 	public inline extern function get_DebugCameraControllerClass(): TSubclassOf<DebugCameraController.ConstDebugCameraController> return this.DebugCameraControllerClass;
-	public extern var CheatManagerExtensions(get, never): TArray<cpp.Star<CheatManagerExtension.ConstCheatManagerExtension>>;
-	public inline extern function get_CheatManagerExtensions(): TArray<cpp.Star<CheatManagerExtension.ConstCheatManagerExtension>> return this.CheatManagerExtensions;
 }
 
 @:forward

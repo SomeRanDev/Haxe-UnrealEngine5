@@ -3,15 +3,15 @@ package ue;
 
 @:native("ELabelAnchorMode")
 @:include("Settings/LevelEditorPlaySettings.h")
-extern enum ELabelAnchorMode {
-	LabelAnchorMode_TopLeft;
-	LabelAnchorMode_TopCenter;
-	LabelAnchorMode_TopRight;
-	LabelAnchorMode_CenterLeft;
-	LabelAnchorMode_Centered;
-	LabelAnchorMode_CenterRight;
-	LabelAnchorMode_BottomLeft;
-	LabelAnchorMode_BottomCenter;
-	LabelAnchorMode_BottomRight;
-	LabelAnchorMode_MAX;
+extern class ELabelAnchorMode {
+	static var LabelAnchorMode_TopLeft: ELabelAnchorMode;
+	static var LabelAnchorMode_TopCenter: ELabelAnchorMode;
+	static var LabelAnchorMode_TopRight: ELabelAnchorMode;
+	static var LabelAnchorMode_CenterLeft: ELabelAnchorMode;
+	static var LabelAnchorMode_Centered: ELabelAnchorMode;
+	static var LabelAnchorMode_CenterRight: ELabelAnchorMode;
+	static var LabelAnchorMode_BottomLeft: ELabelAnchorMode;
+	static var LabelAnchorMode_BottomCenter: ELabelAnchorMode;
+	static var LabelAnchorMode_BottomRight: ELabelAnchorMode;
+	static var LabelAnchorMode_MAX: ELabelAnchorMode;
 }

@@ -5,10 +5,6 @@ package ue;
 @:include("ISMPartition/ISMPartitionActor.h")
 @:structAccess
 extern class ISMPartitionActor extends PartitionActor {
-	public var Clients: TArray<Guid>;
-	public var Descriptors: TArray<ISMComponentDescriptor>;
-	public var DescriptorComponents: TArray<ISMComponentData>;
-	public var ClientInstanceManagers: TMap<Guid, ISMClientInstanceManagerData>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +12,6 @@ extern class ISMPartitionActor extends PartitionActor {
 @:forward()
 @:nativeGen
 abstract ConstISMPartitionActor(ISMPartitionActor) from ISMPartitionActor {
-	public extern var Clients(get, never): TArray<Guid>;
-	public inline extern function get_Clients(): TArray<Guid> return this.Clients;
-	public extern var Descriptors(get, never): TArray<ISMComponentDescriptor>;
-	public inline extern function get_Descriptors(): TArray<ISMComponentDescriptor> return this.Descriptors;
-	public extern var DescriptorComponents(get, never): TArray<ISMComponentData>;
-	public inline extern function get_DescriptorComponents(): TArray<ISMComponentData> return this.DescriptorComponents;
-	public extern var ClientInstanceManagers(get, never): TMap<Guid, ISMClientInstanceManagerData>;
-	public inline extern function get_ClientInstanceManagers(): TMap<Guid, ISMClientInstanceManagerData> return this.ClientInstanceManagers;
 }
 
 @:forward

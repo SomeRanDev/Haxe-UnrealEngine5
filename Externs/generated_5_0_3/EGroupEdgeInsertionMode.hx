@@ -3,8 +3,8 @@ package ue;
 
 @:native("EGroupEdgeInsertionMode")
 @:include("ToolActivities/PolyEditInsertEdgeActivity.h")
-extern enum EGroupEdgeInsertionMode {
-	Retriangulate;
-	PlaneCut;
-	EGroupEdgeInsertionMode_MAX;
+extern class EGroupEdgeInsertionMode {
+	static var Retriangulate: EGroupEdgeInsertionMode;
+	static var PlaneCut: EGroupEdgeInsertionMode;
+	static var EGroupEdgeInsertionMode_MAX: EGroupEdgeInsertionMode;
 }

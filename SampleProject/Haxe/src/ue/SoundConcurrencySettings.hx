@@ -7,9 +7,9 @@ package ue;
 extern class SoundConcurrencySettings {
 	public var MaxCount: cpp.Int32;
 	public var bLimitToOwner: Bool;
-	public var ResolutionRule: EMaxConcurrentResolutionRule;
+	public var ResolutionRule: TEnumAsByte<EMaxConcurrentResolutionRule>;
 	public var RetriggerTime: cpp.Float32;
-	public var VolumeScale: cpp.Float32;
+	private var VolumeScale: cpp.Float32;
 	public var VolumeScaleMode: EConcurrencyVolumeScaleMode;
 	public var VolumeScaleAttackTime: cpp.Float32;
 	public var bVolumeScaleCanRelease: Bool;

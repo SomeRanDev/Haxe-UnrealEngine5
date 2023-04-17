@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class AudioAnalyzer extends Object {
 	public var AudioBus: cpp.Star<AudioBus>;
-	public var AudioAnalyzerSubsystem: cpp.Star<AudioAnalyzerSubsystem>;
+	private var AudioAnalyzerSubsystem: cpp.Star<AudioAnalyzerSubsystem>;
 
 	public function StopAnalyzing(WorldContextObject: cpp.Star<Object.ConstObject>): Void;
 	public function StartAnalyzing(WorldContextObject: cpp.Star<Object.ConstObject>, AudioBusToAnalyze: cpp.Star<AudioBus>): Void;
@@ -19,8 +19,6 @@ extern class AudioAnalyzer extends Object {
 abstract ConstAudioAnalyzer(AudioAnalyzer) from AudioAnalyzer {
 	public extern var AudioBus(get, never): cpp.Star<AudioBus.ConstAudioBus>;
 	public inline extern function get_AudioBus(): cpp.Star<AudioBus.ConstAudioBus> return this.AudioBus;
-	public extern var AudioAnalyzerSubsystem(get, never): cpp.Star<AudioAnalyzerSubsystem.ConstAudioAnalyzerSubsystem>;
-	public inline extern function get_AudioAnalyzerSubsystem(): cpp.Star<AudioAnalyzerSubsystem.ConstAudioAnalyzerSubsystem> return this.AudioAnalyzerSubsystem;
 }
 
 @:forward

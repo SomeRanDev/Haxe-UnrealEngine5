@@ -3,12 +3,12 @@ package ue;
 
 @:native("ETemperatureSeverityType")
 @:include("Components/ApplicationLifecycleComponent.h")
-extern enum ETemperatureSeverityType {
-	Unknown;
-	Good;
-	Bad;
-	Serious;
-	Critical;
-	NumSeverities;
-	ETemperatureSeverityType_MAX;
+extern class ETemperatureSeverityType {
+	static var Unknown: ETemperatureSeverityType;
+	static var Good: ETemperatureSeverityType;
+	static var Bad: ETemperatureSeverityType;
+	static var Serious: ETemperatureSeverityType;
+	static var Critical: ETemperatureSeverityType;
+	static var NumSeverities: ETemperatureSeverityType;
+	static var ETemperatureSeverityType_MAX: ETemperatureSeverityType;
 }

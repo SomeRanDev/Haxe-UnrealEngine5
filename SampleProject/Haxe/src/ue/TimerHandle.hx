@@ -5,7 +5,7 @@ package ue;
 @:include("Engine/EngineTypes.h")
 @:structAccess
 extern class TimerHandle {
-	public var Handle: cpp.UInt64;
+	private var Handle: cpp.UInt64;
 
 	@:native("FTimerHandle") public function new();
 	@:native("FTimerHandle") public static function make(Handle: cpp.UInt64): TimerHandle ;

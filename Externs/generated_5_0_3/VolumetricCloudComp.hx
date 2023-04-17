@@ -16,10 +16,8 @@ extern class VolumetricCloudComp extends SceneComp {
 	public var SkyLightCloudBottomOcclusion: cpp.Float32;
 	public var ViewSampleCountScale: cpp.Float32;
 	public var ReflectionViewSampleCountScale: cpp.Float32;
-	public var ReflectionSampleCountScale_DEPRECATED: cpp.Float32;
 	public var ShadowViewSampleCountScale: cpp.Float32;
 	public var ShadowReflectionViewSampleCountScale: cpp.Float32;
-	public var ShadowReflectionSampleCountScale_DEPRECATED: cpp.Float32;
 	public var ShadowTracingDistance: cpp.Float32;
 	public var StopTracingTransmittanceThreshold: cpp.Float32;
 
@@ -69,14 +67,10 @@ abstract ConstVolumetricCloudComp(VolumetricCloudComp) from VolumetricCloudComp 
 	public inline extern function get_ViewSampleCountScale(): cpp.Float32 return this.ViewSampleCountScale;
 	public extern var ReflectionViewSampleCountScale(get, never): cpp.Float32;
 	public inline extern function get_ReflectionViewSampleCountScale(): cpp.Float32 return this.ReflectionViewSampleCountScale;
-	public extern var ReflectionSampleCountScale_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_ReflectionSampleCountScale_DEPRECATED(): cpp.Float32 return this.ReflectionSampleCountScale_DEPRECATED;
 	public extern var ShadowViewSampleCountScale(get, never): cpp.Float32;
 	public inline extern function get_ShadowViewSampleCountScale(): cpp.Float32 return this.ShadowViewSampleCountScale;
 	public extern var ShadowReflectionViewSampleCountScale(get, never): cpp.Float32;
 	public inline extern function get_ShadowReflectionViewSampleCountScale(): cpp.Float32 return this.ShadowReflectionViewSampleCountScale;
-	public extern var ShadowReflectionSampleCountScale_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_ShadowReflectionSampleCountScale_DEPRECATED(): cpp.Float32 return this.ShadowReflectionSampleCountScale_DEPRECATED;
 	public extern var ShadowTracingDistance(get, never): cpp.Float32;
 	public inline extern function get_ShadowTracingDistance(): cpp.Float32 return this.ShadowTracingDistance;
 	public extern var StopTracingTransmittanceThreshold(get, never): cpp.Float32;

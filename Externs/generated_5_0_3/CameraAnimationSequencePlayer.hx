@@ -5,9 +5,9 @@ package ue;
 @:include("CameraAnimationSequencePlayer.h")
 @:structAccess
 extern class CameraAnimationSequencePlayer extends Object {
-	public var BoundObjectOverride: cpp.Star<Object>;
-	public var Sequence: cpp.Star<MovieSceneSequence>;
-	public var RootTemplateInstance: MovieSceneRootEvaluationTemplateInstance;
+	private var BoundObjectOverride: cpp.Star<Object>;
+	private var Sequence: cpp.Star<MovieSceneSequence>;
+	private var RootTemplateInstance: MovieSceneRootEvaluationTemplateInstance;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class CameraAnimationSequencePlayer extends Object {
 @:forward()
 @:nativeGen
 abstract ConstCameraAnimationSequencePlayer(CameraAnimationSequencePlayer) from CameraAnimationSequencePlayer {
-	public extern var BoundObjectOverride(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_BoundObjectOverride(): cpp.Star<Object.ConstObject> return this.BoundObjectOverride;
-	public extern var Sequence(get, never): cpp.Star<MovieSceneSequence.ConstMovieSceneSequence>;
-	public inline extern function get_Sequence(): cpp.Star<MovieSceneSequence.ConstMovieSceneSequence> return this.Sequence;
-	public extern var RootTemplateInstance(get, never): MovieSceneRootEvaluationTemplateInstance;
-	public inline extern function get_RootTemplateInstance(): MovieSceneRootEvaluationTemplateInstance return this.RootTemplateInstance;
 }
 
 @:forward

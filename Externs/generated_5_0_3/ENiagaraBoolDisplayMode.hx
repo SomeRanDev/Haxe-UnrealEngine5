@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENiagaraBoolDisplayMode")
 @:include("NiagaraTypes.h")
-extern enum ENiagaraBoolDisplayMode {
-	DisplayAlways;
-	DisplayIfTrue;
-	DisplayIfFalse;
-	ENiagaraBoolDisplayMode_MAX;
+extern class ENiagaraBoolDisplayMode {
+	static var DisplayAlways: ENiagaraBoolDisplayMode;
+	static var DisplayIfTrue: ENiagaraBoolDisplayMode;
+	static var DisplayIfFalse: ENiagaraBoolDisplayMode;
+	static var ENiagaraBoolDisplayMode_MAX: ENiagaraBoolDisplayMode;
 }

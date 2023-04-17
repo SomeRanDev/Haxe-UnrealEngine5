@@ -3,9 +3,9 @@ package ue;
 
 @:native("EConsoleForGamepadLabels.Type")
 @:include("InputCoreTypes.h")
-extern enum EConsoleForGamepadLabels {
-	None;
-	XBoxOne;
-	PS4;
-	EConsoleForGamepadLabels_MAX;
+extern class EConsoleForGamepadLabels {
+	static var None: EConsoleForGamepadLabels;
+	static var XBoxOne: EConsoleForGamepadLabels;
+	static var PS4: EConsoleForGamepadLabels;
+	static var EConsoleForGamepadLabels_MAX: EConsoleForGamepadLabels;
 }

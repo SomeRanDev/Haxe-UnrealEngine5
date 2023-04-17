@@ -5,7 +5,7 @@ package ue;
 @:include("RigEditor/IKRigController.h")
 @:structAccess
 extern class IKRigController extends Object {
-	public var Asset: cpp.Star<IKRigDefinition>;
+	private var Asset: cpp.Star<IKRigDefinition>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class IKRigController extends Object {
 @:forward()
 @:nativeGen
 abstract ConstIKRigController(IKRigController) from IKRigController {
-	public extern var Asset(get, never): cpp.Star<IKRigDefinition.ConstIKRigDefinition>;
-	public inline extern function get_Asset(): cpp.Star<IKRigDefinition.ConstIKRigDefinition> return this.Asset;
 }
 
 @:forward

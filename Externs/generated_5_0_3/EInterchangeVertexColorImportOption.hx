@@ -3,9 +3,9 @@ package ue;
 
 @:native("EInterchangeVertexColorImportOption")
 @:include("InterchangeGenericAssetsPipeline.h")
-extern enum EInterchangeVertexColorImportOption {
-	IVCIO_Replace;
-	IVCIO_Ignore;
-	IVCIO_Override;
-	IVCIO_MAX;
+extern class EInterchangeVertexColorImportOption {
+	static var IVCIO_Replace: EInterchangeVertexColorImportOption;
+	static var IVCIO_Ignore: EInterchangeVertexColorImportOption;
+	static var IVCIO_Override: EInterchangeVertexColorImportOption;
+	static var IVCIO_MAX: EInterchangeVertexColorImportOption;
 }

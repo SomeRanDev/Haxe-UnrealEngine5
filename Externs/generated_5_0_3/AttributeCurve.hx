@@ -5,10 +5,10 @@ package ue;
 @:include("Animation/AttributeCurve.h")
 @:structAccess
 extern class AttributeCurve extends IndexedCurve {
-	public var Keys: TArray<AttributeKey>;
-	public var ScriptStructPath: SoftObjectPath;
-	public var ScriptStruct: cpp.Star<ScriptStruct>;
-	public var bShouldInterpolate: Bool;
+	@:protected public var Keys: TArray<AttributeKey>;
+	@:protected public var ScriptStructPath: SoftObjectPath;
+	@:protected public var ScriptStruct: cpp.Star<ScriptStruct>;
+	@:protected public var bShouldInterpolate: Bool;
 
 	@:native("FAttributeCurve") public function new();
 	@:native("FAttributeCurve") public static function make(Keys: TArray<AttributeKey>, ScriptStructPath: SoftObjectPath, ScriptStruct: cpp.Star<ScriptStruct>, bShouldInterpolate: Bool): AttributeCurve ;

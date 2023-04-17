@@ -7,7 +7,7 @@ package ue;
 extern class VersionInfoHandler extends Object {
 	public var CommonVersionData: VersionData;
 
-	public function Get(): cpp.Reference<cpp.Star<VersionInfoHandler>>;
+	public function Get(): cpp.Star<VersionInfoHandler>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

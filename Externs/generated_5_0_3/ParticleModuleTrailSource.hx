@@ -5,13 +5,13 @@ package ue;
 @:include("Particles/Trail/ParticleModuleTrailSource.h")
 @:structAccess
 extern class ParticleModuleTrailSource extends ParticleModuleTrailBase {
-	public var SourceMethod: ETrail2SourceMethod;
+	public var SourceMethod: TEnumAsByte<ETrail2SourceMethod>;
 	public var SourceName: FName;
 	public var SourceStrength: RawDistributionFloat;
 	public var bLockSourceStength: Bool;
 	public var SourceOffsetCount: cpp.Int32;
 	public var SourceOffsetDefaults: TArray<Vector>;
-	public var SelectionMethod: EParticleSourceSelectionMethod;
+	public var SelectionMethod: TEnumAsByte<EParticleSourceSelectionMethod>;
 	public var bInheritRotation: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -20,8 +20,8 @@ extern class ParticleModuleTrailSource extends ParticleModuleTrailBase {
 @:forward()
 @:nativeGen
 abstract ConstParticleModuleTrailSource(ParticleModuleTrailSource) from ParticleModuleTrailSource {
-	public extern var SourceMethod(get, never): ETrail2SourceMethod;
-	public inline extern function get_SourceMethod(): ETrail2SourceMethod return this.SourceMethod;
+	public extern var SourceMethod(get, never): TEnumAsByte<ETrail2SourceMethod>;
+	public inline extern function get_SourceMethod(): TEnumAsByte<ETrail2SourceMethod> return this.SourceMethod;
 	public extern var SourceName(get, never): FName;
 	public inline extern function get_SourceName(): FName return this.SourceName;
 	public extern var SourceStrength(get, never): RawDistributionFloat;
@@ -32,8 +32,8 @@ abstract ConstParticleModuleTrailSource(ParticleModuleTrailSource) from Particle
 	public inline extern function get_SourceOffsetCount(): cpp.Int32 return this.SourceOffsetCount;
 	public extern var SourceOffsetDefaults(get, never): TArray<Vector>;
 	public inline extern function get_SourceOffsetDefaults(): TArray<Vector> return this.SourceOffsetDefaults;
-	public extern var SelectionMethod(get, never): EParticleSourceSelectionMethod;
-	public inline extern function get_SelectionMethod(): EParticleSourceSelectionMethod return this.SelectionMethod;
+	public extern var SelectionMethod(get, never): TEnumAsByte<EParticleSourceSelectionMethod>;
+	public inline extern function get_SelectionMethod(): TEnumAsByte<EParticleSourceSelectionMethod> return this.SelectionMethod;
 	public extern var bInheritRotation(get, never): Bool;
 	public inline extern function get_bInheritRotation(): Bool return this.bInheritRotation;
 }

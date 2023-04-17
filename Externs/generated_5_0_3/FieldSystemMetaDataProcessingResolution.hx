@@ -5,9 +5,9 @@ package ue;
 @:include("Field/FieldSystemObjects.h")
 @:structAccess
 extern class FieldSystemMetaDataProcessingResolution extends FieldSystemMetaData {
-	public var ResolutionType: EFieldResolutionType;
+	public var ResolutionType: TEnumAsByte<EFieldResolutionType>;
 
-	public function SetMetaDataaProcessingResolutionType(ResolutionType: EFieldResolutionType): cpp.Reference<cpp.Star<FieldSystemMetaDataProcessingResolution>>;
+	public function SetMetaDataaProcessingResolutionType(ResolutionType: TEnumAsByte<EFieldResolutionType>): cpp.Star<FieldSystemMetaDataProcessingResolution>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,8 +15,8 @@ extern class FieldSystemMetaDataProcessingResolution extends FieldSystemMetaData
 @:forward()
 @:nativeGen
 abstract ConstFieldSystemMetaDataProcessingResolution(FieldSystemMetaDataProcessingResolution) from FieldSystemMetaDataProcessingResolution {
-	public extern var ResolutionType(get, never): EFieldResolutionType;
-	public inline extern function get_ResolutionType(): EFieldResolutionType return this.ResolutionType;
+	public extern var ResolutionType(get, never): TEnumAsByte<EFieldResolutionType>;
+	public inline extern function get_ResolutionType(): TEnumAsByte<EFieldResolutionType> return this.ResolutionType;
 }
 
 @:forward

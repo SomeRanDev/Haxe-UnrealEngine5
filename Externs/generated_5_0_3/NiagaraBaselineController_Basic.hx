@@ -5,8 +5,8 @@ package ue;
 @:include("NiagaraPerfBaseline.h")
 @:structAccess
 extern class NiagaraBaselineController_Basic extends NiagaraBaselineController {
-	public var NumInstances: cpp.Int32;
-	public var SpawnedComponents: TArray<cpp.Star<NiagaraComp>>;
+	private var NumInstances: cpp.Int32;
+	private var SpawnedComponents: TArray<cpp.Star<NiagaraComp>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class NiagaraBaselineController_Basic extends NiagaraBaselineController {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraBaselineController_Basic(NiagaraBaselineController_Basic) from NiagaraBaselineController_Basic {
-	public extern var NumInstances(get, never): cpp.Int32;
-	public inline extern function get_NumInstances(): cpp.Int32 return this.NumInstances;
-	public extern var SpawnedComponents(get, never): TArray<cpp.Star<NiagaraComp.ConstNiagaraComp>>;
-	public inline extern function get_SpawnedComponents(): TArray<cpp.Star<NiagaraComp.ConstNiagaraComp>> return this.SpawnedComponents;
 }
 
 @:forward

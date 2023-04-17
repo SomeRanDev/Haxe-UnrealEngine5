@@ -3,10 +3,10 @@ package ue;
 
 @:native("EFFTPeakInterpolationMethod")
 @:include("Sound/SoundSubmix.h")
-extern enum EFFTPeakInterpolationMethod {
-	NearestNeighbor;
-	Linear;
-	Quadratic;
-	ConstantQ;
-	EFFTPeakInterpolationMethod_MAX;
+extern class EFFTPeakInterpolationMethod {
+	static var NearestNeighbor: EFFTPeakInterpolationMethod;
+	static var Linear: EFFTPeakInterpolationMethod;
+	static var Quadratic: EFFTPeakInterpolationMethod;
+	static var ConstantQ: EFFTPeakInterpolationMethod;
+	static var EFFTPeakInterpolationMethod_MAX: EFFTPeakInterpolationMethod;
 }

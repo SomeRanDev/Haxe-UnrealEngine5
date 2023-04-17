@@ -5,12 +5,12 @@ package ue;
 @:include("PropertyAccess.h")
 @:structAccess
 extern class PropertyAccessSegment {
-	public var Name: FName;
-	public var Struct: cpp.Star<Struct>;
-	public var Property: TFieldPath<FProperty>;
-	public var Function: cpp.Star<Function>;
-	public var ArrayIndex: cpp.Int32;
-	public var Flags: cpp.UInt16;
+	private var Name: FName;
+	private var Struct: cpp.Star<Struct>;
+	private var Property: TFieldPath<FProperty>;
+	private var Function: cpp.Star<Function>;
+	private var ArrayIndex: cpp.Int32;
+	private var Flags: cpp.UInt16;
 
 	@:native("FPropertyAccessSegment") public function new();
 }

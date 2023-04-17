@@ -5,7 +5,6 @@ package ue;
 @:include("Materials/MaterialInstance.h")
 @:structAccess
 extern class VectorParameterValue {
-	public var ParameterName_DEPRECATED: FName;
 	public var ParameterInfo: MaterialParameterInfo;
 	public var ParameterValue: LinearColor;
 	public var ExpressionGUID: Guid;

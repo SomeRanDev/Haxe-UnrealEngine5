@@ -3,8 +3,8 @@ package ue;
 
 @:native("ERecomputeUVsPropertiesIslandMode")
 @:include("Properties/RecomputeUVsProperties.h")
-extern enum ERecomputeUVsPropertiesIslandMode {
-	PolyGroups;
-	ExistingUVs;
-	ERecomputeUVsPropertiesIslandMode_MAX;
+extern class ERecomputeUVsPropertiesIslandMode {
+	static var PolyGroups: ERecomputeUVsPropertiesIslandMode;
+	static var ExistingUVs: ERecomputeUVsPropertiesIslandMode;
+	static var ERecomputeUVsPropertiesIslandMode_MAX: ERecomputeUVsPropertiesIslandMode;
 }

@@ -11,10 +11,8 @@ extern class AnimNode_Fabrik extends AnimNode_SkeletalControlBase {
 	public var RootBone: BoneReference;
 	public var Precision: cpp.Float32;
 	public var MaxIterations: cpp.Int32;
-	public var EffectorTransformSpace: EBoneControlSpace;
-	public var EffectorRotationSource: EBoneRotationSource;
-	public var bEnableDebugDraw: Bool;
-	public var EffectorTransformBone_DEPRECATED: BoneReference;
+	public var EffectorTransformSpace: TEnumAsByte<EBoneControlSpace>;
+	public var EffectorRotationSource: TEnumAsByte<EBoneRotationSource>;
 
 	@:native("FAnimNode_Fabrik") public function new();
 }

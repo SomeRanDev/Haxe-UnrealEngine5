@@ -3,8 +3,8 @@ package ue;
 
 @:native("EFBXSceneNormalGenerationMethod")
 @:include("Factories/FbxSceneImportOptionsStaticMesh.h")
-extern enum EFBXSceneNormalGenerationMethod {
-	BuiltIn;
-	MikkTSpace;
-	EFBXSceneNormalGenerationMethod_MAX;
+extern class EFBXSceneNormalGenerationMethod {
+	static var BuiltIn: EFBXSceneNormalGenerationMethod;
+	static var MikkTSpace: EFBXSceneNormalGenerationMethod;
+	static var EFBXSceneNormalGenerationMethod_MAX: EFBXSceneNormalGenerationMethod;
 }

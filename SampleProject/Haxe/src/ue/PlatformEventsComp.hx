@@ -8,10 +8,10 @@ extern class PlatformEventsComp extends ActorComp {
 	public var PlatformChangedToLaptopModeDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var PlatformChangedToTabletModeDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
-	public function SupportsConvertibleLaptops(): cpp.Reference<Bool>;
+	public function SupportsConvertibleLaptops(): Bool;
 	public function PlatformEventDelegate__DelegateSignature(): Void;
-	public function IsInTabletMode(): cpp.Reference<Bool>;
-	public function IsInLaptopMode(): cpp.Reference<Bool>;
+	public function IsInTabletMode(): Bool;
+	public function IsInLaptopMode(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

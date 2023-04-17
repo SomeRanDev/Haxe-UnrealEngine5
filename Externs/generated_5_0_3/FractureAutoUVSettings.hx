@@ -29,7 +29,7 @@ extern class FractureAutoUVSettings extends FractureToolSettings {
 	public var MaxCurvature: cpp.Float64;
 
 	public function LayoutUVs(): Void;
-	public function GetUVChannelNamesFunc(): cpp.Reference<TArray<FString>>;
+	public function GetUVChannelNamesFunc(): TArray<FString>;
 	public function DisableBoneColors(): Void;
 	public function DeleteUVChannel(): Void;
 	public function BoxProjectUVs(): Void;

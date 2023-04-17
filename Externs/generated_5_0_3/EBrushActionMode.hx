@@ -3,8 +3,8 @@ package ue;
 
 @:native("EBrushActionMode")
 @:include("MeshAttributePaintTool.h")
-extern enum EBrushActionMode {
-	Paint;
-	FloodFill;
-	EBrushActionMode_MAX;
+extern class EBrushActionMode {
+	static var Paint: EBrushActionMode;
+	static var FloodFill: EBrushActionMode;
+	static var EBrushActionMode_MAX: EBrushActionMode;
 }

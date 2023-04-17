@@ -6,9 +6,8 @@ package ue;
 @:structAccess
 extern class GeometryCollectionActor extends Actor {
 	public var GeometryCollectionComponent: cpp.Star<GeometryCollectionComp>;
-	public var GeometryCollectionDebugDrawComponent_DEPRECATED: cpp.Star<GeometryCollectionDebugDrawComp>;
 
-	public function RaycastSingle(Start: Vector, End: Vector, OutHit: cpp.Reference<HitResult>): cpp.Reference<Bool>;
+	public function RaycastSingle(Start: Vector, End: Vector, OutHit: cpp.Reference<HitResult>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,8 +17,6 @@ extern class GeometryCollectionActor extends Actor {
 abstract ConstGeometryCollectionActor(GeometryCollectionActor) from GeometryCollectionActor {
 	public extern var GeometryCollectionComponent(get, never): cpp.Star<GeometryCollectionComp.ConstGeometryCollectionComp>;
 	public inline extern function get_GeometryCollectionComponent(): cpp.Star<GeometryCollectionComp.ConstGeometryCollectionComp> return this.GeometryCollectionComponent;
-	public extern var GeometryCollectionDebugDrawComponent_DEPRECATED(get, never): cpp.Star<GeometryCollectionDebugDrawComp.ConstGeometryCollectionDebugDrawComp>;
-	public inline extern function get_GeometryCollectionDebugDrawComponent_DEPRECATED(): cpp.Star<GeometryCollectionDebugDrawComp.ConstGeometryCollectionDebugDrawComp> return this.GeometryCollectionDebugDrawComponent_DEPRECATED;
 }
 
 @:forward

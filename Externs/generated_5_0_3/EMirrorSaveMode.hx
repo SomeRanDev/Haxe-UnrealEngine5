@@ -3,8 +3,8 @@ package ue;
 
 @:native("EMirrorSaveMode")
 @:include("MirrorTool.h")
-extern enum EMirrorSaveMode {
-	UpdateAssets;
-	CreateNewAssets;
-	EMirrorSaveMode_MAX;
+extern class EMirrorSaveMode {
+	static var UpdateAssets: EMirrorSaveMode;
+	static var CreateNewAssets: EMirrorSaveMode;
+	static var EMirrorSaveMode_MAX: EMirrorSaveMode;
 }

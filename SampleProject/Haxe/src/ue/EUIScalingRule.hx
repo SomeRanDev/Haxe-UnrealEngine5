@@ -3,12 +3,12 @@ package ue;
 
 @:native("EUIScalingRule")
 @:include("Engine/UserInterfaceSettings.h")
-extern enum EUIScalingRule {
-	ShortestSide;
-	LongestSide;
-	Horizontal;
-	Vertical;
-	ScaleToFit;
-	Custom;
-	EUIScalingRule_MAX;
+extern class EUIScalingRule {
+	static var ShortestSide: EUIScalingRule;
+	static var LongestSide: EUIScalingRule;
+	static var Horizontal: EUIScalingRule;
+	static var Vertical: EUIScalingRule;
+	static var ScaleToFit: EUIScalingRule;
+	static var Custom: EUIScalingRule;
+	static var EUIScalingRule_MAX: EUIScalingRule;
 }

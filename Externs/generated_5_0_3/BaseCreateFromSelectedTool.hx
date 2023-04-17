@@ -5,12 +5,12 @@ package ue;
 @:include("BaseTools/BaseCreateFromSelectedTool.h")
 @:structAccess
 extern class BaseCreateFromSelectedTool extends MultiSelectionMeshEditingTool {
-	public var TransformProperties: cpp.Star<TransformInputsToolProperties>;
-	public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
-	public var HandleSourcesProperties: cpp.Star<BaseCreateFromSelectedHandleSourceProperties>;
-	public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	public var TransformProxies: TArray<cpp.Star<TransformProxy>>;
-	public var TransformGizmos: TArray<cpp.Star<CombinedTransformGizmo>>;
+	@:protected public var TransformProperties: cpp.Star<TransformInputsToolProperties>;
+	@:protected public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
+	@:protected public var HandleSourcesProperties: cpp.Star<BaseCreateFromSelectedHandleSourceProperties>;
+	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var TransformProxies: TArray<cpp.Star<TransformProxy>>;
+	@:protected public var TransformGizmos: TArray<cpp.Star<CombinedTransformGizmo>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,18 +18,6 @@ extern class BaseCreateFromSelectedTool extends MultiSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstBaseCreateFromSelectedTool(BaseCreateFromSelectedTool) from BaseCreateFromSelectedTool {
-	public extern var TransformProperties(get, never): cpp.Star<TransformInputsToolProperties.ConstTransformInputsToolProperties>;
-	public inline extern function get_TransformProperties(): cpp.Star<TransformInputsToolProperties.ConstTransformInputsToolProperties> return this.TransformProperties;
-	public extern var OutputTypeProperties(get, never): cpp.Star<CreateMeshObjectTypeProperties.ConstCreateMeshObjectTypeProperties>;
-	public inline extern function get_OutputTypeProperties(): cpp.Star<CreateMeshObjectTypeProperties.ConstCreateMeshObjectTypeProperties> return this.OutputTypeProperties;
-	public extern var HandleSourcesProperties(get, never): cpp.Star<BaseCreateFromSelectedHandleSourceProperties.ConstBaseCreateFromSelectedHandleSourceProperties>;
-	public inline extern function get_HandleSourcesProperties(): cpp.Star<BaseCreateFromSelectedHandleSourceProperties.ConstBaseCreateFromSelectedHandleSourceProperties> return this.HandleSourcesProperties;
-	public extern var Preview(get, never): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
-	public inline extern function get_Preview(): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.Preview;
-	public extern var TransformProxies(get, never): TArray<cpp.Star<TransformProxy.ConstTransformProxy>>;
-	public inline extern function get_TransformProxies(): TArray<cpp.Star<TransformProxy.ConstTransformProxy>> return this.TransformProxies;
-	public extern var TransformGizmos(get, never): TArray<cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo>>;
-	public inline extern function get_TransformGizmos(): TArray<cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo>> return this.TransformGizmos;
 }
 
 @:forward

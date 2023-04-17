@@ -23,7 +23,7 @@ extern class ControlRigComp extends PrimitiveComp {
 	public var bUpdateInEditor: Bool;
 	public var bDrawBones: Bool;
 	public var bShowDebugDrawing: Bool;
-	public var ControlRig: cpp.Star<ControlRig>;
+	private var ControlRig: cpp.Star<ControlRig>;
 
 	public function Update(DeltaTime: cpp.Float32): Void;
 	public function SetMappedElements(NewMappedElements: TArray<ControlRigComponentMappedElement>): Void;
@@ -47,25 +47,25 @@ extern class ControlRigComp extends PrimitiveComp {
 	public function OnPostInitialize(Component: cpp.Star<ControlRigComp>): Void;
 	public function OnPostForwardsSolve(Component: cpp.Star<ControlRigComp>): Void;
 	public function Initialize(): Void;
-	public function GetSpaceTransform(SpaceName: FName, Space: EControlRigComponentSpace): cpp.Reference<Transform>;
-	public function GetInitialSpaceTransform(SpaceName: FName, Space: EControlRigComponentSpace): cpp.Reference<Transform>;
-	public function GetInitialBoneTransform(BoneName: FName, Space: EControlRigComponentSpace): cpp.Reference<Transform>;
-	public function GetElementNames(ElementType: ERigElementType): cpp.Reference<TArray<FName>>;
-	public function GetControlVector2D(ControlName: FName): cpp.Reference<Vector2D>;
-	public function GetControlTransform(ControlName: FName, Space: EControlRigComponentSpace): cpp.Reference<Transform>;
-	public function GetControlScale(ControlName: FName, Space: EControlRigComponentSpace): cpp.Reference<Vector>;
-	public function GetControlRotator(ControlName: FName, Space: EControlRigComponentSpace): cpp.Reference<Rotator>;
-	public function GetControlRig(): cpp.Reference<cpp.Star<ControlRig>>;
-	public function GetControlPosition(ControlName: FName, Space: EControlRigComponentSpace): cpp.Reference<Vector>;
-	public function GetControlOffset(ControlName: FName, Space: EControlRigComponentSpace): cpp.Reference<Transform>;
-	public function GetControlInt(ControlName: FName): cpp.Reference<cpp.Int32>;
-	public function GetControlFloat(ControlName: FName): cpp.Reference<cpp.Float32>;
-	public function GetControlBool(ControlName: FName): cpp.Reference<Bool>;
-	public function GetBoneTransform(BoneName: FName, Space: EControlRigComponentSpace): cpp.Reference<Transform>;
-	public function GetAbsoluteTime(): cpp.Reference<cpp.Float32>;
-	public function DoesElementExist(Name: FName, ElementType: ERigElementType): cpp.Reference<Bool>;
+	public function GetSpaceTransform(SpaceName: FName, Space: EControlRigComponentSpace): Transform;
+	public function GetInitialSpaceTransform(SpaceName: FName, Space: EControlRigComponentSpace): Transform;
+	public function GetInitialBoneTransform(BoneName: FName, Space: EControlRigComponentSpace): Transform;
+	public function GetElementNames(ElementType: ERigElementType): TArray<FName>;
+	public function GetControlVector2D(ControlName: FName): Vector2D;
+	public function GetControlTransform(ControlName: FName, Space: EControlRigComponentSpace): Transform;
+	public function GetControlScale(ControlName: FName, Space: EControlRigComponentSpace): Vector;
+	public function GetControlRotator(ControlName: FName, Space: EControlRigComponentSpace): Rotator;
+	public function GetControlRig(): cpp.Star<ControlRig>;
+	public function GetControlPosition(ControlName: FName, Space: EControlRigComponentSpace): Vector;
+	public function GetControlOffset(ControlName: FName, Space: EControlRigComponentSpace): Transform;
+	public function GetControlInt(ControlName: FName): cpp.Int32;
+	public function GetControlFloat(ControlName: FName): cpp.Float32;
+	public function GetControlBool(ControlName: FName): Bool;
+	public function GetBoneTransform(BoneName: FName, Space: EControlRigComponentSpace): Transform;
+	public function GetAbsoluteTime(): cpp.Float32;
+	public function DoesElementExist(Name: FName, ElementType: ERigElementType): Bool;
 	public function ClearMappedElements(): Void;
-	public function CanExecute(): cpp.Reference<Bool>;
+	public function CanExecute(): Bool;
 	public function AddMappedSkeletalMesh(SkeletalMeshComponent: cpp.Star<SkeletalMeshComp>, Bones: TArray<ControlRigComponentMappedBone>, Curves: TArray<ControlRigComponentMappedCurve>): Void;
 	public function AddMappedElements(NewMappedElements: TArray<ControlRigComponentMappedElement>): Void;
 	public function AddMappedComponents(Components: TArray<ControlRigComponentMappedComp>): Void;
@@ -113,8 +113,6 @@ abstract ConstControlRigComp(ControlRigComp) from ControlRigComp {
 	public inline extern function get_bDrawBones(): Bool return this.bDrawBones;
 	public extern var bShowDebugDrawing(get, never): Bool;
 	public inline extern function get_bShowDebugDrawing(): Bool return this.bShowDebugDrawing;
-	public extern var ControlRig(get, never): cpp.Star<ControlRig.ConstControlRig>;
-	public inline extern function get_ControlRig(): cpp.Star<ControlRig.ConstControlRig> return this.ControlRig;
 }
 
 @:forward

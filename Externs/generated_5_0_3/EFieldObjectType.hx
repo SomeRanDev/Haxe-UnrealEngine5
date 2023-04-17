@@ -3,12 +3,12 @@ package ue;
 
 @:native("EFieldObjectType")
 @:include("Field/FieldSystemTypes.h")
-extern enum EFieldObjectType {
-	Field_Object_Rigid;
-	Field_Object_Cloth;
-	Field_Object_Destruction;
-	Field_Object_Character;
-	Field_Object_All;
-	Field_Object_Max;
-	Field_Object_MAX;
+extern class EFieldObjectType {
+	static var Field_Object_Rigid: EFieldObjectType;
+	static var Field_Object_Cloth: EFieldObjectType;
+	static var Field_Object_Destruction: EFieldObjectType;
+	static var Field_Object_Character: EFieldObjectType;
+	static var Field_Object_All: EFieldObjectType;
+	static var Field_Object_Max: EFieldObjectType;
+	static var Field_Object_MAX: EFieldObjectType;
 }

@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class DatasmithAssetUserData extends AssetUserData {
 	public var MetaData: TMap<FName, FString>;
-	public var ObjectTemplates: TMap<TSubclassOf<DatasmithObjectTemplate>, cpp.Star<DatasmithObjectTemplate>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +15,6 @@ extern class DatasmithAssetUserData extends AssetUserData {
 abstract ConstDatasmithAssetUserData(DatasmithAssetUserData) from DatasmithAssetUserData {
 	public extern var MetaData(get, never): TMap<FName, FString>;
 	public inline extern function get_MetaData(): TMap<FName, FString> return this.MetaData;
-	public extern var ObjectTemplates(get, never): TMap<TSubclassOf<DatasmithObjectTemplate.ConstDatasmithObjectTemplate>, cpp.Star<DatasmithObjectTemplate.ConstDatasmithObjectTemplate>>;
-	public inline extern function get_ObjectTemplates(): TMap<TSubclassOf<DatasmithObjectTemplate.ConstDatasmithObjectTemplate>, cpp.Star<DatasmithObjectTemplate.ConstDatasmithObjectTemplate>> return this.ObjectTemplates;
 }
 
 @:forward

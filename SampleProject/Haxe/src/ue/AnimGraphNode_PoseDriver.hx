@@ -18,10 +18,10 @@ extern class AnimGraphNode_PoseDriver extends AnimGraphNode_PoseHandler {
 	public function SetOnlyDriveSelectedBones(bOnlyDriveSelectedBones: Bool): Void;
 	public function SetDrivingBones(BoneNames: cpp.Reference<TArray<FName>>): Void;
 	public function GetSourceBoneNames(BoneNames: cpp.Reference<TArray<FName>>): Void;
-	public function GetRBFParameters(): cpp.Reference<RBFParams>;
-	public function GetPoseDriverSource(): cpp.Reference<EPoseDriverSource>;
-	public function GetPoseDriverOutput(): cpp.Reference<EPoseDriverOutput>;
-	public function GetOnlyDriveSelectedBones(): cpp.Reference<Bool>;
+	public function GetRBFParameters(): RBFParams;
+	public function GetPoseDriverSource(): EPoseDriverSource;
+	public function GetPoseDriverOutput(): EPoseDriverOutput;
+	public function GetOnlyDriveSelectedBones(): Bool;
 	public function GetDrivingBoneNames(BoneNames: cpp.Reference<TArray<FName>>): Void;
 	public function CopyTargetsFromPoseAsset(): Void;
 

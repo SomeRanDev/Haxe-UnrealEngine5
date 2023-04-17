@@ -6,18 +6,16 @@ package ue;
 @:structAccess
 extern class LevelSequenceActor extends Actor {
 	public var PlaybackSettings: MovieSceneSequencePlaybackSettings;
-	public var SequencePlayer: cpp.Star<LevelSequencePlayer>;
+	public function GetSequencePlayer(): cpp.Star<LevelSequencePlayer>;
 	public var LevelSequenceAsset: cpp.Star<LevelSequence>;
-	public var LevelSequence_DEPRECATED: SoftObjectPath;
 	public var CameraSettings: LevelSequenceCameraSettings;
 	public var BurnInOptions: cpp.Star<LevelSequenceBurnInOptions>;
 	public var BindingOverrides: cpp.Star<MovieSceneBindingOverrides>;
-	public var bAutoPlay_DEPRECATED: Bool;
 	public var bOverrideInstanceData: Bool;
 	public var bReplicatePlayback: Bool;
 	public var DefaultInstanceData: cpp.Star<Object>;
-	public var BurnInInstance: cpp.Star<LevelSequenceBurnIn>;
-	public var bShowBurnin: Bool;
+	private var BurnInInstance: cpp.Star<LevelSequenceBurnIn>;
+	private var bShowBurnin: Bool;
 
 	public function ShowBurnin(): Void;
 	public function SetSequence(InSequence: cpp.Star<LevelSequence>): Void;
@@ -29,47 +27,36 @@ extern class LevelSequenceActor extends Actor {
 	public function RemoveBindingByTag(Tag: FName, Actor: cpp.Star<Actor>): Void;
 	public function RemoveBinding(Binding: MovieSceneObjectBindingID, Actor: cpp.Star<Actor>): Void;
 	public function OnLevelSequenceLoaded__DelegateSignature(): Void;
-	public function LoadSequence(): cpp.Reference<cpp.Star<LevelSequence>>;
+	public function LoadSequence(): cpp.Star<LevelSequence>;
 	public function HideBurnin(): Void;
-	public function GetSequencePlayer(): cpp.Reference<cpp.Star<LevelSequencePlayer>>;
-	public function GetSequence(): cpp.Reference<cpp.Star<LevelSequence>>;
-	public function FindNamedBindings(Tag: FName): cpp.Reference<TArray<MovieSceneObjectBindingID>>;
-	public function FindNamedBinding(Tag: FName): cpp.Reference<MovieSceneObjectBindingID>;
+	public function GetSequence(): cpp.Star<LevelSequence>;
+	public function FindNamedBindings(Tag: FName): TArray<MovieSceneObjectBindingID>;
+	public function FindNamedBinding(Tag: FName): MovieSceneObjectBindingID;
 	public function AddBindingByTag(BindingTag: FName, Actor: cpp.Star<Actor>, bAllowBindingsFromAsset: Bool): Void;
 	public function AddBinding(Binding: MovieSceneObjectBindingID, Actor: cpp.Star<Actor>, bAllowBindingsFromAsset: Bool): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
 
-@:forward(LoadSequence, GetSequencePlayer, GetSequence, FindNamedBindings, FindNamedBinding)
+@:forward(LoadSequence, GetSequence, FindNamedBindings, FindNamedBinding)
 @:nativeGen
 abstract ConstLevelSequenceActor(LevelSequenceActor) from LevelSequenceActor {
 	public extern var PlaybackSettings(get, never): MovieSceneSequencePlaybackSettings;
 	public inline extern function get_PlaybackSettings(): MovieSceneSequencePlaybackSettings return this.PlaybackSettings;
-	public extern var SequencePlayer(get, never): cpp.Star<LevelSequencePlayer.ConstLevelSequencePlayer>;
-	public inline extern function get_SequencePlayer(): cpp.Star<LevelSequencePlayer.ConstLevelSequencePlayer> return this.SequencePlayer;
 	public extern var LevelSequenceAsset(get, never): cpp.Star<LevelSequence.ConstLevelSequence>;
 	public inline extern function get_LevelSequenceAsset(): cpp.Star<LevelSequence.ConstLevelSequence> return this.LevelSequenceAsset;
-	public extern var LevelSequence_DEPRECATED(get, never): SoftObjectPath;
-	public inline extern function get_LevelSequence_DEPRECATED(): SoftObjectPath return this.LevelSequence_DEPRECATED;
 	public extern var CameraSettings(get, never): LevelSequenceCameraSettings;
 	public inline extern function get_CameraSettings(): LevelSequenceCameraSettings return this.CameraSettings;
 	public extern var BurnInOptions(get, never): cpp.Star<LevelSequenceBurnInOptions.ConstLevelSequenceBurnInOptions>;
 	public inline extern function get_BurnInOptions(): cpp.Star<LevelSequenceBurnInOptions.ConstLevelSequenceBurnInOptions> return this.BurnInOptions;
 	public extern var BindingOverrides(get, never): cpp.Star<MovieSceneBindingOverrides.ConstMovieSceneBindingOverrides>;
 	public inline extern function get_BindingOverrides(): cpp.Star<MovieSceneBindingOverrides.ConstMovieSceneBindingOverrides> return this.BindingOverrides;
-	public extern var bAutoPlay_DEPRECATED(get, never): Bool;
-	public inline extern function get_bAutoPlay_DEPRECATED(): Bool return this.bAutoPlay_DEPRECATED;
 	public extern var bOverrideInstanceData(get, never): Bool;
 	public inline extern function get_bOverrideInstanceData(): Bool return this.bOverrideInstanceData;
 	public extern var bReplicatePlayback(get, never): Bool;
 	public inline extern function get_bReplicatePlayback(): Bool return this.bReplicatePlayback;
 	public extern var DefaultInstanceData(get, never): cpp.Star<Object.ConstObject>;
 	public inline extern function get_DefaultInstanceData(): cpp.Star<Object.ConstObject> return this.DefaultInstanceData;
-	public extern var BurnInInstance(get, never): cpp.Star<LevelSequenceBurnIn.ConstLevelSequenceBurnIn>;
-	public inline extern function get_BurnInInstance(): cpp.Star<LevelSequenceBurnIn.ConstLevelSequenceBurnIn> return this.BurnInInstance;
-	public extern var bShowBurnin(get, never): Bool;
-	public inline extern function get_bShowBurnin(): Bool return this.bShowBurnin;
 }
 
 @:forward

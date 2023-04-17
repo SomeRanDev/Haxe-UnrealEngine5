@@ -8,7 +8,6 @@ extern class StaticMeshSourceModel {
 	public var StaticMeshDescriptionBulkData: cpp.Star<StaticMeshDescriptionBulkData>;
 	public var BuildSettings: MeshBuildSettings;
 	public var ReductionSettings: MeshReductionSettings;
-	public var LODDistance_DEPRECATED: cpp.Float32;
 	public var ScreenSize: PerPlatformFloat;
 	public var SourceImportFilename: FString;
 	public var bImportWithBaseMesh: Bool;

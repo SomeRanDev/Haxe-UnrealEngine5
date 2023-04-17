@@ -3,10 +3,10 @@ package ue;
 
 @:native("ETransformMeshesSnapDragRotationMode")
 @:include("TransformMeshesTool.h")
-extern enum ETransformMeshesSnapDragRotationMode {
-	Ignore;
-	Align;
-	AlignFlipped;
-	LastValue;
-	ETransformMeshesSnapDragRotationMode_MAX;
+extern class ETransformMeshesSnapDragRotationMode {
+	static var Ignore: ETransformMeshesSnapDragRotationMode;
+	static var Align: ETransformMeshesSnapDragRotationMode;
+	static var AlignFlipped: ETransformMeshesSnapDragRotationMode;
+	static var LastValue: ETransformMeshesSnapDragRotationMode;
+	static var ETransformMeshesSnapDragRotationMode_MAX: ETransformMeshesSnapDragRotationMode;
 }

@@ -5,7 +5,7 @@ package ue;
 @:include("FractureToolBrick.h")
 @:structAccess
 extern class FractureToolBrick extends FractureToolCutterBase {
-	public var BrickSettings: cpp.Star<FractureBrickSettings>;
+	private var BrickSettings: cpp.Star<FractureBrickSettings>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class FractureToolBrick extends FractureToolCutterBase {
 @:forward()
 @:nativeGen
 abstract ConstFractureToolBrick(FractureToolBrick) from FractureToolBrick {
-	public extern var BrickSettings(get, never): cpp.Star<FractureBrickSettings.ConstFractureBrickSettings>;
-	public inline extern function get_BrickSettings(): cpp.Star<FractureBrickSettings.ConstFractureBrickSettings> return this.BrickSettings;
 }
 
 @:forward

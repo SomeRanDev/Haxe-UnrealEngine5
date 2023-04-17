@@ -5,8 +5,8 @@ package ue;
 @:include("SynthesisBlueprintUtilities.h")
 @:structAccess
 extern class SynthesisUtilitiesBlueprintFunctionLibrary extends BlueprintFunctionLibrary {
-	public function GetLogFrequency(InLinearValue: cpp.Float32, InDomainMin: cpp.Float32, InDomainMax: cpp.Float32, InRangeMin: cpp.Float32, InRangeMax: cpp.Float32): cpp.Reference<cpp.Float32>;
-	public function GetLinearFrequency(InLogFrequencyValue: cpp.Float32, InDomainMin: cpp.Float32, InDomainMax: cpp.Float32, InRangeMin: cpp.Float32, InRangeMax: cpp.Float32): cpp.Reference<cpp.Float32>;
+	private function GetLogFrequency(InLinearValue: cpp.Float32, InDomainMin: cpp.Float32, InDomainMax: cpp.Float32, InRangeMin: cpp.Float32, InRangeMax: cpp.Float32): cpp.Float32;
+	private function GetLinearFrequency(InLogFrequencyValue: cpp.Float32, InDomainMin: cpp.Float32, InDomainMax: cpp.Float32, InRangeMin: cpp.Float32, InRangeMax: cpp.Float32): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

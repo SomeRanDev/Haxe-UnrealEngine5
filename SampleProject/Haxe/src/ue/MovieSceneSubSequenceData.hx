@@ -23,8 +23,7 @@ extern class MovieSceneSubSequenceData {
 	public var HierarchicalBias: cpp.Int16;
 	public var bHasHierarchicalEasing: Bool;
 	public var InstanceData: MovieSceneSequenceInstanceDataPtr;
-	public var SectionPath: FName;
-	public var SubSectionSignature: Guid;
+	private var SubSectionSignature: Guid;
 
 	@:native("FMovieSceneSubSequenceData") public function new();
 }

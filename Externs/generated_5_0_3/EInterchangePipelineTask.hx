@@ -3,9 +3,9 @@ package ue;
 
 @:native("EInterchangePipelineTask")
 @:include("InterchangePipelineBase.h")
-extern enum EInterchangePipelineTask {
-	PreFactoryImport;
-	PostFactoryImport;
-	Export;
-	EInterchangePipelineTask_MAX;
+extern class EInterchangePipelineTask {
+	static var PreFactoryImport: EInterchangePipelineTask;
+	static var PostFactoryImport: EInterchangePipelineTask;
+	static var Export: EInterchangePipelineTask;
+	static var EInterchangePipelineTask_MAX: EInterchangePipelineTask;
 }

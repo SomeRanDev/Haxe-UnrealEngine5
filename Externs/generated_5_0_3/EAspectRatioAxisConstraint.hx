@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAspectRatioAxisConstraint")
 @:include("Engine/EngineTypes.h")
-extern enum EAspectRatioAxisConstraint {
-	AspectRatio_MaintainYFOV;
-	AspectRatio_MaintainXFOV;
-	AspectRatio_MajorAxisFOV;
-	AspectRatio_MAX;
+extern class EAspectRatioAxisConstraint {
+	static var AspectRatio_MaintainYFOV: EAspectRatioAxisConstraint;
+	static var AspectRatio_MaintainXFOV: EAspectRatioAxisConstraint;
+	static var AspectRatio_MajorAxisFOV: EAspectRatioAxisConstraint;
+	static var AspectRatio_MAX: EAspectRatioAxisConstraint;
 }

@@ -5,20 +5,20 @@ package ue;
 @:include("MediaPlaylist.h")
 @:structAccess
 extern class MediaPlaylist extends Object {
-	public var Items: TArray<cpp.Star<MediaSource>>;
+	@:protected public var Items: TArray<cpp.Star<MediaSource>>;
 
-	public function Replace(Index: cpp.Int32, Replacement: cpp.Star<MediaSource>): cpp.Reference<Bool>;
-	public function RemoveAt(Index: cpp.Int32): cpp.Reference<Bool>;
-	public function Remove(MediaSource: cpp.Star<MediaSource>): cpp.Reference<Bool>;
-	public function Num(): cpp.Reference<cpp.Int32>;
+	public function Replace(Index: cpp.Int32, Replacement: cpp.Star<MediaSource>): Bool;
+	public function RemoveAt(Index: cpp.Int32): Bool;
+	public function Remove(MediaSource: cpp.Star<MediaSource>): Bool;
+	public function Num(): cpp.Int32;
 	public function Insert(MediaSource: cpp.Star<MediaSource>, Index: cpp.Int32): Void;
-	public function GetRandom(OutIndex: cpp.Reference<cpp.Int32>): cpp.Reference<cpp.Star<MediaSource>>;
-	public function GetPrevious(InOutIndex: cpp.Reference<cpp.Int32>): cpp.Reference<cpp.Star<MediaSource>>;
-	public function GetNext(InOutIndex: cpp.Reference<cpp.Int32>): cpp.Reference<cpp.Star<MediaSource>>;
-	public function Get(Index: cpp.Int32): cpp.Reference<cpp.Star<MediaSource>>;
-	public function AddUrl(Url: FString): cpp.Reference<Bool>;
-	public function AddFile(FilePath: FString): cpp.Reference<Bool>;
-	public function Add(MediaSource: cpp.Star<MediaSource>): cpp.Reference<Bool>;
+	public function GetRandom(OutIndex: cpp.Reference<cpp.Int32>): cpp.Star<MediaSource>;
+	public function GetPrevious(InOutIndex: cpp.Reference<cpp.Int32>): cpp.Star<MediaSource>;
+	public function GetNext(InOutIndex: cpp.Reference<cpp.Int32>): cpp.Star<MediaSource>;
+	public function Get(Index: cpp.Int32): cpp.Star<MediaSource>;
+	public function AddUrl(Url: FString): Bool;
+	public function AddFile(FilePath: FString): Bool;
+	public function Add(MediaSource: cpp.Star<MediaSource>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -26,8 +26,6 @@ extern class MediaPlaylist extends Object {
 @:forward()
 @:nativeGen
 abstract ConstMediaPlaylist(MediaPlaylist) from MediaPlaylist {
-	public extern var Items(get, never): TArray<cpp.Star<MediaSource.ConstMediaSource>>;
-	public inline extern function get_Items(): TArray<cpp.Star<MediaSource.ConstMediaSource>> return this.Items;
 }
 
 @:forward

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EPolyEditExtrudeModeOptions")
 @:include("ToolActivities/PolyEditExtrudeActivity.h")
-extern enum EPolyEditExtrudeModeOptions {
-	SingleDirection;
-	SelectedTriangleNormals;
-	SelectedTriangleNormalsEven;
-	EPolyEditExtrudeModeOptions_MAX;
+extern class EPolyEditExtrudeModeOptions {
+	static var SingleDirection: EPolyEditExtrudeModeOptions;
+	static var SelectedTriangleNormals: EPolyEditExtrudeModeOptions;
+	static var SelectedTriangleNormalsEven: EPolyEditExtrudeModeOptions;
+	static var EPolyEditExtrudeModeOptions_MAX: EPolyEditExtrudeModeOptions;
 }

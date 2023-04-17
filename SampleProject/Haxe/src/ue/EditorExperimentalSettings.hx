@@ -14,7 +14,7 @@ extern class EditorExperimentalSettings extends Object {
 	public var HDREditorNITLevel: cpp.Float32;
 	public var bProceduralFoliage: Bool;
 	public var bEnableTranslationPicker: Bool;
-	public var ConsoleForGamepadLabels: EConsoleForGamepadLabels;
+	public var ConsoleForGamepadLabels: TEnumAsByte<EConsoleForGamepadLabels>;
 	public var bToolbarCustomization: Bool;
 	public var bBreakOnExceptions: Bool;
 	public var bDrawMidpointArrowsInBlueprints: Bool;
@@ -62,8 +62,8 @@ abstract ConstEditorExperimentalSettings(EditorExperimentalSettings) from Editor
 	public inline extern function get_bProceduralFoliage(): Bool return this.bProceduralFoliage;
 	public extern var bEnableTranslationPicker(get, never): Bool;
 	public inline extern function get_bEnableTranslationPicker(): Bool return this.bEnableTranslationPicker;
-	public extern var ConsoleForGamepadLabels(get, never): EConsoleForGamepadLabels;
-	public inline extern function get_ConsoleForGamepadLabels(): EConsoleForGamepadLabels return this.ConsoleForGamepadLabels;
+	public extern var ConsoleForGamepadLabels(get, never): TEnumAsByte<EConsoleForGamepadLabels>;
+	public inline extern function get_ConsoleForGamepadLabels(): TEnumAsByte<EConsoleForGamepadLabels> return this.ConsoleForGamepadLabels;
 	public extern var bToolbarCustomization(get, never): Bool;
 	public inline extern function get_bToolbarCustomization(): Bool return this.bToolbarCustomization;
 	public extern var bBreakOnExceptions(get, never): Bool;

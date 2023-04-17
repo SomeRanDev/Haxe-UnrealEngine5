@@ -3,11 +3,11 @@ package ue;
 
 @:native("EGameplayTaskRunResult")
 @:include("GameplayTasksComponent.h")
-extern enum EGameplayTaskRunResult {
-	Error;
-	Failed;
-	Success_Paused;
-	Success_Active;
-	Success_Finished;
-	EGameplayTaskRunResult_MAX;
+extern class EGameplayTaskRunResult {
+	static var Error: EGameplayTaskRunResult;
+	static var Failed: EGameplayTaskRunResult;
+	static var Success_Paused: EGameplayTaskRunResult;
+	static var Success_Active: EGameplayTaskRunResult;
+	static var Success_Finished: EGameplayTaskRunResult;
+	static var EGameplayTaskRunResult_MAX: EGameplayTaskRunResult;
 }

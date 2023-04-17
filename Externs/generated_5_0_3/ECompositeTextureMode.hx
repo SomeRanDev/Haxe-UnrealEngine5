@@ -3,11 +3,11 @@ package ue;
 
 @:native("ECompositeTextureMode")
 @:include("Engine/TextureDefines.h")
-extern enum ECompositeTextureMode {
-	CTM_Disabled;
-	CTM_NormalRoughnessToRed;
-	CTM_NormalRoughnessToGreen;
-	CTM_NormalRoughnessToBlue;
-	CTM_NormalRoughnessToAlpha;
-	CTM_MAX;
+extern class ECompositeTextureMode {
+	static var CTM_Disabled: ECompositeTextureMode;
+	static var CTM_NormalRoughnessToRed: ECompositeTextureMode;
+	static var CTM_NormalRoughnessToGreen: ECompositeTextureMode;
+	static var CTM_NormalRoughnessToBlue: ECompositeTextureMode;
+	static var CTM_NormalRoughnessToAlpha: ECompositeTextureMode;
+	static var CTM_MAX: ECompositeTextureMode;
 }

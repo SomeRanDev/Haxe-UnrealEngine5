@@ -15,10 +15,9 @@ extern class LandscapeHeightfieldCollisionComp extends PrimitiveComp {
 	public var HeightfieldGuid: Guid;
 	public var CachedLocalBox: Box;
 	public var RenderComponent: TLazyObjectPtr<LandscapeComp>;
-	public var PhysicalMaterialRenderObjects: TArray<cpp.Star<PhysicalMaterial>>;
 	public var CookedPhysicalMaterials: TArray<cpp.Star<PhysicalMaterial>>;
 
-	public function GetRenderComponent(): cpp.Reference<cpp.Star<LandscapeComp>>;
+	public function GetRenderComponent(): cpp.Star<LandscapeComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -46,8 +45,6 @@ abstract ConstLandscapeHeightfieldCollisionComp(LandscapeHeightfieldCollisionCom
 	public inline extern function get_CachedLocalBox(): Box return this.CachedLocalBox;
 	public extern var RenderComponent(get, never): TLazyObjectPtr<LandscapeComp.ConstLandscapeComp>;
 	public inline extern function get_RenderComponent(): TLazyObjectPtr<LandscapeComp.ConstLandscapeComp> return this.RenderComponent;
-	public extern var PhysicalMaterialRenderObjects(get, never): TArray<cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>>;
-	public inline extern function get_PhysicalMaterialRenderObjects(): TArray<cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>> return this.PhysicalMaterialRenderObjects;
 	public extern var CookedPhysicalMaterials(get, never): TArray<cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>>;
 	public inline extern function get_CookedPhysicalMaterials(): TArray<cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>> return this.CookedPhysicalMaterials;
 }

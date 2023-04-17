@@ -9,7 +9,7 @@ extern class MaterialExpressionNoise extends MaterialExpression {
 	public var FilterWidth: ExpressionInput;
 	public var Scale: cpp.Float32;
 	public var Quality: cpp.Int32;
-	public var NoiseFunction: ENoiseFunction;
+	public var NoiseFunction: TEnumAsByte<ENoiseFunction>;
 	public var bTurbulence: Bool;
 	public var Levels: cpp.Int32;
 	public var OutputMin: cpp.Float32;
@@ -32,8 +32,8 @@ abstract ConstMaterialExpressionNoise(MaterialExpressionNoise) from MaterialExpr
 	public inline extern function get_Scale(): cpp.Float32 return this.Scale;
 	public extern var Quality(get, never): cpp.Int32;
 	public inline extern function get_Quality(): cpp.Int32 return this.Quality;
-	public extern var NoiseFunction(get, never): ENoiseFunction;
-	public inline extern function get_NoiseFunction(): ENoiseFunction return this.NoiseFunction;
+	public extern var NoiseFunction(get, never): TEnumAsByte<ENoiseFunction>;
+	public inline extern function get_NoiseFunction(): TEnumAsByte<ENoiseFunction> return this.NoiseFunction;
 	public extern var bTurbulence(get, never): Bool;
 	public inline extern function get_bTurbulence(): Bool return this.bTurbulence;
 	public extern var Levels(get, never): cpp.Int32;

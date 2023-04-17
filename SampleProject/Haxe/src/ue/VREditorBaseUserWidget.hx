@@ -5,7 +5,7 @@ package ue;
 @:include("UI/VREditorBaseUserWidget.h")
 @:structAccess
 extern class VREditorBaseUserWidget extends UserWidget {
-	public var Owner: TWeakObjectPtr<VREditorFloatingUI>;
+	@:protected public var Owner: TWeakObjectPtr<VREditorFloatingUI>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class VREditorBaseUserWidget extends UserWidget {
 @:forward()
 @:nativeGen
 abstract ConstVREditorBaseUserWidget(VREditorBaseUserWidget) from VREditorBaseUserWidget {
-	public extern var Owner(get, never): TWeakObjectPtr<VREditorFloatingUI.ConstVREditorFloatingUI>;
-	public inline extern function get_Owner(): TWeakObjectPtr<VREditorFloatingUI.ConstVREditorFloatingUI> return this.Owner;
 }
 
 @:forward

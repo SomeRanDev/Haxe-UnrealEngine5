@@ -3,9 +3,9 @@ package ue;
 
 @:native("EParameterizeMeshUVMethod")
 @:include("Properties/ParameterizeMeshProperties.h")
-extern enum EParameterizeMeshUVMethod {
-	PatchBuilder;
-	UVAtlas;
-	XAtlas;
-	EParameterizeMeshUVMethod_MAX;
+extern class EParameterizeMeshUVMethod {
+	static var PatchBuilder: EParameterizeMeshUVMethod;
+	static var UVAtlas: EParameterizeMeshUVMethod;
+	static var XAtlas: EParameterizeMeshUVMethod;
+	static var EParameterizeMeshUVMethod_MAX: EParameterizeMeshUVMethod;
 }

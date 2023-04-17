@@ -5,7 +5,7 @@ package ue;
 @:include("WorldPartition/WorldPartitionSubsystem.h")
 @:structAccess
 extern class WorldPartitionSubsystem extends TickableWorldSubsystem {
-	public function IsStreamingCompleted(QueryState: EWorldPartitionRuntimeCellState, QuerySources: cpp.Reference<TArray<WorldPartitionStreamingQuerySource>>, bExactState: Bool): cpp.Reference<Bool>;
+	public function IsStreamingCompleted(QueryState: EWorldPartitionRuntimeCellState, QuerySources: cpp.Reference<TArray<WorldPartitionStreamingQuerySource>>, bExactState: Bool): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

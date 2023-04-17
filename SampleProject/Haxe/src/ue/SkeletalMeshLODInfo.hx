@@ -8,8 +8,6 @@ extern class SkeletalMeshLODInfo {
 	public var ScreenSize: PerPlatformFloat;
 	public var LODHysteresis: cpp.Float32;
 	public var LODMaterialMap: TArray<cpp.Int32>;
-	public var bEnableShadowCasting_DEPRECATED: TArray<Bool>;
-	public var RemovedBones_DEPRECATED: TArray<FName>;
 	public var BuildSettings: SkeletalMeshBuildSettings;
 	public var ReductionSettings: SkeletalMeshOptimizationSettings;
 	public var BonesToRemove: TArray<BoneReference>;
@@ -25,7 +23,6 @@ extern class SkeletalMeshLODInfo {
 	public var bHasPerLODVertexColors: Bool;
 	public var bAllowCPUAccess: Bool;
 	public var bSupportUniformlyDistributedSampling: Bool;
-	public var bImportWithBaseMesh: Bool;
 
 	@:native("FSkeletalMeshLODInfo") public function new();
 }

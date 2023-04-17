@@ -3,9 +3,9 @@ package ue;
 
 @:native("EReloadPackagesInteractionMode")
 @:include("PackageTools.h")
-extern enum EReloadPackagesInteractionMode {
-	Interactive;
-	AssumePositive;
-	AssumeNegative;
-	EReloadPackagesInteractionMode_MAX;
+extern class EReloadPackagesInteractionMode {
+	static var Interactive: EReloadPackagesInteractionMode;
+	static var AssumePositive: EReloadPackagesInteractionMode;
+	static var AssumeNegative: EReloadPackagesInteractionMode;
+	static var EReloadPackagesInteractionMode_MAX: EReloadPackagesInteractionMode;
 }

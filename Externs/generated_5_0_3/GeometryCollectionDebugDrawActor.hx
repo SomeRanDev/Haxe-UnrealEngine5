@@ -5,8 +5,6 @@ package ue;
 @:include("GeometryCollection/GeometryCollectionDebugDrawActor.h")
 @:structAccess
 extern class GeometryCollectionDebugDrawActor extends Actor {
-	public var WarningMessage_DEPRECATED: GeometryCollectionDebugDrawWarningMessage;
-	public var SelectedRigidBody_DEPRECATED: GeometryCollectionDebugDrawActorSelectedRigidBody;
 	public var bDebugDrawWholeCollection: Bool;
 	public var bDebugDrawHierarchy: Bool;
 	public var bDebugDrawClustering: Bool;
@@ -73,10 +71,6 @@ extern class GeometryCollectionDebugDrawActor extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstGeometryCollectionDebugDrawActor(GeometryCollectionDebugDrawActor) from GeometryCollectionDebugDrawActor {
-	public extern var WarningMessage_DEPRECATED(get, never): GeometryCollectionDebugDrawWarningMessage;
-	public inline extern function get_WarningMessage_DEPRECATED(): GeometryCollectionDebugDrawWarningMessage return this.WarningMessage_DEPRECATED;
-	public extern var SelectedRigidBody_DEPRECATED(get, never): GeometryCollectionDebugDrawActorSelectedRigidBody;
-	public inline extern function get_SelectedRigidBody_DEPRECATED(): GeometryCollectionDebugDrawActorSelectedRigidBody return this.SelectedRigidBody_DEPRECATED;
 	public extern var bDebugDrawWholeCollection(get, never): Bool;
 	public inline extern function get_bDebugDrawWholeCollection(): Bool return this.bDebugDrawWholeCollection;
 	public extern var bDebugDrawHierarchy(get, never): Bool;

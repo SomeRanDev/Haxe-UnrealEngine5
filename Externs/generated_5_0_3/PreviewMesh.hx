@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class PreviewMesh extends Object {
 	public var bBuildSpatialDataStructure: Bool;
-	public var DynamicMeshComponent: cpp.Star<DynamicMeshComp>;
+	@:protected public var DynamicMeshComponent: cpp.Star<DynamicMeshComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,6 @@ extern class PreviewMesh extends Object {
 abstract ConstPreviewMesh(PreviewMesh) from PreviewMesh {
 	public extern var bBuildSpatialDataStructure(get, never): Bool;
 	public inline extern function get_bBuildSpatialDataStructure(): Bool return this.bBuildSpatialDataStructure;
-	public extern var DynamicMeshComponent(get, never): cpp.Star<DynamicMeshComp.ConstDynamicMeshComp>;
-	public inline extern function get_DynamicMeshComponent(): cpp.Star<DynamicMeshComp.ConstDynamicMeshComp> return this.DynamicMeshComponent;
 }
 
 @:forward

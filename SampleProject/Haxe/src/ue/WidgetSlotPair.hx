@@ -5,9 +5,9 @@ package ue;
 @:include("Utility/WidgetSlotPair.h")
 @:structAccess
 extern class WidgetSlotPair extends Object {
-	public var WidgetName: FName;
-	public var SlotPropertyNames: TArray<FName>;
-	public var SlotPropertyValues: TArray<FString>;
+	private var WidgetName: FName;
+	private var SlotPropertyNames: TArray<FName>;
+	private var SlotPropertyValues: TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class WidgetSlotPair extends Object {
 @:forward()
 @:nativeGen
 abstract ConstWidgetSlotPair(WidgetSlotPair) from WidgetSlotPair {
-	public extern var WidgetName(get, never): FName;
-	public inline extern function get_WidgetName(): FName return this.WidgetName;
-	public extern var SlotPropertyNames(get, never): TArray<FName>;
-	public inline extern function get_SlotPropertyNames(): TArray<FName> return this.SlotPropertyNames;
-	public extern var SlotPropertyValues(get, never): TArray<FString>;
-	public inline extern function get_SlotPropertyValues(): TArray<FString> return this.SlotPropertyValues;
 }
 
 @:forward

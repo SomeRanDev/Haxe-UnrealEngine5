@@ -6,9 +6,9 @@ package ue;
 @:structAccess
 extern class AnimCompress extends AnimBoneCompressionCodec {
 	public var bNeedsSkeleton: Bool;
-	public var TranslationCompressionFormat: AnimationCompressionFormat;
-	public var RotationCompressionFormat: AnimationCompressionFormat;
-	public var ScaleCompressionFormat: AnimationCompressionFormat;
+	public var TranslationCompressionFormat: TEnumAsByte<AnimationCompressionFormat>;
+	public var RotationCompressionFormat: TEnumAsByte<AnimationCompressionFormat>;
+	public var ScaleCompressionFormat: TEnumAsByte<AnimationCompressionFormat>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,12 +18,12 @@ extern class AnimCompress extends AnimBoneCompressionCodec {
 abstract ConstAnimCompress(AnimCompress) from AnimCompress {
 	public extern var bNeedsSkeleton(get, never): Bool;
 	public inline extern function get_bNeedsSkeleton(): Bool return this.bNeedsSkeleton;
-	public extern var TranslationCompressionFormat(get, never): AnimationCompressionFormat;
-	public inline extern function get_TranslationCompressionFormat(): AnimationCompressionFormat return this.TranslationCompressionFormat;
-	public extern var RotationCompressionFormat(get, never): AnimationCompressionFormat;
-	public inline extern function get_RotationCompressionFormat(): AnimationCompressionFormat return this.RotationCompressionFormat;
-	public extern var ScaleCompressionFormat(get, never): AnimationCompressionFormat;
-	public inline extern function get_ScaleCompressionFormat(): AnimationCompressionFormat return this.ScaleCompressionFormat;
+	public extern var TranslationCompressionFormat(get, never): TEnumAsByte<AnimationCompressionFormat>;
+	public inline extern function get_TranslationCompressionFormat(): TEnumAsByte<AnimationCompressionFormat> return this.TranslationCompressionFormat;
+	public extern var RotationCompressionFormat(get, never): TEnumAsByte<AnimationCompressionFormat>;
+	public inline extern function get_RotationCompressionFormat(): TEnumAsByte<AnimationCompressionFormat> return this.RotationCompressionFormat;
+	public extern var ScaleCompressionFormat(get, never): TEnumAsByte<AnimationCompressionFormat>;
+	public inline extern function get_ScaleCompressionFormat(): TEnumAsByte<AnimationCompressionFormat> return this.ScaleCompressionFormat;
 }
 
 @:forward

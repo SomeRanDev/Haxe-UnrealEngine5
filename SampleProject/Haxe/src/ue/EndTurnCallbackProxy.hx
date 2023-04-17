@@ -8,7 +8,7 @@ extern class EndTurnCallbackProxy extends OnlineBlueprintCallProxyBase {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
-	public function EndTurn(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, MatchID: FString, TurnBasedMatchInterface: TurnBasedMatchInterface): cpp.Reference<cpp.Star<EndTurnCallbackProxy>>;
+	public function EndTurn(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, MatchID: FString, TurnBasedMatchInterface: TurnBasedMatchInterface): cpp.Star<EndTurnCallbackProxy>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

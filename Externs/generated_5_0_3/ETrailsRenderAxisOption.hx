@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETrailsRenderAxisOption")
 @:include("Particles/TypeData/ParticleModuleTypeDataRibbon.h")
-extern enum ETrailsRenderAxisOption {
-	Trails_CameraUp;
-	Trails_SourceUp;
-	Trails_WorldUp;
-	Trails_MAX;
+extern class ETrailsRenderAxisOption {
+	static var Trails_CameraUp: ETrailsRenderAxisOption;
+	static var Trails_SourceUp: ETrailsRenderAxisOption;
+	static var Trails_WorldUp: ETrailsRenderAxisOption;
+	static var Trails_MAX: ETrailsRenderAxisOption;
 }

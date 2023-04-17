@@ -5,7 +5,7 @@ package ue;
 @:include("Engine/EngineTypes.h")
 @:structAccess
 extern class DebugFloatHistory {
-	public var Samples: TArray<cpp.Float32>;
+	private var Samples: TArray<cpp.Float32>;
 	public var MaxSamples: cpp.Int32;
 	public var MinValue: cpp.Float32;
 	public var MaxValue: cpp.Float32;

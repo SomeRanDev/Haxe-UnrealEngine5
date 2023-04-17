@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELevelEditorMenuContext")
 @:include("LevelEditorMenuContext.h")
-extern enum ELevelEditorMenuContext {
-	Viewport;
-	SceneOutliner;
-	MainMenu;
-	ELevelEditorMenuContext_MAX;
+extern class ELevelEditorMenuContext {
+	static var Viewport: ELevelEditorMenuContext;
+	static var SceneOutliner: ELevelEditorMenuContext;
+	static var MainMenu: ELevelEditorMenuContext;
+	static var ELevelEditorMenuContext_MAX: ELevelEditorMenuContext;
 }

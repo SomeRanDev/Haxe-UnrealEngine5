@@ -5,8 +5,8 @@ package ue;
 @:include("ThumbnailRendering/WorldThumbnailInfo.h")
 @:structAccess
 extern class WorldThumbnailInfo extends SceneThumbnailInfo {
-	public var CameraMode: ECameraProjectionMode;
-	public var OrthoDirection: EOrthoThumbnailDirection;
+	public var CameraMode: TEnumAsByte<ECameraProjectionMode>;
+	public var OrthoDirection: TEnumAsByte<EOrthoThumbnailDirection>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,10 @@ extern class WorldThumbnailInfo extends SceneThumbnailInfo {
 @:forward()
 @:nativeGen
 abstract ConstWorldThumbnailInfo(WorldThumbnailInfo) from WorldThumbnailInfo {
-	public extern var CameraMode(get, never): ECameraProjectionMode;
-	public inline extern function get_CameraMode(): ECameraProjectionMode return this.CameraMode;
-	public extern var OrthoDirection(get, never): EOrthoThumbnailDirection;
-	public inline extern function get_OrthoDirection(): EOrthoThumbnailDirection return this.OrthoDirection;
+	public extern var CameraMode(get, never): TEnumAsByte<ECameraProjectionMode>;
+	public inline extern function get_CameraMode(): TEnumAsByte<ECameraProjectionMode> return this.CameraMode;
+	public extern var OrthoDirection(get, never): TEnumAsByte<EOrthoThumbnailDirection>;
+	public inline extern function get_OrthoDirection(): TEnumAsByte<EOrthoThumbnailDirection> return this.OrthoDirection;
 }
 
 @:forward

@@ -5,8 +5,8 @@ package ue;
 @:include("Channels/DoubleChannelKeyProxy.h")
 @:structAccess
 extern class DoubleChannelKeyProxy extends Object {
-	public var Time: FrameNumber;
-	public var Value: MovieSceneDoubleValue;
+	private var Time: FrameNumber;
+	private var Value: MovieSceneDoubleValue;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class DoubleChannelKeyProxy extends Object {
 @:forward()
 @:nativeGen
 abstract ConstDoubleChannelKeyProxy(DoubleChannelKeyProxy) from DoubleChannelKeyProxy {
-	public extern var Time(get, never): FrameNumber;
-	public inline extern function get_Time(): FrameNumber return this.Time;
-	public extern var Value(get, never): MovieSceneDoubleValue;
-	public inline extern function get_Value(): MovieSceneDoubleValue return this.Value;
 }
 
 @:forward

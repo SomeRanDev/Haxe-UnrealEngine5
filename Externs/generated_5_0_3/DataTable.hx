@@ -10,11 +10,6 @@ extern class DataTable extends Object {
 	public var bIgnoreExtraFields: Bool;
 	public var bIgnoreMissingFields: Bool;
 	public var ImportKeyField: FString;
-	public var AssetImportData: cpp.Star<AssetImportData>;
-	public var ImportPath_DEPRECATED: FString;
-	public var RowStructName: FName;
-	public var RowsSerializedWithTags: TArray<cpp.UInt8>;
-	public var TemporarilyReferencedObjects: TSet<cpp.Star<Object>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -32,16 +27,6 @@ abstract ConstDataTable(DataTable) from DataTable {
 	public inline extern function get_bIgnoreMissingFields(): Bool return this.bIgnoreMissingFields;
 	public extern var ImportKeyField(get, never): FString;
 	public inline extern function get_ImportKeyField(): FString return this.ImportKeyField;
-	public extern var AssetImportData(get, never): cpp.Star<AssetImportData.ConstAssetImportData>;
-	public inline extern function get_AssetImportData(): cpp.Star<AssetImportData.ConstAssetImportData> return this.AssetImportData;
-	public extern var ImportPath_DEPRECATED(get, never): FString;
-	public inline extern function get_ImportPath_DEPRECATED(): FString return this.ImportPath_DEPRECATED;
-	public extern var RowStructName(get, never): FName;
-	public inline extern function get_RowStructName(): FName return this.RowStructName;
-	public extern var RowsSerializedWithTags(get, never): TArray<cpp.UInt8>;
-	public inline extern function get_RowsSerializedWithTags(): TArray<cpp.UInt8> return this.RowsSerializedWithTags;
-	public extern var TemporarilyReferencedObjects(get, never): TSet<cpp.Star<Object.ConstObject>>;
-	public inline extern function get_TemporarilyReferencedObjects(): TSet<cpp.Star<Object.ConstObject>> return this.TemporarilyReferencedObjects;
 }
 
 @:forward

@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESubdivisionScheme")
 @:include("Operations/SubdividePoly.h")
-extern enum ESubdivisionScheme {
-	Bilinear;
-	CatmullClark;
-	Loop;
-	ESubdivisionScheme_MAX;
+extern class ESubdivisionScheme {
+	static var Bilinear: ESubdivisionScheme;
+	static var CatmullClark: ESubdivisionScheme;
+	static var Loop: ESubdivisionScheme;
+	static var ESubdivisionScheme_MAX: ESubdivisionScheme;
 }

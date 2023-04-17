@@ -15,7 +15,7 @@ extern class DatasmithPostProcessSettingsTemplate {
 	public var WhiteTemp: cpp.Float32;
 	public var VignetteIntensity: cpp.Float32;
 	public var ColorSaturation: Vector4;
-	public var AutoExposureMethod: EAutoExposureMethod;
+	public var AutoExposureMethod: TEnumAsByte<EAutoExposureMethod>;
 	public var CameraISO: cpp.Float32;
 	public var CameraShutterSpeed: cpp.Float32;
 	public var DepthOfFieldFstop: cpp.Float32;

@@ -5,8 +5,8 @@ package ue;
 @:include("MovieSceneSequenceTickManager.h")
 @:structAccess
 extern class MovieSceneSequenceTickManager extends Object {
-	public var SequenceActors: TArray<MovieSceneSequenceActorPointers>;
-	public var Linker: cpp.Star<MovieSceneEntitySystemLinker>;
+	private var SequenceActors: TArray<MovieSceneSequenceActorPointers>;
+	private var Linker: cpp.Star<MovieSceneEntitySystemLinker>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class MovieSceneSequenceTickManager extends Object {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneSequenceTickManager(MovieSceneSequenceTickManager) from MovieSceneSequenceTickManager {
-	public extern var SequenceActors(get, never): TArray<MovieSceneSequenceActorPointers>;
-	public inline extern function get_SequenceActors(): TArray<MovieSceneSequenceActorPointers> return this.SequenceActors;
-	public extern var Linker(get, never): cpp.Star<MovieSceneEntitySystemLinker.ConstMovieSceneEntitySystemLinker>;
-	public inline extern function get_Linker(): cpp.Star<MovieSceneEntitySystemLinker.ConstMovieSceneEntitySystemLinker> return this.Linker;
 }
 
 @:forward

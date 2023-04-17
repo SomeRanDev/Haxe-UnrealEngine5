@@ -5,7 +5,7 @@ package ue;
 @:include("Tracks/MovieSceneCameraShakeSourceShakeTrack.h")
 @:structAccess
 extern class MovieSceneCameraShakeSourceShakeTrack extends MovieSceneNameableTrack {
-	public var CameraShakeSections: TArray<cpp.Star<MovieSceneSection>>;
+	private var CameraShakeSections: TArray<cpp.Star<MovieSceneSection>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MovieSceneCameraShakeSourceShakeTrack extends MovieSceneNameableTra
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneCameraShakeSourceShakeTrack(MovieSceneCameraShakeSourceShakeTrack) from MovieSceneCameraShakeSourceShakeTrack {
-	public extern var CameraShakeSections(get, never): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>>;
-	public inline extern function get_CameraShakeSections(): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>> return this.CameraShakeSections;
 }
 
 @:forward

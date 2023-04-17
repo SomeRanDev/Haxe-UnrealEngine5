@@ -5,8 +5,8 @@ package ue;
 @:include("NiagaraPreviewGrid.h")
 @:structAccess
 extern class NiagaraPreviewAxis_InterpParamFloat extends NiagaraPreviewAxis_InterpParamBase {
-	public var Min: cpp.Float32;
-	public var Max: cpp.Float32;
+	private var Min: cpp.Float32;
+	private var Max: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class NiagaraPreviewAxis_InterpParamFloat extends NiagaraPreviewAxis_Inte
 @:forward()
 @:nativeGen
 abstract ConstNiagaraPreviewAxis_InterpParamFloat(NiagaraPreviewAxis_InterpParamFloat) from NiagaraPreviewAxis_InterpParamFloat {
-	public extern var Min(get, never): cpp.Float32;
-	public inline extern function get_Min(): cpp.Float32 return this.Min;
-	public extern var Max(get, never): cpp.Float32;
-	public inline extern function get_Max(): cpp.Float32 return this.Max;
 }
 
 @:forward

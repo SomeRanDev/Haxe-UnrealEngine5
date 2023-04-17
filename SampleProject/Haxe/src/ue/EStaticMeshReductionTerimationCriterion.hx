@@ -3,9 +3,9 @@ package ue;
 
 @:native("EStaticMeshReductionTerimationCriterion")
 @:include("Engine/MeshMerging.h")
-extern enum EStaticMeshReductionTerimationCriterion {
-	Triangles;
-	Vertices;
-	Any;
-	EStaticMeshReductionTerimationCriterion_MAX;
+extern class EStaticMeshReductionTerimationCriterion {
+	static var Triangles: EStaticMeshReductionTerimationCriterion;
+	static var Vertices: EStaticMeshReductionTerimationCriterion;
+	static var Any: EStaticMeshReductionTerimationCriterion;
+	static var EStaticMeshReductionTerimationCriterion_MAX: EStaticMeshReductionTerimationCriterion;
 }

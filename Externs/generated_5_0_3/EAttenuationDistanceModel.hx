@@ -3,12 +3,12 @@ package ue;
 
 @:native("EAttenuationDistanceModel")
 @:include("Engine/Attenuation.h")
-extern enum EAttenuationDistanceModel {
-	Linear;
-	Logarithmic;
-	Inverse;
-	LogReverse;
-	NaturalSound;
-	Custom;
-	EAttenuationDistanceModel_MAX;
+extern class EAttenuationDistanceModel {
+	static var Linear: EAttenuationDistanceModel;
+	static var Logarithmic: EAttenuationDistanceModel;
+	static var Inverse: EAttenuationDistanceModel;
+	static var LogReverse: EAttenuationDistanceModel;
+	static var NaturalSound: EAttenuationDistanceModel;
+	static var Custom: EAttenuationDistanceModel;
+	static var EAttenuationDistanceModel_MAX: EAttenuationDistanceModel;
 }

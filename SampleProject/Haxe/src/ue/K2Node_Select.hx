@@ -5,12 +5,12 @@ package ue;
 @:include("K2Node_Select.h")
 @:structAccess
 extern class K2Node_Select extends K2Node {
-	public var NumOptionPins: cpp.Int32;
-	public var IndexPinType: EdGraphPinType;
-	public var Enum: cpp.Star<Enum>;
-	public var EnumEntries: TArray<FName>;
-	public var EnumEntryFriendlyNames: TArray<FText>;
-	public var bReconstructNode: Bool;
+	private var NumOptionPins: cpp.Int32;
+	private var IndexPinType: EdGraphPinType;
+	private var Enum: cpp.Star<Enum>;
+	private var EnumEntries: TArray<FName>;
+	private var EnumEntryFriendlyNames: TArray<FText>;
+	private var bReconstructNode: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,18 +18,6 @@ extern class K2Node_Select extends K2Node {
 @:forward()
 @:nativeGen
 abstract ConstK2Node_Select(K2Node_Select) from K2Node_Select {
-	public extern var NumOptionPins(get, never): cpp.Int32;
-	public inline extern function get_NumOptionPins(): cpp.Int32 return this.NumOptionPins;
-	public extern var IndexPinType(get, never): EdGraphPinType;
-	public inline extern function get_IndexPinType(): EdGraphPinType return this.IndexPinType;
-	public extern var Enum(get, never): cpp.Star<Enum.ConstEnum>;
-	public inline extern function get_Enum(): cpp.Star<Enum.ConstEnum> return this.Enum;
-	public extern var EnumEntries(get, never): TArray<FName>;
-	public inline extern function get_EnumEntries(): TArray<FName> return this.EnumEntries;
-	public extern var EnumEntryFriendlyNames(get, never): TArray<FText>;
-	public inline extern function get_EnumEntryFriendlyNames(): TArray<FText> return this.EnumEntryFriendlyNames;
-	public extern var bReconstructNode(get, never): Bool;
-	public inline extern function get_bReconstructNode(): Bool return this.bReconstructNode;
 }
 
 @:forward

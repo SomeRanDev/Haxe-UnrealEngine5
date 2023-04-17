@@ -3,12 +3,12 @@ package ue;
 
 @:native("FNavigationSystemRunMode")
 @:include("AI/NavigationSystemBase.h")
-extern enum FNavigationSystemRunMode {
-	InvalidMode;
-	GameMode;
-	EditorMode;
-	SimulationMode;
-	PIEMode;
-	InferFromWorldMode;
-	FNavigationSystemRunMode_MAX;
+extern class FNavigationSystemRunMode {
+	static var InvalidMode: FNavigationSystemRunMode;
+	static var GameMode: FNavigationSystemRunMode;
+	static var EditorMode: FNavigationSystemRunMode;
+	static var SimulationMode: FNavigationSystemRunMode;
+	static var PIEMode: FNavigationSystemRunMode;
+	static var InferFromWorldMode: FNavigationSystemRunMode;
+	static var FNavigationSystemRunMode_MAX: FNavigationSystemRunMode;
 }

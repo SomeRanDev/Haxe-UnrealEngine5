@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETextTransformPolicy")
 @:include("Styling/SlateTypes.h")
-extern enum ETextTransformPolicy {
-	None;
-	ToLower;
-	ToUpper;
-	ETextTransformPolicy_MAX;
+extern class ETextTransformPolicy {
+	static var None: ETextTransformPolicy;
+	static var ToLower: ETextTransformPolicy;
+	static var ToUpper: ETextTransformPolicy;
+	static var ETextTransformPolicy_MAX: ETextTransformPolicy;
 }

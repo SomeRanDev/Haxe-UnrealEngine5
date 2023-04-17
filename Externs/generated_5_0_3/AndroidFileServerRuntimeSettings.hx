@@ -14,7 +14,7 @@ extern class AndroidFileServerRuntimeSettings extends Object {
 	public var bUseCompression: Bool;
 	public var bLogFiles: Bool;
 	public var bReportStats: Bool;
-	public var ConnectionType: EAFSConnectionType;
+	public var ConnectionType: TEnumAsByte<EAFSConnectionType>;
 	public var bUseManualIPAddress: Bool;
 	public var ManualIPAddress: FString;
 
@@ -42,8 +42,8 @@ abstract ConstAndroidFileServerRuntimeSettings(AndroidFileServerRuntimeSettings)
 	public inline extern function get_bLogFiles(): Bool return this.bLogFiles;
 	public extern var bReportStats(get, never): Bool;
 	public inline extern function get_bReportStats(): Bool return this.bReportStats;
-	public extern var ConnectionType(get, never): EAFSConnectionType;
-	public inline extern function get_ConnectionType(): EAFSConnectionType return this.ConnectionType;
+	public extern var ConnectionType(get, never): TEnumAsByte<EAFSConnectionType>;
+	public inline extern function get_ConnectionType(): TEnumAsByte<EAFSConnectionType> return this.ConnectionType;
 	public extern var bUseManualIPAddress(get, never): Bool;
 	public inline extern function get_bUseManualIPAddress(): Bool return this.bUseManualIPAddress;
 	public extern var ManualIPAddress(get, never): FString;

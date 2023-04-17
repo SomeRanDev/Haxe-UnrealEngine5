@@ -5,12 +5,12 @@ package ue;
 @:include("InterchangePipelineMeshesUtilities.h")
 @:structAccess
 extern class InterchangePipelineMeshesUtilities extends Object {
-	public function IsValidMeshInstanceUid(MeshInstanceUid: FString): cpp.Reference<Bool>;
-	public function IsValidMeshGeometryUid(MeshGeometryUid: FString): cpp.Reference<Bool>;
-	public function GetMeshInstanceSkeletonRootUid(MeshInstanceUid: FString): cpp.Reference<FString>;
-	public function GetMeshInstanceByUid(MeshInstanceUid: FString): cpp.Reference<InterchangeMeshInstance>;
-	public function GetMeshGeometrySkeletonRootUid(MeshGeometryUid: FString): cpp.Reference<FString>;
-	public function GetMeshGeometryByUid(MeshGeometryUid: FString): cpp.Reference<InterchangeMeshGeometry>;
+	public function IsValidMeshInstanceUid(MeshInstanceUid: FString): Bool;
+	public function IsValidMeshGeometryUid(MeshGeometryUid: FString): Bool;
+	public function GetMeshInstanceSkeletonRootUid(MeshInstanceUid: FString): FString;
+	public function GetMeshInstanceByUid(MeshInstanceUid: FString): InterchangeMeshInstance;
+	public function GetMeshGeometrySkeletonRootUid(MeshGeometryUid: FString): FString;
+	public function GetMeshGeometryByUid(MeshGeometryUid: FString): InterchangeMeshGeometry;
 	public function GetAllStaticMeshInstance(MeshInstanceUids: cpp.Reference<TArray<FString>>): Void;
 	public function GetAllStaticMeshGeometry(MeshGeometryUids: cpp.Reference<TArray<FString>>): Void;
 	public function GetAllSkinnedMeshInstance(MeshInstanceUids: cpp.Reference<TArray<FString>>): Void;
@@ -19,7 +19,7 @@ extern class InterchangePipelineMeshesUtilities extends Object {
 	public function GetAllMeshInstanceUids(MeshInstanceUids: cpp.Reference<TArray<FString>>): Void;
 	public function GetAllMeshGeometryNotInstanced(MeshGeometryUids: cpp.Reference<TArray<FString>>): Void;
 	public function GetAllMeshGeometry(MeshGeometryUids: cpp.Reference<TArray<FString>>): Void;
-	public function CreateInterchangePipelineMeshesUtilities(BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer>): cpp.Reference<cpp.Star<InterchangePipelineMeshesUtilities>>;
+	public function CreateInterchangePipelineMeshesUtilities(BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer>): cpp.Star<InterchangePipelineMeshesUtilities>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

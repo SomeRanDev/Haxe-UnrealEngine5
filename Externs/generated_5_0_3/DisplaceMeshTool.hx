@@ -11,8 +11,8 @@ extern class DisplaceMeshTool extends SingleSelectionMeshEditingTool {
 	public var NoiseProperties: cpp.Star<DisplaceMeshPerlinNoiseProperties>;
 	public var SineWaveProperties: cpp.Star<DisplaceMeshSineWaveProperties>;
 	public var ActiveContrastCurveTarget: cpp.Star<CurveFloat>;
-	public var PreviewMeshActor: cpp.Star<InternalToolFrameworkActor>;
-	public var DynamicMeshComponent: cpp.Star<DynamicMeshComp>;
+	private var PreviewMeshActor: cpp.Star<InternalToolFrameworkActor>;
+	private var DynamicMeshComponent: cpp.Star<DynamicMeshComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -32,10 +32,6 @@ abstract ConstDisplaceMeshTool(DisplaceMeshTool) from DisplaceMeshTool {
 	public inline extern function get_SineWaveProperties(): cpp.Star<DisplaceMeshSineWaveProperties.ConstDisplaceMeshSineWaveProperties> return this.SineWaveProperties;
 	public extern var ActiveContrastCurveTarget(get, never): cpp.Star<CurveFloat.ConstCurveFloat>;
 	public inline extern function get_ActiveContrastCurveTarget(): cpp.Star<CurveFloat.ConstCurveFloat> return this.ActiveContrastCurveTarget;
-	public extern var PreviewMeshActor(get, never): cpp.Star<InternalToolFrameworkActor.ConstInternalToolFrameworkActor>;
-	public inline extern function get_PreviewMeshActor(): cpp.Star<InternalToolFrameworkActor.ConstInternalToolFrameworkActor> return this.PreviewMeshActor;
-	public extern var DynamicMeshComponent(get, never): cpp.Star<DynamicMeshComp.ConstDynamicMeshComp>;
-	public inline extern function get_DynamicMeshComponent(): cpp.Star<DynamicMeshComp.ConstDynamicMeshComp> return this.DynamicMeshComponent;
 }
 
 @:forward

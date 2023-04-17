@@ -3,9 +3,9 @@ package ue;
 
 @:native("EPlayNetMode")
 @:include("Settings/LevelEditorPlaySettings.h")
-extern enum EPlayNetMode {
-	PIE_Standalone;
-	PIE_ListenServer;
-	PIE_Client;
-	PIE_MAX;
+extern class EPlayNetMode {
+	static var PIE_Standalone: EPlayNetMode;
+	static var PIE_ListenServer: EPlayNetMode;
+	static var PIE_Client: EPlayNetMode;
+	static var PIE_MAX: EPlayNetMode;
 }

@@ -3,15 +3,15 @@ package ue;
 
 @:native("ESynthModEnvPatch")
 @:include("EpicSynth1Types.h")
-extern enum ESynthModEnvPatch {
-	PatchToNone;
-	PatchToOscFreq;
-	PatchToFilterFreq;
-	PatchToFilterQ;
-	PatchToLFO1Gain;
-	PatchToLFO2Gain;
-	PatchToLFO1Freq;
-	PatchToLFO2Freq;
-	Count;
-	ESynthModEnvPatch_MAX;
+extern class ESynthModEnvPatch {
+	static var PatchToNone: ESynthModEnvPatch;
+	static var PatchToOscFreq: ESynthModEnvPatch;
+	static var PatchToFilterFreq: ESynthModEnvPatch;
+	static var PatchToFilterQ: ESynthModEnvPatch;
+	static var PatchToLFO1Gain: ESynthModEnvPatch;
+	static var PatchToLFO2Gain: ESynthModEnvPatch;
+	static var PatchToLFO1Freq: ESynthModEnvPatch;
+	static var PatchToLFO2Freq: ESynthModEnvPatch;
+	static var Count: ESynthModEnvPatch;
+	static var ESynthModEnvPatch_MAX: ESynthModEnvPatch;
 }

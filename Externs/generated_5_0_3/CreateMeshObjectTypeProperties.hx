@@ -10,9 +10,9 @@ extern class CreateMeshObjectTypeProperties extends InteractiveToolPropertySet {
 	public var OutputTypeNamesList: TArray<FString>;
 	public var bShowVolumeList: Bool;
 
-	public function ShouldShowPropertySet(): cpp.Reference<Bool>;
-	public function GetOutputTypeNamesFunc(): cpp.Reference<TArray<FString>>;
-	public function GetCurrentCreateMeshType(): cpp.Reference<ECreateObjectTypeHint>;
+	public function ShouldShowPropertySet(): Bool;
+	public function GetOutputTypeNamesFunc(): TArray<FString>;
+	public function GetCurrentCreateMeshType(): ECreateObjectTypeHint;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

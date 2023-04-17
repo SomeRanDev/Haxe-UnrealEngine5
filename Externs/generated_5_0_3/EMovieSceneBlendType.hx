@@ -3,11 +3,11 @@ package ue;
 
 @:native("EMovieSceneBlendType")
 @:include("Evaluation/Blending/MovieSceneBlendType.h")
-extern enum EMovieSceneBlendType {
-	Invalid;
-	Absolute;
-	Additive;
-	Relative;
-	AdditiveFromBase;
-	EMovieSceneBlendType_MAX;
+extern class EMovieSceneBlendType {
+	static var Invalid: EMovieSceneBlendType;
+	static var Absolute: EMovieSceneBlendType;
+	static var Additive: EMovieSceneBlendType;
+	static var Relative: EMovieSceneBlendType;
+	static var AdditiveFromBase: EMovieSceneBlendType;
+	static var EMovieSceneBlendType_MAX: EMovieSceneBlendType;
 }

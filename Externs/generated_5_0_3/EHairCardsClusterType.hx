@@ -3,8 +3,8 @@ package ue;
 
 @:native("EHairCardsClusterType")
 @:include("GroomAssetCards.h")
-extern enum EHairCardsClusterType {
-	Low;
-	High;
-	EHairCardsClusterType_MAX;
+extern class EHairCardsClusterType {
+	static var Low: EHairCardsClusterType;
+	static var High: EHairCardsClusterType;
+	static var EHairCardsClusterType_MAX: EHairCardsClusterType;
 }

@@ -5,9 +5,9 @@ package ue;
 @:include("Perception/AISenseConfig.h")
 @:structAccess
 extern class AISenseConfig extends Object {
-	public var DebugColor: Color;
-	public var MaxAge: cpp.Float32;
-	public var bStartsEnabled: Bool;
+	@:protected public var DebugColor: Color;
+	@:protected public var MaxAge: cpp.Float32;
+	@:protected public var bStartsEnabled: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class AISenseConfig extends Object {
 @:forward()
 @:nativeGen
 abstract ConstAISenseConfig(AISenseConfig) from AISenseConfig {
-	public extern var DebugColor(get, never): Color;
-	public inline extern function get_DebugColor(): Color return this.DebugColor;
-	public extern var MaxAge(get, never): cpp.Float32;
-	public inline extern function get_MaxAge(): cpp.Float32 return this.MaxAge;
-	public extern var bStartsEnabled(get, never): Bool;
-	public inline extern function get_bStartsEnabled(): Bool return this.bStartsEnabled;
 }
 
 @:forward

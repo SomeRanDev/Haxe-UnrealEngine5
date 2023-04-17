@@ -3,13 +3,13 @@ package ue;
 
 @:native("EDOFMode.Type")
 @:include("PhysicsEngine/BodyInstance.h")
-extern enum EDOFMode {
-	Default;
-	SixDOF;
-	YZPlane;
-	XZPlane;
-	XYPlane;
-	CustomPlane;
-	None;
-	EDOFMode_MAX;
+extern class EDOFMode {
+	static var Default: EDOFMode;
+	static var SixDOF: EDOFMode;
+	static var YZPlane: EDOFMode;
+	static var XZPlane: EDOFMode;
+	static var XYPlane: EDOFMode;
+	static var CustomPlane: EDOFMode;
+	static var None: EDOFMode;
+	static var EDOFMode_MAX: EDOFMode;
 }

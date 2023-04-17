@@ -13,12 +13,12 @@ extern class ExpandableArea extends Widget {
 	public var HeaderPadding: Margin;
 	public var AreaPadding: Margin;
 	public var OnExpansionChanged: HaxeMulticastSparseDelegateProperty<(cpp.Star<ExpandableArea>, Bool) -> Void>;
-	public var HeaderContent: cpp.Star<Widget>;
-	public var BodyContent: cpp.Star<Widget>;
+	@:protected public var HeaderContent: cpp.Star<Widget>;
+	@:protected public var BodyContent: cpp.Star<Widget>;
 
 	public function SetIsExpanded_Animated(IsExpanded: Bool): Void;
 	public function SetIsExpanded(IsExpanded: Bool): Void;
-	public function GetIsExpanded(): cpp.Reference<Bool>;
+	public function GetIsExpanded(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -42,10 +42,6 @@ abstract ConstExpandableArea(ExpandableArea) from ExpandableArea {
 	public inline extern function get_AreaPadding(): Margin return this.AreaPadding;
 	public extern var OnExpansionChanged(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ExpandableArea.ConstExpandableArea>, Bool) -> Void>;
 	public inline extern function get_OnExpansionChanged(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ExpandableArea.ConstExpandableArea>, Bool) -> Void> return this.OnExpansionChanged;
-	public extern var HeaderContent(get, never): cpp.Star<Widget.ConstWidget>;
-	public inline extern function get_HeaderContent(): cpp.Star<Widget.ConstWidget> return this.HeaderContent;
-	public extern var BodyContent(get, never): cpp.Star<Widget.ConstWidget>;
-	public inline extern function get_BodyContent(): cpp.Star<Widget.ConstWidget> return this.BodyContent;
 }
 
 @:forward

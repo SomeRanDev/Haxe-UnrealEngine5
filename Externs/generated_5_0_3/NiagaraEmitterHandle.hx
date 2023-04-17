@@ -5,14 +5,11 @@ package ue;
 @:include("NiagaraEmitterHandle.h")
 @:structAccess
 extern class NiagaraEmitterHandle {
-	public var Id: Guid;
-	public var IdName: FName;
-	public var bIsEnabled: Bool;
-	public var Name: FName;
-	public var Source_DEPRECATED: cpp.Star<NiagaraEmitter>;
-	public var LastMergedSource_DEPRECATED: cpp.Star<NiagaraEmitter>;
-	public var bIsolated: Bool;
-	public var Instance: cpp.Star<NiagaraEmitter>;
+	private var Id: Guid;
+	private var IdName: FName;
+	private var bIsEnabled: Bool;
+	private var Name: FName;
+	private var Instance: cpp.Star<NiagaraEmitter>;
 
 	@:native("FNiagaraEmitterHandle") public function new();
 }

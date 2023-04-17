@@ -3,9 +3,9 @@ package ue;
 
 @:native("ECanBeCharacterBase")
 @:include("Components/PrimitiveComponent.h")
-extern enum ECanBeCharacterBase {
-	ECB_No;
-	ECB_Yes;
-	ECB_Owner;
-	ECB_MAX;
+extern class ECanBeCharacterBase {
+	static var ECB_No: ECanBeCharacterBase;
+	static var ECB_Yes: ECanBeCharacterBase;
+	static var ECB_Owner: ECanBeCharacterBase;
+	static var ECB_MAX: ECanBeCharacterBase;
 }

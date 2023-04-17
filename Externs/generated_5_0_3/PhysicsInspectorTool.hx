@@ -5,10 +5,10 @@ package ue;
 @:include("Physics/PhysicsInspectorTool.h")
 @:structAccess
 extern class PhysicsInspectorTool extends MultiSelectionMeshEditingTool {
-	public var VizSettings: cpp.Star<CollisionGeometryVisualizationProperties>;
-	public var ObjectData: TArray<cpp.Star<PhysicsObjectToolPropertySet>>;
-	public var LineMaterial: cpp.Star<MaterialInterface>;
-	public var PreviewElements: TArray<cpp.Star<PreviewGeometry>>;
+	@:protected public var VizSettings: cpp.Star<CollisionGeometryVisualizationProperties>;
+	@:protected public var ObjectData: TArray<cpp.Star<PhysicsObjectToolPropertySet>>;
+	@:protected public var LineMaterial: cpp.Star<MaterialInterface>;
+	@:protected public var PreviewElements: TArray<cpp.Star<PreviewGeometry>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class PhysicsInspectorTool extends MultiSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstPhysicsInspectorTool(PhysicsInspectorTool) from PhysicsInspectorTool {
-	public extern var VizSettings(get, never): cpp.Star<CollisionGeometryVisualizationProperties.ConstCollisionGeometryVisualizationProperties>;
-	public inline extern function get_VizSettings(): cpp.Star<CollisionGeometryVisualizationProperties.ConstCollisionGeometryVisualizationProperties> return this.VizSettings;
-	public extern var ObjectData(get, never): TArray<cpp.Star<PhysicsObjectToolPropertySet.ConstPhysicsObjectToolPropertySet>>;
-	public inline extern function get_ObjectData(): TArray<cpp.Star<PhysicsObjectToolPropertySet.ConstPhysicsObjectToolPropertySet>> return this.ObjectData;
-	public extern var LineMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_LineMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.LineMaterial;
-	public extern var PreviewElements(get, never): TArray<cpp.Star<PreviewGeometry.ConstPreviewGeometry>>;
-	public inline extern function get_PreviewElements(): TArray<cpp.Star<PreviewGeometry.ConstPreviewGeometry>> return this.PreviewElements;
 }
 
 @:forward

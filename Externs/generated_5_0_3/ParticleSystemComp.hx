@@ -16,7 +16,7 @@ extern class ParticleSystemComp extends FXSystemComp {
 	public var bWarmingUp: Bool;
 	public var bOverrideLODMethod: Bool;
 	public var bSkipUpdateDynamicDataDuringTick: Bool;
-	public var LODMethod: ParticleSystemLODMethod;
+	public var LODMethod: TEnumAsByte<ParticleSystemLODMethod>;
 	public var RequiredSignificance: EParticleSignificanceLevel;
 	public var InstanceParameters: TArray<ParticleSysParam>;
 	public var OnParticleSpawn: HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, Vector, Vector) -> Void>;
@@ -30,19 +30,16 @@ extern class ParticleSystemComp extends FXSystemComp {
 	public var WarmupTickRate: cpp.Float32;
 	public var SecondsBeforeInactive: cpp.Float32;
 	public var MaxTimeBeforeForceUpdateTransform: cpp.Float32;
-	public var EditorLODLevel: cpp.Int32;
-	public var EditorDetailMode: cpp.Int32;
 	public var ReplayClips: TArray<cpp.Star<ParticleSystemReplay>>;
 	public var CustomTimeDilation: cpp.Float32;
 	public var AutoAttachParent: TWeakObjectPtr<SceneComp>;
 	public var AutoAttachSocketName: FName;
-	public var AutoAttachLocationType_DEPRECATED: EAttachLocation;
 	public var AutoAttachLocationRule: EAttachmentRule;
 	public var AutoAttachRotationRule: EAttachmentRule;
 	public var AutoAttachScaleRule: EAttachmentRule;
 	public var OnSystemFinished: HaxeMulticastSparseDelegateProperty<(cpp.Star<ParticleSystemComp>) -> Void>;
 
-	public function SetTrailSourceData(InFirstSocketName: FName, InSecondSocketName: FName, InWidthMode: ETrailWidthMode, InWidth: cpp.Float32): Void;
+	public function SetTrailSourceData(InFirstSocketName: FName, InSecondSocketName: FName, InWidthMode: TEnumAsByte<ETrailWidthMode>, InWidth: cpp.Float32): Void;
 	public function SetTemplate(NewTemplate: cpp.Star<ParticleSystem>): Void;
 	public function SetMaterialParameter(ParameterName: FName, Param: cpp.Star<MaterialInterface>): Void;
 	public function SetBeamTargetTangent(EmitterIndex: cpp.Int32, NewTangentPoint: Vector, TargetIndex: cpp.Int32): Void;
@@ -52,20 +49,20 @@ extern class ParticleSystemComp extends FXSystemComp {
 	public function SetBeamSourceStrength(EmitterIndex: cpp.Int32, NewSourceStrength: cpp.Float32, SourceIndex: cpp.Int32): Void;
 	public function SetBeamSourcePoint(EmitterIndex: cpp.Int32, NewSourcePoint: Vector, SourceIndex: cpp.Int32): Void;
 	public function SetBeamEndPoint(EmitterIndex: cpp.Int32, NewEndPoint: Vector): Void;
-	public function SetAutoAttachParams(Parent: cpp.Star<SceneComp>, SocketName: FName, LocationType: EAttachLocation): Void;
-	public function GetNumActiveParticles(): cpp.Reference<cpp.Int32>;
-	public function GetNamedMaterial(InName: FName): cpp.Reference<cpp.Star<MaterialInterface>>;
-	public function GetBeamTargetTangent(EmitterIndex: cpp.Int32, TargetIndex: cpp.Int32, OutTangentPoint: cpp.Reference<Vector>): cpp.Reference<Bool>;
-	public function GetBeamTargetStrength(EmitterIndex: cpp.Int32, TargetIndex: cpp.Int32, OutTargetStrength: cpp.Reference<cpp.Float32>): cpp.Reference<Bool>;
-	public function GetBeamTargetPoint(EmitterIndex: cpp.Int32, TargetIndex: cpp.Int32, OutTargetPoint: cpp.Reference<Vector>): cpp.Reference<Bool>;
-	public function GetBeamSourceTangent(EmitterIndex: cpp.Int32, SourceIndex: cpp.Int32, OutTangentPoint: cpp.Reference<Vector>): cpp.Reference<Bool>;
-	public function GetBeamSourceStrength(EmitterIndex: cpp.Int32, SourceIndex: cpp.Int32, OutSourceStrength: cpp.Reference<cpp.Float32>): cpp.Reference<Bool>;
-	public function GetBeamSourcePoint(EmitterIndex: cpp.Int32, SourceIndex: cpp.Int32, OutSourcePoint: cpp.Reference<Vector>): cpp.Reference<Bool>;
-	public function GetBeamEndPoint(EmitterIndex: cpp.Int32, OutEndPoint: cpp.Reference<Vector>): cpp.Reference<Bool>;
+	public function SetAutoAttachParams(Parent: cpp.Star<SceneComp>, SocketName: FName, LocationType: TEnumAsByte<EAttachLocation>): Void;
+	public function GetNumActiveParticles(): cpp.Int32;
+	public function GetNamedMaterial(InName: FName): cpp.Star<MaterialInterface>;
+	public function GetBeamTargetTangent(EmitterIndex: cpp.Int32, TargetIndex: cpp.Int32, OutTangentPoint: cpp.Reference<Vector>): Bool;
+	public function GetBeamTargetStrength(EmitterIndex: cpp.Int32, TargetIndex: cpp.Int32, OutTargetStrength: cpp.Reference<cpp.Float32>): Bool;
+	public function GetBeamTargetPoint(EmitterIndex: cpp.Int32, TargetIndex: cpp.Int32, OutTargetPoint: cpp.Reference<Vector>): Bool;
+	public function GetBeamSourceTangent(EmitterIndex: cpp.Int32, SourceIndex: cpp.Int32, OutTangentPoint: cpp.Reference<Vector>): Bool;
+	public function GetBeamSourceStrength(EmitterIndex: cpp.Int32, SourceIndex: cpp.Int32, OutSourceStrength: cpp.Reference<cpp.Float32>): Bool;
+	public function GetBeamSourcePoint(EmitterIndex: cpp.Int32, SourceIndex: cpp.Int32, OutSourcePoint: cpp.Reference<Vector>): Bool;
+	public function GetBeamEndPoint(EmitterIndex: cpp.Int32, OutEndPoint: cpp.Reference<Vector>): Bool;
 	public function GenerateParticleEvent(InEventName: FName, InEmitterTime: cpp.Float32, InLocation: Vector, InDirection: Vector, InVelocity: Vector): Void;
 	public function EndTrails(): Void;
-	public function CreateNamedDynamicMaterialInstance(InName: FName, SourceMaterial: cpp.Star<MaterialInterface>): cpp.Reference<cpp.Star<MaterialInstanceDynamic>>;
-	public function BeginTrails(InFirstSocketName: FName, InSecondSocketName: FName, InWidthMode: ETrailWidthMode, InWidth: cpp.Float32): Void;
+	public function CreateNamedDynamicMaterialInstance(InName: FName, SourceMaterial: cpp.Star<MaterialInterface>): cpp.Star<MaterialInstanceDynamic>;
+	public function BeginTrails(InFirstSocketName: FName, InSecondSocketName: FName, InWidthMode: TEnumAsByte<ETrailWidthMode>, InWidth: cpp.Float32): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -95,8 +92,8 @@ abstract ConstParticleSystemComp(ParticleSystemComp) from ParticleSystemComp {
 	public inline extern function get_bOverrideLODMethod(): Bool return this.bOverrideLODMethod;
 	public extern var bSkipUpdateDynamicDataDuringTick(get, never): Bool;
 	public inline extern function get_bSkipUpdateDynamicDataDuringTick(): Bool return this.bSkipUpdateDynamicDataDuringTick;
-	public extern var LODMethod(get, never): ParticleSystemLODMethod;
-	public inline extern function get_LODMethod(): ParticleSystemLODMethod return this.LODMethod;
+	public extern var LODMethod(get, never): TEnumAsByte<ParticleSystemLODMethod>;
+	public inline extern function get_LODMethod(): TEnumAsByte<ParticleSystemLODMethod> return this.LODMethod;
 	public extern var RequiredSignificance(get, never): EParticleSignificanceLevel;
 	public inline extern function get_RequiredSignificance(): EParticleSignificanceLevel return this.RequiredSignificance;
 	public extern var InstanceParameters(get, never): TArray<ParticleSysParam>;
@@ -123,10 +120,6 @@ abstract ConstParticleSystemComp(ParticleSystemComp) from ParticleSystemComp {
 	public inline extern function get_SecondsBeforeInactive(): cpp.Float32 return this.SecondsBeforeInactive;
 	public extern var MaxTimeBeforeForceUpdateTransform(get, never): cpp.Float32;
 	public inline extern function get_MaxTimeBeforeForceUpdateTransform(): cpp.Float32 return this.MaxTimeBeforeForceUpdateTransform;
-	public extern var EditorLODLevel(get, never): cpp.Int32;
-	public inline extern function get_EditorLODLevel(): cpp.Int32 return this.EditorLODLevel;
-	public extern var EditorDetailMode(get, never): cpp.Int32;
-	public inline extern function get_EditorDetailMode(): cpp.Int32 return this.EditorDetailMode;
 	public extern var ReplayClips(get, never): TArray<cpp.Star<ParticleSystemReplay.ConstParticleSystemReplay>>;
 	public inline extern function get_ReplayClips(): TArray<cpp.Star<ParticleSystemReplay.ConstParticleSystemReplay>> return this.ReplayClips;
 	public extern var CustomTimeDilation(get, never): cpp.Float32;
@@ -135,8 +128,6 @@ abstract ConstParticleSystemComp(ParticleSystemComp) from ParticleSystemComp {
 	public inline extern function get_AutoAttachParent(): TWeakObjectPtr<SceneComp.ConstSceneComp> return this.AutoAttachParent;
 	public extern var AutoAttachSocketName(get, never): FName;
 	public inline extern function get_AutoAttachSocketName(): FName return this.AutoAttachSocketName;
-	public extern var AutoAttachLocationType_DEPRECATED(get, never): EAttachLocation;
-	public inline extern function get_AutoAttachLocationType_DEPRECATED(): EAttachLocation return this.AutoAttachLocationType_DEPRECATED;
 	public extern var AutoAttachLocationRule(get, never): EAttachmentRule;
 	public inline extern function get_AutoAttachLocationRule(): EAttachmentRule return this.AutoAttachLocationRule;
 	public extern var AutoAttachRotationRule(get, never): EAttachmentRule;

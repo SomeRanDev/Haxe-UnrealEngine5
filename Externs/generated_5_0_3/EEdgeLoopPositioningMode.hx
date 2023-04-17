@@ -3,9 +3,9 @@ package ue;
 
 @:native("EEdgeLoopPositioningMode")
 @:include("ToolActivities/PolyEditInsertEdgeLoopActivity.h")
-extern enum EEdgeLoopPositioningMode {
-	Even;
-	ProportionOffset;
-	DistanceOffset;
-	EEdgeLoopPositioningMode_MAX;
+extern class EEdgeLoopPositioningMode {
+	static var Even: EEdgeLoopPositioningMode;
+	static var ProportionOffset: EEdgeLoopPositioningMode;
+	static var DistanceOffset: EEdgeLoopPositioningMode;
+	static var EEdgeLoopPositioningMode_MAX: EEdgeLoopPositioningMode;
 }

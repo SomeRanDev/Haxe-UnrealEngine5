@@ -3,8 +3,8 @@ package ue;
 
 @:native("EMaterialSceneAttributeInputMode.Type")
 @:include("Materials/MaterialExpressionSceneColor.h")
-extern enum EMaterialSceneAttributeInputMode {
-	Coordinates;
-	OffsetFraction;
-	EMaterialSceneAttributeInputMode_MAX;
+extern class EMaterialSceneAttributeInputMode {
+	static var Coordinates: EMaterialSceneAttributeInputMode;
+	static var OffsetFraction: EMaterialSceneAttributeInputMode;
+	static var EMaterialSceneAttributeInputMode_MAX: EMaterialSceneAttributeInputMode;
 }

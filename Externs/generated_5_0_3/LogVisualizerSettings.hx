@@ -20,9 +20,9 @@ extern class LogVisualizerSettings extends Object {
 	public var bUsePlayersOnlyForPause: Bool;
 	public var bLogNavOctreeOnStop: Bool;
 	public var bForceUniqueLogNames: Bool;
-	public var PersistentFilters: VisualLoggerFiltersData;
-	public var DebugMeshMaterialFakeLight: cpp.Star<Material>;
-	public var DebugMeshMaterialFakeLightName: FString;
+	@:protected public var PersistentFilters: VisualLoggerFiltersData;
+	@:protected public var DebugMeshMaterialFakeLight: cpp.Star<Material>;
+	@:protected public var DebugMeshMaterialFakeLightName: FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -60,12 +60,6 @@ abstract ConstLogVisualizerSettings(LogVisualizerSettings) from LogVisualizerSet
 	public inline extern function get_bLogNavOctreeOnStop(): Bool return this.bLogNavOctreeOnStop;
 	public extern var bForceUniqueLogNames(get, never): Bool;
 	public inline extern function get_bForceUniqueLogNames(): Bool return this.bForceUniqueLogNames;
-	public extern var PersistentFilters(get, never): VisualLoggerFiltersData;
-	public inline extern function get_PersistentFilters(): VisualLoggerFiltersData return this.PersistentFilters;
-	public extern var DebugMeshMaterialFakeLight(get, never): cpp.Star<Material.ConstMaterial>;
-	public inline extern function get_DebugMeshMaterialFakeLight(): cpp.Star<Material.ConstMaterial> return this.DebugMeshMaterialFakeLight;
-	public extern var DebugMeshMaterialFakeLightName(get, never): FString;
-	public inline extern function get_DebugMeshMaterialFakeLightName(): FString return this.DebugMeshMaterialFakeLightName;
 }
 
 @:forward

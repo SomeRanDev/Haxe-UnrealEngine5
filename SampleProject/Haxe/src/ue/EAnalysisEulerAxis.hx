@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAnalysisEulerAxis")
 @:include("BlendSpaceAnalysis.h")
-extern enum EAnalysisEulerAxis {
-	Roll;
-	Pitch;
-	Yaw;
-	EAnalysisEulerAxis_MAX;
+extern class EAnalysisEulerAxis {
+	static var Roll: EAnalysisEulerAxis;
+	static var Pitch: EAnalysisEulerAxis;
+	static var Yaw: EAnalysisEulerAxis;
+	static var EAnalysisEulerAxis_MAX: EAnalysisEulerAxis;
 }

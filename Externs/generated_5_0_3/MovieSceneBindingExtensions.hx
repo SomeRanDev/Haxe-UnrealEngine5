@@ -11,18 +11,18 @@ extern class MovieSceneBindingExtensions extends BlueprintFunctionLibrary {
 	public function RemoveTrack(InBinding: cpp.Reference<SequencerBindingProxy>, TrackToRemove: cpp.Star<MovieSceneTrack>): Void;
 	public function Remove(InBinding: cpp.Reference<SequencerBindingProxy>): Void;
 	public function MoveBindingContents(SourceBindingId: cpp.Reference<SequencerBindingProxy>, DestinationBindingId: cpp.Reference<SequencerBindingProxy>): Void;
-	public function IsValid(InBinding: cpp.Reference<SequencerBindingProxy>): cpp.Reference<Bool>;
-	public function GetTracks(InBinding: cpp.Reference<SequencerBindingProxy>): cpp.Reference<TArray<cpp.Star<MovieSceneTrack>>>;
-	public function GetPossessedObjectClass(InBinding: cpp.Reference<SequencerBindingProxy>): cpp.Reference<cpp.Star<Class>>;
-	public function GetParent(InBinding: cpp.Reference<SequencerBindingProxy>): cpp.Reference<SequencerBindingProxy>;
-	public function GetObjectTemplate(InBinding: cpp.Reference<SequencerBindingProxy>): cpp.Reference<cpp.Star<Object>>;
-	public function GetName(InBinding: cpp.Reference<SequencerBindingProxy>): cpp.Reference<FString>;
-	public function GetId(InBinding: cpp.Reference<SequencerBindingProxy>): cpp.Reference<Guid>;
-	public function GetDisplayName(InBinding: cpp.Reference<SequencerBindingProxy>): cpp.Reference<FText>;
-	public function GetChildPossessables(InBinding: cpp.Reference<SequencerBindingProxy>): cpp.Reference<TArray<SequencerBindingProxy>>;
-	public function FindTracksByType(InBinding: cpp.Reference<SequencerBindingProxy>, TrackType: TSubclassOf<MovieSceneTrack>): cpp.Reference<TArray<cpp.Star<MovieSceneTrack>>>;
-	public function FindTracksByExactType(InBinding: cpp.Reference<SequencerBindingProxy>, TrackType: TSubclassOf<MovieSceneTrack>): cpp.Reference<TArray<cpp.Star<MovieSceneTrack>>>;
-	public function AddTrack(InBinding: cpp.Reference<SequencerBindingProxy>, TrackType: TSubclassOf<MovieSceneTrack>): cpp.Reference<cpp.Star<MovieSceneTrack>>;
+	public function IsValid(InBinding: cpp.Reference<SequencerBindingProxy>): Bool;
+	public function GetTracks(InBinding: cpp.Reference<SequencerBindingProxy>): TArray<cpp.Star<MovieSceneTrack>>;
+	public function GetPossessedObjectClass(InBinding: cpp.Reference<SequencerBindingProxy>): cpp.Star<Class>;
+	public function GetParent(InBinding: cpp.Reference<SequencerBindingProxy>): SequencerBindingProxy;
+	public function GetObjectTemplate(InBinding: cpp.Reference<SequencerBindingProxy>): cpp.Star<Object>;
+	public function GetName(InBinding: cpp.Reference<SequencerBindingProxy>): FString;
+	public function GetId(InBinding: cpp.Reference<SequencerBindingProxy>): Guid;
+	public function GetDisplayName(InBinding: cpp.Reference<SequencerBindingProxy>): FText;
+	public function GetChildPossessables(InBinding: cpp.Reference<SequencerBindingProxy>): TArray<SequencerBindingProxy>;
+	public function FindTracksByType(InBinding: cpp.Reference<SequencerBindingProxy>, TrackType: TSubclassOf<MovieSceneTrack>): TArray<cpp.Star<MovieSceneTrack>>;
+	public function FindTracksByExactType(InBinding: cpp.Reference<SequencerBindingProxy>, TrackType: TSubclassOf<MovieSceneTrack>): TArray<cpp.Star<MovieSceneTrack>>;
+	public function AddTrack(InBinding: cpp.Reference<SequencerBindingProxy>, TrackType: TSubclassOf<MovieSceneTrack>): cpp.Star<MovieSceneTrack>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

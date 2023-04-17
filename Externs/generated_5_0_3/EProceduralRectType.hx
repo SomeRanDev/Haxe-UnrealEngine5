@@ -3,8 +3,8 @@ package ue;
 
 @:native("EProceduralRectType")
 @:include("AddPrimitiveTool.h")
-extern enum EProceduralRectType {
-	Rectangle;
-	RoundedRectangle;
-	EProceduralRectType_MAX;
+extern class EProceduralRectType {
+	static var Rectangle: EProceduralRectType;
+	static var RoundedRectangle: EProceduralRectType;
+	static var EProceduralRectType_MAX: EProceduralRectType;
 }

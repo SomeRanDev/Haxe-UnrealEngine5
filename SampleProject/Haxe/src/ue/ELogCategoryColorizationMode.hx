@@ -3,10 +3,10 @@ package ue;
 
 @:native("ELogCategoryColorizationMode")
 @:include("EditorStyleSettings.h")
-extern enum ELogCategoryColorizationMode {
-	None;
-	ColorizeWholeLine;
-	ColorizeCategoryOnly;
-	ColorizeCategoryAsBadge;
-	ELogCategoryColorizationMode_MAX;
+extern class ELogCategoryColorizationMode {
+	static var None: ELogCategoryColorizationMode;
+	static var ColorizeWholeLine: ELogCategoryColorizationMode;
+	static var ColorizeCategoryOnly: ELogCategoryColorizationMode;
+	static var ColorizeCategoryAsBadge: ELogCategoryColorizationMode;
+	static var ELogCategoryColorizationMode_MAX: ELogCategoryColorizationMode;
 }

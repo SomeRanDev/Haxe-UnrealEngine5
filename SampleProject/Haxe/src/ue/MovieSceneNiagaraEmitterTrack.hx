@@ -5,10 +5,10 @@ package ue;
 @:include("Sequencer/NiagaraSequence/MovieSceneNiagaraEmitterTrack.h")
 @:structAccess
 extern class MovieSceneNiagaraEmitterTrack extends MovieSceneNameableTrack {
-	public var Sections: TArray<cpp.Star<MovieSceneSection>>;
-	public var bSectionsWereModified: Bool;
-	public var EmitterHandleId: Guid;
-	public var SystemPath: FString;
+	private var Sections: TArray<cpp.Star<MovieSceneSection>>;
+	private var bSectionsWereModified: Bool;
+	private var EmitterHandleId: Guid;
+	private var SystemPath: FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class MovieSceneNiagaraEmitterTrack extends MovieSceneNameableTrack {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneNiagaraEmitterTrack(MovieSceneNiagaraEmitterTrack) from MovieSceneNiagaraEmitterTrack {
-	public extern var Sections(get, never): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>>;
-	public inline extern function get_Sections(): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>> return this.Sections;
-	public extern var bSectionsWereModified(get, never): Bool;
-	public inline extern function get_bSectionsWereModified(): Bool return this.bSectionsWereModified;
-	public extern var EmitterHandleId(get, never): Guid;
-	public inline extern function get_EmitterHandleId(): Guid return this.EmitterHandleId;
-	public extern var SystemPath(get, never): FString;
-	public inline extern function get_SystemPath(): FString return this.SystemPath;
 }
 
 @:forward

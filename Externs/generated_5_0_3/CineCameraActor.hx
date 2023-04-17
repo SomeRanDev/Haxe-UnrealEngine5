@@ -7,7 +7,7 @@ package ue;
 extern class CineCameraActor extends CameraActor {
 	public var LookatTrackingSettings: CameraLookatTrackingSettings;
 
-	public function GetCineCameraComponent(): cpp.Reference<cpp.Star<CineCameraComp>>;
+	public function GetCineCameraComponent(): cpp.Star<CineCameraComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

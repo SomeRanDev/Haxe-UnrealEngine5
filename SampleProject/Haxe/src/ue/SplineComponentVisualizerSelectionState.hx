@@ -5,14 +5,14 @@ package ue;
 @:include("SplineComponentVisualizer.h")
 @:structAccess
 extern class SplineComponentVisualizerSelectionState extends Object {
-	public var SplinePropertyPath: ComponentPropertyPath;
-	public var SelectedKeys: TSet<cpp.Int32>;
-	public var LastKeyIndexSelected: cpp.Int32;
-	public var SelectedSegmentIndex: cpp.Int32;
-	public var SelectedTangentHandle: cpp.Int32;
-	public var SelectedTangentHandleType: ESelectedTangentHandle;
-	public var SelectedSplinePosition: Vector;
-	public var CachedRotation: Quat;
+	@:protected public var SplinePropertyPath: ComponentPropertyPath;
+	@:protected public var SelectedKeys: TSet<cpp.Int32>;
+	@:protected public var LastKeyIndexSelected: cpp.Int32;
+	@:protected public var SelectedSegmentIndex: cpp.Int32;
+	@:protected public var SelectedTangentHandle: cpp.Int32;
+	@:protected public var SelectedTangentHandleType: ESelectedTangentHandle;
+	@:protected public var SelectedSplinePosition: Vector;
+	@:protected public var CachedRotation: Quat;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -20,22 +20,6 @@ extern class SplineComponentVisualizerSelectionState extends Object {
 @:forward()
 @:nativeGen
 abstract ConstSplineComponentVisualizerSelectionState(SplineComponentVisualizerSelectionState) from SplineComponentVisualizerSelectionState {
-	public extern var SplinePropertyPath(get, never): ComponentPropertyPath;
-	public inline extern function get_SplinePropertyPath(): ComponentPropertyPath return this.SplinePropertyPath;
-	public extern var SelectedKeys(get, never): TSet<cpp.Int32>;
-	public inline extern function get_SelectedKeys(): TSet<cpp.Int32> return this.SelectedKeys;
-	public extern var LastKeyIndexSelected(get, never): cpp.Int32;
-	public inline extern function get_LastKeyIndexSelected(): cpp.Int32 return this.LastKeyIndexSelected;
-	public extern var SelectedSegmentIndex(get, never): cpp.Int32;
-	public inline extern function get_SelectedSegmentIndex(): cpp.Int32 return this.SelectedSegmentIndex;
-	public extern var SelectedTangentHandle(get, never): cpp.Int32;
-	public inline extern function get_SelectedTangentHandle(): cpp.Int32 return this.SelectedTangentHandle;
-	public extern var SelectedTangentHandleType(get, never): ESelectedTangentHandle;
-	public inline extern function get_SelectedTangentHandleType(): ESelectedTangentHandle return this.SelectedTangentHandleType;
-	public extern var SelectedSplinePosition(get, never): Vector;
-	public inline extern function get_SelectedSplinePosition(): Vector return this.SelectedSplinePosition;
-	public extern var CachedRotation(get, never): Quat;
-	public inline extern function get_CachedRotation(): Quat return this.CachedRotation;
 }
 
 @:forward

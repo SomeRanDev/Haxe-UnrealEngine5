@@ -3,9 +3,9 @@ package ue;
 
 @:native("EBlueprintCompileMode")
 @:include("Engine/Blueprint.h")
-extern enum EBlueprintCompileMode {
-	Default;
-	Development;
-	FinalRelease;
-	EBlueprintCompileMode_MAX;
+extern class EBlueprintCompileMode {
+	static var Default: EBlueprintCompileMode;
+	static var Development: EBlueprintCompileMode;
+	static var FinalRelease: EBlueprintCompileMode;
+	static var EBlueprintCompileMode_MAX: EBlueprintCompileMode;
 }

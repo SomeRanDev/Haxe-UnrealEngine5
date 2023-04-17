@@ -5,10 +5,9 @@ package ue;
 @:include("Components/ChildActorComponent.h")
 @:structAccess
 extern class ChildActorComp extends SceneComp {
-	public var ChildActorClass: TSubclassOf<Actor>;
-	public var ChildActor: cpp.Star<Actor>;
-	public var ChildActorTemplate: cpp.Star<Actor>;
-	public var EditorTreeViewVisualizationMode: EChildActorComponentTreeViewVisualizationMode;
+	private var ChildActorClass: TSubclassOf<Actor>;
+	private var ChildActor: cpp.Star<Actor>;
+	private var ChildActorTemplate: cpp.Star<Actor>;
 
 	public function SetChildActorClass(InClass: TSubclassOf<Actor>): Void;
 
@@ -18,14 +17,6 @@ extern class ChildActorComp extends SceneComp {
 @:forward()
 @:nativeGen
 abstract ConstChildActorComp(ChildActorComp) from ChildActorComp {
-	public extern var ChildActorClass(get, never): TSubclassOf<Actor.ConstActor>;
-	public inline extern function get_ChildActorClass(): TSubclassOf<Actor.ConstActor> return this.ChildActorClass;
-	public extern var ChildActor(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_ChildActor(): cpp.Star<Actor.ConstActor> return this.ChildActor;
-	public extern var ChildActorTemplate(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_ChildActorTemplate(): cpp.Star<Actor.ConstActor> return this.ChildActorTemplate;
-	public extern var EditorTreeViewVisualizationMode(get, never): EChildActorComponentTreeViewVisualizationMode;
-	public inline extern function get_EditorTreeViewVisualizationMode(): EChildActorComponentTreeViewVisualizationMode return this.EditorTreeViewVisualizationMode;
 }
 
 @:forward

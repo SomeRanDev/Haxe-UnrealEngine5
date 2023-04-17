@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESceneCapturePrimitiveRenderMode")
 @:include("Components/SceneCaptureComponent.h")
-extern enum ESceneCapturePrimitiveRenderMode {
-	PRM_LegacySceneCapture;
-	PRM_RenderScenePrimitives;
-	PRM_UseShowOnlyList;
-	PRM_MAX;
+extern class ESceneCapturePrimitiveRenderMode {
+	static var PRM_LegacySceneCapture: ESceneCapturePrimitiveRenderMode;
+	static var PRM_RenderScenePrimitives: ESceneCapturePrimitiveRenderMode;
+	static var PRM_UseShowOnlyList: ESceneCapturePrimitiveRenderMode;
+	static var PRM_MAX: ESceneCapturePrimitiveRenderMode;
 }

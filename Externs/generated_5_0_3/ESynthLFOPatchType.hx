@@ -3,16 +3,16 @@ package ue;
 
 @:native("ESynthLFOPatchType")
 @:include("EpicSynth1Types.h")
-extern enum ESynthLFOPatchType {
-	PatchToNone;
-	PatchToGain;
-	PatchToOscFreq;
-	PatchToFilterFreq;
-	PatchToFilterQ;
-	PatchToOscPulseWidth;
-	PatchToOscPan;
-	PatchLFO1ToLFO2Frequency;
-	PatchLFO1ToLFO2Gain;
-	Count;
-	ESynthLFOPatchType_MAX;
+extern class ESynthLFOPatchType {
+	static var PatchToNone: ESynthLFOPatchType;
+	static var PatchToGain: ESynthLFOPatchType;
+	static var PatchToOscFreq: ESynthLFOPatchType;
+	static var PatchToFilterFreq: ESynthLFOPatchType;
+	static var PatchToFilterQ: ESynthLFOPatchType;
+	static var PatchToOscPulseWidth: ESynthLFOPatchType;
+	static var PatchToOscPan: ESynthLFOPatchType;
+	static var PatchLFO1ToLFO2Frequency: ESynthLFOPatchType;
+	static var PatchLFO1ToLFO2Gain: ESynthLFOPatchType;
+	static var Count: ESynthLFOPatchType;
+	static var ESynthLFOPatchType_MAX: ESynthLFOPatchType;
 }

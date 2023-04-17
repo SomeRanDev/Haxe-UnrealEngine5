@@ -3,9 +3,9 @@ package ue;
 
 @:native("EProjectPackagingBlueprintNativizationMethod")
 @:include("Settings/ProjectPackagingSettings.h")
-extern enum EProjectPackagingBlueprintNativizationMethod {
-	Disabled;
-	Inclusive;
-	Exclusive;
-	EProjectPackagingBlueprintNativizationMethod_MAX;
+extern class EProjectPackagingBlueprintNativizationMethod {
+	static var Disabled: EProjectPackagingBlueprintNativizationMethod;
+	static var Inclusive: EProjectPackagingBlueprintNativizationMethod;
+	static var Exclusive: EProjectPackagingBlueprintNativizationMethod;
+	static var EProjectPackagingBlueprintNativizationMethod_MAX: EProjectPackagingBlueprintNativizationMethod;
 }

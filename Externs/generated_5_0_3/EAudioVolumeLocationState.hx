@@ -3,8 +3,8 @@ package ue;
 
 @:native("EAudioVolumeLocationState")
 @:include("Sound/AudioVolume.h")
-extern enum EAudioVolumeLocationState {
-	InsideTheVolume;
-	OutsideTheVolume;
-	EAudioVolumeLocationState_MAX;
+extern class EAudioVolumeLocationState {
+	static var InsideTheVolume: EAudioVolumeLocationState;
+	static var OutsideTheVolume: EAudioVolumeLocationState;
+	static var EAudioVolumeLocationState_MAX: EAudioVolumeLocationState;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EVariantManagerTestEnum")
 @:include("VariantManagerTestActor.h")
-extern enum EVariantManagerTestEnum {
-	None;
-	FirstOption;
-	SecondOption;
-	ThirdOption;
-	EVariantManagerTestEnum_MAX;
+extern class EVariantManagerTestEnum {
+	static var None: EVariantManagerTestEnum;
+	static var FirstOption: EVariantManagerTestEnum;
+	static var SecondOption: EVariantManagerTestEnum;
+	static var ThirdOption: EVariantManagerTestEnum;
+	static var EVariantManagerTestEnum_MAX: EVariantManagerTestEnum;
 }

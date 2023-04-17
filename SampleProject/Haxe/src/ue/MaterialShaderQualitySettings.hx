@@ -5,7 +5,7 @@ package ue;
 @:include("MaterialShaderQualitySettings.h")
 @:structAccess
 extern class MaterialShaderQualitySettings extends Object {
-	public var ForwardSettingMap: TMap<FName, cpp.Star<ShaderPlatformQualitySettings>>;
+	private var ForwardSettingMap: TMap<FName, cpp.Star<ShaderPlatformQualitySettings>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MaterialShaderQualitySettings extends Object {
 @:forward()
 @:nativeGen
 abstract ConstMaterialShaderQualitySettings(MaterialShaderQualitySettings) from MaterialShaderQualitySettings {
-	public extern var ForwardSettingMap(get, never): TMap<FName, cpp.Star<ShaderPlatformQualitySettings.ConstShaderPlatformQualitySettings>>;
-	public inline extern function get_ForwardSettingMap(): TMap<FName, cpp.Star<ShaderPlatformQualitySettings.ConstShaderPlatformQualitySettings>> return this.ForwardSettingMap;
 }
 
 @:forward

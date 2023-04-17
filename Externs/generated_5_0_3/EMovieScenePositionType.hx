@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMovieScenePositionType")
 @:include("MovieSceneSequencePlayer.h")
-extern enum EMovieScenePositionType {
-	Frame;
-	Time;
-	MarkedFrame;
-	EMovieScenePositionType_MAX;
+extern class EMovieScenePositionType {
+	static var Frame: EMovieScenePositionType;
+	static var Time: EMovieScenePositionType;
+	static var MarkedFrame: EMovieScenePositionType;
+	static var EMovieScenePositionType_MAX: EMovieScenePositionType;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EDefaultGraphicsRHI")
 @:include("WindowsTargetSettings.h")
-extern enum EDefaultGraphicsRHI {
-	DefaultGraphicsRHI_Default;
-	DefaultGraphicsRHI_DX11;
-	DefaultGraphicsRHI_DX12;
-	DefaultGraphicsRHI_Vulkan;
-	DefaultGraphicsRHI_MAX;
+extern class EDefaultGraphicsRHI {
+	static var DefaultGraphicsRHI_Default: EDefaultGraphicsRHI;
+	static var DefaultGraphicsRHI_DX11: EDefaultGraphicsRHI;
+	static var DefaultGraphicsRHI_DX12: EDefaultGraphicsRHI;
+	static var DefaultGraphicsRHI_Vulkan: EDefaultGraphicsRHI;
+	static var DefaultGraphicsRHI_MAX: EDefaultGraphicsRHI;
 }

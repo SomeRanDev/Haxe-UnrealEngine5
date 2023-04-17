@@ -5,18 +5,12 @@ package ue;
 @:include("Animation/AnimationAsset.h")
 @:structAccess
 extern class AnimationAsset extends Object {
-	public var Skeleton: cpp.Star<Skeleton>;
-	public var MetaData: TArray<cpp.Star<AnimMetaData>>;
-	public var ParentAsset: cpp.Star<AnimationAsset>;
-	public var ChildrenAssets: TArray<cpp.Star<AnimationAsset>>;
-	public var AssetMappingTable: cpp.Star<AssetMappingTable>;
-	public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
-	public var ThumbnailInfo: cpp.Star<ThumbnailInfo>;
-	public var PreviewPoseAsset: cpp.Star<PoseAsset>;
-	public var PreviewSkeletalMesh: TSoftObjectPtr<SkeletalMesh>;
+	private var Skeleton: cpp.Star<Skeleton>;
+	private var MetaData: TArray<cpp.Star<AnimMetaData>>;
+	@:protected public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
 
 	public function SetPreviewSkeletalMesh(PreviewMesh: cpp.Star<SkeletalMesh>): Void;
-	public function GetPlayLength(): cpp.Reference<cpp.Float32>;
+	public function GetPlayLength(): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -24,24 +18,6 @@ extern class AnimationAsset extends Object {
 @:forward(GetPlayLength)
 @:nativeGen
 abstract ConstAnimationAsset(AnimationAsset) from AnimationAsset {
-	public extern var Skeleton(get, never): cpp.Star<Skeleton.ConstSkeleton>;
-	public inline extern function get_Skeleton(): cpp.Star<Skeleton.ConstSkeleton> return this.Skeleton;
-	public extern var MetaData(get, never): TArray<cpp.Star<AnimMetaData.ConstAnimMetaData>>;
-	public inline extern function get_MetaData(): TArray<cpp.Star<AnimMetaData.ConstAnimMetaData>> return this.MetaData;
-	public extern var ParentAsset(get, never): cpp.Star<AnimationAsset.ConstAnimationAsset>;
-	public inline extern function get_ParentAsset(): cpp.Star<AnimationAsset.ConstAnimationAsset> return this.ParentAsset;
-	public extern var ChildrenAssets(get, never): TArray<cpp.Star<AnimationAsset.ConstAnimationAsset>>;
-	public inline extern function get_ChildrenAssets(): TArray<cpp.Star<AnimationAsset.ConstAnimationAsset>> return this.ChildrenAssets;
-	public extern var AssetMappingTable(get, never): cpp.Star<AssetMappingTable.ConstAssetMappingTable>;
-	public inline extern function get_AssetMappingTable(): cpp.Star<AssetMappingTable.ConstAssetMappingTable> return this.AssetMappingTable;
-	public extern var AssetUserData(get, never): TArray<cpp.Star<AssetUserData.ConstAssetUserData>>;
-	public inline extern function get_AssetUserData(): TArray<cpp.Star<AssetUserData.ConstAssetUserData>> return this.AssetUserData;
-	public extern var ThumbnailInfo(get, never): cpp.Star<ThumbnailInfo.ConstThumbnailInfo>;
-	public inline extern function get_ThumbnailInfo(): cpp.Star<ThumbnailInfo.ConstThumbnailInfo> return this.ThumbnailInfo;
-	public extern var PreviewPoseAsset(get, never): cpp.Star<PoseAsset.ConstPoseAsset>;
-	public inline extern function get_PreviewPoseAsset(): cpp.Star<PoseAsset.ConstPoseAsset> return this.PreviewPoseAsset;
-	public extern var PreviewSkeletalMesh(get, never): TSoftObjectPtr<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_PreviewSkeletalMesh(): TSoftObjectPtr<SkeletalMesh.ConstSkeletalMesh> return this.PreviewSkeletalMesh;
 }
 
 @:forward

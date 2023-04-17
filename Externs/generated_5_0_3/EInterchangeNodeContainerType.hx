@@ -3,10 +3,10 @@ package ue;
 
 @:native("EInterchangeNodeContainerType")
 @:include("Nodes/InterchangeBaseNode.h")
-extern enum EInterchangeNodeContainerType {
-	NodeContainerType_None;
-	NodeContainerType_TranslatedScene;
-	NodeContainerType_TranslatedAsset;
-	NodeContainerType_FactoryData;
-	NodeContainerType_MAX;
+extern class EInterchangeNodeContainerType {
+	static var NodeContainerType_None: EInterchangeNodeContainerType;
+	static var NodeContainerType_TranslatedScene: EInterchangeNodeContainerType;
+	static var NodeContainerType_TranslatedAsset: EInterchangeNodeContainerType;
+	static var NodeContainerType_FactoryData: EInterchangeNodeContainerType;
+	static var NodeContainerType_MAX: EInterchangeNodeContainerType;
 }

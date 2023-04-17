@@ -5,15 +5,15 @@ package ue;
 @:include("AnimationBlueprintLibrary.h")
 @:structAccess
 extern class AnimationBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function SetRootMotionLockType(AnimationSequence: cpp.Star<AnimSequence>, RootMotionLockType: ERootMotionRootLock): Void;
+	public function SetRootMotionLockType(AnimationSequence: cpp.Star<AnimSequence>, RootMotionLockType: TEnumAsByte<ERootMotionRootLock>): Void;
 	public function SetRootMotionEnabled(AnimationSequence: cpp.Star<AnimSequence>, bEnabled: Bool): Void;
 	public function SetRateScale(AnimationSequenceBase: cpp.Star<AnimSequenceBase>, RateScale: cpp.Float32): Void;
 	public function SetIsRootMotionLockForced(AnimationSequence: cpp.Star<AnimSequence>, bForced: Bool): Void;
 	public function SetCurveCompressionSettings(AnimationSequence: cpp.Star<AnimSequence>, CompressionSettings: cpp.Star<AnimCurveCompressionSettings>): Void;
 	public function SetBoneCompressionSettings(AnimationSequence: cpp.Star<AnimSequence>, CompressionSettings: cpp.Star<AnimBoneCompressionSettings>): Void;
 	public function SetAnimationInterpolationType(AnimationSequence: cpp.Star<AnimSequence>, InterpolationType: EAnimInterpolationType): Void;
-	public function SetAdditiveBasePoseType(AnimationSequence: cpp.Star<AnimSequence>, AdditiveBasePoseType: EAdditiveBasePoseType): Void;
-	public function SetAdditiveAnimationType(AnimationSequence: cpp.Star<AnimSequence>, AdditiveAnimationType: EAdditiveAnimationType): Void;
+	public function SetAdditiveBasePoseType(AnimationSequence: cpp.Star<AnimSequence>, AdditiveBasePoseType: TEnumAsByte<EAdditiveBasePoseType>): Void;
+	public function SetAdditiveAnimationType(AnimationSequence: cpp.Star<AnimSequence>, AdditiveAnimationType: TEnumAsByte<EAdditiveAnimationType>): Void;
 	public function ReplaceAnimNotifyStates(AnimationSequenceBase: cpp.Star<AnimSequenceBase>, OldNotifyClass: TSubclassOf<AnimNotifyState>, NewNotifyClass: TSubclassOf<AnimNotifyState>, OnNotifyStateReplaced: HaxeDelegateProperty<(cpp.Star<AnimNotifyState.ConstAnimNotifyState>, cpp.Star<AnimNotifyState.ConstAnimNotifyState>) -> Void>): Void;
 	public function ReplaceAnimNotifies(AnimationSequenceBase: cpp.Star<AnimSequenceBase>, OldNotifyClass: TSubclassOf<AnimNotify>, NewNotifyClass: TSubclassOf<AnimNotify>, OnNotifyReplaced: HaxeDelegateProperty<(cpp.Star<AnimNotify.ConstAnimNotify>, cpp.Star<AnimNotify.ConstAnimNotify>) -> Void>): Void;
 	public function RemoveVirtualBones(AnimationSequence: cpp.Star<AnimSequence.ConstAnimSequence>, VirtualBoneNames: TArray<FName>): Void;
@@ -22,11 +22,11 @@ extern class AnimationBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function RemoveMetaData(AnimationAsset: cpp.Star<AnimationAsset>, MetaDataObject: cpp.Star<AnimMetaData>): Void;
 	public function RemoveCurve(AnimationSequence: cpp.Star<AnimSequence>, CurveName: FName, bRemoveNameFromSkeleton: Bool): Void;
 	public function RemoveBoneAnimation(AnimationSequence: cpp.Star<AnimSequence>, BoneName: FName, bIncludeChildren: Bool, bFinalize: Bool): Void;
-	public function RemoveAnimationSyncMarkersByTrack(AnimationSequence: cpp.Star<AnimSequence>, NotifyTrackName: FName): cpp.Reference<cpp.Int32>;
-	public function RemoveAnimationSyncMarkersByName(AnimationSequence: cpp.Star<AnimSequence>, MarkerName: FName): cpp.Reference<cpp.Int32>;
+	public function RemoveAnimationSyncMarkersByTrack(AnimationSequence: cpp.Star<AnimSequence>, NotifyTrackName: FName): cpp.Int32;
+	public function RemoveAnimationSyncMarkersByName(AnimationSequence: cpp.Star<AnimSequence>, MarkerName: FName): cpp.Int32;
 	public function RemoveAnimationNotifyTrack(AnimationSequenceBase: cpp.Star<AnimSequenceBase>, NotifyTrackName: FName): Void;
-	public function RemoveAnimationNotifyEventsByTrack(AnimationSequenceBase: cpp.Star<AnimSequenceBase>, NotifyTrackName: FName): cpp.Reference<cpp.Int32>;
-	public function RemoveAnimationNotifyEventsByName(AnimationSequenceBase: cpp.Star<AnimSequenceBase>, NotifyName: FName): cpp.Reference<cpp.Int32>;
+	public function RemoveAnimationNotifyEventsByTrack(AnimationSequenceBase: cpp.Star<AnimSequenceBase>, NotifyTrackName: FName): cpp.Int32;
+	public function RemoveAnimationNotifyEventsByName(AnimationSequenceBase: cpp.Star<AnimSequenceBase>, NotifyName: FName): cpp.Int32;
 	public function RemoveAllVirtualBones(AnimationSequence: cpp.Star<AnimSequence.ConstAnimSequence>): Void;
 	public function RemoveAllMetaData(AnimationAsset: cpp.Star<AnimationAsset>): Void;
 	public function RemoveAllCurveData(AnimationSequence: cpp.Star<AnimSequence>): Void;
@@ -34,17 +34,17 @@ extern class AnimationBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function RemoveAllAnimationSyncMarkers(AnimationSequence: cpp.Star<AnimSequence>): Void;
 	public function RemoveAllAnimationNotifyTracks(AnimationSequenceBase: cpp.Star<AnimSequenceBase>): Void;
 	public function IsValidTime(AnimationSequenceBase: cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>, Time: cpp.Float32, IsValid: cpp.Reference<Bool>): Void;
-	public function IsValidRawAnimationTrackName(AnimationSequenceBase: cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>, TrackName: FName): cpp.Reference<Bool>;
-	public function IsValidAnimNotifyTrackName(AnimationSequenceBase: cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>, NotifyTrackName: FName): cpp.Reference<Bool>;
-	public function IsValidAnimationSyncMarkerName(AnimationSequence: cpp.Star<AnimSequence.ConstAnimSequence>, MarkerName: FName): cpp.Reference<Bool>;
-	public function IsRootMotionLockForced(AnimationSequence: cpp.Star<AnimSequence.ConstAnimSequence>): cpp.Reference<Bool>;
-	public function IsRootMotionEnabled(AnimationSequence: cpp.Star<AnimSequence.ConstAnimSequence>): cpp.Reference<Bool>;
+	public function IsValidRawAnimationTrackName(AnimationSequenceBase: cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>, TrackName: FName): Bool;
+	public function IsValidAnimNotifyTrackName(AnimationSequenceBase: cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>, NotifyTrackName: FName): Bool;
+	public function IsValidAnimationSyncMarkerName(AnimationSequence: cpp.Star<AnimSequence.ConstAnimSequence>, MarkerName: FName): Bool;
+	public function IsRootMotionLockForced(AnimationSequence: cpp.Star<AnimSequence.ConstAnimSequence>): Bool;
+	public function IsRootMotionEnabled(AnimationSequence: cpp.Star<AnimSequence.ConstAnimSequence>): Bool;
 	public function GetVectorKeys(AnimationSequence: cpp.Star<AnimSequence>, CurveName: FName, Times: cpp.Reference<TArray<cpp.Float32>>, Values: cpp.Reference<TArray<Vector>>): Void;
 	public function GetUniqueMarkerNames(AnimationSequence: cpp.Star<AnimSequence.ConstAnimSequence>, MarkerNames: cpp.Reference<TArray<FName>>): Void;
 	public function GetTransformationKeys(AnimationSequence: cpp.Star<AnimSequence>, CurveName: FName, Times: cpp.Reference<TArray<cpp.Float32>>, Values: cpp.Reference<TArray<Transform>>): Void;
 	public function GetTimeAtFrame(AnimationSequenceBase: cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>, Frame: cpp.Int32, Time: cpp.Reference<cpp.Float32>): Void;
 	public function GetSequenceLength(AnimationSequenceBase: cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>, Length: cpp.Reference<cpp.Float32>): Void;
-	public function GetRootMotionLockType(AnimationSequence: cpp.Star<AnimSequence.ConstAnimSequence>, LockType: cpp.Reference<ERootMotionRootLock>): Void;
+	public function GetRootMotionLockType(AnimationSequence: cpp.Star<AnimSequence.ConstAnimSequence>, LockType: cpp.Reference<TEnumAsByte<ERootMotionRootLock>>): Void;
 	public function GetRawTrackScaleData(AnimationSequenceBase: cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>, TrackName: FName, ScaleData: cpp.Reference<TArray<Vector>>): Void;
 	public function GetRawTrackRotationData(AnimationSequenceBase: cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>, TrackName: FName, RotationData: cpp.Reference<TArray<Quat>>): Void;
 	public function GetRawTrackPositionData(AnimationSequenceBase: cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>, TrackName: FName, PositionData: cpp.Reference<TArray<Vector>>): Void;
@@ -63,8 +63,8 @@ extern class AnimationBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function GetBonePoseForTime(AnimationSequenceBase: cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>, BoneName: FName, Time: cpp.Float32, bExtractRootMotion: Bool, Pose: cpp.Reference<Transform>): Void;
 	public function GetBonePoseForFrame(AnimationSequenceBase: cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>, BoneName: FName, Frame: cpp.Int32, bExtractRootMotion: Bool, Pose: cpp.Reference<Transform>): Void;
 	public function GetBoneCompressionSettings(AnimationSequence: cpp.Star<AnimSequence.ConstAnimSequence>, CompressionSettings: cpp.Reference<cpp.Star<AnimBoneCompressionSettings>>): Void;
-	public function GetAnimNotifyEventTriggerTime(NotifyEvent: cpp.Reference<AnimNotifyEvent>): cpp.Reference<cpp.Float32>;
-	public function GetAnimNotifyEventDuration(NotifyEvent: cpp.Reference<AnimNotifyEvent>): cpp.Reference<cpp.Float32>;
+	public function GetAnimNotifyEventTriggerTime(NotifyEvent: cpp.Reference<AnimNotifyEvent>): cpp.Float32;
+	public function GetAnimNotifyEventDuration(NotifyEvent: cpp.Reference<AnimNotifyEvent>): cpp.Float32;
 	public function GetAnimationTrackNames(AnimationSequenceBase: cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>, TrackNames: cpp.Reference<TArray<FName>>): Void;
 	public function GetAnimationSyncMarkersForTrack(AnimationSequence: cpp.Star<AnimSequence.ConstAnimSequence>, NotifyTrackName: FName, Markers: cpp.Reference<TArray<AnimSyncMarker>>): Void;
 	public function GetAnimationSyncMarkers(AnimationSequence: cpp.Star<AnimSequence.ConstAnimSequence>, Markers: cpp.Reference<TArray<AnimSyncMarker>>): Void;
@@ -75,16 +75,16 @@ extern class AnimationBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function GetAnimationInterpolationType(AnimationSequence: cpp.Star<AnimSequence.ConstAnimSequence>, InterpolationType: cpp.Reference<EAnimInterpolationType>): Void;
 	public function GetAnimationGraphs(AnimationBlueprint: cpp.Star<AnimBlueprint>, AnimationGraphs: cpp.Reference<TArray<cpp.Star<AnimationGraph>>>): Void;
 	public function GetAnimationCurveNames(AnimationSequence: cpp.Star<AnimSequence.ConstAnimSequence>, CurveType: ERawCurveTrackTypes, CurveNames: cpp.Reference<TArray<FName>>): Void;
-	public function GetAdditiveBasePoseType(AnimationSequence: cpp.Star<AnimSequence.ConstAnimSequence>, AdditiveBasePoseType: cpp.Reference<EAdditiveBasePoseType>): Void;
-	public function GetAdditiveAnimationType(AnimationSequence: cpp.Star<AnimSequence.ConstAnimSequence>, AdditiveAnimationType: cpp.Reference<EAdditiveAnimationType>): Void;
+	public function GetAdditiveBasePoseType(AnimationSequence: cpp.Star<AnimSequence.ConstAnimSequence>, AdditiveBasePoseType: cpp.Reference<TEnumAsByte<EAdditiveBasePoseType>>): Void;
+	public function GetAdditiveAnimationType(AnimationSequence: cpp.Star<AnimSequence.ConstAnimSequence>, AdditiveAnimationType: cpp.Reference<TEnumAsByte<EAdditiveAnimationType>>): Void;
 	public function FindBonePathToRoot(AnimationSequenceBase: cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>, BoneName: FName, BonePath: cpp.Reference<TArray<FName>>): Void;
 	public function FinalizeBoneAnimation(AnimationSequence: cpp.Star<AnimSequence>): Void;
-	public function EvaluateRootBoneTimecodeAttributesAtTime(AnimationSequenceBase: cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>, EvalTime: cpp.Float32, OutQualifiedFrameTime: cpp.Reference<QualifiedFrameTime>): cpp.Reference<Bool>;
-	public function DoesCurveExist(AnimationSequence: cpp.Star<AnimSequence>, CurveName: FName, CurveType: ERawCurveTrackTypes): cpp.Reference<Bool>;
+	public function EvaluateRootBoneTimecodeAttributesAtTime(AnimationSequenceBase: cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>, EvalTime: cpp.Float32, OutQualifiedFrameTime: cpp.Reference<QualifiedFrameTime>): Bool;
+	public function DoesCurveExist(AnimationSequence: cpp.Star<AnimSequence>, CurveName: FName, CurveType: ERawCurveTrackTypes): Bool;
 	public function DoesBoneNameExist(AnimationSequence: cpp.Star<AnimSequence>, BoneName: FName, bExists: cpp.Reference<Bool>): Void;
 	public function CopyAnimNotifiesFromSequence(SourceAnimationSequenceBase: cpp.Star<AnimSequenceBase>, DestinationAnimationSequenceBase: cpp.Star<AnimSequenceBase>, bDeleteExistingNotifies: Bool): Void;
 	public function CopyAnimationCurveNamesToSkeleton(OldSkeleton: cpp.Star<Skeleton>, NewSkeleton: cpp.Star<Skeleton>, SequenceBase: cpp.Star<AnimSequenceBase>, CurveType: ERawCurveTrackTypes): Void;
-	public function ContainsMetaDataOfClass(AnimationAsset: cpp.Star<AnimationAsset.ConstAnimationAsset>, MetaDataClass: TSubclassOf<AnimMetaData>): cpp.Reference<Bool>;
+	public function ContainsMetaDataOfClass(AnimationAsset: cpp.Star<AnimationAsset.ConstAnimationAsset>, MetaDataClass: TSubclassOf<AnimMetaData>): Bool;
 	public function AddVirtualBone(AnimationSequence: cpp.Star<AnimSequence.ConstAnimSequence>, SourceBoneName: FName, TargetBoneName: FName, VirtualBoneName: cpp.Reference<FName>): Void;
 	public function AddVectorCurveKeys(AnimationSequence: cpp.Star<AnimSequence>, CurveName: FName, Times: cpp.Reference<TArray<cpp.Float32>>, Vectors: cpp.Reference<TArray<Vector>>): Void;
 	public function AddVectorCurveKey(AnimationSequence: cpp.Star<AnimSequence>, CurveName: FName, Time: cpp.Float32, Vector: Vector): Void;
@@ -98,9 +98,9 @@ extern class AnimationBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function AddAnimationSyncMarker(AnimationSequence: cpp.Star<AnimSequence>, MarkerName: FName, Time: cpp.Float32, NotifyTrackName: FName): Void;
 	public function AddAnimationNotifyTrack(AnimationSequenceBase: cpp.Star<AnimSequenceBase>, NotifyTrackName: FName, TrackColor: LinearColor): Void;
 	public function AddAnimationNotifyStateEventObject(AnimationSequenceBase: cpp.Star<AnimSequenceBase>, StartTime: cpp.Float32, Duration: cpp.Float32, NotifyState: cpp.Star<AnimNotifyState.ConstAnimNotifyState>, NotifyTrackName: FName): Void;
-	public function AddAnimationNotifyStateEvent(AnimationSequenceBase: cpp.Star<AnimSequenceBase>, NotifyTrackName: FName, StartTime: cpp.Float32, Duration: cpp.Float32, NotifyStateClass: TSubclassOf<AnimNotifyState>): cpp.Reference<cpp.Star<AnimNotifyState.ConstAnimNotifyState>>;
+	public function AddAnimationNotifyStateEvent(AnimationSequenceBase: cpp.Star<AnimSequenceBase>, NotifyTrackName: FName, StartTime: cpp.Float32, Duration: cpp.Float32, NotifyStateClass: TSubclassOf<AnimNotifyState>): cpp.Star<AnimNotifyState.ConstAnimNotifyState>;
 	public function AddAnimationNotifyEventObject(AnimationSequenceBase: cpp.Star<AnimSequenceBase>, StartTime: cpp.Float32, Notify: cpp.Star<AnimNotify.ConstAnimNotify>, NotifyTrackName: FName): Void;
-	public function AddAnimationNotifyEvent(AnimationSequenceBase: cpp.Star<AnimSequenceBase>, NotifyTrackName: FName, StartTime: cpp.Float32, NotifyClass: TSubclassOf<AnimNotify>): cpp.Reference<cpp.Star<AnimNotify.ConstAnimNotify>>;
+	public function AddAnimationNotifyEvent(AnimationSequenceBase: cpp.Star<AnimSequenceBase>, NotifyTrackName: FName, StartTime: cpp.Float32, NotifyClass: TSubclassOf<AnimNotify>): cpp.Star<AnimNotify.ConstAnimNotify>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

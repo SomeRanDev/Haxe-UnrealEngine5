@@ -14,7 +14,7 @@ extern class LightmassWorldInfoSettings {
 	public var EnvironmentIntensity: cpp.Float32;
 	public var EmissiveBoost: cpp.Float32;
 	public var DiffuseBoost: cpp.Float32;
-	public var VolumeLightingMethod: EVolumeLightingMethod;
+	public var VolumeLightingMethod: TEnumAsByte<EVolumeLightingMethod>;
 	public var bUseAmbientOcclusion: Bool;
 	public var bGenerateAmbientOcclusionMaterialMask: Bool;
 	public var bVisualizeMaterialDiffuse: Bool;

@@ -12,7 +12,7 @@ extern class FontImportOptionsData {
 	public var bEnableItalic: Bool;
 	public var bEnableUnderline: Bool;
 	public var bAlphaOnly: Bool;
-	public var CharacterSet: EFontImportCharacterSet;
+	public var CharacterSet: TEnumAsByte<EFontImportCharacterSet>;
 	public var Chars: FString;
 	public var UnicodeRange: FString;
 	public var CharsFilePath: FString;

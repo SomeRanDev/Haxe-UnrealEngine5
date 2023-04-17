@@ -5,7 +5,7 @@ package ue;
 @:include("Binding/BrushBinding.h")
 @:structAccess
 extern class BrushBinding extends PropertyBinding {
-	public function GetValue(): cpp.Reference<SlateBrush>;
+	public function GetValue(): SlateBrush;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

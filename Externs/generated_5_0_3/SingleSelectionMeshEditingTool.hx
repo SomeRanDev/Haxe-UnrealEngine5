@@ -5,8 +5,8 @@ package ue;
 @:include("BaseTools/SingleSelectionMeshEditingTool.h")
 @:structAccess
 extern class SingleSelectionMeshEditingTool extends SingleSelectionTool {
-	public var TargetWorld: TWeakObjectPtr<World>;
-	public var InputSelection: cpp.Star<PersistentMeshSelection>;
+	@:protected public var TargetWorld: TWeakObjectPtr<World>;
+	@:protected public var InputSelection: cpp.Star<PersistentMeshSelection>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class SingleSelectionMeshEditingTool extends SingleSelectionTool {
 @:forward()
 @:nativeGen
 abstract ConstSingleSelectionMeshEditingTool(SingleSelectionMeshEditingTool) from SingleSelectionMeshEditingTool {
-	public extern var TargetWorld(get, never): TWeakObjectPtr<World.ConstWorld>;
-	public inline extern function get_TargetWorld(): TWeakObjectPtr<World.ConstWorld> return this.TargetWorld;
-	public extern var InputSelection(get, never): cpp.Star<PersistentMeshSelection.ConstPersistentMeshSelection>;
-	public inline extern function get_InputSelection(): cpp.Star<PersistentMeshSelection.ConstPersistentMeshSelection> return this.InputSelection;
 }
 
 @:forward

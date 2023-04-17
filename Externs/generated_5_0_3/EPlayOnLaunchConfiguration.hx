@@ -3,11 +3,11 @@ package ue;
 
 @:native("EPlayOnLaunchConfiguration")
 @:include("Settings/LevelEditorPlaySettings.h")
-extern enum EPlayOnLaunchConfiguration {
-	LaunchConfig_Default;
-	LaunchConfig_Debug;
-	LaunchConfig_Development;
-	LaunchConfig_Test;
-	LaunchConfig_Shipping;
-	LaunchConfig_MAX;
+extern class EPlayOnLaunchConfiguration {
+	static var LaunchConfig_Default: EPlayOnLaunchConfiguration;
+	static var LaunchConfig_Debug: EPlayOnLaunchConfiguration;
+	static var LaunchConfig_Development: EPlayOnLaunchConfiguration;
+	static var LaunchConfig_Test: EPlayOnLaunchConfiguration;
+	static var LaunchConfig_Shipping: EPlayOnLaunchConfiguration;
+	static var LaunchConfig_MAX: EPlayOnLaunchConfiguration;
 }

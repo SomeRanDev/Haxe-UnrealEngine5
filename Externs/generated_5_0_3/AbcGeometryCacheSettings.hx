@@ -8,7 +8,6 @@ extern class AbcGeometryCacheSettings {
 	public var bFlattenTracks: Bool;
 	public var bStoreImportedVertexNumbers: Bool;
 	public var bApplyConstantTopologyOptimizations: Bool;
-	public var bCalculateMotionVectorsDuringImport_DEPRECATED: Bool;
 	public var MotionVectors: EAbcGeometryCacheMotionVectorsImport;
 	public var bOptimizeIndexBuffers: Bool;
 	public var CompressedPositionPrecision: cpp.Float32;

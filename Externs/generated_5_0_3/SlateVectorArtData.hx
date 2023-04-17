@@ -5,13 +5,11 @@ package ue;
 @:include("Slate/SlateVectorArtData.h")
 @:structAccess
 extern class SlateVectorArtData extends Object {
-	public var MeshAsset: cpp.Star<StaticMesh>;
-	public var SourceMaterial: cpp.Star<MaterialInterface>;
-	public var VertexData: TArray<SlateMeshVertex>;
-	public var IndexData: TArray<cpp.UInt32>;
-	public var Material: cpp.Star<MaterialInterface>;
-	public var ExtentMin: Vector2D;
-	public var ExtentMax: Vector2D;
+	private var VertexData: TArray<SlateMeshVertex>;
+	private var IndexData: TArray<cpp.UInt32>;
+	private var Material: cpp.Star<MaterialInterface>;
+	private var ExtentMin: Vector2D;
+	private var ExtentMax: Vector2D;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,20 +17,6 @@ extern class SlateVectorArtData extends Object {
 @:forward()
 @:nativeGen
 abstract ConstSlateVectorArtData(SlateVectorArtData) from SlateVectorArtData {
-	public extern var MeshAsset(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_MeshAsset(): cpp.Star<StaticMesh.ConstStaticMesh> return this.MeshAsset;
-	public extern var SourceMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_SourceMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.SourceMaterial;
-	public extern var VertexData(get, never): TArray<SlateMeshVertex>;
-	public inline extern function get_VertexData(): TArray<SlateMeshVertex> return this.VertexData;
-	public extern var IndexData(get, never): TArray<cpp.UInt32>;
-	public inline extern function get_IndexData(): TArray<cpp.UInt32> return this.IndexData;
-	public extern var Material(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_Material(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.Material;
-	public extern var ExtentMin(get, never): Vector2D;
-	public inline extern function get_ExtentMin(): Vector2D return this.ExtentMin;
-	public extern var ExtentMax(get, never): Vector2D;
-	public inline extern function get_ExtentMax(): Vector2D return this.ExtentMax;
 }
 
 @:forward

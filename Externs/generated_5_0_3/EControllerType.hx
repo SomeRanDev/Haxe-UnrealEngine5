@@ -3,11 +3,11 @@ package ue;
 
 @:native("EControllerType")
 @:include("VREditorInteractor.h")
-extern enum EControllerType {
-	Laser;
-	AssistingLaser;
-	UI;
-	Navigation;
-	Unknown;
-	EControllerType_MAX;
+extern class EControllerType {
+	static var Laser: EControllerType;
+	static var AssistingLaser: EControllerType;
+	static var UI: EControllerType;
+	static var Navigation: EControllerType;
+	static var Unknown: EControllerType;
+	static var EControllerType_MAX: EControllerType;
 }

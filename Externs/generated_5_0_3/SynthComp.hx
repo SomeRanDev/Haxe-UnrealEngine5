@@ -9,13 +9,11 @@ extern class SynthComp extends SceneComp {
 	public var bStopWhenOwnerDestroyed: Bool;
 	public var bAllowSpatialization: Bool;
 	public var bOverrideAttenuation: Bool;
-	public var bOutputToBusOnly_DEPRECATED: Bool;
 	public var bEnableBusSends: Bool;
 	public var bEnableBaseSubmix: Bool;
 	public var bEnableSubmixSends: Bool;
 	public var AttenuationSettings: cpp.Star<SoundAttenuation>;
 	public var AttenuationOverrides: SoundAttenuationSettings;
-	public var ConcurrencySettings_DEPRECATED: cpp.Star<SoundConcurrency>;
 	public var ConcurrencySet: TSet<cpp.Star<SoundConcurrency>>;
 	public var SoundClass: cpp.Star<SoundClass>;
 	public var SourceEffectChain: cpp.Star<SoundEffectSourcePresetChain>;
@@ -28,8 +26,8 @@ extern class SynthComp extends SceneComp {
 	public var EnvelopeFollowerAttackTime: cpp.Int32;
 	public var EnvelopeFollowerReleaseTime: cpp.Int32;
 	public var OnAudioEnvelopeValue: HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
-	public var Synth: cpp.Star<SynthSound>;
-	public var AudioComponent: cpp.Star<AudioComp>;
+	private var Synth: cpp.Star<SynthSound>;
+	private var AudioComponent: cpp.Star<AudioComp>;
 
 	public function Stop(): Void;
 	public function Start(): Void;
@@ -38,7 +36,7 @@ extern class SynthComp extends SceneComp {
 	public function SetOutputToBusOnly(bInOutputToBusOnly: Bool): Void;
 	public function SetLowPassFilterFrequency(InLowPassFilterFrequency: cpp.Float32): Void;
 	public function SetLowPassFilterEnabled(InLowPassFilterEnabled: Bool): Void;
-	public function IsPlaying(): cpp.Reference<Bool>;
+	public function IsPlaying(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -54,8 +52,6 @@ abstract ConstSynthComp(SynthComp) from SynthComp {
 	public inline extern function get_bAllowSpatialization(): Bool return this.bAllowSpatialization;
 	public extern var bOverrideAttenuation(get, never): Bool;
 	public inline extern function get_bOverrideAttenuation(): Bool return this.bOverrideAttenuation;
-	public extern var bOutputToBusOnly_DEPRECATED(get, never): Bool;
-	public inline extern function get_bOutputToBusOnly_DEPRECATED(): Bool return this.bOutputToBusOnly_DEPRECATED;
 	public extern var bEnableBusSends(get, never): Bool;
 	public inline extern function get_bEnableBusSends(): Bool return this.bEnableBusSends;
 	public extern var bEnableBaseSubmix(get, never): Bool;
@@ -66,8 +62,6 @@ abstract ConstSynthComp(SynthComp) from SynthComp {
 	public inline extern function get_AttenuationSettings(): cpp.Star<SoundAttenuation.ConstSoundAttenuation> return this.AttenuationSettings;
 	public extern var AttenuationOverrides(get, never): SoundAttenuationSettings;
 	public inline extern function get_AttenuationOverrides(): SoundAttenuationSettings return this.AttenuationOverrides;
-	public extern var ConcurrencySettings_DEPRECATED(get, never): cpp.Star<SoundConcurrency.ConstSoundConcurrency>;
-	public inline extern function get_ConcurrencySettings_DEPRECATED(): cpp.Star<SoundConcurrency.ConstSoundConcurrency> return this.ConcurrencySettings_DEPRECATED;
 	public extern var ConcurrencySet(get, never): TSet<cpp.Star<SoundConcurrency.ConstSoundConcurrency>>;
 	public inline extern function get_ConcurrencySet(): TSet<cpp.Star<SoundConcurrency.ConstSoundConcurrency>> return this.ConcurrencySet;
 	public extern var SoundClass(get, never): cpp.Star<SoundClass.ConstSoundClass>;
@@ -92,10 +86,6 @@ abstract ConstSynthComp(SynthComp) from SynthComp {
 	public inline extern function get_EnvelopeFollowerReleaseTime(): cpp.Int32 return this.EnvelopeFollowerReleaseTime;
 	public extern var OnAudioEnvelopeValue(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
 	public inline extern function get_OnAudioEnvelopeValue(): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void> return this.OnAudioEnvelopeValue;
-	public extern var Synth(get, never): cpp.Star<SynthSound.ConstSynthSound>;
-	public inline extern function get_Synth(): cpp.Star<SynthSound.ConstSynthSound> return this.Synth;
-	public extern var AudioComponent(get, never): cpp.Star<AudioComp.ConstAudioComp>;
-	public inline extern function get_AudioComponent(): cpp.Star<AudioComp.ConstAudioComp> return this.AudioComponent;
 }
 
 @:forward

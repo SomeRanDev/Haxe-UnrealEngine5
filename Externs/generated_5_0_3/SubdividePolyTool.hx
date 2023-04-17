@@ -5,9 +5,9 @@ package ue;
 @:include("SubdividePolyTool.h")
 @:structAccess
 extern class SubdividePolyTool extends SingleSelectionMeshEditingTool {
-	public var PreviewMesh: cpp.Star<PreviewMesh>;
-	public var Properties: cpp.Star<SubdividePolyToolProperties>;
-	public var PreviewGeometry: cpp.Star<PreviewGeometry>;
+	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
+	@:protected public var Properties: cpp.Star<SubdividePolyToolProperties>;
+	@:protected public var PreviewGeometry: cpp.Star<PreviewGeometry>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class SubdividePolyTool extends SingleSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstSubdividePolyTool(SubdividePolyTool) from SubdividePolyTool {
-	public extern var PreviewMesh(get, never): cpp.Star<PreviewMesh.ConstPreviewMesh>;
-	public inline extern function get_PreviewMesh(): cpp.Star<PreviewMesh.ConstPreviewMesh> return this.PreviewMesh;
-	public extern var Properties(get, never): cpp.Star<SubdividePolyToolProperties.ConstSubdividePolyToolProperties>;
-	public inline extern function get_Properties(): cpp.Star<SubdividePolyToolProperties.ConstSubdividePolyToolProperties> return this.Properties;
-	public extern var PreviewGeometry(get, never): cpp.Star<PreviewGeometry.ConstPreviewGeometry>;
-	public inline extern function get_PreviewGeometry(): cpp.Star<PreviewGeometry.ConstPreviewGeometry> return this.PreviewGeometry;
 }
 
 @:forward

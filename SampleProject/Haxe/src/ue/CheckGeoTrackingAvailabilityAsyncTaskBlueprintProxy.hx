@@ -9,8 +9,8 @@ extern class CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy extends ARBaseA
 	public var OnFailed: HaxeMulticastSparseDelegateProperty<(Bool, FString) -> Void>;
 
 	public function GeoTrackingAvailabilityDelegate__DelegateSignature(bIsAvailable: Bool, Error: FString): Void;
-	public function CheckGeoTrackingAvailabilityAtLocation(WorldContextObject: cpp.Star<Object>, Longitude: cpp.Float32, Latitude: cpp.Float32): cpp.Reference<cpp.Star<CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy>>;
-	public function CheckGeoTrackingAvailability(WorldContextObject: cpp.Star<Object>): cpp.Reference<cpp.Star<CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy>>;
+	public function CheckGeoTrackingAvailabilityAtLocation(WorldContextObject: cpp.Star<Object>, Longitude: cpp.Float32, Latitude: cpp.Float32): cpp.Star<CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy>;
+	public function CheckGeoTrackingAvailability(WorldContextObject: cpp.Star<Object>): cpp.Star<CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -3,8 +3,8 @@ package ue;
 
 @:native("ELocalFrameMode")
 @:include("EditMeshPolygonsTool.h")
-extern enum ELocalFrameMode {
-	FromObject;
-	FromGeometry;
-	ELocalFrameMode_MAX;
+extern class ELocalFrameMode {
+	static var FromObject: ELocalFrameMode;
+	static var FromGeometry: ELocalFrameMode;
+	static var ELocalFrameMode_MAX: ELocalFrameMode;
 }

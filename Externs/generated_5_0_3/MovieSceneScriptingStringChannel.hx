@@ -8,10 +8,10 @@ extern class MovieSceneScriptingStringChannel extends MovieSceneScriptingChannel
 	public function SetDefault(InDefaultValue: FString): Void;
 	public function RemoveKey(Key: cpp.Star<MovieSceneScriptingKey>): Void;
 	public function RemoveDefault(): Void;
-	public function HasDefault(): cpp.Reference<Bool>;
-	public function GetKeys(): cpp.Reference<TArray<cpp.Star<MovieSceneScriptingKey>>>;
-	public function GetDefault(): cpp.Reference<FString>;
-	public function AddKey(InTime: cpp.Reference<FrameNumber>, NewValue: FString, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): cpp.Reference<cpp.Star<MovieSceneScriptingStringKey>>;
+	public function HasDefault(): Bool;
+	public function GetKeys(): TArray<cpp.Star<MovieSceneScriptingKey>>;
+	public function GetDefault(): FString;
+	public function AddKey(InTime: cpp.Reference<FrameNumber>, NewValue: FString, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): cpp.Star<MovieSceneScriptingStringKey>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

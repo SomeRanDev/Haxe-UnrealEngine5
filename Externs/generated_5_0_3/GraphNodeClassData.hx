@@ -5,10 +5,10 @@ package ue;
 @:include("AIGraphTypes.h")
 @:structAccess
 extern class GraphNodeClassData {
-	public var AssetName: FString;
-	public var GeneratedClassPackage: FString;
-	public var ClassName: FString;
-	public var Category: FText;
+	private var AssetName: FString;
+	private var GeneratedClassPackage: FString;
+	private var ClassName: FString;
+	private var Category: FText;
 
 	@:native("FGraphNodeClassData") public function new();
 	@:native("FGraphNodeClassData") public static function make(AssetName: FString, GeneratedClassPackage: FString, ClassName: FString, Category: FText): GraphNodeClassData ;

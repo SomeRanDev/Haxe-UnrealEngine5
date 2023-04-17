@@ -5,9 +5,7 @@ package ue;
 @:include("Engine/ReflectionCapture.h")
 @:structAccess
 extern class ReflectionCapture extends Actor {
-	public var CaptureComponent: cpp.Star<ReflectionCaptureComp>;
-	public var SpriteComponent: cpp.Star<BillboardComp>;
-	public var CaptureOffsetComponent: cpp.Star<BillboardComp>;
+	private var CaptureComponent: cpp.Star<ReflectionCaptureComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +13,6 @@ extern class ReflectionCapture extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstReflectionCapture(ReflectionCapture) from ReflectionCapture {
-	public extern var CaptureComponent(get, never): cpp.Star<ReflectionCaptureComp.ConstReflectionCaptureComp>;
-	public inline extern function get_CaptureComponent(): cpp.Star<ReflectionCaptureComp.ConstReflectionCaptureComp> return this.CaptureComponent;
-	public extern var SpriteComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
-	public inline extern function get_SpriteComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
-	public extern var CaptureOffsetComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
-	public inline extern function get_CaptureOffsetComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.CaptureOffsetComponent;
 }
 
 @:forward

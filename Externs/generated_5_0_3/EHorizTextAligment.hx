@@ -3,9 +3,9 @@ package ue;
 
 @:native("EHorizTextAligment")
 @:include("Components/TextRenderComponent.h")
-extern enum EHorizTextAligment {
-	EHTA_Left;
-	EHTA_Center;
-	EHTA_Right;
-	EHTA_MAX;
+extern class EHorizTextAligment {
+	static var EHTA_Left: EHorizTextAligment;
+	static var EHTA_Center: EHorizTextAligment;
+	static var EHTA_Right: EHorizTextAligment;
+	static var EHTA_MAX: EHorizTextAligment;
 }

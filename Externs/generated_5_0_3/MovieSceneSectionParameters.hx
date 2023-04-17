@@ -11,9 +11,6 @@ extern class MovieSceneSectionParameters {
 	public var FirstLoopStartFrameOffset: FrameNumber;
 	public var TimeScale: cpp.Float32;
 	public var HierarchicalBias: cpp.Int32;
-	public var StartOffset_DEPRECATED: cpp.Float32;
-	public var PrerollTime_DEPRECATED: cpp.Float32;
-	public var PostrollTime_DEPRECATED: cpp.Float32;
 
 	@:native("FMovieSceneSectionParameters") public function new();
 }

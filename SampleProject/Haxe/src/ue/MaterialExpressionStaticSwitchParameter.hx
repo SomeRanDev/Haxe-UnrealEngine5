@@ -5,8 +5,6 @@ package ue;
 @:include("Materials/MaterialExpressionStaticSwitchParameter.h")
 @:structAccess
 extern class MaterialExpressionStaticSwitchParameter extends MaterialExpressionStaticBoolParameter {
-	public var A: ExpressionInput;
-	public var B: ExpressionInput;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +12,6 @@ extern class MaterialExpressionStaticSwitchParameter extends MaterialExpressionS
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionStaticSwitchParameter(MaterialExpressionStaticSwitchParameter) from MaterialExpressionStaticSwitchParameter {
-	public extern var A(get, never): ExpressionInput;
-	public inline extern function get_A(): ExpressionInput return this.A;
-	public extern var B(get, never): ExpressionInput;
-	public inline extern function get_B(): ExpressionInput return this.B;
 }
 
 @:forward

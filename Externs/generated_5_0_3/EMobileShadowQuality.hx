@@ -3,10 +3,10 @@ package ue;
 
 @:native("EMobileShadowQuality")
 @:include("ShaderPlatformQualitySettings.h")
-extern enum EMobileShadowQuality {
-	NoFiltering;
-	PCF_1x1;
-	PCF_3x3;
-	PCF_5x5;
-	EMobileShadowQuality_MAX;
+extern class EMobileShadowQuality {
+	static var NoFiltering: EMobileShadowQuality;
+	static var PCF_1x1: EMobileShadowQuality;
+	static var PCF_3x3: EMobileShadowQuality;
+	static var PCF_5x5: EMobileShadowQuality;
+	static var EMobileShadowQuality_MAX: EMobileShadowQuality;
 }

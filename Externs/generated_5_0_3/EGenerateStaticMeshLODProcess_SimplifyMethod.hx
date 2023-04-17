@@ -3,10 +3,10 @@ package ue;
 
 @:native("EGenerateStaticMeshLODProcess_SimplifyMethod")
 @:include("Graphs/GenerateStaticMeshLODProcess.h")
-extern enum EGenerateStaticMeshLODProcess_SimplifyMethod {
-	TriangleCount;
-	VertexCount;
-	TrianglePercentage;
-	GeometricTolerance;
-	EGenerateStaticMeshLODProcess_MAX;
+extern class EGenerateStaticMeshLODProcess_SimplifyMethod {
+	static var TriangleCount: EGenerateStaticMeshLODProcess_SimplifyMethod;
+	static var VertexCount: EGenerateStaticMeshLODProcess_SimplifyMethod;
+	static var TrianglePercentage: EGenerateStaticMeshLODProcess_SimplifyMethod;
+	static var GeometricTolerance: EGenerateStaticMeshLODProcess_SimplifyMethod;
+	static var EGenerateStaticMeshLODProcess_MAX: EGenerateStaticMeshLODProcess_SimplifyMethod;
 }

@@ -10,8 +10,8 @@ extern class AnimationRecordingSettings {
 	public var bAutoSaveAsset: Bool;
 	public var SampleFrameRate: FrameRate;
 	public var Length: cpp.Float32;
-	public var InterpMode: ERichCurveInterpMode;
-	public var TangentMode: ERichCurveTangentMode;
+	public var InterpMode: TEnumAsByte<ERichCurveInterpMode>;
+	public var TangentMode: TEnumAsByte<ERichCurveTangentMode>;
 	public var bRecordTransforms: Bool;
 	public var bRecordMorphTargets: Bool;
 	public var bRecordAttributeCurves: Bool;

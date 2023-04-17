@@ -3,11 +3,11 @@ package ue;
 
 @:native("EFractureBrickBond")
 @:include("Private/FractureToolBrick.h")
-extern enum EFractureBrickBond {
-	Stretcher;
-	Stack;
-	English;
-	Header;
-	Flemish;
-	EFractureBrickBond_MAX;
+extern class EFractureBrickBond {
+	static var Stretcher: EFractureBrickBond;
+	static var Stack: EFractureBrickBond;
+	static var English: EFractureBrickBond;
+	static var Header: EFractureBrickBond;
+	static var Flemish: EFractureBrickBond;
+	static var EFractureBrickBond_MAX: EFractureBrickBond;
 }

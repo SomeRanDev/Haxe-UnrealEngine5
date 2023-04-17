@@ -3,10 +3,10 @@ package ue;
 
 @:native("ECollisionTraceFlag")
 @:include("BodySetupEnums.h")
-extern enum ECollisionTraceFlag {
-	CTF_UseDefault;
-	CTF_UseSimpleAndComplex;
-	CTF_UseSimpleAsComplex;
-	CTF_UseComplexAsSimple;
-	CTF_MAX;
+extern class ECollisionTraceFlag {
+	static var CTF_UseDefault: ECollisionTraceFlag;
+	static var CTF_UseSimpleAndComplex: ECollisionTraceFlag;
+	static var CTF_UseSimpleAsComplex: ECollisionTraceFlag;
+	static var CTF_UseComplexAsSimple: ECollisionTraceFlag;
+	static var CTF_MAX: ECollisionTraceFlag;
 }

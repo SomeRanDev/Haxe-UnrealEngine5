@@ -3,9 +3,9 @@ package ue;
 
 @:native("EGrassScaling")
 @:include("LandscapeGrassType.h")
-extern enum EGrassScaling {
-	Uniform;
-	Free;
-	LockXY;
-	EGrassScaling_MAX;
+extern class EGrassScaling {
+	static var Uniform: EGrassScaling;
+	static var Free: EGrassScaling;
+	static var LockXY: EGrassScaling;
+	static var EGrassScaling_MAX: EGrassScaling;
 }

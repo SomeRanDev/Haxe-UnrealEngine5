@@ -3,8 +3,8 @@ package ue;
 
 @:native("EEnvTestDot")
 @:include("EnvironmentQuery/Tests/EnvQueryTest_Dot.h")
-extern enum EEnvTestDot {
-	Dot3D;
-	Dot2D;
-	EEnvTestDot_MAX;
+extern class EEnvTestDot {
+	static var Dot3D: EEnvTestDot;
+	static var Dot2D: EEnvTestDot;
+	static var EEnvTestDot_MAX: EEnvTestDot;
 }

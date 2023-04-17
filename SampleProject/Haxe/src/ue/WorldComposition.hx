@@ -9,7 +9,6 @@ extern class WorldComposition extends Object {
 	public var TilesStreamingTimeThreshold: cpp.Float64;
 	public var bLoadAllTilesDuringCinematic: Bool;
 	public var bRebaseOriginIn3DSpace: Bool;
-	public var bLockTilesLocation: Bool;
 	public var RebaseOriginDistance: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -26,8 +25,6 @@ abstract ConstWorldComposition(WorldComposition) from WorldComposition {
 	public inline extern function get_bLoadAllTilesDuringCinematic(): Bool return this.bLoadAllTilesDuringCinematic;
 	public extern var bRebaseOriginIn3DSpace(get, never): Bool;
 	public inline extern function get_bRebaseOriginIn3DSpace(): Bool return this.bRebaseOriginIn3DSpace;
-	public extern var bLockTilesLocation(get, never): Bool;
-	public inline extern function get_bLockTilesLocation(): Bool return this.bLockTilesLocation;
 	public extern var RebaseOriginDistance(get, never): cpp.Float32;
 	public inline extern function get_RebaseOriginDistance(): cpp.Float32 return this.RebaseOriginDistance;
 }

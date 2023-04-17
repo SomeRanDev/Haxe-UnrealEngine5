@@ -3,8 +3,8 @@ package ue;
 
 @:native("EGroupTopologyDeformationStrategy")
 @:include("DeformMeshPolygonsTool.h")
-extern enum EGroupTopologyDeformationStrategy {
-	Linear;
-	Laplacian;
-	EGroupTopologyDeformationStrategy_MAX;
+extern class EGroupTopologyDeformationStrategy {
+	static var Linear: EGroupTopologyDeformationStrategy;
+	static var Laplacian: EGroupTopologyDeformationStrategy;
+	static var EGroupTopologyDeformationStrategy_MAX: EGroupTopologyDeformationStrategy;
 }

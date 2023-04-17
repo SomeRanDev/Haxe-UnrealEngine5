@@ -3,9 +3,9 @@ package ue;
 
 @:native("EPhysicsAssetEditorRenderMode")
 @:include("Preferences/PhysicsAssetEditorOptions.h")
-extern enum EPhysicsAssetEditorRenderMode {
-	Solid;
-	Wireframe;
-	None;
-	EPhysicsAssetEditorRenderMode_MAX;
+extern class EPhysicsAssetEditorRenderMode {
+	static var Solid: EPhysicsAssetEditorRenderMode;
+	static var Wireframe: EPhysicsAssetEditorRenderMode;
+	static var None: EPhysicsAssetEditorRenderMode;
+	static var EPhysicsAssetEditorRenderMode_MAX: EPhysicsAssetEditorRenderMode;
 }

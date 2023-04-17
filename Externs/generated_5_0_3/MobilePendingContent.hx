@@ -6,12 +6,12 @@ package ue;
 @:structAccess
 extern class MobilePendingContent extends MobileInstalledContent {
 	public function StartInstall(OnSucceeded: HaxeDelegateProperty<() -> Void>, OnFailed: HaxeDelegateProperty<(FText, cpp.Int32) -> Void>): Void;
-	public function GetTotalDownloadedSize(): cpp.Reference<cpp.Float32>;
-	public function GetRequiredDiskSpace(): cpp.Reference<cpp.Float32>;
-	public function GetInstallProgress(): cpp.Reference<cpp.Float32>;
-	public function GetDownloadStatusText(): cpp.Reference<FText>;
-	public function GetDownloadSpeed(): cpp.Reference<cpp.Float32>;
-	public function GetDownloadSize(): cpp.Reference<cpp.Float32>;
+	public function GetTotalDownloadedSize(): cpp.Float32;
+	public function GetRequiredDiskSpace(): cpp.Float32;
+	public function GetInstallProgress(): cpp.Float32;
+	public function GetDownloadStatusText(): FText;
+	public function GetDownloadSpeed(): cpp.Float32;
+	public function GetDownloadSize(): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

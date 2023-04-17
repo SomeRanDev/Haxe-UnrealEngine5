@@ -3,10 +3,10 @@ package ue;
 
 @:native("EEnvTestFilterType.Type")
 @:include("EnvironmentQuery/EnvQueryTypes.h")
-extern enum EEnvTestFilterType {
-	Minimum;
-	Maximum;
-	Range;
-	Match;
-	EEnvTestFilterType_MAX;
+extern class EEnvTestFilterType {
+	static var Minimum: EEnvTestFilterType;
+	static var Maximum: EEnvTestFilterType;
+	static var Range: EEnvTestFilterType;
+	static var Match: EEnvTestFilterType;
+	static var EEnvTestFilterType_MAX: EEnvTestFilterType;
 }

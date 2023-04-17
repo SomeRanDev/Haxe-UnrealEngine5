@@ -8,13 +8,13 @@ extern class MovieSceneScriptingBoolChannel extends MovieSceneScriptingChannel {
 	public function SetDefault(InDefaultValue: Bool): Void;
 	public function RemoveKey(Key: cpp.Star<MovieSceneScriptingKey>): Void;
 	public function RemoveDefault(): Void;
-	public function HasDefault(): cpp.Reference<Bool>;
-	public function GetNumKeys(): cpp.Reference<cpp.Int32>;
-	public function GetKeys(): cpp.Reference<TArray<cpp.Star<MovieSceneScriptingKey>>>;
-	public function GetDefault(): cpp.Reference<Bool>;
-	public function EvaluateKeys(Range: SequencerScriptingRange, FrameRate: FrameRate): cpp.Reference<TArray<Bool>>;
-	public function ComputeEffectiveRange(): cpp.Reference<SequencerScriptingRange>;
-	public function AddKey(InTime: cpp.Reference<FrameNumber>, NewValue: Bool, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): cpp.Reference<cpp.Star<MovieSceneScriptingBoolKey>>;
+	public function HasDefault(): Bool;
+	public function GetNumKeys(): cpp.Int32;
+	public function GetKeys(): TArray<cpp.Star<MovieSceneScriptingKey>>;
+	public function GetDefault(): Bool;
+	public function EvaluateKeys(Range: SequencerScriptingRange, FrameRate: FrameRate): TArray<Bool>;
+	public function ComputeEffectiveRange(): SequencerScriptingRange;
+	public function AddKey(InTime: cpp.Reference<FrameNumber>, NewValue: Bool, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): cpp.Star<MovieSceneScriptingBoolKey>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

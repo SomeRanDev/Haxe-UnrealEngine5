@@ -5,18 +5,18 @@ package ue;
 @:include("Components/PanelWidget.h")
 @:structAccess
 extern class PanelWidget extends Widget {
-	public var Slots: TArray<cpp.Star<PanelSlot>>;
+	@:protected public var Slots: TArray<cpp.Star<PanelSlot>>;
 
-	public function RemoveChildAt(Index: cpp.Int32): cpp.Reference<Bool>;
-	public function RemoveChild(Content: cpp.Star<Widget>): cpp.Reference<Bool>;
-	public function HasChild(Content: cpp.Star<Widget>): cpp.Reference<Bool>;
-	public function HasAnyChildren(): cpp.Reference<Bool>;
-	public function GetChildrenCount(): cpp.Reference<cpp.Int32>;
-	public function GetChildIndex(Content: cpp.Star<Widget.ConstWidget>): cpp.Reference<cpp.Int32>;
-	public function GetChildAt(Index: cpp.Int32): cpp.Reference<cpp.Star<Widget>>;
-	public function GetAllChildren(): cpp.Reference<TArray<cpp.Star<Widget>>>;
+	public function RemoveChildAt(Index: cpp.Int32): Bool;
+	public function RemoveChild(Content: cpp.Star<Widget>): Bool;
+	public function HasChild(Content: cpp.Star<Widget>): Bool;
+	public function HasAnyChildren(): Bool;
+	public function GetChildrenCount(): cpp.Int32;
+	public function GetChildIndex(Content: cpp.Star<Widget.ConstWidget>): cpp.Int32;
+	public function GetChildAt(Index: cpp.Int32): cpp.Star<Widget>;
+	public function GetAllChildren(): TArray<cpp.Star<Widget>>;
 	public function ClearChildren(): Void;
-	public function AddChild(Content: cpp.Star<Widget>): cpp.Reference<cpp.Star<PanelSlot>>;
+	public function AddChild(Content: cpp.Star<Widget>): cpp.Star<PanelSlot>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -24,8 +24,6 @@ extern class PanelWidget extends Widget {
 @:forward(HasChild, HasAnyChildren, GetChildrenCount, GetChildIndex, GetChildAt, GetAllChildren)
 @:nativeGen
 abstract ConstPanelWidget(PanelWidget) from PanelWidget {
-	public extern var Slots(get, never): TArray<cpp.Star<PanelSlot.ConstPanelSlot>>;
-	public inline extern function get_Slots(): TArray<cpp.Star<PanelSlot.ConstPanelSlot>> return this.Slots;
 }
 
 @:forward

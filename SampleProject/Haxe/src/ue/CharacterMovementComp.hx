@@ -5,14 +5,14 @@ package ue;
 @:include("GameFramework/CharacterMovementComponent.h")
 @:structAccess
 extern class CharacterMovementComp extends PawnMovementComp {
-	public var CharacterOwner: cpp.Star<Character>;
+	@:protected public var CharacterOwner: cpp.Star<Character>;
 	public var GravityScale: cpp.Float32;
 	public var MaxStepHeight: cpp.Float32;
 	public var JumpZVelocity: cpp.Float32;
 	public var JumpOffJumpZFactor: cpp.Float32;
-	public var WalkableFloorAngle: cpp.Float32;
-	public var WalkableFloorZ: cpp.Float32;
-	public var MovementMode: EMovementMode;
+	private var WalkableFloorAngle: cpp.Float32;
+	private var WalkableFloorZ: cpp.Float32;
+	public var MovementMode: TEnumAsByte<EMovementMode>;
 	public var CustomMovementMode: cpp.UInt8;
 	public var NetworkSmoothingMode: ENetworkSmoothingMode;
 	public var GroundFriction: cpp.Float32;
@@ -34,7 +34,8 @@ extern class CharacterMovementComp extends PawnMovementComp {
 	public var AirControlBoostMultiplier: cpp.Float32;
 	public var AirControlBoostVelocityThreshold: cpp.Float32;
 	public var FallingLateralFriction: cpp.Float32;
-	public var CrouchedHalfHeight: cpp.Float32;
+	public function GetCrouchedHalfHeight(): cpp.Float32;
+	public function SetCrouchedHalfHeight(input: cpp.Float32): Void;
 	public var Buoyancy: cpp.Float32;
 	public var PerchRadiusThreshold: cpp.Float32;
 	public var PerchAdditionalHeight: cpp.Float32;
@@ -44,7 +45,7 @@ extern class CharacterMovementComp extends PawnMovementComp {
 	public var bUseControllerDesiredRotation: Bool;
 	public var bOrientRotationToMovement: Bool;
 	public var bSweepWhileNavWalking: Bool;
-	public var bMovementInProgress: Bool;
+	@:protected public var bMovementInProgress: Bool;
 	public var bEnableScopedMovementUpdates: Bool;
 	public var bEnableServerDualMoveScopedMovementUpdates: Bool;
 	public var bForceMaxAccel: Bool;
@@ -73,19 +74,16 @@ extern class CharacterMovementComp extends PawnMovementComp {
 	public var MinTouchForce: cpp.Float32;
 	public var MaxTouchForce: cpp.Float32;
 	public var RepulsionForce: cpp.Float32;
-	public var bForceBraking_DEPRECATED: Bool;
-	public var CrouchedSpeedMultiplier_DEPRECATED: cpp.Float32;
-	public var UpperImpactNormalScale_DEPRECATED: cpp.Float32;
-	public var Acceleration: Vector;
-	public var LastUpdateRotation: Quat;
-	public var LastUpdateLocation: Vector;
-	public var LastUpdateVelocity: Vector;
-	public var ServerLastTransformUpdateTimeStamp: cpp.Float32;
-	public var ServerLastClientGoodMoveAckTime: cpp.Float32;
-	public var ServerLastClientAdjustmentTime: cpp.Float32;
-	public var PendingImpulseToApply: Vector;
-	public var PendingForceToApply: Vector;
-	public var AnalogInputModifier: cpp.Float32;
+	@:protected public var Acceleration: Vector;
+	@:protected public var LastUpdateRotation: Quat;
+	@:protected public var LastUpdateLocation: Vector;
+	@:protected public var LastUpdateVelocity: Vector;
+	@:protected public var ServerLastTransformUpdateTimeStamp: cpp.Float32;
+	@:protected public var ServerLastClientGoodMoveAckTime: cpp.Float32;
+	@:protected public var ServerLastClientAdjustmentTime: cpp.Float32;
+	@:protected public var PendingImpulseToApply: Vector;
+	@:protected public var PendingForceToApply: Vector;
+	@:protected public var AnalogInputModifier: cpp.Float32;
 	public var MaxSimulationTimeStep: cpp.Float32;
 	public var MaxSimulationIterations: cpp.Int32;
 	public var MaxJumpApexAttemptsPerSimulation: cpp.Int32;
@@ -108,9 +106,9 @@ extern class CharacterMovementComp extends PawnMovementComp {
 	public var LedgeCheckThreshold: cpp.Float32;
 	public var JumpOutOfWaterPitch: cpp.Float32;
 	public var CurrentFloor: FindFloorResult;
-	public var DefaultLandMovementMode: EMovementMode;
-	public var DefaultWaterMovementMode: EMovementMode;
-	public var GroundMovementMode: EMovementMode;
+	public var DefaultLandMovementMode: TEnumAsByte<EMovementMode>;
+	public var DefaultWaterMovementMode: TEnumAsByte<EMovementMode>;
+	private var GroundMovementMode: TEnumAsByte<EMovementMode>;
 	public var bMaintainHorizontalGroundVelocity: Bool;
 	public var bImpartBaseVelocityX: Bool;
 	public var bImpartBaseVelocityY: Bool;
@@ -136,11 +134,11 @@ extern class CharacterMovementComp extends PawnMovementComp {
 	public var bWasSimulatingRootMotion: Bool;
 	public var bAllowPhysicsRotationDuringAnimRootMotion: Bool;
 	public var FormerBaseVelocityDecayHalfLife: cpp.Float32;
-	public var bHasRequestedVelocity: Bool;
-	public var bRequestedMoveWithMaxSpeed: Bool;
-	public var bWasAvoidanceUpdated: Bool;
-	public var bProjectNavMeshWalking: Bool;
-	public var bProjectNavMeshOnBothWorldChannels: Bool;
+	@:protected public var bHasRequestedVelocity: Bool;
+	@:protected public var bRequestedMoveWithMaxSpeed: Bool;
+	@:protected public var bWasAvoidanceUpdated: Bool;
+	@:protected public var bProjectNavMeshWalking: Bool;
+	@:protected public var bProjectNavMeshOnBothWorldChannels: Bool;
 	public var AvoidanceConsiderationRadius: cpp.Float32;
 	public var RequestedVelocity: Vector;
 	public var AvoidanceUID: cpp.Int32;
@@ -164,40 +162,38 @@ extern class CharacterMovementComp extends PawnMovementComp {
 
 	public function SetWalkableFloorZ(InWalkableFloorZ: cpp.Float32): Void;
 	public function SetWalkableFloorAngle(InWalkableFloorAngle: cpp.Float32): Void;
-	public function SetMovementMode(NewMovementMode: EMovementMode, NewCustomMode: cpp.UInt8): Void;
+	public function SetMovementMode(NewMovementMode: TEnumAsByte<EMovementMode>, NewCustomMode: cpp.UInt8): Void;
 	public function SetGroupsToIgnoreMask(GroupMask: cpp.Reference<NavAvoidanceMask>): Void;
 	public function SetGroupsToIgnore(GroupFlags: cpp.Int32): Void;
 	public function SetGroupsToAvoidMask(GroupMask: cpp.Reference<NavAvoidanceMask>): Void;
 	public function SetGroupsToAvoid(GroupFlags: cpp.Int32): Void;
-	public function SetCrouchedHalfHeight(NewValue: cpp.Float32): Void;
 	public function SetAvoidanceGroupMask(GroupMask: cpp.Reference<NavAvoidanceMask>): Void;
 	public function SetAvoidanceGroup(GroupFlags: cpp.Int32): Void;
 	public function SetAvoidanceEnabled(bEnable: Bool): Void;
-	public function K2_GetWalkableFloorZ(): cpp.Reference<cpp.Float32>;
-	public function K2_GetWalkableFloorAngle(): cpp.Reference<cpp.Float32>;
+	public function K2_GetWalkableFloorZ(): cpp.Float32;
+	public function K2_GetWalkableFloorAngle(): cpp.Float32;
 	public function K2_FindFloor(CapsuleLocation: Vector, FloorResult: cpp.Reference<FindFloorResult>): Void;
 	public function K2_ComputeFloorDist(CapsuleLocation: Vector, LineDistance: cpp.Float32, SweepDistance: cpp.Float32, SweepRadius: cpp.Float32, FloorResult: cpp.Reference<FindFloorResult>): Void;
-	public function IsWalking(): cpp.Reference<Bool>;
-	public function IsWalkable(Hit: cpp.Reference<HitResult>): cpp.Reference<Bool>;
-	public function GetValidPerchRadius(): cpp.Reference<cpp.Float32>;
-	public function GetPerchRadiusThreshold(): cpp.Reference<cpp.Float32>;
-	public function GetMovementBase(): cpp.Reference<cpp.Star<PrimitiveComp>>;
-	public function GetMinAnalogSpeed(): cpp.Reference<cpp.Float32>;
-	public function GetMaxJumpHeightWithJumpTime(): cpp.Reference<cpp.Float32>;
-	public function GetMaxJumpHeight(): cpp.Reference<cpp.Float32>;
-	public function GetMaxBrakingDeceleration(): cpp.Reference<cpp.Float32>;
-	public function GetMaxAcceleration(): cpp.Reference<cpp.Float32>;
-	public function GetLastUpdateVelocity(): cpp.Reference<Vector>;
-	public function GetLastUpdateRotation(): cpp.Reference<Rotator>;
-	public function GetLastUpdateLocation(): cpp.Reference<Vector>;
-	public function GetImpartedMovementBaseVelocity(): cpp.Reference<Vector>;
-	public function GetCurrentAcceleration(): cpp.Reference<Vector>;
-	public function GetCrouchedHalfHeight(): cpp.Reference<cpp.Float32>;
-	public function GetCharacterOwner(): cpp.Reference<cpp.Star<Character>>;
-	public function GetAnalogInputModifier(): cpp.Reference<cpp.Float32>;
+	public function IsWalking(): Bool;
+	public function IsWalkable(Hit: cpp.Reference<HitResult>): Bool;
+	public function GetValidPerchRadius(): cpp.Float32;
+	public function GetPerchRadiusThreshold(): cpp.Float32;
+	public function GetMovementBase(): cpp.Star<PrimitiveComp>;
+	public function GetMinAnalogSpeed(): cpp.Float32;
+	public function GetMaxJumpHeightWithJumpTime(): cpp.Float32;
+	public function GetMaxJumpHeight(): cpp.Float32;
+	public function GetMaxBrakingDeceleration(): cpp.Float32;
+	public function GetMaxAcceleration(): cpp.Float32;
+	public function GetLastUpdateVelocity(): Vector;
+	public function GetLastUpdateRotation(): Rotator;
+	public function GetLastUpdateLocation(): Vector;
+	public function GetImpartedMovementBaseVelocity(): Vector;
+	public function GetCurrentAcceleration(): Vector;
+	public function GetCharacterOwner(): cpp.Star<Character>;
+	public function GetAnalogInputModifier(): cpp.Float32;
 	public function DisableMovement(): Void;
 	public function ClearAccumulatedForces(): Void;
-	public function CapsuleTouched(OverlappedComp: cpp.Star<PrimitiveComp>, Other: cpp.Star<Actor>, OtherComp: cpp.Star<PrimitiveComp>, OtherBodyIndex: cpp.Int32, bFromSweep: Bool, SweepResult: cpp.Reference<HitResult>): Void;
+	@:protected public function CapsuleTouched(OverlappedComp: cpp.Star<PrimitiveComp>, Other: cpp.Star<Actor>, OtherComp: cpp.Star<PrimitiveComp>, OtherBodyIndex: cpp.Int32, bFromSweep: Bool, SweepResult: cpp.Reference<HitResult>): Void;
 	public function CalcVelocity(DeltaTime: cpp.Float32, Friction: cpp.Float32, bFluid: Bool, BrakingDeceleration: cpp.Float32): Void;
 	public function AddImpulse(Impulse: Vector, bVelocityChange: Bool): Void;
 	public function AddForce(Force: Vector): Void;
@@ -209,13 +205,11 @@ extern class CharacterMovementComp extends PawnMovementComp {
 	K2_GetWalkableFloorZ, K2_GetWalkableFloorAngle, K2_FindFloor, K2_ComputeFloorDist, IsWalking,
 	IsWalkable, GetValidPerchRadius, GetPerchRadiusThreshold, GetMovementBase, GetMinAnalogSpeed,
 	GetMaxJumpHeightWithJumpTime, GetMaxJumpHeight, GetMaxBrakingDeceleration, GetMaxAcceleration, GetLastUpdateVelocity,
-	GetLastUpdateRotation, GetLastUpdateLocation, GetImpartedMovementBaseVelocity, GetCurrentAcceleration, GetCrouchedHalfHeight,
-	GetCharacterOwner, GetAnalogInputModifier
+	GetLastUpdateRotation, GetLastUpdateLocation, GetImpartedMovementBaseVelocity, GetCurrentAcceleration, GetCharacterOwner,
+	GetAnalogInputModifier
 )
 @:nativeGen
 abstract ConstCharacterMovementComp(CharacterMovementComp) from CharacterMovementComp {
-	public extern var CharacterOwner(get, never): cpp.Star<Character.ConstCharacter>;
-	public inline extern function get_CharacterOwner(): cpp.Star<Character.ConstCharacter> return this.CharacterOwner;
 	public extern var GravityScale(get, never): cpp.Float32;
 	public inline extern function get_GravityScale(): cpp.Float32 return this.GravityScale;
 	public extern var MaxStepHeight(get, never): cpp.Float32;
@@ -224,12 +218,8 @@ abstract ConstCharacterMovementComp(CharacterMovementComp) from CharacterMovemen
 	public inline extern function get_JumpZVelocity(): cpp.Float32 return this.JumpZVelocity;
 	public extern var JumpOffJumpZFactor(get, never): cpp.Float32;
 	public inline extern function get_JumpOffJumpZFactor(): cpp.Float32 return this.JumpOffJumpZFactor;
-	public extern var WalkableFloorAngle(get, never): cpp.Float32;
-	public inline extern function get_WalkableFloorAngle(): cpp.Float32 return this.WalkableFloorAngle;
-	public extern var WalkableFloorZ(get, never): cpp.Float32;
-	public inline extern function get_WalkableFloorZ(): cpp.Float32 return this.WalkableFloorZ;
-	public extern var MovementMode(get, never): EMovementMode;
-	public inline extern function get_MovementMode(): EMovementMode return this.MovementMode;
+	public extern var MovementMode(get, never): TEnumAsByte<EMovementMode>;
+	public inline extern function get_MovementMode(): TEnumAsByte<EMovementMode> return this.MovementMode;
 	public extern var CustomMovementMode(get, never): cpp.UInt8;
 	public inline extern function get_CustomMovementMode(): cpp.UInt8 return this.CustomMovementMode;
 	public extern var NetworkSmoothingMode(get, never): ENetworkSmoothingMode;
@@ -272,8 +262,6 @@ abstract ConstCharacterMovementComp(CharacterMovementComp) from CharacterMovemen
 	public inline extern function get_AirControlBoostVelocityThreshold(): cpp.Float32 return this.AirControlBoostVelocityThreshold;
 	public extern var FallingLateralFriction(get, never): cpp.Float32;
 	public inline extern function get_FallingLateralFriction(): cpp.Float32 return this.FallingLateralFriction;
-	public extern var CrouchedHalfHeight(get, never): cpp.Float32;
-	public inline extern function get_CrouchedHalfHeight(): cpp.Float32 return this.CrouchedHalfHeight;
 	public extern var Buoyancy(get, never): cpp.Float32;
 	public inline extern function get_Buoyancy(): cpp.Float32 return this.Buoyancy;
 	public extern var PerchRadiusThreshold(get, never): cpp.Float32;
@@ -292,8 +280,6 @@ abstract ConstCharacterMovementComp(CharacterMovementComp) from CharacterMovemen
 	public inline extern function get_bOrientRotationToMovement(): Bool return this.bOrientRotationToMovement;
 	public extern var bSweepWhileNavWalking(get, never): Bool;
 	public inline extern function get_bSweepWhileNavWalking(): Bool return this.bSweepWhileNavWalking;
-	public extern var bMovementInProgress(get, never): Bool;
-	public inline extern function get_bMovementInProgress(): Bool return this.bMovementInProgress;
 	public extern var bEnableScopedMovementUpdates(get, never): Bool;
 	public inline extern function get_bEnableScopedMovementUpdates(): Bool return this.bEnableScopedMovementUpdates;
 	public extern var bEnableServerDualMoveScopedMovementUpdates(get, never): Bool;
@@ -350,32 +336,6 @@ abstract ConstCharacterMovementComp(CharacterMovementComp) from CharacterMovemen
 	public inline extern function get_MaxTouchForce(): cpp.Float32 return this.MaxTouchForce;
 	public extern var RepulsionForce(get, never): cpp.Float32;
 	public inline extern function get_RepulsionForce(): cpp.Float32 return this.RepulsionForce;
-	public extern var bForceBraking_DEPRECATED(get, never): Bool;
-	public inline extern function get_bForceBraking_DEPRECATED(): Bool return this.bForceBraking_DEPRECATED;
-	public extern var CrouchedSpeedMultiplier_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_CrouchedSpeedMultiplier_DEPRECATED(): cpp.Float32 return this.CrouchedSpeedMultiplier_DEPRECATED;
-	public extern var UpperImpactNormalScale_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_UpperImpactNormalScale_DEPRECATED(): cpp.Float32 return this.UpperImpactNormalScale_DEPRECATED;
-	public extern var Acceleration(get, never): Vector;
-	public inline extern function get_Acceleration(): Vector return this.Acceleration;
-	public extern var LastUpdateRotation(get, never): Quat;
-	public inline extern function get_LastUpdateRotation(): Quat return this.LastUpdateRotation;
-	public extern var LastUpdateLocation(get, never): Vector;
-	public inline extern function get_LastUpdateLocation(): Vector return this.LastUpdateLocation;
-	public extern var LastUpdateVelocity(get, never): Vector;
-	public inline extern function get_LastUpdateVelocity(): Vector return this.LastUpdateVelocity;
-	public extern var ServerLastTransformUpdateTimeStamp(get, never): cpp.Float32;
-	public inline extern function get_ServerLastTransformUpdateTimeStamp(): cpp.Float32 return this.ServerLastTransformUpdateTimeStamp;
-	public extern var ServerLastClientGoodMoveAckTime(get, never): cpp.Float32;
-	public inline extern function get_ServerLastClientGoodMoveAckTime(): cpp.Float32 return this.ServerLastClientGoodMoveAckTime;
-	public extern var ServerLastClientAdjustmentTime(get, never): cpp.Float32;
-	public inline extern function get_ServerLastClientAdjustmentTime(): cpp.Float32 return this.ServerLastClientAdjustmentTime;
-	public extern var PendingImpulseToApply(get, never): Vector;
-	public inline extern function get_PendingImpulseToApply(): Vector return this.PendingImpulseToApply;
-	public extern var PendingForceToApply(get, never): Vector;
-	public inline extern function get_PendingForceToApply(): Vector return this.PendingForceToApply;
-	public extern var AnalogInputModifier(get, never): cpp.Float32;
-	public inline extern function get_AnalogInputModifier(): cpp.Float32 return this.AnalogInputModifier;
 	public extern var MaxSimulationTimeStep(get, never): cpp.Float32;
 	public inline extern function get_MaxSimulationTimeStep(): cpp.Float32 return this.MaxSimulationTimeStep;
 	public extern var MaxSimulationIterations(get, never): cpp.Int32;
@@ -420,12 +380,10 @@ abstract ConstCharacterMovementComp(CharacterMovementComp) from CharacterMovemen
 	public inline extern function get_JumpOutOfWaterPitch(): cpp.Float32 return this.JumpOutOfWaterPitch;
 	public extern var CurrentFloor(get, never): FindFloorResult;
 	public inline extern function get_CurrentFloor(): FindFloorResult return this.CurrentFloor;
-	public extern var DefaultLandMovementMode(get, never): EMovementMode;
-	public inline extern function get_DefaultLandMovementMode(): EMovementMode return this.DefaultLandMovementMode;
-	public extern var DefaultWaterMovementMode(get, never): EMovementMode;
-	public inline extern function get_DefaultWaterMovementMode(): EMovementMode return this.DefaultWaterMovementMode;
-	public extern var GroundMovementMode(get, never): EMovementMode;
-	public inline extern function get_GroundMovementMode(): EMovementMode return this.GroundMovementMode;
+	public extern var DefaultLandMovementMode(get, never): TEnumAsByte<EMovementMode>;
+	public inline extern function get_DefaultLandMovementMode(): TEnumAsByte<EMovementMode> return this.DefaultLandMovementMode;
+	public extern var DefaultWaterMovementMode(get, never): TEnumAsByte<EMovementMode>;
+	public inline extern function get_DefaultWaterMovementMode(): TEnumAsByte<EMovementMode> return this.DefaultWaterMovementMode;
 	public extern var bMaintainHorizontalGroundVelocity(get, never): Bool;
 	public inline extern function get_bMaintainHorizontalGroundVelocity(): Bool return this.bMaintainHorizontalGroundVelocity;
 	public extern var bImpartBaseVelocityX(get, never): Bool;
@@ -476,16 +434,6 @@ abstract ConstCharacterMovementComp(CharacterMovementComp) from CharacterMovemen
 	public inline extern function get_bAllowPhysicsRotationDuringAnimRootMotion(): Bool return this.bAllowPhysicsRotationDuringAnimRootMotion;
 	public extern var FormerBaseVelocityDecayHalfLife(get, never): cpp.Float32;
 	public inline extern function get_FormerBaseVelocityDecayHalfLife(): cpp.Float32 return this.FormerBaseVelocityDecayHalfLife;
-	public extern var bHasRequestedVelocity(get, never): Bool;
-	public inline extern function get_bHasRequestedVelocity(): Bool return this.bHasRequestedVelocity;
-	public extern var bRequestedMoveWithMaxSpeed(get, never): Bool;
-	public inline extern function get_bRequestedMoveWithMaxSpeed(): Bool return this.bRequestedMoveWithMaxSpeed;
-	public extern var bWasAvoidanceUpdated(get, never): Bool;
-	public inline extern function get_bWasAvoidanceUpdated(): Bool return this.bWasAvoidanceUpdated;
-	public extern var bProjectNavMeshWalking(get, never): Bool;
-	public inline extern function get_bProjectNavMeshWalking(): Bool return this.bProjectNavMeshWalking;
-	public extern var bProjectNavMeshOnBothWorldChannels(get, never): Bool;
-	public inline extern function get_bProjectNavMeshOnBothWorldChannels(): Bool return this.bProjectNavMeshOnBothWorldChannels;
 	public extern var AvoidanceConsiderationRadius(get, never): cpp.Float32;
 	public inline extern function get_AvoidanceConsiderationRadius(): cpp.Float32 return this.AvoidanceConsiderationRadius;
 	public extern var RequestedVelocity(get, never): Vector;

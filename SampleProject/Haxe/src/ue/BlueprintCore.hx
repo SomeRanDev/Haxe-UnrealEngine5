@@ -8,7 +8,7 @@ extern class BlueprintCore extends Object {
 	public var SkeletonGeneratedClass: TSubclassOf<Object>;
 	public var GeneratedClass: TSubclassOf<Object>;
 	public var bLegacyNeedToPurgeSkelRefs: Bool;
-	public var BlueprintGuid: Guid;
+	private var BlueprintGuid: Guid;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -22,8 +22,6 @@ abstract ConstBlueprintCore(BlueprintCore) from BlueprintCore {
 	public inline extern function get_GeneratedClass(): TSubclassOf<Object.ConstObject> return this.GeneratedClass;
 	public extern var bLegacyNeedToPurgeSkelRefs(get, never): Bool;
 	public inline extern function get_bLegacyNeedToPurgeSkelRefs(): Bool return this.bLegacyNeedToPurgeSkelRefs;
-	public extern var BlueprintGuid(get, never): Guid;
-	public inline extern function get_BlueprintGuid(): Guid return this.BlueprintGuid;
 }
 
 @:forward

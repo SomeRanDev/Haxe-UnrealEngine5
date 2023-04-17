@@ -5,16 +5,16 @@ package ue;
 @:include("Evaluation/MovieSceneEvaluationTrack.h")
 @:structAccess
 extern class MovieSceneEvaluationTrack {
-	public var ObjectBindingID: Guid;
-	public var EvaluationPriority: cpp.UInt16;
-	public var EvaluationMethod: EEvaluationMethod;
-	public var SourceTrack: TWeakObjectPtr<MovieSceneTrack>;
-	public var ChildTemplates: TArray<MovieSceneEvalTemplatePtr>;
-	public var TrackTemplate: MovieSceneTrackImplementationPtr;
-	public var EvaluationGroup: FName;
-	public var bEvaluateInPreroll: Bool;
-	public var bEvaluateInPostroll: Bool;
-	public var bTearDownPriority: Bool;
+	private var ObjectBindingID: Guid;
+	private var EvaluationPriority: cpp.UInt16;
+	private var EvaluationMethod: EEvaluationMethod;
+	private var SourceTrack: TWeakObjectPtr<MovieSceneTrack>;
+	private var ChildTemplates: TArray<MovieSceneEvalTemplatePtr>;
+	private var TrackTemplate: MovieSceneTrackImplementationPtr;
+	private var EvaluationGroup: FName;
+	private var bEvaluateInPreroll: Bool;
+	private var bEvaluateInPostroll: Bool;
+	private var bTearDownPriority: Bool;
 
 	@:native("FMovieSceneEvaluationTrack") public function new();
 }

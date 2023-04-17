@@ -9,7 +9,7 @@ extern class NavDataConfig extends NavAgentProperties {
 	public var Color: Color;
 	public var DefaultQueryExtent: Vector;
 	public var NavigationDataClass: TSubclassOf<Actor>;
-	public var NavDataClass: TSoftClassPtr<Class>;
+	@:protected public var NavDataClass: TSoftClassPtr<Class>;
 
 	@:native("FNavDataConfig") public function new();
 	@:native("FNavDataConfig") public static function make(Name: FName, Color: Color, DefaultQueryExtent: Vector, NavigationDataClass: TSubclassOf<Actor>, NavDataClass: TSoftClassPtr<Class>): NavDataConfig ;

@@ -3,12 +3,12 @@ package ue;
 
 @:native("EGameplayTagSourceType")
 @:include("GameplayTagsManager.h")
-extern enum EGameplayTagSourceType {
-	Native;
-	DefaultTagList;
-	TagList;
-	RestrictedTagList;
-	DataTable;
-	Invalid;
-	EGameplayTagSourceType_MAX;
+extern class EGameplayTagSourceType {
+	static var Native: EGameplayTagSourceType;
+	static var DefaultTagList: EGameplayTagSourceType;
+	static var TagList: EGameplayTagSourceType;
+	static var RestrictedTagList: EGameplayTagSourceType;
+	static var DataTable: EGameplayTagSourceType;
+	static var Invalid: EGameplayTagSourceType;
+	static var EGameplayTagSourceType_MAX: EGameplayTagSourceType;
 }

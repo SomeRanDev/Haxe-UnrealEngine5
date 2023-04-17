@@ -3,8 +3,8 @@ package ue;
 
 @:native("ELocationEmitterSelectionMethod")
 @:include("Particles/Location/ParticleModuleLocationEmitter.h")
-extern enum ELocationEmitterSelectionMethod {
-	ELESM_Random;
-	ELESM_Sequential;
-	ELESM_MAX;
+extern class ELocationEmitterSelectionMethod {
+	static var ELESM_Random: ELocationEmitterSelectionMethod;
+	static var ELESM_Sequential: ELocationEmitterSelectionMethod;
+	static var ELESM_MAX: ELocationEmitterSelectionMethod;
 }

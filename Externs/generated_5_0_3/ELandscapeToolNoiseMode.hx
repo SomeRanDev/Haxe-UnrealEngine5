@@ -3,10 +3,10 @@ package ue;
 
 @:native("ELandscapeToolNoiseMode")
 @:include("LandscapeEditorObject.h")
-extern enum ELandscapeToolNoiseMode {
-	Invalid;
-	Both;
-	Add;
-	Sub;
-	ELandscapeToolNoiseMode_MAX;
+extern class ELandscapeToolNoiseMode {
+	static var Invalid: ELandscapeToolNoiseMode;
+	static var Both: ELandscapeToolNoiseMode;
+	static var Add: ELandscapeToolNoiseMode;
+	static var Sub: ELandscapeToolNoiseMode;
+	static var ELandscapeToolNoiseMode_MAX: ELandscapeToolNoiseMode;
 }

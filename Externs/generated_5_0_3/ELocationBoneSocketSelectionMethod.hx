@@ -3,8 +3,8 @@ package ue;
 
 @:native("ELocationBoneSocketSelectionMethod")
 @:include("Particles/Location/ParticleModuleLocationBoneSocket.h")
-extern enum ELocationBoneSocketSelectionMethod {
-	BONESOCKETSEL_Sequential;
-	BONESOCKETSEL_Random;
-	BONESOCKETSEL_MAX;
+extern class ELocationBoneSocketSelectionMethod {
+	static var BONESOCKETSEL_Sequential: ELocationBoneSocketSelectionMethod;
+	static var BONESOCKETSEL_Random: ELocationBoneSocketSelectionMethod;
+	static var BONESOCKETSEL_MAX: ELocationBoneSocketSelectionMethod;
 }

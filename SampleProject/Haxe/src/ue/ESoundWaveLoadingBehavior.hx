@@ -3,12 +3,12 @@ package ue;
 
 @:native("ESoundWaveLoadingBehavior")
 @:include("Sound/SoundWaveLoadingBehavior.h")
-extern enum ESoundWaveLoadingBehavior {
-	Inherited;
-	RetainOnLoad;
-	PrimeOnLoad;
-	LoadOnDemand;
-	ForceInline;
-	Uninitialized;
-	ESoundWaveLoadingBehavior_MAX;
+extern class ESoundWaveLoadingBehavior {
+	static var Inherited: ESoundWaveLoadingBehavior;
+	static var RetainOnLoad: ESoundWaveLoadingBehavior;
+	static var PrimeOnLoad: ESoundWaveLoadingBehavior;
+	static var LoadOnDemand: ESoundWaveLoadingBehavior;
+	static var ForceInline: ESoundWaveLoadingBehavior;
+	static var Uninitialized: ESoundWaveLoadingBehavior;
+	static var ESoundWaveLoadingBehavior_MAX: ESoundWaveLoadingBehavior;
 }

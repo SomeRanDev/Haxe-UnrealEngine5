@@ -5,7 +5,7 @@ package ue;
 @:include("AITypes.h")
 @:structAccess
 extern class AIMoveRequest {
-	public var GoalActor: cpp.Star<Actor>;
+	@:protected public var GoalActor: cpp.Star<Actor>;
 
 	@:native("FAIMoveRequest") public function new();
 	@:native("FAIMoveRequest") public static function make(GoalActor: cpp.Star<Actor>): AIMoveRequest ;

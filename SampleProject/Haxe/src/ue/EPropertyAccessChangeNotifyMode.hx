@@ -3,9 +3,9 @@ package ue;
 
 @:native("EPropertyAccessChangeNotifyMode")
 @:include("UObject/NoExportTypes.h")
-extern enum EPropertyAccessChangeNotifyMode {
-	Default;
-	Never;
-	Always;
-	EPropertyAccessChangeNotifyMode_MAX;
+extern class EPropertyAccessChangeNotifyMode {
+	static var Default: EPropertyAccessChangeNotifyMode;
+	static var Never: EPropertyAccessChangeNotifyMode;
+	static var Always: EPropertyAccessChangeNotifyMode;
+	static var EPropertyAccessChangeNotifyMode_MAX: EPropertyAccessChangeNotifyMode;
 }

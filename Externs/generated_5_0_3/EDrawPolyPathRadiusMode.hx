@@ -3,8 +3,8 @@ package ue;
 
 @:native("EDrawPolyPathRadiusMode")
 @:include("DrawPolyPathTool.h")
-extern enum EDrawPolyPathRadiusMode {
-	Fixed;
-	Interactive;
-	EDrawPolyPathRadiusMode_MAX;
+extern class EDrawPolyPathRadiusMode {
+	static var Fixed: EDrawPolyPathRadiusMode;
+	static var Interactive: EDrawPolyPathRadiusMode;
+	static var EDrawPolyPathRadiusMode_MAX: EDrawPolyPathRadiusMode;
 }

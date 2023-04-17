@@ -3,8 +3,8 @@ package ue;
 
 @:native("EBindingKind")
 @:include("Blueprint/WidgetBlueprintGeneratedClass.h")
-extern enum EBindingKind {
-	Function;
-	Property;
-	EBindingKind_MAX;
+extern class EBindingKind {
+	static var Function: EBindingKind;
+	static var Property: EBindingKind;
+	static var EBindingKind_MAX: EBindingKind;
 }

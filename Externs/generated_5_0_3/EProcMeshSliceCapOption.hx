@@ -3,9 +3,9 @@ package ue;
 
 @:native("EProcMeshSliceCapOption")
 @:include("KismetProceduralMeshLibrary.h")
-extern enum EProcMeshSliceCapOption {
-	NoCap;
-	CreateNewSectionForCap;
-	UseLastSectionForCap;
-	EProcMeshSliceCapOption_MAX;
+extern class EProcMeshSliceCapOption {
+	static var NoCap: EProcMeshSliceCapOption;
+	static var CreateNewSectionForCap: EProcMeshSliceCapOption;
+	static var UseLastSectionForCap: EProcMeshSliceCapOption;
+	static var EProcMeshSliceCapOption_MAX: EProcMeshSliceCapOption;
 }

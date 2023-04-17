@@ -3,10 +3,10 @@ package ue;
 
 @:native("ERetargetRotationMode")
 @:include("Retargeter/IKRetargeter.h")
-extern enum ERetargetRotationMode {
-	Interpolated;
-	OneToOne;
-	OneToOneReversed;
-	None;
-	ERetargetRotationMode_MAX;
+extern class ERetargetRotationMode {
+	static var Interpolated: ERetargetRotationMode;
+	static var OneToOne: ERetargetRotationMode;
+	static var OneToOneReversed: ERetargetRotationMode;
+	static var None: ERetargetRotationMode;
+	static var ERetargetRotationMode_MAX: ERetargetRotationMode;
 }

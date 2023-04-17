@@ -3,14 +3,14 @@ package ue;
 
 @:native("EFbxExportCompatibility")
 @:include("Exporters/FbxExportOption.h")
-extern enum EFbxExportCompatibility {
-	FBX_2011;
-	FBX_2012;
-	FBX_2013;
-	FBX_2014;
-	FBX_2016;
-	FBX_2018;
-	FBX_2019;
-	FBX_2020;
-	FBX_MAX;
+extern class EFbxExportCompatibility {
+	static var FBX_2011: EFbxExportCompatibility;
+	static var FBX_2012: EFbxExportCompatibility;
+	static var FBX_2013: EFbxExportCompatibility;
+	static var FBX_2014: EFbxExportCompatibility;
+	static var FBX_2016: EFbxExportCompatibility;
+	static var FBX_2018: EFbxExportCompatibility;
+	static var FBX_2019: EFbxExportCompatibility;
+	static var FBX_2020: EFbxExportCompatibility;
+	static var FBX_MAX: EFbxExportCompatibility;
 }

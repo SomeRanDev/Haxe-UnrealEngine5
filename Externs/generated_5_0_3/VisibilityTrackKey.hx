@@ -6,9 +6,9 @@ package ue;
 @:structAccess
 extern class VisibilityTrackKey {
 	public var Time: cpp.Float32;
-	public var Action: EVisibilityTrackAction;
-	public var ActiveCondition: EVisibilityTrackCondition;
+	public var Action: TEnumAsByte<EVisibilityTrackAction>;
+	public var ActiveCondition: TEnumAsByte<EVisibilityTrackCondition>;
 
 	@:native("FVisibilityTrackKey") public function new();
-	@:native("FVisibilityTrackKey") public static function make(Time: cpp.Float32, Action: EVisibilityTrackAction, ActiveCondition: EVisibilityTrackCondition): VisibilityTrackKey ;
+	@:native("FVisibilityTrackKey") public static function make(Time: cpp.Float32, Action: TEnumAsByte<EVisibilityTrackAction>, ActiveCondition: TEnumAsByte<EVisibilityTrackCondition>): VisibilityTrackKey ;
 }

@@ -5,14 +5,14 @@ package ue;
 @:include("Perception/AIPerceptionSystem.h")
 @:structAccess
 extern class AIPerceptionSystem extends AISubsystem {
-	public var Senses: TArray<cpp.Star<AISense>>;
-	public var PerceptionAgingRate: cpp.Float32;
+	@:protected public var Senses: TArray<cpp.Star<AISense>>;
+	@:protected public var PerceptionAgingRate: cpp.Float32;
 
 	public function ReportPerceptionEvent(WorldContextObject: cpp.Star<Object>, PerceptionEvent: cpp.Star<AISenseEvent>): Void;
 	public function ReportEvent(PerceptionEvent: cpp.Star<AISenseEvent>): Void;
-	public function RegisterPerceptionStimuliSource(WorldContextObject: cpp.Star<Object>, Sense: TSubclassOf<AISense>, Target: cpp.Star<Actor>): cpp.Reference<Bool>;
-	public function OnPerceptionStimuliSourceEndPlay(Actor: cpp.Star<Actor>, EndPlayReason: EEndPlayReason): Void;
-	public function GetSenseClassForStimulus(WorldContextObject: cpp.Star<Object>, Stimulus: cpp.Reference<AIStimulus>): cpp.Reference<TSubclassOf<AISense>>;
+	public function RegisterPerceptionStimuliSource(WorldContextObject: cpp.Star<Object>, Sense: TSubclassOf<AISense>, Target: cpp.Star<Actor>): Bool;
+	@:protected public function OnPerceptionStimuliSourceEndPlay(Actor: cpp.Star<Actor>, EndPlayReason: TEnumAsByte<EEndPlayReason>): Void;
+	public function GetSenseClassForStimulus(WorldContextObject: cpp.Star<Object>, Stimulus: cpp.Reference<AIStimulus>): TSubclassOf<AISense>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -20,10 +20,6 @@ extern class AIPerceptionSystem extends AISubsystem {
 @:forward()
 @:nativeGen
 abstract ConstAIPerceptionSystem(AIPerceptionSystem) from AIPerceptionSystem {
-	public extern var Senses(get, never): TArray<cpp.Star<AISense.ConstAISense>>;
-	public inline extern function get_Senses(): TArray<cpp.Star<AISense.ConstAISense>> return this.Senses;
-	public extern var PerceptionAgingRate(get, never): cpp.Float32;
-	public inline extern function get_PerceptionAgingRate(): cpp.Float32 return this.PerceptionAgingRate;
 }
 
 @:forward

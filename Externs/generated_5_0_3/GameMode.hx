@@ -5,7 +5,7 @@ package ue;
 @:include("GameFramework/GameMode.h")
 @:structAccess
 extern class GameMode extends GameModeBase {
-	public var MatchState: FName;
+	@:protected public var MatchState: FName;
 	public var bDelayedStart: Bool;
 	public var NumSpectators: cpp.Int32;
 	public var NumPlayers: cpp.Int32;
@@ -14,18 +14,18 @@ extern class GameMode extends GameModeBase {
 	public var NumTravellingPlayers: cpp.Int32;
 	public var EngineMessageClass: TSubclassOf<LocalMessage>;
 	public var InactivePlayerArray: TArray<cpp.Star<PlayerState>>;
-	public var InactivePlayerStateLifeSpan: cpp.Float32;
-	public var MaxInactivePlayers: cpp.Int32;
-	public var bHandleDedicatedServerReplays: Bool;
+	@:protected public var InactivePlayerStateLifeSpan: cpp.Float32;
+	@:protected public var MaxInactivePlayers: cpp.Int32;
+	@:protected public var bHandleDedicatedServerReplays: Bool;
 
 	public function StartMatch(): Void;
 	public function Say(Msg: FString): Void;
 	public function RestartGame(): Void;
-	public function ReadyToStartMatch(): cpp.Reference<Bool>;
-	public function ReadyToEndMatch(): cpp.Reference<Bool>;
-	public function K2_OnSetMatchState(NewState: FName): Void;
-	public function IsMatchInProgress(): cpp.Reference<Bool>;
-	public function GetMatchState(): cpp.Reference<FName>;
+	@:protected public function ReadyToStartMatch(): Bool;
+	@:protected public function ReadyToEndMatch(): Bool;
+	@:protected public function K2_OnSetMatchState(NewState: FName): Void;
+	public function IsMatchInProgress(): Bool;
+	public function GetMatchState(): FName;
 	public function EndMatch(): Void;
 	public function AbortMatch(): Void;
 
@@ -35,8 +35,6 @@ extern class GameMode extends GameModeBase {
 @:forward(IsMatchInProgress, GetMatchState)
 @:nativeGen
 abstract ConstGameMode(GameMode) from GameMode {
-	public extern var MatchState(get, never): FName;
-	public inline extern function get_MatchState(): FName return this.MatchState;
 	public extern var bDelayedStart(get, never): Bool;
 	public inline extern function get_bDelayedStart(): Bool return this.bDelayedStart;
 	public extern var NumSpectators(get, never): cpp.Int32;
@@ -53,12 +51,6 @@ abstract ConstGameMode(GameMode) from GameMode {
 	public inline extern function get_EngineMessageClass(): TSubclassOf<LocalMessage.ConstLocalMessage> return this.EngineMessageClass;
 	public extern var InactivePlayerArray(get, never): TArray<cpp.Star<PlayerState.ConstPlayerState>>;
 	public inline extern function get_InactivePlayerArray(): TArray<cpp.Star<PlayerState.ConstPlayerState>> return this.InactivePlayerArray;
-	public extern var InactivePlayerStateLifeSpan(get, never): cpp.Float32;
-	public inline extern function get_InactivePlayerStateLifeSpan(): cpp.Float32 return this.InactivePlayerStateLifeSpan;
-	public extern var MaxInactivePlayers(get, never): cpp.Int32;
-	public inline extern function get_MaxInactivePlayers(): cpp.Int32 return this.MaxInactivePlayers;
-	public extern var bHandleDedicatedServerReplays(get, never): Bool;
-	public inline extern function get_bHandleDedicatedServerReplays(): Bool return this.bHandleDedicatedServerReplays;
 }
 
 @:forward

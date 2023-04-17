@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESpeedTreeLODType")
 @:include("Materials/MaterialExpressionSpeedTree.h")
-extern enum ESpeedTreeLODType {
-	STLOD_Pop;
-	STLOD_Smooth;
-	STLOD_MAX;
+extern class ESpeedTreeLODType {
+	static var STLOD_Pop: ESpeedTreeLODType;
+	static var STLOD_Smooth: ESpeedTreeLODType;
+	static var STLOD_MAX: ESpeedTreeLODType;
 }

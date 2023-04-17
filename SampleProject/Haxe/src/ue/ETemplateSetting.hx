@@ -3,13 +3,13 @@ package ue;
 
 @:native("ETemplateSetting")
 @:include("TemplateProjectDefs.h")
-extern enum ETemplateSetting {
-	Languages;
-	HardwareTarget;
-	GraphicsPreset;
-	StarterContent;
-	XR;
-	Raytracing;
-	All;
-	ETemplateSetting_MAX;
+extern class ETemplateSetting {
+	static var Languages: ETemplateSetting;
+	static var HardwareTarget: ETemplateSetting;
+	static var GraphicsPreset: ETemplateSetting;
+	static var StarterContent: ETemplateSetting;
+	static var XR: ETemplateSetting;
+	static var Raytracing: ETemplateSetting;
+	static var All: ETemplateSetting;
+	static var ETemplateSetting_MAX: ETemplateSetting;
 }

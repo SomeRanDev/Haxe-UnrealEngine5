@@ -5,11 +5,11 @@ package ue;
 @:include("InteractiveFoliageActor.h")
 @:structAccess
 extern class InteractiveFoliageActor extends StaticMeshActor {
-	public var CapsuleComponent: cpp.Star<CapsuleComp>;
-	public var TouchingActorEntryPosition: Vector;
-	public var FoliageVelocity: Vector;
-	public var FoliageForce: Vector;
-	public var FoliagePosition: Vector;
+	private var CapsuleComponent: cpp.Star<CapsuleComp>;
+	private var TouchingActorEntryPosition: Vector;
+	private var FoliageVelocity: Vector;
+	private var FoliageForce: Vector;
+	private var FoliagePosition: Vector;
 	public var FoliageDamageImpulseScale: cpp.Float32;
 	public var FoliageTouchImpulseScale: cpp.Float32;
 	public var FoliageStiffness: cpp.Float32;
@@ -20,7 +20,7 @@ extern class InteractiveFoliageActor extends StaticMeshActor {
 	public var MaxForce: cpp.Float32;
 	public var Mass: cpp.Float32;
 
-	public function CapsuleTouched(OverlappedComp: cpp.Star<PrimitiveComp>, Other: cpp.Star<Actor>, OtherComp: cpp.Star<PrimitiveComp>, OtherBodyIndex: cpp.Int32, bFromSweep: Bool, OverlapInfo: cpp.Reference<HitResult>): Void;
+	@:protected public function CapsuleTouched(OverlappedComp: cpp.Star<PrimitiveComp>, Other: cpp.Star<Actor>, OtherComp: cpp.Star<PrimitiveComp>, OtherBodyIndex: cpp.Int32, bFromSweep: Bool, OverlapInfo: cpp.Reference<HitResult>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -28,16 +28,6 @@ extern class InteractiveFoliageActor extends StaticMeshActor {
 @:forward()
 @:nativeGen
 abstract ConstInteractiveFoliageActor(InteractiveFoliageActor) from InteractiveFoliageActor {
-	public extern var CapsuleComponent(get, never): cpp.Star<CapsuleComp.ConstCapsuleComp>;
-	public inline extern function get_CapsuleComponent(): cpp.Star<CapsuleComp.ConstCapsuleComp> return this.CapsuleComponent;
-	public extern var TouchingActorEntryPosition(get, never): Vector;
-	public inline extern function get_TouchingActorEntryPosition(): Vector return this.TouchingActorEntryPosition;
-	public extern var FoliageVelocity(get, never): Vector;
-	public inline extern function get_FoliageVelocity(): Vector return this.FoliageVelocity;
-	public extern var FoliageForce(get, never): Vector;
-	public inline extern function get_FoliageForce(): Vector return this.FoliageForce;
-	public extern var FoliagePosition(get, never): Vector;
-	public inline extern function get_FoliagePosition(): Vector return this.FoliagePosition;
 	public extern var FoliageDamageImpulseScale(get, never): cpp.Float32;
 	public inline extern function get_FoliageDamageImpulseScale(): cpp.Float32 return this.FoliageDamageImpulseScale;
 	public extern var FoliageTouchImpulseScale(get, never): cpp.Float32;

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EEvaluatorDataSource.Type")
 @:include("Animation/AnimNode_TransitionPoseEvaluator.h")
-extern enum EEvaluatorDataSource {
-	EDS_SourcePose;
-	EDS_DestinationPose;
-	EDS_MAX;
+extern class EEvaluatorDataSource {
+	static var EDS_SourcePose: EEvaluatorDataSource;
+	static var EDS_DestinationPose: EEvaluatorDataSource;
+	static var EDS_MAX: EEvaluatorDataSource;
 }

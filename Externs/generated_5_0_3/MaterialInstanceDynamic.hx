@@ -15,12 +15,12 @@ extern class MaterialInstanceDynamic extends MaterialInstance {
 	public function SetRuntimeVirtualTextureParameterValue(ParameterName: FName, Value: cpp.Star<RuntimeVirtualTexture>): Void;
 	public function SetDoubleVectorParameterValue(ParameterName: FName, Value: Vector): Void;
 	public function K2_InterpolateMaterialInstanceParams(SourceA: cpp.Star<MaterialInstance>, SourceB: cpp.Star<MaterialInstance>, Alpha: cpp.Float32): Void;
-	public function K2_GetVectorParameterValueByInfo(ParameterInfo: cpp.Reference<MaterialParameterInfo>): cpp.Reference<LinearColor>;
-	public function K2_GetVectorParameterValue(ParameterName: FName): cpp.Reference<LinearColor>;
-	public function K2_GetTextureParameterValueByInfo(ParameterInfo: cpp.Reference<MaterialParameterInfo>): cpp.Reference<cpp.Star<Texture>>;
-	public function K2_GetTextureParameterValue(ParameterName: FName): cpp.Reference<cpp.Star<Texture>>;
-	public function K2_GetScalarParameterValueByInfo(ParameterInfo: cpp.Reference<MaterialParameterInfo>): cpp.Reference<cpp.Float32>;
-	public function K2_GetScalarParameterValue(ParameterName: FName): cpp.Reference<cpp.Float32>;
+	public function K2_GetVectorParameterValueByInfo(ParameterInfo: cpp.Reference<MaterialParameterInfo>): LinearColor;
+	public function K2_GetVectorParameterValue(ParameterName: FName): LinearColor;
+	public function K2_GetTextureParameterValueByInfo(ParameterInfo: cpp.Reference<MaterialParameterInfo>): cpp.Star<Texture>;
+	public function K2_GetTextureParameterValue(ParameterName: FName): cpp.Star<Texture>;
+	public function K2_GetScalarParameterValueByInfo(ParameterInfo: cpp.Reference<MaterialParameterInfo>): cpp.Float32;
+	public function K2_GetScalarParameterValue(ParameterName: FName): cpp.Float32;
 	public function K2_CopyMaterialInstanceParameters(Source: cpp.Star<MaterialInterface>, bQuickParametersOnly: Bool): Void;
 	public function CopyParameterOverrides(MaterialInstance: cpp.Star<MaterialInstance>): Void;
 	public function CopyInterpParameters(Source: cpp.Star<MaterialInstance>): Void;

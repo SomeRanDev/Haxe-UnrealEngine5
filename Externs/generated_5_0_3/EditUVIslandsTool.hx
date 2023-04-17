@@ -7,11 +7,11 @@ package ue;
 extern class EditUVIslandsTool extends MeshSurfacePointTool {
 	public var MaterialSettings: cpp.Star<ExistingMeshMaterialProperties>;
 	public var CheckerMaterial: cpp.Star<MaterialInstanceDynamic>;
-	public var TargetWorld: cpp.Star<World>;
-	public var PreviewMeshActor: cpp.Star<InternalToolFrameworkActor>;
-	public var DynamicMeshComponent: cpp.Star<DynamicMeshComp>;
-	public var SelectionMechanic: cpp.Star<PolygonSelectionMechanic>;
-	public var MultiTransformer: cpp.Star<MultiTransformer>;
+	@:protected public var TargetWorld: cpp.Star<World>;
+	@:protected public var PreviewMeshActor: cpp.Star<InternalToolFrameworkActor>;
+	@:protected public var DynamicMeshComponent: cpp.Star<DynamicMeshComp>;
+	@:protected public var SelectionMechanic: cpp.Star<PolygonSelectionMechanic>;
+	@:protected public var MultiTransformer: cpp.Star<MultiTransformer>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -23,16 +23,6 @@ abstract ConstEditUVIslandsTool(EditUVIslandsTool) from EditUVIslandsTool {
 	public inline extern function get_MaterialSettings(): cpp.Star<ExistingMeshMaterialProperties.ConstExistingMeshMaterialProperties> return this.MaterialSettings;
 	public extern var CheckerMaterial(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
 	public inline extern function get_CheckerMaterial(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.CheckerMaterial;
-	public extern var TargetWorld(get, never): cpp.Star<World.ConstWorld>;
-	public inline extern function get_TargetWorld(): cpp.Star<World.ConstWorld> return this.TargetWorld;
-	public extern var PreviewMeshActor(get, never): cpp.Star<InternalToolFrameworkActor.ConstInternalToolFrameworkActor>;
-	public inline extern function get_PreviewMeshActor(): cpp.Star<InternalToolFrameworkActor.ConstInternalToolFrameworkActor> return this.PreviewMeshActor;
-	public extern var DynamicMeshComponent(get, never): cpp.Star<DynamicMeshComp.ConstDynamicMeshComp>;
-	public inline extern function get_DynamicMeshComponent(): cpp.Star<DynamicMeshComp.ConstDynamicMeshComp> return this.DynamicMeshComponent;
-	public extern var SelectionMechanic(get, never): cpp.Star<PolygonSelectionMechanic.ConstPolygonSelectionMechanic>;
-	public inline extern function get_SelectionMechanic(): cpp.Star<PolygonSelectionMechanic.ConstPolygonSelectionMechanic> return this.SelectionMechanic;
-	public extern var MultiTransformer(get, never): cpp.Star<MultiTransformer.ConstMultiTransformer>;
-	public inline extern function get_MultiTransformer(): cpp.Star<MultiTransformer.ConstMultiTransformer> return this.MultiTransformer;
 }
 
 @:forward

@@ -25,7 +25,7 @@ extern class CookerSettings extends DeveloperSettings {
 	public var DefaultASTCCompressor: ETextureFormatASTCCompressor;
 	public var bAllowASTCHDRProfile: Bool;
 	public var bAllowCookedDataInEditorBuilds: Bool;
-	public var bCookBlueprintComponentTemplateData: Bool;
+	private var bCookBlueprintComponentTemplateData: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -73,8 +73,6 @@ abstract ConstCookerSettings(CookerSettings) from CookerSettings {
 	public inline extern function get_bAllowASTCHDRProfile(): Bool return this.bAllowASTCHDRProfile;
 	public extern var bAllowCookedDataInEditorBuilds(get, never): Bool;
 	public inline extern function get_bAllowCookedDataInEditorBuilds(): Bool return this.bAllowCookedDataInEditorBuilds;
-	public extern var bCookBlueprintComponentTemplateData(get, never): Bool;
-	public inline extern function get_bCookBlueprintComponentTemplateData(): Bool return this.bCookBlueprintComponentTemplateData;
 }
 
 @:forward

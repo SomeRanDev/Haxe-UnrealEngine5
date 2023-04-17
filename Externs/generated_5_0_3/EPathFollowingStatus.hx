@@ -3,10 +3,10 @@ package ue;
 
 @:native("EPathFollowingStatus.Type")
 @:include("Navigation/PathFollowingComponent.h")
-extern enum EPathFollowingStatus {
-	Idle;
-	Waiting;
-	Paused;
-	Moving;
-	EPathFollowingStatus_MAX;
+extern class EPathFollowingStatus {
+	static var Idle: EPathFollowingStatus;
+	static var Waiting: EPathFollowingStatus;
+	static var Paused: EPathFollowingStatus;
+	static var Moving: EPathFollowingStatus;
+	static var EPathFollowingStatus_MAX: EPathFollowingStatus;
 }

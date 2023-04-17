@@ -5,7 +5,7 @@ package ue;
 @:include("AnimGraphNode_Sync.h")
 @:structAccess
 extern class AnimGraphNode_Sync extends AnimGraphNode_Base {
-	public var Node: AnimNode_Sync;
+	private var Node: AnimNode_Sync;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class AnimGraphNode_Sync extends AnimGraphNode_Base {
 @:forward()
 @:nativeGen
 abstract ConstAnimGraphNode_Sync(AnimGraphNode_Sync) from AnimGraphNode_Sync {
-	public extern var Node(get, never): AnimNode_Sync;
-	public inline extern function get_Node(): AnimNode_Sync return this.Node;
 }
 
 @:forward

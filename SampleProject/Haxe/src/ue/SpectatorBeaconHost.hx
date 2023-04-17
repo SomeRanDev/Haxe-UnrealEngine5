@@ -5,10 +5,10 @@ package ue;
 @:include("SpectatorBeaconHost.h")
 @:structAccess
 extern class SpectatorBeaconHost extends OnlineBeaconHostObject {
-	public var State: cpp.Star<SpectatorBeaconState>;
-	public var bLogoutOnSessionTimeout: Bool;
-	public var SessionTimeoutSecs: cpp.Float32;
-	public var TravelSessionTimeoutSecs: cpp.Float32;
+	@:protected public var State: cpp.Star<SpectatorBeaconState>;
+	@:protected public var bLogoutOnSessionTimeout: Bool;
+	@:protected public var SessionTimeoutSecs: cpp.Float32;
+	@:protected public var TravelSessionTimeoutSecs: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class SpectatorBeaconHost extends OnlineBeaconHostObject {
 @:forward()
 @:nativeGen
 abstract ConstSpectatorBeaconHost(SpectatorBeaconHost) from SpectatorBeaconHost {
-	public extern var State(get, never): cpp.Star<SpectatorBeaconState.ConstSpectatorBeaconState>;
-	public inline extern function get_State(): cpp.Star<SpectatorBeaconState.ConstSpectatorBeaconState> return this.State;
-	public extern var bLogoutOnSessionTimeout(get, never): Bool;
-	public inline extern function get_bLogoutOnSessionTimeout(): Bool return this.bLogoutOnSessionTimeout;
-	public extern var SessionTimeoutSecs(get, never): cpp.Float32;
-	public inline extern function get_SessionTimeoutSecs(): cpp.Float32 return this.SessionTimeoutSecs;
-	public extern var TravelSessionTimeoutSecs(get, never): cpp.Float32;
-	public inline extern function get_TravelSessionTimeoutSecs(): cpp.Float32 return this.TravelSessionTimeoutSecs;
 }
 
 @:forward

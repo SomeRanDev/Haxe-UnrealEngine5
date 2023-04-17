@@ -3,8 +3,8 @@ package ue;
 
 @:native("ERBFSolverType")
 @:include("RBF/RBFSolver.h")
-extern enum ERBFSolverType {
-	Additive;
-	Interpolative;
-	ERBFSolverType_MAX;
+extern class ERBFSolverType {
+	static var Additive: ERBFSolverType;
+	static var Interpolative: ERBFSolverType;
+	static var ERBFSolverType_MAX: ERBFSolverType;
 }

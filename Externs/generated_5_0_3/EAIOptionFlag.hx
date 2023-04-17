@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAIOptionFlag.Type")
 @:include("AITypes.h")
-extern enum EAIOptionFlag {
-	Default;
-	Enable;
-	Disable;
-	MAX;
+extern class EAIOptionFlag {
+	static var Default: EAIOptionFlag;
+	static var Enable: EAIOptionFlag;
+	static var Disable: EAIOptionFlag;
+	static var MAX: EAIOptionFlag;
 }

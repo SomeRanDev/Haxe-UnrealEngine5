@@ -11,7 +11,7 @@ extern class ModulatorContinuousParams {
 	public var MaxInput: cpp.Float32;
 	public var MinOutput: cpp.Float32;
 	public var MaxOutput: cpp.Float32;
-	public var ParamMode: ModulationParamMode;
+	public var ParamMode: TEnumAsByte<ModulationParamMode>;
 
 	@:native("FModulatorContinuousParams") public function new();
 }

@@ -7,7 +7,7 @@ package ue;
 extern class RigVMCompiler extends Object {
 	public var Settings: RigVMCompileSettings;
 
-	public function Compile(InGraph: cpp.Star<RigVMGraph>, InController: cpp.Star<RigVMController>, OutVM: cpp.Star<RigVM>): cpp.Reference<Bool>;
+	public function Compile(InGraph: cpp.Star<RigVMGraph>, InController: cpp.Star<RigVMController>, OutVM: cpp.Star<RigVM>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class FrameTime {
 	public var FrameNumber: FrameNumber;
-	public var SubFrame: cpp.Float32;
+	private var SubFrame: cpp.Float32;
 
 	@:native("FFrameTime") public function new();
 	@:native("FFrameTime") public static function make(FrameNumber: FrameNumber, SubFrame: cpp.Float32): FrameTime ;

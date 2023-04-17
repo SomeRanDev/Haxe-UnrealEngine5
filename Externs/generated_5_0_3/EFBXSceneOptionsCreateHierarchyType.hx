@@ -3,9 +3,9 @@ package ue;
 
 @:native("EFBXSceneOptionsCreateHierarchyType")
 @:include("Factories/FbxSceneImportOptions.h")
-extern enum EFBXSceneOptionsCreateHierarchyType {
-	FBXSOCHT_CreateLevelActors;
-	FBXSOCHT_CreateActorComponents;
-	FBXSOCHT_CreateBlueprint;
-	FBXSOCHT_MAX;
+extern class EFBXSceneOptionsCreateHierarchyType {
+	static var FBXSOCHT_CreateLevelActors: EFBXSceneOptionsCreateHierarchyType;
+	static var FBXSOCHT_CreateActorComponents: EFBXSceneOptionsCreateHierarchyType;
+	static var FBXSOCHT_CreateBlueprint: EFBXSceneOptionsCreateHierarchyType;
+	static var FBXSOCHT_MAX: EFBXSceneOptionsCreateHierarchyType;
 }

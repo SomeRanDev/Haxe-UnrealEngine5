@@ -5,7 +5,6 @@ package ue;
 @:include("GameFramework/Info.h")
 @:structAccess
 extern class Info extends Actor {
-	public var SpriteComponent: cpp.Star<BillboardComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +12,6 @@ extern class Info extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstInfo(Info) from Info {
-	public extern var SpriteComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
-	public inline extern function get_SpriteComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
 }
 
 @:forward

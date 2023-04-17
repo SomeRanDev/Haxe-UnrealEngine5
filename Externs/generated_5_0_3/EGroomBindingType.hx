@@ -3,9 +3,9 @@ package ue;
 
 @:native("EGroomBindingType")
 @:include("GroomAssetInterpolation.h")
-extern enum EGroomBindingType {
-	NoneBinding;
-	Rigid;
-	Skinning;
-	EGroomBindingType_MAX;
+extern class EGroomBindingType {
+	static var NoneBinding: EGroomBindingType;
+	static var Rigid: EGroomBindingType;
+	static var Skinning: EGroomBindingType;
+	static var EGroomBindingType_MAX: EGroomBindingType;
 }

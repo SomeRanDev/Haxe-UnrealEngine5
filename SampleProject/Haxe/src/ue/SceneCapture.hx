@@ -5,8 +5,7 @@ package ue;
 @:include("Engine/SceneCapture.h")
 @:structAccess
 extern class SceneCapture extends Actor {
-	public var MeshComp_DEPRECATED: cpp.Star<StaticMeshComp>;
-	public var SceneComponent: cpp.Star<SceneComp>;
+	private var SceneComponent: cpp.Star<SceneComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +13,6 @@ extern class SceneCapture extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstSceneCapture(SceneCapture) from SceneCapture {
-	public extern var MeshComp_DEPRECATED(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_MeshComp_DEPRECATED(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.MeshComp_DEPRECATED;
-	public extern var SceneComponent(get, never): cpp.Star<SceneComp.ConstSceneComp>;
-	public inline extern function get_SceneComponent(): cpp.Star<SceneComp.ConstSceneComp> return this.SceneComponent;
 }
 
 @:forward

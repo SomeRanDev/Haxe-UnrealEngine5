@@ -5,8 +5,6 @@ package ue;
 @:include("Materials/Material.h")
 @:structAccess
 extern class VectorMaterialInput extends MaterialInput {
-	public var UseConstant: Bool;
-	public var Constant: Vector3f;
 
 	@:native("FVectorMaterialInput") public function new();
 	@:native("FVectorMaterialInput") public static function make(UseConstant: Bool, Constant: Vector3f): VectorMaterialInput ;

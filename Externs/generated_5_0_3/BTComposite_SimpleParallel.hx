@@ -5,7 +5,7 @@ package ue;
 @:include("BehaviorTree/Composites/BTComposite_SimpleParallel.h")
 @:structAccess
 extern class BTComposite_SimpleParallel extends BTCompositeNode {
-	public var FinishMode: EBTParallelMode;
+	public var FinishMode: TEnumAsByte<EBTParallelMode>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,8 @@ extern class BTComposite_SimpleParallel extends BTCompositeNode {
 @:forward()
 @:nativeGen
 abstract ConstBTComposite_SimpleParallel(BTComposite_SimpleParallel) from BTComposite_SimpleParallel {
-	public extern var FinishMode(get, never): EBTParallelMode;
-	public inline extern function get_FinishMode(): EBTParallelMode return this.FinishMode;
+	public extern var FinishMode(get, never): TEnumAsByte<EBTParallelMode>;
+	public inline extern function get_FinishMode(): TEnumAsByte<EBTParallelMode> return this.FinishMode;
 }
 
 @:forward

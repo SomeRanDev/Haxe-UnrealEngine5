@@ -5,7 +5,7 @@ package ue;
 @:include("NiagaraDataInterfaceMeshRendererInfo.h")
 @:structAccess
 extern class NiagaraDataInterfaceMeshRendererInfo extends NiagaraDataInterface {
-	public var MeshRenderer: cpp.Star<NiagaraMeshRendererProperties>;
+	@:protected public var MeshRenderer: cpp.Star<NiagaraMeshRendererProperties>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class NiagaraDataInterfaceMeshRendererInfo extends NiagaraDataInterface {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfaceMeshRendererInfo(NiagaraDataInterfaceMeshRendererInfo) from NiagaraDataInterfaceMeshRendererInfo {
-	public extern var MeshRenderer(get, never): cpp.Star<NiagaraMeshRendererProperties.ConstNiagaraMeshRendererProperties>;
-	public inline extern function get_MeshRenderer(): cpp.Star<NiagaraMeshRendererProperties.ConstNiagaraMeshRendererProperties> return this.MeshRenderer;
 }
 
 @:forward

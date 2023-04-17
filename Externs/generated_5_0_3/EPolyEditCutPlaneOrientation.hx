@@ -3,8 +3,8 @@ package ue;
 
 @:native("EPolyEditCutPlaneOrientation")
 @:include("ToolActivities/PolyEditCutFacesActivity.h")
-extern enum EPolyEditCutPlaneOrientation {
-	FaceNormals;
-	ViewDirection;
-	EPolyEditCutPlaneOrientation_MAX;
+extern class EPolyEditCutPlaneOrientation {
+	static var FaceNormals: EPolyEditCutPlaneOrientation;
+	static var ViewDirection: EPolyEditCutPlaneOrientation;
+	static var EPolyEditCutPlaneOrientation_MAX: EPolyEditCutPlaneOrientation;
 }

@@ -9,8 +9,6 @@ extern class LightComp extends LightComponentBase {
 	public var MaxDrawDistance: cpp.Float32;
 	public var MaxDistanceFadeRange: cpp.Float32;
 	public var bUseTemperature: Bool;
-	public var ShadowMapChannel_DEPRECATED: cpp.Int32;
-	public var MinRoughness_DEPRECATED: cpp.Float32;
 	public var SpecularScale: cpp.Float32;
 	public var ShadowResolutionScale: cpp.Float32;
 	public var ShadowBias: cpp.Float32;
@@ -18,7 +16,6 @@ extern class LightComp extends LightComponentBase {
 	public var ShadowSharpen: cpp.Float32;
 	public var ContactShadowLength: cpp.Float32;
 	public var ContactShadowLengthInWS: Bool;
-	public var InverseSquaredFalloff_DEPRECATED: Bool;
 	public var CastTranslucentShadows: Bool;
 	public var bCastShadowsFromCinematicObjectsOnly: Bool;
 	public var bAffectDynamicIndirectLighting: Bool;
@@ -80,10 +77,6 @@ abstract ConstLightComp(LightComp) from LightComp {
 	public inline extern function get_MaxDistanceFadeRange(): cpp.Float32 return this.MaxDistanceFadeRange;
 	public extern var bUseTemperature(get, never): Bool;
 	public inline extern function get_bUseTemperature(): Bool return this.bUseTemperature;
-	public extern var ShadowMapChannel_DEPRECATED(get, never): cpp.Int32;
-	public inline extern function get_ShadowMapChannel_DEPRECATED(): cpp.Int32 return this.ShadowMapChannel_DEPRECATED;
-	public extern var MinRoughness_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_MinRoughness_DEPRECATED(): cpp.Float32 return this.MinRoughness_DEPRECATED;
 	public extern var SpecularScale(get, never): cpp.Float32;
 	public inline extern function get_SpecularScale(): cpp.Float32 return this.SpecularScale;
 	public extern var ShadowResolutionScale(get, never): cpp.Float32;
@@ -98,8 +91,6 @@ abstract ConstLightComp(LightComp) from LightComp {
 	public inline extern function get_ContactShadowLength(): cpp.Float32 return this.ContactShadowLength;
 	public extern var ContactShadowLengthInWS(get, never): Bool;
 	public inline extern function get_ContactShadowLengthInWS(): Bool return this.ContactShadowLengthInWS;
-	public extern var InverseSquaredFalloff_DEPRECATED(get, never): Bool;
-	public inline extern function get_InverseSquaredFalloff_DEPRECATED(): Bool return this.InverseSquaredFalloff_DEPRECATED;
 	public extern var CastTranslucentShadows(get, never): Bool;
 	public inline extern function get_CastTranslucentShadows(): Bool return this.CastTranslucentShadows;
 	public extern var bCastShadowsFromCinematicObjectsOnly(get, never): Bool;

@@ -8,10 +8,10 @@ extern class MovieSceneScriptingActorReferenceChannel extends MovieSceneScriptin
 	public function SetDefault(InDefaultValue: MovieSceneObjectBindingID): Void;
 	public function RemoveKey(Key: cpp.Star<MovieSceneScriptingKey>): Void;
 	public function RemoveDefault(): Void;
-	public function HasDefault(): cpp.Reference<Bool>;
-	public function GetKeys(): cpp.Reference<TArray<cpp.Star<MovieSceneScriptingKey>>>;
-	public function GetDefault(): cpp.Reference<MovieSceneObjectBindingID>;
-	public function AddKey(InTime: FrameNumber, NewValue: MovieSceneObjectBindingID, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): cpp.Reference<cpp.Star<MovieSceneScriptingActorReferenceKey>>;
+	public function HasDefault(): Bool;
+	public function GetKeys(): TArray<cpp.Star<MovieSceneScriptingKey>>;
+	public function GetDefault(): MovieSceneObjectBindingID;
+	public function AddKey(InTime: FrameNumber, NewValue: MovieSceneObjectBindingID, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): cpp.Star<MovieSceneScriptingActorReferenceKey>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

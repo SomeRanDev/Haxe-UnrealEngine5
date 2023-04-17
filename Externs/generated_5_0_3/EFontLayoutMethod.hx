@@ -3,8 +3,8 @@ package ue;
 
 @:native("EFontLayoutMethod")
 @:include("Fonts/CompositeFont.h")
-extern enum EFontLayoutMethod {
-	Metrics;
-	BoundingBox;
-	EFontLayoutMethod_MAX;
+extern class EFontLayoutMethod {
+	static var Metrics: EFontLayoutMethod;
+	static var BoundingBox: EFontLayoutMethod;
+	static var EFontLayoutMethod_MAX: EFontLayoutMethod;
 }

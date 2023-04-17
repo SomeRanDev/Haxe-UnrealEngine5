@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESpaceCurveControlPointFalloffType")
 @:include("Mechanics/SpaceCurveDeformationMechanic.h")
-extern enum ESpaceCurveControlPointFalloffType {
-	Linear;
-	Smooth;
-	ESpaceCurveControlPointFalloffType_MAX;
+extern class ESpaceCurveControlPointFalloffType {
+	static var Linear: ESpaceCurveControlPointFalloffType;
+	static var Smooth: ESpaceCurveControlPointFalloffType;
+	static var ESpaceCurveControlPointFalloffType_MAX: ESpaceCurveControlPointFalloffType;
 }

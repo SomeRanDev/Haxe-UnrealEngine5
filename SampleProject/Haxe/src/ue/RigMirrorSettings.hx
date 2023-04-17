@@ -5,11 +5,11 @@ package ue;
 @:include("Rigs/RigHierarchyDefines.h")
 @:structAccess
 extern class RigMirrorSettings {
-	public var MirrorAxis: EAxis;
-	public var AxisToFlip: EAxis;
+	public var MirrorAxis: TEnumAsByte<EAxis>;
+	public var AxisToFlip: TEnumAsByte<EAxis>;
 	public var SearchString: FString;
 	public var ReplaceString: FString;
 
 	@:native("FRigMirrorSettings") public function new();
-	@:native("FRigMirrorSettings") public static function make(MirrorAxis: EAxis, AxisToFlip: EAxis, SearchString: FString, ReplaceString: FString): RigMirrorSettings ;
+	@:native("FRigMirrorSettings") public static function make(MirrorAxis: TEnumAsByte<EAxis>, AxisToFlip: TEnumAsByte<EAxis>, SearchString: FString, ReplaceString: FString): RigMirrorSettings ;
 }

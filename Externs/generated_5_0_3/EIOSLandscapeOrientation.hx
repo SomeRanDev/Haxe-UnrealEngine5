@@ -3,8 +3,8 @@ package ue;
 
 @:native("EIOSLandscapeOrientation")
 @:include("IOSRuntimeSettings.h")
-extern enum EIOSLandscapeOrientation {
-	LandscapeLeft;
-	LandscapeRight;
-	EIOSLandscapeOrientation_MAX;
+extern class EIOSLandscapeOrientation {
+	static var LandscapeLeft: EIOSLandscapeOrientation;
+	static var LandscapeRight: EIOSLandscapeOrientation;
+	static var EIOSLandscapeOrientation_MAX: EIOSLandscapeOrientation;
 }

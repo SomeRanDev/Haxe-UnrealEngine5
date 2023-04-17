@@ -5,23 +5,23 @@ package ue;
 @:include("NavLinkCustomComponent.h")
 @:structAccess
 extern class NavLinkCustomComp extends NavRelevantComp {
-	public var NavLinkUserId: cpp.UInt32;
-	public var EnabledAreaClass: TSubclassOf<NavArea>;
-	public var DisabledAreaClass: TSubclassOf<NavArea>;
-	public var SupportedAgents: NavAgentSelector;
-	public var LinkRelativeStart: Vector;
-	public var LinkRelativeEnd: Vector;
-	public var LinkDirection: ENavLinkDirection;
-	public var bLinkEnabled: Bool;
-	public var bNotifyWhenEnabled: Bool;
-	public var bNotifyWhenDisabled: Bool;
-	public var bCreateBoxObstacle: Bool;
-	public var ObstacleOffset: Vector;
-	public var ObstacleExtent: Vector;
-	public var ObstacleAreaClass: TSubclassOf<NavArea>;
-	public var BroadcastRadius: cpp.Float32;
-	public var BroadcastInterval: cpp.Float32;
-	public var BroadcastChannel: ECollisionChannel;
+	@:protected public var NavLinkUserId: cpp.UInt32;
+	@:protected public var EnabledAreaClass: TSubclassOf<NavArea>;
+	@:protected public var DisabledAreaClass: TSubclassOf<NavArea>;
+	@:protected public var SupportedAgents: NavAgentSelector;
+	@:protected public var LinkRelativeStart: Vector;
+	@:protected public var LinkRelativeEnd: Vector;
+	@:protected public var LinkDirection: TEnumAsByte<ENavLinkDirection>;
+	@:protected public var bLinkEnabled: Bool;
+	@:protected public var bNotifyWhenEnabled: Bool;
+	@:protected public var bNotifyWhenDisabled: Bool;
+	@:protected public var bCreateBoxObstacle: Bool;
+	@:protected public var ObstacleOffset: Vector;
+	@:protected public var ObstacleExtent: Vector;
+	@:protected public var ObstacleAreaClass: TSubclassOf<NavArea>;
+	@:protected public var BroadcastRadius: cpp.Float32;
+	@:protected public var BroadcastInterval: cpp.Float32;
+	@:protected public var BroadcastChannel: TEnumAsByte<ECollisionChannel>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -29,40 +29,6 @@ extern class NavLinkCustomComp extends NavRelevantComp {
 @:forward()
 @:nativeGen
 abstract ConstNavLinkCustomComp(NavLinkCustomComp) from NavLinkCustomComp {
-	public extern var NavLinkUserId(get, never): cpp.UInt32;
-	public inline extern function get_NavLinkUserId(): cpp.UInt32 return this.NavLinkUserId;
-	public extern var EnabledAreaClass(get, never): TSubclassOf<NavArea.ConstNavArea>;
-	public inline extern function get_EnabledAreaClass(): TSubclassOf<NavArea.ConstNavArea> return this.EnabledAreaClass;
-	public extern var DisabledAreaClass(get, never): TSubclassOf<NavArea.ConstNavArea>;
-	public inline extern function get_DisabledAreaClass(): TSubclassOf<NavArea.ConstNavArea> return this.DisabledAreaClass;
-	public extern var SupportedAgents(get, never): NavAgentSelector;
-	public inline extern function get_SupportedAgents(): NavAgentSelector return this.SupportedAgents;
-	public extern var LinkRelativeStart(get, never): Vector;
-	public inline extern function get_LinkRelativeStart(): Vector return this.LinkRelativeStart;
-	public extern var LinkRelativeEnd(get, never): Vector;
-	public inline extern function get_LinkRelativeEnd(): Vector return this.LinkRelativeEnd;
-	public extern var LinkDirection(get, never): ENavLinkDirection;
-	public inline extern function get_LinkDirection(): ENavLinkDirection return this.LinkDirection;
-	public extern var bLinkEnabled(get, never): Bool;
-	public inline extern function get_bLinkEnabled(): Bool return this.bLinkEnabled;
-	public extern var bNotifyWhenEnabled(get, never): Bool;
-	public inline extern function get_bNotifyWhenEnabled(): Bool return this.bNotifyWhenEnabled;
-	public extern var bNotifyWhenDisabled(get, never): Bool;
-	public inline extern function get_bNotifyWhenDisabled(): Bool return this.bNotifyWhenDisabled;
-	public extern var bCreateBoxObstacle(get, never): Bool;
-	public inline extern function get_bCreateBoxObstacle(): Bool return this.bCreateBoxObstacle;
-	public extern var ObstacleOffset(get, never): Vector;
-	public inline extern function get_ObstacleOffset(): Vector return this.ObstacleOffset;
-	public extern var ObstacleExtent(get, never): Vector;
-	public inline extern function get_ObstacleExtent(): Vector return this.ObstacleExtent;
-	public extern var ObstacleAreaClass(get, never): TSubclassOf<NavArea.ConstNavArea>;
-	public inline extern function get_ObstacleAreaClass(): TSubclassOf<NavArea.ConstNavArea> return this.ObstacleAreaClass;
-	public extern var BroadcastRadius(get, never): cpp.Float32;
-	public inline extern function get_BroadcastRadius(): cpp.Float32 return this.BroadcastRadius;
-	public extern var BroadcastInterval(get, never): cpp.Float32;
-	public inline extern function get_BroadcastInterval(): cpp.Float32 return this.BroadcastInterval;
-	public extern var BroadcastChannel(get, never): ECollisionChannel;
-	public inline extern function get_BroadcastChannel(): ECollisionChannel return this.BroadcastChannel;
 }
 
 @:forward

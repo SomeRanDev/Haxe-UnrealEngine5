@@ -5,8 +5,6 @@ package ue;
 @:include("PhysicsEngine/SphylElem.h")
 @:structAccess
 extern class KSphylElem extends KShapeElem {
-	public var TM_DEPRECATED: Matrix;
-	public var Orientation_DEPRECATED: Quat;
 	public var Center: Vector;
 	public var Rotation: Rotator;
 	public var Radius: cpp.Float32;

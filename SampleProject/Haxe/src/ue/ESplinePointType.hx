@@ -3,11 +3,11 @@ package ue;
 
 @:native("ESplinePointType.Type")
 @:include("Components/SplineComponent.h")
-extern enum ESplinePointType {
-	Linear;
-	Curve;
-	Constant;
-	CurveClamped;
-	CurveCustomTangent;
-	ESplinePointType_MAX;
+extern class ESplinePointType {
+	static var Linear: ESplinePointType;
+	static var Curve: ESplinePointType;
+	static var Constant: ESplinePointType;
+	static var CurveClamped: ESplinePointType;
+	static var CurveCustomTangent: ESplinePointType;
+	static var ESplinePointType_MAX: ESplinePointType;
 }

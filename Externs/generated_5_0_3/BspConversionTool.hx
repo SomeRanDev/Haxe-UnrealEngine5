@@ -7,7 +7,7 @@ package ue;
 extern class BspConversionTool extends InteractiveTool {
 	public var Settings: cpp.Star<BspConversionToolProperties>;
 	public var ToolActions: cpp.Star<BspConversionToolActionPropertySet>;
-	public var PreviewMesh: cpp.Star<PreviewMesh>;
+	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,8 +19,6 @@ abstract ConstBspConversionTool(BspConversionTool) from BspConversionTool {
 	public inline extern function get_Settings(): cpp.Star<BspConversionToolProperties.ConstBspConversionToolProperties> return this.Settings;
 	public extern var ToolActions(get, never): cpp.Star<BspConversionToolActionPropertySet.ConstBspConversionToolActionPropertySet>;
 	public inline extern function get_ToolActions(): cpp.Star<BspConversionToolActionPropertySet.ConstBspConversionToolActionPropertySet> return this.ToolActions;
-	public extern var PreviewMesh(get, never): cpp.Star<PreviewMesh.ConstPreviewMesh>;
-	public inline extern function get_PreviewMesh(): cpp.Star<PreviewMesh.ConstPreviewMesh> return this.PreviewMesh;
 }
 
 @:forward

@@ -8,7 +8,7 @@ extern class AnimationSharingStateProcessor extends Object {
 	public var AnimationStateEnum: TSoftObjectPtr<Enum>;
 
 	public function ProcessActorState(OutState: cpp.Reference<cpp.Int32>, InActor: cpp.Star<Actor>, CurrentState: cpp.UInt8, OnDemandState: cpp.UInt8, bShouldProcess: cpp.Reference<Bool>): Void;
-	public function GetAnimationStateEnum(): cpp.Reference<cpp.Star<Enum>>;
+	public function GetAnimationStateEnum(): cpp.Star<Enum>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

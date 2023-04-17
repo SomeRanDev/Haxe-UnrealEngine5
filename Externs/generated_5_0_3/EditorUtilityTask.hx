@@ -5,15 +5,15 @@ package ue;
 @:include("EditorUtilityTask.h")
 @:structAccess
 extern class EditorUtilityTask extends Object {
-	public var MyTaskManager: cpp.Star<EditorUtilitySubsystem>;
-	public var MyParentTask: cpp.Star<EditorUtilityTask>;
-	public var bCancelRequested: Bool;
+	private var MyTaskManager: cpp.Star<EditorUtilitySubsystem>;
+	private var MyParentTask: cpp.Star<EditorUtilityTask>;
+	private var bCancelRequested: Bool;
 
-	public function WasCancelRequested(): cpp.Reference<Bool>;
+	public function WasCancelRequested(): Bool;
 	public function SetTaskNotificationText(Text: cpp.Reference<FText>): Void;
 	public function Run(): Void;
-	public function ReceiveCancelRequested(): Void;
-	public function ReceiveBeginExecution(): Void;
+	@:protected public function ReceiveCancelRequested(): Void;
+	@:protected public function ReceiveBeginExecution(): Void;
 	public function FinishExecutingTask(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -22,12 +22,6 @@ extern class EditorUtilityTask extends Object {
 @:forward(WasCancelRequested)
 @:nativeGen
 abstract ConstEditorUtilityTask(EditorUtilityTask) from EditorUtilityTask {
-	public extern var MyTaskManager(get, never): cpp.Star<EditorUtilitySubsystem.ConstEditorUtilitySubsystem>;
-	public inline extern function get_MyTaskManager(): cpp.Star<EditorUtilitySubsystem.ConstEditorUtilitySubsystem> return this.MyTaskManager;
-	public extern var MyParentTask(get, never): cpp.Star<EditorUtilityTask.ConstEditorUtilityTask>;
-	public inline extern function get_MyParentTask(): cpp.Star<EditorUtilityTask.ConstEditorUtilityTask> return this.MyParentTask;
-	public extern var bCancelRequested(get, never): Bool;
-	public inline extern function get_bCancelRequested(): Bool return this.bCancelRequested;
 }
 
 @:forward

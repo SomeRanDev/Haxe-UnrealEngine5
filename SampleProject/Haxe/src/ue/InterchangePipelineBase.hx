@@ -5,12 +5,12 @@ package ue;
 @:include("InterchangePipelineBase.h")
 @:structAccess
 extern class InterchangePipelineBase extends Object {
-	public var Results: cpp.Star<InterchangeResultsContainer>;
+	@:protected public var Results: cpp.Star<InterchangeResultsContainer>;
 
-	public function ScriptedExecutePreImportPipeline(BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer>, SourceDatas: cpp.Reference<TArray<cpp.Star<InterchangeSourceData>>>): cpp.Reference<Bool>;
-	public function ScriptedExecutePostImportPipeline(BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, NodeKey: FString, CreatedAsset: cpp.Star<Object>, bIsAReimport: Bool): cpp.Reference<Bool>;
-	public function ScriptedExecuteExportPipeline(BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer>): cpp.Reference<Bool>;
-	public function ScriptedCanExecuteOnAnyThread(PipelineTask: EInterchangePipelineTask): cpp.Reference<Bool>;
+	public function ScriptedExecutePreImportPipeline(BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer>, SourceDatas: cpp.Reference<TArray<cpp.Star<InterchangeSourceData>>>): Bool;
+	public function ScriptedExecutePostImportPipeline(BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, NodeKey: FString, CreatedAsset: cpp.Star<Object>, bIsAReimport: Bool): Bool;
+	public function ScriptedExecuteExportPipeline(BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer>): Bool;
+	public function ScriptedCanExecuteOnAnyThread(PipelineTask: EInterchangePipelineTask): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,8 +18,6 @@ extern class InterchangePipelineBase extends Object {
 @:forward()
 @:nativeGen
 abstract ConstInterchangePipelineBase(InterchangePipelineBase) from InterchangePipelineBase {
-	public extern var Results(get, never): cpp.Star<InterchangeResultsContainer.ConstInterchangeResultsContainer>;
-	public inline extern function get_Results(): cpp.Star<InterchangeResultsContainer.ConstInterchangeResultsContainer> return this.Results;
 }
 
 @:forward

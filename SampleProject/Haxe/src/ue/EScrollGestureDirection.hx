@@ -3,9 +3,9 @@ package ue;
 
 @:native("EScrollGestureDirection")
 @:include("Settings/LevelEditorViewportSettings.h")
-extern enum EScrollGestureDirection {
-	UseSystemSetting;
-	Standard;
-	Natural;
-	EScrollGestureDirection_MAX;
+extern class EScrollGestureDirection {
+	static var UseSystemSetting: EScrollGestureDirection;
+	static var Standard: EScrollGestureDirection;
+	static var Natural: EScrollGestureDirection;
+	static var EScrollGestureDirection_MAX: EScrollGestureDirection;
 }

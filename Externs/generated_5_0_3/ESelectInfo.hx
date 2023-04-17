@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESelectInfo.Type")
 @:include("Types/SlateEnums.h")
-extern enum ESelectInfo {
-	OnKeyPress;
-	OnNavigation;
-	OnMouseClick;
-	Direct;
-	ESelectInfo_MAX;
+extern class ESelectInfo {
+	static var OnKeyPress: ESelectInfo;
+	static var OnNavigation: ESelectInfo;
+	static var OnMouseClick: ESelectInfo;
+	static var Direct: ESelectInfo;
+	static var ESelectInfo_MAX: ESelectInfo;
 }

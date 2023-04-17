@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESourceBusChannels")
 @:include("Sound/SoundSourceBus.h")
-extern enum ESourceBusChannels {
-	Mono;
-	Stereo;
-	ESourceBusChannels_MAX;
+extern class ESourceBusChannels {
+	static var Mono: ESourceBusChannels;
+	static var Stereo: ESourceBusChannels;
+	static var ESourceBusChannels_MAX: ESourceBusChannels;
 }

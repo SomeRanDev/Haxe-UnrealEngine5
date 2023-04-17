@@ -9,8 +9,8 @@ extern class InterpCurvePointFloat {
 	public var OutVal: cpp.Float32;
 	public var ArriveTangent: cpp.Float32;
 	public var LeaveTangent: cpp.Float32;
-	public var InterpMode: EInterpCurveMode;
+	public var InterpMode: TEnumAsByte<EInterpCurveMode>;
 
 	@:native("FInterpCurvePointFloat") public function new();
-	@:native("FInterpCurvePointFloat") public static function make(InVal: cpp.Float32, OutVal: cpp.Float32, ArriveTangent: cpp.Float32, LeaveTangent: cpp.Float32, InterpMode: EInterpCurveMode): InterpCurvePointFloat ;
+	@:native("FInterpCurvePointFloat") public static function make(InVal: cpp.Float32, OutVal: cpp.Float32, ArriveTangent: cpp.Float32, LeaveTangent: cpp.Float32, InterpMode: TEnumAsByte<EInterpCurveMode>): InterpCurvePointFloat ;
 }

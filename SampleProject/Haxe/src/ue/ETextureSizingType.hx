@@ -3,13 +3,13 @@ package ue;
 
 @:native("ETextureSizingType")
 @:include("Engine/MaterialMerging.h")
-extern enum ETextureSizingType {
-	TextureSizingType_UseSingleTextureSize;
-	TextureSizingType_UseAutomaticBiasedSizes;
-	TextureSizingType_UseManualOverrideTextureSize;
-	TextureSizingType_UseSimplygonAutomaticSizing;
-	TextureSizingType_AutomaticFromTexelDensity;
-	TextureSizingType_AutomaticFromMeshScreenSize;
-	TextureSizingType_AutomaticFromMeshDrawDistance;
-	TextureSizingType_MAX;
+extern class ETextureSizingType {
+	static var TextureSizingType_UseSingleTextureSize: ETextureSizingType;
+	static var TextureSizingType_UseAutomaticBiasedSizes: ETextureSizingType;
+	static var TextureSizingType_UseManualOverrideTextureSize: ETextureSizingType;
+	static var TextureSizingType_UseSimplygonAutomaticSizing: ETextureSizingType;
+	static var TextureSizingType_AutomaticFromTexelDensity: ETextureSizingType;
+	static var TextureSizingType_AutomaticFromMeshScreenSize: ETextureSizingType;
+	static var TextureSizingType_AutomaticFromMeshDrawDistance: ETextureSizingType;
+	static var TextureSizingType_MAX: ETextureSizingType;
 }

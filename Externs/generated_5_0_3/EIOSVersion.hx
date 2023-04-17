@@ -3,8 +3,8 @@ package ue;
 
 @:native("EIOSVersion")
 @:include("IOSRuntimeSettings.h")
-extern enum EIOSVersion {
-	IOS_14;
-	IOS_15;
-	IOS_MAX;
+extern class EIOSVersion {
+	static var IOS_14: EIOSVersion;
+	static var IOS_15: EIOSVersion;
+	static var IOS_MAX: EIOSVersion;
 }

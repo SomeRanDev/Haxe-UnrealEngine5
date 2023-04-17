@@ -3,8 +3,8 @@ package ue;
 
 @:native("ERadialImpulseFalloff")
 @:include("Chaos/ChaosEngineInterface.h")
-extern enum ERadialImpulseFalloff {
-	RIF_Constant;
-	RIF_Linear;
-	RIF_MAX;
+extern class ERadialImpulseFalloff {
+	static var RIF_Constant: ERadialImpulseFalloff;
+	static var RIF_Linear: ERadialImpulseFalloff;
+	static var RIF_MAX: ERadialImpulseFalloff;
 }

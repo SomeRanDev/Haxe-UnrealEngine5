@@ -3,9 +3,9 @@ package ue;
 
 @:native("EBlueprintBreakpointReloadMethod")
 @:include("Kismet2/KismetDebugUtilities.h")
-extern enum EBlueprintBreakpointReloadMethod {
-	RestoreAll;
-	RestoreAllAndDisable;
-	DiscardAll;
-	EBlueprintBreakpointReloadMethod_MAX;
+extern class EBlueprintBreakpointReloadMethod {
+	static var RestoreAll: EBlueprintBreakpointReloadMethod;
+	static var RestoreAllAndDisable: EBlueprintBreakpointReloadMethod;
+	static var DiscardAll: EBlueprintBreakpointReloadMethod;
+	static var EBlueprintBreakpointReloadMethod_MAX: EBlueprintBreakpointReloadMethod;
 }

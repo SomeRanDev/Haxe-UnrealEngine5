@@ -8,8 +8,8 @@ extern class ParticleModuleCollision extends ParticleModuleCollisionBase {
 	public var DampingFactor: RawDistributionVector;
 	public var DampingFactorRotation: RawDistributionVector;
 	public var MaxCollisions: RawDistributionFloat;
-	public var CollisionCompletionOption: EParticleCollisionComplete;
-	public var CollisionTypes: TArray<EObjectTypeQuery>;
+	public var CollisionCompletionOption: TEnumAsByte<EParticleCollisionComplete>;
+	public var CollisionTypes: TArray<TEnumAsByte<EObjectTypeQuery>>;
 	public var bApplyPhysics: Bool;
 	public var bIgnoreTriggerVolumes: Bool;
 	public var ParticleMass: RawDistributionFloat;
@@ -35,10 +35,10 @@ abstract ConstParticleModuleCollision(ParticleModuleCollision) from ParticleModu
 	public inline extern function get_DampingFactorRotation(): RawDistributionVector return this.DampingFactorRotation;
 	public extern var MaxCollisions(get, never): RawDistributionFloat;
 	public inline extern function get_MaxCollisions(): RawDistributionFloat return this.MaxCollisions;
-	public extern var CollisionCompletionOption(get, never): EParticleCollisionComplete;
-	public inline extern function get_CollisionCompletionOption(): EParticleCollisionComplete return this.CollisionCompletionOption;
-	public extern var CollisionTypes(get, never): TArray<EObjectTypeQuery>;
-	public inline extern function get_CollisionTypes(): TArray<EObjectTypeQuery> return this.CollisionTypes;
+	public extern var CollisionCompletionOption(get, never): TEnumAsByte<EParticleCollisionComplete>;
+	public inline extern function get_CollisionCompletionOption(): TEnumAsByte<EParticleCollisionComplete> return this.CollisionCompletionOption;
+	public extern var CollisionTypes(get, never): TArray<TEnumAsByte<EObjectTypeQuery>>;
+	public inline extern function get_CollisionTypes(): TArray<TEnumAsByte<EObjectTypeQuery>> return this.CollisionTypes;
 	public extern var bApplyPhysics(get, never): Bool;
 	public inline extern function get_bApplyPhysics(): Bool return this.bApplyPhysics;
 	public extern var bIgnoreTriggerVolumes(get, never): Bool;

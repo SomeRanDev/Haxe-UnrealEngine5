@@ -12,7 +12,6 @@ extern class NiagaraComponentRendererProperties extends NiagaraRendererPropertie
 	public var bAssignComponentsOnParticleID: Bool;
 	public var bOnlyCreateComponentsOnParticleSpawn: Bool;
 	public var bOnlyActivateNewlyAquiredComponents: Bool;
-	public var bVisualizeComponents: Bool;
 	public var RendererVisibility: cpp.Int32;
 	public var TemplateComponent: cpp.Star<SceneComp>;
 	public var PropertyBindings: TArray<NiagaraComponentPropertyBinding>;
@@ -37,8 +36,6 @@ abstract ConstNiagaraComponentRendererProperties(NiagaraComponentRendererPropert
 	public inline extern function get_bOnlyCreateComponentsOnParticleSpawn(): Bool return this.bOnlyCreateComponentsOnParticleSpawn;
 	public extern var bOnlyActivateNewlyAquiredComponents(get, never): Bool;
 	public inline extern function get_bOnlyActivateNewlyAquiredComponents(): Bool return this.bOnlyActivateNewlyAquiredComponents;
-	public extern var bVisualizeComponents(get, never): Bool;
-	public inline extern function get_bVisualizeComponents(): Bool return this.bVisualizeComponents;
 	public extern var RendererVisibility(get, never): cpp.Int32;
 	public inline extern function get_RendererVisibility(): cpp.Int32 return this.RendererVisibility;
 	public extern var TemplateComponent(get, never): cpp.Star<SceneComp.ConstSceneComp>;

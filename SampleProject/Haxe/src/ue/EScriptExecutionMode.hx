@@ -3,9 +3,9 @@ package ue;
 
 @:native("EScriptExecutionMode")
 @:include("NiagaraEmitter.h")
-extern enum EScriptExecutionMode {
-	EveryParticle;
-	SpawnedParticles;
-	SingleParticle;
-	EScriptExecutionMode_MAX;
+extern class EScriptExecutionMode {
+	static var EveryParticle: EScriptExecutionMode;
+	static var SpawnedParticles: EScriptExecutionMode;
+	static var SingleParticle: EScriptExecutionMode;
+	static var EScriptExecutionMode_MAX: EScriptExecutionMode;
 }

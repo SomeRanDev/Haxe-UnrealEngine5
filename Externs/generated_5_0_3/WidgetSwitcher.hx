@@ -9,10 +9,10 @@ extern class WidgetSwitcher extends PanelWidget {
 
 	public function SetActiveWidgetIndex(Index: cpp.Int32): Void;
 	public function SetActiveWidget(Widget: cpp.Star<Widget>): Void;
-	public function GetWidgetAtIndex(Index: cpp.Int32): cpp.Reference<cpp.Star<Widget>>;
-	public function GetNumWidgets(): cpp.Reference<cpp.Int32>;
-	public function GetActiveWidgetIndex(): cpp.Reference<cpp.Int32>;
-	public function GetActiveWidget(): cpp.Reference<cpp.Star<Widget>>;
+	public function GetWidgetAtIndex(Index: cpp.Int32): cpp.Star<Widget>;
+	public function GetNumWidgets(): cpp.Int32;
+	public function GetActiveWidgetIndex(): cpp.Int32;
+	public function GetActiveWidget(): cpp.Star<Widget>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

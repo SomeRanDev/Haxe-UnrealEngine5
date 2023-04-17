@@ -3,11 +3,11 @@ package ue;
 
 @:native("EResonanceRenderMode")
 @:include("ResonanceAudioAmbisonicsSettings.h")
-extern enum EResonanceRenderMode {
-	StereoPanning;
-	BinauralLowQuality;
-	BinauralMediumQuality;
-	BinauralHighQuality;
-	RoomEffectsOnly;
-	EResonanceRenderMode_MAX;
+extern class EResonanceRenderMode {
+	static var StereoPanning: EResonanceRenderMode;
+	static var BinauralLowQuality: EResonanceRenderMode;
+	static var BinauralMediumQuality: EResonanceRenderMode;
+	static var BinauralHighQuality: EResonanceRenderMode;
+	static var RoomEffectsOnly: EResonanceRenderMode;
+	static var EResonanceRenderMode_MAX: EResonanceRenderMode;
 }

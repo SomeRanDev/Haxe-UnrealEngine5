@@ -3,17 +3,17 @@ package ue;
 
 @:native("ERigElementType")
 @:include("Rigs/RigHierarchyDefines.h")
-extern enum ERigElementType {
-	None;
-	Bone;
-	Null;
-	Space;
-	Control;
-	Curve;
-	RigidBody;
-	Reference;
-	Last;
-	All;
-	ToResetAfterSetupEvent;
-	ERigElementType_MAX;
+extern class ERigElementType {
+	static var None: ERigElementType;
+	static var Bone: ERigElementType;
+	static var Null: ERigElementType;
+	static var Space: ERigElementType;
+	static var Control: ERigElementType;
+	static var Curve: ERigElementType;
+	static var RigidBody: ERigElementType;
+	static var Reference: ERigElementType;
+	static var Last: ERigElementType;
+	static var All: ERigElementType;
+	static var ToResetAfterSetupEvent: ERigElementType;
+	static var ERigElementType_MAX: ERigElementType;
 }

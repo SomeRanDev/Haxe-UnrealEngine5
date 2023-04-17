@@ -5,8 +5,8 @@ package ue;
 @:include("InteractiveTool.h")
 @:structAccess
 extern class InteractiveTool extends Object {
-	public var InputBehaviors: cpp.Star<InputBehaviorSet>;
-	public var ToolPropertyObjects: TArray<cpp.Star<Object>>;
+	@:protected public var InputBehaviors: cpp.Star<InputBehaviorSet>;
+	@:protected public var ToolPropertyObjects: TArray<cpp.Star<Object>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class InteractiveTool extends Object {
 @:forward()
 @:nativeGen
 abstract ConstInteractiveTool(InteractiveTool) from InteractiveTool {
-	public extern var InputBehaviors(get, never): cpp.Star<InputBehaviorSet.ConstInputBehaviorSet>;
-	public inline extern function get_InputBehaviors(): cpp.Star<InputBehaviorSet.ConstInputBehaviorSet> return this.InputBehaviors;
-	public extern var ToolPropertyObjects(get, never): TArray<cpp.Star<Object.ConstObject>>;
-	public inline extern function get_ToolPropertyObjects(): TArray<cpp.Star<Object.ConstObject>> return this.ToolPropertyObjects;
 }
 
 @:forward

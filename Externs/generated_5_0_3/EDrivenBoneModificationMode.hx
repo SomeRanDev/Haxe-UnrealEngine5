@@ -3,9 +3,9 @@ package ue;
 
 @:native("EDrivenBoneModificationMode")
 @:include("BoneControllers/AnimNode_BoneDrivenController.h")
-extern enum EDrivenBoneModificationMode {
-	AddToInput;
-	ReplaceComponent;
-	AddToRefPose;
-	EDrivenBoneModificationMode_MAX;
+extern class EDrivenBoneModificationMode {
+	static var AddToInput: EDrivenBoneModificationMode;
+	static var ReplaceComponent: EDrivenBoneModificationMode;
+	static var AddToRefPose: EDrivenBoneModificationMode;
+	static var EDrivenBoneModificationMode_MAX: EDrivenBoneModificationMode;
 }

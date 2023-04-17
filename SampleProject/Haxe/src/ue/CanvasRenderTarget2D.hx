@@ -6,13 +6,13 @@ package ue;
 @:structAccess
 extern class CanvasRenderTarget2D extends TextureRenderTarget2D {
 	public var OnCanvasRenderTargetUpdate: HaxeMulticastSparseDelegateProperty<(cpp.Star<Canvas>, cpp.Int32, cpp.Int32) -> Void>;
-	public var World: TWeakObjectPtr<World>;
-	public var bShouldClearRenderTargetOnReceiveUpdate: Bool;
+	@:protected public var World: TWeakObjectPtr<World>;
+	@:protected public var bShouldClearRenderTargetOnReceiveUpdate: Bool;
 
 	public function UpdateResource(): Void;
 	public function ReceiveUpdate(Canvas: cpp.Star<Canvas>, Width: cpp.Int32, Height: cpp.Int32): Void;
 	public function GetSize(Width: cpp.Reference<cpp.Int32>, Height: cpp.Reference<cpp.Int32>): Void;
-	public function CreateCanvasRenderTarget2D(WorldContextObject: cpp.Star<Object>, CanvasRenderTarget2DClass: TSubclassOf<CanvasRenderTarget2D>, Width: cpp.Int32, Height: cpp.Int32): cpp.Reference<cpp.Star<CanvasRenderTarget2D>>;
+	public function CreateCanvasRenderTarget2D(WorldContextObject: cpp.Star<Object>, CanvasRenderTarget2DClass: TSubclassOf<CanvasRenderTarget2D>, Width: cpp.Int32, Height: cpp.Int32): cpp.Star<CanvasRenderTarget2D>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -22,10 +22,6 @@ extern class CanvasRenderTarget2D extends TextureRenderTarget2D {
 abstract ConstCanvasRenderTarget2D(CanvasRenderTarget2D) from CanvasRenderTarget2D {
 	public extern var OnCanvasRenderTargetUpdate(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Canvas.ConstCanvas>, cpp.Int32, cpp.Int32) -> Void>;
 	public inline extern function get_OnCanvasRenderTargetUpdate(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Canvas.ConstCanvas>, cpp.Int32, cpp.Int32) -> Void> return this.OnCanvasRenderTargetUpdate;
-	public extern var World(get, never): TWeakObjectPtr<World.ConstWorld>;
-	public inline extern function get_World(): TWeakObjectPtr<World.ConstWorld> return this.World;
-	public extern var bShouldClearRenderTargetOnReceiveUpdate(get, never): Bool;
-	public inline extern function get_bShouldClearRenderTargetOnReceiveUpdate(): Bool return this.bShouldClearRenderTargetOnReceiveUpdate;
 }
 
 @:forward

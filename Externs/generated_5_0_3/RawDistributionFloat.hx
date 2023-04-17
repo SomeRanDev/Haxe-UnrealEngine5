@@ -5,8 +5,8 @@ package ue;
 @:include("Distributions/DistributionFloat.h")
 @:structAccess
 extern class RawDistributionFloat extends RawDistribution {
-	public var MinValue: cpp.Float32;
-	public var MaxValue: cpp.Float32;
+	private var MinValue: cpp.Float32;
+	private var MaxValue: cpp.Float32;
 	public var Distribution: cpp.Star<DistributionFloat>;
 
 	@:native("FRawDistributionFloat") public function new();

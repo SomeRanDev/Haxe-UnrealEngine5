@@ -3,8 +3,8 @@ package ue;
 
 @:native("EImageComponentDebugMode")
 @:include("ARComponent.h")
-extern enum EImageComponentDebugMode {
-	None;
-	ShowDetectedImage;
-	EImageComponentDebugMode_MAX;
+extern class EImageComponentDebugMode {
+	static var None: EImageComponentDebugMode;
+	static var ShowDetectedImage: EImageComponentDebugMode;
+	static var EImageComponentDebugMode_MAX: EImageComponentDebugMode;
 }

@@ -5,9 +5,9 @@ package ue;
 @:include("DataValidationManager.h")
 @:structAccess
 extern class DataValidationManager extends Object {
-	public var ExcludedDirectories: TArray<DirectoryPath>;
-	public var bValidateOnSave: Bool;
-	public var DataValidationManagerClassName: SoftClassPath;
+	@:protected public var ExcludedDirectories: TArray<DirectoryPath>;
+	@:protected public var bValidateOnSave: Bool;
+	private var DataValidationManagerClassName: SoftClassPath;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class DataValidationManager extends Object {
 @:forward()
 @:nativeGen
 abstract ConstDataValidationManager(DataValidationManager) from DataValidationManager {
-	public extern var ExcludedDirectories(get, never): TArray<DirectoryPath>;
-	public inline extern function get_ExcludedDirectories(): TArray<DirectoryPath> return this.ExcludedDirectories;
-	public extern var bValidateOnSave(get, never): Bool;
-	public inline extern function get_bValidateOnSave(): Bool return this.bValidateOnSave;
-	public extern var DataValidationManagerClassName(get, never): SoftClassPath;
-	public inline extern function get_DataValidationManagerClassName(): SoftClassPath return this.DataValidationManagerClassName;
 }
 
 @:forward

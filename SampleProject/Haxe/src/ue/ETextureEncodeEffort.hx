@@ -3,10 +3,10 @@ package ue;
 
 @:native("ETextureEncodeEffort")
 @:include("TextureEncodingSettings.h")
-extern enum ETextureEncodeEffort {
-	Default;
-	Low;
-	Normal;
-	High;
-	ETextureEncodeEffort_MAX;
+extern class ETextureEncodeEffort {
+	static var Default: ETextureEncodeEffort;
+	static var Low: ETextureEncodeEffort;
+	static var Normal: ETextureEncodeEffort;
+	static var High: ETextureEncodeEffort;
+	static var ETextureEncodeEffort_MAX: ETextureEncodeEffort;
 }

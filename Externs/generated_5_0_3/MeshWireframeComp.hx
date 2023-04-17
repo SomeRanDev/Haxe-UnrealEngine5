@@ -23,8 +23,8 @@ extern class MeshWireframeComp extends MeshComp {
 	public var bEnableColorSeams: Bool;
 	public var ColorSeamColor: Color;
 	public var ColorSeamThickness: cpp.Float32;
-	public var LineMaterial: cpp.Star<MaterialInterface>;
-	public var LocalBounds: BoxSphereBounds;
+	private var LineMaterial: cpp.Star<MaterialInterface>;
+	private var LocalBounds: BoxSphereBounds;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -68,10 +68,6 @@ abstract ConstMeshWireframeComp(MeshWireframeComp) from MeshWireframeComp {
 	public inline extern function get_ColorSeamColor(): Color return this.ColorSeamColor;
 	public extern var ColorSeamThickness(get, never): cpp.Float32;
 	public inline extern function get_ColorSeamThickness(): cpp.Float32 return this.ColorSeamThickness;
-	public extern var LineMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_LineMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.LineMaterial;
-	public extern var LocalBounds(get, never): BoxSphereBounds;
-	public inline extern function get_LocalBounds(): BoxSphereBounds return this.LocalBounds;
 }
 
 @:forward

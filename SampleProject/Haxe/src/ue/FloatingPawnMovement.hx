@@ -9,7 +9,7 @@ extern class FloatingPawnMovement extends PawnMovementComp {
 	public var Acceleration: cpp.Float32;
 	public var Deceleration: cpp.Float32;
 	public var TurningBoost: cpp.Float32;
-	public var bPositionCorrected: Bool;
+	@:protected public var bPositionCorrected: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -25,8 +25,6 @@ abstract ConstFloatingPawnMovement(FloatingPawnMovement) from FloatingPawnMoveme
 	public inline extern function get_Deceleration(): cpp.Float32 return this.Deceleration;
 	public extern var TurningBoost(get, never): cpp.Float32;
 	public inline extern function get_TurningBoost(): cpp.Float32 return this.TurningBoost;
-	public extern var bPositionCorrected(get, never): Bool;
-	public inline extern function get_bPositionCorrected(): Bool return this.bPositionCorrected;
 }
 
 @:forward
