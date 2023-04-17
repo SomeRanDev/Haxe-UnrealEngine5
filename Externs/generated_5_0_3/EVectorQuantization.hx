@@ -3,9 +3,9 @@ package ue;
 
 @:native("EVectorQuantization")
 @:include("Engine/EngineTypes.h")
-extern enum EVectorQuantization {
-	RoundWholeNumber;
-	RoundOneDecimal;
-	RoundTwoDecimals;
-	EVectorQuantization_MAX;
+extern class EVectorQuantization {
+	static var RoundWholeNumber: EVectorQuantization;
+	static var RoundOneDecimal: EVectorQuantization;
+	static var RoundTwoDecimals: EVectorQuantization;
+	static var EVectorQuantization_MAX: EVectorQuantization;
 }

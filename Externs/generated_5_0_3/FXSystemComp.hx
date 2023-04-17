@@ -15,7 +15,7 @@ extern class FXSystemComp extends PrimitiveComp {
 	public function SetAutoAttachmentParameters(Parent: cpp.Star<SceneComp>, SocketName: FName, LocationRule: EAttachmentRule, RotationRule: EAttachmentRule, ScaleRule: EAttachmentRule): Void;
 	public function SetActorParameter(ParameterName: FName, Param: cpp.Star<Actor>): Void;
 	public function ReleaseToPool(): Void;
-	public function GetFXSystemAsset(): cpp.Reference<cpp.Star<FXSystemAsset>>;
+	public function GetFXSystemAsset(): cpp.Star<FXSystemAsset>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

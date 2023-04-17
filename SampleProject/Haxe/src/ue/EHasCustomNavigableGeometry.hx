@@ -3,10 +3,10 @@ package ue;
 
 @:native("EHasCustomNavigableGeometry.Type")
 @:include("Components/PrimitiveComponent.h")
-extern enum EHasCustomNavigableGeometry {
-	No;
-	Yes;
-	EvenIfNotCollidable;
-	DontExport;
-	EHasCustomNavigableGeometry_MAX;
+extern class EHasCustomNavigableGeometry {
+	static var No: EHasCustomNavigableGeometry;
+	static var Yes: EHasCustomNavigableGeometry;
+	static var EvenIfNotCollidable: EHasCustomNavigableGeometry;
+	static var DontExport: EHasCustomNavigableGeometry;
+	static var EHasCustomNavigableGeometry_MAX: EHasCustomNavigableGeometry;
 }

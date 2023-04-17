@@ -3,12 +3,12 @@ package ue;
 
 @:native("EQuartzTimeSignatureQuantization")
 @:include("Sound/QuartzQuantizationUtilities.h")
-extern enum EQuartzTimeSignatureQuantization {
-	HalfNote;
-	QuarterNote;
-	EighthNote;
-	SixteenthNote;
-	ThirtySecondNote;
-	Count;
-	EQuartzTimeSignatureQuantization_MAX;
+extern class EQuartzTimeSignatureQuantization {
+	static var HalfNote: EQuartzTimeSignatureQuantization;
+	static var QuarterNote: EQuartzTimeSignatureQuantization;
+	static var EighthNote: EQuartzTimeSignatureQuantization;
+	static var SixteenthNote: EQuartzTimeSignatureQuantization;
+	static var ThirtySecondNote: EQuartzTimeSignatureQuantization;
+	static var Count: EQuartzTimeSignatureQuantization;
+	static var EQuartzTimeSignatureQuantization_MAX: EQuartzTimeSignatureQuantization;
 }

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EReflectionsType")
 @:include("Engine/Scene.h")
-extern enum EReflectionsType {
-	ScreenSpace;
-	RayTracing;
-	EReflectionsType_MAX;
+extern class EReflectionsType {
+	static var ScreenSpace: EReflectionsType;
+	static var RayTracing: EReflectionsType;
+	static var EReflectionsType_MAX: EReflectionsType;
 }

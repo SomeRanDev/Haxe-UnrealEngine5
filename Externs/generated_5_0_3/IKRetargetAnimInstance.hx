@@ -5,7 +5,7 @@ package ue;
 @:include("RetargetEditor/IKRetargetAnimInstance.h")
 @:structAccess
 extern class IKRetargetAnimInstance extends AnimPreviewInstance {
-	public var IKRetargeterNode: AnimNode_RetargetPoseFromMesh;
+	@:protected public var IKRetargeterNode: AnimNode_RetargetPoseFromMesh;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class IKRetargetAnimInstance extends AnimPreviewInstance {
 @:forward()
 @:nativeGen
 abstract ConstIKRetargetAnimInstance(IKRetargetAnimInstance) from IKRetargetAnimInstance {
-	public extern var IKRetargeterNode(get, never): AnimNode_RetargetPoseFromMesh;
-	public inline extern function get_IKRetargeterNode(): AnimNode_RetargetPoseFromMesh return this.IKRetargeterNode;
 }
 
 @:forward

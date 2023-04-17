@@ -6,37 +6,37 @@ package ue;
 @:structAccess
 extern class RigHierarchyController extends Object {
 	public var bReportWarningsAndErrors: Bool;
-	public var Hierarchy: TWeakObjectPtr<RigHierarchy>;
+	private var Hierarchy: TWeakObjectPtr<RigHierarchy>;
 
-	public function SetSelection(InKeys: cpp.Reference<TArray<RigElementKey>>, bPrintPythonCommand: Bool): cpp.Reference<Bool>;
-	public function SetParent(InChild: RigElementKey, InParent: RigElementKey, bMaintainGlobalTransform: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): cpp.Reference<Bool>;
+	public function SetSelection(InKeys: cpp.Reference<TArray<RigElementKey>>, bPrintPythonCommand: Bool): Bool;
+	public function SetParent(InChild: RigElementKey, InParent: RigElementKey, bMaintainGlobalTransform: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): Bool;
 	public function SetHierarchy(InHierarchy: cpp.Star<RigHierarchy>): Void;
-	public function SetControlSettings(InKey: RigElementKey, InSettings: RigControlSettings, bSetupUndo: Bool): cpp.Reference<Bool>;
-	public function SelectElement(InKey: RigElementKey, bSelect: Bool, bClearSelection: Bool): cpp.Reference<Bool>;
-	public function RenameElement(InElement: RigElementKey, InName: FName, bSetupUndo: Bool, bPrintPythonCommand: Bool, bClearSelection: Bool): cpp.Reference<RigElementKey>;
-	public function RemoveParent(InChild: RigElementKey, InParent: RigElementKey, bMaintainGlobalTransform: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): cpp.Reference<Bool>;
-	public function RemoveElement(InElement: RigElementKey, bSetupUndo: Bool, bPrintPythonCommand: Bool): cpp.Reference<Bool>;
-	public function RemoveAllParents(InChild: RigElementKey, bMaintainGlobalTransform: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): cpp.Reference<Bool>;
-	public function MirrorElements(InKeys: TArray<RigElementKey>, InSettings: RigMirrorSettings, bSelectNewElements: Bool, bSetupUndo: Bool, bPrintPythonCommands: Bool): cpp.Reference<TArray<RigElementKey>>;
-	public function ImportFromText(InContent: FString, bReplaceExistingElements: Bool, bSelectNewElements: Bool, bSetupUndo: Bool, bPrintPythonCommands: Bool): cpp.Reference<TArray<RigElementKey>>;
-	public function ImportCurvesFromAsset(InAssetPath: FString, InNameSpace: FName, bSelectCurves: Bool, bSetupUndo: Bool): cpp.Reference<TArray<RigElementKey>>;
-	public function ImportCurves(InSkeleton: cpp.Star<Skeleton>, InNameSpace: FName, bSelectCurves: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): cpp.Reference<TArray<RigElementKey>>;
-	public function ImportBonesFromAsset(InAssetPath: FString, InNameSpace: FName, bReplaceExistingBones: Bool, bRemoveObsoleteBones: Bool, bSelectBones: Bool, bSetupUndo: Bool): cpp.Reference<TArray<RigElementKey>>;
-	public function ImportBones(InSkeleton: cpp.Star<Skeleton>, InNameSpace: FName, bReplaceExistingBones: Bool, bRemoveObsoleteBones: Bool, bSelectBones: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): cpp.Reference<TArray<RigElementKey>>;
-	public function GetHierarchy(): cpp.Reference<cpp.Star<RigHierarchy>>;
-	public function GetControlSettings(InKey: RigElementKey): cpp.Reference<RigControlSettings>;
-	public function GeneratePythonCommands(): cpp.Reference<TArray<FString>>;
-	public function ExportToText(InKeys: TArray<RigElementKey>): cpp.Reference<FString>;
-	public function ExportSelectionToText(): cpp.Reference<FString>;
-	public function DuplicateElements(InKeys: TArray<RigElementKey>, bSelectNewElements: Bool, bSetupUndo: Bool, bPrintPythonCommands: Bool): cpp.Reference<TArray<RigElementKey>>;
-	public function DeselectElement(InKey: RigElementKey): cpp.Reference<Bool>;
-	public function ClearSelection(): cpp.Reference<Bool>;
-	public function AddRigidBody(InName: FName, InParent: RigElementKey, InSettings: RigRigidBodySettings, InLocalTransform: Transform, bSetupUndo: Bool, bPrintPythonCommand: Bool): cpp.Reference<RigElementKey>;
-	public function AddParent(InChild: RigElementKey, InParent: RigElementKey, InWeight: cpp.Float32, bMaintainGlobalTransform: Bool, bSetupUndo: Bool): cpp.Reference<Bool>;
-	public function AddNull(InName: FName, InParent: RigElementKey, InTransform: Transform, bTransformInGlobal: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): cpp.Reference<RigElementKey>;
-	public function AddCurve(InName: FName, InValue: cpp.Float32, bSetupUndo: Bool, bPrintPythonCommand: Bool): cpp.Reference<RigElementKey>;
-	public function AddControl_ForBlueprint(InName: FName, InParent: RigElementKey, InSettings: RigControlSettings, InValue: RigControlValue, bSetupUndo: Bool): cpp.Reference<RigElementKey>;
-	public function AddBone(InName: FName, InParent: RigElementKey, InTransform: Transform, bTransformInGlobal: Bool, InBoneType: ERigBoneType, bSetupUndo: Bool, bPrintPythonCommand: Bool): cpp.Reference<RigElementKey>;
+	public function SetControlSettings(InKey: RigElementKey, InSettings: RigControlSettings, bSetupUndo: Bool): Bool;
+	public function SelectElement(InKey: RigElementKey, bSelect: Bool, bClearSelection: Bool): Bool;
+	public function RenameElement(InElement: RigElementKey, InName: FName, bSetupUndo: Bool, bPrintPythonCommand: Bool, bClearSelection: Bool): RigElementKey;
+	public function RemoveParent(InChild: RigElementKey, InParent: RigElementKey, bMaintainGlobalTransform: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): Bool;
+	public function RemoveElement(InElement: RigElementKey, bSetupUndo: Bool, bPrintPythonCommand: Bool): Bool;
+	public function RemoveAllParents(InChild: RigElementKey, bMaintainGlobalTransform: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): Bool;
+	public function MirrorElements(InKeys: TArray<RigElementKey>, InSettings: RigMirrorSettings, bSelectNewElements: Bool, bSetupUndo: Bool, bPrintPythonCommands: Bool): TArray<RigElementKey>;
+	public function ImportFromText(InContent: FString, bReplaceExistingElements: Bool, bSelectNewElements: Bool, bSetupUndo: Bool, bPrintPythonCommands: Bool): TArray<RigElementKey>;
+	public function ImportCurvesFromAsset(InAssetPath: FString, InNameSpace: FName, bSelectCurves: Bool, bSetupUndo: Bool): TArray<RigElementKey>;
+	public function ImportCurves(InSkeleton: cpp.Star<Skeleton>, InNameSpace: FName, bSelectCurves: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): TArray<RigElementKey>;
+	public function ImportBonesFromAsset(InAssetPath: FString, InNameSpace: FName, bReplaceExistingBones: Bool, bRemoveObsoleteBones: Bool, bSelectBones: Bool, bSetupUndo: Bool): TArray<RigElementKey>;
+	public function ImportBones(InSkeleton: cpp.Star<Skeleton>, InNameSpace: FName, bReplaceExistingBones: Bool, bRemoveObsoleteBones: Bool, bSelectBones: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): TArray<RigElementKey>;
+	public function GetHierarchy(): cpp.Star<RigHierarchy>;
+	public function GetControlSettings(InKey: RigElementKey): RigControlSettings;
+	public function GeneratePythonCommands(): TArray<FString>;
+	public function ExportToText(InKeys: TArray<RigElementKey>): FString;
+	public function ExportSelectionToText(): FString;
+	public function DuplicateElements(InKeys: TArray<RigElementKey>, bSelectNewElements: Bool, bSetupUndo: Bool, bPrintPythonCommands: Bool): TArray<RigElementKey>;
+	public function DeselectElement(InKey: RigElementKey): Bool;
+	public function ClearSelection(): Bool;
+	public function AddRigidBody(InName: FName, InParent: RigElementKey, InSettings: RigRigidBodySettings, InLocalTransform: Transform, bSetupUndo: Bool, bPrintPythonCommand: Bool): RigElementKey;
+	public function AddParent(InChild: RigElementKey, InParent: RigElementKey, InWeight: cpp.Float32, bMaintainGlobalTransform: Bool, bSetupUndo: Bool): Bool;
+	public function AddNull(InName: FName, InParent: RigElementKey, InTransform: Transform, bTransformInGlobal: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): RigElementKey;
+	public function AddCurve(InName: FName, InValue: cpp.Float32, bSetupUndo: Bool, bPrintPythonCommand: Bool): RigElementKey;
+	public function AddControl_ForBlueprint(InName: FName, InParent: RigElementKey, InSettings: RigControlSettings, InValue: RigControlValue, bSetupUndo: Bool): RigElementKey;
+	public function AddBone(InName: FName, InParent: RigElementKey, InTransform: Transform, bTransformInGlobal: Bool, InBoneType: ERigBoneType, bSetupUndo: Bool, bPrintPythonCommand: Bool): RigElementKey;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -46,8 +46,6 @@ extern class RigHierarchyController extends Object {
 abstract ConstRigHierarchyController(RigHierarchyController) from RigHierarchyController {
 	public extern var bReportWarningsAndErrors(get, never): Bool;
 	public inline extern function get_bReportWarningsAndErrors(): Bool return this.bReportWarningsAndErrors;
-	public extern var Hierarchy(get, never): TWeakObjectPtr<RigHierarchy.ConstRigHierarchy>;
-	public inline extern function get_Hierarchy(): TWeakObjectPtr<RigHierarchy.ConstRigHierarchy> return this.Hierarchy;
 }
 
 @:forward

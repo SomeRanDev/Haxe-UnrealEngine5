@@ -3,11 +3,11 @@ package ue;
 
 @:native("ECustomMaterialOutputType")
 @:include("Materials/MaterialExpressionCustom.h")
-extern enum ECustomMaterialOutputType {
-	CMOT_Float1;
-	CMOT_Float2;
-	CMOT_Float3;
-	CMOT_Float4;
-	CMOT_MaterialAttributes;
-	CMOT_MAX;
+extern class ECustomMaterialOutputType {
+	static var CMOT_Float1: ECustomMaterialOutputType;
+	static var CMOT_Float2: ECustomMaterialOutputType;
+	static var CMOT_Float3: ECustomMaterialOutputType;
+	static var CMOT_Float4: ECustomMaterialOutputType;
+	static var CMOT_MaterialAttributes: ECustomMaterialOutputType;
+	static var CMOT_MAX: ECustomMaterialOutputType;
 }

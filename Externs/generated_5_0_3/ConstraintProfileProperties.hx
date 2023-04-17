@@ -31,7 +31,7 @@ extern class ConstraintProfileProperties {
 	public var bAngularPlasticity: Bool;
 	public var bLinearBreakable: Bool;
 	public var bLinearPlasticity: Bool;
-	public var LinearPlasticityType: EConstraintPlasticityType;
+	public var LinearPlasticityType: TEnumAsByte<EConstraintPlasticityType>;
 
 	@:native("FConstraintProfileProperties") public function new();
 }

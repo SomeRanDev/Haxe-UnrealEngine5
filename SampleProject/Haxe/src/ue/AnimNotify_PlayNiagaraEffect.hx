@@ -13,7 +13,7 @@ extern class AnimNotify_PlayNiagaraEffect extends AnimNotify {
 	public var Attached: Bool;
 	public var SocketName: FName;
 
-	public function GetSpawnedEffect(): cpp.Reference<cpp.Star<FXSystemComp>>;
+	public function GetSpawnedEffect(): cpp.Star<FXSystemComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EScaleChainInitialLength")
 @:include("BoneControllers/AnimNode_ScaleChainLength.h")
-extern enum EScaleChainInitialLength {
-	FixedDefaultLengthValue;
-	Distance;
-	ChainLength;
-	EScaleChainInitialLength_MAX;
+extern class EScaleChainInitialLength {
+	static var FixedDefaultLengthValue: EScaleChainInitialLength;
+	static var Distance: EScaleChainInitialLength;
+	static var ChainLength: EScaleChainInitialLength;
+	static var EScaleChainInitialLength_MAX: EScaleChainInitialLength;
 }

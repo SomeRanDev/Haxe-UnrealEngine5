@@ -22,8 +22,8 @@ extern class BakeInputMeshProperties extends InteractiveToolPropertySet {
 	public var TargetUVLayerNamesList: TArray<FString>;
 	public var SourceUVLayerNamesList: TArray<FString>;
 
-	public function GetTargetUVLayerNamesFunc(): cpp.Reference<TArray<FString>>;
-	public function GetSourceUVLayerNamesFunc(): cpp.Reference<TArray<FString>>;
+	public function GetTargetUVLayerNamesFunc(): TArray<FString>;
+	public function GetSourceUVLayerNamesFunc(): TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

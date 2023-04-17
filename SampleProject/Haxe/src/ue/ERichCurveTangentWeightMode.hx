@@ -3,10 +3,10 @@ package ue;
 
 @:native("ERichCurveTangentWeightMode")
 @:include("Curves/RichCurve.h")
-extern enum ERichCurveTangentWeightMode {
-	RCTWM_WeightedNone;
-	RCTWM_WeightedArrive;
-	RCTWM_WeightedLeave;
-	RCTWM_WeightedBoth;
-	RCTWM_MAX;
+extern class ERichCurveTangentWeightMode {
+	static var RCTWM_WeightedNone: ERichCurveTangentWeightMode;
+	static var RCTWM_WeightedArrive: ERichCurveTangentWeightMode;
+	static var RCTWM_WeightedLeave: ERichCurveTangentWeightMode;
+	static var RCTWM_WeightedBoth: ERichCurveTangentWeightMode;
+	static var RCTWM_MAX: ERichCurveTangentWeightMode;
 }

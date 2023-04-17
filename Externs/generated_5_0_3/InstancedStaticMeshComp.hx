@@ -14,25 +14,25 @@ extern class InstancedStaticMeshComp extends StaticMeshComp {
 	public var InstanceStartCullDistance: cpp.Int32;
 	public var InstanceEndCullDistance: cpp.Int32;
 	public var InstanceReorderTable: TArray<cpp.Int32>;
-	public var NumPendingLightmaps: cpp.Int32;
-	public var CachedMappings: TArray<InstancedStaticMeshMappingInfo>;
+	@:protected public var NumPendingLightmaps: cpp.Int32;
+	@:protected public var CachedMappings: TArray<InstancedStaticMeshMappingInfo>;
 
-	public function UpdateInstanceTransform(InstanceIndex: cpp.Int32, NewInstanceTransform: cpp.Reference<Transform>, bWorldSpace: Bool, bMarkRenderStateDirty: Bool, bTeleport: Bool): cpp.Reference<Bool>;
-	public function SetCustomDataValue(InstanceIndex: cpp.Int32, CustomDataIndex: cpp.Int32, CustomDataValue: cpp.Float32, bMarkRenderStateDirty: Bool): cpp.Reference<Bool>;
+	public function UpdateInstanceTransform(InstanceIndex: cpp.Int32, NewInstanceTransform: cpp.Reference<Transform>, bWorldSpace: Bool, bMarkRenderStateDirty: Bool, bTeleport: Bool): Bool;
+	public function SetCustomDataValue(InstanceIndex: cpp.Int32, CustomDataIndex: cpp.Int32, CustomDataValue: cpp.Float32, bMarkRenderStateDirty: Bool): Bool;
 	public function SetCullDistances(StartCullDistance: cpp.Int32, EndCullDistance: cpp.Int32): Void;
-	public function RemoveInstances(InstancesToRemove: cpp.Reference<TArray<cpp.Int32>>): cpp.Reference<Bool>;
-	public function RemoveInstance(InstanceIndex: cpp.Int32): cpp.Reference<Bool>;
-	public function IsValidInstance(InstanceIndex: cpp.Int32): cpp.Reference<Bool>;
-	public function GetInstanceTransform(InstanceIndex: cpp.Int32, OutInstanceTransform: cpp.Reference<Transform>, bWorldSpace: Bool): cpp.Reference<Bool>;
-	public function GetInstancesOverlappingSphere(Center: cpp.Reference<Vector>, Radius: cpp.Float32, bSphereInWorldSpace: Bool): cpp.Reference<TArray<cpp.Int32>>;
-	public function GetInstancesOverlappingBox(Box: cpp.Reference<Box>, bBoxInWorldSpace: Bool): cpp.Reference<TArray<cpp.Int32>>;
-	public function GetInstanceCount(): cpp.Reference<cpp.Int32>;
+	public function RemoveInstances(InstancesToRemove: cpp.Reference<TArray<cpp.Int32>>): Bool;
+	public function RemoveInstance(InstanceIndex: cpp.Int32): Bool;
+	public function IsValidInstance(InstanceIndex: cpp.Int32): Bool;
+	public function GetInstanceTransform(InstanceIndex: cpp.Int32, OutInstanceTransform: cpp.Reference<Transform>, bWorldSpace: Bool): Bool;
+	public function GetInstancesOverlappingSphere(Center: cpp.Reference<Vector>, Radius: cpp.Float32, bSphereInWorldSpace: Bool): TArray<cpp.Int32>;
+	public function GetInstancesOverlappingBox(Box: cpp.Reference<Box>, bBoxInWorldSpace: Bool): TArray<cpp.Int32>;
+	public function GetInstanceCount(): cpp.Int32;
 	public function ClearInstances(): Void;
-	public function BatchUpdateInstancesTransforms(StartInstanceIndex: cpp.Int32, NewInstancesTransforms: cpp.Reference<TArray<Transform>>, bWorldSpace: Bool, bMarkRenderStateDirty: Bool, bTeleport: Bool): cpp.Reference<Bool>;
-	public function BatchUpdateInstancesTransform(StartInstanceIndex: cpp.Int32, NumInstances: cpp.Int32, NewInstancesTransform: cpp.Reference<Transform>, bWorldSpace: Bool, bMarkRenderStateDirty: Bool, bTeleport: Bool): cpp.Reference<Bool>;
-	public function AddInstanceWorldSpace(WorldTransform: cpp.Reference<Transform>): cpp.Reference<cpp.Int32>;
-	public function AddInstances(InstanceTransforms: cpp.Reference<TArray<Transform>>, bShouldReturnIndices: Bool, bWorldSpace: Bool): cpp.Reference<TArray<cpp.Int32>>;
-	public function AddInstance(InstanceTransform: cpp.Reference<Transform>, bWorldSpace: Bool): cpp.Reference<cpp.Int32>;
+	public function BatchUpdateInstancesTransforms(StartInstanceIndex: cpp.Int32, NewInstancesTransforms: cpp.Reference<TArray<Transform>>, bWorldSpace: Bool, bMarkRenderStateDirty: Bool, bTeleport: Bool): Bool;
+	public function BatchUpdateInstancesTransform(StartInstanceIndex: cpp.Int32, NumInstances: cpp.Int32, NewInstancesTransform: cpp.Reference<Transform>, bWorldSpace: Bool, bMarkRenderStateDirty: Bool, bTeleport: Bool): Bool;
+	public function AddInstanceWorldSpace(WorldTransform: cpp.Reference<Transform>): cpp.Int32;
+	public function AddInstances(InstanceTransforms: cpp.Reference<TArray<Transform>>, bShouldReturnIndices: Bool, bWorldSpace: Bool): TArray<cpp.Int32>;
+	public function AddInstance(InstanceTransform: cpp.Reference<Transform>, bWorldSpace: Bool): cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -58,10 +58,6 @@ abstract ConstInstancedStaticMeshComp(InstancedStaticMeshComp) from InstancedSta
 	public inline extern function get_InstanceEndCullDistance(): cpp.Int32 return this.InstanceEndCullDistance;
 	public extern var InstanceReorderTable(get, never): TArray<cpp.Int32>;
 	public inline extern function get_InstanceReorderTable(): TArray<cpp.Int32> return this.InstanceReorderTable;
-	public extern var NumPendingLightmaps(get, never): cpp.Int32;
-	public inline extern function get_NumPendingLightmaps(): cpp.Int32 return this.NumPendingLightmaps;
-	public extern var CachedMappings(get, never): TArray<InstancedStaticMeshMappingInfo>;
-	public inline extern function get_CachedMappings(): TArray<InstancedStaticMeshMappingInfo> return this.CachedMappings;
 }
 
 @:forward

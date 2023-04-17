@@ -9,12 +9,12 @@ extern class AnimNode_ModifyBone extends AnimNode_SkeletalControlBase {
 	public var Translation: Vector;
 	public var Rotation: Rotator;
 	public var Scale: Vector;
-	public var TranslationMode: EBoneModificationMode;
-	public var RotationMode: EBoneModificationMode;
-	public var ScaleMode: EBoneModificationMode;
-	public var TranslationSpace: EBoneControlSpace;
-	public var RotationSpace: EBoneControlSpace;
-	public var ScaleSpace: EBoneControlSpace;
+	public var TranslationMode: TEnumAsByte<EBoneModificationMode>;
+	public var RotationMode: TEnumAsByte<EBoneModificationMode>;
+	public var ScaleMode: TEnumAsByte<EBoneModificationMode>;
+	public var TranslationSpace: TEnumAsByte<EBoneControlSpace>;
+	public var RotationSpace: TEnumAsByte<EBoneControlSpace>;
+	public var ScaleSpace: TEnumAsByte<EBoneControlSpace>;
 
 	@:native("FAnimNode_ModifyBone") public function new();
 }

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EMediaPlayerRecordingNumerationStyle")
 @:include("Private/Sequencer/MediaPlayerRecording.h")
-extern enum EMediaPlayerRecordingNumerationStyle {
-	AppendFrameNumber;
-	AppendSampleTime;
-	EMediaPlayerRecordingNumerationStyle_MAX;
+extern class EMediaPlayerRecordingNumerationStyle {
+	static var AppendFrameNumber: EMediaPlayerRecordingNumerationStyle;
+	static var AppendSampleTime: EMediaPlayerRecordingNumerationStyle;
+	static var EMediaPlayerRecordingNumerationStyle_MAX: EMediaPlayerRecordingNumerationStyle;
 }

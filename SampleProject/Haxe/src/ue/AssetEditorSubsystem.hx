@@ -5,10 +5,10 @@ package ue;
 @:include("Subsystems/AssetEditorSubsystem.h")
 @:structAccess
 extern class AssetEditorSubsystem extends EditorSubsystem {
-	public var OwnedAssetEditors: TArray<cpp.Star<AssetEditor>>;
+	private var OwnedAssetEditors: TArray<cpp.Star<AssetEditor>>;
 
-	public function OpenEditorForAssets(Assets: cpp.Reference<TArray<cpp.Star<Object>>>): cpp.Reference<Bool>;
-	public function CloseAllEditorsForAsset(Asset: cpp.Star<Object>): cpp.Reference<cpp.Int32>;
+	public function OpenEditorForAssets(Assets: cpp.Reference<TArray<cpp.Star<Object>>>): Bool;
+	public function CloseAllEditorsForAsset(Asset: cpp.Star<Object>): cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,6 @@ extern class AssetEditorSubsystem extends EditorSubsystem {
 @:forward()
 @:nativeGen
 abstract ConstAssetEditorSubsystem(AssetEditorSubsystem) from AssetEditorSubsystem {
-	public extern var OwnedAssetEditors(get, never): TArray<cpp.Star<AssetEditor.ConstAssetEditor>>;
-	public inline extern function get_OwnedAssetEditors(): TArray<cpp.Star<AssetEditor.ConstAssetEditor>> return this.OwnedAssetEditors;
 }
 
 @:forward

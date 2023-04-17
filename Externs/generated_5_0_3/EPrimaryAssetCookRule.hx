@@ -3,11 +3,11 @@ package ue;
 
 @:native("EPrimaryAssetCookRule")
 @:include("Engine/AssetManagerTypes.h")
-extern enum EPrimaryAssetCookRule {
-	Unknown;
-	NeverCook;
-	DevelopmentCook;
-	DevelopmentAlwaysCook;
-	AlwaysCook;
-	EPrimaryAssetCookRule_MAX;
+extern class EPrimaryAssetCookRule {
+	static var Unknown: EPrimaryAssetCookRule;
+	static var NeverCook: EPrimaryAssetCookRule;
+	static var DevelopmentCook: EPrimaryAssetCookRule;
+	static var DevelopmentAlwaysCook: EPrimaryAssetCookRule;
+	static var AlwaysCook: EPrimaryAssetCookRule;
+	static var EPrimaryAssetCookRule_MAX: EPrimaryAssetCookRule;
 }

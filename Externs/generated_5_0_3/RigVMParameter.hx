@@ -5,12 +5,12 @@ package ue;
 @:include("RigVMCore/RigVM.h")
 @:structAccess
 extern class RigVMParameter {
-	public var Type: ERigVMParameterType;
-	public var Name: FName;
-	public var RegisterIndex: cpp.Int32;
-	public var CPPType: FString;
-	public var ScriptStruct: cpp.Star<ScriptStruct>;
-	public var ScriptStructPath: FName;
+	private var Type: ERigVMParameterType;
+	private var Name: FName;
+	private var RegisterIndex: cpp.Int32;
+	private var CPPType: FString;
+	private var ScriptStruct: cpp.Star<ScriptStruct>;
+	private var ScriptStructPath: FName;
 
 	@:native("FRigVMParameter") public function new();
 }

@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELandscapeToolHydroErosionMode")
 @:include("LandscapeEditorObject.h")
-extern enum ELandscapeToolHydroErosionMode {
-	Invalid;
-	Both;
-	Positive;
-	ELandscapeToolHydroErosionMode_MAX;
+extern class ELandscapeToolHydroErosionMode {
+	static var Invalid: ELandscapeToolHydroErosionMode;
+	static var Both: ELandscapeToolHydroErosionMode;
+	static var Positive: ELandscapeToolHydroErosionMode;
+	static var ELandscapeToolHydroErosionMode_MAX: ELandscapeToolHydroErosionMode;
 }

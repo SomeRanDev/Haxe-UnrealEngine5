@@ -5,9 +5,9 @@ package ue;
 @:include("CombineMeshesTool.h")
 @:structAccess
 extern class CombineMeshesTool extends MultiSelectionMeshEditingTool {
-	public var BasicProperties: cpp.Star<CombineMeshesToolProperties>;
-	public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
-	public var HandleSourceProperties: cpp.Star<OnAcceptHandleSourcesPropertiesBase>;
+	@:protected public var BasicProperties: cpp.Star<CombineMeshesToolProperties>;
+	@:protected public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
+	@:protected public var HandleSourceProperties: cpp.Star<OnAcceptHandleSourcesPropertiesBase>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class CombineMeshesTool extends MultiSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstCombineMeshesTool(CombineMeshesTool) from CombineMeshesTool {
-	public extern var BasicProperties(get, never): cpp.Star<CombineMeshesToolProperties.ConstCombineMeshesToolProperties>;
-	public inline extern function get_BasicProperties(): cpp.Star<CombineMeshesToolProperties.ConstCombineMeshesToolProperties> return this.BasicProperties;
-	public extern var OutputTypeProperties(get, never): cpp.Star<CreateMeshObjectTypeProperties.ConstCreateMeshObjectTypeProperties>;
-	public inline extern function get_OutputTypeProperties(): cpp.Star<CreateMeshObjectTypeProperties.ConstCreateMeshObjectTypeProperties> return this.OutputTypeProperties;
-	public extern var HandleSourceProperties(get, never): cpp.Star<OnAcceptHandleSourcesPropertiesBase.ConstOnAcceptHandleSourcesPropertiesBase>;
-	public inline extern function get_HandleSourceProperties(): cpp.Star<OnAcceptHandleSourcesPropertiesBase.ConstOnAcceptHandleSourcesPropertiesBase> return this.HandleSourceProperties;
 }
 
 @:forward

@@ -3,13 +3,13 @@ package ue;
 
 @:native("EBlendMode")
 @:include("Engine/EngineTypes.h")
-extern enum EBlendMode {
-	BLEND_Opaque;
-	BLEND_Masked;
-	BLEND_Translucent;
-	BLEND_Additive;
-	BLEND_Modulate;
-	BLEND_AlphaComposite;
-	BLEND_AlphaHoldout;
-	BLEND_MAX;
+extern class EBlendMode {
+	static var BLEND_Opaque: EBlendMode;
+	static var BLEND_Masked: EBlendMode;
+	static var BLEND_Translucent: EBlendMode;
+	static var BLEND_Additive: EBlendMode;
+	static var BLEND_Modulate: EBlendMode;
+	static var BLEND_AlphaComposite: EBlendMode;
+	static var BLEND_AlphaHoldout: EBlendMode;
+	static var BLEND_MAX: EBlendMode;
 }

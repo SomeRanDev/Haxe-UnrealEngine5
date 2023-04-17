@@ -3,11 +3,11 @@ package ue;
 
 @:native("ENiagaraNumericOutputTypeSelectionMode")
 @:include("NiagaraTypes.h")
-extern enum ENiagaraNumericOutputTypeSelectionMode {
-	None;
-	Largest;
-	Smallest;
-	Scalar;
-	Custom;
-	ENiagaraNumericOutputTypeSelectionMode_MAX;
+extern class ENiagaraNumericOutputTypeSelectionMode {
+	static var None: ENiagaraNumericOutputTypeSelectionMode;
+	static var Largest: ENiagaraNumericOutputTypeSelectionMode;
+	static var Smallest: ENiagaraNumericOutputTypeSelectionMode;
+	static var Scalar: ENiagaraNumericOutputTypeSelectionMode;
+	static var Custom: ENiagaraNumericOutputTypeSelectionMode;
+	static var ENiagaraNumericOutputTypeSelectionMode_MAX: ENiagaraNumericOutputTypeSelectionMode;
 }

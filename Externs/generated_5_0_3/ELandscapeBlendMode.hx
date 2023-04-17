@@ -3,8 +3,8 @@ package ue;
 
 @:native("ELandscapeBlendMode")
 @:include("Landscape.h")
-extern enum ELandscapeBlendMode {
-	LSBM_AdditiveBlend;
-	LSBM_AlphaBlend;
-	LSBM_MAX;
+extern class ELandscapeBlendMode {
+	static var LSBM_AdditiveBlend: ELandscapeBlendMode;
+	static var LSBM_AlphaBlend: ELandscapeBlendMode;
+	static var LSBM_MAX: ELandscapeBlendMode;
 }

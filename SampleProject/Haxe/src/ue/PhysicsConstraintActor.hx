@@ -5,10 +5,7 @@ package ue;
 @:include("PhysicsEngine/PhysicsConstraintActor.h")
 @:structAccess
 extern class PhysicsConstraintActor extends RigidBodyBase {
-	public var ConstraintComp: cpp.Star<PhysicsConstraintComp>;
-	public var ConstraintActor1_DEPRECATED: cpp.Star<Actor>;
-	public var ConstraintActor2_DEPRECATED: cpp.Star<Actor>;
-	public var bDisableCollision_DEPRECATED: Bool;
+	private var ConstraintComp: cpp.Star<PhysicsConstraintComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +13,6 @@ extern class PhysicsConstraintActor extends RigidBodyBase {
 @:forward()
 @:nativeGen
 abstract ConstPhysicsConstraintActor(PhysicsConstraintActor) from PhysicsConstraintActor {
-	public extern var ConstraintComp(get, never): cpp.Star<PhysicsConstraintComp.ConstPhysicsConstraintComp>;
-	public inline extern function get_ConstraintComp(): cpp.Star<PhysicsConstraintComp.ConstPhysicsConstraintComp> return this.ConstraintComp;
-	public extern var ConstraintActor1_DEPRECATED(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_ConstraintActor1_DEPRECATED(): cpp.Star<Actor.ConstActor> return this.ConstraintActor1_DEPRECATED;
-	public extern var ConstraintActor2_DEPRECATED(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_ConstraintActor2_DEPRECATED(): cpp.Star<Actor.ConstActor> return this.ConstraintActor2_DEPRECATED;
-	public extern var bDisableCollision_DEPRECATED(get, never): Bool;
-	public inline extern function get_bDisableCollision_DEPRECATED(): Bool return this.bDisableCollision_DEPRECATED;
 }
 
 @:forward

@@ -5,11 +5,9 @@ package ue;
 @:include("Engine/SimpleConstructionScript.h")
 @:structAccess
 extern class SimpleConstructionScript extends Object {
-	public var RootNodes: TArray<cpp.Star<SCS_Node>>;
-	public var AllNodes: TArray<cpp.Star<SCS_Node>>;
-	public var DefaultSceneRootNode: cpp.Star<SCS_Node>;
-	public var RootNode_DEPRECATED: cpp.Star<SCS_Node>;
-	public var ActorComponentNodes_DEPRECATED: TArray<cpp.Star<SCS_Node>>;
+	private var RootNodes: TArray<cpp.Star<SCS_Node>>;
+	private var AllNodes: TArray<cpp.Star<SCS_Node>>;
+	private var DefaultSceneRootNode: cpp.Star<SCS_Node>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,16 +15,6 @@ extern class SimpleConstructionScript extends Object {
 @:forward()
 @:nativeGen
 abstract ConstSimpleConstructionScript(SimpleConstructionScript) from SimpleConstructionScript {
-	public extern var RootNodes(get, never): TArray<cpp.Star<SCS_Node.ConstSCS_Node>>;
-	public inline extern function get_RootNodes(): TArray<cpp.Star<SCS_Node.ConstSCS_Node>> return this.RootNodes;
-	public extern var AllNodes(get, never): TArray<cpp.Star<SCS_Node.ConstSCS_Node>>;
-	public inline extern function get_AllNodes(): TArray<cpp.Star<SCS_Node.ConstSCS_Node>> return this.AllNodes;
-	public extern var DefaultSceneRootNode(get, never): cpp.Star<SCS_Node.ConstSCS_Node>;
-	public inline extern function get_DefaultSceneRootNode(): cpp.Star<SCS_Node.ConstSCS_Node> return this.DefaultSceneRootNode;
-	public extern var RootNode_DEPRECATED(get, never): cpp.Star<SCS_Node.ConstSCS_Node>;
-	public inline extern function get_RootNode_DEPRECATED(): cpp.Star<SCS_Node.ConstSCS_Node> return this.RootNode_DEPRECATED;
-	public extern var ActorComponentNodes_DEPRECATED(get, never): TArray<cpp.Star<SCS_Node.ConstSCS_Node>>;
-	public inline extern function get_ActorComponentNodes_DEPRECATED(): TArray<cpp.Star<SCS_Node.ConstSCS_Node>> return this.ActorComponentNodes_DEPRECATED;
 }
 
 @:forward

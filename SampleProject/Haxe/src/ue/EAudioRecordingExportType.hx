@@ -3,8 +3,8 @@ package ue;
 
 @:native("EAudioRecordingExportType")
 @:include("Sound/SoundSubmixSend.h")
-extern enum EAudioRecordingExportType {
-	SoundWave;
-	WavFile;
-	EAudioRecordingExportType_MAX;
+extern class EAudioRecordingExportType {
+	static var SoundWave: EAudioRecordingExportType;
+	static var WavFile: EAudioRecordingExportType;
+	static var EAudioRecordingExportType_MAX: EAudioRecordingExportType;
 }

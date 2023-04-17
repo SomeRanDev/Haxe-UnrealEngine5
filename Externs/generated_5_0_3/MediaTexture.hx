@@ -5,25 +5,25 @@ package ue;
 @:include("MediaTexture.h")
 @:structAccess
 extern class MediaTexture extends Texture {
-	public var AddressX: TextureAddress;
-	public var AddressY: TextureAddress;
+	public var AddressX: TEnumAsByte<TextureAddress>;
+	public var AddressY: TEnumAsByte<TextureAddress>;
 	public var AutoClear: Bool;
 	public var ClearColor: LinearColor;
 	public var EnableGenMips: Bool;
 	public var NumMips: cpp.UInt8;
 	public var NewStyleOutput: Bool;
-	public var OutputFormat: MediaTextureOutputFormat;
+	public var OutputFormat: TEnumAsByte<MediaTextureOutputFormat>;
 	public var CurrentAspectRatio: cpp.Float32;
-	public var CurrentOrientation: MediaTextureOrientation;
-	public var MediaPlayer: cpp.Star<MediaPlayer>;
+	public var CurrentOrientation: TEnumAsByte<MediaTextureOrientation>;
+	@:protected public var MediaPlayer: cpp.Star<MediaPlayer>;
 
 	public function UpdateResource(): Void;
 	public function SetMediaPlayer(NewMediaPlayer: cpp.Star<MediaPlayer>): Void;
-	public function GetWidth(): cpp.Reference<cpp.Int32>;
-	public function GetTextureNumMips(): cpp.Reference<cpp.Int32>;
-	public function GetMediaPlayer(): cpp.Reference<cpp.Star<MediaPlayer>>;
-	public function GetHeight(): cpp.Reference<cpp.Int32>;
-	public function GetAspectRatio(): cpp.Reference<cpp.Float32>;
+	public function GetWidth(): cpp.Int32;
+	public function GetTextureNumMips(): cpp.Int32;
+	public function GetMediaPlayer(): cpp.Star<MediaPlayer>;
+	public function GetHeight(): cpp.Int32;
+	public function GetAspectRatio(): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -31,10 +31,10 @@ extern class MediaTexture extends Texture {
 @:forward(GetWidth, GetTextureNumMips, GetMediaPlayer, GetHeight, GetAspectRatio)
 @:nativeGen
 abstract ConstMediaTexture(MediaTexture) from MediaTexture {
-	public extern var AddressX(get, never): TextureAddress;
-	public inline extern function get_AddressX(): TextureAddress return this.AddressX;
-	public extern var AddressY(get, never): TextureAddress;
-	public inline extern function get_AddressY(): TextureAddress return this.AddressY;
+	public extern var AddressX(get, never): TEnumAsByte<TextureAddress>;
+	public inline extern function get_AddressX(): TEnumAsByte<TextureAddress> return this.AddressX;
+	public extern var AddressY(get, never): TEnumAsByte<TextureAddress>;
+	public inline extern function get_AddressY(): TEnumAsByte<TextureAddress> return this.AddressY;
 	public extern var AutoClear(get, never): Bool;
 	public inline extern function get_AutoClear(): Bool return this.AutoClear;
 	public extern var ClearColor(get, never): LinearColor;
@@ -45,14 +45,12 @@ abstract ConstMediaTexture(MediaTexture) from MediaTexture {
 	public inline extern function get_NumMips(): cpp.UInt8 return this.NumMips;
 	public extern var NewStyleOutput(get, never): Bool;
 	public inline extern function get_NewStyleOutput(): Bool return this.NewStyleOutput;
-	public extern var OutputFormat(get, never): MediaTextureOutputFormat;
-	public inline extern function get_OutputFormat(): MediaTextureOutputFormat return this.OutputFormat;
+	public extern var OutputFormat(get, never): TEnumAsByte<MediaTextureOutputFormat>;
+	public inline extern function get_OutputFormat(): TEnumAsByte<MediaTextureOutputFormat> return this.OutputFormat;
 	public extern var CurrentAspectRatio(get, never): cpp.Float32;
 	public inline extern function get_CurrentAspectRatio(): cpp.Float32 return this.CurrentAspectRatio;
-	public extern var CurrentOrientation(get, never): MediaTextureOrientation;
-	public inline extern function get_CurrentOrientation(): MediaTextureOrientation return this.CurrentOrientation;
-	public extern var MediaPlayer(get, never): cpp.Star<MediaPlayer.ConstMediaPlayer>;
-	public inline extern function get_MediaPlayer(): cpp.Star<MediaPlayer.ConstMediaPlayer> return this.MediaPlayer;
+	public extern var CurrentOrientation(get, never): TEnumAsByte<MediaTextureOrientation>;
+	public inline extern function get_CurrentOrientation(): TEnumAsByte<MediaTextureOrientation> return this.CurrentOrientation;
 }
 
 @:forward

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAudioOutputTarget.Type")
 @:include("Sound/AudioOutputTarget.h")
-extern enum EAudioOutputTarget {
-	Speaker;
-	Controller;
-	ControllerFallbackToSpeaker;
-	EAudioOutputTarget_MAX;
+extern class EAudioOutputTarget {
+	static var Speaker: EAudioOutputTarget;
+	static var Controller: EAudioOutputTarget;
+	static var ControllerFallbackToSpeaker: EAudioOutputTarget;
+	static var EAudioOutputTarget_MAX: EAudioOutputTarget;
 }

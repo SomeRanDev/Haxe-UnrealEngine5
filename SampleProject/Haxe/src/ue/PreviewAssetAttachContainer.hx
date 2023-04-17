@@ -5,7 +5,7 @@ package ue;
 @:include("Animation/PreviewAssetAttachComponent.h")
 @:structAccess
 extern class PreviewAssetAttachContainer {
-	public var AttachedObjects: TArray<PreviewAttachedObjectPair>;
+	private var AttachedObjects: TArray<PreviewAttachedObjectPair>;
 
 	@:native("FPreviewAssetAttachContainer") public function new();
 	@:native("FPreviewAssetAttachContainer") public static function make(AttachedObjects: TArray<PreviewAttachedObjectPair>): PreviewAssetAttachContainer ;

@@ -5,12 +5,12 @@ package ue;
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_Cone.h")
 @:structAccess
 extern class EnvQueryGenerator_Cone extends EnvQueryGenerator_ProjectedPoints {
-	public var AlignedPointsDistance: AIDataProviderFloatValue;
-	public var ConeDegrees: AIDataProviderFloatValue;
-	public var AngleStep: AIDataProviderFloatValue;
-	public var Range: AIDataProviderFloatValue;
-	public var CenterActor: TSubclassOf<EnvQueryContext>;
-	public var bIncludeContextLocation: Bool;
+	@:protected public var AlignedPointsDistance: AIDataProviderFloatValue;
+	@:protected public var ConeDegrees: AIDataProviderFloatValue;
+	@:protected public var AngleStep: AIDataProviderFloatValue;
+	@:protected public var Range: AIDataProviderFloatValue;
+	@:protected public var CenterActor: TSubclassOf<EnvQueryContext>;
+	@:protected public var bIncludeContextLocation: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,18 +18,6 @@ extern class EnvQueryGenerator_Cone extends EnvQueryGenerator_ProjectedPoints {
 @:forward()
 @:nativeGen
 abstract ConstEnvQueryGenerator_Cone(EnvQueryGenerator_Cone) from EnvQueryGenerator_Cone {
-	public extern var AlignedPointsDistance(get, never): AIDataProviderFloatValue;
-	public inline extern function get_AlignedPointsDistance(): AIDataProviderFloatValue return this.AlignedPointsDistance;
-	public extern var ConeDegrees(get, never): AIDataProviderFloatValue;
-	public inline extern function get_ConeDegrees(): AIDataProviderFloatValue return this.ConeDegrees;
-	public extern var AngleStep(get, never): AIDataProviderFloatValue;
-	public inline extern function get_AngleStep(): AIDataProviderFloatValue return this.AngleStep;
-	public extern var Range(get, never): AIDataProviderFloatValue;
-	public inline extern function get_Range(): AIDataProviderFloatValue return this.Range;
-	public extern var CenterActor(get, never): TSubclassOf<EnvQueryContext.ConstEnvQueryContext>;
-	public inline extern function get_CenterActor(): TSubclassOf<EnvQueryContext.ConstEnvQueryContext> return this.CenterActor;
-	public extern var bIncludeContextLocation(get, never): Bool;
-	public inline extern function get_bIncludeContextLocation(): Bool return this.bIncludeContextLocation;
 }
 
 @:forward

@@ -9,8 +9,8 @@ extern class EnvOverlapData {
 	public var ExtentY: cpp.Float32;
 	public var ExtentZ: cpp.Float32;
 	public var ShapeOffset: Vector;
-	public var OverlapChannel: ECollisionChannel;
-	public var OverlapShape: EEnvOverlapShape;
+	public var OverlapChannel: TEnumAsByte<ECollisionChannel>;
+	public var OverlapShape: TEnumAsByte<EEnvOverlapShape>;
 	public var bOnlyBlockingHits: Bool;
 	public var bOverlapComplex: Bool;
 	public var bSkipOverlapQuerier: Bool;

@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENiagaraSystemSpawnSectionEndBehavior")
 @:include("MovieScene/MovieSceneNiagaraSystemSpawnSection.h")
-extern enum ENiagaraSystemSpawnSectionEndBehavior {
-	SetSystemInactive;
-	Deactivate;
-	None;
-	ENiagaraSystemSpawnSectionEndBehavior_MAX;
+extern class ENiagaraSystemSpawnSectionEndBehavior {
+	static var SetSystemInactive: ENiagaraSystemSpawnSectionEndBehavior;
+	static var Deactivate: ENiagaraSystemSpawnSectionEndBehavior;
+	static var None: ENiagaraSystemSpawnSectionEndBehavior;
+	static var ENiagaraSystemSpawnSectionEndBehavior_MAX: ENiagaraSystemSpawnSectionEndBehavior;
 }

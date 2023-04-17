@@ -9,7 +9,6 @@ extern class Throbber extends Widget {
 	public var bAnimateHorizontally: Bool;
 	public var bAnimateVertically: Bool;
 	public var bAnimateOpacity: Bool;
-	public var PieceImage_DEPRECATED: cpp.Star<SlateBrushAsset>;
 	public var Image: SlateBrush;
 
 	public function SetNumberOfPieces(InNumberOfPieces: cpp.Int32): Void;
@@ -31,8 +30,6 @@ abstract ConstThrobber(Throbber) from Throbber {
 	public inline extern function get_bAnimateVertically(): Bool return this.bAnimateVertically;
 	public extern var bAnimateOpacity(get, never): Bool;
 	public inline extern function get_bAnimateOpacity(): Bool return this.bAnimateOpacity;
-	public extern var PieceImage_DEPRECATED(get, never): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset>;
-	public inline extern function get_PieceImage_DEPRECATED(): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset> return this.PieceImage_DEPRECATED;
 	public extern var Image(get, never): SlateBrush;
 	public inline extern function get_Image(): SlateBrush return this.Image;
 }

@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class SpriteGeometryCollection {
 	public var Shapes: TArray<SpriteGeometryShape>;
-	public var GeometryType: ESpritePolygonMode;
+	public var GeometryType: TEnumAsByte<ESpritePolygonMode>;
 	public var PixelsPerSubdivisionX: cpp.Int32;
 	public var PixelsPerSubdivisionY: cpp.Int32;
 	public var bAvoidVertexMerging: Bool;

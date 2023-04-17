@@ -3,8 +3,8 @@ package ue;
 
 @:native("EHairCardsSourceType")
 @:include("GroomAssetCards.h")
-extern enum EHairCardsSourceType {
-	Procedural;
-	Imported;
-	EHairCardsSourceType_MAX;
+extern class EHairCardsSourceType {
+	static var Procedural: EHairCardsSourceType;
+	static var Imported: EHairCardsSourceType;
+	static var EHairCardsSourceType_MAX: EHairCardsSourceType;
 }

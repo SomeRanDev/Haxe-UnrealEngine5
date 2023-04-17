@@ -3,9 +3,9 @@ package ue;
 
 @:native("EWidgetCompileTimeTickPrediction")
 @:include("WidgetBlueprint.h")
-extern enum EWidgetCompileTimeTickPrediction {
-	WontTick;
-	OnDemand;
-	WillTick;
-	EWidgetCompileTimeTickPrediction_MAX;
+extern class EWidgetCompileTimeTickPrediction {
+	static var WontTick: EWidgetCompileTimeTickPrediction;
+	static var OnDemand: EWidgetCompileTimeTickPrediction;
+	static var WillTick: EWidgetCompileTimeTickPrediction;
+	static var EWidgetCompileTimeTickPrediction_MAX: EWidgetCompileTimeTickPrediction;
 }

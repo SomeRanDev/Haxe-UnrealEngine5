@@ -5,12 +5,10 @@ package ue;
 @:include("Settings/EditorLoadingSavingSettings.h")
 @:structAccess
 extern class EditorLoadingSavingSettings extends Object {
-	public var LoadLevelAtStartup: ELoadLevelAtStartup;
+	public var LoadLevelAtStartup: TEnumAsByte<ELoadLevelAtStartup>;
 	public var bForceCompilationAtStartup: Bool;
 	public var bRestoreOpenAssetTabsOnRestart: Bool;
-	public var bEnableSourceControlCompatabilityCheck_DEPRECATED: Bool;
 	public var bMonitorContentDirectories: Bool;
-	public var AutoReimportDirectories_DEPRECATED: TArray<FString>;
 	public var AutoReimportDirectorySettings: TArray<AutoReimportDirectoryConfig>;
 	public var AutoReimportThreshold: cpp.Float32;
 	public var bAutoCreateAssets: Bool;
@@ -18,8 +16,6 @@ extern class EditorLoadingSavingSettings extends Object {
 	public var bDetectChangesOnStartup: Bool;
 	public var bPromptBeforeAutoImporting: Bool;
 	public var bDeleteSourceFilesWithAssets: Bool;
-	public var bAutoReimportTextures_DEPRECATED: Bool;
-	public var bAutoReimportCSV_DEPRECATED: Bool;
 	public var bDirtyMigratedBlueprints: Bool;
 	public var bAutoSaveEnable: Bool;
 	public var bAutoSaveMaps: Bool;
@@ -39,18 +35,14 @@ extern class EditorLoadingSavingSettings extends Object {
 @:forward()
 @:nativeGen
 abstract ConstEditorLoadingSavingSettings(EditorLoadingSavingSettings) from EditorLoadingSavingSettings {
-	public extern var LoadLevelAtStartup(get, never): ELoadLevelAtStartup;
-	public inline extern function get_LoadLevelAtStartup(): ELoadLevelAtStartup return this.LoadLevelAtStartup;
+	public extern var LoadLevelAtStartup(get, never): TEnumAsByte<ELoadLevelAtStartup>;
+	public inline extern function get_LoadLevelAtStartup(): TEnumAsByte<ELoadLevelAtStartup> return this.LoadLevelAtStartup;
 	public extern var bForceCompilationAtStartup(get, never): Bool;
 	public inline extern function get_bForceCompilationAtStartup(): Bool return this.bForceCompilationAtStartup;
 	public extern var bRestoreOpenAssetTabsOnRestart(get, never): Bool;
 	public inline extern function get_bRestoreOpenAssetTabsOnRestart(): Bool return this.bRestoreOpenAssetTabsOnRestart;
-	public extern var bEnableSourceControlCompatabilityCheck_DEPRECATED(get, never): Bool;
-	public inline extern function get_bEnableSourceControlCompatabilityCheck_DEPRECATED(): Bool return this.bEnableSourceControlCompatabilityCheck_DEPRECATED;
 	public extern var bMonitorContentDirectories(get, never): Bool;
 	public inline extern function get_bMonitorContentDirectories(): Bool return this.bMonitorContentDirectories;
-	public extern var AutoReimportDirectories_DEPRECATED(get, never): TArray<FString>;
-	public inline extern function get_AutoReimportDirectories_DEPRECATED(): TArray<FString> return this.AutoReimportDirectories_DEPRECATED;
 	public extern var AutoReimportDirectorySettings(get, never): TArray<AutoReimportDirectoryConfig>;
 	public inline extern function get_AutoReimportDirectorySettings(): TArray<AutoReimportDirectoryConfig> return this.AutoReimportDirectorySettings;
 	public extern var AutoReimportThreshold(get, never): cpp.Float32;
@@ -65,10 +57,6 @@ abstract ConstEditorLoadingSavingSettings(EditorLoadingSavingSettings) from Edit
 	public inline extern function get_bPromptBeforeAutoImporting(): Bool return this.bPromptBeforeAutoImporting;
 	public extern var bDeleteSourceFilesWithAssets(get, never): Bool;
 	public inline extern function get_bDeleteSourceFilesWithAssets(): Bool return this.bDeleteSourceFilesWithAssets;
-	public extern var bAutoReimportTextures_DEPRECATED(get, never): Bool;
-	public inline extern function get_bAutoReimportTextures_DEPRECATED(): Bool return this.bAutoReimportTextures_DEPRECATED;
-	public extern var bAutoReimportCSV_DEPRECATED(get, never): Bool;
-	public inline extern function get_bAutoReimportCSV_DEPRECATED(): Bool return this.bAutoReimportCSV_DEPRECATED;
 	public extern var bDirtyMigratedBlueprints(get, never): Bool;
 	public inline extern function get_bDirtyMigratedBlueprints(): Bool return this.bDirtyMigratedBlueprints;
 	public extern var bAutoSaveEnable(get, never): Bool;

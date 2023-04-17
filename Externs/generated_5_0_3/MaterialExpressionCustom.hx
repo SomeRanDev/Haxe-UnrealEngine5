@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class MaterialExpressionCustom extends MaterialExpression {
 	public var Code: FString;
-	public var OutputType: ECustomMaterialOutputType;
+	public var OutputType: TEnumAsByte<ECustomMaterialOutputType>;
 	public var Description: FString;
 	public var Inputs: TArray<CustomInput>;
 	public var AdditionalOutputs: TArray<CustomOutput>;
@@ -21,8 +21,8 @@ extern class MaterialExpressionCustom extends MaterialExpression {
 abstract ConstMaterialExpressionCustom(MaterialExpressionCustom) from MaterialExpressionCustom {
 	public extern var Code(get, never): FString;
 	public inline extern function get_Code(): FString return this.Code;
-	public extern var OutputType(get, never): ECustomMaterialOutputType;
-	public inline extern function get_OutputType(): ECustomMaterialOutputType return this.OutputType;
+	public extern var OutputType(get, never): TEnumAsByte<ECustomMaterialOutputType>;
+	public inline extern function get_OutputType(): TEnumAsByte<ECustomMaterialOutputType> return this.OutputType;
 	public extern var Description(get, never): FString;
 	public inline extern function get_Description(): FString return this.Description;
 	public extern var Inputs(get, never): TArray<CustomInput>;

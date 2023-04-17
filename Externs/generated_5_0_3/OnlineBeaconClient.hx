@@ -5,11 +5,11 @@ package ue;
 @:include("OnlineBeaconClient.h")
 @:structAccess
 extern class OnlineBeaconClient extends OnlineBeacon {
-	public var BeaconOwner: cpp.Star<OnlineBeaconHostObject>;
-	public var BeaconConnection: cpp.Star<NetConnection>;
-	public var ConnectionState: EBeaconConnectionState;
+	@:protected public var BeaconOwner: cpp.Star<OnlineBeaconHostObject>;
+	@:protected public var BeaconConnection: cpp.Star<NetConnection>;
+	@:protected public var ConnectionState: EBeaconConnectionState;
 
-	public function ClientOnConnected(): Void;
+	private function ClientOnConnected(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,12 +17,6 @@ extern class OnlineBeaconClient extends OnlineBeacon {
 @:forward()
 @:nativeGen
 abstract ConstOnlineBeaconClient(OnlineBeaconClient) from OnlineBeaconClient {
-	public extern var BeaconOwner(get, never): cpp.Star<OnlineBeaconHostObject.ConstOnlineBeaconHostObject>;
-	public inline extern function get_BeaconOwner(): cpp.Star<OnlineBeaconHostObject.ConstOnlineBeaconHostObject> return this.BeaconOwner;
-	public extern var BeaconConnection(get, never): cpp.Star<NetConnection.ConstNetConnection>;
-	public inline extern function get_BeaconConnection(): cpp.Star<NetConnection.ConstNetConnection> return this.BeaconConnection;
-	public extern var ConnectionState(get, never): EBeaconConnectionState;
-	public inline extern function get_ConnectionState(): EBeaconConnectionState return this.ConnectionState;
 }
 
 @:forward

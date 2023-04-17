@@ -3,14 +3,14 @@ package ue;
 
 @:native("EMaterialDecalResponse")
 @:include("Materials/Material.h")
-extern enum EMaterialDecalResponse {
-	MDR_None;
-	MDR_ColorNormalRoughness;
-	MDR_Color;
-	MDR_ColorNormal;
-	MDR_ColorRoughness;
-	MDR_Normal;
-	MDR_NormalRoughness;
-	MDR_Roughness;
-	MDR_MAX;
+extern class EMaterialDecalResponse {
+	static var MDR_None: EMaterialDecalResponse;
+	static var MDR_ColorNormalRoughness: EMaterialDecalResponse;
+	static var MDR_Color: EMaterialDecalResponse;
+	static var MDR_ColorNormal: EMaterialDecalResponse;
+	static var MDR_ColorRoughness: EMaterialDecalResponse;
+	static var MDR_Normal: EMaterialDecalResponse;
+	static var MDR_NormalRoughness: EMaterialDecalResponse;
+	static var MDR_Roughness: EMaterialDecalResponse;
+	static var MDR_MAX: EMaterialDecalResponse;
 }

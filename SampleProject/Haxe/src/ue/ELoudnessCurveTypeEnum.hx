@@ -3,11 +3,11 @@ package ue;
 
 @:native("ELoudnessCurveTypeEnum")
 @:include("Loudness.h")
-extern enum ELoudnessCurveTypeEnum {
-	A;
-	B;
-	C;
-	D;
-	None;
-	ELoudnessCurveTypeEnum_MAX;
+extern class ELoudnessCurveTypeEnum {
+	static var A: ELoudnessCurveTypeEnum;
+	static var B: ELoudnessCurveTypeEnum;
+	static var C: ELoudnessCurveTypeEnum;
+	static var D: ELoudnessCurveTypeEnum;
+	static var None: ELoudnessCurveTypeEnum;
+	static var ELoudnessCurveTypeEnum_MAX: ELoudnessCurveTypeEnum;
 }

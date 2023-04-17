@@ -3,8 +3,8 @@ package ue;
 
 @:native("ERigBoneType")
 @:include("Rigs/RigHierarchyDefines.h")
-extern enum ERigBoneType {
-	Imported;
-	User;
-	ERigBoneType_MAX;
+extern class ERigBoneType {
+	static var Imported: ERigBoneType;
+	static var User: ERigBoneType;
+	static var ERigBoneType_MAX: ERigBoneType;
 }

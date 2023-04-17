@@ -5,12 +5,12 @@ package ue;
 @:include("MaterialOptions.h")
 @:structAccess
 extern class PropertyEntry {
-	public var Property: EMaterialProperty;
+	public var Property: TEnumAsByte<EMaterialProperty>;
 	public var bUseCustomSize: Bool;
 	public var CustomSize: IntPoint;
 	public var bUseConstantValue: Bool;
 	public var ConstantValue: cpp.Float32;
 
 	@:native("FPropertyEntry") public function new();
-	@:native("FPropertyEntry") public static function make(Property: EMaterialProperty, bUseCustomSize: Bool, CustomSize: IntPoint, bUseConstantValue: Bool, ConstantValue: cpp.Float32): PropertyEntry ;
+	@:native("FPropertyEntry") public static function make(Property: TEnumAsByte<EMaterialProperty>, bUseCustomSize: Bool, CustomSize: IntPoint, bUseConstantValue: Bool, ConstantValue: cpp.Float32): PropertyEntry ;
 }

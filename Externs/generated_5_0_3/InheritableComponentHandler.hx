@@ -5,8 +5,8 @@ package ue;
 @:include("Engine/InheritableComponentHandler.h")
 @:structAccess
 extern class InheritableComponentHandler extends Object {
-	public var Records: TArray<ComponentOverrideRecord>;
-	public var UnnecessaryComponents: TArray<cpp.Star<ActorComp>>;
+	private var Records: TArray<ComponentOverrideRecord>;
+	private var UnnecessaryComponents: TArray<cpp.Star<ActorComp>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class InheritableComponentHandler extends Object {
 @:forward()
 @:nativeGen
 abstract ConstInheritableComponentHandler(InheritableComponentHandler) from InheritableComponentHandler {
-	public extern var Records(get, never): TArray<ComponentOverrideRecord>;
-	public inline extern function get_Records(): TArray<ComponentOverrideRecord> return this.Records;
-	public extern var UnnecessaryComponents(get, never): TArray<cpp.Star<ActorComp.ConstActorComp>>;
-	public inline extern function get_UnnecessaryComponents(): TArray<cpp.Star<ActorComp.ConstActorComp>> return this.UnnecessaryComponents;
 }
 
 @:forward

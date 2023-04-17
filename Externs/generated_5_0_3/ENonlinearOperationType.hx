@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENonlinearOperationType")
 @:include("MeshSpaceDeformerTool.h")
-extern enum ENonlinearOperationType {
-	Bend;
-	Flare;
-	Twist;
-	ENonlinearOperationType_MAX;
+extern class ENonlinearOperationType {
+	static var Bend: ENonlinearOperationType;
+	static var Flare: ENonlinearOperationType;
+	static var Twist: ENonlinearOperationType;
+	static var ENonlinearOperationType_MAX: ENonlinearOperationType;
 }

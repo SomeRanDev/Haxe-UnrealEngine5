@@ -3,11 +3,11 @@ package ue;
 
 @:native("ENiagaraClipboardFunctionInputValueMode")
 @:include("NiagaraClipboard.h")
-extern enum ENiagaraClipboardFunctionInputValueMode {
-	Local;
-	Linked;
-	Data;
-	Expression;
-	Dynamic;
-	ENiagaraClipboardFunctionInputValueMode_MAX;
+extern class ENiagaraClipboardFunctionInputValueMode {
+	static var Local: ENiagaraClipboardFunctionInputValueMode;
+	static var Linked: ENiagaraClipboardFunctionInputValueMode;
+	static var Data: ENiagaraClipboardFunctionInputValueMode;
+	static var Expression: ENiagaraClipboardFunctionInputValueMode;
+	static var Dynamic: ENiagaraClipboardFunctionInputValueMode;
+	static var ENiagaraClipboardFunctionInputValueMode_MAX: ENiagaraClipboardFunctionInputValueMode;
 }

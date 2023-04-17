@@ -5,7 +5,7 @@ package ue;
 @:include("MovieSceneSignedObject.h")
 @:structAccess
 extern class MovieSceneSignedObject extends Object {
-	public var Signature: Guid;
+	private var Signature: Guid;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MovieSceneSignedObject extends Object {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneSignedObject(MovieSceneSignedObject) from MovieSceneSignedObject {
-	public extern var Signature(get, never): Guid;
-	public inline extern function get_Signature(): Guid return this.Signature;
 }
 
 @:forward

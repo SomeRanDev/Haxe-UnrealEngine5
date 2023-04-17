@@ -3,8 +3,8 @@ package ue;
 
 @:native("EMouseSelectionMethod")
 @:include("Private/FractureToolSelection.h")
-extern enum EMouseSelectionMethod {
-	RectSelect;
-	StandardSelect;
-	EMouseSelectionMethod_MAX;
+extern class EMouseSelectionMethod {
+	static var RectSelect: EMouseSelectionMethod;
+	static var StandardSelect: EMouseSelectionMethod;
+	static var EMouseSelectionMethod_MAX: EMouseSelectionMethod;
 }

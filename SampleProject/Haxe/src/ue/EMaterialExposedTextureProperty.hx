@@ -3,8 +3,8 @@ package ue;
 
 @:native("EMaterialExposedTextureProperty")
 @:include("Materials/MaterialExpressionTextureProperty.h")
-extern enum EMaterialExposedTextureProperty {
-	TMTM_TextureSize;
-	TMTM_TexelSize;
-	TMTM_MAX;
+extern class EMaterialExposedTextureProperty {
+	static var TMTM_TextureSize: EMaterialExposedTextureProperty;
+	static var TMTM_TexelSize: EMaterialExposedTextureProperty;
+	static var TMTM_MAX: EMaterialExposedTextureProperty;
 }

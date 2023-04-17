@@ -3,9 +3,9 @@ package ue;
 
 @:native("EIKRigGoalSpace")
 @:include("IKRigDataTypes.h")
-extern enum EIKRigGoalSpace {
-	Component;
-	Additive;
-	World;
-	EIKRigGoalSpace_MAX;
+extern class EIKRigGoalSpace {
+	static var Component: EIKRigGoalSpace;
+	static var Additive: EIKRigGoalSpace;
+	static var World: EIKRigGoalSpace;
+	static var EIKRigGoalSpace_MAX: EIKRigGoalSpace;
 }

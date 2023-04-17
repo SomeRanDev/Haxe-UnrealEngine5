@@ -27,7 +27,7 @@ extern class Synth2DSlider extends Widget {
 	public function SetSliderHandleColor(InValue: LinearColor): Void;
 	public function SetLocked(InValue: Bool): Void;
 	public function SetIndentHandle(InValue: Bool): Void;
-	public function GetValue(): cpp.Reference<Vector2D>;
+	public function GetValue(): Vector2D;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

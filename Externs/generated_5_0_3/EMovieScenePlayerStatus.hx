@@ -3,12 +3,12 @@ package ue;
 
 @:native("EMovieScenePlayerStatus.Type")
 @:include("MovieSceneFwd.h")
-extern enum EMovieScenePlayerStatus {
-	Stopped;
-	Playing;
-	Scrubbing;
-	Jumping;
-	Stepping;
-	Paused;
-	MAX;
+extern class EMovieScenePlayerStatus {
+	static var Stopped: EMovieScenePlayerStatus;
+	static var Playing: EMovieScenePlayerStatus;
+	static var Scrubbing: EMovieScenePlayerStatus;
+	static var Jumping: EMovieScenePlayerStatus;
+	static var Stepping: EMovieScenePlayerStatus;
+	static var Paused: EMovieScenePlayerStatus;
+	static var MAX: EMovieScenePlayerStatus;
 }

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMonoChannelUpmixMethod")
 @:include("Sound/AudioSettings.h")
-extern enum EMonoChannelUpmixMethod {
-	Linear;
-	EqualPower;
-	FullVolume;
-	EMonoChannelUpmixMethod_MAX;
+extern class EMonoChannelUpmixMethod {
+	static var Linear: EMonoChannelUpmixMethod;
+	static var EqualPower: EMonoChannelUpmixMethod;
+	static var FullVolume: EMonoChannelUpmixMethod;
+	static var EMonoChannelUpmixMethod_MAX: EMonoChannelUpmixMethod;
 }

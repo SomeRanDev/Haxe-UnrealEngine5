@@ -6,17 +6,16 @@ package ue;
 @:structAccess
 extern class NavigationData extends Actor {
 	public var RenderingComp: cpp.Star<PrimitiveComp>;
-	public var NavDataConfig: NavDataConfig;
-	public var bEnableDrawing: Bool;
-	public var bForceRebuildOnLoad: Bool;
-	public var bAutoDestroyWhenNoNavigation: Bool;
-	public var bCanBeMainNavData: Bool;
-	public var bCanSpawnOnRebuild: Bool;
-	public var bRebuildAtRuntime_DEPRECATED: Bool;
-	public var RuntimeGeneration: ERuntimeGenerationType;
-	public var ObservedPathsTickInterval: cpp.Float32;
-	public var DataVersion: cpp.UInt32;
-	public var SupportedAreas: TArray<SupportedAreaData>;
+	@:protected public var NavDataConfig: NavDataConfig;
+	@:protected public var bEnableDrawing: Bool;
+	@:protected public var bForceRebuildOnLoad: Bool;
+	@:protected public var bAutoDestroyWhenNoNavigation: Bool;
+	@:protected public var bCanBeMainNavData: Bool;
+	@:protected public var bCanSpawnOnRebuild: Bool;
+	@:protected public var RuntimeGeneration: ERuntimeGenerationType;
+	@:protected public var ObservedPathsTickInterval: cpp.Float32;
+	@:protected public var DataVersion: cpp.UInt32;
+	@:protected public var SupportedAreas: TArray<SupportedAreaData>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -26,28 +25,6 @@ extern class NavigationData extends Actor {
 abstract ConstNavigationData(NavigationData) from NavigationData {
 	public extern var RenderingComp(get, never): cpp.Star<PrimitiveComp.ConstPrimitiveComp>;
 	public inline extern function get_RenderingComp(): cpp.Star<PrimitiveComp.ConstPrimitiveComp> return this.RenderingComp;
-	public extern var NavDataConfig(get, never): NavDataConfig;
-	public inline extern function get_NavDataConfig(): NavDataConfig return this.NavDataConfig;
-	public extern var bEnableDrawing(get, never): Bool;
-	public inline extern function get_bEnableDrawing(): Bool return this.bEnableDrawing;
-	public extern var bForceRebuildOnLoad(get, never): Bool;
-	public inline extern function get_bForceRebuildOnLoad(): Bool return this.bForceRebuildOnLoad;
-	public extern var bAutoDestroyWhenNoNavigation(get, never): Bool;
-	public inline extern function get_bAutoDestroyWhenNoNavigation(): Bool return this.bAutoDestroyWhenNoNavigation;
-	public extern var bCanBeMainNavData(get, never): Bool;
-	public inline extern function get_bCanBeMainNavData(): Bool return this.bCanBeMainNavData;
-	public extern var bCanSpawnOnRebuild(get, never): Bool;
-	public inline extern function get_bCanSpawnOnRebuild(): Bool return this.bCanSpawnOnRebuild;
-	public extern var bRebuildAtRuntime_DEPRECATED(get, never): Bool;
-	public inline extern function get_bRebuildAtRuntime_DEPRECATED(): Bool return this.bRebuildAtRuntime_DEPRECATED;
-	public extern var RuntimeGeneration(get, never): ERuntimeGenerationType;
-	public inline extern function get_RuntimeGeneration(): ERuntimeGenerationType return this.RuntimeGeneration;
-	public extern var ObservedPathsTickInterval(get, never): cpp.Float32;
-	public inline extern function get_ObservedPathsTickInterval(): cpp.Float32 return this.ObservedPathsTickInterval;
-	public extern var DataVersion(get, never): cpp.UInt32;
-	public inline extern function get_DataVersion(): cpp.UInt32 return this.DataVersion;
-	public extern var SupportedAreas(get, never): TArray<SupportedAreaData>;
-	public inline extern function get_SupportedAreas(): TArray<SupportedAreaData> return this.SupportedAreas;
 }
 
 @:forward

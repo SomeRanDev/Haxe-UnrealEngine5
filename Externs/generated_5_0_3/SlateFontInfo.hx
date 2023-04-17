@@ -11,8 +11,6 @@ extern class SlateFontInfo {
 	public var TypefaceFontName: FName;
 	public var Size: cpp.Int32;
 	public var LetterSpacing: cpp.Int32;
-	public var FontName_DEPRECATED: FName;
-	public var Hinting_DEPRECATED: EFontHinting;
 
 	@:native("FSlateFontInfo") public function new();
 }

@@ -5,16 +5,16 @@ package ue;
 @:include("ContentBrowserDataSubsystem.h")
 @:structAccess
 extern class ContentBrowserDataSubsystem extends EditorSubsystem {
-	public var EnabledDataSources: TArray<FName>;
+	private var EnabledDataSources: TArray<FName>;
 
-	public function GetItemsUnderPath(InPath: FName, InFilter: cpp.Reference<ContentBrowserDataFilter>): cpp.Reference<TArray<ContentBrowserItem>>;
-	public function GetItemsAtPath(InPath: FName, InItemTypeFilter: EContentBrowserItemTypeFilter): cpp.Reference<TArray<ContentBrowserItem>>;
-	public function GetItemAtPath(InPath: FName, InItemTypeFilter: EContentBrowserItemTypeFilter): cpp.Reference<ContentBrowserItem>;
-	public function GetAvailableDataSources(): cpp.Reference<TArray<FName>>;
-	public function GetActiveDataSources(): cpp.Reference<TArray<FName>>;
-	public function DeactivateDataSource(Name: FName): cpp.Reference<Bool>;
+	public function GetItemsUnderPath(InPath: FName, InFilter: cpp.Reference<ContentBrowserDataFilter>): TArray<ContentBrowserItem>;
+	public function GetItemsAtPath(InPath: FName, InItemTypeFilter: EContentBrowserItemTypeFilter): TArray<ContentBrowserItem>;
+	public function GetItemAtPath(InPath: FName, InItemTypeFilter: EContentBrowserItemTypeFilter): ContentBrowserItem;
+	public function GetAvailableDataSources(): TArray<FName>;
+	public function GetActiveDataSources(): TArray<FName>;
+	public function DeactivateDataSource(Name: FName): Bool;
 	public function DeactivateAllDataSources(): Void;
-	public function ActivateDataSource(Name: FName): cpp.Reference<Bool>;
+	public function ActivateDataSource(Name: FName): Bool;
 	public function ActivateAllDataSources(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -23,8 +23,6 @@ extern class ContentBrowserDataSubsystem extends EditorSubsystem {
 @:forward(GetItemsUnderPath, GetItemsAtPath, GetItemAtPath, GetAvailableDataSources, GetActiveDataSources)
 @:nativeGen
 abstract ConstContentBrowserDataSubsystem(ContentBrowserDataSubsystem) from ContentBrowserDataSubsystem {
-	public extern var EnabledDataSources(get, never): TArray<FName>;
-	public inline extern function get_EnabledDataSources(): TArray<FName> return this.EnabledDataSources;
 }
 
 @:forward

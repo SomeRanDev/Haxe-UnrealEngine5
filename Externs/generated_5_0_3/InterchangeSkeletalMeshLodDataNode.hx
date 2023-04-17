@@ -5,13 +5,13 @@ package ue;
 @:include("InterchangeSkeletalMeshLodDataNode.h")
 @:structAccess
 extern class InterchangeSkeletalMeshLodDataNode extends InterchangeBaseNode {
-	public function SetCustomSkeletonUid(AttributeValue: FString): cpp.Reference<Bool>;
-	public function RemoveMeshUid(BlendShapeName: FString): cpp.Reference<Bool>;
-	public function RemoveAllMeshes(): cpp.Reference<Bool>;
-	public function GetMeshUidsCount(): cpp.Reference<cpp.Int32>;
+	public function SetCustomSkeletonUid(AttributeValue: FString): Bool;
+	public function RemoveMeshUid(BlendShapeName: FString): Bool;
+	public function RemoveAllMeshes(): Bool;
+	public function GetMeshUidsCount(): cpp.Int32;
 	public function GetMeshUids(OutBlendShapeNames: cpp.Reference<TArray<FString>>): Void;
-	public function GetCustomSkeletonUid(AttributeValue: cpp.Reference<FString>): cpp.Reference<Bool>;
-	public function AddMeshUid(BlendShapeName: FString): cpp.Reference<Bool>;
+	public function GetCustomSkeletonUid(AttributeValue: cpp.Reference<FString>): Bool;
+	public function AddMeshUid(BlendShapeName: FString): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -5,9 +5,7 @@ package ue;
 @:include("LevelInstance/LevelInstanceActor.h")
 @:structAccess
 extern class LevelInstance extends Actor {
-	public var WorldAsset: TSoftObjectPtr<World>;
-	public var CookedWorldAsset: TSoftObjectPtr<World>;
-	public var DesiredRuntimeBehavior: ELevelInstanceRuntimeBehavior;
+	@:protected public var CookedWorldAsset: TSoftObjectPtr<World>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +13,6 @@ extern class LevelInstance extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstLevelInstance(LevelInstance) from LevelInstance {
-	public extern var WorldAsset(get, never): TSoftObjectPtr<World.ConstWorld>;
-	public inline extern function get_WorldAsset(): TSoftObjectPtr<World.ConstWorld> return this.WorldAsset;
-	public extern var CookedWorldAsset(get, never): TSoftObjectPtr<World.ConstWorld>;
-	public inline extern function get_CookedWorldAsset(): TSoftObjectPtr<World.ConstWorld> return this.CookedWorldAsset;
-	public extern var DesiredRuntimeBehavior(get, never): ELevelInstanceRuntimeBehavior;
-	public inline extern function get_DesiredRuntimeBehavior(): ELevelInstanceRuntimeBehavior return this.DesiredRuntimeBehavior;
 }
 
 @:forward

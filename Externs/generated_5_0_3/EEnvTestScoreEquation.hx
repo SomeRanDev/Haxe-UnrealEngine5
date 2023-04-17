@@ -3,11 +3,11 @@ package ue;
 
 @:native("EEnvTestScoreEquation.Type")
 @:include("EnvironmentQuery/EnvQueryTypes.h")
-extern enum EEnvTestScoreEquation {
-	Linear;
-	Square;
-	InverseLinear;
-	SquareRoot;
-	Constant;
-	EEnvTestScoreEquation_MAX;
+extern class EEnvTestScoreEquation {
+	static var Linear: EEnvTestScoreEquation;
+	static var Square: EEnvTestScoreEquation;
+	static var InverseLinear: EEnvTestScoreEquation;
+	static var SquareRoot: EEnvTestScoreEquation;
+	static var Constant: EEnvTestScoreEquation;
+	static var EEnvTestScoreEquation_MAX: EEnvTestScoreEquation;
 }

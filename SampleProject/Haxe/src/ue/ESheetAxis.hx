@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESheetAxis")
 @:include("Builders/SheetBuilder.h")
-extern enum ESheetAxis {
-	AX_Horizontal;
-	AX_XAxis;
-	AX_YAxis;
-	AX_MAX;
+extern class ESheetAxis {
+	static var AX_Horizontal: ESheetAxis;
+	static var AX_XAxis: ESheetAxis;
+	static var AX_YAxis: ESheetAxis;
+	static var AX_MAX: ESheetAxis;
 }

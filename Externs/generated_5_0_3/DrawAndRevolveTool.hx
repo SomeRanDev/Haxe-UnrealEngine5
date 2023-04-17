@@ -5,12 +5,12 @@ package ue;
 @:include("DrawAndRevolveTool.h")
 @:structAccess
 extern class DrawAndRevolveTool extends InteractiveTool {
-	public var ControlPointsMechanic: cpp.Star<CurveControlPointsMechanic>;
-	public var PlaneMechanic: cpp.Star<ConstructionPlaneMechanic>;
-	public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
-	public var Settings: cpp.Star<RevolveToolProperties>;
-	public var MaterialProperties: cpp.Star<NewMeshMaterialProperties>;
-	public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var ControlPointsMechanic: cpp.Star<CurveControlPointsMechanic>;
+	@:protected public var PlaneMechanic: cpp.Star<ConstructionPlaneMechanic>;
+	@:protected public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
+	@:protected public var Settings: cpp.Star<RevolveToolProperties>;
+	@:protected public var MaterialProperties: cpp.Star<NewMeshMaterialProperties>;
+	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,18 +18,6 @@ extern class DrawAndRevolveTool extends InteractiveTool {
 @:forward()
 @:nativeGen
 abstract ConstDrawAndRevolveTool(DrawAndRevolveTool) from DrawAndRevolveTool {
-	public extern var ControlPointsMechanic(get, never): cpp.Star<CurveControlPointsMechanic.ConstCurveControlPointsMechanic>;
-	public inline extern function get_ControlPointsMechanic(): cpp.Star<CurveControlPointsMechanic.ConstCurveControlPointsMechanic> return this.ControlPointsMechanic;
-	public extern var PlaneMechanic(get, never): cpp.Star<ConstructionPlaneMechanic.ConstConstructionPlaneMechanic>;
-	public inline extern function get_PlaneMechanic(): cpp.Star<ConstructionPlaneMechanic.ConstConstructionPlaneMechanic> return this.PlaneMechanic;
-	public extern var OutputTypeProperties(get, never): cpp.Star<CreateMeshObjectTypeProperties.ConstCreateMeshObjectTypeProperties>;
-	public inline extern function get_OutputTypeProperties(): cpp.Star<CreateMeshObjectTypeProperties.ConstCreateMeshObjectTypeProperties> return this.OutputTypeProperties;
-	public extern var Settings(get, never): cpp.Star<RevolveToolProperties.ConstRevolveToolProperties>;
-	public inline extern function get_Settings(): cpp.Star<RevolveToolProperties.ConstRevolveToolProperties> return this.Settings;
-	public extern var MaterialProperties(get, never): cpp.Star<NewMeshMaterialProperties.ConstNewMeshMaterialProperties>;
-	public inline extern function get_MaterialProperties(): cpp.Star<NewMeshMaterialProperties.ConstNewMeshMaterialProperties> return this.MaterialProperties;
-	public extern var Preview(get, never): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
-	public inline extern function get_Preview(): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.Preview;
 }
 
 @:forward

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EActorUpdateOverlapsMethod")
 @:include("GameFramework/Actor.h")
-extern enum EActorUpdateOverlapsMethod {
-	UseConfigDefault;
-	AlwaysUpdate;
-	OnlyUpdateMovable;
-	NeverUpdate;
-	EActorUpdateOverlapsMethod_MAX;
+extern class EActorUpdateOverlapsMethod {
+	static var UseConfigDefault: EActorUpdateOverlapsMethod;
+	static var AlwaysUpdate: EActorUpdateOverlapsMethod;
+	static var OnlyUpdateMovable: EActorUpdateOverlapsMethod;
+	static var NeverUpdate: EActorUpdateOverlapsMethod;
+	static var EActorUpdateOverlapsMethod_MAX: EActorUpdateOverlapsMethod;
 }

@@ -6,11 +6,10 @@ package ue;
 @:structAccess
 extern class KShapeElem {
 	public var RestOffset: cpp.Float32;
-	public var bIsGenerated: Bool;
-	public var Name: FName;
-	public var bContributeToMass: Bool;
-	public var CollisionEnabled: ECollisionEnabled;
+	private var Name: FName;
+	private var bContributeToMass: Bool;
+	private var CollisionEnabled: TEnumAsByte<ECollisionEnabled>;
 
 	@:native("FKShapeElem") public function new();
-	@:native("FKShapeElem") public static function make(RestOffset: cpp.Float32, bIsGenerated: Bool, Name: FName, bContributeToMass: Bool, CollisionEnabled: ECollisionEnabled): KShapeElem ;
+	@:native("FKShapeElem") public static function make(RestOffset: cpp.Float32, bIsGenerated: Bool, Name: FName, bContributeToMass: Bool, CollisionEnabled: TEnumAsByte<ECollisionEnabled>): KShapeElem ;
 }

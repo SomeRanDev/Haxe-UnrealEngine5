@@ -5,7 +5,7 @@ package ue;
 @:include("VoipListenerSynthComponent.h")
 @:structAccess
 extern class VoipListenerSynthComp extends SynthComp {
-	public function IsIdling(): cpp.Reference<Bool>;
+	public function IsIdling(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

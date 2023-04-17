@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class AssetViewerSettings extends Object {
 	public var Profiles: TArray<PreviewSceneProfile>;
-	public var bFakeConfigValue_HACK: Bool;
+	@:protected public var bFakeConfigValue_HACK: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,6 @@ extern class AssetViewerSettings extends Object {
 abstract ConstAssetViewerSettings(AssetViewerSettings) from AssetViewerSettings {
 	public extern var Profiles(get, never): TArray<PreviewSceneProfile>;
 	public inline extern function get_Profiles(): TArray<PreviewSceneProfile> return this.Profiles;
-	public extern var bFakeConfigValue_HACK(get, never): Bool;
-	public inline extern function get_bFakeConfigValue_HACK(): Bool return this.bFakeConfigValue_HACK;
 }
 
 @:forward

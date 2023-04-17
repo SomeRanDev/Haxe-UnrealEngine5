@@ -3,10 +3,10 @@ package ue;
 
 @:native("ETextureMipValueMode")
 @:include("Engine/EngineTypes.h")
-extern enum ETextureMipValueMode {
-	TMVM_None;
-	TMVM_MipLevel;
-	TMVM_MipBias;
-	TMVM_Derivative;
-	TMVM_MAX;
+extern class ETextureMipValueMode {
+	static var TMVM_None: ETextureMipValueMode;
+	static var TMVM_MipLevel: ETextureMipValueMode;
+	static var TMVM_MipBias: ETextureMipValueMode;
+	static var TMVM_Derivative: ETextureMipValueMode;
+	static var TMVM_MAX: ETextureMipValueMode;
 }

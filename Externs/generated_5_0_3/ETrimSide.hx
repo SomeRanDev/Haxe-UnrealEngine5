@@ -3,8 +3,8 @@ package ue;
 
 @:native("ETrimSide")
 @:include("CompositionOps/BooleanMeshesOp.h")
-extern enum ETrimSide {
-	RemoveInside;
-	RemoveOutside;
-	ETrimSide_MAX;
+extern class ETrimSide {
+	static var RemoveInside: ETrimSide;
+	static var RemoveOutside: ETrimSide;
+	static var ETrimSide_MAX: ETrimSide;
 }

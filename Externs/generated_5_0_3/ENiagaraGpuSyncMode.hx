@@ -3,10 +3,10 @@ package ue;
 
 @:native("ENiagaraGpuSyncMode")
 @:include("NiagaraCommon.h")
-extern enum ENiagaraGpuSyncMode {
-	None;
-	SyncCpuToGpu;
-	SyncGpuToCpu;
-	SyncBoth;
-	ENiagaraGpuSyncMode_MAX;
+extern class ENiagaraGpuSyncMode {
+	static var None: ENiagaraGpuSyncMode;
+	static var SyncCpuToGpu: ENiagaraGpuSyncMode;
+	static var SyncGpuToCpu: ENiagaraGpuSyncMode;
+	static var SyncBoth: ENiagaraGpuSyncMode;
+	static var ENiagaraGpuSyncMode_MAX: ENiagaraGpuSyncMode;
 }

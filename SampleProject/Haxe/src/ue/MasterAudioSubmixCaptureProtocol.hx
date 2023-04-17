@@ -5,7 +5,7 @@ package ue;
 @:include("Protocols/AudioCaptureProtocol.h")
 @:structAccess
 extern class MasterAudioSubmixCaptureProtocol extends MovieSceneAudioCaptureProtocolBase {
-	public var FileName: FString;
+	@:protected public var FileName: FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MasterAudioSubmixCaptureProtocol extends MovieSceneAudioCaptureProt
 @:forward()
 @:nativeGen
 abstract ConstMasterAudioSubmixCaptureProtocol(MasterAudioSubmixCaptureProtocol) from MasterAudioSubmixCaptureProtocol {
-	public extern var FileName(get, never): FString;
-	public inline extern function get_FileName(): FString return this.FileName;
 }
 
 @:forward

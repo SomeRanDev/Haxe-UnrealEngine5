@@ -14,8 +14,8 @@ extern class ThumbnailManager extends Object {
 	public var FloorPlaneMaterial: cpp.Star<Material>;
 	public var AmbientCubemap: cpp.Star<TextureCube>;
 	public var CheckerboardTexture: cpp.Star<Texture2D>;
-	public var RenderableThumbnailTypes: TArray<ThumbnailRenderingInfo>;
-	public var ThumbnailManagerClassName: FString;
+	@:protected public var RenderableThumbnailTypes: TArray<ThumbnailRenderingInfo>;
+	@:protected public var ThumbnailManagerClassName: FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -41,10 +41,6 @@ abstract ConstThumbnailManager(ThumbnailManager) from ThumbnailManager {
 	public inline extern function get_AmbientCubemap(): cpp.Star<TextureCube.ConstTextureCube> return this.AmbientCubemap;
 	public extern var CheckerboardTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
 	public inline extern function get_CheckerboardTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.CheckerboardTexture;
-	public extern var RenderableThumbnailTypes(get, never): TArray<ThumbnailRenderingInfo>;
-	public inline extern function get_RenderableThumbnailTypes(): TArray<ThumbnailRenderingInfo> return this.RenderableThumbnailTypes;
-	public extern var ThumbnailManagerClassName(get, never): FString;
-	public inline extern function get_ThumbnailManagerClassName(): FString return this.ThumbnailManagerClassName;
 }
 
 @:forward

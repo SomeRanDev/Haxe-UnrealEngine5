@@ -3,9 +3,9 @@ package ue;
 
 @:native("EDataValidationResult")
 @:include("UObject/NoExportTypes.h")
-extern enum EDataValidationResult {
-	Invalid;
-	Valid;
-	NotValidated;
-	EDataValidationResult_MAX;
+extern class EDataValidationResult {
+	static var Invalid: EDataValidationResult;
+	static var Valid: EDataValidationResult;
+	static var NotValidated: EDataValidationResult;
+	static var EDataValidationResult_MAX: EDataValidationResult;
 }

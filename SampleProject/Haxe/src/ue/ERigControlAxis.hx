@@ -3,9 +3,9 @@ package ue;
 
 @:native("ERigControlAxis")
 @:include("Rigs/RigHierarchyDefines.h")
-extern enum ERigControlAxis {
-	X;
-	Y;
-	Z;
-	ERigControlAxis_MAX;
+extern class ERigControlAxis {
+	static var X: ERigControlAxis;
+	static var Y: ERigControlAxis;
+	static var Z: ERigControlAxis;
+	static var ERigControlAxis_MAX: ERigControlAxis;
 }

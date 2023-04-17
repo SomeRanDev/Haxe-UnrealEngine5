@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENiagaraRibbonTessellationMode")
 @:include("NiagaraRibbonRendererProperties.h")
-extern enum ENiagaraRibbonTessellationMode {
-	Automatic;
-	Custom;
-	Disabled;
-	ENiagaraRibbonTessellationMode_MAX;
+extern class ENiagaraRibbonTessellationMode {
+	static var Automatic: ENiagaraRibbonTessellationMode;
+	static var Custom: ENiagaraRibbonTessellationMode;
+	static var Disabled: ENiagaraRibbonTessellationMode;
+	static var ENiagaraRibbonTessellationMode_MAX: ENiagaraRibbonTessellationMode;
 }

@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class PerPlatformBool {
 	public var Default: Bool;
-	public var PerPlatform: TMap<FName, Bool>;
 
 	@:native("FPerPlatformBool") public function new();
 	@:native("FPerPlatformBool") public static function make(Default: Bool, PerPlatform: TMap<FName, Bool>): PerPlatformBool ;

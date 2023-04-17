@@ -3,14 +3,14 @@ package ue;
 
 @:native("ECameraAnimationEasingType")
 @:include("CameraAnimationCameraModifier.h")
-extern enum ECameraAnimationEasingType {
-	Linear;
-	Sinusoidal;
-	Quadratic;
-	Cubic;
-	Quartic;
-	Quintic;
-	Exponential;
-	Circular;
-	ECameraAnimationEasingType_MAX;
+extern class ECameraAnimationEasingType {
+	static var Linear: ECameraAnimationEasingType;
+	static var Sinusoidal: ECameraAnimationEasingType;
+	static var Quadratic: ECameraAnimationEasingType;
+	static var Cubic: ECameraAnimationEasingType;
+	static var Quartic: ECameraAnimationEasingType;
+	static var Quintic: ECameraAnimationEasingType;
+	static var Exponential: ECameraAnimationEasingType;
+	static var Circular: ECameraAnimationEasingType;
+	static var ECameraAnimationEasingType_MAX: ECameraAnimationEasingType;
 }

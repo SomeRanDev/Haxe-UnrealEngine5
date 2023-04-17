@@ -13,10 +13,10 @@ extern class AutomationPerformaceHelper extends Object {
 	public function Sample(DeltaSeconds: cpp.Float32): Void;
 	public function OnBeginTests(): Void;
 	public function OnAllTestsComplete(): Void;
-	public function IsRecording(): cpp.Reference<Bool>;
-	public function IsCurrentRecordWithinRenderThreadBudget(): cpp.Reference<Bool>;
-	public function IsCurrentRecordWithinGPUBudget(): cpp.Reference<Bool>;
-	public function IsCurrentRecordWithinGameThreadBudget(): cpp.Reference<Bool>;
+	public function IsRecording(): Bool;
+	public function IsCurrentRecordWithinRenderThreadBudget(): Bool;
+	public function IsCurrentRecordWithinGPUBudget(): Bool;
+	public function IsCurrentRecordWithinGameThreadBudget(): Bool;
 	public function EndStatsFile(): Void;
 	public function EndRecordingBaseline(): Void;
 	public function EndRecording(): Void;

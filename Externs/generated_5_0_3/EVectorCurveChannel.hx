@@ -3,10 +3,10 @@ package ue;
 
 @:native("EVectorCurveChannel")
 @:include("Animation/AnimData/CurveIdentifier.h")
-extern enum EVectorCurveChannel {
-	X;
-	Y;
-	Z;
-	Invalid;
-	EVectorCurveChannel_MAX;
+extern class EVectorCurveChannel {
+	static var X: EVectorCurveChannel;
+	static var Y: EVectorCurveChannel;
+	static var Z: EVectorCurveChannel;
+	static var Invalid: EVectorCurveChannel;
+	static var EVectorCurveChannel_MAX: EVectorCurveChannel;
 }

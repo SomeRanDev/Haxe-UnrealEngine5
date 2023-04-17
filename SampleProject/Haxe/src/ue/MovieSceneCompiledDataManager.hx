@@ -5,10 +5,10 @@ package ue;
 @:include("Compilation/MovieSceneCompiledDataManager.h")
 @:structAccess
 extern class MovieSceneCompiledDataManager extends Object {
-	public var Hierarchies: TMap<cpp.Int32, MovieSceneSequenceHierarchy>;
-	public var TrackTemplates: TMap<cpp.Int32, MovieSceneEvaluationTemplate>;
-	public var TrackTemplateFields: TMap<cpp.Int32, MovieSceneEvaluationField>;
-	public var EntityComponentFields: TMap<cpp.Int32, MovieSceneEntityComponentField>;
+	private var Hierarchies: TMap<cpp.Int32, MovieSceneSequenceHierarchy>;
+	private var TrackTemplates: TMap<cpp.Int32, MovieSceneEvaluationTemplate>;
+	private var TrackTemplateFields: TMap<cpp.Int32, MovieSceneEvaluationField>;
+	private var EntityComponentFields: TMap<cpp.Int32, MovieSceneEntityComponentField>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class MovieSceneCompiledDataManager extends Object {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneCompiledDataManager(MovieSceneCompiledDataManager) from MovieSceneCompiledDataManager {
-	public extern var Hierarchies(get, never): TMap<cpp.Int32, MovieSceneSequenceHierarchy>;
-	public inline extern function get_Hierarchies(): TMap<cpp.Int32, MovieSceneSequenceHierarchy> return this.Hierarchies;
-	public extern var TrackTemplates(get, never): TMap<cpp.Int32, MovieSceneEvaluationTemplate>;
-	public inline extern function get_TrackTemplates(): TMap<cpp.Int32, MovieSceneEvaluationTemplate> return this.TrackTemplates;
-	public extern var TrackTemplateFields(get, never): TMap<cpp.Int32, MovieSceneEvaluationField>;
-	public inline extern function get_TrackTemplateFields(): TMap<cpp.Int32, MovieSceneEvaluationField> return this.TrackTemplateFields;
-	public extern var EntityComponentFields(get, never): TMap<cpp.Int32, MovieSceneEntityComponentField>;
-	public inline extern function get_EntityComponentFields(): TMap<cpp.Int32, MovieSceneEntityComponentField> return this.EntityComponentFields;
 }
 
 @:forward

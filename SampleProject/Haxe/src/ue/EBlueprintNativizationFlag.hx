@@ -3,9 +3,9 @@ package ue;
 
 @:native("EBlueprintNativizationFlag")
 @:include("Engine/Blueprint.h")
-extern enum EBlueprintNativizationFlag {
-	Disabled;
-	Dependency;
-	ExplicitlyEnabled;
-	EBlueprintNativizationFlag_MAX;
+extern class EBlueprintNativizationFlag {
+	static var Disabled: EBlueprintNativizationFlag;
+	static var Dependency: EBlueprintNativizationFlag;
+	static var ExplicitlyEnabled: EBlueprintNativizationFlag;
+	static var EBlueprintNativizationFlag_MAX: EBlueprintNativizationFlag;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EChannelMaskParameterColor.Type")
 @:include("Materials/MaterialExpressionChannelMaskParameter.h")
-extern enum EChannelMaskParameterColor {
-	Red;
-	Green;
-	Blue;
-	Alpha;
-	EChannelMaskParameterColor_MAX;
+extern class EChannelMaskParameterColor {
+	static var Red: EChannelMaskParameterColor;
+	static var Green: EChannelMaskParameterColor;
+	static var Blue: EChannelMaskParameterColor;
+	static var Alpha: EChannelMaskParameterColor;
+	static var EChannelMaskParameterColor_MAX: EChannelMaskParameterColor;
 }

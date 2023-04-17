@@ -3,9 +3,9 @@ package ue;
 
 @:native("EARLightEstimationMode")
 @:include("ARSessionConfig.h")
-extern enum EARLightEstimationMode {
-	None;
-	AmbientLightEstimate;
-	DirectionalLightEstimate;
-	EARLightEstimationMode_MAX;
+extern class EARLightEstimationMode {
+	static var None: EARLightEstimationMode;
+	static var AmbientLightEstimate: EARLightEstimationMode;
+	static var DirectionalLightEstimate: EARLightEstimationMode;
+	static var EARLightEstimationMode_MAX: EARLightEstimationMode;
 }

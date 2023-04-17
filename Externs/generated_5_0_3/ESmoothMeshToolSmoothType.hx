@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESmoothMeshToolSmoothType")
 @:include("SmoothMeshTool.h")
-extern enum ESmoothMeshToolSmoothType {
-	Iterative;
-	Implicit;
-	Diffusion;
-	ESmoothMeshToolSmoothType_MAX;
+extern class ESmoothMeshToolSmoothType {
+	static var Iterative: ESmoothMeshToolSmoothType;
+	static var Implicit: ESmoothMeshToolSmoothType;
+	static var Diffusion: ESmoothMeshToolSmoothType;
+	static var ESmoothMeshToolSmoothType_MAX: ESmoothMeshToolSmoothType;
 }

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EAnimStateType")
 @:include("AnimStateNode.h")
-extern enum EAnimStateType {
-	AST_SingleAnimation;
-	AST_BlendGraph;
-	AST_MAX;
+extern class EAnimStateType {
+	static var AST_SingleAnimation: EAnimStateType;
+	static var AST_BlendGraph: EAnimStateType;
+	static var AST_MAX: EAnimStateType;
 }

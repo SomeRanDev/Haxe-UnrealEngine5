@@ -3,11 +3,11 @@ package ue;
 
 @:native("EUdpMessageFormat")
 @:include("Shared/UdpMessagingSettings.h")
-extern enum EUdpMessageFormat {
-	None;
-	Json;
-	TaggedProperty;
-	CborPlatformEndianness;
-	CborStandardEndianness;
-	EUdpMessageFormat_MAX;
+extern class EUdpMessageFormat {
+	static var None: EUdpMessageFormat;
+	static var Json: EUdpMessageFormat;
+	static var TaggedProperty: EUdpMessageFormat;
+	static var CborPlatformEndianness: EUdpMessageFormat;
+	static var CborStandardEndianness: EUdpMessageFormat;
+	static var EUdpMessageFormat_MAX: EUdpMessageFormat;
 }

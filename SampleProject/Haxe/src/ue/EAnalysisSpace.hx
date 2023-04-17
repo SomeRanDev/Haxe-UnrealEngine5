@@ -3,10 +3,10 @@ package ue;
 
 @:native("EAnalysisSpace")
 @:include("BlendSpaceAnalysis.h")
-extern enum EAnalysisSpace {
-	World;
-	Fixed;
-	Changing;
-	Moving;
-	EAnalysisSpace_MAX;
+extern class EAnalysisSpace {
+	static var World: EAnalysisSpace;
+	static var Fixed: EAnalysisSpace;
+	static var Changing: EAnalysisSpace;
+	static var Moving: EAnalysisSpace;
+	static var EAnalysisSpace_MAX: EAnalysisSpace;
 }

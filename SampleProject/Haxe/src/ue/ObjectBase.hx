@@ -14,6 +14,6 @@ extern class ObjectBase {
 	public function GetUniqueID(): cpp.UInt32;
 	public function IsValidLowLevel(): Bool;
 	public function IsValidLowLevelFast(bRecursive: Bool): Bool;
-	public function LowLevelRename(NewName: FName, NewOuter: cpp.Star<Object>): Void;
-	public function Register(PackageName: cpp.ConstCharStar, Name: cpp.ConstCharStar): Void;
+	@:protected public function LowLevelRename(NewName: FName, NewOuter: cpp.Star<Object>): Void;
+	@:protected public function Register(PackageName: cpp.ConstTCHARStar, Name: cpp.ConstTCHARStar): Void;
 }

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EBlendProfileMode")
 @:include("Animation/BlendProfile.h")
-extern enum EBlendProfileMode {
-	TimeFactor;
-	WeightFactor;
-	BlendMask;
-	EBlendProfileMode_MAX;
+extern class EBlendProfileMode {
+	static var TimeFactor: EBlendProfileMode;
+	static var WeightFactor: EBlendProfileMode;
+	static var BlendMask: EBlendProfileMode;
+	static var EBlendProfileMode_MAX: EBlendProfileMode;
 }

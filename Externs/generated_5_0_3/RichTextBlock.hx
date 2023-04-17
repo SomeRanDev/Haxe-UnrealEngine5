@@ -5,16 +5,16 @@ package ue;
 @:include("Components/RichTextBlock.h")
 @:structAccess
 extern class RichTextBlock extends TextLayoutWidget {
-	public var Text: FText;
-	public var TextStyleSet: cpp.Star<DataTable>;
-	public var DecoratorClasses: TArray<TSubclassOf<RichTextBlockDecorator>>;
-	public var bOverrideDefaultStyle: Bool;
-	public var DefaultTextStyleOverride: TextBlockStyle;
-	public var MinDesiredWidth: cpp.Float32;
-	public var TextTransformPolicy: ETextTransformPolicy;
-	public var TextOverflowPolicy: ETextOverflowPolicy;
-	public var DefaultTextStyle: TextBlockStyle;
-	public var InstanceDecorators: TArray<cpp.Star<RichTextBlockDecorator>>;
+	@:protected public var Text: FText;
+	@:protected public var TextStyleSet: cpp.Star<DataTable>;
+	@:protected public var DecoratorClasses: TArray<TSubclassOf<RichTextBlockDecorator>>;
+	@:protected public var bOverrideDefaultStyle: Bool;
+	@:protected public var DefaultTextStyleOverride: TextBlockStyle;
+	@:protected public var MinDesiredWidth: cpp.Float32;
+	@:protected public var TextTransformPolicy: ETextTransformPolicy;
+	@:protected public var TextOverflowPolicy: ETextOverflowPolicy;
+	@:protected public var DefaultTextStyle: TextBlockStyle;
+	@:protected public var InstanceDecorators: TArray<cpp.Star<RichTextBlockDecorator>>;
 
 	public function SetTextTransformPolicy(InTransformPolicy: ETextTransformPolicy): Void;
 	public function SetTextStyleSet(NewTextStyleSet: cpp.Star<DataTable>): Void;
@@ -29,9 +29,9 @@ extern class RichTextBlock extends TextLayoutWidget {
 	public function SetDefaultColorAndOpacity(InColorAndOpacity: SlateColor): Void;
 	public function SetAutoWrapText(InAutoTextWrap: Bool): Void;
 	public function RefreshTextLayout(): Void;
-	public function GetText(): cpp.Reference<FText>;
-	public function GetDefaultDynamicMaterial(): cpp.Reference<cpp.Star<MaterialInstanceDynamic>>;
-	public function GetDecoratorByClass(DecoratorClass: TSubclassOf<RichTextBlockDecorator>): cpp.Reference<cpp.Star<RichTextBlockDecorator>>;
+	public function GetText(): FText;
+	public function GetDefaultDynamicMaterial(): cpp.Star<MaterialInstanceDynamic>;
+	public function GetDecoratorByClass(DecoratorClass: TSubclassOf<RichTextBlockDecorator>): cpp.Star<RichTextBlockDecorator>;
 	public function ClearAllDefaultStyleOverrides(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -40,26 +40,6 @@ extern class RichTextBlock extends TextLayoutWidget {
 @:forward(GetText)
 @:nativeGen
 abstract ConstRichTextBlock(RichTextBlock) from RichTextBlock {
-	public extern var Text(get, never): FText;
-	public inline extern function get_Text(): FText return this.Text;
-	public extern var TextStyleSet(get, never): cpp.Star<DataTable.ConstDataTable>;
-	public inline extern function get_TextStyleSet(): cpp.Star<DataTable.ConstDataTable> return this.TextStyleSet;
-	public extern var DecoratorClasses(get, never): TArray<TSubclassOf<RichTextBlockDecorator.ConstRichTextBlockDecorator>>;
-	public inline extern function get_DecoratorClasses(): TArray<TSubclassOf<RichTextBlockDecorator.ConstRichTextBlockDecorator>> return this.DecoratorClasses;
-	public extern var bOverrideDefaultStyle(get, never): Bool;
-	public inline extern function get_bOverrideDefaultStyle(): Bool return this.bOverrideDefaultStyle;
-	public extern var DefaultTextStyleOverride(get, never): TextBlockStyle;
-	public inline extern function get_DefaultTextStyleOverride(): TextBlockStyle return this.DefaultTextStyleOverride;
-	public extern var MinDesiredWidth(get, never): cpp.Float32;
-	public inline extern function get_MinDesiredWidth(): cpp.Float32 return this.MinDesiredWidth;
-	public extern var TextTransformPolicy(get, never): ETextTransformPolicy;
-	public inline extern function get_TextTransformPolicy(): ETextTransformPolicy return this.TextTransformPolicy;
-	public extern var TextOverflowPolicy(get, never): ETextOverflowPolicy;
-	public inline extern function get_TextOverflowPolicy(): ETextOverflowPolicy return this.TextOverflowPolicy;
-	public extern var DefaultTextStyle(get, never): TextBlockStyle;
-	public inline extern function get_DefaultTextStyle(): TextBlockStyle return this.DefaultTextStyle;
-	public extern var InstanceDecorators(get, never): TArray<cpp.Star<RichTextBlockDecorator.ConstRichTextBlockDecorator>>;
-	public inline extern function get_InstanceDecorators(): TArray<cpp.Star<RichTextBlockDecorator.ConstRichTextBlockDecorator>> return this.InstanceDecorators;
 }
 
 @:forward

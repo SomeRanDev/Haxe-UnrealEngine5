@@ -12,9 +12,6 @@ extern class SubmixEffectConvolutionReverbSettings {
 	public var SurroundRearChannelBleedDb: cpp.Float32;
 	public var bInvertRearChannelBleedPhase: Bool;
 	public var bSurroundRearChannelFlip: Bool;
-	public var SurroundRearChannelBleedAmount_DEPRECATED: cpp.Float32;
-	public var ImpulseResponse_DEPRECATED: cpp.Star<AudioImpulseResponse>;
-	public var AllowHardwareAcceleration_DEPRECATED: Bool;
 
 	@:native("FSubmixEffectConvolutionReverbSettings") public function new();
 }

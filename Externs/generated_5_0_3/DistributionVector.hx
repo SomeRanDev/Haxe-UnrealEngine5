@@ -7,7 +7,7 @@ package ue;
 extern class DistributionVector extends Distribution {
 	public var bCanBeBaked: Bool;
 	public var bIsDirty: Bool;
-	public var bBakedDataSuccesfully: Bool;
+	@:protected public var bBakedDataSuccesfully: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,8 +19,6 @@ abstract ConstDistributionVector(DistributionVector) from DistributionVector {
 	public inline extern function get_bCanBeBaked(): Bool return this.bCanBeBaked;
 	public extern var bIsDirty(get, never): Bool;
 	public inline extern function get_bIsDirty(): Bool return this.bIsDirty;
-	public extern var bBakedDataSuccesfully(get, never): Bool;
-	public inline extern function get_bBakedDataSuccesfully(): Bool return this.bBakedDataSuccesfully;
 }
 
 @:forward

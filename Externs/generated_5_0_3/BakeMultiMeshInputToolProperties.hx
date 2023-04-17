@@ -11,7 +11,7 @@ extern class BakeMultiMeshInputToolProperties extends InteractiveToolPropertySet
 	public var ProjectionDistance: cpp.Float32;
 	public var TargetUVLayerNamesList: TArray<FString>;
 
-	public function GetTargetUVLayerNamesFunc(): cpp.Reference<TArray<FString>>;
+	public function GetTargetUVLayerNamesFunc(): TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

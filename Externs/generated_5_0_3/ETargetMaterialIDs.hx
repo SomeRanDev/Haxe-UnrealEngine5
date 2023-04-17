@@ -3,10 +3,10 @@ package ue;
 
 @:native("ETargetMaterialIDs")
 @:include("Private/FractureToolUV.h")
-extern enum ETargetMaterialIDs {
-	OddIDs;
-	OddAndSelectedIDs;
-	SelectedIDs;
-	AllIDs;
-	ETargetMaterialIDs_MAX;
+extern class ETargetMaterialIDs {
+	static var OddIDs: ETargetMaterialIDs;
+	static var OddAndSelectedIDs: ETargetMaterialIDs;
+	static var SelectedIDs: ETargetMaterialIDs;
+	static var AllIDs: ETargetMaterialIDs;
+	static var ETargetMaterialIDs_MAX: ETargetMaterialIDs;
 }

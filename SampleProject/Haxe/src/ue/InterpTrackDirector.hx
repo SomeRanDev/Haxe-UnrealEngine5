@@ -6,8 +6,7 @@ package ue;
 @:structAccess
 extern class InterpTrackDirector extends InterpTrack {
 	public var CutTrack: TArray<DirectorTrackCut>;
-	public var bSimulateCameraCutsOnClients: Bool;
-	public var PreviewCamera: cpp.Star<CameraActor>;
+	private var bSimulateCameraCutsOnClients: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,10 +16,6 @@ extern class InterpTrackDirector extends InterpTrack {
 abstract ConstInterpTrackDirector(InterpTrackDirector) from InterpTrackDirector {
 	public extern var CutTrack(get, never): TArray<DirectorTrackCut>;
 	public inline extern function get_CutTrack(): TArray<DirectorTrackCut> return this.CutTrack;
-	public extern var bSimulateCameraCutsOnClients(get, never): Bool;
-	public inline extern function get_bSimulateCameraCutsOnClients(): Bool return this.bSimulateCameraCutsOnClients;
-	public extern var PreviewCamera(get, never): cpp.Star<CameraActor.ConstCameraActor>;
-	public inline extern function get_PreviewCamera(): cpp.Star<CameraActor.ConstCameraActor> return this.PreviewCamera;
 }
 
 @:forward

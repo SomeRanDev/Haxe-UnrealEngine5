@@ -3,9 +3,9 @@ package ue;
 
 @:native("EPythonCommandExecutionMode")
 @:include("PythonScriptTypes.h")
-extern enum EPythonCommandExecutionMode {
-	ExecuteFile;
-	ExecuteStatement;
-	EvaluateStatement;
-	EPythonCommandExecutionMode_MAX;
+extern class EPythonCommandExecutionMode {
+	static var ExecuteFile: EPythonCommandExecutionMode;
+	static var ExecuteStatement: EPythonCommandExecutionMode;
+	static var EvaluateStatement: EPythonCommandExecutionMode;
+	static var EPythonCommandExecutionMode_MAX: EPythonCommandExecutionMode;
 }

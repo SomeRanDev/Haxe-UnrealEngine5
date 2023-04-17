@@ -7,7 +7,7 @@ package ue;
 extern class PawnAction_Repeat extends PawnAction {
 	public var ActionToRepeat: cpp.Star<PawnAction>;
 	public var RecentActionCopy: cpp.Star<PawnAction>;
-	public var ChildFailureHandlingMode: EPawnActionFailHandling;
+	public var ChildFailureHandlingMode: TEnumAsByte<EPawnActionFailHandling>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,8 +19,8 @@ abstract ConstPawnAction_Repeat(PawnAction_Repeat) from PawnAction_Repeat {
 	public inline extern function get_ActionToRepeat(): cpp.Star<PawnAction.ConstPawnAction> return this.ActionToRepeat;
 	public extern var RecentActionCopy(get, never): cpp.Star<PawnAction.ConstPawnAction>;
 	public inline extern function get_RecentActionCopy(): cpp.Star<PawnAction.ConstPawnAction> return this.RecentActionCopy;
-	public extern var ChildFailureHandlingMode(get, never): EPawnActionFailHandling;
-	public inline extern function get_ChildFailureHandlingMode(): EPawnActionFailHandling return this.ChildFailureHandlingMode;
+	public extern var ChildFailureHandlingMode(get, never): TEnumAsByte<EPawnActionFailHandling>;
+	public inline extern function get_ChildFailureHandlingMode(): TEnumAsByte<EPawnActionFailHandling> return this.ChildFailureHandlingMode;
 }
 
 @:forward

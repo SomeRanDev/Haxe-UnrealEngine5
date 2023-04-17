@@ -3,8 +3,8 @@ package ue;
 
 @:native("ENeighborSelectionMethod")
 @:include("Private/FractureToolFixTinyGeo.h")
-extern enum ENeighborSelectionMethod {
-	LargestNeighbor;
-	NearestCenter;
-	ENeighborSelectionMethod_MAX;
+extern class ENeighborSelectionMethod {
+	static var LargestNeighbor: ENeighborSelectionMethod;
+	static var NearestCenter: ENeighborSelectionMethod;
+	static var ENeighborSelectionMethod_MAX: ENeighborSelectionMethod;
 }

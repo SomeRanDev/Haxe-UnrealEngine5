@@ -3,23 +3,23 @@ package ue;
 
 @:native("EMeshVertexSculptBrushType")
 @:include("MeshVertexSculptTool.h")
-extern enum EMeshVertexSculptBrushType {
-	Move;
-	PullKelvin;
-	PullSharpKelvin;
-	Smooth;
-	SmoothFill;
-	Offset;
-	SculptView;
-	SculptMax;
-	Inflate;
-	ScaleKelvin;
-	Pinch;
-	TwistKelvin;
-	Flatten;
-	Plane;
-	PlaneViewAligned;
-	FixedPlane;
-	LastValue;
-	EMeshVertexSculptBrushType_MAX;
+extern class EMeshVertexSculptBrushType {
+	static var Move: EMeshVertexSculptBrushType;
+	static var PullKelvin: EMeshVertexSculptBrushType;
+	static var PullSharpKelvin: EMeshVertexSculptBrushType;
+	static var Smooth: EMeshVertexSculptBrushType;
+	static var SmoothFill: EMeshVertexSculptBrushType;
+	static var Offset: EMeshVertexSculptBrushType;
+	static var SculptView: EMeshVertexSculptBrushType;
+	static var SculptMax: EMeshVertexSculptBrushType;
+	static var Inflate: EMeshVertexSculptBrushType;
+	static var ScaleKelvin: EMeshVertexSculptBrushType;
+	static var Pinch: EMeshVertexSculptBrushType;
+	static var TwistKelvin: EMeshVertexSculptBrushType;
+	static var Flatten: EMeshVertexSculptBrushType;
+	static var Plane: EMeshVertexSculptBrushType;
+	static var PlaneViewAligned: EMeshVertexSculptBrushType;
+	static var FixedPlane: EMeshVertexSculptBrushType;
+	static var LastValue: EMeshVertexSculptBrushType;
+	static var EMeshVertexSculptBrushType_MAX: EMeshVertexSculptBrushType;
 }

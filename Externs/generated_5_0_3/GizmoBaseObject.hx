@@ -19,14 +19,14 @@ extern class GizmoBaseObject extends Object {
 	public function SetHoverState(bHoveringIn: Bool): Void;
 	public function SetGizmoScale(InGizmoScale: cpp.Float32): Void;
 	public function SetCurrentMaterial(InCurrentMaterial: cpp.Star<MaterialInterface>): Void;
-	public function GetWorldLocalState(): cpp.Reference<Bool>;
-	public function GetVisibility(): cpp.Reference<Bool>;
-	public function GetMaterial(): cpp.Reference<cpp.Star<MaterialInterface>>;
-	public function GetLocalToWorldTransform(): cpp.Reference<Transform>;
-	public function GetInteractingState(): cpp.Reference<Bool>;
-	public function GetHoverState(): cpp.Reference<Bool>;
-	public function GetGizmoScale(): cpp.Reference<cpp.Float32>;
-	public function GetCurrentMaterial(): cpp.Reference<cpp.Star<MaterialInterface>>;
+	public function GetWorldLocalState(): Bool;
+	public function GetVisibility(): Bool;
+	public function GetMaterial(): cpp.Star<MaterialInterface>;
+	public function GetLocalToWorldTransform(): Transform;
+	public function GetInteractingState(): Bool;
+	public function GetHoverState(): Bool;
+	public function GetGizmoScale(): cpp.Float32;
+	public function GetCurrentMaterial(): cpp.Star<MaterialInterface>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

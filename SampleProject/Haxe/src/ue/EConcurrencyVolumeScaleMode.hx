@@ -3,9 +3,9 @@ package ue;
 
 @:native("EConcurrencyVolumeScaleMode")
 @:include("Sound/SoundConcurrency.h")
-extern enum EConcurrencyVolumeScaleMode {
-	Default;
-	Distance;
-	Priority;
-	EConcurrencyVolumeScaleMode_MAX;
+extern class EConcurrencyVolumeScaleMode {
+	static var Default: EConcurrencyVolumeScaleMode;
+	static var Distance: EConcurrencyVolumeScaleMode;
+	static var Priority: EConcurrencyVolumeScaleMode;
+	static var EConcurrencyVolumeScaleMode_MAX: EConcurrencyVolumeScaleMode;
 }

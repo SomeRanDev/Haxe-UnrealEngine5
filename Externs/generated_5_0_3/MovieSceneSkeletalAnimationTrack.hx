@@ -9,7 +9,6 @@ extern class MovieSceneSkeletalAnimationTrack extends MovieSceneNameableTrack {
 	public var bUseLegacySectionIndexBlend: Bool;
 	public var RootMotionParams: MovieSceneSkeletalAnimRootMotionTrackParams;
 	public var bBlendFirstChildOfRoot: Bool;
-	public var bShowRootMotionTrail: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -25,8 +24,6 @@ abstract ConstMovieSceneSkeletalAnimationTrack(MovieSceneSkeletalAnimationTrack)
 	public inline extern function get_RootMotionParams(): MovieSceneSkeletalAnimRootMotionTrackParams return this.RootMotionParams;
 	public extern var bBlendFirstChildOfRoot(get, never): Bool;
 	public inline extern function get_bBlendFirstChildOfRoot(): Bool return this.bBlendFirstChildOfRoot;
-	public extern var bShowRootMotionTrail(get, never): Bool;
-	public inline extern function get_bShowRootMotionTrail(): Bool return this.bShowRootMotionTrail;
 }
 
 @:forward

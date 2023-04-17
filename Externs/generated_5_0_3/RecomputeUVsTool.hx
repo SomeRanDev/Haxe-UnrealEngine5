@@ -5,14 +5,14 @@ package ue;
 @:include("RecomputeUVsTool.h")
 @:structAccess
 extern class RecomputeUVsTool extends SingleSelectionMeshEditingTool {
-	public var UVChannelProperties: cpp.Star<MeshUVChannelProperties>;
-	public var Settings: cpp.Star<RecomputeUVsToolProperties>;
-	public var PolygroupLayerProperties: cpp.Star<PolygroupLayersProperties>;
-	public var MaterialSettings: cpp.Star<ExistingMeshMaterialProperties>;
-	public var bCreateUVLayoutViewOnSetup: Bool;
-	public var UVLayoutView: cpp.Star<UVLayoutPreview>;
-	public var RecomputeUVsOpFactory: cpp.Star<RecomputeUVsOpFactory>;
-	public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var UVChannelProperties: cpp.Star<MeshUVChannelProperties>;
+	@:protected public var Settings: cpp.Star<RecomputeUVsToolProperties>;
+	@:protected public var PolygroupLayerProperties: cpp.Star<PolygroupLayersProperties>;
+	@:protected public var MaterialSettings: cpp.Star<ExistingMeshMaterialProperties>;
+	@:protected public var bCreateUVLayoutViewOnSetup: Bool;
+	@:protected public var UVLayoutView: cpp.Star<UVLayoutPreview>;
+	@:protected public var RecomputeUVsOpFactory: cpp.Star<RecomputeUVsOpFactory>;
+	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -20,22 +20,6 @@ extern class RecomputeUVsTool extends SingleSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstRecomputeUVsTool(RecomputeUVsTool) from RecomputeUVsTool {
-	public extern var UVChannelProperties(get, never): cpp.Star<MeshUVChannelProperties.ConstMeshUVChannelProperties>;
-	public inline extern function get_UVChannelProperties(): cpp.Star<MeshUVChannelProperties.ConstMeshUVChannelProperties> return this.UVChannelProperties;
-	public extern var Settings(get, never): cpp.Star<RecomputeUVsToolProperties.ConstRecomputeUVsToolProperties>;
-	public inline extern function get_Settings(): cpp.Star<RecomputeUVsToolProperties.ConstRecomputeUVsToolProperties> return this.Settings;
-	public extern var PolygroupLayerProperties(get, never): cpp.Star<PolygroupLayersProperties.ConstPolygroupLayersProperties>;
-	public inline extern function get_PolygroupLayerProperties(): cpp.Star<PolygroupLayersProperties.ConstPolygroupLayersProperties> return this.PolygroupLayerProperties;
-	public extern var MaterialSettings(get, never): cpp.Star<ExistingMeshMaterialProperties.ConstExistingMeshMaterialProperties>;
-	public inline extern function get_MaterialSettings(): cpp.Star<ExistingMeshMaterialProperties.ConstExistingMeshMaterialProperties> return this.MaterialSettings;
-	public extern var bCreateUVLayoutViewOnSetup(get, never): Bool;
-	public inline extern function get_bCreateUVLayoutViewOnSetup(): Bool return this.bCreateUVLayoutViewOnSetup;
-	public extern var UVLayoutView(get, never): cpp.Star<UVLayoutPreview.ConstUVLayoutPreview>;
-	public inline extern function get_UVLayoutView(): cpp.Star<UVLayoutPreview.ConstUVLayoutPreview> return this.UVLayoutView;
-	public extern var RecomputeUVsOpFactory(get, never): cpp.Star<RecomputeUVsOpFactory.ConstRecomputeUVsOpFactory>;
-	public inline extern function get_RecomputeUVsOpFactory(): cpp.Star<RecomputeUVsOpFactory.ConstRecomputeUVsOpFactory> return this.RecomputeUVsOpFactory;
-	public extern var Preview(get, never): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
-	public inline extern function get_Preview(): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.Preview;
 }
 
 @:forward

@@ -9,7 +9,7 @@ extern class TextureRenderTarget2DArray extends TextureRenderTarget {
 	public var SizeY: cpp.Int32;
 	public var Slices: cpp.Int32;
 	public var ClearColor: LinearColor;
-	public var OverrideFormat: EPixelFormat;
+	public var OverrideFormat: TEnumAsByte<EPixelFormat>;
 	public var bHDR: Bool;
 	public var bForceLinearGamma: Bool;
 
@@ -27,8 +27,8 @@ abstract ConstTextureRenderTarget2DArray(TextureRenderTarget2DArray) from Textur
 	public inline extern function get_Slices(): cpp.Int32 return this.Slices;
 	public extern var ClearColor(get, never): LinearColor;
 	public inline extern function get_ClearColor(): LinearColor return this.ClearColor;
-	public extern var OverrideFormat(get, never): EPixelFormat;
-	public inline extern function get_OverrideFormat(): EPixelFormat return this.OverrideFormat;
+	public extern var OverrideFormat(get, never): TEnumAsByte<EPixelFormat>;
+	public inline extern function get_OverrideFormat(): TEnumAsByte<EPixelFormat> return this.OverrideFormat;
 	public extern var bHDR(get, never): Bool;
 	public inline extern function get_bHDR(): Bool return this.bHDR;
 	public extern var bForceLinearGamma(get, never): Bool;

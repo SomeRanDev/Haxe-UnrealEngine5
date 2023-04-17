@@ -3,10 +3,10 @@ package ue;
 
 @:native("EARAltitudeSource")
 @:include("ARTypes.h")
-extern enum EARAltitudeSource {
-	Precise;
-	Coarse;
-	UserDefined;
-	Unknown;
-	EARAltitudeSource_MAX;
+extern class EARAltitudeSource {
+	static var Precise: EARAltitudeSource;
+	static var Coarse: EARAltitudeSource;
+	static var UserDefined: EARAltitudeSource;
+	static var Unknown: EARAltitudeSource;
+	static var EARAltitudeSource_MAX: EARAltitudeSource;
 }

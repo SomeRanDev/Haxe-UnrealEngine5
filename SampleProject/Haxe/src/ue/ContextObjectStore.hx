@@ -5,7 +5,7 @@ package ue;
 @:include("ContextObjectStore.h")
 @:structAccess
 extern class ContextObjectStore extends Object {
-	public var ContextObjects: TArray<cpp.Star<Object>>;
+	@:protected public var ContextObjects: TArray<cpp.Star<Object>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class ContextObjectStore extends Object {
 @:forward()
 @:nativeGen
 abstract ConstContextObjectStore(ContextObjectStore) from ContextObjectStore {
-	public extern var ContextObjects(get, never): TArray<cpp.Star<Object.ConstObject>>;
-	public inline extern function get_ContextObjects(): TArray<cpp.Star<Object.ConstObject>> return this.ContextObjects;
 }
 
 @:forward

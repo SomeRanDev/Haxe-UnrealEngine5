@@ -3,8 +3,8 @@ package ue;
 
 @:native("EditConditionByteEnum")
 @:include("Private/EditConditionParserTests.h")
-extern enum EditConditionByteEnum {
-	First;
-	Second;
-	EditConditionByteEnum_MAX;
+extern class EditConditionByteEnum {
+	static var First: EditConditionByteEnum;
+	static var Second: EditConditionByteEnum;
+	static var EditConditionByteEnum_MAX: EditConditionByteEnum;
 }

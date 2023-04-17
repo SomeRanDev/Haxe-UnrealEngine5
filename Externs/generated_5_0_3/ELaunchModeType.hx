@@ -3,7 +3,7 @@ package ue;
 
 @:native("ELaunchModeType")
 @:include("Settings/LevelEditorPlaySettings.h")
-extern enum ELaunchModeType {
-	LaunchMode_OnDevice;
-	LaunchMode_MAX;
+extern class ELaunchModeType {
+	static var LaunchMode_OnDevice: ELaunchModeType;
+	static var LaunchMode_MAX: ELaunchModeType;
 }

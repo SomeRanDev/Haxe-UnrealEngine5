@@ -3,9 +3,9 @@ package ue;
 
 @:native("EGraphPanningMouseButton")
 @:include("GraphEditorSettings.h")
-extern enum EGraphPanningMouseButton {
-	Right;
-	Middle;
-	Both;
-	EGraphPanningMouseButton_MAX;
+extern class EGraphPanningMouseButton {
+	static var Right: EGraphPanningMouseButton;
+	static var Middle: EGraphPanningMouseButton;
+	static var Both: EGraphPanningMouseButton;
+	static var EGraphPanningMouseButton_MAX: EGraphPanningMouseButton;
 }

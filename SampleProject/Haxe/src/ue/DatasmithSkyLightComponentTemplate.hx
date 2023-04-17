@@ -5,7 +5,7 @@ package ue;
 @:include("ObjectTemplates/DatasmithSkyLightComponentTemplate.h")
 @:structAccess
 extern class DatasmithSkyLightComponentTemplate extends DatasmithObjectTemplate {
-	public var SourceType: ESkyLightSourceType;
+	public var SourceType: TEnumAsByte<ESkyLightSourceType>;
 	public var CubemapResolution: cpp.Int32;
 	public var Cubemap: cpp.Star<TextureCube>;
 
@@ -15,8 +15,8 @@ extern class DatasmithSkyLightComponentTemplate extends DatasmithObjectTemplate 
 @:forward()
 @:nativeGen
 abstract ConstDatasmithSkyLightComponentTemplate(DatasmithSkyLightComponentTemplate) from DatasmithSkyLightComponentTemplate {
-	public extern var SourceType(get, never): ESkyLightSourceType;
-	public inline extern function get_SourceType(): ESkyLightSourceType return this.SourceType;
+	public extern var SourceType(get, never): TEnumAsByte<ESkyLightSourceType>;
+	public inline extern function get_SourceType(): TEnumAsByte<ESkyLightSourceType> return this.SourceType;
 	public extern var CubemapResolution(get, never): cpp.Int32;
 	public inline extern function get_CubemapResolution(): cpp.Int32 return this.CubemapResolution;
 	public extern var Cubemap(get, never): cpp.Star<TextureCube.ConstTextureCube>;

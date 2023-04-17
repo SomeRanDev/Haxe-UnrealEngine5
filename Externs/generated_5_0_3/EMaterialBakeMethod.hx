@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMaterialBakeMethod")
 @:include("MaterialOptions.h")
-extern enum EMaterialBakeMethod {
-	IndividualMaterial;
-	AtlasMaterial;
-	BinnedMaterial;
-	EMaterialBakeMethod_MAX;
+extern class EMaterialBakeMethod {
+	static var IndividualMaterial: EMaterialBakeMethod;
+	static var AtlasMaterial: EMaterialBakeMethod;
+	static var BinnedMaterial: EMaterialBakeMethod;
+	static var EMaterialBakeMethod_MAX: EMaterialBakeMethod;
 }

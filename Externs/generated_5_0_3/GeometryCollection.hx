@@ -10,34 +10,23 @@ extern class GeometryCollection extends Object {
 	public var MaxClusterLevel: cpp.Int32;
 	public var DamageThreshold: TArray<cpp.Float32>;
 	public var ClusterConnectionType: EClusterConnectionTypeEnum;
-	public var GeometrySource: TArray<GeometryCollectionSource>;
 	public var Materials: TArray<cpp.Star<MaterialInterface>>;
 	public var EmbeddedGeometryExemplar: TArray<GeometryCollectionEmbeddedExemplar>;
 	public var bUseFullPrecisionUVs: Bool;
 	public var bStripOnCook: Bool;
 	public var EnableNanite: Bool;
-	public var CollisionType_DEPRECATED: ECollisionTypeEnum;
-	public var ImplicitType_DEPRECATED: EImplicitTypeEnum;
-	public var MinLevelSetResolution_DEPRECATED: cpp.Int32;
-	public var MaxLevelSetResolution_DEPRECATED: cpp.Int32;
-	public var MinClusterLevelSetResolution_DEPRECATED: cpp.Int32;
-	public var MaxClusterLevelSetResolution_DEPRECATED: cpp.Int32;
-	public var CollisionObjectReductionPercentage_DEPRECATED: cpp.Float32;
 	public var bMassAsDensity: Bool;
 	public var Mass: cpp.Float32;
 	public var MinimumMassClamp: cpp.Float32;
-	public var CollisionParticlesFraction_DEPRECATED: cpp.Float32;
-	public var MaximumCollisionParticles_DEPRECATED: cpp.Int32;
 	public var bRemoveOnMaxSleep: Bool;
 	public var MaximumSleepTime: Vector2D;
 	public var RemovalDuration: Vector2D;
 	public var SizeSpecificData: TArray<GeometryCollectionSizeSpecificData>;
 	public var EnableRemovePiecesOnFracture: Bool;
 	public var RemoveOnFractureMaterials: TArray<cpp.Star<MaterialInterface>>;
-	public var ThumbnailInfo: cpp.Star<ThumbnailInfo>;
-	public var PersistentGuid: Guid;
-	public var StateGuid: Guid;
-	public var BoneSelectedMaterialIndex: cpp.Int32;
+	private var PersistentGuid: Guid;
+	private var StateGuid: Guid;
+	private var BoneSelectedMaterialIndex: cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -55,8 +44,6 @@ abstract ConstGeometryCollection(GeometryCollection) from GeometryCollection {
 	public inline extern function get_DamageThreshold(): TArray<cpp.Float32> return this.DamageThreshold;
 	public extern var ClusterConnectionType(get, never): EClusterConnectionTypeEnum;
 	public inline extern function get_ClusterConnectionType(): EClusterConnectionTypeEnum return this.ClusterConnectionType;
-	public extern var GeometrySource(get, never): TArray<GeometryCollectionSource>;
-	public inline extern function get_GeometrySource(): TArray<GeometryCollectionSource> return this.GeometrySource;
 	public extern var Materials(get, never): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>>;
 	public inline extern function get_Materials(): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>> return this.Materials;
 	public extern var EmbeddedGeometryExemplar(get, never): TArray<GeometryCollectionEmbeddedExemplar>;
@@ -67,30 +54,12 @@ abstract ConstGeometryCollection(GeometryCollection) from GeometryCollection {
 	public inline extern function get_bStripOnCook(): Bool return this.bStripOnCook;
 	public extern var EnableNanite(get, never): Bool;
 	public inline extern function get_EnableNanite(): Bool return this.EnableNanite;
-	public extern var CollisionType_DEPRECATED(get, never): ECollisionTypeEnum;
-	public inline extern function get_CollisionType_DEPRECATED(): ECollisionTypeEnum return this.CollisionType_DEPRECATED;
-	public extern var ImplicitType_DEPRECATED(get, never): EImplicitTypeEnum;
-	public inline extern function get_ImplicitType_DEPRECATED(): EImplicitTypeEnum return this.ImplicitType_DEPRECATED;
-	public extern var MinLevelSetResolution_DEPRECATED(get, never): cpp.Int32;
-	public inline extern function get_MinLevelSetResolution_DEPRECATED(): cpp.Int32 return this.MinLevelSetResolution_DEPRECATED;
-	public extern var MaxLevelSetResolution_DEPRECATED(get, never): cpp.Int32;
-	public inline extern function get_MaxLevelSetResolution_DEPRECATED(): cpp.Int32 return this.MaxLevelSetResolution_DEPRECATED;
-	public extern var MinClusterLevelSetResolution_DEPRECATED(get, never): cpp.Int32;
-	public inline extern function get_MinClusterLevelSetResolution_DEPRECATED(): cpp.Int32 return this.MinClusterLevelSetResolution_DEPRECATED;
-	public extern var MaxClusterLevelSetResolution_DEPRECATED(get, never): cpp.Int32;
-	public inline extern function get_MaxClusterLevelSetResolution_DEPRECATED(): cpp.Int32 return this.MaxClusterLevelSetResolution_DEPRECATED;
-	public extern var CollisionObjectReductionPercentage_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_CollisionObjectReductionPercentage_DEPRECATED(): cpp.Float32 return this.CollisionObjectReductionPercentage_DEPRECATED;
 	public extern var bMassAsDensity(get, never): Bool;
 	public inline extern function get_bMassAsDensity(): Bool return this.bMassAsDensity;
 	public extern var Mass(get, never): cpp.Float32;
 	public inline extern function get_Mass(): cpp.Float32 return this.Mass;
 	public extern var MinimumMassClamp(get, never): cpp.Float32;
 	public inline extern function get_MinimumMassClamp(): cpp.Float32 return this.MinimumMassClamp;
-	public extern var CollisionParticlesFraction_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_CollisionParticlesFraction_DEPRECATED(): cpp.Float32 return this.CollisionParticlesFraction_DEPRECATED;
-	public extern var MaximumCollisionParticles_DEPRECATED(get, never): cpp.Int32;
-	public inline extern function get_MaximumCollisionParticles_DEPRECATED(): cpp.Int32 return this.MaximumCollisionParticles_DEPRECATED;
 	public extern var bRemoveOnMaxSleep(get, never): Bool;
 	public inline extern function get_bRemoveOnMaxSleep(): Bool return this.bRemoveOnMaxSleep;
 	public extern var MaximumSleepTime(get, never): Vector2D;
@@ -103,14 +72,6 @@ abstract ConstGeometryCollection(GeometryCollection) from GeometryCollection {
 	public inline extern function get_EnableRemovePiecesOnFracture(): Bool return this.EnableRemovePiecesOnFracture;
 	public extern var RemoveOnFractureMaterials(get, never): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>>;
 	public inline extern function get_RemoveOnFractureMaterials(): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>> return this.RemoveOnFractureMaterials;
-	public extern var ThumbnailInfo(get, never): cpp.Star<ThumbnailInfo.ConstThumbnailInfo>;
-	public inline extern function get_ThumbnailInfo(): cpp.Star<ThumbnailInfo.ConstThumbnailInfo> return this.ThumbnailInfo;
-	public extern var PersistentGuid(get, never): Guid;
-	public inline extern function get_PersistentGuid(): Guid return this.PersistentGuid;
-	public extern var StateGuid(get, never): Guid;
-	public inline extern function get_StateGuid(): Guid return this.StateGuid;
-	public extern var BoneSelectedMaterialIndex(get, never): cpp.Int32;
-	public inline extern function get_BoneSelectedMaterialIndex(): cpp.Int32 return this.BoneSelectedMaterialIndex;
 }
 
 @:forward

@@ -3,13 +3,13 @@ package ue;
 
 @:native("EMovementMode")
 @:include("Engine/EngineTypes.h")
-extern enum EMovementMode {
-	MOVE_None;
-	MOVE_Walking;
-	MOVE_NavWalking;
-	MOVE_Falling;
-	MOVE_Swimming;
-	MOVE_Flying;
-	MOVE_Custom;
-	MOVE_MAX;
+extern class EMovementMode {
+	static var MOVE_None: EMovementMode;
+	static var MOVE_Walking: EMovementMode;
+	static var MOVE_NavWalking: EMovementMode;
+	static var MOVE_Falling: EMovementMode;
+	static var MOVE_Swimming: EMovementMode;
+	static var MOVE_Flying: EMovementMode;
+	static var MOVE_Custom: EMovementMode;
+	static var MOVE_MAX: EMovementMode;
 }

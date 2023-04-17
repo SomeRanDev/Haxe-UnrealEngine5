@@ -12,9 +12,9 @@ extern class PlaneFalloff extends FieldNodeFloat {
 	public var Distance: cpp.Float32;
 	public var Position: Vector;
 	public var Normal: Vector;
-	public var Falloff: EFieldFalloffType;
+	public var Falloff: TEnumAsByte<EFieldFalloffType>;
 
-	public function SetPlaneFalloff(Magnitude: cpp.Float32, MinRange: cpp.Float32, MaxRange: cpp.Float32, Default: cpp.Float32, Distance: cpp.Float32, Position: Vector, Normal: Vector, Falloff: EFieldFalloffType): cpp.Reference<cpp.Star<PlaneFalloff>>;
+	public function SetPlaneFalloff(Magnitude: cpp.Float32, MinRange: cpp.Float32, MaxRange: cpp.Float32, Default: cpp.Float32, Distance: cpp.Float32, Position: Vector, Normal: Vector, Falloff: TEnumAsByte<EFieldFalloffType>): cpp.Star<PlaneFalloff>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -36,8 +36,8 @@ abstract ConstPlaneFalloff(PlaneFalloff) from PlaneFalloff {
 	public inline extern function get_Position(): Vector return this.Position;
 	public extern var Normal(get, never): Vector;
 	public inline extern function get_Normal(): Vector return this.Normal;
-	public extern var Falloff(get, never): EFieldFalloffType;
-	public inline extern function get_Falloff(): EFieldFalloffType return this.Falloff;
+	public extern var Falloff(get, never): TEnumAsByte<EFieldFalloffType>;
+	public inline extern function get_Falloff(): TEnumAsByte<EFieldFalloffType> return this.Falloff;
 }
 
 @:forward

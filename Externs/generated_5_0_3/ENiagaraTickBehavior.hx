@@ -3,10 +3,10 @@ package ue;
 
 @:native("ENiagaraTickBehavior")
 @:include("NiagaraCommon.h")
-extern enum ENiagaraTickBehavior {
-	UsePrereqs;
-	UseComponentTickGroup;
-	ForceTickFirst;
-	ForceTickLast;
-	ENiagaraTickBehavior_MAX;
+extern class ENiagaraTickBehavior {
+	static var UsePrereqs: ENiagaraTickBehavior;
+	static var UseComponentTickGroup: ENiagaraTickBehavior;
+	static var ForceTickFirst: ENiagaraTickBehavior;
+	static var ForceTickLast: ENiagaraTickBehavior;
+	static var ENiagaraTickBehavior_MAX: ENiagaraTickBehavior;
 }

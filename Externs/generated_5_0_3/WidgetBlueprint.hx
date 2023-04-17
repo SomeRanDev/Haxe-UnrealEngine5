@@ -5,13 +5,9 @@ package ue;
 @:include("WidgetBlueprint.h")
 @:structAccess
 extern class WidgetBlueprint extends BaseWidgetBlueprint {
-	public var Bindings: TArray<DelegateEditorBinding>;
-	public var AnimationData_DEPRECATED: TArray<WidgetAnimation_DEPRECATED>;
-	public var Animations: TArray<cpp.Star<WidgetAnimation>>;
-	public var PaletteCategory: FString;
-	public var TickFrequency: EWidgetTickFrequency;
-	public var TickPrediction: EWidgetCompileTimeTickPrediction;
-	public var TickPredictionReason: FString;
+	private var TickFrequency: EWidgetTickFrequency;
+	private var TickPrediction: EWidgetCompileTimeTickPrediction;
+	private var TickPredictionReason: FString;
 	public var PropertyBindings: cpp.Int32;
 	public var ThumbnailSizeMode: EThumbnailPreviewSizeMode;
 	public var ThumbnailCustomSize: Vector2D;
@@ -23,20 +19,6 @@ extern class WidgetBlueprint extends BaseWidgetBlueprint {
 @:forward()
 @:nativeGen
 abstract ConstWidgetBlueprint(WidgetBlueprint) from WidgetBlueprint {
-	public extern var Bindings(get, never): TArray<DelegateEditorBinding>;
-	public inline extern function get_Bindings(): TArray<DelegateEditorBinding> return this.Bindings;
-	public extern var AnimationData_DEPRECATED(get, never): TArray<WidgetAnimation_DEPRECATED>;
-	public inline extern function get_AnimationData_DEPRECATED(): TArray<WidgetAnimation_DEPRECATED> return this.AnimationData_DEPRECATED;
-	public extern var Animations(get, never): TArray<cpp.Star<WidgetAnimation.ConstWidgetAnimation>>;
-	public inline extern function get_Animations(): TArray<cpp.Star<WidgetAnimation.ConstWidgetAnimation>> return this.Animations;
-	public extern var PaletteCategory(get, never): FString;
-	public inline extern function get_PaletteCategory(): FString return this.PaletteCategory;
-	public extern var TickFrequency(get, never): EWidgetTickFrequency;
-	public inline extern function get_TickFrequency(): EWidgetTickFrequency return this.TickFrequency;
-	public extern var TickPrediction(get, never): EWidgetCompileTimeTickPrediction;
-	public inline extern function get_TickPrediction(): EWidgetCompileTimeTickPrediction return this.TickPrediction;
-	public extern var TickPredictionReason(get, never): FString;
-	public inline extern function get_TickPredictionReason(): FString return this.TickPredictionReason;
 	public extern var PropertyBindings(get, never): cpp.Int32;
 	public inline extern function get_PropertyBindings(): cpp.Int32 return this.PropertyBindings;
 	public extern var ThumbnailSizeMode(get, never): EThumbnailPreviewSizeMode;

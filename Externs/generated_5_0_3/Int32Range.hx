@@ -5,8 +5,8 @@ package ue;
 @:include("UObject/NoExportTypes.h")
 @:structAccess
 extern class Int32Range {
-	public var LowerBound: Int32RangeBound;
-	public var UpperBound: Int32RangeBound;
+	private var LowerBound: Int32RangeBound;
+	private var UpperBound: Int32RangeBound;
 
 	@:native("FInt32Range") public function new();
 	@:native("FInt32Range") public static function make(LowerBound: Int32RangeBound, UpperBound: Int32RangeBound): Int32Range ;

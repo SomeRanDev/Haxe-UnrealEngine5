@@ -5,7 +5,7 @@ package ue;
 @:include("ViewModels/Stack/NiagaraStackPropertyRow.h")
 @:structAccess
 extern class NiagaraStackPropertyRow extends NiagaraStackItemContent {
-	public var CategorySpacer: cpp.Star<NiagaraStackSpacer>;
+	private var CategorySpacer: cpp.Star<NiagaraStackSpacer>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class NiagaraStackPropertyRow extends NiagaraStackItemContent {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraStackPropertyRow(NiagaraStackPropertyRow) from NiagaraStackPropertyRow {
-	public extern var CategorySpacer(get, never): cpp.Star<NiagaraStackSpacer.ConstNiagaraStackSpacer>;
-	public inline extern function get_CategorySpacer(): cpp.Star<NiagaraStackSpacer.ConstNiagaraStackSpacer> return this.CategorySpacer;
 }
 
 @:forward

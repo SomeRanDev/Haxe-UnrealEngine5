@@ -3,10 +3,10 @@ package ue;
 
 @:native("EMediaPlayerRecordingImageFormat")
 @:include("Private/Sequencer/MediaPlayerRecording.h")
-extern enum EMediaPlayerRecordingImageFormat {
-	PNG;
-	JPEG;
-	BMP;
-	EXR;
-	EMediaPlayerRecordingImageFormat_MAX;
+extern class EMediaPlayerRecordingImageFormat {
+	static var PNG: EMediaPlayerRecordingImageFormat;
+	static var JPEG: EMediaPlayerRecordingImageFormat;
+	static var BMP: EMediaPlayerRecordingImageFormat;
+	static var EXR: EMediaPlayerRecordingImageFormat;
+	static var EMediaPlayerRecordingImageFormat_MAX: EMediaPlayerRecordingImageFormat;
 }

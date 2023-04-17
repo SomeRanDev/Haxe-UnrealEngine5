@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENodeEnabledState")
 @:include("EdGraph/EdGraphNode.h")
-extern enum ENodeEnabledState {
-	Enabled;
-	Disabled;
-	DevelopmentOnly;
-	ENodeEnabledState_MAX;
+extern class ENodeEnabledState {
+	static var Enabled: ENodeEnabledState;
+	static var Disabled: ENodeEnabledState;
+	static var DevelopmentOnly: ENodeEnabledState;
+	static var ENodeEnabledState_MAX: ENodeEnabledState;
 }

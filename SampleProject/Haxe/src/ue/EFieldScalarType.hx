@@ -3,13 +3,13 @@ package ue;
 
 @:native("EFieldScalarType")
 @:include("Field/FieldSystemTypes.h")
-extern enum EFieldScalarType {
-	Scalar_ExternalClusterStrain;
-	Scalar_Kill;
-	Scalar_DisableThreshold;
-	Scalar_SleepingThreshold;
-	Scalar_InternalClusterStrain;
-	Scalar_DynamicConstraint;
-	Scalar_TargetMax;
-	Scalar_MAX;
+extern class EFieldScalarType {
+	static var Scalar_ExternalClusterStrain: EFieldScalarType;
+	static var Scalar_Kill: EFieldScalarType;
+	static var Scalar_DisableThreshold: EFieldScalarType;
+	static var Scalar_SleepingThreshold: EFieldScalarType;
+	static var Scalar_InternalClusterStrain: EFieldScalarType;
+	static var Scalar_DynamicConstraint: EFieldScalarType;
+	static var Scalar_TargetMax: EFieldScalarType;
+	static var Scalar_MAX: EFieldScalarType;
 }

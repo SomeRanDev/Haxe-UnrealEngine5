@@ -3,12 +3,12 @@ package ue;
 
 @:native("ENiagaraExecutionState")
 @:include("NiagaraTypes.h")
-extern enum ENiagaraExecutionState {
-	Active;
-	Inactive;
-	InactiveClear;
-	Complete;
-	Disabled;
-	Num;
-	ENiagaraExecutionState_MAX;
+extern class ENiagaraExecutionState {
+	static var Active: ENiagaraExecutionState;
+	static var Inactive: ENiagaraExecutionState;
+	static var InactiveClear: ENiagaraExecutionState;
+	static var Complete: ENiagaraExecutionState;
+	static var Disabled: ENiagaraExecutionState;
+	static var Num: ENiagaraExecutionState;
+	static var ENiagaraExecutionState_MAX: ENiagaraExecutionState;
 }

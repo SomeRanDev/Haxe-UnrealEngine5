@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENodeAdvancedPins.Type")
 @:include("EdGraph/EdGraphNode.h")
-extern enum ENodeAdvancedPins {
-	NoPins;
-	Shown;
-	Hidden;
-	ENodeAdvancedPins_MAX;
+extern class ENodeAdvancedPins {
+	static var NoPins: ENodeAdvancedPins;
+	static var Shown: ENodeAdvancedPins;
+	static var Hidden: ENodeAdvancedPins;
+	static var ENodeAdvancedPins_MAX: ENodeAdvancedPins;
 }

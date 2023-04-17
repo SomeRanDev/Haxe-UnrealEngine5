@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESceneCaptureCompositeMode")
 @:include("Engine/EngineTypes.h")
-extern enum ESceneCaptureCompositeMode {
-	SCCM_Overwrite;
-	SCCM_Additive;
-	SCCM_Composite;
-	SCCM_MAX;
+extern class ESceneCaptureCompositeMode {
+	static var SCCM_Overwrite: ESceneCaptureCompositeMode;
+	static var SCCM_Additive: ESceneCaptureCompositeMode;
+	static var SCCM_Composite: ESceneCaptureCompositeMode;
+	static var SCCM_MAX: ESceneCaptureCompositeMode;
 }

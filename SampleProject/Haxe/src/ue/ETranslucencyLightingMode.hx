@@ -3,12 +3,12 @@ package ue;
 
 @:native("ETranslucencyLightingMode")
 @:include("Engine/EngineTypes.h")
-extern enum ETranslucencyLightingMode {
-	TLM_VolumetricNonDirectional;
-	TLM_VolumetricDirectional;
-	TLM_VolumetricPerVertexNonDirectional;
-	TLM_VolumetricPerVertexDirectional;
-	TLM_Surface;
-	TLM_SurfacePerPixelLighting;
-	TLM_MAX;
+extern class ETranslucencyLightingMode {
+	static var TLM_VolumetricNonDirectional: ETranslucencyLightingMode;
+	static var TLM_VolumetricDirectional: ETranslucencyLightingMode;
+	static var TLM_VolumetricPerVertexNonDirectional: ETranslucencyLightingMode;
+	static var TLM_VolumetricPerVertexDirectional: ETranslucencyLightingMode;
+	static var TLM_Surface: ETranslucencyLightingMode;
+	static var TLM_SurfacePerPixelLighting: ETranslucencyLightingMode;
+	static var TLM_MAX: ETranslucencyLightingMode;
 }

@@ -11,11 +11,11 @@ extern class PlayMontageCallbackProxy extends Object {
 	public var OnNotifyBegin: HaxeMulticastSparseDelegateProperty<(FName) -> Void>;
 	public var OnNotifyEnd: HaxeMulticastSparseDelegateProperty<(FName) -> Void>;
 
-	public function OnNotifyEndReceived(NotifyName: FName, BranchingPointNotifyPayload: cpp.Reference<BranchingPointNotifyPayload>): Void;
-	public function OnNotifyBeginReceived(NotifyName: FName, BranchingPointNotifyPayload: cpp.Reference<BranchingPointNotifyPayload>): Void;
-	public function OnMontageEnded(Montage: cpp.Star<AnimMontage>, bInterrupted: Bool): Void;
-	public function OnMontageBlendingOut(Montage: cpp.Star<AnimMontage>, bInterrupted: Bool): Void;
-	public function CreateProxyObjectForPlayMontage(InSkeletalMeshComponent: cpp.Star<SkeletalMeshComp>, MontageToPlay: cpp.Star<AnimMontage>, PlayRate: cpp.Float32, StartingPosition: cpp.Float32, StartingSection: FName): cpp.Reference<cpp.Star<PlayMontageCallbackProxy>>;
+	@:protected public function OnNotifyEndReceived(NotifyName: FName, BranchingPointNotifyPayload: cpp.Reference<BranchingPointNotifyPayload>): Void;
+	@:protected public function OnNotifyBeginReceived(NotifyName: FName, BranchingPointNotifyPayload: cpp.Reference<BranchingPointNotifyPayload>): Void;
+	@:protected public function OnMontageEnded(Montage: cpp.Star<AnimMontage>, bInterrupted: Bool): Void;
+	@:protected public function OnMontageBlendingOut(Montage: cpp.Star<AnimMontage>, bInterrupted: Bool): Void;
+	public function CreateProxyObjectForPlayMontage(InSkeletalMeshComponent: cpp.Star<SkeletalMeshComp>, MontageToPlay: cpp.Star<AnimMontage>, PlayRate: cpp.Float32, StartingPosition: cpp.Float32, StartingSection: FName): cpp.Star<PlayMontageCallbackProxy>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

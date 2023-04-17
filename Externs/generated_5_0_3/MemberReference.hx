@@ -5,12 +5,12 @@ package ue;
 @:include("Engine/MemberReference.h")
 @:structAccess
 extern class MemberReference {
-	public var MemberParent: cpp.Star<Object>;
-	public var MemberScope: FString;
-	public var MemberName: FName;
-	public var MemberGuid: Guid;
-	public var bSelfContext: Bool;
-	public var bWasDeprecated: Bool;
+	@:protected public var MemberParent: cpp.Star<Object>;
+	@:protected public var MemberScope: FString;
+	@:protected public var MemberName: FName;
+	@:protected public var MemberGuid: Guid;
+	@:protected public var bSelfContext: Bool;
+	@:protected public var bWasDeprecated: Bool;
 
 	@:native("FMemberReference") public function new();
 }

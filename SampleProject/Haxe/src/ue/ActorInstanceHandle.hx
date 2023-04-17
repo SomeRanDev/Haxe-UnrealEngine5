@@ -5,7 +5,7 @@ package ue;
 @:include("Engine/EngineTypes.h")
 @:structAccess
 extern class ActorInstanceHandle {
-	public var Actor: TWeakObjectPtr<Actor>;
+	private var Actor: TWeakObjectPtr<Actor>;
 
 	@:native("FActorInstanceHandle") public function new();
 	@:native("FActorInstanceHandle") public static function make(Actor: TWeakObjectPtr<Actor>): ActorInstanceHandle ;

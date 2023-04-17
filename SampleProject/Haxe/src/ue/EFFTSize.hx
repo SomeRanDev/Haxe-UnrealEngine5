@@ -3,13 +3,13 @@ package ue;
 
 @:native("EFFTSize")
 @:include("Sound/SoundSubmix.h")
-extern enum EFFTSize {
-	DefaultSize;
-	Min;
-	Small;
-	Medium;
-	Large;
-	VeryLarge;
-	Max;
-	EFFTSize_MAX;
+extern class EFFTSize {
+	static var DefaultSize: EFFTSize;
+	static var Min: EFFTSize;
+	static var Small: EFFTSize;
+	static var Medium: EFFTSize;
+	static var Large: EFFTSize;
+	static var VeryLarge: EFFTSize;
+	static var Max: EFFTSize;
+	static var EFFTSize_MAX: EFFTSize;
 }

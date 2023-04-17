@@ -5,8 +5,8 @@ package ue;
 @:include("AnimBlueprintExtension_BlendSpaceGraph.h")
 @:structAccess
 extern class AnimBlueprintExtension_BlendSpaceGraph extends AnimBlueprintExtension {
-	public var Class: TSubclassOf<Object>;
-	public var Subsystem: AnimSubsystem_BlendSpaceGraph;
+	private var Class: TSubclassOf<Object>;
+	private var Subsystem: AnimSubsystem_BlendSpaceGraph;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class AnimBlueprintExtension_BlendSpaceGraph extends AnimBlueprintExtensi
 @:forward()
 @:nativeGen
 abstract ConstAnimBlueprintExtension_BlendSpaceGraph(AnimBlueprintExtension_BlendSpaceGraph) from AnimBlueprintExtension_BlendSpaceGraph {
-	public extern var Class(get, never): TSubclassOf<Object.ConstObject>;
-	public inline extern function get_Class(): TSubclassOf<Object.ConstObject> return this.Class;
-	public extern var Subsystem(get, never): AnimSubsystem_BlendSpaceGraph;
-	public inline extern function get_Subsystem(): AnimSubsystem_BlendSpaceGraph return this.Subsystem;
 }
 
 @:forward

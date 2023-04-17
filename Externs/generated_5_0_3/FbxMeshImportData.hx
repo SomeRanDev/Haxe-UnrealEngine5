@@ -8,8 +8,8 @@ extern class FbxMeshImportData extends FbxAssetImportData {
 	public var bTransformVertexToAbsolute: Bool;
 	public var bBakePivotInVertex: Bool;
 	public var bImportMeshLODs: Bool;
-	public var NormalImportMethod: EFBXNormalImportMethod;
-	public var NormalGenerationMethod: EFBXNormalGenerationMethod;
+	public var NormalImportMethod: TEnumAsByte<EFBXNormalImportMethod>;
+	public var NormalGenerationMethod: TEnumAsByte<EFBXNormalGenerationMethod>;
 	public var bComputeWeightedNormals: Bool;
 	public var bReorderMaterialToFbxOrder: Bool;
 	public var ImportMaterialOriginalNameData: TArray<FName>;
@@ -27,10 +27,10 @@ abstract ConstFbxMeshImportData(FbxMeshImportData) from FbxMeshImportData {
 	public inline extern function get_bBakePivotInVertex(): Bool return this.bBakePivotInVertex;
 	public extern var bImportMeshLODs(get, never): Bool;
 	public inline extern function get_bImportMeshLODs(): Bool return this.bImportMeshLODs;
-	public extern var NormalImportMethod(get, never): EFBXNormalImportMethod;
-	public inline extern function get_NormalImportMethod(): EFBXNormalImportMethod return this.NormalImportMethod;
-	public extern var NormalGenerationMethod(get, never): EFBXNormalGenerationMethod;
-	public inline extern function get_NormalGenerationMethod(): EFBXNormalGenerationMethod return this.NormalGenerationMethod;
+	public extern var NormalImportMethod(get, never): TEnumAsByte<EFBXNormalImportMethod>;
+	public inline extern function get_NormalImportMethod(): TEnumAsByte<EFBXNormalImportMethod> return this.NormalImportMethod;
+	public extern var NormalGenerationMethod(get, never): TEnumAsByte<EFBXNormalGenerationMethod>;
+	public inline extern function get_NormalGenerationMethod(): TEnumAsByte<EFBXNormalGenerationMethod> return this.NormalGenerationMethod;
 	public extern var bComputeWeightedNormals(get, never): Bool;
 	public inline extern function get_bComputeWeightedNormals(): Bool return this.bComputeWeightedNormals;
 	public extern var bReorderMaterialToFbxOrder(get, never): Bool;

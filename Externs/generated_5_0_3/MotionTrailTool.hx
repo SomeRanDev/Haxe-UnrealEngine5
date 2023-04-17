@@ -7,8 +7,8 @@ package ue;
 extern class MotionTrailTool extends MultiSelectionTool {
 	public var TransformProxy: cpp.Star<TransformProxy>;
 	public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	public var LeftClickBehavior: cpp.Star<SingleClickInputBehavior>;
-	public var RightClickBehavior: cpp.Star<SingleClickInputBehavior>;
+	@:protected public var LeftClickBehavior: cpp.Star<SingleClickInputBehavior>;
+	@:protected public var RightClickBehavior: cpp.Star<SingleClickInputBehavior>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -20,10 +20,6 @@ abstract ConstMotionTrailTool(MotionTrailTool) from MotionTrailTool {
 	public inline extern function get_TransformProxy(): cpp.Star<TransformProxy.ConstTransformProxy> return this.TransformProxy;
 	public extern var TransformGizmo(get, never): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo>;
 	public inline extern function get_TransformGizmo(): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo> return this.TransformGizmo;
-	public extern var LeftClickBehavior(get, never): cpp.Star<SingleClickInputBehavior.ConstSingleClickInputBehavior>;
-	public inline extern function get_LeftClickBehavior(): cpp.Star<SingleClickInputBehavior.ConstSingleClickInputBehavior> return this.LeftClickBehavior;
-	public extern var RightClickBehavior(get, never): cpp.Star<SingleClickInputBehavior.ConstSingleClickInputBehavior>;
-	public inline extern function get_RightClickBehavior(): cpp.Star<SingleClickInputBehavior.ConstSingleClickInputBehavior> return this.RightClickBehavior;
 }
 
 @:forward

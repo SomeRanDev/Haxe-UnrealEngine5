@@ -6,8 +6,8 @@ package ue;
 @:structAccess
 extern class MaterialExpressionTransform extends MaterialExpression {
 	public var Input: ExpressionInput;
-	public var TransformSourceType: EMaterialVectorCoordTransformSource;
-	public var TransformType: EMaterialVectorCoordTransform;
+	public var TransformSourceType: TEnumAsByte<EMaterialVectorCoordTransformSource>;
+	public var TransformType: TEnumAsByte<EMaterialVectorCoordTransform>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,10 +17,10 @@ extern class MaterialExpressionTransform extends MaterialExpression {
 abstract ConstMaterialExpressionTransform(MaterialExpressionTransform) from MaterialExpressionTransform {
 	public extern var Input(get, never): ExpressionInput;
 	public inline extern function get_Input(): ExpressionInput return this.Input;
-	public extern var TransformSourceType(get, never): EMaterialVectorCoordTransformSource;
-	public inline extern function get_TransformSourceType(): EMaterialVectorCoordTransformSource return this.TransformSourceType;
-	public extern var TransformType(get, never): EMaterialVectorCoordTransform;
-	public inline extern function get_TransformType(): EMaterialVectorCoordTransform return this.TransformType;
+	public extern var TransformSourceType(get, never): TEnumAsByte<EMaterialVectorCoordTransformSource>;
+	public inline extern function get_TransformSourceType(): TEnumAsByte<EMaterialVectorCoordTransformSource> return this.TransformSourceType;
+	public extern var TransformType(get, never): TEnumAsByte<EMaterialVectorCoordTransform>;
+	public inline extern function get_TransformType(): TEnumAsByte<EMaterialVectorCoordTransform> return this.TransformType;
 }
 
 @:forward

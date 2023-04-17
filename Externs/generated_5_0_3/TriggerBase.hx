@@ -5,8 +5,7 @@ package ue;
 @:include("Engine/TriggerBase.h")
 @:structAccess
 extern class TriggerBase extends Actor {
-	public var CollisionComponent: cpp.Star<ShapeComp>;
-	public var SpriteComponent: cpp.Star<BillboardComp>;
+	private var CollisionComponent: cpp.Star<ShapeComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +13,6 @@ extern class TriggerBase extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstTriggerBase(TriggerBase) from TriggerBase {
-	public extern var CollisionComponent(get, never): cpp.Star<ShapeComp.ConstShapeComp>;
-	public inline extern function get_CollisionComponent(): cpp.Star<ShapeComp.ConstShapeComp> return this.CollisionComponent;
-	public extern var SpriteComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
-	public inline extern function get_SpriteComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
 }
 
 @:forward

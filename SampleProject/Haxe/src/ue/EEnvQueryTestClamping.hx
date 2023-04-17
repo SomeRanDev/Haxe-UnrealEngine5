@@ -3,9 +3,9 @@ package ue;
 
 @:native("EEnvQueryTestClamping.Type")
 @:include("EnvironmentQuery/EnvQueryTypes.h")
-extern enum EEnvQueryTestClamping {
-	None;
-	SpecifiedValue;
-	FilterThreshold;
-	EEnvQueryTestClamping_MAX;
+extern class EEnvQueryTestClamping {
+	static var None: EEnvQueryTestClamping;
+	static var SpecifiedValue: EEnvQueryTestClamping;
+	static var FilterThreshold: EEnvQueryTestClamping;
+	static var EEnvQueryTestClamping_MAX: EEnvQueryTestClamping;
 }

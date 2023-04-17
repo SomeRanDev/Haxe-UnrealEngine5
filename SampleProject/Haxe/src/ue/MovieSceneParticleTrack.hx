@@ -5,7 +5,7 @@ package ue;
 @:include("Tracks/MovieSceneParticleTrack.h")
 @:structAccess
 extern class MovieSceneParticleTrack extends MovieSceneNameableTrack {
-	public var ParticleSections: TArray<cpp.Star<MovieSceneSection>>;
+	private var ParticleSections: TArray<cpp.Star<MovieSceneSection>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MovieSceneParticleTrack extends MovieSceneNameableTrack {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneParticleTrack(MovieSceneParticleTrack) from MovieSceneParticleTrack {
-	public extern var ParticleSections(get, never): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>>;
-	public inline extern function get_ParticleSections(): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>> return this.ParticleSections;
 }
 
 @:forward

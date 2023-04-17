@@ -5,11 +5,11 @@ package ue;
 @:include("PersonaToolMenuContext.h")
 @:structAccess
 extern class PersonaToolMenuContext extends Object {
-	public function GetSkeleton(): cpp.Reference<cpp.Star<Skeleton>>;
-	public function GetPreviewMeshComponent(): cpp.Reference<cpp.Star<DebugSkelMeshComp>>;
-	public function GetMesh(): cpp.Reference<cpp.Star<SkeletalMesh>>;
-	public function GetAnimBlueprint(): cpp.Reference<cpp.Star<AnimBlueprint>>;
-	public function GetAnimationAsset(): cpp.Reference<cpp.Star<AnimationAsset>>;
+	public function GetSkeleton(): cpp.Star<Skeleton>;
+	public function GetPreviewMeshComponent(): cpp.Star<DebugSkelMeshComp>;
+	public function GetMesh(): cpp.Star<SkeletalMesh>;
+	public function GetAnimBlueprint(): cpp.Star<AnimBlueprint>;
+	public function GetAnimationAsset(): cpp.Star<AnimationAsset>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

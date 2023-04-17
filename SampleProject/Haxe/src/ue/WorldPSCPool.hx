@@ -5,7 +5,7 @@ package ue;
 @:include("Particles/WorldPSCPool.h")
 @:structAccess
 extern class WorldPSCPool {
-	public var WorldParticleSystemPools: TMap<cpp.Star<ParticleSystem>, PSCPool>;
+	private var WorldParticleSystemPools: TMap<cpp.Star<ParticleSystem>, PSCPool>;
 
 	@:native("FWorldPSCPool") public function new();
 	@:native("FWorldPSCPool") public static function make(WorldParticleSystemPools: TMap<cpp.Star<ParticleSystem>, PSCPool>): WorldPSCPool ;

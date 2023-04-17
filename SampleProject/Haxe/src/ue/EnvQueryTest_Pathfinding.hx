@@ -5,7 +5,7 @@ package ue;
 @:include("EnvironmentQuery/Tests/EnvQueryTest_Pathfinding.h")
 @:structAccess
 extern class EnvQueryTest_Pathfinding extends EnvQueryTest {
-	public var TestMode: EEnvTestPathfinding;
+	public var TestMode: TEnumAsByte<EEnvTestPathfinding>;
 	public var Context: TSubclassOf<EnvQueryContext>;
 	public var PathFromContext: AIDataProviderBoolValue;
 	public var SkipUnreachable: AIDataProviderBoolValue;
@@ -17,8 +17,8 @@ extern class EnvQueryTest_Pathfinding extends EnvQueryTest {
 @:forward()
 @:nativeGen
 abstract ConstEnvQueryTest_Pathfinding(EnvQueryTest_Pathfinding) from EnvQueryTest_Pathfinding {
-	public extern var TestMode(get, never): EEnvTestPathfinding;
-	public inline extern function get_TestMode(): EEnvTestPathfinding return this.TestMode;
+	public extern var TestMode(get, never): TEnumAsByte<EEnvTestPathfinding>;
+	public inline extern function get_TestMode(): TEnumAsByte<EEnvTestPathfinding> return this.TestMode;
 	public extern var Context(get, never): TSubclassOf<EnvQueryContext.ConstEnvQueryContext>;
 	public inline extern function get_Context(): TSubclassOf<EnvQueryContext.ConstEnvQueryContext> return this.Context;
 	public extern var PathFromContext(get, never): AIDataProviderBoolValue;

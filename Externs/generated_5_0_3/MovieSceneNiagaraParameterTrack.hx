@@ -5,7 +5,7 @@ package ue;
 @:include("MovieScene/Parameters/MovieSceneNiagaraParameterTrack.h")
 @:structAccess
 extern class MovieSceneNiagaraParameterTrack extends MovieSceneNiagaraTrack {
-	public var Parameter: NiagaraVariable;
+	private var Parameter: NiagaraVariable;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MovieSceneNiagaraParameterTrack extends MovieSceneNiagaraTrack {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneNiagaraParameterTrack(MovieSceneNiagaraParameterTrack) from MovieSceneNiagaraParameterTrack {
-	public extern var Parameter(get, never): NiagaraVariable;
-	public inline extern function get_Parameter(): NiagaraVariable return this.Parameter;
 }
 
 @:forward

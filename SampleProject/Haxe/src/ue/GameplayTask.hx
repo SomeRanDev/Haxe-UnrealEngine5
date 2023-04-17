@@ -5,9 +5,9 @@ package ue;
 @:include("GameplayTask.h")
 @:structAccess
 extern class GameplayTask extends Object {
-	public var InstanceName: FName;
-	public var ResourceOverlapPolicy: ETaskResourceOverlapPolicy;
-	public var ChildTask: cpp.Star<GameplayTask>;
+	@:protected public var InstanceName: FName;
+	@:protected public var ResourceOverlapPolicy: ETaskResourceOverlapPolicy;
+	@:protected public var ChildTask: cpp.Star<GameplayTask>;
 
 	public function ReadyForActivation(): Void;
 	public function GenericGameplayTaskDelegate__DelegateSignature(): Void;
@@ -19,12 +19,6 @@ extern class GameplayTask extends Object {
 @:forward()
 @:nativeGen
 abstract ConstGameplayTask(GameplayTask) from GameplayTask {
-	public extern var InstanceName(get, never): FName;
-	public inline extern function get_InstanceName(): FName return this.InstanceName;
-	public extern var ResourceOverlapPolicy(get, never): ETaskResourceOverlapPolicy;
-	public inline extern function get_ResourceOverlapPolicy(): ETaskResourceOverlapPolicy return this.ResourceOverlapPolicy;
-	public extern var ChildTask(get, never): cpp.Star<GameplayTask.ConstGameplayTask>;
-	public inline extern function get_ChildTask(): cpp.Star<GameplayTask.ConstGameplayTask> return this.ChildTask;
 }
 
 @:forward

@@ -5,7 +5,7 @@ package ue;
 @:include("Binding/MouseCursorBinding.h")
 @:structAccess
 extern class MouseCursorBinding extends PropertyBinding {
-	public function GetValue(): cpp.Reference<EMouseCursor>;
+	public function GetValue(): TEnumAsByte<EMouseCursor>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

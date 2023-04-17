@@ -46,13 +46,6 @@ extern class NiagaraMeshRendererProperties extends NiagaraRendererProperties {
 	public var PrevMeshOrientationBinding: NiagaraVariableAttributeBinding;
 	public var PrevCameraOffsetBinding: NiagaraVariableAttributeBinding;
 	public var PrevVelocityBinding: NiagaraVariableAttributeBinding;
-	public var FirstFlipbookFrame: cpp.Star<StaticMesh>;
-	public var FlipbookSuffixFormat: FString;
-	public var FlipbookSuffixNumDigits: cpp.UInt32;
-	public var NumFlipbookFrames: cpp.UInt32;
-	public var ParticleMesh_DEPRECATED: cpp.Star<StaticMesh>;
-	public var PivotOffset_DEPRECATED: Vector;
-	public var PivotOffsetSpace_DEPRECATED: ENiagaraMeshPivotOffsetSpace;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -142,20 +135,6 @@ abstract ConstNiagaraMeshRendererProperties(NiagaraMeshRendererProperties) from 
 	public inline extern function get_PrevCameraOffsetBinding(): NiagaraVariableAttributeBinding return this.PrevCameraOffsetBinding;
 	public extern var PrevVelocityBinding(get, never): NiagaraVariableAttributeBinding;
 	public inline extern function get_PrevVelocityBinding(): NiagaraVariableAttributeBinding return this.PrevVelocityBinding;
-	public extern var FirstFlipbookFrame(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_FirstFlipbookFrame(): cpp.Star<StaticMesh.ConstStaticMesh> return this.FirstFlipbookFrame;
-	public extern var FlipbookSuffixFormat(get, never): FString;
-	public inline extern function get_FlipbookSuffixFormat(): FString return this.FlipbookSuffixFormat;
-	public extern var FlipbookSuffixNumDigits(get, never): cpp.UInt32;
-	public inline extern function get_FlipbookSuffixNumDigits(): cpp.UInt32 return this.FlipbookSuffixNumDigits;
-	public extern var NumFlipbookFrames(get, never): cpp.UInt32;
-	public inline extern function get_NumFlipbookFrames(): cpp.UInt32 return this.NumFlipbookFrames;
-	public extern var ParticleMesh_DEPRECATED(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_ParticleMesh_DEPRECATED(): cpp.Star<StaticMesh.ConstStaticMesh> return this.ParticleMesh_DEPRECATED;
-	public extern var PivotOffset_DEPRECATED(get, never): Vector;
-	public inline extern function get_PivotOffset_DEPRECATED(): Vector return this.PivotOffset_DEPRECATED;
-	public extern var PivotOffsetSpace_DEPRECATED(get, never): ENiagaraMeshPivotOffsetSpace;
-	public inline extern function get_PivotOffsetSpace_DEPRECATED(): ENiagaraMeshPivotOffsetSpace return this.PivotOffsetSpace_DEPRECATED;
 }
 
 @:forward

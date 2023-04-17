@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETextureSourceColorSpace")
 @:include("Factories/TextureFactory.h")
-extern enum ETextureSourceColorSpace {
-	Auto;
-	Linear;
-	SRGB;
-	ETextureSourceColorSpace_MAX;
+extern class ETextureSourceColorSpace {
+	static var Auto: ETextureSourceColorSpace;
+	static var Linear: ETextureSourceColorSpace;
+	static var SRGB: ETextureSourceColorSpace;
+	static var ETextureSourceColorSpace_MAX: ETextureSourceColorSpace;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EMeshFacesColorMode")
 @:include("MeshSelectionTool.h")
-extern enum EMeshFacesColorMode {
-	None;
-	ByGroup;
-	ByMaterialID;
-	ByUVIsland;
-	EMeshFacesColorMode_MAX;
+extern class EMeshFacesColorMode {
+	static var None: EMeshFacesColorMode;
+	static var ByGroup: EMeshFacesColorMode;
+	static var ByMaterialID: EMeshFacesColorMode;
+	static var ByUVIsland: EMeshFacesColorMode;
+	static var EMeshFacesColorMode_MAX: EMeshFacesColorMode;
 }

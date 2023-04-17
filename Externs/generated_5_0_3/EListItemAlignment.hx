@@ -3,13 +3,13 @@ package ue;
 
 @:native("EListItemAlignment")
 @:include("Widgets/Views/STableViewBase.h")
-extern enum EListItemAlignment {
-	EvenlyDistributed;
-	EvenlySize;
-	EvenlyWide;
-	LeftAligned;
-	RightAligned;
-	CenterAligned;
-	Fill;
-	EListItemAlignment_MAX;
+extern class EListItemAlignment {
+	static var EvenlyDistributed: EListItemAlignment;
+	static var EvenlySize: EListItemAlignment;
+	static var EvenlyWide: EListItemAlignment;
+	static var LeftAligned: EListItemAlignment;
+	static var RightAligned: EListItemAlignment;
+	static var CenterAligned: EListItemAlignment;
+	static var Fill: EListItemAlignment;
+	static var EListItemAlignment_MAX: EListItemAlignment;
 }

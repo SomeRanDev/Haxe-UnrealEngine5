@@ -7,13 +7,13 @@ package ue;
 extern class TimecodeProvider extends Object {
 	public var FrameDelay: cpp.Float32;
 
-	public function GetTimecode(): cpp.Reference<Timecode>;
-	public function GetSynchronizationState(): cpp.Reference<ETimecodeProviderSynchronizationState>;
-	public function GetQualifiedFrameTime(): cpp.Reference<QualifiedFrameTime>;
-	public function GetFrameRate(): cpp.Reference<FrameRate>;
-	public function GetDelayedTimecode(): cpp.Reference<Timecode>;
-	public function GetDelayedQualifiedFrameTime(): cpp.Reference<QualifiedFrameTime>;
-	public function FetchTimecode(OutFrameTime: cpp.Reference<QualifiedFrameTime>): cpp.Reference<Bool>;
+	public function GetTimecode(): Timecode;
+	public function GetSynchronizationState(): ETimecodeProviderSynchronizationState;
+	public function GetQualifiedFrameTime(): QualifiedFrameTime;
+	public function GetFrameRate(): FrameRate;
+	public function GetDelayedTimecode(): Timecode;
+	public function GetDelayedQualifiedFrameTime(): QualifiedFrameTime;
+	public function FetchTimecode(OutFrameTime: cpp.Reference<QualifiedFrameTime>): Bool;
 	public function FetchAndUpdate(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;

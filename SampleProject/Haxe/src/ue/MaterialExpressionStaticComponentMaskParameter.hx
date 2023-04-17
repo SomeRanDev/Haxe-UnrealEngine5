@@ -5,7 +5,6 @@ package ue;
 @:include("Materials/MaterialExpressionStaticComponentMaskParameter.h")
 @:structAccess
 extern class MaterialExpressionStaticComponentMaskParameter extends MaterialExpressionParameter {
-	public var Input: ExpressionInput;
 	public var DefaultR: Bool;
 	public var DefaultG: Bool;
 	public var DefaultB: Bool;
@@ -17,8 +16,6 @@ extern class MaterialExpressionStaticComponentMaskParameter extends MaterialExpr
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionStaticComponentMaskParameter(MaterialExpressionStaticComponentMaskParameter) from MaterialExpressionStaticComponentMaskParameter {
-	public extern var Input(get, never): ExpressionInput;
-	public inline extern function get_Input(): ExpressionInput return this.Input;
 	public extern var DefaultR(get, never): Bool;
 	public inline extern function get_DefaultR(): Bool return this.DefaultR;
 	public extern var DefaultG(get, never): Bool;

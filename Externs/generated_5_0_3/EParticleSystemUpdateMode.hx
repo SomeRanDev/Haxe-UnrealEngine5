@@ -3,8 +3,8 @@ package ue;
 
 @:native("EParticleSystemUpdateMode")
 @:include("Particles/ParticleSystem.h")
-extern enum EParticleSystemUpdateMode {
-	EPSUM_RealTime;
-	EPSUM_FixedTime;
-	EPSUM_MAX;
+extern class EParticleSystemUpdateMode {
+	static var EPSUM_RealTime: EParticleSystemUpdateMode;
+	static var EPSUM_FixedTime: EParticleSystemUpdateMode;
+	static var EPSUM_MAX: EParticleSystemUpdateMode;
 }

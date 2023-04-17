@@ -3,10 +3,10 @@ package ue;
 
 @:native("ENiagaraVariantMode")
 @:include("NiagaraVariant.h")
-extern enum ENiagaraVariantMode {
-	None;
-	Object;
-	DataInterface;
-	Bytes;
-	ENiagaraVariantMode_MAX;
+extern class ENiagaraVariantMode {
+	static var None: ENiagaraVariantMode;
+	static var Object: ENiagaraVariantMode;
+	static var DataInterface: ENiagaraVariantMode;
+	static var Bytes: ENiagaraVariantMode;
+	static var ENiagaraVariantMode_MAX: ENiagaraVariantMode;
 }

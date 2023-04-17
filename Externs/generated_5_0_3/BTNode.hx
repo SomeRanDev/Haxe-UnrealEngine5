@@ -6,8 +6,8 @@ package ue;
 @:structAccess
 extern class BTNode extends Object {
 	public var NodeName: FString;
-	public var TreeAsset: cpp.Star<BehaviorTree>;
-	public var ParentNode: cpp.Star<BTCompositeNode>;
+	private var TreeAsset: cpp.Star<BehaviorTree>;
+	private var ParentNode: cpp.Star<BTCompositeNode>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,10 +17,6 @@ extern class BTNode extends Object {
 abstract ConstBTNode(BTNode) from BTNode {
 	public extern var NodeName(get, never): FString;
 	public inline extern function get_NodeName(): FString return this.NodeName;
-	public extern var TreeAsset(get, never): cpp.Star<BehaviorTree.ConstBehaviorTree>;
-	public inline extern function get_TreeAsset(): cpp.Star<BehaviorTree.ConstBehaviorTree> return this.TreeAsset;
-	public extern var ParentNode(get, never): cpp.Star<BTCompositeNode.ConstBTCompositeNode>;
-	public inline extern function get_ParentNode(): cpp.Star<BTCompositeNode.ConstBTCompositeNode> return this.ParentNode;
 }
 
 @:forward

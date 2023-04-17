@@ -5,7 +5,7 @@ package ue;
 @:include("FunctionalTestUtilityLibrary.h")
 @:structAccess
 extern class FunctionalTestUtilityLibrary extends BlueprintFunctionLibrary {
-	public function TraceChannelTestUtil(WorldContextObject: cpp.Star<Object>, BatchOptions: cpp.Reference<TraceChannelTestBatchOptions>, Start: Vector, End: Vector, SphereCapsuleRadius: cpp.Float32, CapsuleHalfHeight: cpp.Float32, BoxHalfSize: Vector, Orientation: Rotator, TraceChannel: ETraceTypeQuery, ObjectTypes: TArray<EObjectTypeQuery>, ProfileName: FName, bTraceComplex: Bool, ActorsToIgnore: cpp.Reference<TArray<cpp.Star<Actor>>>, bIgnoreSelf: Bool, DrawDebugType: EDrawDebugTrace, TraceColor: LinearColor, TraceHitColor: LinearColor, DrawTime: cpp.Float32): cpp.Reference<cpp.Star<TraceQueryTestResults>>;
+	public function TraceChannelTestUtil(WorldContextObject: cpp.Star<Object>, BatchOptions: cpp.Reference<TraceChannelTestBatchOptions>, Start: Vector, End: Vector, SphereCapsuleRadius: cpp.Float32, CapsuleHalfHeight: cpp.Float32, BoxHalfSize: Vector, Orientation: Rotator, TraceChannel: TEnumAsByte<ETraceTypeQuery>, ObjectTypes: TArray<TEnumAsByte<EObjectTypeQuery>>, ProfileName: FName, bTraceComplex: Bool, ActorsToIgnore: cpp.Reference<TArray<cpp.Star<Actor>>>, bIgnoreSelf: Bool, DrawDebugType: TEnumAsByte<EDrawDebugTrace>, TraceColor: LinearColor, TraceHitColor: LinearColor, DrawTime: cpp.Float32): cpp.Star<TraceQueryTestResults>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -5,8 +5,8 @@ package ue;
 @:include("NavModifierVolume.h")
 @:structAccess
 extern class NavModifierVolume extends Volume {
-	public var AreaClass: TSubclassOf<NavArea>;
-	public var bMaskFillCollisionUnderneathForNavmesh: Bool;
+	@:protected public var AreaClass: TSubclassOf<NavArea>;
+	@:protected public var bMaskFillCollisionUnderneathForNavmesh: Bool;
 
 	public function SetAreaClass(NewAreaClass: TSubclassOf<NavArea>): Void;
 
@@ -16,10 +16,6 @@ extern class NavModifierVolume extends Volume {
 @:forward()
 @:nativeGen
 abstract ConstNavModifierVolume(NavModifierVolume) from NavModifierVolume {
-	public extern var AreaClass(get, never): TSubclassOf<NavArea.ConstNavArea>;
-	public inline extern function get_AreaClass(): TSubclassOf<NavArea.ConstNavArea> return this.AreaClass;
-	public extern var bMaskFillCollisionUnderneathForNavmesh(get, never): Bool;
-	public inline extern function get_bMaskFillCollisionUnderneathForNavmesh(): Bool return this.bMaskFillCollisionUnderneathForNavmesh;
 }
 
 @:forward

@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESourceEffectFilterParam")
 @:include("SourceEffects/SourceEffectFilter.h")
-extern enum ESourceEffectFilterParam {
-	FilterFrequency;
-	FilterResonance;
-	Count;
-	ESourceEffectFilterParam_MAX;
+extern class ESourceEffectFilterParam {
+	static var FilterFrequency: ESourceEffectFilterParam;
+	static var FilterResonance: ESourceEffectFilterParam;
+	static var Count: ESourceEffectFilterParam;
+	static var ESourceEffectFilterParam_MAX: ESourceEffectFilterParam;
 }

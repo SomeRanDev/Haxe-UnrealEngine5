@@ -13,7 +13,7 @@ extern class ComboButtonStyle extends SlateWidgetStyle {
 	public var MenuBorderPadding: Margin;
 	public var ContentPadding: Margin;
 	public var DownArrowPadding: Margin;
-	public var DownArrowAlign: EVerticalAlignment;
+	public var DownArrowAlign: TEnumAsByte<EVerticalAlignment>;
 
 	@:native("FComboButtonStyle") public function new();
 }

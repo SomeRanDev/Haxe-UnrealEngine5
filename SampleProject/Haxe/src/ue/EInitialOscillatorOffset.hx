@@ -3,8 +3,8 @@ package ue;
 
 @:native("EInitialOscillatorOffset")
 @:include("MatineeCameraShake.h")
-extern enum EInitialOscillatorOffset {
-	EOO_OffsetRandom;
-	EOO_OffsetZero;
-	EOO_MAX;
+extern class EInitialOscillatorOffset {
+	static var EOO_OffsetRandom: EInitialOscillatorOffset;
+	static var EOO_OffsetZero: EInitialOscillatorOffset;
+	static var EOO_MAX: EInitialOscillatorOffset;
 }

@@ -8,15 +8,11 @@ extern class NiagaraVMExecutableDataId {
 	public var CompilerVersionID: Guid;
 	public var ScriptUsageType: ENiagaraScriptUsage;
 	public var ScriptUsageTypeID: Guid;
-	public var AdditionalDefines: TArray<FString>;
-	public var AdditionalVariables: TArray<NiagaraVariableBase>;
 	public var bUsesRapidIterationParams: Bool;
 	public var bDisableDebugSwitches: Bool;
 	public var bInterpolatedSpawn: Bool;
 	public var bRequiresPersistentIDs: Bool;
-	public var BaseScriptID_DEPRECATED: Guid;
 	public var BaseScriptCompileHash: NiagaraCompileHash;
-	public var ReferencedCompileHashes: TArray<NiagaraCompileHash>;
 	public var ScriptVersionID: Guid;
 
 	@:native("FNiagaraVMExecutableDataId") public function new();

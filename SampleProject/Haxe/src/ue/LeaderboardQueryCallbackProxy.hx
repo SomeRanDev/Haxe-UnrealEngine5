@@ -8,7 +8,7 @@ extern class LeaderboardQueryCallbackProxy extends Object {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
 
-	public function CreateProxyObjectForIntQuery(PlayerController: cpp.Star<PlayerController>, StatName: FName): cpp.Reference<cpp.Star<LeaderboardQueryCallbackProxy>>;
+	public function CreateProxyObjectForIntQuery(PlayerController: cpp.Star<PlayerController>, StatName: FName): cpp.Star<LeaderboardQueryCallbackProxy>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

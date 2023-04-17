@@ -5,8 +5,8 @@ package ue;
 @:include("Sound/DialogueVoice.h")
 @:structAccess
 extern class DialogueVoice extends Object {
-	public var Gender: EGrammaticalGender;
-	public var Plurality: EGrammaticalNumber;
+	public var Gender: TEnumAsByte<EGrammaticalGender>;
+	public var Plurality: TEnumAsByte<EGrammaticalNumber>;
 	public var LocalizationGUID: Guid;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -15,10 +15,10 @@ extern class DialogueVoice extends Object {
 @:forward()
 @:nativeGen
 abstract ConstDialogueVoice(DialogueVoice) from DialogueVoice {
-	public extern var Gender(get, never): EGrammaticalGender;
-	public inline extern function get_Gender(): EGrammaticalGender return this.Gender;
-	public extern var Plurality(get, never): EGrammaticalNumber;
-	public inline extern function get_Plurality(): EGrammaticalNumber return this.Plurality;
+	public extern var Gender(get, never): TEnumAsByte<EGrammaticalGender>;
+	public inline extern function get_Gender(): TEnumAsByte<EGrammaticalGender> return this.Gender;
+	public extern var Plurality(get, never): TEnumAsByte<EGrammaticalNumber>;
+	public inline extern function get_Plurality(): TEnumAsByte<EGrammaticalNumber> return this.Plurality;
 	public extern var LocalizationGUID(get, never): Guid;
 	public inline extern function get_LocalizationGUID(): Guid return this.LocalizationGUID;
 }

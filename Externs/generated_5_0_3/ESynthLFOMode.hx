@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESynthLFOMode")
 @:include("EpicSynth1Types.h")
-extern enum ESynthLFOMode {
-	Sync;
-	OneShot;
-	Free;
-	Count;
-	ESynthLFOMode_MAX;
+extern class ESynthLFOMode {
+	static var Sync: ESynthLFOMode;
+	static var OneShot: ESynthLFOMode;
+	static var Free: ESynthLFOMode;
+	static var Count: ESynthLFOMode;
+	static var ESynthLFOMode_MAX: ESynthLFOMode;
 }

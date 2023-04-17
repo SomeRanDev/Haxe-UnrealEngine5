@@ -5,7 +5,7 @@ package ue;
 @:include("Matinee/InterpTrackMoveAxis.h")
 @:structAccess
 extern class InterpTrackMoveAxis extends InterpTrackFloatBase {
-	public var MoveAxis: EInterpMoveAxis;
+	public var MoveAxis: TEnumAsByte<EInterpMoveAxis>;
 	public var LookupTrack: InterpLookupTrack;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -14,8 +14,8 @@ extern class InterpTrackMoveAxis extends InterpTrackFloatBase {
 @:forward()
 @:nativeGen
 abstract ConstInterpTrackMoveAxis(InterpTrackMoveAxis) from InterpTrackMoveAxis {
-	public extern var MoveAxis(get, never): EInterpMoveAxis;
-	public inline extern function get_MoveAxis(): EInterpMoveAxis return this.MoveAxis;
+	public extern var MoveAxis(get, never): TEnumAsByte<EInterpMoveAxis>;
+	public inline extern function get_MoveAxis(): TEnumAsByte<EInterpMoveAxis> return this.MoveAxis;
 	public extern var LookupTrack(get, never): InterpLookupTrack;
 	public inline extern function get_LookupTrack(): InterpLookupTrack return this.LookupTrack;
 }

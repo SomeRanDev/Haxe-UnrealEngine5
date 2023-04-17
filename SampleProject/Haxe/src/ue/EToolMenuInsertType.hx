@@ -3,10 +3,10 @@ package ue;
 
 @:native("EToolMenuInsertType")
 @:include("ToolMenuMisc.h")
-extern enum EToolMenuInsertType {
-	Default;
-	Before;
-	After;
-	First;
-	EToolMenuInsertType_MAX;
+extern class EToolMenuInsertType {
+	static var Default: EToolMenuInsertType;
+	static var Before: EToolMenuInsertType;
+	static var After: EToolMenuInsertType;
+	static var First: EToolMenuInsertType;
+	static var EToolMenuInsertType_MAX: EToolMenuInsertType;
 }

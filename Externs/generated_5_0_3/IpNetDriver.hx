@@ -8,13 +8,13 @@ extern class IpNetDriver extends NetDriver {
 	public var LogPortUnreach: Bool;
 	public var AllowPlayerPortUnreach: Bool;
 	public var MaxPortCountToTry: cpp.UInt32;
-	public var ServerDesiredSocketReceiveBufferBytes: cpp.UInt32;
-	public var ServerDesiredSocketSendBufferBytes: cpp.UInt32;
-	public var ClientDesiredSocketReceiveBufferBytes: cpp.UInt32;
-	public var ClientDesiredSocketSendBufferBytes: cpp.UInt32;
-	public var MaxSecondsInReceive: cpp.Float64;
-	public var NbPacketsBetweenReceiveTimeTest: cpp.Int32;
-	public var ResolutionConnectionTimeout: cpp.Float32;
+	private var ServerDesiredSocketReceiveBufferBytes: cpp.UInt32;
+	private var ServerDesiredSocketSendBufferBytes: cpp.UInt32;
+	private var ClientDesiredSocketReceiveBufferBytes: cpp.UInt32;
+	private var ClientDesiredSocketSendBufferBytes: cpp.UInt32;
+	private var MaxSecondsInReceive: cpp.Float64;
+	private var NbPacketsBetweenReceiveTimeTest: cpp.Int32;
+	private var ResolutionConnectionTimeout: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -28,20 +28,6 @@ abstract ConstIpNetDriver(IpNetDriver) from IpNetDriver {
 	public inline extern function get_AllowPlayerPortUnreach(): Bool return this.AllowPlayerPortUnreach;
 	public extern var MaxPortCountToTry(get, never): cpp.UInt32;
 	public inline extern function get_MaxPortCountToTry(): cpp.UInt32 return this.MaxPortCountToTry;
-	public extern var ServerDesiredSocketReceiveBufferBytes(get, never): cpp.UInt32;
-	public inline extern function get_ServerDesiredSocketReceiveBufferBytes(): cpp.UInt32 return this.ServerDesiredSocketReceiveBufferBytes;
-	public extern var ServerDesiredSocketSendBufferBytes(get, never): cpp.UInt32;
-	public inline extern function get_ServerDesiredSocketSendBufferBytes(): cpp.UInt32 return this.ServerDesiredSocketSendBufferBytes;
-	public extern var ClientDesiredSocketReceiveBufferBytes(get, never): cpp.UInt32;
-	public inline extern function get_ClientDesiredSocketReceiveBufferBytes(): cpp.UInt32 return this.ClientDesiredSocketReceiveBufferBytes;
-	public extern var ClientDesiredSocketSendBufferBytes(get, never): cpp.UInt32;
-	public inline extern function get_ClientDesiredSocketSendBufferBytes(): cpp.UInt32 return this.ClientDesiredSocketSendBufferBytes;
-	public extern var MaxSecondsInReceive(get, never): cpp.Float64;
-	public inline extern function get_MaxSecondsInReceive(): cpp.Float64 return this.MaxSecondsInReceive;
-	public extern var NbPacketsBetweenReceiveTimeTest(get, never): cpp.Int32;
-	public inline extern function get_NbPacketsBetweenReceiveTimeTest(): cpp.Int32 return this.NbPacketsBetweenReceiveTimeTest;
-	public extern var ResolutionConnectionTimeout(get, never): cpp.Float32;
-	public inline extern function get_ResolutionConnectionTimeout(): cpp.Float32 return this.ResolutionConnectionTimeout;
 }
 
 @:forward

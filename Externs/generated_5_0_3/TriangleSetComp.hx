@@ -5,8 +5,8 @@ package ue;
 @:include("Drawing/TriangleSetComponent.h")
 @:structAccess
 extern class TriangleSetComp extends MeshComp {
-	public var Bounds: BoxSphereBounds;
-	public var bBoundsDirty: Bool;
+	private var Bounds: BoxSphereBounds;
+	private var bBoundsDirty: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class TriangleSetComp extends MeshComp {
 @:forward()
 @:nativeGen
 abstract ConstTriangleSetComp(TriangleSetComp) from TriangleSetComp {
-	public extern var Bounds(get, never): BoxSphereBounds;
-	public inline extern function get_Bounds(): BoxSphereBounds return this.Bounds;
-	public extern var bBoundsDirty(get, never): Bool;
-	public inline extern function get_bBoundsDirty(): Bool return this.bBoundsDirty;
 }
 
 @:forward

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EAttenuationShape.Type")
 @:include("Engine/Attenuation.h")
-extern enum EAttenuationShape {
-	Sphere;
-	Capsule;
-	Box;
-	Cone;
-	EAttenuationShape_MAX;
+extern class EAttenuationShape {
+	static var Sphere: EAttenuationShape;
+	static var Capsule: EAttenuationShape;
+	static var Box: EAttenuationShape;
+	static var Cone: EAttenuationShape;
+	static var EAttenuationShape_MAX: EAttenuationShape;
 }

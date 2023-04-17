@@ -3,16 +3,16 @@ package ue;
 
 @:native("EGenerateStaticMeshLODBakeResolution")
 @:include("Graphs/GenerateStaticMeshLODProcess.h")
-extern enum EGenerateStaticMeshLODBakeResolution {
-	Resolution16;
-	Resolution32;
-	Resolution64;
-	Resolution128;
-	Resolution256;
-	Resolution512;
-	Resolution1024;
-	Resolution2048;
-	Resolution4096;
-	Resolution8192;
-	EGenerateStaticMeshLODBakeResolution_MAX;
+extern class EGenerateStaticMeshLODBakeResolution {
+	static var Resolution16: EGenerateStaticMeshLODBakeResolution;
+	static var Resolution32: EGenerateStaticMeshLODBakeResolution;
+	static var Resolution64: EGenerateStaticMeshLODBakeResolution;
+	static var Resolution128: EGenerateStaticMeshLODBakeResolution;
+	static var Resolution256: EGenerateStaticMeshLODBakeResolution;
+	static var Resolution512: EGenerateStaticMeshLODBakeResolution;
+	static var Resolution1024: EGenerateStaticMeshLODBakeResolution;
+	static var Resolution2048: EGenerateStaticMeshLODBakeResolution;
+	static var Resolution4096: EGenerateStaticMeshLODBakeResolution;
+	static var Resolution8192: EGenerateStaticMeshLODBakeResolution;
+	static var EGenerateStaticMeshLODBakeResolution_MAX: EGenerateStaticMeshLODBakeResolution;
 }

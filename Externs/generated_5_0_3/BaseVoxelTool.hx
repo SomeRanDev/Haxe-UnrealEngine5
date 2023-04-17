@@ -5,7 +5,7 @@ package ue;
 @:include("BaseTools/BaseVoxelTool.h")
 @:structAccess
 extern class BaseVoxelTool extends BaseCreateFromSelectedTool {
-	public var VoxProperties: cpp.Star<VoxelProperties>;
+	@:protected public var VoxProperties: cpp.Star<VoxelProperties>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class BaseVoxelTool extends BaseCreateFromSelectedTool {
 @:forward()
 @:nativeGen
 abstract ConstBaseVoxelTool(BaseVoxelTool) from BaseVoxelTool {
-	public extern var VoxProperties(get, never): cpp.Star<VoxelProperties.ConstVoxelProperties>;
-	public inline extern function get_VoxProperties(): cpp.Star<VoxelProperties.ConstVoxelProperties> return this.VoxProperties;
 }
 
 @:forward

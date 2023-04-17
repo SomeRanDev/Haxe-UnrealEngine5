@@ -3,8 +3,8 @@ package ue;
 
 @:native("EAnimInterpolationType")
 @:include("Animation/AnimTypes.h")
-extern enum EAnimInterpolationType {
-	Linear;
-	Step;
-	EAnimInterpolationType_MAX;
+extern class EAnimInterpolationType {
+	static var Linear: EAnimInterpolationType;
+	static var Step: EAnimInterpolationType;
+	static var EAnimInterpolationType_MAX: EAnimInterpolationType;
 }

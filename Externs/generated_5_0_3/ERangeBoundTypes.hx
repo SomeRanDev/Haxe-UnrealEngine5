@@ -3,9 +3,9 @@ package ue;
 
 @:native("ERangeBoundTypes.Type")
 @:include("UObject/NoExportTypes.h")
-extern enum ERangeBoundTypes {
-	Exclusive;
-	Inclusive;
-	Open;
-	ERangeBoundTypes_MAX;
+extern class ERangeBoundTypes {
+	static var Exclusive: ERangeBoundTypes;
+	static var Inclusive: ERangeBoundTypes;
+	static var Open: ERangeBoundTypes;
+	static var ERangeBoundTypes_MAX: ERangeBoundTypes;
 }

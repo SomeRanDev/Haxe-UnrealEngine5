@@ -5,7 +5,7 @@ package ue;
 @:include("Tracks/MovieSceneByteTrack.h")
 @:structAccess
 extern class MovieSceneByteTrack extends MovieScenePropertyTrack {
-	public var Enum: cpp.Star<Enum>;
+	@:protected public var Enum: cpp.Star<Enum>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MovieSceneByteTrack extends MovieScenePropertyTrack {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneByteTrack(MovieSceneByteTrack) from MovieSceneByteTrack {
-	public extern var Enum(get, never): cpp.Star<Enum.ConstEnum>;
-	public inline extern function get_Enum(): cpp.Star<Enum.ConstEnum> return this.Enum;
 }
 
 @:forward

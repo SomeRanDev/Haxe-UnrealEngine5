@@ -5,9 +5,8 @@ package ue;
 @:include("NiagaraTypes.h")
 @:structAccess
 extern class NiagaraVariableBase {
-	public var Name: FName;
-	public var TypeDefHandle: NiagaraTypeDefinitionHandle;
-	public var TypeDef_DEPRECATED: NiagaraTypeDefinition;
+	@:protected public var Name: FName;
+	@:protected public var TypeDefHandle: NiagaraTypeDefinitionHandle;
 
 	@:native("FNiagaraVariableBase") public function new();
 	@:native("FNiagaraVariableBase") public static function make(Name: FName, TypeDefHandle: NiagaraTypeDefinitionHandle, TypeDef_DEPRECATED: NiagaraTypeDefinition): NiagaraVariableBase ;

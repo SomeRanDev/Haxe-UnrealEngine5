@@ -3,8 +3,8 @@ package ue;
 
 @:native("EHairCardsGenerationType")
 @:include("GroomAssetCards.h")
-extern enum EHairCardsGenerationType {
-	CardsCount;
-	UseGuides;
-	EHairCardsGenerationType_MAX;
+extern class EHairCardsGenerationType {
+	static var CardsCount: EHairCardsGenerationType;
+	static var UseGuides: EHairCardsGenerationType;
+	static var EHairCardsGenerationType_MAX: EHairCardsGenerationType;
 }

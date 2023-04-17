@@ -7,7 +7,7 @@ package ue;
 extern class DistributionVectorConstant extends DistributionVector {
 	public var Constant: Vector;
 	public var bLockAxes: Bool;
-	public var LockedAxes: EDistributionVectorLockFlags;
+	public var LockedAxes: TEnumAsByte<EDistributionVectorLockFlags>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,8 +19,8 @@ abstract ConstDistributionVectorConstant(DistributionVectorConstant) from Distri
 	public inline extern function get_Constant(): Vector return this.Constant;
 	public extern var bLockAxes(get, never): Bool;
 	public inline extern function get_bLockAxes(): Bool return this.bLockAxes;
-	public extern var LockedAxes(get, never): EDistributionVectorLockFlags;
-	public inline extern function get_LockedAxes(): EDistributionVectorLockFlags return this.LockedAxes;
+	public extern var LockedAxes(get, never): TEnumAsByte<EDistributionVectorLockFlags>;
+	public inline extern function get_LockedAxes(): TEnumAsByte<EDistributionVectorLockFlags> return this.LockedAxes;
 }
 
 @:forward

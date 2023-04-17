@@ -8,9 +8,8 @@ extern class CircularThrobber extends Widget {
 	public var NumberOfPieces: cpp.Int32;
 	public var Period: cpp.Float32;
 	public var Radius: cpp.Float32;
-	public var PieceImage_DEPRECATED: cpp.Star<SlateBrushAsset>;
 	public var Image: SlateBrush;
-	public var bEnableRadius: Bool;
+	private var bEnableRadius: Bool;
 
 	public function SetRadius(InRadius: cpp.Float32): Void;
 	public function SetPeriod(InPeriod: cpp.Float32): Void;
@@ -28,12 +27,8 @@ abstract ConstCircularThrobber(CircularThrobber) from CircularThrobber {
 	public inline extern function get_Period(): cpp.Float32 return this.Period;
 	public extern var Radius(get, never): cpp.Float32;
 	public inline extern function get_Radius(): cpp.Float32 return this.Radius;
-	public extern var PieceImage_DEPRECATED(get, never): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset>;
-	public inline extern function get_PieceImage_DEPRECATED(): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset> return this.PieceImage_DEPRECATED;
 	public extern var Image(get, never): SlateBrush;
 	public inline extern function get_Image(): SlateBrush return this.Image;
-	public extern var bEnableRadius(get, never): Bool;
-	public inline extern function get_bEnableRadius(): Bool return this.bEnableRadius;
 }
 
 @:forward

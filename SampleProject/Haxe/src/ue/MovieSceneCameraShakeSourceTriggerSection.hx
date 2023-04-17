@@ -5,7 +5,7 @@ package ue;
 @:include("Sections/MovieSceneCameraShakeSourceTriggerSection.h")
 @:structAccess
 extern class MovieSceneCameraShakeSourceTriggerSection extends MovieSceneSection {
-	public var Channel: MovieSceneCameraShakeSourceTriggerChannel;
+	private var Channel: MovieSceneCameraShakeSourceTriggerChannel;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MovieSceneCameraShakeSourceTriggerSection extends MovieSceneSection
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneCameraShakeSourceTriggerSection(MovieSceneCameraShakeSourceTriggerSection) from MovieSceneCameraShakeSourceTriggerSection {
-	public extern var Channel(get, never): MovieSceneCameraShakeSourceTriggerChannel;
-	public inline extern function get_Channel(): MovieSceneCameraShakeSourceTriggerChannel return this.Channel;
 }
 
 @:forward

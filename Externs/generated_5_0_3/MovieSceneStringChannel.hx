@@ -5,10 +5,10 @@ package ue;
 @:include("Channels/MovieSceneStringChannel.h")
 @:structAccess
 extern class MovieSceneStringChannel extends MovieSceneChannel {
-	public var Times: TArray<FrameNumber>;
-	public var Values: TArray<FString>;
-	public var DefaultValue: FString;
-	public var bHasDefaultValue: Bool;
+	private var Times: TArray<FrameNumber>;
+	private var Values: TArray<FString>;
+	private var DefaultValue: FString;
+	private var bHasDefaultValue: Bool;
 
 	@:native("FMovieSceneStringChannel") public function new();
 	@:native("FMovieSceneStringChannel") public static function make(Times: TArray<FrameNumber>, Values: TArray<FString>, DefaultValue: FString, bHasDefaultValue: Bool): MovieSceneStringChannel ;

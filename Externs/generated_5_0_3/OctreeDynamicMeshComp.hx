@@ -5,7 +5,7 @@ package ue;
 @:include("Components/OctreeDynamicMeshComponent.h")
 @:structAccess
 extern class OctreeDynamicMeshComp extends BaseDynamicMeshComp {
-	public var MeshObject: cpp.Star<DynamicMesh>;
+	private var MeshObject: cpp.Star<DynamicMesh>;
 
 	public function SetDynamicMesh(NewMesh: cpp.Star<DynamicMesh>): Void;
 
@@ -15,8 +15,6 @@ extern class OctreeDynamicMeshComp extends BaseDynamicMeshComp {
 @:forward()
 @:nativeGen
 abstract ConstOctreeDynamicMeshComp(OctreeDynamicMeshComp) from OctreeDynamicMeshComp {
-	public extern var MeshObject(get, never): cpp.Star<DynamicMesh.ConstDynamicMesh>;
-	public inline extern function get_MeshObject(): cpp.Star<DynamicMesh.ConstDynamicMesh> return this.MeshObject;
 }
 
 @:forward

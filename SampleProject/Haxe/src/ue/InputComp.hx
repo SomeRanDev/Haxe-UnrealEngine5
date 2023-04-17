@@ -5,18 +5,18 @@ package ue;
 @:include("Components/InputComponent.h")
 @:structAccess
 extern class InputComp extends ActorComp {
-	public var CachedKeyToActionInfo: TArray<CachedKeyToActionInfo>;
+	private var CachedKeyToActionInfo: TArray<CachedKeyToActionInfo>;
 
-	public function WasControllerKeyJustReleased(Key: Key): cpp.Reference<Bool>;
-	public function WasControllerKeyJustPressed(Key: Key): cpp.Reference<Bool>;
-	public function OnInputOwnerEndPlayed(InOwner: cpp.Star<Actor>, EndPlayReason: EEndPlayReason): Void;
-	public function IsControllerKeyDown(Key: Key): cpp.Reference<Bool>;
-	public function GetTouchState(FingerIndex: cpp.Int32, LocationX: cpp.Reference<cpp.Float32>, LocationY: cpp.Reference<cpp.Float32>, bIsCurrentlyPressed: cpp.Reference<Bool>): Void;
-	public function GetControllerVectorKeyState(Key: Key): cpp.Reference<Vector>;
-	public function GetControllerMouseDelta(DeltaX: cpp.Reference<cpp.Float32>, DeltaY: cpp.Reference<cpp.Float32>): Void;
-	public function GetControllerKeyTimeDown(Key: Key): cpp.Reference<cpp.Float32>;
-	public function GetControllerAnalogStickState(WhichStick: EControllerAnalogStick, StickX: cpp.Reference<cpp.Float32>, StickY: cpp.Reference<cpp.Float32>): Void;
-	public function GetControllerAnalogKeyState(Key: Key): cpp.Reference<cpp.Float32>;
+	private function WasControllerKeyJustReleased(Key: Key): Bool;
+	private function WasControllerKeyJustPressed(Key: Key): Bool;
+	private function OnInputOwnerEndPlayed(InOwner: cpp.Star<Actor>, EndPlayReason: TEnumAsByte<EEndPlayReason>): Void;
+	private function IsControllerKeyDown(Key: Key): Bool;
+	private function GetTouchState(FingerIndex: cpp.Int32, LocationX: cpp.Reference<cpp.Float32>, LocationY: cpp.Reference<cpp.Float32>, bIsCurrentlyPressed: cpp.Reference<Bool>): Void;
+	private function GetControllerVectorKeyState(Key: Key): Vector;
+	private function GetControllerMouseDelta(DeltaX: cpp.Reference<cpp.Float32>, DeltaY: cpp.Reference<cpp.Float32>): Void;
+	private function GetControllerKeyTimeDown(Key: Key): cpp.Float32;
+	private function GetControllerAnalogStickState(WhichStick: TEnumAsByte<EControllerAnalogStick>, StickX: cpp.Reference<cpp.Float32>, StickY: cpp.Reference<cpp.Float32>): Void;
+	private function GetControllerAnalogKeyState(Key: Key): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -24,8 +24,6 @@ extern class InputComp extends ActorComp {
 @:forward(WasControllerKeyJustReleased, WasControllerKeyJustPressed, IsControllerKeyDown, GetTouchState, GetControllerVectorKeyState, GetControllerMouseDelta, GetControllerKeyTimeDown, GetControllerAnalogStickState, GetControllerAnalogKeyState)
 @:nativeGen
 abstract ConstInputComp(InputComp) from InputComp {
-	public extern var CachedKeyToActionInfo(get, never): TArray<CachedKeyToActionInfo>;
-	public inline extern function get_CachedKeyToActionInfo(): TArray<CachedKeyToActionInfo> return this.CachedKeyToActionInfo;
 }
 
 @:forward

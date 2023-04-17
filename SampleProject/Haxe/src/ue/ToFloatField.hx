@@ -7,7 +7,7 @@ package ue;
 extern class ToFloatField extends FieldNodeFloat {
 	public var IntField: cpp.Star<FieldNodeInt>;
 
-	public function SetToFloatField(IntegerField: cpp.Star<FieldNodeInt.ConstFieldNodeInt>): cpp.Reference<cpp.Star<ToFloatField>>;
+	public function SetToFloatField(IntegerField: cpp.Star<FieldNodeInt.ConstFieldNodeInt>): cpp.Star<ToFloatField>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

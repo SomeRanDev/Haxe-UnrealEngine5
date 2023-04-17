@@ -5,7 +5,7 @@ package ue;
 @:include("RigEditor/IKRigDefinitionFactory.h")
 @:structAccess
 extern class IKRigDefinitionFactory extends Factory {
-	public var SkeletalMesh: TWeakObjectPtr<SkeletalMesh>;
+	private var SkeletalMesh: TWeakObjectPtr<SkeletalMesh>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class IKRigDefinitionFactory extends Factory {
 @:forward()
 @:nativeGen
 abstract ConstIKRigDefinitionFactory(IKRigDefinitionFactory) from IKRigDefinitionFactory {
-	public extern var SkeletalMesh(get, never): TWeakObjectPtr<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_SkeletalMesh(): TWeakObjectPtr<SkeletalMesh.ConstSkeletalMesh> return this.SkeletalMesh;
 }
 
 @:forward

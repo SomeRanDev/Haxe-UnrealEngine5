@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELevelEditor2DAxis")
 @:include("Settings/EditorProjectSettings.h")
-extern enum ELevelEditor2DAxis {
-	X;
-	Y;
-	Z;
-	ELevelEditor2DAxis_MAX;
+extern class ELevelEditor2DAxis {
+	static var X: ELevelEditor2DAxis;
+	static var Y: ELevelEditor2DAxis;
+	static var Z: ELevelEditor2DAxis;
+	static var ELevelEditor2DAxis_MAX: ELevelEditor2DAxis;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EGooglePADCellularDataConfirmStatus")
 @:include("GooglePADFunctionLibrary.h")
-extern enum EGooglePADCellularDataConfirmStatus {
-	AssetPack_CONFIRM_UNKNOWN;
-	AssetPack_CONFIRM_PENDING;
-	AssetPack_CONFIRM_USER_APPROVED;
-	AssetPack_CONFIRM_USER_CANCELED;
-	AssetPack_CONFIRM_MAX;
+extern class EGooglePADCellularDataConfirmStatus {
+	static var AssetPack_CONFIRM_UNKNOWN: EGooglePADCellularDataConfirmStatus;
+	static var AssetPack_CONFIRM_PENDING: EGooglePADCellularDataConfirmStatus;
+	static var AssetPack_CONFIRM_USER_APPROVED: EGooglePADCellularDataConfirmStatus;
+	static var AssetPack_CONFIRM_USER_CANCELED: EGooglePADCellularDataConfirmStatus;
+	static var AssetPack_CONFIRM_MAX: EGooglePADCellularDataConfirmStatus;
 }

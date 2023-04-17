@@ -3,8 +3,8 @@ package ue;
 
 @:native("EOcclusionTriangleSamplingUIMode")
 @:include("RemoveOccludedTrianglesTool.h")
-extern enum EOcclusionTriangleSamplingUIMode {
-	Vertices;
-	VerticesAndCentroids;
-	EOcclusionTriangleSamplingUIMode_MAX;
+extern class EOcclusionTriangleSamplingUIMode {
+	static var Vertices: EOcclusionTriangleSamplingUIMode;
+	static var VerticesAndCentroids: EOcclusionTriangleSamplingUIMode;
+	static var EOcclusionTriangleSamplingUIMode_MAX: EOcclusionTriangleSamplingUIMode;
 }

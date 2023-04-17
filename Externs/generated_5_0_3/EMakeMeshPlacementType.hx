@@ -3,8 +3,8 @@ package ue;
 
 @:native("EMakeMeshPlacementType")
 @:include("AddPrimitiveTool.h")
-extern enum EMakeMeshPlacementType {
-	GroundPlane;
-	OnScene;
-	EMakeMeshPlacementType_MAX;
+extern class EMakeMeshPlacementType {
+	static var GroundPlane: EMakeMeshPlacementType;
+	static var OnScene: EMakeMeshPlacementType;
+	static var EMakeMeshPlacementType_MAX: EMakeMeshPlacementType;
 }

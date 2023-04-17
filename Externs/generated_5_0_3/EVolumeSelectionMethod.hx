@@ -3,9 +3,9 @@ package ue;
 
 @:native("EVolumeSelectionMethod")
 @:include("Private/FractureToolSelection.h")
-extern enum EVolumeSelectionMethod {
-	CubeRootOfVolume;
-	RelativeToWhole;
-	RelativeToLargest;
-	EVolumeSelectionMethod_MAX;
+extern class EVolumeSelectionMethod {
+	static var CubeRootOfVolume: EVolumeSelectionMethod;
+	static var RelativeToWhole: EVolumeSelectionMethod;
+	static var RelativeToLargest: EVolumeSelectionMethod;
+	static var EVolumeSelectionMethod_MAX: EVolumeSelectionMethod;
 }

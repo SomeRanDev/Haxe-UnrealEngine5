@@ -11,10 +11,6 @@ extern class ArrowComp extends PrimitiveComp {
 	public var ScreenSize: cpp.Float32;
 	public var bIsScreenSizeScaled: Bool;
 	public var bTreatAsASprite: Bool;
-	public var SpriteCategoryName_DEPRECATED: FName;
-	public var SpriteInfo: SpriteCategoryInfo;
-	public var bLightAttachment: Bool;
-	public var bUseInEditorScaling: Bool;
 
 	public function SetArrowColor(NewColor: LinearColor): Void;
 
@@ -36,14 +32,6 @@ abstract ConstArrowComp(ArrowComp) from ArrowComp {
 	public inline extern function get_bIsScreenSizeScaled(): Bool return this.bIsScreenSizeScaled;
 	public extern var bTreatAsASprite(get, never): Bool;
 	public inline extern function get_bTreatAsASprite(): Bool return this.bTreatAsASprite;
-	public extern var SpriteCategoryName_DEPRECATED(get, never): FName;
-	public inline extern function get_SpriteCategoryName_DEPRECATED(): FName return this.SpriteCategoryName_DEPRECATED;
-	public extern var SpriteInfo(get, never): SpriteCategoryInfo;
-	public inline extern function get_SpriteInfo(): SpriteCategoryInfo return this.SpriteInfo;
-	public extern var bLightAttachment(get, never): Bool;
-	public inline extern function get_bLightAttachment(): Bool return this.bLightAttachment;
-	public extern var bUseInEditorScaling(get, never): Bool;
-	public inline extern function get_bUseInEditorScaling(): Bool return this.bUseInEditorScaling;
 }
 
 @:forward

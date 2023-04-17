@@ -3,9 +3,9 @@ package ue;
 
 @:native("ERaDistanceRolloffModel")
 @:include("Private/ResonanceAudioEnums.h")
-extern enum ERaDistanceRolloffModel {
-	LOGARITHMIC;
-	LINEAR;
-	NONE;
-	ERaDistanceRolloffModel_MAX;
+extern class ERaDistanceRolloffModel {
+	static var LOGARITHMIC: ERaDistanceRolloffModel;
+	static var LINEAR: ERaDistanceRolloffModel;
+	static var NONE: ERaDistanceRolloffModel;
+	static var ERaDistanceRolloffModel_MAX: ERaDistanceRolloffModel;
 }

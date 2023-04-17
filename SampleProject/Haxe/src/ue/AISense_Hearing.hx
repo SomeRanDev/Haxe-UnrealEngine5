@@ -5,8 +5,8 @@ package ue;
 @:include("Perception/AISense_Hearing.h")
 @:structAccess
 extern class AISense_Hearing extends AISense {
-	public var NoiseEvents: TArray<AINoiseEvent>;
-	public var SpeedOfSoundSq: cpp.Float32;
+	@:protected public var NoiseEvents: TArray<AINoiseEvent>;
+	@:protected public var SpeedOfSoundSq: cpp.Float32;
 
 	public function ReportNoiseEvent(WorldContextObject: cpp.Star<Object>, NoiseLocation: Vector, Loudness: cpp.Float32, Instigator: cpp.Star<Actor>, MaxRange: cpp.Float32, Tag: FName): Void;
 
@@ -16,10 +16,6 @@ extern class AISense_Hearing extends AISense {
 @:forward()
 @:nativeGen
 abstract ConstAISense_Hearing(AISense_Hearing) from AISense_Hearing {
-	public extern var NoiseEvents(get, never): TArray<AINoiseEvent>;
-	public inline extern function get_NoiseEvents(): TArray<AINoiseEvent> return this.NoiseEvents;
-	public extern var SpeedOfSoundSq(get, never): cpp.Float32;
-	public inline extern function get_SpeedOfSoundSq(): cpp.Float32 return this.SpeedOfSoundSq;
 }
 
 @:forward

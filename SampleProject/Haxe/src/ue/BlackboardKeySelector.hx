@@ -8,8 +8,8 @@ extern class BlackboardKeySelector {
 	public var AllowedTypes: TArray<cpp.Star<BlackboardKeyType>>;
 	public var SelectedKeyName: FName;
 	public var SelectedKeyType: TSubclassOf<BlackboardKeyType>;
-	public var SelectedKeyID: cpp.UInt8;
-	public var bNoneIsAllowedValue: Bool;
+	@:protected public var SelectedKeyID: cpp.UInt8;
+	@:protected public var bNoneIsAllowedValue: Bool;
 
 	@:native("FBlackboardKeySelector") public function new();
 	@:native("FBlackboardKeySelector") public static function make(AllowedTypes: TArray<cpp.Star<BlackboardKeyType>>, SelectedKeyName: FName, SelectedKeyType: TSubclassOf<BlackboardKeyType>, SelectedKeyID: cpp.UInt8, bNoneIsAllowedValue: Bool): BlackboardKeySelector ;

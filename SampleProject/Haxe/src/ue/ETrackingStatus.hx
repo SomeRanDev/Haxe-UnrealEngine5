@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETrackingStatus")
 @:include("IMotionController.h")
-extern enum ETrackingStatus {
-	NotTracked;
-	InertialOnly;
-	Tracked;
-	ETrackingStatus_MAX;
+extern class ETrackingStatus {
+	static var NotTracked: ETrackingStatus;
+	static var InertialOnly: ETrackingStatus;
+	static var Tracked: ETrackingStatus;
+	static var ETrackingStatus_MAX: ETrackingStatus;
 }

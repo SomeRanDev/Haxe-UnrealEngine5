@@ -3,10 +3,10 @@ package ue;
 
 @:native("ETutorialContent.Type")
 @:include("EditorTutorial.h")
-extern enum ETutorialContent {
-	None;
-	Text;
-	UDNExcerpt;
-	RichText;
-	ETutorialContent_MAX;
+extern class ETutorialContent {
+	static var None: ETutorialContent;
+	static var Text: ETutorialContent;
+	static var UDNExcerpt: ETutorialContent;
+	static var RichText: ETutorialContent;
+	static var ETutorialContent_MAX: ETutorialContent;
 }

@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESetResolutionMethod")
 @:include("NiagaraDataInterfaceRW.h")
-extern enum ESetResolutionMethod {
-	Independent;
-	MaxAxis;
-	CellSize;
-	ESetResolutionMethod_MAX;
+extern class ESetResolutionMethod {
+	static var Independent: ESetResolutionMethod;
+	static var MaxAxis: ESetResolutionMethod;
+	static var CellSize: ESetResolutionMethod;
+	static var ESetResolutionMethod_MAX: ESetResolutionMethod;
 }

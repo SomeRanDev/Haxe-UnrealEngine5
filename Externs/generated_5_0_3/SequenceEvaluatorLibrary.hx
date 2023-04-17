@@ -5,14 +5,14 @@ package ue;
 @:include("SequenceEvaluatorLibrary.h")
 @:structAccess
 extern class SequenceEvaluatorLibrary extends BlueprintFunctionLibrary {
-	public function SetSequenceWithInertialBlending(UpdateContext: cpp.Reference<AnimUpdateContext>, SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>, Sequence: cpp.Star<AnimSequenceBase>, BlendTime: cpp.Float32): cpp.Reference<SequenceEvaluatorReference>;
-	public function SetSequence(SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>, Sequence: cpp.Star<AnimSequenceBase>): cpp.Reference<SequenceEvaluatorReference>;
-	public function SetExplicitTime(SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>, Time: cpp.Float32): cpp.Reference<SequenceEvaluatorReference>;
-	public function GetSequence(SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>): cpp.Reference<cpp.Star<AnimSequenceBase>>;
-	public function GetAccumulatedTime(SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>): cpp.Reference<cpp.Float32>;
+	public function SetSequenceWithInertialBlending(UpdateContext: cpp.Reference<AnimUpdateContext>, SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>, Sequence: cpp.Star<AnimSequenceBase>, BlendTime: cpp.Float32): SequenceEvaluatorReference;
+	public function SetSequence(SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>, Sequence: cpp.Star<AnimSequenceBase>): SequenceEvaluatorReference;
+	public function SetExplicitTime(SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>, Time: cpp.Float32): SequenceEvaluatorReference;
+	public function GetSequence(SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>): cpp.Star<AnimSequenceBase>;
+	public function GetAccumulatedTime(SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>): cpp.Float32;
 	public function ConvertToSequenceEvaluatorPure(Node: cpp.Reference<AnimNodeReference>, SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>, Result: cpp.Reference<Bool>): Void;
-	public function ConvertToSequenceEvaluator(Node: cpp.Reference<AnimNodeReference>, Result: cpp.Reference<EAnimNodeReferenceConversionResult>): cpp.Reference<SequenceEvaluatorReference>;
-	public function AdvanceTime(UpdateContext: cpp.Reference<AnimUpdateContext>, SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>, PlayRate: cpp.Float32): cpp.Reference<SequenceEvaluatorReference>;
+	public function ConvertToSequenceEvaluator(Node: cpp.Reference<AnimNodeReference>, Result: cpp.Reference<EAnimNodeReferenceConversionResult>): SequenceEvaluatorReference;
+	public function AdvanceTime(UpdateContext: cpp.Reference<AnimUpdateContext>, SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>, PlayRate: cpp.Float32): SequenceEvaluatorReference;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

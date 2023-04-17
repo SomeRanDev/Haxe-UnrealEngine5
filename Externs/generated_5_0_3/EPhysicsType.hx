@@ -3,9 +3,9 @@ package ue;
 
 @:native("EPhysicsType")
 @:include("BodySetupEnums.h")
-extern enum EPhysicsType {
-	PhysType_Default;
-	PhysType_Kinematic;
-	PhysType_Simulated;
-	PhysType_MAX;
+extern class EPhysicsType {
+	static var PhysType_Default: EPhysicsType;
+	static var PhysType_Kinematic: EPhysicsType;
+	static var PhysType_Simulated: EPhysicsType;
+	static var PhysType_MAX: EPhysicsType;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EQuarztQuantizationReference")
 @:include("Sound/QuartzQuantizationUtilities.h")
-extern enum EQuarztQuantizationReference {
-	BarRelative;
-	TransportRelative;
-	CurrentTimeRelative;
-	Count;
-	EQuarztQuantizationReference_MAX;
+extern class EQuarztQuantizationReference {
+	static var BarRelative: EQuarztQuantizationReference;
+	static var TransportRelative: EQuarztQuantizationReference;
+	static var CurrentTimeRelative: EQuarztQuantizationReference;
+	static var Count: EQuarztQuantizationReference;
+	static var EQuarztQuantizationReference_MAX: EQuarztQuantizationReference;
 }

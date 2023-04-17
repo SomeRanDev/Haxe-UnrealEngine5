@@ -5,10 +5,10 @@ package ue;
 @:include("ARTraceResult.h")
 @:structAccess
 extern class ARTraceResult {
-	public var DistanceFromCamera: cpp.Float32;
-	public var TraceChannel: EARLineTraceChannels;
-	public var LocalTransform: Transform;
-	public var TrackedGeometry: cpp.Star<ARTrackedGeometry>;
+	private var DistanceFromCamera: cpp.Float32;
+	private var TraceChannel: EARLineTraceChannels;
+	private var LocalTransform: Transform;
+	private var TrackedGeometry: cpp.Star<ARTrackedGeometry>;
 
 	@:native("FARTraceResult") public function new();
 	@:native("FARTraceResult") public static function make(DistanceFromCamera: cpp.Float32, TraceChannel: EARLineTraceChannels, LocalTransform: Transform, TrackedGeometry: cpp.Star<ARTrackedGeometry>): ARTraceResult ;

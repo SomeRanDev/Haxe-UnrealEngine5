@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAnimLinkMethod.Type")
 @:include("Animation/AnimLinkableElement.h")
-extern enum EAnimLinkMethod {
-	Absolute;
-	Relative;
-	Proportional;
-	EAnimLinkMethod_MAX;
+extern class EAnimLinkMethod {
+	static var Absolute: EAnimLinkMethod;
+	static var Relative: EAnimLinkMethod;
+	static var Proportional: EAnimLinkMethod;
+	static var EAnimLinkMethod_MAX: EAnimLinkMethod;
 }

@@ -3,11 +3,11 @@ package ue;
 
 @:native("EChaosThreadingMode")
 @:include("PhysicsCoreTypes.h")
-extern enum EChaosThreadingMode {
-	DedicatedThread;
-	TaskGraph;
-	SingleThread;
-	Num;
-	Invalid;
-	EChaosThreadingMode_MAX;
+extern class EChaosThreadingMode {
+	static var DedicatedThread: EChaosThreadingMode;
+	static var TaskGraph: EChaosThreadingMode;
+	static var SingleThread: EChaosThreadingMode;
+	static var Num: EChaosThreadingMode;
+	static var Invalid: EChaosThreadingMode;
+	static var EChaosThreadingMode_MAX: EChaosThreadingMode;
 }

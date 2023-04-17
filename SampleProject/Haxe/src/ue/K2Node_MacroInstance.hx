@@ -5,8 +5,7 @@ package ue;
 @:include("K2Node_MacroInstance.h")
 @:structAccess
 extern class K2Node_MacroInstance extends K2Node_Tunnel {
-	public var MacroGraph_DEPRECATED: cpp.Star<EdGraph>;
-	public var MacroGraphReference: GraphReference;
+	private var MacroGraphReference: GraphReference;
 	public var ResolvedWildcardType: EdGraphPinType;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -15,10 +14,6 @@ extern class K2Node_MacroInstance extends K2Node_Tunnel {
 @:forward()
 @:nativeGen
 abstract ConstK2Node_MacroInstance(K2Node_MacroInstance) from K2Node_MacroInstance {
-	public extern var MacroGraph_DEPRECATED(get, never): cpp.Star<EdGraph.ConstEdGraph>;
-	public inline extern function get_MacroGraph_DEPRECATED(): cpp.Star<EdGraph.ConstEdGraph> return this.MacroGraph_DEPRECATED;
-	public extern var MacroGraphReference(get, never): GraphReference;
-	public inline extern function get_MacroGraphReference(): GraphReference return this.MacroGraphReference;
 	public extern var ResolvedWildcardType(get, never): EdGraphPinType;
 	public inline extern function get_ResolvedWildcardType(): EdGraphPinType return this.ResolvedWildcardType;
 }

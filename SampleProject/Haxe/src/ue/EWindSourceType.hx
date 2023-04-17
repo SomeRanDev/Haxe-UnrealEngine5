@@ -3,8 +3,8 @@ package ue;
 
 @:native("EWindSourceType")
 @:include("Components/WindDirectionalSourceComponent.h")
-extern enum EWindSourceType {
-	Directional;
-	Point;
-	EWindSourceType_MAX;
+extern class EWindSourceType {
+	static var Directional: EWindSourceType;
+	static var Point: EWindSourceType;
+	static var EWindSourceType_MAX: EWindSourceType;
 }

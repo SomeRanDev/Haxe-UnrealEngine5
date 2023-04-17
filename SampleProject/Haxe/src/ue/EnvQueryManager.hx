@@ -5,18 +5,18 @@ package ue;
 @:include("EnvironmentQuery/EnvQueryManager.h")
 @:structAccess
 extern class EnvQueryManager extends AISubsystem {
-	public var InstanceCache: TArray<EnvQueryInstanceCache>;
-	public var LocalContexts: TArray<cpp.Star<EnvQueryContext>>;
-	public var GCShieldedWrappers: TArray<cpp.Star<EnvQueryInstanceBlueprintWrapper>>;
-	public var MaxAllowedTestingTime: cpp.Float32;
-	public var bTestQueriesUsingBreadth: Bool;
-	public var QueryCountWarningThreshold: cpp.Int32;
-	public var QueryCountWarningInterval: cpp.Float64;
-	public var ExecutionTimeWarningSeconds: cpp.Float64;
-	public var HandlingResultTimeWarningSeconds: cpp.Float64;
-	public var GenerationTimeWarningSeconds: cpp.Float64;
+	@:protected public var InstanceCache: TArray<EnvQueryInstanceCache>;
+	@:protected public var LocalContexts: TArray<cpp.Star<EnvQueryContext>>;
+	@:protected public var GCShieldedWrappers: TArray<cpp.Star<EnvQueryInstanceBlueprintWrapper>>;
+	@:protected public var MaxAllowedTestingTime: cpp.Float32;
+	@:protected public var bTestQueriesUsingBreadth: Bool;
+	@:protected public var QueryCountWarningThreshold: cpp.Int32;
+	@:protected public var QueryCountWarningInterval: cpp.Float64;
+	@:protected public var ExecutionTimeWarningSeconds: cpp.Float64;
+	@:protected public var HandlingResultTimeWarningSeconds: cpp.Float64;
+	@:protected public var GenerationTimeWarningSeconds: cpp.Float64;
 
-	public function RunEQSQuery(WorldContextObject: cpp.Star<Object>, QueryTemplate: cpp.Star<EnvQuery>, Querier: cpp.Star<Object>, RunMode: EEnvQueryRunMode, WrapperClass: TSubclassOf<EnvQueryInstanceBlueprintWrapper>): cpp.Reference<cpp.Star<EnvQueryInstanceBlueprintWrapper>>;
+	public function RunEQSQuery(WorldContextObject: cpp.Star<Object>, QueryTemplate: cpp.Star<EnvQuery>, Querier: cpp.Star<Object>, RunMode: TEnumAsByte<EEnvQueryRunMode>, WrapperClass: TSubclassOf<EnvQueryInstanceBlueprintWrapper>): cpp.Star<EnvQueryInstanceBlueprintWrapper>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -24,26 +24,6 @@ extern class EnvQueryManager extends AISubsystem {
 @:forward()
 @:nativeGen
 abstract ConstEnvQueryManager(EnvQueryManager) from EnvQueryManager {
-	public extern var InstanceCache(get, never): TArray<EnvQueryInstanceCache>;
-	public inline extern function get_InstanceCache(): TArray<EnvQueryInstanceCache> return this.InstanceCache;
-	public extern var LocalContexts(get, never): TArray<cpp.Star<EnvQueryContext.ConstEnvQueryContext>>;
-	public inline extern function get_LocalContexts(): TArray<cpp.Star<EnvQueryContext.ConstEnvQueryContext>> return this.LocalContexts;
-	public extern var GCShieldedWrappers(get, never): TArray<cpp.Star<EnvQueryInstanceBlueprintWrapper.ConstEnvQueryInstanceBlueprintWrapper>>;
-	public inline extern function get_GCShieldedWrappers(): TArray<cpp.Star<EnvQueryInstanceBlueprintWrapper.ConstEnvQueryInstanceBlueprintWrapper>> return this.GCShieldedWrappers;
-	public extern var MaxAllowedTestingTime(get, never): cpp.Float32;
-	public inline extern function get_MaxAllowedTestingTime(): cpp.Float32 return this.MaxAllowedTestingTime;
-	public extern var bTestQueriesUsingBreadth(get, never): Bool;
-	public inline extern function get_bTestQueriesUsingBreadth(): Bool return this.bTestQueriesUsingBreadth;
-	public extern var QueryCountWarningThreshold(get, never): cpp.Int32;
-	public inline extern function get_QueryCountWarningThreshold(): cpp.Int32 return this.QueryCountWarningThreshold;
-	public extern var QueryCountWarningInterval(get, never): cpp.Float64;
-	public inline extern function get_QueryCountWarningInterval(): cpp.Float64 return this.QueryCountWarningInterval;
-	public extern var ExecutionTimeWarningSeconds(get, never): cpp.Float64;
-	public inline extern function get_ExecutionTimeWarningSeconds(): cpp.Float64 return this.ExecutionTimeWarningSeconds;
-	public extern var HandlingResultTimeWarningSeconds(get, never): cpp.Float64;
-	public inline extern function get_HandlingResultTimeWarningSeconds(): cpp.Float64 return this.HandlingResultTimeWarningSeconds;
-	public extern var GenerationTimeWarningSeconds(get, never): cpp.Float64;
-	public inline extern function get_GenerationTimeWarningSeconds(): cpp.Float64 return this.GenerationTimeWarningSeconds;
 }
 
 @:forward

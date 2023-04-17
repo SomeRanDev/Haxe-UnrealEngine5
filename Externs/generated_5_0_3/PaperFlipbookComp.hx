@@ -5,16 +5,15 @@ package ue;
 @:include("PaperFlipbookComponent.h")
 @:structAccess
 extern class PaperFlipbookComp extends MeshComp {
-	public var SourceFlipbook: cpp.Star<PaperFlipbook>;
-	public var Material_DEPRECATED: cpp.Star<MaterialInterface>;
-	public var PlayRate: cpp.Float32;
-	public var bLooping: Bool;
-	public var bReversePlayback: Bool;
-	public var bPlaying: Bool;
-	public var AccumulatedTime: cpp.Float32;
-	public var CachedFrameIndex: cpp.Int32;
-	public var SpriteColor: LinearColor;
-	public var CachedBodySetup: cpp.Star<BodySetup>;
+	@:protected public var SourceFlipbook: cpp.Star<PaperFlipbook>;
+	@:protected public var PlayRate: cpp.Float32;
+	@:protected public var bLooping: Bool;
+	@:protected public var bReversePlayback: Bool;
+	@:protected public var bPlaying: Bool;
+	@:protected public var AccumulatedTime: cpp.Float32;
+	@:protected public var CachedFrameIndex: cpp.Int32;
+	@:protected public var SpriteColor: LinearColor;
+	@:protected public var CachedBodySetup: cpp.Star<BodySetup>;
 	public var OnFinishedPlaying: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
 	public function Stop(): Void;
@@ -24,23 +23,23 @@ extern class PaperFlipbookComp extends MeshComp {
 	public function SetPlaybackPosition(NewPosition: cpp.Float32, bFireEvents: Bool): Void;
 	public function SetNewTime(NewTime: cpp.Float32): Void;
 	public function SetLooping(bNewLooping: Bool): Void;
-	public function SetFlipbook(NewFlipbook: cpp.Star<PaperFlipbook>): cpp.Reference<Bool>;
+	public function SetFlipbook(NewFlipbook: cpp.Star<PaperFlipbook>): Bool;
 	public function ReverseFromEnd(): Void;
 	public function Reverse(): Void;
 	public function PlayFromStart(): Void;
 	public function Play(): Void;
-	public function OnRep_SourceFlipbook(OldFlipbook: cpp.Star<PaperFlipbook>): Void;
-	public function IsReversing(): cpp.Reference<Bool>;
-	public function IsPlaying(): cpp.Reference<Bool>;
-	public function IsLooping(): cpp.Reference<Bool>;
-	public function GetSpriteColor(): cpp.Reference<LinearColor>;
-	public function GetPlayRate(): cpp.Reference<cpp.Float32>;
-	public function GetPlaybackPositionInFrames(): cpp.Reference<cpp.Int32>;
-	public function GetPlaybackPosition(): cpp.Reference<cpp.Float32>;
-	public function GetFlipbookLengthInFrames(): cpp.Reference<cpp.Int32>;
-	public function GetFlipbookLength(): cpp.Reference<cpp.Float32>;
-	public function GetFlipbookFramerate(): cpp.Reference<cpp.Float32>;
-	public function GetFlipbook(): cpp.Reference<cpp.Star<PaperFlipbook>>;
+	@:protected public function OnRep_SourceFlipbook(OldFlipbook: cpp.Star<PaperFlipbook>): Void;
+	public function IsReversing(): Bool;
+	public function IsPlaying(): Bool;
+	public function IsLooping(): Bool;
+	public function GetSpriteColor(): LinearColor;
+	public function GetPlayRate(): cpp.Float32;
+	public function GetPlaybackPositionInFrames(): cpp.Int32;
+	public function GetPlaybackPosition(): cpp.Float32;
+	public function GetFlipbookLengthInFrames(): cpp.Int32;
+	public function GetFlipbookLength(): cpp.Float32;
+	public function GetFlipbookFramerate(): cpp.Float32;
+	public function GetFlipbook(): cpp.Star<PaperFlipbook>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -51,26 +50,6 @@ extern class PaperFlipbookComp extends MeshComp {
 )
 @:nativeGen
 abstract ConstPaperFlipbookComp(PaperFlipbookComp) from PaperFlipbookComp {
-	public extern var SourceFlipbook(get, never): cpp.Star<PaperFlipbook.ConstPaperFlipbook>;
-	public inline extern function get_SourceFlipbook(): cpp.Star<PaperFlipbook.ConstPaperFlipbook> return this.SourceFlipbook;
-	public extern var Material_DEPRECATED(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_Material_DEPRECATED(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.Material_DEPRECATED;
-	public extern var PlayRate(get, never): cpp.Float32;
-	public inline extern function get_PlayRate(): cpp.Float32 return this.PlayRate;
-	public extern var bLooping(get, never): Bool;
-	public inline extern function get_bLooping(): Bool return this.bLooping;
-	public extern var bReversePlayback(get, never): Bool;
-	public inline extern function get_bReversePlayback(): Bool return this.bReversePlayback;
-	public extern var bPlaying(get, never): Bool;
-	public inline extern function get_bPlaying(): Bool return this.bPlaying;
-	public extern var AccumulatedTime(get, never): cpp.Float32;
-	public inline extern function get_AccumulatedTime(): cpp.Float32 return this.AccumulatedTime;
-	public extern var CachedFrameIndex(get, never): cpp.Int32;
-	public inline extern function get_CachedFrameIndex(): cpp.Int32 return this.CachedFrameIndex;
-	public extern var SpriteColor(get, never): LinearColor;
-	public inline extern function get_SpriteColor(): LinearColor return this.SpriteColor;
-	public extern var CachedBodySetup(get, never): cpp.Star<BodySetup.ConstBodySetup>;
-	public inline extern function get_CachedBodySetup(): cpp.Star<BodySetup.ConstBodySetup> return this.CachedBodySetup;
 	public extern var OnFinishedPlaying(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnFinishedPlaying(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnFinishedPlaying;
 }

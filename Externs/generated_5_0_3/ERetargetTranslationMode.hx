@@ -3,9 +3,9 @@ package ue;
 
 @:native("ERetargetTranslationMode")
 @:include("Retargeter/IKRetargeter.h")
-extern enum ERetargetTranslationMode {
-	None;
-	GloballyScaled;
-	Absolute;
-	ERetargetTranslationMode_MAX;
+extern class ERetargetTranslationMode {
+	static var None: ERetargetTranslationMode;
+	static var GloballyScaled: ERetargetTranslationMode;
+	static var Absolute: ERetargetTranslationMode;
+	static var ERetargetTranslationMode_MAX: ERetargetTranslationMode;
 }

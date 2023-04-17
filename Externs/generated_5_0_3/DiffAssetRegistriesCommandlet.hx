@@ -5,13 +5,13 @@ package ue;
 @:include("Commandlets/DiffAssetRegistriesCommandlet.h")
 @:structAccess
 extern class DiffAssetRegistriesCommandlet extends Commandlet {
-	public var AssetRegistrySearchPath: TArray<FString>;
-	public var P4Repository: FString;
-	public var P4EngineBasePath: FString;
-	public var P4EngineAssetPath: FString;
-	public var P4GameBasePath: FString;
-	public var P4GameAssetPath: FString;
-	public var RegexBranchCL: FString;
+	private var AssetRegistrySearchPath: TArray<FString>;
+	private var P4Repository: FString;
+	private var P4EngineBasePath: FString;
+	private var P4EngineAssetPath: FString;
+	private var P4GameBasePath: FString;
+	private var P4GameAssetPath: FString;
+	private var RegexBranchCL: FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,20 +19,6 @@ extern class DiffAssetRegistriesCommandlet extends Commandlet {
 @:forward()
 @:nativeGen
 abstract ConstDiffAssetRegistriesCommandlet(DiffAssetRegistriesCommandlet) from DiffAssetRegistriesCommandlet {
-	public extern var AssetRegistrySearchPath(get, never): TArray<FString>;
-	public inline extern function get_AssetRegistrySearchPath(): TArray<FString> return this.AssetRegistrySearchPath;
-	public extern var P4Repository(get, never): FString;
-	public inline extern function get_P4Repository(): FString return this.P4Repository;
-	public extern var P4EngineBasePath(get, never): FString;
-	public inline extern function get_P4EngineBasePath(): FString return this.P4EngineBasePath;
-	public extern var P4EngineAssetPath(get, never): FString;
-	public inline extern function get_P4EngineAssetPath(): FString return this.P4EngineAssetPath;
-	public extern var P4GameBasePath(get, never): FString;
-	public inline extern function get_P4GameBasePath(): FString return this.P4GameBasePath;
-	public extern var P4GameAssetPath(get, never): FString;
-	public inline extern function get_P4GameAssetPath(): FString return this.P4GameAssetPath;
-	public extern var RegexBranchCL(get, never): FString;
-	public inline extern function get_RegexBranchCL(): FString return this.RegexBranchCL;
 }
 
 @:forward

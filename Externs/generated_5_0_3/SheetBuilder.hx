@@ -9,7 +9,7 @@ extern class SheetBuilder extends EditorBrushBuilder {
 	public var Y: cpp.Int32;
 	public var XSegments: cpp.Int32;
 	public var YSegments: cpp.Int32;
-	public var Axis: ESheetAxis;
+	public var Axis: TEnumAsByte<ESheetAxis>;
 	public var GroupName: FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -26,8 +26,8 @@ abstract ConstSheetBuilder(SheetBuilder) from SheetBuilder {
 	public inline extern function get_XSegments(): cpp.Int32 return this.XSegments;
 	public extern var YSegments(get, never): cpp.Int32;
 	public inline extern function get_YSegments(): cpp.Int32 return this.YSegments;
-	public extern var Axis(get, never): ESheetAxis;
-	public inline extern function get_Axis(): ESheetAxis return this.Axis;
+	public extern var Axis(get, never): TEnumAsByte<ESheetAxis>;
+	public inline extern function get_Axis(): TEnumAsByte<ESheetAxis> return this.Axis;
 	public extern var GroupName(get, never): FName;
 	public inline extern function get_GroupName(): FName return this.GroupName;
 }

@@ -5,7 +5,7 @@ package ue;
 @:include("Particles/Beam/ParticleModuleBeamModifier.h")
 @:structAccess
 extern class ParticleModuleBeamModifier extends ParticleModuleBeamBase {
-	public var ModifierType: BeamModifierType;
+	public var ModifierType: TEnumAsByte<BeamModifierType>;
 	public var PositionOptions: BeamModifierOptions;
 	public var Position: RawDistributionVector;
 	public var TangentOptions: BeamModifierOptions;
@@ -20,8 +20,8 @@ extern class ParticleModuleBeamModifier extends ParticleModuleBeamBase {
 @:forward()
 @:nativeGen
 abstract ConstParticleModuleBeamModifier(ParticleModuleBeamModifier) from ParticleModuleBeamModifier {
-	public extern var ModifierType(get, never): BeamModifierType;
-	public inline extern function get_ModifierType(): BeamModifierType return this.ModifierType;
+	public extern var ModifierType(get, never): TEnumAsByte<BeamModifierType>;
+	public inline extern function get_ModifierType(): TEnumAsByte<BeamModifierType> return this.ModifierType;
 	public extern var PositionOptions(get, never): BeamModifierOptions;
 	public inline extern function get_PositionOptions(): BeamModifierOptions return this.PositionOptions;
 	public extern var Position(get, never): RawDistributionVector;

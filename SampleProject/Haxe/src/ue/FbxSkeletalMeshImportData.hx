@@ -5,9 +5,9 @@ package ue;
 @:include("Factories/FbxSkeletalMeshImportData.h")
 @:structAccess
 extern class FbxSkeletalMeshImportData extends FbxMeshImportData {
-	public var ImportContentType: EFBXImportContentType;
-	public var LastImportContentType: EFBXImportContentType;
-	public var VertexColorImportOption: EVertexColorImportOption;
+	public var ImportContentType: TEnumAsByte<EFBXImportContentType>;
+	public var LastImportContentType: TEnumAsByte<EFBXImportContentType>;
+	public var VertexColorImportOption: TEnumAsByte<EVertexColorImportOption>;
 	public var VertexOverrideColor: Color;
 	public var bUpdateSkeletonReferencePose: Bool;
 	public var bUseT0AsRefPose: Bool;
@@ -25,12 +25,12 @@ extern class FbxSkeletalMeshImportData extends FbxMeshImportData {
 @:forward()
 @:nativeGen
 abstract ConstFbxSkeletalMeshImportData(FbxSkeletalMeshImportData) from FbxSkeletalMeshImportData {
-	public extern var ImportContentType(get, never): EFBXImportContentType;
-	public inline extern function get_ImportContentType(): EFBXImportContentType return this.ImportContentType;
-	public extern var LastImportContentType(get, never): EFBXImportContentType;
-	public inline extern function get_LastImportContentType(): EFBXImportContentType return this.LastImportContentType;
-	public extern var VertexColorImportOption(get, never): EVertexColorImportOption;
-	public inline extern function get_VertexColorImportOption(): EVertexColorImportOption return this.VertexColorImportOption;
+	public extern var ImportContentType(get, never): TEnumAsByte<EFBXImportContentType>;
+	public inline extern function get_ImportContentType(): TEnumAsByte<EFBXImportContentType> return this.ImportContentType;
+	public extern var LastImportContentType(get, never): TEnumAsByte<EFBXImportContentType>;
+	public inline extern function get_LastImportContentType(): TEnumAsByte<EFBXImportContentType> return this.LastImportContentType;
+	public extern var VertexColorImportOption(get, never): TEnumAsByte<EVertexColorImportOption>;
+	public inline extern function get_VertexColorImportOption(): TEnumAsByte<EVertexColorImportOption> return this.VertexColorImportOption;
 	public extern var VertexOverrideColor(get, never): Color;
 	public inline extern function get_VertexOverrideColor(): Color return this.VertexOverrideColor;
 	public extern var bUpdateSkeletonReferencePose(get, never): Bool;

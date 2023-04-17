@@ -5,7 +5,7 @@ package ue;
 @:include("BaseGizmos/RepositionableTransformGizmo.h")
 @:structAccess
 extern class RepositionableTransformGizmo extends CombinedTransformGizmo {
-	public var RepositionStateTarget: cpp.Star<GizmoTransformChangeStateTarget>;
+	@:protected public var RepositionStateTarget: cpp.Star<GizmoTransformChangeStateTarget>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class RepositionableTransformGizmo extends CombinedTransformGizmo {
 @:forward()
 @:nativeGen
 abstract ConstRepositionableTransformGizmo(RepositionableTransformGizmo) from RepositionableTransformGizmo {
-	public extern var RepositionStateTarget(get, never): cpp.Star<GizmoTransformChangeStateTarget.ConstGizmoTransformChangeStateTarget>;
-	public inline extern function get_RepositionStateTarget(): cpp.Star<GizmoTransformChangeStateTarget.ConstGizmoTransformChangeStateTarget> return this.RepositionStateTarget;
 }
 
 @:forward

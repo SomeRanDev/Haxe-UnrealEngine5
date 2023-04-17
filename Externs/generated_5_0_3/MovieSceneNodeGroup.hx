@@ -5,8 +5,6 @@ package ue;
 @:include("MovieScene.h")
 @:structAccess
 extern class MovieSceneNodeGroup extends Object {
-	public var Name: FName;
-	public var Nodes: TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +12,6 @@ extern class MovieSceneNodeGroup extends Object {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneNodeGroup(MovieSceneNodeGroup) from MovieSceneNodeGroup {
-	public extern var Name(get, never): FName;
-	public inline extern function get_Name(): FName return this.Name;
-	public extern var Nodes(get, never): TArray<FString>;
-	public inline extern function get_Nodes(): TArray<FString> return this.Nodes;
 }
 
 @:forward

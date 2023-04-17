@@ -10,14 +10,12 @@ extern class CameraShakeSourceComp extends SceneComp {
 	public var OuterAttenuationRadius: cpp.Float32;
 	public var CameraShake: TSubclassOf<CameraShakeBase>;
 	public var bAutoStart: Bool;
-	public var EditorSpriteTexture: cpp.Star<Texture2D>;
-	public var EditorSpriteTextureScale: cpp.Float32;
 
 	public function StopAllCameraShakesOfType(InCameraShake: TSubclassOf<CameraShakeBase>, bImmediately: Bool): Void;
 	public function StopAllCameraShakes(bImmediately: Bool): Void;
 	public function StartCameraShake(InCameraShake: TSubclassOf<CameraShakeBase>, Scale: cpp.Float32, PlaySpace: ECameraShakePlaySpace, UserPlaySpaceRot: Rotator): Void;
 	public function Start(): Void;
-	public function GetAttenuationFactor(Location: cpp.Reference<Vector>): cpp.Reference<cpp.Float32>;
+	public function GetAttenuationFactor(Location: cpp.Reference<Vector>): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -35,10 +33,6 @@ abstract ConstCameraShakeSourceComp(CameraShakeSourceComp) from CameraShakeSourc
 	public inline extern function get_CameraShake(): TSubclassOf<CameraShakeBase.ConstCameraShakeBase> return this.CameraShake;
 	public extern var bAutoStart(get, never): Bool;
 	public inline extern function get_bAutoStart(): Bool return this.bAutoStart;
-	public extern var EditorSpriteTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_EditorSpriteTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.EditorSpriteTexture;
-	public extern var EditorSpriteTextureScale(get, never): cpp.Float32;
-	public inline extern function get_EditorSpriteTextureScale(): cpp.Float32 return this.EditorSpriteTextureScale;
 }
 
 @:forward

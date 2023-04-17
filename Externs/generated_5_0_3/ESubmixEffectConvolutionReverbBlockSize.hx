@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESubmixEffectConvolutionReverbBlockSize")
 @:include("SubmixEffects/SubmixEffectConvolutionReverb.h")
-extern enum ESubmixEffectConvolutionReverbBlockSize {
-	BlockSize256;
-	BlockSize512;
-	BlockSize1024;
-	ESubmixEffectConvolutionReverbBlockSize_MAX;
+extern class ESubmixEffectConvolutionReverbBlockSize {
+	static var BlockSize256: ESubmixEffectConvolutionReverbBlockSize;
+	static var BlockSize512: ESubmixEffectConvolutionReverbBlockSize;
+	static var BlockSize1024: ESubmixEffectConvolutionReverbBlockSize;
+	static var ESubmixEffectConvolutionReverbBlockSize_MAX: ESubmixEffectConvolutionReverbBlockSize;
 }

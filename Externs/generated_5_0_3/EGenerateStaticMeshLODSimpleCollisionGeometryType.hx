@@ -3,14 +3,14 @@ package ue;
 
 @:native("EGenerateStaticMeshLODSimpleCollisionGeometryType")
 @:include("Graphs/GenerateStaticMeshLODProcess.h")
-extern enum EGenerateStaticMeshLODSimpleCollisionGeometryType {
-	AlignedBoxes;
-	OrientedBoxes;
-	MinimalSpheres;
-	Capsules;
-	ConvexHulls;
-	SweptHulls;
-	MinVolume;
-	None;
-	EGenerateStaticMeshLODSimpleCollisionGeometryType_MAX;
+extern class EGenerateStaticMeshLODSimpleCollisionGeometryType {
+	static var AlignedBoxes: EGenerateStaticMeshLODSimpleCollisionGeometryType;
+	static var OrientedBoxes: EGenerateStaticMeshLODSimpleCollisionGeometryType;
+	static var MinimalSpheres: EGenerateStaticMeshLODSimpleCollisionGeometryType;
+	static var Capsules: EGenerateStaticMeshLODSimpleCollisionGeometryType;
+	static var ConvexHulls: EGenerateStaticMeshLODSimpleCollisionGeometryType;
+	static var SweptHulls: EGenerateStaticMeshLODSimpleCollisionGeometryType;
+	static var MinVolume: EGenerateStaticMeshLODSimpleCollisionGeometryType;
+	static var None: EGenerateStaticMeshLODSimpleCollisionGeometryType;
+	static var EGenerateStaticMeshLODSimpleCollisionGeometryType_MAX: EGenerateStaticMeshLODSimpleCollisionGeometryType;
 }

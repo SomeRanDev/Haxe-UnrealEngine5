@@ -5,8 +5,6 @@ package ue;
 @:include("Materials/MaterialInstance.h")
 @:structAccess
 extern class ScalarParameterValue {
-	public var ParameterName_DEPRECATED: FName;
-	public var AtlasData: ScalarParameterAtlasInstanceData;
 	public var ParameterInfo: MaterialParameterInfo;
 	public var ParameterValue: cpp.Float32;
 	public var ExpressionGUID: Guid;

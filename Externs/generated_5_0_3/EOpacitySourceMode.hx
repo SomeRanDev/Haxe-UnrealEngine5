@@ -3,11 +3,11 @@ package ue;
 
 @:native("EOpacitySourceMode")
 @:include("Particles/SubUVAnimation.h")
-extern enum EOpacitySourceMode {
-	OSM_Alpha;
-	OSM_ColorBrightness;
-	OSM_RedChannel;
-	OSM_GreenChannel;
-	OSM_BlueChannel;
-	OSM_MAX;
+extern class EOpacitySourceMode {
+	static var OSM_Alpha: EOpacitySourceMode;
+	static var OSM_ColorBrightness: EOpacitySourceMode;
+	static var OSM_RedChannel: EOpacitySourceMode;
+	static var OSM_GreenChannel: EOpacitySourceMode;
+	static var OSM_BlueChannel: EOpacitySourceMode;
+	static var OSM_MAX: EOpacitySourceMode;
 }

@@ -5,10 +5,10 @@ package ue;
 @:include("Blueprint/AIAsyncTaskBlueprintProxy.h")
 @:structAccess
 extern class AIAsyncTaskBlueprintProxy extends Object {
-	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(EPathFollowingResult) -> Void>;
-	public var OnFail: HaxeMulticastSparseDelegateProperty<(EPathFollowingResult) -> Void>;
+	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(TEnumAsByte<EPathFollowingResult>) -> Void>;
+	public var OnFail: HaxeMulticastSparseDelegateProperty<(TEnumAsByte<EPathFollowingResult>) -> Void>;
 
-	public function OnMoveCompleted(RequestID: AIRequestID, MovementResult: EPathFollowingResult): Void;
+	public function OnMoveCompleted(RequestID: AIRequestID, MovementResult: TEnumAsByte<EPathFollowingResult>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,10 +16,10 @@ extern class AIAsyncTaskBlueprintProxy extends Object {
 @:forward()
 @:nativeGen
 abstract ConstAIAsyncTaskBlueprintProxy(AIAsyncTaskBlueprintProxy) from AIAsyncTaskBlueprintProxy {
-	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(EPathFollowingResult) -> Void>;
-	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(EPathFollowingResult) -> Void> return this.OnSuccess;
-	public extern var OnFail(get, never): HaxeMulticastSparseDelegateProperty<(EPathFollowingResult) -> Void>;
-	public inline extern function get_OnFail(): HaxeMulticastSparseDelegateProperty<(EPathFollowingResult) -> Void> return this.OnFail;
+	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(TEnumAsByte<EPathFollowingResult>) -> Void>;
+	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(TEnumAsByte<EPathFollowingResult>) -> Void> return this.OnSuccess;
+	public extern var OnFail(get, never): HaxeMulticastSparseDelegateProperty<(TEnumAsByte<EPathFollowingResult>) -> Void>;
+	public inline extern function get_OnFail(): HaxeMulticastSparseDelegateProperty<(TEnumAsByte<EPathFollowingResult>) -> Void> return this.OnFail;
 }
 
 @:forward

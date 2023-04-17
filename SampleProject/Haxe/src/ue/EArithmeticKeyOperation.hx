@@ -3,12 +3,12 @@ package ue;
 
 @:native("EArithmeticKeyOperation.Type")
 @:include("BehaviorTree/Blackboard/BlackboardKeyType.h")
-extern enum EArithmeticKeyOperation {
-	Equal;
-	NotEqual;
-	Less;
-	LessOrEqual;
-	Greater;
-	GreaterOrEqual;
-	EArithmeticKeyOperation_MAX;
+extern class EArithmeticKeyOperation {
+	static var Equal: EArithmeticKeyOperation;
+	static var NotEqual: EArithmeticKeyOperation;
+	static var Less: EArithmeticKeyOperation;
+	static var LessOrEqual: EArithmeticKeyOperation;
+	static var Greater: EArithmeticKeyOperation;
+	static var GreaterOrEqual: EArithmeticKeyOperation;
+	static var EArithmeticKeyOperation_MAX: EArithmeticKeyOperation;
 }

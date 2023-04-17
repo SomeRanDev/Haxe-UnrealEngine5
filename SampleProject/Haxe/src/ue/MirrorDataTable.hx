@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class MirrorDataTable extends DataTable {
 	public var MirrorFindReplaceExpressions: TArray<MirrorFindReplaceExpression>;
-	public var MirrorAxis: EAxis;
+	public var MirrorAxis: TEnumAsByte<EAxis>;
 	public var Skeleton: cpp.Star<Skeleton>;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -17,8 +17,8 @@ extern class MirrorDataTable extends DataTable {
 abstract ConstMirrorDataTable(MirrorDataTable) from MirrorDataTable {
 	public extern var MirrorFindReplaceExpressions(get, never): TArray<MirrorFindReplaceExpression>;
 	public inline extern function get_MirrorFindReplaceExpressions(): TArray<MirrorFindReplaceExpression> return this.MirrorFindReplaceExpressions;
-	public extern var MirrorAxis(get, never): EAxis;
-	public inline extern function get_MirrorAxis(): EAxis return this.MirrorAxis;
+	public extern var MirrorAxis(get, never): TEnumAsByte<EAxis>;
+	public inline extern function get_MirrorAxis(): TEnumAsByte<EAxis> return this.MirrorAxis;
 	public extern var Skeleton(get, never): cpp.Star<Skeleton.ConstSkeleton>;
 	public inline extern function get_Skeleton(): cpp.Star<Skeleton.ConstSkeleton> return this.Skeleton;
 }

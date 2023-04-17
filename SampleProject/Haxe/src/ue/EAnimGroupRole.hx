@@ -3,11 +3,11 @@ package ue;
 
 @:native("EAnimGroupRole.Type")
 @:include("Animation/AnimationAsset.h")
-extern enum EAnimGroupRole {
-	CanBeLeader;
-	AlwaysFollower;
-	AlwaysLeader;
-	TransitionLeader;
-	TransitionFollower;
-	EAnimGroupRole_MAX;
+extern class EAnimGroupRole {
+	static var CanBeLeader: EAnimGroupRole;
+	static var AlwaysFollower: EAnimGroupRole;
+	static var AlwaysLeader: EAnimGroupRole;
+	static var TransitionLeader: EAnimGroupRole;
+	static var TransitionFollower: EAnimGroupRole;
+	static var EAnimGroupRole_MAX: EAnimGroupRole;
 }

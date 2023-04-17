@@ -6,17 +6,17 @@ package ue;
 @:structAccess
 extern class ARComp extends SceneComp {
 	public var NativeID: Guid;
-	public var bUseDefaultReplication: Bool;
-	public var DefaultMeshMaterial: cpp.Star<MaterialInterface>;
-	public var DefaultWireframeMeshMaterial: cpp.Star<MaterialInterface>;
-	public var MRMeshComponent: cpp.Star<MRMeshComp>;
-	public var MyTrackedGeometry: cpp.Star<ARTrackedGeometry>;
+	@:protected public var bUseDefaultReplication: Bool;
+	@:protected public var DefaultMeshMaterial: cpp.Star<MaterialInterface>;
+	@:protected public var DefaultWireframeMeshMaterial: cpp.Star<MaterialInterface>;
+	@:protected public var MRMeshComponent: cpp.Star<MRMeshComp>;
+	@:protected public var MyTrackedGeometry: cpp.Star<ARTrackedGeometry>;
 
 	public function UpdateVisualization(): Void;
 	public function SetNativeID(NativeID: Guid): Void;
 	public function ReceiveRemove(): Void;
-	public function OnRep_Payload(): Void;
-	public function GetMRMesh(): cpp.Reference<cpp.Star<MRMeshComp>>;
+	@:protected public function OnRep_Payload(): Void;
+	public function GetMRMesh(): cpp.Star<MRMeshComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -26,16 +26,6 @@ extern class ARComp extends SceneComp {
 abstract ConstARComp(ARComp) from ARComp {
 	public extern var NativeID(get, never): Guid;
 	public inline extern function get_NativeID(): Guid return this.NativeID;
-	public extern var bUseDefaultReplication(get, never): Bool;
-	public inline extern function get_bUseDefaultReplication(): Bool return this.bUseDefaultReplication;
-	public extern var DefaultMeshMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_DefaultMeshMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.DefaultMeshMaterial;
-	public extern var DefaultWireframeMeshMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_DefaultWireframeMeshMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.DefaultWireframeMeshMaterial;
-	public extern var MRMeshComponent(get, never): cpp.Star<MRMeshComp.ConstMRMeshComp>;
-	public inline extern function get_MRMeshComponent(): cpp.Star<MRMeshComp.ConstMRMeshComp> return this.MRMeshComponent;
-	public extern var MyTrackedGeometry(get, never): cpp.Star<ARTrackedGeometry.ConstARTrackedGeometry>;
-	public inline extern function get_MyTrackedGeometry(): cpp.Star<ARTrackedGeometry.ConstARTrackedGeometry> return this.MyTrackedGeometry;
 }
 
 @:forward

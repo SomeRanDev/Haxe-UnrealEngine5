@@ -7,7 +7,7 @@ package ue;
 extern class CurveVector extends CurveBase {
 	public var FloatCurves: RichCurve;
 
-	public function GetVectorValue(InTime: cpp.Float32): cpp.Reference<Vector>;
+	public function GetVectorValue(InTime: cpp.Float32): Vector;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

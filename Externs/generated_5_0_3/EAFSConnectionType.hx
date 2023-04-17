@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAFSConnectionType.Type")
 @:include("AndroidFileServerRuntimeSettings.h")
-extern enum EAFSConnectionType {
-	USBOnly;
-	NetworkOnly;
-	Combined;
-	EAFSConnectionType_MAX;
+extern class EAFSConnectionType {
+	static var USBOnly: EAFSConnectionType;
+	static var NetworkOnly: EAFSConnectionType;
+	static var Combined: EAFSConnectionType;
+	static var EAFSConnectionType_MAX: EAFSConnectionType;
 }

@@ -5,8 +5,8 @@ package ue;
 @:include("FractureToolPlaneCut.h")
 @:structAccess
 extern class FractureToolPlaneCut extends FractureToolCutterBase {
-	public var PlaneCutSettings: cpp.Star<FracturePlaneCutSettings>;
-	public var GizmoSettings: cpp.Star<FractureTransformGizmoSettings>;
+	private var PlaneCutSettings: cpp.Star<FracturePlaneCutSettings>;
+	private var GizmoSettings: cpp.Star<FractureTransformGizmoSettings>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class FractureToolPlaneCut extends FractureToolCutterBase {
 @:forward()
 @:nativeGen
 abstract ConstFractureToolPlaneCut(FractureToolPlaneCut) from FractureToolPlaneCut {
-	public extern var PlaneCutSettings(get, never): cpp.Star<FracturePlaneCutSettings.ConstFracturePlaneCutSettings>;
-	public inline extern function get_PlaneCutSettings(): cpp.Star<FracturePlaneCutSettings.ConstFracturePlaneCutSettings> return this.PlaneCutSettings;
-	public extern var GizmoSettings(get, never): cpp.Star<FractureTransformGizmoSettings.ConstFractureTransformGizmoSettings>;
-	public inline extern function get_GizmoSettings(): cpp.Star<FractureTransformGizmoSettings.ConstFractureTransformGizmoSettings> return this.GizmoSettings;
 }
 
 @:forward

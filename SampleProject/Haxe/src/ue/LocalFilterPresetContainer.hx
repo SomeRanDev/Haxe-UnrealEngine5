@@ -5,7 +5,7 @@ package ue;
 @:include("FilterPresets.h")
 @:structAccess
 extern class LocalFilterPresetContainer extends Object {
-	public var UserPresets: TArray<FilterData>;
+	@:protected public var UserPresets: TArray<FilterData>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class LocalFilterPresetContainer extends Object {
 @:forward()
 @:nativeGen
 abstract ConstLocalFilterPresetContainer(LocalFilterPresetContainer) from LocalFilterPresetContainer {
-	public extern var UserPresets(get, never): TArray<FilterData>;
-	public inline extern function get_UserPresets(): TArray<FilterData> return this.UserPresets;
 }
 
 @:forward

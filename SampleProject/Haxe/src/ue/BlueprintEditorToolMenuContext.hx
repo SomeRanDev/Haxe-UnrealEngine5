@@ -5,7 +5,7 @@ package ue;
 @:include("BlueprintEditorContext.h")
 @:structAccess
 extern class BlueprintEditorToolMenuContext extends Object {
-	public function GetBlueprintObj(): cpp.Reference<cpp.Star<Blueprint>>;
+	public function GetBlueprintObj(): cpp.Star<Blueprint>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

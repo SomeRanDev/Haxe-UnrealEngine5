@@ -9,23 +9,23 @@ extern class PreviewGeometry extends Object {
 	public var LineSets: TMap<FString, cpp.Star<LineSetComp>>;
 	public var PointSets: TMap<FString, cpp.Star<PointSetComp>>;
 
-	public function SetPointSetVisibility(PointSetIdentifier: FString, bVisible: Bool): cpp.Reference<Bool>;
-	public function SetPointSetMaterial(PointSetIdentifier: FString, NewMaterial: cpp.Star<MaterialInterface>): cpp.Reference<Bool>;
-	public function SetLineSetVisibility(LineSetIdentifier: FString, bVisible: Bool): cpp.Reference<Bool>;
-	public function SetLineSetMaterial(LineSetIdentifier: FString, NewMaterial: cpp.Star<MaterialInterface>): cpp.Reference<Bool>;
+	public function SetPointSetVisibility(PointSetIdentifier: FString, bVisible: Bool): Bool;
+	public function SetPointSetMaterial(PointSetIdentifier: FString, NewMaterial: cpp.Star<MaterialInterface>): Bool;
+	public function SetLineSetVisibility(LineSetIdentifier: FString, bVisible: Bool): Bool;
+	public function SetLineSetMaterial(LineSetIdentifier: FString, NewMaterial: cpp.Star<MaterialInterface>): Bool;
 	public function SetAllPointSetsMaterial(Material: cpp.Star<MaterialInterface>): Void;
 	public function SetAllLineSetsMaterial(Material: cpp.Star<MaterialInterface>): Void;
-	public function RemovePointSet(PointSetIdentifier: FString, bDestroy: Bool): cpp.Reference<Bool>;
-	public function RemoveLineSet(LineSetIdentifier: FString, bDestroy: Bool): cpp.Reference<Bool>;
+	public function RemovePointSet(PointSetIdentifier: FString, bDestroy: Bool): Bool;
+	public function RemoveLineSet(LineSetIdentifier: FString, bDestroy: Bool): Bool;
 	public function RemoveAllPointSets(bDestroy: Bool): Void;
 	public function RemoveAllLineSets(bDestroy: Bool): Void;
-	public function GetActor(): cpp.Reference<cpp.Star<PreviewGeometryActor>>;
-	public function FindPointSet(PointSetIdentifier: FString): cpp.Reference<cpp.Star<PointSetComp>>;
-	public function FindLineSet(LineSetIdentifier: FString): cpp.Reference<cpp.Star<LineSetComp>>;
+	public function GetActor(): cpp.Star<PreviewGeometryActor>;
+	public function FindPointSet(PointSetIdentifier: FString): cpp.Star<PointSetComp>;
+	public function FindLineSet(LineSetIdentifier: FString): cpp.Star<LineSetComp>;
 	public function Disconnect(): Void;
 	public function CreateInWorld(World: cpp.Star<World>, WithTransform: cpp.Reference<Transform>): Void;
-	public function AddPointSet(PointSetIdentifier: FString): cpp.Reference<cpp.Star<PointSetComp>>;
-	public function AddLineSet(LineSetIdentifier: FString): cpp.Reference<cpp.Star<LineSetComp>>;
+	public function AddPointSet(PointSetIdentifier: FString): cpp.Star<PointSetComp>;
+	public function AddLineSet(LineSetIdentifier: FString): cpp.Star<LineSetComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

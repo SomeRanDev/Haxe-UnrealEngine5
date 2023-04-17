@@ -3,9 +3,9 @@ package ue;
 
 @:native("ERuntimeVirtualTextureMainPassType")
 @:include("VT/RuntimeVirtualTextureEnum.h")
-extern enum ERuntimeVirtualTextureMainPassType {
-	Never;
-	Exclusive;
-	Always;
-	ERuntimeVirtualTextureMainPassType_MAX;
+extern class ERuntimeVirtualTextureMainPassType {
+	static var Never: ERuntimeVirtualTextureMainPassType;
+	static var Exclusive: ERuntimeVirtualTextureMainPassType;
+	static var Always: ERuntimeVirtualTextureMainPassType;
+	static var ERuntimeVirtualTextureMainPassType_MAX: ERuntimeVirtualTextureMainPassType;
 }

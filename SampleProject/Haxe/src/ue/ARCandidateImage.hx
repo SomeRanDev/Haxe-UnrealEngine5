@@ -5,17 +5,17 @@ package ue;
 @:include("ARTypes.h")
 @:structAccess
 extern class ARCandidateImage extends DataAsset {
-	public var CandidateTexture: cpp.Star<Texture2D>;
-	public var FriendlyName: FString;
-	public var Width: cpp.Float32;
-	public var Height: cpp.Float32;
-	public var Orientation: EARCandidateImageOrientation;
+	@:protected public var CandidateTexture: cpp.Star<Texture2D>;
+	@:protected public var FriendlyName: FString;
+	@:protected public var Width: cpp.Float32;
+	@:protected public var Height: cpp.Float32;
+	@:protected public var Orientation: EARCandidateImageOrientation;
 
-	public function GetPhysicalWidth(): cpp.Reference<cpp.Float32>;
-	public function GetPhysicalHeight(): cpp.Reference<cpp.Float32>;
-	public function GetOrientation(): cpp.Reference<EARCandidateImageOrientation>;
-	public function GetFriendlyName(): cpp.Reference<FString>;
-	public function GetCandidateTexture(): cpp.Reference<cpp.Star<Texture2D>>;
+	public function GetPhysicalWidth(): cpp.Float32;
+	public function GetPhysicalHeight(): cpp.Float32;
+	public function GetOrientation(): EARCandidateImageOrientation;
+	public function GetFriendlyName(): FString;
+	public function GetCandidateTexture(): cpp.Star<Texture2D>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -23,16 +23,6 @@ extern class ARCandidateImage extends DataAsset {
 @:forward(GetPhysicalWidth, GetPhysicalHeight, GetOrientation, GetFriendlyName, GetCandidateTexture)
 @:nativeGen
 abstract ConstARCandidateImage(ARCandidateImage) from ARCandidateImage {
-	public extern var CandidateTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_CandidateTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.CandidateTexture;
-	public extern var FriendlyName(get, never): FString;
-	public inline extern function get_FriendlyName(): FString return this.FriendlyName;
-	public extern var Width(get, never): cpp.Float32;
-	public inline extern function get_Width(): cpp.Float32 return this.Width;
-	public extern var Height(get, never): cpp.Float32;
-	public inline extern function get_Height(): cpp.Float32 return this.Height;
-	public extern var Orientation(get, never): EARCandidateImageOrientation;
-	public inline extern function get_Orientation(): EARCandidateImageOrientation return this.Orientation;
 }
 
 @:forward

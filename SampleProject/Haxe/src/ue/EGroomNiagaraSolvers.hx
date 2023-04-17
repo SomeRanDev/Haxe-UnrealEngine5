@@ -3,10 +3,10 @@ package ue;
 
 @:native("EGroomNiagaraSolvers")
 @:include("GroomAssetPhysics.h")
-extern enum EGroomNiagaraSolvers {
-	None;
-	CosseratRods;
-	AngularSprings;
-	CustomSolver;
-	EGroomNiagaraSolvers_MAX;
+extern class EGroomNiagaraSolvers {
+	static var None: EGroomNiagaraSolvers;
+	static var CosseratRods: EGroomNiagaraSolvers;
+	static var AngularSprings: EGroomNiagaraSolvers;
+	static var CustomSolver: EGroomNiagaraSolvers;
+	static var EGroomNiagaraSolvers_MAX: EGroomNiagaraSolvers;
 }

@@ -5,9 +5,9 @@ package ue;
 @:include("VREditorWidgetComponent.h")
 @:structAccess
 extern class VREditorWidgetComp extends WidgetComp {
-	public var DrawingPolicy: EVREditorWidgetDrawingPolicy;
-	public var bIsHovering: Bool;
-	public var bHasEverDrawn: Bool;
+	private var DrawingPolicy: EVREditorWidgetDrawingPolicy;
+	private var bIsHovering: Bool;
+	private var bHasEverDrawn: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class VREditorWidgetComp extends WidgetComp {
 @:forward()
 @:nativeGen
 abstract ConstVREditorWidgetComp(VREditorWidgetComp) from VREditorWidgetComp {
-	public extern var DrawingPolicy(get, never): EVREditorWidgetDrawingPolicy;
-	public inline extern function get_DrawingPolicy(): EVREditorWidgetDrawingPolicy return this.DrawingPolicy;
-	public extern var bIsHovering(get, never): Bool;
-	public inline extern function get_bIsHovering(): Bool return this.bIsHovering;
-	public extern var bHasEverDrawn(get, never): Bool;
-	public inline extern function get_bHasEverDrawn(): Bool return this.bHasEverDrawn;
 }
 
 @:forward

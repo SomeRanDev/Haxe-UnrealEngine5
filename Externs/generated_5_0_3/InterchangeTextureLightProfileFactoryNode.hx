@@ -5,10 +5,10 @@ package ue;
 @:include("InterchangeTextureLightProfileFactoryNode.h")
 @:structAccess
 extern class InterchangeTextureLightProfileFactoryNode extends InterchangeTextureFactoryNode {
-	public function SetCustomTextureMultiplier(AttributeValue: cpp.Float32, bAddApplyDelegate: Bool): cpp.Reference<Bool>;
-	public function SetCustomBrightness(AttributeValue: cpp.Float32, bAddApplyDelegate: Bool): cpp.Reference<Bool>;
-	public function GetCustomTextureMultiplier(AttributeValue: cpp.Reference<cpp.Float32>): cpp.Reference<Bool>;
-	public function GetCustomBrightness(AttributeValue: cpp.Reference<cpp.Float32>): cpp.Reference<Bool>;
+	public function SetCustomTextureMultiplier(AttributeValue: cpp.Float32, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomBrightness(AttributeValue: cpp.Float32, bAddApplyDelegate: Bool): Bool;
+	public function GetCustomTextureMultiplier(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
+	public function GetCustomBrightness(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

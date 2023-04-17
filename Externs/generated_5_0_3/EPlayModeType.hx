@@ -3,16 +3,16 @@ package ue;
 
 @:native("EPlayModeType")
 @:include("Settings/LevelEditorPlaySettings.h")
-extern enum EPlayModeType {
-	PlayMode_InViewPort;
-	PlayMode_InEditorFloating;
-	PlayMode_InMobilePreview;
-	PlayMode_InTargetedMobilePreview;
-	PlayMode_InVulkanPreview;
-	PlayMode_InNewProcess;
-	PlayMode_InVR;
-	PlayMode_Simulate;
-	PlayMode_QuickLaunch;
-	PlayMode_Count;
-	PlayMode_MAX;
+extern class EPlayModeType {
+	static var PlayMode_InViewPort: EPlayModeType;
+	static var PlayMode_InEditorFloating: EPlayModeType;
+	static var PlayMode_InMobilePreview: EPlayModeType;
+	static var PlayMode_InTargetedMobilePreview: EPlayModeType;
+	static var PlayMode_InVulkanPreview: EPlayModeType;
+	static var PlayMode_InNewProcess: EPlayModeType;
+	static var PlayMode_InVR: EPlayModeType;
+	static var PlayMode_Simulate: EPlayModeType;
+	static var PlayMode_QuickLaunch: EPlayModeType;
+	static var PlayMode_Count: EPlayModeType;
+	static var PlayMode_MAX: EPlayModeType;
 }

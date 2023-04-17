@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENiagaraDebugHudVerbosity")
 @:include("NiagaraDebuggerCommon.h")
-extern enum ENiagaraDebugHudVerbosity {
-	None;
-	Basic;
-	Verbose;
-	ENiagaraDebugHudVerbosity_MAX;
+extern class ENiagaraDebugHudVerbosity {
+	static var None: ENiagaraDebugHudVerbosity;
+	static var Basic: ENiagaraDebugHudVerbosity;
+	static var Verbose: ENiagaraDebugHudVerbosity;
+	static var ENiagaraDebugHudVerbosity_MAX: ENiagaraDebugHudVerbosity;
 }

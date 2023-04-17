@@ -3,10 +3,10 @@ package ue;
 
 @:native("ERaQualityMode")
 @:include("Private/ResonanceAudioEnums.h")
-extern enum ERaQualityMode {
-	STEREO_PANNING;
-	BINAURAL_LOW;
-	BINAURAL_MEDIUM;
-	BINAURAL_HIGH;
-	ERaQualityMode_MAX;
+extern class ERaQualityMode {
+	static var STEREO_PANNING: ERaQualityMode;
+	static var BINAURAL_LOW: ERaQualityMode;
+	static var BINAURAL_MEDIUM: ERaQualityMode;
+	static var BINAURAL_HIGH: ERaQualityMode;
+	static var ERaQualityMode_MAX: ERaQualityMode;
 }

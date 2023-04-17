@@ -3,11 +3,11 @@ package ue;
 
 @:native("EParticleSignificanceLevel")
 @:include("ParticleHelper.h")
-extern enum EParticleSignificanceLevel {
-	Low;
-	Medium;
-	High;
-	Critical;
-	Num;
-	EParticleSignificanceLevel_MAX;
+extern class EParticleSignificanceLevel {
+	static var Low: EParticleSignificanceLevel;
+	static var Medium: EParticleSignificanceLevel;
+	static var High: EParticleSignificanceLevel;
+	static var Critical: EParticleSignificanceLevel;
+	static var Num: EParticleSignificanceLevel;
+	static var EParticleSignificanceLevel_MAX: EParticleSignificanceLevel;
 }

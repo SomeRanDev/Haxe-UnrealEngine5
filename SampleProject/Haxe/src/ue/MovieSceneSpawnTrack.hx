@@ -5,8 +5,8 @@ package ue;
 @:include("Tracks/MovieSceneSpawnTrack.h")
 @:structAccess
 extern class MovieSceneSpawnTrack extends MovieSceneTrack {
-	public var Sections: TArray<cpp.Star<MovieSceneSection>>;
-	public var ObjectGuid: Guid;
+	@:protected public var Sections: TArray<cpp.Star<MovieSceneSection>>;
+	@:protected public var ObjectGuid: Guid;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class MovieSceneSpawnTrack extends MovieSceneTrack {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneSpawnTrack(MovieSceneSpawnTrack) from MovieSceneSpawnTrack {
-	public extern var Sections(get, never): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>>;
-	public inline extern function get_Sections(): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>> return this.Sections;
-	public extern var ObjectGuid(get, never): Guid;
-	public inline extern function get_ObjectGuid(): Guid return this.ObjectGuid;
 }
 
 @:forward

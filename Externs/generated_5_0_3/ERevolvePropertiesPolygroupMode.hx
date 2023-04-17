@@ -3,10 +3,10 @@ package ue;
 
 @:native("ERevolvePropertiesPolygroupMode")
 @:include("Properties/RevolveProperties.h")
-extern enum ERevolvePropertiesPolygroupMode {
-	PerShape;
-	PerFace;
-	PerRevolveStep;
-	PerPathSegment;
-	ERevolvePropertiesPolygroupMode_MAX;
+extern class ERevolvePropertiesPolygroupMode {
+	static var PerShape: ERevolvePropertiesPolygroupMode;
+	static var PerFace: ERevolvePropertiesPolygroupMode;
+	static var PerRevolveStep: ERevolvePropertiesPolygroupMode;
+	static var PerPathSegment: ERevolvePropertiesPolygroupMode;
+	static var ERevolvePropertiesPolygroupMode_MAX: ERevolvePropertiesPolygroupMode;
 }

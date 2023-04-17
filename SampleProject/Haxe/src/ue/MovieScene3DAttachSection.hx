@@ -7,8 +7,6 @@ package ue;
 extern class MovieScene3DAttachSection extends MovieScene3DConstraintSection {
 	public var AttachSocketName: FName;
 	public var AttachComponentName: FName;
-	public var bFullRevertOnDetach: Bool;
-	public var ReAttachOnDetach: TSoftObjectPtr<SceneComp>;
 	public var AttachmentLocationRule: EAttachmentRule;
 	public var AttachmentRotationRule: EAttachmentRule;
 	public var AttachmentScaleRule: EAttachmentRule;
@@ -26,10 +24,6 @@ abstract ConstMovieScene3DAttachSection(MovieScene3DAttachSection) from MovieSce
 	public inline extern function get_AttachSocketName(): FName return this.AttachSocketName;
 	public extern var AttachComponentName(get, never): FName;
 	public inline extern function get_AttachComponentName(): FName return this.AttachComponentName;
-	public extern var bFullRevertOnDetach(get, never): Bool;
-	public inline extern function get_bFullRevertOnDetach(): Bool return this.bFullRevertOnDetach;
-	public extern var ReAttachOnDetach(get, never): TSoftObjectPtr<SceneComp.ConstSceneComp>;
-	public inline extern function get_ReAttachOnDetach(): TSoftObjectPtr<SceneComp.ConstSceneComp> return this.ReAttachOnDetach;
 	public extern var AttachmentLocationRule(get, never): EAttachmentRule;
 	public inline extern function get_AttachmentLocationRule(): EAttachmentRule return this.AttachmentLocationRule;
 	public extern var AttachmentRotationRule(get, never): EAttachmentRule;

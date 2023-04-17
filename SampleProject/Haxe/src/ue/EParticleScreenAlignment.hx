@@ -3,13 +3,13 @@ package ue;
 
 @:native("EParticleScreenAlignment")
 @:include("Particles/ParticleSpriteEmitter.h")
-extern enum EParticleScreenAlignment {
-	PSA_FacingCameraPosition;
-	PSA_Square;
-	PSA_Rectangle;
-	PSA_Velocity;
-	PSA_AwayFromCenter;
-	PSA_TypeSpecific;
-	PSA_FacingCameraDistanceBlend;
-	PSA_MAX;
+extern class EParticleScreenAlignment {
+	static var PSA_FacingCameraPosition: EParticleScreenAlignment;
+	static var PSA_Square: EParticleScreenAlignment;
+	static var PSA_Rectangle: EParticleScreenAlignment;
+	static var PSA_Velocity: EParticleScreenAlignment;
+	static var PSA_AwayFromCenter: EParticleScreenAlignment;
+	static var PSA_TypeSpecific: EParticleScreenAlignment;
+	static var PSA_FacingCameraDistanceBlend: EParticleScreenAlignment;
+	static var PSA_MAX: EParticleScreenAlignment;
 }

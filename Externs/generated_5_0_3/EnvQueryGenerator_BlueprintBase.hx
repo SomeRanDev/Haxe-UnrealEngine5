@@ -9,7 +9,7 @@ extern class EnvQueryGenerator_BlueprintBase extends EnvQueryGenerator {
 	public var Context: TSubclassOf<EnvQueryContext>;
 	public var GeneratedItemType: TSubclassOf<EnvQueryItemType>;
 
-	public function GetQuerier(): cpp.Reference<cpp.Star<Object>>;
+	public function GetQuerier(): cpp.Star<Object>;
 	public function DoItemGeneration(ContextLocations: cpp.Reference<TArray<Vector>>): Void;
 	public function AddGeneratedVector(GeneratedVector: Vector): Void;
 	public function AddGeneratedActor(GeneratedActor: cpp.Star<Actor>): Void;

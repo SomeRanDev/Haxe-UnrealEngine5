@@ -5,19 +5,17 @@ package ue;
 @:include("SkeletalMeshReductionSettings.h")
 @:structAccess
 extern class SkeletalMeshOptimizationSettings {
-	public var TerminationCriterion: SkeletalMeshTerminationCriterion;
+	public var TerminationCriterion: TEnumAsByte<SkeletalMeshTerminationCriterion>;
 	public var NumOfTrianglesPercentage: cpp.Float32;
 	public var NumOfVertPercentage: cpp.Float32;
 	public var MaxNumOfTriangles: cpp.UInt32;
 	public var MaxNumOfVerts: cpp.UInt32;
-	public var MaxNumOfTrianglesPercentage: cpp.UInt32;
-	public var MaxNumOfVertsPercentage: cpp.UInt32;
 	public var MaxDeviationPercentage: cpp.Float32;
-	public var ReductionMethod: SkeletalMeshOptimizationType;
-	public var SilhouetteImportance: SkeletalMeshOptimizationImportance;
-	public var TextureImportance: SkeletalMeshOptimizationImportance;
-	public var ShadingImportance: SkeletalMeshOptimizationImportance;
-	public var SkinningImportance: SkeletalMeshOptimizationImportance;
+	public var ReductionMethod: TEnumAsByte<SkeletalMeshOptimizationType>;
+	public var SilhouetteImportance: TEnumAsByte<SkeletalMeshOptimizationImportance>;
+	public var TextureImportance: TEnumAsByte<SkeletalMeshOptimizationImportance>;
+	public var ShadingImportance: TEnumAsByte<SkeletalMeshOptimizationImportance>;
+	public var SkinningImportance: TEnumAsByte<SkeletalMeshOptimizationImportance>;
 	public var bRemapMorphTargets: Bool;
 	public var bRecalcNormals: Bool;
 	public var WeldingThreshold: cpp.Float32;
@@ -29,8 +27,6 @@ extern class SkeletalMeshOptimizationSettings {
 	public var bLockEdges: Bool;
 	public var bLockColorBounaries: Bool;
 	public var BaseLOD: cpp.Int32;
-	public var BonesToRemove_DEPRECATED: TArray<BoneReference>;
-	public var BakePose_DEPRECATED: cpp.Star<AnimSequence>;
 
 	@:native("FSkeletalMeshOptimizationSettings") public function new();
 }

@@ -5,8 +5,8 @@ package ue;
 @:include("HaxeForUnrealCharacter.h")
 @:structAccess
 extern class HaxeForUnrealCharacter extends Character {
-	public var CameraBoom: cpp.Star<SpringArmComp>;
-	public var FollowCamera: cpp.Star<CameraComp>;
+	private var CameraBoom: cpp.Star<SpringArmComp>;
+	private var FollowCamera: cpp.Star<CameraComp>;
 	public var TurnRateGamepad: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -15,10 +15,6 @@ extern class HaxeForUnrealCharacter extends Character {
 @:forward()
 @:nativeGen
 abstract ConstHaxeForUnrealCharacter(HaxeForUnrealCharacter) from HaxeForUnrealCharacter {
-	public extern var CameraBoom(get, never): cpp.Star<SpringArmComp.ConstSpringArmComp>;
-	public inline extern function get_CameraBoom(): cpp.Star<SpringArmComp.ConstSpringArmComp> return this.CameraBoom;
-	public extern var FollowCamera(get, never): cpp.Star<CameraComp.ConstCameraComp>;
-	public inline extern function get_FollowCamera(): cpp.Star<CameraComp.ConstCameraComp> return this.FollowCamera;
 	public extern var TurnRateGamepad(get, never): cpp.Float32;
 	public inline extern function get_TurnRateGamepad(): cpp.Float32 return this.TurnRateGamepad;
 }

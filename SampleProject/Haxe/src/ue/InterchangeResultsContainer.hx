@@ -5,7 +5,7 @@ package ue;
 @:include("InterchangeResultsContainer.h")
 @:structAccess
 extern class InterchangeResultsContainer extends Object {
-	public var Results: TArray<cpp.Star<InterchangeResult>>;
+	private var Results: TArray<cpp.Star<InterchangeResult>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class InterchangeResultsContainer extends Object {
 @:forward()
 @:nativeGen
 abstract ConstInterchangeResultsContainer(InterchangeResultsContainer) from InterchangeResultsContainer {
-	public extern var Results(get, never): TArray<cpp.Star<InterchangeResult.ConstInterchangeResult>>;
-	public inline extern function get_Results(): TArray<cpp.Star<InterchangeResult.ConstInterchangeResult>> return this.Results;
 }
 
 @:forward

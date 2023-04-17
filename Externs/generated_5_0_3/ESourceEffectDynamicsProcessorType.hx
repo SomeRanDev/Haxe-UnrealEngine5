@@ -3,12 +3,12 @@ package ue;
 
 @:native("ESourceEffectDynamicsProcessorType")
 @:include("SourceEffects/SourceEffectDynamicsProcessor.h")
-extern enum ESourceEffectDynamicsProcessorType {
-	Compressor;
-	Limiter;
-	Expander;
-	Gate;
-	UpwardsCompressor;
-	Count;
-	ESourceEffectDynamicsProcessorType_MAX;
+extern class ESourceEffectDynamicsProcessorType {
+	static var Compressor: ESourceEffectDynamicsProcessorType;
+	static var Limiter: ESourceEffectDynamicsProcessorType;
+	static var Expander: ESourceEffectDynamicsProcessorType;
+	static var Gate: ESourceEffectDynamicsProcessorType;
+	static var UpwardsCompressor: ESourceEffectDynamicsProcessorType;
+	static var Count: ESourceEffectDynamicsProcessorType;
+	static var ESourceEffectDynamicsProcessorType_MAX: ESourceEffectDynamicsProcessorType;
 }

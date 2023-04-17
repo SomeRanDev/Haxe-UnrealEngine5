@@ -14,7 +14,7 @@ extern class AnimationTransitionBetweenStates extends AnimationStateBase {
 	public var BlendMode: EAlphaBlendOption;
 	public var CustomCurve: cpp.Star<CurveFloat>;
 	public var BlendProfile: cpp.Star<BlendProfile>;
-	public var LogicType: ETransitionLogicType;
+	public var LogicType: TEnumAsByte<ETransitionLogicType>;
 
 	@:native("FAnimationTransitionBetweenStates") public function new();
 }

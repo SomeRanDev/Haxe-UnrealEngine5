@@ -5,7 +5,7 @@ package ue;
 @:include("BehaviorTree/Tasks/BTTask_RotateToFaceBBEntry.h")
 @:structAccess
 extern class BTTask_RotateToFaceBBEntry extends BTTask_BlackboardBase {
-	public var Precision: cpp.Float32;
+	@:protected public var Precision: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class BTTask_RotateToFaceBBEntry extends BTTask_BlackboardBase {
 @:forward()
 @:nativeGen
 abstract ConstBTTask_RotateToFaceBBEntry(BTTask_RotateToFaceBBEntry) from BTTask_RotateToFaceBBEntry {
-	public extern var Precision(get, never): cpp.Float32;
-	public inline extern function get_Precision(): cpp.Float32 return this.Precision;
 }
 
 @:forward

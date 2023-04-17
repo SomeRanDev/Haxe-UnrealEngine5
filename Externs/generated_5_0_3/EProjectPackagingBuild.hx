@@ -3,10 +3,10 @@ package ue;
 
 @:native("EProjectPackagingBuild")
 @:include("Settings/ProjectPackagingSettings.h")
-extern enum EProjectPackagingBuild {
-	Always;
-	Never;
-	IfProjectHasCode;
-	IfEditorWasBuiltLocally;
-	EProjectPackagingBuild_MAX;
+extern class EProjectPackagingBuild {
+	static var Always: EProjectPackagingBuild;
+	static var Never: EProjectPackagingBuild;
+	static var IfProjectHasCode: EProjectPackagingBuild;
+	static var IfEditorWasBuiltLocally: EProjectPackagingBuild;
+	static var EProjectPackagingBuild_MAX: EProjectPackagingBuild;
 }

@@ -5,8 +5,8 @@ package ue;
 @:include("ViewModels/Stack/NiagaraStackEmitterSettingsGroup.h")
 @:structAccess
 extern class NiagaraStackEmitterSummaryItem extends NiagaraStackItem {
-	public var FilteredObject: cpp.Star<NiagaraStackSummaryViewObject>;
-	public var SummaryEditorData: cpp.Star<NiagaraStackObject>;
+	private var FilteredObject: cpp.Star<NiagaraStackSummaryViewObject>;
+	private var SummaryEditorData: cpp.Star<NiagaraStackObject>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class NiagaraStackEmitterSummaryItem extends NiagaraStackItem {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraStackEmitterSummaryItem(NiagaraStackEmitterSummaryItem) from NiagaraStackEmitterSummaryItem {
-	public extern var FilteredObject(get, never): cpp.Star<NiagaraStackSummaryViewObject.ConstNiagaraStackSummaryViewObject>;
-	public inline extern function get_FilteredObject(): cpp.Star<NiagaraStackSummaryViewObject.ConstNiagaraStackSummaryViewObject> return this.FilteredObject;
-	public extern var SummaryEditorData(get, never): cpp.Star<NiagaraStackObject.ConstNiagaraStackObject>;
-	public inline extern function get_SummaryEditorData(): cpp.Star<NiagaraStackObject.ConstNiagaraStackObject> return this.SummaryEditorData;
 }
 
 @:forward

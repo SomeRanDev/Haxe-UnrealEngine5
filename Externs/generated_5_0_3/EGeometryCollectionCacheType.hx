@@ -3,10 +3,10 @@ package ue;
 
 @:native("EGeometryCollectionCacheType")
 @:include("GeometryCollection/RecordedTransformTrack.h")
-extern enum EGeometryCollectionCacheType {
-	None;
-	Record;
-	Play;
-	RecordAndPlay;
-	EGeometryCollectionCacheType_MAX;
+extern class EGeometryCollectionCacheType {
+	static var None: EGeometryCollectionCacheType;
+	static var Record: EGeometryCollectionCacheType;
+	static var Play: EGeometryCollectionCacheType;
+	static var RecordAndPlay: EGeometryCollectionCacheType;
+	static var EGeometryCollectionCacheType_MAX: EGeometryCollectionCacheType;
 }

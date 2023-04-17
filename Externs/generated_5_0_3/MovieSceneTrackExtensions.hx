@@ -11,13 +11,13 @@ extern class MovieSceneTrackExtensions extends BlueprintFunctionLibrary {
 	public function SetDisplayName(Track: cpp.Star<MovieSceneTrack>, InName: cpp.Reference<FText>): Void;
 	public function SetColorTint(Track: cpp.Star<MovieSceneTrack>, ColorTint: cpp.Reference<Color>): Void;
 	public function RemoveSection(Track: cpp.Star<MovieSceneTrack>, Section: cpp.Star<MovieSceneSection>): Void;
-	public function GetTrackRowDisplayName(Track: cpp.Star<MovieSceneTrack>, RowIndex: cpp.Int32): cpp.Reference<FText>;
-	public function GetSortingOrder(Track: cpp.Star<MovieSceneTrack>): cpp.Reference<cpp.Int32>;
-	public function GetSectionToKey(Track: cpp.Star<MovieSceneTrack>): cpp.Reference<cpp.Star<MovieSceneSection>>;
-	public function GetSections(Track: cpp.Star<MovieSceneTrack>): cpp.Reference<TArray<cpp.Star<MovieSceneSection>>>;
-	public function GetDisplayName(Track: cpp.Star<MovieSceneTrack>): cpp.Reference<FText>;
-	public function GetColorTint(Track: cpp.Star<MovieSceneTrack>): cpp.Reference<Color>;
-	public function AddSection(Track: cpp.Star<MovieSceneTrack>): cpp.Reference<cpp.Star<MovieSceneSection>>;
+	public function GetTrackRowDisplayName(Track: cpp.Star<MovieSceneTrack>, RowIndex: cpp.Int32): FText;
+	public function GetSortingOrder(Track: cpp.Star<MovieSceneTrack>): cpp.Int32;
+	public function GetSectionToKey(Track: cpp.Star<MovieSceneTrack>): cpp.Star<MovieSceneSection>;
+	public function GetSections(Track: cpp.Star<MovieSceneTrack>): TArray<cpp.Star<MovieSceneSection>>;
+	public function GetDisplayName(Track: cpp.Star<MovieSceneTrack>): FText;
+	public function GetColorTint(Track: cpp.Star<MovieSceneTrack>): Color;
+	public function AddSection(Track: cpp.Star<MovieSceneTrack>): cpp.Star<MovieSceneSection>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

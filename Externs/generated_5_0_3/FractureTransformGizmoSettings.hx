@@ -10,8 +10,8 @@ extern class FractureTransformGizmoSettings extends FractureToolSettings {
 	public var bShowUseGizmoOption: Bool;
 	public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
 	public var TransformProxy: cpp.Star<TransformProxy>;
-	public var AttachedCutter: cpp.Star<FractureToolCutterBase>;
-	public var UsedToolsContext: cpp.Star<InteractiveToolsContext>;
+	@:protected public var AttachedCutter: cpp.Star<FractureToolCutterBase>;
+	@:protected public var UsedToolsContext: cpp.Star<InteractiveToolsContext>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -29,10 +29,6 @@ abstract ConstFractureTransformGizmoSettings(FractureTransformGizmoSettings) fro
 	public inline extern function get_TransformGizmo(): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo> return this.TransformGizmo;
 	public extern var TransformProxy(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
 	public inline extern function get_TransformProxy(): cpp.Star<TransformProxy.ConstTransformProxy> return this.TransformProxy;
-	public extern var AttachedCutter(get, never): cpp.Star<FractureToolCutterBase.ConstFractureToolCutterBase>;
-	public inline extern function get_AttachedCutter(): cpp.Star<FractureToolCutterBase.ConstFractureToolCutterBase> return this.AttachedCutter;
-	public extern var UsedToolsContext(get, never): cpp.Star<InteractiveToolsContext.ConstInteractiveToolsContext>;
-	public inline extern function get_UsedToolsContext(): cpp.Star<InteractiveToolsContext.ConstInteractiveToolsContext> return this.UsedToolsContext;
 }
 
 @:forward

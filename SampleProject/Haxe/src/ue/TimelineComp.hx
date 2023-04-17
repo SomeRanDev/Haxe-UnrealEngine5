@@ -5,12 +5,12 @@ package ue;
 @:include("Components/TimelineComponent.h")
 @:structAccess
 extern class TimelineComp extends ActorComp {
-	public var TheTimeline: Timeline;
-	public var bIgnoreTimeDilation: Bool;
+	private var TheTimeline: Timeline;
+	private var bIgnoreTimeDilation: Bool;
 
 	public function Stop(): Void;
 	public function SetVectorCurve(NewVectorCurve: cpp.Star<CurveVector>, VectorTrackName: FName): Void;
-	public function SetTimelineLengthMode(NewLengthMode: ETimelineLengthMode): Void;
+	public function SetTimelineLengthMode(NewLengthMode: TEnumAsByte<ETimelineLengthMode>): Void;
 	public function SetTimelineLength(NewLength: cpp.Float32): Void;
 	public function SetPlayRate(NewRate: cpp.Float32): Void;
 	public function SetPlaybackPosition(NewPosition: cpp.Float32, bFireEvents: Bool, bFireUpdate: Bool): Void;
@@ -24,14 +24,14 @@ extern class TimelineComp extends ActorComp {
 	public function PlayFromStart(): Void;
 	public function Play(): Void;
 	public function OnRep_Timeline(): Void;
-	public function IsReversing(): cpp.Reference<Bool>;
-	public function IsPlaying(): cpp.Reference<Bool>;
-	public function IsLooping(): cpp.Reference<Bool>;
-	public function GetTimelineLength(): cpp.Reference<cpp.Float32>;
-	public function GetScaledTimelineLength(): cpp.Reference<cpp.Float32>;
-	public function GetPlayRate(): cpp.Reference<cpp.Float32>;
-	public function GetPlaybackPosition(): cpp.Reference<cpp.Float32>;
-	public function GetIgnoreTimeDilation(): cpp.Reference<Bool>;
+	public function IsReversing(): Bool;
+	public function IsPlaying(): Bool;
+	public function IsLooping(): Bool;
+	public function GetTimelineLength(): cpp.Float32;
+	public function GetScaledTimelineLength(): cpp.Float32;
+	public function GetPlayRate(): cpp.Float32;
+	public function GetPlaybackPosition(): cpp.Float32;
+	public function GetIgnoreTimeDilation(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -39,10 +39,6 @@ extern class TimelineComp extends ActorComp {
 @:forward(IsReversing, IsPlaying, IsLooping, GetTimelineLength, GetScaledTimelineLength, GetPlayRate, GetPlaybackPosition, GetIgnoreTimeDilation)
 @:nativeGen
 abstract ConstTimelineComp(TimelineComp) from TimelineComp {
-	public extern var TheTimeline(get, never): Timeline;
-	public inline extern function get_TheTimeline(): Timeline return this.TheTimeline;
-	public extern var bIgnoreTimeDilation(get, never): Bool;
-	public inline extern function get_bIgnoreTimeDilation(): Bool return this.bIgnoreTimeDilation;
 }
 
 @:forward

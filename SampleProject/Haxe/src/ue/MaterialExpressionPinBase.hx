@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class MaterialExpressionPinBase extends MaterialExpression {
 	public var ReroutePins: TArray<CompositeReroute>;
-	public var PinDirection: EEdGraphPinDirection;
+	public var PinDirection: TEnumAsByte<EEdGraphPinDirection>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,8 @@ extern class MaterialExpressionPinBase extends MaterialExpression {
 abstract ConstMaterialExpressionPinBase(MaterialExpressionPinBase) from MaterialExpressionPinBase {
 	public extern var ReroutePins(get, never): TArray<CompositeReroute>;
 	public inline extern function get_ReroutePins(): TArray<CompositeReroute> return this.ReroutePins;
-	public extern var PinDirection(get, never): EEdGraphPinDirection;
-	public inline extern function get_PinDirection(): EEdGraphPinDirection return this.PinDirection;
+	public extern var PinDirection(get, never): TEnumAsByte<EEdGraphPinDirection>;
+	public inline extern function get_PinDirection(): TEnumAsByte<EEdGraphPinDirection> return this.PinDirection;
 }
 
 @:forward

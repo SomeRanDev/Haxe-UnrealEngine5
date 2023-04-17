@@ -3,8 +3,8 @@ package ue;
 
 @:native("EOcclusionCalculationUIMode")
 @:include("RemoveOccludedTrianglesTool.h")
-extern enum EOcclusionCalculationUIMode {
-	GeneralizedWindingNumber;
-	RaycastOcclusionSamples;
-	EOcclusionCalculationUIMode_MAX;
+extern class EOcclusionCalculationUIMode {
+	static var GeneralizedWindingNumber: EOcclusionCalculationUIMode;
+	static var RaycastOcclusionSamples: EOcclusionCalculationUIMode;
+	static var EOcclusionCalculationUIMode_MAX: EOcclusionCalculationUIMode;
 }

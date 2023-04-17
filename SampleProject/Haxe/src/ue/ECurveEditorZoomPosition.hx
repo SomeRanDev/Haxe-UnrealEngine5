@@ -3,8 +3,8 @@ package ue;
 
 @:native("ECurveEditorZoomPosition")
 @:include("CurveEditorSettings.h")
-extern enum ECurveEditorZoomPosition {
-	CurrentTime;
-	MousePosition;
-	ECurveEditorZoomPosition_MAX;
+extern class ECurveEditorZoomPosition {
+	static var CurrentTime: ECurveEditorZoomPosition;
+	static var MousePosition: ECurveEditorZoomPosition;
+	static var ECurveEditorZoomPosition_MAX: ECurveEditorZoomPosition;
 }

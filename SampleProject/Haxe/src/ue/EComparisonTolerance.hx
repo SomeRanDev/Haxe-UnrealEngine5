@@ -3,11 +3,11 @@ package ue;
 
 @:native("EComparisonTolerance")
 @:include("AutomationScreenshotOptions.h")
-extern enum EComparisonTolerance {
-	Zero;
-	Low;
-	Medium;
-	High;
-	Custom;
-	EComparisonTolerance_MAX;
+extern class EComparisonTolerance {
+	static var Zero: EComparisonTolerance;
+	static var Low: EComparisonTolerance;
+	static var Medium: EComparisonTolerance;
+	static var High: EComparisonTolerance;
+	static var Custom: EComparisonTolerance;
+	static var EComparisonTolerance_MAX: EComparisonTolerance;
 }

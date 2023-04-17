@@ -2,9 +2,9 @@
 package ue;
 
 @:native("ControlOutputFormat")
-extern enum ControlOutputFormat {
-	HIERARCHY;
-	LIST;
-	CHILD;
-	ControlOutputFormat_MAX;
+extern class ControlOutputFormat {
+	static var HIERARCHY: ControlOutputFormat;
+	static var LIST: ControlOutputFormat;
+	static var CHILD: ControlOutputFormat;
+	static var ControlOutputFormat_MAX: ControlOutputFormat;
 }

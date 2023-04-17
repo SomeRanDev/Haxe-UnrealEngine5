@@ -3,20 +3,20 @@ package ue;
 
 @:native("EMaterialExposedViewProperty")
 @:include("Materials/MaterialExpressionViewProperty.h")
-extern enum EMaterialExposedViewProperty {
-	MEVP_BufferSize;
-	MEVP_FieldOfView;
-	MEVP_TanHalfFieldOfView;
-	MEVP_ViewSize;
-	MEVP_WorldSpaceViewPosition;
-	MEVP_WorldSpaceCameraPosition;
-	MEVP_ViewportOffset;
-	MEVP_TemporalSampleCount;
-	MEVP_TemporalSampleIndex;
-	MEVP_TemporalSampleOffset;
-	MEVP_RuntimeVirtualTextureOutputLevel;
-	MEVP_RuntimeVirtualTextureOutputDerivative;
-	MEVP_PreExposure;
-	MEVP_RuntimeVirtualTextureMaxLevel;
-	MEVP_MAX;
+extern class EMaterialExposedViewProperty {
+	static var MEVP_BufferSize: EMaterialExposedViewProperty;
+	static var MEVP_FieldOfView: EMaterialExposedViewProperty;
+	static var MEVP_TanHalfFieldOfView: EMaterialExposedViewProperty;
+	static var MEVP_ViewSize: EMaterialExposedViewProperty;
+	static var MEVP_WorldSpaceViewPosition: EMaterialExposedViewProperty;
+	static var MEVP_WorldSpaceCameraPosition: EMaterialExposedViewProperty;
+	static var MEVP_ViewportOffset: EMaterialExposedViewProperty;
+	static var MEVP_TemporalSampleCount: EMaterialExposedViewProperty;
+	static var MEVP_TemporalSampleIndex: EMaterialExposedViewProperty;
+	static var MEVP_TemporalSampleOffset: EMaterialExposedViewProperty;
+	static var MEVP_RuntimeVirtualTextureOutputLevel: EMaterialExposedViewProperty;
+	static var MEVP_RuntimeVirtualTextureOutputDerivative: EMaterialExposedViewProperty;
+	static var MEVP_PreExposure: EMaterialExposedViewProperty;
+	static var MEVP_RuntimeVirtualTextureMaxLevel: EMaterialExposedViewProperty;
+	static var MEVP_MAX: EMaterialExposedViewProperty;
 }

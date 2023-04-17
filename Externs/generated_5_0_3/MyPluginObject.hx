@@ -5,7 +5,7 @@ package ue;
 @:include("MyPluginObject.h")
 @:structAccess
 extern class MyPluginObject extends Object {
-	public var MyStruct: MyPluginStruct;
+	private var MyStruct: MyPluginStruct;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MyPluginObject extends Object {
 @:forward()
 @:nativeGen
 abstract ConstMyPluginObject(MyPluginObject) from MyPluginObject {
-	public extern var MyStruct(get, never): MyPluginStruct;
-	public inline extern function get_MyStruct(): MyPluginStruct return this.MyStruct;
 }
 
 @:forward

@@ -3,13 +3,13 @@ package ue;
 
 @:native("EMediaPlayerTrack")
 @:include("MediaPlayer.h")
-extern enum EMediaPlayerTrack {
-	Audio;
-	Caption;
-	Metadata;
-	Script;
-	Subtitle;
-	Text;
-	Video;
-	EMediaPlayerTrack_MAX;
+extern class EMediaPlayerTrack {
+	static var Audio: EMediaPlayerTrack;
+	static var Caption: EMediaPlayerTrack;
+	static var Metadata: EMediaPlayerTrack;
+	static var Script: EMediaPlayerTrack;
+	static var Subtitle: EMediaPlayerTrack;
+	static var Text: EMediaPlayerTrack;
+	static var Video: EMediaPlayerTrack;
+	static var EMediaPlayerTrack_MAX: EMediaPlayerTrack;
 }

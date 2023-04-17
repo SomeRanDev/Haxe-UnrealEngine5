@@ -5,8 +5,8 @@ package ue;
 @:include("BehaviorTree/Services/BTService_RunEQS.h")
 @:structAccess
 extern class BTService_RunEQS extends BTService_BlackboardBase {
-	public var EQSRequest: EQSParametrizedQueryExecutionRequest;
-	public var bUpdateBBOnFail: Bool;
+	@:protected public var EQSRequest: EQSParametrizedQueryExecutionRequest;
+	@:protected public var bUpdateBBOnFail: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class BTService_RunEQS extends BTService_BlackboardBase {
 @:forward()
 @:nativeGen
 abstract ConstBTService_RunEQS(BTService_RunEQS) from BTService_RunEQS {
-	public extern var EQSRequest(get, never): EQSParametrizedQueryExecutionRequest;
-	public inline extern function get_EQSRequest(): EQSParametrizedQueryExecutionRequest return this.EQSRequest;
-	public extern var bUpdateBBOnFail(get, never): Bool;
-	public inline extern function get_bUpdateBBOnFail(): Bool return this.bUpdateBBOnFail;
 }
 
 @:forward

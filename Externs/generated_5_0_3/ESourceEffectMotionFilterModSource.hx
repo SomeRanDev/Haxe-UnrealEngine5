@@ -3,12 +3,12 @@ package ue;
 
 @:native("ESourceEffectMotionFilterModSource")
 @:include("SourceEffects/SourceEffectMotionFilter.h")
-extern enum ESourceEffectMotionFilterModSource {
-	DistanceFromListener;
-	SpeedRelativeToListener;
-	SpeedOfSourceEmitter;
-	SpeedOfListener;
-	SpeedOfAngleDelta;
-	Count;
-	ESourceEffectMotionFilterModSource_MAX;
+extern class ESourceEffectMotionFilterModSource {
+	static var DistanceFromListener: ESourceEffectMotionFilterModSource;
+	static var SpeedRelativeToListener: ESourceEffectMotionFilterModSource;
+	static var SpeedOfSourceEmitter: ESourceEffectMotionFilterModSource;
+	static var SpeedOfListener: ESourceEffectMotionFilterModSource;
+	static var SpeedOfAngleDelta: ESourceEffectMotionFilterModSource;
+	static var Count: ESourceEffectMotionFilterModSource;
+	static var ESourceEffectMotionFilterModSource_MAX: ESourceEffectMotionFilterModSource;
 }

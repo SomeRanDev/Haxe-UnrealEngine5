@@ -5,9 +5,9 @@ package ue;
 @:include("OnlineBeaconHostObject.h")
 @:structAccess
 extern class OnlineBeaconHostObject extends Actor {
-	public var BeaconTypeName: FString;
-	public var ClientBeaconActorClass: TSubclassOf<OnlineBeaconClient>;
-	public var ClientActors: TArray<cpp.Star<OnlineBeaconClient>>;
+	@:protected public var BeaconTypeName: FString;
+	@:protected public var ClientBeaconActorClass: TSubclassOf<OnlineBeaconClient>;
+	@:protected public var ClientActors: TArray<cpp.Star<OnlineBeaconClient>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class OnlineBeaconHostObject extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstOnlineBeaconHostObject(OnlineBeaconHostObject) from OnlineBeaconHostObject {
-	public extern var BeaconTypeName(get, never): FString;
-	public inline extern function get_BeaconTypeName(): FString return this.BeaconTypeName;
-	public extern var ClientBeaconActorClass(get, never): TSubclassOf<OnlineBeaconClient.ConstOnlineBeaconClient>;
-	public inline extern function get_ClientBeaconActorClass(): TSubclassOf<OnlineBeaconClient.ConstOnlineBeaconClient> return this.ClientBeaconActorClass;
-	public extern var ClientActors(get, never): TArray<cpp.Star<OnlineBeaconClient.ConstOnlineBeaconClient>>;
-	public inline extern function get_ClientActors(): TArray<cpp.Star<OnlineBeaconClient.ConstOnlineBeaconClient>> return this.ClientActors;
 }
 
 @:forward

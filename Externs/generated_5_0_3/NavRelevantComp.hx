@@ -5,8 +5,8 @@ package ue;
 @:include("NavRelevantComponent.h")
 @:structAccess
 extern class NavRelevantComp extends ActorComp {
-	public var bAttachToOwnersRoot: Bool;
-	public var CachedNavParent: cpp.Star<Object>;
+	@:protected public var bAttachToOwnersRoot: Bool;
+	@:protected public var CachedNavParent: cpp.Star<Object>;
 
 	public function SetNavigationRelevancy(bRelevant: Bool): Void;
 
@@ -16,10 +16,6 @@ extern class NavRelevantComp extends ActorComp {
 @:forward()
 @:nativeGen
 abstract ConstNavRelevantComp(NavRelevantComp) from NavRelevantComp {
-	public extern var bAttachToOwnersRoot(get, never): Bool;
-	public inline extern function get_bAttachToOwnersRoot(): Bool return this.bAttachToOwnersRoot;
-	public extern var CachedNavParent(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_CachedNavParent(): cpp.Star<Object.ConstObject> return this.CachedNavParent;
 }
 
 @:forward

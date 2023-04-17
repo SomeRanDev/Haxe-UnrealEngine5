@@ -14,21 +14,21 @@ extern class EditorTransformGizmo extends InteractiveGizmo {
 	public var bSnapToWorldRotGrid: Bool;
 	public var bUseContextCoordinateSystem: Bool;
 	public var CurrentCoordinateSystem: EToolContextCoordinateSystem;
-	public var ActiveObjects: TArray<cpp.Star<GizmoBaseObject>>;
-	public var NonuniformScaleObjects: TArray<cpp.Star<GizmoBaseObject>>;
-	public var ActiveGizmos: TArray<cpp.Star<InteractiveGizmo>>;
-	public var CameraAxisSource: cpp.Star<GizmoConstantFrameAxisSource>;
-	public var GizmoGroupObject: cpp.Star<GizmoGroupObject>;
-	public var AxisXSource: cpp.Star<GizmoEditorAxisSource>;
-	public var AxisYSource: cpp.Star<GizmoEditorAxisSource>;
-	public var AxisZSource: cpp.Star<GizmoEditorAxisSource>;
-	public var AxisXObject: cpp.Star<GizmoArrowObject>;
-	public var AxisYObject: cpp.Star<GizmoArrowObject>;
-	public var AxisZObject: cpp.Star<GizmoArrowObject>;
-	public var UnitAxisXSource: cpp.Star<GizmoEditorAxisSource>;
-	public var UnitAxisYSource: cpp.Star<GizmoEditorAxisSource>;
-	public var UnitAxisZSource: cpp.Star<GizmoEditorAxisSource>;
-	public var StateTarget: cpp.Star<GizmoObjectTransformChangeStateTarget>;
+	@:protected public var ActiveObjects: TArray<cpp.Star<GizmoBaseObject>>;
+	@:protected public var NonuniformScaleObjects: TArray<cpp.Star<GizmoBaseObject>>;
+	@:protected public var ActiveGizmos: TArray<cpp.Star<InteractiveGizmo>>;
+	@:protected public var CameraAxisSource: cpp.Star<GizmoConstantFrameAxisSource>;
+	@:protected public var GizmoGroupObject: cpp.Star<GizmoGroupObject>;
+	@:protected public var AxisXSource: cpp.Star<GizmoEditorAxisSource>;
+	@:protected public var AxisYSource: cpp.Star<GizmoEditorAxisSource>;
+	@:protected public var AxisZSource: cpp.Star<GizmoEditorAxisSource>;
+	@:protected public var AxisXObject: cpp.Star<GizmoArrowObject>;
+	@:protected public var AxisYObject: cpp.Star<GizmoArrowObject>;
+	@:protected public var AxisZObject: cpp.Star<GizmoArrowObject>;
+	@:protected public var UnitAxisXSource: cpp.Star<GizmoEditorAxisSource>;
+	@:protected public var UnitAxisYSource: cpp.Star<GizmoEditorAxisSource>;
+	@:protected public var UnitAxisZSource: cpp.Star<GizmoEditorAxisSource>;
+	@:protected public var StateTarget: cpp.Star<GizmoObjectTransformChangeStateTarget>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -54,36 +54,6 @@ abstract ConstEditorTransformGizmo(EditorTransformGizmo) from EditorTransformGiz
 	public inline extern function get_bUseContextCoordinateSystem(): Bool return this.bUseContextCoordinateSystem;
 	public extern var CurrentCoordinateSystem(get, never): EToolContextCoordinateSystem;
 	public inline extern function get_CurrentCoordinateSystem(): EToolContextCoordinateSystem return this.CurrentCoordinateSystem;
-	public extern var ActiveObjects(get, never): TArray<cpp.Star<GizmoBaseObject.ConstGizmoBaseObject>>;
-	public inline extern function get_ActiveObjects(): TArray<cpp.Star<GizmoBaseObject.ConstGizmoBaseObject>> return this.ActiveObjects;
-	public extern var NonuniformScaleObjects(get, never): TArray<cpp.Star<GizmoBaseObject.ConstGizmoBaseObject>>;
-	public inline extern function get_NonuniformScaleObjects(): TArray<cpp.Star<GizmoBaseObject.ConstGizmoBaseObject>> return this.NonuniformScaleObjects;
-	public extern var ActiveGizmos(get, never): TArray<cpp.Star<InteractiveGizmo.ConstInteractiveGizmo>>;
-	public inline extern function get_ActiveGizmos(): TArray<cpp.Star<InteractiveGizmo.ConstInteractiveGizmo>> return this.ActiveGizmos;
-	public extern var CameraAxisSource(get, never): cpp.Star<GizmoConstantFrameAxisSource.ConstGizmoConstantFrameAxisSource>;
-	public inline extern function get_CameraAxisSource(): cpp.Star<GizmoConstantFrameAxisSource.ConstGizmoConstantFrameAxisSource> return this.CameraAxisSource;
-	public extern var GizmoGroupObject(get, never): cpp.Star<GizmoGroupObject.ConstGizmoGroupObject>;
-	public inline extern function get_GizmoGroupObject(): cpp.Star<GizmoGroupObject.ConstGizmoGroupObject> return this.GizmoGroupObject;
-	public extern var AxisXSource(get, never): cpp.Star<GizmoEditorAxisSource.ConstGizmoEditorAxisSource>;
-	public inline extern function get_AxisXSource(): cpp.Star<GizmoEditorAxisSource.ConstGizmoEditorAxisSource> return this.AxisXSource;
-	public extern var AxisYSource(get, never): cpp.Star<GizmoEditorAxisSource.ConstGizmoEditorAxisSource>;
-	public inline extern function get_AxisYSource(): cpp.Star<GizmoEditorAxisSource.ConstGizmoEditorAxisSource> return this.AxisYSource;
-	public extern var AxisZSource(get, never): cpp.Star<GizmoEditorAxisSource.ConstGizmoEditorAxisSource>;
-	public inline extern function get_AxisZSource(): cpp.Star<GizmoEditorAxisSource.ConstGizmoEditorAxisSource> return this.AxisZSource;
-	public extern var AxisXObject(get, never): cpp.Star<GizmoArrowObject.ConstGizmoArrowObject>;
-	public inline extern function get_AxisXObject(): cpp.Star<GizmoArrowObject.ConstGizmoArrowObject> return this.AxisXObject;
-	public extern var AxisYObject(get, never): cpp.Star<GizmoArrowObject.ConstGizmoArrowObject>;
-	public inline extern function get_AxisYObject(): cpp.Star<GizmoArrowObject.ConstGizmoArrowObject> return this.AxisYObject;
-	public extern var AxisZObject(get, never): cpp.Star<GizmoArrowObject.ConstGizmoArrowObject>;
-	public inline extern function get_AxisZObject(): cpp.Star<GizmoArrowObject.ConstGizmoArrowObject> return this.AxisZObject;
-	public extern var UnitAxisXSource(get, never): cpp.Star<GizmoEditorAxisSource.ConstGizmoEditorAxisSource>;
-	public inline extern function get_UnitAxisXSource(): cpp.Star<GizmoEditorAxisSource.ConstGizmoEditorAxisSource> return this.UnitAxisXSource;
-	public extern var UnitAxisYSource(get, never): cpp.Star<GizmoEditorAxisSource.ConstGizmoEditorAxisSource>;
-	public inline extern function get_UnitAxisYSource(): cpp.Star<GizmoEditorAxisSource.ConstGizmoEditorAxisSource> return this.UnitAxisYSource;
-	public extern var UnitAxisZSource(get, never): cpp.Star<GizmoEditorAxisSource.ConstGizmoEditorAxisSource>;
-	public inline extern function get_UnitAxisZSource(): cpp.Star<GizmoEditorAxisSource.ConstGizmoEditorAxisSource> return this.UnitAxisZSource;
-	public extern var StateTarget(get, never): cpp.Star<GizmoObjectTransformChangeStateTarget.ConstGizmoObjectTransformChangeStateTarget>;
-	public inline extern function get_StateTarget(): cpp.Star<GizmoObjectTransformChangeStateTarget.ConstGizmoObjectTransformChangeStateTarget> return this.StateTarget;
 }
 
 @:forward

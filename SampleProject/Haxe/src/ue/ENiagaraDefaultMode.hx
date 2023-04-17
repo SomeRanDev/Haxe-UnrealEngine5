@@ -3,10 +3,10 @@ package ue;
 
 @:native("ENiagaraDefaultMode")
 @:include("NiagaraCommon.h")
-extern enum ENiagaraDefaultMode {
-	Value;
-	Binding;
-	Custom;
-	FailIfPreviouslyNotSet;
-	ENiagaraDefaultMode_MAX;
+extern class ENiagaraDefaultMode {
+	static var Value: ENiagaraDefaultMode;
+	static var Binding: ENiagaraDefaultMode;
+	static var Custom: ENiagaraDefaultMode;
+	static var FailIfPreviouslyNotSet: ENiagaraDefaultMode;
+	static var ENiagaraDefaultMode_MAX: ENiagaraDefaultMode;
 }

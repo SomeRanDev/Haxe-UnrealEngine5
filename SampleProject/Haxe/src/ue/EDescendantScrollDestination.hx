@@ -3,10 +3,10 @@ package ue;
 
 @:native("EDescendantScrollDestination")
 @:include("Widgets/Layout/SScrollBox.h")
-extern enum EDescendantScrollDestination {
-	IntoView;
-	TopOrLeft;
-	Center;
-	BottomOrRight;
-	EDescendantScrollDestination_MAX;
+extern class EDescendantScrollDestination {
+	static var IntoView: EDescendantScrollDestination;
+	static var TopOrLeft: EDescendantScrollDestination;
+	static var Center: EDescendantScrollDestination;
+	static var BottomOrRight: EDescendantScrollDestination;
+	static var EDescendantScrollDestination_MAX: EDescendantScrollDestination;
 }

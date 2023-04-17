@@ -10,7 +10,7 @@ extern class AnimNode_BlendBoneByChannel extends AnimNode_Base {
 	public var BoneDefinitions: TArray<BlendBoneByChannelEntry>;
 	public var Alpha: cpp.Float32;
 	public var AlphaScaleBias: InputScaleBias;
-	public var TransformsSpace: EBoneControlSpace;
+	public var TransformsSpace: TEnumAsByte<EBoneControlSpace>;
 
 	@:native("FAnimNode_BlendBoneByChannel") public function new();
 }

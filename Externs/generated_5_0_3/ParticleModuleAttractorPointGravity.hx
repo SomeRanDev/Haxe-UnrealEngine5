@@ -7,7 +7,6 @@ package ue;
 extern class ParticleModuleAttractorPointGravity extends ParticleModuleAttractorBase {
 	public var Position: Vector;
 	public var Radius: cpp.Float32;
-	public var Strength_DEPRECATED: cpp.Star<DistributionFloat>;
 	public var StrengthRaw: RawDistributionFloat;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -20,8 +19,6 @@ abstract ConstParticleModuleAttractorPointGravity(ParticleModuleAttractorPointGr
 	public inline extern function get_Position(): Vector return this.Position;
 	public extern var Radius(get, never): cpp.Float32;
 	public inline extern function get_Radius(): cpp.Float32 return this.Radius;
-	public extern var Strength_DEPRECATED(get, never): cpp.Star<DistributionFloat.ConstDistributionFloat>;
-	public inline extern function get_Strength_DEPRECATED(): cpp.Star<DistributionFloat.ConstDistributionFloat> return this.Strength_DEPRECATED;
 	public extern var StrengthRaw(get, never): RawDistributionFloat;
 	public inline extern function get_StrengthRaw(): RawDistributionFloat return this.StrengthRaw;
 }

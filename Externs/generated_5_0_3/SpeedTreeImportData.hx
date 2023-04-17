@@ -6,8 +6,8 @@ package ue;
 @:structAccess
 extern class SpeedTreeImportData extends AssetImportData {
 	public var TreeScale: cpp.Float32;
-	public var ImportGeometryType: EImportGeometryType;
-	public var LODType: EImportLODType;
+	public var ImportGeometryType: TEnumAsByte<EImportGeometryType>;
+	public var LODType: TEnumAsByte<EImportLODType>;
 	public var IncludeCollision: Bool;
 	public var MakeMaterialsCheck: Bool;
 	public var IncludeNormalMapCheck: Bool;
@@ -29,10 +29,10 @@ extern class SpeedTreeImportData extends AssetImportData {
 abstract ConstSpeedTreeImportData(SpeedTreeImportData) from SpeedTreeImportData {
 	public extern var TreeScale(get, never): cpp.Float32;
 	public inline extern function get_TreeScale(): cpp.Float32 return this.TreeScale;
-	public extern var ImportGeometryType(get, never): EImportGeometryType;
-	public inline extern function get_ImportGeometryType(): EImportGeometryType return this.ImportGeometryType;
-	public extern var LODType(get, never): EImportLODType;
-	public inline extern function get_LODType(): EImportLODType return this.LODType;
+	public extern var ImportGeometryType(get, never): TEnumAsByte<EImportGeometryType>;
+	public inline extern function get_ImportGeometryType(): TEnumAsByte<EImportGeometryType> return this.ImportGeometryType;
+	public extern var LODType(get, never): TEnumAsByte<EImportLODType>;
+	public inline extern function get_LODType(): TEnumAsByte<EImportLODType> return this.LODType;
 	public extern var IncludeCollision(get, never): Bool;
 	public inline extern function get_IncludeCollision(): Bool return this.IncludeCollision;
 	public extern var MakeMaterialsCheck(get, never): Bool;

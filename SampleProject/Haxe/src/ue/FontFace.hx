@@ -9,8 +9,6 @@ extern class FontFace extends Object {
 	public var Hinting: EFontHinting;
 	public var LoadingPolicy: EFontLoadingPolicy;
 	public var LayoutMethod: EFontLayoutMethod;
-	public var FontFaceData_DEPRECATED: TArray<cpp.UInt8>;
-	public var SubFaces: TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -26,10 +24,6 @@ abstract ConstFontFace(FontFace) from FontFace {
 	public inline extern function get_LoadingPolicy(): EFontLoadingPolicy return this.LoadingPolicy;
 	public extern var LayoutMethod(get, never): EFontLayoutMethod;
 	public inline extern function get_LayoutMethod(): EFontLayoutMethod return this.LayoutMethod;
-	public extern var FontFaceData_DEPRECATED(get, never): TArray<cpp.UInt8>;
-	public inline extern function get_FontFaceData_DEPRECATED(): TArray<cpp.UInt8> return this.FontFaceData_DEPRECATED;
-	public extern var SubFaces(get, never): TArray<FString>;
-	public inline extern function get_SubFaces(): TArray<FString> return this.SubFaces;
 }
 
 @:forward

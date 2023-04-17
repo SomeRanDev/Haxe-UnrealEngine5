@@ -3,10 +3,10 @@ package ue;
 
 @:native("ECSGOperation")
 @:include("CompositionOps/BooleanMeshesOp.h")
-extern enum ECSGOperation {
-	DifferenceAB;
-	DifferenceBA;
-	Intersect;
-	Union;
-	ECSGOperation_MAX;
+extern class ECSGOperation {
+	static var DifferenceAB: ECSGOperation;
+	static var DifferenceBA: ECSGOperation;
+	static var Intersect: ECSGOperation;
+	static var Union: ECSGOperation;
+	static var ECSGOperation_MAX: ECSGOperation;
 }

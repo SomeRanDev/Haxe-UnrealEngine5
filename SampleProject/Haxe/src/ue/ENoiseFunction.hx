@@ -3,12 +3,12 @@ package ue;
 
 @:native("ENoiseFunction")
 @:include("Materials/MaterialExpressionNoise.h")
-extern enum ENoiseFunction {
-	NOISEFUNCTION_SimplexTex;
-	NOISEFUNCTION_GradientTex;
-	NOISEFUNCTION_GradientTex3D;
-	NOISEFUNCTION_GradientALU;
-	NOISEFUNCTION_ValueALU;
-	NOISEFUNCTION_VoronoiALU;
-	NOISEFUNCTION_MAX;
+extern class ENoiseFunction {
+	static var NOISEFUNCTION_SimplexTex: ENoiseFunction;
+	static var NOISEFUNCTION_GradientTex: ENoiseFunction;
+	static var NOISEFUNCTION_GradientTex3D: ENoiseFunction;
+	static var NOISEFUNCTION_GradientALU: ENoiseFunction;
+	static var NOISEFUNCTION_ValueALU: ENoiseFunction;
+	static var NOISEFUNCTION_VoronoiALU: ENoiseFunction;
+	static var NOISEFUNCTION_MAX: ENoiseFunction;
 }

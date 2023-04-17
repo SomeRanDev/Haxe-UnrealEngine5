@@ -5,7 +5,7 @@ package ue;
 @:include("ThumbnailRendering/SceneThumbnailInfoWithPrimitive.h")
 @:structAccess
 extern class SceneThumbnailInfoWithPrimitive extends SceneThumbnailInfo {
-	public var PrimitiveType: EThumbnailPrimType;
+	public var PrimitiveType: TEnumAsByte<EThumbnailPrimType>;
 	public var PreviewMesh: SoftObjectPath;
 	public var bUserModifiedShape: Bool;
 
@@ -15,8 +15,8 @@ extern class SceneThumbnailInfoWithPrimitive extends SceneThumbnailInfo {
 @:forward()
 @:nativeGen
 abstract ConstSceneThumbnailInfoWithPrimitive(SceneThumbnailInfoWithPrimitive) from SceneThumbnailInfoWithPrimitive {
-	public extern var PrimitiveType(get, never): EThumbnailPrimType;
-	public inline extern function get_PrimitiveType(): EThumbnailPrimType return this.PrimitiveType;
+	public extern var PrimitiveType(get, never): TEnumAsByte<EThumbnailPrimType>;
+	public inline extern function get_PrimitiveType(): TEnumAsByte<EThumbnailPrimType> return this.PrimitiveType;
 	public extern var PreviewMesh(get, never): SoftObjectPath;
 	public inline extern function get_PreviewMesh(): SoftObjectPath return this.PreviewMesh;
 	public extern var bUserModifiedShape(get, never): Bool;

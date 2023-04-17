@@ -5,7 +5,6 @@ package ue;
 @:include("FractureToolAutoCluster.h")
 @:structAccess
 extern class FractureAutoClusterSettings extends FractureToolSettings {
-	public var AutoClusterMode_DEPRECATED: EFractureAutoClusterMode;
 	public var SiteCount: cpp.UInt32;
 	public var bEnforceConnectivity: Bool;
 
@@ -15,8 +14,6 @@ extern class FractureAutoClusterSettings extends FractureToolSettings {
 @:forward()
 @:nativeGen
 abstract ConstFractureAutoClusterSettings(FractureAutoClusterSettings) from FractureAutoClusterSettings {
-	public extern var AutoClusterMode_DEPRECATED(get, never): EFractureAutoClusterMode;
-	public inline extern function get_AutoClusterMode_DEPRECATED(): EFractureAutoClusterMode return this.AutoClusterMode_DEPRECATED;
 	public extern var SiteCount(get, never): cpp.UInt32;
 	public inline extern function get_SiteCount(): cpp.UInt32 return this.SiteCount;
 	public extern var bEnforceConnectivity(get, never): Bool;

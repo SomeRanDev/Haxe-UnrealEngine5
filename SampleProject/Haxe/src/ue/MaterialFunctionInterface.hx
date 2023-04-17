@@ -6,10 +6,7 @@ package ue;
 @:structAccess
 extern class MaterialFunctionInterface extends Object {
 	public var StateId: Guid;
-	public var MaterialFunctionUsage: EMaterialFunctionUsage;
-	public var CombinedInputTypes: cpp.UInt32;
-	public var CombinedOutputTypes: cpp.UInt32;
-	public var ThumbnailInfo: cpp.Star<ThumbnailInfo>;
+	@:protected public var MaterialFunctionUsage: EMaterialFunctionUsage;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,14 +16,6 @@ extern class MaterialFunctionInterface extends Object {
 abstract ConstMaterialFunctionInterface(MaterialFunctionInterface) from MaterialFunctionInterface {
 	public extern var StateId(get, never): Guid;
 	public inline extern function get_StateId(): Guid return this.StateId;
-	public extern var MaterialFunctionUsage(get, never): EMaterialFunctionUsage;
-	public inline extern function get_MaterialFunctionUsage(): EMaterialFunctionUsage return this.MaterialFunctionUsage;
-	public extern var CombinedInputTypes(get, never): cpp.UInt32;
-	public inline extern function get_CombinedInputTypes(): cpp.UInt32 return this.CombinedInputTypes;
-	public extern var CombinedOutputTypes(get, never): cpp.UInt32;
-	public inline extern function get_CombinedOutputTypes(): cpp.UInt32 return this.CombinedOutputTypes;
-	public extern var ThumbnailInfo(get, never): cpp.Star<ThumbnailInfo.ConstThumbnailInfo>;
-	public inline extern function get_ThumbnailInfo(): cpp.Star<ThumbnailInfo.ConstThumbnailInfo> return this.ThumbnailInfo;
 }
 
 @:forward

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EVelocityOutputPass.Type")
 @:include("Engine/RendererSettings.h")
-extern enum EVelocityOutputPass {
-	DepthPass;
-	BasePass;
-	AfterBasePass;
-	EVelocityOutputPass_MAX;
+extern class EVelocityOutputPass {
+	static var DepthPass: EVelocityOutputPass;
+	static var BasePass: EVelocityOutputPass;
+	static var AfterBasePass: EVelocityOutputPass;
+	static var EVelocityOutputPass_MAX: EVelocityOutputPass;
 }

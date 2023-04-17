@@ -5,9 +5,9 @@ package ue;
 @:include("Engine/InheritableComponentHandler.h")
 @:structAccess
 extern class ComponentKey {
-	public var OwnerClass: TSubclassOf<Object>;
-	public var SCSVariableName: FName;
-	public var AssociatedGuid: Guid;
+	private var OwnerClass: TSubclassOf<Object>;
+	private var SCSVariableName: FName;
+	private var AssociatedGuid: Guid;
 
 	@:native("FComponentKey") public function new();
 	@:native("FComponentKey") public static function make(OwnerClass: TSubclassOf<Object>, SCSVariableName: FName, AssociatedGuid: Guid): ComponentKey ;

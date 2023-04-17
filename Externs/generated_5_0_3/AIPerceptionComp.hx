@@ -5,22 +5,22 @@ package ue;
 @:include("Perception/AIPerceptionComponent.h")
 @:structAccess
 extern class AIPerceptionComp extends ActorComp {
-	public var SensesConfig: TArray<cpp.Star<AISenseConfig>>;
-	public var DominantSense: TSubclassOf<AISense>;
-	public var AIOwner: cpp.Star<AIController>;
+	@:protected public var SensesConfig: TArray<cpp.Star<AISenseConfig>>;
+	@:protected public var DominantSense: TSubclassOf<AISense>;
+	@:protected public var AIOwner: cpp.Star<AIController>;
 	public var OnPerceptionUpdated: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.Star<Actor>>>) -> Void>;
 	public var OnTargetPerceptionUpdated: HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor>, AIStimulus) -> Void>;
 	public var OnTargetPerceptionInfoUpdated: HaxeMulticastSparseDelegateProperty<(cpp.Reference<ActorPerceptionUpdateInfo>) -> Void>;
 
 	public function SetSenseEnabled(SenseClass: TSubclassOf<AISense>, bEnable: Bool): Void;
 	public function RequestStimuliListenerUpdate(): Void;
-	public function OnOwnerEndPlay(Actor: cpp.Star<Actor>, EndPlayReason: EEndPlayReason): Void;
+	public function OnOwnerEndPlay(Actor: cpp.Star<Actor>, EndPlayReason: TEnumAsByte<EEndPlayReason>): Void;
 	public function GetPerceivedHostileActorsBySense(SenseToUse: TSubclassOf<AISense.ConstAISense>, OutActors: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
 	public function GetPerceivedHostileActors(OutActors: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
 	public function GetPerceivedActors(SenseToUse: TSubclassOf<AISense>, OutActors: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
 	public function GetKnownPerceivedActors(SenseToUse: TSubclassOf<AISense>, OutActors: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
 	public function GetCurrentlyPerceivedActors(SenseToUse: TSubclassOf<AISense>, OutActors: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
-	public function GetActorsPerception(Actor: cpp.Star<Actor>, Info: cpp.Reference<ActorPerceptionBlueprintInfo>): cpp.Reference<Bool>;
+	public function GetActorsPerception(Actor: cpp.Star<Actor>, Info: cpp.Reference<ActorPerceptionBlueprintInfo>): Bool;
 	public function ForgetAll(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -29,12 +29,6 @@ extern class AIPerceptionComp extends ActorComp {
 @:forward(GetPerceivedHostileActorsBySense, GetPerceivedHostileActors, GetPerceivedActors, GetKnownPerceivedActors, GetCurrentlyPerceivedActors)
 @:nativeGen
 abstract ConstAIPerceptionComp(AIPerceptionComp) from AIPerceptionComp {
-	public extern var SensesConfig(get, never): TArray<cpp.Star<AISenseConfig.ConstAISenseConfig>>;
-	public inline extern function get_SensesConfig(): TArray<cpp.Star<AISenseConfig.ConstAISenseConfig>> return this.SensesConfig;
-	public extern var DominantSense(get, never): TSubclassOf<AISense.ConstAISense>;
-	public inline extern function get_DominantSense(): TSubclassOf<AISense.ConstAISense> return this.DominantSense;
-	public extern var AIOwner(get, never): cpp.Star<AIController.ConstAIController>;
-	public inline extern function get_AIOwner(): cpp.Star<AIController.ConstAIController> return this.AIOwner;
 	public extern var OnPerceptionUpdated(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.Star<Actor.ConstActor>>>) -> Void>;
 	public inline extern function get_OnPerceptionUpdated(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.Star<Actor.ConstActor>>>) -> Void> return this.OnPerceptionUpdated;
 	public extern var OnTargetPerceptionUpdated(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor.ConstActor>, AIStimulus) -> Void>;

@@ -5,10 +5,10 @@ package ue;
 @:include("ARComponent.h")
 @:structAccess
 extern class ARImageComp extends ARComp {
-	public var ReplicatedPayload: ARImageUpdatePayload;
+	@:protected public var ReplicatedPayload: ARImageUpdatePayload;
 
 	public function SetImageComponentDebugMode(NewDebugMode: EImageComponentDebugMode): Void;
-	public function ServerUpdatePayload(NewPayload: cpp.Reference<ARImageUpdatePayload>): Void;
+	@:protected public function ServerUpdatePayload(NewPayload: ARImageUpdatePayload): Void;
 	public function ReceiveUpdate(Payload: cpp.Reference<ARImageUpdatePayload>): Void;
 	public function ReceiveAdd(Payload: cpp.Reference<ARImageUpdatePayload>): Void;
 
@@ -18,8 +18,6 @@ extern class ARImageComp extends ARComp {
 @:forward()
 @:nativeGen
 abstract ConstARImageComp(ARImageComp) from ARImageComp {
-	public extern var ReplicatedPayload(get, never): ARImageUpdatePayload;
-	public inline extern function get_ReplicatedPayload(): ARImageUpdatePayload return this.ReplicatedPayload;
 }
 
 @:forward

@@ -5,12 +5,12 @@ package ue;
 @:include("RigVMModel/Nodes/RigVMUnitNode.h")
 @:structAccess
 extern class RigVMUnitNode extends RigVMNode {
-	public var ScriptStruct: cpp.Star<ScriptStruct>;
-	public var MethodName: FName;
+	private var ScriptStruct: cpp.Star<ScriptStruct>;
+	private var MethodName: FName;
 
-	public function GetStructDefaultValue(): cpp.Reference<FString>;
-	public function GetScriptStruct(): cpp.Reference<cpp.Star<ScriptStruct>>;
-	public function GetMethodName(): cpp.Reference<FName>;
+	public function GetStructDefaultValue(): FString;
+	public function GetScriptStruct(): cpp.Star<ScriptStruct>;
+	public function GetMethodName(): FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,10 +18,6 @@ extern class RigVMUnitNode extends RigVMNode {
 @:forward(GetStructDefaultValue, GetScriptStruct, GetMethodName)
 @:nativeGen
 abstract ConstRigVMUnitNode(RigVMUnitNode) from RigVMUnitNode {
-	public extern var ScriptStruct(get, never): cpp.Star<ScriptStruct.ConstScriptStruct>;
-	public inline extern function get_ScriptStruct(): cpp.Star<ScriptStruct.ConstScriptStruct> return this.ScriptStruct;
-	public extern var MethodName(get, never): FName;
-	public inline extern function get_MethodName(): FName return this.MethodName;
 }
 
 @:forward

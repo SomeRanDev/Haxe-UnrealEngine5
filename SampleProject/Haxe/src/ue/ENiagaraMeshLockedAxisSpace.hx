@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENiagaraMeshLockedAxisSpace")
 @:include("NiagaraMeshRendererProperties.h")
-extern enum ENiagaraMeshLockedAxisSpace {
-	Simulation;
-	World;
-	Local;
-	ENiagaraMeshLockedAxisSpace_MAX;
+extern class ENiagaraMeshLockedAxisSpace {
+	static var Simulation: ENiagaraMeshLockedAxisSpace;
+	static var World: ENiagaraMeshLockedAxisSpace;
+	static var Local: ENiagaraMeshLockedAxisSpace;
+	static var ENiagaraMeshLockedAxisSpace_MAX: ENiagaraMeshLockedAxisSpace;
 }

@@ -12,7 +12,7 @@ extern class GeomModifier extends Object {
 	public var bInitialized: Bool;
 	public var bPendingPivotOffsetUpdate: Bool;
 	public var bAppearsInToolbar: Bool;
-	public var CachedPolys: cpp.Star<Polys>;
+	private var CachedPolys: cpp.Star<Polys>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -34,8 +34,6 @@ abstract ConstGeomModifier(GeomModifier) from GeomModifier {
 	public inline extern function get_bPendingPivotOffsetUpdate(): Bool return this.bPendingPivotOffsetUpdate;
 	public extern var bAppearsInToolbar(get, never): Bool;
 	public inline extern function get_bAppearsInToolbar(): Bool return this.bAppearsInToolbar;
-	public extern var CachedPolys(get, never): cpp.Star<Polys.ConstPolys>;
-	public inline extern function get_CachedPolys(): cpp.Star<Polys.ConstPolys> return this.CachedPolys;
 }
 
 @:forward

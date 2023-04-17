@@ -3,8 +3,8 @@ package ue;
 
 @:native("ECommentBoxMode.Type")
 @:include("EdGraphNode_Comment.h")
-extern enum ECommentBoxMode {
-	GroupMovement;
-	NoGroupMovement;
-	ECommentBoxMode_MAX;
+extern class ECommentBoxMode {
+	static var GroupMovement: ECommentBoxMode;
+	static var NoGroupMovement: ECommentBoxMode;
+	static var ECommentBoxMode_MAX: ECommentBoxMode;
 }

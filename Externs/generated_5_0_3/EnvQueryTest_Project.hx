@@ -5,7 +5,7 @@ package ue;
 @:include("EnvironmentQuery/Tests/EnvQueryTest_Project.h")
 @:structAccess
 extern class EnvQueryTest_Project extends EnvQueryTest {
-	public var ProjectionData: EnvTraceData;
+	@:protected public var ProjectionData: EnvTraceData;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class EnvQueryTest_Project extends EnvQueryTest {
 @:forward()
 @:nativeGen
 abstract ConstEnvQueryTest_Project(EnvQueryTest_Project) from EnvQueryTest_Project {
-	public extern var ProjectionData(get, never): EnvTraceData;
-	public inline extern function get_ProjectionData(): EnvTraceData return this.ProjectionData;
 }
 
 @:forward

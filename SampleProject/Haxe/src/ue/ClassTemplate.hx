@@ -5,7 +5,7 @@ package ue;
 @:include("ClassTemplateEditorSubsystem.h")
 @:structAccess
 extern class ClassTemplate extends Object {
-	public var GeneratedBaseClass: TSubclassOf<Object>;
+	private var GeneratedBaseClass: TSubclassOf<Object>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class ClassTemplate extends Object {
 @:forward()
 @:nativeGen
 abstract ConstClassTemplate(ClassTemplate) from ClassTemplate {
-	public extern var GeneratedBaseClass(get, never): TSubclassOf<Object.ConstObject>;
-	public inline extern function get_GeneratedBaseClass(): TSubclassOf<Object.ConstObject> return this.GeneratedBaseClass;
 }
 
 @:forward

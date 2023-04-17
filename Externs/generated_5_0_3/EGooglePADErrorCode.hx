@@ -3,20 +3,20 @@ package ue;
 
 @:native("EGooglePADErrorCode")
 @:include("GooglePADFunctionLibrary.h")
-extern enum EGooglePADErrorCode {
-	AssetPack_NO_ERROR;
-	AssetPack_APP_UNAVAILABLE;
-	AssetPack_UNAVAILABLE;
-	AssetPack_INVALID_REQUEST;
-	AssetPack_DOWNLOAD_NOT_FOUND;
-	AssetPack_API_NOT_AVAILABLE;
-	AssetPack_NETWORK_ERROR;
-	AssetPack_ACCESS_DENIED;
-	AssetPack_INSUFFICIENT_STORAGE;
-	AssetPack_PLAY_STORE_NOT_FOUND;
-	AssetPack_NETWORK_UNRESTRICTED;
-	AssetPack_INTERNAL_ERROR;
-	AssetPack_INITIALIZATION_NEEDED;
-	AssetPack_INITIALIZATION_FAILED;
-	AssetPack_MAX;
+extern class EGooglePADErrorCode {
+	static var AssetPack_NO_ERROR: EGooglePADErrorCode;
+	static var AssetPack_APP_UNAVAILABLE: EGooglePADErrorCode;
+	static var AssetPack_UNAVAILABLE: EGooglePADErrorCode;
+	static var AssetPack_INVALID_REQUEST: EGooglePADErrorCode;
+	static var AssetPack_DOWNLOAD_NOT_FOUND: EGooglePADErrorCode;
+	static var AssetPack_API_NOT_AVAILABLE: EGooglePADErrorCode;
+	static var AssetPack_NETWORK_ERROR: EGooglePADErrorCode;
+	static var AssetPack_ACCESS_DENIED: EGooglePADErrorCode;
+	static var AssetPack_INSUFFICIENT_STORAGE: EGooglePADErrorCode;
+	static var AssetPack_PLAY_STORE_NOT_FOUND: EGooglePADErrorCode;
+	static var AssetPack_NETWORK_UNRESTRICTED: EGooglePADErrorCode;
+	static var AssetPack_INTERNAL_ERROR: EGooglePADErrorCode;
+	static var AssetPack_INITIALIZATION_NEEDED: EGooglePADErrorCode;
+	static var AssetPack_INITIALIZATION_FAILED: EGooglePADErrorCode;
+	static var AssetPack_MAX: EGooglePADErrorCode;
 }

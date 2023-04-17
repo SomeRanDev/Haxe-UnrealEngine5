@@ -3,9 +3,9 @@ package ue;
 
 @:native("EDatasmithAreaLightActorType")
 @:include("DatasmithAreaLightActor.h")
-extern enum EDatasmithAreaLightActorType {
-	Point;
-	Spot;
-	Rect;
-	EDatasmithAreaLightActorType_MAX;
+extern class EDatasmithAreaLightActorType {
+	static var Point: EDatasmithAreaLightActorType;
+	static var Spot: EDatasmithAreaLightActorType;
+	static var Rect: EDatasmithAreaLightActorType;
+	static var EDatasmithAreaLightActorType_MAX: EDatasmithAreaLightActorType;
 }

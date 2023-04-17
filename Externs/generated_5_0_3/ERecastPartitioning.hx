@@ -3,9 +3,9 @@ package ue;
 
 @:native("ERecastPartitioning.Type")
 @:include("NavMesh/RecastNavMesh.h")
-extern enum ERecastPartitioning {
-	Monotone;
-	Watershed;
-	ChunkyMonotone;
-	ERecastPartitioning_MAX;
+extern class ERecastPartitioning {
+	static var Monotone: ERecastPartitioning;
+	static var Watershed: ERecastPartitioning;
+	static var ChunkyMonotone: ERecastPartitioning;
+	static var ERecastPartitioning_MAX: ERecastPartitioning;
 }

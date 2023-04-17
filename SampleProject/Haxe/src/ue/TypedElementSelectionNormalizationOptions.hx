@@ -5,8 +5,8 @@ package ue;
 @:include("Elements/Framework/TypedElementSelectionSet.h")
 @:structAccess
 extern class TypedElementSelectionNormalizationOptions {
-	public var bExpandGroups: Bool;
-	public var bFollowAttachment: Bool;
+	private var bExpandGroups: Bool;
+	private var bFollowAttachment: Bool;
 
 	@:native("FTypedElementSelectionNormalizationOptions") public function new();
 	@:native("FTypedElementSelectionNormalizationOptions") public static function make(bExpandGroups: Bool, bFollowAttachment: Bool): TypedElementSelectionNormalizationOptions ;

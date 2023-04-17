@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMeshApproximationSimplificationPolicy")
 @:include("Engine/MeshMerging.h")
-extern enum EMeshApproximationSimplificationPolicy {
-	FixedTriangleCount;
-	TrianglesPerArea;
-	GeometricTolerance;
-	EMeshApproximationSimplificationPolicy_MAX;
+extern class EMeshApproximationSimplificationPolicy {
+	static var FixedTriangleCount: EMeshApproximationSimplificationPolicy;
+	static var TrianglesPerArea: EMeshApproximationSimplificationPolicy;
+	static var GeometricTolerance: EMeshApproximationSimplificationPolicy;
+	static var EMeshApproximationSimplificationPolicy_MAX: EMeshApproximationSimplificationPolicy;
 }

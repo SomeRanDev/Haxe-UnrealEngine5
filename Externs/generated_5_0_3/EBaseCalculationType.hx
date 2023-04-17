@@ -3,10 +3,10 @@ package ue;
 
 @:native("EBaseCalculationType")
 @:include("AbcImportSettings.h")
-extern enum EBaseCalculationType {
-	None;
-	PercentageBased;
-	FixedNumber;
-	NoCompression;
-	EBaseCalculationType_MAX;
+extern class EBaseCalculationType {
+	static var None: EBaseCalculationType;
+	static var PercentageBased: EBaseCalculationType;
+	static var FixedNumber: EBaseCalculationType;
+	static var NoCompression: EBaseCalculationType;
+	static var EBaseCalculationType_MAX: EBaseCalculationType;
 }

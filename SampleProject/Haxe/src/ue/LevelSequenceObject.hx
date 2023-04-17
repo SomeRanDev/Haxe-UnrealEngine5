@@ -5,9 +5,9 @@ package ue;
 @:include("LevelSequenceObject.h")
 @:structAccess
 extern class LevelSequenceObject {
-	public var ObjectOrOwner: TLazyObjectPtr<Object>;
-	public var ComponentName: FString;
-	public var CachedComponent: TWeakObjectPtr<Object>;
+	private var ObjectOrOwner: TLazyObjectPtr<Object>;
+	private var ComponentName: FString;
+	private var CachedComponent: TWeakObjectPtr<Object>;
 
 	@:native("FLevelSequenceObject") public function new();
 	@:native("FLevelSequenceObject") public static function make(ObjectOrOwner: TLazyObjectPtr<Object>, ComponentName: FString, CachedComponent: TWeakObjectPtr<Object>): LevelSequenceObject ;

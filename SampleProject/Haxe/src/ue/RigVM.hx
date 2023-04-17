@@ -9,13 +9,13 @@ extern class RigVM extends Object {
 	public var LiteralMemoryStorageObject: cpp.Star<RigVMMemoryStorage>;
 	public var DebugMemoryStorageObject: cpp.Star<RigVMMemoryStorage>;
 	public var ByteCodeStorage: RigVMByteCode;
-	public var Instructions: RigVMInstructionArray;
-	public var Context: RigVMExecuteContext;
-	public var NumExecutions: cpp.UInt32;
-	public var FunctionNamesStorage: TArray<FName>;
-	public var Parameters: TArray<RigVMParameter>;
-	public var ParametersNameMap: TMap<FName, cpp.Int32>;
-	public var DeferredVMToCopy: cpp.Star<RigVM>;
+	private var Instructions: RigVMInstructionArray;
+	private var Context: RigVMExecuteContext;
+	private var NumExecutions: cpp.UInt32;
+	private var FunctionNamesStorage: TArray<FName>;
+	private var Parameters: TArray<RigVMParameter>;
+	private var ParametersNameMap: TMap<FName, cpp.Int32>;
+	private var DeferredVMToCopy: cpp.Star<RigVM>;
 
 	public function SetParameterValueVector2D(InParameterName: cpp.Reference<FName>, InValue: cpp.Reference<Vector2D>, InArrayIndex: cpp.Int32): Void;
 	public function SetParameterValueVector(InParameterName: cpp.Reference<FName>, InValue: cpp.Reference<Vector>, InArrayIndex: cpp.Int32): Void;
@@ -27,20 +27,20 @@ extern class RigVM extends Object {
 	public function SetParameterValueFloat(InParameterName: cpp.Reference<FName>, InValue: cpp.Float32, InArrayIndex: cpp.Int32): Void;
 	public function SetParameterValueDouble(InParameterName: cpp.Reference<FName>, InValue: cpp.Float64, InArrayIndex: cpp.Int32): Void;
 	public function SetParameterValueBool(InParameterName: cpp.Reference<FName>, InValue: Bool, InArrayIndex: cpp.Int32): Void;
-	public function GetStatistics(): cpp.Reference<RigVMStatistics>;
-	public function GetRigVMFunctionName(InFunctionIndex: cpp.Int32): cpp.Reference<FString>;
-	public function GetParameterValueVector2D(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): cpp.Reference<Vector2D>;
-	public function GetParameterValueVector(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): cpp.Reference<Vector>;
-	public function GetParameterValueTransform(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): cpp.Reference<Transform>;
-	public function GetParameterValueString(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): cpp.Reference<FString>;
-	public function GetParameterValueQuat(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): cpp.Reference<Quat>;
-	public function GetParameterValueName(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): cpp.Reference<FName>;
-	public function GetParameterValueInt(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): cpp.Reference<cpp.Int32>;
-	public function GetParameterValueFloat(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): cpp.Reference<cpp.Float32>;
-	public function GetParameterValueDouble(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): cpp.Reference<cpp.Float64>;
-	public function GetParameterValueBool(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): cpp.Reference<Bool>;
-	public function Execute(InEntryName: cpp.Reference<FName>): cpp.Reference<Bool>;
-	public function AddRigVMFunction(InRigVMStruct: cpp.Star<ScriptStruct>, InMethodName: cpp.Reference<FName>): cpp.Reference<cpp.Int32>;
+	public function GetStatistics(): RigVMStatistics;
+	public function GetRigVMFunctionName(InFunctionIndex: cpp.Int32): FString;
+	public function GetParameterValueVector2D(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): Vector2D;
+	public function GetParameterValueVector(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): Vector;
+	public function GetParameterValueTransform(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): Transform;
+	public function GetParameterValueString(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): FString;
+	public function GetParameterValueQuat(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): Quat;
+	public function GetParameterValueName(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): FName;
+	public function GetParameterValueInt(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): cpp.Int32;
+	public function GetParameterValueFloat(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): cpp.Float32;
+	public function GetParameterValueDouble(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): cpp.Float64;
+	public function GetParameterValueBool(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): Bool;
+	public function Execute(InEntryName: cpp.Reference<FName>): Bool;
+	public function AddRigVMFunction(InRigVMStruct: cpp.Star<ScriptStruct>, InMethodName: cpp.Reference<FName>): cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -56,20 +56,6 @@ abstract ConstRigVM(RigVM) from RigVM {
 	public inline extern function get_DebugMemoryStorageObject(): cpp.Star<RigVMMemoryStorage.ConstRigVMMemoryStorage> return this.DebugMemoryStorageObject;
 	public extern var ByteCodeStorage(get, never): RigVMByteCode;
 	public inline extern function get_ByteCodeStorage(): RigVMByteCode return this.ByteCodeStorage;
-	public extern var Instructions(get, never): RigVMInstructionArray;
-	public inline extern function get_Instructions(): RigVMInstructionArray return this.Instructions;
-	public extern var Context(get, never): RigVMExecuteContext;
-	public inline extern function get_Context(): RigVMExecuteContext return this.Context;
-	public extern var NumExecutions(get, never): cpp.UInt32;
-	public inline extern function get_NumExecutions(): cpp.UInt32 return this.NumExecutions;
-	public extern var FunctionNamesStorage(get, never): TArray<FName>;
-	public inline extern function get_FunctionNamesStorage(): TArray<FName> return this.FunctionNamesStorage;
-	public extern var Parameters(get, never): TArray<RigVMParameter>;
-	public inline extern function get_Parameters(): TArray<RigVMParameter> return this.Parameters;
-	public extern var ParametersNameMap(get, never): TMap<FName, cpp.Int32>;
-	public inline extern function get_ParametersNameMap(): TMap<FName, cpp.Int32> return this.ParametersNameMap;
-	public extern var DeferredVMToCopy(get, never): cpp.Star<RigVM.ConstRigVM>;
-	public inline extern function get_DeferredVMToCopy(): cpp.Star<RigVM.ConstRigVM> return this.DeferredVMToCopy;
 }
 
 @:forward

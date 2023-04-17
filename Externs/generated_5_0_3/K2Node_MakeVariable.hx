@@ -5,7 +5,7 @@ package ue;
 @:include("K2Node_MakeVariable.h")
 @:structAccess
 extern class K2Node_MakeVariable extends K2Node {
-	public var VariableType: BPVariableDescription;
+	private var VariableType: BPVariableDescription;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class K2Node_MakeVariable extends K2Node {
 @:forward()
 @:nativeGen
 abstract ConstK2Node_MakeVariable(K2Node_MakeVariable) from K2Node_MakeVariable {
-	public extern var VariableType(get, never): BPVariableDescription;
-	public inline extern function get_VariableType(): BPVariableDescription return this.VariableType;
 }
 
 @:forward

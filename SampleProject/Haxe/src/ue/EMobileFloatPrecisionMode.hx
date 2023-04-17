@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMobileFloatPrecisionMode.Type")
 @:include("Engine/RendererSettings.h")
-extern enum EMobileFloatPrecisionMode {
-	Half;
-	Full_MaterialExpressionOnly;
-	Full;
-	EMobileFloatPrecisionMode_MAX;
+extern class EMobileFloatPrecisionMode {
+	static var Half: EMobileFloatPrecisionMode;
+	static var Full_MaterialExpressionOnly: EMobileFloatPrecisionMode;
+	static var Full: EMobileFloatPrecisionMode;
+	static var EMobileFloatPrecisionMode_MAX: EMobileFloatPrecisionMode;
 }

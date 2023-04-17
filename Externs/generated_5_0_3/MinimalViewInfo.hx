@@ -15,7 +15,7 @@ extern class MinimalViewInfo {
 	public var AspectRatio: cpp.Float32;
 	public var bConstrainAspectRatio: Bool;
 	public var bUseFieldOfViewForLOD: Bool;
-	public var ProjectionMode: ECameraProjectionMode;
+	public var ProjectionMode: TEnumAsByte<ECameraProjectionMode>;
 	public var PostProcessBlendWeight: cpp.Float32;
 	public var PostProcessSettings: PostProcessSettings;
 	public var OffCenterProjectionOffset: Vector2D;

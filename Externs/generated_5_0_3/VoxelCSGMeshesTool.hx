@@ -5,10 +5,10 @@ package ue;
 @:include("VoxelCSGMeshesTool.h")
 @:structAccess
 extern class VoxelCSGMeshesTool extends MultiSelectionMeshEditingTool {
-	public var CSGProps: cpp.Star<VoxelCSGMeshesToolProperties>;
-	public var MeshStatisticsProperties: cpp.Star<MeshStatisticsProperties>;
-	public var HandleSourcesProperties: cpp.Star<OnAcceptHandleSourcesProperties>;
-	public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var CSGProps: cpp.Star<VoxelCSGMeshesToolProperties>;
+	@:protected public var MeshStatisticsProperties: cpp.Star<MeshStatisticsProperties>;
+	@:protected public var HandleSourcesProperties: cpp.Star<OnAcceptHandleSourcesProperties>;
+	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class VoxelCSGMeshesTool extends MultiSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstVoxelCSGMeshesTool(VoxelCSGMeshesTool) from VoxelCSGMeshesTool {
-	public extern var CSGProps(get, never): cpp.Star<VoxelCSGMeshesToolProperties.ConstVoxelCSGMeshesToolProperties>;
-	public inline extern function get_CSGProps(): cpp.Star<VoxelCSGMeshesToolProperties.ConstVoxelCSGMeshesToolProperties> return this.CSGProps;
-	public extern var MeshStatisticsProperties(get, never): cpp.Star<MeshStatisticsProperties.ConstMeshStatisticsProperties>;
-	public inline extern function get_MeshStatisticsProperties(): cpp.Star<MeshStatisticsProperties.ConstMeshStatisticsProperties> return this.MeshStatisticsProperties;
-	public extern var HandleSourcesProperties(get, never): cpp.Star<OnAcceptHandleSourcesProperties.ConstOnAcceptHandleSourcesProperties>;
-	public inline extern function get_HandleSourcesProperties(): cpp.Star<OnAcceptHandleSourcesProperties.ConstOnAcceptHandleSourcesProperties> return this.HandleSourcesProperties;
-	public extern var Preview(get, never): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
-	public inline extern function get_Preview(): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.Preview;
 }
 
 @:forward

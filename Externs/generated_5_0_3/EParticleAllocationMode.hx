@@ -3,9 +3,9 @@ package ue;
 
 @:native("EParticleAllocationMode")
 @:include("NiagaraEmitter.h")
-extern enum EParticleAllocationMode {
-	AutomaticEstimate;
-	ManualEstimate;
-	FixedCount;
-	EParticleAllocationMode_MAX;
+extern class EParticleAllocationMode {
+	static var AutomaticEstimate: EParticleAllocationMode;
+	static var ManualEstimate: EParticleAllocationMode;
+	static var FixedCount: EParticleAllocationMode;
+	static var EParticleAllocationMode_MAX: EParticleAllocationMode;
 }

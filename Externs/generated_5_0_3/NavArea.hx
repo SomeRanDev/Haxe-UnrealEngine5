@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class NavArea extends NavAreaBase {
 	public var DefaultCost: cpp.Float32;
-	public var FixedAreaEnteringCost: cpp.Float32;
+	@:protected public var FixedAreaEnteringCost: cpp.Float32;
 	public var DrawColor: Color;
 	public var SupportedAgents: NavAgentSelector;
 	public var bSupportsAgent0: Bool;
@@ -34,8 +34,6 @@ extern class NavArea extends NavAreaBase {
 abstract ConstNavArea(NavArea) from NavArea {
 	public extern var DefaultCost(get, never): cpp.Float32;
 	public inline extern function get_DefaultCost(): cpp.Float32 return this.DefaultCost;
-	public extern var FixedAreaEnteringCost(get, never): cpp.Float32;
-	public inline extern function get_FixedAreaEnteringCost(): cpp.Float32 return this.FixedAreaEnteringCost;
 	public extern var DrawColor(get, never): Color;
 	public inline extern function get_DrawColor(): Color return this.DrawColor;
 	public extern var SupportedAgents(get, never): NavAgentSelector;

@@ -3,12 +3,12 @@ package ue;
 
 @:native("ERichCurveExtrapolation")
 @:include("Curves/RealCurve.h")
-extern enum ERichCurveExtrapolation {
-	RCCE_Cycle;
-	RCCE_CycleWithOffset;
-	RCCE_Oscillate;
-	RCCE_Linear;
-	RCCE_Constant;
-	RCCE_None;
-	RCCE_MAX;
+extern class ERichCurveExtrapolation {
+	static var RCCE_Cycle: ERichCurveExtrapolation;
+	static var RCCE_CycleWithOffset: ERichCurveExtrapolation;
+	static var RCCE_Oscillate: ERichCurveExtrapolation;
+	static var RCCE_Linear: ERichCurveExtrapolation;
+	static var RCCE_Constant: ERichCurveExtrapolation;
+	static var RCCE_None: ERichCurveExtrapolation;
+	static var RCCE_MAX: ERichCurveExtrapolation;
 }

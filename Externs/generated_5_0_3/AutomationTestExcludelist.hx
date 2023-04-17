@@ -5,7 +5,7 @@ package ue;
 @:include("AutomationTestExcludelist.h")
 @:structAccess
 extern class AutomationTestExcludelist extends Object {
-	public var ExcludeTest: TArray<AutomationTestExcludelistEntry>;
+	private var ExcludeTest: TArray<AutomationTestExcludelistEntry>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class AutomationTestExcludelist extends Object {
 @:forward()
 @:nativeGen
 abstract ConstAutomationTestExcludelist(AutomationTestExcludelist) from AutomationTestExcludelist {
-	public extern var ExcludeTest(get, never): TArray<AutomationTestExcludelistEntry>;
-	public inline extern function get_ExcludeTest(): TArray<AutomationTestExcludelistEntry> return this.ExcludeTest;
 }
 
 @:forward

@@ -5,8 +5,8 @@ package ue;
 @:include("PhysicsEngine/ConstraintInstance.h")
 @:structAccess
 extern class ConstraintInstanceAccessor {
-	public var Owner: TWeakObjectPtr<Object>;
-	public var Index: cpp.UInt32;
+	private var Owner: TWeakObjectPtr<Object>;
+	private var Index: cpp.UInt32;
 
 	@:native("FConstraintInstanceAccessor") public function new();
 	@:native("FConstraintInstanceAccessor") public static function make(Owner: TWeakObjectPtr<Object>, Index: cpp.UInt32): ConstraintInstanceAccessor ;

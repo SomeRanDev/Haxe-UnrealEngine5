@@ -5,9 +5,9 @@ package ue;
 @:include("Drawing/LineSetComponent.h")
 @:structAccess
 extern class LineSetComp extends MeshComp {
-	public var LineMaterial: cpp.Star<MaterialInterface>;
-	public var Bounds: BoxSphereBounds;
-	public var bBoundsDirty: Bool;
+	private var LineMaterial: cpp.Star<MaterialInterface>;
+	private var Bounds: BoxSphereBounds;
+	private var bBoundsDirty: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class LineSetComp extends MeshComp {
 @:forward()
 @:nativeGen
 abstract ConstLineSetComp(LineSetComp) from LineSetComp {
-	public extern var LineMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_LineMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.LineMaterial;
-	public extern var Bounds(get, never): BoxSphereBounds;
-	public inline extern function get_Bounds(): BoxSphereBounds return this.Bounds;
-	public extern var bBoundsDirty(get, never): Bool;
-	public inline extern function get_bBoundsDirty(): Bool return this.bBoundsDirty;
 }
 
 @:forward

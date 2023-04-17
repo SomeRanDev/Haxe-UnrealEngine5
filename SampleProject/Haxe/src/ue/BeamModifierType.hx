@@ -3,8 +3,8 @@ package ue;
 
 @:native("BeamModifierType")
 @:include("Particles/Beam/ParticleModuleBeamModifier.h")
-extern enum BeamModifierType {
-	PEB2MT_Source;
-	PEB2MT_Target;
-	PEB2MT_MAX;
+extern class BeamModifierType {
+	static var PEB2MT_Source: BeamModifierType;
+	static var PEB2MT_Target: BeamModifierType;
+	static var PEB2MT_MAX: BeamModifierType;
 }

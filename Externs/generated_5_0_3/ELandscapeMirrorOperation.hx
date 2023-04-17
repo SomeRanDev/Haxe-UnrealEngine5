@@ -3,14 +3,14 @@ package ue;
 
 @:native("ELandscapeMirrorOperation")
 @:include("LandscapeEditorObject.h")
-extern enum ELandscapeMirrorOperation {
-	MinusXToPlusX;
-	PlusXToMinusX;
-	MinusYToPlusY;
-	PlusYToMinusY;
-	RotateMinusXToPlusX;
-	RotatePlusXToMinusX;
-	RotateMinusYToPlusY;
-	RotatePlusYToMinusY;
-	ELandscapeMirrorOperation_MAX;
+extern class ELandscapeMirrorOperation {
+	static var MinusXToPlusX: ELandscapeMirrorOperation;
+	static var PlusXToMinusX: ELandscapeMirrorOperation;
+	static var MinusYToPlusY: ELandscapeMirrorOperation;
+	static var PlusYToMinusY: ELandscapeMirrorOperation;
+	static var RotateMinusXToPlusX: ELandscapeMirrorOperation;
+	static var RotatePlusXToMinusX: ELandscapeMirrorOperation;
+	static var RotateMinusYToPlusY: ELandscapeMirrorOperation;
+	static var RotatePlusYToMinusY: ELandscapeMirrorOperation;
+	static var ELandscapeMirrorOperation_MAX: ELandscapeMirrorOperation;
 }

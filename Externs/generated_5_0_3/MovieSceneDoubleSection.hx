@@ -5,7 +5,7 @@ package ue;
 @:include("Sections/MovieSceneDoubleSection.h")
 @:structAccess
 extern class MovieSceneDoubleSection extends MovieSceneSection {
-	public var DoubleCurve: MovieSceneDoubleChannel;
+	@:protected public var DoubleCurve: MovieSceneDoubleChannel;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MovieSceneDoubleSection extends MovieSceneSection {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneDoubleSection(MovieSceneDoubleSection) from MovieSceneDoubleSection {
-	public extern var DoubleCurve(get, never): MovieSceneDoubleChannel;
-	public inline extern function get_DoubleCurve(): MovieSceneDoubleChannel return this.DoubleCurve;
 }
 
 @:forward

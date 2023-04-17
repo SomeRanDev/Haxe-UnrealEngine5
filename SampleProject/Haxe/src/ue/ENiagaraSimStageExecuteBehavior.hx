@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENiagaraSimStageExecuteBehavior")
 @:include("NiagaraScriptBase.h")
-extern enum ENiagaraSimStageExecuteBehavior {
-	Always;
-	OnSimulationReset;
-	NotOnSimulationReset;
-	ENiagaraSimStageExecuteBehavior_MAX;
+extern class ENiagaraSimStageExecuteBehavior {
+	static var Always: ENiagaraSimStageExecuteBehavior;
+	static var OnSimulationReset: ENiagaraSimStageExecuteBehavior;
+	static var NotOnSimulationReset: ENiagaraSimStageExecuteBehavior;
+	static var ENiagaraSimStageExecuteBehavior_MAX: ENiagaraSimStageExecuteBehavior;
 }

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EControlRigFKRigExecuteMode")
 @:include("Rigs/FKControlRig.h")
-extern enum EControlRigFKRigExecuteMode {
-	Replace;
-	Additive;
-	Max;
-	EControlRigFKRigExecuteMode_MAX;
+extern class EControlRigFKRigExecuteMode {
+	static var Replace: EControlRigFKRigExecuteMode;
+	static var Additive: EControlRigFKRigExecuteMode;
+	static var Max: EControlRigFKRigExecuteMode;
+	static var EControlRigFKRigExecuteMode_MAX: EControlRigFKRigExecuteMode;
 }

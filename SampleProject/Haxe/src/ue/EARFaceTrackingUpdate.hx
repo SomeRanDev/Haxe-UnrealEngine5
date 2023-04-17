@@ -3,8 +3,8 @@ package ue;
 
 @:native("EARFaceTrackingUpdate")
 @:include("ARSessionConfig.h")
-extern enum EARFaceTrackingUpdate {
-	CurvesAndGeo;
-	CurvesOnly;
-	EARFaceTrackingUpdate_MAX;
+extern class EARFaceTrackingUpdate {
+	static var CurvesAndGeo: EARFaceTrackingUpdate;
+	static var CurvesOnly: EARFaceTrackingUpdate;
+	static var EARFaceTrackingUpdate_MAX: EARFaceTrackingUpdate;
 }

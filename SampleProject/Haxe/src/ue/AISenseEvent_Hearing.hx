@@ -5,7 +5,7 @@ package ue;
 @:include("Perception/AISenseEvent_Hearing.h")
 @:structAccess
 extern class AISenseEvent_Hearing extends AISenseEvent {
-	public var Event: AINoiseEvent;
+	@:protected public var Event: AINoiseEvent;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class AISenseEvent_Hearing extends AISenseEvent {
 @:forward()
 @:nativeGen
 abstract ConstAISenseEvent_Hearing(AISenseEvent_Hearing) from AISenseEvent_Hearing {
-	public extern var Event(get, never): AINoiseEvent;
-	public inline extern function get_Event(): AINoiseEvent return this.Event;
 }
 
 @:forward

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EDrawPolygonExtrudeMode")
 @:include("DrawPolygonTool.h")
-extern enum EDrawPolygonExtrudeMode {
-	Flat;
-	Fixed;
-	Interactive;
-	EDrawPolygonExtrudeMode_MAX;
+extern class EDrawPolygonExtrudeMode {
+	static var Flat: EDrawPolygonExtrudeMode;
+	static var Fixed: EDrawPolygonExtrudeMode;
+	static var Interactive: EDrawPolygonExtrudeMode;
+	static var EDrawPolygonExtrudeMode_MAX: EDrawPolygonExtrudeMode;
 }

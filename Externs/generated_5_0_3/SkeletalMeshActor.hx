@@ -6,8 +6,7 @@ package ue;
 @:structAccess
 extern class SkeletalMeshActor extends Actor {
 	public var bShouldDoAnimNotifies: Bool;
-	public var bWakeOnLevelStart_DEPRECATED: Bool;
-	public var SkeletalMeshComponent: cpp.Star<SkeletalMeshComp>;
+	private var SkeletalMeshComponent: cpp.Star<SkeletalMeshComp>;
 	public var ReplicatedMesh: cpp.Star<SkeletalMesh>;
 	public var ReplicatedPhysAsset: cpp.Star<PhysicsAsset>;
 	public var ReplicatedMaterial0: cpp.Star<MaterialInterface>;
@@ -26,10 +25,6 @@ extern class SkeletalMeshActor extends Actor {
 abstract ConstSkeletalMeshActor(SkeletalMeshActor) from SkeletalMeshActor {
 	public extern var bShouldDoAnimNotifies(get, never): Bool;
 	public inline extern function get_bShouldDoAnimNotifies(): Bool return this.bShouldDoAnimNotifies;
-	public extern var bWakeOnLevelStart_DEPRECATED(get, never): Bool;
-	public inline extern function get_bWakeOnLevelStart_DEPRECATED(): Bool return this.bWakeOnLevelStart_DEPRECATED;
-	public extern var SkeletalMeshComponent(get, never): cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp>;
-	public inline extern function get_SkeletalMeshComponent(): cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp> return this.SkeletalMeshComponent;
 	public extern var ReplicatedMesh(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
 	public inline extern function get_ReplicatedMesh(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.ReplicatedMesh;
 	public extern var ReplicatedPhysAsset(get, never): cpp.Star<PhysicsAsset.ConstPhysicsAsset>;

@@ -3,11 +3,11 @@ package ue;
 
 @:native("ELocationYToSpawnEnum")
 @:include("NiagaraDataInterfaceChaosDestruction.h")
-extern enum ELocationYToSpawnEnum {
-	ChaosNiagara_LocationYToSpawn_None;
-	ChaosNiagara_LocationYToSpawn_Min;
-	ChaosNiagara_LocationYToSpawn_Max;
-	ChaosNiagara_LocationYToSpawn_MinMax;
-	ChaosNiagara_Max;
-	ChaosNiagara_MAX;
+extern class ELocationYToSpawnEnum {
+	static var ChaosNiagara_LocationYToSpawn_None: ELocationYToSpawnEnum;
+	static var ChaosNiagara_LocationYToSpawn_Min: ELocationYToSpawnEnum;
+	static var ChaosNiagara_LocationYToSpawn_Max: ELocationYToSpawnEnum;
+	static var ChaosNiagara_LocationYToSpawn_MinMax: ELocationYToSpawnEnum;
+	static var ChaosNiagara_Max: ELocationYToSpawnEnum;
+	static var ChaosNiagara_MAX: ELocationYToSpawnEnum;
 }

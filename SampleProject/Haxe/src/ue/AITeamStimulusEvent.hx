@@ -5,7 +5,7 @@ package ue;
 @:include("Perception/AISense_Team.h")
 @:structAccess
 extern class AITeamStimulusEvent {
-	public var Broadcaster: cpp.Star<Actor>;
+	private var Broadcaster: cpp.Star<Actor>;
 	public var Enemy: cpp.Star<Actor>;
 
 	@:native("FAITeamStimulusEvent") public function new();

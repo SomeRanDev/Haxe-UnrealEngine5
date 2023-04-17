@@ -5,7 +5,7 @@ package ue;
 @:include("WorldPartition/WorldPartitionRenameDuplicateBuilder.h")
 @:structAccess
 extern class WorldPartitionRenameDuplicateBuilder extends WorldPartitionBuilder {
-	public var DuplicatedObjects: TMap<cpp.Star<Object>, cpp.Star<Object>>;
+	private var DuplicatedObjects: TMap<cpp.Star<Object>, cpp.Star<Object>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class WorldPartitionRenameDuplicateBuilder extends WorldPartitionBuilder 
 @:forward()
 @:nativeGen
 abstract ConstWorldPartitionRenameDuplicateBuilder(WorldPartitionRenameDuplicateBuilder) from WorldPartitionRenameDuplicateBuilder {
-	public extern var DuplicatedObjects(get, never): TMap<cpp.Star<Object.ConstObject>, cpp.Star<Object.ConstObject>>;
-	public inline extern function get_DuplicatedObjects(): TMap<cpp.Star<Object.ConstObject>, cpp.Star<Object.ConstObject>> return this.DuplicatedObjects;
 }
 
 @:forward

@@ -5,11 +5,11 @@ package ue;
 @:include("RigVMModel/Nodes/RigVMArrayNode.h")
 @:structAccess
 extern class RigVMArrayNode extends RigVMNode {
-	public var OpCode: ERigVMOpCode;
+	private var OpCode: ERigVMOpCode;
 
-	public function GetOpCode(): cpp.Reference<ERigVMOpCode>;
-	public function GetCPPTypeObject(): cpp.Reference<cpp.Star<Object>>;
-	public function GetCPPType(): cpp.Reference<FString>;
+	public function GetOpCode(): ERigVMOpCode;
+	public function GetCPPTypeObject(): cpp.Star<Object>;
+	public function GetCPPType(): FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,8 +17,6 @@ extern class RigVMArrayNode extends RigVMNode {
 @:forward(GetOpCode, GetCPPTypeObject, GetCPPType)
 @:nativeGen
 abstract ConstRigVMArrayNode(RigVMArrayNode) from RigVMArrayNode {
-	public extern var OpCode(get, never): ERigVMOpCode;
-	public inline extern function get_OpCode(): ERigVMOpCode return this.OpCode;
 }
 
 @:forward

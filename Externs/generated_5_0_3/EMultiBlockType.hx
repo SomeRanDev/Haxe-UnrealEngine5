@@ -3,15 +3,15 @@ package ue;
 
 @:native("EMultiBlockType")
 @:include("Framework/MultiBox/MultiBoxDefs.h")
-extern enum EMultiBlockType {
-	None;
-	ButtonRow;
-	EditableText;
-	Heading;
-	MenuEntry;
-	Separator;
-	ToolBarButton;
-	ToolBarComboButton;
-	Widget;
-	EMultiBlockType_MAX;
+extern class EMultiBlockType {
+	static var None: EMultiBlockType;
+	static var ButtonRow: EMultiBlockType;
+	static var EditableText: EMultiBlockType;
+	static var Heading: EMultiBlockType;
+	static var MenuEntry: EMultiBlockType;
+	static var Separator: EMultiBlockType;
+	static var ToolBarButton: EMultiBlockType;
+	static var ToolBarComboButton: EMultiBlockType;
+	static var Widget: EMultiBlockType;
+	static var EMultiBlockType_MAX: EMultiBlockType;
 }

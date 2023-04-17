@@ -3,8 +3,8 @@ package ue;
 
 @:native("EEnvDirection.Type")
 @:include("EnvironmentQuery/EnvQueryTypes.h")
-extern enum EEnvDirection {
-	TwoPoints;
-	Rotation;
-	EEnvDirection_MAX;
+extern class EEnvDirection {
+	static var TwoPoints: EEnvDirection;
+	static var Rotation: EEnvDirection;
+	static var EEnvDirection_MAX: EEnvDirection;
 }

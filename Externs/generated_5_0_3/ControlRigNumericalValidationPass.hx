@@ -12,9 +12,9 @@ extern class ControlRigNumericalValidationPass extends ControlRigValidationPass 
 	public var RotationPrecision: cpp.Float32;
 	public var ScalePrecision: cpp.Float32;
 	public var CurvePrecision: cpp.Float32;
-	public var EventNameA: FName;
-	public var EventNameB: FName;
-	public var Pose: RigPose;
+	private var EventNameA: FName;
+	private var EventNameB: FName;
+	private var Pose: RigPose;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -36,12 +36,6 @@ abstract ConstControlRigNumericalValidationPass(ControlRigNumericalValidationPas
 	public inline extern function get_ScalePrecision(): cpp.Float32 return this.ScalePrecision;
 	public extern var CurvePrecision(get, never): cpp.Float32;
 	public inline extern function get_CurvePrecision(): cpp.Float32 return this.CurvePrecision;
-	public extern var EventNameA(get, never): FName;
-	public inline extern function get_EventNameA(): FName return this.EventNameA;
-	public extern var EventNameB(get, never): FName;
-	public inline extern function get_EventNameB(): FName return this.EventNameB;
-	public extern var Pose(get, never): RigPose;
-	public inline extern function get_Pose(): RigPose return this.Pose;
 }
 
 @:forward

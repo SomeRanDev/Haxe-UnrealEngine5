@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMaterialTranslucencyPass")
 @:include("Materials/Material.h")
-extern enum EMaterialTranslucencyPass {
-	MTP_BeforeDOF;
-	MTP_AfterDOF;
-	MTP_AfterMotionBlur;
-	MTP_MAX;
+extern class EMaterialTranslucencyPass {
+	static var MTP_BeforeDOF: EMaterialTranslucencyPass;
+	static var MTP_AfterDOF: EMaterialTranslucencyPass;
+	static var MTP_AfterMotionBlur: EMaterialTranslucencyPass;
+	static var MTP_MAX: EMaterialTranslucencyPass;
 }

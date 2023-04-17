@@ -5,7 +5,7 @@ package ue;
 @:include("PaperFlipbookActor.h")
 @:structAccess
 extern class PaperFlipbookActor extends Actor {
-	public var RenderComponent: cpp.Star<PaperFlipbookComp>;
+	private var RenderComponent: cpp.Star<PaperFlipbookComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class PaperFlipbookActor extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstPaperFlipbookActor(PaperFlipbookActor) from PaperFlipbookActor {
-	public extern var RenderComponent(get, never): cpp.Star<PaperFlipbookComp.ConstPaperFlipbookComp>;
-	public inline extern function get_RenderComponent(): cpp.Star<PaperFlipbookComp.ConstPaperFlipbookComp> return this.RenderComponent;
 }
 
 @:forward

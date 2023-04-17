@@ -3,9 +3,9 @@ package ue;
 
 @:native("EActorSequenceObjectReferenceType")
 @:include("ActorSequenceObjectReference.h")
-extern enum EActorSequenceObjectReferenceType {
-	ContextActor;
-	ExternalActor;
-	Component;
-	EActorSequenceObjectReferenceType_MAX;
+extern class EActorSequenceObjectReferenceType {
+	static var ContextActor: EActorSequenceObjectReferenceType;
+	static var ExternalActor: EActorSequenceObjectReferenceType;
+	static var Component: EActorSequenceObjectReferenceType;
+	static var EActorSequenceObjectReferenceType_MAX: EActorSequenceObjectReferenceType;
 }

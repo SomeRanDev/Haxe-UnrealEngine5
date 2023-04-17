@@ -3,13 +3,13 @@ package ue;
 
 @:native("EAnalysisRootMotionAxis")
 @:include("RootMotionAnalysis.h")
-extern enum EAnalysisRootMotionAxis {
-	Speed;
-	Direction;
-	ForwardSpeed;
-	RightwardSpeed;
-	UpwardSpeed;
-	ForwardSlope;
-	RightwardSlope;
-	EAnalysisRootMotionAxis_MAX;
+extern class EAnalysisRootMotionAxis {
+	static var Speed: EAnalysisRootMotionAxis;
+	static var Direction: EAnalysisRootMotionAxis;
+	static var ForwardSpeed: EAnalysisRootMotionAxis;
+	static var RightwardSpeed: EAnalysisRootMotionAxis;
+	static var UpwardSpeed: EAnalysisRootMotionAxis;
+	static var ForwardSlope: EAnalysisRootMotionAxis;
+	static var RightwardSlope: EAnalysisRootMotionAxis;
+	static var EAnalysisRootMotionAxis_MAX: EAnalysisRootMotionAxis;
 }

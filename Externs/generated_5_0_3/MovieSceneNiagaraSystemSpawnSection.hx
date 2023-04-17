@@ -5,11 +5,11 @@ package ue;
 @:include("MovieScene/MovieSceneNiagaraSystemSpawnSection.h")
 @:structAccess
 extern class MovieSceneNiagaraSystemSpawnSection extends MovieSceneSection {
-	public var SectionStartBehavior: ENiagaraSystemSpawnSectionStartBehavior;
-	public var SectionEvaluateBehavior: ENiagaraSystemSpawnSectionEvaluateBehavior;
-	public var SectionEndBehavior: ENiagaraSystemSpawnSectionEndBehavior;
-	public var AgeUpdateMode: ENiagaraAgeUpdateMode;
-	public var bAllowScalability: Bool;
+	private var SectionStartBehavior: ENiagaraSystemSpawnSectionStartBehavior;
+	private var SectionEvaluateBehavior: ENiagaraSystemSpawnSectionEvaluateBehavior;
+	private var SectionEndBehavior: ENiagaraSystemSpawnSectionEndBehavior;
+	private var AgeUpdateMode: ENiagaraAgeUpdateMode;
+	private var bAllowScalability: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,16 +17,6 @@ extern class MovieSceneNiagaraSystemSpawnSection extends MovieSceneSection {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneNiagaraSystemSpawnSection(MovieSceneNiagaraSystemSpawnSection) from MovieSceneNiagaraSystemSpawnSection {
-	public extern var SectionStartBehavior(get, never): ENiagaraSystemSpawnSectionStartBehavior;
-	public inline extern function get_SectionStartBehavior(): ENiagaraSystemSpawnSectionStartBehavior return this.SectionStartBehavior;
-	public extern var SectionEvaluateBehavior(get, never): ENiagaraSystemSpawnSectionEvaluateBehavior;
-	public inline extern function get_SectionEvaluateBehavior(): ENiagaraSystemSpawnSectionEvaluateBehavior return this.SectionEvaluateBehavior;
-	public extern var SectionEndBehavior(get, never): ENiagaraSystemSpawnSectionEndBehavior;
-	public inline extern function get_SectionEndBehavior(): ENiagaraSystemSpawnSectionEndBehavior return this.SectionEndBehavior;
-	public extern var AgeUpdateMode(get, never): ENiagaraAgeUpdateMode;
-	public inline extern function get_AgeUpdateMode(): ENiagaraAgeUpdateMode return this.AgeUpdateMode;
-	public extern var bAllowScalability(get, never): Bool;
-	public inline extern function get_bAllowScalability(): Bool return this.bAllowScalability;
 }
 
 @:forward

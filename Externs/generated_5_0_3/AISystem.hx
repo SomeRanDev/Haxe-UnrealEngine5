@@ -5,9 +5,9 @@ package ue;
 @:include("AISystem.h")
 @:structAccess
 extern class AISystem extends AISystemBase {
-	public var PerceptionSystemClassName: SoftClassPath;
-	public var HotSpotManagerClassName: SoftClassPath;
-	public var EnvQueryManagerClassName: SoftClassPath;
+	@:protected public var PerceptionSystemClassName: SoftClassPath;
+	@:protected public var HotSpotManagerClassName: SoftClassPath;
+	@:protected public var EnvQueryManagerClassName: SoftClassPath;
 	public var AcceptanceRadius: cpp.Float32;
 	public var PathfollowingRegularPathPointAcceptanceRadius: cpp.Float32;
 	public var PathfollowingNavLinkAcceptanceRadius: cpp.Float32;
@@ -20,13 +20,13 @@ extern class AISystem extends AISystemBase {
 	public var bForgetStaleActors: Bool;
 	public var bAddBlackboardSelfKey: Bool;
 	public var bClearBBEntryOnBTEQSFail: Bool;
-	public var DefaultSightCollisionChannel: ECollisionChannel;
-	public var BehaviorTreeManager: cpp.Star<BehaviorTreeManager>;
-	public var EnvironmentQueryManager: cpp.Star<EnvQueryManager>;
-	public var PerceptionSystem: cpp.Star<AIPerceptionSystem>;
-	public var AllProxyObjects: TArray<cpp.Star<AIAsyncTaskBlueprintProxy>>;
-	public var HotSpotManager: cpp.Star<AIHotSpotManager>;
-	public var NavLocalGrids: cpp.Star<NavLocalGridManager>;
+	public var DefaultSightCollisionChannel: TEnumAsByte<ECollisionChannel>;
+	@:protected public var BehaviorTreeManager: cpp.Star<BehaviorTreeManager>;
+	@:protected public var EnvironmentQueryManager: cpp.Star<EnvQueryManager>;
+	@:protected public var PerceptionSystem: cpp.Star<AIPerceptionSystem>;
+	@:protected public var AllProxyObjects: TArray<cpp.Star<AIAsyncTaskBlueprintProxy>>;
+	@:protected public var HotSpotManager: cpp.Star<AIHotSpotManager>;
+	@:protected public var NavLocalGrids: cpp.Star<NavLocalGridManager>;
 
 	public function AILoggingVerbose(): Void;
 	public function AIIgnorePlayers(): Void;
@@ -37,12 +37,6 @@ extern class AISystem extends AISystemBase {
 @:forward()
 @:nativeGen
 abstract ConstAISystem(AISystem) from AISystem {
-	public extern var PerceptionSystemClassName(get, never): SoftClassPath;
-	public inline extern function get_PerceptionSystemClassName(): SoftClassPath return this.PerceptionSystemClassName;
-	public extern var HotSpotManagerClassName(get, never): SoftClassPath;
-	public inline extern function get_HotSpotManagerClassName(): SoftClassPath return this.HotSpotManagerClassName;
-	public extern var EnvQueryManagerClassName(get, never): SoftClassPath;
-	public inline extern function get_EnvQueryManagerClassName(): SoftClassPath return this.EnvQueryManagerClassName;
 	public extern var AcceptanceRadius(get, never): cpp.Float32;
 	public inline extern function get_AcceptanceRadius(): cpp.Float32 return this.AcceptanceRadius;
 	public extern var PathfollowingRegularPathPointAcceptanceRadius(get, never): cpp.Float32;
@@ -67,20 +61,8 @@ abstract ConstAISystem(AISystem) from AISystem {
 	public inline extern function get_bAddBlackboardSelfKey(): Bool return this.bAddBlackboardSelfKey;
 	public extern var bClearBBEntryOnBTEQSFail(get, never): Bool;
 	public inline extern function get_bClearBBEntryOnBTEQSFail(): Bool return this.bClearBBEntryOnBTEQSFail;
-	public extern var DefaultSightCollisionChannel(get, never): ECollisionChannel;
-	public inline extern function get_DefaultSightCollisionChannel(): ECollisionChannel return this.DefaultSightCollisionChannel;
-	public extern var BehaviorTreeManager(get, never): cpp.Star<BehaviorTreeManager.ConstBehaviorTreeManager>;
-	public inline extern function get_BehaviorTreeManager(): cpp.Star<BehaviorTreeManager.ConstBehaviorTreeManager> return this.BehaviorTreeManager;
-	public extern var EnvironmentQueryManager(get, never): cpp.Star<EnvQueryManager.ConstEnvQueryManager>;
-	public inline extern function get_EnvironmentQueryManager(): cpp.Star<EnvQueryManager.ConstEnvQueryManager> return this.EnvironmentQueryManager;
-	public extern var PerceptionSystem(get, never): cpp.Star<AIPerceptionSystem.ConstAIPerceptionSystem>;
-	public inline extern function get_PerceptionSystem(): cpp.Star<AIPerceptionSystem.ConstAIPerceptionSystem> return this.PerceptionSystem;
-	public extern var AllProxyObjects(get, never): TArray<cpp.Star<AIAsyncTaskBlueprintProxy.ConstAIAsyncTaskBlueprintProxy>>;
-	public inline extern function get_AllProxyObjects(): TArray<cpp.Star<AIAsyncTaskBlueprintProxy.ConstAIAsyncTaskBlueprintProxy>> return this.AllProxyObjects;
-	public extern var HotSpotManager(get, never): cpp.Star<AIHotSpotManager.ConstAIHotSpotManager>;
-	public inline extern function get_HotSpotManager(): cpp.Star<AIHotSpotManager.ConstAIHotSpotManager> return this.HotSpotManager;
-	public extern var NavLocalGrids(get, never): cpp.Star<NavLocalGridManager.ConstNavLocalGridManager>;
-	public inline extern function get_NavLocalGrids(): cpp.Star<NavLocalGridManager.ConstNavLocalGridManager> return this.NavLocalGrids;
+	public extern var DefaultSightCollisionChannel(get, never): TEnumAsByte<ECollisionChannel>;
+	public inline extern function get_DefaultSightCollisionChannel(): TEnumAsByte<ECollisionChannel> return this.DefaultSightCollisionChannel;
 }
 
 @:forward

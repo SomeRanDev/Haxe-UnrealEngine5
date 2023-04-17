@@ -5,12 +5,12 @@ package ue;
 @:include("HoleFillTool.h")
 @:structAccess
 extern class HoleFillTool extends SingleSelectionMeshEditingTool {
-	public var SmoothHoleFillProperties: cpp.Star<SmoothHoleFillProperties>;
-	public var Properties: cpp.Star<HoleFillToolProperties>;
-	public var Actions: cpp.Star<HoleFillToolActions>;
-	public var Statistics: cpp.Star<HoleFillStatisticsProperties>;
-	public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	public var SelectionMechanic: cpp.Star<PolygonSelectionMechanic>;
+	@:protected public var SmoothHoleFillProperties: cpp.Star<SmoothHoleFillProperties>;
+	@:protected public var Properties: cpp.Star<HoleFillToolProperties>;
+	@:protected public var Actions: cpp.Star<HoleFillToolActions>;
+	@:protected public var Statistics: cpp.Star<HoleFillStatisticsProperties>;
+	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var SelectionMechanic: cpp.Star<PolygonSelectionMechanic>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,18 +18,6 @@ extern class HoleFillTool extends SingleSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstHoleFillTool(HoleFillTool) from HoleFillTool {
-	public extern var SmoothHoleFillProperties(get, never): cpp.Star<SmoothHoleFillProperties.ConstSmoothHoleFillProperties>;
-	public inline extern function get_SmoothHoleFillProperties(): cpp.Star<SmoothHoleFillProperties.ConstSmoothHoleFillProperties> return this.SmoothHoleFillProperties;
-	public extern var Properties(get, never): cpp.Star<HoleFillToolProperties.ConstHoleFillToolProperties>;
-	public inline extern function get_Properties(): cpp.Star<HoleFillToolProperties.ConstHoleFillToolProperties> return this.Properties;
-	public extern var Actions(get, never): cpp.Star<HoleFillToolActions.ConstHoleFillToolActions>;
-	public inline extern function get_Actions(): cpp.Star<HoleFillToolActions.ConstHoleFillToolActions> return this.Actions;
-	public extern var Statistics(get, never): cpp.Star<HoleFillStatisticsProperties.ConstHoleFillStatisticsProperties>;
-	public inline extern function get_Statistics(): cpp.Star<HoleFillStatisticsProperties.ConstHoleFillStatisticsProperties> return this.Statistics;
-	public extern var Preview(get, never): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
-	public inline extern function get_Preview(): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.Preview;
-	public extern var SelectionMechanic(get, never): cpp.Star<PolygonSelectionMechanic.ConstPolygonSelectionMechanic>;
-	public inline extern function get_SelectionMechanic(): cpp.Star<PolygonSelectionMechanic.ConstPolygonSelectionMechanic> return this.SelectionMechanic;
 }
 
 @:forward

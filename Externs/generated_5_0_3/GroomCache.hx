@@ -5,8 +5,7 @@ package ue;
 @:include("GroomCache.h")
 @:structAccess
 extern class GroomCache extends Object {
-	public var AssetImportData: cpp.Star<AssetImportData>;
-	public var GroomCacheInfo: GroomCacheInfo;
+	@:protected public var GroomCacheInfo: GroomCacheInfo;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +13,6 @@ extern class GroomCache extends Object {
 @:forward()
 @:nativeGen
 abstract ConstGroomCache(GroomCache) from GroomCache {
-	public extern var AssetImportData(get, never): cpp.Star<AssetImportData.ConstAssetImportData>;
-	public inline extern function get_AssetImportData(): cpp.Star<AssetImportData.ConstAssetImportData> return this.AssetImportData;
-	public extern var GroomCacheInfo(get, never): GroomCacheInfo;
-	public inline extern function get_GroomCacheInfo(): GroomCacheInfo return this.GroomCacheInfo;
 }
 
 @:forward

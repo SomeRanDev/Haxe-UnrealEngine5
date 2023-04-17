@@ -5,8 +5,8 @@ package ue;
 @:include("GameFramework/GameState.h")
 @:structAccess
 extern class GameState extends GameStateBase {
-	public var MatchState: FName;
-	public var PreviousMatchState: FName;
+	@:protected public var MatchState: FName;
+	@:protected public var PreviousMatchState: FName;
 	public var ElapsedTime: cpp.Int32;
 
 	public function OnRep_MatchState(): Void;
@@ -18,10 +18,6 @@ extern class GameState extends GameStateBase {
 @:forward()
 @:nativeGen
 abstract ConstGameState(GameState) from GameState {
-	public extern var MatchState(get, never): FName;
-	public inline extern function get_MatchState(): FName return this.MatchState;
-	public extern var PreviousMatchState(get, never): FName;
-	public inline extern function get_PreviousMatchState(): FName return this.PreviousMatchState;
 	public extern var ElapsedTime(get, never): cpp.Int32;
 	public inline extern function get_ElapsedTime(): cpp.Int32 return this.ElapsedTime;
 }

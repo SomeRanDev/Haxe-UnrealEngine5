@@ -3,8 +3,8 @@ package ue;
 
 @:native("ELevelVisibility")
 @:include("Sections/MovieSceneLevelVisibilitySection.h")
-extern enum ELevelVisibility {
-	Visible;
-	Hidden;
-	ELevelVisibility_MAX;
+extern class ELevelVisibility {
+	static var Visible: ELevelVisibility;
+	static var Hidden: ELevelVisibility;
+	static var ELevelVisibility_MAX: ELevelVisibility;
 }

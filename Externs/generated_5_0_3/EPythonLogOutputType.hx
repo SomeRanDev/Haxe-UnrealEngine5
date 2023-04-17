@@ -3,9 +3,9 @@ package ue;
 
 @:native("EPythonLogOutputType")
 @:include("PythonScriptTypes.h")
-extern enum EPythonLogOutputType {
-	Info;
-	Warning;
-	Error;
-	EPythonLogOutputType_MAX;
+extern class EPythonLogOutputType {
+	static var Info: EPythonLogOutputType;
+	static var Warning: EPythonLogOutputType;
+	static var Error: EPythonLogOutputType;
+	static var EPythonLogOutputType_MAX: EPythonLogOutputType;
 }

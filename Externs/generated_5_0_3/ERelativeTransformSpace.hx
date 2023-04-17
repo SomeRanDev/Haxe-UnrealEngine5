@@ -3,10 +3,10 @@ package ue;
 
 @:native("ERelativeTransformSpace")
 @:include("Components/SceneComponent.h")
-extern enum ERelativeTransformSpace {
-	RTS_World;
-	RTS_Actor;
-	RTS_Component;
-	RTS_ParentBoneSpace;
-	RTS_MAX;
+extern class ERelativeTransformSpace {
+	static var RTS_World: ERelativeTransformSpace;
+	static var RTS_Actor: ERelativeTransformSpace;
+	static var RTS_Component: ERelativeTransformSpace;
+	static var RTS_ParentBoneSpace: ERelativeTransformSpace;
+	static var RTS_MAX: ERelativeTransformSpace;
 }

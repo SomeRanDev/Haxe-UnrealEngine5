@@ -3,16 +3,16 @@ package ue;
 
 @:native("EDefaultLocationUnit")
 @:include("Settings/EditorProjectSettings.h")
-extern enum EDefaultLocationUnit {
-	Micrometers;
-	Millimeters;
-	Centimeters;
-	Meters;
-	Kilometers;
-	Inches;
-	Feet;
-	Yards;
-	Miles;
-	Invalid;
-	EDefaultLocationUnit_MAX;
+extern class EDefaultLocationUnit {
+	static var Micrometers: EDefaultLocationUnit;
+	static var Millimeters: EDefaultLocationUnit;
+	static var Centimeters: EDefaultLocationUnit;
+	static var Meters: EDefaultLocationUnit;
+	static var Kilometers: EDefaultLocationUnit;
+	static var Inches: EDefaultLocationUnit;
+	static var Feet: EDefaultLocationUnit;
+	static var Yards: EDefaultLocationUnit;
+	static var Miles: EDefaultLocationUnit;
+	static var Invalid: EDefaultLocationUnit;
+	static var EDefaultLocationUnit_MAX: EDefaultLocationUnit;
 }

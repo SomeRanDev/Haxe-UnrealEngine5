@@ -3,11 +3,11 @@ package ue;
 
 @:native("ESlateAccessibleBehavior")
 @:include("Components/SlateWrapperTypes.h")
-extern enum ESlateAccessibleBehavior {
-	NotAccessible;
-	Auto;
-	Summary;
-	Custom;
-	ToolTip;
-	ESlateAccessibleBehavior_MAX;
+extern class ESlateAccessibleBehavior {
+	static var NotAccessible: ESlateAccessibleBehavior;
+	static var Auto: ESlateAccessibleBehavior;
+	static var Summary: ESlateAccessibleBehavior;
+	static var Custom: ESlateAccessibleBehavior;
+	static var ToolTip: ESlateAccessibleBehavior;
+	static var ESlateAccessibleBehavior_MAX: ESlateAccessibleBehavior;
 }

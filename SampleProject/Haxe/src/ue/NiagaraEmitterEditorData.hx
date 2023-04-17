@@ -5,12 +5,12 @@ package ue;
 @:include("NiagaraEmitterEditorData.h")
 @:structAccess
 extern class NiagaraEmitterEditorData extends NiagaraEditorDataBase {
-	public var StackEditorData: cpp.Star<NiagaraStackEditorData>;
-	public var PlaybackRangeMin: cpp.Float32;
-	public var PlaybackRangeMax: cpp.Float32;
-	public var bShowSummaryView: Bool;
-	public var SummaryViewFunctionInputMetadata: TMap<FunctionInputSummaryViewKey, FunctionInputSummaryViewMetadata>;
-	public var SummarySections: TArray<NiagaraStackSection>;
+	private var StackEditorData: cpp.Star<NiagaraStackEditorData>;
+	private var PlaybackRangeMin: cpp.Float32;
+	private var PlaybackRangeMax: cpp.Float32;
+	private var bShowSummaryView: Bool;
+	private var SummaryViewFunctionInputMetadata: TMap<FunctionInputSummaryViewKey, FunctionInputSummaryViewMetadata>;
+	private var SummarySections: TArray<NiagaraStackSection>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,18 +18,6 @@ extern class NiagaraEmitterEditorData extends NiagaraEditorDataBase {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraEmitterEditorData(NiagaraEmitterEditorData) from NiagaraEmitterEditorData {
-	public extern var StackEditorData(get, never): cpp.Star<NiagaraStackEditorData.ConstNiagaraStackEditorData>;
-	public inline extern function get_StackEditorData(): cpp.Star<NiagaraStackEditorData.ConstNiagaraStackEditorData> return this.StackEditorData;
-	public extern var PlaybackRangeMin(get, never): cpp.Float32;
-	public inline extern function get_PlaybackRangeMin(): cpp.Float32 return this.PlaybackRangeMin;
-	public extern var PlaybackRangeMax(get, never): cpp.Float32;
-	public inline extern function get_PlaybackRangeMax(): cpp.Float32 return this.PlaybackRangeMax;
-	public extern var bShowSummaryView(get, never): Bool;
-	public inline extern function get_bShowSummaryView(): Bool return this.bShowSummaryView;
-	public extern var SummaryViewFunctionInputMetadata(get, never): TMap<FunctionInputSummaryViewKey, FunctionInputSummaryViewMetadata>;
-	public inline extern function get_SummaryViewFunctionInputMetadata(): TMap<FunctionInputSummaryViewKey, FunctionInputSummaryViewMetadata> return this.SummaryViewFunctionInputMetadata;
-	public extern var SummarySections(get, never): TArray<NiagaraStackSection>;
-	public inline extern function get_SummarySections(): TArray<NiagaraStackSection> return this.SummarySections;
 }
 
 @:forward

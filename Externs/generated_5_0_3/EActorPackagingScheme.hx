@@ -3,8 +3,8 @@ package ue;
 
 @:native("EActorPackagingScheme")
 @:include("Engine/Level.h")
-extern enum EActorPackagingScheme {
-	Original;
-	Reduced;
-	EActorPackagingScheme_MAX;
+extern class EActorPackagingScheme {
+	static var Original: EActorPackagingScheme;
+	static var Reduced: EActorPackagingScheme;
+	static var EActorPackagingScheme_MAX: EActorPackagingScheme;
 }

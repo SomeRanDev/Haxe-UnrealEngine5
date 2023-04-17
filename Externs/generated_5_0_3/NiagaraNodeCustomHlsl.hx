@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class NiagaraNodeCustomHlsl extends NiagaraNodeFunctionCall {
 	public var ScriptUsage: ENiagaraScriptUsage;
-	public var CustomHlsl: FString;
+	private var CustomHlsl: FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,6 @@ extern class NiagaraNodeCustomHlsl extends NiagaraNodeFunctionCall {
 abstract ConstNiagaraNodeCustomHlsl(NiagaraNodeCustomHlsl) from NiagaraNodeCustomHlsl {
 	public extern var ScriptUsage(get, never): ENiagaraScriptUsage;
 	public inline extern function get_ScriptUsage(): ENiagaraScriptUsage return this.ScriptUsage;
-	public extern var CustomHlsl(get, never): FString;
-	public inline extern function get_CustomHlsl(): FString return this.CustomHlsl;
 }
 
 @:forward

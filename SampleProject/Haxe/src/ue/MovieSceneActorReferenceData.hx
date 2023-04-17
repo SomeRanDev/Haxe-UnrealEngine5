@@ -5,9 +5,9 @@ package ue;
 @:include("Sections/MovieSceneActorReferenceSection.h")
 @:structAccess
 extern class MovieSceneActorReferenceData extends MovieSceneChannel {
-	public var KeyTimes: TArray<FrameNumber>;
-	public var DefaultValue: MovieSceneActorReferenceKey;
-	public var KeyValues: TArray<MovieSceneActorReferenceKey>;
+	private var KeyTimes: TArray<FrameNumber>;
+	private var DefaultValue: MovieSceneActorReferenceKey;
+	private var KeyValues: TArray<MovieSceneActorReferenceKey>;
 
 	@:native("FMovieSceneActorReferenceData") public function new();
 	@:native("FMovieSceneActorReferenceData") public static function make(KeyTimes: TArray<FrameNumber>, DefaultValue: MovieSceneActorReferenceKey, KeyValues: TArray<MovieSceneActorReferenceKey>): MovieSceneActorReferenceData ;

@@ -5,7 +5,7 @@ package ue;
 @:include("BehaviorTree/Tasks/BTTask_WaitBlackboardTime.h")
 @:structAccess
 extern class BTTask_WaitBlackboardTime extends BTTask_Wait {
-	public var BlackboardKey: BlackboardKeySelector;
+	@:protected public var BlackboardKey: BlackboardKeySelector;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class BTTask_WaitBlackboardTime extends BTTask_Wait {
 @:forward()
 @:nativeGen
 abstract ConstBTTask_WaitBlackboardTime(BTTask_WaitBlackboardTime) from BTTask_WaitBlackboardTime {
-	public extern var BlackboardKey(get, never): BlackboardKeySelector;
-	public inline extern function get_BlackboardKey(): BlackboardKeySelector return this.BlackboardKey;
 }
 
 @:forward

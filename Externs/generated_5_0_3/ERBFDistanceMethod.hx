@@ -3,11 +3,11 @@ package ue;
 
 @:native("ERBFDistanceMethod")
 @:include("RBF/RBFSolver.h")
-extern enum ERBFDistanceMethod {
-	Euclidean;
-	Quaternion;
-	SwingAngle;
-	TwistAngle;
-	DefaultMethod;
-	ERBFDistanceMethod_MAX;
+extern class ERBFDistanceMethod {
+	static var Euclidean: ERBFDistanceMethod;
+	static var Quaternion: ERBFDistanceMethod;
+	static var SwingAngle: ERBFDistanceMethod;
+	static var TwistAngle: ERBFDistanceMethod;
+	static var DefaultMethod: ERBFDistanceMethod;
+	static var ERBFDistanceMethod_MAX: ERBFDistanceMethod;
 }

@@ -3,15 +3,15 @@ package ue;
 
 @:native("ETransitionGetter.Type")
 @:include("K2Node_TransitionRuleGetter.h")
-extern enum ETransitionGetter {
-	AnimationAsset_GetCurrentTime;
-	AnimationAsset_GetLength;
-	AnimationAsset_GetCurrentTimeFraction;
-	AnimationAsset_GetTimeFromEnd;
-	AnimationAsset_GetTimeFromEndFraction;
-	CurrentState_ElapsedTime;
-	CurrentState_GetBlendWeight;
-	CurrentTransitionDuration;
-	ArbitraryState_GetBlendWeight;
-	ETransitionGetter_MAX;
+extern class ETransitionGetter {
+	static var AnimationAsset_GetCurrentTime: ETransitionGetter;
+	static var AnimationAsset_GetLength: ETransitionGetter;
+	static var AnimationAsset_GetCurrentTimeFraction: ETransitionGetter;
+	static var AnimationAsset_GetTimeFromEnd: ETransitionGetter;
+	static var AnimationAsset_GetTimeFromEndFraction: ETransitionGetter;
+	static var CurrentState_ElapsedTime: ETransitionGetter;
+	static var CurrentState_GetBlendWeight: ETransitionGetter;
+	static var CurrentTransitionDuration: ETransitionGetter;
+	static var ArbitraryState_GetBlendWeight: ETransitionGetter;
+	static var ETransitionGetter_MAX: ETransitionGetter;
 }

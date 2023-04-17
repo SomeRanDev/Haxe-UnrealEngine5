@@ -9,7 +9,7 @@ extern class K2Node_FunctionEntry extends K2Node_FunctionTerminator {
 	public var MetaData: KismetUserDeclaredFunctionMetadata;
 	public var LocalVariables: TArray<BPVariableDescription>;
 	public var bEnforceConstCorrectness: Bool;
-	public var ExtraFlags: cpp.Int32;
+	@:protected public var ExtraFlags: cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -25,8 +25,6 @@ abstract ConstK2Node_FunctionEntry(K2Node_FunctionEntry) from K2Node_FunctionEnt
 	public inline extern function get_LocalVariables(): TArray<BPVariableDescription> return this.LocalVariables;
 	public extern var bEnforceConstCorrectness(get, never): Bool;
 	public inline extern function get_bEnforceConstCorrectness(): Bool return this.bEnforceConstCorrectness;
-	public extern var ExtraFlags(get, never): cpp.Int32;
-	public inline extern function get_ExtraFlags(): cpp.Int32 return this.ExtraFlags;
 }
 
 @:forward

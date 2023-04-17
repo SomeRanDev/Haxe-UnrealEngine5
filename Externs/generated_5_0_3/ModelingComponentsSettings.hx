@@ -8,7 +8,7 @@ extern class ModelingComponentsSettings extends DeveloperSettings {
 	public var bEnableRayTracingWhileEditing: Bool;
 	public var bEnableRayTracing: Bool;
 	public var bEnableCollision: Bool;
-	public var CollisionMode: ECollisionTraceFlag;
+	public var CollisionMode: TEnumAsByte<ECollisionTraceFlag>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -22,8 +22,8 @@ abstract ConstModelingComponentsSettings(ModelingComponentsSettings) from Modeli
 	public inline extern function get_bEnableRayTracing(): Bool return this.bEnableRayTracing;
 	public extern var bEnableCollision(get, never): Bool;
 	public inline extern function get_bEnableCollision(): Bool return this.bEnableCollision;
-	public extern var CollisionMode(get, never): ECollisionTraceFlag;
-	public inline extern function get_CollisionMode(): ECollisionTraceFlag return this.CollisionMode;
+	public extern var CollisionMode(get, never): TEnumAsByte<ECollisionTraceFlag>;
+	public inline extern function get_CollisionMode(): TEnumAsByte<ECollisionTraceFlag> return this.CollisionMode;
 }
 
 @:forward

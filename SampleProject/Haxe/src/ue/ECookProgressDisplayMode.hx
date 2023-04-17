@@ -3,15 +3,15 @@ package ue;
 
 @:native("ECookProgressDisplayMode")
 @:include("CookerSettings.h")
-extern enum ECookProgressDisplayMode {
-	Nothing;
-	RemainingPackages;
-	PackageNames;
-	NamesAndRemainingPackages;
-	Instigators;
-	InstigatorsAndCount;
-	InstigatorsAndNames;
-	InstigatorsAndNamesAndCount;
-	Max;
-	ECookProgressDisplayMode_MAX;
+extern class ECookProgressDisplayMode {
+	static var Nothing: ECookProgressDisplayMode;
+	static var RemainingPackages: ECookProgressDisplayMode;
+	static var PackageNames: ECookProgressDisplayMode;
+	static var NamesAndRemainingPackages: ECookProgressDisplayMode;
+	static var Instigators: ECookProgressDisplayMode;
+	static var InstigatorsAndCount: ECookProgressDisplayMode;
+	static var InstigatorsAndNames: ECookProgressDisplayMode;
+	static var InstigatorsAndNamesAndCount: ECookProgressDisplayMode;
+	static var Max: ECookProgressDisplayMode;
+	static var ECookProgressDisplayMode_MAX: ECookProgressDisplayMode;
 }

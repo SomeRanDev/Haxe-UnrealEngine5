@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class GeometryCacheTrackStreamable extends GeometryCacheTrack {
 	public var Codec: cpp.Star<GeometryCacheCodecBase>;
-	public var StartSampleTime: cpp.Float32;
+	private var StartSampleTime: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,6 @@ extern class GeometryCacheTrackStreamable extends GeometryCacheTrack {
 abstract ConstGeometryCacheTrackStreamable(GeometryCacheTrackStreamable) from GeometryCacheTrackStreamable {
 	public extern var Codec(get, never): cpp.Star<GeometryCacheCodecBase.ConstGeometryCacheCodecBase>;
 	public inline extern function get_Codec(): cpp.Star<GeometryCacheCodecBase.ConstGeometryCacheCodecBase> return this.Codec;
-	public extern var StartSampleTime(get, never): cpp.Float32;
-	public inline extern function get_StartSampleTime(): cpp.Float32 return this.StartSampleTime;
 }
 
 @:forward

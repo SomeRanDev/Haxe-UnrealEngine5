@@ -3,11 +3,11 @@ package ue;
 
 @:native("EChaosBreakingSortMethod")
 @:include("ChaosBreakingEventFilter.h")
-extern enum EChaosBreakingSortMethod {
-	SortNone;
-	SortByHighestMass;
-	SortByHighestSpeed;
-	SortByNearestFirst;
-	Count;
-	EChaosBreakingSortMethod_MAX;
+extern class EChaosBreakingSortMethod {
+	static var SortNone: EChaosBreakingSortMethod;
+	static var SortByHighestMass: EChaosBreakingSortMethod;
+	static var SortByHighestSpeed: EChaosBreakingSortMethod;
+	static var SortByNearestFirst: EChaosBreakingSortMethod;
+	static var Count: EChaosBreakingSortMethod;
+	static var EChaosBreakingSortMethod_MAX: EChaosBreakingSortMethod;
 }

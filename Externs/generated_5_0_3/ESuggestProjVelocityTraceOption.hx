@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESuggestProjVelocityTraceOption.Type")
 @:include("Kismet/GameplayStaticsTypes.h")
-extern enum ESuggestProjVelocityTraceOption {
-	DoNotTrace;
-	TraceFullPath;
-	OnlyTraceWhileAscending;
-	ESuggestProjVelocityTraceOption_MAX;
+extern class ESuggestProjVelocityTraceOption {
+	static var DoNotTrace: ESuggestProjVelocityTraceOption;
+	static var TraceFullPath: ESuggestProjVelocityTraceOption;
+	static var OnlyTraceWhileAscending: ESuggestProjVelocityTraceOption;
+	static var ESuggestProjVelocityTraceOption_MAX: ESuggestProjVelocityTraceOption;
 }

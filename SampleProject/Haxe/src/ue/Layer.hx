@@ -5,9 +5,9 @@ package ue;
 @:include("Layers/Layer.h")
 @:structAccess
 extern class Layer extends Object {
-	public var LayerName: FName;
-	public var bIsVisible: Bool;
-	public var ActorStats: TArray<LayerActorStats>;
+	private var LayerName: FName;
+	private var bIsVisible: Bool;
+	private var ActorStats: TArray<LayerActorStats>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class Layer extends Object {
 @:forward()
 @:nativeGen
 abstract ConstLayer(Layer) from Layer {
-	public extern var LayerName(get, never): FName;
-	public inline extern function get_LayerName(): FName return this.LayerName;
-	public extern var bIsVisible(get, never): Bool;
-	public inline extern function get_bIsVisible(): Bool return this.bIsVisible;
-	public extern var ActorStats(get, never): TArray<LayerActorStats>;
-	public inline extern function get_ActorStats(): TArray<LayerActorStats> return this.ActorStats;
 }
 
 @:forward

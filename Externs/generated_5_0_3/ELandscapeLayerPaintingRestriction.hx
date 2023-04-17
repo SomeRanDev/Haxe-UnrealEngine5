@@ -3,10 +3,10 @@ package ue;
 
 @:native("ELandscapeLayerPaintingRestriction")
 @:include("LandscapeProxy.h")
-extern enum ELandscapeLayerPaintingRestriction {
-	None;
-	UseMaxLayers;
-	ExistingOnly;
-	UseComponentAllowList;
-	ELandscapeLayerPaintingRestriction_MAX;
+extern class ELandscapeLayerPaintingRestriction {
+	static var None: ELandscapeLayerPaintingRestriction;
+	static var UseMaxLayers: ELandscapeLayerPaintingRestriction;
+	static var ExistingOnly: ELandscapeLayerPaintingRestriction;
+	static var UseComponentAllowList: ELandscapeLayerPaintingRestriction;
+	static var ELandscapeLayerPaintingRestriction_MAX: ELandscapeLayerPaintingRestriction;
 }

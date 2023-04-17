@@ -12,7 +12,7 @@ extern class ExistingMeshMaterialProperties extends InteractiveToolPropertySet {
 	public var UVChannelNamesList: TArray<FString>;
 	public var CheckerMaterial: cpp.Star<MaterialInstanceDynamic>;
 
-	public function GetUVChannelNamesFunc(): cpp.Reference<TArray<FString>>;
+	public function GetUVChannelNamesFunc(): TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

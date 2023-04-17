@@ -7,10 +7,10 @@ package ue;
 extern class MovieSceneDoubleValue {
 	public var Value: cpp.Float64;
 	public var Tangent: MovieSceneTangentData;
-	public var InterpMode: ERichCurveInterpMode;
-	public var TangentMode: ERichCurveTangentMode;
+	public var InterpMode: TEnumAsByte<ERichCurveInterpMode>;
+	public var TangentMode: TEnumAsByte<ERichCurveTangentMode>;
 	public var PaddingByte: cpp.UInt8;
 
 	@:native("FMovieSceneDoubleValue") public function new();
-	@:native("FMovieSceneDoubleValue") public static function make(Value: cpp.Float64, Tangent: MovieSceneTangentData, InterpMode: ERichCurveInterpMode, TangentMode: ERichCurveTangentMode, PaddingByte: cpp.UInt8): MovieSceneDoubleValue ;
+	@:native("FMovieSceneDoubleValue") public static function make(Value: cpp.Float64, Tangent: MovieSceneTangentData, InterpMode: TEnumAsByte<ERichCurveInterpMode>, TangentMode: TEnumAsByte<ERichCurveTangentMode>, PaddingByte: cpp.UInt8): MovieSceneDoubleValue ;
 }

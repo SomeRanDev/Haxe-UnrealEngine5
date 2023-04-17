@@ -3,16 +3,16 @@ package ue;
 
 @:native("ERigControlType")
 @:include("Rigs/RigHierarchyDefines.h")
-extern enum ERigControlType {
-	Bool;
-	Float;
-	Integer;
-	Vector2D;
-	Position;
-	Scale;
-	Rotator;
-	Transform;
-	TransformNoScale;
-	EulerTransform;
-	ERigControlType_MAX;
+extern class ERigControlType {
+	static var Bool: ERigControlType;
+	static var Float: ERigControlType;
+	static var Integer: ERigControlType;
+	static var Vector2D: ERigControlType;
+	static var Position: ERigControlType;
+	static var Scale: ERigControlType;
+	static var Rotator: ERigControlType;
+	static var Transform: ERigControlType;
+	static var TransformNoScale: ERigControlType;
+	static var EulerTransform: ERigControlType;
+	static var ERigControlType_MAX: ERigControlType;
 }

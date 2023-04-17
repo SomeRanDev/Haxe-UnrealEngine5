@@ -5,8 +5,8 @@ package ue;
 @:include("Blueprint/UserWidgetPool.h")
 @:structAccess
 extern class UserWidgetPool {
-	public var ActiveWidgets: TArray<cpp.Star<UserWidget>>;
-	public var InactiveWidgets: TArray<cpp.Star<UserWidget>>;
+	private var ActiveWidgets: TArray<cpp.Star<UserWidget>>;
+	private var InactiveWidgets: TArray<cpp.Star<UserWidget>>;
 
 	@:native("FUserWidgetPool") public function new();
 	@:native("FUserWidgetPool") public static function make(ActiveWidgets: TArray<cpp.Star<UserWidget>>, InactiveWidgets: TArray<cpp.Star<UserWidget>>): UserWidgetPool ;

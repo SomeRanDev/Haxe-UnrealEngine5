@@ -3,14 +3,14 @@ package ue;
 
 @:native("ERuntimeVirtualTextureMaterialType")
 @:include("VT/RuntimeVirtualTextureEnum.h")
-extern enum ERuntimeVirtualTextureMaterialType {
-	BaseColor;
-	BaseColor_Normal_DEPRECATED;
-	BaseColor_Normal_Roughness;
-	BaseColor_Normal_Specular;
-	BaseColor_Normal_Specular_YCoCg;
-	BaseColor_Normal_Specular_Mask_YCoCg;
-	WorldHeight;
-	Count;
-	ERuntimeVirtualTextureMaterialType_MAX;
+extern class ERuntimeVirtualTextureMaterialType {
+	static var BaseColor: ERuntimeVirtualTextureMaterialType;
+	static var BaseColor_Normal_DEPRECATED: ERuntimeVirtualTextureMaterialType;
+	static var BaseColor_Normal_Roughness: ERuntimeVirtualTextureMaterialType;
+	static var BaseColor_Normal_Specular: ERuntimeVirtualTextureMaterialType;
+	static var BaseColor_Normal_Specular_YCoCg: ERuntimeVirtualTextureMaterialType;
+	static var BaseColor_Normal_Specular_Mask_YCoCg: ERuntimeVirtualTextureMaterialType;
+	static var WorldHeight: ERuntimeVirtualTextureMaterialType;
+	static var Count: ERuntimeVirtualTextureMaterialType;
+	static var ERuntimeVirtualTextureMaterialType_MAX: ERuntimeVirtualTextureMaterialType;
 }

@@ -5,8 +5,8 @@ package ue;
 @:include("FractureToolCutter.h")
 @:structAccess
 extern class FractureToolCutterBase extends FractureInteractiveTool {
-	public var CutterSettings: cpp.Star<FractureCutterSettings>;
-	public var CollisionSettings: cpp.Star<FractureCollisionSettings>;
+	@:protected public var CutterSettings: cpp.Star<FractureCutterSettings>;
+	@:protected public var CollisionSettings: cpp.Star<FractureCollisionSettings>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class FractureToolCutterBase extends FractureInteractiveTool {
 @:forward()
 @:nativeGen
 abstract ConstFractureToolCutterBase(FractureToolCutterBase) from FractureToolCutterBase {
-	public extern var CutterSettings(get, never): cpp.Star<FractureCutterSettings.ConstFractureCutterSettings>;
-	public inline extern function get_CutterSettings(): cpp.Star<FractureCutterSettings.ConstFractureCutterSettings> return this.CutterSettings;
-	public extern var CollisionSettings(get, never): cpp.Star<FractureCollisionSettings.ConstFractureCollisionSettings>;
-	public inline extern function get_CollisionSettings(): cpp.Star<FractureCollisionSettings.ConstFractureCollisionSettings> return this.CollisionSettings;
 }
 
 @:forward

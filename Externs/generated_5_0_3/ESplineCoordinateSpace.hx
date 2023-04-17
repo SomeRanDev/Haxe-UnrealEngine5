@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESplineCoordinateSpace.Type")
 @:include("Components/SplineComponent.h")
-extern enum ESplineCoordinateSpace {
-	Local;
-	World;
-	ESplineCoordinateSpace_MAX;
+extern class ESplineCoordinateSpace {
+	static var Local: ESplineCoordinateSpace;
+	static var World: ESplineCoordinateSpace;
+	static var ESplineCoordinateSpace_MAX: ESplineCoordinateSpace;
 }

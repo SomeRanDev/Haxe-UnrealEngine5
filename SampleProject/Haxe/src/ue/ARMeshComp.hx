@@ -5,9 +5,9 @@ package ue;
 @:include("ARComponent.h")
 @:structAccess
 extern class ARMeshComp extends ARComp {
-	public var ReplicatedPayload: ARMeshUpdatePayload;
+	@:protected public var ReplicatedPayload: ARMeshUpdatePayload;
 
-	public function ServerUpdatePayload(NewPayload: cpp.Reference<ARMeshUpdatePayload>): Void;
+	@:protected public function ServerUpdatePayload(NewPayload: ARMeshUpdatePayload): Void;
 	public function ReceiveUpdate(Payload: cpp.Reference<ARMeshUpdatePayload>): Void;
 	public function ReceiveAdd(Payload: cpp.Reference<ARMeshUpdatePayload>): Void;
 
@@ -17,8 +17,6 @@ extern class ARMeshComp extends ARComp {
 @:forward()
 @:nativeGen
 abstract ConstARMeshComp(ARMeshComp) from ARMeshComp {
-	public extern var ReplicatedPayload(get, never): ARMeshUpdatePayload;
-	public inline extern function get_ReplicatedPayload(): ARMeshUpdatePayload return this.ReplicatedPayload;
 }
 
 @:forward

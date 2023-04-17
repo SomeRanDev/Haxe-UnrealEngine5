@@ -9,7 +9,7 @@ extern class TestBTTask_Log extends BTTaskNode {
 	public var LogFinished: cpp.Int32;
 	public var ExecutionTicks: cpp.Int32;
 	public var LogTickIndex: cpp.Int32;
-	public var LogResult: EBTNodeResult;
+	public var LogResult: TEnumAsByte<EBTNodeResult>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -25,8 +25,8 @@ abstract ConstTestBTTask_Log(TestBTTask_Log) from TestBTTask_Log {
 	public inline extern function get_ExecutionTicks(): cpp.Int32 return this.ExecutionTicks;
 	public extern var LogTickIndex(get, never): cpp.Int32;
 	public inline extern function get_LogTickIndex(): cpp.Int32 return this.LogTickIndex;
-	public extern var LogResult(get, never): EBTNodeResult;
-	public inline extern function get_LogResult(): EBTNodeResult return this.LogResult;
+	public extern var LogResult(get, never): TEnumAsByte<EBTNodeResult>;
+	public inline extern function get_LogResult(): TEnumAsByte<EBTNodeResult> return this.LogResult;
 }
 
 @:forward

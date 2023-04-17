@@ -3,9 +3,9 @@ package ue;
 
 @:native("EDynamicMeshComponentTangentsMode")
 @:include("Components/BaseDynamicMeshComponent.h")
-extern enum EDynamicMeshComponentTangentsMode {
-	NoTangents;
-	AutoCalculated;
-	ExternallyProvided;
-	EDynamicMeshComponentTangentsMode_MAX;
+extern class EDynamicMeshComponentTangentsMode {
+	static var NoTangents: EDynamicMeshComponentTangentsMode;
+	static var AutoCalculated: EDynamicMeshComponentTangentsMode;
+	static var ExternallyProvided: EDynamicMeshComponentTangentsMode;
+	static var EDynamicMeshComponentTangentsMode_MAX: EDynamicMeshComponentTangentsMode;
 }

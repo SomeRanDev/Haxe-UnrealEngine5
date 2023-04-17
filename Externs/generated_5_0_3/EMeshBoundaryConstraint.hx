@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMeshBoundaryConstraint")
 @:include("Properties/RemeshProperties.h")
-extern enum EMeshBoundaryConstraint {
-	Fixed;
-	Refine;
-	Free;
-	EMeshBoundaryConstraint_MAX;
+extern class EMeshBoundaryConstraint {
+	static var Fixed: EMeshBoundaryConstraint;
+	static var Refine: EMeshBoundaryConstraint;
+	static var Free: EMeshBoundaryConstraint;
+	static var EMeshBoundaryConstraint_MAX: EMeshBoundaryConstraint;
 }

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EAnimGraphAttributeBlend")
 @:include("AnimGraphAttributes.h")
-extern enum EAnimGraphAttributeBlend {
-	Blendable;
-	NonBlendable;
-	EAnimGraphAttributeBlend_MAX;
+extern class EAnimGraphAttributeBlend {
+	static var Blendable: EAnimGraphAttributeBlend;
+	static var NonBlendable: EAnimGraphAttributeBlend;
+	static var EAnimGraphAttributeBlend_MAX: EAnimGraphAttributeBlend;
 }

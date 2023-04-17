@@ -8,10 +8,10 @@ extern class MovieSceneScriptingObjectPathChannel extends MovieSceneScriptingCha
 	public function SetDefault(InDefaultValue: cpp.Star<Object>): Void;
 	public function RemoveKey(Key: cpp.Star<MovieSceneScriptingKey>): Void;
 	public function RemoveDefault(): Void;
-	public function HasDefault(): cpp.Reference<Bool>;
-	public function GetKeys(): cpp.Reference<TArray<cpp.Star<MovieSceneScriptingKey>>>;
-	public function GetDefault(): cpp.Reference<cpp.Star<Object>>;
-	public function AddKey(InTime: FrameNumber, NewValue: cpp.Star<Object>, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): cpp.Reference<cpp.Star<MovieSceneScriptingObjectPathKey>>;
+	public function HasDefault(): Bool;
+	public function GetKeys(): TArray<cpp.Star<MovieSceneScriptingKey>>;
+	public function GetDefault(): cpp.Star<Object>;
+	public function AddKey(InTime: FrameNumber, NewValue: cpp.Star<Object>, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): cpp.Star<MovieSceneScriptingObjectPathKey>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

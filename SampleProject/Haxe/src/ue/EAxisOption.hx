@@ -3,13 +3,13 @@ package ue;
 
 @:native("EAxisOption.Type")
 @:include("Animation/AnimTypes.h")
-extern enum EAxisOption {
-	X;
-	Y;
-	Z;
-	X_Neg;
-	Y_Neg;
-	Z_Neg;
-	Custom;
-	EAxisOption_MAX;
+extern class EAxisOption {
+	static var X: EAxisOption;
+	static var Y: EAxisOption;
+	static var Z: EAxisOption;
+	static var X_Neg: EAxisOption;
+	static var Y_Neg: EAxisOption;
+	static var Z_Neg: EAxisOption;
+	static var Custom: EAxisOption;
+	static var EAxisOption_MAX: EAxisOption;
 }

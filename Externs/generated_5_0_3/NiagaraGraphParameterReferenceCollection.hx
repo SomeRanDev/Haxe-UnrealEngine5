@@ -7,7 +7,7 @@ package ue;
 extern class NiagaraGraphParameterReferenceCollection {
 	public var ParameterReferences: TArray<NiagaraGraphParameterReference>;
 	public var Graph: cpp.Star<NiagaraGraph>;
-	public var bCreatedByUser: Bool;
+	private var bCreatedByUser: Bool;
 
 	@:native("FNiagaraGraphParameterReferenceCollection") public function new();
 	@:native("FNiagaraGraphParameterReferenceCollection") public static function make(ParameterReferences: TArray<NiagaraGraphParameterReference>, Graph: cpp.Star<NiagaraGraph>, bCreatedByUser: Bool): NiagaraGraphParameterReferenceCollection ;

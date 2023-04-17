@@ -3,9 +3,9 @@ package ue;
 
 @:native("FDataDrivenCVarType")
 @:include("DataDrivenCVars/DataDrivenCVars.h")
-extern enum FDataDrivenCVarType {
-	CVarFloat;
-	CVarInt;
-	CVarBool;
-	FDataDrivenCVarType_MAX;
+extern class FDataDrivenCVarType {
+	static var CVarFloat: FDataDrivenCVarType;
+	static var CVarInt: FDataDrivenCVarType;
+	static var CVarBool: FDataDrivenCVarType;
+	static var FDataDrivenCVarType_MAX: FDataDrivenCVarType;
 }

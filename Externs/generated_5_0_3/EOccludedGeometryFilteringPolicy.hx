@@ -3,8 +3,8 @@ package ue;
 
 @:native("EOccludedGeometryFilteringPolicy")
 @:include("Engine/MeshMerging.h")
-extern enum EOccludedGeometryFilteringPolicy {
-	NoOcclusionFiltering;
-	VisibilityBasedFiltering;
-	EOccludedGeometryFilteringPolicy_MAX;
+extern class EOccludedGeometryFilteringPolicy {
+	static var NoOcclusionFiltering: EOccludedGeometryFilteringPolicy;
+	static var VisibilityBasedFiltering: EOccludedGeometryFilteringPolicy;
+	static var EOccludedGeometryFilteringPolicy_MAX: EOccludedGeometryFilteringPolicy;
 }

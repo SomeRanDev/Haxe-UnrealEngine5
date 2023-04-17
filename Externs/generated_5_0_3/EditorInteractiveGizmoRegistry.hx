@@ -5,7 +5,7 @@ package ue;
 @:include("EditorInteractiveGizmoRegistry.h")
 @:structAccess
 extern class EditorInteractiveGizmoRegistry extends Object {
-	public var GizmoCategoryMap: TMap<EEditorGizmoCategory, cpp.Star<EditorGizmoRegistryCategoryEntry>>;
+	private var GizmoCategoryMap: TMap<EEditorGizmoCategory, cpp.Star<EditorGizmoRegistryCategoryEntry>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class EditorInteractiveGizmoRegistry extends Object {
 @:forward()
 @:nativeGen
 abstract ConstEditorInteractiveGizmoRegistry(EditorInteractiveGizmoRegistry) from EditorInteractiveGizmoRegistry {
-	public extern var GizmoCategoryMap(get, never): TMap<EEditorGizmoCategory, cpp.Star<EditorGizmoRegistryCategoryEntry.ConstEditorGizmoRegistryCategoryEntry>>;
-	public inline extern function get_GizmoCategoryMap(): TMap<EEditorGizmoCategory, cpp.Star<EditorGizmoRegistryCategoryEntry.ConstEditorGizmoRegistryCategoryEntry>> return this.GizmoCategoryMap;
 }
 
 @:forward

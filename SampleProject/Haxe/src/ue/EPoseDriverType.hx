@@ -3,9 +3,9 @@ package ue;
 
 @:native("EPoseDriverType")
 @:include("AnimNodes/AnimNode_PoseDriver.h")
-extern enum EPoseDriverType {
-	SwingAndTwist;
-	SwingOnly;
-	Translation;
-	EPoseDriverType_MAX;
+extern class EPoseDriverType {
+	static var SwingAndTwist: EPoseDriverType;
+	static var SwingOnly: EPoseDriverType;
+	static var Translation: EPoseDriverType;
+	static var EPoseDriverType_MAX: EPoseDriverType;
 }

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EOscillatorWaveform")
 @:include("MatineeCameraShake.h")
-extern enum EOscillatorWaveform {
-	SineWave;
-	PerlinNoise;
-	EOscillatorWaveform_MAX;
+extern class EOscillatorWaveform {
+	static var SineWave: EOscillatorWaveform;
+	static var PerlinNoise: EOscillatorWaveform;
+	static var EOscillatorWaveform_MAX: EOscillatorWaveform;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("ETransformConstraintType")
 @:include("Constraint.h")
-extern enum ETransformConstraintType {
-	Translation;
-	Rotation;
-	Scale;
-	Parent;
-	ETransformConstraintType_MAX;
+extern class ETransformConstraintType {
+	static var Translation: ETransformConstraintType;
+	static var Rotation: ETransformConstraintType;
+	static var Scale: ETransformConstraintType;
+	static var Parent: ETransformConstraintType;
+	static var ETransformConstraintType_MAX: ETransformConstraintType;
 }

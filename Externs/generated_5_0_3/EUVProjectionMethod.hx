@@ -3,10 +3,10 @@ package ue;
 
 @:native("EUVProjectionMethod")
 @:include("ParameterizationOps/UVProjectionOp.h")
-extern enum EUVProjectionMethod {
-	Box;
-	Cylinder;
-	Plane;
-	ExpMap;
-	EUVProjectionMethod_MAX;
+extern class EUVProjectionMethod {
+	static var Box: EUVProjectionMethod;
+	static var Cylinder: EUVProjectionMethod;
+	static var Plane: EUVProjectionMethod;
+	static var ExpMap: EUVProjectionMethod;
+	static var EUVProjectionMethod_MAX: EUVProjectionMethod;
 }

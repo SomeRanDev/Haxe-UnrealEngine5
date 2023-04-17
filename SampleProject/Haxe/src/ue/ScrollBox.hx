@@ -7,9 +7,7 @@ package ue;
 extern class ScrollBox extends PanelWidget {
 	public var WidgetStyle: ScrollBoxStyle;
 	public var WidgetBarStyle: ScrollBarStyle;
-	public var Style_DEPRECATED: cpp.Star<SlateWidgetStyleAsset>;
-	public var BarStyle_DEPRECATED: cpp.Star<SlateWidgetStyleAsset>;
-	public var Orientation: EOrientation;
+	public var Orientation: TEnumAsByte<EOrientation>;
 	public var ScrollBarVisibility: ESlateVisibility;
 	public var ConsumeMouseWheel: EConsumeMouseWheel;
 	public var ScrollbarThickness: Vector2D;
@@ -33,7 +31,7 @@ extern class ScrollBox extends PanelWidget {
 	public function SetScrollBarVisibility(NewScrollBarVisibility: ESlateVisibility): Void;
 	public function SetScrollbarThickness(NewScrollbarThickness: cpp.Reference<Vector2D>): Void;
 	public function SetScrollbarPadding(NewScrollbarPadding: cpp.Reference<Margin>): Void;
-	public function SetOrientation(NewOrientation: EOrientation): Void;
+	public function SetOrientation(NewOrientation: TEnumAsByte<EOrientation>): Void;
 	public function SetNavigationDestination(NewNavigationDestination: EDescendantScrollDestination): Void;
 	public function SetConsumeMouseWheel(NewConsumeMouseWheel: EConsumeMouseWheel): Void;
 	public function SetAnimateWheelScrolling(bShouldAnimateWheelScrolling: Bool): Void;
@@ -42,9 +40,9 @@ extern class ScrollBox extends PanelWidget {
 	public function ScrollWidgetIntoView(WidgetToFind: cpp.Star<Widget>, AnimateScroll: Bool, ScrollDestination: EDescendantScrollDestination, Padding: cpp.Float32): Void;
 	public function ScrollToStart(): Void;
 	public function ScrollToEnd(): Void;
-	public function GetViewOffsetFraction(): cpp.Reference<cpp.Float32>;
-	public function GetScrollOffsetOfEnd(): cpp.Reference<cpp.Float32>;
-	public function GetScrollOffset(): cpp.Reference<cpp.Float32>;
+	public function GetViewOffsetFraction(): cpp.Float32;
+	public function GetScrollOffsetOfEnd(): cpp.Float32;
+	public function GetScrollOffset(): cpp.Float32;
 	public function EndInertialScrolling(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -57,12 +55,8 @@ abstract ConstScrollBox(ScrollBox) from ScrollBox {
 	public inline extern function get_WidgetStyle(): ScrollBoxStyle return this.WidgetStyle;
 	public extern var WidgetBarStyle(get, never): ScrollBarStyle;
 	public inline extern function get_WidgetBarStyle(): ScrollBarStyle return this.WidgetBarStyle;
-	public extern var Style_DEPRECATED(get, never): cpp.Star<SlateWidgetStyleAsset.ConstSlateWidgetStyleAsset>;
-	public inline extern function get_Style_DEPRECATED(): cpp.Star<SlateWidgetStyleAsset.ConstSlateWidgetStyleAsset> return this.Style_DEPRECATED;
-	public extern var BarStyle_DEPRECATED(get, never): cpp.Star<SlateWidgetStyleAsset.ConstSlateWidgetStyleAsset>;
-	public inline extern function get_BarStyle_DEPRECATED(): cpp.Star<SlateWidgetStyleAsset.ConstSlateWidgetStyleAsset> return this.BarStyle_DEPRECATED;
-	public extern var Orientation(get, never): EOrientation;
-	public inline extern function get_Orientation(): EOrientation return this.Orientation;
+	public extern var Orientation(get, never): TEnumAsByte<EOrientation>;
+	public inline extern function get_Orientation(): TEnumAsByte<EOrientation> return this.Orientation;
 	public extern var ScrollBarVisibility(get, never): ESlateVisibility;
 	public inline extern function get_ScrollBarVisibility(): ESlateVisibility return this.ScrollBarVisibility;
 	public extern var ConsumeMouseWheel(get, never): EConsumeMouseWheel;

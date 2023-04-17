@@ -27,14 +27,6 @@ extern class MeshMergingSettings {
 	public var bAllowDistanceField: Bool;
 	public var bGenerateNaniteEnabledMesh: Bool;
 	public var NaniteFallbackTrianglePercent: cpp.Float32;
-	public var bImportVertexColors_DEPRECATED: Bool;
-	public var bCalculateCorrectLODModel_DEPRECATED: Bool;
-	public var bExportNormalMap_DEPRECATED: Bool;
-	public var bExportMetallicMap_DEPRECATED: Bool;
-	public var bExportRoughnessMap_DEPRECATED: Bool;
-	public var bExportSpecularMap_DEPRECATED: Bool;
-	public var MergedMaterialAtlasResolution_DEPRECATED: cpp.Int32;
-	public var ExportSpecificLOD_DEPRECATED: cpp.Int32;
 
 	@:native("FMeshMergingSettings") public function new();
 }

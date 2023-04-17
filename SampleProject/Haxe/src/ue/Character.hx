@@ -5,19 +5,18 @@ package ue;
 @:include("GameFramework/Character.h")
 @:structAccess
 extern class Character extends Pawn {
-	public var Mesh: cpp.Star<SkeletalMeshComp>;
-	public var CharacterMovement: cpp.Star<CharacterMovementComp>;
-	public var CapsuleComponent: cpp.Star<CapsuleComp>;
-	public var ArrowComponent: cpp.Star<ArrowComp>;
-	public var BasedMovement: BasedMovementInfo;
-	public var ReplicatedBasedMovement: BasedMovementInfo;
-	public var AnimRootMotionTranslationScale: cpp.Float32;
-	public var BaseTranslationOffset: Vector;
-	public var BaseRotationOffset: Quat;
-	public var ReplicatedServerLastTransformUpdateTimeStamp: cpp.Float32;
-	public var ReplayLastTransformUpdateTimeStamp: cpp.Float32;
-	public var ReplicatedMovementMode: cpp.UInt8;
-	public var bInBaseReplication: Bool;
+	private var Mesh: cpp.Star<SkeletalMeshComp>;
+	private var CharacterMovement: cpp.Star<CharacterMovementComp>;
+	private var CapsuleComponent: cpp.Star<CapsuleComp>;
+	@:protected public var BasedMovement: BasedMovementInfo;
+	@:protected public var ReplicatedBasedMovement: BasedMovementInfo;
+	@:protected public var AnimRootMotionTranslationScale: cpp.Float32;
+	@:protected public var BaseTranslationOffset: Vector;
+	@:protected public var BaseRotationOffset: Quat;
+	@:protected public var ReplicatedServerLastTransformUpdateTimeStamp: cpp.Float32;
+	@:protected public var ReplayLastTransformUpdateTimeStamp: cpp.Float32;
+	@:protected public var ReplicatedMovementMode: cpp.UInt8;
+	@:protected public var bInBaseReplication: Bool;
 	public var CrouchedEyeHeight: cpp.Float32;
 	public var bIsCrouched: Bool;
 	public var bProxyIsJumpForceApplied: Bool;
@@ -38,7 +37,7 @@ extern class Character extends Pawn {
 	public var JumpCurrentCount: cpp.Int32;
 	public var JumpCurrentCountPreJump: cpp.Int32;
 	public var OnReachedJumpApex: HaxeMulticastSparseDelegateProperty<() -> Void>;
-	public var MovementModeChangedDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Star<Character>, EMovementMode, cpp.UInt8) -> Void>;
+	public var MovementModeChangedDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Star<Character>, TEnumAsByte<EMovementMode>, cpp.UInt8) -> Void>;
 	public var OnCharacterMovementUpdated: HaxeMulticastSparseDelegateProperty<(cpp.Float32, Vector, Vector) -> Void>;
 	public var SavedRootMotion: RootMotionSourceGroup;
 	public var ClientRootMotionParams: RootMotionMovementParams;
@@ -48,7 +47,7 @@ extern class Character extends Pawn {
 	public function UnCrouch(bClientSimulation: Bool): Void;
 	public function StopJumping(): Void;
 	public function StopAnimMontage(AnimMontage: cpp.Star<AnimMontage>): Void;
-	public function ServerMovePacked(PackedBits: cpp.Reference<CharacterServerMovePackedBits>): Void;
+	public function ServerMovePacked(PackedBits: CharacterServerMovePackedBits): Void;
 	public function ServerMoveOld(OldTimeStamp: cpp.Float32, OldAccel: Vector_NetQuantize10, OldMoveFlags: cpp.UInt8): Void;
 	public function ServerMoveNoBase(TimeStamp: cpp.Float32, InAccel: Vector_NetQuantize10, ClientLoc: Vector_NetQuantize100, CompressedMoveFlags: cpp.UInt8, ClientRoll: cpp.UInt8, View: cpp.UInt32, ClientMovementMode: cpp.UInt8): Void;
 	public function ServerMoveDualNoBase(TimeStamp0: cpp.Float32, InAccel0: Vector_NetQuantize10, PendingFlags: cpp.UInt8, View0: cpp.UInt32, TimeStamp: cpp.Float32, InAccel: Vector_NetQuantize10, ClientLoc: Vector_NetQuantize100, NewFlags: cpp.UInt8, ClientRoll: cpp.UInt8, View: cpp.UInt32, ClientMovementMode: cpp.UInt8): Void;
@@ -56,7 +55,7 @@ extern class Character extends Pawn {
 	public function ServerMoveDual(TimeStamp0: cpp.Float32, InAccel0: Vector_NetQuantize10, PendingFlags: cpp.UInt8, View0: cpp.UInt32, TimeStamp: cpp.Float32, InAccel: Vector_NetQuantize10, ClientLoc: Vector_NetQuantize100, NewFlags: cpp.UInt8, ClientRoll: cpp.UInt8, View: cpp.UInt32, ClientMovementBase: cpp.Star<PrimitiveComp>, ClientBaseBoneName: FName, ClientMovementMode: cpp.UInt8): Void;
 	public function ServerMove(TimeStamp: cpp.Float32, InAccel: Vector_NetQuantize10, ClientLoc: Vector_NetQuantize100, CompressedMoveFlags: cpp.UInt8, ClientRoll: cpp.UInt8, View: cpp.UInt32, ClientMovementBase: cpp.Star<PrimitiveComp>, ClientBaseBoneName: FName, ClientMovementMode: cpp.UInt8): Void;
 	public function RootMotionDebugClientPrintOnScreen(InString: FString): Void;
-	public function PlayAnimMontage(AnimMontage: cpp.Star<AnimMontage>, InPlayRate: cpp.Float32, StartSectionName: FName): cpp.Reference<cpp.Float32>;
+	public function PlayAnimMontage(AnimMontage: cpp.Star<AnimMontage>, InPlayRate: cpp.Float32, StartSectionName: FName): cpp.Float32;
 	public function OnWalkingOffLedge(PreviousFloorImpactNormal: cpp.Reference<Vector>, PreviousFloorContactNormal: cpp.Reference<Vector>, PreviousLocation: cpp.Reference<Vector>, TimeDelta: cpp.Float32): Void;
 	public function OnRep_RootMotion(): Void;
 	public function OnRep_ReplicatedBasedMovement(): Void;
@@ -68,20 +67,20 @@ extern class Character extends Pawn {
 	public function LaunchCharacter(LaunchVelocity: Vector, bXYOverride: Bool, bZOverride: Bool): Void;
 	public function K2_UpdateCustomMovement(DeltaTime: cpp.Float32): Void;
 	public function K2_OnStartCrouch(HalfHeightAdjust: cpp.Float32, ScaledHalfHeightAdjust: cpp.Float32): Void;
-	public function K2_OnMovementModeChanged(PrevMovementMode: EMovementMode, NewMovementMode: EMovementMode, PrevCustomMode: cpp.UInt8, NewCustomMode: cpp.UInt8): Void;
+	public function K2_OnMovementModeChanged(PrevMovementMode: TEnumAsByte<EMovementMode>, NewMovementMode: TEnumAsByte<EMovementMode>, PrevCustomMode: cpp.UInt8, NewCustomMode: cpp.UInt8): Void;
 	public function K2_OnEndCrouch(HalfHeightAdjust: cpp.Float32, ScaledHalfHeightAdjust: cpp.Float32): Void;
 	public function Jump(): Void;
-	public function IsPlayingRootMotion(): cpp.Reference<Bool>;
-	public function IsPlayingNetworkedRootMotionMontage(): cpp.Reference<Bool>;
-	public function IsJumpProvidingForce(): cpp.Reference<Bool>;
-	public function HasAnyRootMotion(): cpp.Reference<Bool>;
-	public function GetCurrentMontage(): cpp.Reference<cpp.Star<AnimMontage>>;
-	public function GetBaseTranslationOffset(): cpp.Reference<Vector>;
-	public function GetBaseRotationOffsetRotator(): cpp.Reference<Rotator>;
-	public function GetAnimRootMotionTranslationScale(): cpp.Reference<cpp.Float32>;
+	public function IsPlayingRootMotion(): Bool;
+	public function IsPlayingNetworkedRootMotionMontage(): Bool;
+	public function IsJumpProvidingForce(): Bool;
+	public function HasAnyRootMotion(): Bool;
+	public function GetCurrentMontage(): cpp.Star<AnimMontage>;
+	public function GetBaseTranslationOffset(): Vector;
+	public function GetBaseRotationOffsetRotator(): Rotator;
+	public function GetAnimRootMotionTranslationScale(): cpp.Float32;
 	public function Crouch(bClientSimulation: Bool): Void;
 	public function ClientVeryShortAdjustPosition(TimeStamp: cpp.Float32, NewLoc: Vector, NewBase: cpp.Star<PrimitiveComp>, NewBaseBoneName: FName, bHasBase: Bool, bBaseRelativePosition: Bool, ServerMovementMode: cpp.UInt8): Void;
-	public function ClientMoveResponsePacked(PackedBits: cpp.Reference<CharacterMoveResponsePackedBits>): Void;
+	public function ClientMoveResponsePacked(PackedBits: CharacterMoveResponsePackedBits): Void;
 	public function ClientCheatWalk(): Void;
 	public function ClientCheatGhost(): Void;
 	public function ClientCheatFly(): Void;
@@ -89,9 +88,9 @@ extern class Character extends Pawn {
 	public function ClientAdjustRootMotionPosition(TimeStamp: cpp.Float32, ServerMontageTrackPosition: cpp.Float32, ServerLoc: Vector, ServerRotation: Vector_NetQuantizeNormal, ServerVelZ: cpp.Float32, ServerBase: cpp.Star<PrimitiveComp>, ServerBoneName: FName, bHasBase: Bool, bBaseRelativePosition: Bool, ServerMovementMode: cpp.UInt8): Void;
 	public function ClientAdjustPosition(TimeStamp: cpp.Float32, NewLoc: Vector, NewVel: Vector, NewBase: cpp.Star<PrimitiveComp>, NewBaseBoneName: FName, bHasBase: Bool, bBaseRelativePosition: Bool, ServerMovementMode: cpp.UInt8): Void;
 	public function ClientAckGoodMove(TimeStamp: cpp.Float32): Void;
-	public function CanJumpInternal(): cpp.Reference<Bool>;
-	public function CanJump(): cpp.Reference<Bool>;
-	public function CanCrouch(): cpp.Reference<Bool>;
+	@:protected public function CanJumpInternal(): Bool;
+	public function CanJump(): Bool;
+	public function CanCrouch(): Bool;
 	public function CacheInitialMeshOffset(MeshRelativeLocation: Vector, MeshRelativeRotation: Rotator): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -104,32 +103,6 @@ extern class Character extends Pawn {
 )
 @:nativeGen
 abstract ConstCharacter(Character) from Character {
-	public extern var Mesh(get, never): cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp>;
-	public inline extern function get_Mesh(): cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp> return this.Mesh;
-	public extern var CharacterMovement(get, never): cpp.Star<CharacterMovementComp.ConstCharacterMovementComp>;
-	public inline extern function get_CharacterMovement(): cpp.Star<CharacterMovementComp.ConstCharacterMovementComp> return this.CharacterMovement;
-	public extern var CapsuleComponent(get, never): cpp.Star<CapsuleComp.ConstCapsuleComp>;
-	public inline extern function get_CapsuleComponent(): cpp.Star<CapsuleComp.ConstCapsuleComp> return this.CapsuleComponent;
-	public extern var ArrowComponent(get, never): cpp.Star<ArrowComp.ConstArrowComp>;
-	public inline extern function get_ArrowComponent(): cpp.Star<ArrowComp.ConstArrowComp> return this.ArrowComponent;
-	public extern var BasedMovement(get, never): BasedMovementInfo;
-	public inline extern function get_BasedMovement(): BasedMovementInfo return this.BasedMovement;
-	public extern var ReplicatedBasedMovement(get, never): BasedMovementInfo;
-	public inline extern function get_ReplicatedBasedMovement(): BasedMovementInfo return this.ReplicatedBasedMovement;
-	public extern var AnimRootMotionTranslationScale(get, never): cpp.Float32;
-	public inline extern function get_AnimRootMotionTranslationScale(): cpp.Float32 return this.AnimRootMotionTranslationScale;
-	public extern var BaseTranslationOffset(get, never): Vector;
-	public inline extern function get_BaseTranslationOffset(): Vector return this.BaseTranslationOffset;
-	public extern var BaseRotationOffset(get, never): Quat;
-	public inline extern function get_BaseRotationOffset(): Quat return this.BaseRotationOffset;
-	public extern var ReplicatedServerLastTransformUpdateTimeStamp(get, never): cpp.Float32;
-	public inline extern function get_ReplicatedServerLastTransformUpdateTimeStamp(): cpp.Float32 return this.ReplicatedServerLastTransformUpdateTimeStamp;
-	public extern var ReplayLastTransformUpdateTimeStamp(get, never): cpp.Float32;
-	public inline extern function get_ReplayLastTransformUpdateTimeStamp(): cpp.Float32 return this.ReplayLastTransformUpdateTimeStamp;
-	public extern var ReplicatedMovementMode(get, never): cpp.UInt8;
-	public inline extern function get_ReplicatedMovementMode(): cpp.UInt8 return this.ReplicatedMovementMode;
-	public extern var bInBaseReplication(get, never): Bool;
-	public inline extern function get_bInBaseReplication(): Bool return this.bInBaseReplication;
 	public extern var CrouchedEyeHeight(get, never): cpp.Float32;
 	public inline extern function get_CrouchedEyeHeight(): cpp.Float32 return this.CrouchedEyeHeight;
 	public extern var bIsCrouched(get, never): Bool;
@@ -170,8 +143,8 @@ abstract ConstCharacter(Character) from Character {
 	public inline extern function get_JumpCurrentCountPreJump(): cpp.Int32 return this.JumpCurrentCountPreJump;
 	public extern var OnReachedJumpApex(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnReachedJumpApex(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnReachedJumpApex;
-	public extern var MovementModeChangedDelegate(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Character.ConstCharacter>, EMovementMode, cpp.UInt8) -> Void>;
-	public inline extern function get_MovementModeChangedDelegate(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Character.ConstCharacter>, EMovementMode, cpp.UInt8) -> Void> return this.MovementModeChangedDelegate;
+	public extern var MovementModeChangedDelegate(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Character.ConstCharacter>, TEnumAsByte<EMovementMode>, cpp.UInt8) -> Void>;
+	public inline extern function get_MovementModeChangedDelegate(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Character.ConstCharacter>, TEnumAsByte<EMovementMode>, cpp.UInt8) -> Void> return this.MovementModeChangedDelegate;
 	public extern var OnCharacterMovementUpdated(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32, Vector, Vector) -> Void>;
 	public inline extern function get_OnCharacterMovementUpdated(): HaxeMulticastSparseDelegateProperty<(cpp.Float32, Vector, Vector) -> Void> return this.OnCharacterMovementUpdated;
 	public extern var SavedRootMotion(get, never): RootMotionSourceGroup;

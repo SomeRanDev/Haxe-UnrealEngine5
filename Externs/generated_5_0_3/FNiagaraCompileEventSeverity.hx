@@ -3,10 +3,10 @@ package ue;
 
 @:native("FNiagaraCompileEventSeverity")
 @:include("NiagaraShared.h")
-extern enum FNiagaraCompileEventSeverity {
-	Log;
-	Display;
-	Warning;
-	Error;
-	FNiagaraCompileEventSeverity_MAX;
+extern class FNiagaraCompileEventSeverity {
+	static var Log: FNiagaraCompileEventSeverity;
+	static var Display: FNiagaraCompileEventSeverity;
+	static var Warning: FNiagaraCompileEventSeverity;
+	static var Error: FNiagaraCompileEventSeverity;
+	static var FNiagaraCompileEventSeverity_MAX: FNiagaraCompileEventSeverity;
 }

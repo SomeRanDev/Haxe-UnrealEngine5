@@ -29,7 +29,7 @@ extern class EditorStyleSettings extends Object {
 	public var bShowAllAdvancedDetails: Bool;
 	public var bShowHiddenPropertiesWhilePlaying: Bool;
 	public var LogFontSize: cpp.Int32;
-	public var LogTimestampMode: ELogTimes;
+	public var LogTimestampMode: TEnumAsByte<ELogTimes>;
 	public var bPromoteOutputLogWarningsDuringPIE: Bool;
 	public var CategoryColorizationMode: ELogCategoryColorizationMode;
 	public var bCycleToOutputLogDrawer: Bool;
@@ -90,8 +90,8 @@ abstract ConstEditorStyleSettings(EditorStyleSettings) from EditorStyleSettings 
 	public inline extern function get_bShowHiddenPropertiesWhilePlaying(): Bool return this.bShowHiddenPropertiesWhilePlaying;
 	public extern var LogFontSize(get, never): cpp.Int32;
 	public inline extern function get_LogFontSize(): cpp.Int32 return this.LogFontSize;
-	public extern var LogTimestampMode(get, never): ELogTimes;
-	public inline extern function get_LogTimestampMode(): ELogTimes return this.LogTimestampMode;
+	public extern var LogTimestampMode(get, never): TEnumAsByte<ELogTimes>;
+	public inline extern function get_LogTimestampMode(): TEnumAsByte<ELogTimes> return this.LogTimestampMode;
 	public extern var bPromoteOutputLogWarningsDuringPIE(get, never): Bool;
 	public inline extern function get_bPromoteOutputLogWarningsDuringPIE(): Bool return this.bPromoteOutputLogWarningsDuringPIE;
 	public extern var CategoryColorizationMode(get, never): ELogCategoryColorizationMode;

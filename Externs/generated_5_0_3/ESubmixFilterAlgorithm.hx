@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESubmixFilterAlgorithm")
 @:include("SubmixEffects/SubmixEffectFilter.h")
-extern enum ESubmixFilterAlgorithm {
-	OnePole;
-	StateVariable;
-	Ladder;
-	Count;
-	ESubmixFilterAlgorithm_MAX;
+extern class ESubmixFilterAlgorithm {
+	static var OnePole: ESubmixFilterAlgorithm;
+	static var StateVariable: ESubmixFilterAlgorithm;
+	static var Ladder: ESubmixFilterAlgorithm;
+	static var Count: ESubmixFilterAlgorithm;
+	static var ESubmixFilterAlgorithm_MAX: ESubmixFilterAlgorithm;
 }

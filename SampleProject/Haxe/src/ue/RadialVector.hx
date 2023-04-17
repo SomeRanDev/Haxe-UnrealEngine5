@@ -8,7 +8,7 @@ extern class RadialVector extends FieldNodeVector {
 	public var Magnitude: cpp.Float32;
 	public var Position: Vector;
 
-	public function SetRadialVector(Magnitude: cpp.Float32, Position: Vector): cpp.Reference<cpp.Star<RadialVector>>;
+	public function SetRadialVector(Magnitude: cpp.Float32, Position: Vector): cpp.Star<RadialVector>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

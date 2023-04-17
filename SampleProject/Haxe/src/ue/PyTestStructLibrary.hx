@@ -5,12 +5,12 @@ package ue;
 @:include("PyTest.h")
 @:structAccess
 extern class PyTestStructLibrary extends BlueprintFunctionLibrary {
-	public function LegacyIsBoolSet(InStruct: cpp.Reference<PyTestStruct>): cpp.Reference<Bool>;
-	public function IsBoolSet(InStruct: cpp.Reference<PyTestStruct>): cpp.Reference<Bool>;
-	public function GetConstantValue(): cpp.Reference<cpp.Int32>;
-	public function AddStr(InStruct: cpp.Reference<PyTestStruct>, InValue: FString): cpp.Reference<PyTestStruct>;
-	public function AddInt(InStruct: cpp.Reference<PyTestStruct>, InValue: cpp.Int32): cpp.Reference<PyTestStruct>;
-	public function AddFloat(InStruct: cpp.Reference<PyTestStruct>, InValue: cpp.Float32): cpp.Reference<PyTestStruct>;
+	private function LegacyIsBoolSet(InStruct: cpp.Reference<PyTestStruct>): Bool;
+	private function IsBoolSet(InStruct: cpp.Reference<PyTestStruct>): Bool;
+	private function GetConstantValue(): cpp.Int32;
+	private function AddStr(InStruct: cpp.Reference<PyTestStruct>, InValue: FString): PyTestStruct;
+	private function AddInt(InStruct: cpp.Reference<PyTestStruct>, InValue: cpp.Int32): PyTestStruct;
+	private function AddFloat(InStruct: cpp.Reference<PyTestStruct>, InValue: cpp.Float32): PyTestStruct;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

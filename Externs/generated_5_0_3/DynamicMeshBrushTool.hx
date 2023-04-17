@@ -5,7 +5,7 @@ package ue;
 @:include("DynamicMeshBrushTool.h")
 @:structAccess
 extern class DynamicMeshBrushTool extends BaseBrushTool {
-	public var PreviewMesh: cpp.Star<PreviewMesh>;
+	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class DynamicMeshBrushTool extends BaseBrushTool {
 @:forward()
 @:nativeGen
 abstract ConstDynamicMeshBrushTool(DynamicMeshBrushTool) from DynamicMeshBrushTool {
-	public extern var PreviewMesh(get, never): cpp.Star<PreviewMesh.ConstPreviewMesh>;
-	public inline extern function get_PreviewMesh(): cpp.Star<PreviewMesh.ConstPreviewMesh> return this.PreviewMesh;
 }
 
 @:forward

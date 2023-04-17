@@ -3,11 +3,11 @@ package ue;
 
 @:native("EFixedFoveationLevels.Type")
 @:include("Engine/RendererSettings.h")
-extern enum EFixedFoveationLevels {
-	Disabled;
-	Low;
-	Medium;
-	High;
-	HighTop;
-	EFixedFoveationLevels_MAX;
+extern class EFixedFoveationLevels {
+	static var Disabled: EFixedFoveationLevels;
+	static var Low: EFixedFoveationLevels;
+	static var Medium: EFixedFoveationLevels;
+	static var High: EFixedFoveationLevels;
+	static var HighTop: EFixedFoveationLevels;
+	static var EFixedFoveationLevels_MAX: EFixedFoveationLevels;
 }

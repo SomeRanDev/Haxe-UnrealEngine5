@@ -3,10 +3,10 @@ package ue;
 
 @:native("ECreateObjectTypeHint")
 @:include("ModelingObjectsCreationAPI.h")
-extern enum ECreateObjectTypeHint {
-	Undefined;
-	StaticMesh;
-	Volume;
-	DynamicMeshActor;
-	ECreateObjectTypeHint_MAX;
+extern class ECreateObjectTypeHint {
+	static var Undefined: ECreateObjectTypeHint;
+	static var StaticMesh: ECreateObjectTypeHint;
+	static var Volume: ECreateObjectTypeHint;
+	static var DynamicMeshActor: ECreateObjectTypeHint;
+	static var ECreateObjectTypeHint_MAX: ECreateObjectTypeHint;
 }

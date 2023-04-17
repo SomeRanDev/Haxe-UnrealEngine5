@@ -5,9 +5,9 @@ package ue;
 @:include("ARTrackable.h")
 @:structAccess
 extern class ARTrackedPose extends ARTrackedGeometry {
-	public var TrackedPose: ARPose3D;
+	private var TrackedPose: ARPose3D;
 
-	public function GetTrackedPoseData(): cpp.Reference<ARPose3D>;
+	public function GetTrackedPoseData(): ARPose3D;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,8 +15,6 @@ extern class ARTrackedPose extends ARTrackedGeometry {
 @:forward(GetTrackedPoseData)
 @:nativeGen
 abstract ConstARTrackedPose(ARTrackedPose) from ARTrackedPose {
-	public extern var TrackedPose(get, never): ARPose3D;
-	public inline extern function get_TrackedPose(): ARPose3D return this.TrackedPose;
 }
 
 @:forward

@@ -5,11 +5,11 @@ package ue;
 @:include("Perception/AISense.h")
 @:structAccess
 extern class AISense extends Object {
-	public var DefaultExpirationAge: cpp.Float32;
-	public var NotifyType: EAISenseNotifyType;
-	public var bWantsNewPawnNotification: Bool;
-	public var bAutoRegisterAllPawnsAsSources: Bool;
-	public var PerceptionSystemInstance: cpp.Star<AIPerceptionSystem>;
+	@:protected public var DefaultExpirationAge: cpp.Float32;
+	@:protected public var NotifyType: EAISenseNotifyType;
+	@:protected public var bWantsNewPawnNotification: Bool;
+	@:protected public var bAutoRegisterAllPawnsAsSources: Bool;
+	private var PerceptionSystemInstance: cpp.Star<AIPerceptionSystem>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,16 +17,6 @@ extern class AISense extends Object {
 @:forward()
 @:nativeGen
 abstract ConstAISense(AISense) from AISense {
-	public extern var DefaultExpirationAge(get, never): cpp.Float32;
-	public inline extern function get_DefaultExpirationAge(): cpp.Float32 return this.DefaultExpirationAge;
-	public extern var NotifyType(get, never): EAISenseNotifyType;
-	public inline extern function get_NotifyType(): EAISenseNotifyType return this.NotifyType;
-	public extern var bWantsNewPawnNotification(get, never): Bool;
-	public inline extern function get_bWantsNewPawnNotification(): Bool return this.bWantsNewPawnNotification;
-	public extern var bAutoRegisterAllPawnsAsSources(get, never): Bool;
-	public inline extern function get_bAutoRegisterAllPawnsAsSources(): Bool return this.bAutoRegisterAllPawnsAsSources;
-	public extern var PerceptionSystemInstance(get, never): cpp.Star<AIPerceptionSystem.ConstAIPerceptionSystem>;
-	public inline extern function get_PerceptionSystemInstance(): cpp.Star<AIPerceptionSystem.ConstAIPerceptionSystem> return this.PerceptionSystemInstance;
 }
 
 @:forward

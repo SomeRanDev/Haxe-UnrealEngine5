@@ -3,10 +3,10 @@ package ue;
 
 @:native("EAudioSpectrumBandPresetType")
 @:include("Sound/SoundSubmixSend.h")
-extern enum EAudioSpectrumBandPresetType {
-	KickDrum;
-	SnareDrum;
-	Voice;
-	Cymbals;
-	EAudioSpectrumBandPresetType_MAX;
+extern class EAudioSpectrumBandPresetType {
+	static var KickDrum: EAudioSpectrumBandPresetType;
+	static var SnareDrum: EAudioSpectrumBandPresetType;
+	static var Voice: EAudioSpectrumBandPresetType;
+	static var Cymbals: EAudioSpectrumBandPresetType;
+	static var EAudioSpectrumBandPresetType_MAX: EAudioSpectrumBandPresetType;
 }

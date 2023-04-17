@@ -5,16 +5,6 @@ package ue;
 @:include("AnimNodes/AnimNode_SequenceEvaluator.h")
 @:structAccess
 extern class AnimNode_SequenceEvaluator extends AnimNode_SequenceEvaluatorBase {
-	public var GroupName: FName;
-	public var GroupRole: EAnimGroupRole;
-	public var Method: EAnimSyncMethod;
-	public var bIgnoreForRelevancyTest: Bool;
-	public var Sequence: cpp.Star<AnimSequenceBase>;
-	public var ExplicitTime: cpp.Float32;
-	public var bShouldLoop: Bool;
-	public var bTeleportToExplicitTime: Bool;
-	public var ReinitializationBehavior: ESequenceEvalReinit;
-	public var StartPosition: cpp.Float32;
 
 	@:native("FAnimNode_SequenceEvaluator") public function new();
 }

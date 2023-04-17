@@ -5,12 +5,6 @@ package ue;
 @:include("PhysicsEngine/PhysicsAsset.h")
 @:structAccess
 extern class PhysicsAsset extends Object {
-	public var DefaultSkelMesh_DEPRECATED: cpp.Star<SkeletalMesh>;
-	public var PreviewSkeletalMesh: TSoftObjectPtr<SkeletalMesh>;
-	public var PhysicalAnimationProfiles: TArray<FName>;
-	public var ConstraintProfiles: TArray<FName>;
-	public var CurrentPhysicalAnimationProfileName: FName;
-	public var CurrentConstraintProfileName: FName;
 	public var BoundsBodies: TArray<cpp.Int32>;
 	public var SkeletalBodySetups: TArray<cpp.Star<SkeletalBodySetup>>;
 	public var ConstraintSetup: TArray<cpp.Star<PhysicsConstraintTemplate>>;
@@ -19,11 +13,10 @@ extern class PhysicsAsset extends Object {
 	public var SolverType: EPhysicsAssetSolverType;
 	public var bNotForDedicatedServer: Bool;
 	public var ThumbnailInfo: cpp.Star<ThumbnailInfo>;
-	public var BodySetup_DEPRECATED: TArray<cpp.Star<BodySetup>>;
 
 	public function GetConstraints(bIncludesTerminated: Bool, OutConstraints: cpp.Reference<TArray<ConstraintInstanceAccessor>>): Void;
-	public function GetConstraintByName(ConstraintName: FName): cpp.Reference<ConstraintInstanceAccessor>;
-	public function GetConstraintByBoneNames(Bone1Name: FName, Bone2Name: FName): cpp.Reference<ConstraintInstanceAccessor>;
+	public function GetConstraintByName(ConstraintName: FName): ConstraintInstanceAccessor;
+	public function GetConstraintByBoneNames(Bone1Name: FName, Bone2Name: FName): ConstraintInstanceAccessor;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -31,18 +24,6 @@ extern class PhysicsAsset extends Object {
 @:forward()
 @:nativeGen
 abstract ConstPhysicsAsset(PhysicsAsset) from PhysicsAsset {
-	public extern var DefaultSkelMesh_DEPRECATED(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_DefaultSkelMesh_DEPRECATED(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.DefaultSkelMesh_DEPRECATED;
-	public extern var PreviewSkeletalMesh(get, never): TSoftObjectPtr<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_PreviewSkeletalMesh(): TSoftObjectPtr<SkeletalMesh.ConstSkeletalMesh> return this.PreviewSkeletalMesh;
-	public extern var PhysicalAnimationProfiles(get, never): TArray<FName>;
-	public inline extern function get_PhysicalAnimationProfiles(): TArray<FName> return this.PhysicalAnimationProfiles;
-	public extern var ConstraintProfiles(get, never): TArray<FName>;
-	public inline extern function get_ConstraintProfiles(): TArray<FName> return this.ConstraintProfiles;
-	public extern var CurrentPhysicalAnimationProfileName(get, never): FName;
-	public inline extern function get_CurrentPhysicalAnimationProfileName(): FName return this.CurrentPhysicalAnimationProfileName;
-	public extern var CurrentConstraintProfileName(get, never): FName;
-	public inline extern function get_CurrentConstraintProfileName(): FName return this.CurrentConstraintProfileName;
 	public extern var BoundsBodies(get, never): TArray<cpp.Int32>;
 	public inline extern function get_BoundsBodies(): TArray<cpp.Int32> return this.BoundsBodies;
 	public extern var SkeletalBodySetups(get, never): TArray<cpp.Star<SkeletalBodySetup.ConstSkeletalBodySetup>>;
@@ -59,8 +40,6 @@ abstract ConstPhysicsAsset(PhysicsAsset) from PhysicsAsset {
 	public inline extern function get_bNotForDedicatedServer(): Bool return this.bNotForDedicatedServer;
 	public extern var ThumbnailInfo(get, never): cpp.Star<ThumbnailInfo.ConstThumbnailInfo>;
 	public inline extern function get_ThumbnailInfo(): cpp.Star<ThumbnailInfo.ConstThumbnailInfo> return this.ThumbnailInfo;
-	public extern var BodySetup_DEPRECATED(get, never): TArray<cpp.Star<BodySetup.ConstBodySetup>>;
-	public inline extern function get_BodySetup_DEPRECATED(): TArray<cpp.Star<BodySetup.ConstBodySetup>> return this.BodySetup_DEPRECATED;
 }
 
 @:forward

@@ -5,10 +5,10 @@ package ue;
 @:include("BehaviorTree/BlackboardComponent.h")
 @:structAccess
 extern class BlackboardComp extends ActorComp {
-	public var BrainComp: cpp.Star<BrainComp>;
-	public var DefaultBlackboardAsset: cpp.Star<BlackboardData>;
-	public var BlackboardAsset: cpp.Star<BlackboardData>;
-	public var KeyInstances: TArray<cpp.Star<BlackboardKeyType>>;
+	@:protected public var BrainComp: cpp.Star<BrainComp>;
+	@:protected public var DefaultBlackboardAsset: cpp.Star<BlackboardData>;
+	@:protected public var BlackboardAsset: cpp.Star<BlackboardData>;
+	@:protected public var KeyInstances: TArray<cpp.Star<BlackboardKeyType>>;
 
 	public function SetValueAsVector(KeyName: cpp.Reference<FName>, VectorValue: Vector): Void;
 	public function SetValueAsString(KeyName: cpp.Reference<FName>, StringValue: FString): Void;
@@ -20,19 +20,19 @@ extern class BlackboardComp extends ActorComp {
 	public function SetValueAsEnum(KeyName: cpp.Reference<FName>, EnumValue: cpp.UInt8): Void;
 	public function SetValueAsClass(KeyName: cpp.Reference<FName>, ClassValue: cpp.Star<Class>): Void;
 	public function SetValueAsBool(KeyName: cpp.Reference<FName>, BoolValue: Bool): Void;
-	public function IsVectorValueSet(KeyName: cpp.Reference<FName>): cpp.Reference<Bool>;
-	public function GetValueAsVector(KeyName: cpp.Reference<FName>): cpp.Reference<Vector>;
-	public function GetValueAsString(KeyName: cpp.Reference<FName>): cpp.Reference<FString>;
-	public function GetValueAsRotator(KeyName: cpp.Reference<FName>): cpp.Reference<Rotator>;
-	public function GetValueAsObject(KeyName: cpp.Reference<FName>): cpp.Reference<cpp.Star<Object>>;
-	public function GetValueAsName(KeyName: cpp.Reference<FName>): cpp.Reference<FName>;
-	public function GetValueAsInt(KeyName: cpp.Reference<FName>): cpp.Reference<cpp.Int32>;
-	public function GetValueAsFloat(KeyName: cpp.Reference<FName>): cpp.Reference<cpp.Float32>;
-	public function GetValueAsEnum(KeyName: cpp.Reference<FName>): cpp.Reference<cpp.UInt8>;
-	public function GetValueAsClass(KeyName: cpp.Reference<FName>): cpp.Reference<cpp.Star<Class>>;
-	public function GetValueAsBool(KeyName: cpp.Reference<FName>): cpp.Reference<Bool>;
-	public function GetRotationFromEntry(KeyName: cpp.Reference<FName>, ResultRotation: cpp.Reference<Rotator>): cpp.Reference<Bool>;
-	public function GetLocationFromEntry(KeyName: cpp.Reference<FName>, ResultLocation: cpp.Reference<Vector>): cpp.Reference<Bool>;
+	public function IsVectorValueSet(KeyName: cpp.Reference<FName>): Bool;
+	public function GetValueAsVector(KeyName: cpp.Reference<FName>): Vector;
+	public function GetValueAsString(KeyName: cpp.Reference<FName>): FString;
+	public function GetValueAsRotator(KeyName: cpp.Reference<FName>): Rotator;
+	public function GetValueAsObject(KeyName: cpp.Reference<FName>): cpp.Star<Object>;
+	public function GetValueAsName(KeyName: cpp.Reference<FName>): FName;
+	public function GetValueAsInt(KeyName: cpp.Reference<FName>): cpp.Int32;
+	public function GetValueAsFloat(KeyName: cpp.Reference<FName>): cpp.Float32;
+	public function GetValueAsEnum(KeyName: cpp.Reference<FName>): cpp.UInt8;
+	public function GetValueAsClass(KeyName: cpp.Reference<FName>): cpp.Star<Class>;
+	public function GetValueAsBool(KeyName: cpp.Reference<FName>): Bool;
+	public function GetRotationFromEntry(KeyName: cpp.Reference<FName>, ResultRotation: cpp.Reference<Rotator>): Bool;
+	public function GetLocationFromEntry(KeyName: cpp.Reference<FName>, ResultLocation: cpp.Reference<Vector>): Bool;
 	public function ClearValue(KeyName: cpp.Reference<FName>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -45,14 +45,6 @@ extern class BlackboardComp extends ActorComp {
 )
 @:nativeGen
 abstract ConstBlackboardComp(BlackboardComp) from BlackboardComp {
-	public extern var BrainComp(get, never): cpp.Star<BrainComp.ConstBrainComp>;
-	public inline extern function get_BrainComp(): cpp.Star<BrainComp.ConstBrainComp> return this.BrainComp;
-	public extern var DefaultBlackboardAsset(get, never): cpp.Star<BlackboardData.ConstBlackboardData>;
-	public inline extern function get_DefaultBlackboardAsset(): cpp.Star<BlackboardData.ConstBlackboardData> return this.DefaultBlackboardAsset;
-	public extern var BlackboardAsset(get, never): cpp.Star<BlackboardData.ConstBlackboardData>;
-	public inline extern function get_BlackboardAsset(): cpp.Star<BlackboardData.ConstBlackboardData> return this.BlackboardAsset;
-	public extern var KeyInstances(get, never): TArray<cpp.Star<BlackboardKeyType.ConstBlackboardKeyType>>;
-	public inline extern function get_KeyInstances(): TArray<cpp.Star<BlackboardKeyType.ConstBlackboardKeyType>> return this.KeyInstances;
 }
 
 @:forward

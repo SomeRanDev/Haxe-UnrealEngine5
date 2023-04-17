@@ -3,8 +3,8 @@ package ue;
 
 @:native("EWidgetTimingPolicy")
 @:include("Components/WidgetComponent.h")
-extern enum EWidgetTimingPolicy {
-	RealTime;
-	GameTime;
-	EWidgetTimingPolicy_MAX;
+extern class EWidgetTimingPolicy {
+	static var RealTime: EWidgetTimingPolicy;
+	static var GameTime: EWidgetTimingPolicy;
+	static var EWidgetTimingPolicy_MAX: EWidgetTimingPolicy;
 }

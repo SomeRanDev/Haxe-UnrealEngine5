@@ -3,12 +3,12 @@ package ue;
 
 @:native("EFBXTestPlanActionType")
 @:include("Tests/FbxAutomationCommon.h")
-extern enum EFBXTestPlanActionType {
-	Import;
-	Reimport;
-	AddLOD;
-	ReimportLOD;
-	ImportReload;
-	AddAlternateSkinnig;
-	EFBXTestPlanActionType_MAX;
+extern class EFBXTestPlanActionType {
+	static var Import: EFBXTestPlanActionType;
+	static var Reimport: EFBXTestPlanActionType;
+	static var AddLOD: EFBXTestPlanActionType;
+	static var ReimportLOD: EFBXTestPlanActionType;
+	static var ImportReload: EFBXTestPlanActionType;
+	static var AddAlternateSkinnig: EFBXTestPlanActionType;
+	static var EFBXTestPlanActionType_MAX: EFBXTestPlanActionType;
 }

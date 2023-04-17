@@ -5,8 +5,7 @@ package ue;
 @:include("AnimNodes/AnimNode_RefPose.h")
 @:structAccess
 extern class AnimNode_RefPose extends AnimNode_Base {
-	public var RefPoseType: ERefPoseType;
 
 	@:native("FAnimNode_RefPose") public function new();
-	@:native("FAnimNode_RefPose") public static function make(RefPoseType: ERefPoseType): AnimNode_RefPose ;
+	@:native("FAnimNode_RefPose") public static function make(RefPoseType: TEnumAsByte<ERefPoseType>): AnimNode_RefPose ;
 }

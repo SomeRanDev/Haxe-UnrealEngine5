@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESplineMeshAxis.Type")
 @:include("Components/SplineMeshComponent.h")
-extern enum ESplineMeshAxis {
-	X;
-	Y;
-	Z;
-	ESplineMeshAxis_MAX;
+extern class ESplineMeshAxis {
+	static var X: ESplineMeshAxis;
+	static var Y: ESplineMeshAxis;
+	static var Z: ESplineMeshAxis;
+	static var ESplineMeshAxis_MAX: ESplineMeshAxis;
 }

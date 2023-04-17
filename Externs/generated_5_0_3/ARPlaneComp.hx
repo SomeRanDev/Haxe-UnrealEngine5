@@ -5,14 +5,14 @@ package ue;
 @:include("ARComponent.h")
 @:structAccess
 extern class ARPlaneComp extends ARComp {
-	public var ReplicatedPayload: ARPlaneUpdatePayload;
+	@:protected public var ReplicatedPayload: ARPlaneUpdatePayload;
 
 	public function SetPlaneComponentDebugMode(NewDebugMode: EPlaneComponentDebugMode): Void;
 	public function SetObjectClassificationDebugColors(InColors: cpp.Reference<TMap<EARObjectClassification, LinearColor>>): Void;
-	public function ServerUpdatePayload(NewPayload: cpp.Reference<ARPlaneUpdatePayload>): Void;
+	@:protected public function ServerUpdatePayload(NewPayload: ARPlaneUpdatePayload): Void;
 	public function ReceiveUpdate(Payload: cpp.Reference<ARPlaneUpdatePayload>): Void;
 	public function ReceiveAdd(Payload: cpp.Reference<ARPlaneUpdatePayload>): Void;
-	public function GetObjectClassificationDebugColors(): cpp.Reference<TMap<EARObjectClassification, LinearColor>>;
+	public function GetObjectClassificationDebugColors(): TMap<EARObjectClassification, LinearColor>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -20,8 +20,6 @@ extern class ARPlaneComp extends ARComp {
 @:forward()
 @:nativeGen
 abstract ConstARPlaneComp(ARPlaneComp) from ARPlaneComp {
-	public extern var ReplicatedPayload(get, never): ARPlaneUpdatePayload;
-	public inline extern function get_ReplicatedPayload(): ARPlaneUpdatePayload return this.ReplicatedPayload;
 }
 
 @:forward

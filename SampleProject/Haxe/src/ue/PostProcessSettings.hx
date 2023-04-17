@@ -64,7 +64,6 @@ extern class PostProcessSettings {
 	public var bOverride_BloomConvolutionScatterDispersion: Bool;
 	public var bOverride_BloomConvolutionSize: Bool;
 	public var bOverride_BloomConvolutionCenterUV: Bool;
-	public var bOverride_BloomConvolutionPreFilter_DEPRECATED: Bool;
 	public var bOverride_BloomConvolutionPreFilterMin: Bool;
 	public var bOverride_BloomConvolutionPreFilterMax: Bool;
 	public var bOverride_BloomConvolutionPreFilterMult: Bool;
@@ -79,7 +78,6 @@ extern class PostProcessSettings {
 	public var bOverride_AutoExposureHighPercent: Bool;
 	public var bOverride_AutoExposureMinBrightness: Bool;
 	public var bOverride_AutoExposureMaxBrightness: Bool;
-	public var bOverride_AutoExposureCalibrationConstant_DEPRECATED: Bool;
 	public var bOverride_AutoExposureSpeedUp: Bool;
 	public var bOverride_AutoExposureSpeedDown: Bool;
 	public var bOverride_AutoExposureBias: Bool;
@@ -100,8 +98,6 @@ extern class PostProcessSettings {
 	public var bOverride_LensFlareBokehShape: Bool;
 	public var bOverride_LensFlareThreshold: Bool;
 	public var bOverride_VignetteIntensity: Bool;
-	public var bOverride_GrainIntensity_DEPRECATED: Bool;
-	public var bOverride_GrainJitter_DEPRECATED: Bool;
 	public var bOverride_FilmGrainIntensity: Bool;
 	public var bOverride_FilmGrainIntensityShadows: Bool;
 	public var bOverride_FilmGrainIntensityMidtones: Bool;
@@ -116,7 +112,6 @@ extern class PostProcessSettings {
 	public var bOverride_AmbientOcclusionRadius: Bool;
 	public var bOverride_AmbientOcclusionFadeDistance: Bool;
 	public var bOverride_AmbientOcclusionFadeRadius: Bool;
-	public var bOverride_AmbientOcclusionDistance_DEPRECATED: Bool;
 	public var bOverride_AmbientOcclusionRadiusInWS: Bool;
 	public var bOverride_AmbientOcclusionPower: Bool;
 	public var bOverride_AmbientOcclusionBias: Bool;
@@ -129,21 +124,6 @@ extern class PostProcessSettings {
 	public var bOverride_RayTracingAOSamplesPerPixel: Bool;
 	public var bOverride_RayTracingAOIntensity: Bool;
 	public var bOverride_RayTracingAORadius: Bool;
-	public var bOverride_LPVIntensity_DEPRECATED: Bool;
-	public var bOverride_LPVDirectionalOcclusionIntensity_DEPRECATED: Bool;
-	public var bOverride_LPVDirectionalOcclusionRadius_DEPRECATED: Bool;
-	public var bOverride_LPVDiffuseOcclusionExponent_DEPRECATED: Bool;
-	public var bOverride_LPVSpecularOcclusionExponent_DEPRECATED: Bool;
-	public var bOverride_LPVDiffuseOcclusionIntensity_DEPRECATED: Bool;
-	public var bOverride_LPVSpecularOcclusionIntensity_DEPRECATED: Bool;
-	public var bOverride_LPVSize_DEPRECATED: Bool;
-	public var bOverride_LPVSecondaryOcclusionIntensity_DEPRECATED: Bool;
-	public var bOverride_LPVSecondaryBounceIntensity_DEPRECATED: Bool;
-	public var bOverride_LPVGeometryVolumeBias_DEPRECATED: Bool;
-	public var bOverride_LPVVplInjectionBias_DEPRECATED: Bool;
-	public var bOverride_LPVEmissiveInjectionIntensity_DEPRECATED: Bool;
-	public var bOverride_LPVFadeRange_DEPRECATED: Bool;
-	public var bOverride_LPVDirectionalOcclusionFadeRange_DEPRECATED: Bool;
 	public var bOverride_IndirectLightingColor: Bool;
 	public var bOverride_IndirectLightingIntensity: Bool;
 	public var bOverride_ColorGradingIntensity: Bool;
@@ -169,14 +149,12 @@ extern class PostProcessSettings {
 	public var bOverride_MotionBlurMax: Bool;
 	public var bOverride_MotionBlurTargetFPS: Bool;
 	public var bOverride_MotionBlurPerObjectSize: Bool;
-	public var bOverride_ScreenPercentage_DEPRECATED: Bool;
 	public var bOverride_ReflectionMethod: Bool;
 	public var bOverride_LumenReflectionQuality: Bool;
 	public var bOverride_ScreenSpaceReflectionIntensity: Bool;
 	public var bOverride_ScreenSpaceReflectionQuality: Bool;
 	public var bOverride_ScreenSpaceReflectionMaxRoughness: Bool;
 	public var bOverride_ScreenSpaceReflectionRoughnessScale: Bool;
-	public var bOverride_ReflectionsType_DEPRECATED: Bool;
 	public var bOverride_RayTracingReflectionsMaxRoughness: Bool;
 	public var bOverride_RayTracingReflectionsMaxBounces: Bool;
 	public var bOverride_RayTracingReflectionsSamplesPerPixel: Bool;
@@ -208,10 +186,9 @@ extern class PostProcessSettings {
 	public var bOverride_PathTracingEnableReferenceDOF: Bool;
 	public var bOverride_PathTracingEnableDenoiser: Bool;
 	public var bMobileHQGaussian: Bool;
-	public var BloomMethod: EBloomMethod;
-	public var AutoExposureMethod: EAutoExposureMethod;
-	public var DepthOfFieldMethod_DEPRECATED: EDepthOfFieldMethod;
-	public var TemperatureType: ETemperatureMethod;
+	public var BloomMethod: TEnumAsByte<EBloomMethod>;
+	public var AutoExposureMethod: TEnumAsByte<EAutoExposureMethod>;
+	public var TemperatureType: TEnumAsByte<ETemperatureMethod>;
 	public var WhiteTemp: cpp.Float32;
 	public var WhiteTint: cpp.Float32;
 	public var ColorSaturation: Vector4;
@@ -267,7 +244,6 @@ extern class PostProcessSettings {
 	public var BloomConvolutionSize: cpp.Float32;
 	public var BloomConvolutionTexture: cpp.Star<Texture2D>;
 	public var BloomConvolutionCenterUV: Vector2D;
-	public var BloomConvolutionPreFilter_DEPRECATED: Vector3f;
 	public var BloomConvolutionPreFilterMin: cpp.Float32;
 	public var BloomConvolutionPreFilterMax: cpp.Float32;
 	public var BloomConvolutionPreFilterMult: cpp.Float32;
@@ -275,10 +251,9 @@ extern class PostProcessSettings {
 	public var BloomDirtMask: cpp.Star<Texture>;
 	public var BloomDirtMaskIntensity: cpp.Float32;
 	public var BloomDirtMaskTint: LinearColor;
-	public var DynamicGlobalIlluminationMethod: EDynamicGlobalIlluminationMethod;
+	public var DynamicGlobalIlluminationMethod: TEnumAsByte<EDynamicGlobalIlluminationMethod>;
 	public var IndirectLightingColor: LinearColor;
 	public var IndirectLightingIntensity: cpp.Float32;
-	public var RayTracingGI_DEPRECATED: Bool;
 	public var LumenSceneLightingQuality: cpp.Float32;
 	public var LumenSceneDetail: cpp.Float32;
 	public var LumenSceneViewDistance: cpp.Float32;
@@ -289,8 +264,7 @@ extern class PostProcessSettings {
 	public var RayTracingGIType: ERayTracingGlobalIlluminationType;
 	public var RayTracingGIMaxBounces: cpp.Int32;
 	public var RayTracingGISamplesPerPixel: cpp.Int32;
-	public var ReflectionMethod: EReflectionMethod;
-	public var ReflectionsType_DEPRECATED: EReflectionsType;
+	public var ReflectionMethod: TEnumAsByte<EReflectionMethod>;
 	public var LumenReflectionQuality: cpp.Float32;
 	public var LumenRayLightingMode: ELumenRayLightingModeOverride;
 	public var ScreenSpaceReflectionIntensity: cpp.Float32;
@@ -323,7 +297,6 @@ extern class PostProcessSettings {
 	public var AutoExposureSpeedDown: cpp.Float32;
 	public var HistogramLogMin: cpp.Float32;
 	public var HistogramLogMax: cpp.Float32;
-	public var AutoExposureCalibrationConstant_DEPRECATED: cpp.Float32;
 	public var LocalExposureContrastScale: cpp.Float32;
 	public var LocalExposureDetailStrength: cpp.Float32;
 	public var LocalExposureBlurredLuminanceBlend: cpp.Float32;
@@ -336,8 +309,6 @@ extern class PostProcessSettings {
 	public var LensFlareBokehShape: cpp.Star<Texture>;
 	public var LensFlareTints: LinearColor;
 	public var VignetteIntensity: cpp.Float32;
-	public var GrainJitter_DEPRECATED: cpp.Float32;
-	public var GrainIntensity_DEPRECATED: cpp.Float32;
 	public var FilmGrainIntensity: cpp.Float32;
 	public var FilmGrainIntensityShadows: cpp.Float32;
 	public var FilmGrainIntensityMidtones: cpp.Float32;
@@ -353,7 +324,6 @@ extern class PostProcessSettings {
 	public var AmbientOcclusionRadiusInWS: Bool;
 	public var AmbientOcclusionFadeDistance: cpp.Float32;
 	public var AmbientOcclusionFadeRadius: cpp.Float32;
-	public var AmbientOcclusionDistance_DEPRECATED: cpp.Float32;
 	public var AmbientOcclusionPower: cpp.Float32;
 	public var AmbientOcclusionBias: cpp.Float32;
 	public var AmbientOcclusionQuality: cpp.Float32;
@@ -384,19 +354,6 @@ extern class PostProcessSettings {
 	public var MotionBlurMax: cpp.Float32;
 	public var MotionBlurTargetFPS: cpp.Int32;
 	public var MotionBlurPerObjectSize: cpp.Float32;
-	public var LPVIntensity_DEPRECATED: cpp.Float32;
-	public var LPVVplInjectionBias_DEPRECATED: cpp.Float32;
-	public var LPVSize_DEPRECATED: cpp.Float32;
-	public var LPVSecondaryOcclusionIntensity_DEPRECATED: cpp.Float32;
-	public var LPVSecondaryBounceIntensity_DEPRECATED: cpp.Float32;
-	public var LPVGeometryVolumeBias_DEPRECATED: cpp.Float32;
-	public var LPVEmissiveInjectionIntensity_DEPRECATED: cpp.Float32;
-	public var LPVDirectionalOcclusionIntensity_DEPRECATED: cpp.Float32;
-	public var LPVDirectionalOcclusionRadius_DEPRECATED: cpp.Float32;
-	public var LPVDiffuseOcclusionExponent_DEPRECATED: cpp.Float32;
-	public var LPVSpecularOcclusionExponent_DEPRECATED: cpp.Float32;
-	public var LPVDiffuseOcclusionIntensity_DEPRECATED: cpp.Float32;
-	public var LPVSpecularOcclusionIntensity_DEPRECATED: cpp.Float32;
 	public var TranslucencyType: ETranslucencyType;
 	public var RayTracingTranslucencyMaxRoughness: cpp.Float32;
 	public var RayTracingTranslucencyRefractionRays: cpp.Int32;
@@ -410,11 +367,7 @@ extern class PostProcessSettings {
 	public var PathTracingMaxPathExposure: cpp.Float32;
 	public var PathTracingEnableReferenceDOF: Bool;
 	public var PathTracingEnableDenoiser: Bool;
-	public var LPVFadeRange_DEPRECATED: cpp.Float32;
-	public var LPVDirectionalOcclusionFadeRange_DEPRECATED: cpp.Float32;
-	public var ScreenPercentage_DEPRECATED: cpp.Float32;
 	public var WeightedBlendables: WeightedBlendables;
-	public var Blendables_DEPRECATED: TArray<cpp.Star<Object>>;
 
 	@:native("FPostProcessSettings") public function new();
 }

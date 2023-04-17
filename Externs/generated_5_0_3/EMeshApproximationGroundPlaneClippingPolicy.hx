@@ -3,10 +3,10 @@ package ue;
 
 @:native("EMeshApproximationGroundPlaneClippingPolicy")
 @:include("Engine/MeshMerging.h")
-extern enum EMeshApproximationGroundPlaneClippingPolicy {
-	NoGroundClipping;
-	DiscardWithZPlane;
-	CutWithZPlane;
-	CutAndFillWithZPlane;
-	EMeshApproximationGroundPlaneClippingPolicy_MAX;
+extern class EMeshApproximationGroundPlaneClippingPolicy {
+	static var NoGroundClipping: EMeshApproximationGroundPlaneClippingPolicy;
+	static var DiscardWithZPlane: EMeshApproximationGroundPlaneClippingPolicy;
+	static var CutWithZPlane: EMeshApproximationGroundPlaneClippingPolicy;
+	static var CutAndFillWithZPlane: EMeshApproximationGroundPlaneClippingPolicy;
+	static var EMeshApproximationGroundPlaneClippingPolicy_MAX: EMeshApproximationGroundPlaneClippingPolicy;
 }

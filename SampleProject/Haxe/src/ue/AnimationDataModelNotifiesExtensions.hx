@@ -5,7 +5,7 @@ package ue;
 @:include("Animation/AnimData/AnimDataNotifications.h")
 @:structAccess
 extern class AnimationDataModelNotifiesExtensions extends BlueprintFunctionLibrary {
-	public function GetPayload(Payload: cpp.Reference<AnimDataModelNotifPayload>): cpp.Reference<EmptyPayload>;
+	public function GetPayload(Payload: cpp.Reference<AnimDataModelNotifPayload>): EmptyPayload;
 	public function CopyPayload(Payload: cpp.Reference<AnimDataModelNotifPayload>, ExpectedStruct: cpp.Star<ScriptStruct>, OutPayload: cpp.Reference<EmptyPayload>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;

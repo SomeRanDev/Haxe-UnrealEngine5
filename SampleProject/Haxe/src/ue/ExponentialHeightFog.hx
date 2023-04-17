@@ -5,7 +5,7 @@ package ue;
 @:include("Engine/ExponentialHeightFog.h")
 @:structAccess
 extern class ExponentialHeightFog extends Info {
-	public var Component: cpp.Star<ExponentialHeightFogComp>;
+	private var Component: cpp.Star<ExponentialHeightFogComp>;
 	public var bEnabled: Bool;
 
 	public function OnRep_bEnabled(): Void;
@@ -16,8 +16,6 @@ extern class ExponentialHeightFog extends Info {
 @:forward()
 @:nativeGen
 abstract ConstExponentialHeightFog(ExponentialHeightFog) from ExponentialHeightFog {
-	public extern var Component(get, never): cpp.Star<ExponentialHeightFogComp.ConstExponentialHeightFogComp>;
-	public inline extern function get_Component(): cpp.Star<ExponentialHeightFogComp.ConstExponentialHeightFogComp> return this.Component;
 	public extern var bEnabled(get, never): Bool;
 	public inline extern function get_bEnabled(): Bool return this.bEnabled;
 }

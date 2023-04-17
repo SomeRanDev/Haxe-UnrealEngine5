@@ -5,11 +5,11 @@ package ue;
 @:include("CSGMeshesTool.h")
 @:structAccess
 extern class CSGMeshesTool extends BaseCreateFromSelectedTool {
-	public var CSGProperties: cpp.Star<CSGMeshesToolProperties>;
-	public var TrimProperties: cpp.Star<TrimMeshesToolProperties>;
-	public var OriginalMeshPreviews: TArray<cpp.Star<PreviewMesh>>;
-	public var PreviewsGhostMaterial: cpp.Star<MaterialInstanceDynamic>;
-	public var DrawnLineSet: cpp.Star<LineSetComp>;
+	@:protected public var CSGProperties: cpp.Star<CSGMeshesToolProperties>;
+	@:protected public var TrimProperties: cpp.Star<TrimMeshesToolProperties>;
+	@:protected public var OriginalMeshPreviews: TArray<cpp.Star<PreviewMesh>>;
+	@:protected public var PreviewsGhostMaterial: cpp.Star<MaterialInstanceDynamic>;
+	@:protected public var DrawnLineSet: cpp.Star<LineSetComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,16 +17,6 @@ extern class CSGMeshesTool extends BaseCreateFromSelectedTool {
 @:forward()
 @:nativeGen
 abstract ConstCSGMeshesTool(CSGMeshesTool) from CSGMeshesTool {
-	public extern var CSGProperties(get, never): cpp.Star<CSGMeshesToolProperties.ConstCSGMeshesToolProperties>;
-	public inline extern function get_CSGProperties(): cpp.Star<CSGMeshesToolProperties.ConstCSGMeshesToolProperties> return this.CSGProperties;
-	public extern var TrimProperties(get, never): cpp.Star<TrimMeshesToolProperties.ConstTrimMeshesToolProperties>;
-	public inline extern function get_TrimProperties(): cpp.Star<TrimMeshesToolProperties.ConstTrimMeshesToolProperties> return this.TrimProperties;
-	public extern var OriginalMeshPreviews(get, never): TArray<cpp.Star<PreviewMesh.ConstPreviewMesh>>;
-	public inline extern function get_OriginalMeshPreviews(): TArray<cpp.Star<PreviewMesh.ConstPreviewMesh>> return this.OriginalMeshPreviews;
-	public extern var PreviewsGhostMaterial(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_PreviewsGhostMaterial(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.PreviewsGhostMaterial;
-	public extern var DrawnLineSet(get, never): cpp.Star<LineSetComp.ConstLineSetComp>;
-	public inline extern function get_DrawnLineSet(): cpp.Star<LineSetComp.ConstLineSetComp> return this.DrawnLineSet;
 }
 
 @:forward

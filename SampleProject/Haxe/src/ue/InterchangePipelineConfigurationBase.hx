@@ -5,7 +5,7 @@ package ue;
 @:include("InterchangePipelineConfigurationBase.h")
 @:structAccess
 extern class InterchangePipelineConfigurationBase extends Object {
-	public function ScriptedShowPipelineConfigurationDialog(): cpp.Reference<EInterchangePipelineConfigurationDialogResult>;
+	public function ScriptedShowPipelineConfigurationDialog(): EInterchangePipelineConfigurationDialogResult;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -6,25 +6,11 @@ package ue;
 @:structAccess
 extern class ChaosSolverActor extends Actor {
 	public var Properties: ChaosSolverConfiguration;
-	public var TimeStepMultiplier_DEPRECATED: cpp.Float32;
-	public var CollisionIterations_DEPRECATED: cpp.Int32;
-	public var PushOutIterations_DEPRECATED: cpp.Int32;
-	public var PushOutPairIterations_DEPRECATED: cpp.Int32;
-	public var ClusterConnectionFactor_DEPRECATED: cpp.Float32;
-	public var ClusterUnionConnectionType_DEPRECATED: EClusterConnectionTypeEnum;
-	public var DoGenerateCollisionData_DEPRECATED: Bool;
-	public var CollisionFilterSettings_DEPRECATED: SolverCollisionFilterSettings;
-	public var DoGenerateBreakingData_DEPRECATED: Bool;
-	public var BreakingFilterSettings_DEPRECATED: SolverBreakingFilterSettings;
-	public var DoGenerateTrailingData_DEPRECATED: Bool;
-	public var TrailingFilterSettings_DEPRECATED: SolverTrailingFilterSettings;
-	public var MassScale_DEPRECATED: cpp.Float32;
-	public var bGenerateContactGraph_DEPRECATED: Bool;
 	public var bHasFloor: Bool;
 	public var FloorHeight: cpp.Float32;
 	public var ChaosDebugSubstepControl: ChaosDebugSubstepControl;
 	public var SpriteComponent: cpp.Star<BillboardComp>;
-	public var GameplayEventDispatcherComponent: cpp.Star<ChaosGameplayEventDispatcher>;
+	private var GameplayEventDispatcherComponent: cpp.Star<ChaosGameplayEventDispatcher>;
 
 	public function SetSolverActive(bActive: Bool): Void;
 	public function SetAsCurrentWorldSolver(): Void;
@@ -37,34 +23,6 @@ extern class ChaosSolverActor extends Actor {
 abstract ConstChaosSolverActor(ChaosSolverActor) from ChaosSolverActor {
 	public extern var Properties(get, never): ChaosSolverConfiguration;
 	public inline extern function get_Properties(): ChaosSolverConfiguration return this.Properties;
-	public extern var TimeStepMultiplier_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_TimeStepMultiplier_DEPRECATED(): cpp.Float32 return this.TimeStepMultiplier_DEPRECATED;
-	public extern var CollisionIterations_DEPRECATED(get, never): cpp.Int32;
-	public inline extern function get_CollisionIterations_DEPRECATED(): cpp.Int32 return this.CollisionIterations_DEPRECATED;
-	public extern var PushOutIterations_DEPRECATED(get, never): cpp.Int32;
-	public inline extern function get_PushOutIterations_DEPRECATED(): cpp.Int32 return this.PushOutIterations_DEPRECATED;
-	public extern var PushOutPairIterations_DEPRECATED(get, never): cpp.Int32;
-	public inline extern function get_PushOutPairIterations_DEPRECATED(): cpp.Int32 return this.PushOutPairIterations_DEPRECATED;
-	public extern var ClusterConnectionFactor_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_ClusterConnectionFactor_DEPRECATED(): cpp.Float32 return this.ClusterConnectionFactor_DEPRECATED;
-	public extern var ClusterUnionConnectionType_DEPRECATED(get, never): EClusterConnectionTypeEnum;
-	public inline extern function get_ClusterUnionConnectionType_DEPRECATED(): EClusterConnectionTypeEnum return this.ClusterUnionConnectionType_DEPRECATED;
-	public extern var DoGenerateCollisionData_DEPRECATED(get, never): Bool;
-	public inline extern function get_DoGenerateCollisionData_DEPRECATED(): Bool return this.DoGenerateCollisionData_DEPRECATED;
-	public extern var CollisionFilterSettings_DEPRECATED(get, never): SolverCollisionFilterSettings;
-	public inline extern function get_CollisionFilterSettings_DEPRECATED(): SolverCollisionFilterSettings return this.CollisionFilterSettings_DEPRECATED;
-	public extern var DoGenerateBreakingData_DEPRECATED(get, never): Bool;
-	public inline extern function get_DoGenerateBreakingData_DEPRECATED(): Bool return this.DoGenerateBreakingData_DEPRECATED;
-	public extern var BreakingFilterSettings_DEPRECATED(get, never): SolverBreakingFilterSettings;
-	public inline extern function get_BreakingFilterSettings_DEPRECATED(): SolverBreakingFilterSettings return this.BreakingFilterSettings_DEPRECATED;
-	public extern var DoGenerateTrailingData_DEPRECATED(get, never): Bool;
-	public inline extern function get_DoGenerateTrailingData_DEPRECATED(): Bool return this.DoGenerateTrailingData_DEPRECATED;
-	public extern var TrailingFilterSettings_DEPRECATED(get, never): SolverTrailingFilterSettings;
-	public inline extern function get_TrailingFilterSettings_DEPRECATED(): SolverTrailingFilterSettings return this.TrailingFilterSettings_DEPRECATED;
-	public extern var MassScale_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_MassScale_DEPRECATED(): cpp.Float32 return this.MassScale_DEPRECATED;
-	public extern var bGenerateContactGraph_DEPRECATED(get, never): Bool;
-	public inline extern function get_bGenerateContactGraph_DEPRECATED(): Bool return this.bGenerateContactGraph_DEPRECATED;
 	public extern var bHasFloor(get, never): Bool;
 	public inline extern function get_bHasFloor(): Bool return this.bHasFloor;
 	public extern var FloorHeight(get, never): cpp.Float32;
@@ -73,8 +31,6 @@ abstract ConstChaosSolverActor(ChaosSolverActor) from ChaosSolverActor {
 	public inline extern function get_ChaosDebugSubstepControl(): ChaosDebugSubstepControl return this.ChaosDebugSubstepControl;
 	public extern var SpriteComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
 	public inline extern function get_SpriteComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
-	public extern var GameplayEventDispatcherComponent(get, never): cpp.Star<ChaosGameplayEventDispatcher.ConstChaosGameplayEventDispatcher>;
-	public inline extern function get_GameplayEventDispatcherComponent(): cpp.Star<ChaosGameplayEventDispatcher.ConstChaosGameplayEventDispatcher> return this.GameplayEventDispatcherComponent;
 }
 
 @:forward

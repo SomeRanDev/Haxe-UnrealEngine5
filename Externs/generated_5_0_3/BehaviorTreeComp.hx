@@ -5,11 +5,11 @@ package ue;
 @:include("BehaviorTree/BehaviorTreeComponent.h")
 @:structAccess
 extern class BehaviorTreeComp extends BrainComp {
-	public var NodeInstances: TArray<cpp.Star<BTNode>>;
-	public var DefaultBehaviorTreeAsset: cpp.Star<BehaviorTree>;
+	@:protected public var NodeInstances: TArray<cpp.Star<BTNode>>;
+	@:protected public var DefaultBehaviorTreeAsset: cpp.Star<BehaviorTree>;
 
 	public function SetDynamicSubtree(InjectTag: GameplayTag, BehaviorAsset: cpp.Star<BehaviorTree>): Void;
-	public function GetTagCooldownEndTime(CooldownTag: GameplayTag): cpp.Reference<cpp.Float32>;
+	public function GetTagCooldownEndTime(CooldownTag: GameplayTag): cpp.Float32;
 	public function AddCooldownTagDuration(CooldownTag: GameplayTag, CooldownDuration: cpp.Float32, bAddToExistingDuration: Bool): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -18,10 +18,6 @@ extern class BehaviorTreeComp extends BrainComp {
 @:forward(GetTagCooldownEndTime)
 @:nativeGen
 abstract ConstBehaviorTreeComp(BehaviorTreeComp) from BehaviorTreeComp {
-	public extern var NodeInstances(get, never): TArray<cpp.Star<BTNode.ConstBTNode>>;
-	public inline extern function get_NodeInstances(): TArray<cpp.Star<BTNode.ConstBTNode>> return this.NodeInstances;
-	public extern var DefaultBehaviorTreeAsset(get, never): cpp.Star<BehaviorTree.ConstBehaviorTree>;
-	public inline extern function get_DefaultBehaviorTreeAsset(): cpp.Star<BehaviorTree.ConstBehaviorTree> return this.DefaultBehaviorTreeAsset;
 }
 
 @:forward

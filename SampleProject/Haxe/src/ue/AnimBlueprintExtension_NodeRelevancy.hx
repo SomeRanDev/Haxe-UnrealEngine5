@@ -5,7 +5,7 @@ package ue;
 @:include("AnimBlueprintExtension_NodeRelevancy.h")
 @:structAccess
 extern class AnimBlueprintExtension_NodeRelevancy extends AnimBlueprintExtension {
-	public var Subsystem: AnimSubsystemInstance_NodeRelevancy;
+	private var Subsystem: AnimSubsystemInstance_NodeRelevancy;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class AnimBlueprintExtension_NodeRelevancy extends AnimBlueprintExtension
 @:forward()
 @:nativeGen
 abstract ConstAnimBlueprintExtension_NodeRelevancy(AnimBlueprintExtension_NodeRelevancy) from AnimBlueprintExtension_NodeRelevancy {
-	public extern var Subsystem(get, never): AnimSubsystemInstance_NodeRelevancy;
-	public inline extern function get_Subsystem(): AnimSubsystemInstance_NodeRelevancy return this.Subsystem;
 }
 
 @:forward

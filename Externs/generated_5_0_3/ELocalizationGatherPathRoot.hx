@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELocalizationGatherPathRoot")
 @:include("LocalizationTargetTypes.h")
-extern enum ELocalizationGatherPathRoot {
-	Auto;
-	Engine;
-	Project;
-	ELocalizationGatherPathRoot_MAX;
+extern class ELocalizationGatherPathRoot {
+	static var Auto: ELocalizationGatherPathRoot;
+	static var Engine: ELocalizationGatherPathRoot;
+	static var Project: ELocalizationGatherPathRoot;
+	static var ELocalizationGatherPathRoot_MAX: ELocalizationGatherPathRoot;
 }

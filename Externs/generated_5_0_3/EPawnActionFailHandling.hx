@@ -3,8 +3,8 @@ package ue;
 
 @:native("EPawnActionFailHandling.Type")
 @:include("Actions/PawnAction.h")
-extern enum EPawnActionFailHandling {
-	RequireSuccess;
-	IgnoreFailure;
-	EPawnActionFailHandling_MAX;
+extern class EPawnActionFailHandling {
+	static var RequireSuccess: EPawnActionFailHandling;
+	static var IgnoreFailure: EPawnActionFailHandling;
+	static var EPawnActionFailHandling_MAX: EPawnActionFailHandling;
 }

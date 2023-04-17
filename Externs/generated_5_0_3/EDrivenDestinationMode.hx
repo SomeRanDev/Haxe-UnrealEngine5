@@ -3,9 +3,9 @@ package ue;
 
 @:native("EDrivenDestinationMode")
 @:include("BoneControllers/AnimNode_BoneDrivenController.h")
-extern enum EDrivenDestinationMode {
-	Bone;
-	MorphTarget;
-	MaterialParameter;
-	EDrivenDestinationMode_MAX;
+extern class EDrivenDestinationMode {
+	static var Bone: EDrivenDestinationMode;
+	static var MorphTarget: EDrivenDestinationMode;
+	static var MaterialParameter: EDrivenDestinationMode;
+	static var EDrivenDestinationMode_MAX: EDrivenDestinationMode;
 }

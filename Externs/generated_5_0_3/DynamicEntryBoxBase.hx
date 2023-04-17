@@ -5,20 +5,20 @@ package ue;
 @:include("Components/DynamicEntryBoxBase.h")
 @:structAccess
 extern class DynamicEntryBoxBase extends Widget {
-	public var EntryBoxType: EDynamicBoxType;
-	public var EntrySpacing: Vector2D;
-	public var SpacingPattern: TArray<Vector2D>;
-	public var EntrySizeRule: SlateChildSize;
-	public var EntryHorizontalAlignment: EHorizontalAlignment;
-	public var EntryVerticalAlignment: EVerticalAlignment;
-	public var MaxElementSize: cpp.Int32;
-	public var RadialBoxSettings: RadialBoxSettings;
-	public var EntryWidgetPool: UserWidgetPool;
+	@:protected public var EntryBoxType: EDynamicBoxType;
+	@:protected public var EntrySpacing: Vector2D;
+	@:protected public var SpacingPattern: TArray<Vector2D>;
+	@:protected public var EntrySizeRule: SlateChildSize;
+	@:protected public var EntryHorizontalAlignment: TEnumAsByte<EHorizontalAlignment>;
+	@:protected public var EntryVerticalAlignment: TEnumAsByte<EVerticalAlignment>;
+	@:protected public var MaxElementSize: cpp.Int32;
+	@:protected public var RadialBoxSettings: RadialBoxSettings;
+	private var EntryWidgetPool: UserWidgetPool;
 
 	public function SetRadialSettings(InSettings: cpp.Reference<RadialBoxSettings>): Void;
 	public function SetEntrySpacing(InEntrySpacing: cpp.Reference<Vector2D>): Void;
-	public function GetNumEntries(): cpp.Reference<cpp.Int32>;
-	public function GetAllEntries(): cpp.Reference<TArray<cpp.Star<UserWidget>>>;
+	public function GetNumEntries(): cpp.Int32;
+	public function GetAllEntries(): TArray<cpp.Star<UserWidget>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -26,24 +26,6 @@ extern class DynamicEntryBoxBase extends Widget {
 @:forward(GetNumEntries, GetAllEntries)
 @:nativeGen
 abstract ConstDynamicEntryBoxBase(DynamicEntryBoxBase) from DynamicEntryBoxBase {
-	public extern var EntryBoxType(get, never): EDynamicBoxType;
-	public inline extern function get_EntryBoxType(): EDynamicBoxType return this.EntryBoxType;
-	public extern var EntrySpacing(get, never): Vector2D;
-	public inline extern function get_EntrySpacing(): Vector2D return this.EntrySpacing;
-	public extern var SpacingPattern(get, never): TArray<Vector2D>;
-	public inline extern function get_SpacingPattern(): TArray<Vector2D> return this.SpacingPattern;
-	public extern var EntrySizeRule(get, never): SlateChildSize;
-	public inline extern function get_EntrySizeRule(): SlateChildSize return this.EntrySizeRule;
-	public extern var EntryHorizontalAlignment(get, never): EHorizontalAlignment;
-	public inline extern function get_EntryHorizontalAlignment(): EHorizontalAlignment return this.EntryHorizontalAlignment;
-	public extern var EntryVerticalAlignment(get, never): EVerticalAlignment;
-	public inline extern function get_EntryVerticalAlignment(): EVerticalAlignment return this.EntryVerticalAlignment;
-	public extern var MaxElementSize(get, never): cpp.Int32;
-	public inline extern function get_MaxElementSize(): cpp.Int32 return this.MaxElementSize;
-	public extern var RadialBoxSettings(get, never): RadialBoxSettings;
-	public inline extern function get_RadialBoxSettings(): RadialBoxSettings return this.RadialBoxSettings;
-	public extern var EntryWidgetPool(get, never): UserWidgetPool;
-	public inline extern function get_EntryWidgetPool(): UserWidgetPool return this.EntryWidgetPool;
 }
 
 @:forward

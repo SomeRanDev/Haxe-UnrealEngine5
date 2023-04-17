@@ -5,24 +5,24 @@ package ue;
 @:include("Protocols/UserDefinedCaptureProtocol.h")
 @:structAccess
 extern class UserDefinedCaptureProtocol extends MovieSceneImageCaptureProtocolBase {
-	public var World: cpp.Star<World>;
+	@:protected public var World: cpp.Star<World>;
 
 	public function StopCapturingFinalPixels(): Void;
 	public function StartCapturingFinalPixels(StreamID: cpp.Reference<CapturedPixelsID>): Void;
 	public function ResolveBuffer(Buffer: cpp.Star<Texture>, BufferID: cpp.Reference<CapturedPixelsID>): Void;
-	public function OnWarmUp(): Void;
-	public function OnTick(): Void;
-	public function OnStartCapture(): Void;
-	public function OnSetup(): cpp.Reference<Bool>;
-	public function OnPreTick(): Void;
-	public function OnPixelsReceived(Pixels: cpp.Reference<CapturedPixels>, ID: cpp.Reference<CapturedPixelsID>, FrameMetrics: FrameMetrics): Void;
-	public function OnPauseCapture(): Void;
-	public function OnFinalize(): Void;
-	public function OnCaptureFrame(): Void;
-	public function OnCanFinalize(): cpp.Reference<Bool>;
-	public function OnBeginFinalize(): Void;
-	public function GetCurrentFrameMetrics(): cpp.Reference<FrameMetrics>;
-	public function GenerateFilename(InFrameMetrics: cpp.Reference<FrameMetrics>): cpp.Reference<FString>;
+	@:protected public function OnWarmUp(): Void;
+	@:protected public function OnTick(): Void;
+	@:protected public function OnStartCapture(): Void;
+	@:protected public function OnSetup(): Bool;
+	@:protected public function OnPreTick(): Void;
+	@:protected public function OnPixelsReceived(Pixels: cpp.Reference<CapturedPixels>, ID: cpp.Reference<CapturedPixelsID>, FrameMetrics: FrameMetrics): Void;
+	@:protected public function OnPauseCapture(): Void;
+	@:protected public function OnFinalize(): Void;
+	@:protected public function OnCaptureFrame(): Void;
+	@:protected public function OnCanFinalize(): Bool;
+	@:protected public function OnBeginFinalize(): Void;
+	public function GetCurrentFrameMetrics(): FrameMetrics;
+	public function GenerateFilename(InFrameMetrics: cpp.Reference<FrameMetrics>): FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -30,8 +30,6 @@ extern class UserDefinedCaptureProtocol extends MovieSceneImageCaptureProtocolBa
 @:forward(OnCanFinalize, GetCurrentFrameMetrics, GenerateFilename)
 @:nativeGen
 abstract ConstUserDefinedCaptureProtocol(UserDefinedCaptureProtocol) from UserDefinedCaptureProtocol {
-	public extern var World(get, never): cpp.Star<World.ConstWorld>;
-	public inline extern function get_World(): cpp.Star<World.ConstWorld> return this.World;
 }
 
 @:forward

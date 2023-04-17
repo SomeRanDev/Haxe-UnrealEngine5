@@ -3,10 +3,10 @@ package ue;
 
 @:native("EEnvTestDistance.Type")
 @:include("EnvironmentQuery/Tests/EnvQueryTest_Distance.h")
-extern enum EEnvTestDistance {
-	Distance3D;
-	Distance2D;
-	DistanceZ;
-	DistanceAbsoluteZ;
-	EEnvTestDistance_MAX;
+extern class EEnvTestDistance {
+	static var Distance3D: EEnvTestDistance;
+	static var Distance2D: EEnvTestDistance;
+	static var DistanceZ: EEnvTestDistance;
+	static var DistanceAbsoluteZ: EEnvTestDistance;
+	static var EEnvTestDistance_MAX: EEnvTestDistance;
 }

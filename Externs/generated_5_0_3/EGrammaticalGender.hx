@@ -3,10 +3,10 @@ package ue;
 
 @:native("EGrammaticalGender.Type")
 @:include("Sound/DialogueTypes.h")
-extern enum EGrammaticalGender {
-	Neuter;
-	Masculine;
-	Feminine;
-	Mixed;
-	EGrammaticalGender_MAX;
+extern class EGrammaticalGender {
+	static var Neuter: EGrammaticalGender;
+	static var Masculine: EGrammaticalGender;
+	static var Feminine: EGrammaticalGender;
+	static var Mixed: EGrammaticalGender;
+	static var EGrammaticalGender_MAX: EGrammaticalGender;
 }

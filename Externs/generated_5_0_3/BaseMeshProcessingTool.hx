@@ -5,7 +5,7 @@ package ue;
 @:include("BaseTools/BaseMeshProcessingTool.h")
 @:structAccess
 extern class BaseMeshProcessingTool extends SingleSelectionTool {
-	public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class BaseMeshProcessingTool extends SingleSelectionTool {
 @:forward()
 @:nativeGen
 abstract ConstBaseMeshProcessingTool(BaseMeshProcessingTool) from BaseMeshProcessingTool {
-	public extern var Preview(get, never): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
-	public inline extern function get_Preview(): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.Preview;
 }
 
 @:forward

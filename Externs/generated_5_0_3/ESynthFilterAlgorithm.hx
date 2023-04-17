@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESynthFilterAlgorithm")
 @:include("EpicSynth1Types.h")
-extern enum ESynthFilterAlgorithm {
-	OnePole;
-	StateVariable;
-	Ladder;
-	Count;
-	ESynthFilterAlgorithm_MAX;
+extern class ESynthFilterAlgorithm {
+	static var OnePole: ESynthFilterAlgorithm;
+	static var StateVariable: ESynthFilterAlgorithm;
+	static var Ladder: ESynthFilterAlgorithm;
+	static var Count: ESynthFilterAlgorithm;
+	static var ESynthFilterAlgorithm_MAX: ESynthFilterAlgorithm;
 }

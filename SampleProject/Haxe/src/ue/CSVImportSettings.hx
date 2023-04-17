@@ -7,8 +7,8 @@ package ue;
 extern class CSVImportSettings {
 	public var ImportRowStruct: cpp.Star<ScriptStruct>;
 	public var ImportType: ECSVImportType;
-	public var ImportCurveInterpMode: ERichCurveInterpMode;
+	public var ImportCurveInterpMode: TEnumAsByte<ERichCurveInterpMode>;
 
 	@:native("FCSVImportSettings") public function new();
-	@:native("FCSVImportSettings") public static function make(ImportRowStruct: cpp.Star<ScriptStruct>, ImportType: ECSVImportType, ImportCurveInterpMode: ERichCurveInterpMode): CSVImportSettings ;
+	@:native("FCSVImportSettings") public static function make(ImportRowStruct: cpp.Star<ScriptStruct>, ImportType: ECSVImportType, ImportCurveInterpMode: TEnumAsByte<ERichCurveInterpMode>): CSVImportSettings ;
 }

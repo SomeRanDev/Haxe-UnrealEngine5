@@ -5,7 +5,7 @@ package ue;
 @:include("Components/SynthComponent.h")
 @:structAccess
 extern class SynthSound extends SoundWaveProcedural {
-	public var OwningSynthComponent: cpp.Star<SynthComp>;
+	@:protected public var OwningSynthComponent: cpp.Star<SynthComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class SynthSound extends SoundWaveProcedural {
 @:forward()
 @:nativeGen
 abstract ConstSynthSound(SynthSound) from SynthSound {
-	public extern var OwningSynthComponent(get, never): cpp.Star<SynthComp.ConstSynthComp>;
-	public inline extern function get_OwningSynthComponent(): cpp.Star<SynthComp.ConstSynthComp> return this.OwningSynthComponent;
 }
 
 @:forward

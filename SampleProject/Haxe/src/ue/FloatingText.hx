@@ -5,15 +5,15 @@ package ue;
 @:include("VREditorFloatingText.h")
 @:structAccess
 extern class FloatingText extends Actor {
-	public var SceneComponent: cpp.Star<SceneComp>;
-	public var FirstLineComponent: cpp.Star<StaticMeshComp>;
-	public var JointSphereComponent: cpp.Star<StaticMeshComp>;
-	public var SecondLineComponent: cpp.Star<StaticMeshComp>;
-	public var TextComponent: cpp.Star<TextRenderComp>;
-	public var MaskedTextMaterial: cpp.Star<MaterialInterface>;
-	public var TranslucentTextMaterial: cpp.Star<MaterialInterface>;
-	public var LineMaterial: cpp.Star<MaterialInterface>;
-	public var LineMaterialMID: cpp.Star<MaterialInstanceDynamic>;
+	private var SceneComponent: cpp.Star<SceneComp>;
+	private var FirstLineComponent: cpp.Star<StaticMeshComp>;
+	private var JointSphereComponent: cpp.Star<StaticMeshComp>;
+	private var SecondLineComponent: cpp.Star<StaticMeshComp>;
+	private var TextComponent: cpp.Star<TextRenderComp>;
+	private var MaskedTextMaterial: cpp.Star<MaterialInterface>;
+	private var TranslucentTextMaterial: cpp.Star<MaterialInterface>;
+	private var LineMaterial: cpp.Star<MaterialInterface>;
+	private var LineMaterialMID: cpp.Star<MaterialInstanceDynamic>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -21,24 +21,6 @@ extern class FloatingText extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstFloatingText(FloatingText) from FloatingText {
-	public extern var SceneComponent(get, never): cpp.Star<SceneComp.ConstSceneComp>;
-	public inline extern function get_SceneComponent(): cpp.Star<SceneComp.ConstSceneComp> return this.SceneComponent;
-	public extern var FirstLineComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_FirstLineComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.FirstLineComponent;
-	public extern var JointSphereComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_JointSphereComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.JointSphereComponent;
-	public extern var SecondLineComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_SecondLineComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.SecondLineComponent;
-	public extern var TextComponent(get, never): cpp.Star<TextRenderComp.ConstTextRenderComp>;
-	public inline extern function get_TextComponent(): cpp.Star<TextRenderComp.ConstTextRenderComp> return this.TextComponent;
-	public extern var MaskedTextMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_MaskedTextMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.MaskedTextMaterial;
-	public extern var TranslucentTextMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_TranslucentTextMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.TranslucentTextMaterial;
-	public extern var LineMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_LineMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.LineMaterial;
-	public extern var LineMaterialMID(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_LineMaterialMID(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.LineMaterialMID;
 }
 
 @:forward

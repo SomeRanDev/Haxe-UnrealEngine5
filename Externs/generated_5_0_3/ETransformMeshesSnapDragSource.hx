@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETransformMeshesSnapDragSource")
 @:include("TransformMeshesTool.h")
-extern enum ETransformMeshesSnapDragSource {
-	ClickPoint;
-	Pivot;
-	LastValue;
-	ETransformMeshesSnapDragSource_MAX;
+extern class ETransformMeshesSnapDragSource {
+	static var ClickPoint: ETransformMeshesSnapDragSource;
+	static var Pivot: ETransformMeshesSnapDragSource;
+	static var LastValue: ETransformMeshesSnapDragSource;
+	static var ETransformMeshesSnapDragSource_MAX: ETransformMeshesSnapDragSource;
 }

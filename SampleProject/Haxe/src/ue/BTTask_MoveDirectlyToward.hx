@@ -7,7 +7,7 @@ package ue;
 extern class BTTask_MoveDirectlyToward extends BTTask_MoveTo {
 	public var bDisablePathUpdateOnGoalLocationChange: Bool;
 	public var bProjectVectorGoalToNavigation: Bool;
-	public var bUpdatedDeprecatedProperties: Bool;
+	private var bUpdatedDeprecatedProperties: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,8 +19,6 @@ abstract ConstBTTask_MoveDirectlyToward(BTTask_MoveDirectlyToward) from BTTask_M
 	public inline extern function get_bDisablePathUpdateOnGoalLocationChange(): Bool return this.bDisablePathUpdateOnGoalLocationChange;
 	public extern var bProjectVectorGoalToNavigation(get, never): Bool;
 	public inline extern function get_bProjectVectorGoalToNavigation(): Bool return this.bProjectVectorGoalToNavigation;
-	public extern var bUpdatedDeprecatedProperties(get, never): Bool;
-	public inline extern function get_bUpdatedDeprecatedProperties(): Bool return this.bUpdatedDeprecatedProperties;
 }
 
 @:forward

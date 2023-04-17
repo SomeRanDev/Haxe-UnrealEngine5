@@ -5,7 +5,6 @@ package ue;
 @:include("AnimDataController.h")
 @:structAccess
 extern class AnimDataController extends Object {
-	public var Model: cpp.Star<AnimDataModel>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +12,6 @@ extern class AnimDataController extends Object {
 @:forward()
 @:nativeGen
 abstract ConstAnimDataController(AnimDataController) from AnimDataController {
-	public extern var Model(get, never): cpp.Star<AnimDataModel.ConstAnimDataModel>;
-	public inline extern function get_Model(): cpp.Star<AnimDataModel.ConstAnimDataModel> return this.Model;
 }
 
 @:forward

@@ -7,7 +7,7 @@ package ue;
 extern class NiagaraParameterCollectionInstance extends Object {
 	public var Collection: cpp.Star<NiagaraParameterCollection>;
 	public var OverridenParameters: TArray<NiagaraVariable>;
-	public var ParameterStorage: NiagaraParameterStore;
+	private var ParameterStorage: NiagaraParameterStore;
 
 	public function SetVectorParameter(InVariableName: FString, InValue: Vector): Void;
 	public function SetVector4Parameter(InVariableName: FString, InValue: cpp.Reference<Vector4>): Void;
@@ -17,14 +17,14 @@ extern class NiagaraParameterCollectionInstance extends Object {
 	public function SetFloatParameter(InVariableName: FString, InValue: cpp.Float32): Void;
 	public function SetColorParameter(InVariableName: FString, InValue: LinearColor): Void;
 	public function SetBoolParameter(InVariableName: FString, InValue: Bool): Void;
-	public function GetVectorParameter(InVariableName: FString): cpp.Reference<Vector>;
-	public function GetVector4Parameter(InVariableName: FString): cpp.Reference<Vector4>;
-	public function GetVector2DParameter(InVariableName: FString): cpp.Reference<Vector2D>;
-	public function GetQuatParameter(InVariableName: FString): cpp.Reference<Quat>;
-	public function GetIntParameter(InVariableName: FString): cpp.Reference<cpp.Int32>;
-	public function GetFloatParameter(InVariableName: FString): cpp.Reference<cpp.Float32>;
-	public function GetColorParameter(InVariableName: FString): cpp.Reference<LinearColor>;
-	public function GetBoolParameter(InVariableName: FString): cpp.Reference<Bool>;
+	public function GetVectorParameter(InVariableName: FString): Vector;
+	public function GetVector4Parameter(InVariableName: FString): Vector4;
+	public function GetVector2DParameter(InVariableName: FString): Vector2D;
+	public function GetQuatParameter(InVariableName: FString): Quat;
+	public function GetIntParameter(InVariableName: FString): cpp.Int32;
+	public function GetFloatParameter(InVariableName: FString): cpp.Float32;
+	public function GetColorParameter(InVariableName: FString): LinearColor;
+	public function GetBoolParameter(InVariableName: FString): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -36,8 +36,6 @@ abstract ConstNiagaraParameterCollectionInstance(NiagaraParameterCollectionInsta
 	public inline extern function get_Collection(): cpp.Star<NiagaraParameterCollection.ConstNiagaraParameterCollection> return this.Collection;
 	public extern var OverridenParameters(get, never): TArray<NiagaraVariable>;
 	public inline extern function get_OverridenParameters(): TArray<NiagaraVariable> return this.OverridenParameters;
-	public extern var ParameterStorage(get, never): NiagaraParameterStore;
-	public inline extern function get_ParameterStorage(): NiagaraParameterStore return this.ParameterStorage;
 }
 
 @:forward

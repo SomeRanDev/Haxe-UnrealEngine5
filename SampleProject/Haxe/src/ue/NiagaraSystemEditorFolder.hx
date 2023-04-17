@@ -5,9 +5,9 @@ package ue;
 @:include("NiagaraSystemEditorData.h")
 @:structAccess
 extern class NiagaraSystemEditorFolder extends Object {
-	public var FolderName: FName;
-	public var ChildFolders: TArray<cpp.Star<NiagaraSystemEditorFolder>>;
-	public var ChildEmitterHandleIds: TArray<Guid>;
+	private var FolderName: FName;
+	private var ChildFolders: TArray<cpp.Star<NiagaraSystemEditorFolder>>;
+	private var ChildEmitterHandleIds: TArray<Guid>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class NiagaraSystemEditorFolder extends Object {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraSystemEditorFolder(NiagaraSystemEditorFolder) from NiagaraSystemEditorFolder {
-	public extern var FolderName(get, never): FName;
-	public inline extern function get_FolderName(): FName return this.FolderName;
-	public extern var ChildFolders(get, never): TArray<cpp.Star<NiagaraSystemEditorFolder.ConstNiagaraSystemEditorFolder>>;
-	public inline extern function get_ChildFolders(): TArray<cpp.Star<NiagaraSystemEditorFolder.ConstNiagaraSystemEditorFolder>> return this.ChildFolders;
-	public extern var ChildEmitterHandleIds(get, never): TArray<Guid>;
-	public inline extern function get_ChildEmitterHandleIds(): TArray<Guid> return this.ChildEmitterHandleIds;
 }
 
 @:forward

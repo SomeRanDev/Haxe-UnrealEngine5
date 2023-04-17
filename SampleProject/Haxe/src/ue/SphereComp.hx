@@ -5,12 +5,12 @@ package ue;
 @:include("Components/SphereComponent.h")
 @:structAccess
 extern class SphereComp extends ShapeComp {
-	public var SphereRadius: cpp.Float32;
+	@:protected public var SphereRadius: cpp.Float32;
 
 	public function SetSphereRadius(InSphereRadius: cpp.Float32, bUpdateOverlaps: Bool): Void;
-	public function GetUnscaledSphereRadius(): cpp.Reference<cpp.Float32>;
-	public function GetShapeScale(): cpp.Reference<cpp.Float32>;
-	public function GetScaledSphereRadius(): cpp.Reference<cpp.Float32>;
+	public function GetUnscaledSphereRadius(): cpp.Float32;
+	public function GetShapeScale(): cpp.Float32;
+	public function GetScaledSphereRadius(): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,8 +18,6 @@ extern class SphereComp extends ShapeComp {
 @:forward(GetUnscaledSphereRadius, GetShapeScale, GetScaledSphereRadius)
 @:nativeGen
 abstract ConstSphereComp(SphereComp) from SphereComp {
-	public extern var SphereRadius(get, never): cpp.Float32;
-	public inline extern function get_SphereRadius(): cpp.Float32 return this.SphereRadius;
 }
 
 @:forward

@@ -5,11 +5,9 @@ package ue;
 @:include("NiagaraMessages.h")
 @:structAccess
 extern class NiagaraMessageDataText extends NiagaraMessageData {
-	public var MessageText: FText;
-	public var ShortDescription: FText;
-	public var MessageSeverity: ENiagaraMessageSeverity;
-	public var bAllowDismissal: Bool;
-	public var TopicName: FName;
+	private var MessageSeverity: ENiagaraMessageSeverity;
+	private var bAllowDismissal: Bool;
+	private var TopicName: FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,16 +15,6 @@ extern class NiagaraMessageDataText extends NiagaraMessageData {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraMessageDataText(NiagaraMessageDataText) from NiagaraMessageDataText {
-	public extern var MessageText(get, never): FText;
-	public inline extern function get_MessageText(): FText return this.MessageText;
-	public extern var ShortDescription(get, never): FText;
-	public inline extern function get_ShortDescription(): FText return this.ShortDescription;
-	public extern var MessageSeverity(get, never): ENiagaraMessageSeverity;
-	public inline extern function get_MessageSeverity(): ENiagaraMessageSeverity return this.MessageSeverity;
-	public extern var bAllowDismissal(get, never): Bool;
-	public inline extern function get_bAllowDismissal(): Bool return this.bAllowDismissal;
-	public extern var TopicName(get, never): FName;
-	public inline extern function get_TopicName(): FName return this.TopicName;
 }
 
 @:forward

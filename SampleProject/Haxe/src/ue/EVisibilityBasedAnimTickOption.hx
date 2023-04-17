@@ -3,10 +3,10 @@ package ue;
 
 @:native("EVisibilityBasedAnimTickOption")
 @:include("Components/SkinnedMeshComponent.h")
-extern enum EVisibilityBasedAnimTickOption {
-	AlwaysTickPoseAndRefreshBones;
-	AlwaysTickPose;
-	OnlyTickMontagesWhenNotRendered;
-	OnlyTickPoseWhenRendered;
-	EVisibilityBasedAnimTickOption_MAX;
+extern class EVisibilityBasedAnimTickOption {
+	static var AlwaysTickPoseAndRefreshBones: EVisibilityBasedAnimTickOption;
+	static var AlwaysTickPose: EVisibilityBasedAnimTickOption;
+	static var OnlyTickMontagesWhenNotRendered: EVisibilityBasedAnimTickOption;
+	static var OnlyTickPoseWhenRendered: EVisibilityBasedAnimTickOption;
+	static var EVisibilityBasedAnimTickOption_MAX: EVisibilityBasedAnimTickOption;
 }

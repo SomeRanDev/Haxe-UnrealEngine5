@@ -3,8 +3,8 @@ package ue;
 
 @:native("EOccludedAction")
 @:include("RemoveOccludedTrianglesTool.h")
-extern enum EOccludedAction {
-	Remove;
-	SetNewGroup;
-	EOccludedAction_MAX;
+extern class EOccludedAction {
+	static var Remove: EOccludedAction;
+	static var SetNewGroup: EOccludedAction;
+	static var EOccludedAction_MAX: EOccludedAction;
 }

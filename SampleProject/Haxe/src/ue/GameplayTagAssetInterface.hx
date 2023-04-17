@@ -4,9 +4,9 @@ package ue;
 @:native("UGameplayTagAssetInterface")
 @:structAccess
 extern class GameplayTagAssetInterface extends Interface {
-	public function HasMatchingGameplayTag(TagToCheck: GameplayTag): cpp.Reference<Bool>;
-	public function HasAnyMatchingGameplayTags(TagContainer: cpp.Reference<GameplayTagContainer>): cpp.Reference<Bool>;
-	public function HasAllMatchingGameplayTags(TagContainer: cpp.Reference<GameplayTagContainer>): cpp.Reference<Bool>;
+	public function HasMatchingGameplayTag(TagToCheck: GameplayTag): Bool;
+	public function HasAnyMatchingGameplayTags(TagContainer: cpp.Reference<GameplayTagContainer>): Bool;
+	public function HasAllMatchingGameplayTags(TagContainer: cpp.Reference<GameplayTagContainer>): Bool;
 	public function GetOwnedGameplayTags(TagContainer: cpp.Reference<GameplayTagContainer>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;

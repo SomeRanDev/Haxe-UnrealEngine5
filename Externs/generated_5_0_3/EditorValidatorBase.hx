@@ -5,12 +5,12 @@ package ue;
 @:include("EditorValidatorBase.h")
 @:structAccess
 extern class EditorValidatorBase extends Object {
-	public var bIsEnabled: Bool;
+	@:protected public var bIsEnabled: Bool;
 
-	public function ValidateLoadedAsset(InAsset: cpp.Star<Object>, ValidationErrors: cpp.Reference<TArray<FText>>): cpp.Reference<EDataValidationResult>;
-	public function GetValidationResult(): cpp.Reference<EDataValidationResult>;
-	public function CanValidateAsset(InAsset: cpp.Star<Object>): cpp.Reference<Bool>;
-	public function CanValidate(InUsecase: EDataValidationUsecase): cpp.Reference<Bool>;
+	public function ValidateLoadedAsset(InAsset: cpp.Star<Object>, ValidationErrors: cpp.Reference<TArray<FText>>): EDataValidationResult;
+	public function GetValidationResult(): EDataValidationResult;
+	public function CanValidateAsset(InAsset: cpp.Star<Object>): Bool;
+	public function CanValidate(InUsecase: EDataValidationUsecase): Bool;
 	public function AssetWarning(InAsset: cpp.Star<Object>, InMessage: cpp.Reference<FText>): Void;
 	public function AssetPasses(InAsset: cpp.Star<Object>): Void;
 	public function AssetFails(InAsset: cpp.Star<Object>, InMessage: cpp.Reference<FText>, ValidationErrors: cpp.Reference<TArray<FText>>): Void;
@@ -21,8 +21,6 @@ extern class EditorValidatorBase extends Object {
 @:forward(GetValidationResult, CanValidateAsset, CanValidate)
 @:nativeGen
 abstract ConstEditorValidatorBase(EditorValidatorBase) from EditorValidatorBase {
-	public extern var bIsEnabled(get, never): Bool;
-	public inline extern function get_bIsEnabled(): Bool return this.bIsEnabled;
 }
 
 @:forward

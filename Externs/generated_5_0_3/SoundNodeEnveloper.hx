@@ -11,8 +11,6 @@ extern class SoundNodeEnveloper extends SoundNode {
 	public var LoopCount: cpp.Int32;
 	public var bLoopIndefinitely: Bool;
 	public var bLoop: Bool;
-	public var VolumeInterpCurve_DEPRECATED: cpp.Star<DistributionFloatConstantCurve>;
-	public var PitchInterpCurve_DEPRECATED: cpp.Star<DistributionFloatConstantCurve>;
 	public var VolumeCurve: RuntimeFloatCurve;
 	public var PitchCurve: RuntimeFloatCurve;
 	public var PitchMin: cpp.Float32;
@@ -38,10 +36,6 @@ abstract ConstSoundNodeEnveloper(SoundNodeEnveloper) from SoundNodeEnveloper {
 	public inline extern function get_bLoopIndefinitely(): Bool return this.bLoopIndefinitely;
 	public extern var bLoop(get, never): Bool;
 	public inline extern function get_bLoop(): Bool return this.bLoop;
-	public extern var VolumeInterpCurve_DEPRECATED(get, never): cpp.Star<DistributionFloatConstantCurve.ConstDistributionFloatConstantCurve>;
-	public inline extern function get_VolumeInterpCurve_DEPRECATED(): cpp.Star<DistributionFloatConstantCurve.ConstDistributionFloatConstantCurve> return this.VolumeInterpCurve_DEPRECATED;
-	public extern var PitchInterpCurve_DEPRECATED(get, never): cpp.Star<DistributionFloatConstantCurve.ConstDistributionFloatConstantCurve>;
-	public inline extern function get_PitchInterpCurve_DEPRECATED(): cpp.Star<DistributionFloatConstantCurve.ConstDistributionFloatConstantCurve> return this.PitchInterpCurve_DEPRECATED;
 	public extern var VolumeCurve(get, never): RuntimeFloatCurve;
 	public inline extern function get_VolumeCurve(): RuntimeFloatCurve return this.VolumeCurve;
 	public extern var PitchCurve(get, never): RuntimeFloatCurve;

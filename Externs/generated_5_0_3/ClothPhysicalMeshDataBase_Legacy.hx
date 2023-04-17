@@ -7,7 +7,6 @@ package ue;
 extern class ClothPhysicalMeshDataBase_Legacy extends Object {
 	public var Vertices: TArray<Vector3f>;
 	public var Normals: TArray<Vector3f>;
-	public var VertexColors: TArray<Color>;
 	public var Indices: TArray<cpp.UInt32>;
 	public var InverseMasses: TArray<cpp.Float32>;
 	public var BoneData: TArray<ClothVertBoneData>;
@@ -25,8 +24,6 @@ abstract ConstClothPhysicalMeshDataBase_Legacy(ClothPhysicalMeshDataBase_Legacy)
 	public inline extern function get_Vertices(): TArray<Vector3f> return this.Vertices;
 	public extern var Normals(get, never): TArray<Vector3f>;
 	public inline extern function get_Normals(): TArray<Vector3f> return this.Normals;
-	public extern var VertexColors(get, never): TArray<Color>;
-	public inline extern function get_VertexColors(): TArray<Color> return this.VertexColors;
 	public extern var Indices(get, never): TArray<cpp.UInt32>;
 	public inline extern function get_Indices(): TArray<cpp.UInt32> return this.Indices;
 	public extern var InverseMasses(get, never): TArray<cpp.Float32>;

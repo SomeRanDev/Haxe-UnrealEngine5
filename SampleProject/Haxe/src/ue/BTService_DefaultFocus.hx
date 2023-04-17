@@ -5,7 +5,7 @@ package ue;
 @:include("BehaviorTree/Services/BTService_DefaultFocus.h")
 @:structAccess
 extern class BTService_DefaultFocus extends BTService_BlackboardBase {
-	public var FocusPriority: cpp.UInt8;
+	@:protected public var FocusPriority: cpp.UInt8;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class BTService_DefaultFocus extends BTService_BlackboardBase {
 @:forward()
 @:nativeGen
 abstract ConstBTService_DefaultFocus(BTService_DefaultFocus) from BTService_DefaultFocus {
-	public extern var FocusPriority(get, never): cpp.UInt8;
-	public inline extern function get_FocusPriority(): cpp.UInt8 return this.FocusPriority;
 }
 
 @:forward

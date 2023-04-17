@@ -3,8 +3,8 @@ package ue;
 
 @:native("EBrushToolSizeType")
 @:include("Sculpting/MeshSculptToolBase.h")
-extern enum EBrushToolSizeType {
-	Adaptive;
-	World;
-	EBrushToolSizeType_MAX;
+extern class EBrushToolSizeType {
+	static var Adaptive: EBrushToolSizeType;
+	static var World: EBrushToolSizeType;
+	static var EBrushToolSizeType_MAX: EBrushToolSizeType;
 }

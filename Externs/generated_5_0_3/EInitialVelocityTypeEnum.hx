@@ -3,9 +3,9 @@ package ue;
 
 @:native("EInitialVelocityTypeEnum")
 @:include("GeometryCollection/GeometryCollectionSimulationTypes.h")
-extern enum EInitialVelocityTypeEnum {
-	Chaos_Initial_Velocity_User_Defined;
-	Chaos_Initial_Velocity_None;
-	Chaos_Max;
-	Chaos_MAX;
+extern class EInitialVelocityTypeEnum {
+	static var Chaos_Initial_Velocity_User_Defined: EInitialVelocityTypeEnum;
+	static var Chaos_Initial_Velocity_None: EInitialVelocityTypeEnum;
+	static var Chaos_Max: EInitialVelocityTypeEnum;
+	static var Chaos_MAX: EInitialVelocityTypeEnum;
 }

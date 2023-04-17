@@ -3,11 +3,11 @@ package ue;
 
 @:native("ESourceEffectMotionFilterType")
 @:include("SourceEffects/SourceEffectMotionFilter.h")
-extern enum ESourceEffectMotionFilterType {
-	LowPass;
-	HighPass;
-	BandPass;
-	BandStop;
-	Count;
-	ESourceEffectMotionFilterType_MAX;
+extern class ESourceEffectMotionFilterType {
+	static var LowPass: ESourceEffectMotionFilterType;
+	static var HighPass: ESourceEffectMotionFilterType;
+	static var BandPass: ESourceEffectMotionFilterType;
+	static var BandStop: ESourceEffectMotionFilterType;
+	static var Count: ESourceEffectMotionFilterType;
+	static var ESourceEffectMotionFilterType_MAX: ESourceEffectMotionFilterType;
 }

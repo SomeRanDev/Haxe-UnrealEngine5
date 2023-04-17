@@ -5,7 +5,7 @@ package ue;
 @:include("Particles/Event/ParticleModuleEventGenerator.h")
 @:structAccess
 extern class ParticleEvent_GenerateInfo {
-	public var Type: EParticleEventType;
+	public var Type: TEnumAsByte<EParticleEventType>;
 	public var Frequency: cpp.Int32;
 	public var ParticleFrequency: cpp.Int32;
 	public var FirstTimeOnly: Bool;

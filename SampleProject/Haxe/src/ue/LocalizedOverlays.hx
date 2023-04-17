@@ -7,7 +7,6 @@ package ue;
 extern class LocalizedOverlays extends Overlays {
 	public var DefaultOverlays: cpp.Star<BasicOverlays>;
 	public var LocaleToOverlaysMap: TMap<FString, cpp.Star<BasicOverlays>>;
-	public var AssetImportData: cpp.Star<AssetImportData>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,8 +18,6 @@ abstract ConstLocalizedOverlays(LocalizedOverlays) from LocalizedOverlays {
 	public inline extern function get_DefaultOverlays(): cpp.Star<BasicOverlays.ConstBasicOverlays> return this.DefaultOverlays;
 	public extern var LocaleToOverlaysMap(get, never): TMap<FString, cpp.Star<BasicOverlays.ConstBasicOverlays>>;
 	public inline extern function get_LocaleToOverlaysMap(): TMap<FString, cpp.Star<BasicOverlays.ConstBasicOverlays>> return this.LocaleToOverlaysMap;
-	public extern var AssetImportData(get, never): cpp.Star<AssetImportData.ConstAssetImportData>;
-	public inline extern function get_AssetImportData(): cpp.Star<AssetImportData.ConstAssetImportData> return this.AssetImportData;
 }
 
 @:forward

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EBasicKeyOperation.Type")
 @:include("BehaviorTree/Blackboard/BlackboardKeyType.h")
-extern enum EBasicKeyOperation {
-	Set;
-	NotSet;
-	EBasicKeyOperation_MAX;
+extern class EBasicKeyOperation {
+	static var Set: EBasicKeyOperation;
+	static var NotSet: EBasicKeyOperation;
+	static var EBasicKeyOperation_MAX: EBasicKeyOperation;
 }

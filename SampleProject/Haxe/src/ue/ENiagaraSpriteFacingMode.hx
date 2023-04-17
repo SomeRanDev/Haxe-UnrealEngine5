@@ -3,11 +3,11 @@ package ue;
 
 @:native("ENiagaraSpriteFacingMode")
 @:include("NiagaraSpriteRendererProperties.h")
-extern enum ENiagaraSpriteFacingMode {
-	FaceCamera;
-	FaceCameraPlane;
-	CustomFacingVector;
-	FaceCameraPosition;
-	FaceCameraDistanceBlend;
-	ENiagaraSpriteFacingMode_MAX;
+extern class ENiagaraSpriteFacingMode {
+	static var FaceCamera: ENiagaraSpriteFacingMode;
+	static var FaceCameraPlane: ENiagaraSpriteFacingMode;
+	static var CustomFacingVector: ENiagaraSpriteFacingMode;
+	static var FaceCameraPosition: ENiagaraSpriteFacingMode;
+	static var FaceCameraDistanceBlend: ENiagaraSpriteFacingMode;
+	static var ENiagaraSpriteFacingMode_MAX: ENiagaraSpriteFacingMode;
 }

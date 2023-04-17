@@ -5,7 +5,6 @@ package ue;
 @:include("DatasmithAssetImportData.h")
 @:structAccess
 extern class DatasmithCADImportSceneData extends DatasmithSceneImportData {
-	public var TessellationOptions: DatasmithTessellationOptions;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +12,6 @@ extern class DatasmithCADImportSceneData extends DatasmithSceneImportData {
 @:forward()
 @:nativeGen
 abstract ConstDatasmithCADImportSceneData(DatasmithCADImportSceneData) from DatasmithCADImportSceneData {
-	public extern var TessellationOptions(get, never): DatasmithTessellationOptions;
-	public inline extern function get_TessellationOptions(): DatasmithTessellationOptions return this.TessellationOptions;
 }
 
 @:forward

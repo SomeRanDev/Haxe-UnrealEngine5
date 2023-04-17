@@ -5,7 +5,7 @@ package ue;
 @:include("SkinWeightsPaintTool.h")
 @:structAccess
 extern class SkinWeightsPaintTool extends DynamicMeshBrushTool {
-	public var ToolProps: cpp.Star<SkinWeightsPaintToolProperties>;
+	@:protected public var ToolProps: cpp.Star<SkinWeightsPaintToolProperties>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class SkinWeightsPaintTool extends DynamicMeshBrushTool {
 @:forward()
 @:nativeGen
 abstract ConstSkinWeightsPaintTool(SkinWeightsPaintTool) from SkinWeightsPaintTool {
-	public extern var ToolProps(get, never): cpp.Star<SkinWeightsPaintToolProperties.ConstSkinWeightsPaintToolProperties>;
-	public inline extern function get_ToolProps(): cpp.Star<SkinWeightsPaintToolProperties.ConstSkinWeightsPaintToolProperties> return this.ToolProps;
 }
 
 @:forward

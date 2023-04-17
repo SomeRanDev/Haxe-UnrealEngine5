@@ -3,9 +3,9 @@ package ue;
 
 @:native("EDatasmithImportActorPolicy")
 @:include("DatasmithImportOptions.h")
-extern enum EDatasmithImportActorPolicy {
-	Update;
-	Full;
-	Ignore;
-	EDatasmithImportActorPolicy_MAX;
+extern class EDatasmithImportActorPolicy {
+	static var Update: EDatasmithImportActorPolicy;
+	static var Full: EDatasmithImportActorPolicy;
+	static var Ignore: EDatasmithImportActorPolicy;
+	static var EDatasmithImportActorPolicy_MAX: EDatasmithImportActorPolicy;
 }

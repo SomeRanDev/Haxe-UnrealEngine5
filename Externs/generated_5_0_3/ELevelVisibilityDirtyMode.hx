@@ -3,8 +3,8 @@ package ue;
 
 @:native("ELevelVisibilityDirtyMode")
 @:include("EditorLevelUtils.h")
-extern enum ELevelVisibilityDirtyMode {
-	ModifyOnChange;
-	DontModify;
-	ELevelVisibilityDirtyMode_MAX;
+extern class ELevelVisibilityDirtyMode {
+	static var ModifyOnChange: ELevelVisibilityDirtyMode;
+	static var DontModify: ELevelVisibilityDirtyMode;
+	static var ELevelVisibilityDirtyMode_MAX: ELevelVisibilityDirtyMode;
 }

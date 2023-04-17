@@ -5,8 +5,8 @@ package ue;
 @:include("Manipulator.h")
 @:structAccess
 extern class Manipulator extends Actor {
-	public var AssociatedComponent: cpp.Star<SceneComp>;
-	public var StaticMeshComponent: cpp.Star<StaticMeshComp>;
+	private var AssociatedComponent: cpp.Star<SceneComp>;
+	private var StaticMeshComponent: cpp.Star<StaticMeshComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class Manipulator extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstManipulator(Manipulator) from Manipulator {
-	public extern var AssociatedComponent(get, never): cpp.Star<SceneComp.ConstSceneComp>;
-	public inline extern function get_AssociatedComponent(): cpp.Star<SceneComp.ConstSceneComp> return this.AssociatedComponent;
-	public extern var StaticMeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_StaticMeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.StaticMeshComponent;
 }
 
 @:forward

@@ -5,7 +5,7 @@ package ue;
 @:include("MeshPaintSettings.h")
 @:structAccess
 extern class PaintBrushSettings extends Object {
-	public var BrushRadius: cpp.Float32;
+	@:protected public var BrushRadius: cpp.Float32;
 	public var BrushStrength: cpp.Float32;
 	public var BrushFalloffAmount: cpp.Float32;
 	public var bEnableFlow: Bool;
@@ -18,8 +18,6 @@ extern class PaintBrushSettings extends Object {
 @:forward()
 @:nativeGen
 abstract ConstPaintBrushSettings(PaintBrushSettings) from PaintBrushSettings {
-	public extern var BrushRadius(get, never): cpp.Float32;
-	public inline extern function get_BrushRadius(): cpp.Float32 return this.BrushRadius;
 	public extern var BrushStrength(get, never): cpp.Float32;
 	public inline extern function get_BrushStrength(): cpp.Float32 return this.BrushStrength;
 	public extern var BrushFalloffAmount(get, never): cpp.Float32;

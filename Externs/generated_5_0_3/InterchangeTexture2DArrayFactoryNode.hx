@@ -5,8 +5,8 @@ package ue;
 @:include("InterchangeTexture2DArrayFactoryNode.h")
 @:structAccess
 extern class InterchangeTexture2DArrayFactoryNode extends InterchangeTextureFactoryNode {
-	public function SetCustomAddressZ(AttributeValue: cpp.UInt8, bAddApplyDelegate: Bool): cpp.Reference<Bool>;
-	public function GetCustomAddressZ(AttributeValue: cpp.Reference<cpp.UInt8>): cpp.Reference<Bool>;
+	public function SetCustomAddressZ(AttributeValue: cpp.UInt8, bAddApplyDelegate: Bool): Bool;
+	public function GetCustomAddressZ(AttributeValue: cpp.Reference<cpp.UInt8>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

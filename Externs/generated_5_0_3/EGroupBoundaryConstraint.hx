@@ -3,10 +3,10 @@ package ue;
 
 @:native("EGroupBoundaryConstraint")
 @:include("Properties/RemeshProperties.h")
-extern enum EGroupBoundaryConstraint {
-	Fixed;
-	Refine;
-	Free;
-	Ignore;
-	EGroupBoundaryConstraint_MAX;
+extern class EGroupBoundaryConstraint {
+	static var Fixed: EGroupBoundaryConstraint;
+	static var Refine: EGroupBoundaryConstraint;
+	static var Free: EGroupBoundaryConstraint;
+	static var Ignore: EGroupBoundaryConstraint;
+	static var EGroupBoundaryConstraint_MAX: EGroupBoundaryConstraint;
 }

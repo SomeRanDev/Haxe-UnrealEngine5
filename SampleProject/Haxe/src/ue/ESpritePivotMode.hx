@@ -3,16 +3,16 @@ package ue;
 
 @:native("ESpritePivotMode.Type")
 @:include("SpriteEditorOnlyTypes.h")
-extern enum ESpritePivotMode {
-	Top_Left;
-	Top_Center;
-	Top_Right;
-	Center_Left;
-	Center_Center;
-	Center_Right;
-	Bottom_Left;
-	Bottom_Center;
-	Bottom_Right;
-	Custom;
-	ESpritePivotMode_MAX;
+extern class ESpritePivotMode {
+	static var Top_Left: ESpritePivotMode;
+	static var Top_Center: ESpritePivotMode;
+	static var Top_Right: ESpritePivotMode;
+	static var Center_Left: ESpritePivotMode;
+	static var Center_Center: ESpritePivotMode;
+	static var Center_Right: ESpritePivotMode;
+	static var Bottom_Left: ESpritePivotMode;
+	static var Bottom_Center: ESpritePivotMode;
+	static var Bottom_Right: ESpritePivotMode;
+	static var Custom: ESpritePivotMode;
+	static var ESpritePivotMode_MAX: ESpritePivotMode;
 }

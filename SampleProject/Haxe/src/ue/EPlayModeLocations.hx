@@ -3,8 +3,8 @@ package ue;
 
 @:native("EPlayModeLocations")
 @:include("Settings/LevelEditorPlaySettings.h")
-extern enum EPlayModeLocations {
-	PlayLocation_CurrentCameraLocation;
-	PlayLocation_DefaultPlayerStart;
-	PlayLocation_MAX;
+extern class EPlayModeLocations {
+	static var PlayLocation_CurrentCameraLocation: EPlayModeLocations;
+	static var PlayLocation_DefaultPlayerStart: EPlayModeLocations;
+	static var PlayLocation_MAX: EPlayModeLocations;
 }

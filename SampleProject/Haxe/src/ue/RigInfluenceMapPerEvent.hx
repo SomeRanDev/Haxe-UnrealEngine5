@@ -5,8 +5,8 @@ package ue;
 @:include("Rigs/RigInfluenceMap.h")
 @:structAccess
 extern class RigInfluenceMapPerEvent {
-	public var Maps: TArray<RigInfluenceMap>;
-	public var EventToIndex: TMap<FName, cpp.Int32>;
+	@:protected public var Maps: TArray<RigInfluenceMap>;
+	@:protected public var EventToIndex: TMap<FName, cpp.Int32>;
 
 	@:native("FRigInfluenceMapPerEvent") public function new();
 	@:native("FRigInfluenceMapPerEvent") public static function make(Maps: TArray<RigInfluenceMap>, EventToIndex: TMap<FName, cpp.Int32>): RigInfluenceMapPerEvent ;

@@ -16,17 +16,16 @@ extern class PhysicsSettingsCore extends DeveloperSettings {
 	public var bEnableStabilization: Bool;
 	public var bWarnMissingLocks: Bool;
 	public var bEnable2DPhysics: Bool;
-	public var bDefaultHasComplexCollision_DEPRECATED: Bool;
 	public var BounceThresholdVelocity: cpp.Float32;
-	public var FrictionCombineMode: EFrictionCombineMode;
-	public var RestitutionCombineMode: EFrictionCombineMode;
+	public var FrictionCombineMode: TEnumAsByte<EFrictionCombineMode>;
+	public var RestitutionCombineMode: TEnumAsByte<EFrictionCombineMode>;
 	public var MaxAngularVelocity: cpp.Float32;
 	public var MaxDepenetrationVelocity: cpp.Float32;
 	public var ContactOffsetMultiplier: cpp.Float32;
 	public var MinContactOffset: cpp.Float32;
 	public var MaxContactOffset: cpp.Float32;
 	public var bSimulateSkeletalMeshOnDedicatedServer: Bool;
-	public var DefaultShapeComplexity: ECollisionTraceFlag;
+	public var DefaultShapeComplexity: TEnumAsByte<ECollisionTraceFlag>;
 	public var SolverOptions: ChaosSolverConfiguration;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -57,14 +56,12 @@ abstract ConstPhysicsSettingsCore(PhysicsSettingsCore) from PhysicsSettingsCore 
 	public inline extern function get_bWarnMissingLocks(): Bool return this.bWarnMissingLocks;
 	public extern var bEnable2DPhysics(get, never): Bool;
 	public inline extern function get_bEnable2DPhysics(): Bool return this.bEnable2DPhysics;
-	public extern var bDefaultHasComplexCollision_DEPRECATED(get, never): Bool;
-	public inline extern function get_bDefaultHasComplexCollision_DEPRECATED(): Bool return this.bDefaultHasComplexCollision_DEPRECATED;
 	public extern var BounceThresholdVelocity(get, never): cpp.Float32;
 	public inline extern function get_BounceThresholdVelocity(): cpp.Float32 return this.BounceThresholdVelocity;
-	public extern var FrictionCombineMode(get, never): EFrictionCombineMode;
-	public inline extern function get_FrictionCombineMode(): EFrictionCombineMode return this.FrictionCombineMode;
-	public extern var RestitutionCombineMode(get, never): EFrictionCombineMode;
-	public inline extern function get_RestitutionCombineMode(): EFrictionCombineMode return this.RestitutionCombineMode;
+	public extern var FrictionCombineMode(get, never): TEnumAsByte<EFrictionCombineMode>;
+	public inline extern function get_FrictionCombineMode(): TEnumAsByte<EFrictionCombineMode> return this.FrictionCombineMode;
+	public extern var RestitutionCombineMode(get, never): TEnumAsByte<EFrictionCombineMode>;
+	public inline extern function get_RestitutionCombineMode(): TEnumAsByte<EFrictionCombineMode> return this.RestitutionCombineMode;
 	public extern var MaxAngularVelocity(get, never): cpp.Float32;
 	public inline extern function get_MaxAngularVelocity(): cpp.Float32 return this.MaxAngularVelocity;
 	public extern var MaxDepenetrationVelocity(get, never): cpp.Float32;
@@ -77,8 +74,8 @@ abstract ConstPhysicsSettingsCore(PhysicsSettingsCore) from PhysicsSettingsCore 
 	public inline extern function get_MaxContactOffset(): cpp.Float32 return this.MaxContactOffset;
 	public extern var bSimulateSkeletalMeshOnDedicatedServer(get, never): Bool;
 	public inline extern function get_bSimulateSkeletalMeshOnDedicatedServer(): Bool return this.bSimulateSkeletalMeshOnDedicatedServer;
-	public extern var DefaultShapeComplexity(get, never): ECollisionTraceFlag;
-	public inline extern function get_DefaultShapeComplexity(): ECollisionTraceFlag return this.DefaultShapeComplexity;
+	public extern var DefaultShapeComplexity(get, never): TEnumAsByte<ECollisionTraceFlag>;
+	public inline extern function get_DefaultShapeComplexity(): TEnumAsByte<ECollisionTraceFlag> return this.DefaultShapeComplexity;
 	public extern var SolverOptions(get, never): ChaosSolverConfiguration;
 	public inline extern function get_SolverOptions(): ChaosSolverConfiguration return this.SolverOptions;
 }

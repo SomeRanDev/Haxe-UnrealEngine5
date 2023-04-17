@@ -3,18 +3,18 @@ package ue;
 
 @:native("EMusicalNoteName")
 @:include("AudioMixerBlueprintLibrary.h")
-extern enum EMusicalNoteName {
-	C;
-	Db;
-	D;
-	Eb;
-	E;
-	F;
-	Gb;
-	G;
-	Ab;
-	A;
-	Bb;
-	B;
-	EMusicalNoteName_MAX;
+extern class EMusicalNoteName {
+	static var C: EMusicalNoteName;
+	static var Db: EMusicalNoteName;
+	static var D: EMusicalNoteName;
+	static var Eb: EMusicalNoteName;
+	static var E: EMusicalNoteName;
+	static var F: EMusicalNoteName;
+	static var Gb: EMusicalNoteName;
+	static var G: EMusicalNoteName;
+	static var Ab: EMusicalNoteName;
+	static var A: EMusicalNoteName;
+	static var Bb: EMusicalNoteName;
+	static var B: EMusicalNoteName;
+	static var EMusicalNoteName_MAX: EMusicalNoteName;
 }

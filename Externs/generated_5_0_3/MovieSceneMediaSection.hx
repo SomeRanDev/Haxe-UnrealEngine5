@@ -12,7 +12,6 @@ extern class MovieSceneMediaSection extends MovieSceneSection {
 	public var MediaSoundComponent: cpp.Star<MediaSoundComp>;
 	public var bUseExternalMediaPlayer: Bool;
 	public var ExternalMediaPlayer: cpp.Star<MediaPlayer>;
-	public var ThumbnailReferenceOffset: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -34,8 +33,6 @@ abstract ConstMovieSceneMediaSection(MovieSceneMediaSection) from MovieSceneMedi
 	public inline extern function get_bUseExternalMediaPlayer(): Bool return this.bUseExternalMediaPlayer;
 	public extern var ExternalMediaPlayer(get, never): cpp.Star<MediaPlayer.ConstMediaPlayer>;
 	public inline extern function get_ExternalMediaPlayer(): cpp.Star<MediaPlayer.ConstMediaPlayer> return this.ExternalMediaPlayer;
-	public extern var ThumbnailReferenceOffset(get, never): cpp.Float32;
-	public inline extern function get_ThumbnailReferenceOffset(): cpp.Float32 return this.ThumbnailReferenceOffset;
 }
 
 @:forward

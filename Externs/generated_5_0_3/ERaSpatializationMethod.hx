@@ -3,8 +3,8 @@ package ue;
 
 @:native("ERaSpatializationMethod")
 @:include("Private/ResonanceAudioEnums.h")
-extern enum ERaSpatializationMethod {
-	STEREO_PANNING;
-	HRTF;
-	ERaSpatializationMethod_MAX;
+extern class ERaSpatializationMethod {
+	static var STEREO_PANNING: ERaSpatializationMethod;
+	static var HRTF: ERaSpatializationMethod;
+	static var ERaSpatializationMethod_MAX: ERaSpatializationMethod;
 }

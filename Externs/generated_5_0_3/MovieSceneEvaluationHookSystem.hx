@@ -5,7 +5,7 @@ package ue;
 @:include("EntitySystem/MovieSceneEvaluationHookSystem.h")
 @:structAccess
 extern class MovieSceneEvaluationHookSystem extends MovieSceneEntitySystem {
-	public var PendingEventsByRootInstance: TMap<MovieSceneEvaluationInstanceKey, MovieSceneEvaluationHookEventContainer>;
+	private var PendingEventsByRootInstance: TMap<MovieSceneEvaluationInstanceKey, MovieSceneEvaluationHookEventContainer>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MovieSceneEvaluationHookSystem extends MovieSceneEntitySystem {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneEvaluationHookSystem(MovieSceneEvaluationHookSystem) from MovieSceneEvaluationHookSystem {
-	public extern var PendingEventsByRootInstance(get, never): TMap<MovieSceneEvaluationInstanceKey, MovieSceneEvaluationHookEventContainer>;
-	public inline extern function get_PendingEventsByRootInstance(): TMap<MovieSceneEvaluationInstanceKey, MovieSceneEvaluationHookEventContainer> return this.PendingEventsByRootInstance;
 }
 
 @:forward

@@ -5,7 +5,7 @@ package ue;
 @:include("FractureToolConvert.h")
 @:structAccess
 extern class FractureToolConvert extends FractureModalTool {
-	public var ConvertSettings: cpp.Star<FractureConvertSettings>;
+	@:protected public var ConvertSettings: cpp.Star<FractureConvertSettings>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class FractureToolConvert extends FractureModalTool {
 @:forward()
 @:nativeGen
 abstract ConstFractureToolConvert(FractureToolConvert) from FractureToolConvert {
-	public extern var ConvertSettings(get, never): cpp.Star<FractureConvertSettings.ConstFractureConvertSettings>;
-	public inline extern function get_ConvertSettings(): cpp.Star<FractureConvertSettings.ConstFractureConvertSettings> return this.ConvertSettings;
 }
 
 @:forward

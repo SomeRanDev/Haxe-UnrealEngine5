@@ -5,10 +5,10 @@ package ue;
 @:include("ToolActivities/PolyEditPlanarProjectionUVActivity.h")
 @:structAccess
 extern class PolyEditPlanarProjectionUVActivity extends InteractiveToolActivity {
-	public var SetUVProperties: cpp.Star<PolyEditSetUVProperties>;
-	public var EditPreview: cpp.Star<PolyEditPreviewMesh>;
-	public var SurfacePathMechanic: cpp.Star<CollectSurfacePathMechanic>;
-	public var ActivityContext: cpp.Star<PolyEditActivityContext>;
+	@:protected public var SetUVProperties: cpp.Star<PolyEditSetUVProperties>;
+	@:protected public var EditPreview: cpp.Star<PolyEditPreviewMesh>;
+	@:protected public var SurfacePathMechanic: cpp.Star<CollectSurfacePathMechanic>;
+	@:protected public var ActivityContext: cpp.Star<PolyEditActivityContext>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class PolyEditPlanarProjectionUVActivity extends InteractiveToolActivity 
 @:forward()
 @:nativeGen
 abstract ConstPolyEditPlanarProjectionUVActivity(PolyEditPlanarProjectionUVActivity) from PolyEditPlanarProjectionUVActivity {
-	public extern var SetUVProperties(get, never): cpp.Star<PolyEditSetUVProperties.ConstPolyEditSetUVProperties>;
-	public inline extern function get_SetUVProperties(): cpp.Star<PolyEditSetUVProperties.ConstPolyEditSetUVProperties> return this.SetUVProperties;
-	public extern var EditPreview(get, never): cpp.Star<PolyEditPreviewMesh.ConstPolyEditPreviewMesh>;
-	public inline extern function get_EditPreview(): cpp.Star<PolyEditPreviewMesh.ConstPolyEditPreviewMesh> return this.EditPreview;
-	public extern var SurfacePathMechanic(get, never): cpp.Star<CollectSurfacePathMechanic.ConstCollectSurfacePathMechanic>;
-	public inline extern function get_SurfacePathMechanic(): cpp.Star<CollectSurfacePathMechanic.ConstCollectSurfacePathMechanic> return this.SurfacePathMechanic;
-	public extern var ActivityContext(get, never): cpp.Star<PolyEditActivityContext.ConstPolyEditActivityContext>;
-	public inline extern function get_ActivityContext(): cpp.Star<PolyEditActivityContext.ConstPolyEditActivityContext> return this.ActivityContext;
 }
 
 @:forward

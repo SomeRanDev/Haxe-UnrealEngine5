@@ -3,10 +3,10 @@ package ue;
 
 @:native("ENiagaraMeshPivotOffsetSpace")
 @:include("NiagaraMeshRendererProperties.h")
-extern enum ENiagaraMeshPivotOffsetSpace {
-	Mesh;
-	Simulation;
-	World;
-	Local;
-	ENiagaraMeshPivotOffsetSpace_MAX;
+extern class ENiagaraMeshPivotOffsetSpace {
+	static var Mesh: ENiagaraMeshPivotOffsetSpace;
+	static var Simulation: ENiagaraMeshPivotOffsetSpace;
+	static var World: ENiagaraMeshPivotOffsetSpace;
+	static var Local: ENiagaraMeshPivotOffsetSpace;
+	static var ENiagaraMeshPivotOffsetSpace_MAX: ENiagaraMeshPivotOffsetSpace;
 }

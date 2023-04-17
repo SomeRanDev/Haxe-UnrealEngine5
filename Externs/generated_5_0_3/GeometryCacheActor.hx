@@ -5,9 +5,9 @@ package ue;
 @:include("GeometryCacheActor.h")
 @:structAccess
 extern class GeometryCacheActor extends Actor {
-	public var GeometryCacheComponent: cpp.Star<GeometryCacheComp>;
+	private var GeometryCacheComponent: cpp.Star<GeometryCacheComp>;
 
-	public function GetGeometryCacheComponent(): cpp.Reference<cpp.Star<GeometryCacheComp>>;
+	public function GetGeometryCacheComponent(): cpp.Star<GeometryCacheComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,8 +15,6 @@ extern class GeometryCacheActor extends Actor {
 @:forward(GetGeometryCacheComponent)
 @:nativeGen
 abstract ConstGeometryCacheActor(GeometryCacheActor) from GeometryCacheActor {
-	public extern var GeometryCacheComponent(get, never): cpp.Star<GeometryCacheComp.ConstGeometryCacheComp>;
-	public inline extern function get_GeometryCacheComponent(): cpp.Star<GeometryCacheComp.ConstGeometryCacheComp> return this.GeometryCacheComponent;
 }
 
 @:forward

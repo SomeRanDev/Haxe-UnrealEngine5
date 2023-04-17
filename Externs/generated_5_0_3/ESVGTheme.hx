@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESVGTheme")
 @:include("CSVtoSVGArguments.h")
-extern enum ESVGTheme {
-	Dark;
-	Light;
-	ESVGTheme_MAX;
+extern class ESVGTheme {
+	static var Dark: ESVGTheme;
+	static var Light: ESVGTheme;
+	static var ESVGTheme_MAX: ESVGTheme;
 }

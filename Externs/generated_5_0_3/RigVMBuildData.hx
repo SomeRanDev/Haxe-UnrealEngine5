@@ -5,7 +5,7 @@ package ue;
 @:include("RigVMModel/RigVMBuildData.h")
 @:structAccess
 extern class RigVMBuildData extends Object {
-	public var FunctionReferences: TMap<TSoftObjectPtr<RigVMLibraryNode>, RigVMFunctionReferenceArray>;
+	private var FunctionReferences: TMap<TSoftObjectPtr<RigVMLibraryNode>, RigVMFunctionReferenceArray>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class RigVMBuildData extends Object {
 @:forward()
 @:nativeGen
 abstract ConstRigVMBuildData(RigVMBuildData) from RigVMBuildData {
-	public extern var FunctionReferences(get, never): TMap<TSoftObjectPtr<RigVMLibraryNode.ConstRigVMLibraryNode>, RigVMFunctionReferenceArray>;
-	public inline extern function get_FunctionReferences(): TMap<TSoftObjectPtr<RigVMLibraryNode.ConstRigVMLibraryNode>, RigVMFunctionReferenceArray> return this.FunctionReferences;
 }
 
 @:forward

@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class TutorialStateSettings extends Object {
 	public var TutorialsProgress: TArray<TutorialProgress>;
-	public var bDismissedAllTutorials: Bool;
+	private var bDismissedAllTutorials: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,6 @@ extern class TutorialStateSettings extends Object {
 abstract ConstTutorialStateSettings(TutorialStateSettings) from TutorialStateSettings {
 	public extern var TutorialsProgress(get, never): TArray<TutorialProgress>;
 	public inline extern function get_TutorialsProgress(): TArray<TutorialProgress> return this.TutorialsProgress;
-	public extern var bDismissedAllTutorials(get, never): Bool;
-	public inline extern function get_bDismissedAllTutorials(): Bool return this.bDismissedAllTutorials;
 }
 
 @:forward

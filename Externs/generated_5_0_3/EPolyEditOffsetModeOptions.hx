@@ -3,9 +3,9 @@ package ue;
 
 @:native("EPolyEditOffsetModeOptions")
 @:include("ToolActivities/PolyEditExtrudeActivity.h")
-extern enum EPolyEditOffsetModeOptions {
-	VertexNormals;
-	SelectedTriangleNormals;
-	SelectedTriangleNormalsEven;
-	EPolyEditOffsetModeOptions_MAX;
+extern class EPolyEditOffsetModeOptions {
+	static var VertexNormals: EPolyEditOffsetModeOptions;
+	static var SelectedTriangleNormals: EPolyEditOffsetModeOptions;
+	static var SelectedTriangleNormalsEven: EPolyEditOffsetModeOptions;
+	static var EPolyEditOffsetModeOptions_MAX: EPolyEditOffsetModeOptions;
 }

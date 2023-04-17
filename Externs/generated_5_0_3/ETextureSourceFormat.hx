@@ -3,15 +3,15 @@ package ue;
 
 @:native("ETextureSourceFormat")
 @:include("Engine/TextureDefines.h")
-extern enum ETextureSourceFormat {
-	TSF_Invalid;
-	TSF_G8;
-	TSF_BGRA8;
-	TSF_BGRE8;
-	TSF_RGBA16;
-	TSF_RGBA16F;
-	TSF_RGBA8;
-	TSF_RGBE8;
-	TSF_G16;
-	TSF_MAX;
+extern class ETextureSourceFormat {
+	static var TSF_Invalid: ETextureSourceFormat;
+	static var TSF_G8: ETextureSourceFormat;
+	static var TSF_BGRA8: ETextureSourceFormat;
+	static var TSF_BGRE8: ETextureSourceFormat;
+	static var TSF_RGBA16: ETextureSourceFormat;
+	static var TSF_RGBA16F: ETextureSourceFormat;
+	static var TSF_RGBA8: ETextureSourceFormat;
+	static var TSF_RGBE8: ETextureSourceFormat;
+	static var TSF_G16: ETextureSourceFormat;
+	static var TSF_MAX: ETextureSourceFormat;
 }

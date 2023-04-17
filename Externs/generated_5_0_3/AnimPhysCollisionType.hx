@@ -3,10 +3,10 @@ package ue;
 
 @:native("AnimPhysCollisionType")
 @:include("Animation/AnimPhysicsSolver.h")
-extern enum AnimPhysCollisionType {
-	CoM;
-	CustomSphere;
-	InnerSphere;
-	OuterSphere;
-	AnimPhysCollisionType_MAX;
+extern class AnimPhysCollisionType {
+	static var CoM: AnimPhysCollisionType;
+	static var CustomSphere: AnimPhysCollisionType;
+	static var InnerSphere: AnimPhysCollisionType;
+	static var OuterSphere: AnimPhysCollisionType;
+	static var AnimPhysCollisionType_MAX: AnimPhysCollisionType;
 }

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FoliageVertexColorMask")
 @:include("FoliageType.h")
-extern enum FoliageVertexColorMask {
-	FOLIAGEVERTEXCOLORMASK_Disabled;
-	FOLIAGEVERTEXCOLORMASK_Red;
-	FOLIAGEVERTEXCOLORMASK_Green;
-	FOLIAGEVERTEXCOLORMASK_Blue;
-	FOLIAGEVERTEXCOLORMASK_Alpha;
-	FOLIAGEVERTEXCOLORMASK_MAX;
+extern class FoliageVertexColorMask {
+	static var FOLIAGEVERTEXCOLORMASK_Disabled: FoliageVertexColorMask;
+	static var FOLIAGEVERTEXCOLORMASK_Red: FoliageVertexColorMask;
+	static var FOLIAGEVERTEXCOLORMASK_Green: FoliageVertexColorMask;
+	static var FOLIAGEVERTEXCOLORMASK_Blue: FoliageVertexColorMask;
+	static var FOLIAGEVERTEXCOLORMASK_Alpha: FoliageVertexColorMask;
+	static var FOLIAGEVERTEXCOLORMASK_MAX: FoliageVertexColorMask;
 }

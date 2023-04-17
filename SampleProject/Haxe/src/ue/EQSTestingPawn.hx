@@ -16,9 +16,8 @@ extern class EQSTestingPawn extends Character {
 	public var bReRunQueryOnlyOnFinishedMove: Bool;
 	public var bShouldBeVisibleInGame: Bool;
 	public var bTickDuringGame: Bool;
-	public var QueryingMode: EEnvQueryRunMode;
+	public var QueryingMode: TEnumAsByte<EEnvQueryRunMode>;
 	public var NavAgentProperties: NavAgentProperties;
-	public var EdRenderComp: cpp.Star<EQSRenderingComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -48,12 +47,10 @@ abstract ConstEQSTestingPawn(EQSTestingPawn) from EQSTestingPawn {
 	public inline extern function get_bShouldBeVisibleInGame(): Bool return this.bShouldBeVisibleInGame;
 	public extern var bTickDuringGame(get, never): Bool;
 	public inline extern function get_bTickDuringGame(): Bool return this.bTickDuringGame;
-	public extern var QueryingMode(get, never): EEnvQueryRunMode;
-	public inline extern function get_QueryingMode(): EEnvQueryRunMode return this.QueryingMode;
+	public extern var QueryingMode(get, never): TEnumAsByte<EEnvQueryRunMode>;
+	public inline extern function get_QueryingMode(): TEnumAsByte<EEnvQueryRunMode> return this.QueryingMode;
 	public extern var NavAgentProperties(get, never): NavAgentProperties;
 	public inline extern function get_NavAgentProperties(): NavAgentProperties return this.NavAgentProperties;
-	public extern var EdRenderComp(get, never): cpp.Star<EQSRenderingComp.ConstEQSRenderingComp>;
-	public inline extern function get_EdRenderComp(): cpp.Star<EQSRenderingComp.ConstEQSRenderingComp> return this.EdRenderComp;
 }
 
 @:forward

@@ -3,11 +3,11 @@ package ue;
 
 @:native("EFieldFalloffType")
 @:include("Field/FieldSystemTypes.h")
-extern enum EFieldFalloffType {
-	Field_FallOff_None;
-	Field_Falloff_Linear;
-	Field_Falloff_Inverse;
-	Field_Falloff_Squared;
-	Field_Falloff_Logarithmic;
-	Field_Falloff_Max;
+extern class EFieldFalloffType {
+	static var Field_FallOff_None: EFieldFalloffType;
+	static var Field_Falloff_Linear: EFieldFalloffType;
+	static var Field_Falloff_Inverse: EFieldFalloffType;
+	static var Field_Falloff_Squared: EFieldFalloffType;
+	static var Field_Falloff_Logarithmic: EFieldFalloffType;
+	static var Field_Falloff_Max: EFieldFalloffType;
 }

@@ -6,12 +6,12 @@ package ue;
 @:structAccess
 extern class LevelVariantSetsActor extends Actor {
 	public var LevelVariantSets: SoftObjectPath;
-	public var DirectorInstances: TMap<TSubclassOf<Object>, cpp.Star<LevelVariantSetsFunctionDirector>>;
+	private var DirectorInstances: TMap<TSubclassOf<Object>, cpp.Star<LevelVariantSetsFunctionDirector>>;
 
-	public function SwitchOnVariantByName(VariantSetName: FString, VariantName: FString): cpp.Reference<Bool>;
-	public function SwitchOnVariantByIndex(VariantSetIndex: cpp.Int32, VariantIndex: cpp.Int32): cpp.Reference<Bool>;
+	public function SwitchOnVariantByName(VariantSetName: FString, VariantName: FString): Bool;
+	public function SwitchOnVariantByIndex(VariantSetIndex: cpp.Int32, VariantIndex: cpp.Int32): Bool;
 	public function SetLevelVariantSets(InVariantSets: cpp.Star<LevelVariantSets>): Void;
-	public function GetLevelVariantSets(bLoad: Bool): cpp.Reference<cpp.Star<LevelVariantSets>>;
+	public function GetLevelVariantSets(bLoad: Bool): cpp.Star<LevelVariantSets>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -21,8 +21,6 @@ extern class LevelVariantSetsActor extends Actor {
 abstract ConstLevelVariantSetsActor(LevelVariantSetsActor) from LevelVariantSetsActor {
 	public extern var LevelVariantSets(get, never): SoftObjectPath;
 	public inline extern function get_LevelVariantSets(): SoftObjectPath return this.LevelVariantSets;
-	public extern var DirectorInstances(get, never): TMap<TSubclassOf<Object.ConstObject>, cpp.Star<LevelVariantSetsFunctionDirector.ConstLevelVariantSetsFunctionDirector>>;
-	public inline extern function get_DirectorInstances(): TMap<TSubclassOf<Object.ConstObject>, cpp.Star<LevelVariantSetsFunctionDirector.ConstLevelVariantSetsFunctionDirector>> return this.DirectorInstances;
 }
 
 @:forward

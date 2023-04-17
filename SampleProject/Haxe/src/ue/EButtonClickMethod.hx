@@ -3,10 +3,10 @@ package ue;
 
 @:native("EButtonClickMethod.Type")
 @:include("Types/SlateEnums.h")
-extern enum EButtonClickMethod {
-	DownAndUp;
-	MouseDown;
-	MouseUp;
-	PreciseClick;
-	EButtonClickMethod_MAX;
+extern class EButtonClickMethod {
+	static var DownAndUp: EButtonClickMethod;
+	static var MouseDown: EButtonClickMethod;
+	static var MouseUp: EButtonClickMethod;
+	static var PreciseClick: EButtonClickMethod;
+	static var EButtonClickMethod_MAX: EButtonClickMethod;
 }

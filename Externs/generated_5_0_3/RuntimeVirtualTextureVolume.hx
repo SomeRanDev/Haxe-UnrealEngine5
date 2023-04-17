@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class RuntimeVirtualTextureVolume extends Actor {
 	public var VirtualTextureComponent: cpp.Star<RuntimeVirtualTextureComp>;
-	public var Box: cpp.Star<BoxComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +15,6 @@ extern class RuntimeVirtualTextureVolume extends Actor {
 abstract ConstRuntimeVirtualTextureVolume(RuntimeVirtualTextureVolume) from RuntimeVirtualTextureVolume {
 	public extern var VirtualTextureComponent(get, never): cpp.Star<RuntimeVirtualTextureComp.ConstRuntimeVirtualTextureComp>;
 	public inline extern function get_VirtualTextureComponent(): cpp.Star<RuntimeVirtualTextureComp.ConstRuntimeVirtualTextureComp> return this.VirtualTextureComponent;
-	public extern var Box(get, never): cpp.Star<BoxComp.ConstBoxComp>;
-	public inline extern function get_Box(): cpp.Star<BoxComp.ConstBoxComp> return this.Box;
 }
 
 @:forward

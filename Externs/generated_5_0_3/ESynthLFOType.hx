@@ -3,14 +3,14 @@ package ue;
 
 @:native("ESynthLFOType")
 @:include("EpicSynth1Types.h")
-extern enum ESynthLFOType {
-	Sine;
-	UpSaw;
-	DownSaw;
-	Square;
-	Triangle;
-	Exponential;
-	RandomSampleHold;
-	Count;
-	ESynthLFOType_MAX;
+extern class ESynthLFOType {
+	static var Sine: ESynthLFOType;
+	static var UpSaw: ESynthLFOType;
+	static var DownSaw: ESynthLFOType;
+	static var Square: ESynthLFOType;
+	static var Triangle: ESynthLFOType;
+	static var Exponential: ESynthLFOType;
+	static var RandomSampleHold: ESynthLFOType;
+	static var Count: ESynthLFOType;
+	static var ESynthLFOType_MAX: ESynthLFOType;
 }

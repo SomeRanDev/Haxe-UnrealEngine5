@@ -9,9 +9,6 @@ extern class AnimSequenceBase extends AnimationAsset {
 	public var SequenceLength: cpp.Float32;
 	public var RateScale: cpp.Float32;
 	public var RawCurveData: RawCurveTracks;
-	public var AnimNotifyTracks: TArray<AnimNotifyTrack>;
-	public var DataModel: cpp.Star<AnimDataModel>;
-	public var Controller: AnimationDataController;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -27,12 +24,6 @@ abstract ConstAnimSequenceBase(AnimSequenceBase) from AnimSequenceBase {
 	public inline extern function get_RateScale(): cpp.Float32 return this.RateScale;
 	public extern var RawCurveData(get, never): RawCurveTracks;
 	public inline extern function get_RawCurveData(): RawCurveTracks return this.RawCurveData;
-	public extern var AnimNotifyTracks(get, never): TArray<AnimNotifyTrack>;
-	public inline extern function get_AnimNotifyTracks(): TArray<AnimNotifyTrack> return this.AnimNotifyTracks;
-	public extern var DataModel(get, never): cpp.Star<AnimDataModel.ConstAnimDataModel>;
-	public inline extern function get_DataModel(): cpp.Star<AnimDataModel.ConstAnimDataModel> return this.DataModel;
-	public extern var Controller(get, never): AnimationDataController.ConstAnimationDataController;
-	public inline extern function get_Controller(): AnimationDataController.ConstAnimationDataController return this.Controller;
 }
 
 @:forward

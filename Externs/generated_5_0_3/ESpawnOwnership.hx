@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESpawnOwnership")
 @:include("MovieSceneSpawnable.h")
-extern enum ESpawnOwnership {
-	InnerSequence;
-	MasterSequence;
-	External;
-	ESpawnOwnership_MAX;
+extern class ESpawnOwnership {
+	static var InnerSequence: ESpawnOwnership;
+	static var MasterSequence: ESpawnOwnership;
+	static var External: ESpawnOwnership;
+	static var ESpawnOwnership_MAX: ESpawnOwnership;
 }

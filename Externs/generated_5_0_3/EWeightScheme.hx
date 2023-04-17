@@ -3,13 +3,13 @@ package ue;
 
 @:native("EWeightScheme")
 @:include("DeformMeshPolygonsTool.h")
-extern enum EWeightScheme {
-	Uniform;
-	Umbrella;
-	Valence;
-	MeanValue;
-	Cotangent;
-	ClampedCotangent;
-	IDTCotangent;
-	EWeightScheme_MAX;
+extern class EWeightScheme {
+	static var Uniform: EWeightScheme;
+	static var Umbrella: EWeightScheme;
+	static var Valence: EWeightScheme;
+	static var MeanValue: EWeightScheme;
+	static var Cotangent: EWeightScheme;
+	static var ClampedCotangent: EWeightScheme;
+	static var IDTCotangent: EWeightScheme;
+	static var EWeightScheme_MAX: EWeightScheme;
 }

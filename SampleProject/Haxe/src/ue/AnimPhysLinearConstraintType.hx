@@ -3,8 +3,8 @@ package ue;
 
 @:native("AnimPhysLinearConstraintType")
 @:include("BoneControllers/AnimNode_AnimDynamics.h")
-extern enum AnimPhysLinearConstraintType {
-	Free;
-	Limited;
-	AnimPhysLinearConstraintType_MAX;
+extern class AnimPhysLinearConstraintType {
+	static var Free: AnimPhysLinearConstraintType;
+	static var Limited: AnimPhysLinearConstraintType;
+	static var AnimPhysLinearConstraintType_MAX: AnimPhysLinearConstraintType;
 }

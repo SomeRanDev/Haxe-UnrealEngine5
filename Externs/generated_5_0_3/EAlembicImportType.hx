@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAlembicImportType")
 @:include("AbcImportSettings.h")
-extern enum EAlembicImportType {
-	StaticMesh;
-	GeometryCache;
-	Skeletal;
-	EAlembicImportType_MAX;
+extern class EAlembicImportType {
+	static var StaticMesh: EAlembicImportType;
+	static var GeometryCache: EAlembicImportType;
+	static var Skeletal: EAlembicImportType;
+	static var EAlembicImportType_MAX: EAlembicImportType;
 }

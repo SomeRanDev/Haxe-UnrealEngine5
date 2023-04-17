@@ -11,9 +11,7 @@ extern class LandscapeInfo extends Object {
 	public var SubsectionSizeQuads: cpp.Int32;
 	public var ComponentNumSubsections: cpp.Int32;
 	public var DrawScale: Vector;
-	public var Layers: TArray<LandscapeInfoLayerSettings>;
 	public var Proxies: TArray<cpp.Star<LandscapeStreamingProxy>>;
-	public var SplineActors: TArray<LandscapeSplineInterface>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -33,12 +31,8 @@ abstract ConstLandscapeInfo(LandscapeInfo) from LandscapeInfo {
 	public inline extern function get_ComponentNumSubsections(): cpp.Int32 return this.ComponentNumSubsections;
 	public extern var DrawScale(get, never): Vector;
 	public inline extern function get_DrawScale(): Vector return this.DrawScale;
-	public extern var Layers(get, never): TArray<LandscapeInfoLayerSettings>;
-	public inline extern function get_Layers(): TArray<LandscapeInfoLayerSettings> return this.Layers;
 	public extern var Proxies(get, never): TArray<cpp.Star<LandscapeStreamingProxy.ConstLandscapeStreamingProxy>>;
 	public inline extern function get_Proxies(): TArray<cpp.Star<LandscapeStreamingProxy.ConstLandscapeStreamingProxy>> return this.Proxies;
-	public extern var SplineActors(get, never): TArray<LandscapeSplineInterface.ConstLandscapeSplineInterface>;
-	public inline extern function get_SplineActors(): TArray<LandscapeSplineInterface.ConstLandscapeSplineInterface> return this.SplineActors;
 }
 
 @:forward

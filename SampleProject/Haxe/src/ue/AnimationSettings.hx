@@ -22,7 +22,7 @@ extern class AnimationSettings extends DeveloperSettings {
 	public var TransformAttributeNames: TArray<FString>;
 	public var MirrorFindReplaceExpressions: TArray<MirrorFindReplaceExpression>;
 
-	public function GetBoneCustomAttributeNamesToImport(): cpp.Reference<TArray<FString>>;
+	public function GetBoneCustomAttributeNamesToImport(): TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

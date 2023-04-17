@@ -7,13 +7,13 @@ package ue;
 extern class EditorLevelUtils extends Object {
 	public function SetLevelVisibility(Level: cpp.Star<Level>, bShouldBeVisible: Bool, bForceLayersVisible: Bool, ModifyMode: ELevelVisibilityDirtyMode): Void;
 	public function SetLevelsVisibility(Levels: cpp.Reference<TArray<cpp.Star<Level>>>, bShouldBeVisible: cpp.Reference<TArray<Bool>>, bForceLayersVisible: Bool, ModifyMode: ELevelVisibilityDirtyMode): Void;
-	public function MoveSelectedActorsToLevel(DestLevel: cpp.Star<LevelStreaming>, bWarnAboutReferences: Bool): cpp.Reference<cpp.Int32>;
-	public function MoveActorsToLevel(ActorsToMove: cpp.Reference<TArray<cpp.Star<Actor>>>, DestStreamingLevel: cpp.Star<LevelStreaming>, bWarnAboutReferences: Bool, bWarnAboutRenaming: Bool): cpp.Reference<cpp.Int32>;
+	public function MoveSelectedActorsToLevel(DestLevel: cpp.Star<LevelStreaming>, bWarnAboutReferences: Bool): cpp.Int32;
+	public function MoveActorsToLevel(ActorsToMove: cpp.Reference<TArray<cpp.Star<Actor>>>, DestStreamingLevel: cpp.Star<LevelStreaming>, bWarnAboutReferences: Bool, bWarnAboutRenaming: Bool): cpp.Int32;
 	public function MakeLevelCurrent(InStreamingLevel: cpp.Star<LevelStreaming>): Void;
-	public function K2_AddLevelToWorldWithTransform(World: cpp.Star<World>, LevelPackageName: FString, LevelStreamingClass: TSubclassOf<LevelStreaming>, LevelTransform: cpp.Reference<Transform>): cpp.Reference<cpp.Star<LevelStreaming>>;
-	public function K2_AddLevelToWorld(World: cpp.Star<World>, LevelPackageName: FString, LevelStreamingClass: TSubclassOf<LevelStreaming>): cpp.Reference<cpp.Star<LevelStreaming>>;
-	public function GetLevels(World: cpp.Star<World>): cpp.Reference<TArray<cpp.Star<Level>>>;
-	public function CreateNewStreamingLevel(LevelStreamingClass: TSubclassOf<LevelStreaming>, NewLevelPath: FString, bMoveSelectedActorsIntoNewLevel: Bool): cpp.Reference<cpp.Star<LevelStreaming>>;
+	public function K2_AddLevelToWorldWithTransform(World: cpp.Star<World>, LevelPackageName: FString, LevelStreamingClass: TSubclassOf<LevelStreaming>, LevelTransform: cpp.Reference<Transform>): cpp.Star<LevelStreaming>;
+	public function K2_AddLevelToWorld(World: cpp.Star<World>, LevelPackageName: FString, LevelStreamingClass: TSubclassOf<LevelStreaming>): cpp.Star<LevelStreaming>;
+	public function GetLevels(World: cpp.Star<World>): TArray<cpp.Star<Level>>;
+	public function CreateNewStreamingLevel(LevelStreamingClass: TSubclassOf<LevelStreaming>, NewLevelPath: FString, bMoveSelectedActorsIntoNewLevel: Bool): cpp.Star<LevelStreaming>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

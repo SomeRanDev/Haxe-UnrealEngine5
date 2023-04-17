@@ -3,9 +3,9 @@ package ue;
 
 @:native("EDepthOfFieldMethod")
 @:include("Engine/Scene.h")
-extern enum EDepthOfFieldMethod {
-	DOFM_BokehDOF;
-	DOFM_Gaussian;
-	DOFM_CircleDOF;
-	DOFM_MAX;
+extern class EDepthOfFieldMethod {
+	static var DOFM_BokehDOF: EDepthOfFieldMethod;
+	static var DOFM_Gaussian: EDepthOfFieldMethod;
+	static var DOFM_CircleDOF: EDepthOfFieldMethod;
+	static var DOFM_MAX: EDepthOfFieldMethod;
 }

@@ -5,11 +5,11 @@ package ue;
 @:include("VolumeToMeshTool.h")
 @:structAccess
 extern class VolumeToMeshTool extends InteractiveTool {
-	public var Settings: cpp.Star<VolumeToMeshToolProperties>;
-	public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
-	public var PreviewMesh: cpp.Star<PreviewMesh>;
-	public var TargetVolume: TLazyObjectPtr<Volume>;
-	public var VolumeEdgesSet: cpp.Star<LineSetComp>;
+	@:protected public var Settings: cpp.Star<VolumeToMeshToolProperties>;
+	@:protected public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
+	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
+	@:protected public var TargetVolume: TLazyObjectPtr<Volume>;
+	@:protected public var VolumeEdgesSet: cpp.Star<LineSetComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,16 +17,6 @@ extern class VolumeToMeshTool extends InteractiveTool {
 @:forward()
 @:nativeGen
 abstract ConstVolumeToMeshTool(VolumeToMeshTool) from VolumeToMeshTool {
-	public extern var Settings(get, never): cpp.Star<VolumeToMeshToolProperties.ConstVolumeToMeshToolProperties>;
-	public inline extern function get_Settings(): cpp.Star<VolumeToMeshToolProperties.ConstVolumeToMeshToolProperties> return this.Settings;
-	public extern var OutputTypeProperties(get, never): cpp.Star<CreateMeshObjectTypeProperties.ConstCreateMeshObjectTypeProperties>;
-	public inline extern function get_OutputTypeProperties(): cpp.Star<CreateMeshObjectTypeProperties.ConstCreateMeshObjectTypeProperties> return this.OutputTypeProperties;
-	public extern var PreviewMesh(get, never): cpp.Star<PreviewMesh.ConstPreviewMesh>;
-	public inline extern function get_PreviewMesh(): cpp.Star<PreviewMesh.ConstPreviewMesh> return this.PreviewMesh;
-	public extern var TargetVolume(get, never): TLazyObjectPtr<Volume.ConstVolume>;
-	public inline extern function get_TargetVolume(): TLazyObjectPtr<Volume.ConstVolume> return this.TargetVolume;
-	public extern var VolumeEdgesSet(get, never): cpp.Star<LineSetComp.ConstLineSetComp>;
-	public inline extern function get_VolumeEdgesSet(): cpp.Star<LineSetComp.ConstLineSetComp> return this.VolumeEdgesSet;
 }
 
 @:forward

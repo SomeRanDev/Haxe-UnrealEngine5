@@ -3,26 +3,26 @@ package ue;
 
 @:native("EAnimDataModelNotifyType")
 @:include("Animation/AnimData/AnimDataNotifications.h")
-extern enum EAnimDataModelNotifyType {
-	BracketOpened;
-	BracketClosed;
-	TrackAdded;
-	TrackChanged;
-	TrackRemoved;
-	SequenceLengthChanged;
-	FrameRateChanged;
-	CurveAdded;
-	CurveChanged;
-	CurveRemoved;
-	CurveFlagsChanged;
-	CurveRenamed;
-	CurveScaled;
-	CurveColorChanged;
-	AttributeAdded;
-	AttributeRemoved;
-	AttributeChanged;
-	Populated;
-	Reset;
-	Invalid;
-	EAnimDataModelNotifyType_MAX;
+extern class EAnimDataModelNotifyType {
+	static var BracketOpened: EAnimDataModelNotifyType;
+	static var BracketClosed: EAnimDataModelNotifyType;
+	static var TrackAdded: EAnimDataModelNotifyType;
+	static var TrackChanged: EAnimDataModelNotifyType;
+	static var TrackRemoved: EAnimDataModelNotifyType;
+	static var SequenceLengthChanged: EAnimDataModelNotifyType;
+	static var FrameRateChanged: EAnimDataModelNotifyType;
+	static var CurveAdded: EAnimDataModelNotifyType;
+	static var CurveChanged: EAnimDataModelNotifyType;
+	static var CurveRemoved: EAnimDataModelNotifyType;
+	static var CurveFlagsChanged: EAnimDataModelNotifyType;
+	static var CurveRenamed: EAnimDataModelNotifyType;
+	static var CurveScaled: EAnimDataModelNotifyType;
+	static var CurveColorChanged: EAnimDataModelNotifyType;
+	static var AttributeAdded: EAnimDataModelNotifyType;
+	static var AttributeRemoved: EAnimDataModelNotifyType;
+	static var AttributeChanged: EAnimDataModelNotifyType;
+	static var Populated: EAnimDataModelNotifyType;
+	static var Reset: EAnimDataModelNotifyType;
+	static var Invalid: EAnimDataModelNotifyType;
+	static var EAnimDataModelNotifyType_MAX: EAnimDataModelNotifyType;
 }

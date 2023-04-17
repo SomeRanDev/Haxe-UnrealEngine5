@@ -5,10 +5,10 @@ package ue;
 @:include("InterchangePhysicsAssetFactoryNode.h")
 @:structAccess
 extern class InterchangePhysicsAssetFactoryNode extends InterchangeBaseNode {
-	public function SetCustomSkeletalMeshUid(AttributeValue: FString): cpp.Reference<Bool>;
+	public function SetCustomSkeletalMeshUid(AttributeValue: FString): Bool;
 	public function InitializePhysicsAssetNode(UniqueID: FString, DisplayLabel: FString, InAssetClass: FString): Void;
-	public function GetObjectClass(): cpp.Reference<cpp.Star<Class>>;
-	public function GetCustomSkeletalMeshUid(AttributeValue: cpp.Reference<FString>): cpp.Reference<Bool>;
+	public function GetObjectClass(): cpp.Star<Class>;
+	public function GetCustomSkeletalMeshUid(AttributeValue: cpp.Reference<FString>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -3,23 +3,23 @@ package ue;
 
 @:native("ETextureSourceEncoding")
 @:include("Engine/TextureDefines.h")
-extern enum ETextureSourceEncoding {
-	TSE_None;
-	TSE_Linear;
-	TSE_sRGB;
-	TSE_ST2084;
-	TSE_Gamma22;
-	TSE_BT1886;
-	TSE_Gamma26;
-	TSE_Cineon;
-	TSE_REDLog;
-	TSE_REDLog3G10;
-	TSE_SLog1;
-	TSE_SLog2;
-	TSE_SLog3;
-	TSE_AlexaV3LogC;
-	TSE_CanonLog;
-	TSE_ProTune;
-	TSE_VLog;
-	TSE_MAX;
+extern class ETextureSourceEncoding {
+	static var TSE_None: ETextureSourceEncoding;
+	static var TSE_Linear: ETextureSourceEncoding;
+	static var TSE_sRGB: ETextureSourceEncoding;
+	static var TSE_ST2084: ETextureSourceEncoding;
+	static var TSE_Gamma22: ETextureSourceEncoding;
+	static var TSE_BT1886: ETextureSourceEncoding;
+	static var TSE_Gamma26: ETextureSourceEncoding;
+	static var TSE_Cineon: ETextureSourceEncoding;
+	static var TSE_REDLog: ETextureSourceEncoding;
+	static var TSE_REDLog3G10: ETextureSourceEncoding;
+	static var TSE_SLog1: ETextureSourceEncoding;
+	static var TSE_SLog2: ETextureSourceEncoding;
+	static var TSE_SLog3: ETextureSourceEncoding;
+	static var TSE_AlexaV3LogC: ETextureSourceEncoding;
+	static var TSE_CanonLog: ETextureSourceEncoding;
+	static var TSE_ProTune: ETextureSourceEncoding;
+	static var TSE_VLog: ETextureSourceEncoding;
+	static var TSE_MAX: ETextureSourceEncoding;
 }

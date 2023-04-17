@@ -3,19 +3,19 @@ package ue;
 
 @:native("EMenuPlacement")
 @:include("Types/SlateEnums.h")
-extern enum EMenuPlacement {
-	MenuPlacement_BelowAnchor;
-	MenuPlacement_CenteredBelowAnchor;
-	MenuPlacement_BelowRightAnchor;
-	MenuPlacement_ComboBox;
-	MenuPlacement_ComboBoxRight;
-	MenuPlacement_MenuRight;
-	MenuPlacement_AboveAnchor;
-	MenuPlacement_CenteredAboveAnchor;
-	MenuPlacement_AboveRightAnchor;
-	MenuPlacement_MenuLeft;
-	MenuPlacement_Center;
-	MenuPlacement_RightLeftCenter;
-	MenuPlacement_MatchBottomLeft;
-	MenuPlacement_MAX;
+extern class EMenuPlacement {
+	static var MenuPlacement_BelowAnchor: EMenuPlacement;
+	static var MenuPlacement_CenteredBelowAnchor: EMenuPlacement;
+	static var MenuPlacement_BelowRightAnchor: EMenuPlacement;
+	static var MenuPlacement_ComboBox: EMenuPlacement;
+	static var MenuPlacement_ComboBoxRight: EMenuPlacement;
+	static var MenuPlacement_MenuRight: EMenuPlacement;
+	static var MenuPlacement_AboveAnchor: EMenuPlacement;
+	static var MenuPlacement_CenteredAboveAnchor: EMenuPlacement;
+	static var MenuPlacement_AboveRightAnchor: EMenuPlacement;
+	static var MenuPlacement_MenuLeft: EMenuPlacement;
+	static var MenuPlacement_Center: EMenuPlacement;
+	static var MenuPlacement_RightLeftCenter: EMenuPlacement;
+	static var MenuPlacement_MatchBottomLeft: EMenuPlacement;
+	static var MenuPlacement_MAX: EMenuPlacement;
 }

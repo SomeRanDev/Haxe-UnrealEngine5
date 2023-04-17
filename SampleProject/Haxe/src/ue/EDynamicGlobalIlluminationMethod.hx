@@ -3,11 +3,11 @@ package ue;
 
 @:native("EDynamicGlobalIlluminationMethod.Type")
 @:include("Engine/EngineTypes.h")
-extern enum EDynamicGlobalIlluminationMethod {
-	None;
-	Lumen;
-	ScreenSpace;
-	RayTraced;
-	Plugin;
-	EDynamicGlobalIlluminationMethod_MAX;
+extern class EDynamicGlobalIlluminationMethod {
+	static var None: EDynamicGlobalIlluminationMethod;
+	static var Lumen: EDynamicGlobalIlluminationMethod;
+	static var ScreenSpace: EDynamicGlobalIlluminationMethod;
+	static var RayTraced: EDynamicGlobalIlluminationMethod;
+	static var Plugin: EDynamicGlobalIlluminationMethod;
+	static var EDynamicGlobalIlluminationMethod_MAX: EDynamicGlobalIlluminationMethod;
 }

@@ -19,7 +19,7 @@ extern class PluginMetadataObject extends Object {
 	public var bIsBetaVersion: Bool;
 	public var Plugins: TArray<PluginReferenceMetadata>;
 
-	public function GetAvailablePluginDependencies(): cpp.Reference<TArray<FString>>;
+	public function GetAvailablePluginDependencies(): TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

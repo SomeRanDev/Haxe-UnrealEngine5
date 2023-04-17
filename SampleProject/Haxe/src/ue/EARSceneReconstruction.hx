@@ -3,9 +3,9 @@ package ue;
 
 @:native("EARSceneReconstruction")
 @:include("ARSessionConfig.h")
-extern enum EARSceneReconstruction {
-	None;
-	MeshOnly;
-	MeshWithClassification;
-	EARSceneReconstruction_MAX;
+extern class EARSceneReconstruction {
+	static var None: EARSceneReconstruction;
+	static var MeshOnly: EARSceneReconstruction;
+	static var MeshWithClassification: EARSceneReconstruction;
+	static var EARSceneReconstruction_MAX: EARSceneReconstruction;
 }

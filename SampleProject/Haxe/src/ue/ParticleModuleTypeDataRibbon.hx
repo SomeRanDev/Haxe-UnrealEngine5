@@ -15,7 +15,7 @@ extern class ParticleModuleTypeDataRibbon extends ParticleModuleTypeDataBase {
 	public var bEnablePreviousTangentRecalculation: Bool;
 	public var bTangentRecalculationEveryFrame: Bool;
 	public var bSpawnInitialParticle: Bool;
-	public var RenderAxis: ETrailsRenderAxisOption;
+	public var RenderAxis: TEnumAsByte<ETrailsRenderAxisOption>;
 	public var TangentSpawningScalar: cpp.Float32;
 	public var bRenderGeometry: Bool;
 	public var bRenderSpawnPoints: Bool;
@@ -52,8 +52,8 @@ abstract ConstParticleModuleTypeDataRibbon(ParticleModuleTypeDataRibbon) from Pa
 	public inline extern function get_bTangentRecalculationEveryFrame(): Bool return this.bTangentRecalculationEveryFrame;
 	public extern var bSpawnInitialParticle(get, never): Bool;
 	public inline extern function get_bSpawnInitialParticle(): Bool return this.bSpawnInitialParticle;
-	public extern var RenderAxis(get, never): ETrailsRenderAxisOption;
-	public inline extern function get_RenderAxis(): ETrailsRenderAxisOption return this.RenderAxis;
+	public extern var RenderAxis(get, never): TEnumAsByte<ETrailsRenderAxisOption>;
+	public inline extern function get_RenderAxis(): TEnumAsByte<ETrailsRenderAxisOption> return this.RenderAxis;
 	public extern var TangentSpawningScalar(get, never): cpp.Float32;
 	public inline extern function get_TangentSpawningScalar(): cpp.Float32 return this.TangentSpawningScalar;
 	public extern var bRenderGeometry(get, never): Bool;

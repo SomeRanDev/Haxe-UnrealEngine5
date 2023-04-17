@@ -5,7 +5,6 @@ package ue;
 @:include("MovieScene.h")
 @:structAccess
 extern class MovieSceneNodeGroupCollection extends Object {
-	public var NodeGroups: TArray<cpp.Star<MovieSceneNodeGroup>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +12,6 @@ extern class MovieSceneNodeGroupCollection extends Object {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneNodeGroupCollection(MovieSceneNodeGroupCollection) from MovieSceneNodeGroupCollection {
-	public extern var NodeGroups(get, never): TArray<cpp.Star<MovieSceneNodeGroup.ConstMovieSceneNodeGroup>>;
-	public inline extern function get_NodeGroups(): TArray<cpp.Star<MovieSceneNodeGroup.ConstMovieSceneNodeGroup>> return this.NodeGroups;
 }
 
 @:forward

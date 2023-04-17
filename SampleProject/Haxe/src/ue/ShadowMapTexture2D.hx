@@ -5,7 +5,7 @@ package ue;
 @:include("Engine/ShadowMapTexture2D.h")
 @:structAccess
 extern class ShadowMapTexture2D extends Texture2D {
-	public var ShadowmapFlags: EShadowMapFlags;
+	public var ShadowmapFlags: TEnumAsByte<EShadowMapFlags>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,8 @@ extern class ShadowMapTexture2D extends Texture2D {
 @:forward()
 @:nativeGen
 abstract ConstShadowMapTexture2D(ShadowMapTexture2D) from ShadowMapTexture2D {
-	public extern var ShadowmapFlags(get, never): EShadowMapFlags;
-	public inline extern function get_ShadowmapFlags(): EShadowMapFlags return this.ShadowmapFlags;
+	public extern var ShadowmapFlags(get, never): TEnumAsByte<EShadowMapFlags>;
+	public inline extern function get_ShadowmapFlags(): TEnumAsByte<EShadowMapFlags> return this.ShadowmapFlags;
 }
 
 @:forward

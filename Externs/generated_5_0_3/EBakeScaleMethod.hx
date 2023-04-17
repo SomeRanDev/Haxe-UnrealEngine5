@@ -3,9 +3,9 @@ package ue;
 
 @:native("EBakeScaleMethod")
 @:include("BakeTransformTool.h")
-extern enum EBakeScaleMethod {
-	BakeFullScale;
-	BakeNonuniformScale;
-	DoNotBakeScale;
-	EBakeScaleMethod_MAX;
+extern class EBakeScaleMethod {
+	static var BakeFullScale: EBakeScaleMethod;
+	static var BakeNonuniformScale: EBakeScaleMethod;
+	static var DoNotBakeScale: EBakeScaleMethod;
+	static var EBakeScaleMethod_MAX: EBakeScaleMethod;
 }

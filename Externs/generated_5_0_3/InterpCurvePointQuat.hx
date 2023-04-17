@@ -9,8 +9,8 @@ extern class InterpCurvePointQuat {
 	public var OutVal: Quat;
 	public var ArriveTangent: Quat;
 	public var LeaveTangent: Quat;
-	public var InterpMode: EInterpCurveMode;
+	public var InterpMode: TEnumAsByte<EInterpCurveMode>;
 
 	@:native("FInterpCurvePointQuat") public function new();
-	@:native("FInterpCurvePointQuat") public static function make(InVal: cpp.Float32, OutVal: Quat, ArriveTangent: Quat, LeaveTangent: Quat, InterpMode: EInterpCurveMode): InterpCurvePointQuat ;
+	@:native("FInterpCurvePointQuat") public static function make(InVal: cpp.Float32, OutVal: Quat, ArriveTangent: Quat, LeaveTangent: Quat, InterpMode: TEnumAsByte<EInterpCurveMode>): InterpCurvePointQuat ;
 }

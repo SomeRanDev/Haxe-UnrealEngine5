@@ -3,8 +3,8 @@ package ue;
 
 @:native("EMeshApproximationType")
 @:include("Engine/MeshMerging.h")
-extern enum EMeshApproximationType {
-	MeshAndMaterials;
-	MeshShapeOnly;
-	EMeshApproximationType_MAX;
+extern class EMeshApproximationType {
+	static var MeshAndMaterials: EMeshApproximationType;
+	static var MeshShapeOnly: EMeshApproximationType;
+	static var EMeshApproximationType_MAX: EMeshApproximationType;
 }

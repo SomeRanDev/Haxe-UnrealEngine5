@@ -11,7 +11,6 @@ extern class PaperSpriteSheet extends Object {
 	public var Texture: cpp.Star<Texture2D>;
 	public var NormalMapTextureName: FString;
 	public var NormalMapTexture: cpp.Star<Texture2D>;
-	public var AssetImportData: cpp.Star<AssetImportData>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -31,8 +30,6 @@ abstract ConstPaperSpriteSheet(PaperSpriteSheet) from PaperSpriteSheet {
 	public inline extern function get_NormalMapTextureName(): FString return this.NormalMapTextureName;
 	public extern var NormalMapTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
 	public inline extern function get_NormalMapTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.NormalMapTexture;
-	public extern var AssetImportData(get, never): cpp.Star<AssetImportData.ConstAssetImportData>;
-	public inline extern function get_AssetImportData(): cpp.Star<AssetImportData.ConstAssetImportData> return this.AssetImportData;
 }
 
 @:forward

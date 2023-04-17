@@ -3,14 +3,14 @@ package ue;
 
 @:native("EStretch.Type")
 @:include("Widgets/Layout/SScaleBox.h")
-extern enum EStretch {
-	None;
-	Fill;
-	ScaleToFit;
-	ScaleToFitX;
-	ScaleToFitY;
-	ScaleToFill;
-	ScaleBySafeZone;
-	UserSpecified;
-	EStretch_MAX;
+extern class EStretch {
+	static var None: EStretch;
+	static var Fill: EStretch;
+	static var ScaleToFit: EStretch;
+	static var ScaleToFitX: EStretch;
+	static var ScaleToFitY: EStretch;
+	static var ScaleToFill: EStretch;
+	static var ScaleBySafeZone: EStretch;
+	static var UserSpecified: EStretch;
+	static var EStretch_MAX: EStretch;
 }

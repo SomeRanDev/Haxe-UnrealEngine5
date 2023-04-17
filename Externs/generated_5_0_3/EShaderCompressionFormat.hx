@@ -3,10 +3,10 @@ package ue;
 
 @:native("EShaderCompressionFormat.Type")
 @:include("Engine/RendererSettings.h")
-extern enum EShaderCompressionFormat {
-	None;
-	LZ4;
-	Oodle;
-	Zlib;
-	EShaderCompressionFormat_MAX;
+extern class EShaderCompressionFormat {
+	static var None: EShaderCompressionFormat;
+	static var LZ4: EShaderCompressionFormat;
+	static var Oodle: EShaderCompressionFormat;
+	static var Zlib: EShaderCompressionFormat;
+	static var EShaderCompressionFormat_MAX: EShaderCompressionFormat;
 }

@@ -5,12 +5,12 @@ package ue;
 @:include("Tools/LODManagerTool.h")
 @:structAccess
 extern class LODManagerTool extends MultiSelectionMeshEditingTool {
-	public var LODInfoProperties: cpp.Star<LODManagerLODProperties>;
-	public var LODPreviewProperties: cpp.Star<LODManagerPreviewLODProperties>;
-	public var HiResSourceModelActions: cpp.Star<LODManagerHiResSourceModelActions>;
-	public var MaterialActions: cpp.Star<LODManagerMaterialActions>;
-	public var LODPreview: cpp.Star<PreviewMesh>;
-	public var LODPreviewLines: cpp.Star<PreviewGeometry>;
+	@:protected public var LODInfoProperties: cpp.Star<LODManagerLODProperties>;
+	@:protected public var LODPreviewProperties: cpp.Star<LODManagerPreviewLODProperties>;
+	@:protected public var HiResSourceModelActions: cpp.Star<LODManagerHiResSourceModelActions>;
+	@:protected public var MaterialActions: cpp.Star<LODManagerMaterialActions>;
+	@:protected public var LODPreview: cpp.Star<PreviewMesh>;
+	@:protected public var LODPreviewLines: cpp.Star<PreviewGeometry>;
 
 	public function RemoveUnreferencedMaterials(): Void;
 	public function MoveHiResToLOD0(): Void;
@@ -22,18 +22,6 @@ extern class LODManagerTool extends MultiSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstLODManagerTool(LODManagerTool) from LODManagerTool {
-	public extern var LODInfoProperties(get, never): cpp.Star<LODManagerLODProperties.ConstLODManagerLODProperties>;
-	public inline extern function get_LODInfoProperties(): cpp.Star<LODManagerLODProperties.ConstLODManagerLODProperties> return this.LODInfoProperties;
-	public extern var LODPreviewProperties(get, never): cpp.Star<LODManagerPreviewLODProperties.ConstLODManagerPreviewLODProperties>;
-	public inline extern function get_LODPreviewProperties(): cpp.Star<LODManagerPreviewLODProperties.ConstLODManagerPreviewLODProperties> return this.LODPreviewProperties;
-	public extern var HiResSourceModelActions(get, never): cpp.Star<LODManagerHiResSourceModelActions.ConstLODManagerHiResSourceModelActions>;
-	public inline extern function get_HiResSourceModelActions(): cpp.Star<LODManagerHiResSourceModelActions.ConstLODManagerHiResSourceModelActions> return this.HiResSourceModelActions;
-	public extern var MaterialActions(get, never): cpp.Star<LODManagerMaterialActions.ConstLODManagerMaterialActions>;
-	public inline extern function get_MaterialActions(): cpp.Star<LODManagerMaterialActions.ConstLODManagerMaterialActions> return this.MaterialActions;
-	public extern var LODPreview(get, never): cpp.Star<PreviewMesh.ConstPreviewMesh>;
-	public inline extern function get_LODPreview(): cpp.Star<PreviewMesh.ConstPreviewMesh> return this.LODPreview;
-	public extern var LODPreviewLines(get, never): cpp.Star<PreviewGeometry.ConstPreviewGeometry>;
-	public inline extern function get_LODPreviewLines(): cpp.Star<PreviewGeometry.ConstPreviewGeometry> return this.LODPreviewLines;
 }
 
 @:forward

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EStretchDirection.Type")
 @:include("Widgets/Layout/SScaleBox.h")
-extern enum EStretchDirection {
-	Both;
-	DownOnly;
-	UpOnly;
-	EStretchDirection_MAX;
+extern class EStretchDirection {
+	static var Both: EStretchDirection;
+	static var DownOnly: EStretchDirection;
+	static var UpOnly: EStretchDirection;
+	static var EStretchDirection_MAX: EStretchDirection;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("ECameraFocusMethod")
 @:include("CineCameraComponent.h")
-extern enum ECameraFocusMethod {
-	DoNotOverride;
-	Manual;
-	Tracking;
-	Disable;
-	MAX;
+extern class ECameraFocusMethod {
+	static var DoNotOverride: ECameraFocusMethod;
+	static var Manual: ECameraFocusMethod;
+	static var Tracking: ECameraFocusMethod;
+	static var Disable: ECameraFocusMethod;
+	static var MAX: ECameraFocusMethod;
 }

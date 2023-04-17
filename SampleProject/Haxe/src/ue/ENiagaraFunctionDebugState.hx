@@ -3,8 +3,8 @@ package ue;
 
 @:native("ENiagaraFunctionDebugState")
 @:include("NiagaraCommon.h")
-extern enum ENiagaraFunctionDebugState {
-	NoDebug;
-	Basic;
-	ENiagaraFunctionDebugState_MAX;
+extern class ENiagaraFunctionDebugState {
+	static var NoDebug: ENiagaraFunctionDebugState;
+	static var Basic: ENiagaraFunctionDebugState;
+	static var ENiagaraFunctionDebugState_MAX: ENiagaraFunctionDebugState;
 }

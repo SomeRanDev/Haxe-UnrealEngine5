@@ -5,8 +5,6 @@ package ue;
 @:include("Materials/Material.h")
 @:structAccess
 extern class ColorMaterialInput extends MaterialInput {
-	public var UseConstant: Bool;
-	public var Constant: Color;
 
 	@:native("FColorMaterialInput") public function new();
 	@:native("FColorMaterialInput") public static function make(UseConstant: Bool, Constant: Color): ColorMaterialInput ;

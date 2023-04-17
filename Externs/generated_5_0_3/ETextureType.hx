@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETextureType")
 @:include("Private/FractureToolUV.h")
-extern enum ETextureType {
-	ThicknessAndSurfaceAttributes;
-	SpatialGradients;
-	Normals;
-	ETextureType_MAX;
+extern class ETextureType {
+	static var ThicknessAndSurfaceAttributes: ETextureType;
+	static var SpatialGradients: ETextureType;
+	static var Normals: ETextureType;
+	static var ETextureType_MAX: ETextureType;
 }

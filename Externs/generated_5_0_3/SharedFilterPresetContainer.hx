@@ -5,7 +5,7 @@ package ue;
 @:include("FilterPresets.h")
 @:structAccess
 extern class SharedFilterPresetContainer extends Object {
-	public var SharedPresets: TArray<FilterData>;
+	@:protected public var SharedPresets: TArray<FilterData>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class SharedFilterPresetContainer extends Object {
 @:forward()
 @:nativeGen
 abstract ConstSharedFilterPresetContainer(SharedFilterPresetContainer) from SharedFilterPresetContainer {
-	public extern var SharedPresets(get, never): TArray<FilterData>;
-	public inline extern function get_SharedPresets(): TArray<FilterData> return this.SharedPresets;
 }
 
 @:forward

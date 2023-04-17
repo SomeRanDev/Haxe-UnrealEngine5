@@ -8,8 +8,6 @@ extern class MaterialTextureInfo {
 	public var SamplingScale: cpp.Float32;
 	public var UVChannelIndex: cpp.Int32;
 	public var TextureName: FName;
-	public var TextureReference: SoftObjectPath;
-	public var TextureIndex: cpp.Int32;
 
 	@:native("FMaterialTextureInfo") public function new();
 	@:native("FMaterialTextureInfo") public static function make(SamplingScale: cpp.Float32, UVChannelIndex: cpp.Int32, TextureName: FName, TextureReference: SoftObjectPath, TextureIndex: cpp.Int32): MaterialTextureInfo ;

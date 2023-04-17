@@ -3,10 +3,10 @@ package ue;
 
 @:native("EARGeoTrackingState")
 @:include("ARGeoTrackingSupport.h")
-extern enum EARGeoTrackingState {
-	Initializing;
-	Localized;
-	Localizing;
-	NotAvailable;
-	EARGeoTrackingState_MAX;
+extern class EARGeoTrackingState {
+	static var Initializing: EARGeoTrackingState;
+	static var Localized: EARGeoTrackingState;
+	static var Localizing: EARGeoTrackingState;
+	static var NotAvailable: EARGeoTrackingState;
+	static var EARGeoTrackingState_MAX: EARGeoTrackingState;
 }

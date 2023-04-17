@@ -5,7 +5,7 @@ package ue;
 @:include("ActorActionUtility.h")
 @:structAccess
 extern class ActorActionUtility extends EditorUtilityObject {
-	public function GetSupportedClass(): cpp.Reference<cpp.Star<Class>>;
+	public function GetSupportedClass(): cpp.Star<Class>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

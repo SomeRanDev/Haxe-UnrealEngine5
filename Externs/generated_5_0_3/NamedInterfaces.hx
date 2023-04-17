@@ -5,8 +5,8 @@ package ue;
 @:include("NamedInterfaces.h")
 @:structAccess
 extern class NamedInterfaces extends Object {
-	public var NamedInterfaces: TArray<NamedInterface>;
-	public var NamedInterfaceDefs: TArray<NamedInterfaceDef>;
+	private var NamedInterfaces: TArray<NamedInterface>;
+	private var NamedInterfaceDefs: TArray<NamedInterfaceDef>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class NamedInterfaces extends Object {
 @:forward()
 @:nativeGen
 abstract ConstNamedInterfaces(NamedInterfaces) from NamedInterfaces {
-	public extern var NamedInterfaces(get, never): TArray<NamedInterface>;
-	public inline extern function get_NamedInterfaces(): TArray<NamedInterface> return this.NamedInterfaces;
-	public extern var NamedInterfaceDefs(get, never): TArray<NamedInterfaceDef>;
-	public inline extern function get_NamedInterfaceDefs(): TArray<NamedInterfaceDef> return this.NamedInterfaceDefs;
 }
 
 @:forward

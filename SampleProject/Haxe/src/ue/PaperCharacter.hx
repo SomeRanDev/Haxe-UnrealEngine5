@@ -5,7 +5,7 @@ package ue;
 @:include("PaperCharacter.h")
 @:structAccess
 extern class PaperCharacter extends Character {
-	public var Sprite: cpp.Star<PaperFlipbookComp>;
+	private var Sprite: cpp.Star<PaperFlipbookComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class PaperCharacter extends Character {
 @:forward()
 @:nativeGen
 abstract ConstPaperCharacter(PaperCharacter) from PaperCharacter {
-	public extern var Sprite(get, never): cpp.Star<PaperFlipbookComp.ConstPaperFlipbookComp>;
-	public inline extern function get_Sprite(): cpp.Star<PaperFlipbookComp.ConstPaperFlipbookComp> return this.Sprite;
 }
 
 @:forward

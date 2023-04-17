@@ -5,7 +5,7 @@ package ue;
 @:include("ViewModels/Stack/NiagaraStackSystemPropertiesItem.h")
 @:structAccess
 extern class NiagaraStackSystemPropertiesItem extends NiagaraStackItem {
-	public var SystemObject: cpp.Star<NiagaraStackObject>;
+	private var SystemObject: cpp.Star<NiagaraStackObject>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class NiagaraStackSystemPropertiesItem extends NiagaraStackItem {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraStackSystemPropertiesItem(NiagaraStackSystemPropertiesItem) from NiagaraStackSystemPropertiesItem {
-	public extern var SystemObject(get, never): cpp.Star<NiagaraStackObject.ConstNiagaraStackObject>;
-	public inline extern function get_SystemObject(): cpp.Star<NiagaraStackObject.ConstNiagaraStackObject> return this.SystemObject;
 }
 
 @:forward

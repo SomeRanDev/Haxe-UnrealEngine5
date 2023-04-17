@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENaturalSoundFalloffMode")
 @:include("Engine/Attenuation.h")
-extern enum ENaturalSoundFalloffMode {
-	Continues;
-	Silent;
-	Hold;
-	ENaturalSoundFalloffMode_MAX;
+extern class ENaturalSoundFalloffMode {
+	static var Continues: ENaturalSoundFalloffMode;
+	static var Silent: ENaturalSoundFalloffMode;
+	static var Hold: ENaturalSoundFalloffMode;
+	static var ENaturalSoundFalloffMode_MAX: ENaturalSoundFalloffMode;
 }

@@ -3,11 +3,11 @@ package ue;
 
 @:native("EControlRigModifyBoneMode")
 @:include("Private/Units/Highlevel/Hierarchy/RigUnit_ModifyTransforms.h")
-extern enum EControlRigModifyBoneMode {
-	OverrideLocal;
-	OverrideGlobal;
-	AdditiveLocal;
-	AdditiveGlobal;
-	Max;
-	EControlRigModifyBoneMode_MAX;
+extern class EControlRigModifyBoneMode {
+	static var OverrideLocal: EControlRigModifyBoneMode;
+	static var OverrideGlobal: EControlRigModifyBoneMode;
+	static var AdditiveLocal: EControlRigModifyBoneMode;
+	static var AdditiveGlobal: EControlRigModifyBoneMode;
+	static var Max: EControlRigModifyBoneMode;
+	static var EControlRigModifyBoneMode_MAX: EControlRigModifyBoneMode;
 }

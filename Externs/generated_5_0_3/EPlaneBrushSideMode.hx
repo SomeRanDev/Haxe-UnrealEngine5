@@ -3,9 +3,9 @@ package ue;
 
 @:native("EPlaneBrushSideMode")
 @:include("Sculpting/MeshBrushOpBase.h")
-extern enum EPlaneBrushSideMode {
-	BothSides;
-	PushDown;
-	PullTowards;
-	EPlaneBrushSideMode_MAX;
+extern class EPlaneBrushSideMode {
+	static var BothSides: EPlaneBrushSideMode;
+	static var PushDown: EPlaneBrushSideMode;
+	static var PullTowards: EPlaneBrushSideMode;
+	static var EPlaneBrushSideMode_MAX: EPlaneBrushSideMode;
 }

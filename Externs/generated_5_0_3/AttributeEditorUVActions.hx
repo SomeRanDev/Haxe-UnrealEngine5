@@ -8,7 +8,7 @@ extern class AttributeEditorUVActions extends AttributeEditorActionPropertySet {
 	public var UVLayer: FString;
 	public var UVLayerNamesList: TArray<FString>;
 
-	public function GetUVLayerNamesFunc(): cpp.Reference<TArray<FString>>;
+	public function GetUVLayerNamesFunc(): TArray<FString>;
 	public function DuplicateSelected(): Void;
 	public function DeleteSelected(): Void;
 	public function ClearAll(): Void;

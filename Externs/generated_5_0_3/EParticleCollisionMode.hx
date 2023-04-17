@@ -3,8 +3,8 @@ package ue;
 
 @:native("EParticleCollisionMode.Type")
 @:include("Engine/EngineTypes.h")
-extern enum EParticleCollisionMode {
-	SceneDepth;
-	DistanceField;
-	EParticleCollisionMode_MAX;
+extern class EParticleCollisionMode {
+	static var SceneDepth: EParticleCollisionMode;
+	static var DistanceField: EParticleCollisionMode;
+	static var EParticleCollisionMode_MAX: EParticleCollisionMode;
 }

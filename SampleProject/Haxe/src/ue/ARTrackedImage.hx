@@ -5,11 +5,11 @@ package ue;
 @:include("ARTrackable.h")
 @:structAccess
 extern class ARTrackedImage extends ARTrackedGeometry {
-	public var DetectedImage: cpp.Star<ARCandidateImage>;
-	public var EstimatedSize: Vector2D;
+	@:protected public var DetectedImage: cpp.Star<ARCandidateImage>;
+	@:protected public var EstimatedSize: Vector2D;
 
-	public function GetEstimateSize(): cpp.Reference<Vector2D>;
-	public function GetDetectedImage(): cpp.Reference<cpp.Star<ARCandidateImage>>;
+	public function GetEstimateSize(): Vector2D;
+	public function GetDetectedImage(): cpp.Star<ARCandidateImage>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,10 +17,6 @@ extern class ARTrackedImage extends ARTrackedGeometry {
 @:forward(GetDetectedImage)
 @:nativeGen
 abstract ConstARTrackedImage(ARTrackedImage) from ARTrackedImage {
-	public extern var DetectedImage(get, never): cpp.Star<ARCandidateImage.ConstARCandidateImage>;
-	public inline extern function get_DetectedImage(): cpp.Star<ARCandidateImage.ConstARCandidateImage> return this.DetectedImage;
-	public extern var EstimatedSize(get, never): Vector2D;
-	public inline extern function get_EstimatedSize(): Vector2D return this.EstimatedSize;
 }
 
 @:forward

@@ -5,7 +5,7 @@ package ue;
 @:include("Graph/NodeSpawners/ControlRigPrototypeNodeSpawner.h")
 @:structAccess
 extern class ControlRigPrototypeNodeSpawner extends BlueprintNodeSpawner {
-	public var PrototypeNotation: FName;
+	private var PrototypeNotation: FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class ControlRigPrototypeNodeSpawner extends BlueprintNodeSpawner {
 @:forward()
 @:nativeGen
 abstract ConstControlRigPrototypeNodeSpawner(ControlRigPrototypeNodeSpawner) from ControlRigPrototypeNodeSpawner {
-	public extern var PrototypeNotation(get, never): FName;
-	public inline extern function get_PrototypeNotation(): FName return this.PrototypeNotation;
 }
 
 @:forward

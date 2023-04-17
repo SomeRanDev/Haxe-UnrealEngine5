@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class DirectoryWidgetCompilerOptions {
 	public var Directory: DirectoryPath;
-	public var IgnoredWidgets: TArray<TSoftObjectPtr<WidgetBlueprint>>;
 	public var Options: WidgetCompilerOptions;
 
 	@:native("FDirectoryWidgetCompilerOptions") public function new();

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EOrientation")
 @:include("Types/SlateEnums.h")
-extern enum EOrientation {
-	Orient_Horizontal;
-	Orient_Vertical;
-	Orient_MAX;
+extern class EOrientation {
+	static var Orient_Horizontal: EOrientation;
+	static var Orient_Vertical: EOrientation;
+	static var Orient_MAX: EOrientation;
 }

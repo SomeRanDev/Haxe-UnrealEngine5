@@ -10,9 +10,9 @@ extern class PlacedEditorUtilityBase extends Actor {
 	public function SetLevelViewportCameraInfo(CameraLocation: Vector, CameraRotation: Rotator): Void;
 	public function SetActorSelectionState(Actor: cpp.Star<Actor>, bShouldBeSelected: Bool): Void;
 	public function SelectNothing(): Void;
-	public function GetSelectionSet(): cpp.Reference<TArray<cpp.Star<Actor>>>;
-	public function GetLevelViewportCameraInfo(CameraLocation: cpp.Reference<Vector>, CameraRotation: cpp.Reference<Rotator>): cpp.Reference<Bool>;
-	public function GetActorReference(PathToActor: FString): cpp.Reference<cpp.Star<Actor>>;
+	public function GetSelectionSet(): TArray<cpp.Star<Actor>>;
+	public function GetLevelViewportCameraInfo(CameraLocation: cpp.Reference<Vector>, CameraRotation: cpp.Reference<Rotator>): Bool;
+	public function GetActorReference(PathToActor: FString): cpp.Star<Actor>;
 	public function ClearActorSelectionSet(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;

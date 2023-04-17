@@ -3,15 +3,15 @@ package ue;
 
 @:native("ECollisionGeometryType")
 @:include("Physics/SetCollisionGeometryTool.h")
-extern enum ECollisionGeometryType {
-	KeepExisting;
-	AlignedBoxes;
-	OrientedBoxes;
-	MinimalSpheres;
-	Capsules;
-	ConvexHulls;
-	SweptHulls;
-	MinVolume;
-	None;
-	ECollisionGeometryType_MAX;
+extern class ECollisionGeometryType {
+	static var KeepExisting: ECollisionGeometryType;
+	static var AlignedBoxes: ECollisionGeometryType;
+	static var OrientedBoxes: ECollisionGeometryType;
+	static var MinimalSpheres: ECollisionGeometryType;
+	static var Capsules: ECollisionGeometryType;
+	static var ConvexHulls: ECollisionGeometryType;
+	static var SweptHulls: ECollisionGeometryType;
+	static var MinVolume: ECollisionGeometryType;
+	static var None: ECollisionGeometryType;
+	static var ECollisionGeometryType_MAX: ECollisionGeometryType;
 }

@@ -9,10 +9,10 @@ extern class AppleImageUtilsBaseAsyncTaskBlueprintProxy extends Object {
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<(cpp.Reference<AppleImageUtilsImageConversionResult>) -> Void>;
 	public var ConversionResult: AppleImageUtilsImageConversionResult;
 
-	public function CreateProxyObjectForConvertToTIFF(SourceImage: cpp.Star<Texture>, bWantColor: Bool, bUseGpu: Bool, Scale: cpp.Float32, Rotate: ETextureRotationDirection): cpp.Reference<cpp.Star<AppleImageUtilsBaseAsyncTaskBlueprintProxy>>;
-	public function CreateProxyObjectForConvertToPNG(SourceImage: cpp.Star<Texture>, bWantColor: Bool, bUseGpu: Bool, Scale: cpp.Float32, Rotate: ETextureRotationDirection): cpp.Reference<cpp.Star<AppleImageUtilsBaseAsyncTaskBlueprintProxy>>;
-	public function CreateProxyObjectForConvertToJPEG(SourceImage: cpp.Star<Texture>, Quality: cpp.Int32, bWantColor: Bool, bUseGpu: Bool, Scale: cpp.Float32, Rotate: ETextureRotationDirection): cpp.Reference<cpp.Star<AppleImageUtilsBaseAsyncTaskBlueprintProxy>>;
-	public function CreateProxyObjectForConvertToHEIF(SourceImage: cpp.Star<Texture>, Quality: cpp.Int32, bWantColor: Bool, bUseGpu: Bool, Scale: cpp.Float32, Rotate: ETextureRotationDirection): cpp.Reference<cpp.Star<AppleImageUtilsBaseAsyncTaskBlueprintProxy>>;
+	public function CreateProxyObjectForConvertToTIFF(SourceImage: cpp.Star<Texture>, bWantColor: Bool, bUseGpu: Bool, Scale: cpp.Float32, Rotate: ETextureRotationDirection): cpp.Star<AppleImageUtilsBaseAsyncTaskBlueprintProxy>;
+	public function CreateProxyObjectForConvertToPNG(SourceImage: cpp.Star<Texture>, bWantColor: Bool, bUseGpu: Bool, Scale: cpp.Float32, Rotate: ETextureRotationDirection): cpp.Star<AppleImageUtilsBaseAsyncTaskBlueprintProxy>;
+	public function CreateProxyObjectForConvertToJPEG(SourceImage: cpp.Star<Texture>, Quality: cpp.Int32, bWantColor: Bool, bUseGpu: Bool, Scale: cpp.Float32, Rotate: ETextureRotationDirection): cpp.Star<AppleImageUtilsBaseAsyncTaskBlueprintProxy>;
+	public function CreateProxyObjectForConvertToHEIF(SourceImage: cpp.Star<Texture>, Quality: cpp.Int32, bWantColor: Bool, bUseGpu: Bool, Scale: cpp.Float32, Rotate: ETextureRotationDirection): cpp.Star<AppleImageUtilsBaseAsyncTaskBlueprintProxy>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

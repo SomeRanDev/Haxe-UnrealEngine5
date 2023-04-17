@@ -11,8 +11,8 @@ extern class PlatformInterfaceWebResponse extends Object {
 	public var StringResponse: FString;
 	public var BinaryResponse: TArray<cpp.UInt8>;
 
-	public function GetNumHeaders(): cpp.Reference<cpp.Int32>;
-	public function GetHeaderValue(HeaderName: FString): cpp.Reference<FString>;
+	public function GetNumHeaders(): cpp.Int32;
+	public function GetHeaderValue(HeaderName: FString): FString;
 	public function GetHeader(HeaderIndex: cpp.Int32, Header: cpp.Reference<FString>, Value: cpp.Reference<FString>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;

@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class InterchangeTexture2DNode extends InterchangeTextureNode {
 	public function SetSourceBlocks(InSourceBlocks: cpp.Reference<TMap<cpp.Int32, FString>>): Void;
-	public function GetSourceBlocks(): cpp.Reference<TMap<cpp.Int32, FString>>;
+	public function GetSourceBlocks(): TMap<cpp.Int32, FString>;
 	public function ClearSourceBlocksData(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;

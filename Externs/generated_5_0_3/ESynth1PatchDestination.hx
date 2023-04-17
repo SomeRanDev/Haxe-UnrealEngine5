@@ -3,21 +3,21 @@ package ue;
 
 @:native("ESynth1PatchDestination")
 @:include("EpicSynth1Types.h")
-extern enum ESynth1PatchDestination {
-	Osc1Gain;
-	Osc1Frequency;
-	Osc1Pulsewidth;
-	Osc2Gain;
-	Osc2Frequency;
-	Osc2Pulsewidth;
-	FilterFrequency;
-	FilterQ;
-	Gain;
-	Pan;
-	LFO1Frequency;
-	LFO1Gain;
-	LFO2Frequency;
-	LFO2Gain;
-	Count;
-	ESynth1PatchDestination_MAX;
+extern class ESynth1PatchDestination {
+	static var Osc1Gain: ESynth1PatchDestination;
+	static var Osc1Frequency: ESynth1PatchDestination;
+	static var Osc1Pulsewidth: ESynth1PatchDestination;
+	static var Osc2Gain: ESynth1PatchDestination;
+	static var Osc2Frequency: ESynth1PatchDestination;
+	static var Osc2Pulsewidth: ESynth1PatchDestination;
+	static var FilterFrequency: ESynth1PatchDestination;
+	static var FilterQ: ESynth1PatchDestination;
+	static var Gain: ESynth1PatchDestination;
+	static var Pan: ESynth1PatchDestination;
+	static var LFO1Frequency: ESynth1PatchDestination;
+	static var LFO1Gain: ESynth1PatchDestination;
+	static var LFO2Frequency: ESynth1PatchDestination;
+	static var LFO2Gain: ESynth1PatchDestination;
+	static var Count: ESynth1PatchDestination;
+	static var ESynth1PatchDestination_MAX: ESynth1PatchDestination;
 }

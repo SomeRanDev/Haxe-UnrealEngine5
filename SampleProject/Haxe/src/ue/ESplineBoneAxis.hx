@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESplineBoneAxis")
 @:include("BoneControllers/AnimNode_SplineIK.h")
-extern enum ESplineBoneAxis {
-	None;
-	X;
-	Y;
-	Z;
-	ESplineBoneAxis_MAX;
+extern class ESplineBoneAxis {
+	static var None: ESplineBoneAxis;
+	static var X: ESplineBoneAxis;
+	static var Y: ESplineBoneAxis;
+	static var Z: ESplineBoneAxis;
+	static var ESplineBoneAxis_MAX: ESplineBoneAxis;
 }

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EControlRigComponentMapDirection")
 @:include("ControlRigComponent.h")
-extern enum EControlRigComponentMapDirection {
-	Input;
-	Output;
-	EControlRigComponentMapDirection_MAX;
+extern class EControlRigComponentMapDirection {
+	static var Input: EControlRigComponentMapDirection;
+	static var Output: EControlRigComponentMapDirection;
+	static var EControlRigComponentMapDirection_MAX: EControlRigComponentMapDirection;
 }

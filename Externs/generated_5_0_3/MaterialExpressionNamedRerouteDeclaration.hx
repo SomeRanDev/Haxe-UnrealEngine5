@@ -7,7 +7,6 @@ package ue;
 extern class MaterialExpressionNamedRerouteDeclaration extends MaterialExpressionNamedRerouteBase {
 	public var Input: ExpressionInput;
 	public var Name: FName;
-	public var NodeColor: LinearColor;
 	public var VariableGuid: Guid;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -20,8 +19,6 @@ abstract ConstMaterialExpressionNamedRerouteDeclaration(MaterialExpressionNamedR
 	public inline extern function get_Input(): ExpressionInput return this.Input;
 	public extern var Name(get, never): FName;
 	public inline extern function get_Name(): FName return this.Name;
-	public extern var NodeColor(get, never): LinearColor;
-	public inline extern function get_NodeColor(): LinearColor return this.NodeColor;
 	public extern var VariableGuid(get, never): Guid;
 	public inline extern function get_VariableGuid(): Guid return this.VariableGuid;
 }

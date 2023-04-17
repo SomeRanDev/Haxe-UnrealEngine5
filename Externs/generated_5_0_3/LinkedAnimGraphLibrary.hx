@@ -5,10 +5,10 @@ package ue;
 @:include("LinkedAnimGraphLibrary.h")
 @:structAccess
 extern class LinkedAnimGraphLibrary extends BlueprintFunctionLibrary {
-	public function HasLinkedAnimInstance(Node: cpp.Reference<LinkedAnimGraphReference>): cpp.Reference<Bool>;
-	public function GetLinkedAnimInstance(Node: cpp.Reference<LinkedAnimGraphReference>): cpp.Reference<cpp.Star<AnimInstance>>;
+	public function HasLinkedAnimInstance(Node: cpp.Reference<LinkedAnimGraphReference>): Bool;
+	public function GetLinkedAnimInstance(Node: cpp.Reference<LinkedAnimGraphReference>): cpp.Star<AnimInstance>;
 	public function ConvertToLinkedAnimGraphPure(Node: cpp.Reference<AnimNodeReference>, LinkedAnimGraph: cpp.Reference<LinkedAnimGraphReference>, Result: cpp.Reference<Bool>): Void;
-	public function ConvertToLinkedAnimGraph(Node: cpp.Reference<AnimNodeReference>, Result: cpp.Reference<EAnimNodeReferenceConversionResult>): cpp.Reference<LinkedAnimGraphReference>;
+	public function ConvertToLinkedAnimGraph(Node: cpp.Reference<AnimNodeReference>, Result: cpp.Reference<EAnimNodeReferenceConversionResult>): LinkedAnimGraphReference;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

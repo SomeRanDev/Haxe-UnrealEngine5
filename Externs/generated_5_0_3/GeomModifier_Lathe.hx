@@ -8,7 +8,7 @@ extern class GeomModifier_Lathe extends GeomModifier_Edit {
 	public var TotalSegments: cpp.Int32;
 	public var Segments: cpp.Int32;
 	public var AlignToSide: Bool;
-	public var Axis: EAxis;
+	public var Axis: TEnumAsByte<EAxis>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -22,8 +22,8 @@ abstract ConstGeomModifier_Lathe(GeomModifier_Lathe) from GeomModifier_Lathe {
 	public inline extern function get_Segments(): cpp.Int32 return this.Segments;
 	public extern var AlignToSide(get, never): Bool;
 	public inline extern function get_AlignToSide(): Bool return this.AlignToSide;
-	public extern var Axis(get, never): EAxis;
-	public inline extern function get_Axis(): EAxis return this.Axis;
+	public extern var Axis(get, never): TEnumAsByte<EAxis>;
+	public inline extern function get_Axis(): TEnumAsByte<EAxis> return this.Axis;
 }
 
 @:forward

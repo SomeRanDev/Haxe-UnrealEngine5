@@ -3,11 +3,11 @@ package ue;
 
 @:native("ENCPoolMethod")
 @:include("NiagaraCommon.h")
-extern enum ENCPoolMethod {
-	None;
-	AutoRelease;
-	ManualRelease;
-	ManualRelease_OnComplete;
-	FreeInPool;
-	ENCPoolMethod_MAX;
+extern class ENCPoolMethod {
+	static var None: ENCPoolMethod;
+	static var AutoRelease: ENCPoolMethod;
+	static var ManualRelease: ENCPoolMethod;
+	static var ManualRelease_OnComplete: ENCPoolMethod;
+	static var FreeInPool: ENCPoolMethod;
+	static var ENCPoolMethod_MAX: ENCPoolMethod;
 }

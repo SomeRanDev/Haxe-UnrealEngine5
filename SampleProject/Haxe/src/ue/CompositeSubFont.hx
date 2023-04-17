@@ -7,7 +7,6 @@ package ue;
 extern class CompositeSubFont extends CompositeFallbackFont {
 	public var CharacterRanges: TArray<Int32Range>;
 	public var Cultures: FString;
-	public var EditorName: FName;
 
 	@:native("FCompositeSubFont") public function new();
 	@:native("FCompositeSubFont") public static function make(CharacterRanges: TArray<Int32Range>, Cultures: FString, EditorName: FName): CompositeSubFont ;

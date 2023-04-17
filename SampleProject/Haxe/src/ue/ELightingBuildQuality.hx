@@ -3,10 +3,10 @@ package ue;
 
 @:native("ELightingBuildQuality")
 @:include("Engine/EngineTypes.h")
-extern enum ELightingBuildQuality {
-	Quality_Preview;
-	Quality_Medium;
-	Quality_High;
-	Quality_Production;
-	Quality_MAX;
+extern class ELightingBuildQuality {
+	static var Quality_Preview: ELightingBuildQuality;
+	static var Quality_Medium: ELightingBuildQuality;
+	static var Quality_High: ELightingBuildQuality;
+	static var Quality_Production: ELightingBuildQuality;
+	static var Quality_MAX: ELightingBuildQuality;
 }

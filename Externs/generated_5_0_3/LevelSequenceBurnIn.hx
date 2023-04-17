@@ -5,11 +5,11 @@ package ue;
 @:include("LevelSequenceBurnIn.h")
 @:structAccess
 extern class LevelSequenceBurnIn extends UserWidget {
-	public var FrameInformation: LevelSequencePlayerSnapshot;
-	public var LevelSequenceActor: cpp.Star<LevelSequenceActor>;
+	@:protected public var FrameInformation: LevelSequencePlayerSnapshot;
+	@:protected public var LevelSequenceActor: cpp.Star<LevelSequenceActor>;
 
 	public function SetSettings(InSettings: cpp.Star<Object>): Void;
-	public function GetSettingsClass(): cpp.Reference<TSubclassOf<LevelSequenceBurnInInitSettings>>;
+	public function GetSettingsClass(): TSubclassOf<LevelSequenceBurnInInitSettings>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,10 +17,6 @@ extern class LevelSequenceBurnIn extends UserWidget {
 @:forward(GetSettingsClass)
 @:nativeGen
 abstract ConstLevelSequenceBurnIn(LevelSequenceBurnIn) from LevelSequenceBurnIn {
-	public extern var FrameInformation(get, never): LevelSequencePlayerSnapshot;
-	public inline extern function get_FrameInformation(): LevelSequencePlayerSnapshot return this.FrameInformation;
-	public extern var LevelSequenceActor(get, never): cpp.Star<LevelSequenceActor.ConstLevelSequenceActor>;
-	public inline extern function get_LevelSequenceActor(): cpp.Star<LevelSequenceActor.ConstLevelSequenceActor> return this.LevelSequenceActor;
 }
 
 @:forward

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EDBufferTextureId")
 @:include("Materials/MaterialExpressionDBufferTexture.h")
-extern enum EDBufferTextureId {
-	DBT_A;
-	DBT_B;
-	DBT_C;
-	DBT_MAX;
+extern class EDBufferTextureId {
+	static var DBT_A: EDBufferTextureId;
+	static var DBT_B: EDBufferTextureId;
+	static var DBT_C: EDBufferTextureId;
+	static var DBT_MAX: EDBufferTextureId;
 }

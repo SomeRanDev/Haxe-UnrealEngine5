@@ -5,12 +5,12 @@ package ue;
 @:include("BakeMeshAttributeTool.h")
 @:structAccess
 extern class BakeMeshAttributeTool extends MultiSelectionMeshEditingTool {
-	public var OcclusionSettings: cpp.Star<BakeOcclusionMapToolProperties>;
-	public var CurvatureSettings: cpp.Star<BakeCurvatureMapToolProperties>;
-	public var TextureSettings: cpp.Star<BakeTexture2DProperties>;
-	public var MultiTextureSettings: cpp.Star<BakeMultiTexture2DProperties>;
-	public var WorkingPreviewMaterial: cpp.Star<MaterialInstanceDynamic>;
-	public var ErrorPreviewMaterial: cpp.Star<MaterialInstanceDynamic>;
+	@:protected public var OcclusionSettings: cpp.Star<BakeOcclusionMapToolProperties>;
+	@:protected public var CurvatureSettings: cpp.Star<BakeCurvatureMapToolProperties>;
+	@:protected public var TextureSettings: cpp.Star<BakeTexture2DProperties>;
+	@:protected public var MultiTextureSettings: cpp.Star<BakeMultiTexture2DProperties>;
+	@:protected public var WorkingPreviewMaterial: cpp.Star<MaterialInstanceDynamic>;
+	@:protected public var ErrorPreviewMaterial: cpp.Star<MaterialInstanceDynamic>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,18 +18,6 @@ extern class BakeMeshAttributeTool extends MultiSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstBakeMeshAttributeTool(BakeMeshAttributeTool) from BakeMeshAttributeTool {
-	public extern var OcclusionSettings(get, never): cpp.Star<BakeOcclusionMapToolProperties.ConstBakeOcclusionMapToolProperties>;
-	public inline extern function get_OcclusionSettings(): cpp.Star<BakeOcclusionMapToolProperties.ConstBakeOcclusionMapToolProperties> return this.OcclusionSettings;
-	public extern var CurvatureSettings(get, never): cpp.Star<BakeCurvatureMapToolProperties.ConstBakeCurvatureMapToolProperties>;
-	public inline extern function get_CurvatureSettings(): cpp.Star<BakeCurvatureMapToolProperties.ConstBakeCurvatureMapToolProperties> return this.CurvatureSettings;
-	public extern var TextureSettings(get, never): cpp.Star<BakeTexture2DProperties.ConstBakeTexture2DProperties>;
-	public inline extern function get_TextureSettings(): cpp.Star<BakeTexture2DProperties.ConstBakeTexture2DProperties> return this.TextureSettings;
-	public extern var MultiTextureSettings(get, never): cpp.Star<BakeMultiTexture2DProperties.ConstBakeMultiTexture2DProperties>;
-	public inline extern function get_MultiTextureSettings(): cpp.Star<BakeMultiTexture2DProperties.ConstBakeMultiTexture2DProperties> return this.MultiTextureSettings;
-	public extern var WorkingPreviewMaterial(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_WorkingPreviewMaterial(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.WorkingPreviewMaterial;
-	public extern var ErrorPreviewMaterial(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_ErrorPreviewMaterial(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.ErrorPreviewMaterial;
 }
 
 @:forward

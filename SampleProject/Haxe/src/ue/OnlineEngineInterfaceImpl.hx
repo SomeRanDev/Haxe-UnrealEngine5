@@ -5,9 +5,9 @@ package ue;
 @:include("OnlineEngineInterfaceImpl.h")
 @:structAccess
 extern class OnlineEngineInterfaceImpl extends OnlineEngineInterface {
-	public var MappedUniqueNetIdTypes: TMap<FName, FName>;
-	public var CompatibleUniqueNetIdTypes: TArray<FName>;
-	public var VoiceSubsystemNameOverride: FName;
+	private var MappedUniqueNetIdTypes: TMap<FName, FName>;
+	private var CompatibleUniqueNetIdTypes: TArray<FName>;
+	private var VoiceSubsystemNameOverride: FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class OnlineEngineInterfaceImpl extends OnlineEngineInterface {
 @:forward()
 @:nativeGen
 abstract ConstOnlineEngineInterfaceImpl(OnlineEngineInterfaceImpl) from OnlineEngineInterfaceImpl {
-	public extern var MappedUniqueNetIdTypes(get, never): TMap<FName, FName>;
-	public inline extern function get_MappedUniqueNetIdTypes(): TMap<FName, FName> return this.MappedUniqueNetIdTypes;
-	public extern var CompatibleUniqueNetIdTypes(get, never): TArray<FName>;
-	public inline extern function get_CompatibleUniqueNetIdTypes(): TArray<FName> return this.CompatibleUniqueNetIdTypes;
-	public extern var VoiceSubsystemNameOverride(get, never): FName;
-	public inline extern function get_VoiceSubsystemNameOverride(): FName return this.VoiceSubsystemNameOverride;
 }
 
 @:forward

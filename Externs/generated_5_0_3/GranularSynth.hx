@@ -5,7 +5,7 @@ package ue;
 @:include("SynthComponents/SynthComponentGranulator.h")
 @:structAccess
 extern class GranularSynth extends SynthComp {
-	public var GranulatedSoundWave: cpp.Star<SoundWave>;
+	@:protected public var GranulatedSoundWave: cpp.Star<SoundWave>;
 
 	public function SetSustainGain(SustainGain: cpp.Float32): Void;
 	public function SetSoundWave(InSoundWave: cpp.Star<SoundWave>): Void;
@@ -24,9 +24,9 @@ extern class GranularSynth extends SynthComp {
 	public function SetAttackTime(AttackTimeMsec: cpp.Float32): Void;
 	public function NoteOn(Note: cpp.Float32, Velocity: cpp.Int32, Duration: cpp.Float32): Void;
 	public function NoteOff(Note: cpp.Float32, bKill: Bool): Void;
-	public function IsLoaded(): cpp.Reference<Bool>;
-	public function GetSampleDuration(): cpp.Reference<cpp.Float32>;
-	public function GetCurrentPlayheadTime(): cpp.Reference<cpp.Float32>;
+	public function IsLoaded(): Bool;
+	public function GetSampleDuration(): cpp.Float32;
+	public function GetCurrentPlayheadTime(): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -34,8 +34,6 @@ extern class GranularSynth extends SynthComp {
 @:forward(IsLoaded, GetSampleDuration, GetCurrentPlayheadTime)
 @:nativeGen
 abstract ConstGranularSynth(GranularSynth) from GranularSynth {
-	public extern var GranulatedSoundWave(get, never): cpp.Star<SoundWave.ConstSoundWave>;
-	public inline extern function get_GranulatedSoundWave(): cpp.Star<SoundWave.ConstSoundWave> return this.GranulatedSoundWave;
 }
 
 @:forward

@@ -3,8 +3,8 @@ package ue;
 
 @:native("ERuntimeVirtualTextureTextureAddressMode")
 @:include("Materials/MaterialExpressionRuntimeVirtualTextureSample.h")
-extern enum ERuntimeVirtualTextureTextureAddressMode {
-	RVTTA_Clamp;
-	RVTTA_Wrap;
-	RVTTA_MAX;
+extern class ERuntimeVirtualTextureTextureAddressMode {
+	static var RVTTA_Clamp: ERuntimeVirtualTextureTextureAddressMode;
+	static var RVTTA_Wrap: ERuntimeVirtualTextureTextureAddressMode;
+	static var RVTTA_MAX: ERuntimeVirtualTextureTextureAddressMode;
 }

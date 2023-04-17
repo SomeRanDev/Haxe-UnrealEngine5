@@ -3,12 +3,12 @@ package ue;
 
 @:native("ESimplifyType")
 @:include("CleaningOps/SimplifyMeshOp.h")
-extern enum ESimplifyType {
-	QEM;
-	Attribute;
-	UEStandard;
-	MinimalExistingVertex;
-	MinimalPlanar;
-	MinimalPolygroup;
-	ESimplifyType_MAX;
+extern class ESimplifyType {
+	static var QEM: ESimplifyType;
+	static var Attribute: ESimplifyType;
+	static var UEStandard: ESimplifyType;
+	static var MinimalExistingVertex: ESimplifyType;
+	static var MinimalPlanar: ESimplifyType;
+	static var MinimalPolygroup: ESimplifyType;
+	static var ESimplifyType_MAX: ESimplifyType;
 }

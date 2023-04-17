@@ -8,7 +8,7 @@ extern class UpgradeNiagaraScriptResults extends Object {
 	public var bCancelledByPythonError: Bool;
 	public var OldInputs: TArray<cpp.Star<NiagaraPythonScriptModuleInput>>;
 	public var NewInputs: TArray<cpp.Star<NiagaraPythonScriptModuleInput>>;
-	public var DummyInput: cpp.Star<NiagaraPythonScriptModuleInput>;
+	private var DummyInput: cpp.Star<NiagaraPythonScriptModuleInput>;
 
 	public function SetVec4Input(InputName: FString, Value: Vector4): Void;
 	public function SetVec3Input(InputName: FString, Value: Vector): Void;
@@ -19,7 +19,7 @@ extern class UpgradeNiagaraScriptResults extends Object {
 	public function SetEnumInput(InputName: FString, Value: FString): Void;
 	public function SetColorInput(InputName: FString, Value: LinearColor): Void;
 	public function SetBoolInput(InputName: FString, Value: Bool): Void;
-	public function GetOldInput(InputName: FString): cpp.Reference<cpp.Star<NiagaraPythonScriptModuleInput>>;
+	public function GetOldInput(InputName: FString): cpp.Star<NiagaraPythonScriptModuleInput>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -33,8 +33,6 @@ abstract ConstUpgradeNiagaraScriptResults(UpgradeNiagaraScriptResults) from Upgr
 	public inline extern function get_OldInputs(): TArray<cpp.Star<NiagaraPythonScriptModuleInput.ConstNiagaraPythonScriptModuleInput>> return this.OldInputs;
 	public extern var NewInputs(get, never): TArray<cpp.Star<NiagaraPythonScriptModuleInput.ConstNiagaraPythonScriptModuleInput>>;
 	public inline extern function get_NewInputs(): TArray<cpp.Star<NiagaraPythonScriptModuleInput.ConstNiagaraPythonScriptModuleInput>> return this.NewInputs;
-	public extern var DummyInput(get, never): cpp.Star<NiagaraPythonScriptModuleInput.ConstNiagaraPythonScriptModuleInput>;
-	public inline extern function get_DummyInput(): cpp.Star<NiagaraPythonScriptModuleInput.ConstNiagaraPythonScriptModuleInput> return this.DummyInput;
 }
 
 @:forward

@@ -5,9 +5,8 @@ package ue;
 @:include("Engine/HLODProxy.h")
 @:structAccess
 extern class HLODProxy extends Object {
-	public var OwningMap: TSoftObjectPtr<World>;
-	public var ProxyMeshes: TArray<HLODProxyMesh>;
-	public var HLODActors: TMap<cpp.Star<HLODProxyDesc>, HLODProxyMesh>;
+	private var ProxyMeshes: TArray<HLODProxyMesh>;
+	private var HLODActors: TMap<cpp.Star<HLODProxyDesc>, HLODProxyMesh>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +14,6 @@ extern class HLODProxy extends Object {
 @:forward()
 @:nativeGen
 abstract ConstHLODProxy(HLODProxy) from HLODProxy {
-	public extern var OwningMap(get, never): TSoftObjectPtr<World.ConstWorld>;
-	public inline extern function get_OwningMap(): TSoftObjectPtr<World.ConstWorld> return this.OwningMap;
-	public extern var ProxyMeshes(get, never): TArray<HLODProxyMesh>;
-	public inline extern function get_ProxyMeshes(): TArray<HLODProxyMesh> return this.ProxyMeshes;
-	public extern var HLODActors(get, never): TMap<cpp.Star<HLODProxyDesc.ConstHLODProxyDesc>, HLODProxyMesh>;
-	public inline extern function get_HLODActors(): TMap<cpp.Star<HLODProxyDesc.ConstHLODProxyDesc>, HLODProxyMesh> return this.HLODActors;
 }
 
 @:forward

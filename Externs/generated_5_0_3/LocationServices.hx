@@ -5,13 +5,13 @@ package ue;
 @:include("LocationServicesBPLibrary.h")
 @:structAccess
 extern class LocationServices extends BlueprintFunctionLibrary {
-	public function StopLocationServices(): cpp.Reference<Bool>;
-	public function StartLocationServices(): cpp.Reference<Bool>;
-	public function IsLocationAccuracyAvailable(Accuracy: ELocationAccuracy): cpp.Reference<Bool>;
-	public function InitLocationServices(Accuracy: ELocationAccuracy, UpdateFrequency: cpp.Float32, MinDistanceFilter: cpp.Float32): cpp.Reference<Bool>;
-	public function GetLocationServicesImpl(): cpp.Reference<cpp.Star<LocationServicesImpl>>;
-	public function GetLastKnownLocation(): cpp.Reference<LocationServicesData>;
-	public function AreLocationServicesEnabled(): cpp.Reference<Bool>;
+	public function StopLocationServices(): Bool;
+	public function StartLocationServices(): Bool;
+	public function IsLocationAccuracyAvailable(Accuracy: ELocationAccuracy): Bool;
+	public function InitLocationServices(Accuracy: ELocationAccuracy, UpdateFrequency: cpp.Float32, MinDistanceFilter: cpp.Float32): Bool;
+	public function GetLocationServicesImpl(): cpp.Star<LocationServicesImpl>;
+	public function GetLastKnownLocation(): LocationServicesData;
+	public function AreLocationServicesEnabled(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

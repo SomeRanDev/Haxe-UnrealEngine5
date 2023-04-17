@@ -3,8 +3,8 @@ package ue;
 
 @:native("EShadowMapMethod.Type")
 @:include("Engine/EngineTypes.h")
-extern enum EShadowMapMethod {
-	ShadowMaps;
-	VirtualShadowMaps;
-	EShadowMapMethod_MAX;
+extern class EShadowMapMethod {
+	static var ShadowMaps: EShadowMapMethod;
+	static var VirtualShadowMaps: EShadowMapMethod;
+	static var EShadowMapMethod_MAX: EShadowMapMethod;
 }

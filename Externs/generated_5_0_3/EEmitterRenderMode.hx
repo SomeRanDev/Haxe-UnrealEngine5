@@ -3,11 +3,11 @@ package ue;
 
 @:native("EEmitterRenderMode")
 @:include("Particles/ParticleEmitter.h")
-extern enum EEmitterRenderMode {
-	ERM_Normal;
-	ERM_Point;
-	ERM_Cross;
-	ERM_LightsOnly;
-	ERM_None;
-	ERM_MAX;
+extern class EEmitterRenderMode {
+	static var ERM_Normal: EEmitterRenderMode;
+	static var ERM_Point: EEmitterRenderMode;
+	static var ERM_Cross: EEmitterRenderMode;
+	static var ERM_LightsOnly: EEmitterRenderMode;
+	static var ERM_None: EEmitterRenderMode;
+	static var ERM_MAX: EEmitterRenderMode;
 }

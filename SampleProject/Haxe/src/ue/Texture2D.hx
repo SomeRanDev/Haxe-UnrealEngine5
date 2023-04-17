@@ -6,14 +6,13 @@ package ue;
 @:structAccess
 extern class Texture2D extends Texture {
 	public var FirstResourceMemMip: cpp.Int32;
-	public var bTemporarilyDisableStreaming: Bool;
-	public var bHasBeenPaintedInEditor: Bool;
-	public var AddressX: TextureAddress;
-	public var AddressY: TextureAddress;
-	public var ImportedSize: IntPoint;
+	private var bTemporarilyDisableStreaming: Bool;
+	public var AddressX: TEnumAsByte<TextureAddress>;
+	public var AddressY: TEnumAsByte<TextureAddress>;
+	private var ImportedSize: IntPoint;
 
-	public function Blueprint_GetSizeY(): cpp.Reference<cpp.Int32>;
-	public function Blueprint_GetSizeX(): cpp.Reference<cpp.Int32>;
+	public function Blueprint_GetSizeY(): cpp.Int32;
+	public function Blueprint_GetSizeX(): cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -23,16 +22,10 @@ extern class Texture2D extends Texture {
 abstract ConstTexture2D(Texture2D) from Texture2D {
 	public extern var FirstResourceMemMip(get, never): cpp.Int32;
 	public inline extern function get_FirstResourceMemMip(): cpp.Int32 return this.FirstResourceMemMip;
-	public extern var bTemporarilyDisableStreaming(get, never): Bool;
-	public inline extern function get_bTemporarilyDisableStreaming(): Bool return this.bTemporarilyDisableStreaming;
-	public extern var bHasBeenPaintedInEditor(get, never): Bool;
-	public inline extern function get_bHasBeenPaintedInEditor(): Bool return this.bHasBeenPaintedInEditor;
-	public extern var AddressX(get, never): TextureAddress;
-	public inline extern function get_AddressX(): TextureAddress return this.AddressX;
-	public extern var AddressY(get, never): TextureAddress;
-	public inline extern function get_AddressY(): TextureAddress return this.AddressY;
-	public extern var ImportedSize(get, never): IntPoint;
-	public inline extern function get_ImportedSize(): IntPoint return this.ImportedSize;
+	public extern var AddressX(get, never): TEnumAsByte<TextureAddress>;
+	public inline extern function get_AddressX(): TEnumAsByte<TextureAddress> return this.AddressX;
+	public extern var AddressY(get, never): TEnumAsByte<TextureAddress>;
+	public inline extern function get_AddressY(): TEnumAsByte<TextureAddress> return this.AddressY;
 }
 
 @:forward

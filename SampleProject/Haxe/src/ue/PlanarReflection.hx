@@ -5,9 +5,7 @@ package ue;
 @:include("Engine/PlanarReflection.h")
 @:structAccess
 extern class PlanarReflection extends SceneCapture {
-	public var PlanarReflectionComponent: cpp.Star<PlanarReflectionComp>;
-	public var SpriteComponent: cpp.Star<BillboardComp>;
-	public var bShowPreviewPlane_DEPRECATED: Bool;
+	private var PlanarReflectionComponent: cpp.Star<PlanarReflectionComp>;
 
 	public function OnInterpToggle(bEnable: Bool): Void;
 
@@ -17,12 +15,6 @@ extern class PlanarReflection extends SceneCapture {
 @:forward()
 @:nativeGen
 abstract ConstPlanarReflection(PlanarReflection) from PlanarReflection {
-	public extern var PlanarReflectionComponent(get, never): cpp.Star<PlanarReflectionComp.ConstPlanarReflectionComp>;
-	public inline extern function get_PlanarReflectionComponent(): cpp.Star<PlanarReflectionComp.ConstPlanarReflectionComp> return this.PlanarReflectionComponent;
-	public extern var SpriteComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
-	public inline extern function get_SpriteComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
-	public extern var bShowPreviewPlane_DEPRECATED(get, never): Bool;
-	public inline extern function get_bShowPreviewPlane_DEPRECATED(): Bool return this.bShowPreviewPlane_DEPRECATED;
 }
 
 @:forward

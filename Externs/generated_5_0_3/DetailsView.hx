@@ -16,7 +16,7 @@ extern class DetailsView extends PropertyViewBase {
 	public var ViewIdentifier: FName;
 	public var CategoriesToShow: TArray<FName>;
 	public var PropertiesToShow: TArray<FName>;
-	public var bShowOnlyAllowed: Bool;
+	private var bShowOnlyAllowed: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -46,8 +46,6 @@ abstract ConstDetailsView(DetailsView) from DetailsView {
 	public inline extern function get_CategoriesToShow(): TArray<FName> return this.CategoriesToShow;
 	public extern var PropertiesToShow(get, never): TArray<FName>;
 	public inline extern function get_PropertiesToShow(): TArray<FName> return this.PropertiesToShow;
-	public extern var bShowOnlyAllowed(get, never): Bool;
-	public inline extern function get_bShowOnlyAllowed(): Bool return this.bShowOnlyAllowed;
 }
 
 @:forward

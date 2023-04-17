@@ -8,16 +8,16 @@ extern class ProceduralMeshComp extends MeshComp {
 	public var bUseComplexAsSimpleCollision: Bool;
 	public var bUseAsyncCooking: Bool;
 	public var ProcMeshBodySetup: cpp.Star<BodySetup>;
-	public var ProcMeshSections: TArray<ProcMeshSection>;
-	public var CollisionConvexElems: TArray<KConvexElem>;
-	public var LocalBounds: BoxSphereBounds;
-	public var AsyncBodySetupQueue: TArray<cpp.Star<BodySetup>>;
+	private var ProcMeshSections: TArray<ProcMeshSection>;
+	private var CollisionConvexElems: TArray<KConvexElem>;
+	private var LocalBounds: BoxSphereBounds;
+	private var AsyncBodySetupQueue: TArray<cpp.Star<BodySetup>>;
 
 	public function UpdateMeshSection_LinearColor(SectionIndex: cpp.Int32, Vertices: cpp.Reference<TArray<Vector>>, Normals: cpp.Reference<TArray<Vector>>, UV0: cpp.Reference<TArray<Vector2D>>, UV1: cpp.Reference<TArray<Vector2D>>, UV2: cpp.Reference<TArray<Vector2D>>, UV3: cpp.Reference<TArray<Vector2D>>, VertexColors: cpp.Reference<TArray<LinearColor>>, Tangents: cpp.Reference<TArray<ProcMeshTangent>>): Void;
 	public function UpdateMeshSection(SectionIndex: cpp.Int32, Vertices: cpp.Reference<TArray<Vector>>, Normals: cpp.Reference<TArray<Vector>>, UV0: cpp.Reference<TArray<Vector2D>>, VertexColors: cpp.Reference<TArray<Color>>, Tangents: cpp.Reference<TArray<ProcMeshTangent>>): Void;
 	public function SetMeshSectionVisible(SectionIndex: cpp.Int32, bNewVisibility: Bool): Void;
-	public function IsMeshSectionVisible(SectionIndex: cpp.Int32): cpp.Reference<Bool>;
-	public function GetNumSections(): cpp.Reference<cpp.Int32>;
+	public function IsMeshSectionVisible(SectionIndex: cpp.Int32): Bool;
+	public function GetNumSections(): cpp.Int32;
 	public function CreateMeshSection_LinearColor(SectionIndex: cpp.Int32, Vertices: cpp.Reference<TArray<Vector>>, Triangles: cpp.Reference<TArray<cpp.Int32>>, Normals: cpp.Reference<TArray<Vector>>, UV0: cpp.Reference<TArray<Vector2D>>, UV1: cpp.Reference<TArray<Vector2D>>, UV2: cpp.Reference<TArray<Vector2D>>, UV3: cpp.Reference<TArray<Vector2D>>, VertexColors: cpp.Reference<TArray<LinearColor>>, Tangents: cpp.Reference<TArray<ProcMeshTangent>>, bCreateCollision: Bool): Void;
 	public function CreateMeshSection(SectionIndex: cpp.Int32, Vertices: cpp.Reference<TArray<Vector>>, Triangles: cpp.Reference<TArray<cpp.Int32>>, Normals: cpp.Reference<TArray<Vector>>, UV0: cpp.Reference<TArray<Vector2D>>, VertexColors: cpp.Reference<TArray<Color>>, Tangents: cpp.Reference<TArray<ProcMeshTangent>>, bCreateCollision: Bool): Void;
 	public function ClearMeshSection(SectionIndex: cpp.Int32): Void;
@@ -37,14 +37,6 @@ abstract ConstProceduralMeshComp(ProceduralMeshComp) from ProceduralMeshComp {
 	public inline extern function get_bUseAsyncCooking(): Bool return this.bUseAsyncCooking;
 	public extern var ProcMeshBodySetup(get, never): cpp.Star<BodySetup.ConstBodySetup>;
 	public inline extern function get_ProcMeshBodySetup(): cpp.Star<BodySetup.ConstBodySetup> return this.ProcMeshBodySetup;
-	public extern var ProcMeshSections(get, never): TArray<ProcMeshSection>;
-	public inline extern function get_ProcMeshSections(): TArray<ProcMeshSection> return this.ProcMeshSections;
-	public extern var CollisionConvexElems(get, never): TArray<KConvexElem>;
-	public inline extern function get_CollisionConvexElems(): TArray<KConvexElem> return this.CollisionConvexElems;
-	public extern var LocalBounds(get, never): BoxSphereBounds;
-	public inline extern function get_LocalBounds(): BoxSphereBounds return this.LocalBounds;
-	public extern var AsyncBodySetupQueue(get, never): TArray<cpp.Star<BodySetup.ConstBodySetup>>;
-	public inline extern function get_AsyncBodySetupQueue(): TArray<cpp.Star<BodySetup.ConstBodySetup>> return this.AsyncBodySetupQueue;
 }
 
 @:forward

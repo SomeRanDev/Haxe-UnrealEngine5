@@ -5,9 +5,9 @@ package ue;
 @:include("BlueprintFieldNodeSpawner.h")
 @:structAccess
 extern class BlueprintFieldNodeSpawner extends BlueprintNodeSpawner {
-	public var OwnerClass: TSubclassOf<Object>;
-	public var Field: cpp.Star<Field>;
-	public var Property: TFieldPath<FProperty>;
+	@:protected public var OwnerClass: TSubclassOf<Object>;
+	private var Field: cpp.Star<Field>;
+	private var Property: TFieldPath<FProperty>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class BlueprintFieldNodeSpawner extends BlueprintNodeSpawner {
 @:forward()
 @:nativeGen
 abstract ConstBlueprintFieldNodeSpawner(BlueprintFieldNodeSpawner) from BlueprintFieldNodeSpawner {
-	public extern var OwnerClass(get, never): TSubclassOf<Object.ConstObject>;
-	public inline extern function get_OwnerClass(): TSubclassOf<Object.ConstObject> return this.OwnerClass;
-	public extern var Field(get, never): cpp.Star<Field.ConstField>;
-	public inline extern function get_Field(): cpp.Star<Field.ConstField> return this.Field;
-	public extern var Property(get, never): TFieldPath<FProperty>;
-	public inline extern function get_Property(): TFieldPath<FProperty> return this.Property;
 }
 
 @:forward

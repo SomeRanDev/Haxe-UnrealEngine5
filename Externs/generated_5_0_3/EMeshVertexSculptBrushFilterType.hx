@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMeshVertexSculptBrushFilterType")
 @:include("MeshVertexSculptTool.h")
-extern enum EMeshVertexSculptBrushFilterType {
-	None;
-	Component;
-	PolyGroup;
-	EMeshVertexSculptBrushFilterType_MAX;
+extern class EMeshVertexSculptBrushFilterType {
+	static var None: EMeshVertexSculptBrushFilterType;
+	static var Component: EMeshVertexSculptBrushFilterType;
+	static var PolyGroup: EMeshVertexSculptBrushFilterType;
+	static var EMeshVertexSculptBrushFilterType_MAX: EMeshVertexSculptBrushFilterType;
 }

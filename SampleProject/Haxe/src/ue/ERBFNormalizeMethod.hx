@@ -3,10 +3,10 @@ package ue;
 
 @:native("ERBFNormalizeMethod")
 @:include("RBF/RBFSolver.h")
-extern enum ERBFNormalizeMethod {
-	OnlyNormalizeAboveOne;
-	AlwaysNormalize;
-	NormalizeWithinMedian;
-	NoNormalization;
-	ERBFNormalizeMethod_MAX;
+extern class ERBFNormalizeMethod {
+	static var OnlyNormalizeAboveOne: ERBFNormalizeMethod;
+	static var AlwaysNormalize: ERBFNormalizeMethod;
+	static var NormalizeWithinMedian: ERBFNormalizeMethod;
+	static var NoNormalization: ERBFNormalizeMethod;
+	static var ERBFNormalizeMethod_MAX: ERBFNormalizeMethod;
 }

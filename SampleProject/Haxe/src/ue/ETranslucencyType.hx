@@ -3,8 +3,8 @@ package ue;
 
 @:native("ETranslucencyType")
 @:include("Engine/Scene.h")
-extern enum ETranslucencyType {
-	Raster;
-	RayTracing;
-	ETranslucencyType_MAX;
+extern class ETranslucencyType {
+	static var Raster: ETranslucencyType;
+	static var RayTracing: ETranslucencyType;
+	static var ETranslucencyType_MAX: ETranslucencyType;
 }

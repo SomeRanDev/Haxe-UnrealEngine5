@@ -3,21 +3,21 @@ package ue;
 
 @:native("EGranularSynthEnvelopeType")
 @:include("SynthComponents/SynthComponentGranulator.h")
-extern enum EGranularSynthEnvelopeType {
-	Rectangular;
-	Triangle;
-	DownwardTriangle;
-	UpwardTriangle;
-	ExponentialDecay;
-	ExponentialIncrease;
-	Gaussian;
-	Hanning;
-	Lanczos;
-	Cosine;
-	CosineSquared;
-	Welch;
-	Blackman;
-	BlackmanHarris;
-	Count;
-	EGranularSynthEnvelopeType_MAX;
+extern class EGranularSynthEnvelopeType {
+	static var Rectangular: EGranularSynthEnvelopeType;
+	static var Triangle: EGranularSynthEnvelopeType;
+	static var DownwardTriangle: EGranularSynthEnvelopeType;
+	static var UpwardTriangle: EGranularSynthEnvelopeType;
+	static var ExponentialDecay: EGranularSynthEnvelopeType;
+	static var ExponentialIncrease: EGranularSynthEnvelopeType;
+	static var Gaussian: EGranularSynthEnvelopeType;
+	static var Hanning: EGranularSynthEnvelopeType;
+	static var Lanczos: EGranularSynthEnvelopeType;
+	static var Cosine: EGranularSynthEnvelopeType;
+	static var CosineSquared: EGranularSynthEnvelopeType;
+	static var Welch: EGranularSynthEnvelopeType;
+	static var Blackman: EGranularSynthEnvelopeType;
+	static var BlackmanHarris: EGranularSynthEnvelopeType;
+	static var Count: EGranularSynthEnvelopeType;
+	static var EGranularSynthEnvelopeType_MAX: EGranularSynthEnvelopeType;
 }

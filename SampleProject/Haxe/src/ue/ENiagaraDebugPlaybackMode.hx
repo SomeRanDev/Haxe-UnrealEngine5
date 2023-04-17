@@ -3,10 +3,10 @@ package ue;
 
 @:native("ENiagaraDebugPlaybackMode")
 @:include("NiagaraDebuggerCommon.h")
-extern enum ENiagaraDebugPlaybackMode {
-	Play;
-	Loop;
-	Paused;
-	Step;
-	ENiagaraDebugPlaybackMode_MAX;
+extern class ENiagaraDebugPlaybackMode {
+	static var Play: ENiagaraDebugPlaybackMode;
+	static var Loop: ENiagaraDebugPlaybackMode;
+	static var Paused: ENiagaraDebugPlaybackMode;
+	static var Step: ENiagaraDebugPlaybackMode;
+	static var ENiagaraDebugPlaybackMode_MAX: ENiagaraDebugPlaybackMode;
 }

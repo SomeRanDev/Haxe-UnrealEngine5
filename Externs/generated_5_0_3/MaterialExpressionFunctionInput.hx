@@ -9,7 +9,7 @@ extern class MaterialExpressionFunctionInput extends MaterialExpression {
 	public var InputName: FName;
 	public var Description: FString;
 	public var Id: Guid;
-	public var InputType: EFunctionInputType;
+	public var InputType: TEnumAsByte<EFunctionInputType>;
 	public var PreviewValue: Vector4;
 	public var bUsePreviewValueAsDefault: Bool;
 	public var SortPriority: cpp.Int32;
@@ -29,8 +29,8 @@ abstract ConstMaterialExpressionFunctionInput(MaterialExpressionFunctionInput) f
 	public inline extern function get_Description(): FString return this.Description;
 	public extern var Id(get, never): Guid;
 	public inline extern function get_Id(): Guid return this.Id;
-	public extern var InputType(get, never): EFunctionInputType;
-	public inline extern function get_InputType(): EFunctionInputType return this.InputType;
+	public extern var InputType(get, never): TEnumAsByte<EFunctionInputType>;
+	public inline extern function get_InputType(): TEnumAsByte<EFunctionInputType> return this.InputType;
 	public extern var PreviewValue(get, never): Vector4;
 	public inline extern function get_PreviewValue(): Vector4 return this.PreviewValue;
 	public extern var bUsePreviewValueAsDefault(get, never): Bool;

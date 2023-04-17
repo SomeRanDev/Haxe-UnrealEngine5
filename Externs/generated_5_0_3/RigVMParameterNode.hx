@@ -5,12 +5,12 @@ package ue;
 @:include("RigVMModel/Nodes/RigVMParameterNode.h")
 @:structAccess
 extern class RigVMParameterNode extends RigVMNode {
-	public function IsInput(): cpp.Reference<Bool>;
-	public function GetParameterName(): cpp.Reference<FName>;
-	public function GetParameterDescription(): cpp.Reference<RigVMGraphParameterDescription>;
-	public function GetDefaultValue(): cpp.Reference<FString>;
-	public function GetCPPTypeObject(): cpp.Reference<cpp.Star<Object>>;
-	public function GetCPPType(): cpp.Reference<FString>;
+	public function IsInput(): Bool;
+	public function GetParameterName(): FName;
+	public function GetParameterDescription(): RigVMGraphParameterDescription;
+	public function GetDefaultValue(): FString;
+	public function GetCPPTypeObject(): cpp.Star<Object>;
+	public function GetCPPType(): FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

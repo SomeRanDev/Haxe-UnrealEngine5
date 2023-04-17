@@ -3,9 +3,9 @@ package ue;
 
 @:native("EUMGSequencePlayMode.Type")
 @:include("Blueprint/UserWidget.h")
-extern enum EUMGSequencePlayMode {
-	Forward;
-	Reverse;
-	PingPong;
-	EUMGSequencePlayMode_MAX;
+extern class EUMGSequencePlayMode {
+	static var Forward: EUMGSequencePlayMode;
+	static var Reverse: EUMGSequencePlayMode;
+	static var PingPong: EUMGSequencePlayMode;
+	static var EUMGSequencePlayMode_MAX: EUMGSequencePlayMode;
 }

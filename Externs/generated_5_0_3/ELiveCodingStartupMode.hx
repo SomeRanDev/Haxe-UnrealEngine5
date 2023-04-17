@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELiveCodingStartupMode")
 @:include("Private/LiveCodingSettings.h")
-extern enum ELiveCodingStartupMode {
-	Automatic;
-	AutomaticButHidden;
-	Manual;
-	ELiveCodingStartupMode_MAX;
+extern class ELiveCodingStartupMode {
+	static var Automatic: ELiveCodingStartupMode;
+	static var AutomaticButHidden: ELiveCodingStartupMode;
+	static var Manual: ELiveCodingStartupMode;
+	static var ELiveCodingStartupMode_MAX: ELiveCodingStartupMode;
 }

@@ -5,7 +5,6 @@ package ue;
 @:include("Tracks/MovieSceneColorTrack.h")
 @:structAccess
 extern class MovieSceneColorTrack extends MovieScenePropertyTrack {
-	public var bIsSlateColor_DEPRECATED: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +12,6 @@ extern class MovieSceneColorTrack extends MovieScenePropertyTrack {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneColorTrack(MovieSceneColorTrack) from MovieSceneColorTrack {
-	public extern var bIsSlateColor_DEPRECATED(get, never): Bool;
-	public inline extern function get_bIsSlateColor_DEPRECATED(): Bool return this.bIsSlateColor_DEPRECATED;
 }
 
 @:forward

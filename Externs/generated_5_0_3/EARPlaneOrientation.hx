@@ -3,9 +3,9 @@ package ue;
 
 @:native("EARPlaneOrientation")
 @:include("ARTypes.h")
-extern enum EARPlaneOrientation {
-	Horizontal;
-	Vertical;
-	Diagonal;
-	EARPlaneOrientation_MAX;
+extern class EARPlaneOrientation {
+	static var Horizontal: EARPlaneOrientation;
+	static var Vertical: EARPlaneOrientation;
+	static var Diagonal: EARPlaneOrientation;
+	static var EARPlaneOrientation_MAX: EARPlaneOrientation;
 }

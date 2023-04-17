@@ -3,9 +3,9 @@ package ue;
 
 @:native("ERemeshSmoothingType")
 @:include("CleaningOps/RemeshMeshOp.h")
-extern enum ERemeshSmoothingType {
-	Uniform;
-	Cotangent;
-	MeanValue;
-	ERemeshSmoothingType_MAX;
+extern class ERemeshSmoothingType {
+	static var Uniform: ERemeshSmoothingType;
+	static var Cotangent: ERemeshSmoothingType;
+	static var MeanValue: ERemeshSmoothingType;
+	static var ERemeshSmoothingType_MAX: ERemeshSmoothingType;
 }

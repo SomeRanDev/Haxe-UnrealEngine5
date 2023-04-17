@@ -3,11 +3,11 @@ package ue;
 
 @:native("EDataSortTypeEnum")
 @:include("NiagaraDataInterfaceChaosDestruction.h")
-extern enum EDataSortTypeEnum {
-	ChaosNiagara_DataSortType_NoSorting;
-	ChaosNiagara_DataSortType_RandomShuffle;
-	ChaosNiagara_DataSortType_SortByMassMaxToMin;
-	ChaosNiagara_DataSortType_SortByMassMinToMax;
-	ChaosNiagara_Max;
-	ChaosNiagara_MAX;
+extern class EDataSortTypeEnum {
+	static var ChaosNiagara_DataSortType_NoSorting: EDataSortTypeEnum;
+	static var ChaosNiagara_DataSortType_RandomShuffle: EDataSortTypeEnum;
+	static var ChaosNiagara_DataSortType_SortByMassMaxToMin: EDataSortTypeEnum;
+	static var ChaosNiagara_DataSortType_SortByMassMinToMax: EDataSortTypeEnum;
+	static var ChaosNiagara_Max: EDataSortTypeEnum;
+	static var ChaosNiagara_MAX: EDataSortTypeEnum;
 }

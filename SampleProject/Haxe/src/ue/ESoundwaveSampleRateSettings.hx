@@ -3,12 +3,12 @@ package ue;
 
 @:native("ESoundwaveSampleRateSettings")
 @:include("AudioCompressionSettings.h")
-extern enum ESoundwaveSampleRateSettings {
-	Max;
-	High;
-	Medium;
-	Low;
-	Min;
-	MatchDevice;
-	ESoundwaveSampleRateSettings_MAX;
+extern class ESoundwaveSampleRateSettings {
+	static var Max: ESoundwaveSampleRateSettings;
+	static var High: ESoundwaveSampleRateSettings;
+	static var Medium: ESoundwaveSampleRateSettings;
+	static var Low: ESoundwaveSampleRateSettings;
+	static var Min: ESoundwaveSampleRateSettings;
+	static var MatchDevice: ESoundwaveSampleRateSettings;
+	static var ESoundwaveSampleRateSettings_MAX: ESoundwaveSampleRateSettings;
 }

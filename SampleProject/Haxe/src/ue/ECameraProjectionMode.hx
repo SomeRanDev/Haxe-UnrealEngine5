@@ -3,8 +3,8 @@ package ue;
 
 @:native("ECameraProjectionMode.Type")
 @:include("Camera/CameraTypes.h")
-extern enum ECameraProjectionMode {
-	Perspective;
-	Orthographic;
-	ECameraProjectionMode_MAX;
+extern class ECameraProjectionMode {
+	static var Perspective: ECameraProjectionMode;
+	static var Orthographic: ECameraProjectionMode;
+	static var ECameraProjectionMode_MAX: ECameraProjectionMode;
 }

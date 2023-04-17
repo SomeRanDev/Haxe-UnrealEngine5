@@ -3,8 +3,8 @@ package ue;
 
 @:native("EPhysicsTransformUpdateMode.Type")
 @:include("Components/SkeletalMeshComponent.h")
-extern enum EPhysicsTransformUpdateMode {
-	SimulationUpatesComponentTransform;
-	ComponentTransformIsKinematic;
-	EPhysicsTransformUpdateMode_MAX;
+extern class EPhysicsTransformUpdateMode {
+	static var SimulationUpatesComponentTransform: EPhysicsTransformUpdateMode;
+	static var ComponentTransformIsKinematic: EPhysicsTransformUpdateMode;
+	static var EPhysicsTransformUpdateMode_MAX: EPhysicsTransformUpdateMode;
 }

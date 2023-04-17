@@ -5,7 +5,7 @@ package ue;
 @:include("GraphEditorSettings.h")
 @:structAccess
 extern class GraphEditorSettings extends Object {
-	public var DataPinStyle: EBlueprintPinStyleType;
+	public var DataPinStyle: TEnumAsByte<EBlueprintPinStyleType>;
 	public var PanningMouseButton: EGraphPanningMouseButton;
 	public var PaddingAbovePin: cpp.Float32;
 	public var PaddingBelowPin: cpp.Float32;
@@ -75,7 +75,7 @@ extern class GraphEditorSettings extends Object {
 	public var TracePositionExponent: cpp.Float32;
 	public var PaddingAutoCollateIncrement: cpp.Float32;
 	public var bOpenCreateMenuOnBlankGraphAreas: Bool;
-	public var DefaultCommentNodeMoveMode: ECommentBoxMode;
+	public var DefaultCommentNodeMoveMode: TEnumAsByte<ECommentBoxMode>;
 	public var bShowCommentBubbleWhenZoomedOut: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -84,8 +84,8 @@ extern class GraphEditorSettings extends Object {
 @:forward()
 @:nativeGen
 abstract ConstGraphEditorSettings(GraphEditorSettings) from GraphEditorSettings {
-	public extern var DataPinStyle(get, never): EBlueprintPinStyleType;
-	public inline extern function get_DataPinStyle(): EBlueprintPinStyleType return this.DataPinStyle;
+	public extern var DataPinStyle(get, never): TEnumAsByte<EBlueprintPinStyleType>;
+	public inline extern function get_DataPinStyle(): TEnumAsByte<EBlueprintPinStyleType> return this.DataPinStyle;
 	public extern var PanningMouseButton(get, never): EGraphPanningMouseButton;
 	public inline extern function get_PanningMouseButton(): EGraphPanningMouseButton return this.PanningMouseButton;
 	public extern var PaddingAbovePin(get, never): cpp.Float32;
@@ -224,8 +224,8 @@ abstract ConstGraphEditorSettings(GraphEditorSettings) from GraphEditorSettings 
 	public inline extern function get_PaddingAutoCollateIncrement(): cpp.Float32 return this.PaddingAutoCollateIncrement;
 	public extern var bOpenCreateMenuOnBlankGraphAreas(get, never): Bool;
 	public inline extern function get_bOpenCreateMenuOnBlankGraphAreas(): Bool return this.bOpenCreateMenuOnBlankGraphAreas;
-	public extern var DefaultCommentNodeMoveMode(get, never): ECommentBoxMode;
-	public inline extern function get_DefaultCommentNodeMoveMode(): ECommentBoxMode return this.DefaultCommentNodeMoveMode;
+	public extern var DefaultCommentNodeMoveMode(get, never): TEnumAsByte<ECommentBoxMode>;
+	public inline extern function get_DefaultCommentNodeMoveMode(): TEnumAsByte<ECommentBoxMode> return this.DefaultCommentNodeMoveMode;
 	public extern var bShowCommentBubbleWhenZoomedOut(get, never): Bool;
 	public inline extern function get_bShowCommentBubbleWhenZoomedOut(): Bool return this.bShowCommentBubbleWhenZoomedOut;
 }

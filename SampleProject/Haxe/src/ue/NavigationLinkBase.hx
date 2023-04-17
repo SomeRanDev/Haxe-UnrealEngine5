@@ -26,8 +26,7 @@ extern class NavigationLinkBase {
 	public var bSupportsAgent13: Bool;
 	public var bSupportsAgent14: Bool;
 	public var bSupportsAgent15: Bool;
-	public var Description: FString;
-	public var Direction: ENavLinkDirection;
+	public var Direction: TEnumAsByte<ENavLinkDirection>;
 	public var bUseSnapHeight: Bool;
 	public var bSnapToCheapestArea: Bool;
 	public var bCustomFlag0: Bool;
@@ -38,7 +37,7 @@ extern class NavigationLinkBase {
 	public var bCustomFlag5: Bool;
 	public var bCustomFlag6: Bool;
 	public var bCustomFlag7: Bool;
-	public var AreaClass: TSubclassOf<NavAreaBase>;
+	private var AreaClass: TSubclassOf<NavAreaBase>;
 
 	@:native("FNavigationLinkBase") public function new();
 }

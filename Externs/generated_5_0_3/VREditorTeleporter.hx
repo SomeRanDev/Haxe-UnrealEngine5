@@ -5,28 +5,28 @@ package ue;
 @:include("Teleporter/VREditorTeleporter.h")
 @:structAccess
 extern class VREditorTeleporter extends Actor {
-	public var VRMode: cpp.Star<VREditorMode>;
-	public var TeleportDirectionMeshComponent: cpp.Star<StaticMeshComp>;
-	public var HMDMeshComponent: cpp.Star<StaticMeshComp>;
-	public var LeftMotionControllerMeshComponent: cpp.Star<StaticMeshComp>;
-	public var RightMotionControllerMeshComponent: cpp.Star<StaticMeshComp>;
-	public var TeleportMID: cpp.Star<MaterialInstanceDynamic>;
-	public var InteractorTryingTeleport: cpp.Star<ViewportInteractor>;
+	private var VRMode: cpp.Star<VREditorMode>;
+	private var TeleportDirectionMeshComponent: cpp.Star<StaticMeshComp>;
+	private var HMDMeshComponent: cpp.Star<StaticMeshComp>;
+	private var LeftMotionControllerMeshComponent: cpp.Star<StaticMeshComp>;
+	private var RightMotionControllerMeshComponent: cpp.Star<StaticMeshComp>;
+	private var TeleportMID: cpp.Star<MaterialInstanceDynamic>;
+	private var InteractorTryingTeleport: cpp.Star<ViewportInteractor>;
 
 	public function TeleportDone(): Void;
-	public function StopAiming(): Void;
+	private function StopAiming(): Void;
 	public function StartTeleport(): Void;
-	public function StartAiming(Interactor: cpp.Star<ViewportInteractor>): Void;
+	private function StartAiming(Interactor: cpp.Star<ViewportInteractor>): Void;
 	public function Shutdown(): Void;
 	public function SetVisibility(bVisible: Bool): Void;
 	public function SetColor(Color: cpp.Reference<LinearColor>): Void;
-	public function IsTeleporting(): cpp.Reference<Bool>;
-	public function IsAiming(): cpp.Reference<Bool>;
+	public function IsTeleporting(): Bool;
+	public function IsAiming(): Bool;
 	public function Init(InMode: cpp.Star<VREditorMode>): Void;
-	public function GetVRMode(): cpp.Reference<cpp.Star<VREditorMode>>;
-	public function GetSlideDelta(Interactor: cpp.Star<VREditorInteractor>, Axis: Bool): cpp.Reference<cpp.Float32>;
-	public function GetInteractorTryingTeleport(): cpp.Reference<cpp.Star<ViewportInteractor>>;
-	public function DoTeleport(): Void;
+	public function GetVRMode(): cpp.Star<VREditorMode>;
+	public function GetSlideDelta(Interactor: cpp.Star<VREditorInteractor>, Axis: Bool): cpp.Float32;
+	private function GetInteractorTryingTeleport(): cpp.Star<ViewportInteractor>;
+	private function DoTeleport(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -34,20 +34,6 @@ extern class VREditorTeleporter extends Actor {
 @:forward(IsTeleporting, IsAiming, GetVRMode, GetInteractorTryingTeleport)
 @:nativeGen
 abstract ConstVREditorTeleporter(VREditorTeleporter) from VREditorTeleporter {
-	public extern var VRMode(get, never): cpp.Star<VREditorMode.ConstVREditorMode>;
-	public inline extern function get_VRMode(): cpp.Star<VREditorMode.ConstVREditorMode> return this.VRMode;
-	public extern var TeleportDirectionMeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_TeleportDirectionMeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.TeleportDirectionMeshComponent;
-	public extern var HMDMeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_HMDMeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.HMDMeshComponent;
-	public extern var LeftMotionControllerMeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_LeftMotionControllerMeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.LeftMotionControllerMeshComponent;
-	public extern var RightMotionControllerMeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_RightMotionControllerMeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.RightMotionControllerMeshComponent;
-	public extern var TeleportMID(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_TeleportMID(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.TeleportMID;
-	public extern var InteractorTryingTeleport(get, never): cpp.Star<ViewportInteractor.ConstViewportInteractor>;
-	public inline extern function get_InteractorTryingTeleport(): cpp.Star<ViewportInteractor.ConstViewportInteractor> return this.InteractorTryingTeleport;
 }
 
 @:forward

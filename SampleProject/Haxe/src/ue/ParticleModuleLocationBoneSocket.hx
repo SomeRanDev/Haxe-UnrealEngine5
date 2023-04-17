@@ -5,17 +5,16 @@ package ue;
 @:include("Particles/Location/ParticleModuleLocationBoneSocket.h")
 @:structAccess
 extern class ParticleModuleLocationBoneSocket extends ParticleModuleLocationBase {
-	public var SourceType: ELocationBoneSocketSource;
+	public var SourceType: TEnumAsByte<ELocationBoneSocketSource>;
 	public var UniversalOffset: Vector;
 	public var SourceLocations: TArray<LocationBoneSocketInfo>;
-	public var SelectionMethod: ELocationBoneSocketSelectionMethod;
+	public var SelectionMethod: TEnumAsByte<ELocationBoneSocketSelectionMethod>;
 	public var bUpdatePositionEachFrame: Bool;
 	public var bOrientMeshEmitters: Bool;
 	public var bInheritBoneVelocity: Bool;
 	public var InheritVelocityScale: cpp.Float32;
 	public var SkelMeshActorParamName: FName;
 	public var NumPreSelectedIndices: cpp.Int32;
-	public var EditorSkelMesh: cpp.Star<SkeletalMesh>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -23,14 +22,14 @@ extern class ParticleModuleLocationBoneSocket extends ParticleModuleLocationBase
 @:forward()
 @:nativeGen
 abstract ConstParticleModuleLocationBoneSocket(ParticleModuleLocationBoneSocket) from ParticleModuleLocationBoneSocket {
-	public extern var SourceType(get, never): ELocationBoneSocketSource;
-	public inline extern function get_SourceType(): ELocationBoneSocketSource return this.SourceType;
+	public extern var SourceType(get, never): TEnumAsByte<ELocationBoneSocketSource>;
+	public inline extern function get_SourceType(): TEnumAsByte<ELocationBoneSocketSource> return this.SourceType;
 	public extern var UniversalOffset(get, never): Vector;
 	public inline extern function get_UniversalOffset(): Vector return this.UniversalOffset;
 	public extern var SourceLocations(get, never): TArray<LocationBoneSocketInfo>;
 	public inline extern function get_SourceLocations(): TArray<LocationBoneSocketInfo> return this.SourceLocations;
-	public extern var SelectionMethod(get, never): ELocationBoneSocketSelectionMethod;
-	public inline extern function get_SelectionMethod(): ELocationBoneSocketSelectionMethod return this.SelectionMethod;
+	public extern var SelectionMethod(get, never): TEnumAsByte<ELocationBoneSocketSelectionMethod>;
+	public inline extern function get_SelectionMethod(): TEnumAsByte<ELocationBoneSocketSelectionMethod> return this.SelectionMethod;
 	public extern var bUpdatePositionEachFrame(get, never): Bool;
 	public inline extern function get_bUpdatePositionEachFrame(): Bool return this.bUpdatePositionEachFrame;
 	public extern var bOrientMeshEmitters(get, never): Bool;
@@ -43,8 +42,6 @@ abstract ConstParticleModuleLocationBoneSocket(ParticleModuleLocationBoneSocket)
 	public inline extern function get_SkelMeshActorParamName(): FName return this.SkelMeshActorParamName;
 	public extern var NumPreSelectedIndices(get, never): cpp.Int32;
 	public inline extern function get_NumPreSelectedIndices(): cpp.Int32 return this.NumPreSelectedIndices;
-	public extern var EditorSkelMesh(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_EditorSkelMesh(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.EditorSkelMesh;
 }
 
 @:forward

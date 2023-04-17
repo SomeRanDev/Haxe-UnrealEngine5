@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESearchCase.Type")
 @:include("UObject/NoExportTypes.h")
-extern enum ESearchCase {
-	CaseSensitive;
-	IgnoreCase;
-	ESearchCase_MAX;
+extern class ESearchCase {
+	static var CaseSensitive: ESearchCase;
+	static var IgnoreCase: ESearchCase;
+	static var ESearchCase_MAX: ESearchCase;
 }

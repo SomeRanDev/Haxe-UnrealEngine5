@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAbcConversionPreset")
 @:include("AbcImportSettings.h")
-extern enum EAbcConversionPreset {
-	Maya;
-	Max;
-	Custom;
-	EAbcConversionPreset_MAX;
+extern class EAbcConversionPreset {
+	static var Maya: EAbcConversionPreset;
+	static var Max: EAbcConversionPreset;
+	static var Custom: EAbcConversionPreset;
+	static var EAbcConversionPreset_MAX: EAbcConversionPreset;
 }

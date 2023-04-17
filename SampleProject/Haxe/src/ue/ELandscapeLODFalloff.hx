@@ -3,8 +3,8 @@ package ue;
 
 @:native("ELandscapeLODFalloff.Type")
 @:include("LandscapeProxy.h")
-extern enum ELandscapeLODFalloff {
-	Linear;
-	SquareRoot;
-	ELandscapeLODFalloff_MAX;
+extern class ELandscapeLODFalloff {
+	static var Linear: ELandscapeLODFalloff;
+	static var SquareRoot: ELandscapeLODFalloff;
+	static var ELandscapeLODFalloff_MAX: ELandscapeLODFalloff;
 }

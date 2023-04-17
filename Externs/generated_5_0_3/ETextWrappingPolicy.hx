@@ -3,8 +3,8 @@ package ue;
 
 @:native("ETextWrappingPolicy")
 @:include("Framework/Text/TextLayout.h")
-extern enum ETextWrappingPolicy {
-	DefaultWrapping;
-	AllowPerCharacterWrapping;
-	ETextWrappingPolicy_MAX;
+extern class ETextWrappingPolicy {
+	static var DefaultWrapping: ETextWrappingPolicy;
+	static var AllowPerCharacterWrapping: ETextWrappingPolicy;
+	static var ETextWrappingPolicy_MAX: ETextWrappingPolicy;
 }

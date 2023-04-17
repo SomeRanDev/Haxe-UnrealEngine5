@@ -9,7 +9,7 @@ extern class AnimNotifyState_TimedNiagaraEffectAdvanced extends AnimNotifyState_
 	public var NotifyProgressUserParameter: FName;
 	public var AnimCurves: TArray<CurveParameterPair>;
 
-	public function GetNotifyProgress(MeshComp: cpp.Star<MeshComp>): cpp.Reference<cpp.Float32>;
+	public function GetNotifyProgress(MeshComp: cpp.Star<MeshComp>): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

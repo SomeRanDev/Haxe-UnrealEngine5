@@ -3,12 +3,12 @@ package ue;
 
 @:native("EAttributeEditorElementType")
 @:include("AttributeEditorTool.h")
-extern enum EAttributeEditorElementType {
-	Vertex;
-	VertexInstance;
-	Triangle;
-	Polygon;
-	Edge;
-	PolygonGroup;
-	EAttributeEditorElementType_MAX;
+extern class EAttributeEditorElementType {
+	static var Vertex: EAttributeEditorElementType;
+	static var VertexInstance: EAttributeEditorElementType;
+	static var Triangle: EAttributeEditorElementType;
+	static var Polygon: EAttributeEditorElementType;
+	static var Edge: EAttributeEditorElementType;
+	static var PolygonGroup: EAttributeEditorElementType;
+	static var EAttributeEditorElementType_MAX: EAttributeEditorElementType;
 }

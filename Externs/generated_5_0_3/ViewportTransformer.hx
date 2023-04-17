@@ -5,14 +5,14 @@ package ue;
 @:include("ViewportTransformer.h")
 @:structAccess
 extern class ViewportTransformer extends Object {
-	public var ViewportWorldInteraction: cpp.Star<ViewportWorldInteraction>;
+	@:protected public var ViewportWorldInteraction: cpp.Star<ViewportWorldInteraction>;
 
 	public function Shutdown(): Void;
-	public function ShouldCenterTransformGizmoPivot(): cpp.Reference<Bool>;
+	public function ShouldCenterTransformGizmoPivot(): Bool;
 	public function OnStopDragging(Interactor: cpp.Star<ViewportInteractor>): Void;
 	public function OnStartDragging(Interactor: cpp.Star<ViewportInteractor>): Void;
 	public function Init(InitViewportWorldInteraction: cpp.Star<ViewportWorldInteraction>): Void;
-	public function CanAlignToActors(): cpp.Reference<Bool>;
+	public function CanAlignToActors(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -20,8 +20,6 @@ extern class ViewportTransformer extends Object {
 @:forward(ShouldCenterTransformGizmoPivot, CanAlignToActors)
 @:nativeGen
 abstract ConstViewportTransformer(ViewportTransformer) from ViewportTransformer {
-	public extern var ViewportWorldInteraction(get, never): cpp.Star<ViewportWorldInteraction.ConstViewportWorldInteraction>;
-	public inline extern function get_ViewportWorldInteraction(): cpp.Star<ViewportWorldInteraction.ConstViewportWorldInteraction> return this.ViewportWorldInteraction;
 }
 
 @:forward

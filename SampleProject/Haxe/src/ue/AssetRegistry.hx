@@ -13,21 +13,21 @@ extern class AssetRegistry extends Interface {
 	public function ScanFilesSynchronous(InFilePaths: cpp.Reference<TArray<FString>>, bForceRescan: Bool): Void;
 	public function RunAssetsThroughFilter(AssetDataList: cpp.Reference<TArray<AssetData>>, Filter: cpp.Reference<ARFilter>): Void;
 	public function PrioritizeSearchPath(PathToPrioritize: FString): Void;
-	public function K2_GetReferencers(PackageName: FName, ReferenceOptions: cpp.Reference<AssetRegistryDependencyOptions>, OutReferencers: cpp.Reference<TArray<FName>>): cpp.Reference<Bool>;
-	public function K2_GetDependencies(PackageName: FName, DependencyOptions: cpp.Reference<AssetRegistryDependencyOptions>, OutDependencies: cpp.Reference<TArray<FName>>): cpp.Reference<Bool>;
-	public function IsSearchAsync(): cpp.Reference<Bool>;
-	public function IsSearchAllAssets(): cpp.Reference<Bool>;
-	public function IsLoadingAssets(): cpp.Reference<Bool>;
-	public function HasAssets(PackagePath: FName, bRecursive: Bool): cpp.Reference<Bool>;
+	public function K2_GetReferencers(PackageName: FName, ReferenceOptions: cpp.Reference<AssetRegistryDependencyOptions>, OutReferencers: cpp.Reference<TArray<FName>>): Bool;
+	public function K2_GetDependencies(PackageName: FName, DependencyOptions: cpp.Reference<AssetRegistryDependencyOptions>, OutDependencies: cpp.Reference<TArray<FName>>): Bool;
+	public function IsSearchAsync(): Bool;
+	public function IsSearchAllAssets(): Bool;
+	public function IsLoadingAssets(): Bool;
+	public function HasAssets(PackagePath: FName, bRecursive: Bool): Bool;
 	public function GetSubPaths(InBasePath: FString, OutPathList: cpp.Reference<TArray<FString>>, bInRecurse: Bool): Void;
-	public function GetAssetsByPaths(PackagePaths: TArray<FName>, OutAssetData: cpp.Reference<TArray<AssetData>>, bRecursive: Bool, bIncludeOnlyOnDiskAssets: Bool): cpp.Reference<Bool>;
-	public function GetAssetsByPath(PackagePath: FName, OutAssetData: cpp.Reference<TArray<AssetData>>, bRecursive: Bool, bIncludeOnlyOnDiskAssets: Bool): cpp.Reference<Bool>;
-	public function GetAssetsByPackageName(PackageName: FName, OutAssetData: cpp.Reference<TArray<AssetData>>, bIncludeOnlyOnDiskAssets: Bool): cpp.Reference<Bool>;
-	public function GetAssetsByClass(ClassName: FName, OutAssetData: cpp.Reference<TArray<AssetData>>, bSearchSubClasses: Bool): cpp.Reference<Bool>;
-	public function GetAssets(Filter: cpp.Reference<ARFilter>, OutAssetData: cpp.Reference<TArray<AssetData>>): cpp.Reference<Bool>;
-	public function GetAssetByObjectPath(ObjectPath: FName, bIncludeOnlyOnDiskAssets: Bool): cpp.Reference<AssetData>;
+	public function GetAssetsByPaths(PackagePaths: TArray<FName>, OutAssetData: cpp.Reference<TArray<AssetData>>, bRecursive: Bool, bIncludeOnlyOnDiskAssets: Bool): Bool;
+	public function GetAssetsByPath(PackagePath: FName, OutAssetData: cpp.Reference<TArray<AssetData>>, bRecursive: Bool, bIncludeOnlyOnDiskAssets: Bool): Bool;
+	public function GetAssetsByPackageName(PackageName: FName, OutAssetData: cpp.Reference<TArray<AssetData>>, bIncludeOnlyOnDiskAssets: Bool): Bool;
+	public function GetAssetsByClass(ClassName: FName, OutAssetData: cpp.Reference<TArray<AssetData>>, bSearchSubClasses: Bool): Bool;
+	public function GetAssets(Filter: cpp.Reference<ARFilter>, OutAssetData: cpp.Reference<TArray<AssetData>>): Bool;
+	public function GetAssetByObjectPath(ObjectPath: FName, bIncludeOnlyOnDiskAssets: Bool): AssetData;
 	public function GetAllCachedPaths(OutPathList: cpp.Reference<TArray<FString>>): Void;
-	public function GetAllAssets(OutAssetData: cpp.Reference<TArray<AssetData>>, bIncludeOnlyOnDiskAssets: Bool): cpp.Reference<Bool>;
+	public function GetAllAssets(OutAssetData: cpp.Reference<TArray<AssetData>>, bIncludeOnlyOnDiskAssets: Bool): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

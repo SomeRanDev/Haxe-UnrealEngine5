@@ -3,8 +3,8 @@ package ue;
 
 @:native("ETextOverflowPolicy")
 @:include("Styling/SlateTypes.h")
-extern enum ETextOverflowPolicy {
-	Clip;
-	Ellipsis;
-	ETextOverflowPolicy_MAX;
+extern class ETextOverflowPolicy {
+	static var Clip: ETextOverflowPolicy;
+	static var Ellipsis: ETextOverflowPolicy;
+	static var ETextOverflowPolicy_MAX: ETextOverflowPolicy;
 }

@@ -5,14 +5,14 @@ package ue;
 @:include("AnimGraphNode_AnimDynamics.h")
 @:structAccess
 extern class AnimGraphNode_AnimDynamics extends AnimGraphNode_SkeletalControlBase {
-	public var Node: AnimNode_AnimDynamics;
-	public var bPreviewLive: Bool;
-	public var bShowLinearLimits: Bool;
-	public var bShowAngularLimits: Bool;
-	public var bShowPlanarLimit: Bool;
-	public var bShowSphericalLimit: Bool;
-	public var bShowCollisionSpheres: Bool;
-	public var LastPreviewComponent: cpp.Star<SkeletalMeshComp>;
+	private var Node: AnimNode_AnimDynamics;
+	private var bPreviewLive: Bool;
+	private var bShowLinearLimits: Bool;
+	private var bShowAngularLimits: Bool;
+	private var bShowPlanarLimit: Bool;
+	private var bShowSphericalLimit: Bool;
+	private var bShowCollisionSpheres: Bool;
+	private var LastPreviewComponent: cpp.Star<SkeletalMeshComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -20,22 +20,6 @@ extern class AnimGraphNode_AnimDynamics extends AnimGraphNode_SkeletalControlBas
 @:forward()
 @:nativeGen
 abstract ConstAnimGraphNode_AnimDynamics(AnimGraphNode_AnimDynamics) from AnimGraphNode_AnimDynamics {
-	public extern var Node(get, never): AnimNode_AnimDynamics;
-	public inline extern function get_Node(): AnimNode_AnimDynamics return this.Node;
-	public extern var bPreviewLive(get, never): Bool;
-	public inline extern function get_bPreviewLive(): Bool return this.bPreviewLive;
-	public extern var bShowLinearLimits(get, never): Bool;
-	public inline extern function get_bShowLinearLimits(): Bool return this.bShowLinearLimits;
-	public extern var bShowAngularLimits(get, never): Bool;
-	public inline extern function get_bShowAngularLimits(): Bool return this.bShowAngularLimits;
-	public extern var bShowPlanarLimit(get, never): Bool;
-	public inline extern function get_bShowPlanarLimit(): Bool return this.bShowPlanarLimit;
-	public extern var bShowSphericalLimit(get, never): Bool;
-	public inline extern function get_bShowSphericalLimit(): Bool return this.bShowSphericalLimit;
-	public extern var bShowCollisionSpheres(get, never): Bool;
-	public inline extern function get_bShowCollisionSpheres(): Bool return this.bShowCollisionSpheres;
-	public extern var LastPreviewComponent(get, never): cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp>;
-	public inline extern function get_LastPreviewComponent(): cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp> return this.LastPreviewComponent;
 }
 
 @:forward

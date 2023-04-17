@@ -7,10 +7,10 @@ package ue;
 extern class MovieScenePropertyTrackExtensions extends BlueprintFunctionLibrary {
 	public function SetPropertyNameAndPath(Track: cpp.Star<MovieScenePropertyTrack>, InPropertyName: cpp.Reference<FName>, InPropertyPath: FString): Void;
 	public function SetObjectPropertyClass(Track: cpp.Star<MovieSceneObjectPropertyTrack>, PropertyClass: cpp.Star<Class>): Void;
-	public function GetUniqueTrackName(Track: cpp.Star<MovieScenePropertyTrack>): cpp.Reference<FName>;
-	public function GetPropertyPath(Track: cpp.Star<MovieScenePropertyTrack>): cpp.Reference<FString>;
-	public function GetPropertyName(Track: cpp.Star<MovieScenePropertyTrack>): cpp.Reference<FName>;
-	public function GetObjectPropertyClass(Track: cpp.Star<MovieSceneObjectPropertyTrack>): cpp.Reference<cpp.Star<Class>>;
+	public function GetUniqueTrackName(Track: cpp.Star<MovieScenePropertyTrack>): FName;
+	public function GetPropertyPath(Track: cpp.Star<MovieScenePropertyTrack>): FString;
+	public function GetPropertyName(Track: cpp.Star<MovieScenePropertyTrack>): FName;
+	public function GetObjectPropertyClass(Track: cpp.Star<MovieSceneObjectPropertyTrack>): cpp.Star<Class>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EAnimExecutionContextConversionResult")
 @:include("Animation/AnimExecutionContext.h")
-extern enum EAnimExecutionContextConversionResult {
-	Succeeded;
-	Failed;
-	EAnimExecutionContextConversionResult_MAX;
+extern class EAnimExecutionContextConversionResult {
+	static var Succeeded: EAnimExecutionContextConversionResult;
+	static var Failed: EAnimExecutionContextConversionResult;
+	static var EAnimExecutionContextConversionResult_MAX: EAnimExecutionContextConversionResult;
 }

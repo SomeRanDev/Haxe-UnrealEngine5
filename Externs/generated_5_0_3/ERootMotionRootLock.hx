@@ -3,9 +3,9 @@ package ue;
 
 @:native("ERootMotionRootLock.Type")
 @:include("Animation/AnimEnums.h")
-extern enum ERootMotionRootLock {
-	RefPose;
-	AnimFirstFrame;
-	Zero;
-	ERootMotionRootLock_MAX;
+extern class ERootMotionRootLock {
+	static var RefPose: ERootMotionRootLock;
+	static var AnimFirstFrame: ERootMotionRootLock;
+	static var Zero: ERootMotionRootLock;
+	static var ERootMotionRootLock_MAX: ERootMotionRootLock;
 }

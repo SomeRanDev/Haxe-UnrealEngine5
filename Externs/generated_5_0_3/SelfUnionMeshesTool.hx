@@ -5,8 +5,8 @@ package ue;
 @:include("SelfUnionMeshesTool.h")
 @:structAccess
 extern class SelfUnionMeshesTool extends BaseCreateFromSelectedTool {
-	public var Properties: cpp.Star<SelfUnionMeshesToolProperties>;
-	public var DrawnLineSet: cpp.Star<LineSetComp>;
+	@:protected public var Properties: cpp.Star<SelfUnionMeshesToolProperties>;
+	@:protected public var DrawnLineSet: cpp.Star<LineSetComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class SelfUnionMeshesTool extends BaseCreateFromSelectedTool {
 @:forward()
 @:nativeGen
 abstract ConstSelfUnionMeshesTool(SelfUnionMeshesTool) from SelfUnionMeshesTool {
-	public extern var Properties(get, never): cpp.Star<SelfUnionMeshesToolProperties.ConstSelfUnionMeshesToolProperties>;
-	public inline extern function get_Properties(): cpp.Star<SelfUnionMeshesToolProperties.ConstSelfUnionMeshesToolProperties> return this.Properties;
-	public extern var DrawnLineSet(get, never): cpp.Star<LineSetComp.ConstLineSetComp>;
-	public inline extern function get_DrawnLineSet(): cpp.Star<LineSetComp.ConstLineSetComp> return this.DrawnLineSet;
 }
 
 @:forward

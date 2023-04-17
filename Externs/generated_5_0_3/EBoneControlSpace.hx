@@ -3,10 +3,10 @@ package ue;
 
 @:native("EBoneControlSpace")
 @:include("Animation/AnimTypes.h")
-extern enum EBoneControlSpace {
-	BCS_WorldSpace;
-	BCS_ComponentSpace;
-	BCS_ParentBoneSpace;
-	BCS_BoneSpace;
-	BCS_MAX;
+extern class EBoneControlSpace {
+	static var BCS_WorldSpace: EBoneControlSpace;
+	static var BCS_ComponentSpace: EBoneControlSpace;
+	static var BCS_ParentBoneSpace: EBoneControlSpace;
+	static var BCS_BoneSpace: EBoneControlSpace;
+	static var BCS_MAX: EBoneControlSpace;
 }

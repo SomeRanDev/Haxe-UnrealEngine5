@@ -5,11 +5,11 @@ package ue;
 @:include("EnvironmentQuery/Tests/EnvQueryTest_GameplayTags.h")
 @:structAccess
 extern class EnvQueryTest_GameplayTags extends EnvQueryTest {
-	public var TagQueryToMatch: GameplayTagQuery;
-	public var bRejectIncompatibleItems: Bool;
-	public var bUpdatedToUseQuery: Bool;
-	public var TagsToMatch: EGameplayContainerMatchType;
-	public var GameplayTags: GameplayTagContainer;
+	@:protected public var TagQueryToMatch: GameplayTagQuery;
+	@:protected public var bRejectIncompatibleItems: Bool;
+	@:protected public var bUpdatedToUseQuery: Bool;
+	@:protected public var TagsToMatch: EGameplayContainerMatchType;
+	@:protected public var GameplayTags: GameplayTagContainer;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,16 +17,6 @@ extern class EnvQueryTest_GameplayTags extends EnvQueryTest {
 @:forward()
 @:nativeGen
 abstract ConstEnvQueryTest_GameplayTags(EnvQueryTest_GameplayTags) from EnvQueryTest_GameplayTags {
-	public extern var TagQueryToMatch(get, never): GameplayTagQuery;
-	public inline extern function get_TagQueryToMatch(): GameplayTagQuery return this.TagQueryToMatch;
-	public extern var bRejectIncompatibleItems(get, never): Bool;
-	public inline extern function get_bRejectIncompatibleItems(): Bool return this.bRejectIncompatibleItems;
-	public extern var bUpdatedToUseQuery(get, never): Bool;
-	public inline extern function get_bUpdatedToUseQuery(): Bool return this.bUpdatedToUseQuery;
-	public extern var TagsToMatch(get, never): EGameplayContainerMatchType;
-	public inline extern function get_TagsToMatch(): EGameplayContainerMatchType return this.TagsToMatch;
-	public extern var GameplayTags(get, never): GameplayTagContainer;
-	public inline extern function get_GameplayTags(): GameplayTagContainer return this.GameplayTags;
 }
 
 @:forward

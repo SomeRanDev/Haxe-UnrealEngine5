@@ -5,10 +5,10 @@ package ue;
 @:include("SkeletalControlLibrary.h")
 @:structAccess
 extern class SkeletalControlLibrary extends BlueprintFunctionLibrary {
-	public function SetAlpha(SkeletalControl: cpp.Reference<SkeletalControlReference>, Alpha: cpp.Float32): cpp.Reference<SkeletalControlReference>;
-	public function GetAlpha(SkeletalControl: cpp.Reference<SkeletalControlReference>): cpp.Reference<cpp.Float32>;
+	public function SetAlpha(SkeletalControl: cpp.Reference<SkeletalControlReference>, Alpha: cpp.Float32): SkeletalControlReference;
+	public function GetAlpha(SkeletalControl: cpp.Reference<SkeletalControlReference>): cpp.Float32;
 	public function ConvertToSkeletalControlPure(Node: cpp.Reference<AnimNodeReference>, SkeletalControl: cpp.Reference<SkeletalControlReference>, Result: cpp.Reference<Bool>): Void;
-	public function ConvertToSkeletalControl(Node: cpp.Reference<AnimNodeReference>, Result: cpp.Reference<EAnimNodeReferenceConversionResult>): cpp.Reference<SkeletalControlReference>;
+	public function ConvertToSkeletalControl(Node: cpp.Reference<AnimNodeReference>, Result: cpp.Reference<EAnimNodeReferenceConversionResult>): SkeletalControlReference;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

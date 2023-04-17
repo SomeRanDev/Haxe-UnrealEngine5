@@ -5,10 +5,10 @@ package ue;
 @:include("DeformMeshPolygonsTool.h")
 @:structAccess
 extern class DeformMeshPolygonsTool extends MeshSurfacePointTool {
-	public var TargetWorld: cpp.Star<World>;
-	public var PreviewMeshActor: cpp.Star<InternalToolFrameworkActor>;
-	public var DynamicMeshComponent: cpp.Star<DynamicMeshComp>;
-	public var TransformProps: cpp.Star<DeformMeshPolygonsTransformProperties>;
+	@:protected public var TargetWorld: cpp.Star<World>;
+	@:protected public var PreviewMeshActor: cpp.Star<InternalToolFrameworkActor>;
+	@:protected public var DynamicMeshComponent: cpp.Star<DynamicMeshComp>;
+	@:protected public var TransformProps: cpp.Star<DeformMeshPolygonsTransformProperties>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class DeformMeshPolygonsTool extends MeshSurfacePointTool {
 @:forward()
 @:nativeGen
 abstract ConstDeformMeshPolygonsTool(DeformMeshPolygonsTool) from DeformMeshPolygonsTool {
-	public extern var TargetWorld(get, never): cpp.Star<World.ConstWorld>;
-	public inline extern function get_TargetWorld(): cpp.Star<World.ConstWorld> return this.TargetWorld;
-	public extern var PreviewMeshActor(get, never): cpp.Star<InternalToolFrameworkActor.ConstInternalToolFrameworkActor>;
-	public inline extern function get_PreviewMeshActor(): cpp.Star<InternalToolFrameworkActor.ConstInternalToolFrameworkActor> return this.PreviewMeshActor;
-	public extern var DynamicMeshComponent(get, never): cpp.Star<DynamicMeshComp.ConstDynamicMeshComp>;
-	public inline extern function get_DynamicMeshComponent(): cpp.Star<DynamicMeshComp.ConstDynamicMeshComp> return this.DynamicMeshComponent;
-	public extern var TransformProps(get, never): cpp.Star<DeformMeshPolygonsTransformProperties.ConstDeformMeshPolygonsTransformProperties>;
-	public inline extern function get_TransformProps(): cpp.Star<DeformMeshPolygonsTransformProperties.ConstDeformMeshPolygonsTransformProperties> return this.TransformProps;
 }
 
 @:forward

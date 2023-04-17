@@ -9,14 +9,14 @@ extern class PhysicsSpringComp extends SceneComp {
 	public var SpringDamping: cpp.Float32;
 	public var SpringLengthAtRest: cpp.Float32;
 	public var SpringRadius: cpp.Float32;
-	public var SpringChannel: ECollisionChannel;
+	public var SpringChannel: TEnumAsByte<ECollisionChannel>;
 	public var bIgnoreSelf: Bool;
 	public var SpringCompression: cpp.Float32;
 
-	public function GetSpringRestingPoint(): cpp.Reference<Vector>;
-	public function GetSpringDirection(): cpp.Reference<Vector>;
-	public function GetSpringCurrentEndPoint(): cpp.Reference<Vector>;
-	public function GetNormalizedCompressionScalar(): cpp.Reference<cpp.Float32>;
+	public function GetSpringRestingPoint(): Vector;
+	public function GetSpringDirection(): Vector;
+	public function GetSpringCurrentEndPoint(): Vector;
+	public function GetNormalizedCompressionScalar(): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -32,8 +32,8 @@ abstract ConstPhysicsSpringComp(PhysicsSpringComp) from PhysicsSpringComp {
 	public inline extern function get_SpringLengthAtRest(): cpp.Float32 return this.SpringLengthAtRest;
 	public extern var SpringRadius(get, never): cpp.Float32;
 	public inline extern function get_SpringRadius(): cpp.Float32 return this.SpringRadius;
-	public extern var SpringChannel(get, never): ECollisionChannel;
-	public inline extern function get_SpringChannel(): ECollisionChannel return this.SpringChannel;
+	public extern var SpringChannel(get, never): TEnumAsByte<ECollisionChannel>;
+	public inline extern function get_SpringChannel(): TEnumAsByte<ECollisionChannel> return this.SpringChannel;
 	public extern var bIgnoreSelf(get, never): Bool;
 	public inline extern function get_bIgnoreSelf(): Bool return this.bIgnoreSelf;
 	public extern var SpringCompression(get, never): cpp.Float32;

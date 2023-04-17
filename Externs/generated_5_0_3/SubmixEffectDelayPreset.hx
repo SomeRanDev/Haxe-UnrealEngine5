@@ -12,7 +12,7 @@ extern class SubmixEffectDelayPreset extends SoundEffectSubmixPreset {
 	public function SetInterpolationTime(Time: cpp.Float32): Void;
 	public function SetDelay(Length: cpp.Float32): Void;
 	public function SetDefaultSettings(InSettings: cpp.Reference<SubmixEffectDelaySettings>): Void;
-	public function GetMaxDelayInMilliseconds(): cpp.Reference<cpp.Float32>;
+	public function GetMaxDelayInMilliseconds(): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -12,8 +12,8 @@ extern class ParticleModuleCollisionGPU extends ParticleModuleCollisionBase {
 	public var RandomDistribution: cpp.Float32;
 	public var RadiusScale: cpp.Float32;
 	public var RadiusBias: cpp.Float32;
-	public var Response: EParticleCollisionResponse;
-	public var CollisionMode: EParticleCollisionMode;
+	public var Response: TEnumAsByte<EParticleCollisionResponse>;
+	public var CollisionMode: TEnumAsByte<EParticleCollisionMode>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -35,10 +35,10 @@ abstract ConstParticleModuleCollisionGPU(ParticleModuleCollisionGPU) from Partic
 	public inline extern function get_RadiusScale(): cpp.Float32 return this.RadiusScale;
 	public extern var RadiusBias(get, never): cpp.Float32;
 	public inline extern function get_RadiusBias(): cpp.Float32 return this.RadiusBias;
-	public extern var Response(get, never): EParticleCollisionResponse;
-	public inline extern function get_Response(): EParticleCollisionResponse return this.Response;
-	public extern var CollisionMode(get, never): EParticleCollisionMode;
-	public inline extern function get_CollisionMode(): EParticleCollisionMode return this.CollisionMode;
+	public extern var Response(get, never): TEnumAsByte<EParticleCollisionResponse>;
+	public inline extern function get_Response(): TEnumAsByte<EParticleCollisionResponse> return this.Response;
+	public extern var CollisionMode(get, never): TEnumAsByte<EParticleCollisionMode>;
+	public inline extern function get_CollisionMode(): TEnumAsByte<EParticleCollisionMode> return this.CollisionMode;
 }
 
 @:forward

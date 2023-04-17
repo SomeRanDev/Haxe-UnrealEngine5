@@ -3,8 +3,8 @@ package ue;
 
 @:native("ETypedElementWorldType")
 @:include("Elements/Interfaces/TypedElementWorldInterface.h")
-extern enum ETypedElementWorldType {
-	Game;
-	Editor;
-	ETypedElementWorldType_MAX;
+extern class ETypedElementWorldType {
+	static var Game: ETypedElementWorldType;
+	static var Editor: ETypedElementWorldType;
+	static var ETypedElementWorldType_MAX: ETypedElementWorldType;
 }

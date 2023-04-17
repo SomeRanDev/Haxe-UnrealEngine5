@@ -3,8 +3,8 @@ package ue;
 
 @:native("EWidgetGeometryMode")
 @:include("Components/WidgetComponent.h")
-extern enum EWidgetGeometryMode {
-	Plane;
-	Cylinder;
-	EWidgetGeometryMode_MAX;
+extern class EWidgetGeometryMode {
+	static var Plane: EWidgetGeometryMode;
+	static var Cylinder: EWidgetGeometryMode;
+	static var EWidgetGeometryMode_MAX: EWidgetGeometryMode;
 }

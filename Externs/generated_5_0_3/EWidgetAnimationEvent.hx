@@ -3,8 +3,8 @@ package ue;
 
 @:native("EWidgetAnimationEvent")
 @:include("Blueprint/UserWidget.h")
-extern enum EWidgetAnimationEvent {
-	Started;
-	Finished;
-	EWidgetAnimationEvent_MAX;
+extern class EWidgetAnimationEvent {
+	static var Started: EWidgetAnimationEvent;
+	static var Finished: EWidgetAnimationEvent;
+	static var EWidgetAnimationEvent_MAX: EWidgetAnimationEvent;
 }

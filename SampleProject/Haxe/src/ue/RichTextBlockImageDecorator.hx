@@ -5,7 +5,7 @@ package ue;
 @:include("Components/RichTextBlockImageDecorator.h")
 @:structAccess
 extern class RichTextBlockImageDecorator extends RichTextBlockDecorator {
-	public var ImageSet: cpp.Star<DataTable>;
+	@:protected public var ImageSet: cpp.Star<DataTable>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class RichTextBlockImageDecorator extends RichTextBlockDecorator {
 @:forward()
 @:nativeGen
 abstract ConstRichTextBlockImageDecorator(RichTextBlockImageDecorator) from RichTextBlockImageDecorator {
-	public extern var ImageSet(get, never): cpp.Star<DataTable.ConstDataTable>;
-	public inline extern function get_ImageSet(): cpp.Star<DataTable.ConstDataTable> return this.ImageSet;
 }
 
 @:forward

@@ -11,7 +11,6 @@ extern class MaterialEditorInstanceConstant extends Object {
 	public var RefractionDepthBias: cpp.Float32;
 	public var SubsurfaceProfile: cpp.Star<SubsurfaceProfile>;
 	public var bOverrideSubsurfaceProfile: Bool;
-	public var bOverrideBaseProperties_DEPRECATED: Bool;
 	public var bIsFunctionPreviewMaterial: Bool;
 	public var bIsFunctionInstanceDirty: Bool;
 	public var BasePropertyOverrides: MaterialInstanceBasePropertyOverrides;
@@ -20,8 +19,6 @@ extern class MaterialEditorInstanceConstant extends Object {
 	public var VisibleExpressions: TArray<MaterialParameterInfo>;
 	public var LightmassSettings: LightmassParameterizedMaterialSettings;
 	public var bUseOldStyleMICEditorGroups: Bool;
-	public var StoredLayerPreviews: TArray<cpp.Star<MaterialInstanceConstant>>;
-	public var StoredBlendPreviews: TArray<cpp.Star<MaterialInstanceConstant>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -41,8 +38,6 @@ abstract ConstMaterialEditorInstanceConstant(MaterialEditorInstanceConstant) fro
 	public inline extern function get_SubsurfaceProfile(): cpp.Star<SubsurfaceProfile.ConstSubsurfaceProfile> return this.SubsurfaceProfile;
 	public extern var bOverrideSubsurfaceProfile(get, never): Bool;
 	public inline extern function get_bOverrideSubsurfaceProfile(): Bool return this.bOverrideSubsurfaceProfile;
-	public extern var bOverrideBaseProperties_DEPRECATED(get, never): Bool;
-	public inline extern function get_bOverrideBaseProperties_DEPRECATED(): Bool return this.bOverrideBaseProperties_DEPRECATED;
 	public extern var bIsFunctionPreviewMaterial(get, never): Bool;
 	public inline extern function get_bIsFunctionPreviewMaterial(): Bool return this.bIsFunctionPreviewMaterial;
 	public extern var bIsFunctionInstanceDirty(get, never): Bool;
@@ -59,10 +54,6 @@ abstract ConstMaterialEditorInstanceConstant(MaterialEditorInstanceConstant) fro
 	public inline extern function get_LightmassSettings(): LightmassParameterizedMaterialSettings return this.LightmassSettings;
 	public extern var bUseOldStyleMICEditorGroups(get, never): Bool;
 	public inline extern function get_bUseOldStyleMICEditorGroups(): Bool return this.bUseOldStyleMICEditorGroups;
-	public extern var StoredLayerPreviews(get, never): TArray<cpp.Star<MaterialInstanceConstant.ConstMaterialInstanceConstant>>;
-	public inline extern function get_StoredLayerPreviews(): TArray<cpp.Star<MaterialInstanceConstant.ConstMaterialInstanceConstant>> return this.StoredLayerPreviews;
-	public extern var StoredBlendPreviews(get, never): TArray<cpp.Star<MaterialInstanceConstant.ConstMaterialInstanceConstant>>;
-	public inline extern function get_StoredBlendPreviews(): TArray<cpp.Star<MaterialInstanceConstant.ConstMaterialInstanceConstant>> return this.StoredBlendPreviews;
 }
 
 @:forward

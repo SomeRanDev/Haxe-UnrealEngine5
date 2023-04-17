@@ -3,13 +3,13 @@ package ue;
 
 @:native("ERoundingMode")
 @:include("Kismet/KismetTextLibrary.h")
-extern enum ERoundingMode {
-	HalfToEven;
-	HalfFromZero;
-	HalfToZero;
-	FromZero;
-	ToZero;
-	ToNegativeInfinity;
-	ToPositiveInfinity;
-	ERoundingMode_MAX;
+extern class ERoundingMode {
+	static var HalfToEven: ERoundingMode;
+	static var HalfFromZero: ERoundingMode;
+	static var HalfToZero: ERoundingMode;
+	static var FromZero: ERoundingMode;
+	static var ToZero: ERoundingMode;
+	static var ToNegativeInfinity: ERoundingMode;
+	static var ToPositiveInfinity: ERoundingMode;
+	static var ERoundingMode_MAX: ERoundingMode;
 }

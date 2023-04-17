@@ -3,8 +3,8 @@ package ue;
 
 @:native("EQuitPreference.Type")
 @:include("Kismet/KismetSystemLibrary.h")
-extern enum EQuitPreference {
-	Quit;
-	Background;
-	EQuitPreference_MAX;
+extern class EQuitPreference {
+	static var Quit: EQuitPreference;
+	static var Background: EQuitPreference;
+	static var EQuitPreference_MAX: EQuitPreference;
 }

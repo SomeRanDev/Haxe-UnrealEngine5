@@ -9,7 +9,7 @@ extern class LODManagerPreviewLODProperties extends InteractiveToolPropertySet {
 	public var LODNamesList: TArray<FString>;
 	public var bShowSeams: Bool;
 
-	public function GetLODNamesFunc(): cpp.Reference<TArray<FString>>;
+	public function GetLODNamesFunc(): TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

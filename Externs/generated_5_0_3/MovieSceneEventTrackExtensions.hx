@@ -5,9 +5,9 @@ package ue;
 @:include("ExtensionLibraries/MovieSceneEventTrackExtensions.h")
 @:structAccess
 extern class MovieSceneEventTrackExtensions extends BlueprintFunctionLibrary {
-	public function GetBoundObjectPropertyClass(EventKey: cpp.Reference<MovieSceneEvent>): cpp.Reference<cpp.Star<Class>>;
-	public function AddEventTriggerSection(InTrack: cpp.Star<MovieSceneEventTrack>): cpp.Reference<cpp.Star<MovieSceneEventTriggerSection>>;
-	public function AddEventRepeaterSection(InTrack: cpp.Star<MovieSceneEventTrack>): cpp.Reference<cpp.Star<MovieSceneEventRepeaterSection>>;
+	public function GetBoundObjectPropertyClass(EventKey: cpp.Reference<MovieSceneEvent>): cpp.Star<Class>;
+	public function AddEventTriggerSection(InTrack: cpp.Star<MovieSceneEventTrack>): cpp.Star<MovieSceneEventTriggerSection>;
+	public function AddEventRepeaterSection(InTrack: cpp.Star<MovieSceneEventTrack>): cpp.Star<MovieSceneEventRepeaterSection>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

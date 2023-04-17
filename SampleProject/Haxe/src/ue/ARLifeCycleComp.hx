@@ -8,8 +8,8 @@ extern class ARLifeCycleComp extends SceneComp {
 	public var OnARActorSpawnedDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Star<Class>, Guid, cpp.Star<ARActor>) -> Void>;
 	public var OnARActorToBeDestroyedDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARActor>) -> Void>;
 
-	public function ServerSpawnARActor(ComponentClass: cpp.Star<Class>, NativeID: Guid): Void;
-	public function ServerDestroyARActor(Actor: cpp.Star<ARActor>): Void;
+	private function ServerSpawnARActor(ComponentClass: cpp.Star<Class>, NativeID: Guid): Void;
+	private function ServerDestroyARActor(Actor: cpp.Star<ARActor>): Void;
 	public function InstanceARActorToBeDestroyedDelegate__DelegateSignature(Actor: cpp.Star<ARActor>): Void;
 	public function InstanceARActorSpawnedDelegate__DelegateSignature(ComponentClass: cpp.Star<Class>, NativeID: Guid, SpawnedActor: cpp.Star<ARActor>): Void;
 

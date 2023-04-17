@@ -7,7 +7,6 @@ package ue;
 extern class ClothPhysicalMeshData {
 	public var Vertices: TArray<Vector3f>;
 	public var Normals: TArray<Vector3f>;
-	public var VertexColors: TArray<Color>;
 	public var Indices: TArray<cpp.UInt32>;
 	public var WeightMaps: TMap<cpp.UInt32, PointWeightMap>;
 	public var InverseMasses: TArray<cpp.Float32>;
@@ -17,10 +16,6 @@ extern class ClothPhysicalMeshData {
 	public var GeodesicTethers: ClothTetherData;
 	public var MaxBoneWeights: cpp.Int32;
 	public var NumFixedVerts: cpp.Int32;
-	public var MaxDistances_DEPRECATED: TArray<cpp.Float32>;
-	public var BackstopDistances_DEPRECATED: TArray<cpp.Float32>;
-	public var BackstopRadiuses_DEPRECATED: TArray<cpp.Float32>;
-	public var AnimDriveMultipliers_DEPRECATED: TArray<cpp.Float32>;
 
 	@:native("FClothPhysicalMeshData") public function new();
 }

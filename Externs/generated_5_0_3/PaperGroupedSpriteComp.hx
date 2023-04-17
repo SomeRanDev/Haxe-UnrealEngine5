@@ -5,17 +5,17 @@ package ue;
 @:include("PaperGroupedSpriteComponent.h")
 @:structAccess
 extern class PaperGroupedSpriteComp extends MeshComp {
-	public var InstanceMaterials: TArray<cpp.Star<MaterialInterface>>;
-	public var PerInstanceSpriteData: TArray<SpriteInstanceData>;
+	@:protected public var InstanceMaterials: TArray<cpp.Star<MaterialInterface>>;
+	@:protected public var PerInstanceSpriteData: TArray<SpriteInstanceData>;
 
-	public function UpdateInstanceTransform(InstanceIndex: cpp.Int32, NewInstanceTransform: cpp.Reference<Transform>, bWorldSpace: Bool, bMarkRenderStateDirty: Bool, bTeleport: Bool): cpp.Reference<Bool>;
-	public function UpdateInstanceColor(InstanceIndex: cpp.Int32, NewInstanceColor: LinearColor, bMarkRenderStateDirty: Bool): cpp.Reference<Bool>;
+	public function UpdateInstanceTransform(InstanceIndex: cpp.Int32, NewInstanceTransform: cpp.Reference<Transform>, bWorldSpace: Bool, bMarkRenderStateDirty: Bool, bTeleport: Bool): Bool;
+	public function UpdateInstanceColor(InstanceIndex: cpp.Int32, NewInstanceColor: LinearColor, bMarkRenderStateDirty: Bool): Bool;
 	public function SortInstancesAlongAxis(WorldSpaceSortAxis: Vector): Void;
-	public function RemoveInstance(InstanceIndex: cpp.Int32): cpp.Reference<Bool>;
-	public function GetInstanceTransform(InstanceIndex: cpp.Int32, OutInstanceTransform: cpp.Reference<Transform>, bWorldSpace: Bool): cpp.Reference<Bool>;
-	public function GetInstanceCount(): cpp.Reference<cpp.Int32>;
+	public function RemoveInstance(InstanceIndex: cpp.Int32): Bool;
+	public function GetInstanceTransform(InstanceIndex: cpp.Int32, OutInstanceTransform: cpp.Reference<Transform>, bWorldSpace: Bool): Bool;
+	public function GetInstanceCount(): cpp.Int32;
 	public function ClearInstances(): Void;
-	public function AddInstance(Transform: cpp.Reference<Transform>, Sprite: cpp.Star<PaperSprite>, bWorldSpace: Bool, Color: LinearColor): cpp.Reference<cpp.Int32>;
+	public function AddInstance(Transform: cpp.Reference<Transform>, Sprite: cpp.Star<PaperSprite>, bWorldSpace: Bool, Color: LinearColor): cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -23,10 +23,6 @@ extern class PaperGroupedSpriteComp extends MeshComp {
 @:forward(GetInstanceTransform, GetInstanceCount)
 @:nativeGen
 abstract ConstPaperGroupedSpriteComp(PaperGroupedSpriteComp) from PaperGroupedSpriteComp {
-	public extern var InstanceMaterials(get, never): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>>;
-	public inline extern function get_InstanceMaterials(): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>> return this.InstanceMaterials;
-	public extern var PerInstanceSpriteData(get, never): TArray<SpriteInstanceData>;
-	public inline extern function get_PerInstanceSpriteData(): TArray<SpriteInstanceData> return this.PerInstanceSpriteData;
 }
 
 @:forward

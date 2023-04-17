@@ -8,8 +8,8 @@ extern class SubUVAnimation extends Object {
 	public var SubUVTexture: cpp.Star<Texture2D>;
 	public var SubImages_Horizontal: cpp.Int32;
 	public var SubImages_Vertical: cpp.Int32;
-	public var BoundingMode: ESubUVBoundingVertexCount;
-	public var OpacitySourceMode: EOpacitySourceMode;
+	public var BoundingMode: TEnumAsByte<ESubUVBoundingVertexCount>;
+	public var OpacitySourceMode: TEnumAsByte<EOpacitySourceMode>;
 	public var AlphaThreshold: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -24,10 +24,10 @@ abstract ConstSubUVAnimation(SubUVAnimation) from SubUVAnimation {
 	public inline extern function get_SubImages_Horizontal(): cpp.Int32 return this.SubImages_Horizontal;
 	public extern var SubImages_Vertical(get, never): cpp.Int32;
 	public inline extern function get_SubImages_Vertical(): cpp.Int32 return this.SubImages_Vertical;
-	public extern var BoundingMode(get, never): ESubUVBoundingVertexCount;
-	public inline extern function get_BoundingMode(): ESubUVBoundingVertexCount return this.BoundingMode;
-	public extern var OpacitySourceMode(get, never): EOpacitySourceMode;
-	public inline extern function get_OpacitySourceMode(): EOpacitySourceMode return this.OpacitySourceMode;
+	public extern var BoundingMode(get, never): TEnumAsByte<ESubUVBoundingVertexCount>;
+	public inline extern function get_BoundingMode(): TEnumAsByte<ESubUVBoundingVertexCount> return this.BoundingMode;
+	public extern var OpacitySourceMode(get, never): TEnumAsByte<EOpacitySourceMode>;
+	public inline extern function get_OpacitySourceMode(): TEnumAsByte<EOpacitySourceMode> return this.OpacitySourceMode;
 	public extern var AlphaThreshold(get, never): cpp.Float32;
 	public inline extern function get_AlphaThreshold(): cpp.Float32 return this.AlphaThreshold;
 }

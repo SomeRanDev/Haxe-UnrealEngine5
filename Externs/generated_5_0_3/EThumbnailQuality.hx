@@ -3,9 +3,9 @@ package ue;
 
 @:native("EThumbnailQuality")
 @:include("MovieSceneToolsUserSettings.h")
-extern enum EThumbnailQuality {
-	Draft;
-	Normal;
-	Best;
-	EThumbnailQuality_MAX;
+extern class EThumbnailQuality {
+	static var Draft: EThumbnailQuality;
+	static var Normal: EThumbnailQuality;
+	static var Best: EThumbnailQuality;
+	static var EThumbnailQuality_MAX: EThumbnailQuality;
 }

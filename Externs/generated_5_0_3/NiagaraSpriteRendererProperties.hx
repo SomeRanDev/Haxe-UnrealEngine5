@@ -54,11 +54,6 @@ extern class NiagaraSpriteRendererProperties extends NiagaraRendererProperties {
 	public var PrevSpriteAlignmentBinding: NiagaraVariableAttributeBinding;
 	public var PrevCameraOffsetBinding: NiagaraVariableAttributeBinding;
 	public var PrevPivotOffsetBinding: NiagaraVariableAttributeBinding;
-	public var bUseMaterialCutoutTexture: Bool;
-	public var CutoutTexture: cpp.Star<Texture2D>;
-	public var BoundingMode: ESubUVBoundingVertexCount;
-	public var OpacitySourceMode: EOpacitySourceMode;
-	public var AlphaThreshold: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -164,16 +159,6 @@ abstract ConstNiagaraSpriteRendererProperties(NiagaraSpriteRendererProperties) f
 	public inline extern function get_PrevCameraOffsetBinding(): NiagaraVariableAttributeBinding return this.PrevCameraOffsetBinding;
 	public extern var PrevPivotOffsetBinding(get, never): NiagaraVariableAttributeBinding;
 	public inline extern function get_PrevPivotOffsetBinding(): NiagaraVariableAttributeBinding return this.PrevPivotOffsetBinding;
-	public extern var bUseMaterialCutoutTexture(get, never): Bool;
-	public inline extern function get_bUseMaterialCutoutTexture(): Bool return this.bUseMaterialCutoutTexture;
-	public extern var CutoutTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_CutoutTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.CutoutTexture;
-	public extern var BoundingMode(get, never): ESubUVBoundingVertexCount;
-	public inline extern function get_BoundingMode(): ESubUVBoundingVertexCount return this.BoundingMode;
-	public extern var OpacitySourceMode(get, never): EOpacitySourceMode;
-	public inline extern function get_OpacitySourceMode(): EOpacitySourceMode return this.OpacitySourceMode;
-	public extern var AlphaThreshold(get, never): cpp.Float32;
-	public inline extern function get_AlphaThreshold(): cpp.Float32 return this.AlphaThreshold;
 }
 
 @:forward

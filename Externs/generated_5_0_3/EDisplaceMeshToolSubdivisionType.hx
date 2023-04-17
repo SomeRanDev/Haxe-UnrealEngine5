@@ -3,8 +3,8 @@ package ue;
 
 @:native("EDisplaceMeshToolSubdivisionType")
 @:include("DisplaceMeshTool.h")
-extern enum EDisplaceMeshToolSubdivisionType {
-	Flat;
-	PNTriangles;
-	EDisplaceMeshToolSubdivisionType_MAX;
+extern class EDisplaceMeshToolSubdivisionType {
+	static var Flat: EDisplaceMeshToolSubdivisionType;
+	static var PNTriangles: EDisplaceMeshToolSubdivisionType;
+	static var EDisplaceMeshToolSubdivisionType_MAX: EDisplaceMeshToolSubdivisionType;
 }

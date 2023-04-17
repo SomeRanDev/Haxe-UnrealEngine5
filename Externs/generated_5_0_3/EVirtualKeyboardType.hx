@@ -3,12 +3,12 @@ package ue;
 
 @:native("EVirtualKeyboardType.Type")
 @:include("Components/SlateWrapperTypes.h")
-extern enum EVirtualKeyboardType {
-	Default;
-	Number;
-	Web;
-	Email;
-	Password;
-	AlphaNumeric;
-	EVirtualKeyboardType_MAX;
+extern class EVirtualKeyboardType {
+	static var Default: EVirtualKeyboardType;
+	static var Number: EVirtualKeyboardType;
+	static var Web: EVirtualKeyboardType;
+	static var Email: EVirtualKeyboardType;
+	static var Password: EVirtualKeyboardType;
+	static var AlphaNumeric: EVirtualKeyboardType;
+	static var EVirtualKeyboardType_MAX: EVirtualKeyboardType;
 }

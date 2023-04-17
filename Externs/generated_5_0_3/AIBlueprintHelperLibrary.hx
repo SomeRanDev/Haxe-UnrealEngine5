@@ -6,21 +6,21 @@ package ue;
 @:structAccess
 extern class AIBlueprintHelperLibrary extends BlueprintFunctionLibrary {
 	public function UnlockAIResourcesWithAnimation(AnimInstance: cpp.Star<AnimInstance>, bUnlockMovement: Bool, UnlockAILogic: Bool): Void;
-	public function SpawnAIFromClass(WorldContextObject: cpp.Star<Object>, PawnClass: TSubclassOf<Pawn>, BehaviorTree: cpp.Star<BehaviorTree>, Location: Vector, Rotation: Rotator, bNoCollisionFail: Bool, Owner: cpp.Star<Actor>): cpp.Reference<cpp.Star<Pawn>>;
+	public function SpawnAIFromClass(WorldContextObject: cpp.Star<Object>, PawnClass: TSubclassOf<Pawn>, BehaviorTree: cpp.Star<BehaviorTree>, Location: Vector, Rotation: Rotator, bNoCollisionFail: Bool, Owner: cpp.Star<Actor>): cpp.Star<Pawn>;
 	public function SimpleMoveToLocation(Controller: cpp.Star<Controller>, Goal: cpp.Reference<Vector>): Void;
 	public function SimpleMoveToActor(Controller: cpp.Star<Controller>, Goal: cpp.Star<Actor.ConstActor>): Void;
 	public function SendAIMessage(Target: cpp.Star<Pawn>, Message: FName, MessageSource: cpp.Star<Object>, bSuccess: Bool): Void;
 	public function LockAIResourcesWithAnimation(AnimInstance: cpp.Star<AnimInstance>, bLockMovement: Bool, LockAILogic: Bool): Void;
-	public function IsValidAIRotation(Rotation: Rotator): cpp.Reference<Bool>;
-	public function IsValidAILocation(Location: Vector): cpp.Reference<Bool>;
-	public function IsValidAIDirection(DirectionVector: Vector): cpp.Reference<Bool>;
-	public function GetNextNavLinkIndex(Controller: cpp.Star<Controller.ConstController>): cpp.Reference<cpp.Int32>;
-	public function GetCurrentPathPoints(Controller: cpp.Star<Controller>): cpp.Reference<TArray<Vector>>;
-	public function GetCurrentPathIndex(Controller: cpp.Star<Controller.ConstController>): cpp.Reference<cpp.Int32>;
-	public function GetCurrentPath(Controller: cpp.Star<Controller>): cpp.Reference<cpp.Star<NavigationPath>>;
-	public function GetBlackboard(Target: cpp.Star<Actor>): cpp.Reference<cpp.Star<BlackboardComp>>;
-	public function GetAIController(ControlledActor: cpp.Star<Actor>): cpp.Reference<cpp.Star<AIController>>;
-	public function CreateMoveToProxyObject(WorldContextObject: cpp.Star<Object>, Pawn: cpp.Star<Pawn>, Destination: Vector, TargetActor: cpp.Star<Actor>, AcceptanceRadius: cpp.Float32, bStopOnOverlap: Bool): cpp.Reference<cpp.Star<AIAsyncTaskBlueprintProxy>>;
+	public function IsValidAIRotation(Rotation: Rotator): Bool;
+	public function IsValidAILocation(Location: Vector): Bool;
+	public function IsValidAIDirection(DirectionVector: Vector): Bool;
+	public function GetNextNavLinkIndex(Controller: cpp.Star<Controller.ConstController>): cpp.Int32;
+	public function GetCurrentPathPoints(Controller: cpp.Star<Controller>): TArray<Vector>;
+	public function GetCurrentPathIndex(Controller: cpp.Star<Controller.ConstController>): cpp.Int32;
+	public function GetCurrentPath(Controller: cpp.Star<Controller>): cpp.Star<NavigationPath>;
+	public function GetBlackboard(Target: cpp.Star<Actor>): cpp.Star<BlackboardComp>;
+	public function GetAIController(ControlledActor: cpp.Star<Actor>): cpp.Star<AIController>;
+	public function CreateMoveToProxyObject(WorldContextObject: cpp.Star<Object>, Pawn: cpp.Star<Pawn>, Destination: Vector, TargetActor: cpp.Star<Actor>, AcceptanceRadius: cpp.Float32, bStopOnOverlap: Bool): cpp.Star<AIAsyncTaskBlueprintProxy>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

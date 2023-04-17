@@ -6,13 +6,13 @@ package ue;
 @:structAccess
 extern class DynamicMesh extends Object {
 	public var MeshModifiedBPEvent: HaxeMulticastSparseDelegateProperty<(cpp.Star<DynamicMesh>) -> Void>;
-	public var MeshGenerator: cpp.Star<DynamicMeshGenerator>;
+	@:protected public var MeshGenerator: cpp.Star<DynamicMeshGenerator>;
 	public var bEnableMeshGenerator: Bool;
 
-	public function ResetToCube(): cpp.Reference<cpp.Star<DynamicMesh>>;
-	public function Reset(): cpp.Reference<cpp.Star<DynamicMesh>>;
-	public function IsEmpty(): cpp.Reference<Bool>;
-	public function GetTriangleCount(): cpp.Reference<cpp.Int32>;
+	public function ResetToCube(): cpp.Star<DynamicMesh>;
+	public function Reset(): cpp.Star<DynamicMesh>;
+	public function IsEmpty(): Bool;
+	public function GetTriangleCount(): cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -22,8 +22,6 @@ extern class DynamicMesh extends Object {
 abstract ConstDynamicMesh(DynamicMesh) from DynamicMesh {
 	public extern var MeshModifiedBPEvent(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<DynamicMesh.ConstDynamicMesh>) -> Void>;
 	public inline extern function get_MeshModifiedBPEvent(): HaxeMulticastSparseDelegateProperty<(cpp.Star<DynamicMesh.ConstDynamicMesh>) -> Void> return this.MeshModifiedBPEvent;
-	public extern var MeshGenerator(get, never): cpp.Star<DynamicMeshGenerator.ConstDynamicMeshGenerator>;
-	public inline extern function get_MeshGenerator(): cpp.Star<DynamicMeshGenerator.ConstDynamicMeshGenerator> return this.MeshGenerator;
 	public extern var bEnableMeshGenerator(get, never): Bool;
 	public inline extern function get_bEnableMeshGenerator(): Bool return this.bEnableMeshGenerator;
 }

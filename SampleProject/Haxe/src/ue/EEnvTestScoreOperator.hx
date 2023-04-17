@@ -3,10 +3,10 @@ package ue;
 
 @:native("EEnvTestScoreOperator.Type")
 @:include("EnvironmentQuery/EnvQueryTypes.h")
-extern enum EEnvTestScoreOperator {
-	AverageScore;
-	MinScore;
-	MaxScore;
-	Multiply;
-	EEnvTestScoreOperator_MAX;
+extern class EEnvTestScoreOperator {
+	static var AverageScore: EEnvTestScoreOperator;
+	static var MinScore: EEnvTestScoreOperator;
+	static var MaxScore: EEnvTestScoreOperator;
+	static var Multiply: EEnvTestScoreOperator;
+	static var EEnvTestScoreOperator_MAX: EEnvTestScoreOperator;
 }

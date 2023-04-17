@@ -13,12 +13,12 @@ extern class AnimNode_LayeredBoneBlend extends AnimNode_Base {
 	public var BlendWeights: TArray<cpp.Float32>;
 	public var bMeshSpaceRotationBlend: Bool;
 	public var bMeshSpaceScaleBlend: Bool;
-	public var CurveBlendOption: ECurveBlendOption;
+	public var CurveBlendOption: TEnumAsByte<ECurveBlendOption>;
 	public var bBlendRootMotionBasedOnRootBone: Bool;
 	public var LODThreshold: cpp.Int32;
-	public var PerBoneBlendWeights: TArray<PerBoneBlendWeight>;
-	public var SkeletonGuid: Guid;
-	public var VirtualBoneGuid: Guid;
+	@:protected public var PerBoneBlendWeights: TArray<PerBoneBlendWeight>;
+	@:protected public var SkeletonGuid: Guid;
+	@:protected public var VirtualBoneGuid: Guid;
 
 	@:native("FAnimNode_LayeredBoneBlend") public function new();
 }

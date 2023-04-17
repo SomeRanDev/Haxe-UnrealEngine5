@@ -11,17 +11,17 @@ extern class DataLayerSubsystem extends WorldSubsystem {
 	public function SetDataLayerState(InDataLayer: cpp.Reference<ActorDataLayer>, InState: EDataLayerState): Void;
 	public function SetDataLayerRuntimeStateByLabel(InDataLayerLabel: cpp.Reference<FName>, InState: EDataLayerRuntimeState, bInIsRecursive: Bool): Void;
 	public function SetDataLayerRuntimeState(InDataLayer: cpp.Reference<ActorDataLayer>, InState: EDataLayerRuntimeState, bInIsRecursive: Bool): Void;
-	public function GetLoadedDataLayerNames(): cpp.Reference<TSet<FName>>;
-	public function GetDataLayerStateByLabel(InDataLayerLabel: cpp.Reference<FName>): cpp.Reference<EDataLayerState>;
-	public function GetDataLayerState(InDataLayer: cpp.Reference<ActorDataLayer>): cpp.Reference<EDataLayerState>;
-	public function GetDataLayerRuntimeStateByLabel(InDataLayerLabel: cpp.Reference<FName>): cpp.Reference<EDataLayerRuntimeState>;
-	public function GetDataLayerRuntimeState(InDataLayer: cpp.Reference<ActorDataLayer>): cpp.Reference<EDataLayerRuntimeState>;
-	public function GetDataLayerFromName(InDataLayerName: FName): cpp.Reference<cpp.Star<DataLayer>>;
-	public function GetDataLayerFromLabel(InDataLayerLabel: FName): cpp.Reference<cpp.Star<DataLayer>>;
-	public function GetDataLayerEffectiveRuntimeStateByLabel(InDataLayerLabel: cpp.Reference<FName>): cpp.Reference<EDataLayerRuntimeState>;
-	public function GetDataLayerEffectiveRuntimeState(InDataLayer: cpp.Reference<ActorDataLayer>): cpp.Reference<EDataLayerRuntimeState>;
-	public function GetDataLayer(InDataLayer: cpp.Reference<ActorDataLayer>): cpp.Reference<cpp.Star<DataLayer>>;
-	public function GetActiveDataLayerNames(): cpp.Reference<TSet<FName>>;
+	public function GetLoadedDataLayerNames(): TSet<FName>;
+	public function GetDataLayerStateByLabel(InDataLayerLabel: cpp.Reference<FName>): EDataLayerState;
+	public function GetDataLayerState(InDataLayer: cpp.Reference<ActorDataLayer>): EDataLayerState;
+	public function GetDataLayerRuntimeStateByLabel(InDataLayerLabel: cpp.Reference<FName>): EDataLayerRuntimeState;
+	public function GetDataLayerRuntimeState(InDataLayer: cpp.Reference<ActorDataLayer>): EDataLayerRuntimeState;
+	public function GetDataLayerFromName(InDataLayerName: FName): cpp.Star<DataLayer>;
+	public function GetDataLayerFromLabel(InDataLayerLabel: FName): cpp.Star<DataLayer>;
+	public function GetDataLayerEffectiveRuntimeStateByLabel(InDataLayerLabel: cpp.Reference<FName>): EDataLayerRuntimeState;
+	public function GetDataLayerEffectiveRuntimeState(InDataLayer: cpp.Reference<ActorDataLayer>): EDataLayerRuntimeState;
+	public function GetDataLayer(InDataLayer: cpp.Reference<ActorDataLayer>): cpp.Star<DataLayer>;
+	public function GetActiveDataLayerNames(): TSet<FName>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

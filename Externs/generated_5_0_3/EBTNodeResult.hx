@@ -3,10 +3,10 @@ package ue;
 
 @:native("EBTNodeResult.Type")
 @:include("BehaviorTree/BehaviorTreeTypes.h")
-extern enum EBTNodeResult {
-	Succeeded;
-	Failed;
-	Aborted;
-	InProgress;
-	EBTNodeResult_MAX;
+extern class EBTNodeResult {
+	static var Succeeded: EBTNodeResult;
+	static var Failed: EBTNodeResult;
+	static var Aborted: EBTNodeResult;
+	static var InProgress: EBTNodeResult;
+	static var EBTNodeResult_MAX: EBTNodeResult;
 }

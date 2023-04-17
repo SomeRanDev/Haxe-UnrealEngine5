@@ -3,12 +3,12 @@ package ue;
 
 @:native("EFunctionalTestResult")
 @:include("FunctionalTest.h")
-extern enum EFunctionalTestResult {
-	Default;
-	Invalid;
-	Error;
-	Running;
-	Failed;
-	Succeeded;
-	EFunctionalTestResult_MAX;
+extern class EFunctionalTestResult {
+	static var Default: EFunctionalTestResult;
+	static var Invalid: EFunctionalTestResult;
+	static var Error: EFunctionalTestResult;
+	static var Running: EFunctionalTestResult;
+	static var Failed: EFunctionalTestResult;
+	static var Succeeded: EFunctionalTestResult;
+	static var EFunctionalTestResult_MAX: EFunctionalTestResult;
 }

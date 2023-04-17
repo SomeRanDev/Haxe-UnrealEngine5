@@ -5,10 +5,10 @@ package ue;
 @:include("LiveLinkVirtualSubject.h")
 @:structAccess
 extern class LiveLinkVirtualSubject extends Object {
-	public var Role: TSubclassOf<LiveLinkRole>;
-	public var Subjects: TArray<LiveLinkSubjectName>;
-	public var FrameTranslators: TArray<cpp.Star<LiveLinkFrameTranslator>>;
-	public var bRebroadcastSubject: Bool;
+	@:protected public var Role: TSubclassOf<LiveLinkRole>;
+	@:protected public var Subjects: TArray<LiveLinkSubjectName>;
+	@:protected public var FrameTranslators: TArray<cpp.Star<LiveLinkFrameTranslator>>;
+	@:protected public var bRebroadcastSubject: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class LiveLinkVirtualSubject extends Object {
 @:forward()
 @:nativeGen
 abstract ConstLiveLinkVirtualSubject(LiveLinkVirtualSubject) from LiveLinkVirtualSubject {
-	public extern var Role(get, never): TSubclassOf<LiveLinkRole.ConstLiveLinkRole>;
-	public inline extern function get_Role(): TSubclassOf<LiveLinkRole.ConstLiveLinkRole> return this.Role;
-	public extern var Subjects(get, never): TArray<LiveLinkSubjectName>;
-	public inline extern function get_Subjects(): TArray<LiveLinkSubjectName> return this.Subjects;
-	public extern var FrameTranslators(get, never): TArray<cpp.Star<LiveLinkFrameTranslator.ConstLiveLinkFrameTranslator>>;
-	public inline extern function get_FrameTranslators(): TArray<cpp.Star<LiveLinkFrameTranslator.ConstLiveLinkFrameTranslator>> return this.FrameTranslators;
-	public extern var bRebroadcastSubject(get, never): Bool;
-	public inline extern function get_bRebroadcastSubject(): Bool return this.bRebroadcastSubject;
 }
 
 @:forward

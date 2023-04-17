@@ -5,10 +5,10 @@ package ue;
 @:include("AnimGraphNode_BlendSpaceGraphBase.h")
 @:structAccess
 extern class AnimGraphNode_BlendSpaceGraphBase extends AnimGraphNode_Base {
-	public var BlendSpace: cpp.Star<BlendSpace>;
-	public var BlendSpaceClass: TSubclassOf<BlendSpace>;
-	public var BlendSpaceGraph: cpp.Star<BlendSpaceGraph>;
-	public var Graphs: TArray<cpp.Star<EdGraph>>;
+	@:protected public var BlendSpace: cpp.Star<BlendSpace>;
+	@:protected public var BlendSpaceClass: TSubclassOf<BlendSpace>;
+	@:protected public var BlendSpaceGraph: cpp.Star<BlendSpaceGraph>;
+	@:protected public var Graphs: TArray<cpp.Star<EdGraph>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class AnimGraphNode_BlendSpaceGraphBase extends AnimGraphNode_Base {
 @:forward()
 @:nativeGen
 abstract ConstAnimGraphNode_BlendSpaceGraphBase(AnimGraphNode_BlendSpaceGraphBase) from AnimGraphNode_BlendSpaceGraphBase {
-	public extern var BlendSpace(get, never): cpp.Star<BlendSpace.ConstBlendSpace>;
-	public inline extern function get_BlendSpace(): cpp.Star<BlendSpace.ConstBlendSpace> return this.BlendSpace;
-	public extern var BlendSpaceClass(get, never): TSubclassOf<BlendSpace.ConstBlendSpace>;
-	public inline extern function get_BlendSpaceClass(): TSubclassOf<BlendSpace.ConstBlendSpace> return this.BlendSpaceClass;
-	public extern var BlendSpaceGraph(get, never): cpp.Star<BlendSpaceGraph.ConstBlendSpaceGraph>;
-	public inline extern function get_BlendSpaceGraph(): cpp.Star<BlendSpaceGraph.ConstBlendSpaceGraph> return this.BlendSpaceGraph;
-	public extern var Graphs(get, never): TArray<cpp.Star<EdGraph.ConstEdGraph>>;
-	public inline extern function get_Graphs(): TArray<cpp.Star<EdGraph.ConstEdGraph>> return this.Graphs;
 }
 
 @:forward

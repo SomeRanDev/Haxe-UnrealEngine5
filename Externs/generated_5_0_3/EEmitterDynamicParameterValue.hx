@@ -3,12 +3,12 @@ package ue;
 
 @:native("EEmitterDynamicParameterValue")
 @:include("Particles/Parameter/ParticleModuleParameterDynamic.h")
-extern enum EEmitterDynamicParameterValue {
-	EDPV_UserSet;
-	EDPV_AutoSet;
-	EDPV_VelocityX;
-	EDPV_VelocityY;
-	EDPV_VelocityZ;
-	EDPV_VelocityMag;
-	EDPV_MAX;
+extern class EEmitterDynamicParameterValue {
+	static var EDPV_UserSet: EEmitterDynamicParameterValue;
+	static var EDPV_AutoSet: EEmitterDynamicParameterValue;
+	static var EDPV_VelocityX: EEmitterDynamicParameterValue;
+	static var EDPV_VelocityY: EEmitterDynamicParameterValue;
+	static var EDPV_VelocityZ: EEmitterDynamicParameterValue;
+	static var EDPV_VelocityMag: EEmitterDynamicParameterValue;
+	static var EDPV_MAX: EEmitterDynamicParameterValue;
 }

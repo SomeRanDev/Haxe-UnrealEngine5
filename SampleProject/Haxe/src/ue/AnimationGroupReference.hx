@@ -7,8 +7,8 @@ package ue;
 extern class AnimationGroupReference {
 	public var Method: EAnimSyncMethod;
 	public var GroupName: FName;
-	public var GroupRole: EAnimGroupRole;
+	public var GroupRole: TEnumAsByte<EAnimGroupRole>;
 
 	@:native("FAnimationGroupReference") public function new();
-	@:native("FAnimationGroupReference") public static function make(Method: EAnimSyncMethod, GroupName: FName, GroupRole: EAnimGroupRole): AnimationGroupReference ;
+	@:native("FAnimationGroupReference") public static function make(Method: EAnimSyncMethod, GroupName: FName, GroupRole: TEnumAsByte<EAnimGroupRole>): AnimationGroupReference ;
 }

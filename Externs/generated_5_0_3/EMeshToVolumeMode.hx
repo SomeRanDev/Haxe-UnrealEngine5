@@ -3,8 +3,8 @@ package ue;
 
 @:native("EMeshToVolumeMode")
 @:include("MeshToVolumeTool.h")
-extern enum EMeshToVolumeMode {
-	TriangulatePolygons;
-	MinimalPolygons;
-	EMeshToVolumeMode_MAX;
+extern class EMeshToVolumeMode {
+	static var TriangulatePolygons: EMeshToVolumeMode;
+	static var MinimalPolygons: EMeshToVolumeMode;
+	static var EMeshToVolumeMode_MAX: EMeshToVolumeMode;
 }

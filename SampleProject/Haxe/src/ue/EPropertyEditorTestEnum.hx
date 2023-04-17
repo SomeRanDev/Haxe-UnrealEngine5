@@ -3,12 +3,12 @@ package ue;
 
 @:native("EPropertyEditorTestEnum")
 @:include("Editor/PropertyEditorTestObject.h")
-extern enum EPropertyEditorTestEnum {
-	PropertyEditorTest_Enum1;
-	PropertyEditorTest_Enum2;
-	PropertyEditorTest_Enum3;
-	PropertyEditorTest_Enum4;
-	PropertyEditorTest_Enum5;
-	PropertyEditorTest_Enum6;
-	PropertyEditorTest_MAX;
+extern class EPropertyEditorTestEnum {
+	static var PropertyEditorTest_Enum1: EPropertyEditorTestEnum;
+	static var PropertyEditorTest_Enum2: EPropertyEditorTestEnum;
+	static var PropertyEditorTest_Enum3: EPropertyEditorTestEnum;
+	static var PropertyEditorTest_Enum4: EPropertyEditorTestEnum;
+	static var PropertyEditorTest_Enum5: EPropertyEditorTestEnum;
+	static var PropertyEditorTest_Enum6: EPropertyEditorTestEnum;
+	static var PropertyEditorTest_MAX: EPropertyEditorTestEnum;
 }

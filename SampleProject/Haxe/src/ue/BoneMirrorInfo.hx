@@ -6,8 +6,8 @@ package ue;
 @:structAccess
 extern class BoneMirrorInfo {
 	public var SourceIndex: cpp.Int32;
-	public var BoneFlipAxis: EAxis;
+	public var BoneFlipAxis: TEnumAsByte<EAxis>;
 
 	@:native("FBoneMirrorInfo") public function new();
-	@:native("FBoneMirrorInfo") public static function make(SourceIndex: cpp.Int32, BoneFlipAxis: EAxis): BoneMirrorInfo ;
+	@:native("FBoneMirrorInfo") public static function make(SourceIndex: cpp.Int32, BoneFlipAxis: TEnumAsByte<EAxis>): BoneMirrorInfo ;
 }

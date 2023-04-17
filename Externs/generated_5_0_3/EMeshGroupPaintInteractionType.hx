@@ -3,11 +3,11 @@ package ue;
 
 @:native("EMeshGroupPaintInteractionType")
 @:include("MeshGroupPaintTool.h")
-extern enum EMeshGroupPaintInteractionType {
-	Brush;
-	Fill;
-	GroupFill;
-	PolyLasso;
-	LastValue;
-	EMeshGroupPaintInteractionType_MAX;
+extern class EMeshGroupPaintInteractionType {
+	static var Brush: EMeshGroupPaintInteractionType;
+	static var Fill: EMeshGroupPaintInteractionType;
+	static var GroupFill: EMeshGroupPaintInteractionType;
+	static var PolyLasso: EMeshGroupPaintInteractionType;
+	static var LastValue: EMeshGroupPaintInteractionType;
+	static var EMeshGroupPaintInteractionType_MAX: EMeshGroupPaintInteractionType;
 }

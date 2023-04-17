@@ -3,10 +3,10 @@ package ue;
 
 @:native("EGizmoHandleTypes")
 @:include("VIBaseTransformGizmo.h")
-extern enum EGizmoHandleTypes {
-	All;
-	Translate;
-	Rotate;
-	Scale;
-	EGizmoHandleTypes_MAX;
+extern class EGizmoHandleTypes {
+	static var All: EGizmoHandleTypes;
+	static var Translate: EGizmoHandleTypes;
+	static var Rotate: EGizmoHandleTypes;
+	static var Scale: EGizmoHandleTypes;
+	static var EGizmoHandleTypes_MAX: EGizmoHandleTypes;
 }

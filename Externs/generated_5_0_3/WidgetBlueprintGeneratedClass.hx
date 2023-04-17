@@ -5,9 +5,8 @@ package ue;
 @:include("Blueprint/WidgetBlueprintGeneratedClass.h")
 @:structAccess
 extern class WidgetBlueprintGeneratedClass extends BlueprintGeneratedClass {
-	public var WidgetTree: cpp.Star<WidgetTree>;
-	public var bCanCallPreConstruct: Bool;
-	public var bClassRequiresNativeTick: Bool;
+	private var WidgetTree: cpp.Star<WidgetTree>;
+	private var bClassRequiresNativeTick: Bool;
 	public var Bindings: TArray<DelegateRuntimeBinding>;
 	public var Animations: TArray<cpp.Star<WidgetAnimation>>;
 	public var NamedSlots: TArray<FName>;
@@ -18,12 +17,6 @@ extern class WidgetBlueprintGeneratedClass extends BlueprintGeneratedClass {
 @:forward()
 @:nativeGen
 abstract ConstWidgetBlueprintGeneratedClass(WidgetBlueprintGeneratedClass) from WidgetBlueprintGeneratedClass {
-	public extern var WidgetTree(get, never): cpp.Star<WidgetTree.ConstWidgetTree>;
-	public inline extern function get_WidgetTree(): cpp.Star<WidgetTree.ConstWidgetTree> return this.WidgetTree;
-	public extern var bCanCallPreConstruct(get, never): Bool;
-	public inline extern function get_bCanCallPreConstruct(): Bool return this.bCanCallPreConstruct;
-	public extern var bClassRequiresNativeTick(get, never): Bool;
-	public inline extern function get_bClassRequiresNativeTick(): Bool return this.bClassRequiresNativeTick;
 	public extern var Bindings(get, never): TArray<DelegateRuntimeBinding>;
 	public inline extern function get_Bindings(): TArray<DelegateRuntimeBinding> return this.Bindings;
 	public extern var Animations(get, never): TArray<cpp.Star<WidgetAnimation.ConstWidgetAnimation>>;

@@ -3,11 +3,11 @@ package ue;
 
 @:native("EGeometryCollectionDebugDrawActorHideGeometry")
 @:include("GeometryCollection/GeometryCollectionDebugDrawActor.h")
-extern enum EGeometryCollectionDebugDrawActorHideGeometry {
-	HideNone;
-	HideWithCollision;
-	HideSelected;
-	HideWholeCollection;
-	HideAll;
-	EGeometryCollectionDebugDrawActorHideGeometry_MAX;
+extern class EGeometryCollectionDebugDrawActorHideGeometry {
+	static var HideNone: EGeometryCollectionDebugDrawActorHideGeometry;
+	static var HideWithCollision: EGeometryCollectionDebugDrawActorHideGeometry;
+	static var HideSelected: EGeometryCollectionDebugDrawActorHideGeometry;
+	static var HideWholeCollection: EGeometryCollectionDebugDrawActorHideGeometry;
+	static var HideAll: EGeometryCollectionDebugDrawActorHideGeometry;
+	static var EGeometryCollectionDebugDrawActorHideGeometry_MAX: EGeometryCollectionDebugDrawActorHideGeometry;
 }

@@ -11,10 +11,10 @@ extern class ActorGroupingUtils extends Object {
 	public function SetGroupingActive(bInGroupingActive: Bool): Void;
 	public function RemoveSelectedFromGroup(): Void;
 	public function LockSelectedGroups(): Void;
-	public function IsGroupingActive(): cpp.Reference<Bool>;
-	public function GroupSelected(): cpp.Reference<cpp.Star<GroupActor>>;
-	public function GroupActors(ActorsToGroup: cpp.Reference<TArray<cpp.Star<Actor>>>): cpp.Reference<cpp.Star<GroupActor>>;
-	public function Get(): cpp.Reference<cpp.Star<ActorGroupingUtils>>;
+	public function IsGroupingActive(): Bool;
+	public function GroupSelected(): cpp.Star<GroupActor>;
+	public function GroupActors(ActorsToGroup: cpp.Reference<TArray<cpp.Star<Actor>>>): cpp.Star<GroupActor>;
+	public function Get(): cpp.Star<ActorGroupingUtils>;
 	public function AddSelectedToGroup(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;

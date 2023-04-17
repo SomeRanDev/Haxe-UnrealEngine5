@@ -3,10 +3,10 @@ package ue;
 
 @:native("ENDICollisionQuery_AsyncGpuTraceProvider.Type")
 @:include("NiagaraSettings.h")
-extern enum ENDICollisionQuery_AsyncGpuTraceProvider {
-	Default;
-	HWRT;
-	GSDF;
-	None;
-	ENDICollisionQuery_MAX;
+extern class ENDICollisionQuery_AsyncGpuTraceProvider {
+	static var Default: ENDICollisionQuery_AsyncGpuTraceProvider;
+	static var HWRT: ENDICollisionQuery_AsyncGpuTraceProvider;
+	static var GSDF: ENDICollisionQuery_AsyncGpuTraceProvider;
+	static var None: ENDICollisionQuery_AsyncGpuTraceProvider;
+	static var ENDICollisionQuery_MAX: ENDICollisionQuery_AsyncGpuTraceProvider;
 }

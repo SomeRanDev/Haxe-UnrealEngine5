@@ -5,7 +5,7 @@ package ue;
 @:include("FractureTool.h")
 @:structAccess
 extern class FractureModalTool extends FractureActionTool {
-	public var VisualizedCollections: TArray<cpp.Star<GeometryCollectionComp>>;
+	@:protected public var VisualizedCollections: TArray<cpp.Star<GeometryCollectionComp>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class FractureModalTool extends FractureActionTool {
 @:forward()
 @:nativeGen
 abstract ConstFractureModalTool(FractureModalTool) from FractureModalTool {
-	public extern var VisualizedCollections(get, never): TArray<cpp.Star<GeometryCollectionComp.ConstGeometryCollectionComp>>;
-	public inline extern function get_VisualizedCollections(): TArray<cpp.Star<GeometryCollectionComp.ConstGeometryCollectionComp>> return this.VisualizedCollections;
 }
 
 @:forward

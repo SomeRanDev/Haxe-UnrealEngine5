@@ -3,8 +3,8 @@ package ue;
 
 @:native("EEditorGizmoCategory")
 @:include("EditorInteractiveGizmoRegistry.h")
-extern enum EEditorGizmoCategory {
-	Accessory;
-	Primary;
-	EEditorGizmoCategory_MAX;
+extern class EEditorGizmoCategory {
+	static var Accessory: EEditorGizmoCategory;
+	static var Primary: EEditorGizmoCategory;
+	static var EEditorGizmoCategory_MAX: EEditorGizmoCategory;
 }

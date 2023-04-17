@@ -3,10 +3,10 @@ package ue;
 
 @:native("EDebugTypeEnum")
 @:include("NiagaraDataInterfaceChaosDestruction.h")
-extern enum EDebugTypeEnum {
-	ChaosNiagara_DebugType_NoDebug;
-	ChaosNiagara_DebugType_ColorBySolver;
-	ChaosNiagara_DebugType_ColorByParticleIndex;
-	ChaosNiagara_Max;
-	ChaosNiagara_MAX;
+extern class EDebugTypeEnum {
+	static var ChaosNiagara_DebugType_NoDebug: EDebugTypeEnum;
+	static var ChaosNiagara_DebugType_ColorBySolver: EDebugTypeEnum;
+	static var ChaosNiagara_DebugType_ColorByParticleIndex: EDebugTypeEnum;
+	static var ChaosNiagara_Max: EDebugTypeEnum;
+	static var ChaosNiagara_MAX: EDebugTypeEnum;
 }

@@ -5,7 +5,7 @@ package ue;
 @:include("BaseTools/MultiSelectionMeshEditingTool.h")
 @:structAccess
 extern class MultiSelectionMeshEditingTool extends MultiSelectionTool {
-	public var TargetWorld: TWeakObjectPtr<World>;
+	@:protected public var TargetWorld: TWeakObjectPtr<World>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MultiSelectionMeshEditingTool extends MultiSelectionTool {
 @:forward()
 @:nativeGen
 abstract ConstMultiSelectionMeshEditingTool(MultiSelectionMeshEditingTool) from MultiSelectionMeshEditingTool {
-	public extern var TargetWorld(get, never): TWeakObjectPtr<World.ConstWorld>;
-	public inline extern function get_TargetWorld(): TWeakObjectPtr<World.ConstWorld> return this.TargetWorld;
 }
 
 @:forward

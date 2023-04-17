@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESnapshotSourceMode")
 @:include("AnimNodes/AnimNode_PoseSnapshot.h")
-extern enum ESnapshotSourceMode {
-	NamedSnapshot;
-	SnapshotPin;
-	ESnapshotSourceMode_MAX;
+extern class ESnapshotSourceMode {
+	static var NamedSnapshot: ESnapshotSourceMode;
+	static var SnapshotPin: ESnapshotSourceMode;
+	static var ESnapshotSourceMode_MAX: ESnapshotSourceMode;
 }

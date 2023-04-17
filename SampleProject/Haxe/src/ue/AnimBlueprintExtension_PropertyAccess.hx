@@ -5,7 +5,7 @@ package ue;
 @:include("AnimBlueprintExtension_PropertyAccess.h")
 @:structAccess
 extern class AnimBlueprintExtension_PropertyAccess extends AnimBlueprintExtension {
-	public var Subsystem: AnimSubsystem_PropertyAccess;
+	private var Subsystem: AnimSubsystem_PropertyAccess;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class AnimBlueprintExtension_PropertyAccess extends AnimBlueprintExtensio
 @:forward()
 @:nativeGen
 abstract ConstAnimBlueprintExtension_PropertyAccess(AnimBlueprintExtension_PropertyAccess) from AnimBlueprintExtension_PropertyAccess {
-	public extern var Subsystem(get, never): AnimSubsystem_PropertyAccess;
-	public inline extern function get_Subsystem(): AnimSubsystem_PropertyAccess return this.Subsystem;
 }
 
 @:forward

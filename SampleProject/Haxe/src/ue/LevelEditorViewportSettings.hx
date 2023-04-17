@@ -5,7 +5,7 @@ package ue;
 @:include("Settings/LevelEditorViewportSettings.h")
 @:structAccess
 extern class LevelEditorViewportSettings extends Object {
-	public var FlightCameraControlType: EWASDType;
+	public var FlightCameraControlType: TEnumAsByte<EWASDType>;
 	public var FlightCameraControlExperimentalNavigation: Bool;
 	public var LandscapeEditorControlType: ELandscapeFoliageEditorControlType;
 	public var FoliageEditorControlType: ELandscapeFoliageEditorControlType;
@@ -44,7 +44,7 @@ extern class LevelEditorViewportSettings extends Object {
 	public var RotGridEnabled: Bool;
 	public var SnapScaleEnabled: Bool;
 	public var SnapToSurface: SnapToSurfaceSettings;
-	public var bUsePercentageBasedScaling: Bool;
+	private var bUsePercentageBasedScaling: Bool;
 	public var bEnableLayerSnap: Bool;
 	public var ActiveSnapLayerIndex: cpp.Int32;
 	public var bEnableActorSnap: Bool;
@@ -56,8 +56,8 @@ extern class LevelEditorViewportSettings extends Object {
 	public var CurrentRotGridSize: cpp.Int32;
 	public var CurrentScalingGridSize: cpp.Int32;
 	public var PreserveNonUniformScale: Bool;
-	public var CurrentRotGridMode: ERotationGridMode;
-	public var AspectRatioAxisConstraint: EAspectRatioAxisConstraint;
+	public var CurrentRotGridMode: TEnumAsByte<ERotationGridMode>;
+	public var AspectRatioAxisConstraint: TEnumAsByte<EAspectRatioAxisConstraint>;
 	public var bEnableViewportHoverFeedback: Bool;
 	public var bHighlightWithBrackets: Bool;
 	public var bUseLinkedOrthographicViewports: Bool;
@@ -74,13 +74,13 @@ extern class LevelEditorViewportSettings extends Object {
 	public var BillboardScale: cpp.Float32;
 	public var TransformWidgetSizeAdjustment: cpp.Int32;
 	public var bSaveEngineStats: Bool;
-	public var MeasuringToolUnits: EMeasuringToolUnits;
+	public var MeasuringToolUnits: TEnumAsByte<EMeasuringToolUnits>;
 	public var SelectedSplinePointSizeAdjustment: cpp.Float32;
 	public var SplineLineThicknessAdjustment: cpp.Float32;
 	public var SplineTangentHandleSizeAdjustment: cpp.Float32;
 	public var SplineTangentScale: cpp.Float32;
 	public var LastInViewportMenuLocation: Vector2D;
-	public var PerInstanceSettings: TArray<LevelEditorViewportInstanceSettingsKeyValuePair>;
+	private var PerInstanceSettings: TArray<LevelEditorViewportInstanceSettingsKeyValuePair>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -88,8 +88,8 @@ extern class LevelEditorViewportSettings extends Object {
 @:forward()
 @:nativeGen
 abstract ConstLevelEditorViewportSettings(LevelEditorViewportSettings) from LevelEditorViewportSettings {
-	public extern var FlightCameraControlType(get, never): EWASDType;
-	public inline extern function get_FlightCameraControlType(): EWASDType return this.FlightCameraControlType;
+	public extern var FlightCameraControlType(get, never): TEnumAsByte<EWASDType>;
+	public inline extern function get_FlightCameraControlType(): TEnumAsByte<EWASDType> return this.FlightCameraControlType;
 	public extern var FlightCameraControlExperimentalNavigation(get, never): Bool;
 	public inline extern function get_FlightCameraControlExperimentalNavigation(): Bool return this.FlightCameraControlExperimentalNavigation;
 	public extern var LandscapeEditorControlType(get, never): ELandscapeFoliageEditorControlType;
@@ -166,8 +166,6 @@ abstract ConstLevelEditorViewportSettings(LevelEditorViewportSettings) from Leve
 	public inline extern function get_SnapScaleEnabled(): Bool return this.SnapScaleEnabled;
 	public extern var SnapToSurface(get, never): SnapToSurfaceSettings;
 	public inline extern function get_SnapToSurface(): SnapToSurfaceSettings return this.SnapToSurface;
-	public extern var bUsePercentageBasedScaling(get, never): Bool;
-	public inline extern function get_bUsePercentageBasedScaling(): Bool return this.bUsePercentageBasedScaling;
 	public extern var bEnableLayerSnap(get, never): Bool;
 	public inline extern function get_bEnableLayerSnap(): Bool return this.bEnableLayerSnap;
 	public extern var ActiveSnapLayerIndex(get, never): cpp.Int32;
@@ -190,10 +188,10 @@ abstract ConstLevelEditorViewportSettings(LevelEditorViewportSettings) from Leve
 	public inline extern function get_CurrentScalingGridSize(): cpp.Int32 return this.CurrentScalingGridSize;
 	public extern var PreserveNonUniformScale(get, never): Bool;
 	public inline extern function get_PreserveNonUniformScale(): Bool return this.PreserveNonUniformScale;
-	public extern var CurrentRotGridMode(get, never): ERotationGridMode;
-	public inline extern function get_CurrentRotGridMode(): ERotationGridMode return this.CurrentRotGridMode;
-	public extern var AspectRatioAxisConstraint(get, never): EAspectRatioAxisConstraint;
-	public inline extern function get_AspectRatioAxisConstraint(): EAspectRatioAxisConstraint return this.AspectRatioAxisConstraint;
+	public extern var CurrentRotGridMode(get, never): TEnumAsByte<ERotationGridMode>;
+	public inline extern function get_CurrentRotGridMode(): TEnumAsByte<ERotationGridMode> return this.CurrentRotGridMode;
+	public extern var AspectRatioAxisConstraint(get, never): TEnumAsByte<EAspectRatioAxisConstraint>;
+	public inline extern function get_AspectRatioAxisConstraint(): TEnumAsByte<EAspectRatioAxisConstraint> return this.AspectRatioAxisConstraint;
 	public extern var bEnableViewportHoverFeedback(get, never): Bool;
 	public inline extern function get_bEnableViewportHoverFeedback(): Bool return this.bEnableViewportHoverFeedback;
 	public extern var bHighlightWithBrackets(get, never): Bool;
@@ -226,8 +224,8 @@ abstract ConstLevelEditorViewportSettings(LevelEditorViewportSettings) from Leve
 	public inline extern function get_TransformWidgetSizeAdjustment(): cpp.Int32 return this.TransformWidgetSizeAdjustment;
 	public extern var bSaveEngineStats(get, never): Bool;
 	public inline extern function get_bSaveEngineStats(): Bool return this.bSaveEngineStats;
-	public extern var MeasuringToolUnits(get, never): EMeasuringToolUnits;
-	public inline extern function get_MeasuringToolUnits(): EMeasuringToolUnits return this.MeasuringToolUnits;
+	public extern var MeasuringToolUnits(get, never): TEnumAsByte<EMeasuringToolUnits>;
+	public inline extern function get_MeasuringToolUnits(): TEnumAsByte<EMeasuringToolUnits> return this.MeasuringToolUnits;
 	public extern var SelectedSplinePointSizeAdjustment(get, never): cpp.Float32;
 	public inline extern function get_SelectedSplinePointSizeAdjustment(): cpp.Float32 return this.SelectedSplinePointSizeAdjustment;
 	public extern var SplineLineThicknessAdjustment(get, never): cpp.Float32;
@@ -238,8 +236,6 @@ abstract ConstLevelEditorViewportSettings(LevelEditorViewportSettings) from Leve
 	public inline extern function get_SplineTangentScale(): cpp.Float32 return this.SplineTangentScale;
 	public extern var LastInViewportMenuLocation(get, never): Vector2D;
 	public inline extern function get_LastInViewportMenuLocation(): Vector2D return this.LastInViewportMenuLocation;
-	public extern var PerInstanceSettings(get, never): TArray<LevelEditorViewportInstanceSettingsKeyValuePair>;
-	public inline extern function get_PerInstanceSettings(): TArray<LevelEditorViewportInstanceSettingsKeyValuePair> return this.PerInstanceSettings;
 }
 
 @:forward

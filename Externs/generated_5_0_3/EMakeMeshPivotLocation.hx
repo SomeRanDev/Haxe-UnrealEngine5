@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMakeMeshPivotLocation")
 @:include("AddPrimitiveTool.h")
-extern enum EMakeMeshPivotLocation {
-	Base;
-	Centered;
-	Top;
-	EMakeMeshPivotLocation_MAX;
+extern class EMakeMeshPivotLocation {
+	static var Base: EMakeMeshPivotLocation;
+	static var Centered: EMakeMeshPivotLocation;
+	static var Top: EMakeMeshPivotLocation;
+	static var EMakeMeshPivotLocation_MAX: EMakeMeshPivotLocation;
 }

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EProceduralSphereType")
 @:include("AddPrimitiveTool.h")
-extern enum EProceduralSphereType {
-	LatLong;
-	Box;
-	EProceduralSphereType_MAX;
+extern class EProceduralSphereType {
+	static var LatLong: EProceduralSphereType;
+	static var Box: EProceduralSphereType;
+	static var EProceduralSphereType_MAX: EProceduralSphereType;
 }

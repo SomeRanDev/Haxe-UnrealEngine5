@@ -3,10 +3,10 @@ package ue;
 
 @:native("EMovieSceneCaptureProtocolState")
 @:include("MovieSceneCaptureProtocolBase.h")
-extern enum EMovieSceneCaptureProtocolState {
-	Idle;
-	Initialized;
-	Capturing;
-	Finalizing;
-	EMovieSceneCaptureProtocolState_MAX;
+extern class EMovieSceneCaptureProtocolState {
+	static var Idle: EMovieSceneCaptureProtocolState;
+	static var Initialized: EMovieSceneCaptureProtocolState;
+	static var Capturing: EMovieSceneCaptureProtocolState;
+	static var Finalizing: EMovieSceneCaptureProtocolState;
+	static var EMovieSceneCaptureProtocolState_MAX: EMovieSceneCaptureProtocolState;
 }

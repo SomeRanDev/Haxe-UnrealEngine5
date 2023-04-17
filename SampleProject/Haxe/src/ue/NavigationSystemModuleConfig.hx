@@ -5,10 +5,10 @@ package ue;
 @:include("NavigationSystem.h")
 @:structAccess
 extern class NavigationSystemModuleConfig extends NavigationSystemConfig {
-	public var bStrictlyStatic: Bool;
-	public var bCreateOnClient: Bool;
-	public var bAutoSpawnMissingNavData: Bool;
-	public var bSpawnNavDataInNavBoundsLevel: Bool;
+	@:protected public var bStrictlyStatic: Bool;
+	@:protected public var bCreateOnClient: Bool;
+	@:protected public var bAutoSpawnMissingNavData: Bool;
+	@:protected public var bSpawnNavDataInNavBoundsLevel: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class NavigationSystemModuleConfig extends NavigationSystemConfig {
 @:forward()
 @:nativeGen
 abstract ConstNavigationSystemModuleConfig(NavigationSystemModuleConfig) from NavigationSystemModuleConfig {
-	public extern var bStrictlyStatic(get, never): Bool;
-	public inline extern function get_bStrictlyStatic(): Bool return this.bStrictlyStatic;
-	public extern var bCreateOnClient(get, never): Bool;
-	public inline extern function get_bCreateOnClient(): Bool return this.bCreateOnClient;
-	public extern var bAutoSpawnMissingNavData(get, never): Bool;
-	public inline extern function get_bAutoSpawnMissingNavData(): Bool return this.bAutoSpawnMissingNavData;
-	public extern var bSpawnNavDataInNavBoundsLevel(get, never): Bool;
-	public inline extern function get_bSpawnNavDataInNavBoundsLevel(): Bool return this.bSpawnNavDataInNavBoundsLevel;
 }
 
 @:forward

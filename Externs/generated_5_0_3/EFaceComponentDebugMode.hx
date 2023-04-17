@@ -3,9 +3,9 @@ package ue;
 
 @:native("EFaceComponentDebugMode")
 @:include("ARComponent.h")
-extern enum EFaceComponentDebugMode {
-	None;
-	ShowEyeVectors;
-	ShowFaceMesh;
-	EFaceComponentDebugMode_MAX;
+extern class EFaceComponentDebugMode {
+	static var None: EFaceComponentDebugMode;
+	static var ShowEyeVectors: EFaceComponentDebugMode;
+	static var ShowFaceMesh: EFaceComponentDebugMode;
+	static var EFaceComponentDebugMode_MAX: EFaceComponentDebugMode;
 }

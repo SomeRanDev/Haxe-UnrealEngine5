@@ -3,10 +3,10 @@ package ue;
 
 @:native("EBeaconConnectionState")
 @:include("OnlineBeaconClient.h")
-extern enum EBeaconConnectionState {
-	Invalid;
-	Closed;
-	Pending;
-	Open;
-	EBeaconConnectionState_MAX;
+extern class EBeaconConnectionState {
+	static var Invalid: EBeaconConnectionState;
+	static var Closed: EBeaconConnectionState;
+	static var Pending: EBeaconConnectionState;
+	static var Open: EBeaconConnectionState;
+	static var EBeaconConnectionState_MAX: EBeaconConnectionState;
 }

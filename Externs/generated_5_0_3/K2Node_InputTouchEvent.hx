@@ -5,7 +5,7 @@ package ue;
 @:include("K2Node_InputTouchEvent.h")
 @:structAccess
 extern class K2Node_InputTouchEvent extends K2Node_Event {
-	public var InputKeyEvent: EInputEvent;
+	public var InputKeyEvent: TEnumAsByte<EInputEvent>;
 	public var bConsumeInput: Bool;
 	public var bExecuteWhenPaused: Bool;
 	public var bOverrideParentBinding: Bool;
@@ -16,8 +16,8 @@ extern class K2Node_InputTouchEvent extends K2Node_Event {
 @:forward()
 @:nativeGen
 abstract ConstK2Node_InputTouchEvent(K2Node_InputTouchEvent) from K2Node_InputTouchEvent {
-	public extern var InputKeyEvent(get, never): EInputEvent;
-	public inline extern function get_InputKeyEvent(): EInputEvent return this.InputKeyEvent;
+	public extern var InputKeyEvent(get, never): TEnumAsByte<EInputEvent>;
+	public inline extern function get_InputKeyEvent(): TEnumAsByte<EInputEvent> return this.InputKeyEvent;
 	public extern var bConsumeInput(get, never): Bool;
 	public inline extern function get_bConsumeInput(): Bool return this.bConsumeInput;
 	public extern var bExecuteWhenPaused(get, never): Bool;

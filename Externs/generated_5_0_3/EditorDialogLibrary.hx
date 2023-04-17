@@ -5,10 +5,10 @@ package ue;
 @:include("EditorDialogLibrary.h")
 @:structAccess
 extern class EditorDialogLibrary extends BlueprintFunctionLibrary {
-	public function ShowSuppressableWarningDialog(Title: cpp.Reference<FText>, Message: cpp.Reference<FText>, InIniSettingName: FString, InIniSettingFileNameOverride: FString, bDefaultValue: Bool): cpp.Reference<Bool>;
-	public function ShowObjectsDetailsView(Title: cpp.Reference<FText>, InOutObjects: cpp.Reference<TArray<cpp.Star<Object>>>, Options: cpp.Reference<EditorDialogLibraryObjectDetailsViewOptions>): cpp.Reference<Bool>;
-	public function ShowObjectDetailsView(Title: cpp.Reference<FText>, InOutObject: cpp.Star<Object>, Options: cpp.Reference<EditorDialogLibraryObjectDetailsViewOptions>): cpp.Reference<Bool>;
-	public function ShowMessage(Title: cpp.Reference<FText>, Message: cpp.Reference<FText>, MessageType: EAppMsgType, DefaultValue: EAppReturnType): cpp.Reference<EAppReturnType>;
+	public function ShowSuppressableWarningDialog(Title: cpp.Reference<FText>, Message: cpp.Reference<FText>, InIniSettingName: FString, InIniSettingFileNameOverride: FString, bDefaultValue: Bool): Bool;
+	public function ShowObjectsDetailsView(Title: cpp.Reference<FText>, InOutObjects: cpp.Reference<TArray<cpp.Star<Object>>>, Options: cpp.Reference<EditorDialogLibraryObjectDetailsViewOptions>): Bool;
+	public function ShowObjectDetailsView(Title: cpp.Reference<FText>, InOutObject: cpp.Star<Object>, Options: cpp.Reference<EditorDialogLibraryObjectDetailsViewOptions>): Bool;
+	public function ShowMessage(Title: cpp.Reference<FText>, Message: cpp.Reference<FText>, MessageType: TEnumAsByte<EAppMsgType>, DefaultValue: TEnumAsByte<EAppReturnType>): TEnumAsByte<EAppReturnType>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

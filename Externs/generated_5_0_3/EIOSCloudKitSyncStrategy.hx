@@ -3,9 +3,9 @@ package ue;
 
 @:native("EIOSCloudKitSyncStrategy")
 @:include("IOSRuntimeSettings.h")
-extern enum EIOSCloudKitSyncStrategy {
-	None;
-	OnlyAtGameStart;
-	Always;
-	EIOSCloudKitSyncStrategy_MAX;
+extern class EIOSCloudKitSyncStrategy {
+	static var None: EIOSCloudKitSyncStrategy;
+	static var OnlyAtGameStart: EIOSCloudKitSyncStrategy;
+	static var Always: EIOSCloudKitSyncStrategy;
+	static var EIOSCloudKitSyncStrategy_MAX: EIOSCloudKitSyncStrategy;
 }

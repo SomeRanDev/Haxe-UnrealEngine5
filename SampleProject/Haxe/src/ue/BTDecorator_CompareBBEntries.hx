@@ -5,9 +5,9 @@ package ue;
 @:include("BehaviorTree/Decorators/BTDecorator_CompareBBEntries.h")
 @:structAccess
 extern class BTDecorator_CompareBBEntries extends BTDecorator {
-	public var Operator: EBlackBoardEntryComparison;
-	public var BlackboardKeyA: BlackboardKeySelector;
-	public var BlackboardKeyB: BlackboardKeySelector;
+	@:protected public var Operator: TEnumAsByte<EBlackBoardEntryComparison>;
+	@:protected public var BlackboardKeyA: BlackboardKeySelector;
+	@:protected public var BlackboardKeyB: BlackboardKeySelector;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class BTDecorator_CompareBBEntries extends BTDecorator {
 @:forward()
 @:nativeGen
 abstract ConstBTDecorator_CompareBBEntries(BTDecorator_CompareBBEntries) from BTDecorator_CompareBBEntries {
-	public extern var Operator(get, never): EBlackBoardEntryComparison;
-	public inline extern function get_Operator(): EBlackBoardEntryComparison return this.Operator;
-	public extern var BlackboardKeyA(get, never): BlackboardKeySelector;
-	public inline extern function get_BlackboardKeyA(): BlackboardKeySelector return this.BlackboardKeyA;
-	public extern var BlackboardKeyB(get, never): BlackboardKeySelector;
-	public inline extern function get_BlackboardKeyB(): BlackboardKeySelector return this.BlackboardKeyB;
 }
 
 @:forward

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EARTrackingState")
 @:include("ARTypes.h")
-extern enum EARTrackingState {
-	Unknown;
-	Tracking;
-	NotTracking;
-	StoppedTracking;
-	EARTrackingState_MAX;
+extern class EARTrackingState {
+	static var Unknown: EARTrackingState;
+	static var Tracking: EARTrackingState;
+	static var NotTracking: EARTrackingState;
+	static var StoppedTracking: EARTrackingState;
+	static var EARTrackingState_MAX: EARTrackingState;
 }

@@ -3,11 +3,11 @@ package ue;
 
 @:native("EFontHinting")
 @:include("Fonts/CompositeFont.h")
-extern enum EFontHinting {
-	Default;
-	Auto;
-	AutoLight;
-	Monochrome;
-	None;
-	EFontHinting_MAX;
+extern class EFontHinting {
+	static var Default: EFontHinting;
+	static var Auto: EFontHinting;
+	static var AutoLight: EFontHinting;
+	static var Monochrome: EFontHinting;
+	static var None: EFontHinting;
+	static var EFontHinting_MAX: EFontHinting;
 }

@@ -10,8 +10,8 @@ extern class UserDefinedImageCaptureProtocol extends UserDefinedCaptureProtocol 
 	public var CompressionQuality: cpp.Int32;
 
 	public function WriteImageToDisk(PixelData: cpp.Reference<CapturedPixels>, StreamID: cpp.Reference<CapturedPixelsID>, FrameMetrics: cpp.Reference<FrameMetrics>, bCopyImageData: Bool): Void;
-	public function GenerateFilenameForCurrentFrame(): cpp.Reference<FString>;
-	public function GenerateFilenameForBuffer(Buffer: cpp.Star<Texture>, StreamID: cpp.Reference<CapturedPixelsID>): cpp.Reference<FString>;
+	public function GenerateFilenameForCurrentFrame(): FString;
+	public function GenerateFilenameForBuffer(Buffer: cpp.Star<Texture>, StreamID: cpp.Reference<CapturedPixelsID>): FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

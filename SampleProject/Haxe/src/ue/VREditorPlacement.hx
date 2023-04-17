@@ -5,10 +5,10 @@ package ue;
 @:include("VREditorPlacement.h")
 @:structAccess
 extern class VREditorPlacement extends Object {
-	public var VRMode: cpp.Star<VREditorMode>;
-	public var ViewportWorldInteraction: cpp.Star<ViewportWorldInteraction>;
-	public var FloatingUIAssetDraggedFrom: cpp.Star<WidgetComp>;
-	public var PlacingMaterialOrTextureAsset: cpp.Star<Object>;
+	@:protected public var VRMode: cpp.Star<VREditorMode>;
+	@:protected public var ViewportWorldInteraction: cpp.Star<ViewportWorldInteraction>;
+	@:protected public var FloatingUIAssetDraggedFrom: cpp.Star<WidgetComp>;
+	@:protected public var PlacingMaterialOrTextureAsset: cpp.Star<Object>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class VREditorPlacement extends Object {
 @:forward()
 @:nativeGen
 abstract ConstVREditorPlacement(VREditorPlacement) from VREditorPlacement {
-	public extern var VRMode(get, never): cpp.Star<VREditorMode.ConstVREditorMode>;
-	public inline extern function get_VRMode(): cpp.Star<VREditorMode.ConstVREditorMode> return this.VRMode;
-	public extern var ViewportWorldInteraction(get, never): cpp.Star<ViewportWorldInteraction.ConstViewportWorldInteraction>;
-	public inline extern function get_ViewportWorldInteraction(): cpp.Star<ViewportWorldInteraction.ConstViewportWorldInteraction> return this.ViewportWorldInteraction;
-	public extern var FloatingUIAssetDraggedFrom(get, never): cpp.Star<WidgetComp.ConstWidgetComp>;
-	public inline extern function get_FloatingUIAssetDraggedFrom(): cpp.Star<WidgetComp.ConstWidgetComp> return this.FloatingUIAssetDraggedFrom;
-	public extern var PlacingMaterialOrTextureAsset(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_PlacingMaterialOrTextureAsset(): cpp.Star<Object.ConstObject> return this.PlacingMaterialOrTextureAsset;
 }
 
 @:forward

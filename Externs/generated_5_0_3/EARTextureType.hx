@@ -3,14 +3,14 @@ package ue;
 
 @:native("EARTextureType")
 @:include("ARTextures.h")
-extern enum EARTextureType {
-	Unknown;
-	CameraImage;
-	CameraDepth;
-	EnvironmentCapture;
-	PersonSegmentationImage;
-	PersonSegmentationDepth;
-	SceneDepthMap;
-	SceneDepthConfidenceMap;
-	EARTextureType_MAX;
+extern class EARTextureType {
+	static var Unknown: EARTextureType;
+	static var CameraImage: EARTextureType;
+	static var CameraDepth: EARTextureType;
+	static var EnvironmentCapture: EARTextureType;
+	static var PersonSegmentationImage: EARTextureType;
+	static var PersonSegmentationDepth: EARTextureType;
+	static var SceneDepthMap: EARTextureType;
+	static var SceneDepthConfidenceMap: EARTextureType;
+	static var EARTextureType_MAX: EARTextureType;
 }

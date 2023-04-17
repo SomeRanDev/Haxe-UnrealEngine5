@@ -5,12 +5,12 @@ package ue;
 @:include("Animation/PoseAsset.h")
 @:structAccess
 extern class PoseDataContainer {
-	public var PoseNames: TArray<SmartName>;
-	public var Tracks: TArray<FName>;
-	public var TrackBoneIndices: TArray<cpp.Int32>;
-	public var TrackPoseInfluenceIndices: TArray<PoseAssetInfluences>;
-	public var Poses: TArray<PoseData>;
-	public var Curves: TArray<AnimCurveBase>;
+	private var PoseNames: TArray<SmartName>;
+	private var Tracks: TArray<FName>;
+	private var TrackBoneIndices: TArray<cpp.Int32>;
+	private var TrackPoseInfluenceIndices: TArray<PoseAssetInfluences>;
+	private var Poses: TArray<PoseData>;
+	private var Curves: TArray<AnimCurveBase>;
 
 	@:native("FPoseDataContainer") public function new();
 }

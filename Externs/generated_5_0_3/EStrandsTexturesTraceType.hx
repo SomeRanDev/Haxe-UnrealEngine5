@@ -3,9 +3,9 @@ package ue;
 
 @:native("EStrandsTexturesTraceType")
 @:include("GroomCreateStrandsTexturesOptions.h")
-extern enum EStrandsTexturesTraceType {
-	TraceInside;
-	TraceOuside;
-	TraceBidirectional;
-	EStrandsTexturesTraceType_MAX;
+extern class EStrandsTexturesTraceType {
+	static var TraceInside: EStrandsTexturesTraceType;
+	static var TraceOuside: EStrandsTexturesTraceType;
+	static var TraceBidirectional: EStrandsTexturesTraceType;
+	static var EStrandsTexturesTraceType_MAX: EStrandsTexturesTraceType;
 }

@@ -3,8 +3,8 @@ package ue;
 
 @:native("ETwoPlayerSplitScreenType.Type")
 @:include("GameMapsSettings.h")
-extern enum ETwoPlayerSplitScreenType {
-	Horizontal;
-	Vertical;
-	ETwoPlayerSplitScreenType_MAX;
+extern class ETwoPlayerSplitScreenType {
+	static var Horizontal: ETwoPlayerSplitScreenType;
+	static var Vertical: ETwoPlayerSplitScreenType;
+	static var ETwoPlayerSplitScreenType_MAX: ETwoPlayerSplitScreenType;
 }

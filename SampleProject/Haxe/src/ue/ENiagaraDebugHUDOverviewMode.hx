@@ -3,10 +3,10 @@ package ue;
 
 @:native("ENiagaraDebugHUDOverviewMode")
 @:include("NiagaraDebuggerCommon.h")
-extern enum ENiagaraDebugHUDOverviewMode {
-	Overview;
-	Scalability;
-	Performance;
-	GpuComputePerformance;
-	ENiagaraDebugHUDOverviewMode_MAX;
+extern class ENiagaraDebugHUDOverviewMode {
+	static var Overview: ENiagaraDebugHUDOverviewMode;
+	static var Scalability: ENiagaraDebugHUDOverviewMode;
+	static var Performance: ENiagaraDebugHUDOverviewMode;
+	static var GpuComputePerformance: ENiagaraDebugHUDOverviewMode;
+	static var ENiagaraDebugHUDOverviewMode_MAX: ENiagaraDebugHUDOverviewMode;
 }

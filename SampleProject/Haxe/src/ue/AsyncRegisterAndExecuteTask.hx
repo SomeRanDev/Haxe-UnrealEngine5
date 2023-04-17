@@ -7,7 +7,7 @@ package ue;
 extern class AsyncRegisterAndExecuteTask extends BlueprintAsyncActionBase {
 	public var OnFinished: HaxeMulticastSparseDelegateProperty<(cpp.Star<EditorUtilityTask>) -> Void>;
 
-	public function RegisterAndExecuteTask(Task: cpp.Star<EditorUtilityTask>, OptionalParentTask: cpp.Star<EditorUtilityTask>): cpp.Reference<cpp.Star<AsyncRegisterAndExecuteTask>>;
+	public function RegisterAndExecuteTask(Task: cpp.Star<EditorUtilityTask>, OptionalParentTask: cpp.Star<EditorUtilityTask>): cpp.Star<AsyncRegisterAndExecuteTask>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

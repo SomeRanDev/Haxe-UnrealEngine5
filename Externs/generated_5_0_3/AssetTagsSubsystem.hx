@@ -5,29 +5,29 @@ package ue;
 @:include("AssetTagsSubsystem.h")
 @:structAccess
 extern class AssetTagsSubsystem extends EngineSubsystem {
-	public function ReparentCollection(Name: FName, NewParentName: FName): cpp.Reference<Bool>;
-	public function RenameCollection(Name: FName, NewName: FName): cpp.Reference<Bool>;
-	public function RemoveAssetsFromCollection(Name: FName, AssetPathNames: cpp.Reference<TArray<FName>>): cpp.Reference<Bool>;
-	public function RemoveAssetPtrsFromCollection(Name: FName, AssetPtrs: cpp.Reference<TArray<cpp.Star<Object>>>): cpp.Reference<Bool>;
-	public function RemoveAssetPtrFromCollection(Name: FName, AssetPtr: cpp.Star<Object.ConstObject>): cpp.Reference<Bool>;
-	public function RemoveAssetFromCollection(Name: FName, AssetPathName: FName): cpp.Reference<Bool>;
-	public function RemoveAssetDatasFromCollection(Name: FName, AssetDatas: cpp.Reference<TArray<AssetData>>): cpp.Reference<Bool>;
-	public function RemoveAssetDataFromCollection(Name: FName, AssetData: cpp.Reference<AssetData>): cpp.Reference<Bool>;
-	public function GetCollectionsContainingAssetPtr(AssetPtr: cpp.Star<Object.ConstObject>): cpp.Reference<TArray<FName>>;
-	public function GetCollectionsContainingAssetData(AssetData: cpp.Reference<AssetData>): cpp.Reference<TArray<FName>>;
-	public function GetCollectionsContainingAsset(AssetPathName: FName): cpp.Reference<TArray<FName>>;
-	public function GetCollections(): cpp.Reference<TArray<FName>>;
-	public function GetAssetsInCollection(Name: FName): cpp.Reference<TArray<AssetData>>;
-	public function EmptyCollection(Name: FName): cpp.Reference<Bool>;
-	public function DestroyCollection(Name: FName): cpp.Reference<Bool>;
-	public function CreateCollection(Name: FName, ShareType: ECollectionScriptingShareType): cpp.Reference<Bool>;
-	public function CollectionExists(Name: FName): cpp.Reference<Bool>;
-	public function AddAssetToCollection(Name: FName, AssetPathName: FName): cpp.Reference<Bool>;
-	public function AddAssetsToCollection(Name: FName, AssetPathNames: cpp.Reference<TArray<FName>>): cpp.Reference<Bool>;
-	public function AddAssetPtrToCollection(Name: FName, AssetPtr: cpp.Star<Object.ConstObject>): cpp.Reference<Bool>;
-	public function AddAssetPtrsToCollection(Name: FName, AssetPtrs: cpp.Reference<TArray<cpp.Star<Object>>>): cpp.Reference<Bool>;
-	public function AddAssetDataToCollection(Name: FName, AssetData: cpp.Reference<AssetData>): cpp.Reference<Bool>;
-	public function AddAssetDatasToCollection(Name: FName, AssetDatas: cpp.Reference<TArray<AssetData>>): cpp.Reference<Bool>;
+	public function ReparentCollection(Name: FName, NewParentName: FName): Bool;
+	public function RenameCollection(Name: FName, NewName: FName): Bool;
+	public function RemoveAssetsFromCollection(Name: FName, AssetPathNames: cpp.Reference<TArray<FName>>): Bool;
+	public function RemoveAssetPtrsFromCollection(Name: FName, AssetPtrs: cpp.Reference<TArray<cpp.Star<Object>>>): Bool;
+	public function RemoveAssetPtrFromCollection(Name: FName, AssetPtr: cpp.Star<Object.ConstObject>): Bool;
+	public function RemoveAssetFromCollection(Name: FName, AssetPathName: FName): Bool;
+	public function RemoveAssetDatasFromCollection(Name: FName, AssetDatas: cpp.Reference<TArray<AssetData>>): Bool;
+	public function RemoveAssetDataFromCollection(Name: FName, AssetData: cpp.Reference<AssetData>): Bool;
+	public function GetCollectionsContainingAssetPtr(AssetPtr: cpp.Star<Object.ConstObject>): TArray<FName>;
+	public function GetCollectionsContainingAssetData(AssetData: cpp.Reference<AssetData>): TArray<FName>;
+	public function GetCollectionsContainingAsset(AssetPathName: FName): TArray<FName>;
+	public function GetCollections(): TArray<FName>;
+	public function GetAssetsInCollection(Name: FName): TArray<AssetData>;
+	public function EmptyCollection(Name: FName): Bool;
+	public function DestroyCollection(Name: FName): Bool;
+	public function CreateCollection(Name: FName, ShareType: ECollectionScriptingShareType): Bool;
+	public function CollectionExists(Name: FName): Bool;
+	public function AddAssetToCollection(Name: FName, AssetPathName: FName): Bool;
+	public function AddAssetsToCollection(Name: FName, AssetPathNames: cpp.Reference<TArray<FName>>): Bool;
+	public function AddAssetPtrToCollection(Name: FName, AssetPtr: cpp.Star<Object.ConstObject>): Bool;
+	public function AddAssetPtrsToCollection(Name: FName, AssetPtrs: cpp.Reference<TArray<cpp.Star<Object>>>): Bool;
+	public function AddAssetDataToCollection(Name: FName, AssetData: cpp.Reference<AssetData>): Bool;
+	public function AddAssetDatasToCollection(Name: FName, AssetDatas: cpp.Reference<TArray<AssetData>>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

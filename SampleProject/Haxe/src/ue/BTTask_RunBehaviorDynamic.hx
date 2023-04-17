@@ -5,9 +5,9 @@ package ue;
 @:include("BehaviorTree/Tasks/BTTask_RunBehaviorDynamic.h")
 @:structAccess
 extern class BTTask_RunBehaviorDynamic extends BTTaskNode {
-	public var InjectionTag: GameplayTag;
-	public var DefaultBehaviorAsset: cpp.Star<BehaviorTree>;
-	public var BehaviorAsset: cpp.Star<BehaviorTree>;
+	@:protected public var InjectionTag: GameplayTag;
+	@:protected public var DefaultBehaviorAsset: cpp.Star<BehaviorTree>;
+	@:protected public var BehaviorAsset: cpp.Star<BehaviorTree>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class BTTask_RunBehaviorDynamic extends BTTaskNode {
 @:forward()
 @:nativeGen
 abstract ConstBTTask_RunBehaviorDynamic(BTTask_RunBehaviorDynamic) from BTTask_RunBehaviorDynamic {
-	public extern var InjectionTag(get, never): GameplayTag;
-	public inline extern function get_InjectionTag(): GameplayTag return this.InjectionTag;
-	public extern var DefaultBehaviorAsset(get, never): cpp.Star<BehaviorTree.ConstBehaviorTree>;
-	public inline extern function get_DefaultBehaviorAsset(): cpp.Star<BehaviorTree.ConstBehaviorTree> return this.DefaultBehaviorAsset;
-	public extern var BehaviorAsset(get, never): cpp.Star<BehaviorTree.ConstBehaviorTree>;
-	public inline extern function get_BehaviorAsset(): cpp.Star<BehaviorTree.ConstBehaviorTree> return this.BehaviorAsset;
 }
 
 @:forward

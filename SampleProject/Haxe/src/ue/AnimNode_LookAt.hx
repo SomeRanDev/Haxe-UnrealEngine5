@@ -10,17 +10,11 @@ extern class AnimNode_LookAt extends AnimNode_SkeletalControlBase {
 	public var LookAtLocation: Vector;
 	public var LookAt_Axis: Axis;
 	public var bUseLookUpAxis: Bool;
-	public var InterpolationType: EInterpolationBlend;
+	public var InterpolationType: TEnumAsByte<EInterpolationBlend>;
 	public var LookUp_Axis: Axis;
 	public var LookAtClamp: cpp.Float32;
 	public var InterpolationTime: cpp.Float32;
 	public var InterpolationTriggerThreashold: cpp.Float32;
-	public var LookAtBone_DEPRECATED: BoneReference;
-	public var LookAtSocket_DEPRECATED: FName;
-	public var LookAtAxis_DEPRECATED: EAxisOption;
-	public var CustomLookAtAxis_DEPRECATED: Vector;
-	public var LookUpAxis_DEPRECATED: EAxisOption;
-	public var CustomLookUpAxis_DEPRECATED: Vector;
 
 	@:native("FAnimNode_LookAt") public function new();
 }

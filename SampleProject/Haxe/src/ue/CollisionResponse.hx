@@ -5,8 +5,8 @@ package ue;
 @:include("PhysicsEngine/BodyInstance.h")
 @:structAccess
 extern class CollisionResponse {
-	public var ResponseToChannels: CollisionResponseContainer;
-	public var ResponseArray: TArray<ResponseChannel>;
+	private var ResponseToChannels: CollisionResponseContainer;
+	private var ResponseArray: TArray<ResponseChannel>;
 
 	@:native("FCollisionResponse") public function new();
 	@:native("FCollisionResponse") public static function make(ResponseToChannels: CollisionResponseContainer, ResponseArray: TArray<ResponseChannel>): CollisionResponse ;

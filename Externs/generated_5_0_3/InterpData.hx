@@ -9,9 +9,6 @@ extern class InterpData extends Object {
 	public var PathBuildTime: cpp.Float32;
 	public var InterpGroups: TArray<cpp.Star<InterpGroup>>;
 	public var CurveEdSetup: cpp.Star<InterpCurveEdSetup>;
-	public var InterpFilters: TArray<cpp.Star<InterpFilter>>;
-	public var SelectedFilter: cpp.Star<InterpFilter>;
-	public var DefaultFilters: TArray<cpp.Star<InterpFilter>>;
 	public var EdSectionStart: cpp.Float32;
 	public var EdSectionEnd: cpp.Float32;
 	public var bShouldBakeAndPrune: Bool;
@@ -32,12 +29,6 @@ abstract ConstInterpData(InterpData) from InterpData {
 	public inline extern function get_InterpGroups(): TArray<cpp.Star<InterpGroup.ConstInterpGroup>> return this.InterpGroups;
 	public extern var CurveEdSetup(get, never): cpp.Star<InterpCurveEdSetup.ConstInterpCurveEdSetup>;
 	public inline extern function get_CurveEdSetup(): cpp.Star<InterpCurveEdSetup.ConstInterpCurveEdSetup> return this.CurveEdSetup;
-	public extern var InterpFilters(get, never): TArray<cpp.Star<InterpFilter.ConstInterpFilter>>;
-	public inline extern function get_InterpFilters(): TArray<cpp.Star<InterpFilter.ConstInterpFilter>> return this.InterpFilters;
-	public extern var SelectedFilter(get, never): cpp.Star<InterpFilter.ConstInterpFilter>;
-	public inline extern function get_SelectedFilter(): cpp.Star<InterpFilter.ConstInterpFilter> return this.SelectedFilter;
-	public extern var DefaultFilters(get, never): TArray<cpp.Star<InterpFilter.ConstInterpFilter>>;
-	public inline extern function get_DefaultFilters(): TArray<cpp.Star<InterpFilter.ConstInterpFilter>> return this.DefaultFilters;
 	public extern var EdSectionStart(get, never): cpp.Float32;
 	public inline extern function get_EdSectionStart(): cpp.Float32 return this.EdSectionStart;
 	public extern var EdSectionEnd(get, never): cpp.Float32;

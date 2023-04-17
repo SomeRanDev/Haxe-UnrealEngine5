@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class ToolMenuSectionExtensions extends Object {
 	public function SetLabel(Section: cpp.Reference<ToolMenuSection>, Label: cpp.Reference<FText>): Void;
-	public function GetLabel(Section: cpp.Reference<ToolMenuSection>): cpp.Reference<FText>;
+	public function GetLabel(Section: cpp.Reference<ToolMenuSection>): FText;
 	public function AddEntryObject(Section: cpp.Reference<ToolMenuSection>, InObject: cpp.Star<ToolMenuEntryScript>): Void;
 	public function AddEntry(Section: cpp.Reference<ToolMenuSection>, Args: cpp.Reference<ToolMenuEntry>): Void;
 

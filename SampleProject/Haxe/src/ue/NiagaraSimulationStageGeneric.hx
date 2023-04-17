@@ -9,7 +9,6 @@ extern class NiagaraSimulationStageGeneric extends NiagaraSimulationStageBase {
 	public var IterationSource: ENiagaraIterationSource;
 	public var Iterations: cpp.Int32;
 	public var NumIterationsBinding: NiagaraVariableAttributeBinding;
-	public var bSpawnOnly_DEPRECATED: Bool;
 	public var ExecuteBehavior: ENiagaraSimStageExecuteBehavior;
 	public var bDisablePartialParticleUpdate: Bool;
 	public var DataInterface: NiagaraVariableDataInterfaceBinding;
@@ -34,8 +33,6 @@ abstract ConstNiagaraSimulationStageGeneric(NiagaraSimulationStageGeneric) from 
 	public inline extern function get_Iterations(): cpp.Int32 return this.Iterations;
 	public extern var NumIterationsBinding(get, never): NiagaraVariableAttributeBinding;
 	public inline extern function get_NumIterationsBinding(): NiagaraVariableAttributeBinding return this.NumIterationsBinding;
-	public extern var bSpawnOnly_DEPRECATED(get, never): Bool;
-	public inline extern function get_bSpawnOnly_DEPRECATED(): Bool return this.bSpawnOnly_DEPRECATED;
 	public extern var ExecuteBehavior(get, never): ENiagaraSimStageExecuteBehavior;
 	public inline extern function get_ExecuteBehavior(): ENiagaraSimStageExecuteBehavior return this.ExecuteBehavior;
 	public extern var bDisablePartialParticleUpdate(get, never): Bool;

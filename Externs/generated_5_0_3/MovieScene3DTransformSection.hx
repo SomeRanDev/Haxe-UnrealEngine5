@@ -5,13 +5,12 @@ package ue;
 @:include("Sections/MovieScene3DTransformSection.h")
 @:structAccess
 extern class MovieScene3DTransformSection extends MovieSceneSection {
-	public var TransformMask: MovieSceneTransformMask;
-	public var Translation: MovieSceneDoubleChannel;
-	public var Rotation: MovieSceneDoubleChannel;
-	public var Scale: MovieSceneDoubleChannel;
-	public var ManualWeight: MovieSceneFloatChannel;
-	public var bUseQuaternionInterpolation: Bool;
-	public var Show3DTrajectory: EShow3DTrajectory;
+	private var TransformMask: MovieSceneTransformMask;
+	private var Translation: MovieSceneDoubleChannel;
+	private var Rotation: MovieSceneDoubleChannel;
+	private var Scale: MovieSceneDoubleChannel;
+	private var ManualWeight: MovieSceneFloatChannel;
+	private var bUseQuaternionInterpolation: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,20 +18,6 @@ extern class MovieScene3DTransformSection extends MovieSceneSection {
 @:forward()
 @:nativeGen
 abstract ConstMovieScene3DTransformSection(MovieScene3DTransformSection) from MovieScene3DTransformSection {
-	public extern var TransformMask(get, never): MovieSceneTransformMask;
-	public inline extern function get_TransformMask(): MovieSceneTransformMask return this.TransformMask;
-	public extern var Translation(get, never): MovieSceneDoubleChannel;
-	public inline extern function get_Translation(): MovieSceneDoubleChannel return this.Translation;
-	public extern var Rotation(get, never): MovieSceneDoubleChannel;
-	public inline extern function get_Rotation(): MovieSceneDoubleChannel return this.Rotation;
-	public extern var Scale(get, never): MovieSceneDoubleChannel;
-	public inline extern function get_Scale(): MovieSceneDoubleChannel return this.Scale;
-	public extern var ManualWeight(get, never): MovieSceneFloatChannel;
-	public inline extern function get_ManualWeight(): MovieSceneFloatChannel return this.ManualWeight;
-	public extern var bUseQuaternionInterpolation(get, never): Bool;
-	public inline extern function get_bUseQuaternionInterpolation(): Bool return this.bUseQuaternionInterpolation;
-	public extern var Show3DTrajectory(get, never): EShow3DTrajectory;
-	public inline extern function get_Show3DTrajectory(): EShow3DTrajectory return this.Show3DTrajectory;
 }
 
 @:forward

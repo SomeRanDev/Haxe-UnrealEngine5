@@ -11,7 +11,7 @@ extern class RBFParams {
 	public var bAutomaticRadius: Bool;
 	public var Function: ERBFFunctionType;
 	public var DistanceMethod: ERBFDistanceMethod;
-	public var TwistAxis: EBoneAxis;
+	public var TwistAxis: TEnumAsByte<EBoneAxis>;
 	public var WeightThreshold: cpp.Float32;
 	public var NormalizeMethod: ERBFNormalizeMethod;
 	public var MedianReference: Vector;

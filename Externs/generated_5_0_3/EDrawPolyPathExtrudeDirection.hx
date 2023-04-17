@@ -3,13 +3,13 @@ package ue;
 
 @:native("EDrawPolyPathExtrudeDirection")
 @:include("DrawPolyPathTool.h")
-extern enum EDrawPolyPathExtrudeDirection {
-	SelectionNormal;
-	WorldX;
-	WorldY;
-	WorldZ;
-	LocalX;
-	LocalY;
-	LocalZ;
-	EDrawPolyPathExtrudeDirection_MAX;
+extern class EDrawPolyPathExtrudeDirection {
+	static var SelectionNormal: EDrawPolyPathExtrudeDirection;
+	static var WorldX: EDrawPolyPathExtrudeDirection;
+	static var WorldY: EDrawPolyPathExtrudeDirection;
+	static var WorldZ: EDrawPolyPathExtrudeDirection;
+	static var LocalX: EDrawPolyPathExtrudeDirection;
+	static var LocalY: EDrawPolyPathExtrudeDirection;
+	static var LocalZ: EDrawPolyPathExtrudeDirection;
+	static var EDrawPolyPathExtrudeDirection_MAX: EDrawPolyPathExtrudeDirection;
 }

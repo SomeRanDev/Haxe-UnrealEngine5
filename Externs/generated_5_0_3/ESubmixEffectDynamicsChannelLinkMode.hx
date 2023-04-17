@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESubmixEffectDynamicsChannelLinkMode")
 @:include("SubmixEffects/AudioMixerSubmixEffectDynamicsProcessor.h")
-extern enum ESubmixEffectDynamicsChannelLinkMode {
-	Disabled;
-	Average;
-	Peak;
-	Count;
-	ESubmixEffectDynamicsChannelLinkMode_MAX;
+extern class ESubmixEffectDynamicsChannelLinkMode {
+	static var Disabled: ESubmixEffectDynamicsChannelLinkMode;
+	static var Average: ESubmixEffectDynamicsChannelLinkMode;
+	static var Peak: ESubmixEffectDynamicsChannelLinkMode;
+	static var Count: ESubmixEffectDynamicsChannelLinkMode;
+	static var ESubmixEffectDynamicsChannelLinkMode_MAX: ESubmixEffectDynamicsChannelLinkMode;
 }

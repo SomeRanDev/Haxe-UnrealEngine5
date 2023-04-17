@@ -7,8 +7,6 @@ package ue;
 extern class InterchangeProjectSettings extends DeveloperSettings {
 	public var PipelineStacks: TMap<FName, InterchangePipelineStack>;
 	public var DefaultPipelineStack: FName;
-	public var PipelineConfigurationDialogClass: TSoftClassPtr<Class>;
-	public var bShowPipelineStacksConfigurationDialog: Bool;
 	public var bUseInterchangeWhenImportingIntoLevel: Bool;
 	public var DefaultScenePipelineStack: FName;
 
@@ -22,10 +20,6 @@ abstract ConstInterchangeProjectSettings(InterchangeProjectSettings) from Interc
 	public inline extern function get_PipelineStacks(): TMap<FName, InterchangePipelineStack> return this.PipelineStacks;
 	public extern var DefaultPipelineStack(get, never): FName;
 	public inline extern function get_DefaultPipelineStack(): FName return this.DefaultPipelineStack;
-	public extern var PipelineConfigurationDialogClass(get, never): TSoftClassPtr<Class.ConstClass>;
-	public inline extern function get_PipelineConfigurationDialogClass(): TSoftClassPtr<Class.ConstClass> return this.PipelineConfigurationDialogClass;
-	public extern var bShowPipelineStacksConfigurationDialog(get, never): Bool;
-	public inline extern function get_bShowPipelineStacksConfigurationDialog(): Bool return this.bShowPipelineStacksConfigurationDialog;
 	public extern var bUseInterchangeWhenImportingIntoLevel(get, never): Bool;
 	public inline extern function get_bUseInterchangeWhenImportingIntoLevel(): Bool return this.bUseInterchangeWhenImportingIntoLevel;
 	public extern var DefaultScenePipelineStack(get, never): FName;

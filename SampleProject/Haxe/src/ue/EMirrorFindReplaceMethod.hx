@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMirrorFindReplaceMethod.Type")
 @:include("Animation/MirrorDataTable.h")
-extern enum EMirrorFindReplaceMethod {
-	Prefix;
-	Suffix;
-	RegularExpression;
-	EMirrorFindReplaceMethod_MAX;
+extern class EMirrorFindReplaceMethod {
+	static var Prefix: EMirrorFindReplaceMethod;
+	static var Suffix: EMirrorFindReplaceMethod;
+	static var RegularExpression: EMirrorFindReplaceMethod;
+	static var EMirrorFindReplaceMethod_MAX: EMirrorFindReplaceMethod;
 }

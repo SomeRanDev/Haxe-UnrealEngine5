@@ -5,10 +5,10 @@ package ue;
 @:include("BehaviorTree/BTService.h")
 @:structAccess
 extern class BTService extends BTAuxiliaryNode {
-	public var Interval: cpp.Float32;
-	public var RandomDeviation: cpp.Float32;
-	public var bCallTickOnSearchStart: Bool;
-	public var bRestartTimerOnEachActivation: Bool;
+	@:protected public var Interval: cpp.Float32;
+	@:protected public var RandomDeviation: cpp.Float32;
+	@:protected public var bCallTickOnSearchStart: Bool;
+	@:protected public var bRestartTimerOnEachActivation: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class BTService extends BTAuxiliaryNode {
 @:forward()
 @:nativeGen
 abstract ConstBTService(BTService) from BTService {
-	public extern var Interval(get, never): cpp.Float32;
-	public inline extern function get_Interval(): cpp.Float32 return this.Interval;
-	public extern var RandomDeviation(get, never): cpp.Float32;
-	public inline extern function get_RandomDeviation(): cpp.Float32 return this.RandomDeviation;
-	public extern var bCallTickOnSearchStart(get, never): Bool;
-	public inline extern function get_bCallTickOnSearchStart(): Bool return this.bCallTickOnSearchStart;
-	public extern var bRestartTimerOnEachActivation(get, never): Bool;
-	public inline extern function get_bRestartTimerOnEachActivation(): Bool return this.bRestartTimerOnEachActivation;
 }
 
 @:forward

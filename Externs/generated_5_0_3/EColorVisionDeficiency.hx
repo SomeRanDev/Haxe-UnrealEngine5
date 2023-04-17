@@ -3,10 +3,10 @@ package ue;
 
 @:native("EColorVisionDeficiency")
 @:include("Rendering/RenderingCommon.h")
-extern enum EColorVisionDeficiency {
-	NormalVision;
-	Deuteranope;
-	Protanope;
-	Tritanope;
-	EColorVisionDeficiency_MAX;
+extern class EColorVisionDeficiency {
+	static var NormalVision: EColorVisionDeficiency;
+	static var Deuteranope: EColorVisionDeficiency;
+	static var Protanope: EColorVisionDeficiency;
+	static var Tritanope: EColorVisionDeficiency;
+	static var EColorVisionDeficiency_MAX: EColorVisionDeficiency;
 }

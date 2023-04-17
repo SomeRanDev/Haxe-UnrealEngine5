@@ -3,9 +3,9 @@ package ue;
 
 @:native("EDatasmithImportMaterialQuality")
 @:include("DatasmithImportOptions.h")
-extern enum EDatasmithImportMaterialQuality {
-	UseNoFresnelCurves;
-	UseSimplifierFresnelCurves;
-	UseRealFresnelCurves;
-	EDatasmithImportMaterialQuality_MAX;
+extern class EDatasmithImportMaterialQuality {
+	static var UseNoFresnelCurves: EDatasmithImportMaterialQuality;
+	static var UseSimplifierFresnelCurves: EDatasmithImportMaterialQuality;
+	static var UseRealFresnelCurves: EDatasmithImportMaterialQuality;
+	static var EDatasmithImportMaterialQuality_MAX: EDatasmithImportMaterialQuality;
 }

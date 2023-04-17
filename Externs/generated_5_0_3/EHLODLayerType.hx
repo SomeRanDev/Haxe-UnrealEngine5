@@ -3,11 +3,11 @@ package ue;
 
 @:native("EHLODLayerType")
 @:include("WorldPartition/HLOD/HLODLayer.h")
-extern enum EHLODLayerType {
-	Instancing;
-	MeshMerge;
-	MeshSimplify;
-	MeshApproximate;
-	Custom;
-	EHLODLayerType_MAX;
+extern class EHLODLayerType {
+	static var Instancing: EHLODLayerType;
+	static var MeshMerge: EHLODLayerType;
+	static var MeshSimplify: EHLODLayerType;
+	static var MeshApproximate: EHLODLayerType;
+	static var Custom: EHLODLayerType;
+	static var EHLODLayerType_MAX: EHLODLayerType;
 }

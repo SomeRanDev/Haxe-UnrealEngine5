@@ -16,7 +16,7 @@ extern class DisplaceMeshCommonProperties extends InteractiveToolPropertySet {
 	public var bShowWireframe: Bool;
 	public var bDisableSizeWarning: Bool;
 
-	public function GetWeightMapsFunc(): cpp.Reference<TArray<FString>>;
+	public function GetWeightMapsFunc(): TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

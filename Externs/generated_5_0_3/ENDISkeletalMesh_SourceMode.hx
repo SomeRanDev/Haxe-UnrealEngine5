@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENDISkeletalMesh_SourceMode")
 @:include("NiagaraDataInterfaceSkeletalMesh.h")
-extern enum ENDISkeletalMesh_SourceMode {
-	Default;
-	Source;
-	AttachParent;
-	ENDISkeletalMesh_MAX;
+extern class ENDISkeletalMesh_SourceMode {
+	static var Default: ENDISkeletalMesh_SourceMode;
+	static var Source: ENDISkeletalMesh_SourceMode;
+	static var AttachParent: ENDISkeletalMesh_SourceMode;
+	static var ENDISkeletalMesh_MAX: ENDISkeletalMesh_SourceMode;
 }

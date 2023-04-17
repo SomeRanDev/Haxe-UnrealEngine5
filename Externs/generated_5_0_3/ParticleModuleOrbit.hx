@@ -5,7 +5,7 @@ package ue;
 @:include("Particles/Orbit/ParticleModuleOrbit.h")
 @:structAccess
 extern class ParticleModuleOrbit extends ParticleModuleOrbitBase {
-	public var ChainMode: EOrbitChainMode;
+	public var ChainMode: TEnumAsByte<EOrbitChainMode>;
 	public var OffsetAmount: RawDistributionVector;
 	public var OffsetOptions: OrbitOptions;
 	public var RotationAmount: RawDistributionVector;
@@ -19,8 +19,8 @@ extern class ParticleModuleOrbit extends ParticleModuleOrbitBase {
 @:forward()
 @:nativeGen
 abstract ConstParticleModuleOrbit(ParticleModuleOrbit) from ParticleModuleOrbit {
-	public extern var ChainMode(get, never): EOrbitChainMode;
-	public inline extern function get_ChainMode(): EOrbitChainMode return this.ChainMode;
+	public extern var ChainMode(get, never): TEnumAsByte<EOrbitChainMode>;
+	public inline extern function get_ChainMode(): TEnumAsByte<EOrbitChainMode> return this.ChainMode;
 	public extern var OffsetAmount(get, never): RawDistributionVector;
 	public inline extern function get_OffsetAmount(): RawDistributionVector return this.OffsetAmount;
 	public extern var OffsetOptions(get, never): OrbitOptions;

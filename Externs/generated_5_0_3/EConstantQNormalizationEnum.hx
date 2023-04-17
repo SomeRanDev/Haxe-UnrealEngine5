@@ -3,9 +3,9 @@ package ue;
 
 @:native("EConstantQNormalizationEnum")
 @:include("ConstantQNRT.h")
-extern enum EConstantQNormalizationEnum {
-	EqualEuclideanNorm;
-	EqualEnergy;
-	EqualAmplitude;
-	EConstantQNormalizationEnum_MAX;
+extern class EConstantQNormalizationEnum {
+	static var EqualEuclideanNorm: EConstantQNormalizationEnum;
+	static var EqualEnergy: EConstantQNormalizationEnum;
+	static var EqualAmplitude: EConstantQNormalizationEnum;
+	static var EConstantQNormalizationEnum_MAX: EConstantQNormalizationEnum;
 }

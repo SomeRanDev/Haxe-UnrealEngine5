@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAutoExposureMethod")
 @:include("Engine/Scene.h")
-extern enum EAutoExposureMethod {
-	AEM_Histogram;
-	AEM_Basic;
-	AEM_Manual;
-	AEM_MAX;
+extern class EAutoExposureMethod {
+	static var AEM_Histogram: EAutoExposureMethod;
+	static var AEM_Basic: EAutoExposureMethod;
+	static var AEM_Manual: EAutoExposureMethod;
+	static var AEM_MAX: EAutoExposureMethod;
 }

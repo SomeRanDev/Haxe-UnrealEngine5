@@ -5,7 +5,7 @@ package ue;
 @:include("LandscapeMeshProxyActor.h")
 @:structAccess
 extern class LandscapeMeshProxyActor extends Actor {
-	public var LandscapeMeshProxyComponent: cpp.Star<LandscapeMeshProxyComp>;
+	private var LandscapeMeshProxyComponent: cpp.Star<LandscapeMeshProxyComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class LandscapeMeshProxyActor extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstLandscapeMeshProxyActor(LandscapeMeshProxyActor) from LandscapeMeshProxyActor {
-	public extern var LandscapeMeshProxyComponent(get, never): cpp.Star<LandscapeMeshProxyComp.ConstLandscapeMeshProxyComp>;
-	public inline extern function get_LandscapeMeshProxyComponent(): cpp.Star<LandscapeMeshProxyComp.ConstLandscapeMeshProxyComp> return this.LandscapeMeshProxyComponent;
 }
 
 @:forward

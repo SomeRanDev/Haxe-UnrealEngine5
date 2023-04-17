@@ -3,8 +3,8 @@ package ue;
 
 @:native("ERefPoseType")
 @:include("AnimNodes/AnimNode_RefPose.h")
-extern enum ERefPoseType {
-	EIT_LocalSpace;
-	EIT_Additive;
-	EIT_MAX;
+extern class ERefPoseType {
+	static var EIT_LocalSpace: ERefPoseType;
+	static var EIT_Additive: ERefPoseType;
+	static var EIT_MAX: ERefPoseType;
 }

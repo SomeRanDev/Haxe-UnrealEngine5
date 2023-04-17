@@ -5,10 +5,9 @@ package ue;
 @:include("Engine/Texture2DArray.h")
 @:structAccess
 extern class Texture2DArray extends Texture {
-	public var AddressX: TextureAddress;
-	public var AddressY: TextureAddress;
-	public var AddressZ: TextureAddress;
-	public var SourceTextures: TArray<cpp.Star<Texture2D>>;
+	public var AddressX: TEnumAsByte<TextureAddress>;
+	public var AddressY: TEnumAsByte<TextureAddress>;
+	public var AddressZ: TEnumAsByte<TextureAddress>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +15,12 @@ extern class Texture2DArray extends Texture {
 @:forward()
 @:nativeGen
 abstract ConstTexture2DArray(Texture2DArray) from Texture2DArray {
-	public extern var AddressX(get, never): TextureAddress;
-	public inline extern function get_AddressX(): TextureAddress return this.AddressX;
-	public extern var AddressY(get, never): TextureAddress;
-	public inline extern function get_AddressY(): TextureAddress return this.AddressY;
-	public extern var AddressZ(get, never): TextureAddress;
-	public inline extern function get_AddressZ(): TextureAddress return this.AddressZ;
-	public extern var SourceTextures(get, never): TArray<cpp.Star<Texture2D.ConstTexture2D>>;
-	public inline extern function get_SourceTextures(): TArray<cpp.Star<Texture2D.ConstTexture2D>> return this.SourceTextures;
+	public extern var AddressX(get, never): TEnumAsByte<TextureAddress>;
+	public inline extern function get_AddressX(): TEnumAsByte<TextureAddress> return this.AddressX;
+	public extern var AddressY(get, never): TEnumAsByte<TextureAddress>;
+	public inline extern function get_AddressY(): TEnumAsByte<TextureAddress> return this.AddressY;
+	public extern var AddressZ(get, never): TEnumAsByte<TextureAddress>;
+	public inline extern function get_AddressZ(): TEnumAsByte<TextureAddress> return this.AddressZ;
 }
 
 @:forward

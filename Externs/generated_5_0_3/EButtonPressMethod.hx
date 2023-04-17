@@ -3,9 +3,9 @@ package ue;
 
 @:native("EButtonPressMethod.Type")
 @:include("Types/SlateEnums.h")
-extern enum EButtonPressMethod {
-	DownAndUp;
-	ButtonPress;
-	ButtonRelease;
-	EButtonPressMethod_MAX;
+extern class EButtonPressMethod {
+	static var DownAndUp: EButtonPressMethod;
+	static var ButtonPress: EButtonPressMethod;
+	static var ButtonRelease: EButtonPressMethod;
+	static var EButtonPressMethod_MAX: EButtonPressMethod;
 }

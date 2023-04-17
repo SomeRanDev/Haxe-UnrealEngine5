@@ -16,8 +16,8 @@ extern class MaterialInstanceBasePropertyOverrides {
 	public var DitheredLODTransition: Bool;
 	public var bCastDynamicShadowAsMasked: Bool;
 	public var bOutputTranslucentVelocity: Bool;
-	public var BlendMode: EBlendMode;
-	public var ShadingModel: EMaterialShadingModel;
+	public var BlendMode: TEnumAsByte<EBlendMode>;
+	public var ShadingModel: TEnumAsByte<EMaterialShadingModel>;
 	public var OpacityMaskClipValue: cpp.Float32;
 
 	@:native("FMaterialInstanceBasePropertyOverrides") public function new();

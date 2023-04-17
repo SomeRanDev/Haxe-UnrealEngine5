@@ -3,8 +3,8 @@ package ue;
 
 @:native("ERevolvePropertiesQuadSplit")
 @:include("Properties/RevolveProperties.h")
-extern enum ERevolvePropertiesQuadSplit {
-	Uniform;
-	Compact;
-	ERevolvePropertiesQuadSplit_MAX;
+extern class ERevolvePropertiesQuadSplit {
+	static var Uniform: ERevolvePropertiesQuadSplit;
+	static var Compact: ERevolvePropertiesQuadSplit;
+	static var ERevolvePropertiesQuadSplit_MAX: ERevolvePropertiesQuadSplit;
 }

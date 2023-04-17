@@ -3,9 +3,9 @@ package ue;
 
 @:native("EARTrackingQuality")
 @:include("ARTypes.h")
-extern enum EARTrackingQuality {
-	NotTracking;
-	OrientationOnly;
-	OrientationAndPosition;
-	EARTrackingQuality_MAX;
+extern class EARTrackingQuality {
+	static var NotTracking: EARTrackingQuality;
+	static var OrientationOnly: EARTrackingQuality;
+	static var OrientationAndPosition: EARTrackingQuality;
+	static var EARTrackingQuality_MAX: EARTrackingQuality;
 }

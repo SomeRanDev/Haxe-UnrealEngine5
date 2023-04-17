@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMeshCutDistribution")
 @:include("Private/FractureToolMeshCut.h")
-extern enum EMeshCutDistribution {
-	SingleCut;
-	UniformRandom;
-	Grid;
-	EMeshCutDistribution_MAX;
+extern class EMeshCutDistribution {
+	static var SingleCut: EMeshCutDistribution;
+	static var UniformRandom: EMeshCutDistribution;
+	static var Grid: EMeshCutDistribution;
+	static var EMeshCutDistribution_MAX: EMeshCutDistribution;
 }

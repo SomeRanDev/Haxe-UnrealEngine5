@@ -3,15 +3,15 @@ package ue;
 
 @:native("EConstantQFFTSizeEnum")
 @:include("ConstantQNRT.h")
-extern enum EConstantQFFTSizeEnum {
-	Min;
-	XXSmall;
-	XSmall;
-	Small;
-	Medium;
-	Large;
-	XLarge;
-	XXLarge;
-	Max;
-	EConstantQFFTSizeEnum_MAX;
+extern class EConstantQFFTSizeEnum {
+	static var Min: EConstantQFFTSizeEnum;
+	static var XXSmall: EConstantQFFTSizeEnum;
+	static var XSmall: EConstantQFFTSizeEnum;
+	static var Small: EConstantQFFTSizeEnum;
+	static var Medium: EConstantQFFTSizeEnum;
+	static var Large: EConstantQFFTSizeEnum;
+	static var XLarge: EConstantQFFTSizeEnum;
+	static var XXLarge: EConstantQFFTSizeEnum;
+	static var Max: EConstantQFFTSizeEnum;
+	static var EConstantQFFTSizeEnum_MAX: EConstantQFFTSizeEnum;
 }

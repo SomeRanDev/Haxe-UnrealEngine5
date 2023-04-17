@@ -3,9 +3,9 @@ package ue;
 
 @:native("EPathExistanceQueryType.Type")
 @:include("BehaviorTree/Decorators/BTDecorator_DoesPathExist.h")
-extern enum EPathExistanceQueryType {
-	NavmeshRaycast2D;
-	HierarchicalQuery;
-	RegularPathFinding;
-	EPathExistanceQueryType_MAX;
+extern class EPathExistanceQueryType {
+	static var NavmeshRaycast2D: EPathExistanceQueryType;
+	static var HierarchicalQuery: EPathExistanceQueryType;
+	static var RegularPathFinding: EPathExistanceQueryType;
+	static var EPathExistanceQueryType_MAX: EPathExistanceQueryType;
 }

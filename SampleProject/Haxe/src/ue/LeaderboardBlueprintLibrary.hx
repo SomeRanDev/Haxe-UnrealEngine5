@@ -5,7 +5,7 @@ package ue;
 @:include("LeaderboardBlueprintLibrary.h")
 @:structAccess
 extern class LeaderboardBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function WriteLeaderboardInteger(PlayerController: cpp.Star<PlayerController>, StatName: FName, StatValue: cpp.Int32): cpp.Reference<Bool>;
+	public function WriteLeaderboardInteger(PlayerController: cpp.Star<PlayerController>, StatName: FName, StatValue: cpp.Int32): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

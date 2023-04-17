@@ -3,8 +3,8 @@ package ue;
 
 @:native("EReflectionSourceType")
 @:include("Components/ReflectionCaptureComponent.h")
-extern enum EReflectionSourceType {
-	CapturedScene;
-	SpecifiedCubemap;
-	EReflectionSourceType_MAX;
+extern class EReflectionSourceType {
+	static var CapturedScene: EReflectionSourceType;
+	static var SpecifiedCubemap: EReflectionSourceType;
+	static var EReflectionSourceType_MAX: EReflectionSourceType;
 }

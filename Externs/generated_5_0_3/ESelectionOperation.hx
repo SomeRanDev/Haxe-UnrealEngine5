@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESelectionOperation")
 @:include("Private/FractureToolSelection.h")
-extern enum ESelectionOperation {
-	Replace;
-	Add;
-	Remove;
-	ESelectionOperation_MAX;
+extern class ESelectionOperation {
+	static var Replace: ESelectionOperation;
+	static var Add: ESelectionOperation;
+	static var Remove: ESelectionOperation;
+	static var ESelectionOperation_MAX: ESelectionOperation;
 }

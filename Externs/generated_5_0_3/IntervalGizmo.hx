@@ -6,11 +6,11 @@ package ue;
 @:structAccess
 extern class IntervalGizmo extends InteractiveGizmo {
 	public var StateTarget: cpp.Star<GizmoTransformChangeStateTarget>;
-	public var TransformProxy: cpp.Star<TransformProxy>;
-	public var ActiveComponents: TArray<cpp.Star<PrimitiveComp>>;
-	public var ActiveGizmos: TArray<cpp.Star<InteractiveGizmo>>;
-	public var AxisYSource: cpp.Star<GizmoComponentAxisSource>;
-	public var AxisZSource: cpp.Star<GizmoComponentAxisSource>;
+	@:protected public var TransformProxy: cpp.Star<TransformProxy>;
+	@:protected public var ActiveComponents: TArray<cpp.Star<PrimitiveComp>>;
+	@:protected public var ActiveGizmos: TArray<cpp.Star<InteractiveGizmo>>;
+	@:protected public var AxisYSource: cpp.Star<GizmoComponentAxisSource>;
+	@:protected public var AxisZSource: cpp.Star<GizmoComponentAxisSource>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -20,16 +20,6 @@ extern class IntervalGizmo extends InteractiveGizmo {
 abstract ConstIntervalGizmo(IntervalGizmo) from IntervalGizmo {
 	public extern var StateTarget(get, never): cpp.Star<GizmoTransformChangeStateTarget.ConstGizmoTransformChangeStateTarget>;
 	public inline extern function get_StateTarget(): cpp.Star<GizmoTransformChangeStateTarget.ConstGizmoTransformChangeStateTarget> return this.StateTarget;
-	public extern var TransformProxy(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
-	public inline extern function get_TransformProxy(): cpp.Star<TransformProxy.ConstTransformProxy> return this.TransformProxy;
-	public extern var ActiveComponents(get, never): TArray<cpp.Star<PrimitiveComp.ConstPrimitiveComp>>;
-	public inline extern function get_ActiveComponents(): TArray<cpp.Star<PrimitiveComp.ConstPrimitiveComp>> return this.ActiveComponents;
-	public extern var ActiveGizmos(get, never): TArray<cpp.Star<InteractiveGizmo.ConstInteractiveGizmo>>;
-	public inline extern function get_ActiveGizmos(): TArray<cpp.Star<InteractiveGizmo.ConstInteractiveGizmo>> return this.ActiveGizmos;
-	public extern var AxisYSource(get, never): cpp.Star<GizmoComponentAxisSource.ConstGizmoComponentAxisSource>;
-	public inline extern function get_AxisYSource(): cpp.Star<GizmoComponentAxisSource.ConstGizmoComponentAxisSource> return this.AxisYSource;
-	public extern var AxisZSource(get, never): cpp.Star<GizmoComponentAxisSource.ConstGizmoComponentAxisSource>;
-	public inline extern function get_AxisZSource(): cpp.Star<GizmoComponentAxisSource.ConstGizmoComponentAxisSource> return this.AxisZSource;
 }
 
 @:forward

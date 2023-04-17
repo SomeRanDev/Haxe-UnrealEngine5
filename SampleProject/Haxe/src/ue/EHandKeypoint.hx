@@ -3,32 +3,32 @@ package ue;
 
 @:native("EHandKeypoint")
 @:include("HeadMountedDisplayTypes.h")
-extern enum EHandKeypoint {
-	Palm;
-	Wrist;
-	ThumbMetacarpal;
-	ThumbProximal;
-	ThumbDistal;
-	ThumbTip;
-	IndexMetacarpal;
-	IndexProximal;
-	IndexIntermediate;
-	IndexDistal;
-	IndexTip;
-	MiddleMetacarpal;
-	MiddleProximal;
-	MiddleIntermediate;
-	MiddleDistal;
-	MiddleTip;
-	RingMetacarpal;
-	RingProximal;
-	RingIntermediate;
-	RingDistal;
-	RingTip;
-	LittleMetacarpal;
-	LittleProximal;
-	LittleIntermediate;
-	LittleDistal;
-	LittleTip;
-	EHandKeypoint_MAX;
+extern class EHandKeypoint {
+	static var Palm: EHandKeypoint;
+	static var Wrist: EHandKeypoint;
+	static var ThumbMetacarpal: EHandKeypoint;
+	static var ThumbProximal: EHandKeypoint;
+	static var ThumbDistal: EHandKeypoint;
+	static var ThumbTip: EHandKeypoint;
+	static var IndexMetacarpal: EHandKeypoint;
+	static var IndexProximal: EHandKeypoint;
+	static var IndexIntermediate: EHandKeypoint;
+	static var IndexDistal: EHandKeypoint;
+	static var IndexTip: EHandKeypoint;
+	static var MiddleMetacarpal: EHandKeypoint;
+	static var MiddleProximal: EHandKeypoint;
+	static var MiddleIntermediate: EHandKeypoint;
+	static var MiddleDistal: EHandKeypoint;
+	static var MiddleTip: EHandKeypoint;
+	static var RingMetacarpal: EHandKeypoint;
+	static var RingProximal: EHandKeypoint;
+	static var RingIntermediate: EHandKeypoint;
+	static var RingDistal: EHandKeypoint;
+	static var RingTip: EHandKeypoint;
+	static var LittleMetacarpal: EHandKeypoint;
+	static var LittleProximal: EHandKeypoint;
+	static var LittleIntermediate: EHandKeypoint;
+	static var LittleDistal: EHandKeypoint;
+	static var LittleTip: EHandKeypoint;
+	static var EHandKeypoint_MAX: EHandKeypoint;
 }

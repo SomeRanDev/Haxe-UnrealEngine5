@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAttachmentRule")
 @:include("Engine/EngineTypes.h")
-extern enum EAttachmentRule {
-	KeepRelative;
-	KeepWorld;
-	SnapToTarget;
-	EAttachmentRule_MAX;
+extern class EAttachmentRule {
+	static var KeepRelative: EAttachmentRule;
+	static var KeepWorld: EAttachmentRule;
+	static var SnapToTarget: EAttachmentRule;
+	static var EAttachmentRule_MAX: EAttachmentRule;
 }

@@ -5,7 +5,7 @@ package ue;
 @:include("Materials/MaterialExpressionWorldPosition.h")
 @:structAccess
 extern class MaterialExpressionWorldPosition extends MaterialExpression {
-	public var WorldPositionShaderOffset: EWorldPositionIncludedOffsets;
+	public var WorldPositionShaderOffset: TEnumAsByte<EWorldPositionIncludedOffsets>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,8 @@ extern class MaterialExpressionWorldPosition extends MaterialExpression {
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionWorldPosition(MaterialExpressionWorldPosition) from MaterialExpressionWorldPosition {
-	public extern var WorldPositionShaderOffset(get, never): EWorldPositionIncludedOffsets;
-	public inline extern function get_WorldPositionShaderOffset(): EWorldPositionIncludedOffsets return this.WorldPositionShaderOffset;
+	public extern var WorldPositionShaderOffset(get, never): TEnumAsByte<EWorldPositionIncludedOffsets>;
+	public inline extern function get_WorldPositionShaderOffset(): TEnumAsByte<EWorldPositionIncludedOffsets> return this.WorldPositionShaderOffset;
 }
 
 @:forward

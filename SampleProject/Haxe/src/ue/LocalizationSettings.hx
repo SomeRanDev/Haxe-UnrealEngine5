@@ -5,10 +5,10 @@ package ue;
 @:include("LocalizationSettings.h")
 @:structAccess
 extern class LocalizationSettings extends Object {
-	public var EngineTargetSet: cpp.Star<LocalizationTargetSet>;
-	public var EngineTargetsSettings: TArray<LocalizationTargetSettings>;
-	public var GameTargetSet: cpp.Star<LocalizationTargetSet>;
-	public var GameTargetsSettings: TArray<LocalizationTargetSettings>;
+	private var EngineTargetSet: cpp.Star<LocalizationTargetSet>;
+	private var EngineTargetsSettings: TArray<LocalizationTargetSettings>;
+	private var GameTargetSet: cpp.Star<LocalizationTargetSet>;
+	private var GameTargetsSettings: TArray<LocalizationTargetSettings>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class LocalizationSettings extends Object {
 @:forward()
 @:nativeGen
 abstract ConstLocalizationSettings(LocalizationSettings) from LocalizationSettings {
-	public extern var EngineTargetSet(get, never): cpp.Star<LocalizationTargetSet.ConstLocalizationTargetSet>;
-	public inline extern function get_EngineTargetSet(): cpp.Star<LocalizationTargetSet.ConstLocalizationTargetSet> return this.EngineTargetSet;
-	public extern var EngineTargetsSettings(get, never): TArray<LocalizationTargetSettings>;
-	public inline extern function get_EngineTargetsSettings(): TArray<LocalizationTargetSettings> return this.EngineTargetsSettings;
-	public extern var GameTargetSet(get, never): cpp.Star<LocalizationTargetSet.ConstLocalizationTargetSet>;
-	public inline extern function get_GameTargetSet(): cpp.Star<LocalizationTargetSet.ConstLocalizationTargetSet> return this.GameTargetSet;
-	public extern var GameTargetsSettings(get, never): TArray<LocalizationTargetSettings>;
-	public inline extern function get_GameTargetsSettings(): TArray<LocalizationTargetSettings> return this.GameTargetsSettings;
 }
 
 @:forward

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EPoseDriverOutput")
 @:include("AnimNodes/AnimNode_PoseDriver.h")
-extern enum EPoseDriverOutput {
-	DrivePoses;
-	DriveCurves;
-	EPoseDriverOutput_MAX;
+extern class EPoseDriverOutput {
+	static var DrivePoses: EPoseDriverOutput;
+	static var DriveCurves: EPoseDriverOutput;
+	static var EPoseDriverOutput_MAX: EPoseDriverOutput;
 }

@@ -3,11 +3,11 @@ package ue;
 
 @:native("EParticleSubUVInterpMethod")
 @:include("Particles/ParticleEmitter.h")
-extern enum EParticleSubUVInterpMethod {
-	PSUVIM_None;
-	PSUVIM_Linear;
-	PSUVIM_Linear_Blend;
-	PSUVIM_Random;
-	PSUVIM_Random_Blend;
-	PSUVIM_MAX;
+extern class EParticleSubUVInterpMethod {
+	static var PSUVIM_None: EParticleSubUVInterpMethod;
+	static var PSUVIM_Linear: EParticleSubUVInterpMethod;
+	static var PSUVIM_Linear_Blend: EParticleSubUVInterpMethod;
+	static var PSUVIM_Random: EParticleSubUVInterpMethod;
+	static var PSUVIM_Random_Blend: EParticleSubUVInterpMethod;
+	static var PSUVIM_MAX: EParticleSubUVInterpMethod;
 }

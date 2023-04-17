@@ -7,7 +7,7 @@ package ue;
 extern class ParticleModuleCameraOffset extends ParticleModuleCameraBase {
 	public var CameraOffset: RawDistributionFloat;
 	public var bSpawnTimeOnly: Bool;
-	public var UpdateMethod: EParticleCameraOffsetUpdateMethod;
+	public var UpdateMethod: TEnumAsByte<EParticleCameraOffsetUpdateMethod>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,8 +19,8 @@ abstract ConstParticleModuleCameraOffset(ParticleModuleCameraOffset) from Partic
 	public inline extern function get_CameraOffset(): RawDistributionFloat return this.CameraOffset;
 	public extern var bSpawnTimeOnly(get, never): Bool;
 	public inline extern function get_bSpawnTimeOnly(): Bool return this.bSpawnTimeOnly;
-	public extern var UpdateMethod(get, never): EParticleCameraOffsetUpdateMethod;
-	public inline extern function get_UpdateMethod(): EParticleCameraOffsetUpdateMethod return this.UpdateMethod;
+	public extern var UpdateMethod(get, never): TEnumAsByte<EParticleCameraOffsetUpdateMethod>;
+	public inline extern function get_UpdateMethod(): TEnumAsByte<EParticleCameraOffsetUpdateMethod> return this.UpdateMethod;
 }
 
 @:forward

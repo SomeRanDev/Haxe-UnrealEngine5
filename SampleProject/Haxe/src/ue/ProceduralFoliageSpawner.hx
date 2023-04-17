@@ -9,7 +9,7 @@ extern class ProceduralFoliageSpawner extends Object {
 	public var TileSize: cpp.Float32;
 	public var NumUniqueTiles: cpp.Int32;
 	public var MinimumQuadTreeSize: cpp.Float32;
-	public var FoliageTypes: TArray<FoliageTypeObject>;
+	private var FoliageTypes: TArray<FoliageTypeObject>;
 
 	public function Simulate(NumSteps: cpp.Int32): Void;
 
@@ -27,8 +27,6 @@ abstract ConstProceduralFoliageSpawner(ProceduralFoliageSpawner) from Procedural
 	public inline extern function get_NumUniqueTiles(): cpp.Int32 return this.NumUniqueTiles;
 	public extern var MinimumQuadTreeSize(get, never): cpp.Float32;
 	public inline extern function get_MinimumQuadTreeSize(): cpp.Float32 return this.MinimumQuadTreeSize;
-	public extern var FoliageTypes(get, never): TArray<FoliageTypeObject>;
-	public inline extern function get_FoliageTypes(): TArray<FoliageTypeObject> return this.FoliageTypes;
 }
 
 @:forward

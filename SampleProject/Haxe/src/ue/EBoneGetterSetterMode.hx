@@ -3,9 +3,9 @@ package ue;
 
 @:native("EBoneGetterSetterMode")
 @:include("ControlRigDefines.h")
-extern enum EBoneGetterSetterMode {
-	LocalSpace;
-	GlobalSpace;
-	Max;
-	EBoneGetterSetterMode_MAX;
+extern class EBoneGetterSetterMode {
+	static var LocalSpace: EBoneGetterSetterMode;
+	static var GlobalSpace: EBoneGetterSetterMode;
+	static var Max: EBoneGetterSetterMode;
+	static var EBoneGetterSetterMode_MAX: EBoneGetterSetterMode;
 }

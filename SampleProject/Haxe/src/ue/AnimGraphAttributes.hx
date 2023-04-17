@@ -5,7 +5,7 @@ package ue;
 @:include("AnimGraphAttributes.h")
 @:structAccess
 extern class AnimGraphAttributes extends Object {
-	public var Attributes: TArray<AnimGraphAttributeDesc>;
+	private var Attributes: TArray<AnimGraphAttributeDesc>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class AnimGraphAttributes extends Object {
 @:forward()
 @:nativeGen
 abstract ConstAnimGraphAttributes(AnimGraphAttributes) from AnimGraphAttributes {
-	public extern var Attributes(get, never): TArray<AnimGraphAttributeDesc>;
-	public inline extern function get_Attributes(): TArray<AnimGraphAttributeDesc> return this.Attributes;
 }
 
 @:forward

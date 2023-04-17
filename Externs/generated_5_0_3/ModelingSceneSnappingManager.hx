@@ -5,7 +5,7 @@ package ue;
 @:include("Snapping/ModelingSceneSnappingManager.h")
 @:structAccess
 extern class ModelingSceneSnappingManager extends SceneSnappingManager {
-	public var ParentContext: cpp.Star<InteractiveToolsContext>;
+	@:protected public var ParentContext: cpp.Star<InteractiveToolsContext>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class ModelingSceneSnappingManager extends SceneSnappingManager {
 @:forward()
 @:nativeGen
 abstract ConstModelingSceneSnappingManager(ModelingSceneSnappingManager) from ModelingSceneSnappingManager {
-	public extern var ParentContext(get, never): cpp.Star<InteractiveToolsContext.ConstInteractiveToolsContext>;
-	public inline extern function get_ParentContext(): cpp.Star<InteractiveToolsContext.ConstInteractiveToolsContext> return this.ParentContext;
 }
 
 @:forward

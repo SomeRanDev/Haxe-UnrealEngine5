@@ -3,11 +3,11 @@ package ue;
 
 @:native("EPolygonType")
 @:include("PolygonOnMeshTool.h")
-extern enum EPolygonType {
-	Circle;
-	Square;
-	Rectangle;
-	RoundRect;
-	Custom;
-	EPolygonType_MAX;
+extern class EPolygonType {
+	static var Circle: EPolygonType;
+	static var Square: EPolygonType;
+	static var Rectangle: EPolygonType;
+	static var RoundRect: EPolygonType;
+	static var Custom: EPolygonType;
+	static var EPolygonType_MAX: EPolygonType;
 }

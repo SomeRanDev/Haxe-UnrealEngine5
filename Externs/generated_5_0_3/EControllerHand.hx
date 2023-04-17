@@ -3,25 +3,25 @@ package ue;
 
 @:native("EControllerHand")
 @:include("InputCoreTypes.h")
-extern enum EControllerHand {
-	Left;
-	Right;
-	AnyHand;
-	Pad;
-	ExternalCamera;
-	Gun;
-	HMD;
-	Special_1;
-	Special_2;
-	Special_3;
-	Special_4;
-	Special_5;
-	Special_6;
-	Special_7;
-	Special_8;
-	Special_9;
-	Special_10;
-	Special_11;
-	ControllerHand_Count;
-	EControllerHand_MAX;
+extern class EControllerHand {
+	static var Left: EControllerHand;
+	static var Right: EControllerHand;
+	static var AnyHand: EControllerHand;
+	static var Pad: EControllerHand;
+	static var ExternalCamera: EControllerHand;
+	static var Gun: EControllerHand;
+	static var HMD: EControllerHand;
+	static var Special_1: EControllerHand;
+	static var Special_2: EControllerHand;
+	static var Special_3: EControllerHand;
+	static var Special_4: EControllerHand;
+	static var Special_5: EControllerHand;
+	static var Special_6: EControllerHand;
+	static var Special_7: EControllerHand;
+	static var Special_8: EControllerHand;
+	static var Special_9: EControllerHand;
+	static var Special_10: EControllerHand;
+	static var Special_11: EControllerHand;
+	static var ControllerHand_Count: EControllerHand;
+	static var EControllerHand_MAX: EControllerHand;
 }

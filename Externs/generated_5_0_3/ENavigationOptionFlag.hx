@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENavigationOptionFlag.Type")
 @:include("AI/Navigation/NavigationTypes.h")
-extern enum ENavigationOptionFlag {
-	Default;
-	Enable;
-	Disable;
-	MAX;
+extern class ENavigationOptionFlag {
+	static var Default: ENavigationOptionFlag;
+	static var Enable: ENavigationOptionFlag;
+	static var Disable: ENavigationOptionFlag;
+	static var MAX: ENavigationOptionFlag;
 }

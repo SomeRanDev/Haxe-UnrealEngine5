@@ -4,13 +4,13 @@ package ue;
 @:native("UTypedElementSelectionInterface")
 @:structAccess
 extern class TypedElementSelectionInterface extends Interface {
-	public function SelectElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionSet: ScriptTypedElementListProxy, InSelectionOptions: cpp.Reference<TypedElementSelectionOptions>): cpp.Reference<Bool>;
-	public function IsElementSelected(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionSet: ScriptTypedElementListProxy, InSelectionOptions: cpp.Reference<TypedElementIsSelectedOptions>): cpp.Reference<Bool>;
-	public function GetSelectionElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InCurrentSelection: ScriptTypedElementListProxy, InSelectionMethod: ETypedElementSelectionMethod): cpp.Reference<ScriptTypedElementHandle>;
-	public function DeselectElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionSet: ScriptTypedElementListProxy, InSelectionOptions: cpp.Reference<TypedElementSelectionOptions>): cpp.Reference<Bool>;
-	public function CanSelectElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionOptions: cpp.Reference<TypedElementSelectionOptions>): cpp.Reference<Bool>;
-	public function CanDeselectElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionOptions: cpp.Reference<TypedElementSelectionOptions>): cpp.Reference<Bool>;
-	public function AllowSelectionModifiers(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionSet: ScriptTypedElementListProxy): cpp.Reference<Bool>;
+	public function SelectElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionSet: ScriptTypedElementListProxy, InSelectionOptions: cpp.Reference<TypedElementSelectionOptions>): Bool;
+	public function IsElementSelected(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionSet: ScriptTypedElementListProxy, InSelectionOptions: cpp.Reference<TypedElementIsSelectedOptions>): Bool;
+	public function GetSelectionElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InCurrentSelection: ScriptTypedElementListProxy, InSelectionMethod: ETypedElementSelectionMethod): ScriptTypedElementHandle;
+	public function DeselectElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionSet: ScriptTypedElementListProxy, InSelectionOptions: cpp.Reference<TypedElementSelectionOptions>): Bool;
+	public function CanSelectElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionOptions: cpp.Reference<TypedElementSelectionOptions>): Bool;
+	public function CanDeselectElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionOptions: cpp.Reference<TypedElementSelectionOptions>): Bool;
+	public function AllowSelectionModifiers(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionSet: ScriptTypedElementListProxy): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

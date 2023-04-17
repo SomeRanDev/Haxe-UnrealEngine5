@@ -5,7 +5,7 @@ package ue;
 @:include("Chaos/ChaosNotifyHandlerInterface.h")
 @:structAccess
 extern class ChaosSolverEngineBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function ConvertPhysicsCollisionToHitResult(PhysicsCollision: cpp.Reference<ChaosPhysicsCollisionInfo>): cpp.Reference<HitResult>;
+	public function ConvertPhysicsCollisionToHitResult(PhysicsCollision: cpp.Reference<ChaosPhysicsCollisionInfo>): HitResult;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -8,7 +8,7 @@ extern class BTTask_RunEQSQuery extends BTTask_BlackboardBase {
 	public var QueryTemplate: cpp.Star<EnvQuery>;
 	public var QueryParams: TArray<EnvNamedValue>;
 	public var QueryConfig: TArray<AIDynamicParam>;
-	public var RunMode: EEnvQueryRunMode;
+	public var RunMode: TEnumAsByte<EEnvQueryRunMode>;
 	public var EQSQueryBlackboardKey: BlackboardKeySelector;
 	public var bUseBBKey: Bool;
 	public var EQSRequest: EQSParametrizedQueryExecutionRequest;
@@ -26,8 +26,8 @@ abstract ConstBTTask_RunEQSQuery(BTTask_RunEQSQuery) from BTTask_RunEQSQuery {
 	public inline extern function get_QueryParams(): TArray<EnvNamedValue> return this.QueryParams;
 	public extern var QueryConfig(get, never): TArray<AIDynamicParam>;
 	public inline extern function get_QueryConfig(): TArray<AIDynamicParam> return this.QueryConfig;
-	public extern var RunMode(get, never): EEnvQueryRunMode;
-	public inline extern function get_RunMode(): EEnvQueryRunMode return this.RunMode;
+	public extern var RunMode(get, never): TEnumAsByte<EEnvQueryRunMode>;
+	public inline extern function get_RunMode(): TEnumAsByte<EEnvQueryRunMode> return this.RunMode;
 	public extern var EQSQueryBlackboardKey(get, never): BlackboardKeySelector;
 	public inline extern function get_EQSQueryBlackboardKey(): BlackboardKeySelector return this.EQSQueryBlackboardKey;
 	public extern var bUseBBKey(get, never): Bool;

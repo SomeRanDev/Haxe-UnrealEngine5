@@ -6,9 +6,9 @@ package ue;
 @:structAccess
 extern class RealCurve extends IndexedCurve {
 	public var DefaultValue: cpp.Float32;
-	public var PreInfinityExtrap: ERichCurveExtrapolation;
-	public var PostInfinityExtrap: ERichCurveExtrapolation;
+	public var PreInfinityExtrap: TEnumAsByte<ERichCurveExtrapolation>;
+	public var PostInfinityExtrap: TEnumAsByte<ERichCurveExtrapolation>;
 
 	@:native("FRealCurve") public function new();
-	@:native("FRealCurve") public static function make(DefaultValue: cpp.Float32, PreInfinityExtrap: ERichCurveExtrapolation, PostInfinityExtrap: ERichCurveExtrapolation): RealCurve ;
+	@:native("FRealCurve") public static function make(DefaultValue: cpp.Float32, PreInfinityExtrap: TEnumAsByte<ERichCurveExtrapolation>, PostInfinityExtrap: TEnumAsByte<ERichCurveExtrapolation>): RealCurve ;
 }

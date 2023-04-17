@@ -5,7 +5,7 @@ package ue;
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_CurrentLocation.h")
 @:structAccess
 extern class EnvQueryGenerator_CurrentLocation extends EnvQueryGenerator {
-	public var QueryContext: TSubclassOf<EnvQueryContext>;
+	@:protected public var QueryContext: TSubclassOf<EnvQueryContext>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class EnvQueryGenerator_CurrentLocation extends EnvQueryGenerator {
 @:forward()
 @:nativeGen
 abstract ConstEnvQueryGenerator_CurrentLocation(EnvQueryGenerator_CurrentLocation) from EnvQueryGenerator_CurrentLocation {
-	public extern var QueryContext(get, never): TSubclassOf<EnvQueryContext.ConstEnvQueryContext>;
-	public inline extern function get_QueryContext(): TSubclassOf<EnvQueryContext.ConstEnvQueryContext> return this.QueryContext;
 }
 
 @:forward

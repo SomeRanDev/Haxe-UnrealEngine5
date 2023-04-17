@@ -7,9 +7,9 @@ package ue;
 extern class DefaultPawn extends Pawn {
 	public var BaseTurnRate: cpp.Float32;
 	public var BaseLookUpRate: cpp.Float32;
-	public var MovementComponent: cpp.Star<PawnMovementComp>;
-	public var CollisionComponent: cpp.Star<SphereComp>;
-	public var MeshComponent: cpp.Star<StaticMeshComp>;
+	@:protected public var MovementComponent: cpp.Star<PawnMovementComp>;
+	private var CollisionComponent: cpp.Star<SphereComp>;
+	private var MeshComponent: cpp.Star<StaticMeshComp>;
 	public var bAddDefaultMovementBindings: Bool;
 
 	public function TurnAtRate(Rate: cpp.Float32): Void;
@@ -28,12 +28,6 @@ abstract ConstDefaultPawn(DefaultPawn) from DefaultPawn {
 	public inline extern function get_BaseTurnRate(): cpp.Float32 return this.BaseTurnRate;
 	public extern var BaseLookUpRate(get, never): cpp.Float32;
 	public inline extern function get_BaseLookUpRate(): cpp.Float32 return this.BaseLookUpRate;
-	public extern var MovementComponent(get, never): cpp.Star<PawnMovementComp.ConstPawnMovementComp>;
-	public inline extern function get_MovementComponent(): cpp.Star<PawnMovementComp.ConstPawnMovementComp> return this.MovementComponent;
-	public extern var CollisionComponent(get, never): cpp.Star<SphereComp.ConstSphereComp>;
-	public inline extern function get_CollisionComponent(): cpp.Star<SphereComp.ConstSphereComp> return this.CollisionComponent;
-	public extern var MeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_MeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.MeshComponent;
 	public extern var bAddDefaultMovementBindings(get, never): Bool;
 	public inline extern function get_bAddDefaultMovementBindings(): Bool return this.bAddDefaultMovementBindings;
 }

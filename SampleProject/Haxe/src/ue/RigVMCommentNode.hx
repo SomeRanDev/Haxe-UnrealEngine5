@@ -5,15 +5,15 @@ package ue;
 @:include("RigVMModel/Nodes/RigVMCommentNode.h")
 @:structAccess
 extern class RigVMCommentNode extends RigVMNode {
-	public var CommentText: FString;
-	public var FontSize: cpp.Int32;
-	public var bBubbleVisible: Bool;
-	public var bColorBubble: Bool;
+	private var CommentText: FString;
+	private var FontSize: cpp.Int32;
+	private var bBubbleVisible: Bool;
+	private var bColorBubble: Bool;
 
-	public function GetCommentText(): cpp.Reference<FString>;
-	public function GetCommentFontSize(): cpp.Reference<cpp.Int32>;
-	public function GetCommentColorBubble(): cpp.Reference<Bool>;
-	public function GetCommentBubbleVisible(): cpp.Reference<Bool>;
+	public function GetCommentText(): FString;
+	public function GetCommentFontSize(): cpp.Int32;
+	public function GetCommentColorBubble(): Bool;
+	public function GetCommentBubbleVisible(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -21,14 +21,6 @@ extern class RigVMCommentNode extends RigVMNode {
 @:forward(GetCommentText, GetCommentFontSize, GetCommentColorBubble, GetCommentBubbleVisible)
 @:nativeGen
 abstract ConstRigVMCommentNode(RigVMCommentNode) from RigVMCommentNode {
-	public extern var CommentText(get, never): FString;
-	public inline extern function get_CommentText(): FString return this.CommentText;
-	public extern var FontSize(get, never): cpp.Int32;
-	public inline extern function get_FontSize(): cpp.Int32 return this.FontSize;
-	public extern var bBubbleVisible(get, never): Bool;
-	public inline extern function get_bBubbleVisible(): Bool return this.bBubbleVisible;
-	public extern var bColorBubble(get, never): Bool;
-	public inline extern function get_bColorBubble(): Bool return this.bColorBubble;
 }
 
 @:forward

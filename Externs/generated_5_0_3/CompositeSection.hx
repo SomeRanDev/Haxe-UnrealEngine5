@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class CompositeSection extends AnimLinkableElement {
 	public var SectionName: FName;
-	public var StartTime_DEPRECATED: cpp.Float32;
 	public var NextSectionName: FName;
 	public var MetaData: TArray<cpp.Star<AnimMetaData>>;
 

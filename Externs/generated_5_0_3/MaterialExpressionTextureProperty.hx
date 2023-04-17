@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class MaterialExpressionTextureProperty extends MaterialExpression {
 	public var TextureObject: ExpressionInput;
-	public var Property: EMaterialExposedTextureProperty;
+	public var Property: TEnumAsByte<EMaterialExposedTextureProperty>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,8 @@ extern class MaterialExpressionTextureProperty extends MaterialExpression {
 abstract ConstMaterialExpressionTextureProperty(MaterialExpressionTextureProperty) from MaterialExpressionTextureProperty {
 	public extern var TextureObject(get, never): ExpressionInput;
 	public inline extern function get_TextureObject(): ExpressionInput return this.TextureObject;
-	public extern var Property(get, never): EMaterialExposedTextureProperty;
-	public inline extern function get_Property(): EMaterialExposedTextureProperty return this.Property;
+	public extern var Property(get, never): TEnumAsByte<EMaterialExposedTextureProperty>;
+	public inline extern function get_Property(): TEnumAsByte<EMaterialExposedTextureProperty> return this.Property;
 }
 
 @:forward

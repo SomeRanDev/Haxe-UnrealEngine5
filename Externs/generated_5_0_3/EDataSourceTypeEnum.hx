@@ -3,10 +3,10 @@ package ue;
 
 @:native("EDataSourceTypeEnum")
 @:include("NiagaraDataInterfaceChaosDestruction.h")
-extern enum EDataSourceTypeEnum {
-	ChaosNiagara_DataSourceType_Collision;
-	ChaosNiagara_DataSourceType_Breaking;
-	ChaosNiagara_DataSourceType_Trailing;
-	ChaosNiagara_Max;
-	ChaosNiagara_MAX;
+extern class EDataSourceTypeEnum {
+	static var ChaosNiagara_DataSourceType_Collision: EDataSourceTypeEnum;
+	static var ChaosNiagara_DataSourceType_Breaking: EDataSourceTypeEnum;
+	static var ChaosNiagara_DataSourceType_Trailing: EDataSourceTypeEnum;
+	static var ChaosNiagara_Max: EDataSourceTypeEnum;
+	static var ChaosNiagara_MAX: EDataSourceTypeEnum;
 }

@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESleepFamily")
 @:include("Chaos/ChaosEngineInterface.h")
-extern enum ESleepFamily {
-	Normal;
-	Sensitive;
-	Custom;
-	ESleepFamily_MAX;
+extern class ESleepFamily {
+	static var Normal: ESleepFamily;
+	static var Sensitive: ESleepFamily;
+	static var Custom: ESleepFamily;
+	static var ESleepFamily_MAX: ESleepFamily;
 }

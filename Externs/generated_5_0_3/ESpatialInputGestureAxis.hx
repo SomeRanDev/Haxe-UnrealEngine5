@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESpatialInputGestureAxis")
 @:include("XRGestureConfig.h")
-extern enum ESpatialInputGestureAxis {
-	None;
-	Manipulation;
-	Navigation;
-	NavigationRails;
-	ESpatialInputGestureAxis_MAX;
+extern class ESpatialInputGestureAxis {
+	static var None: ESpatialInputGestureAxis;
+	static var Manipulation: ESpatialInputGestureAxis;
+	static var Navigation: ESpatialInputGestureAxis;
+	static var NavigationRails: ESpatialInputGestureAxis;
+	static var ESpatialInputGestureAxis_MAX: ESpatialInputGestureAxis;
 }

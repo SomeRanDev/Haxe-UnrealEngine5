@@ -3,9 +3,9 @@ package ue;
 
 @:native("EPhysicsAssetEditorConstraintViewMode")
 @:include("Preferences/PhysicsAssetEditorOptions.h")
-extern enum EPhysicsAssetEditorConstraintViewMode {
-	None;
-	AllPositions;
-	AllLimits;
-	EPhysicsAssetEditorConstraintViewMode_MAX;
+extern class EPhysicsAssetEditorConstraintViewMode {
+	static var None: EPhysicsAssetEditorConstraintViewMode;
+	static var AllPositions: EPhysicsAssetEditorConstraintViewMode;
+	static var AllLimits: EPhysicsAssetEditorConstraintViewMode;
+	static var EPhysicsAssetEditorConstraintViewMode_MAX: EPhysicsAssetEditorConstraintViewMode;
 }

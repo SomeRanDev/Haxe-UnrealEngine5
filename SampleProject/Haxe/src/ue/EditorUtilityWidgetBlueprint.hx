@@ -5,7 +5,7 @@ package ue;
 @:include("EditorUtilityWidgetBlueprint.h")
 @:structAccess
 extern class EditorUtilityWidgetBlueprint extends WidgetBlueprint {
-	public var CreatedUMGWidget: cpp.Star<EditorUtilityWidget>;
+	private var CreatedUMGWidget: cpp.Star<EditorUtilityWidget>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class EditorUtilityWidgetBlueprint extends WidgetBlueprint {
 @:forward()
 @:nativeGen
 abstract ConstEditorUtilityWidgetBlueprint(EditorUtilityWidgetBlueprint) from EditorUtilityWidgetBlueprint {
-	public extern var CreatedUMGWidget(get, never): cpp.Star<EditorUtilityWidget.ConstEditorUtilityWidget>;
-	public inline extern function get_CreatedUMGWidget(): cpp.Star<EditorUtilityWidget.ConstEditorUtilityWidget> return this.CreatedUMGWidget;
 }
 
 @:forward

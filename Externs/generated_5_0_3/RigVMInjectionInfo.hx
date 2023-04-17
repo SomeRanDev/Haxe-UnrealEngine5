@@ -5,14 +5,13 @@ package ue;
 @:include("RigVMModel/RigVMPin.h")
 @:structAccess
 extern class RigVMInjectionInfo extends Object {
-	public var UnitNode_DEPRECATED: cpp.Star<RigVMUnitNode>;
 	public var Node: cpp.Star<RigVMNode>;
 	public var bInjectedAsInput: Bool;
 	public var InputPin: cpp.Star<RigVMPin>;
 	public var OutputPin: cpp.Star<RigVMPin>;
 
-	public function GetPin(): cpp.Reference<cpp.Star<RigVMPin>>;
-	public function GetGraph(): cpp.Reference<cpp.Star<RigVMGraph>>;
+	public function GetPin(): cpp.Star<RigVMPin>;
+	public function GetGraph(): cpp.Star<RigVMGraph>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -20,8 +19,6 @@ extern class RigVMInjectionInfo extends Object {
 @:forward(GetPin, GetGraph)
 @:nativeGen
 abstract ConstRigVMInjectionInfo(RigVMInjectionInfo) from RigVMInjectionInfo {
-	public extern var UnitNode_DEPRECATED(get, never): cpp.Star<RigVMUnitNode.ConstRigVMUnitNode>;
-	public inline extern function get_UnitNode_DEPRECATED(): cpp.Star<RigVMUnitNode.ConstRigVMUnitNode> return this.UnitNode_DEPRECATED;
 	public extern var Node(get, never): cpp.Star<RigVMNode.ConstRigVMNode>;
 	public inline extern function get_Node(): cpp.Star<RigVMNode.ConstRigVMNode> return this.Node;
 	public extern var bInjectedAsInput(get, never): Bool;

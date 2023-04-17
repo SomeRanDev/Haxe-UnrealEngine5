@@ -5,7 +5,7 @@ package ue;
 @:include("ToolMenuContext.h")
 @:structAccess
 extern class ToolMenuContext {
-	public var ContextObjects: TArray<cpp.Star<Object>>;
+	private var ContextObjects: TArray<cpp.Star<Object>>;
 
 	@:native("FToolMenuContext") public function new();
 	@:native("FToolMenuContext") public static function make(ContextObjects: TArray<cpp.Star<Object>>): ToolMenuContext ;

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EEnvelopeFollowerPeakMode")
 @:include("SourceEffects/SourceEffectEnvelopeFollower.h")
-extern enum EEnvelopeFollowerPeakMode {
-	MeanSquared;
-	RootMeanSquared;
-	Peak;
-	Count;
-	EEnvelopeFollowerPeakMode_MAX;
+extern class EEnvelopeFollowerPeakMode {
+	static var MeanSquared: EEnvelopeFollowerPeakMode;
+	static var RootMeanSquared: EEnvelopeFollowerPeakMode;
+	static var Peak: EEnvelopeFollowerPeakMode;
+	static var Count: EEnvelopeFollowerPeakMode;
+	static var EEnvelopeFollowerPeakMode_MAX: EEnvelopeFollowerPeakMode;
 }

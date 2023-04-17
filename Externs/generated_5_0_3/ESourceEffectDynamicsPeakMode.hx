@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESourceEffectDynamicsPeakMode")
 @:include("SourceEffects/SourceEffectDynamicsProcessor.h")
-extern enum ESourceEffectDynamicsPeakMode {
-	MeanSquared;
-	RootMeanSquared;
-	Peak;
-	Count;
-	ESourceEffectDynamicsPeakMode_MAX;
+extern class ESourceEffectDynamicsPeakMode {
+	static var MeanSquared: ESourceEffectDynamicsPeakMode;
+	static var RootMeanSquared: ESourceEffectDynamicsPeakMode;
+	static var Peak: ESourceEffectDynamicsPeakMode;
+	static var Count: ESourceEffectDynamicsPeakMode;
+	static var ESourceEffectDynamicsPeakMode_MAX: ESourceEffectDynamicsPeakMode;
 }

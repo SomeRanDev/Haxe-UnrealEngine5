@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class SkyLightComp extends LightComponentBase {
 	public var bRealTimeCapture: Bool;
-	public var SourceType: ESkyLightSourceType;
+	public var SourceType: TEnumAsByte<ESkyLightSourceType>;
 	public var Cubemap: cpp.Star<TextureCube>;
 	public var SourceCubemapAngle: cpp.Float32;
 	public var CubemapResolution: cpp.Int32;
@@ -24,8 +24,8 @@ extern class SkyLightComp extends LightComponentBase {
 	public var CloudAmbientOcclusionExtent: cpp.Float32;
 	public var CloudAmbientOcclusionMapResolutionScale: cpp.Float32;
 	public var CloudAmbientOcclusionApertureScale: cpp.Float32;
-	public var OcclusionCombineMode: EOcclusionCombineMode;
-	public var BlendDestinationCubemap: cpp.Star<TextureCube>;
+	public var OcclusionCombineMode: TEnumAsByte<EOcclusionCombineMode>;
+	@:protected public var BlendDestinationCubemap: cpp.Star<TextureCube>;
 
 	public function SetVolumetricScatteringIntensity(NewIntensity: cpp.Float32): Void;
 	public function SetOcclusionTint(InTint: cpp.Reference<Color>): Void;
@@ -48,8 +48,8 @@ extern class SkyLightComp extends LightComponentBase {
 abstract ConstSkyLightComp(SkyLightComp) from SkyLightComp {
 	public extern var bRealTimeCapture(get, never): Bool;
 	public inline extern function get_bRealTimeCapture(): Bool return this.bRealTimeCapture;
-	public extern var SourceType(get, never): ESkyLightSourceType;
-	public inline extern function get_SourceType(): ESkyLightSourceType return this.SourceType;
+	public extern var SourceType(get, never): TEnumAsByte<ESkyLightSourceType>;
+	public inline extern function get_SourceType(): TEnumAsByte<ESkyLightSourceType> return this.SourceType;
 	public extern var Cubemap(get, never): cpp.Star<TextureCube.ConstTextureCube>;
 	public inline extern function get_Cubemap(): cpp.Star<TextureCube.ConstTextureCube> return this.Cubemap;
 	public extern var SourceCubemapAngle(get, never): cpp.Float32;
@@ -84,10 +84,8 @@ abstract ConstSkyLightComp(SkyLightComp) from SkyLightComp {
 	public inline extern function get_CloudAmbientOcclusionMapResolutionScale(): cpp.Float32 return this.CloudAmbientOcclusionMapResolutionScale;
 	public extern var CloudAmbientOcclusionApertureScale(get, never): cpp.Float32;
 	public inline extern function get_CloudAmbientOcclusionApertureScale(): cpp.Float32 return this.CloudAmbientOcclusionApertureScale;
-	public extern var OcclusionCombineMode(get, never): EOcclusionCombineMode;
-	public inline extern function get_OcclusionCombineMode(): EOcclusionCombineMode return this.OcclusionCombineMode;
-	public extern var BlendDestinationCubemap(get, never): cpp.Star<TextureCube.ConstTextureCube>;
-	public inline extern function get_BlendDestinationCubemap(): cpp.Star<TextureCube.ConstTextureCube> return this.BlendDestinationCubemap;
+	public extern var OcclusionCombineMode(get, never): TEnumAsByte<EOcclusionCombineMode>;
+	public inline extern function get_OcclusionCombineMode(): TEnumAsByte<EOcclusionCombineMode> return this.OcclusionCombineMode;
 }
 
 @:forward

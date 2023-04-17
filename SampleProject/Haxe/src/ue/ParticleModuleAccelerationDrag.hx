@@ -5,7 +5,6 @@ package ue;
 @:include("Particles/Acceleration/ParticleModuleAccelerationDrag.h")
 @:structAccess
 extern class ParticleModuleAccelerationDrag extends ParticleModuleAccelerationBase {
-	public var DragCoefficient_DEPRECATED: cpp.Star<DistributionFloat>;
 	public var DragCoefficientRaw: RawDistributionFloat;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -14,8 +13,6 @@ extern class ParticleModuleAccelerationDrag extends ParticleModuleAccelerationBa
 @:forward()
 @:nativeGen
 abstract ConstParticleModuleAccelerationDrag(ParticleModuleAccelerationDrag) from ParticleModuleAccelerationDrag {
-	public extern var DragCoefficient_DEPRECATED(get, never): cpp.Star<DistributionFloat.ConstDistributionFloat>;
-	public inline extern function get_DragCoefficient_DEPRECATED(): cpp.Star<DistributionFloat.ConstDistributionFloat> return this.DragCoefficient_DEPRECATED;
 	public extern var DragCoefficientRaw(get, never): RawDistributionFloat;
 	public inline extern function get_DragCoefficientRaw(): RawDistributionFloat return this.DragCoefficientRaw;
 }

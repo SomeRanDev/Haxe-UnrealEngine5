@@ -3,8 +3,8 @@ package ue;
 
 @:native("EAirAbsorptionMethod")
 @:include("Sound/SoundAttenuation.h")
-extern enum EAirAbsorptionMethod {
-	Linear;
-	CustomCurve;
-	EAirAbsorptionMethod_MAX;
+extern class EAirAbsorptionMethod {
+	static var Linear: EAirAbsorptionMethod;
+	static var CustomCurve: EAirAbsorptionMethod;
+	static var EAirAbsorptionMethod_MAX: EAirAbsorptionMethod;
 }

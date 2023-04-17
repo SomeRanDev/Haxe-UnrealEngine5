@@ -3,9 +3,9 @@ package ue;
 
 @:native("EGroomCacheType")
 @:include("GroomCacheData.h")
-extern enum EGroomCacheType {
-	None;
-	Strands;
-	Guides;
-	EGroomCacheType_MAX;
+extern class EGroomCacheType {
+	static var None: EGroomCacheType;
+	static var Strands: EGroomCacheType;
+	static var Guides: EGroomCacheType;
+	static var EGroomCacheType_MAX: EGroomCacheType;
 }

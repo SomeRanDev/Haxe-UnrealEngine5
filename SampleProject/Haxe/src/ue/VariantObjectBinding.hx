@@ -5,11 +5,11 @@ package ue;
 @:include("VariantObjectBinding.h")
 @:structAccess
 extern class VariantObjectBinding extends Object {
-	public var CachedActorLabel: FString;
-	public var ObjectPtr: SoftObjectPath;
-	public var LazyObjectPtr: TLazyObjectPtr<Object>;
-	public var CapturedProperties: TArray<cpp.Star<PropertyValue>>;
-	public var FunctionCallers: TArray<FunctionCaller>;
+	private var CachedActorLabel: FString;
+	private var ObjectPtr: SoftObjectPath;
+	private var LazyObjectPtr: TLazyObjectPtr<Object>;
+	private var CapturedProperties: TArray<cpp.Star<PropertyValue>>;
+	private var FunctionCallers: TArray<FunctionCaller>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,16 +17,6 @@ extern class VariantObjectBinding extends Object {
 @:forward()
 @:nativeGen
 abstract ConstVariantObjectBinding(VariantObjectBinding) from VariantObjectBinding {
-	public extern var CachedActorLabel(get, never): FString;
-	public inline extern function get_CachedActorLabel(): FString return this.CachedActorLabel;
-	public extern var ObjectPtr(get, never): SoftObjectPath;
-	public inline extern function get_ObjectPtr(): SoftObjectPath return this.ObjectPtr;
-	public extern var LazyObjectPtr(get, never): TLazyObjectPtr<Object.ConstObject>;
-	public inline extern function get_LazyObjectPtr(): TLazyObjectPtr<Object.ConstObject> return this.LazyObjectPtr;
-	public extern var CapturedProperties(get, never): TArray<cpp.Star<PropertyValue.ConstPropertyValue>>;
-	public inline extern function get_CapturedProperties(): TArray<cpp.Star<PropertyValue.ConstPropertyValue>> return this.CapturedProperties;
-	public extern var FunctionCallers(get, never): TArray<FunctionCaller>;
-	public inline extern function get_FunctionCallers(): TArray<FunctionCaller> return this.FunctionCallers;
 }
 
 @:forward

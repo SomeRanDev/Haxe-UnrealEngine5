@@ -5,17 +5,16 @@ package ue;
 @:include("Components/WorldPartitionStreamingSourceComponent.h")
 @:structAccess
 extern class WorldPartitionStreamingSourceComp extends ActorComp {
-	public var DefaultVisualizerLoadingRange: cpp.Float32;
 	public var TargetGrid: FName;
 	public var DebugColor: Color;
 	public var TargetHLODLayer: cpp.Star<HLODLayer>;
 	public var Shapes: TArray<StreamingSourceShape>;
 	public var Priority: EStreamingSourcePriority;
-	public var bStreamingSourceEnabled: Bool;
-	public var TargetState: EStreamingSourceTargetState;
+	private var bStreamingSourceEnabled: Bool;
+	private var TargetState: EStreamingSourceTargetState;
 
-	public function IsStreamingSourceEnabled(): cpp.Reference<Bool>;
-	public function IsStreamingCompleted(): cpp.Reference<Bool>;
+	public function IsStreamingSourceEnabled(): Bool;
+	public function IsStreamingCompleted(): Bool;
 	public function EnableStreamingSource(): Void;
 	public function DisableStreamingSource(): Void;
 
@@ -25,8 +24,6 @@ extern class WorldPartitionStreamingSourceComp extends ActorComp {
 @:forward(IsStreamingSourceEnabled, IsStreamingCompleted)
 @:nativeGen
 abstract ConstWorldPartitionStreamingSourceComp(WorldPartitionStreamingSourceComp) from WorldPartitionStreamingSourceComp {
-	public extern var DefaultVisualizerLoadingRange(get, never): cpp.Float32;
-	public inline extern function get_DefaultVisualizerLoadingRange(): cpp.Float32 return this.DefaultVisualizerLoadingRange;
 	public extern var TargetGrid(get, never): FName;
 	public inline extern function get_TargetGrid(): FName return this.TargetGrid;
 	public extern var DebugColor(get, never): Color;
@@ -37,10 +34,6 @@ abstract ConstWorldPartitionStreamingSourceComp(WorldPartitionStreamingSourceCom
 	public inline extern function get_Shapes(): TArray<StreamingSourceShape> return this.Shapes;
 	public extern var Priority(get, never): EStreamingSourcePriority;
 	public inline extern function get_Priority(): EStreamingSourcePriority return this.Priority;
-	public extern var bStreamingSourceEnabled(get, never): Bool;
-	public inline extern function get_bStreamingSourceEnabled(): Bool return this.bStreamingSourceEnabled;
-	public extern var TargetState(get, never): EStreamingSourceTargetState;
-	public inline extern function get_TargetState(): EStreamingSourceTargetState return this.TargetState;
 }
 
 @:forward

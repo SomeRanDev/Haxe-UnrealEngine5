@@ -5,9 +5,9 @@ package ue;
 @:include("BehaviorTree/BTCompositeNode.h")
 @:structAccess
 extern class BTDecoratorLogic {
-	public var Operation: EBTDecoratorLogic;
+	public var Operation: TEnumAsByte<EBTDecoratorLogic>;
 	public var Number: cpp.UInt16;
 
 	@:native("FBTDecoratorLogic") public function new();
-	@:native("FBTDecoratorLogic") public static function make(Operation: EBTDecoratorLogic, Number: cpp.UInt16): BTDecoratorLogic ;
+	@:native("FBTDecoratorLogic") public static function make(Operation: TEnumAsByte<EBTDecoratorLogic>, Number: cpp.UInt16): BTDecoratorLogic ;
 }

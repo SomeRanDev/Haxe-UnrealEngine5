@@ -5,7 +5,7 @@ package ue;
 @:include("ARTrackable.h")
 @:structAccess
 extern class ARMeshGeometry extends ARTrackedGeometry {
-	public function GetObjectClassificationAtLocation(InWorldLocation: cpp.Reference<Vector>, OutClassification: cpp.Reference<EARObjectClassification>, OutClassificationLocation: cpp.Reference<Vector>, MaxLocationDiff: cpp.Float32): cpp.Reference<Bool>;
+	public function GetObjectClassificationAtLocation(InWorldLocation: cpp.Reference<Vector>, OutClassification: cpp.Reference<EARObjectClassification>, OutClassificationLocation: cpp.Reference<Vector>, MaxLocationDiff: cpp.Float32): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

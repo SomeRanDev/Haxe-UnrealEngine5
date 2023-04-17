@@ -5,10 +5,10 @@ package ue;
 @:include("EnvironmentQuery/Tests/EnvQueryTest_Dot.h")
 @:structAccess
 extern class EnvQueryTest_Dot extends EnvQueryTest {
-	public var LineA: EnvDirection;
-	public var LineB: EnvDirection;
-	public var TestMode: EEnvTestDot;
-	public var bAbsoluteValue: Bool;
+	@:protected public var LineA: EnvDirection;
+	@:protected public var LineB: EnvDirection;
+	@:protected public var TestMode: EEnvTestDot;
+	@:protected public var bAbsoluteValue: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class EnvQueryTest_Dot extends EnvQueryTest {
 @:forward()
 @:nativeGen
 abstract ConstEnvQueryTest_Dot(EnvQueryTest_Dot) from EnvQueryTest_Dot {
-	public extern var LineA(get, never): EnvDirection;
-	public inline extern function get_LineA(): EnvDirection return this.LineA;
-	public extern var LineB(get, never): EnvDirection;
-	public inline extern function get_LineB(): EnvDirection return this.LineB;
-	public extern var TestMode(get, never): EEnvTestDot;
-	public inline extern function get_TestMode(): EEnvTestDot return this.TestMode;
-	public extern var bAbsoluteValue(get, never): Bool;
-	public inline extern function get_bAbsoluteValue(): Bool return this.bAbsoluteValue;
 }
 
 @:forward

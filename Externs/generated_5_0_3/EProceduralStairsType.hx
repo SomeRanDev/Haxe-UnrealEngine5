@@ -3,10 +3,10 @@ package ue;
 
 @:native("EProceduralStairsType")
 @:include("AddPrimitiveTool.h")
-extern enum EProceduralStairsType {
-	Linear;
-	Floating;
-	Curved;
-	Spiral;
-	EProceduralStairsType_MAX;
+extern class EProceduralStairsType {
+	static var Linear: EProceduralStairsType;
+	static var Floating: EProceduralStairsType;
+	static var Curved: EProceduralStairsType;
+	static var Spiral: EProceduralStairsType;
+	static var EProceduralStairsType_MAX: EProceduralStairsType;
 }

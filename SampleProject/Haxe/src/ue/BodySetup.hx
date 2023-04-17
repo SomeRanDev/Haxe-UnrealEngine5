@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class BodySetup extends BodySetupCore {
 	public var AggGeom: KAggregateGeom;
-	public var bAlwaysFullAnimWeight_DEPRECATED: Bool;
 	public var bConsiderForBounds: Bool;
 	public var bMeshCollideAll: Bool;
 	public var bDoubleSidedGeometry: Bool;
@@ -17,7 +16,6 @@ extern class BodySetup extends BodySetupCore {
 	public var bNeverNeedsCookedCollisionData: Bool;
 	public var PhysMaterial: cpp.Star<PhysicalMaterial>;
 	public var WalkableSlopeOverride: WalkableSlopeOverride;
-	public var BuildScale_DEPRECATED: cpp.Float32;
 	public var DefaultInstance: BodyInstance;
 	public var BuildScale3D: Vector;
 
@@ -29,8 +27,6 @@ extern class BodySetup extends BodySetupCore {
 abstract ConstBodySetup(BodySetup) from BodySetup {
 	public extern var AggGeom(get, never): KAggregateGeom;
 	public inline extern function get_AggGeom(): KAggregateGeom return this.AggGeom;
-	public extern var bAlwaysFullAnimWeight_DEPRECATED(get, never): Bool;
-	public inline extern function get_bAlwaysFullAnimWeight_DEPRECATED(): Bool return this.bAlwaysFullAnimWeight_DEPRECATED;
 	public extern var bConsiderForBounds(get, never): Bool;
 	public inline extern function get_bConsiderForBounds(): Bool return this.bConsiderForBounds;
 	public extern var bMeshCollideAll(get, never): Bool;
@@ -51,8 +47,6 @@ abstract ConstBodySetup(BodySetup) from BodySetup {
 	public inline extern function get_PhysMaterial(): cpp.Star<PhysicalMaterial.ConstPhysicalMaterial> return this.PhysMaterial;
 	public extern var WalkableSlopeOverride(get, never): WalkableSlopeOverride;
 	public inline extern function get_WalkableSlopeOverride(): WalkableSlopeOverride return this.WalkableSlopeOverride;
-	public extern var BuildScale_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_BuildScale_DEPRECATED(): cpp.Float32 return this.BuildScale_DEPRECATED;
 	public extern var DefaultInstance(get, never): BodyInstance;
 	public inline extern function get_DefaultInstance(): BodyInstance return this.DefaultInstance;
 	public extern var BuildScale3D(get, never): Vector;

@@ -8,14 +8,6 @@ extern class LandscapeLayerInfoObject extends Object {
 	public var LayerName: FName;
 	public var PhysMaterial: cpp.Star<PhysicalMaterial>;
 	public var Hardness: cpp.Float32;
-	public var MinimumCollisionRelevanceWeight: cpp.Float32;
-	public var bNoWeightBlend: Bool;
-	public var SplineFalloffModulationTexture: cpp.Star<Texture2D>;
-	public var SplineFalloffModulationColorMask: ESplineModulationColorMask;
-	public var SplineFalloffModulationTiling: cpp.Float32;
-	public var SplineFalloffModulationBias: cpp.Float32;
-	public var SplineFalloffModulationScale: cpp.Float32;
-	public var IsReferencedFromLoadedData: Bool;
 	public var LayerUsageDebugColor: LinearColor;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -30,22 +22,6 @@ abstract ConstLandscapeLayerInfoObject(LandscapeLayerInfoObject) from LandscapeL
 	public inline extern function get_PhysMaterial(): cpp.Star<PhysicalMaterial.ConstPhysicalMaterial> return this.PhysMaterial;
 	public extern var Hardness(get, never): cpp.Float32;
 	public inline extern function get_Hardness(): cpp.Float32 return this.Hardness;
-	public extern var MinimumCollisionRelevanceWeight(get, never): cpp.Float32;
-	public inline extern function get_MinimumCollisionRelevanceWeight(): cpp.Float32 return this.MinimumCollisionRelevanceWeight;
-	public extern var bNoWeightBlend(get, never): Bool;
-	public inline extern function get_bNoWeightBlend(): Bool return this.bNoWeightBlend;
-	public extern var SplineFalloffModulationTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_SplineFalloffModulationTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.SplineFalloffModulationTexture;
-	public extern var SplineFalloffModulationColorMask(get, never): ESplineModulationColorMask;
-	public inline extern function get_SplineFalloffModulationColorMask(): ESplineModulationColorMask return this.SplineFalloffModulationColorMask;
-	public extern var SplineFalloffModulationTiling(get, never): cpp.Float32;
-	public inline extern function get_SplineFalloffModulationTiling(): cpp.Float32 return this.SplineFalloffModulationTiling;
-	public extern var SplineFalloffModulationBias(get, never): cpp.Float32;
-	public inline extern function get_SplineFalloffModulationBias(): cpp.Float32 return this.SplineFalloffModulationBias;
-	public extern var SplineFalloffModulationScale(get, never): cpp.Float32;
-	public inline extern function get_SplineFalloffModulationScale(): cpp.Float32 return this.SplineFalloffModulationScale;
-	public extern var IsReferencedFromLoadedData(get, never): Bool;
-	public inline extern function get_IsReferencedFromLoadedData(): Bool return this.IsReferencedFromLoadedData;
 	public extern var LayerUsageDebugColor(get, never): LinearColor;
 	public inline extern function get_LayerUsageDebugColor(): LinearColor return this.LayerUsageDebugColor;
 }

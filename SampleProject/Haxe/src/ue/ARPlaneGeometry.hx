@@ -5,17 +5,17 @@ package ue;
 @:include("ARTrackable.h")
 @:structAccess
 extern class ARPlaneGeometry extends ARTrackedGeometry {
-	public var Orientation: EARPlaneOrientation;
-	public var Center: Vector;
-	public var Extent: Vector;
-	public var BoundaryPolygon: TArray<Vector>;
-	public var SubsumedBy: cpp.Star<ARPlaneGeometry>;
+	private var Orientation: EARPlaneOrientation;
+	private var Center: Vector;
+	private var Extent: Vector;
+	private var BoundaryPolygon: TArray<Vector>;
+	private var SubsumedBy: cpp.Star<ARPlaneGeometry>;
 
-	public function GetSubsumedBy(): cpp.Reference<cpp.Star<ARPlaneGeometry>>;
-	public function GetOrientation(): cpp.Reference<EARPlaneOrientation>;
-	public function GetExtent(): cpp.Reference<Vector>;
-	public function GetCenter(): cpp.Reference<Vector>;
-	public function GetBoundaryPolygonInLocalSpace(): cpp.Reference<TArray<Vector>>;
+	public function GetSubsumedBy(): cpp.Star<ARPlaneGeometry>;
+	public function GetOrientation(): EARPlaneOrientation;
+	public function GetExtent(): Vector;
+	public function GetCenter(): Vector;
+	public function GetBoundaryPolygonInLocalSpace(): TArray<Vector>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -23,16 +23,6 @@ extern class ARPlaneGeometry extends ARTrackedGeometry {
 @:forward(GetSubsumedBy, GetOrientation, GetExtent, GetCenter, GetBoundaryPolygonInLocalSpace)
 @:nativeGen
 abstract ConstARPlaneGeometry(ARPlaneGeometry) from ARPlaneGeometry {
-	public extern var Orientation(get, never): EARPlaneOrientation;
-	public inline extern function get_Orientation(): EARPlaneOrientation return this.Orientation;
-	public extern var Center(get, never): Vector;
-	public inline extern function get_Center(): Vector return this.Center;
-	public extern var Extent(get, never): Vector;
-	public inline extern function get_Extent(): Vector return this.Extent;
-	public extern var BoundaryPolygon(get, never): TArray<Vector>;
-	public inline extern function get_BoundaryPolygon(): TArray<Vector> return this.BoundaryPolygon;
-	public extern var SubsumedBy(get, never): cpp.Star<ARPlaneGeometry.ConstARPlaneGeometry>;
-	public inline extern function get_SubsumedBy(): cpp.Star<ARPlaneGeometry.ConstARPlaneGeometry> return this.SubsumedBy;
 }
 
 @:forward

@@ -15,7 +15,7 @@ extern class PixelInspectorView extends Object {
 	public var Metallic: cpp.Float32;
 	public var Specular: cpp.Float32;
 	public var Roughness: cpp.Float32;
-	public var MaterialShadingModel: EMaterialShadingModel;
+	public var MaterialShadingModel: TEnumAsByte<EMaterialShadingModel>;
 	public var SelectiveOutputMask: cpp.Int32;
 	public var BaseColor: LinearColor;
 	public var IndirectIrradiance: cpp.Float32;
@@ -58,8 +58,8 @@ abstract ConstPixelInspectorView(PixelInspectorView) from PixelInspectorView {
 	public inline extern function get_Specular(): cpp.Float32 return this.Specular;
 	public extern var Roughness(get, never): cpp.Float32;
 	public inline extern function get_Roughness(): cpp.Float32 return this.Roughness;
-	public extern var MaterialShadingModel(get, never): EMaterialShadingModel;
-	public inline extern function get_MaterialShadingModel(): EMaterialShadingModel return this.MaterialShadingModel;
+	public extern var MaterialShadingModel(get, never): TEnumAsByte<EMaterialShadingModel>;
+	public inline extern function get_MaterialShadingModel(): TEnumAsByte<EMaterialShadingModel> return this.MaterialShadingModel;
 	public extern var SelectiveOutputMask(get, never): cpp.Int32;
 	public inline extern function get_SelectiveOutputMask(): cpp.Int32 return this.SelectiveOutputMask;
 	public extern var BaseColor(get, never): LinearColor;

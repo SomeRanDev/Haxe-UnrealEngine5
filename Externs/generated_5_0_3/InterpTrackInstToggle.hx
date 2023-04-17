@@ -5,7 +5,7 @@ package ue;
 @:include("Matinee/InterpTrackInstToggle.h")
 @:structAccess
 extern class InterpTrackInstToggle extends InterpTrackInst {
-	public var Action: ETrackToggleAction;
+	public var Action: TEnumAsByte<ETrackToggleAction>;
 	public var LastUpdatePosition: cpp.Float32;
 	public var bSavedActiveState: Bool;
 
@@ -15,8 +15,8 @@ extern class InterpTrackInstToggle extends InterpTrackInst {
 @:forward()
 @:nativeGen
 abstract ConstInterpTrackInstToggle(InterpTrackInstToggle) from InterpTrackInstToggle {
-	public extern var Action(get, never): ETrackToggleAction;
-	public inline extern function get_Action(): ETrackToggleAction return this.Action;
+	public extern var Action(get, never): TEnumAsByte<ETrackToggleAction>;
+	public inline extern function get_Action(): TEnumAsByte<ETrackToggleAction> return this.Action;
 	public extern var LastUpdatePosition(get, never): cpp.Float32;
 	public inline extern function get_LastUpdatePosition(): cpp.Float32 return this.LastUpdatePosition;
 	public extern var bSavedActiveState(get, never): Bool;

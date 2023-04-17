@@ -16,11 +16,8 @@ extern class MaterialInstance extends MaterialInterface {
 	public var TextureParameterValues: TArray<TextureParameterValue>;
 	public var RuntimeVirtualTextureParameterValues: TArray<RuntimeVirtualTextureParameterValue>;
 	public var FontParameterValues: TArray<FontParameterValue>;
-	public var bOverrideBaseProperties_DEPRECATED: Bool;
 	public var BasePropertyOverrides: MaterialInstanceBasePropertyOverrides;
-	public var ReferencedTextureGuids: TArray<Guid>;
-	public var StaticParameters: StaticParameterSet;
-	public var bSavedCachedData_DEPRECATED: Bool;
+	private var StaticParameters: StaticParameterSet;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -50,16 +47,8 @@ abstract ConstMaterialInstance(MaterialInstance) from MaterialInstance {
 	public inline extern function get_RuntimeVirtualTextureParameterValues(): TArray<RuntimeVirtualTextureParameterValue> return this.RuntimeVirtualTextureParameterValues;
 	public extern var FontParameterValues(get, never): TArray<FontParameterValue>;
 	public inline extern function get_FontParameterValues(): TArray<FontParameterValue> return this.FontParameterValues;
-	public extern var bOverrideBaseProperties_DEPRECATED(get, never): Bool;
-	public inline extern function get_bOverrideBaseProperties_DEPRECATED(): Bool return this.bOverrideBaseProperties_DEPRECATED;
 	public extern var BasePropertyOverrides(get, never): MaterialInstanceBasePropertyOverrides;
 	public inline extern function get_BasePropertyOverrides(): MaterialInstanceBasePropertyOverrides return this.BasePropertyOverrides;
-	public extern var ReferencedTextureGuids(get, never): TArray<Guid>;
-	public inline extern function get_ReferencedTextureGuids(): TArray<Guid> return this.ReferencedTextureGuids;
-	public extern var StaticParameters(get, never): StaticParameterSet;
-	public inline extern function get_StaticParameters(): StaticParameterSet return this.StaticParameters;
-	public extern var bSavedCachedData_DEPRECATED(get, never): Bool;
-	public inline extern function get_bSavedCachedData_DEPRECATED(): Bool return this.bSavedCachedData_DEPRECATED;
 }
 
 @:forward

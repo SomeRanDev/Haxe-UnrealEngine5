@@ -5,12 +5,12 @@ package ue;
 @:include("Engine/CollisionProfile.h")
 @:structAccess
 extern class CustomChannelSetup {
-	public var Channel: ECollisionChannel;
-	public var DefaultResponse: ECollisionResponse;
+	public var Channel: TEnumAsByte<ECollisionChannel>;
+	public var DefaultResponse: TEnumAsByte<ECollisionResponse>;
 	public var bTraceType: Bool;
 	public var bStaticObject: Bool;
 	public var Name: FName;
 
 	@:native("FCustomChannelSetup") public function new();
-	@:native("FCustomChannelSetup") public static function make(Channel: ECollisionChannel, DefaultResponse: ECollisionResponse, bTraceType: Bool, bStaticObject: Bool, Name: FName): CustomChannelSetup ;
+	@:native("FCustomChannelSetup") public static function make(Channel: TEnumAsByte<ECollisionChannel>, DefaultResponse: TEnumAsByte<ECollisionResponse>, bTraceType: Bool, bStaticObject: Bool, Name: FName): CustomChannelSetup ;
 }

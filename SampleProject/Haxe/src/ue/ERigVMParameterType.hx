@@ -3,9 +3,9 @@ package ue;
 
 @:native("ERigVMParameterType")
 @:include("RigVMCore/RigVM.h")
-extern enum ERigVMParameterType {
-	Input;
-	Output;
-	Invalid;
-	ERigVMParameterType_MAX;
+extern class ERigVMParameterType {
+	static var Input: ERigVMParameterType;
+	static var Output: ERigVMParameterType;
+	static var Invalid: ERigVMParameterType;
+	static var ERigVMParameterType_MAX: ERigVMParameterType;
 }

@@ -3,11 +3,11 @@ package ue;
 
 @:native("EWaveFunctionType")
 @:include("Field/FieldSystemTypes.h")
-extern enum EWaveFunctionType {
-	Field_Wave_Cosine;
-	Field_Wave_Gaussian;
-	Field_Wave_Falloff;
-	Field_Wave_Decay;
-	Field_Wave_Max;
-	Field_Wave_MAX;
+extern class EWaveFunctionType {
+	static var Field_Wave_Cosine: EWaveFunctionType;
+	static var Field_Wave_Gaussian: EWaveFunctionType;
+	static var Field_Wave_Falloff: EWaveFunctionType;
+	static var Field_Wave_Decay: EWaveFunctionType;
+	static var Field_Wave_Max: EWaveFunctionType;
+	static var Field_Wave_MAX: EWaveFunctionType;
 }

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EGeometrySelectionMethod")
 @:include("Private/FractureToolFixTinyGeo.h")
-extern enum EGeometrySelectionMethod {
-	VolumeCubeRoot;
-	RelativeVolume;
-	EGeometrySelectionMethod_MAX;
+extern class EGeometrySelectionMethod {
+	static var VolumeCubeRoot: EGeometrySelectionMethod;
+	static var RelativeVolume: EGeometrySelectionMethod;
+	static var EGeometrySelectionMethod_MAX: EGeometrySelectionMethod;
 }

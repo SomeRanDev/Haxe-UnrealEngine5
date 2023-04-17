@@ -6,16 +6,14 @@ package ue;
 @:structAccess
 extern class WrapBox extends PanelWidget {
 	public var InnerSlotPadding: Vector2D;
-	public var WrapWidth_DEPRECATED: cpp.Float32;
 	public var WrapSize: cpp.Float32;
-	public var bExplicitWrapWidth_DEPRECATED: Bool;
 	public var bExplicitWrapSize: Bool;
-	public var HorizontalAlignment: EHorizontalAlignment;
-	public var Orientation: EOrientation;
+	public var HorizontalAlignment: TEnumAsByte<EHorizontalAlignment>;
+	public var Orientation: TEnumAsByte<EOrientation>;
 
 	public function SetInnerSlotPadding(InPadding: Vector2D): Void;
-	public function SetHorizontalAlignment(InHorizontalAlignment: EHorizontalAlignment): Void;
-	public function AddChildToWrapBox(Content: cpp.Star<Widget>): cpp.Reference<cpp.Star<WrapBoxSlot>>;
+	public function SetHorizontalAlignment(InHorizontalAlignment: TEnumAsByte<EHorizontalAlignment>): Void;
+	public function AddChildToWrapBox(Content: cpp.Star<Widget>): cpp.Star<WrapBoxSlot>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -25,18 +23,14 @@ extern class WrapBox extends PanelWidget {
 abstract ConstWrapBox(WrapBox) from WrapBox {
 	public extern var InnerSlotPadding(get, never): Vector2D;
 	public inline extern function get_InnerSlotPadding(): Vector2D return this.InnerSlotPadding;
-	public extern var WrapWidth_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_WrapWidth_DEPRECATED(): cpp.Float32 return this.WrapWidth_DEPRECATED;
 	public extern var WrapSize(get, never): cpp.Float32;
 	public inline extern function get_WrapSize(): cpp.Float32 return this.WrapSize;
-	public extern var bExplicitWrapWidth_DEPRECATED(get, never): Bool;
-	public inline extern function get_bExplicitWrapWidth_DEPRECATED(): Bool return this.bExplicitWrapWidth_DEPRECATED;
 	public extern var bExplicitWrapSize(get, never): Bool;
 	public inline extern function get_bExplicitWrapSize(): Bool return this.bExplicitWrapSize;
-	public extern var HorizontalAlignment(get, never): EHorizontalAlignment;
-	public inline extern function get_HorizontalAlignment(): EHorizontalAlignment return this.HorizontalAlignment;
-	public extern var Orientation(get, never): EOrientation;
-	public inline extern function get_Orientation(): EOrientation return this.Orientation;
+	public extern var HorizontalAlignment(get, never): TEnumAsByte<EHorizontalAlignment>;
+	public inline extern function get_HorizontalAlignment(): TEnumAsByte<EHorizontalAlignment> return this.HorizontalAlignment;
+	public extern var Orientation(get, never): TEnumAsByte<EOrientation>;
+	public inline extern function get_Orientation(): TEnumAsByte<EOrientation> return this.Orientation;
 }
 
 @:forward

@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class MovieSceneCameraCutTrack extends MovieSceneNameableTrack {
 	public var bCanBlend: Bool;
-	public var Sections: TArray<cpp.Star<MovieSceneSection>>;
+	private var Sections: TArray<cpp.Star<MovieSceneSection>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,6 @@ extern class MovieSceneCameraCutTrack extends MovieSceneNameableTrack {
 abstract ConstMovieSceneCameraCutTrack(MovieSceneCameraCutTrack) from MovieSceneCameraCutTrack {
 	public extern var bCanBlend(get, never): Bool;
 	public inline extern function get_bCanBlend(): Bool return this.bCanBlend;
-	public extern var Sections(get, never): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>>;
-	public inline extern function get_Sections(): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>> return this.Sections;
 }
 
 @:forward

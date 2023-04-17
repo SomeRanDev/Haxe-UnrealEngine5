@@ -5,9 +5,9 @@ package ue;
 @:include("Curves/IntegralCurve.h")
 @:structAccess
 extern class IntegralCurve extends IndexedCurve {
-	public var Keys: TArray<IntegralKey>;
-	public var DefaultValue: cpp.Int32;
-	public var bUseDefaultValueBeforeFirstKey: Bool;
+	private var Keys: TArray<IntegralKey>;
+	private var DefaultValue: cpp.Int32;
+	private var bUseDefaultValueBeforeFirstKey: Bool;
 
 	@:native("FIntegralCurve") public function new();
 	@:native("FIntegralCurve") public static function make(Keys: TArray<IntegralKey>, DefaultValue: cpp.Int32, bUseDefaultValueBeforeFirstKey: Bool): IntegralCurve ;

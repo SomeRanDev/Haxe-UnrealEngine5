@@ -5,8 +5,8 @@ package ue;
 @:include("ViewModels/NiagaraSystemSelectionViewModel.h")
 @:structAccess
 extern class NiagaraSystemSelectionViewModel extends Object {
-	public var StackSelection: cpp.Star<NiagaraStackSelection>;
-	public var SelectionStackViewModel: cpp.Star<NiagaraStackViewModel>;
+	private var StackSelection: cpp.Star<NiagaraStackSelection>;
+	private var SelectionStackViewModel: cpp.Star<NiagaraStackViewModel>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class NiagaraSystemSelectionViewModel extends Object {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraSystemSelectionViewModel(NiagaraSystemSelectionViewModel) from NiagaraSystemSelectionViewModel {
-	public extern var StackSelection(get, never): cpp.Star<NiagaraStackSelection.ConstNiagaraStackSelection>;
-	public inline extern function get_StackSelection(): cpp.Star<NiagaraStackSelection.ConstNiagaraStackSelection> return this.StackSelection;
-	public extern var SelectionStackViewModel(get, never): cpp.Star<NiagaraStackViewModel.ConstNiagaraStackViewModel>;
-	public inline extern function get_SelectionStackViewModel(): cpp.Star<NiagaraStackViewModel.ConstNiagaraStackViewModel> return this.SelectionStackViewModel;
 }
 
 @:forward

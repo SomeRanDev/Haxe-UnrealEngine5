@@ -3,10 +3,10 @@ package ue;
 
 @:native("EStereoDelaySourceEffect")
 @:include("SourceEffects/SourceEffectStereoDelay.h")
-extern enum EStereoDelaySourceEffect {
-	Normal;
-	Cross;
-	PingPong;
-	Count;
-	EStereoDelaySourceEffect_MAX;
+extern class EStereoDelaySourceEffect {
+	static var Normal: EStereoDelaySourceEffect;
+	static var Cross: EStereoDelaySourceEffect;
+	static var PingPong: EStereoDelaySourceEffect;
+	static var Count: EStereoDelaySourceEffect;
+	static var EStereoDelaySourceEffect_MAX: EStereoDelaySourceEffect;
 }

@@ -3,12 +3,12 @@ package ue;
 
 @:native("ESynth1OscType")
 @:include("EpicSynth1Types.h")
-extern enum ESynth1OscType {
-	Sine;
-	Saw;
-	Triangle;
-	Square;
-	Noise;
-	Count;
-	ESynth1OscType_MAX;
+extern class ESynth1OscType {
+	static var Sine: ESynth1OscType;
+	static var Saw: ESynth1OscType;
+	static var Triangle: ESynth1OscType;
+	static var Square: ESynth1OscType;
+	static var Noise: ESynth1OscType;
+	static var Count: ESynth1OscType;
+	static var ESynth1OscType_MAX: ESynth1OscType;
 }

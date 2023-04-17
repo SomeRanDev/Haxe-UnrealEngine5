@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELiveLinkSourceMode")
 @:include("LiveLinkSourceSettings.h")
-extern enum ELiveLinkSourceMode {
-	Latest;
-	EngineTime;
-	Timecode;
-	ELiveLinkSourceMode_MAX;
+extern class ELiveLinkSourceMode {
+	static var Latest: ELiveLinkSourceMode;
+	static var EngineTime: ELiveLinkSourceMode;
+	static var Timecode: ELiveLinkSourceMode;
+	static var ELiveLinkSourceMode_MAX: ELiveLinkSourceMode;
 }

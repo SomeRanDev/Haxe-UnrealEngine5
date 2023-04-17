@@ -3,12 +3,12 @@ package ue;
 
 @:native("ELandscapeToolFlattenMode")
 @:include("LandscapeEditorObject.h")
-extern enum ELandscapeToolFlattenMode {
-	Invalid;
-	Both;
-	Raise;
-	Lower;
-	Interval;
-	Terrace;
-	ELandscapeToolFlattenMode_MAX;
+extern class ELandscapeToolFlattenMode {
+	static var Invalid: ELandscapeToolFlattenMode;
+	static var Both: ELandscapeToolFlattenMode;
+	static var Raise: ELandscapeToolFlattenMode;
+	static var Lower: ELandscapeToolFlattenMode;
+	static var Interval: ELandscapeToolFlattenMode;
+	static var Terrace: ELandscapeToolFlattenMode;
+	static var ELandscapeToolFlattenMode_MAX: ELandscapeToolFlattenMode;
 }

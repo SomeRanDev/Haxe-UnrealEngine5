@@ -3,9 +3,9 @@ package ue;
 
 @:native("EBaseCreateFromSelectedTargetType")
 @:include("BaseTools/BaseCreateFromSelectedTool.h")
-extern enum EBaseCreateFromSelectedTargetType {
-	NewObject;
-	FirstInputObject;
-	LastInputObject;
-	EBaseCreateFromSelectedTargetType_MAX;
+extern class EBaseCreateFromSelectedTargetType {
+	static var NewObject: EBaseCreateFromSelectedTargetType;
+	static var FirstInputObject: EBaseCreateFromSelectedTargetType;
+	static var LastInputObject: EBaseCreateFromSelectedTargetType;
+	static var EBaseCreateFromSelectedTargetType_MAX: EBaseCreateFromSelectedTargetType;
 }

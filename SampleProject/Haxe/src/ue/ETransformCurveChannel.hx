@@ -3,10 +3,10 @@ package ue;
 
 @:native("ETransformCurveChannel")
 @:include("Animation/AnimData/CurveIdentifier.h")
-extern enum ETransformCurveChannel {
-	Position;
-	Rotation;
-	Scale;
-	Invalid;
-	ETransformCurveChannel_MAX;
+extern class ETransformCurveChannel {
+	static var Position: ETransformCurveChannel;
+	static var Rotation: ETransformCurveChannel;
+	static var Scale: ETransformCurveChannel;
+	static var Invalid: ETransformCurveChannel;
+	static var ETransformCurveChannel_MAX: ETransformCurveChannel;
 }

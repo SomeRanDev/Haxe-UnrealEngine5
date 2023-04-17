@@ -3,8 +3,8 @@ package ue;
 
 @:native("EStreamingSourceTargetState")
 @:include("WorldPartition/WorldPartitionStreamingSource.h")
-extern enum EStreamingSourceTargetState {
-	Loaded;
-	Activated;
-	EStreamingSourceTargetState_MAX;
+extern class EStreamingSourceTargetState {
+	static var Loaded: EStreamingSourceTargetState;
+	static var Activated: EStreamingSourceTargetState;
+	static var EStreamingSourceTargetState_MAX: EStreamingSourceTargetState;
 }

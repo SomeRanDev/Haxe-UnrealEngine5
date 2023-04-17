@@ -3,8 +3,8 @@ package ue;
 
 @:native("EVolumeLightingMethod")
 @:include("GameFramework/WorldSettings.h")
-extern enum EVolumeLightingMethod {
-	VLM_VolumetricLightmap;
-	VLM_SparseVolumeLightingSamples;
-	VLM_MAX;
+extern class EVolumeLightingMethod {
+	static var VLM_VolumetricLightmap: EVolumeLightingMethod;
+	static var VLM_SparseVolumeLightingSamples: EVolumeLightingMethod;
+	static var VLM_MAX: EVolumeLightingMethod;
 }

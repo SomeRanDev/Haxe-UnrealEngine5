@@ -3,10 +3,10 @@ package ue;
 
 @:native("ETrackToggleAction")
 @:include("Matinee/InterpTrackToggle.h")
-extern enum ETrackToggleAction {
-	ETTA_Off;
-	ETTA_On;
-	ETTA_Toggle;
-	ETTA_Trigger;
-	ETTA_MAX;
+extern class ETrackToggleAction {
+	static var ETTA_Off: ETrackToggleAction;
+	static var ETTA_On: ETrackToggleAction;
+	static var ETTA_Toggle: ETrackToggleAction;
+	static var ETTA_Trigger: ETrackToggleAction;
+	static var ETTA_MAX: ETrackToggleAction;
 }

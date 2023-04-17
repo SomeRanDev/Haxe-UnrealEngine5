@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESlateBrushImageType.Type")
 @:include("Styling/SlateBrush.h")
-extern enum ESlateBrushImageType {
-	NoImage;
-	FullColor;
-	Linear;
-	Vector;
-	ESlateBrushImageType_MAX;
+extern class ESlateBrushImageType {
+	static var NoImage: ESlateBrushImageType;
+	static var FullColor: ESlateBrushImageType;
+	static var Linear: ESlateBrushImageType;
+	static var Vector: ESlateBrushImageType;
+	static var ESlateBrushImageType_MAX: ESlateBrushImageType;
 }

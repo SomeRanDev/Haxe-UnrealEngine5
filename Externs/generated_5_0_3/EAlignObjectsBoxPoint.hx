@@ -3,15 +3,15 @@ package ue;
 
 @:native("EAlignObjectsBoxPoint")
 @:include("AlignObjectsTool.h")
-extern enum EAlignObjectsBoxPoint {
-	Center;
-	Bottom;
-	Top;
-	Left;
-	Right;
-	Front;
-	Back;
-	Min;
-	Max;
-	EAlignObjectsBoxPoint_MAX;
+extern class EAlignObjectsBoxPoint {
+	static var Center: EAlignObjectsBoxPoint;
+	static var Bottom: EAlignObjectsBoxPoint;
+	static var Top: EAlignObjectsBoxPoint;
+	static var Left: EAlignObjectsBoxPoint;
+	static var Right: EAlignObjectsBoxPoint;
+	static var Front: EAlignObjectsBoxPoint;
+	static var Back: EAlignObjectsBoxPoint;
+	static var Min: EAlignObjectsBoxPoint;
+	static var Max: EAlignObjectsBoxPoint;
+	static var EAlignObjectsBoxPoint_MAX: EAlignObjectsBoxPoint;
 }

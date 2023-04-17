@@ -3,11 +3,11 @@ package ue;
 
 @:native("Beam2SourceTargetMethod")
 @:include("Particles/Beam/ParticleModuleBeamBase.h")
-extern enum Beam2SourceTargetMethod {
-	PEB2STM_Default;
-	PEB2STM_UserSet;
-	PEB2STM_Emitter;
-	PEB2STM_Particle;
-	PEB2STM_Actor;
-	PEB2STM_MAX;
+extern class Beam2SourceTargetMethod {
+	static var PEB2STM_Default: Beam2SourceTargetMethod;
+	static var PEB2STM_UserSet: Beam2SourceTargetMethod;
+	static var PEB2STM_Emitter: Beam2SourceTargetMethod;
+	static var PEB2STM_Particle: Beam2SourceTargetMethod;
+	static var PEB2STM_Actor: Beam2SourceTargetMethod;
+	static var PEB2STM_MAX: Beam2SourceTargetMethod;
 }

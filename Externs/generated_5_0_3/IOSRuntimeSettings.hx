@@ -32,7 +32,6 @@ extern class IOSRuntimeSettings extends Object {
 	public var bRunAsCurrentUser: Bool;
 	public var bGameSupportsMultipleActiveControllers: Bool;
 	public var bAllowRemoteRotation: Bool;
-	public var bUseRemoteAsVirtualJoystick_DEPRECATED: Bool;
 	public var bUseRemoteAbsoluteDpadValues: Bool;
 	public var bAllowControllers: Bool;
 	public var bControllersBlockDeviceFeedback: Bool;
@@ -153,8 +152,6 @@ abstract ConstIOSRuntimeSettings(IOSRuntimeSettings) from IOSRuntimeSettings {
 	public inline extern function get_bGameSupportsMultipleActiveControllers(): Bool return this.bGameSupportsMultipleActiveControllers;
 	public extern var bAllowRemoteRotation(get, never): Bool;
 	public inline extern function get_bAllowRemoteRotation(): Bool return this.bAllowRemoteRotation;
-	public extern var bUseRemoteAsVirtualJoystick_DEPRECATED(get, never): Bool;
-	public inline extern function get_bUseRemoteAsVirtualJoystick_DEPRECATED(): Bool return this.bUseRemoteAsVirtualJoystick_DEPRECATED;
 	public extern var bUseRemoteAbsoluteDpadValues(get, never): Bool;
 	public inline extern function get_bUseRemoteAbsoluteDpadValues(): Bool return this.bUseRemoteAbsoluteDpadValues;
 	public extern var bAllowControllers(get, never): Bool;

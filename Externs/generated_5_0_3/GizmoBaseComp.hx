@@ -8,7 +8,7 @@ extern class GizmoBaseComp extends PrimitiveComp {
 	public var Color: LinearColor;
 	public var HoverSizeMultiplier: cpp.Float32;
 	public var PixelHitDistanceThreshold: cpp.Float32;
-	public var GizmoViewContext: cpp.Star<GizmoViewContext>;
+	@:protected public var GizmoViewContext: cpp.Star<GizmoViewContext>;
 
 	public function UpdateWorldLocalState(bWorldIn: Bool): Void;
 	public function UpdateHoverState(bHoveringIn: Bool): Void;
@@ -25,8 +25,6 @@ abstract ConstGizmoBaseComp(GizmoBaseComp) from GizmoBaseComp {
 	public inline extern function get_HoverSizeMultiplier(): cpp.Float32 return this.HoverSizeMultiplier;
 	public extern var PixelHitDistanceThreshold(get, never): cpp.Float32;
 	public inline extern function get_PixelHitDistanceThreshold(): cpp.Float32 return this.PixelHitDistanceThreshold;
-	public extern var GizmoViewContext(get, never): cpp.Star<GizmoViewContext.ConstGizmoViewContext>;
-	public inline extern function get_GizmoViewContext(): cpp.Star<GizmoViewContext.ConstGizmoViewContext> return this.GizmoViewContext;
 }
 
 @:forward

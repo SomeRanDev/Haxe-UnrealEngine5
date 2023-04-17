@@ -3,22 +3,22 @@ package ue;
 
 @:native("ESpectatorReservationResult.Type")
 @:include("SpectatorBeaconState.h")
-extern enum ESpectatorReservationResult {
-	NoResult;
-	RequestPending;
-	GeneralError;
-	SpectatorLimitReached;
-	IncorrectPlayerCount;
-	RequestTimedOut;
-	ReservationDuplicate;
-	ReservationNotFound;
-	ReservationAccepted;
-	ReservationDenied;
-	ReservationDenied_CrossPlayRestriction;
-	ReservationDenied_Banned;
-	ReservationRequestCanceled;
-	ReservationInvalid;
-	BadSessionId;
-	ReservationDenied_ContainsExistingPlayers;
-	ESpectatorReservationResult_MAX;
+extern class ESpectatorReservationResult {
+	static var NoResult: ESpectatorReservationResult;
+	static var RequestPending: ESpectatorReservationResult;
+	static var GeneralError: ESpectatorReservationResult;
+	static var SpectatorLimitReached: ESpectatorReservationResult;
+	static var IncorrectPlayerCount: ESpectatorReservationResult;
+	static var RequestTimedOut: ESpectatorReservationResult;
+	static var ReservationDuplicate: ESpectatorReservationResult;
+	static var ReservationNotFound: ESpectatorReservationResult;
+	static var ReservationAccepted: ESpectatorReservationResult;
+	static var ReservationDenied: ESpectatorReservationResult;
+	static var ReservationDenied_CrossPlayRestriction: ESpectatorReservationResult;
+	static var ReservationDenied_Banned: ESpectatorReservationResult;
+	static var ReservationRequestCanceled: ESpectatorReservationResult;
+	static var ReservationInvalid: ESpectatorReservationResult;
+	static var BadSessionId: ESpectatorReservationResult;
+	static var ReservationDenied_ContainsExistingPlayers: ESpectatorReservationResult;
+	static var ESpectatorReservationResult_MAX: ESpectatorReservationResult;
 }

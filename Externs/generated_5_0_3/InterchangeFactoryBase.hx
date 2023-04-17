@@ -7,7 +7,7 @@ package ue;
 extern class InterchangeFactoryBase extends Object {
 	public var Results: cpp.Star<InterchangeResultsContainer>;
 
-	public function GetFactoryClass(): cpp.Reference<cpp.Star<Class>>;
+	public function GetFactoryClass(): cpp.Star<Class>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

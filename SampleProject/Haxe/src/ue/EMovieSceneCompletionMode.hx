@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMovieSceneCompletionMode")
 @:include("Evaluation/MovieSceneCompletionMode.h")
-extern enum EMovieSceneCompletionMode {
-	KeepState;
-	RestoreState;
-	ProjectDefault;
-	EMovieSceneCompletionMode_MAX;
+extern class EMovieSceneCompletionMode {
+	static var KeepState: EMovieSceneCompletionMode;
+	static var RestoreState: EMovieSceneCompletionMode;
+	static var ProjectDefault: EMovieSceneCompletionMode;
+	static var EMovieSceneCompletionMode_MAX: EMovieSceneCompletionMode;
 }

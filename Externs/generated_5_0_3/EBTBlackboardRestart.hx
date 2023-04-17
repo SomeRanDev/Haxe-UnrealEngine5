@@ -3,8 +3,8 @@ package ue;
 
 @:native("EBTBlackboardRestart.Type")
 @:include("BehaviorTree/Decorators/BTDecorator_Blackboard.h")
-extern enum EBTBlackboardRestart {
-	ValueChange;
-	ResultChange;
-	EBTBlackboardRestart_MAX;
+extern class EBTBlackboardRestart {
+	static var ValueChange: EBTBlackboardRestart;
+	static var ResultChange: EBTBlackboardRestart;
+	static var EBTBlackboardRestart_MAX: EBTBlackboardRestart;
 }

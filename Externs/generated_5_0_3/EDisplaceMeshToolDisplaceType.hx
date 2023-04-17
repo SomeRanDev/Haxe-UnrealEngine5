@@ -3,11 +3,11 @@ package ue;
 
 @:native("EDisplaceMeshToolDisplaceType")
 @:include("DisplaceMeshTool.h")
-extern enum EDisplaceMeshToolDisplaceType {
-	Constant;
-	DisplacementMap;
-	RandomNoise;
-	PerlinNoise;
-	SineWave;
-	EDisplaceMeshToolDisplaceType_MAX;
+extern class EDisplaceMeshToolDisplaceType {
+	static var Constant: EDisplaceMeshToolDisplaceType;
+	static var DisplacementMap: EDisplaceMeshToolDisplaceType;
+	static var RandomNoise: EDisplaceMeshToolDisplaceType;
+	static var PerlinNoise: EDisplaceMeshToolDisplaceType;
+	static var SineWave: EDisplaceMeshToolDisplaceType;
+	static var EDisplaceMeshToolDisplaceType_MAX: EDisplaceMeshToolDisplaceType;
 }

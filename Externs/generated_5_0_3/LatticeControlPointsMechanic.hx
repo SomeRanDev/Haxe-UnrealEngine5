@@ -5,12 +5,12 @@ package ue;
 @:include("Mechanics/LatticeControlPointsMechanic.h")
 @:structAccess
 extern class LatticeControlPointsMechanic extends InteractionMechanic {
-	public var PreviewGeometryActor: cpp.Star<PreviewGeometryActor>;
-	public var DrawnControlPoints: cpp.Star<PointSetComp>;
-	public var DrawnLatticeEdges: cpp.Star<LineSetComp>;
-	public var PointTransformProxy: cpp.Star<TransformProxy>;
-	public var PointTransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	public var MarqueeMechanic: cpp.Star<RectangleMarqueeMechanic>;
+	@:protected public var PreviewGeometryActor: cpp.Star<PreviewGeometryActor>;
+	@:protected public var DrawnControlPoints: cpp.Star<PointSetComp>;
+	@:protected public var DrawnLatticeEdges: cpp.Star<LineSetComp>;
+	@:protected public var PointTransformProxy: cpp.Star<TransformProxy>;
+	@:protected public var PointTransformGizmo: cpp.Star<CombinedTransformGizmo>;
+	@:protected public var MarqueeMechanic: cpp.Star<RectangleMarqueeMechanic>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,18 +18,6 @@ extern class LatticeControlPointsMechanic extends InteractionMechanic {
 @:forward()
 @:nativeGen
 abstract ConstLatticeControlPointsMechanic(LatticeControlPointsMechanic) from LatticeControlPointsMechanic {
-	public extern var PreviewGeometryActor(get, never): cpp.Star<PreviewGeometryActor.ConstPreviewGeometryActor>;
-	public inline extern function get_PreviewGeometryActor(): cpp.Star<PreviewGeometryActor.ConstPreviewGeometryActor> return this.PreviewGeometryActor;
-	public extern var DrawnControlPoints(get, never): cpp.Star<PointSetComp.ConstPointSetComp>;
-	public inline extern function get_DrawnControlPoints(): cpp.Star<PointSetComp.ConstPointSetComp> return this.DrawnControlPoints;
-	public extern var DrawnLatticeEdges(get, never): cpp.Star<LineSetComp.ConstLineSetComp>;
-	public inline extern function get_DrawnLatticeEdges(): cpp.Star<LineSetComp.ConstLineSetComp> return this.DrawnLatticeEdges;
-	public extern var PointTransformProxy(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
-	public inline extern function get_PointTransformProxy(): cpp.Star<TransformProxy.ConstTransformProxy> return this.PointTransformProxy;
-	public extern var PointTransformGizmo(get, never): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo>;
-	public inline extern function get_PointTransformGizmo(): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo> return this.PointTransformGizmo;
-	public extern var MarqueeMechanic(get, never): cpp.Star<RectangleMarqueeMechanic.ConstRectangleMarqueeMechanic>;
-	public inline extern function get_MarqueeMechanic(): cpp.Star<RectangleMarqueeMechanic.ConstRectangleMarqueeMechanic> return this.MarqueeMechanic;
 }
 
 @:forward

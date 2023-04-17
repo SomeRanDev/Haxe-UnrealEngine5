@@ -3,12 +3,12 @@ package ue;
 
 @:native("EComparisonMethod")
 @:include("FunctionalTest.h")
-extern enum EComparisonMethod {
-	Equal_To;
-	Not_Equal_To;
-	Greater_Than_Or_Equal_To;
-	Less_Than_Or_Equal_To;
-	Greater_Than;
-	Less_Than;
-	EComparisonMethod_MAX;
+extern class EComparisonMethod {
+	static var Equal_To: EComparisonMethod;
+	static var Not_Equal_To: EComparisonMethod;
+	static var Greater_Than_Or_Equal_To: EComparisonMethod;
+	static var Less_Than_Or_Equal_To: EComparisonMethod;
+	static var Greater_Than: EComparisonMethod;
+	static var Less_Than: EComparisonMethod;
+	static var EComparisonMethod_MAX: EComparisonMethod;
 }

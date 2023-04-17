@@ -5,13 +5,6 @@ package ue;
 @:include("Engine/PoseWatch.h")
 @:structAccess
 extern class PoseWatch extends Object {
-	public var Node: TWeakObjectPtr<EdGraphNode>;
-	public var bDeleteOnDeselection: Bool;
-	public var bIsVisible: Bool;
-	public var bIsEnabled: Bool;
-	public var Color: Color;
-	public var Label: FText;
-	public var Parent: TWeakObjectPtr<PoseWatchFolder>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,20 +12,6 @@ extern class PoseWatch extends Object {
 @:forward()
 @:nativeGen
 abstract ConstPoseWatch(PoseWatch) from PoseWatch {
-	public extern var Node(get, never): TWeakObjectPtr<EdGraphNode.ConstEdGraphNode>;
-	public inline extern function get_Node(): TWeakObjectPtr<EdGraphNode.ConstEdGraphNode> return this.Node;
-	public extern var bDeleteOnDeselection(get, never): Bool;
-	public inline extern function get_bDeleteOnDeselection(): Bool return this.bDeleteOnDeselection;
-	public extern var bIsVisible(get, never): Bool;
-	public inline extern function get_bIsVisible(): Bool return this.bIsVisible;
-	public extern var bIsEnabled(get, never): Bool;
-	public inline extern function get_bIsEnabled(): Bool return this.bIsEnabled;
-	public extern var Color(get, never): Color;
-	public inline extern function get_Color(): Color return this.Color;
-	public extern var Label(get, never): FText;
-	public inline extern function get_Label(): FText return this.Label;
-	public extern var Parent(get, never): TWeakObjectPtr<PoseWatchFolder.ConstPoseWatchFolder>;
-	public inline extern function get_Parent(): TWeakObjectPtr<PoseWatchFolder.ConstPoseWatchFolder> return this.Parent;
 }
 
 @:forward

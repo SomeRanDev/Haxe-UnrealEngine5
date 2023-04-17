@@ -5,9 +5,6 @@ package ue;
 @:include("Animation/AnimNodeBase.h")
 @:structAccess
 extern class AnimNode_Base {
-	public var InitialUpdateFunction: AnimNodeFunctionRef;
-	public var BecomeRelevantFunction: AnimNodeFunctionRef;
-	public var UpdateFunction: AnimNodeFunctionRef;
 
 	@:native("FAnimNode_Base") public function new();
 	@:native("FAnimNode_Base") public static function make(InitialUpdateFunction: AnimNodeFunctionRef, BecomeRelevantFunction: AnimNodeFunctionRef, UpdateFunction: AnimNodeFunctionRef): AnimNode_Base ;

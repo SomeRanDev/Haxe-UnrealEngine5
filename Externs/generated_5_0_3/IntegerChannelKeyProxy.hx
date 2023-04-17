@@ -5,8 +5,8 @@ package ue;
 @:include("Channels/IntegerChannelKeyProxy.h")
 @:structAccess
 extern class IntegerChannelKeyProxy extends Object {
-	public var Time: FrameNumber;
-	public var Value: cpp.Int32;
+	private var Time: FrameNumber;
+	private var Value: cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class IntegerChannelKeyProxy extends Object {
 @:forward()
 @:nativeGen
 abstract ConstIntegerChannelKeyProxy(IntegerChannelKeyProxy) from IntegerChannelKeyProxy {
-	public extern var Time(get, never): FrameNumber;
-	public inline extern function get_Time(): FrameNumber return this.Time;
-	public extern var Value(get, never): cpp.Int32;
-	public inline extern function get_Value(): cpp.Int32 return this.Value;
 }
 
 @:forward

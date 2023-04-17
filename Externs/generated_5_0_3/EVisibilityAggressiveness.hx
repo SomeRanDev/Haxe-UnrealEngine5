@@ -3,10 +3,10 @@ package ue;
 
 @:native("EVisibilityAggressiveness")
 @:include("GameFramework/WorldSettings.h")
-extern enum EVisibilityAggressiveness {
-	VIS_LeastAggressive;
-	VIS_ModeratelyAggressive;
-	VIS_MostAggressive;
-	VIS_Max;
-	VIS_MAX;
+extern class EVisibilityAggressiveness {
+	static var VIS_LeastAggressive: EVisibilityAggressiveness;
+	static var VIS_ModeratelyAggressive: EVisibilityAggressiveness;
+	static var VIS_MostAggressive: EVisibilityAggressiveness;
+	static var VIS_Max: EVisibilityAggressiveness;
+	static var VIS_MAX: EVisibilityAggressiveness;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("ELevelInstanceRuntimeBehavior")
 @:include("LevelInstance/LevelInstanceActor.h")
-extern enum ELevelInstanceRuntimeBehavior {
-	None;
-	Embedded_Deprecated;
-	Partitioned;
-	LevelStreaming;
-	ELevelInstanceRuntimeBehavior_MAX;
+extern class ELevelInstanceRuntimeBehavior {
+	static var None: ELevelInstanceRuntimeBehavior;
+	static var Embedded_Deprecated: ELevelInstanceRuntimeBehavior;
+	static var Partitioned: ELevelInstanceRuntimeBehavior;
+	static var LevelStreaming: ELevelInstanceRuntimeBehavior;
+	static var ELevelInstanceRuntimeBehavior_MAX: ELevelInstanceRuntimeBehavior;
 }

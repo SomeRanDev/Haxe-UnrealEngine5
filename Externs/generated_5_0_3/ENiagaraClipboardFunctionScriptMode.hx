@@ -3,8 +3,8 @@ package ue;
 
 @:native("ENiagaraClipboardFunctionScriptMode")
 @:include("NiagaraClipboard.h")
-extern enum ENiagaraClipboardFunctionScriptMode {
-	ScriptAsset;
-	Assignment;
-	ENiagaraClipboardFunctionScriptMode_MAX;
+extern class ENiagaraClipboardFunctionScriptMode {
+	static var ScriptAsset: ENiagaraClipboardFunctionScriptMode;
+	static var Assignment: ENiagaraClipboardFunctionScriptMode;
+	static var ENiagaraClipboardFunctionScriptMode_MAX: ENiagaraClipboardFunctionScriptMode;
 }

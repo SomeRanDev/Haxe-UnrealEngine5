@@ -7,8 +7,8 @@ package ue;
 extern class PlayerState extends Info {
 	public var Score: cpp.Float32;
 	public var PlayerId: cpp.Int32;
-	public var CompressedPing: cpp.UInt8;
-	public var bShouldUpdateReplicatedPing: Bool;
+	private var CompressedPing: cpp.UInt8;
+	private var bShouldUpdateReplicatedPing: Bool;
 	public var bIsSpectator: Bool;
 	public var bOnlySpectator: Bool;
 	public var bIsABot: Bool;
@@ -19,23 +19,23 @@ extern class PlayerState extends Info {
 	public var SavedNetworkAddress: FString;
 	public var UniqueId: UniqueNetIdRepl;
 	public var OnPawnSet: HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerState>, cpp.Star<Pawn>, cpp.Star<Pawn>) -> Void>;
-	public var PawnPrivate: cpp.Star<Pawn>;
-	public var PlayerNamePrivate: FString;
+	private var PawnPrivate: cpp.Star<Pawn>;
+	private var PlayerNamePrivate: FString;
 
-	public function ReceiveOverrideWith(OldPlayerState: cpp.Star<PlayerState>): Void;
-	public function ReceiveCopyProperties(NewPlayerState: cpp.Star<PlayerState>): Void;
+	@:protected public function ReceiveOverrideWith(OldPlayerState: cpp.Star<PlayerState>): Void;
+	@:protected public function ReceiveCopyProperties(NewPlayerState: cpp.Star<PlayerState>): Void;
 	public function OnRep_UniqueId(): Void;
 	public function OnRep_Score(): Void;
 	public function OnRep_PlayerName(): Void;
 	public function OnRep_PlayerId(): Void;
 	public function OnRep_bIsInactive(): Void;
-	public function OnPawnPrivateDestroyed(InActor: cpp.Star<Actor>): Void;
-	public function IsOnlyASpectator(): cpp.Reference<Bool>;
-	public function GetPlayerName(): cpp.Reference<FString>;
-	public function GetPlayerController(): cpp.Reference<cpp.Star<PlayerController>>;
-	public function GetPingInMilliseconds(): cpp.Reference<cpp.Float32>;
-	public function GetPawn(): cpp.Reference<cpp.Star<Pawn>>;
-	public function BP_GetUniqueId(): cpp.Reference<UniqueNetIdRepl>;
+	private function OnPawnPrivateDestroyed(InActor: cpp.Star<Actor>): Void;
+	public function IsOnlyASpectator(): Bool;
+	public function GetPlayerName(): FString;
+	public function GetPlayerController(): cpp.Star<PlayerController>;
+	public function GetPingInMilliseconds(): cpp.Float32;
+	public function GetPawn(): cpp.Star<Pawn>;
+	public function BP_GetUniqueId(): UniqueNetIdRepl;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -47,10 +47,6 @@ abstract ConstPlayerState(PlayerState) from PlayerState {
 	public inline extern function get_Score(): cpp.Float32 return this.Score;
 	public extern var PlayerId(get, never): cpp.Int32;
 	public inline extern function get_PlayerId(): cpp.Int32 return this.PlayerId;
-	public extern var CompressedPing(get, never): cpp.UInt8;
-	public inline extern function get_CompressedPing(): cpp.UInt8 return this.CompressedPing;
-	public extern var bShouldUpdateReplicatedPing(get, never): Bool;
-	public inline extern function get_bShouldUpdateReplicatedPing(): Bool return this.bShouldUpdateReplicatedPing;
 	public extern var bIsSpectator(get, never): Bool;
 	public inline extern function get_bIsSpectator(): Bool return this.bIsSpectator;
 	public extern var bOnlySpectator(get, never): Bool;
@@ -71,10 +67,6 @@ abstract ConstPlayerState(PlayerState) from PlayerState {
 	public inline extern function get_UniqueId(): UniqueNetIdRepl return this.UniqueId;
 	public extern var OnPawnSet(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerState.ConstPlayerState>, cpp.Star<Pawn.ConstPawn>, cpp.Star<Pawn.ConstPawn>) -> Void>;
 	public inline extern function get_OnPawnSet(): HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerState.ConstPlayerState>, cpp.Star<Pawn.ConstPawn>, cpp.Star<Pawn.ConstPawn>) -> Void> return this.OnPawnSet;
-	public extern var PawnPrivate(get, never): cpp.Star<Pawn.ConstPawn>;
-	public inline extern function get_PawnPrivate(): cpp.Star<Pawn.ConstPawn> return this.PawnPrivate;
-	public extern var PlayerNamePrivate(get, never): FString;
-	public inline extern function get_PlayerNamePrivate(): FString return this.PlayerNamePrivate;
 }
 
 @:forward

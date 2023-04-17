@@ -3,8 +3,8 @@ package ue;
 
 @:native("ELumenSoftwareTracingMode.Type")
 @:include("Engine/RendererSettings.h")
-extern enum ELumenSoftwareTracingMode {
-	DetailTracing;
-	GlobalTracing;
-	ELumenSoftwareTracingMode_MAX;
+extern class ELumenSoftwareTracingMode {
+	static var DetailTracing: ELumenSoftwareTracingMode;
+	static var GlobalTracing: ELumenSoftwareTracingMode;
+	static var ELumenSoftwareTracingMode_MAX: ELumenSoftwareTracingMode;
 }

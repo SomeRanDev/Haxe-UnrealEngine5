@@ -3,11 +3,11 @@ package ue;
 
 @:native("ERigVMMemoryType")
 @:include("RigVMCore/RigVMMemoryCommon.h")
-extern enum ERigVMMemoryType {
-	Work;
-	Literal;
-	External;
-	Debug;
-	Invalid;
-	ERigVMMemoryType_MAX;
+extern class ERigVMMemoryType {
+	static var Work: ERigVMMemoryType;
+	static var Literal: ERigVMMemoryType;
+	static var External: ERigVMMemoryType;
+	static var Debug: ERigVMMemoryType;
+	static var Invalid: ERigVMMemoryType;
+	static var ERigVMMemoryType_MAX: ERigVMMemoryType;
 }

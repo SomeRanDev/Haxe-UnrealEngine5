@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class AnimNode_CCDIK extends AnimNode_SkeletalControlBase {
 	public var EffectorLocation: Vector;
-	public var EffectorLocationSpace: EBoneControlSpace;
+	public var EffectorLocationSpace: TEnumAsByte<EBoneControlSpace>;
 	public var EffectorTarget: BoneSocketTarget;
 	public var TipBone: BoneReference;
 	public var RootBone: BoneReference;
@@ -14,7 +14,7 @@ extern class AnimNode_CCDIK extends AnimNode_SkeletalControlBase {
 	public var MaxIterations: cpp.Int32;
 	public var bStartFromTail: Bool;
 	public var bEnableRotationLimit: Bool;
-	public var RotationLimitPerJoints: TArray<cpp.Float32>;
+	private var RotationLimitPerJoints: TArray<cpp.Float32>;
 
 	@:native("FAnimNode_CCDIK") public function new();
 }

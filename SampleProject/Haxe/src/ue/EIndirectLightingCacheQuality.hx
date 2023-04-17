@@ -3,9 +3,9 @@ package ue;
 
 @:native("EIndirectLightingCacheQuality")
 @:include("Engine/EngineTypes.h")
-extern enum EIndirectLightingCacheQuality {
-	ILCQ_Off;
-	ILCQ_Point;
-	ILCQ_Volume;
-	ILCQ_MAX;
+extern class EIndirectLightingCacheQuality {
+	static var ILCQ_Off: EIndirectLightingCacheQuality;
+	static var ILCQ_Point: EIndirectLightingCacheQuality;
+	static var ILCQ_Volume: EIndirectLightingCacheQuality;
+	static var ILCQ_MAX: EIndirectLightingCacheQuality;
 }

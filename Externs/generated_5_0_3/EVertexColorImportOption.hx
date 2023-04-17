@@ -3,9 +3,9 @@ package ue;
 
 @:native("EVertexColorImportOption.Type")
 @:include("Factories/FbxMeshImportData.h")
-extern enum EVertexColorImportOption {
-	Replace;
-	Ignore;
-	Override;
-	EVertexColorImportOption_MAX;
+extern class EVertexColorImportOption {
+	static var Replace: EVertexColorImportOption;
+	static var Ignore: EVertexColorImportOption;
+	static var Override: EVertexColorImportOption;
+	static var EVertexColorImportOption_MAX: EVertexColorImportOption;
 }

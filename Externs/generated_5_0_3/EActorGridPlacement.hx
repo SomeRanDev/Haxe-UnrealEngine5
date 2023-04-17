@@ -3,10 +3,10 @@ package ue;
 
 @:native("EActorGridPlacement")
 @:include("GameFramework/Actor.h")
-extern enum EActorGridPlacement {
-	Bounds;
-	Location;
-	AlwaysLoaded;
-	None;
-	EActorGridPlacement_MAX;
+extern class EActorGridPlacement {
+	static var Bounds: EActorGridPlacement;
+	static var Location: EActorGridPlacement;
+	static var AlwaysLoaded: EActorGridPlacement;
+	static var None: EActorGridPlacement;
+	static var EActorGridPlacement_MAX: EActorGridPlacement;
 }

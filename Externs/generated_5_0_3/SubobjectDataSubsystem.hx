@@ -5,29 +5,29 @@ package ue;
 @:include("SubobjectDataSubsystem.h")
 @:structAccess
 extern class SubobjectDataSubsystem extends EngineSubsystem {
-	public function ReparentSubobjects(Params: cpp.Reference<ReparentSubobjectParams>, HandlesToMove: cpp.Reference<TArray<SubobjectDataHandle>>): cpp.Reference<Bool>;
-	public function ReparentSubobject(Params: cpp.Reference<ReparentSubobjectParams>, ToReparentHandle: cpp.Reference<SubobjectDataHandle>): cpp.Reference<Bool>;
+	public function ReparentSubobjects(Params: cpp.Reference<ReparentSubobjectParams>, HandlesToMove: cpp.Reference<TArray<SubobjectDataHandle>>): Bool;
+	public function ReparentSubobject(Params: cpp.Reference<ReparentSubobjectParams>, ToReparentHandle: cpp.Reference<SubobjectDataHandle>): Bool;
 	public function RenameSubobjectMemberVariable(BPContext: cpp.Star<Blueprint>, InHandle: cpp.Reference<SubobjectDataHandle>, NewName: FName): Void;
-	public function RenameSubobject(Handle: cpp.Reference<SubobjectDataHandle>, InNewName: cpp.Reference<FText>): cpp.Reference<Bool>;
-	public function MakeNewSceneRoot(Context: cpp.Reference<SubobjectDataHandle>, NewSceneRoot: cpp.Reference<SubobjectDataHandle>, BPContext: cpp.Star<Blueprint>): cpp.Reference<Bool>;
+	public function RenameSubobject(Handle: cpp.Reference<SubobjectDataHandle>, InNewName: cpp.Reference<FText>): Bool;
+	public function MakeNewSceneRoot(Context: cpp.Reference<SubobjectDataHandle>, NewSceneRoot: cpp.Reference<SubobjectDataHandle>, BPContext: cpp.Star<Blueprint>): Bool;
 	public function K2_GatherSubobjectDataForInstance(Context: cpp.Star<Actor>, OutArray: cpp.Reference<TArray<SubobjectDataHandle>>): Void;
 	public function K2_GatherSubobjectDataForBlueprint(Context: cpp.Star<Blueprint>, OutArray: cpp.Reference<TArray<SubobjectDataHandle>>): Void;
-	public function K2_FindSubobjectDataFromHandle(Handle: cpp.Reference<SubobjectDataHandle>, OutData: cpp.Reference<SubobjectData>): cpp.Reference<Bool>;
-	public function K2_DeleteSubobjectsFromInstance(ContextHandle: cpp.Reference<SubobjectDataHandle>, SubobjectsToDelete: cpp.Reference<TArray<SubobjectDataHandle>>): cpp.Reference<cpp.Int32>;
-	public function K2_DeleteSubobjectFromInstance(ContextHandle: cpp.Reference<SubobjectDataHandle>, SubobjectToDelete: cpp.Reference<SubobjectDataHandle>): cpp.Reference<cpp.Int32>;
-	public function IsValidRename(Handle: cpp.Reference<SubobjectDataHandle>, InNewText: cpp.Reference<FText>, OutErrorMessage: cpp.Reference<FText>): cpp.Reference<Bool>;
-	public function FindHandleForObject(Context: cpp.Reference<SubobjectDataHandle>, ObjectToFind: cpp.Star<Object.ConstObject>, BPContext: cpp.Star<Blueprint>): cpp.Reference<SubobjectDataHandle>;
-	public function DetachSubobject(OwnerHandle: cpp.Reference<SubobjectDataHandle>, ChildToRemove: cpp.Reference<SubobjectDataHandle>): cpp.Reference<Bool>;
-	public function DeleteSubobjects(ContextHandle: cpp.Reference<SubobjectDataHandle>, SubobjectsToDelete: cpp.Reference<TArray<SubobjectDataHandle>>, BPContext: cpp.Star<Blueprint>): cpp.Reference<cpp.Int32>;
-	public function DeleteSubobject(ContextHandle: cpp.Reference<SubobjectDataHandle>, SubobjectToDelete: cpp.Reference<SubobjectDataHandle>, BPContext: cpp.Star<Blueprint>): cpp.Reference<cpp.Int32>;
-	public function CreateNewCPPComponent(ComponentClass: TSubclassOf<ActorComp>, NewClassPath: FString, NewClassName: FString): cpp.Reference<cpp.Star<Class>>;
-	public function CreateNewBPComponent(ComponentClass: TSubclassOf<ActorComp>, NewClassPath: FString, NewClassName: FString): cpp.Reference<cpp.Star<Class>>;
+	public function K2_FindSubobjectDataFromHandle(Handle: cpp.Reference<SubobjectDataHandle>, OutData: cpp.Reference<SubobjectData>): Bool;
+	public function K2_DeleteSubobjectsFromInstance(ContextHandle: cpp.Reference<SubobjectDataHandle>, SubobjectsToDelete: cpp.Reference<TArray<SubobjectDataHandle>>): cpp.Int32;
+	public function K2_DeleteSubobjectFromInstance(ContextHandle: cpp.Reference<SubobjectDataHandle>, SubobjectToDelete: cpp.Reference<SubobjectDataHandle>): cpp.Int32;
+	public function IsValidRename(Handle: cpp.Reference<SubobjectDataHandle>, InNewText: cpp.Reference<FText>, OutErrorMessage: cpp.Reference<FText>): Bool;
+	public function FindHandleForObject(Context: cpp.Reference<SubobjectDataHandle>, ObjectToFind: cpp.Star<Object.ConstObject>, BPContext: cpp.Star<Blueprint>): SubobjectDataHandle;
+	public function DetachSubobject(OwnerHandle: cpp.Reference<SubobjectDataHandle>, ChildToRemove: cpp.Reference<SubobjectDataHandle>): Bool;
+	public function DeleteSubobjects(ContextHandle: cpp.Reference<SubobjectDataHandle>, SubobjectsToDelete: cpp.Reference<TArray<SubobjectDataHandle>>, BPContext: cpp.Star<Blueprint>): cpp.Int32;
+	public function DeleteSubobject(ContextHandle: cpp.Reference<SubobjectDataHandle>, SubobjectToDelete: cpp.Reference<SubobjectDataHandle>, BPContext: cpp.Star<Blueprint>): cpp.Int32;
+	public function CreateNewCPPComponent(ComponentClass: TSubclassOf<ActorComp>, NewClassPath: FString, NewClassName: FString): cpp.Star<Class>;
+	public function CreateNewBPComponent(ComponentClass: TSubclassOf<ActorComp>, NewClassPath: FString, NewClassName: FString): cpp.Star<Class>;
 	public function CopySubobjects(Handles: cpp.Reference<TArray<SubobjectDataHandle>>, BpContext: cpp.Star<Blueprint>): Void;
-	public function ChangeSubobjectClass(Handle: cpp.Reference<SubobjectDataHandle>, NewClass: cpp.Star<Class>): cpp.Reference<Bool>;
-	public function CanPasteSubobjects(RootHandle: cpp.Reference<SubobjectDataHandle>, BPContext: cpp.Star<Blueprint>): cpp.Reference<Bool>;
-	public function CanCopySubobjects(Handles: cpp.Reference<TArray<SubobjectDataHandle>>): cpp.Reference<Bool>;
-	public function AttachSubobject(OwnerHandle: cpp.Reference<SubobjectDataHandle>, ChildToAddHandle: cpp.Reference<SubobjectDataHandle>): cpp.Reference<Bool>;
-	public function AddNewSubobject(Params: cpp.Reference<AddNewSubobjectParams>, FailReason: cpp.Reference<FText>): cpp.Reference<SubobjectDataHandle>;
+	public function ChangeSubobjectClass(Handle: cpp.Reference<SubobjectDataHandle>, NewClass: cpp.Star<Class>): Bool;
+	public function CanPasteSubobjects(RootHandle: cpp.Reference<SubobjectDataHandle>, BPContext: cpp.Star<Blueprint>): Bool;
+	public function CanCopySubobjects(Handles: cpp.Reference<TArray<SubobjectDataHandle>>): Bool;
+	public function AttachSubobject(OwnerHandle: cpp.Reference<SubobjectDataHandle>, ChildToAddHandle: cpp.Reference<SubobjectDataHandle>): Bool;
+	public function AddNewSubobject(Params: cpp.Reference<AddNewSubobjectParams>, FailReason: cpp.Reference<FText>): SubobjectDataHandle;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

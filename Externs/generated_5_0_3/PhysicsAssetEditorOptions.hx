@@ -7,7 +7,7 @@ package ue;
 extern class PhysicsAssetEditorOptions extends Object {
 	public var PhysicsBlend: cpp.Float32;
 	public var bUpdateJointsFromAnimation: Bool;
-	public var PhysicsUpdateMode: EPhysicsTransformUpdateMode;
+	public var PhysicsUpdateMode: TEnumAsByte<EPhysicsTransformUpdateMode>;
 	public var PokePauseTime: cpp.Float32;
 	public var PokeBlendTime: cpp.Float32;
 	public var GravScale: cpp.Float32;
@@ -46,8 +46,8 @@ abstract ConstPhysicsAssetEditorOptions(PhysicsAssetEditorOptions) from PhysicsA
 	public inline extern function get_PhysicsBlend(): cpp.Float32 return this.PhysicsBlend;
 	public extern var bUpdateJointsFromAnimation(get, never): Bool;
 	public inline extern function get_bUpdateJointsFromAnimation(): Bool return this.bUpdateJointsFromAnimation;
-	public extern var PhysicsUpdateMode(get, never): EPhysicsTransformUpdateMode;
-	public inline extern function get_PhysicsUpdateMode(): EPhysicsTransformUpdateMode return this.PhysicsUpdateMode;
+	public extern var PhysicsUpdateMode(get, never): TEnumAsByte<EPhysicsTransformUpdateMode>;
+	public inline extern function get_PhysicsUpdateMode(): TEnumAsByte<EPhysicsTransformUpdateMode> return this.PhysicsUpdateMode;
 	public extern var PokePauseTime(get, never): cpp.Float32;
 	public inline extern function get_PokePauseTime(): cpp.Float32 return this.PokePauseTime;
 	public extern var PokeBlendTime(get, never): cpp.Float32;

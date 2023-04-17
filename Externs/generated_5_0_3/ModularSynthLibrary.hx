@@ -5,7 +5,7 @@ package ue;
 @:include("SynthComponents/EpicSynth1Component.h")
 @:structAccess
 extern class ModularSynthLibrary extends BlueprintFunctionLibrary {
-	public function AddModularSynthPresetToBankAsset(InBank: cpp.Star<ModularSynthPresetBank>, Preset: cpp.Reference<ModularSynthPreset>, PresetName: FString): Void;
+	private function AddModularSynthPresetToBankAsset(InBank: cpp.Star<ModularSynthPresetBank>, Preset: cpp.Reference<ModularSynthPreset>, PresetName: FString): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

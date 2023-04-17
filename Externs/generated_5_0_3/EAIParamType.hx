@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAIParamType")
 @:include("EnvironmentQuery/EnvQueryTypes.h")
-extern enum EAIParamType {
-	Float;
-	Int;
-	Bool;
-	MAX;
+extern class EAIParamType {
+	static var Float: EAIParamType;
+	static var Int: EAIParamType;
+	static var Bool: EAIParamType;
+	static var MAX: EAIParamType;
 }

@@ -5,7 +5,7 @@ package ue;
 @:include("FractureToolMeshCut.h")
 @:structAccess
 extern class FractureToolMeshCut extends FractureToolCutterBase {
-	public var MeshCutSettings: cpp.Star<FractureMeshCutSettings>;
+	private var MeshCutSettings: cpp.Star<FractureMeshCutSettings>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class FractureToolMeshCut extends FractureToolCutterBase {
 @:forward()
 @:nativeGen
 abstract ConstFractureToolMeshCut(FractureToolMeshCut) from FractureToolMeshCut {
-	public extern var MeshCutSettings(get, never): cpp.Star<FractureMeshCutSettings.ConstFractureMeshCutSettings>;
-	public inline extern function get_MeshCutSettings(): cpp.Star<FractureMeshCutSettings.ConstFractureMeshCutSettings> return this.MeshCutSettings;
 }
 
 @:forward

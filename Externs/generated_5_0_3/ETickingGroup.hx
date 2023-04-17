@@ -3,14 +3,14 @@ package ue;
 
 @:native("ETickingGroup")
 @:include("Engine/EngineBaseTypes.h")
-extern enum ETickingGroup {
-	TG_PrePhysics;
-	TG_StartPhysics;
-	TG_DuringPhysics;
-	TG_EndPhysics;
-	TG_PostPhysics;
-	TG_PostUpdateWork;
-	TG_LastDemotable;
-	TG_NewlySpawned;
-	TG_MAX;
+extern class ETickingGroup {
+	static var TG_PrePhysics: ETickingGroup;
+	static var TG_StartPhysics: ETickingGroup;
+	static var TG_DuringPhysics: ETickingGroup;
+	static var TG_EndPhysics: ETickingGroup;
+	static var TG_PostPhysics: ETickingGroup;
+	static var TG_PostUpdateWork: ETickingGroup;
+	static var TG_LastDemotable: ETickingGroup;
+	static var TG_NewlySpawned: ETickingGroup;
+	static var TG_MAX: ETickingGroup;
 }

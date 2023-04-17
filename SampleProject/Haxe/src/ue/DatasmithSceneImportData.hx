@@ -5,8 +5,6 @@ package ue;
 @:include("DatasmithAssetImportData.h")
 @:structAccess
 extern class DatasmithSceneImportData extends AssetImportData {
-	public var BaseOptions: DatasmithImportBaseOptions;
-	public var DatasmithImportInfo: DatasmithImportInfo;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +12,6 @@ extern class DatasmithSceneImportData extends AssetImportData {
 @:forward()
 @:nativeGen
 abstract ConstDatasmithSceneImportData(DatasmithSceneImportData) from DatasmithSceneImportData {
-	public extern var BaseOptions(get, never): DatasmithImportBaseOptions;
-	public inline extern function get_BaseOptions(): DatasmithImportBaseOptions return this.BaseOptions;
-	public extern var DatasmithImportInfo(get, never): DatasmithImportInfo;
-	public inline extern function get_DatasmithImportInfo(): DatasmithImportInfo return this.DatasmithImportInfo;
 }
 
 @:forward

@@ -3,9 +3,9 @@ package ue;
 
 @:native("ECustomizedToolMenuVisibility")
 @:include("Framework/MultiBox/ToolMenuBase.h")
-extern enum ECustomizedToolMenuVisibility {
-	None;
-	Visible;
-	Hidden;
-	ECustomizedToolMenuVisibility_MAX;
+extern class ECustomizedToolMenuVisibility {
+	static var None: ECustomizedToolMenuVisibility;
+	static var Visible: ECustomizedToolMenuVisibility;
+	static var Hidden: ECustomizedToolMenuVisibility;
+	static var ECustomizedToolMenuVisibility_MAX: ECustomizedToolMenuVisibility;
 }

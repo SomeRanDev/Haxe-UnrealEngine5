@@ -3,11 +3,11 @@ package ue;
 
 @:native("EChaosTrailingSortMethod")
 @:include("ChaosTrailingEventFilter.h")
-extern enum EChaosTrailingSortMethod {
-	SortNone;
-	SortByHighestMass;
-	SortByHighestSpeed;
-	SortByNearestFirst;
-	Count;
-	EChaosTrailingSortMethod_MAX;
+extern class EChaosTrailingSortMethod {
+	static var SortNone: EChaosTrailingSortMethod;
+	static var SortByHighestMass: EChaosTrailingSortMethod;
+	static var SortByHighestSpeed: EChaosTrailingSortMethod;
+	static var SortByNearestFirst: EChaosTrailingSortMethod;
+	static var Count: EChaosTrailingSortMethod;
+	static var EChaosTrailingSortMethod_MAX: EChaosTrailingSortMethod;
 }

@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESpriteCollisionMode.Type")
 @:include("SpriteEditorOnlyTypes.h")
-extern enum ESpriteCollisionMode {
-	None;
-	Use2DPhysics;
-	Use3DPhysics;
-	ESpriteCollisionMode_MAX;
+extern class ESpriteCollisionMode {
+	static var None: ESpriteCollisionMode;
+	static var Use2DPhysics: ESpriteCollisionMode;
+	static var Use3DPhysics: ESpriteCollisionMode;
+	static var ESpriteCollisionMode_MAX: ESpriteCollisionMode;
 }

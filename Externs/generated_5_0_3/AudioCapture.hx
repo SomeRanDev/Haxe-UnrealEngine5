@@ -7,8 +7,8 @@ package ue;
 extern class AudioCapture extends AudioGenerator {
 	public function StopCapturingAudio(): Void;
 	public function StartCapturingAudio(): Void;
-	public function IsCapturingAudio(): cpp.Reference<Bool>;
-	public function GetAudioCaptureDeviceInfo(OutInfo: cpp.Reference<AudioCaptureDeviceInfo>): cpp.Reference<Bool>;
+	public function IsCapturingAudio(): Bool;
+	public function GetAudioCaptureDeviceInfo(OutInfo: cpp.Reference<AudioCaptureDeviceInfo>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

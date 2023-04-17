@@ -5,7 +5,7 @@ package ue;
 @:include("Engine/Texture.h")
 @:structAccess
 extern class TextureFormatSettings {
-	public var CompressionSettings: TextureCompressionSettings;
+	public var CompressionSettings: TEnumAsByte<TextureCompressionSettings>;
 	public var CompressionNoAlpha: Bool;
 	public var CompressionForceAlpha: Bool;
 	public var CompressionNone: Bool;

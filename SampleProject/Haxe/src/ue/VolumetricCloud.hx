@@ -5,7 +5,7 @@ package ue;
 @:include("Components/VolumetricCloudComponent.h")
 @:structAccess
 extern class VolumetricCloud extends Info {
-	public var VolumetricCloudComponent: cpp.Star<VolumetricCloudComp>;
+	private var VolumetricCloudComponent: cpp.Star<VolumetricCloudComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class VolumetricCloud extends Info {
 @:forward()
 @:nativeGen
 abstract ConstVolumetricCloud(VolumetricCloud) from VolumetricCloud {
-	public extern var VolumetricCloudComponent(get, never): cpp.Star<VolumetricCloudComp.ConstVolumetricCloudComp>;
-	public inline extern function get_VolumetricCloudComponent(): cpp.Star<VolumetricCloudComp.ConstVolumetricCloudComp> return this.VolumetricCloudComponent;
 }
 
 @:forward

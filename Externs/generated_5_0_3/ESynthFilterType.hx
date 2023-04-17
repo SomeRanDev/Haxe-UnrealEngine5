@@ -3,11 +3,11 @@ package ue;
 
 @:native("ESynthFilterType")
 @:include("EpicSynth1Types.h")
-extern enum ESynthFilterType {
-	LowPass;
-	HighPass;
-	BandPass;
-	BandStop;
-	Count;
-	ESynthFilterType_MAX;
+extern class ESynthFilterType {
+	static var LowPass: ESynthFilterType;
+	static var HighPass: ESynthFilterType;
+	static var BandPass: ESynthFilterType;
+	static var BandStop: ESynthFilterType;
+	static var Count: ESynthFilterType;
+	static var ESynthFilterType_MAX: ESynthFilterType;
 }

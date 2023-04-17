@@ -10,8 +10,6 @@ extern class ComboBoxStyle extends SlateWidgetStyle {
 	public var SelectionChangeSlateSound: SlateSound;
 	public var ContentPadding: Margin;
 	public var MenuRowPadding: Margin;
-	public var PressedSound_DEPRECATED: FName;
-	public var SelectionChangeSound_DEPRECATED: FName;
 
 	@:native("FComboBoxStyle") public function new();
 }

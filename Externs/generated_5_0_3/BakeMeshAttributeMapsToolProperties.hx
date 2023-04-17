@@ -12,7 +12,7 @@ extern class BakeMeshAttributeMapsToolProperties extends InteractiveToolProperty
 	public var SamplesPerPixel: EBakeTextureSamplesPerPixel;
 	public var MapPreviewNamesList: TArray<FString>;
 
-	public function GetMapPreviewNamesFunc(): cpp.Reference<TArray<FString>>;
+	public function GetMapPreviewNamesFunc(): TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

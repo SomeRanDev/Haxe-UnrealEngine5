@@ -5,7 +5,7 @@ package ue;
 @:include("CameraAnimationSequenceSubsystem.h")
 @:structAccess
 extern class CameraAnimationSequenceSubsystem extends WorldSubsystem {
-	public var Linker: cpp.Star<MovieSceneEntitySystemLinker>;
+	private var Linker: cpp.Star<MovieSceneEntitySystemLinker>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class CameraAnimationSequenceSubsystem extends WorldSubsystem {
 @:forward()
 @:nativeGen
 abstract ConstCameraAnimationSequenceSubsystem(CameraAnimationSequenceSubsystem) from CameraAnimationSequenceSubsystem {
-	public extern var Linker(get, never): cpp.Star<MovieSceneEntitySystemLinker.ConstMovieSceneEntitySystemLinker>;
-	public inline extern function get_Linker(): cpp.Star<MovieSceneEntitySystemLinker.ConstMovieSceneEntitySystemLinker> return this.Linker;
 }
 
 @:forward

@@ -5,7 +5,7 @@ package ue;
 @:include("UserDefinedStructure/UserDefinedStructEditorData.h")
 @:structAccess
 extern class UserDefinedStructEditorData extends Object {
-	public var UniqueNameId: cpp.UInt32;
+	private var UniqueNameId: cpp.UInt32;
 	public var VariablesDescriptions: TArray<StructVariableDescription>;
 	public var ToolTip: FString;
 
@@ -15,8 +15,6 @@ extern class UserDefinedStructEditorData extends Object {
 @:forward()
 @:nativeGen
 abstract ConstUserDefinedStructEditorData(UserDefinedStructEditorData) from UserDefinedStructEditorData {
-	public extern var UniqueNameId(get, never): cpp.UInt32;
-	public inline extern function get_UniqueNameId(): cpp.UInt32 return this.UniqueNameId;
 	public extern var VariablesDescriptions(get, never): TArray<StructVariableDescription>;
 	public inline extern function get_VariablesDescriptions(): TArray<StructVariableDescription> return this.VariablesDescriptions;
 	public extern var ToolTip(get, never): FString;

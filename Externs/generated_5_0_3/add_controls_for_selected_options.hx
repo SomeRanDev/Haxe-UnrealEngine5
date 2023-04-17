@@ -4,7 +4,7 @@ package ue;
 @:native("Uadd_controls_for_selected_options")
 @:structAccess
 extern class add_controls_for_selected_options extends Object {
-	public var output_format: ControlOutputFormat;
+	public var output_format: TEnumAsByte<ControlOutputFormat>;
 	public var suffix: FString;
 	public var prefix: FString;
 
@@ -14,8 +14,8 @@ extern class add_controls_for_selected_options extends Object {
 @:forward()
 @:nativeGen
 abstract Constadd_controls_for_selected_options(add_controls_for_selected_options) from add_controls_for_selected_options {
-	public extern var output_format(get, never): ControlOutputFormat;
-	public inline extern function get_output_format(): ControlOutputFormat return this.output_format;
+	public extern var output_format(get, never): TEnumAsByte<ControlOutputFormat>;
+	public inline extern function get_output_format(): TEnumAsByte<ControlOutputFormat> return this.output_format;
 	public extern var suffix(get, never): FString;
 	public inline extern function get_suffix(): FString return this.suffix;
 	public extern var prefix(get, never): FString;

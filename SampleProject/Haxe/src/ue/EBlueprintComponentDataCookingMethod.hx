@@ -3,9 +3,9 @@ package ue;
 
 @:native("EBlueprintComponentDataCookingMethod")
 @:include("CookerSettings.h")
-extern enum EBlueprintComponentDataCookingMethod {
-	Disabled;
-	AllBlueprints;
-	EnabledBlueprintsOnly;
-	EBlueprintComponentDataCookingMethod_MAX;
+extern class EBlueprintComponentDataCookingMethod {
+	static var Disabled: EBlueprintComponentDataCookingMethod;
+	static var AllBlueprints: EBlueprintComponentDataCookingMethod;
+	static var EnabledBlueprintsOnly: EBlueprintComponentDataCookingMethod;
+	static var EBlueprintComponentDataCookingMethod_MAX: EBlueprintComponentDataCookingMethod;
 }

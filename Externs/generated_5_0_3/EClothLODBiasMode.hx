@@ -3,9 +3,9 @@ package ue;
 
 @:native("EClothLODBiasMode")
 @:include("Engine/SkeletalMesh.h")
-extern enum EClothLODBiasMode {
-	MappingsToSameLOD;
-	MappingsToMinLOD;
-	MappingsToAnyLOD;
-	EClothLODBiasMode_MAX;
+extern class EClothLODBiasMode {
+	static var MappingsToSameLOD: EClothLODBiasMode;
+	static var MappingsToMinLOD: EClothLODBiasMode;
+	static var MappingsToAnyLOD: EClothLODBiasMode;
+	static var EClothLODBiasMode_MAX: EClothLODBiasMode;
 }

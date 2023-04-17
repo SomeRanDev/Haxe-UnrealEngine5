@@ -5,11 +5,9 @@ package ue;
 @:include("WorldPartition/WorldPartitionLevelStreamingDynamic.h")
 @:structAccess
 extern class WorldPartitionLevelStreamingDynamic extends LevelStreamingDynamic {
-	public var RuntimeLevel: cpp.Star<Level>;
-	public var bShouldBeAlwaysLoaded: Bool;
-	public var UnsavedActorsContainer: cpp.Star<ActorContainer>;
-	public var StreamingCell: TWeakObjectPtr<WorldPartitionRuntimeLevelStreamingCell>;
-	public var OuterWorldPartition: TWeakObjectPtr<WorldPartition>;
+	private var bShouldBeAlwaysLoaded: Bool;
+	private var StreamingCell: TWeakObjectPtr<WorldPartitionRuntimeLevelStreamingCell>;
+	private var OuterWorldPartition: TWeakObjectPtr<WorldPartition>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,16 +15,6 @@ extern class WorldPartitionLevelStreamingDynamic extends LevelStreamingDynamic {
 @:forward()
 @:nativeGen
 abstract ConstWorldPartitionLevelStreamingDynamic(WorldPartitionLevelStreamingDynamic) from WorldPartitionLevelStreamingDynamic {
-	public extern var RuntimeLevel(get, never): cpp.Star<Level.ConstLevel>;
-	public inline extern function get_RuntimeLevel(): cpp.Star<Level.ConstLevel> return this.RuntimeLevel;
-	public extern var bShouldBeAlwaysLoaded(get, never): Bool;
-	public inline extern function get_bShouldBeAlwaysLoaded(): Bool return this.bShouldBeAlwaysLoaded;
-	public extern var UnsavedActorsContainer(get, never): cpp.Star<ActorContainer.ConstActorContainer>;
-	public inline extern function get_UnsavedActorsContainer(): cpp.Star<ActorContainer.ConstActorContainer> return this.UnsavedActorsContainer;
-	public extern var StreamingCell(get, never): TWeakObjectPtr<WorldPartitionRuntimeLevelStreamingCell.ConstWorldPartitionRuntimeLevelStreamingCell>;
-	public inline extern function get_StreamingCell(): TWeakObjectPtr<WorldPartitionRuntimeLevelStreamingCell.ConstWorldPartitionRuntimeLevelStreamingCell> return this.StreamingCell;
-	public extern var OuterWorldPartition(get, never): TWeakObjectPtr<WorldPartition.ConstWorldPartition>;
-	public inline extern function get_OuterWorldPartition(): TWeakObjectPtr<WorldPartition.ConstWorldPartition> return this.OuterWorldPartition;
 }
 
 @:forward

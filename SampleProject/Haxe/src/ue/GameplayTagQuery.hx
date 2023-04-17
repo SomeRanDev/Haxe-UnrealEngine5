@@ -5,11 +5,11 @@ package ue;
 @:include("GameplayTagContainer.h")
 @:structAccess
 extern class GameplayTagQuery {
-	public var TokenStreamVersion: cpp.Int32;
-	public var TagDictionary: TArray<GameplayTag>;
-	public var QueryTokenStream: TArray<cpp.UInt8>;
-	public var UserDescription: FString;
-	public var AutoDescription: FString;
+	private var TokenStreamVersion: cpp.Int32;
+	private var TagDictionary: TArray<GameplayTag>;
+	private var QueryTokenStream: TArray<cpp.UInt8>;
+	private var UserDescription: FString;
+	private var AutoDescription: FString;
 
 	@:native("FGameplayTagQuery") public function new();
 	@:native("FGameplayTagQuery") public static function make(TokenStreamVersion: cpp.Int32, TagDictionary: TArray<GameplayTag>, QueryTokenStream: TArray<cpp.UInt8>, UserDescription: FString, AutoDescription: FString): GameplayTagQuery ;

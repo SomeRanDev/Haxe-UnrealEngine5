@@ -5,8 +5,8 @@ package ue;
 @:include("Factories/MaterialImportHelpers.h")
 @:structAccess
 extern class MaterialImportHelpers extends Object {
-	public function FindExistingMaterialFromSearchLocation(MaterialFullName: FString, BasePackagePath: FString, SearchLocation: EMaterialSearchLocation, OutError: cpp.Reference<FText>): cpp.Reference<cpp.Star<MaterialInterface>>;
-	public function FindExistingMaterial(BasePath: FString, MaterialFullName: FString, bRecursivePaths: Bool, OutError: cpp.Reference<FText>): cpp.Reference<cpp.Star<MaterialInterface>>;
+	public function FindExistingMaterialFromSearchLocation(MaterialFullName: FString, BasePackagePath: FString, SearchLocation: EMaterialSearchLocation, OutError: cpp.Reference<FText>): cpp.Star<MaterialInterface>;
+	public function FindExistingMaterial(BasePath: FString, MaterialFullName: FString, bRecursivePaths: Bool, OutError: cpp.Reference<FText>): cpp.Star<MaterialInterface>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

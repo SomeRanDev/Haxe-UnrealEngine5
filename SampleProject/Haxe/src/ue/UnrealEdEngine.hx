@@ -13,7 +13,6 @@ extern class UnrealEdEngine extends EditorEngine {
 	public var PackagesToBeFullyLoadedAtStartup: TArray<FString>;
 	public var CurrentLODParentActor: cpp.Star<Actor>;
 	public var bNeedWarningForPkgEngineVer: Bool;
-	public var SortedSpriteCategories_DEPRECATED: TArray<FString>;
 	public var TemplateMapInfos: TArray<TemplateMapInfo>;
 	public var CookServer: cpp.Star<CookOnTheFlyServer>;
 
@@ -39,8 +38,6 @@ abstract ConstUnrealEdEngine(UnrealEdEngine) from UnrealEdEngine {
 	public inline extern function get_CurrentLODParentActor(): cpp.Star<Actor.ConstActor> return this.CurrentLODParentActor;
 	public extern var bNeedWarningForPkgEngineVer(get, never): Bool;
 	public inline extern function get_bNeedWarningForPkgEngineVer(): Bool return this.bNeedWarningForPkgEngineVer;
-	public extern var SortedSpriteCategories_DEPRECATED(get, never): TArray<FString>;
-	public inline extern function get_SortedSpriteCategories_DEPRECATED(): TArray<FString> return this.SortedSpriteCategories_DEPRECATED;
 	public extern var TemplateMapInfos(get, never): TArray<TemplateMapInfo>;
 	public inline extern function get_TemplateMapInfos(): TArray<TemplateMapInfo> return this.TemplateMapInfos;
 	public extern var CookServer(get, never): cpp.Star<CookOnTheFlyServer.ConstCookOnTheFlyServer>;

@@ -7,7 +7,7 @@ package ue;
 extern class AsyncEditorWaitForGameWorld extends EditorUtilityBlueprintAsyncActionBase {
 	public var Complete: HaxeMulticastSparseDelegateProperty<(cpp.Star<World>) -> Void>;
 
-	public function AsyncWaitForGameWorld(Index: cpp.Int32, Server: Bool): cpp.Reference<cpp.Star<AsyncEditorWaitForGameWorld>>;
+	public function AsyncWaitForGameWorld(Index: cpp.Int32, Server: Bool): cpp.Star<AsyncEditorWaitForGameWorld>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

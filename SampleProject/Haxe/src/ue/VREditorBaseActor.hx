@@ -5,7 +5,7 @@ package ue;
 @:include("VREditorBaseActor.h")
 @:structAccess
 extern class VREditorBaseActor extends Actor {
-	public var VRMode: cpp.Star<VREditorMode>;
+	@:protected public var VRMode: cpp.Star<VREditorMode>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class VREditorBaseActor extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstVREditorBaseActor(VREditorBaseActor) from VREditorBaseActor {
-	public extern var VRMode(get, never): cpp.Star<VREditorMode.ConstVREditorMode>;
-	public inline extern function get_VRMode(): cpp.Star<VREditorMode.ConstVREditorMode> return this.VRMode;
 }
 
 @:forward

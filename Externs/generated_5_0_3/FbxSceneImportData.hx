@@ -5,7 +5,6 @@ package ue;
 @:include("Factories/FbxSceneImportData.h")
 @:structAccess
 extern class FbxSceneImportData extends Object {
-	public var SourceFbxFile: FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +12,6 @@ extern class FbxSceneImportData extends Object {
 @:forward()
 @:nativeGen
 abstract ConstFbxSceneImportData(FbxSceneImportData) from FbxSceneImportData {
-	public extern var SourceFbxFile(get, never): FString;
-	public inline extern function get_SourceFbxFile(): FString return this.SourceFbxFile;
 }
 
 @:forward

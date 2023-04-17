@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class ParticleModuleLocationEmitter extends ParticleModuleLocationBase {
 	public var EmitterName: FName;
-	public var SelectionMethod: ELocationEmitterSelectionMethod;
+	public var SelectionMethod: TEnumAsByte<ELocationEmitterSelectionMethod>;
 	public var InheritSourceVelocity: Bool;
 	public var InheritSourceVelocityScale: cpp.Float32;
 	public var bInheritSourceRotation: Bool;
@@ -20,8 +20,8 @@ extern class ParticleModuleLocationEmitter extends ParticleModuleLocationBase {
 abstract ConstParticleModuleLocationEmitter(ParticleModuleLocationEmitter) from ParticleModuleLocationEmitter {
 	public extern var EmitterName(get, never): FName;
 	public inline extern function get_EmitterName(): FName return this.EmitterName;
-	public extern var SelectionMethod(get, never): ELocationEmitterSelectionMethod;
-	public inline extern function get_SelectionMethod(): ELocationEmitterSelectionMethod return this.SelectionMethod;
+	public extern var SelectionMethod(get, never): TEnumAsByte<ELocationEmitterSelectionMethod>;
+	public inline extern function get_SelectionMethod(): TEnumAsByte<ELocationEmitterSelectionMethod> return this.SelectionMethod;
 	public extern var InheritSourceVelocity(get, never): Bool;
 	public inline extern function get_InheritSourceVelocity(): Bool return this.InheritSourceVelocity;
 	public extern var InheritSourceVelocityScale(get, never): cpp.Float32;

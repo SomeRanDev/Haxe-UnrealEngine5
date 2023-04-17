@@ -3,12 +3,12 @@ package ue;
 
 @:native("EFilterInterpolationType")
 @:include("Engine/EngineTypes.h")
-extern enum EFilterInterpolationType {
-	BSIT_Average;
-	BSIT_Linear;
-	BSIT_Cubic;
-	BSIT_EaseInOut;
-	BSIT_ExponentialDecay;
-	BSIT_SpringDamper;
-	BSIT_MAX;
+extern class EFilterInterpolationType {
+	static var BSIT_Average: EFilterInterpolationType;
+	static var BSIT_Linear: EFilterInterpolationType;
+	static var BSIT_Cubic: EFilterInterpolationType;
+	static var BSIT_EaseInOut: EFilterInterpolationType;
+	static var BSIT_ExponentialDecay: EFilterInterpolationType;
+	static var BSIT_SpringDamper: EFilterInterpolationType;
+	static var BSIT_MAX: EFilterInterpolationType;
 }

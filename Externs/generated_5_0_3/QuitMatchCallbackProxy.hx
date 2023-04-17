@@ -8,7 +8,7 @@ extern class QuitMatchCallbackProxy extends OnlineBlueprintCallProxyBase {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
-	public function QuitMatch(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, MatchID: FString, Outcome: EMPMatchOutcome, TurnTimeoutInSeconds: cpp.Int32): cpp.Reference<cpp.Star<QuitMatchCallbackProxy>>;
+	public function QuitMatch(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, MatchID: FString, Outcome: TEnumAsByte<EMPMatchOutcome>, TurnTimeoutInSeconds: cpp.Int32): cpp.Star<QuitMatchCallbackProxy>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

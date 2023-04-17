@@ -7,7 +7,7 @@ package ue;
 extern class SynthComponentMonoWaveTable extends SynthComp {
 	public var OnTableAltered: HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
 	public var OnNumTablesChanged: HaxeMulticastSparseDelegateProperty<() -> Void>;
-	public var CurrentPreset: cpp.Star<MonoWaveTableSynthPreset>;
+	@:protected public var CurrentPreset: cpp.Star<MonoWaveTableSynthPreset>;
 
 	public function SetWaveTablePosition(InPosition: cpp.Float32): Void;
 	public function SetSustainPedalState(InSustainPedalState: Bool): Void;
@@ -34,9 +34,9 @@ extern class SynthComponentMonoWaveTable extends SynthComp {
 	public function SetFilterEnvelopeBiasInvert(bInBiasInvert: Bool): Void;
 	public function SetFilterEnvelopeBiasDepth(InDepth: cpp.Float32): Void;
 	public function SetFilterEnvelopeAttackTime(InAttackTimeMsec: cpp.Float32): Void;
-	public function SetCurveValue(TableIndex: cpp.Int32, KeyframeIndex: cpp.Int32, NewValue: cpp.Float32): cpp.Reference<Bool>;
-	public function SetCurveTangent(TableIndex: cpp.Int32, InNewTangent: cpp.Float32): cpp.Reference<Bool>;
-	public function SetCurveInterpolationType(InterpolationType: CurveInterpolationType, TableIndex: cpp.Int32): cpp.Reference<Bool>;
+	public function SetCurveValue(TableIndex: cpp.Int32, KeyframeIndex: cpp.Int32, NewValue: cpp.Float32): Bool;
+	public function SetCurveTangent(TableIndex: cpp.Int32, InNewTangent: cpp.Float32): Bool;
+	public function SetCurveInterpolationType(InterpolationType: CurveInterpolationType, TableIndex: cpp.Int32): Bool;
 	public function SetAmpEnvelopeSustainGain(InSustainGain: cpp.Float32): Void;
 	public function SetAmpEnvelopeReleaseTime(InReleaseTimeMsec: cpp.Float32): Void;
 	public function SetAmpEnvelopeInvert(bInInvert: Bool): Void;
@@ -49,10 +49,10 @@ extern class SynthComponentMonoWaveTable extends SynthComp {
 	public function RefreshAllWaveTables(): Void;
 	public function NoteOn(InMidiNote: cpp.Float32, InVelocity: cpp.Float32): Void;
 	public function NoteOff(InMidiNote: cpp.Float32): Void;
-	public function GetNumTableEntries(): cpp.Reference<cpp.Int32>;
-	public function GetMaxTableIndex(): cpp.Reference<cpp.Int32>;
-	public function GetKeyFrameValuesForTable(TableIndex: cpp.Float32): cpp.Reference<TArray<cpp.Float32>>;
-	public function GetCurveTangent(TableIndex: cpp.Int32): cpp.Reference<cpp.Float32>;
+	public function GetNumTableEntries(): cpp.Int32;
+	public function GetMaxTableIndex(): cpp.Int32;
+	public function GetKeyFrameValuesForTable(TableIndex: cpp.Float32): TArray<cpp.Float32>;
+	public function GetCurveTangent(TableIndex: cpp.Int32): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -64,8 +64,6 @@ abstract ConstSynthComponentMonoWaveTable(SynthComponentMonoWaveTable) from Synt
 	public inline extern function get_OnTableAltered(): HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void> return this.OnTableAltered;
 	public extern var OnNumTablesChanged(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnNumTablesChanged(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnNumTablesChanged;
-	public extern var CurrentPreset(get, never): cpp.Star<MonoWaveTableSynthPreset.ConstMonoWaveTableSynthPreset>;
-	public inline extern function get_CurrentPreset(): cpp.Star<MonoWaveTableSynthPreset.ConstMonoWaveTableSynthPreset> return this.CurrentPreset;
 }
 
 @:forward

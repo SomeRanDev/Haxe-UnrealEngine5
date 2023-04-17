@@ -6,17 +6,17 @@ package ue;
 @:structAccess
 extern class EditorLoadingAndSavingUtils extends Object {
 	public function UnloadPackages(PackagesToUnload: cpp.Reference<TArray<cpp.Star<Package>>>, bOutAnyPackagesUnloaded: cpp.Reference<Bool>, OutErrorMessage: cpp.Reference<FText>): Void;
-	public function SavePackagesWithDialog(PackagesToSave: cpp.Reference<TArray<cpp.Star<Package>>>, bOnlyDirty: Bool): cpp.Reference<Bool>;
-	public function SavePackages(PackagesToSave: cpp.Reference<TArray<cpp.Star<Package>>>, bOnlyDirty: Bool): cpp.Reference<Bool>;
-	public function SaveMap(World: cpp.Star<World>, AssetPath: FString): cpp.Reference<Bool>;
-	public function SaveDirtyPackagesWithDialog(bSaveMapPackages: Bool, bSaveContentPackages: Bool): cpp.Reference<Bool>;
-	public function SaveDirtyPackages(bSaveMapPackages: Bool, bSaveContentPackages: Bool): cpp.Reference<Bool>;
-	public function SaveCurrentLevel(): cpp.Reference<Bool>;
+	public function SavePackagesWithDialog(PackagesToSave: cpp.Reference<TArray<cpp.Star<Package>>>, bOnlyDirty: Bool): Bool;
+	public function SavePackages(PackagesToSave: cpp.Reference<TArray<cpp.Star<Package>>>, bOnlyDirty: Bool): Bool;
+	public function SaveMap(World: cpp.Star<World>, AssetPath: FString): Bool;
+	public function SaveDirtyPackagesWithDialog(bSaveMapPackages: Bool, bSaveContentPackages: Bool): Bool;
+	public function SaveDirtyPackages(bSaveMapPackages: Bool, bSaveContentPackages: Bool): Bool;
+	public function SaveCurrentLevel(): Bool;
 	public function ReloadPackages(PackagesToReload: cpp.Reference<TArray<cpp.Star<Package>>>, bOutAnyPackagesReloaded: cpp.Reference<Bool>, OutErrorMessage: cpp.Reference<FText>, InteractionMode: EReloadPackagesInteractionMode): Void;
-	public function NewMapFromTemplate(PathToTemplateLevel: FString, bSaveExistingMap: Bool): cpp.Reference<cpp.Star<World>>;
-	public function NewBlankMap(bSaveExistingMap: Bool): cpp.Reference<cpp.Star<World>>;
-	public function LoadMapWithDialog(): cpp.Reference<cpp.Star<World>>;
-	public function LoadMap(Filename: FString): cpp.Reference<cpp.Star<World>>;
+	public function NewMapFromTemplate(PathToTemplateLevel: FString, bSaveExistingMap: Bool): cpp.Star<World>;
+	public function NewBlankMap(bSaveExistingMap: Bool): cpp.Star<World>;
+	public function LoadMapWithDialog(): cpp.Star<World>;
+	public function LoadMap(Filename: FString): cpp.Star<World>;
 	public function ImportScene(Filename: FString): Void;
 	public function GetDirtyMapPackages(OutDirtyPackages: cpp.Reference<TArray<cpp.Star<Package>>>): Void;
 	public function GetDirtyContentPackages(OutDirtyPackages: cpp.Reference<TArray<cpp.Star<Package>>>): Void;

@@ -3,11 +3,11 @@ package ue;
 
 @:native("EMotionExtractor_MotionType")
 @:include("MotionExtractorModifier.h")
-extern enum EMotionExtractor_MotionType {
-	Translation;
-	Rotation;
-	Scale;
-	TranslationSpeed;
-	RotationSpeed;
-	EMotionExtractor_MAX;
+extern class EMotionExtractor_MotionType {
+	static var Translation: EMotionExtractor_MotionType;
+	static var Rotation: EMotionExtractor_MotionType;
+	static var Scale: EMotionExtractor_MotionType;
+	static var TranslationSpeed: EMotionExtractor_MotionType;
+	static var RotationSpeed: EMotionExtractor_MotionType;
+	static var EMotionExtractor_MAX: EMotionExtractor_MotionType;
 }

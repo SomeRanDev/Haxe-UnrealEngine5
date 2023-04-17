@@ -3,10 +3,10 @@ package ue;
 
 @:native("EAutoChangeMode")
 @:include("ISequencer.h")
-extern enum EAutoChangeMode {
-	AutoKey;
-	AutoTrack;
-	All;
-	None;
-	EAutoChangeMode_MAX;
+extern class EAutoChangeMode {
+	static var AutoKey: EAutoChangeMode;
+	static var AutoTrack: EAutoChangeMode;
+	static var All: EAutoChangeMode;
+	static var None: EAutoChangeMode;
+	static var EAutoChangeMode_MAX: EAutoChangeMode;
 }

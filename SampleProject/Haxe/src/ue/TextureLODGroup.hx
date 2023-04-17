@@ -5,12 +5,12 @@ package ue;
 @:include("Engine/TextureLODSettings.h")
 @:structAccess
 extern class TextureLODGroup {
-	public var Group: TextureGroup;
+	public var Group: TEnumAsByte<TextureGroup>;
 	public var LODBias: cpp.Int32;
 	public var LODBias_Smaller: cpp.Int32;
 	public var LODBias_Smallest: cpp.Int32;
 	public var NumStreamedMips: cpp.Int32;
-	public var MipGenSettings: TextureMipGenSettings;
+	public var MipGenSettings: TEnumAsByte<TextureMipGenSettings>;
 	public var MinLODSize: cpp.Int32;
 	public var MaxLODSize: cpp.Int32;
 	public var MaxLODSize_Smaller: cpp.Int32;
@@ -27,7 +27,7 @@ extern class TextureLODGroup {
 	public var DownscaleOptions: ETextureDownscaleOptions;
 	public var VirtualTextureTileCountBias: cpp.Int32;
 	public var VirtualTextureTileSizeBias: cpp.Int32;
-	public var LossyCompressionAmount: ETextureLossyCompressionAmount;
+	public var LossyCompressionAmount: TEnumAsByte<ETextureLossyCompressionAmount>;
 
 	@:native("FTextureLODGroup") public function new();
 }

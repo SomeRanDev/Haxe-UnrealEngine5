@@ -13,11 +13,11 @@ extern class EnvTraceData {
 	public var ExtentY: cpp.Float32;
 	public var ExtentZ: cpp.Float32;
 	public var PostProjectionVerticalOffset: cpp.Float32;
-	public var TraceChannel: ETraceTypeQuery;
-	public var SerializedChannel: ECollisionChannel;
+	public var TraceChannel: TEnumAsByte<ETraceTypeQuery>;
+	public var SerializedChannel: TEnumAsByte<ECollisionChannel>;
 	public var TraceProfileName: FName;
-	public var TraceShape: EEnvTraceShape;
-	public var TraceMode: EEnvQueryTrace;
+	public var TraceShape: TEnumAsByte<EEnvTraceShape>;
+	public var TraceMode: TEnumAsByte<EEnvQueryTrace>;
 	public var bTraceComplex: Bool;
 	public var bOnlyBlockingHits: Bool;
 	public var bCanTraceOnNavMesh: Bool;

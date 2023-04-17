@@ -5,13 +5,12 @@ package ue;
 @:include("PaperSpriteComponent.h")
 @:structAccess
 extern class PaperSpriteComp extends MeshComp {
-	public var SourceSprite: cpp.Star<PaperSprite>;
-	public var MaterialOverride_DEPRECATED: cpp.Star<MaterialInterface>;
-	public var SpriteColor: LinearColor;
+	@:protected public var SourceSprite: cpp.Star<PaperSprite>;
+	@:protected public var SpriteColor: LinearColor;
 
 	public function SetSpriteColor(NewColor: LinearColor): Void;
-	public function SetSprite(NewSprite: cpp.Star<PaperSprite>): cpp.Reference<Bool>;
-	public function GetSprite(): cpp.Reference<cpp.Star<PaperSprite>>;
+	public function SetSprite(NewSprite: cpp.Star<PaperSprite>): Bool;
+	public function GetSprite(): cpp.Star<PaperSprite>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,12 +18,6 @@ extern class PaperSpriteComp extends MeshComp {
 @:forward()
 @:nativeGen
 abstract ConstPaperSpriteComp(PaperSpriteComp) from PaperSpriteComp {
-	public extern var SourceSprite(get, never): cpp.Star<PaperSprite.ConstPaperSprite>;
-	public inline extern function get_SourceSprite(): cpp.Star<PaperSprite.ConstPaperSprite> return this.SourceSprite;
-	public extern var MaterialOverride_DEPRECATED(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_MaterialOverride_DEPRECATED(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.MaterialOverride_DEPRECATED;
-	public extern var SpriteColor(get, never): LinearColor;
-	public inline extern function get_SpriteColor(): LinearColor return this.SpriteColor;
 }
 
 @:forward

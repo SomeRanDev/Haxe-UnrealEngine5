@@ -3,8 +3,8 @@ package ue;
 
 @:native("EIKRigGoalPreviewMode")
 @:include("IKRigDefinition.h")
-extern enum EIKRigGoalPreviewMode {
-	Additive;
-	Absolute;
-	EIKRigGoalPreviewMode_MAX;
+extern class EIKRigGoalPreviewMode {
+	static var Additive: EIKRigGoalPreviewMode;
+	static var Absolute: EIKRigGoalPreviewMode;
+	static var EIKRigGoalPreviewMode_MAX: EIKRigGoalPreviewMode;
 }

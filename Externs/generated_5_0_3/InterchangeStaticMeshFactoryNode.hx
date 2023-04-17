@@ -5,18 +5,18 @@ package ue;
 @:include("InterchangeStaticMeshFactoryNode.h")
 @:structAccess
 extern class InterchangeStaticMeshFactoryNode extends InterchangeBaseNode {
-	public function SetCustomVertexColorReplace(AttributeValue: cpp.Reference<Bool>): cpp.Reference<Bool>;
-	public function SetCustomVertexColorOverride(AttributeValue: cpp.Reference<Color>): cpp.Reference<Bool>;
-	public function SetCustomVertexColorIgnore(AttributeValue: cpp.Reference<Bool>): cpp.Reference<Bool>;
-	public function RemoveLodDataUniqueId(LodDataUniqueId: FString): cpp.Reference<Bool>;
+	public function SetCustomVertexColorReplace(AttributeValue: cpp.Reference<Bool>): Bool;
+	public function SetCustomVertexColorOverride(AttributeValue: cpp.Reference<Color>): Bool;
+	public function SetCustomVertexColorIgnore(AttributeValue: cpp.Reference<Bool>): Bool;
+	public function RemoveLodDataUniqueId(LodDataUniqueId: FString): Bool;
 	public function InitializeStaticMeshNode(UniqueID: FString, DisplayLabel: FString, InAssetClass: FString): Void;
-	public function GetObjectClass(): cpp.Reference<cpp.Star<Class>>;
+	public function GetObjectClass(): cpp.Star<Class>;
 	public function GetLodDataUniqueIds(OutLodDataUniqueIds: cpp.Reference<TArray<FString>>): Void;
-	public function GetLodDataCount(): cpp.Reference<cpp.Int32>;
-	public function GetCustomVertexColorReplace(AttributeValue: cpp.Reference<Bool>): cpp.Reference<Bool>;
-	public function GetCustomVertexColorOverride(AttributeValue: cpp.Reference<Color>): cpp.Reference<Bool>;
-	public function GetCustomVertexColorIgnore(AttributeValue: cpp.Reference<Bool>): cpp.Reference<Bool>;
-	public function AddLodDataUniqueId(LodDataUniqueId: FString): cpp.Reference<Bool>;
+	public function GetLodDataCount(): cpp.Int32;
+	public function GetCustomVertexColorReplace(AttributeValue: cpp.Reference<Bool>): Bool;
+	public function GetCustomVertexColorOverride(AttributeValue: cpp.Reference<Color>): Bool;
+	public function GetCustomVertexColorIgnore(AttributeValue: cpp.Reference<Bool>): Bool;
+	public function AddLodDataUniqueId(LodDataUniqueId: FString): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

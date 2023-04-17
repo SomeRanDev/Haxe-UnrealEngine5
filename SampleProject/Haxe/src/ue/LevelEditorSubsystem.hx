@@ -5,26 +5,26 @@ package ue;
 @:include("LevelEditorSubsystem.h")
 @:structAccess
 extern class LevelEditorSubsystem extends EditorSubsystem {
-	public function SetCurrentLevelByName(LevelName: FName): cpp.Reference<Bool>;
+	public function SetCurrentLevelByName(LevelName: FName): Bool;
 	public function SetAllowsCinematicControl(bAllow: Bool, ViewportConfigKey: FName): Void;
-	public function SaveCurrentLevel(): cpp.Reference<Bool>;
-	public function SaveAllDirtyLevels(): cpp.Reference<Bool>;
+	public function SaveCurrentLevel(): Bool;
+	public function SaveAllDirtyLevels(): Bool;
 	public function PilotLevelActor(ActorToPilot: cpp.Star<Actor>, ViewportConfigKey: FName): Void;
-	public function NewLevelFromTemplate(AssetPath: FString, TemplateAssetPath: FString): cpp.Reference<Bool>;
-	public function NewLevel(AssetPath: FString): cpp.Reference<Bool>;
-	public function LoadLevel(AssetPath: FString): cpp.Reference<Bool>;
-	public function IsInPlayInEditor(): cpp.Reference<Bool>;
-	public function GetViewportConfigKeys(): cpp.Reference<TArray<FName>>;
-	public function GetSelectionSet(): cpp.Reference<cpp.Star<TypedElementSelectionSet>>;
-	public function GetCurrentLevel(): cpp.Reference<cpp.Star<Level>>;
-	public function GetAllowsCinematicControl(ViewportConfigKey: FName): cpp.Reference<Bool>;
-	public function GetActiveViewportConfigKey(): cpp.Reference<FName>;
+	public function NewLevelFromTemplate(AssetPath: FString, TemplateAssetPath: FString): Bool;
+	public function NewLevel(AssetPath: FString): Bool;
+	public function LoadLevel(AssetPath: FString): Bool;
+	public function IsInPlayInEditor(): Bool;
+	public function GetViewportConfigKeys(): TArray<FName>;
+	public function GetSelectionSet(): cpp.Star<TypedElementSelectionSet>;
+	public function GetCurrentLevel(): cpp.Star<Level>;
+	public function GetAllowsCinematicControl(ViewportConfigKey: FName): Bool;
+	public function GetActiveViewportConfigKey(): FName;
 	public function EjectPilotLevelActor(ViewportConfigKey: FName): Void;
 	public function EditorSetGameView(bGameView: Bool, ViewportConfigKey: FName): Void;
 	public function EditorRequestEndPlay(): Void;
 	public function EditorPlaySimulate(): Void;
 	public function EditorInvalidateViewports(): Void;
-	public function EditorGetGameView(ViewportConfigKey: FName): cpp.Reference<Bool>;
+	public function EditorGetGameView(ViewportConfigKey: FName): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

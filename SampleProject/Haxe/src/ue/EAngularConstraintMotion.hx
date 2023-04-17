@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAngularConstraintMotion")
 @:include("Chaos/ChaosEngineInterface.h")
-extern enum EAngularConstraintMotion {
-	ACM_Free;
-	ACM_Limited;
-	ACM_Locked;
-	ACM_MAX;
+extern class EAngularConstraintMotion {
+	static var ACM_Free: EAngularConstraintMotion;
+	static var ACM_Limited: EAngularConstraintMotion;
+	static var ACM_Locked: EAngularConstraintMotion;
+	static var ACM_MAX: EAngularConstraintMotion;
 }

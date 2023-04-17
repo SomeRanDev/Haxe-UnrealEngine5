@@ -19,10 +19,10 @@ extern class FieldSystemComp extends PrimitiveComp {
 	public function ApplyStayDynamicField(Enabled: Bool, Position: Vector, Radius: cpp.Float32): Void;
 	public function ApplyRadialVectorFalloffForce(Enabled: Bool, Position: Vector, Radius: cpp.Float32, Magnitude: cpp.Float32): Void;
 	public function ApplyRadialForce(Enabled: Bool, Position: Vector, Magnitude: cpp.Float32): Void;
-	public function ApplyPhysicsField(Enabled: Bool, Target: EFieldPhysicsType, MetaData: cpp.Star<FieldSystemMetaData>, Field: cpp.Star<FieldNodeBase>): Void;
+	public function ApplyPhysicsField(Enabled: Bool, Target: TEnumAsByte<EFieldPhysicsType>, MetaData: cpp.Star<FieldSystemMetaData>, Field: cpp.Star<FieldNodeBase>): Void;
 	public function ApplyLinearForce(Enabled: Bool, Direction: Vector, Magnitude: cpp.Float32): Void;
-	public function AddPersistentField(Enabled: Bool, Target: EFieldPhysicsType, MetaData: cpp.Star<FieldSystemMetaData>, Field: cpp.Star<FieldNodeBase>): Void;
-	public function AddFieldCommand(Enabled: Bool, Target: EFieldPhysicsType, MetaData: cpp.Star<FieldSystemMetaData>, Field: cpp.Star<FieldNodeBase>): Void;
+	public function AddPersistentField(Enabled: Bool, Target: TEnumAsByte<EFieldPhysicsType>, MetaData: cpp.Star<FieldSystemMetaData>, Field: cpp.Star<FieldNodeBase>): Void;
+	public function AddFieldCommand(Enabled: Bool, Target: TEnumAsByte<EFieldPhysicsType>, MetaData: cpp.Star<FieldSystemMetaData>, Field: cpp.Star<FieldNodeBase>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

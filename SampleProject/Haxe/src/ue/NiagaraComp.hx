@@ -5,17 +5,14 @@ package ue;
 @:include("NiagaraComponent.h")
 @:structAccess
 extern class NiagaraComp extends FXSystemComp {
-	public var Asset: cpp.Star<NiagaraSystem>;
-	public var TickBehavior: ENiagaraTickBehavior;
-	public var RandomSeedOffset: cpp.Int32;
-	public var OverrideParameters: NiagaraUserRedirectionParameterStore;
-	public var EditorOverridesValue_DEPRECATED: TMap<FName, Bool>;
-	public var TemplateParameterOverrides: TMap<NiagaraVariableBase, NiagaraVariant>;
-	public var InstanceParameterOverrides: TMap<NiagaraVariableBase, NiagaraVariant>;
-	public var bForceSolo: Bool;
-	public var bEnableGpuComputeDebug: Bool;
-	public var bAutoDestroy: Bool;
-	public var bRenderingEnabled: Bool;
+	private var Asset: cpp.Star<NiagaraSystem>;
+	private var TickBehavior: ENiagaraTickBehavior;
+	private var RandomSeedOffset: cpp.Int32;
+	private var OverrideParameters: NiagaraUserRedirectionParameterStore;
+	private var bForceSolo: Bool;
+	private var bEnableGpuComputeDebug: Bool;
+	private var bAutoDestroy: Bool;
+	private var bRenderingEnabled: Bool;
 	public var bAutoManageAttachment: Bool;
 	public var bAutoAttachWeldSimulatedBodies: Bool;
 	public var MaxTimeBeforeForceUpdateTransform: cpp.Float32;
@@ -25,9 +22,9 @@ extern class NiagaraComp extends FXSystemComp {
 	public var AutoAttachLocationRule: EAttachmentRule;
 	public var AutoAttachRotationRule: EAttachmentRule;
 	public var AutoAttachScaleRule: EAttachmentRule;
-	public var bWaitForCompilationOnActivate: Bool;
-	public var bAllowScalability: Bool;
-	public var CullProxy: cpp.Star<NiagaraCullProxyComp>;
+	public function GetAllowScalability(): Bool;
+	public function SetAllowScalability(input: Bool): Void;
+	private var CullProxy: cpp.Star<NiagaraCullProxyComp>;
 
 	public function SetVariableVec4(InVariableName: FName, InValue: cpp.Reference<Vector4>): Void;
 	public function SetVariableVec3(InVariableName: FName, InValue: Vector): Void;
@@ -73,33 +70,31 @@ extern class NiagaraComp extends FXSystemComp {
 	public function SetCanRenderWhileSeeking(bInCanRenderWhileSeeking: Bool): Void;
 	public function SetAutoDestroy(bInAutoDestroy: Bool): Void;
 	public function SetAsset(InAsset: cpp.Star<NiagaraSystem>, bResetExistingOverrideParameters: Bool): Void;
-	public function SetAllowScalability(bAllow: Bool): Void;
 	public function SetAgeUpdateMode(InAgeUpdateMode: ENiagaraAgeUpdateMode): Void;
 	public function SeekToDesiredAge(InDesiredAge: cpp.Float32): Void;
 	public function ResetSystem(): Void;
 	public function ReinitializeSystem(): Void;
-	public function IsPaused(): cpp.Reference<Bool>;
+	public function IsPaused(): Bool;
 	public function InitForPerformanceBaseline(): Void;
-	public function GetTickBehavior(): cpp.Reference<ENiagaraTickBehavior>;
-	public function GetSystemFixedBounds(): cpp.Reference<Box>;
-	public function GetSeekDelta(): cpp.Reference<cpp.Float32>;
-	public function GetRandomSeedOffset(): cpp.Reference<cpp.Int32>;
-	public function GetPreviewLODDistanceEnabled(): cpp.Reference<Bool>;
-	public function GetPreviewLODDistance(): cpp.Reference<cpp.Float32>;
-	public function GetNiagaraParticleValueVec3_DebugOnly(InEmitterName: FString, InValueName: FString): cpp.Reference<TArray<Vector>>;
-	public function GetNiagaraParticleValues_DebugOnly(InEmitterName: FString, InValueName: FString): cpp.Reference<TArray<cpp.Float32>>;
-	public function GetNiagaraParticlePositions_DebugOnly(InEmitterName: FString): cpp.Reference<TArray<Vector>>;
-	public function GetMaxSimTime(): cpp.Reference<cpp.Float32>;
-	public function GetLockDesiredAgeDeltaTimeToSeekDelta(): cpp.Reference<Bool>;
-	public function GetForceSolo(): cpp.Reference<Bool>;
-	public function GetForceLocalPlayerEffect(): cpp.Reference<Bool>;
-	public function GetEmitterFixedBounds(EmitterName: FName): cpp.Reference<Box>;
-	public function GetDesiredAge(): cpp.Reference<cpp.Float32>;
-	public function GetDataInterface(Name: FString): cpp.Reference<cpp.Star<NiagaraDataInterface>>;
-	public function GetCustomTimeDilation(): cpp.Reference<cpp.Float32>;
-	public function GetAsset(): cpp.Reference<cpp.Star<NiagaraSystem>>;
-	public function GetAllowScalability(): cpp.Reference<Bool>;
-	public function GetAgeUpdateMode(): cpp.Reference<ENiagaraAgeUpdateMode>;
+	public function GetTickBehavior(): ENiagaraTickBehavior;
+	public function GetSystemFixedBounds(): Box;
+	public function GetSeekDelta(): cpp.Float32;
+	public function GetRandomSeedOffset(): cpp.Int32;
+	public function GetPreviewLODDistanceEnabled(): Bool;
+	public function GetPreviewLODDistance(): cpp.Float32;
+	public function GetNiagaraParticleValueVec3_DebugOnly(InEmitterName: FString, InValueName: FString): TArray<Vector>;
+	public function GetNiagaraParticleValues_DebugOnly(InEmitterName: FString, InValueName: FString): TArray<cpp.Float32>;
+	public function GetNiagaraParticlePositions_DebugOnly(InEmitterName: FString): TArray<Vector>;
+	public function GetMaxSimTime(): cpp.Float32;
+	public function GetLockDesiredAgeDeltaTimeToSeekDelta(): Bool;
+	public function GetForceSolo(): Bool;
+	public function GetForceLocalPlayerEffect(): Bool;
+	public function GetEmitterFixedBounds(EmitterName: FName): Box;
+	public function GetDesiredAge(): cpp.Float32;
+	public function GetDataInterface(Name: FString): cpp.Star<NiagaraDataInterface>;
+	public function GetCustomTimeDilation(): cpp.Float32;
+	public function GetAsset(): cpp.Star<NiagaraSystem>;
+	public function GetAgeUpdateMode(): ENiagaraAgeUpdateMode;
 	public function ClearSystemFixedBounds(): Void;
 	public function ClearEmitterFixedBounds(EmitterName: FName): Void;
 	public function AdvanceSimulationByTime(SimulateTime: cpp.Float32, TickDeltaSeconds: cpp.Float32): Void;
@@ -112,32 +107,10 @@ extern class NiagaraComp extends FXSystemComp {
 	IsPaused, GetTickBehavior, GetSystemFixedBounds, GetSeekDelta, GetRandomSeedOffset,
 	GetPreviewLODDistanceEnabled, GetPreviewLODDistance, GetMaxSimTime, GetLockDesiredAgeDeltaTimeToSeekDelta, GetForceSolo,
 	GetForceLocalPlayerEffect, GetEmitterFixedBounds, GetDesiredAge, GetCustomTimeDilation, GetAsset,
-	GetAllowScalability, GetAgeUpdateMode
+	GetAgeUpdateMode
 )
 @:nativeGen
 abstract ConstNiagaraComp(NiagaraComp) from NiagaraComp {
-	public extern var Asset(get, never): cpp.Star<NiagaraSystem.ConstNiagaraSystem>;
-	public inline extern function get_Asset(): cpp.Star<NiagaraSystem.ConstNiagaraSystem> return this.Asset;
-	public extern var TickBehavior(get, never): ENiagaraTickBehavior;
-	public inline extern function get_TickBehavior(): ENiagaraTickBehavior return this.TickBehavior;
-	public extern var RandomSeedOffset(get, never): cpp.Int32;
-	public inline extern function get_RandomSeedOffset(): cpp.Int32 return this.RandomSeedOffset;
-	public extern var OverrideParameters(get, never): NiagaraUserRedirectionParameterStore;
-	public inline extern function get_OverrideParameters(): NiagaraUserRedirectionParameterStore return this.OverrideParameters;
-	public extern var EditorOverridesValue_DEPRECATED(get, never): TMap<FName, Bool>;
-	public inline extern function get_EditorOverridesValue_DEPRECATED(): TMap<FName, Bool> return this.EditorOverridesValue_DEPRECATED;
-	public extern var TemplateParameterOverrides(get, never): TMap<NiagaraVariableBase, NiagaraVariant>;
-	public inline extern function get_TemplateParameterOverrides(): TMap<NiagaraVariableBase, NiagaraVariant> return this.TemplateParameterOverrides;
-	public extern var InstanceParameterOverrides(get, never): TMap<NiagaraVariableBase, NiagaraVariant>;
-	public inline extern function get_InstanceParameterOverrides(): TMap<NiagaraVariableBase, NiagaraVariant> return this.InstanceParameterOverrides;
-	public extern var bForceSolo(get, never): Bool;
-	public inline extern function get_bForceSolo(): Bool return this.bForceSolo;
-	public extern var bEnableGpuComputeDebug(get, never): Bool;
-	public inline extern function get_bEnableGpuComputeDebug(): Bool return this.bEnableGpuComputeDebug;
-	public extern var bAutoDestroy(get, never): Bool;
-	public inline extern function get_bAutoDestroy(): Bool return this.bAutoDestroy;
-	public extern var bRenderingEnabled(get, never): Bool;
-	public inline extern function get_bRenderingEnabled(): Bool return this.bRenderingEnabled;
 	public extern var bAutoManageAttachment(get, never): Bool;
 	public inline extern function get_bAutoManageAttachment(): Bool return this.bAutoManageAttachment;
 	public extern var bAutoAttachWeldSimulatedBodies(get, never): Bool;
@@ -156,12 +129,6 @@ abstract ConstNiagaraComp(NiagaraComp) from NiagaraComp {
 	public inline extern function get_AutoAttachRotationRule(): EAttachmentRule return this.AutoAttachRotationRule;
 	public extern var AutoAttachScaleRule(get, never): EAttachmentRule;
 	public inline extern function get_AutoAttachScaleRule(): EAttachmentRule return this.AutoAttachScaleRule;
-	public extern var bWaitForCompilationOnActivate(get, never): Bool;
-	public inline extern function get_bWaitForCompilationOnActivate(): Bool return this.bWaitForCompilationOnActivate;
-	public extern var bAllowScalability(get, never): Bool;
-	public inline extern function get_bAllowScalability(): Bool return this.bAllowScalability;
-	public extern var CullProxy(get, never): cpp.Star<NiagaraCullProxyComp.ConstNiagaraCullProxyComp>;
-	public inline extern function get_CullProxy(): cpp.Star<NiagaraCullProxyComp.ConstNiagaraCullProxyComp> return this.CullProxy;
 }
 
 @:forward

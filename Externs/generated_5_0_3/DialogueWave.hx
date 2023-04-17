@@ -9,7 +9,6 @@ extern class DialogueWave extends Object {
 	public var bOverride_SubtitleOverride: Bool;
 	public var SpokenText: FString;
 	public var SubtitleOverride: FString;
-	public var VoiceActorDirection: FString;
 	public var ContextMappings: TArray<DialogueContextMapping>;
 	public var LocalizationGUID: Guid;
 
@@ -27,8 +26,6 @@ abstract ConstDialogueWave(DialogueWave) from DialogueWave {
 	public inline extern function get_SpokenText(): FString return this.SpokenText;
 	public extern var SubtitleOverride(get, never): FString;
 	public inline extern function get_SubtitleOverride(): FString return this.SubtitleOverride;
-	public extern var VoiceActorDirection(get, never): FString;
-	public inline extern function get_VoiceActorDirection(): FString return this.VoiceActorDirection;
 	public extern var ContextMappings(get, never): TArray<DialogueContextMapping>;
 	public inline extern function get_ContextMappings(): TArray<DialogueContextMapping> return this.ContextMappings;
 	public extern var LocalizationGUID(get, never): Guid;

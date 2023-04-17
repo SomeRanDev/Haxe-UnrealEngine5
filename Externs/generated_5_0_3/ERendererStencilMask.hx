@@ -3,16 +3,16 @@ package ue;
 
 @:native("ERendererStencilMask")
 @:include("Components/PrimitiveComponent.h")
-extern enum ERendererStencilMask {
-	ERSM_Default;
-	ERSM_255;
-	ERSM_1;
-	ERSM_2;
-	ERSM_4;
-	ERSM_8;
-	ERSM_16;
-	ERSM_32;
-	ERSM_64;
-	ERSM_128;
-	ERSM_MAX;
+extern class ERendererStencilMask {
+	static var ERSM_Default: ERendererStencilMask;
+	static var ERSM_255: ERendererStencilMask;
+	static var ERSM_1: ERendererStencilMask;
+	static var ERSM_2: ERendererStencilMask;
+	static var ERSM_4: ERendererStencilMask;
+	static var ERSM_8: ERendererStencilMask;
+	static var ERSM_16: ERendererStencilMask;
+	static var ERSM_32: ERendererStencilMask;
+	static var ERSM_64: ERendererStencilMask;
+	static var ERSM_128: ERendererStencilMask;
+	static var ERSM_MAX: ERendererStencilMask;
 }

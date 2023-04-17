@@ -12,18 +12,14 @@ extern class CameraComp extends SceneComp {
 	public var AspectRatio: cpp.Float32;
 	public var bConstrainAspectRatio: Bool;
 	public var bUseFieldOfViewForLOD: Bool;
-	public var bDrawFrustumAllowed: Bool;
-	public var bCameraMeshHiddenInGame: Bool;
 	public var bLockToHmd: Bool;
 	public var bUsePawnControlRotation: Bool;
-	public var ProjectionMode: ECameraProjectionMode;
-	public var CameraMesh: cpp.Star<StaticMesh>;
+	public var ProjectionMode: TEnumAsByte<ECameraProjectionMode>;
 	public var PostProcessBlendWeight: cpp.Float32;
 	public var PostProcessSettings: PostProcessSettings;
-	public var bUseControllerViewRotation_DEPRECATED: Bool;
 
 	public function SetUseFieldOfViewForLOD(bInUseFieldOfViewForLOD: Bool): Void;
-	public function SetProjectionMode(InProjectionMode: ECameraProjectionMode): Void;
+	public function SetProjectionMode(InProjectionMode: TEnumAsByte<ECameraProjectionMode>): Void;
 	public function SetPostProcessBlendWeight(InPostProcessBlendWeight: cpp.Float32): Void;
 	public function SetOrthoWidth(InOrthoWidth: cpp.Float32): Void;
 	public function SetOrthoNearClipPlane(InOrthoNearClipPlane: cpp.Float32): Void;
@@ -32,8 +28,8 @@ extern class CameraComp extends SceneComp {
 	public function SetConstraintAspectRatio(bInConstrainAspectRatio: Bool): Void;
 	public function SetAspectRatio(InAspectRatio: cpp.Float32): Void;
 	public function RemoveBlendable(InBlendableObject: BlendableInterface): Void;
-	public function OnCameraMeshHiddenChanged(): Void;
-	public function GetFilmbackText(): cpp.Reference<FText>;
+	@:protected public function OnCameraMeshHiddenChanged(): Void;
+	public function GetFilmbackText(): FText;
 	public function GetCameraView(DeltaTime: cpp.Float32, DesiredView: cpp.Reference<MinimalViewInfo>): Void;
 	public function AddOrUpdateBlendable(InBlendableObject: BlendableInterface, InWeight: cpp.Float32): Void;
 
@@ -57,24 +53,16 @@ abstract ConstCameraComp(CameraComp) from CameraComp {
 	public inline extern function get_bConstrainAspectRatio(): Bool return this.bConstrainAspectRatio;
 	public extern var bUseFieldOfViewForLOD(get, never): Bool;
 	public inline extern function get_bUseFieldOfViewForLOD(): Bool return this.bUseFieldOfViewForLOD;
-	public extern var bDrawFrustumAllowed(get, never): Bool;
-	public inline extern function get_bDrawFrustumAllowed(): Bool return this.bDrawFrustumAllowed;
-	public extern var bCameraMeshHiddenInGame(get, never): Bool;
-	public inline extern function get_bCameraMeshHiddenInGame(): Bool return this.bCameraMeshHiddenInGame;
 	public extern var bLockToHmd(get, never): Bool;
 	public inline extern function get_bLockToHmd(): Bool return this.bLockToHmd;
 	public extern var bUsePawnControlRotation(get, never): Bool;
 	public inline extern function get_bUsePawnControlRotation(): Bool return this.bUsePawnControlRotation;
-	public extern var ProjectionMode(get, never): ECameraProjectionMode;
-	public inline extern function get_ProjectionMode(): ECameraProjectionMode return this.ProjectionMode;
-	public extern var CameraMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_CameraMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.CameraMesh;
+	public extern var ProjectionMode(get, never): TEnumAsByte<ECameraProjectionMode>;
+	public inline extern function get_ProjectionMode(): TEnumAsByte<ECameraProjectionMode> return this.ProjectionMode;
 	public extern var PostProcessBlendWeight(get, never): cpp.Float32;
 	public inline extern function get_PostProcessBlendWeight(): cpp.Float32 return this.PostProcessBlendWeight;
 	public extern var PostProcessSettings(get, never): PostProcessSettings;
 	public inline extern function get_PostProcessSettings(): PostProcessSettings return this.PostProcessSettings;
-	public extern var bUseControllerViewRotation_DEPRECATED(get, never): Bool;
-	public inline extern function get_bUseControllerViewRotation_DEPRECATED(): Bool return this.bUseControllerViewRotation_DEPRECATED;
 }
 
 @:forward

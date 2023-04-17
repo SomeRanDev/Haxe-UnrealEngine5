@@ -5,11 +5,11 @@ package ue;
 @:include("RemoveOccludedTrianglesTool.h")
 @:structAccess
 extern class RemoveOccludedTrianglesTool extends MultiSelectionMeshEditingTool {
-	public var BasicProperties: cpp.Star<RemoveOccludedTrianglesToolProperties>;
-	public var PolygroupLayersProperties: cpp.Star<PolygroupLayersProperties>;
-	public var AdvancedProperties: cpp.Star<RemoveOccludedTrianglesAdvancedProperties>;
-	public var Previews: TArray<cpp.Star<MeshOpPreviewWithBackgroundCompute>>;
-	public var PreviewCopies: TArray<cpp.Star<PreviewMesh>>;
+	@:protected public var BasicProperties: cpp.Star<RemoveOccludedTrianglesToolProperties>;
+	@:protected public var PolygroupLayersProperties: cpp.Star<PolygroupLayersProperties>;
+	@:protected public var AdvancedProperties: cpp.Star<RemoveOccludedTrianglesAdvancedProperties>;
+	@:protected public var Previews: TArray<cpp.Star<MeshOpPreviewWithBackgroundCompute>>;
+	@:protected public var PreviewCopies: TArray<cpp.Star<PreviewMesh>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,16 +17,6 @@ extern class RemoveOccludedTrianglesTool extends MultiSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstRemoveOccludedTrianglesTool(RemoveOccludedTrianglesTool) from RemoveOccludedTrianglesTool {
-	public extern var BasicProperties(get, never): cpp.Star<RemoveOccludedTrianglesToolProperties.ConstRemoveOccludedTrianglesToolProperties>;
-	public inline extern function get_BasicProperties(): cpp.Star<RemoveOccludedTrianglesToolProperties.ConstRemoveOccludedTrianglesToolProperties> return this.BasicProperties;
-	public extern var PolygroupLayersProperties(get, never): cpp.Star<PolygroupLayersProperties.ConstPolygroupLayersProperties>;
-	public inline extern function get_PolygroupLayersProperties(): cpp.Star<PolygroupLayersProperties.ConstPolygroupLayersProperties> return this.PolygroupLayersProperties;
-	public extern var AdvancedProperties(get, never): cpp.Star<RemoveOccludedTrianglesAdvancedProperties.ConstRemoveOccludedTrianglesAdvancedProperties>;
-	public inline extern function get_AdvancedProperties(): cpp.Star<RemoveOccludedTrianglesAdvancedProperties.ConstRemoveOccludedTrianglesAdvancedProperties> return this.AdvancedProperties;
-	public extern var Previews(get, never): TArray<cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>>;
-	public inline extern function get_Previews(): TArray<cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>> return this.Previews;
-	public extern var PreviewCopies(get, never): TArray<cpp.Star<PreviewMesh.ConstPreviewMesh>>;
-	public inline extern function get_PreviewCopies(): TArray<cpp.Star<PreviewMesh.ConstPreviewMesh>> return this.PreviewCopies;
 }
 
 @:forward

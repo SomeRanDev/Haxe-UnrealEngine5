@@ -3,11 +3,11 @@ package ue;
 
 @:native("EXRDeviceConnectionResult.Type")
 @:include("HeadMountedDisplayTypes.h")
-extern enum EXRDeviceConnectionResult {
-	NoTrackingSystem;
-	FeatureNotSupported;
-	NoValidViewport;
-	MiscFailure;
-	Success;
-	EXRDeviceConnectionResult_MAX;
+extern class EXRDeviceConnectionResult {
+	static var NoTrackingSystem: EXRDeviceConnectionResult;
+	static var FeatureNotSupported: EXRDeviceConnectionResult;
+	static var NoValidViewport: EXRDeviceConnectionResult;
+	static var MiscFailure: EXRDeviceConnectionResult;
+	static var Success: EXRDeviceConnectionResult;
+	static var EXRDeviceConnectionResult_MAX: EXRDeviceConnectionResult;
 }

@@ -5,7 +5,7 @@ package ue;
 @:include("K2Node_Literal.h")
 @:structAccess
 extern class K2Node_Literal extends K2Node {
-	public var ObjectRef: cpp.Star<Object>;
+	private var ObjectRef: cpp.Star<Object>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class K2Node_Literal extends K2Node {
 @:forward()
 @:nativeGen
 abstract ConstK2Node_Literal(K2Node_Literal) from K2Node_Literal {
-	public extern var ObjectRef(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_ObjectRef(): cpp.Star<Object.ConstObject> return this.ObjectRef;
 }
 
 @:forward

@@ -9,7 +9,7 @@ extern class EdGraphNode_Comment extends EdGraphNode {
 	public var FontSize: cpp.Int32;
 	public var bCommentBubbleVisible_InDetailsPanel: Bool;
 	public var bColorCommentBubble: Bool;
-	public var MoveMode: ECommentBoxMode;
+	public var MoveMode: TEnumAsByte<ECommentBoxMode>;
 	public var CommentDepth: cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -26,8 +26,8 @@ abstract ConstEdGraphNode_Comment(EdGraphNode_Comment) from EdGraphNode_Comment 
 	public inline extern function get_bCommentBubbleVisible_InDetailsPanel(): Bool return this.bCommentBubbleVisible_InDetailsPanel;
 	public extern var bColorCommentBubble(get, never): Bool;
 	public inline extern function get_bColorCommentBubble(): Bool return this.bColorCommentBubble;
-	public extern var MoveMode(get, never): ECommentBoxMode;
-	public inline extern function get_MoveMode(): ECommentBoxMode return this.MoveMode;
+	public extern var MoveMode(get, never): TEnumAsByte<ECommentBoxMode>;
+	public inline extern function get_MoveMode(): TEnumAsByte<ECommentBoxMode> return this.MoveMode;
 	public extern var CommentDepth(get, never): cpp.Int32;
 	public inline extern function get_CommentDepth(): cpp.Int32 return this.CommentDepth;
 }

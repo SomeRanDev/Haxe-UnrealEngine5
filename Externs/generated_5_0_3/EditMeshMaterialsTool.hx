@@ -5,7 +5,7 @@ package ue;
 @:include("EditMeshMaterialsTool.h")
 @:structAccess
 extern class EditMeshMaterialsTool extends MeshSelectionTool {
-	public var MaterialProps: cpp.Star<EditMeshMaterialsToolProperties>;
+	@:protected public var MaterialProps: cpp.Star<EditMeshMaterialsToolProperties>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class EditMeshMaterialsTool extends MeshSelectionTool {
 @:forward()
 @:nativeGen
 abstract ConstEditMeshMaterialsTool(EditMeshMaterialsTool) from EditMeshMaterialsTool {
-	public extern var MaterialProps(get, never): cpp.Star<EditMeshMaterialsToolProperties.ConstEditMeshMaterialsToolProperties>;
-	public inline extern function get_MaterialProps(): cpp.Star<EditMeshMaterialsToolProperties.ConstEditMeshMaterialsToolProperties> return this.MaterialProps;
 }
 
 @:forward

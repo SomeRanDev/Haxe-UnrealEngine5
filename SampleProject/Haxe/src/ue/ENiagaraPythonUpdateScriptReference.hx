@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENiagaraPythonUpdateScriptReference")
 @:include("NiagaraTypes.h")
-extern enum ENiagaraPythonUpdateScriptReference {
-	None;
-	ScriptAsset;
-	DirectTextEntry;
-	ENiagaraPythonUpdateScriptReference_MAX;
+extern class ENiagaraPythonUpdateScriptReference {
+	static var None: ENiagaraPythonUpdateScriptReference;
+	static var ScriptAsset: ENiagaraPythonUpdateScriptReference;
+	static var DirectTextEntry: ENiagaraPythonUpdateScriptReference;
+	static var ENiagaraPythonUpdateScriptReference_MAX: ENiagaraPythonUpdateScriptReference;
 }

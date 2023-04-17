@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class BasicOverlays extends Overlays {
 	public var Overlays: TArray<OverlayItem>;
-	public var AssetImportData: cpp.Star<AssetImportData>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +15,6 @@ extern class BasicOverlays extends Overlays {
 abstract ConstBasicOverlays(BasicOverlays) from BasicOverlays {
 	public extern var Overlays(get, never): TArray<OverlayItem>;
 	public inline extern function get_Overlays(): TArray<OverlayItem> return this.Overlays;
-	public extern var AssetImportData(get, never): cpp.Star<AssetImportData.ConstAssetImportData>;
-	public inline extern function get_AssetImportData(): cpp.Star<AssetImportData.ConstAssetImportData> return this.AssetImportData;
 }
 
 @:forward

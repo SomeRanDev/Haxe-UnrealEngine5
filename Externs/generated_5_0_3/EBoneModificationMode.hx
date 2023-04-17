@@ -3,9 +3,9 @@ package ue;
 
 @:native("EBoneModificationMode")
 @:include("BoneControllers/AnimNode_ModifyBone.h")
-extern enum EBoneModificationMode {
-	BMM_Ignore;
-	BMM_Replace;
-	BMM_Additive;
-	BMM_MAX;
+extern class EBoneModificationMode {
+	static var BMM_Ignore: EBoneModificationMode;
+	static var BMM_Replace: EBoneModificationMode;
+	static var BMM_Additive: EBoneModificationMode;
+	static var BMM_MAX: EBoneModificationMode;
 }

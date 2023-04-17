@@ -9,8 +9,8 @@ extern class InterpCurvePointLinearColor {
 	public var OutVal: LinearColor;
 	public var ArriveTangent: LinearColor;
 	public var LeaveTangent: LinearColor;
-	public var InterpMode: EInterpCurveMode;
+	public var InterpMode: TEnumAsByte<EInterpCurveMode>;
 
 	@:native("FInterpCurvePointLinearColor") public function new();
-	@:native("FInterpCurvePointLinearColor") public static function make(InVal: cpp.Float32, OutVal: LinearColor, ArriveTangent: LinearColor, LeaveTangent: LinearColor, InterpMode: EInterpCurveMode): InterpCurvePointLinearColor ;
+	@:native("FInterpCurvePointLinearColor") public static function make(InVal: cpp.Float32, OutVal: LinearColor, ArriveTangent: LinearColor, LeaveTangent: LinearColor, InterpMode: TEnumAsByte<EInterpCurveMode>): InterpCurvePointLinearColor ;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESamplePlayerSeekType")
 @:include("SynthComponents/SynthComponentWaveTable.h")
-extern enum ESamplePlayerSeekType {
-	FromBeginning;
-	FromCurrentPosition;
-	FromEnd;
-	Count;
-	ESamplePlayerSeekType_MAX;
+extern class ESamplePlayerSeekType {
+	static var FromBeginning: ESamplePlayerSeekType;
+	static var FromCurrentPosition: ESamplePlayerSeekType;
+	static var FromEnd: ESamplePlayerSeekType;
+	static var Count: ESamplePlayerSeekType;
+	static var ESamplePlayerSeekType_MAX: ESamplePlayerSeekType;
 }

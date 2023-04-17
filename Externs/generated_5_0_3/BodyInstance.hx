@@ -5,10 +5,10 @@ package ue;
 @:include("PhysicsEngine/BodyInstance.h")
 @:structAccess
 extern class BodyInstance extends BodyInstanceCore {
-	public var ObjectType: ECollisionChannel;
-	public var CollisionEnabled: ECollisionEnabled;
+	private var ObjectType: TEnumAsByte<ECollisionChannel>;
+	private var CollisionEnabled: TEnumAsByte<ECollisionEnabled>;
 	public var SleepFamily: ESleepFamily;
-	public var DOFMode: EDOFMode;
+	public var DOFMode: TEnumAsByte<EDOFMode>;
 	public var bUseCCD: Bool;
 	public var bIgnoreAnalyticCollisions: Bool;
 	public var bNotifyRigidBodyCollision: Bool;
@@ -22,24 +22,23 @@ extern class BodyInstance extends BodyInstanceCore {
 	public var bLockYRotation: Bool;
 	public var bLockZRotation: Bool;
 	public var bOverrideMaxAngularVelocity: Bool;
-	public var bOverrideMaxDepenetrationVelocity: Bool;
-	public var bOverrideWalkableSlopeOnInstance: Bool;
-	public var bInterpolateWhenSubStepping: Bool;
-	public var ResponseToChannels_DEPRECATED: CollisionResponseContainer;
-	public var CollisionProfileName: FName;
+	@:protected public var bOverrideMaxDepenetrationVelocity: Bool;
+	@:protected public var bOverrideWalkableSlopeOnInstance: Bool;
+	@:protected public var bInterpolateWhenSubStepping: Bool;
+	private var CollisionProfileName: FName;
 	public var PositionSolverIterationCount: cpp.UInt8;
 	public var VelocitySolverIterationCount: cpp.UInt8;
-	public var CollisionResponses: CollisionResponse;
-	public var MaxDepenetrationVelocity: cpp.Float32;
-	public var MassInKgOverride: cpp.Float32;
+	private var CollisionResponses: CollisionResponse;
+	@:protected public var MaxDepenetrationVelocity: cpp.Float32;
+	@:protected public var MassInKgOverride: cpp.Float32;
 	public var LinearDamping: cpp.Float32;
 	public var AngularDamping: cpp.Float32;
 	public var CustomDOFPlaneNormal: Vector;
 	public var COMNudge: Vector;
 	public var MassScale: cpp.Float32;
 	public var InertiaTensorScale: Vector;
-	public var WalkableSlopeOverride: WalkableSlopeOverride;
-	public var PhysMaterialOverride: cpp.Star<PhysicalMaterial>;
+	@:protected public var WalkableSlopeOverride: WalkableSlopeOverride;
+	@:protected public var PhysMaterialOverride: cpp.Star<PhysicalMaterial>;
 	public var MaxAngularVelocity: cpp.Float32;
 	public var CustomSleepThresholdMultiplier: cpp.Float32;
 	public var StabilizationThresholdMultiplier: cpp.Float32;

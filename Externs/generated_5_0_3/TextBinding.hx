@@ -5,8 +5,8 @@ package ue;
 @:include("Binding/TextBinding.h")
 @:structAccess
 extern class TextBinding extends PropertyBinding {
-	public function GetTextValue(): cpp.Reference<FText>;
-	public function GetStringValue(): cpp.Reference<FString>;
+	public function GetTextValue(): FText;
+	public function GetStringValue(): FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

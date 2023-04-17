@@ -5,8 +5,6 @@ package ue;
 @:include("LevelInstance/LevelInstanceEditorObject.h")
 @:structAccess
 extern class LevelInstanceEditorObject extends Object {
-	public var bMovedActors: Bool;
-	public var OtherPackagesToSave: TArray<TWeakObjectPtr<Package>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +12,6 @@ extern class LevelInstanceEditorObject extends Object {
 @:forward()
 @:nativeGen
 abstract ConstLevelInstanceEditorObject(LevelInstanceEditorObject) from LevelInstanceEditorObject {
-	public extern var bMovedActors(get, never): Bool;
-	public inline extern function get_bMovedActors(): Bool return this.bMovedActors;
-	public extern var OtherPackagesToSave(get, never): TArray<TWeakObjectPtr<Package.ConstPackage>>;
-	public inline extern function get_OtherPackagesToSave(): TArray<TWeakObjectPtr<Package.ConstPackage>> return this.OtherPackagesToSave;
 }
 
 @:forward

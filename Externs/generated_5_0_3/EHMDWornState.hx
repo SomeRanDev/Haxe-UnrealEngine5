@@ -3,9 +3,9 @@ package ue;
 
 @:native("EHMDWornState.Type")
 @:include("HeadMountedDisplayTypes.h")
-extern enum EHMDWornState {
-	Unknown;
-	Worn;
-	NotWorn;
-	EHMDWornState_MAX;
+extern class EHMDWornState {
+	static var Unknown: EHMDWornState;
+	static var Worn: EHMDWornState;
+	static var NotWorn: EHMDWornState;
+	static var EHMDWornState_MAX: EHMDWornState;
 }

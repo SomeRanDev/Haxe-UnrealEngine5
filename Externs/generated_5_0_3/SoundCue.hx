@@ -10,13 +10,11 @@ extern class SoundCue extends SoundBase {
 	public var VolumeMultiplier: cpp.Float32;
 	public var PitchMultiplier: cpp.Float32;
 	public var AttenuationOverrides: SoundAttenuationSettings;
-	public var AllNodes: TArray<cpp.Star<SoundNode>>;
-	public var SoundCueGraph: cpp.Star<EdGraph>;
-	public var SubtitlePriority: cpp.Float32;
+	@:protected public var SubtitlePriority: cpp.Float32;
 	public var bOverrideAttenuation: Bool;
 	public var bExcludeFromRandomNodeBranchCulling: Bool;
-	public var CookedQualityIndex: cpp.Int32;
-	public var bHasPlayWhenSilent: Bool;
+	private var CookedQualityIndex: cpp.Int32;
+	private var bHasPlayWhenSilent: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -34,20 +32,10 @@ abstract ConstSoundCue(SoundCue) from SoundCue {
 	public inline extern function get_PitchMultiplier(): cpp.Float32 return this.PitchMultiplier;
 	public extern var AttenuationOverrides(get, never): SoundAttenuationSettings;
 	public inline extern function get_AttenuationOverrides(): SoundAttenuationSettings return this.AttenuationOverrides;
-	public extern var AllNodes(get, never): TArray<cpp.Star<SoundNode.ConstSoundNode>>;
-	public inline extern function get_AllNodes(): TArray<cpp.Star<SoundNode.ConstSoundNode>> return this.AllNodes;
-	public extern var SoundCueGraph(get, never): cpp.Star<EdGraph.ConstEdGraph>;
-	public inline extern function get_SoundCueGraph(): cpp.Star<EdGraph.ConstEdGraph> return this.SoundCueGraph;
-	public extern var SubtitlePriority(get, never): cpp.Float32;
-	public inline extern function get_SubtitlePriority(): cpp.Float32 return this.SubtitlePriority;
 	public extern var bOverrideAttenuation(get, never): Bool;
 	public inline extern function get_bOverrideAttenuation(): Bool return this.bOverrideAttenuation;
 	public extern var bExcludeFromRandomNodeBranchCulling(get, never): Bool;
 	public inline extern function get_bExcludeFromRandomNodeBranchCulling(): Bool return this.bExcludeFromRandomNodeBranchCulling;
-	public extern var CookedQualityIndex(get, never): cpp.Int32;
-	public inline extern function get_CookedQualityIndex(): cpp.Int32 return this.CookedQualityIndex;
-	public extern var bHasPlayWhenSilent(get, never): Bool;
-	public inline extern function get_bHasPlayWhenSilent(): Bool return this.bHasPlayWhenSilent;
 }
 
 @:forward

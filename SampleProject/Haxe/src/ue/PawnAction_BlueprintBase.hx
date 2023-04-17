@@ -9,7 +9,7 @@ extern class PawnAction_BlueprintBase extends PawnAction {
 	public function ActionStart(ControlledPawn: cpp.Star<Pawn>): Void;
 	public function ActionResume(ControlledPawn: cpp.Star<Pawn>): Void;
 	public function ActionPause(ControlledPawn: cpp.Star<Pawn>): Void;
-	public function ActionFinished(ControlledPawn: cpp.Star<Pawn>, WithResult: EPawnActionResult): Void;
+	public function ActionFinished(ControlledPawn: cpp.Star<Pawn>, WithResult: TEnumAsByte<EPawnActionResult>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

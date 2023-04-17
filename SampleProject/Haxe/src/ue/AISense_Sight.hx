@@ -5,12 +5,12 @@ package ue;
 @:include("Perception/AISense_Sight.h")
 @:structAccess
 extern class AISense_Sight extends AISense {
-	public var MaxTracesPerTick: cpp.Int32;
-	public var MinQueriesPerTimeSliceCheck: cpp.Int32;
-	public var MaxTimeSlicePerTick: cpp.Float64;
-	public var HighImportanceQueryDistanceThreshold: cpp.Float32;
-	public var MaxQueryImportance: cpp.Float32;
-	public var SightLimitQueryImportance: cpp.Float32;
+	@:protected public var MaxTracesPerTick: cpp.Int32;
+	@:protected public var MinQueriesPerTimeSliceCheck: cpp.Int32;
+	@:protected public var MaxTimeSlicePerTick: cpp.Float64;
+	@:protected public var HighImportanceQueryDistanceThreshold: cpp.Float32;
+	@:protected public var MaxQueryImportance: cpp.Float32;
+	@:protected public var SightLimitQueryImportance: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,18 +18,6 @@ extern class AISense_Sight extends AISense {
 @:forward()
 @:nativeGen
 abstract ConstAISense_Sight(AISense_Sight) from AISense_Sight {
-	public extern var MaxTracesPerTick(get, never): cpp.Int32;
-	public inline extern function get_MaxTracesPerTick(): cpp.Int32 return this.MaxTracesPerTick;
-	public extern var MinQueriesPerTimeSliceCheck(get, never): cpp.Int32;
-	public inline extern function get_MinQueriesPerTimeSliceCheck(): cpp.Int32 return this.MinQueriesPerTimeSliceCheck;
-	public extern var MaxTimeSlicePerTick(get, never): cpp.Float64;
-	public inline extern function get_MaxTimeSlicePerTick(): cpp.Float64 return this.MaxTimeSlicePerTick;
-	public extern var HighImportanceQueryDistanceThreshold(get, never): cpp.Float32;
-	public inline extern function get_HighImportanceQueryDistanceThreshold(): cpp.Float32 return this.HighImportanceQueryDistanceThreshold;
-	public extern var MaxQueryImportance(get, never): cpp.Float32;
-	public inline extern function get_MaxQueryImportance(): cpp.Float32 return this.MaxQueryImportance;
-	public extern var SightLimitQueryImportance(get, never): cpp.Float32;
-	public inline extern function get_SightLimitQueryImportance(): cpp.Float32 return this.SightLimitQueryImportance;
 }
 
 @:forward

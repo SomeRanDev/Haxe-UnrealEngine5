@@ -3,8 +3,8 @@ package ue;
 
 @:native("EOculusMobileDevice.Type")
 @:include("AndroidRuntimeSettings.h")
-extern enum EOculusMobileDevice {
-	Quest;
-	Quest2;
-	EOculusMobileDevice_MAX;
+extern class EOculusMobileDevice {
+	static var Quest: EOculusMobileDevice;
+	static var Quest2: EOculusMobileDevice;
+	static var EOculusMobileDevice_MAX: EOculusMobileDevice;
 }

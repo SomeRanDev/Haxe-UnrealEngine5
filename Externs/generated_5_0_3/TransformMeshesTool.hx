@@ -5,9 +5,9 @@ package ue;
 @:include("TransformMeshesTool.h")
 @:structAccess
 extern class TransformMeshesTool extends MultiSelectionMeshEditingTool {
-	public var TransformProps: cpp.Star<TransformMeshesToolProperties>;
-	public var ActiveGizmos: TArray<TransformMeshesTarget>;
-	public var DragAlignmentMechanic: cpp.Star<DragAlignmentMechanic>;
+	@:protected public var TransformProps: cpp.Star<TransformMeshesToolProperties>;
+	@:protected public var ActiveGizmos: TArray<TransformMeshesTarget>;
+	@:protected public var DragAlignmentMechanic: cpp.Star<DragAlignmentMechanic>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class TransformMeshesTool extends MultiSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstTransformMeshesTool(TransformMeshesTool) from TransformMeshesTool {
-	public extern var TransformProps(get, never): cpp.Star<TransformMeshesToolProperties.ConstTransformMeshesToolProperties>;
-	public inline extern function get_TransformProps(): cpp.Star<TransformMeshesToolProperties.ConstTransformMeshesToolProperties> return this.TransformProps;
-	public extern var ActiveGizmos(get, never): TArray<TransformMeshesTarget>;
-	public inline extern function get_ActiveGizmos(): TArray<TransformMeshesTarget> return this.ActiveGizmos;
-	public extern var DragAlignmentMechanic(get, never): cpp.Star<DragAlignmentMechanic.ConstDragAlignmentMechanic>;
-	public inline extern function get_DragAlignmentMechanic(): cpp.Star<DragAlignmentMechanic.ConstDragAlignmentMechanic> return this.DragAlignmentMechanic;
 }
 
 @:forward

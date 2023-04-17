@@ -3,8 +3,8 @@ package ue;
 
 @:native("EVoiceSampleRate")
 @:include("Sound/AudioSettings.h")
-extern enum EVoiceSampleRate {
-	Low16000Hz;
-	Normal24000Hz;
-	EVoiceSampleRate_MAX;
+extern class EVoiceSampleRate {
+	static var Low16000Hz: EVoiceSampleRate;
+	static var Normal24000Hz: EVoiceSampleRate;
+	static var EVoiceSampleRate_MAX: EVoiceSampleRate;
 }

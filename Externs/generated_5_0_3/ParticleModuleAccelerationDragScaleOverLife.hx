@@ -5,7 +5,6 @@ package ue;
 @:include("Particles/Acceleration/ParticleModuleAccelerationDragScaleOverLife.h")
 @:structAccess
 extern class ParticleModuleAccelerationDragScaleOverLife extends ParticleModuleAccelerationBase {
-	public var DragScale_DEPRECATED: cpp.Star<DistributionFloat>;
 	public var DragScaleRaw: RawDistributionFloat;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -14,8 +13,6 @@ extern class ParticleModuleAccelerationDragScaleOverLife extends ParticleModuleA
 @:forward()
 @:nativeGen
 abstract ConstParticleModuleAccelerationDragScaleOverLife(ParticleModuleAccelerationDragScaleOverLife) from ParticleModuleAccelerationDragScaleOverLife {
-	public extern var DragScale_DEPRECATED(get, never): cpp.Star<DistributionFloat.ConstDistributionFloat>;
-	public inline extern function get_DragScale_DEPRECATED(): cpp.Star<DistributionFloat.ConstDistributionFloat> return this.DragScale_DEPRECATED;
 	public extern var DragScaleRaw(get, never): RawDistributionFloat;
 	public inline extern function get_DragScaleRaw(): RawDistributionFloat return this.DragScaleRaw;
 }

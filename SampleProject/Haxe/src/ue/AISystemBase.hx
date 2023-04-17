@@ -5,9 +5,9 @@ package ue;
 @:include("AI/AISystemBase.h")
 @:structAccess
 extern class AISystemBase extends Object {
-	public var AISystemClassName: SoftClassPath;
-	public var AISystemModuleName: FName;
-	public var bInstantiateAISystemOnClient: Bool;
+	private var AISystemClassName: SoftClassPath;
+	private var AISystemModuleName: FName;
+	private var bInstantiateAISystemOnClient: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class AISystemBase extends Object {
 @:forward()
 @:nativeGen
 abstract ConstAISystemBase(AISystemBase) from AISystemBase {
-	public extern var AISystemClassName(get, never): SoftClassPath;
-	public inline extern function get_AISystemClassName(): SoftClassPath return this.AISystemClassName;
-	public extern var AISystemModuleName(get, never): FName;
-	public inline extern function get_AISystemModuleName(): FName return this.AISystemModuleName;
-	public extern var bInstantiateAISystemOnClient(get, never): Bool;
-	public inline extern function get_bInstantiateAISystemOnClient(): Bool return this.bInstantiateAISystemOnClient;
 }
 
 @:forward

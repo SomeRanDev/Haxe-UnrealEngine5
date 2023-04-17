@@ -3,10 +3,10 @@ package ue;
 
 @:native("ETextureColorChannel")
 @:include("Materials/MaterialExpressionAntialiasedTextureMask.h")
-extern enum ETextureColorChannel {
-	TCC_Red;
-	TCC_Green;
-	TCC_Blue;
-	TCC_Alpha;
-	TCC_MAX;
+extern class ETextureColorChannel {
+	static var TCC_Red: ETextureColorChannel;
+	static var TCC_Green: ETextureColorChannel;
+	static var TCC_Blue: ETextureColorChannel;
+	static var TCC_Alpha: ETextureColorChannel;
+	static var TCC_MAX: ETextureColorChannel;
 }

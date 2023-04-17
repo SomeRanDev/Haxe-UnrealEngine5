@@ -3,10 +3,10 @@ package ue;
 
 @:native("EMorphologyOperation")
 @:include("CompositionOps/VoxelMorphologyMeshesOp.h")
-extern enum EMorphologyOperation {
-	Dilate;
-	Contract;
-	Close;
-	Open;
-	EMorphologyOperation_MAX;
+extern class EMorphologyOperation {
+	static var Dilate: EMorphologyOperation;
+	static var Contract: EMorphologyOperation;
+	static var Close: EMorphologyOperation;
+	static var Open: EMorphologyOperation;
+	static var EMorphologyOperation_MAX: EMorphologyOperation;
 }

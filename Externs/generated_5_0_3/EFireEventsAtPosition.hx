@@ -3,9 +3,9 @@ package ue;
 
 @:native("EFireEventsAtPosition")
 @:include("Tracks/MovieSceneEventTrack.h")
-extern enum EFireEventsAtPosition {
-	AtStartOfEvaluation;
-	AtEndOfEvaluation;
-	AfterSpawn;
-	EFireEventsAtPosition_MAX;
+extern class EFireEventsAtPosition {
+	static var AtStartOfEvaluation: EFireEventsAtPosition;
+	static var AtEndOfEvaluation: EFireEventsAtPosition;
+	static var AfterSpawn: EFireEventsAtPosition;
+	static var EFireEventsAtPosition_MAX: EFireEventsAtPosition;
 }

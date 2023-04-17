@@ -10,12 +10,6 @@ extern class EditableText extends Widget {
 	public var HintText: FText;
 	public var HintTextDelegate: HaxeDelegateProperty<() -> Void>;
 	public var WidgetStyle: EditableTextStyle;
-	public var Style_DEPRECATED: cpp.Star<SlateWidgetStyleAsset>;
-	public var BackgroundImageSelected_DEPRECATED: cpp.Star<SlateBrushAsset>;
-	public var BackgroundImageComposing_DEPRECATED: cpp.Star<SlateBrushAsset>;
-	public var CaretImage_DEPRECATED: cpp.Star<SlateBrushAsset>;
-	public var Font_DEPRECATED: SlateFontInfo;
-	public var ColorAndOpacity_DEPRECATED: SlateColor;
 	public var IsReadOnly: Bool;
 	public var IsPassword: Bool;
 	public var MinimumDesiredWidth: cpp.Float32;
@@ -25,25 +19,25 @@ extern class EditableText extends Widget {
 	public var ClearKeyboardFocusOnCommit: Bool;
 	public var SelectAllTextOnCommit: Bool;
 	public var AllowContextMenu: Bool;
-	public var KeyboardType: EVirtualKeyboardType;
+	public var KeyboardType: TEnumAsByte<EVirtualKeyboardType>;
 	public var VirtualKeyboardOptions: VirtualKeyboardOptions;
 	public var VirtualKeyboardTrigger: EVirtualKeyboardTrigger;
 	public var VirtualKeyboardDismissAction: EVirtualKeyboardDismissAction;
-	public var Justification: ETextJustify;
+	public var Justification: TEnumAsByte<ETextJustify>;
 	public var OverflowPolicy: ETextOverflowPolicy;
 	public var ShapedTextOptions: ShapedTextOptions;
 	public var OnTextChanged: HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>) -> Void>;
-	public var OnTextCommitted: HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, ETextCommit) -> Void>;
+	public var OnTextCommitted: HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, TEnumAsByte<ETextCommit>) -> Void>;
 
 	public function SetTextOverflowPolicy(InOverflowPolicy: ETextOverflowPolicy): Void;
 	public function SetText(InText: FText): Void;
-	public function SetJustification(InJustification: ETextJustify): Void;
+	public function SetJustification(InJustification: TEnumAsByte<ETextJustify>): Void;
 	public function SetIsReadOnly(InbIsReadyOnly: Bool): Void;
 	public function SetIsPassword(InbIsPassword: Bool): Void;
 	public function SetHintText(InHintText: FText): Void;
-	public function OnEditableTextCommittedEvent__DelegateSignature(Text: cpp.Reference<FText>, CommitMethod: ETextCommit): Void;
+	public function OnEditableTextCommittedEvent__DelegateSignature(Text: cpp.Reference<FText>, CommitMethod: TEnumAsByte<ETextCommit>): Void;
 	public function OnEditableTextChangedEvent__DelegateSignature(Text: cpp.Reference<FText>): Void;
-	public function GetText(): cpp.Reference<FText>;
+	public function GetText(): FText;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -61,18 +55,6 @@ abstract ConstEditableText(EditableText) from EditableText {
 	public inline extern function get_HintTextDelegate(): HaxeDelegateProperty<() -> Void> return this.HintTextDelegate;
 	public extern var WidgetStyle(get, never): EditableTextStyle;
 	public inline extern function get_WidgetStyle(): EditableTextStyle return this.WidgetStyle;
-	public extern var Style_DEPRECATED(get, never): cpp.Star<SlateWidgetStyleAsset.ConstSlateWidgetStyleAsset>;
-	public inline extern function get_Style_DEPRECATED(): cpp.Star<SlateWidgetStyleAsset.ConstSlateWidgetStyleAsset> return this.Style_DEPRECATED;
-	public extern var BackgroundImageSelected_DEPRECATED(get, never): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset>;
-	public inline extern function get_BackgroundImageSelected_DEPRECATED(): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset> return this.BackgroundImageSelected_DEPRECATED;
-	public extern var BackgroundImageComposing_DEPRECATED(get, never): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset>;
-	public inline extern function get_BackgroundImageComposing_DEPRECATED(): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset> return this.BackgroundImageComposing_DEPRECATED;
-	public extern var CaretImage_DEPRECATED(get, never): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset>;
-	public inline extern function get_CaretImage_DEPRECATED(): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset> return this.CaretImage_DEPRECATED;
-	public extern var Font_DEPRECATED(get, never): SlateFontInfo;
-	public inline extern function get_Font_DEPRECATED(): SlateFontInfo return this.Font_DEPRECATED;
-	public extern var ColorAndOpacity_DEPRECATED(get, never): SlateColor;
-	public inline extern function get_ColorAndOpacity_DEPRECATED(): SlateColor return this.ColorAndOpacity_DEPRECATED;
 	public extern var IsReadOnly(get, never): Bool;
 	public inline extern function get_IsReadOnly(): Bool return this.IsReadOnly;
 	public extern var IsPassword(get, never): Bool;
@@ -91,24 +73,24 @@ abstract ConstEditableText(EditableText) from EditableText {
 	public inline extern function get_SelectAllTextOnCommit(): Bool return this.SelectAllTextOnCommit;
 	public extern var AllowContextMenu(get, never): Bool;
 	public inline extern function get_AllowContextMenu(): Bool return this.AllowContextMenu;
-	public extern var KeyboardType(get, never): EVirtualKeyboardType;
-	public inline extern function get_KeyboardType(): EVirtualKeyboardType return this.KeyboardType;
+	public extern var KeyboardType(get, never): TEnumAsByte<EVirtualKeyboardType>;
+	public inline extern function get_KeyboardType(): TEnumAsByte<EVirtualKeyboardType> return this.KeyboardType;
 	public extern var VirtualKeyboardOptions(get, never): VirtualKeyboardOptions;
 	public inline extern function get_VirtualKeyboardOptions(): VirtualKeyboardOptions return this.VirtualKeyboardOptions;
 	public extern var VirtualKeyboardTrigger(get, never): EVirtualKeyboardTrigger;
 	public inline extern function get_VirtualKeyboardTrigger(): EVirtualKeyboardTrigger return this.VirtualKeyboardTrigger;
 	public extern var VirtualKeyboardDismissAction(get, never): EVirtualKeyboardDismissAction;
 	public inline extern function get_VirtualKeyboardDismissAction(): EVirtualKeyboardDismissAction return this.VirtualKeyboardDismissAction;
-	public extern var Justification(get, never): ETextJustify;
-	public inline extern function get_Justification(): ETextJustify return this.Justification;
+	public extern var Justification(get, never): TEnumAsByte<ETextJustify>;
+	public inline extern function get_Justification(): TEnumAsByte<ETextJustify> return this.Justification;
 	public extern var OverflowPolicy(get, never): ETextOverflowPolicy;
 	public inline extern function get_OverflowPolicy(): ETextOverflowPolicy return this.OverflowPolicy;
 	public extern var ShapedTextOptions(get, never): ShapedTextOptions;
 	public inline extern function get_ShapedTextOptions(): ShapedTextOptions return this.ShapedTextOptions;
 	public extern var OnTextChanged(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>) -> Void>;
 	public inline extern function get_OnTextChanged(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>) -> Void> return this.OnTextChanged;
-	public extern var OnTextCommitted(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, ETextCommit) -> Void>;
-	public inline extern function get_OnTextCommitted(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, ETextCommit) -> Void> return this.OnTextCommitted;
+	public extern var OnTextCommitted(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, TEnumAsByte<ETextCommit>) -> Void>;
+	public inline extern function get_OnTextCommitted(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, TEnumAsByte<ETextCommit>) -> Void> return this.OnTextCommitted;
 }
 
 @:forward

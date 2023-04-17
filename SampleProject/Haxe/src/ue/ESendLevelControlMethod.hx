@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESendLevelControlMethod")
 @:include("Sound/SoundSubmixSend.h")
-extern enum ESendLevelControlMethod {
-	Linear;
-	CustomCurve;
-	Manual;
-	ESendLevelControlMethod_MAX;
+extern class ESendLevelControlMethod {
+	static var Linear: ESendLevelControlMethod;
+	static var CustomCurve: ESendLevelControlMethod;
+	static var Manual: ESendLevelControlMethod;
+	static var ESendLevelControlMethod_MAX: ESendLevelControlMethod;
 }

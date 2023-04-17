@@ -3,10 +3,10 @@ package ue;
 
 @:native("EMovieSceneSequenceFlags")
 @:include("MovieSceneFwd.h")
-extern enum EMovieSceneSequenceFlags {
-	None;
-	Volatile;
-	BlockingEvaluation;
-	InheritedFlags;
-	EMovieSceneSequenceFlags_MAX;
+extern class EMovieSceneSequenceFlags {
+	static var None: EMovieSceneSequenceFlags;
+	static var Volatile: EMovieSceneSequenceFlags;
+	static var BlockingEvaluation: EMovieSceneSequenceFlags;
+	static var InheritedFlags: EMovieSceneSequenceFlags;
+	static var EMovieSceneSequenceFlags_MAX: EMovieSceneSequenceFlags;
 }

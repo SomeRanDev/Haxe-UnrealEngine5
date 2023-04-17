@@ -3,8 +3,8 @@ package ue;
 
 @:native("EConstraintOffsetOption")
 @:include("BoneControllers/AnimNode_Constraint.h")
-extern enum EConstraintOffsetOption {
-	None;
-	Offset_RefPose;
-	EConstraintOffsetOption_MAX;
+extern class EConstraintOffsetOption {
+	static var None: EConstraintOffsetOption;
+	static var Offset_RefPose: EConstraintOffsetOption;
+	static var EConstraintOffsetOption_MAX: EConstraintOffsetOption;
 }

@@ -7,9 +7,9 @@ package ue;
 extern class KismetMaterialLibrary extends BlueprintFunctionLibrary {
 	public function SetVectorParameterValue(WorldContextObject: cpp.Star<Object>, Collection: cpp.Star<MaterialParameterCollection>, ParameterName: FName, ParameterValue: cpp.Reference<LinearColor>): Void;
 	public function SetScalarParameterValue(WorldContextObject: cpp.Star<Object>, Collection: cpp.Star<MaterialParameterCollection>, ParameterName: FName, ParameterValue: cpp.Float32): Void;
-	public function GetVectorParameterValue(WorldContextObject: cpp.Star<Object>, Collection: cpp.Star<MaterialParameterCollection>, ParameterName: FName): cpp.Reference<LinearColor>;
-	public function GetScalarParameterValue(WorldContextObject: cpp.Star<Object>, Collection: cpp.Star<MaterialParameterCollection>, ParameterName: FName): cpp.Reference<cpp.Float32>;
-	public function CreateDynamicMaterialInstance(WorldContextObject: cpp.Star<Object>, Parent: cpp.Star<MaterialInterface>, OptionalName: FName, CreationFlags: EMIDCreationFlags): cpp.Reference<cpp.Star<MaterialInstanceDynamic>>;
+	public function GetVectorParameterValue(WorldContextObject: cpp.Star<Object>, Collection: cpp.Star<MaterialParameterCollection>, ParameterName: FName): LinearColor;
+	public function GetScalarParameterValue(WorldContextObject: cpp.Star<Object>, Collection: cpp.Star<MaterialParameterCollection>, ParameterName: FName): cpp.Float32;
+	public function CreateDynamicMaterialInstance(WorldContextObject: cpp.Star<Object>, Parent: cpp.Star<MaterialInterface>, OptionalName: FName, CreationFlags: EMIDCreationFlags): cpp.Star<MaterialInstanceDynamic>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

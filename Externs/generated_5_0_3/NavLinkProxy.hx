@@ -7,17 +7,15 @@ package ue;
 extern class NavLinkProxy extends Actor {
 	public var PointLinks: TArray<NavigationLink>;
 	public var SegmentLinks: TArray<NavigationSegmentLink>;
-	public var SmartLinkComp: cpp.Star<NavLinkCustomComp>;
+	private var SmartLinkComp: cpp.Star<NavLinkCustomComp>;
 	public var bSmartLinkIsRelevant: Bool;
-	public var EdRenderComp: cpp.Star<NavLinkRenderingComp>;
-	public var SpriteComponent: cpp.Star<BillboardComp>;
-	public var OnSmartLinkReached: HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor>, cpp.Reference<Vector>) -> Void>;
+	@:protected public var OnSmartLinkReached: HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor>, cpp.Reference<Vector>) -> Void>;
 
 	public function SetSmartLinkEnabled(bEnabled: Bool): Void;
 	public function ResumePathFollowing(Agent: cpp.Star<Actor>): Void;
 	public function ReceiveSmartLinkReached(Agent: cpp.Star<Actor>, Destination: cpp.Reference<Vector>): Void;
-	public function IsSmartLinkEnabled(): cpp.Reference<Bool>;
-	public function HasMovingAgents(): cpp.Reference<Bool>;
+	public function IsSmartLinkEnabled(): Bool;
+	public function HasMovingAgents(): Bool;
 	public function CopyEndPointsFromSimpleLinkToSmartLink(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -30,16 +28,8 @@ abstract ConstNavLinkProxy(NavLinkProxy) from NavLinkProxy {
 	public inline extern function get_PointLinks(): TArray<NavigationLink> return this.PointLinks;
 	public extern var SegmentLinks(get, never): TArray<NavigationSegmentLink>;
 	public inline extern function get_SegmentLinks(): TArray<NavigationSegmentLink> return this.SegmentLinks;
-	public extern var SmartLinkComp(get, never): cpp.Star<NavLinkCustomComp.ConstNavLinkCustomComp>;
-	public inline extern function get_SmartLinkComp(): cpp.Star<NavLinkCustomComp.ConstNavLinkCustomComp> return this.SmartLinkComp;
 	public extern var bSmartLinkIsRelevant(get, never): Bool;
 	public inline extern function get_bSmartLinkIsRelevant(): Bool return this.bSmartLinkIsRelevant;
-	public extern var EdRenderComp(get, never): cpp.Star<NavLinkRenderingComp.ConstNavLinkRenderingComp>;
-	public inline extern function get_EdRenderComp(): cpp.Star<NavLinkRenderingComp.ConstNavLinkRenderingComp> return this.EdRenderComp;
-	public extern var SpriteComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
-	public inline extern function get_SpriteComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
-	public extern var OnSmartLinkReached(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor.ConstActor>, cpp.Reference<Vector>) -> Void>;
-	public inline extern function get_OnSmartLinkReached(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor.ConstActor>, cpp.Reference<Vector>) -> Void> return this.OnSmartLinkReached;
 }
 
 @:forward

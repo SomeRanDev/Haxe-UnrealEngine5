@@ -34,7 +34,7 @@ extern class ChaosDestructionListener extends SceneComp {
 	public function SetBreakingEventEnabled(bIsEnabled: Bool): Void;
 	public function RemoveGeometryCollectionActor(GeometryCollectionActor: cpp.Star<GeometryCollectionActor>): Void;
 	public function RemoveChaosSolverActor(ChaosSolverActor: cpp.Star<ChaosSolverActor>): Void;
-	public function IsEventListening(): cpp.Reference<Bool>;
+	public function IsEventListening(): Bool;
 	public function AddGeometryCollectionActor(GeometryCollectionActor: cpp.Star<GeometryCollectionActor>): Void;
 	public function AddChaosSolverActor(ChaosSolverActor: cpp.Star<ChaosSolverActor>): Void;
 

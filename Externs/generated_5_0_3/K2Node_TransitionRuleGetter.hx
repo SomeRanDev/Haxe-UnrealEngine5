@@ -5,7 +5,7 @@ package ue;
 @:include("K2Node_TransitionRuleGetter.h")
 @:structAccess
 extern class K2Node_TransitionRuleGetter extends K2Node {
-	public var GetterType: ETransitionGetter;
+	public var GetterType: TEnumAsByte<ETransitionGetter>;
 	public var AssociatedAnimAssetPlayerNode: cpp.Star<AnimGraphNode_Base>;
 	public var AssociatedStateNode: cpp.Star<AnimStateNode>;
 
@@ -15,8 +15,8 @@ extern class K2Node_TransitionRuleGetter extends K2Node {
 @:forward()
 @:nativeGen
 abstract ConstK2Node_TransitionRuleGetter(K2Node_TransitionRuleGetter) from K2Node_TransitionRuleGetter {
-	public extern var GetterType(get, never): ETransitionGetter;
-	public inline extern function get_GetterType(): ETransitionGetter return this.GetterType;
+	public extern var GetterType(get, never): TEnumAsByte<ETransitionGetter>;
+	public inline extern function get_GetterType(): TEnumAsByte<ETransitionGetter> return this.GetterType;
 	public extern var AssociatedAnimAssetPlayerNode(get, never): cpp.Star<AnimGraphNode_Base.ConstAnimGraphNode_Base>;
 	public inline extern function get_AssociatedAnimAssetPlayerNode(): cpp.Star<AnimGraphNode_Base.ConstAnimGraphNode_Base> return this.AssociatedAnimAssetPlayerNode;
 	public extern var AssociatedStateNode(get, never): cpp.Star<AnimStateNode.ConstAnimStateNode>;

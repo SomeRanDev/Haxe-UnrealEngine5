@@ -5,7 +5,6 @@ package ue;
 @:include("ActorPartition/PartitionActor.h")
 @:structAccess
 extern class PartitionActor extends Actor {
-	public var GridSize: cpp.UInt32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +12,6 @@ extern class PartitionActor extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstPartitionActor(PartitionActor) from PartitionActor {
-	public extern var GridSize(get, never): cpp.UInt32;
-	public inline extern function get_GridSize(): cpp.UInt32 return this.GridSize;
 }
 
 @:forward

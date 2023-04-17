@@ -3,9 +3,9 @@ package ue;
 
 @:native("EHMDTrackingOrigin.Type")
 @:include("HeadMountedDisplayTypes.h")
-extern enum EHMDTrackingOrigin {
-	Floor;
-	Eye;
-	Stage;
-	EHMDTrackingOrigin_MAX;
+extern class EHMDTrackingOrigin {
+	static var Floor: EHMDTrackingOrigin;
+	static var Eye: EHMDTrackingOrigin;
+	static var Stage: EHMDTrackingOrigin;
+	static var EHMDTrackingOrigin_MAX: EHMDTrackingOrigin;
 }

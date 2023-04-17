@@ -5,9 +5,9 @@ package ue;
 @:include("PaperTerrainActor.h")
 @:structAccess
 extern class PaperTerrainActor extends Actor {
-	public var DummyRoot: cpp.Star<SceneComp>;
-	public var SplineComponent: cpp.Star<PaperTerrainSplineComp>;
-	public var RenderComponent: cpp.Star<PaperTerrainComp>;
+	private var DummyRoot: cpp.Star<SceneComp>;
+	private var SplineComponent: cpp.Star<PaperTerrainSplineComp>;
+	private var RenderComponent: cpp.Star<PaperTerrainComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class PaperTerrainActor extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstPaperTerrainActor(PaperTerrainActor) from PaperTerrainActor {
-	public extern var DummyRoot(get, never): cpp.Star<SceneComp.ConstSceneComp>;
-	public inline extern function get_DummyRoot(): cpp.Star<SceneComp.ConstSceneComp> return this.DummyRoot;
-	public extern var SplineComponent(get, never): cpp.Star<PaperTerrainSplineComp.ConstPaperTerrainSplineComp>;
-	public inline extern function get_SplineComponent(): cpp.Star<PaperTerrainSplineComp.ConstPaperTerrainSplineComp> return this.SplineComponent;
-	public extern var RenderComponent(get, never): cpp.Star<PaperTerrainComp.ConstPaperTerrainComp>;
-	public inline extern function get_RenderComponent(): cpp.Star<PaperTerrainComp.ConstPaperTerrainComp> return this.RenderComponent;
 }
 
 @:forward

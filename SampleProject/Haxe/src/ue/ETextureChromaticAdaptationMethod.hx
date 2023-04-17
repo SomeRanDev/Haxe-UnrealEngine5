@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETextureChromaticAdaptationMethod")
 @:include("Engine/TextureDefines.h")
-extern enum ETextureChromaticAdaptationMethod {
-	TCAM_None;
-	TCAM_Bradford;
-	TCAM_CAT02;
-	TCAM_MAX;
+extern class ETextureChromaticAdaptationMethod {
+	static var TCAM_None: ETextureChromaticAdaptationMethod;
+	static var TCAM_Bradford: ETextureChromaticAdaptationMethod;
+	static var TCAM_CAT02: ETextureChromaticAdaptationMethod;
+	static var TCAM_MAX: ETextureChromaticAdaptationMethod;
 }

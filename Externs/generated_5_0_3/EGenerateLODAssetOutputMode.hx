@@ -3,8 +3,8 @@ package ue;
 
 @:native("EGenerateLODAssetOutputMode")
 @:include("Tools/GenerateStaticMeshLODAssetTool.h")
-extern enum EGenerateLODAssetOutputMode {
-	CreateNewAsset;
-	UpdateExistingAsset;
-	EGenerateLODAssetOutputMode_MAX;
+extern class EGenerateLODAssetOutputMode {
+	static var CreateNewAsset: EGenerateLODAssetOutputMode;
+	static var UpdateExistingAsset: EGenerateLODAssetOutputMode;
+	static var EGenerateLODAssetOutputMode_MAX: EGenerateLODAssetOutputMode;
 }

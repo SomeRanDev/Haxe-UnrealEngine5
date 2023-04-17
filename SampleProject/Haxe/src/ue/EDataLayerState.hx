@@ -3,9 +3,9 @@ package ue;
 
 @:native("EDataLayerState")
 @:include("WorldPartition/DataLayer/DataLayer.h")
-extern enum EDataLayerState {
-	Unloaded;
-	Loaded;
-	Activated;
-	EDataLayerState_MAX;
+extern class EDataLayerState {
+	static var Unloaded: EDataLayerState;
+	static var Loaded: EDataLayerState;
+	static var Activated: EDataLayerState;
+	static var EDataLayerState_MAX: EDataLayerState;
 }

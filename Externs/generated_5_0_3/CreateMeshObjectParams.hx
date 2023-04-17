@@ -15,7 +15,7 @@ extern class CreateMeshObjectParams {
 	public var Materials: TArray<cpp.Star<MaterialInterface>>;
 	public var AssetMaterials: TArray<cpp.Star<MaterialInterface>>;
 	public var bEnableCollision: Bool;
-	public var CollisionMode: ECollisionTraceFlag;
+	public var CollisionMode: TEnumAsByte<ECollisionTraceFlag>;
 	public var bEnableRaytracingSupport: Bool;
 	public var bEnableRecomputeNormals: Bool;
 	public var bEnableRecomputeTangents: Bool;

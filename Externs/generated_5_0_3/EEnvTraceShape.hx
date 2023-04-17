@@ -3,10 +3,10 @@ package ue;
 
 @:native("EEnvTraceShape.Type")
 @:include("EnvironmentQuery/EnvQueryTypes.h")
-extern enum EEnvTraceShape {
-	Line;
-	Box;
-	Sphere;
-	Capsule;
-	EEnvTraceShape_MAX;
+extern class EEnvTraceShape {
+	static var Line: EEnvTraceShape;
+	static var Box: EEnvTraceShape;
+	static var Sphere: EEnvTraceShape;
+	static var Capsule: EEnvTraceShape;
+	static var EEnvTraceShape_MAX: EEnvTraceShape;
 }

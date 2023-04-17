@@ -3,30 +3,30 @@ package ue;
 
 @:native("EPropertyAccessCopyType")
 @:include("PropertyAccess.h")
-extern enum EPropertyAccessCopyType {
-	None;
-	Plain;
-	Complex;
-	Bool;
-	Struct;
-	Object;
-	Name;
-	Array;
-	PromoteBoolToByte;
-	PromoteBoolToInt32;
-	PromoteBoolToInt64;
-	PromoteBoolToFloat;
-	PromoteBoolToDouble;
-	PromoteByteToInt32;
-	PromoteByteToInt64;
-	PromoteByteToFloat;
-	PromoteByteToDouble;
-	PromoteInt32ToInt64;
-	PromoteInt32ToFloat;
-	PromoteInt32ToDouble;
-	PromoteFloatToDouble;
-	DemoteDoubleToFloat;
-	PromoteArrayFloatToDouble;
-	DemoteArrayDoubleToFloat;
-	EPropertyAccessCopyType_MAX;
+extern class EPropertyAccessCopyType {
+	static var None: EPropertyAccessCopyType;
+	static var Plain: EPropertyAccessCopyType;
+	static var Complex: EPropertyAccessCopyType;
+	static var Bool: EPropertyAccessCopyType;
+	static var Struct: EPropertyAccessCopyType;
+	static var Object: EPropertyAccessCopyType;
+	static var Name: EPropertyAccessCopyType;
+	static var Array: EPropertyAccessCopyType;
+	static var PromoteBoolToByte: EPropertyAccessCopyType;
+	static var PromoteBoolToInt32: EPropertyAccessCopyType;
+	static var PromoteBoolToInt64: EPropertyAccessCopyType;
+	static var PromoteBoolToFloat: EPropertyAccessCopyType;
+	static var PromoteBoolToDouble: EPropertyAccessCopyType;
+	static var PromoteByteToInt32: EPropertyAccessCopyType;
+	static var PromoteByteToInt64: EPropertyAccessCopyType;
+	static var PromoteByteToFloat: EPropertyAccessCopyType;
+	static var PromoteByteToDouble: EPropertyAccessCopyType;
+	static var PromoteInt32ToInt64: EPropertyAccessCopyType;
+	static var PromoteInt32ToFloat: EPropertyAccessCopyType;
+	static var PromoteInt32ToDouble: EPropertyAccessCopyType;
+	static var PromoteFloatToDouble: EPropertyAccessCopyType;
+	static var DemoteDoubleToFloat: EPropertyAccessCopyType;
+	static var PromoteArrayFloatToDouble: EPropertyAccessCopyType;
+	static var DemoteArrayDoubleToFloat: EPropertyAccessCopyType;
+	static var EPropertyAccessCopyType_MAX: EPropertyAccessCopyType;
 }

@@ -6,9 +6,9 @@ package ue;
 @:structAccess
 extern class PolyEditInsetOutsetActivity extends InteractiveToolActivity {
 	public var Settings: cpp.Star<PolyEditInsetOutsetProperties>;
-	public var EditPreview: cpp.Star<PolyEditPreviewMesh>;
-	public var CurveDistMechanic: cpp.Star<SpatialCurveDistanceMechanic>;
-	public var ActivityContext: cpp.Star<PolyEditActivityContext>;
+	@:protected public var EditPreview: cpp.Star<PolyEditPreviewMesh>;
+	@:protected public var CurveDistMechanic: cpp.Star<SpatialCurveDistanceMechanic>;
+	@:protected public var ActivityContext: cpp.Star<PolyEditActivityContext>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,12 +18,6 @@ extern class PolyEditInsetOutsetActivity extends InteractiveToolActivity {
 abstract ConstPolyEditInsetOutsetActivity(PolyEditInsetOutsetActivity) from PolyEditInsetOutsetActivity {
 	public extern var Settings(get, never): cpp.Star<PolyEditInsetOutsetProperties.ConstPolyEditInsetOutsetProperties>;
 	public inline extern function get_Settings(): cpp.Star<PolyEditInsetOutsetProperties.ConstPolyEditInsetOutsetProperties> return this.Settings;
-	public extern var EditPreview(get, never): cpp.Star<PolyEditPreviewMesh.ConstPolyEditPreviewMesh>;
-	public inline extern function get_EditPreview(): cpp.Star<PolyEditPreviewMesh.ConstPolyEditPreviewMesh> return this.EditPreview;
-	public extern var CurveDistMechanic(get, never): cpp.Star<SpatialCurveDistanceMechanic.ConstSpatialCurveDistanceMechanic>;
-	public inline extern function get_CurveDistMechanic(): cpp.Star<SpatialCurveDistanceMechanic.ConstSpatialCurveDistanceMechanic> return this.CurveDistMechanic;
-	public extern var ActivityContext(get, never): cpp.Star<PolyEditActivityContext.ConstPolyEditActivityContext>;
-	public inline extern function get_ActivityContext(): cpp.Star<PolyEditActivityContext.ConstPolyEditActivityContext> return this.ActivityContext;
 }
 
 @:forward

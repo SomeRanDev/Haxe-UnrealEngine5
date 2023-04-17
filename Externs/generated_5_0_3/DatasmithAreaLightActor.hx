@@ -5,7 +5,7 @@ package ue;
 @:include("DatasmithAreaLightActor.h")
 @:structAccess
 extern class DatasmithAreaLightActor extends Actor {
-	public var Mobility: EComponentMobility;
+	public var Mobility: TEnumAsByte<EComponentMobility>;
 	public var LightType: EDatasmithAreaLightActorType;
 	public var LightShape: EDatasmithAreaLightActorShape;
 	public var Dimensions: Vector2D;
@@ -29,8 +29,8 @@ extern class DatasmithAreaLightActor extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstDatasmithAreaLightActor(DatasmithAreaLightActor) from DatasmithAreaLightActor {
-	public extern var Mobility(get, never): EComponentMobility;
-	public inline extern function get_Mobility(): EComponentMobility return this.Mobility;
+	public extern var Mobility(get, never): TEnumAsByte<EComponentMobility>;
+	public inline extern function get_Mobility(): TEnumAsByte<EComponentMobility> return this.Mobility;
 	public extern var LightType(get, never): EDatasmithAreaLightActorType;
 	public inline extern function get_LightType(): EDatasmithAreaLightActorType return this.LightType;
 	public extern var LightShape(get, never): EDatasmithAreaLightActorShape;

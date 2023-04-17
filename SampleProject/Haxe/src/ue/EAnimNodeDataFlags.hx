@@ -3,10 +3,10 @@ package ue;
 
 @:native("EAnimNodeDataFlags")
 @:include("Animation/AnimNodeData.h")
-extern enum EAnimNodeDataFlags {
-	None;
-	HasInitialUpdateFunction;
-	HasBecomeRelevantFunction;
-	HasUpdateFunction;
-	EAnimNodeDataFlags_MAX;
+extern class EAnimNodeDataFlags {
+	static var None: EAnimNodeDataFlags;
+	static var HasInitialUpdateFunction: EAnimNodeDataFlags;
+	static var HasBecomeRelevantFunction: EAnimNodeDataFlags;
+	static var HasUpdateFunction: EAnimNodeDataFlags;
+	static var EAnimNodeDataFlags_MAX: EAnimNodeDataFlags;
 }

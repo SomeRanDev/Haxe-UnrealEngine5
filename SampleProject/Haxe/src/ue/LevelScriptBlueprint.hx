@@ -5,7 +5,6 @@ package ue;
 @:include("Engine/LevelScriptBlueprint.h")
 @:structAccess
 extern class LevelScriptBlueprint extends Blueprint {
-	public var FriendlyName: FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +12,6 @@ extern class LevelScriptBlueprint extends Blueprint {
 @:forward()
 @:nativeGen
 abstract ConstLevelScriptBlueprint(LevelScriptBlueprint) from LevelScriptBlueprint {
-	public extern var FriendlyName(get, never): FString;
-	public inline extern function get_FriendlyName(): FString return this.FriendlyName;
 }
 
 @:forward

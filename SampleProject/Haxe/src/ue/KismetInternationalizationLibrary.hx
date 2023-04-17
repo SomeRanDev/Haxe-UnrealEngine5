@@ -5,19 +5,19 @@ package ue;
 @:include("Kismet/KismetInternationalizationLibrary.h")
 @:structAccess
 extern class KismetInternationalizationLibrary extends BlueprintFunctionLibrary {
-	public function SetCurrentLocale(Culture: FString, SaveToConfig: Bool): cpp.Reference<Bool>;
-	public function SetCurrentLanguageAndLocale(Culture: FString, SaveToConfig: Bool): cpp.Reference<Bool>;
-	public function SetCurrentLanguage(Culture: FString, SaveToConfig: Bool): cpp.Reference<Bool>;
-	public function SetCurrentCulture(Culture: FString, SaveToConfig: Bool): cpp.Reference<Bool>;
-	public function SetCurrentAssetGroupCulture(AssetGroup: FName, Culture: FString, SaveToConfig: Bool): cpp.Reference<Bool>;
-	public function GetSuitableCulture(AvailableCultures: cpp.Reference<TArray<FString>>, CultureToMatch: FString, FallbackCulture: FString): cpp.Reference<FString>;
-	public function GetNativeCulture(TextCategory: ELocalizedTextSourceCategory): cpp.Reference<FString>;
-	public function GetLocalizedCultures(IncludeGame: Bool, IncludeEngine: Bool, IncludeEditor: Bool, IncludeAdditional: Bool): cpp.Reference<TArray<FString>>;
-	public function GetCurrentLocale(): cpp.Reference<FString>;
-	public function GetCurrentLanguage(): cpp.Reference<FString>;
-	public function GetCurrentCulture(): cpp.Reference<FString>;
-	public function GetCurrentAssetGroupCulture(AssetGroup: FName): cpp.Reference<FString>;
-	public function GetCultureDisplayName(Culture: FString, Localized: Bool): cpp.Reference<FString>;
+	public function SetCurrentLocale(Culture: FString, SaveToConfig: Bool): Bool;
+	public function SetCurrentLanguageAndLocale(Culture: FString, SaveToConfig: Bool): Bool;
+	public function SetCurrentLanguage(Culture: FString, SaveToConfig: Bool): Bool;
+	public function SetCurrentCulture(Culture: FString, SaveToConfig: Bool): Bool;
+	public function SetCurrentAssetGroupCulture(AssetGroup: FName, Culture: FString, SaveToConfig: Bool): Bool;
+	public function GetSuitableCulture(AvailableCultures: cpp.Reference<TArray<FString>>, CultureToMatch: FString, FallbackCulture: FString): FString;
+	public function GetNativeCulture(TextCategory: ELocalizedTextSourceCategory): FString;
+	public function GetLocalizedCultures(IncludeGame: Bool, IncludeEngine: Bool, IncludeEditor: Bool, IncludeAdditional: Bool): TArray<FString>;
+	public function GetCurrentLocale(): FString;
+	public function GetCurrentLanguage(): FString;
+	public function GetCurrentCulture(): FString;
+	public function GetCurrentAssetGroupCulture(AssetGroup: FName): FString;
+	public function GetCultureDisplayName(Culture: FString, Localized: Bool): FString;
 	public function ClearCurrentAssetGroupCulture(AssetGroup: FName, SaveToConfig: Bool): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;

@@ -5,7 +5,7 @@ package ue;
 @:include("ARSkyLight.h")
 @:structAccess
 extern class ARSkyLight extends SkyLight {
-	public var CaptureProbe: cpp.Star<AREnvironmentCaptureProbe>;
+	private var CaptureProbe: cpp.Star<AREnvironmentCaptureProbe>;
 
 	public function SetEnvironmentCaptureProbe(InCaptureProbe: cpp.Star<AREnvironmentCaptureProbe>): Void;
 
@@ -15,8 +15,6 @@ extern class ARSkyLight extends SkyLight {
 @:forward()
 @:nativeGen
 abstract ConstARSkyLight(ARSkyLight) from ARSkyLight {
-	public extern var CaptureProbe(get, never): cpp.Star<AREnvironmentCaptureProbe.ConstAREnvironmentCaptureProbe>;
-	public inline extern function get_CaptureProbe(): cpp.Star<AREnvironmentCaptureProbe.ConstAREnvironmentCaptureProbe> return this.CaptureProbe;
 }
 
 @:forward

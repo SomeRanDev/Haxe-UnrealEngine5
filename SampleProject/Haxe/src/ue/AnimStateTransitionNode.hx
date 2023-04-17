@@ -9,13 +9,12 @@ extern class AnimStateTransitionNode extends AnimStateNodeBase {
 	public var CustomTransitionGraph: cpp.Star<EdGraph>;
 	public var PriorityOrder: cpp.Int32;
 	public var CrossfadeDuration: cpp.Float32;
-	public var CrossfadeMode_DEPRECATED: ETransitionBlendMode;
 	public var BlendMode: EAlphaBlendOption;
 	public var CustomBlendCurve: cpp.Star<CurveFloat>;
 	public var BlendProfile: cpp.Star<BlendProfile>;
 	public var bAutomaticRuleBasedOnSequencePlayerInState: Bool;
 	public var SyncGroupNameToRequireValidMarkersRule: FName;
-	public var LogicType: ETransitionLogicType;
+	public var LogicType: TEnumAsByte<ETransitionLogicType>;
 	public var TransitionStart: AnimNotifyEvent;
 	public var TransitionEnd: AnimNotifyEvent;
 	public var TransitionInterrupt: AnimNotifyEvent;
@@ -43,8 +42,6 @@ abstract ConstAnimStateTransitionNode(AnimStateTransitionNode) from AnimStateTra
 	public inline extern function get_PriorityOrder(): cpp.Int32 return this.PriorityOrder;
 	public extern var CrossfadeDuration(get, never): cpp.Float32;
 	public inline extern function get_CrossfadeDuration(): cpp.Float32 return this.CrossfadeDuration;
-	public extern var CrossfadeMode_DEPRECATED(get, never): ETransitionBlendMode;
-	public inline extern function get_CrossfadeMode_DEPRECATED(): ETransitionBlendMode return this.CrossfadeMode_DEPRECATED;
 	public extern var BlendMode(get, never): EAlphaBlendOption;
 	public inline extern function get_BlendMode(): EAlphaBlendOption return this.BlendMode;
 	public extern var CustomBlendCurve(get, never): cpp.Star<CurveFloat.ConstCurveFloat>;
@@ -55,8 +52,8 @@ abstract ConstAnimStateTransitionNode(AnimStateTransitionNode) from AnimStateTra
 	public inline extern function get_bAutomaticRuleBasedOnSequencePlayerInState(): Bool return this.bAutomaticRuleBasedOnSequencePlayerInState;
 	public extern var SyncGroupNameToRequireValidMarkersRule(get, never): FName;
 	public inline extern function get_SyncGroupNameToRequireValidMarkersRule(): FName return this.SyncGroupNameToRequireValidMarkersRule;
-	public extern var LogicType(get, never): ETransitionLogicType;
-	public inline extern function get_LogicType(): ETransitionLogicType return this.LogicType;
+	public extern var LogicType(get, never): TEnumAsByte<ETransitionLogicType>;
+	public inline extern function get_LogicType(): TEnumAsByte<ETransitionLogicType> return this.LogicType;
 	public extern var TransitionStart(get, never): AnimNotifyEvent;
 	public inline extern function get_TransitionStart(): AnimNotifyEvent return this.TransitionStart;
 	public extern var TransitionEnd(get, never): AnimNotifyEvent;

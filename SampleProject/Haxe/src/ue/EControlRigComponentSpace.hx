@@ -3,12 +3,12 @@ package ue;
 
 @:native("EControlRigComponentSpace")
 @:include("ControlRigComponent.h")
-extern enum EControlRigComponentSpace {
-	WorldSpace;
-	ActorSpace;
-	ComponentSpace;
-	RigSpace;
-	LocalSpace;
-	Max;
-	EControlRigComponentSpace_MAX;
+extern class EControlRigComponentSpace {
+	static var WorldSpace: EControlRigComponentSpace;
+	static var ActorSpace: EControlRigComponentSpace;
+	static var ComponentSpace: EControlRigComponentSpace;
+	static var RigSpace: EControlRigComponentSpace;
+	static var LocalSpace: EControlRigComponentSpace;
+	static var Max: EControlRigComponentSpace;
+	static var EControlRigComponentSpace_MAX: EControlRigComponentSpace;
 }

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAbcGeometryCacheMotionVectorsImport")
 @:include("AbcImportSettings.h")
-extern enum EAbcGeometryCacheMotionVectorsImport {
-	NoMotionVectors;
-	ImportAbcVelocitiesAsMotionVectors;
-	CalculateMotionVectorsDuringImport;
-	EAbcGeometryCacheMotionVectorsImport_MAX;
+extern class EAbcGeometryCacheMotionVectorsImport {
+	static var NoMotionVectors: EAbcGeometryCacheMotionVectorsImport;
+	static var ImportAbcVelocitiesAsMotionVectors: EAbcGeometryCacheMotionVectorsImport;
+	static var CalculateMotionVectorsDuringImport: EAbcGeometryCacheMotionVectorsImport;
+	static var EAbcGeometryCacheMotionVectorsImport_MAX: EAbcGeometryCacheMotionVectorsImport;
 }

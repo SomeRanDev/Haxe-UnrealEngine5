@@ -3,10 +3,10 @@ package ue;
 
 @:native("EStructViewerDeveloperType")
 @:include("Settings/StructViewerSettings.h")
-extern enum EStructViewerDeveloperType {
-	SVDT_None;
-	SVDT_CurrentUser;
-	SVDT_All;
-	SVDT_Max;
-	SVDT_MAX;
+extern class EStructViewerDeveloperType {
+	static var SVDT_None: EStructViewerDeveloperType;
+	static var SVDT_CurrentUser: EStructViewerDeveloperType;
+	static var SVDT_All: EStructViewerDeveloperType;
+	static var SVDT_Max: EStructViewerDeveloperType;
+	static var SVDT_MAX: EStructViewerDeveloperType;
 }

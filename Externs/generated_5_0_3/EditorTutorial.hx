@@ -20,17 +20,17 @@ extern class EditorTutorial extends Object {
 	public var bHideInBrowser: Bool;
 	public var SearchTags: FText;
 
-	public function SetEngineFolderVisibilty(bNewVisibility: Bool): Void;
-	public function OpenAsset(Asset: cpp.Star<Object>): Void;
-	public function OnTutorialStageStarted(StageName: FName): Void;
-	public function OnTutorialStageEnded(StageName: FName): Void;
-	public function OnTutorialLaunched(): Void;
-	public function OnTutorialClosed(): Void;
-	public function GoToPreviousTutorialStage(): Void;
-	public function GoToNextTutorialStage(): Void;
-	public function GetEngineFolderVisibilty(): cpp.Reference<Bool>;
-	public function GetActorReference(PathToActor: FString): cpp.Reference<cpp.Star<Actor>>;
-	public function BeginTutorial(TutorialToStart: cpp.Star<EditorTutorial>, bRestart: Bool): Void;
+	@:protected public function SetEngineFolderVisibilty(bNewVisibility: Bool): Void;
+	@:protected public function OpenAsset(Asset: cpp.Star<Object>): Void;
+	@:protected public function OnTutorialStageStarted(StageName: FName): Void;
+	@:protected public function OnTutorialStageEnded(StageName: FName): Void;
+	@:protected public function OnTutorialLaunched(): Void;
+	@:protected public function OnTutorialClosed(): Void;
+	@:protected public function GoToPreviousTutorialStage(): Void;
+	@:protected public function GoToNextTutorialStage(): Void;
+	@:protected public function GetEngineFolderVisibilty(): Bool;
+	public function GetActorReference(PathToActor: FString): cpp.Star<Actor>;
+	@:protected public function BeginTutorial(TutorialToStart: cpp.Star<EditorTutorial>, bRestart: Bool): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

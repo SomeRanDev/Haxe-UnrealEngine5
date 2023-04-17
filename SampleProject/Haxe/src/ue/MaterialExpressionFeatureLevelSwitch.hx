@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class MaterialExpressionFeatureLevelSwitch extends MaterialExpression {
 	public var Default: ExpressionInput;
-	public var Inputs: ExpressionInput;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +15,6 @@ extern class MaterialExpressionFeatureLevelSwitch extends MaterialExpression {
 abstract ConstMaterialExpressionFeatureLevelSwitch(MaterialExpressionFeatureLevelSwitch) from MaterialExpressionFeatureLevelSwitch {
 	public extern var Default(get, never): ExpressionInput;
 	public inline extern function get_Default(): ExpressionInput return this.Default;
-	public extern var Inputs(get, never): ExpressionInput;
-	public inline extern function get_Inputs(): ExpressionInput return this.Inputs;
 }
 
 @:forward

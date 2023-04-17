@@ -6,11 +6,11 @@ package ue;
 @:structAccess
 extern class GroundTruthData extends Object {
 	public var bResetGroundTruth: Bool;
-	public var ObjectData: cpp.Star<Object>;
+	@:protected public var ObjectData: cpp.Star<Object>;
 
 	public function SaveObject(GroundTruth: cpp.Star<Object>): Void;
-	public function LoadObject(): cpp.Reference<cpp.Star<Object>>;
-	public function CanModify(): cpp.Reference<Bool>;
+	public function LoadObject(): cpp.Star<Object>;
+	public function CanModify(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -20,8 +20,6 @@ extern class GroundTruthData extends Object {
 abstract ConstGroundTruthData(GroundTruthData) from GroundTruthData {
 	public extern var bResetGroundTruth(get, never): Bool;
 	public inline extern function get_bResetGroundTruth(): Bool return this.bResetGroundTruth;
-	public extern var ObjectData(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_ObjectData(): cpp.Star<Object.ConstObject> return this.ObjectData;
 }
 
 @:forward

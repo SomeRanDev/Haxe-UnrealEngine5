@@ -3,8 +3,8 @@ package ue;
 
 @:native("EBloomMethod")
 @:include("Engine/Scene.h")
-extern enum EBloomMethod {
-	BM_SOG;
-	BM_FFT;
-	BM_MAX;
+extern class EBloomMethod {
+	static var BM_SOG: EBloomMethod;
+	static var BM_FFT: EBloomMethod;
+	static var BM_MAX: EBloomMethod;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EThumbnailPreviewSizeMode")
 @:include("WidgetBlueprint.h")
-extern enum EThumbnailPreviewSizeMode {
-	MatchDesignerMode;
-	FillScreen;
-	Custom;
-	Desired;
-	EThumbnailPreviewSizeMode_MAX;
+extern class EThumbnailPreviewSizeMode {
+	static var MatchDesignerMode: EThumbnailPreviewSizeMode;
+	static var FillScreen: EThumbnailPreviewSizeMode;
+	static var Custom: EThumbnailPreviewSizeMode;
+	static var Desired: EThumbnailPreviewSizeMode;
+	static var EThumbnailPreviewSizeMode_MAX: EThumbnailPreviewSizeMode;
 }

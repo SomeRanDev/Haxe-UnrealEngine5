@@ -3,8 +3,8 @@ package ue;
 
 @:native("ENiagaraRibbonDrawDirection")
 @:include("NiagaraRibbonRendererProperties.h")
-extern enum ENiagaraRibbonDrawDirection {
-	FrontToBack;
-	BackToFront;
-	ENiagaraRibbonDrawDirection_MAX;
+extern class ENiagaraRibbonDrawDirection {
+	static var FrontToBack: ENiagaraRibbonDrawDirection;
+	static var BackToFront: ENiagaraRibbonDrawDirection;
+	static var ENiagaraRibbonDrawDirection_MAX: ENiagaraRibbonDrawDirection;
 }

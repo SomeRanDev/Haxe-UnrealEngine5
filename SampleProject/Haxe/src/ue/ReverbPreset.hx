@@ -3,29 +3,29 @@ package ue;
 
 @:native("ReverbPreset")
 @:include("Sound/ReverbSettings.h")
-extern enum ReverbPreset {
-	REVERB_Default;
-	REVERB_Bathroom;
-	REVERB_StoneRoom;
-	REVERB_Auditorium;
-	REVERB_ConcertHall;
-	REVERB_Cave;
-	REVERB_Hallway;
-	REVERB_StoneCorridor;
-	REVERB_Alley;
-	REVERB_Forest;
-	REVERB_City;
-	REVERB_Mountains;
-	REVERB_Quarry;
-	REVERB_Plain;
-	REVERB_ParkingLot;
-	REVERB_SewerPipe;
-	REVERB_Underwater;
-	REVERB_SmallRoom;
-	REVERB_MediumRoom;
-	REVERB_LargeRoom;
-	REVERB_MediumHall;
-	REVERB_LargeHall;
-	REVERB_Plate;
-	REVERB_MAX;
+extern class ReverbPreset {
+	static var REVERB_Default: ReverbPreset;
+	static var REVERB_Bathroom: ReverbPreset;
+	static var REVERB_StoneRoom: ReverbPreset;
+	static var REVERB_Auditorium: ReverbPreset;
+	static var REVERB_ConcertHall: ReverbPreset;
+	static var REVERB_Cave: ReverbPreset;
+	static var REVERB_Hallway: ReverbPreset;
+	static var REVERB_StoneCorridor: ReverbPreset;
+	static var REVERB_Alley: ReverbPreset;
+	static var REVERB_Forest: ReverbPreset;
+	static var REVERB_City: ReverbPreset;
+	static var REVERB_Mountains: ReverbPreset;
+	static var REVERB_Quarry: ReverbPreset;
+	static var REVERB_Plain: ReverbPreset;
+	static var REVERB_ParkingLot: ReverbPreset;
+	static var REVERB_SewerPipe: ReverbPreset;
+	static var REVERB_Underwater: ReverbPreset;
+	static var REVERB_SmallRoom: ReverbPreset;
+	static var REVERB_MediumRoom: ReverbPreset;
+	static var REVERB_LargeRoom: ReverbPreset;
+	static var REVERB_MediumHall: ReverbPreset;
+	static var REVERB_LargeHall: ReverbPreset;
+	static var REVERB_Plate: ReverbPreset;
+	static var REVERB_MAX: ReverbPreset;
 }

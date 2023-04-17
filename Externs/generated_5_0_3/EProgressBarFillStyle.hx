@@ -3,8 +3,8 @@ package ue;
 
 @:native("EProgressBarFillStyle.Type")
 @:include("Widgets/Notifications/SProgressBar.h")
-extern enum EProgressBarFillStyle {
-	Mask;
-	Scale;
-	EProgressBarFillStyle_MAX;
+extern class EProgressBarFillStyle {
+	static var Mask: EProgressBarFillStyle;
+	static var Scale: EProgressBarFillStyle;
+	static var EProgressBarFillStyle_MAX: EProgressBarFillStyle;
 }

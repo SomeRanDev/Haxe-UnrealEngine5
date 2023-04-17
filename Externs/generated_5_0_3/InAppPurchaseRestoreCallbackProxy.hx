@@ -5,10 +5,10 @@ package ue;
 @:include("InAppPurchaseRestoreCallbackProxy.h")
 @:structAccess
 extern class InAppPurchaseRestoreCallbackProxy extends Object {
-	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(EInAppPurchaseState, cpp.Reference<TArray<InAppPurchaseRestoreInfo>>) -> Void>;
-	public var OnFailure: HaxeMulticastSparseDelegateProperty<(EInAppPurchaseState, cpp.Reference<TArray<InAppPurchaseRestoreInfo>>) -> Void>;
+	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(TEnumAsByte<EInAppPurchaseState>, cpp.Reference<TArray<InAppPurchaseRestoreInfo>>) -> Void>;
+	public var OnFailure: HaxeMulticastSparseDelegateProperty<(TEnumAsByte<EInAppPurchaseState>, cpp.Reference<TArray<InAppPurchaseRestoreInfo>>) -> Void>;
 
-	public function CreateProxyObjectForInAppPurchaseRestore(ConsumableProductFlags: cpp.Reference<TArray<InAppPurchaseProductRequest>>, PlayerController: cpp.Star<PlayerController>): cpp.Reference<cpp.Star<InAppPurchaseRestoreCallbackProxy>>;
+	public function CreateProxyObjectForInAppPurchaseRestore(ConsumableProductFlags: cpp.Reference<TArray<InAppPurchaseProductRequest>>, PlayerController: cpp.Star<PlayerController>): cpp.Star<InAppPurchaseRestoreCallbackProxy>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,10 +16,10 @@ extern class InAppPurchaseRestoreCallbackProxy extends Object {
 @:forward()
 @:nativeGen
 abstract ConstInAppPurchaseRestoreCallbackProxy(InAppPurchaseRestoreCallbackProxy) from InAppPurchaseRestoreCallbackProxy {
-	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(EInAppPurchaseState, cpp.Reference<TArray<InAppPurchaseRestoreInfo>>) -> Void>;
-	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(EInAppPurchaseState, cpp.Reference<TArray<InAppPurchaseRestoreInfo>>) -> Void> return this.OnSuccess;
-	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(EInAppPurchaseState, cpp.Reference<TArray<InAppPurchaseRestoreInfo>>) -> Void>;
-	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(EInAppPurchaseState, cpp.Reference<TArray<InAppPurchaseRestoreInfo>>) -> Void> return this.OnFailure;
+	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(TEnumAsByte<EInAppPurchaseState>, cpp.Reference<TArray<InAppPurchaseRestoreInfo>>) -> Void>;
+	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(TEnumAsByte<EInAppPurchaseState>, cpp.Reference<TArray<InAppPurchaseRestoreInfo>>) -> Void> return this.OnSuccess;
+	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(TEnumAsByte<EInAppPurchaseState>, cpp.Reference<TArray<InAppPurchaseRestoreInfo>>) -> Void>;
+	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(TEnumAsByte<EInAppPurchaseState>, cpp.Reference<TArray<InAppPurchaseRestoreInfo>>) -> Void> return this.OnFailure;
 }
 
 @:forward

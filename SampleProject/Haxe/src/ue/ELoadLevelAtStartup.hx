@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELoadLevelAtStartup.Type")
 @:include("Settings/EditorLoadingSavingSettings.h")
-extern enum ELoadLevelAtStartup {
-	None;
-	ProjectDefault;
-	LastOpened;
-	ELoadLevelAtStartup_MAX;
+extern class ELoadLevelAtStartup {
+	static var None: ELoadLevelAtStartup;
+	static var ProjectDefault: ELoadLevelAtStartup;
+	static var LastOpened: ELoadLevelAtStartup;
+	static var ELoadLevelAtStartup_MAX: ELoadLevelAtStartup;
 }

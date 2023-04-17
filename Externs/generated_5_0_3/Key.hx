@@ -5,7 +5,7 @@ package ue;
 @:include("InputCoreTypes.h")
 @:structAccess
 extern class Key {
-	public var KeyName: FName;
+	private var KeyName: FName;
 
 	@:native("FKey") public function new();
 	@:native("FKey") public static function make(KeyName: FName): Key ;

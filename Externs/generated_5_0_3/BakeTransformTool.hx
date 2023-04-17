@@ -5,7 +5,7 @@ package ue;
 @:include("BakeTransformTool.h")
 @:structAccess
 extern class BakeTransformTool extends MultiSelectionMeshEditingTool {
-	public var BasicProperties: cpp.Star<BakeTransformToolProperties>;
+	@:protected public var BasicProperties: cpp.Star<BakeTransformToolProperties>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class BakeTransformTool extends MultiSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstBakeTransformTool(BakeTransformTool) from BakeTransformTool {
-	public extern var BasicProperties(get, never): cpp.Star<BakeTransformToolProperties.ConstBakeTransformToolProperties>;
-	public inline extern function get_BasicProperties(): cpp.Star<BakeTransformToolProperties.ConstBakeTransformToolProperties> return this.BasicProperties;
 }
 
 @:forward

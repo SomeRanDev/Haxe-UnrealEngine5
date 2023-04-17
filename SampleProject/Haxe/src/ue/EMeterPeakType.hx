@@ -3,10 +3,10 @@ package ue;
 
 @:native("EMeterPeakType")
 @:include("Meter.h")
-extern enum EMeterPeakType {
-	MeanSquared;
-	RootMeanSquared;
-	Peak;
-	Count;
-	EMeterPeakType_MAX;
+extern class EMeterPeakType {
+	static var MeanSquared: EMeterPeakType;
+	static var RootMeanSquared: EMeterPeakType;
+	static var Peak: EMeterPeakType;
+	static var Count: EMeterPeakType;
+	static var EMeterPeakType_MAX: EMeterPeakType;
 }

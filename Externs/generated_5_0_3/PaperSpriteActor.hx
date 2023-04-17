@@ -5,7 +5,7 @@ package ue;
 @:include("PaperSpriteActor.h")
 @:structAccess
 extern class PaperSpriteActor extends Actor {
-	public var RenderComponent: cpp.Star<PaperSpriteComp>;
+	private var RenderComponent: cpp.Star<PaperSpriteComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class PaperSpriteActor extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstPaperSpriteActor(PaperSpriteActor) from PaperSpriteActor {
-	public extern var RenderComponent(get, never): cpp.Star<PaperSpriteComp.ConstPaperSpriteComp>;
-	public inline extern function get_RenderComponent(): cpp.Star<PaperSpriteComp.ConstPaperSpriteComp> return this.RenderComponent;
 }
 
 @:forward

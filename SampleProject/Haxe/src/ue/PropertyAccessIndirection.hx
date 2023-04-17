@@ -5,14 +5,14 @@ package ue;
 @:include("PropertyAccess.h")
 @:structAccess
 extern class PropertyAccessIndirection {
-	public var Property: TFieldPath<FProperty>;
-	public var Function: cpp.Star<Function>;
-	public var ReturnBufferSize: cpp.Int32;
-	public var ReturnBufferAlignment: cpp.Int32;
-	public var ArrayIndex: cpp.Int32;
-	public var Offset: cpp.UInt32;
-	public var ObjectType: EPropertyAccessObjectType;
-	public var Type: EPropertyAccessIndirectionType;
+	private var Property: TFieldPath<FProperty>;
+	private var Function: cpp.Star<Function>;
+	private var ReturnBufferSize: cpp.Int32;
+	private var ReturnBufferAlignment: cpp.Int32;
+	private var ArrayIndex: cpp.Int32;
+	private var Offset: cpp.UInt32;
+	private var ObjectType: EPropertyAccessObjectType;
+	private var Type: EPropertyAccessIndirectionType;
 
 	@:native("FPropertyAccessIndirection") public function new();
 }

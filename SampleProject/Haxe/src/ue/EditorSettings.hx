@@ -16,7 +16,6 @@ extern class EditorSettings extends Object {
 	public var bEnableS3DDC: Bool;
 	public var GlobalS3DDCPath: DirectoryPath;
 	public var bLoadTheMostRecentlyLoadedProjectAtStartup: Bool;
-	public var bEditorAnalyticsEnabled_DEPRECATED: Bool;
 	public var RecentlyOpenedProjectFiles: TArray<RecentProjectFile>;
 	public var CreatedProjectPaths: TArray<FString>;
 	public var bCopyStarterContentPreference: Bool;
@@ -52,8 +51,6 @@ abstract ConstEditorSettings(EditorSettings) from EditorSettings {
 	public inline extern function get_GlobalS3DDCPath(): DirectoryPath return this.GlobalS3DDCPath;
 	public extern var bLoadTheMostRecentlyLoadedProjectAtStartup(get, never): Bool;
 	public inline extern function get_bLoadTheMostRecentlyLoadedProjectAtStartup(): Bool return this.bLoadTheMostRecentlyLoadedProjectAtStartup;
-	public extern var bEditorAnalyticsEnabled_DEPRECATED(get, never): Bool;
-	public inline extern function get_bEditorAnalyticsEnabled_DEPRECATED(): Bool return this.bEditorAnalyticsEnabled_DEPRECATED;
 	public extern var RecentlyOpenedProjectFiles(get, never): TArray<RecentProjectFile>;
 	public inline extern function get_RecentlyOpenedProjectFiles(): TArray<RecentProjectFile> return this.RecentlyOpenedProjectFiles;
 	public extern var CreatedProjectPaths(get, never): TArray<FString>;

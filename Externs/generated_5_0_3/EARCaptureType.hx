@@ -3,11 +3,11 @@ package ue;
 
 @:native("EARCaptureType")
 @:include("ARTypes.h")
-extern enum EARCaptureType {
-	Camera;
-	QRCode;
-	SpatialMapping;
-	SceneUnderstanding;
-	HandMesh;
-	EARCaptureType_MAX;
+extern class EARCaptureType {
+	static var Camera: EARCaptureType;
+	static var QRCode: EARCaptureType;
+	static var SpatialMapping: EARCaptureType;
+	static var SceneUnderstanding: EARCaptureType;
+	static var HandMesh: EARCaptureType;
+	static var EARCaptureType_MAX: EARCaptureType;
 }

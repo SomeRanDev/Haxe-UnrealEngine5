@@ -5,7 +5,7 @@ package ue;
 @:include("Binding/CheckedStateBinding.h")
 @:structAccess
 extern class CheckedStateBinding extends PropertyBinding {
-	public function GetValue(): cpp.Reference<ECheckBoxState>;
+	public function GetValue(): ECheckBoxState;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

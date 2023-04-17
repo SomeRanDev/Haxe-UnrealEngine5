@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class SoundNode extends Object {
 	public var ChildNodes: TArray<cpp.Star<SoundNode>>;
-	public var GraphNode: cpp.Star<EdGraphNode>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +15,6 @@ extern class SoundNode extends Object {
 abstract ConstSoundNode(SoundNode) from SoundNode {
 	public extern var ChildNodes(get, never): TArray<cpp.Star<SoundNode.ConstSoundNode>>;
 	public inline extern function get_ChildNodes(): TArray<cpp.Star<SoundNode.ConstSoundNode>> return this.ChildNodes;
-	public extern var GraphNode(get, never): cpp.Star<EdGraphNode.ConstEdGraphNode>;
-	public inline extern function get_GraphNode(): cpp.Star<EdGraphNode.ConstEdGraphNode> return this.GraphNode;
 }
 
 @:forward

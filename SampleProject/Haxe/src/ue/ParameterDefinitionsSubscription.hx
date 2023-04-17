@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class ParameterDefinitionsSubscription {
 	public var Definitions: cpp.Star<NiagaraParameterDefinitionsBase>;
-	public var DefinitionsId_DEPRECATED: Guid;
 	public var CachedChangeIdHash: cpp.Int32;
 
 	@:native("FParameterDefinitionsSubscription") public function new();

@@ -5,7 +5,7 @@ package ue;
 @:include("WorldPartition/WorldPartitionReplay.h")
 @:structAccess
 extern class WorldPartitionReplay extends Actor {
-	public var StreamingSourceNames: TArray<FName>;
+	private var StreamingSourceNames: TArray<FName>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class WorldPartitionReplay extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstWorldPartitionReplay(WorldPartitionReplay) from WorldPartitionReplay {
-	public extern var StreamingSourceNames(get, never): TArray<FName>;
-	public inline extern function get_StreamingSourceNames(): TArray<FName> return this.StreamingSourceNames;
 }
 
 @:forward

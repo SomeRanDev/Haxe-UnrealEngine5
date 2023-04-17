@@ -3,10 +3,10 @@ package ue;
 
 @:native("ENetRole")
 @:include("Engine/EngineTypes.h")
-extern enum ENetRole {
-	ROLE_None;
-	ROLE_SimulatedProxy;
-	ROLE_AutonomousProxy;
-	ROLE_Authority;
-	ROLE_MAX;
+extern class ENetRole {
+	static var ROLE_None: ENetRole;
+	static var ROLE_SimulatedProxy: ENetRole;
+	static var ROLE_AutonomousProxy: ENetRole;
+	static var ROLE_Authority: ENetRole;
+	static var ROLE_MAX: ENetRole;
 }

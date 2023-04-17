@@ -9,7 +9,7 @@ extern class AutomationControllerSettings extends Object {
 	public var bSuppressLogErrors: Bool;
 	public var bSuppressLogWarnings: Bool;
 	public var bElevateLogWarningsToErrors: Bool;
-	public var bTreatLogWarningsAsTestErrors: Bool;
+	private var bTreatLogWarningsAsTestErrors: Bool;
 	public var CheckTestIntervalSeconds: cpp.Float32;
 	public var GameInstanceLostTimerSeconds: cpp.Float32;
 	public var TelemetryDirectory: FString;
@@ -29,8 +29,6 @@ abstract ConstAutomationControllerSettings(AutomationControllerSettings) from Au
 	public inline extern function get_bSuppressLogWarnings(): Bool return this.bSuppressLogWarnings;
 	public extern var bElevateLogWarningsToErrors(get, never): Bool;
 	public inline extern function get_bElevateLogWarningsToErrors(): Bool return this.bElevateLogWarningsToErrors;
-	public extern var bTreatLogWarningsAsTestErrors(get, never): Bool;
-	public inline extern function get_bTreatLogWarningsAsTestErrors(): Bool return this.bTreatLogWarningsAsTestErrors;
 	public extern var CheckTestIntervalSeconds(get, never): cpp.Float32;
 	public inline extern function get_CheckTestIntervalSeconds(): cpp.Float32 return this.CheckTestIntervalSeconds;
 	public extern var GameInstanceLostTimerSeconds(get, never): cpp.Float32;

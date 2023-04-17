@@ -5,7 +5,7 @@ package ue;
 @:include("Binding/BoolBinding.h")
 @:structAccess
 extern class BoolBinding extends PropertyBinding {
-	public function GetValue(): cpp.Reference<Bool>;
+	public function GetValue(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

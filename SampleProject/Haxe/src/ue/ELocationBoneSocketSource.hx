@@ -3,8 +3,8 @@ package ue;
 
 @:native("ELocationBoneSocketSource")
 @:include("Particles/Location/ParticleModuleLocationBoneSocket.h")
-extern enum ELocationBoneSocketSource {
-	BONESOCKETSOURCE_Bones;
-	BONESOCKETSOURCE_Sockets;
-	BONESOCKETSOURCE_MAX;
+extern class ELocationBoneSocketSource {
+	static var BONESOCKETSOURCE_Bones: ELocationBoneSocketSource;
+	static var BONESOCKETSOURCE_Sockets: ELocationBoneSocketSource;
+	static var BONESOCKETSOURCE_MAX: ELocationBoneSocketSource;
 }

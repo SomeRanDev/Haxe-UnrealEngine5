@@ -5,9 +5,9 @@ package ue;
 @:include("AddPatchTool.h")
 @:structAccess
 extern class AddPatchTool extends SingleClickTool {
-	public var ShapeSettings: cpp.Star<AddPatchToolProperties>;
-	public var MaterialProperties: cpp.Star<NewMeshMaterialProperties>;
-	public var PreviewMesh: cpp.Star<PreviewMesh>;
+	@:protected public var ShapeSettings: cpp.Star<AddPatchToolProperties>;
+	@:protected public var MaterialProperties: cpp.Star<NewMeshMaterialProperties>;
+	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class AddPatchTool extends SingleClickTool {
 @:forward()
 @:nativeGen
 abstract ConstAddPatchTool(AddPatchTool) from AddPatchTool {
-	public extern var ShapeSettings(get, never): cpp.Star<AddPatchToolProperties.ConstAddPatchToolProperties>;
-	public inline extern function get_ShapeSettings(): cpp.Star<AddPatchToolProperties.ConstAddPatchToolProperties> return this.ShapeSettings;
-	public extern var MaterialProperties(get, never): cpp.Star<NewMeshMaterialProperties.ConstNewMeshMaterialProperties>;
-	public inline extern function get_MaterialProperties(): cpp.Star<NewMeshMaterialProperties.ConstNewMeshMaterialProperties> return this.MaterialProperties;
-	public extern var PreviewMesh(get, never): cpp.Star<PreviewMesh.ConstPreviewMesh>;
-	public inline extern function get_PreviewMesh(): cpp.Star<PreviewMesh.ConstPreviewMesh> return this.PreviewMesh;
 }
 
 @:forward

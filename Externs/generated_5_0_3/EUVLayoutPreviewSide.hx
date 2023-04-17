@@ -3,8 +3,8 @@ package ue;
 
 @:native("EUVLayoutPreviewSide")
 @:include("Drawing/UVLayoutPreview.h")
-extern enum EUVLayoutPreviewSide {
-	Left;
-	Right;
-	EUVLayoutPreviewSide_MAX;
+extern class EUVLayoutPreviewSide {
+	static var Left: EUVLayoutPreviewSide;
+	static var Right: EUVLayoutPreviewSide;
+	static var EUVLayoutPreviewSide_MAX: EUVLayoutPreviewSide;
 }

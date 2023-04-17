@@ -3,11 +3,11 @@ package ue;
 
 @:native("ESourceEffectFilterType")
 @:include("SourceEffects/SourceEffectFilter.h")
-extern enum ESourceEffectFilterType {
-	LowPass;
-	HighPass;
-	BandPass;
-	BandStop;
-	Count;
-	ESourceEffectFilterType_MAX;
+extern class ESourceEffectFilterType {
+	static var LowPass: ESourceEffectFilterType;
+	static var HighPass: ESourceEffectFilterType;
+	static var BandPass: ESourceEffectFilterType;
+	static var BandStop: ESourceEffectFilterType;
+	static var Count: ESourceEffectFilterType;
+	static var ESourceEffectFilterType_MAX: ESourceEffectFilterType;
 }

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EGraphicsPreset")
 @:include("HardwareTargetingSettings.h")
-extern enum EGraphicsPreset {
-	Unspecified;
-	Maximum;
-	Scalable;
-	EGraphicsPreset_MAX;
+extern class EGraphicsPreset {
+	static var Unspecified: EGraphicsPreset;
+	static var Maximum: EGraphicsPreset;
+	static var Scalable: EGraphicsPreset;
+	static var EGraphicsPreset_MAX: EGraphicsPreset;
 }

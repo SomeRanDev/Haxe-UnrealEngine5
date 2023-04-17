@@ -3,8 +3,8 @@ package ue;
 
 @:native("EQRCodeComponentDebugMode")
 @:include("ARComponent.h")
-extern enum EQRCodeComponentDebugMode {
-	None;
-	ShowQRCode;
-	EQRCodeComponentDebugMode_MAX;
+extern class EQRCodeComponentDebugMode {
+	static var None: EQRCodeComponentDebugMode;
+	static var ShowQRCode: EQRCodeComponentDebugMode;
+	static var EQRCodeComponentDebugMode_MAX: EQRCodeComponentDebugMode;
 }

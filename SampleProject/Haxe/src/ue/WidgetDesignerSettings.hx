@@ -11,8 +11,8 @@ extern class WidgetDesignerSettings extends DeveloperSettings {
 	public var bShowOutlines: Bool;
 	public var bExecutePreConstructEvent: Bool;
 	public var bRespectLocks: Bool;
-	public var CreateOnCompile: EDisplayOnCompile;
-	public var DismissOnCompile: EDisplayOnCompile;
+	public var CreateOnCompile: TEnumAsByte<EDisplayOnCompile>;
+	public var DismissOnCompile: TEnumAsByte<EDisplayOnCompile>;
 	public var Favorites: cpp.Star<WidgetPaletteFavorites>;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -33,10 +33,10 @@ abstract ConstWidgetDesignerSettings(WidgetDesignerSettings) from WidgetDesigner
 	public inline extern function get_bExecutePreConstructEvent(): Bool return this.bExecutePreConstructEvent;
 	public extern var bRespectLocks(get, never): Bool;
 	public inline extern function get_bRespectLocks(): Bool return this.bRespectLocks;
-	public extern var CreateOnCompile(get, never): EDisplayOnCompile;
-	public inline extern function get_CreateOnCompile(): EDisplayOnCompile return this.CreateOnCompile;
-	public extern var DismissOnCompile(get, never): EDisplayOnCompile;
-	public inline extern function get_DismissOnCompile(): EDisplayOnCompile return this.DismissOnCompile;
+	public extern var CreateOnCompile(get, never): TEnumAsByte<EDisplayOnCompile>;
+	public inline extern function get_CreateOnCompile(): TEnumAsByte<EDisplayOnCompile> return this.CreateOnCompile;
+	public extern var DismissOnCompile(get, never): TEnumAsByte<EDisplayOnCompile>;
+	public inline extern function get_DismissOnCompile(): TEnumAsByte<EDisplayOnCompile> return this.DismissOnCompile;
 	public extern var Favorites(get, never): cpp.Star<WidgetPaletteFavorites.ConstWidgetPaletteFavorites>;
 	public inline extern function get_Favorites(): cpp.Star<WidgetPaletteFavorites.ConstWidgetPaletteFavorites> return this.Favorites;
 }

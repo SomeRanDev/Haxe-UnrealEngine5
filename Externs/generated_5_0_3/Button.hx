@@ -5,13 +5,12 @@ package ue;
 @:include("Components/Button.h")
 @:structAccess
 extern class Button extends ContentWidget {
-	public var Style_DEPRECATED: cpp.Star<SlateWidgetStyleAsset>;
 	public var WidgetStyle: ButtonStyle;
 	public var ColorAndOpacity: LinearColor;
 	public var BackgroundColor: LinearColor;
-	public var ClickMethod: EButtonClickMethod;
-	public var TouchMethod: EButtonTouchMethod;
-	public var PressMethod: EButtonPressMethod;
+	public var ClickMethod: TEnumAsByte<EButtonClickMethod>;
+	public var TouchMethod: TEnumAsByte<EButtonTouchMethod>;
+	public var PressMethod: TEnumAsByte<EButtonPressMethod>;
 	public var IsFocusable: Bool;
 	public var OnClicked: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnPressed: HaxeMulticastSparseDelegateProperty<() -> Void>;
@@ -19,13 +18,13 @@ extern class Button extends ContentWidget {
 	public var OnHovered: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnUnhovered: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
-	public function SetTouchMethod(InTouchMethod: EButtonTouchMethod): Void;
+	public function SetTouchMethod(InTouchMethod: TEnumAsByte<EButtonTouchMethod>): Void;
 	public function SetStyle(InStyle: cpp.Reference<ButtonStyle>): Void;
-	public function SetPressMethod(InPressMethod: EButtonPressMethod): Void;
+	public function SetPressMethod(InPressMethod: TEnumAsByte<EButtonPressMethod>): Void;
 	public function SetColorAndOpacity(InColorAndOpacity: LinearColor): Void;
-	public function SetClickMethod(InClickMethod: EButtonClickMethod): Void;
+	public function SetClickMethod(InClickMethod: TEnumAsByte<EButtonClickMethod>): Void;
 	public function SetBackgroundColor(InBackgroundColor: LinearColor): Void;
-	public function IsPressed(): cpp.Reference<Bool>;
+	public function IsPressed(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -33,20 +32,18 @@ extern class Button extends ContentWidget {
 @:forward(IsPressed)
 @:nativeGen
 abstract ConstButton(Button) from Button {
-	public extern var Style_DEPRECATED(get, never): cpp.Star<SlateWidgetStyleAsset.ConstSlateWidgetStyleAsset>;
-	public inline extern function get_Style_DEPRECATED(): cpp.Star<SlateWidgetStyleAsset.ConstSlateWidgetStyleAsset> return this.Style_DEPRECATED;
 	public extern var WidgetStyle(get, never): ButtonStyle;
 	public inline extern function get_WidgetStyle(): ButtonStyle return this.WidgetStyle;
 	public extern var ColorAndOpacity(get, never): LinearColor;
 	public inline extern function get_ColorAndOpacity(): LinearColor return this.ColorAndOpacity;
 	public extern var BackgroundColor(get, never): LinearColor;
 	public inline extern function get_BackgroundColor(): LinearColor return this.BackgroundColor;
-	public extern var ClickMethod(get, never): EButtonClickMethod;
-	public inline extern function get_ClickMethod(): EButtonClickMethod return this.ClickMethod;
-	public extern var TouchMethod(get, never): EButtonTouchMethod;
-	public inline extern function get_TouchMethod(): EButtonTouchMethod return this.TouchMethod;
-	public extern var PressMethod(get, never): EButtonPressMethod;
-	public inline extern function get_PressMethod(): EButtonPressMethod return this.PressMethod;
+	public extern var ClickMethod(get, never): TEnumAsByte<EButtonClickMethod>;
+	public inline extern function get_ClickMethod(): TEnumAsByte<EButtonClickMethod> return this.ClickMethod;
+	public extern var TouchMethod(get, never): TEnumAsByte<EButtonTouchMethod>;
+	public inline extern function get_TouchMethod(): TEnumAsByte<EButtonTouchMethod> return this.TouchMethod;
+	public extern var PressMethod(get, never): TEnumAsByte<EButtonPressMethod>;
+	public inline extern function get_PressMethod(): TEnumAsByte<EButtonPressMethod> return this.PressMethod;
 	public extern var IsFocusable(get, never): Bool;
 	public inline extern function get_IsFocusable(): Bool return this.IsFocusable;
 	public extern var OnClicked(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;

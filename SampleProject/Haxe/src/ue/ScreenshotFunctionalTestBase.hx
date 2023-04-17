@@ -5,9 +5,9 @@ package ue;
 @:include("ScreenshotFunctionalTestBase.h")
 @:structAccess
 extern class ScreenshotFunctionalTestBase extends FunctionalTest {
-	public var Notes: FString;
-	public var ScreenshotCamera: cpp.Star<CameraComp>;
-	public var ScreenshotOptions: AutomationScreenshotOptions;
+	@:protected public var Notes: FString;
+	@:protected public var ScreenshotCamera: cpp.Star<CameraComp>;
+	@:protected public var ScreenshotOptions: AutomationScreenshotOptions;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class ScreenshotFunctionalTestBase extends FunctionalTest {
 @:forward()
 @:nativeGen
 abstract ConstScreenshotFunctionalTestBase(ScreenshotFunctionalTestBase) from ScreenshotFunctionalTestBase {
-	public extern var Notes(get, never): FString;
-	public inline extern function get_Notes(): FString return this.Notes;
-	public extern var ScreenshotCamera(get, never): cpp.Star<CameraComp.ConstCameraComp>;
-	public inline extern function get_ScreenshotCamera(): cpp.Star<CameraComp.ConstCameraComp> return this.ScreenshotCamera;
-	public extern var ScreenshotOptions(get, never): AutomationScreenshotOptions;
-	public inline extern function get_ScreenshotOptions(): AutomationScreenshotOptions return this.ScreenshotOptions;
 }
 
 @:forward

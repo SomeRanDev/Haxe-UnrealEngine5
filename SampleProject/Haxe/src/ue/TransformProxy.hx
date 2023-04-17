@@ -7,8 +7,8 @@ package ue;
 extern class TransformProxy extends Object {
 	public var bRotatePerObject: Bool;
 	public var bSetPivotMode: Bool;
-	public var SharedTransform: Transform;
-	public var InitialSharedTransform: Transform;
+	@:protected public var SharedTransform: Transform;
+	@:protected public var InitialSharedTransform: Transform;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -20,10 +20,6 @@ abstract ConstTransformProxy(TransformProxy) from TransformProxy {
 	public inline extern function get_bRotatePerObject(): Bool return this.bRotatePerObject;
 	public extern var bSetPivotMode(get, never): Bool;
 	public inline extern function get_bSetPivotMode(): Bool return this.bSetPivotMode;
-	public extern var SharedTransform(get, never): Transform;
-	public inline extern function get_SharedTransform(): Transform return this.SharedTransform;
-	public extern var InitialSharedTransform(get, never): Transform;
-	public inline extern function get_InitialSharedTransform(): Transform return this.InitialSharedTransform;
 }
 
 @:forward

@@ -5,11 +5,11 @@ package ue;
 @:include("BakeMeshAttributeVertexTool.h")
 @:structAccess
 extern class BakeMeshAttributeVertexTool extends BakeMeshAttributeTool {
-	public var InputMeshSettings: cpp.Star<BakeInputMeshProperties>;
-	public var Settings: cpp.Star<BakeMeshAttributeVertexToolProperties>;
-	public var PreviewMesh: cpp.Star<PreviewMesh>;
-	public var PreviewMaterial: cpp.Star<MaterialInstanceDynamic>;
-	public var PreviewAlphaMaterial: cpp.Star<MaterialInstanceDynamic>;
+	@:protected public var InputMeshSettings: cpp.Star<BakeInputMeshProperties>;
+	@:protected public var Settings: cpp.Star<BakeMeshAttributeVertexToolProperties>;
+	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
+	@:protected public var PreviewMaterial: cpp.Star<MaterialInstanceDynamic>;
+	@:protected public var PreviewAlphaMaterial: cpp.Star<MaterialInstanceDynamic>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,16 +17,6 @@ extern class BakeMeshAttributeVertexTool extends BakeMeshAttributeTool {
 @:forward()
 @:nativeGen
 abstract ConstBakeMeshAttributeVertexTool(BakeMeshAttributeVertexTool) from BakeMeshAttributeVertexTool {
-	public extern var InputMeshSettings(get, never): cpp.Star<BakeInputMeshProperties.ConstBakeInputMeshProperties>;
-	public inline extern function get_InputMeshSettings(): cpp.Star<BakeInputMeshProperties.ConstBakeInputMeshProperties> return this.InputMeshSettings;
-	public extern var Settings(get, never): cpp.Star<BakeMeshAttributeVertexToolProperties.ConstBakeMeshAttributeVertexToolProperties>;
-	public inline extern function get_Settings(): cpp.Star<BakeMeshAttributeVertexToolProperties.ConstBakeMeshAttributeVertexToolProperties> return this.Settings;
-	public extern var PreviewMesh(get, never): cpp.Star<PreviewMesh.ConstPreviewMesh>;
-	public inline extern function get_PreviewMesh(): cpp.Star<PreviewMesh.ConstPreviewMesh> return this.PreviewMesh;
-	public extern var PreviewMaterial(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_PreviewMaterial(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.PreviewMaterial;
-	public extern var PreviewAlphaMaterial(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_PreviewAlphaMaterial(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.PreviewAlphaMaterial;
 }
 
 @:forward

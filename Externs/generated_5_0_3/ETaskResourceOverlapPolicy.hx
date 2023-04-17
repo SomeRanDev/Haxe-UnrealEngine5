@@ -3,8 +3,8 @@ package ue;
 
 @:native("ETaskResourceOverlapPolicy")
 @:include("GameplayTask.h")
-extern enum ETaskResourceOverlapPolicy {
-	StartOnTop;
-	StartAtEnd;
-	ETaskResourceOverlapPolicy_MAX;
+extern class ETaskResourceOverlapPolicy {
+	static var StartOnTop: ETaskResourceOverlapPolicy;
+	static var StartAtEnd: ETaskResourceOverlapPolicy;
+	static var ETaskResourceOverlapPolicy_MAX: ETaskResourceOverlapPolicy;
 }

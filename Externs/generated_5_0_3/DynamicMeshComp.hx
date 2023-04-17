@@ -5,20 +5,20 @@ package ue;
 @:include("Components/DynamicMeshComponent.h")
 @:structAccess
 extern class DynamicMeshComp extends BaseDynamicMeshComp {
-	public var MeshObject: cpp.Star<DynamicMesh>;
-	public var TangentsType: EDynamicMeshComponentTangentsMode;
-	public var CollisionType: ECollisionTraceFlag;
+	@:protected public var MeshObject: cpp.Star<DynamicMesh>;
+	@:protected public var TangentsType: EDynamicMeshComponentTangentsMode;
+	public var CollisionType: TEnumAsByte<ECollisionTraceFlag>;
 	public var bEnableComplexCollision: Bool;
 	public var bDeferCollisionUpdates: Bool;
-	public var MeshBodySetup: cpp.Star<BodySetup>;
+	@:protected public var MeshBodySetup: cpp.Star<BodySetup>;
 
-	public function ValidateMaterialSlots(bCreateIfMissing: Bool, bDeleteExtraSlots: Bool): cpp.Reference<Bool>;
+	public function ValidateMaterialSlots(bCreateIfMissing: Bool, bDeleteExtraSlots: Bool): Bool;
 	public function UpdateCollision(bOnlyIfPending: Bool): Void;
 	public function SetTangentsType(NewTangentsType: EDynamicMeshComponentTangentsMode): Void;
 	public function SetDynamicMesh(NewMesh: cpp.Star<DynamicMesh>): Void;
 	public function SetDeferredCollisionUpdatesEnabled(bEnabled: Bool, bImmediateUpdate: Bool): Void;
 	public function SetComplexAsSimpleCollisionEnabled(bEnabled: Bool, bImmediateUpdate: Bool): Void;
-	public function GetTangentsType(): cpp.Reference<EDynamicMeshComponentTangentsMode>;
+	public function GetTangentsType(): EDynamicMeshComponentTangentsMode;
 	public function EnableComplexAsSimpleCollision(): Void;
 	public function ConfigureMaterialSet(NewMaterialSet: cpp.Reference<TArray<cpp.Star<MaterialInterface>>>): Void;
 
@@ -28,18 +28,12 @@ extern class DynamicMeshComp extends BaseDynamicMeshComp {
 @:forward(GetTangentsType)
 @:nativeGen
 abstract ConstDynamicMeshComp(DynamicMeshComp) from DynamicMeshComp {
-	public extern var MeshObject(get, never): cpp.Star<DynamicMesh.ConstDynamicMesh>;
-	public inline extern function get_MeshObject(): cpp.Star<DynamicMesh.ConstDynamicMesh> return this.MeshObject;
-	public extern var TangentsType(get, never): EDynamicMeshComponentTangentsMode;
-	public inline extern function get_TangentsType(): EDynamicMeshComponentTangentsMode return this.TangentsType;
-	public extern var CollisionType(get, never): ECollisionTraceFlag;
-	public inline extern function get_CollisionType(): ECollisionTraceFlag return this.CollisionType;
+	public extern var CollisionType(get, never): TEnumAsByte<ECollisionTraceFlag>;
+	public inline extern function get_CollisionType(): TEnumAsByte<ECollisionTraceFlag> return this.CollisionType;
 	public extern var bEnableComplexCollision(get, never): Bool;
 	public inline extern function get_bEnableComplexCollision(): Bool return this.bEnableComplexCollision;
 	public extern var bDeferCollisionUpdates(get, never): Bool;
 	public inline extern function get_bDeferCollisionUpdates(): Bool return this.bDeferCollisionUpdates;
-	public extern var MeshBodySetup(get, never): cpp.Star<BodySetup.ConstBodySetup>;
-	public inline extern function get_MeshBodySetup(): cpp.Star<BodySetup.ConstBodySetup> return this.MeshBodySetup;
 }
 
 @:forward

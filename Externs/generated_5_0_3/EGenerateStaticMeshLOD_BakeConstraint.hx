@@ -3,8 +3,8 @@ package ue;
 
 @:native("EGenerateStaticMeshLOD_BakeConstraint")
 @:include("Tools/GenerateStaticMeshLODAssetTool.h")
-extern enum EGenerateStaticMeshLOD_BakeConstraint {
-	NoConstraint;
-	DoNotBake;
-	EGenerateStaticMeshLOD_MAX;
+extern class EGenerateStaticMeshLOD_BakeConstraint {
+	static var NoConstraint: EGenerateStaticMeshLOD_BakeConstraint;
+	static var DoNotBake: EGenerateStaticMeshLOD_BakeConstraint;
+	static var EGenerateStaticMeshLOD_MAX: EGenerateStaticMeshLOD_BakeConstraint;
 }

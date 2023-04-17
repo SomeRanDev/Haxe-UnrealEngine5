@@ -8,7 +8,7 @@ extern class GameplayDebuggerUserSettings extends DeveloperSettings {
 	public var bEnableGameplayDebuggerInEditor: Bool;
 	public var MaxViewDistance: cpp.Float32;
 	public var MaxViewAngle: cpp.Float32;
-	public var FontSize: cpp.Int32;
+	@:protected public var FontSize: cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -22,8 +22,6 @@ abstract ConstGameplayDebuggerUserSettings(GameplayDebuggerUserSettings) from Ga
 	public inline extern function get_MaxViewDistance(): cpp.Float32 return this.MaxViewDistance;
 	public extern var MaxViewAngle(get, never): cpp.Float32;
 	public inline extern function get_MaxViewAngle(): cpp.Float32 return this.MaxViewAngle;
-	public extern var FontSize(get, never): cpp.Int32;
-	public inline extern function get_FontSize(): cpp.Int32 return this.FontSize;
 }
 
 @:forward

@@ -3,8 +3,8 @@ package ue;
 
 @:native("ENiagaraRendererSourceDataMode")
 @:include("NiagaraCommon.h")
-extern enum ENiagaraRendererSourceDataMode {
-	Particles;
-	Emitter;
-	ENiagaraRendererSourceDataMode_MAX;
+extern class ENiagaraRendererSourceDataMode {
+	static var Particles: ENiagaraRendererSourceDataMode;
+	static var Emitter: ENiagaraRendererSourceDataMode;
+	static var ENiagaraRendererSourceDataMode_MAX: ENiagaraRendererSourceDataMode;
 }

@@ -11,8 +11,8 @@ extern class PolyLassoMarqueeMechanic extends InteractionMechanic {
 	public var ClosedColor: LinearColor;
 	public var bEnableFreehandPolygons: Bool;
 	public var bEnableMultiClickPolygons: Bool;
-	public var ClickDragBehavior: cpp.Star<ClickDragInputBehavior>;
-	public var HoverBehavior: cpp.Star<MouseHoverBehavior>;
+	@:protected public var ClickDragBehavior: cpp.Star<ClickDragInputBehavior>;
+	@:protected public var HoverBehavior: cpp.Star<MouseHoverBehavior>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -32,10 +32,6 @@ abstract ConstPolyLassoMarqueeMechanic(PolyLassoMarqueeMechanic) from PolyLassoM
 	public inline extern function get_bEnableFreehandPolygons(): Bool return this.bEnableFreehandPolygons;
 	public extern var bEnableMultiClickPolygons(get, never): Bool;
 	public inline extern function get_bEnableMultiClickPolygons(): Bool return this.bEnableMultiClickPolygons;
-	public extern var ClickDragBehavior(get, never): cpp.Star<ClickDragInputBehavior.ConstClickDragInputBehavior>;
-	public inline extern function get_ClickDragBehavior(): cpp.Star<ClickDragInputBehavior.ConstClickDragInputBehavior> return this.ClickDragBehavior;
-	public extern var HoverBehavior(get, never): cpp.Star<MouseHoverBehavior.ConstMouseHoverBehavior>;
-	public inline extern function get_HoverBehavior(): cpp.Star<MouseHoverBehavior.ConstMouseHoverBehavior> return this.HoverBehavior;
 }
 
 @:forward

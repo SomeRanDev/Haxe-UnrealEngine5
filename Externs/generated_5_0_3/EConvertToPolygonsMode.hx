@@ -3,11 +3,11 @@ package ue;
 
 @:native("EConvertToPolygonsMode")
 @:include("ConvertToPolygonsTool.h")
-extern enum EConvertToPolygonsMode {
-	FaceNormalDeviation;
-	FromUVIslands;
-	FromNormalSeams;
-	FromConnectedTris;
-	FromFurthestPointSampling;
-	EConvertToPolygonsMode_MAX;
+extern class EConvertToPolygonsMode {
+	static var FaceNormalDeviation: EConvertToPolygonsMode;
+	static var FromUVIslands: EConvertToPolygonsMode;
+	static var FromNormalSeams: EConvertToPolygonsMode;
+	static var FromConnectedTris: EConvertToPolygonsMode;
+	static var FromFurthestPointSampling: EConvertToPolygonsMode;
+	static var EConvertToPolygonsMode_MAX: EConvertToPolygonsMode;
 }

@@ -24,7 +24,7 @@ extern class ToolMenu extends ToolMenuBase {
 	public var SubMenuSourceEntryName: FName;
 
 	public function InitMenu(Owner: ToolMenuOwner, Name: FName, Parent: FName, Type: EMultiBoxType): Void;
-	public function AddSubMenuScript(Owner: FName, SectionName: FName, Name: FName, Label: cpp.Reference<FText>, ToolTip: cpp.Reference<FText>): cpp.Reference<cpp.Star<ToolMenu>>;
+	public function AddSubMenuScript(Owner: FName, SectionName: FName, Name: FName, Label: cpp.Reference<FText>, ToolTip: cpp.Reference<FText>): cpp.Star<ToolMenu>;
 	public function AddSectionScript(SectionName: FName, Label: cpp.Reference<FText>, InsertName: FName, InsertType: EToolMenuInsertType): Void;
 	public function AddMenuEntryObject(InObject: cpp.Star<ToolMenuEntryScript>): Void;
 	public function AddMenuEntry(SectionName: FName, Args: cpp.Reference<ToolMenuEntry>): Void;

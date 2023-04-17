@@ -3,15 +3,15 @@ package ue;
 
 @:native("ELevelViewportType")
 @:include("Editor/UnrealEdTypes.h")
-extern enum ELevelViewportType {
-	LVT_OrthoXY;
-	LVT_OrthoXZ;
-	LVT_OrthoYZ;
-	LVT_Perspective;
-	LVT_OrthoFreelook;
-	LVT_OrthoNegativeXY;
-	LVT_OrthoNegativeXZ;
-	LVT_OrthoNegativeYZ;
-	LVT_MAX;
-	LVT_None;
+extern class ELevelViewportType {
+	static var LVT_OrthoXY: ELevelViewportType;
+	static var LVT_OrthoXZ: ELevelViewportType;
+	static var LVT_OrthoYZ: ELevelViewportType;
+	static var LVT_Perspective: ELevelViewportType;
+	static var LVT_OrthoFreelook: ELevelViewportType;
+	static var LVT_OrthoNegativeXY: ELevelViewportType;
+	static var LVT_OrthoNegativeXZ: ELevelViewportType;
+	static var LVT_OrthoNegativeYZ: ELevelViewportType;
+	static var LVT_MAX: ELevelViewportType;
+	static var LVT_None: ELevelViewportType;
 }

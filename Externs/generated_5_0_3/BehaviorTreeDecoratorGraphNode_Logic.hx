@@ -5,7 +5,7 @@ package ue;
 @:include("BehaviorTreeDecoratorGraphNode_Logic.h")
 @:structAccess
 extern class BehaviorTreeDecoratorGraphNode_Logic extends BehaviorTreeDecoratorGraphNode {
-	public var LogicMode: EDecoratorLogicMode;
+	public var LogicMode: TEnumAsByte<EDecoratorLogicMode>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,8 @@ extern class BehaviorTreeDecoratorGraphNode_Logic extends BehaviorTreeDecoratorG
 @:forward()
 @:nativeGen
 abstract ConstBehaviorTreeDecoratorGraphNode_Logic(BehaviorTreeDecoratorGraphNode_Logic) from BehaviorTreeDecoratorGraphNode_Logic {
-	public extern var LogicMode(get, never): EDecoratorLogicMode;
-	public inline extern function get_LogicMode(): EDecoratorLogicMode return this.LogicMode;
+	public extern var LogicMode(get, never): TEnumAsByte<EDecoratorLogicMode>;
+	public inline extern function get_LogicMode(): TEnumAsByte<EDecoratorLogicMode> return this.LogicMode;
 }
 
 @:forward

@@ -3,11 +3,11 @@ package ue;
 
 @:native("EPropertyAccessIndirectionType")
 @:include("PropertyAccess.h")
-extern enum EPropertyAccessIndirectionType {
-	Offset;
-	Object;
-	Array;
-	ScriptFunction;
-	NativeFunction;
-	EPropertyAccessIndirectionType_MAX;
+extern class EPropertyAccessIndirectionType {
+	static var Offset: EPropertyAccessIndirectionType;
+	static var Object: EPropertyAccessIndirectionType;
+	static var Array: EPropertyAccessIndirectionType;
+	static var ScriptFunction: EPropertyAccessIndirectionType;
+	static var NativeFunction: EPropertyAccessIndirectionType;
+	static var EPropertyAccessIndirectionType_MAX: EPropertyAccessIndirectionType;
 }

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EVirtualKeyboardTrigger")
 @:include("Widgets/Text/ISlateEditableTextWidget.h")
-extern enum EVirtualKeyboardTrigger {
-	OnFocusByPointer;
-	OnAllFocusEvents;
-	EVirtualKeyboardTrigger_MAX;
+extern class EVirtualKeyboardTrigger {
+	static var OnFocusByPointer: EVirtualKeyboardTrigger;
+	static var OnAllFocusEvents: EVirtualKeyboardTrigger;
+	static var EVirtualKeyboardTrigger_MAX: EVirtualKeyboardTrigger;
 }

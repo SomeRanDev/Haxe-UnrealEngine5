@@ -6,8 +6,8 @@ package ue;
 @:structAccess
 extern class ResponseChannel {
 	public var Channel: FName;
-	public var Response: ECollisionResponse;
+	public var Response: TEnumAsByte<ECollisionResponse>;
 
 	@:native("FResponseChannel") public function new();
-	@:native("FResponseChannel") public static function make(Channel: FName, Response: ECollisionResponse): ResponseChannel ;
+	@:native("FResponseChannel") public static function make(Channel: FName, Response: TEnumAsByte<ECollisionResponse>): ResponseChannel ;
 }

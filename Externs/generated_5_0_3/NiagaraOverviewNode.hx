@@ -5,8 +5,8 @@ package ue;
 @:include("NiagaraOverviewNode.h")
 @:structAccess
 extern class NiagaraOverviewNode extends EdGraphNode {
-	public var OwningSystem: cpp.Star<NiagaraSystem>;
-	public var EmitterHandleGuid: Guid;
+	private var OwningSystem: cpp.Star<NiagaraSystem>;
+	private var EmitterHandleGuid: Guid;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class NiagaraOverviewNode extends EdGraphNode {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraOverviewNode(NiagaraOverviewNode) from NiagaraOverviewNode {
-	public extern var OwningSystem(get, never): cpp.Star<NiagaraSystem.ConstNiagaraSystem>;
-	public inline extern function get_OwningSystem(): cpp.Star<NiagaraSystem.ConstNiagaraSystem> return this.OwningSystem;
-	public extern var EmitterHandleGuid(get, never): Guid;
-	public inline extern function get_EmitterHandleGuid(): Guid return this.EmitterHandleGuid;
 }
 
 @:forward

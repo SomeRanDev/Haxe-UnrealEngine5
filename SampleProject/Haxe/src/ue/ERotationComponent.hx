@@ -3,12 +3,12 @@ package ue;
 
 @:native("ERotationComponent")
 @:include("CommonAnimationTypes.h")
-extern enum ERotationComponent {
-	EulerX;
-	EulerY;
-	EulerZ;
-	QuaternionAngle;
-	SwingAngle;
-	TwistAngle;
-	ERotationComponent_MAX;
+extern class ERotationComponent {
+	static var EulerX: ERotationComponent;
+	static var EulerY: ERotationComponent;
+	static var EulerZ: ERotationComponent;
+	static var QuaternionAngle: ERotationComponent;
+	static var SwingAngle: ERotationComponent;
+	static var TwistAngle: ERotationComponent;
+	static var ERotationComponent_MAX: ERotationComponent;
 }

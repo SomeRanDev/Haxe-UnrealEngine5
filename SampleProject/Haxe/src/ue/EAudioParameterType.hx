@@ -3,19 +3,19 @@ package ue;
 
 @:native("EAudioParameterType")
 @:include("AudioParameter.h")
-extern enum EAudioParameterType {
-	None;
-	Boolean;
-	Integer;
-	Float;
-	String;
-	Object;
-	NoneArray;
-	BooleanArray;
-	IntegerArray;
-	FloatArray;
-	StringArray;
-	ObjectArray;
-	COUNT;
-	EAudioParameterType_MAX;
+extern class EAudioParameterType {
+	static var None: EAudioParameterType;
+	static var Boolean: EAudioParameterType;
+	static var Integer: EAudioParameterType;
+	static var Float: EAudioParameterType;
+	static var String: EAudioParameterType;
+	static var Object: EAudioParameterType;
+	static var NoneArray: EAudioParameterType;
+	static var BooleanArray: EAudioParameterType;
+	static var IntegerArray: EAudioParameterType;
+	static var FloatArray: EAudioParameterType;
+	static var StringArray: EAudioParameterType;
+	static var ObjectArray: EAudioParameterType;
+	static var COUNT: EAudioParameterType;
+	static var EAudioParameterType_MAX: EAudioParameterType;
 }

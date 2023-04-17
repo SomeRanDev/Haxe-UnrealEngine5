@@ -3,21 +3,21 @@ package ue;
 
 @:native("EMaterialShadingModel")
 @:include("Engine/EngineTypes.h")
-extern enum EMaterialShadingModel {
-	MSM_Unlit;
-	MSM_DefaultLit;
-	MSM_Subsurface;
-	MSM_PreintegratedSkin;
-	MSM_ClearCoat;
-	MSM_SubsurfaceProfile;
-	MSM_TwoSidedFoliage;
-	MSM_Hair;
-	MSM_Cloth;
-	MSM_Eye;
-	MSM_SingleLayerWater;
-	MSM_ThinTranslucent;
-	MSM_Strata;
-	MSM_NUM;
-	MSM_FromMaterialExpression;
-	MSM_MAX;
+extern class EMaterialShadingModel {
+	static var MSM_Unlit: EMaterialShadingModel;
+	static var MSM_DefaultLit: EMaterialShadingModel;
+	static var MSM_Subsurface: EMaterialShadingModel;
+	static var MSM_PreintegratedSkin: EMaterialShadingModel;
+	static var MSM_ClearCoat: EMaterialShadingModel;
+	static var MSM_SubsurfaceProfile: EMaterialShadingModel;
+	static var MSM_TwoSidedFoliage: EMaterialShadingModel;
+	static var MSM_Hair: EMaterialShadingModel;
+	static var MSM_Cloth: EMaterialShadingModel;
+	static var MSM_Eye: EMaterialShadingModel;
+	static var MSM_SingleLayerWater: EMaterialShadingModel;
+	static var MSM_ThinTranslucent: EMaterialShadingModel;
+	static var MSM_Strata: EMaterialShadingModel;
+	static var MSM_NUM: EMaterialShadingModel;
+	static var MSM_FromMaterialExpression: EMaterialShadingModel;
+	static var MSM_MAX: EMaterialShadingModel;
 }

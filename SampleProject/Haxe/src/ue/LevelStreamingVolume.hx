@@ -8,7 +8,7 @@ extern class LevelStreamingVolume extends Volume {
 	public var StreamingLevelNames: TArray<FName>;
 	public var bEditorPreVisOnly: Bool;
 	public var bDisabled: Bool;
-	public var StreamingUsage: EStreamingVolumeUsage;
+	public var StreamingUsage: TEnumAsByte<EStreamingVolumeUsage>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -22,8 +22,8 @@ abstract ConstLevelStreamingVolume(LevelStreamingVolume) from LevelStreamingVolu
 	public inline extern function get_bEditorPreVisOnly(): Bool return this.bEditorPreVisOnly;
 	public extern var bDisabled(get, never): Bool;
 	public inline extern function get_bDisabled(): Bool return this.bDisabled;
-	public extern var StreamingUsage(get, never): EStreamingVolumeUsage;
-	public inline extern function get_StreamingUsage(): EStreamingVolumeUsage return this.StreamingUsage;
+	public extern var StreamingUsage(get, never): TEnumAsByte<EStreamingVolumeUsage>;
+	public inline extern function get_StreamingUsage(): TEnumAsByte<EStreamingVolumeUsage> return this.StreamingUsage;
 }
 
 @:forward

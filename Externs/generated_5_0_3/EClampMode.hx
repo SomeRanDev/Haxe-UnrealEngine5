@@ -3,9 +3,9 @@ package ue;
 
 @:native("EClampMode")
 @:include("Materials/MaterialExpressionClamp.h")
-extern enum EClampMode {
-	CMODE_Clamp;
-	CMODE_ClampMin;
-	CMODE_ClampMax;
-	CMODE_MAX;
+extern class EClampMode {
+	static var CMODE_Clamp: EClampMode;
+	static var CMODE_ClampMin: EClampMode;
+	static var CMODE_ClampMax: EClampMode;
+	static var CMODE_MAX: EClampMode;
 }

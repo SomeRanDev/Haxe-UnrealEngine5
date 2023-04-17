@@ -15,7 +15,7 @@ extern class ActorRecording extends SequenceRecordingBase {
 	public var TargetAnimation: cpp.Star<AnimSequence>;
 	public var AnimationSettings: AnimationRecordingSettings;
 	public var bRecordToPossessable: Bool;
-	public var ActorToRecord: TSoftObjectPtr<Actor>;
+	private var ActorToRecord: TSoftObjectPtr<Actor>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -43,8 +43,6 @@ abstract ConstActorRecording(ActorRecording) from ActorRecording {
 	public inline extern function get_AnimationSettings(): AnimationRecordingSettings return this.AnimationSettings;
 	public extern var bRecordToPossessable(get, never): Bool;
 	public inline extern function get_bRecordToPossessable(): Bool return this.bRecordToPossessable;
-	public extern var ActorToRecord(get, never): TSoftObjectPtr<Actor.ConstActor>;
-	public inline extern function get_ActorToRecord(): TSoftObjectPtr<Actor.ConstActor> return this.ActorToRecord;
 }
 
 @:forward

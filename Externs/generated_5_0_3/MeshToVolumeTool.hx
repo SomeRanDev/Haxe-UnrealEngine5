@@ -5,10 +5,10 @@ package ue;
 @:include("MeshToVolumeTool.h")
 @:structAccess
 extern class MeshToVolumeTool extends SingleSelectionMeshEditingTool {
-	public var Settings: cpp.Star<MeshToVolumeToolProperties>;
-	public var HandleSourcesProperties: cpp.Star<OnAcceptHandleSourcesProperties>;
-	public var PreviewMesh: cpp.Star<PreviewMesh>;
-	public var VolumeEdgesSet: cpp.Star<LineSetComp>;
+	@:protected public var Settings: cpp.Star<MeshToVolumeToolProperties>;
+	@:protected public var HandleSourcesProperties: cpp.Star<OnAcceptHandleSourcesProperties>;
+	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
+	@:protected public var VolumeEdgesSet: cpp.Star<LineSetComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class MeshToVolumeTool extends SingleSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstMeshToVolumeTool(MeshToVolumeTool) from MeshToVolumeTool {
-	public extern var Settings(get, never): cpp.Star<MeshToVolumeToolProperties.ConstMeshToVolumeToolProperties>;
-	public inline extern function get_Settings(): cpp.Star<MeshToVolumeToolProperties.ConstMeshToVolumeToolProperties> return this.Settings;
-	public extern var HandleSourcesProperties(get, never): cpp.Star<OnAcceptHandleSourcesProperties.ConstOnAcceptHandleSourcesProperties>;
-	public inline extern function get_HandleSourcesProperties(): cpp.Star<OnAcceptHandleSourcesProperties.ConstOnAcceptHandleSourcesProperties> return this.HandleSourcesProperties;
-	public extern var PreviewMesh(get, never): cpp.Star<PreviewMesh.ConstPreviewMesh>;
-	public inline extern function get_PreviewMesh(): cpp.Star<PreviewMesh.ConstPreviewMesh> return this.PreviewMesh;
-	public extern var VolumeEdgesSet(get, never): cpp.Star<LineSetComp.ConstLineSetComp>;
-	public inline extern function get_VolumeEdgesSet(): cpp.Star<LineSetComp.ConstLineSetComp> return this.VolumeEdgesSet;
 }
 
 @:forward

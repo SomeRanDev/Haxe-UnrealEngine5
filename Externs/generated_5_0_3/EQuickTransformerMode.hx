@@ -3,8 +3,8 @@ package ue;
 
 @:native("EQuickTransformerMode")
 @:include("DeformMeshPolygonsTool.h")
-extern enum EQuickTransformerMode {
-	AxisTranslation;
-	AxisRotation;
-	EQuickTransformerMode_MAX;
+extern class EQuickTransformerMode {
+	static var AxisTranslation: EQuickTransformerMode;
+	static var AxisRotation: EQuickTransformerMode;
+	static var EQuickTransformerMode_MAX: EQuickTransformerMode;
 }

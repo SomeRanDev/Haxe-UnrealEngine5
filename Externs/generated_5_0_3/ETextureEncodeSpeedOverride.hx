@@ -3,10 +3,10 @@ package ue;
 
 @:native("ETextureEncodeSpeedOverride")
 @:include("TextureEncodingSettings.h")
-extern enum ETextureEncodeSpeedOverride {
-	Disabled;
-	Final;
-	FinalIfAvailable;
-	Fast;
-	ETextureEncodeSpeedOverride_MAX;
+extern class ETextureEncodeSpeedOverride {
+	static var Disabled: ETextureEncodeSpeedOverride;
+	static var Final: ETextureEncodeSpeedOverride;
+	static var FinalIfAvailable: ETextureEncodeSpeedOverride;
+	static var Fast: ETextureEncodeSpeedOverride;
+	static var ETextureEncodeSpeedOverride_MAX: ETextureEncodeSpeedOverride;
 }

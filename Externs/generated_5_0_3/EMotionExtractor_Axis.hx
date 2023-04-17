@@ -3,13 +3,13 @@ package ue;
 
 @:native("EMotionExtractor_Axis")
 @:include("MotionExtractorModifier.h")
-extern enum EMotionExtractor_Axis {
-	X;
-	Y;
-	Z;
-	XY;
-	XZ;
-	YZ;
-	XYZ;
-	EMotionExtractor_MAX;
+extern class EMotionExtractor_Axis {
+	static var X: EMotionExtractor_Axis;
+	static var Y: EMotionExtractor_Axis;
+	static var Z: EMotionExtractor_Axis;
+	static var XY: EMotionExtractor_Axis;
+	static var XZ: EMotionExtractor_Axis;
+	static var YZ: EMotionExtractor_Axis;
+	static var XYZ: EMotionExtractor_Axis;
+	static var EMotionExtractor_MAX: EMotionExtractor_Axis;
 }

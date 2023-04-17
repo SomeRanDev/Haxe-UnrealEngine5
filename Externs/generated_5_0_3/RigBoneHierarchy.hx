@@ -5,7 +5,7 @@ package ue;
 @:include("Rigs/RigBoneHierarchy.h")
 @:structAccess
 extern class RigBoneHierarchy {
-	public var Bones: TArray<RigBone>;
+	private var Bones: TArray<RigBone>;
 
 	@:native("FRigBoneHierarchy") public function new();
 	@:native("FRigBoneHierarchy") public static function make(Bones: TArray<RigBone>): RigBoneHierarchy ;

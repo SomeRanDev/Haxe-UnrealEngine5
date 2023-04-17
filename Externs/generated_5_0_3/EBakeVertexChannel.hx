@@ -3,11 +3,11 @@ package ue;
 
 @:native("EBakeVertexChannel")
 @:include("BakeMeshAttributeVertexTool.h")
-extern enum EBakeVertexChannel {
-	R;
-	G;
-	B;
-	A;
-	RGBA;
-	EBakeVertexChannel_MAX;
+extern class EBakeVertexChannel {
+	static var R: EBakeVertexChannel;
+	static var G: EBakeVertexChannel;
+	static var B: EBakeVertexChannel;
+	static var A: EBakeVertexChannel;
+	static var RGBA: EBakeVertexChannel;
+	static var EBakeVertexChannel_MAX: EBakeVertexChannel;
 }

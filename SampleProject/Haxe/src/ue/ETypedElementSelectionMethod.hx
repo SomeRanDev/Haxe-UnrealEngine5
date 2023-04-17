@@ -3,8 +3,8 @@ package ue;
 
 @:native("ETypedElementSelectionMethod")
 @:include("Elements/Interfaces/TypedElementSelectionInterface.h")
-extern enum ETypedElementSelectionMethod {
-	Primary;
-	Secondary;
-	ETypedElementSelectionMethod_MAX;
+extern class ETypedElementSelectionMethod {
+	static var Primary: ETypedElementSelectionMethod;
+	static var Secondary: ETypedElementSelectionMethod;
+	static var ETypedElementSelectionMethod_MAX: ETypedElementSelectionMethod;
 }

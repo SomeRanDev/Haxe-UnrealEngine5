@@ -5,7 +5,7 @@ package ue;
 @:include("AnimationModifiersAssetUserData.h")
 @:structAccess
 extern class AnimationModifiersAssetUserData extends AssetUserData {
-	public var AnimationModifierInstances: TArray<cpp.Star<AnimationModifier>>;
+	@:protected public var AnimationModifierInstances: TArray<cpp.Star<AnimationModifier>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class AnimationModifiersAssetUserData extends AssetUserData {
 @:forward()
 @:nativeGen
 abstract ConstAnimationModifiersAssetUserData(AnimationModifiersAssetUserData) from AnimationModifiersAssetUserData {
-	public extern var AnimationModifierInstances(get, never): TArray<cpp.Star<AnimationModifier.ConstAnimationModifier>>;
-	public inline extern function get_AnimationModifierInstances(): TArray<cpp.Star<AnimationModifier.ConstAnimationModifier>> return this.AnimationModifierInstances;
 }
 
 @:forward

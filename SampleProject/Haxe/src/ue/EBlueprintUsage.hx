@@ -3,9 +3,9 @@ package ue;
 
 @:native("EBlueprintUsage")
 @:include("AnimGraphNode_Base.h")
-extern enum EBlueprintUsage {
-	NoProperties;
-	DoesNotUseBlueprint;
-	UsesBlueprint;
-	EBlueprintUsage_MAX;
+extern class EBlueprintUsage {
+	static var NoProperties: EBlueprintUsage;
+	static var DoesNotUseBlueprint: EBlueprintUsage;
+	static var UsesBlueprint: EBlueprintUsage;
+	static var EBlueprintUsage_MAX: EBlueprintUsage;
 }

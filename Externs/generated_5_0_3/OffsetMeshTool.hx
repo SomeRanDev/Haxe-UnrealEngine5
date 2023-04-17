@@ -5,10 +5,10 @@ package ue;
 @:include("OffsetMeshTool.h")
 @:structAccess
 extern class OffsetMeshTool extends BaseMeshProcessingTool {
-	public var OffsetProperties: cpp.Star<OffsetMeshToolProperties>;
-	public var IterativeProperties: cpp.Star<IterativeOffsetProperties>;
-	public var ImplicitProperties: cpp.Star<ImplicitOffsetProperties>;
-	public var WeightMapProperties: cpp.Star<OffsetWeightMapSetProperties>;
+	@:protected public var OffsetProperties: cpp.Star<OffsetMeshToolProperties>;
+	@:protected public var IterativeProperties: cpp.Star<IterativeOffsetProperties>;
+	@:protected public var ImplicitProperties: cpp.Star<ImplicitOffsetProperties>;
+	@:protected public var WeightMapProperties: cpp.Star<OffsetWeightMapSetProperties>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class OffsetMeshTool extends BaseMeshProcessingTool {
 @:forward()
 @:nativeGen
 abstract ConstOffsetMeshTool(OffsetMeshTool) from OffsetMeshTool {
-	public extern var OffsetProperties(get, never): cpp.Star<OffsetMeshToolProperties.ConstOffsetMeshToolProperties>;
-	public inline extern function get_OffsetProperties(): cpp.Star<OffsetMeshToolProperties.ConstOffsetMeshToolProperties> return this.OffsetProperties;
-	public extern var IterativeProperties(get, never): cpp.Star<IterativeOffsetProperties.ConstIterativeOffsetProperties>;
-	public inline extern function get_IterativeProperties(): cpp.Star<IterativeOffsetProperties.ConstIterativeOffsetProperties> return this.IterativeProperties;
-	public extern var ImplicitProperties(get, never): cpp.Star<ImplicitOffsetProperties.ConstImplicitOffsetProperties>;
-	public inline extern function get_ImplicitProperties(): cpp.Star<ImplicitOffsetProperties.ConstImplicitOffsetProperties> return this.ImplicitProperties;
-	public extern var WeightMapProperties(get, never): cpp.Star<OffsetWeightMapSetProperties.ConstOffsetWeightMapSetProperties>;
-	public inline extern function get_WeightMapProperties(): cpp.Star<OffsetWeightMapSetProperties.ConstOffsetWeightMapSetProperties> return this.WeightMapProperties;
 }
 
 @:forward

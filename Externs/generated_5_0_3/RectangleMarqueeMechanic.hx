@@ -7,7 +7,7 @@ package ue;
 extern class RectangleMarqueeMechanic extends InteractionMechanic {
 	public var bUseExternalClickDragBehavior: Bool;
 	public var OnDragRectangleChangedDeferredThreshold: cpp.Float64;
-	public var ClickDragBehavior: cpp.Star<ClickDragInputBehavior>;
+	@:protected public var ClickDragBehavior: cpp.Star<ClickDragInputBehavior>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,8 +19,6 @@ abstract ConstRectangleMarqueeMechanic(RectangleMarqueeMechanic) from RectangleM
 	public inline extern function get_bUseExternalClickDragBehavior(): Bool return this.bUseExternalClickDragBehavior;
 	public extern var OnDragRectangleChangedDeferredThreshold(get, never): cpp.Float64;
 	public inline extern function get_OnDragRectangleChangedDeferredThreshold(): cpp.Float64 return this.OnDragRectangleChangedDeferredThreshold;
-	public extern var ClickDragBehavior(get, never): cpp.Star<ClickDragInputBehavior.ConstClickDragInputBehavior>;
-	public inline extern function get_ClickDragBehavior(): cpp.Star<ClickDragInputBehavior.ConstClickDragInputBehavior> return this.ClickDragBehavior;
 }
 
 @:forward

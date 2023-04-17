@@ -5,9 +5,8 @@ package ue;
 @:include("EnvironmentQuery/EnvQuery.h")
 @:structAccess
 extern class EnvQuery extends DataAsset {
-	public var EdGraph: cpp.Star<EdGraph>;
-	public var QueryName: FName;
-	public var Options: TArray<cpp.Star<EnvQueryOption>>;
+	@:protected public var QueryName: FName;
+	@:protected public var Options: TArray<cpp.Star<EnvQueryOption>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +14,6 @@ extern class EnvQuery extends DataAsset {
 @:forward()
 @:nativeGen
 abstract ConstEnvQuery(EnvQuery) from EnvQuery {
-	public extern var EdGraph(get, never): cpp.Star<EdGraph.ConstEdGraph>;
-	public inline extern function get_EdGraph(): cpp.Star<EdGraph.ConstEdGraph> return this.EdGraph;
-	public extern var QueryName(get, never): FName;
-	public inline extern function get_QueryName(): FName return this.QueryName;
-	public extern var Options(get, never): TArray<cpp.Star<EnvQueryOption.ConstEnvQueryOption>>;
-	public inline extern function get_Options(): TArray<cpp.Star<EnvQueryOption.ConstEnvQueryOption>> return this.Options;
 }
 
 @:forward

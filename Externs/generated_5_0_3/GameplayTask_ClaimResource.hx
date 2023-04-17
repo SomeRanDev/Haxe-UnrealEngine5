@@ -5,8 +5,8 @@ package ue;
 @:include("Tasks/GameplayTask_ClaimResource.h")
 @:structAccess
 extern class GameplayTask_ClaimResource extends GameplayTask {
-	public function ClaimResources(InTaskOwner: GameplayTaskOwnerInterface, ResourceClasses: TArray<TSubclassOf<GameplayTaskResource>>, Priority: cpp.UInt8, TaskInstanceName: FName): cpp.Reference<cpp.Star<GameplayTask_ClaimResource>>;
-	public function ClaimResource(InTaskOwner: GameplayTaskOwnerInterface, ResourceClass: TSubclassOf<GameplayTaskResource>, Priority: cpp.UInt8, TaskInstanceName: FName): cpp.Reference<cpp.Star<GameplayTask_ClaimResource>>;
+	public function ClaimResources(InTaskOwner: GameplayTaskOwnerInterface, ResourceClasses: TArray<TSubclassOf<GameplayTaskResource>>, Priority: cpp.UInt8, TaskInstanceName: FName): cpp.Star<GameplayTask_ClaimResource>;
+	public function ClaimResource(InTaskOwner: GameplayTaskOwnerInterface, ResourceClass: TSubclassOf<GameplayTaskResource>, Priority: cpp.UInt8, TaskInstanceName: FName): cpp.Star<GameplayTask_ClaimResource>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

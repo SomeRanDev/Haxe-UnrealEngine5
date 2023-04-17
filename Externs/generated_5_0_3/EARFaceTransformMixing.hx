@@ -3,10 +3,10 @@ package ue;
 
 @:native("EARFaceTransformMixing")
 @:include("ARComponent.h")
-extern enum EARFaceTransformMixing {
-	ComponentOnly;
-	ComponentLocationTrackedRotation;
-	ComponentWithTracked;
-	TrackingOnly;
-	EARFaceTransformMixing_MAX;
+extern class EARFaceTransformMixing {
+	static var ComponentOnly: EARFaceTransformMixing;
+	static var ComponentLocationTrackedRotation: EARFaceTransformMixing;
+	static var ComponentWithTracked: EARFaceTransformMixing;
+	static var TrackingOnly: EARFaceTransformMixing;
+	static var EARFaceTransformMixing_MAX: EARFaceTransformMixing;
 }

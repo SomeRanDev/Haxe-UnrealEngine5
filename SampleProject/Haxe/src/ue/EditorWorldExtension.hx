@@ -5,7 +5,7 @@ package ue;
 @:include("EditorWorldExtension.h")
 @:structAccess
 extern class EditorWorldExtension extends Object {
-	public var ExtensionActors: TArray<EditorWorldExtensionActorData>;
+	private var ExtensionActors: TArray<EditorWorldExtensionActorData>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class EditorWorldExtension extends Object {
 @:forward()
 @:nativeGen
 abstract ConstEditorWorldExtension(EditorWorldExtension) from EditorWorldExtension {
-	public extern var ExtensionActors(get, never): TArray<EditorWorldExtensionActorData>;
-	public inline extern function get_ExtensionActors(): TArray<EditorWorldExtensionActorData> return this.ExtensionActors;
 }
 
 @:forward

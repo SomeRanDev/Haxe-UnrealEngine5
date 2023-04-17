@@ -5,7 +5,7 @@ package ue;
 @:include("AnimGraphNode_BlendSpaceGraph.h")
 @:structAccess
 extern class AnimGraphNode_BlendSpaceGraph extends AnimGraphNode_BlendSpaceGraphBase {
-	public var Node: AnimNode_BlendSpaceGraph;
+	private var Node: AnimNode_BlendSpaceGraph;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class AnimGraphNode_BlendSpaceGraph extends AnimGraphNode_BlendSpaceGraph
 @:forward()
 @:nativeGen
 abstract ConstAnimGraphNode_BlendSpaceGraph(AnimGraphNode_BlendSpaceGraph) from AnimGraphNode_BlendSpaceGraph {
-	public extern var Node(get, never): AnimNode_BlendSpaceGraph;
-	public inline extern function get_Node(): AnimNode_BlendSpaceGraph return this.Node;
 }
 
 @:forward

@@ -5,10 +5,8 @@ package ue;
 @:include("Animation/AnimCurveTypes.h")
 @:structAccess
 extern class AnimCurveBase {
-	public var LastObservedName_DEPRECATED: FName;
 	public var Name: SmartName;
-	public var Color: LinearColor;
-	public var CurveTypeFlags: cpp.Int32;
+	private var CurveTypeFlags: cpp.Int32;
 
 	@:native("FAnimCurveBase") public function new();
 	@:native("FAnimCurveBase") public static function make(LastObservedName_DEPRECATED: FName, Name: SmartName, Color: LinearColor, CurveTypeFlags: cpp.Int32): AnimCurveBase ;

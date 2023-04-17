@@ -3,8 +3,8 @@ package ue;
 
 @:native("ERotatorQuantization")
 @:include("Engine/EngineTypes.h")
-extern enum ERotatorQuantization {
-	ByteComponents;
-	ShortComponents;
-	ERotatorQuantization_MAX;
+extern class ERotatorQuantization {
+	static var ByteComponents: ERotatorQuantization;
+	static var ShortComponents: ERotatorQuantization;
+	static var ERotatorQuantization_MAX: ERotatorQuantization;
 }

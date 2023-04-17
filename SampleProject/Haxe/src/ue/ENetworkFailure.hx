@@ -3,17 +3,17 @@ package ue;
 
 @:native("ENetworkFailure.Type")
 @:include("Net/Core/Connection/NetEnums.h")
-extern enum ENetworkFailure {
-	NetDriverAlreadyExists;
-	NetDriverCreateFailure;
-	NetDriverListenFailure;
-	ConnectionLost;
-	ConnectionTimeout;
-	FailureReceived;
-	OutdatedClient;
-	OutdatedServer;
-	PendingConnectionFailure;
-	NetGuidMismatch;
-	NetChecksumMismatch;
-	ENetworkFailure_MAX;
+extern class ENetworkFailure {
+	static var NetDriverAlreadyExists: ENetworkFailure;
+	static var NetDriverCreateFailure: ENetworkFailure;
+	static var NetDriverListenFailure: ENetworkFailure;
+	static var ConnectionLost: ENetworkFailure;
+	static var ConnectionTimeout: ENetworkFailure;
+	static var FailureReceived: ENetworkFailure;
+	static var OutdatedClient: ENetworkFailure;
+	static var OutdatedServer: ENetworkFailure;
+	static var PendingConnectionFailure: ENetworkFailure;
+	static var NetGuidMismatch: ENetworkFailure;
+	static var NetChecksumMismatch: ENetworkFailure;
+	static var ENetworkFailure_MAX: ENetworkFailure;
 }

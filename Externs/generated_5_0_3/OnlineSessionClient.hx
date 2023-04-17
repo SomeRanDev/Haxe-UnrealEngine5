@@ -5,8 +5,8 @@ package ue;
 @:include("OnlineSessionClient.h")
 @:structAccess
 extern class OnlineSessionClient extends OnlineSession {
-	public var bIsFromInvite: Bool;
-	public var bHandlingDisconnect: Bool;
+	@:protected public var bIsFromInvite: Bool;
+	@:protected public var bHandlingDisconnect: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class OnlineSessionClient extends OnlineSession {
 @:forward()
 @:nativeGen
 abstract ConstOnlineSessionClient(OnlineSessionClient) from OnlineSessionClient {
-	public extern var bIsFromInvite(get, never): Bool;
-	public inline extern function get_bIsFromInvite(): Bool return this.bIsFromInvite;
-	public extern var bHandlingDisconnect(get, never): Bool;
-	public inline extern function get_bHandlingDisconnect(): Bool return this.bHandlingDisconnect;
 }
 
 @:forward

@@ -3,11 +3,11 @@ package ue;
 
 @:native("ESettingsLockedAxis.Type")
 @:include("PhysicsEngine/PhysicsSettings.h")
-extern enum ESettingsLockedAxis {
-	None;
-	X;
-	Y;
-	Z;
-	Invalid;
-	ESettingsLockedAxis_MAX;
+extern class ESettingsLockedAxis {
+	static var None: ESettingsLockedAxis;
+	static var X: ESettingsLockedAxis;
+	static var Y: ESettingsLockedAxis;
+	static var Z: ESettingsLockedAxis;
+	static var Invalid: ESettingsLockedAxis;
+	static var ESettingsLockedAxis_MAX: ESettingsLockedAxis;
 }

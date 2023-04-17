@@ -5,7 +5,7 @@ package ue;
 @:include("Particles/TypeData/ParticleModuleTypeDataBeam2.h")
 @:structAccess
 extern class ParticleModuleTypeDataBeam2 extends ParticleModuleTypeDataBase {
-	public var BeamMethod: EBeam2Method;
+	public var BeamMethod: TEnumAsByte<EBeam2Method>;
 	public var TextureTile: cpp.Int32;
 	public var TextureTileDistance: cpp.Float32;
 	public var Sheets: cpp.Int32;
@@ -16,7 +16,7 @@ extern class ParticleModuleTypeDataBeam2 extends ParticleModuleTypeDataBase {
 	public var UpVectorStepSize: cpp.Int32;
 	public var BranchParentName: FName;
 	public var Distance: RawDistributionFloat;
-	public var TaperMethod: EBeamTaperMethod;
+	public var TaperMethod: TEnumAsByte<EBeamTaperMethod>;
 	public var TaperFactor: RawDistributionFloat;
 	public var TaperScale: RawDistributionFloat;
 	public var RenderGeometry: Bool;
@@ -30,8 +30,8 @@ extern class ParticleModuleTypeDataBeam2 extends ParticleModuleTypeDataBase {
 @:forward()
 @:nativeGen
 abstract ConstParticleModuleTypeDataBeam2(ParticleModuleTypeDataBeam2) from ParticleModuleTypeDataBeam2 {
-	public extern var BeamMethod(get, never): EBeam2Method;
-	public inline extern function get_BeamMethod(): EBeam2Method return this.BeamMethod;
+	public extern var BeamMethod(get, never): TEnumAsByte<EBeam2Method>;
+	public inline extern function get_BeamMethod(): TEnumAsByte<EBeam2Method> return this.BeamMethod;
 	public extern var TextureTile(get, never): cpp.Int32;
 	public inline extern function get_TextureTile(): cpp.Int32 return this.TextureTile;
 	public extern var TextureTileDistance(get, never): cpp.Float32;
@@ -52,8 +52,8 @@ abstract ConstParticleModuleTypeDataBeam2(ParticleModuleTypeDataBeam2) from Part
 	public inline extern function get_BranchParentName(): FName return this.BranchParentName;
 	public extern var Distance(get, never): RawDistributionFloat;
 	public inline extern function get_Distance(): RawDistributionFloat return this.Distance;
-	public extern var TaperMethod(get, never): EBeamTaperMethod;
-	public inline extern function get_TaperMethod(): EBeamTaperMethod return this.TaperMethod;
+	public extern var TaperMethod(get, never): TEnumAsByte<EBeamTaperMethod>;
+	public inline extern function get_TaperMethod(): TEnumAsByte<EBeamTaperMethod> return this.TaperMethod;
 	public extern var TaperFactor(get, never): RawDistributionFloat;
 	public inline extern function get_TaperFactor(): RawDistributionFloat return this.TaperFactor;
 	public extern var TaperScale(get, never): RawDistributionFloat;

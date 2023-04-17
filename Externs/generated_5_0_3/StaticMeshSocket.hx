@@ -10,8 +10,6 @@ extern class StaticMeshSocket extends Object {
 	public var RelativeRotation: Rotator;
 	public var RelativeScale: Vector;
 	public var Tag: FString;
-	public var PreviewStaticMesh: cpp.Star<StaticMesh>;
-	public var bSocketCreatedAtImport: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -29,10 +27,6 @@ abstract ConstStaticMeshSocket(StaticMeshSocket) from StaticMeshSocket {
 	public inline extern function get_RelativeScale(): Vector return this.RelativeScale;
 	public extern var Tag(get, never): FString;
 	public inline extern function get_Tag(): FString return this.Tag;
-	public extern var PreviewStaticMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_PreviewStaticMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.PreviewStaticMesh;
-	public extern var bSocketCreatedAtImport(get, never): Bool;
-	public inline extern function get_bSocketCreatedAtImport(): Bool return this.bSocketCreatedAtImport;
 }
 
 @:forward

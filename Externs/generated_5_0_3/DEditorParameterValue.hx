@@ -8,7 +8,6 @@ extern class DEditorParameterValue extends Object {
 	public var bOverride: Bool;
 	public var ParameterInfo: MaterialParameterInfo;
 	public var ExpressionId: Guid;
-	public var SortPriority: cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -22,8 +21,6 @@ abstract ConstDEditorParameterValue(DEditorParameterValue) from DEditorParameter
 	public inline extern function get_ParameterInfo(): MaterialParameterInfo return this.ParameterInfo;
 	public extern var ExpressionId(get, never): Guid;
 	public inline extern function get_ExpressionId(): Guid return this.ExpressionId;
-	public extern var SortPriority(get, never): cpp.Int32;
-	public inline extern function get_SortPriority(): cpp.Int32 return this.SortPriority;
 }
 
 @:forward

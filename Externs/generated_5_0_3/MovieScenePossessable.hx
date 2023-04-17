@@ -6,11 +6,10 @@ package ue;
 @:structAccess
 extern class MovieScenePossessable {
 	public var Tags: TArray<FName>;
-	public var Guid: Guid;
-	public var Name: FString;
-	public var PossessedObjectClass: TSoftClassPtr<Class>;
-	public var ParentGuid: Guid;
-	public var SpawnableObjectBindingID: MovieSceneObjectBindingID;
+	private var Guid: Guid;
+	private var Name: FString;
+	private var ParentGuid: Guid;
+	private var SpawnableObjectBindingID: MovieSceneObjectBindingID;
 
 	@:native("FMovieScenePossessable") public function new();
 }

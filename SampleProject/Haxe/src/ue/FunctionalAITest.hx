@@ -5,7 +5,7 @@ package ue;
 @:include("FunctionalAITest.h")
 @:structAccess
 extern class FunctionalAITest extends FunctionalAITestBase {
-	public var SpawnSets: TArray<AITestSpawnSet>;
+	@:protected public var SpawnSets: TArray<AITestSpawnSet>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class FunctionalAITest extends FunctionalAITestBase {
 @:forward()
 @:nativeGen
 abstract ConstFunctionalAITest(FunctionalAITest) from FunctionalAITest {
-	public extern var SpawnSets(get, never): TArray<AITestSpawnSet>;
-	public inline extern function get_SpawnSets(): TArray<AITestSpawnSet> return this.SpawnSets;
 }
 
 @:forward

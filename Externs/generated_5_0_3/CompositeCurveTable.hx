@@ -5,8 +5,8 @@ package ue;
 @:include("Engine/CompositeCurveTable.h")
 @:structAccess
 extern class CompositeCurveTable extends CurveTable {
-	public var ParentTables: TArray<cpp.Star<CurveTable>>;
-	public var OldParentTables: TArray<cpp.Star<CurveTable>>;
+	@:protected public var ParentTables: TArray<cpp.Star<CurveTable>>;
+	@:protected public var OldParentTables: TArray<cpp.Star<CurveTable>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class CompositeCurveTable extends CurveTable {
 @:forward()
 @:nativeGen
 abstract ConstCompositeCurveTable(CompositeCurveTable) from CompositeCurveTable {
-	public extern var ParentTables(get, never): TArray<cpp.Star<CurveTable.ConstCurveTable>>;
-	public inline extern function get_ParentTables(): TArray<cpp.Star<CurveTable.ConstCurveTable>> return this.ParentTables;
-	public extern var OldParentTables(get, never): TArray<cpp.Star<CurveTable.ConstCurveTable>>;
-	public inline extern function get_OldParentTables(): TArray<cpp.Star<CurveTable.ConstCurveTable>> return this.OldParentTables;
 }
 
 @:forward

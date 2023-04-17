@@ -3,17 +3,17 @@ package ue;
 
 @:native("EGeometryCollectionPhysicsTypeEnum")
 @:include("GeometryCollection/GeometryCollectionSimulationTypes.h")
-extern enum EGeometryCollectionPhysicsTypeEnum {
-	Chaos_AngularVelocity;
-	Chaos_DynamicState;
-	Chaos_LinearVelocity;
-	Chaos_InitialAngularVelocity;
-	Chaos_InitialLinearVelocity;
-	Chaos_CollisionGroup;
-	Chaos_LinearForce;
-	Chaos_AngularTorque;
-	Chaos_DisableThreshold;
-	Chaos_SleepingThreshold;
-	Chaos_Max;
-	Chaos_MAX;
+extern class EGeometryCollectionPhysicsTypeEnum {
+	static var Chaos_AngularVelocity: EGeometryCollectionPhysicsTypeEnum;
+	static var Chaos_DynamicState: EGeometryCollectionPhysicsTypeEnum;
+	static var Chaos_LinearVelocity: EGeometryCollectionPhysicsTypeEnum;
+	static var Chaos_InitialAngularVelocity: EGeometryCollectionPhysicsTypeEnum;
+	static var Chaos_InitialLinearVelocity: EGeometryCollectionPhysicsTypeEnum;
+	static var Chaos_CollisionGroup: EGeometryCollectionPhysicsTypeEnum;
+	static var Chaos_LinearForce: EGeometryCollectionPhysicsTypeEnum;
+	static var Chaos_AngularTorque: EGeometryCollectionPhysicsTypeEnum;
+	static var Chaos_DisableThreshold: EGeometryCollectionPhysicsTypeEnum;
+	static var Chaos_SleepingThreshold: EGeometryCollectionPhysicsTypeEnum;
+	static var Chaos_Max: EGeometryCollectionPhysicsTypeEnum;
+	static var Chaos_MAX: EGeometryCollectionPhysicsTypeEnum;
 }

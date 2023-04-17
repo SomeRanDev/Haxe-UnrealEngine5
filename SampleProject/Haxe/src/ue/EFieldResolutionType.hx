@@ -3,10 +3,10 @@ package ue;
 
 @:native("EFieldResolutionType")
 @:include("Field/FieldSystemTypes.h")
-extern enum EFieldResolutionType {
-	Field_Resolution_Minimal;
-	Field_Resolution_DisabledParents;
-	Field_Resolution_Maximum;
-	Field_Resolution_Max;
-	Field_Resolution_MAX;
+extern class EFieldResolutionType {
+	static var Field_Resolution_Minimal: EFieldResolutionType;
+	static var Field_Resolution_DisabledParents: EFieldResolutionType;
+	static var Field_Resolution_Maximum: EFieldResolutionType;
+	static var Field_Resolution_Max: EFieldResolutionType;
+	static var Field_Resolution_MAX: EFieldResolutionType;
 }

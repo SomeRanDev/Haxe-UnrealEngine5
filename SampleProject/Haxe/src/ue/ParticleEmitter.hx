@@ -7,7 +7,7 @@ package ue;
 extern class ParticleEmitter extends Object {
 	public var EmitterName: FName;
 	public var SubUVDataOffset: cpp.Int32;
-	public var EmitterRenderMode: EEmitterRenderMode;
+	public var EmitterRenderMode: TEnumAsByte<EEmitterRenderMode>;
 	public var SignificanceLevel: EParticleSignificanceLevel;
 	public var bUseLegacySpawningBehavior: Bool;
 	public var ConvertedModules: Bool;
@@ -15,15 +15,11 @@ extern class ParticleEmitter extends Object {
 	public var bCookedOut: Bool;
 	public var bDisabledLODsKeepEmitterAlive: Bool;
 	public var bDisableWhenInsignficant: Bool;
-	public var bCollapsed: Bool;
-	public var DetailMode_DEPRECATED: EDetailMode;
-	public var EmitterEditorColor: Color;
 	public var LODLevels: TArray<cpp.Star<ParticleLODLevel>>;
 	public var PeakActiveParticles: cpp.Int32;
 	public var InitialAllocationCount: cpp.Int32;
 	public var QualityLevelSpawnRateScale: cpp.Float32;
 	public var DetailModeBitmask: cpp.UInt32;
-	public var DetailModeDisplay: FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -35,8 +31,8 @@ abstract ConstParticleEmitter(ParticleEmitter) from ParticleEmitter {
 	public inline extern function get_EmitterName(): FName return this.EmitterName;
 	public extern var SubUVDataOffset(get, never): cpp.Int32;
 	public inline extern function get_SubUVDataOffset(): cpp.Int32 return this.SubUVDataOffset;
-	public extern var EmitterRenderMode(get, never): EEmitterRenderMode;
-	public inline extern function get_EmitterRenderMode(): EEmitterRenderMode return this.EmitterRenderMode;
+	public extern var EmitterRenderMode(get, never): TEnumAsByte<EEmitterRenderMode>;
+	public inline extern function get_EmitterRenderMode(): TEnumAsByte<EEmitterRenderMode> return this.EmitterRenderMode;
 	public extern var SignificanceLevel(get, never): EParticleSignificanceLevel;
 	public inline extern function get_SignificanceLevel(): EParticleSignificanceLevel return this.SignificanceLevel;
 	public extern var bUseLegacySpawningBehavior(get, never): Bool;
@@ -51,12 +47,6 @@ abstract ConstParticleEmitter(ParticleEmitter) from ParticleEmitter {
 	public inline extern function get_bDisabledLODsKeepEmitterAlive(): Bool return this.bDisabledLODsKeepEmitterAlive;
 	public extern var bDisableWhenInsignficant(get, never): Bool;
 	public inline extern function get_bDisableWhenInsignficant(): Bool return this.bDisableWhenInsignficant;
-	public extern var bCollapsed(get, never): Bool;
-	public inline extern function get_bCollapsed(): Bool return this.bCollapsed;
-	public extern var DetailMode_DEPRECATED(get, never): EDetailMode;
-	public inline extern function get_DetailMode_DEPRECATED(): EDetailMode return this.DetailMode_DEPRECATED;
-	public extern var EmitterEditorColor(get, never): Color;
-	public inline extern function get_EmitterEditorColor(): Color return this.EmitterEditorColor;
 	public extern var LODLevels(get, never): TArray<cpp.Star<ParticleLODLevel.ConstParticleLODLevel>>;
 	public inline extern function get_LODLevels(): TArray<cpp.Star<ParticleLODLevel.ConstParticleLODLevel>> return this.LODLevels;
 	public extern var PeakActiveParticles(get, never): cpp.Int32;
@@ -67,8 +57,6 @@ abstract ConstParticleEmitter(ParticleEmitter) from ParticleEmitter {
 	public inline extern function get_QualityLevelSpawnRateScale(): cpp.Float32 return this.QualityLevelSpawnRateScale;
 	public extern var DetailModeBitmask(get, never): cpp.UInt32;
 	public inline extern function get_DetailModeBitmask(): cpp.UInt32 return this.DetailModeBitmask;
-	public extern var DetailModeDisplay(get, never): FString;
-	public inline extern function get_DetailModeDisplay(): FString return this.DetailModeDisplay;
 }
 
 @:forward

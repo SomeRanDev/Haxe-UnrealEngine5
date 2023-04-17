@@ -3,10 +3,10 @@ package ue;
 
 @:native("ETextKeyOperation.Type")
 @:include("BehaviorTree/Blackboard/BlackboardKeyType.h")
-extern enum ETextKeyOperation {
-	Equal;
-	NotEqual;
-	Contain;
-	NotContain;
-	ETextKeyOperation_MAX;
+extern class ETextKeyOperation {
+	static var Equal: ETextKeyOperation;
+	static var NotEqual: ETextKeyOperation;
+	static var Contain: ETextKeyOperation;
+	static var NotContain: ETextKeyOperation;
+	static var ETextKeyOperation_MAX: ETextKeyOperation;
 }

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EConstraintTransform.Type")
 @:include("Animation/Rig.h")
-extern enum EConstraintTransform {
-	Absolute;
-	Relative;
-	EConstraintTransform_MAX;
+extern class EConstraintTransform {
+	static var Absolute: EConstraintTransform;
+	static var Relative: EConstraintTransform;
+	static var EConstraintTransform_MAX: EConstraintTransform;
 }

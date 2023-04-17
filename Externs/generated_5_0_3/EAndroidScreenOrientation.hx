@@ -3,14 +3,14 @@ package ue;
 
 @:native("EAndroidScreenOrientation.Type")
 @:include("AndroidRuntimeSettings.h")
-extern enum EAndroidScreenOrientation {
-	Portrait;
-	ReversePortrait;
-	SensorPortrait;
-	Landscape;
-	ReverseLandscape;
-	SensorLandscape;
-	Sensor;
-	FullSensor;
-	EAndroidScreenOrientation_MAX;
+extern class EAndroidScreenOrientation {
+	static var Portrait: EAndroidScreenOrientation;
+	static var ReversePortrait: EAndroidScreenOrientation;
+	static var SensorPortrait: EAndroidScreenOrientation;
+	static var Landscape: EAndroidScreenOrientation;
+	static var ReverseLandscape: EAndroidScreenOrientation;
+	static var SensorLandscape: EAndroidScreenOrientation;
+	static var Sensor: EAndroidScreenOrientation;
+	static var FullSensor: EAndroidScreenOrientation;
+	static var EAndroidScreenOrientation_MAX: EAndroidScreenOrientation;
 }

@@ -5,10 +5,10 @@ package ue;
 @:include("ARComponent.h")
 @:structAccess
 extern class ARGeoAnchorComp extends ARComp {
-	public var ReplicatedPayload: ARGeoAnchorUpdatePayload;
+	@:protected public var ReplicatedPayload: ARGeoAnchorUpdatePayload;
 
 	public function SetGeoAnchorComponentDebugMode(NewDebugMode: EGeoAnchorComponentDebugMode): Void;
-	public function ServerUpdatePayload(NewPayload: cpp.Reference<ARGeoAnchorUpdatePayload>): Void;
+	@:protected public function ServerUpdatePayload(NewPayload: ARGeoAnchorUpdatePayload): Void;
 	public function ReceiveUpdate(Payload: cpp.Reference<ARGeoAnchorUpdatePayload>): Void;
 	public function ReceiveAdd(Payload: cpp.Reference<ARGeoAnchorUpdatePayload>): Void;
 
@@ -18,8 +18,6 @@ extern class ARGeoAnchorComp extends ARComp {
 @:forward()
 @:nativeGen
 abstract ConstARGeoAnchorComp(ARGeoAnchorComp) from ARGeoAnchorComp {
-	public extern var ReplicatedPayload(get, never): ARGeoAnchorUpdatePayload;
-	public inline extern function get_ReplicatedPayload(): ARGeoAnchorUpdatePayload return this.ReplicatedPayload;
 }
 
 @:forward

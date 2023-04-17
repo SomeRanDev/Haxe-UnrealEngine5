@@ -5,8 +5,6 @@ package ue;
 @:include("MeshDescriptionBaseBulkData.h")
 @:structAccess
 extern class MeshDescriptionBaseBulkData extends Object {
-	public var PreallocatedMeshDescription: cpp.Star<MeshDescriptionBase>;
-	public var MeshDescription: cpp.Star<MeshDescriptionBase>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +12,6 @@ extern class MeshDescriptionBaseBulkData extends Object {
 @:forward()
 @:nativeGen
 abstract ConstMeshDescriptionBaseBulkData(MeshDescriptionBaseBulkData) from MeshDescriptionBaseBulkData {
-	public extern var PreallocatedMeshDescription(get, never): cpp.Star<MeshDescriptionBase.ConstMeshDescriptionBase>;
-	public inline extern function get_PreallocatedMeshDescription(): cpp.Star<MeshDescriptionBase.ConstMeshDescriptionBase> return this.PreallocatedMeshDescription;
-	public extern var MeshDescription(get, never): cpp.Star<MeshDescriptionBase.ConstMeshDescriptionBase>;
-	public inline extern function get_MeshDescription(): cpp.Star<MeshDescriptionBase.ConstMeshDescriptionBase> return this.MeshDescription;
 }
 
 @:forward

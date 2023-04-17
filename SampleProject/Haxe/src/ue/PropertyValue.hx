@@ -5,21 +5,17 @@ package ue;
 @:include("PropertyValue.h")
 @:structAccess
 extern class PropertyValue extends Object {
-	public var Properties_DEPRECATED: TArray<TFieldPath<FProperty>>;
-	public var PropertyIndices_DEPRECATED: TArray<cpp.Int32>;
-	public var CapturedPropSegments: TArray<CapturedPropSegment>;
-	public var FullDisplayString: FString;
-	public var PropertySetterName: FName;
-	public var PropertySetterParameterDefaults: TMap<FString, FString>;
-	public var bHasRecordedData: Bool;
-	public var LeafPropertyClass_DEPRECATED: TSubclassOf<Object>;
-	public var ValueBytes: TArray<cpp.UInt8>;
-	public var PropCategory: EPropertyValueCategory;
-	public var DisplayOrder: cpp.UInt32;
+	@:protected public var CapturedPropSegments: TArray<CapturedPropSegment>;
+	@:protected public var FullDisplayString: FString;
+	@:protected public var PropertySetterName: FName;
+	@:protected public var PropertySetterParameterDefaults: TMap<FString, FString>;
+	@:protected public var bHasRecordedData: Bool;
+	@:protected public var ValueBytes: TArray<cpp.UInt8>;
+	@:protected public var PropCategory: EPropertyValueCategory;
 
-	public function HasRecordedData(): cpp.Reference<Bool>;
-	public function GetPropertyTooltip(): cpp.Reference<FText>;
-	public function GetFullDisplayString(): cpp.Reference<FString>;
+	public function HasRecordedData(): Bool;
+	public function GetPropertyTooltip(): FText;
+	public function GetFullDisplayString(): FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -27,28 +23,6 @@ extern class PropertyValue extends Object {
 @:forward(HasRecordedData, GetPropertyTooltip, GetFullDisplayString)
 @:nativeGen
 abstract ConstPropertyValue(PropertyValue) from PropertyValue {
-	public extern var Properties_DEPRECATED(get, never): TArray<TFieldPath<FProperty>>;
-	public inline extern function get_Properties_DEPRECATED(): TArray<TFieldPath<FProperty>> return this.Properties_DEPRECATED;
-	public extern var PropertyIndices_DEPRECATED(get, never): TArray<cpp.Int32>;
-	public inline extern function get_PropertyIndices_DEPRECATED(): TArray<cpp.Int32> return this.PropertyIndices_DEPRECATED;
-	public extern var CapturedPropSegments(get, never): TArray<CapturedPropSegment>;
-	public inline extern function get_CapturedPropSegments(): TArray<CapturedPropSegment> return this.CapturedPropSegments;
-	public extern var FullDisplayString(get, never): FString;
-	public inline extern function get_FullDisplayString(): FString return this.FullDisplayString;
-	public extern var PropertySetterName(get, never): FName;
-	public inline extern function get_PropertySetterName(): FName return this.PropertySetterName;
-	public extern var PropertySetterParameterDefaults(get, never): TMap<FString, FString>;
-	public inline extern function get_PropertySetterParameterDefaults(): TMap<FString, FString> return this.PropertySetterParameterDefaults;
-	public extern var bHasRecordedData(get, never): Bool;
-	public inline extern function get_bHasRecordedData(): Bool return this.bHasRecordedData;
-	public extern var LeafPropertyClass_DEPRECATED(get, never): TSubclassOf<Object.ConstObject>;
-	public inline extern function get_LeafPropertyClass_DEPRECATED(): TSubclassOf<Object.ConstObject> return this.LeafPropertyClass_DEPRECATED;
-	public extern var ValueBytes(get, never): TArray<cpp.UInt8>;
-	public inline extern function get_ValueBytes(): TArray<cpp.UInt8> return this.ValueBytes;
-	public extern var PropCategory(get, never): EPropertyValueCategory;
-	public inline extern function get_PropCategory(): EPropertyValueCategory return this.PropCategory;
-	public extern var DisplayOrder(get, never): cpp.UInt32;
-	public inline extern function get_DisplayOrder(): cpp.UInt32 return this.DisplayOrder;
 }
 
 @:forward

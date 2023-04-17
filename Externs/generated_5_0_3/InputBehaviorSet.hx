@@ -5,7 +5,7 @@ package ue;
 @:include("InputBehaviorSet.h")
 @:structAccess
 extern class InputBehaviorSet extends Object {
-	public var Behaviors: TArray<BehaviorInfo>;
+	@:protected public var Behaviors: TArray<BehaviorInfo>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class InputBehaviorSet extends Object {
 @:forward()
 @:nativeGen
 abstract ConstInputBehaviorSet(InputBehaviorSet) from InputBehaviorSet {
-	public extern var Behaviors(get, never): TArray<BehaviorInfo>;
-	public inline extern function get_Behaviors(): TArray<BehaviorInfo> return this.Behaviors;
 }
 
 @:forward

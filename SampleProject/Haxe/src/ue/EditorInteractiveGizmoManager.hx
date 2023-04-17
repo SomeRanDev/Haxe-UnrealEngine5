@@ -5,9 +5,9 @@ package ue;
 @:include("EditorInteractiveGizmoManager.h")
 @:structAccess
 extern class EditorInteractiveGizmoManager extends InteractiveGizmoManager {
-	public var Registry: cpp.Star<EditorInteractiveGizmoRegistry>;
-	public var ActiveEditorGizmos: TArray<ActiveEditorGizmo>;
-	public var CachedGizmoMap: TMap<cpp.Star<InteractiveGizmoBuilder>, cpp.Star<InteractiveGizmo>>;
+	@:protected public var Registry: cpp.Star<EditorInteractiveGizmoRegistry>;
+	@:protected public var ActiveEditorGizmos: TArray<ActiveEditorGizmo>;
+	@:protected public var CachedGizmoMap: TMap<cpp.Star<InteractiveGizmoBuilder>, cpp.Star<InteractiveGizmo>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class EditorInteractiveGizmoManager extends InteractiveGizmoManager {
 @:forward()
 @:nativeGen
 abstract ConstEditorInteractiveGizmoManager(EditorInteractiveGizmoManager) from EditorInteractiveGizmoManager {
-	public extern var Registry(get, never): cpp.Star<EditorInteractiveGizmoRegistry.ConstEditorInteractiveGizmoRegistry>;
-	public inline extern function get_Registry(): cpp.Star<EditorInteractiveGizmoRegistry.ConstEditorInteractiveGizmoRegistry> return this.Registry;
-	public extern var ActiveEditorGizmos(get, never): TArray<ActiveEditorGizmo>;
-	public inline extern function get_ActiveEditorGizmos(): TArray<ActiveEditorGizmo> return this.ActiveEditorGizmos;
-	public extern var CachedGizmoMap(get, never): TMap<cpp.Star<InteractiveGizmoBuilder.ConstInteractiveGizmoBuilder>, cpp.Star<InteractiveGizmo.ConstInteractiveGizmo>>;
-	public inline extern function get_CachedGizmoMap(): TMap<cpp.Star<InteractiveGizmoBuilder.ConstInteractiveGizmoBuilder>, cpp.Star<InteractiveGizmo.ConstInteractiveGizmo>> return this.CachedGizmoMap;
 }
 
 @:forward

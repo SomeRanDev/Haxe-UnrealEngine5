@@ -3,8 +3,8 @@ package ue;
 
 @:native("EAttractorParticleSelectionMethod")
 @:include("Particles/Attractor/ParticleModuleAttractorParticle.h")
-extern enum EAttractorParticleSelectionMethod {
-	EAPSM_Random;
-	EAPSM_Sequential;
-	EAPSM_MAX;
+extern class EAttractorParticleSelectionMethod {
+	static var EAPSM_Random: EAttractorParticleSelectionMethod;
+	static var EAPSM_Sequential: EAttractorParticleSelectionMethod;
+	static var EAPSM_MAX: EAttractorParticleSelectionMethod;
 }

@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELocationFilteringModeEnum")
 @:include("NiagaraDataInterfaceChaosDestruction.h")
-extern enum ELocationFilteringModeEnum {
-	ChaosNiagara_LocationFilteringMode_Inclusive;
-	ChaosNiagara_LocationFilteringMode_Exclusive;
-	ChaosNiagara_Max;
-	ChaosNiagara_MAX;
+extern class ELocationFilteringModeEnum {
+	static var ChaosNiagara_LocationFilteringMode_Inclusive: ELocationFilteringModeEnum;
+	static var ChaosNiagara_LocationFilteringMode_Exclusive: ELocationFilteringModeEnum;
+	static var ChaosNiagara_Max: ELocationFilteringModeEnum;
+	static var ChaosNiagara_MAX: ELocationFilteringModeEnum;
 }

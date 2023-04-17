@@ -3,12 +3,12 @@ package ue;
 
 @:native("EARSessionTrackingFeature")
 @:include("ARSessionConfig.h")
-extern enum EARSessionTrackingFeature {
-	None;
-	PoseDetection2D;
-	PersonSegmentation;
-	PersonSegmentationWithDepth;
-	SceneDepth;
-	SmoothedSceneDepth;
-	EARSessionTrackingFeature_MAX;
+extern class EARSessionTrackingFeature {
+	static var None: EARSessionTrackingFeature;
+	static var PoseDetection2D: EARSessionTrackingFeature;
+	static var PersonSegmentation: EARSessionTrackingFeature;
+	static var PersonSegmentationWithDepth: EARSessionTrackingFeature;
+	static var SceneDepth: EARSessionTrackingFeature;
+	static var SmoothedSceneDepth: EARSessionTrackingFeature;
+	static var EARSessionTrackingFeature_MAX: EARSessionTrackingFeature;
 }

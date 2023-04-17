@@ -14,7 +14,7 @@ extern class AndroidRuntimeSettings extends Object {
 	public var VersionDisplayName: FString;
 	public var MinSDKVersion: cpp.Int32;
 	public var TargetSDKVersion: cpp.Int32;
-	public var InstallLocation: EAndroidInstallLocation;
+	public var InstallLocation: TEnumAsByte<EAndroidInstallLocation>;
 	public var bEnableGradle: Bool;
 	public var bEnableLint: Bool;
 	public var bPackageDataInsideApk: Bool;
@@ -26,13 +26,13 @@ extern class AndroidRuntimeSettings extends Object {
 	public var bAllowOverflowOBBFiles: Bool;
 	public var bUseExternalFilesDir: Bool;
 	public var bPublicLogFiles: Bool;
-	public var Orientation: EAndroidScreenOrientation;
+	public var Orientation: TEnumAsByte<EAndroidScreenOrientation>;
 	public var MaxAspectRatio: cpp.Float32;
 	public var bUseDisplayCutout: Bool;
 	public var bRestoreNotificationsOnReboot: Bool;
 	public var bFullScreen: Bool;
 	public var bEnableNewKeyboard: Bool;
-	public var DepthBufferPreference: EAndroidDepthBufferPreference;
+	public var DepthBufferPreference: TEnumAsByte<EAndroidDepthBufferPreference>;
 	public var bValidateTextureFormats: Bool;
 	public var bForceCompressNativeLibs: Bool;
 	public var bEnableAdvancedBinaryCompression: Bool;
@@ -48,7 +48,7 @@ extern class AndroidRuntimeSettings extends Object {
 	public var ExtraActivitySettings: FString;
 	public var ExtraPermissions: TArray<FString>;
 	public var bAndroidVoiceEnabled: Bool;
-	public var PackageForOculusMobile: TArray<EOculusMobileDevice>;
+	public var PackageForOculusMobile: TArray<TEnumAsByte<EOculusMobileDevice>>;
 	public var bRemoveOSIG: Bool;
 	public var KeyStore: FString;
 	public var KeyAlias: FString;
@@ -83,7 +83,7 @@ extern class AndroidRuntimeSettings extends Object {
 	public var bAllowControllers: Bool;
 	public var bBlockAndroidKeysOnControllers: Bool;
 	public var bControllersBlockDeviceFeedback: Bool;
-	public var AndroidAudio: EAndroidAudio;
+	public var AndroidAudio: TEnumAsByte<EAndroidAudio>;
 	public var AudioSampleRate: cpp.Int32;
 	public var AudioCallbackBufferFrameSize: cpp.Int32;
 	public var AudioNumBuffersToEnqueue: cpp.Int32;
@@ -104,7 +104,7 @@ extern class AndroidRuntimeSettings extends Object {
 	public var MinSampleRate: cpp.Float32;
 	public var CompressionQualityModifier: cpp.Float32;
 	public var AutoStreamingThreshold: cpp.Float32;
-	public var AndroidGraphicsDebugger: EAndroidGraphicsDebugger;
+	public var AndroidGraphicsDebugger: TEnumAsByte<EAndroidGraphicsDebugger>;
 	public var MaliGraphicsDebuggerPath: DirectoryPath;
 	public var bEnableMaliPerfCounters: Bool;
 	public var bMultiTargetFormat_ETC2: Bool;
@@ -143,8 +143,8 @@ abstract ConstAndroidRuntimeSettings(AndroidRuntimeSettings) from AndroidRuntime
 	public inline extern function get_MinSDKVersion(): cpp.Int32 return this.MinSDKVersion;
 	public extern var TargetSDKVersion(get, never): cpp.Int32;
 	public inline extern function get_TargetSDKVersion(): cpp.Int32 return this.TargetSDKVersion;
-	public extern var InstallLocation(get, never): EAndroidInstallLocation;
-	public inline extern function get_InstallLocation(): EAndroidInstallLocation return this.InstallLocation;
+	public extern var InstallLocation(get, never): TEnumAsByte<EAndroidInstallLocation>;
+	public inline extern function get_InstallLocation(): TEnumAsByte<EAndroidInstallLocation> return this.InstallLocation;
 	public extern var bEnableGradle(get, never): Bool;
 	public inline extern function get_bEnableGradle(): Bool return this.bEnableGradle;
 	public extern var bEnableLint(get, never): Bool;
@@ -167,8 +167,8 @@ abstract ConstAndroidRuntimeSettings(AndroidRuntimeSettings) from AndroidRuntime
 	public inline extern function get_bUseExternalFilesDir(): Bool return this.bUseExternalFilesDir;
 	public extern var bPublicLogFiles(get, never): Bool;
 	public inline extern function get_bPublicLogFiles(): Bool return this.bPublicLogFiles;
-	public extern var Orientation(get, never): EAndroidScreenOrientation;
-	public inline extern function get_Orientation(): EAndroidScreenOrientation return this.Orientation;
+	public extern var Orientation(get, never): TEnumAsByte<EAndroidScreenOrientation>;
+	public inline extern function get_Orientation(): TEnumAsByte<EAndroidScreenOrientation> return this.Orientation;
 	public extern var MaxAspectRatio(get, never): cpp.Float32;
 	public inline extern function get_MaxAspectRatio(): cpp.Float32 return this.MaxAspectRatio;
 	public extern var bUseDisplayCutout(get, never): Bool;
@@ -179,8 +179,8 @@ abstract ConstAndroidRuntimeSettings(AndroidRuntimeSettings) from AndroidRuntime
 	public inline extern function get_bFullScreen(): Bool return this.bFullScreen;
 	public extern var bEnableNewKeyboard(get, never): Bool;
 	public inline extern function get_bEnableNewKeyboard(): Bool return this.bEnableNewKeyboard;
-	public extern var DepthBufferPreference(get, never): EAndroidDepthBufferPreference;
-	public inline extern function get_DepthBufferPreference(): EAndroidDepthBufferPreference return this.DepthBufferPreference;
+	public extern var DepthBufferPreference(get, never): TEnumAsByte<EAndroidDepthBufferPreference>;
+	public inline extern function get_DepthBufferPreference(): TEnumAsByte<EAndroidDepthBufferPreference> return this.DepthBufferPreference;
 	public extern var bValidateTextureFormats(get, never): Bool;
 	public inline extern function get_bValidateTextureFormats(): Bool return this.bValidateTextureFormats;
 	public extern var bForceCompressNativeLibs(get, never): Bool;
@@ -211,8 +211,8 @@ abstract ConstAndroidRuntimeSettings(AndroidRuntimeSettings) from AndroidRuntime
 	public inline extern function get_ExtraPermissions(): TArray<FString> return this.ExtraPermissions;
 	public extern var bAndroidVoiceEnabled(get, never): Bool;
 	public inline extern function get_bAndroidVoiceEnabled(): Bool return this.bAndroidVoiceEnabled;
-	public extern var PackageForOculusMobile(get, never): TArray<EOculusMobileDevice>;
-	public inline extern function get_PackageForOculusMobile(): TArray<EOculusMobileDevice> return this.PackageForOculusMobile;
+	public extern var PackageForOculusMobile(get, never): TArray<TEnumAsByte<EOculusMobileDevice>>;
+	public inline extern function get_PackageForOculusMobile(): TArray<TEnumAsByte<EOculusMobileDevice>> return this.PackageForOculusMobile;
 	public extern var bRemoveOSIG(get, never): Bool;
 	public inline extern function get_bRemoveOSIG(): Bool return this.bRemoveOSIG;
 	public extern var KeyStore(get, never): FString;
@@ -281,8 +281,8 @@ abstract ConstAndroidRuntimeSettings(AndroidRuntimeSettings) from AndroidRuntime
 	public inline extern function get_bBlockAndroidKeysOnControllers(): Bool return this.bBlockAndroidKeysOnControllers;
 	public extern var bControllersBlockDeviceFeedback(get, never): Bool;
 	public inline extern function get_bControllersBlockDeviceFeedback(): Bool return this.bControllersBlockDeviceFeedback;
-	public extern var AndroidAudio(get, never): EAndroidAudio;
-	public inline extern function get_AndroidAudio(): EAndroidAudio return this.AndroidAudio;
+	public extern var AndroidAudio(get, never): TEnumAsByte<EAndroidAudio>;
+	public inline extern function get_AndroidAudio(): TEnumAsByte<EAndroidAudio> return this.AndroidAudio;
 	public extern var AudioSampleRate(get, never): cpp.Int32;
 	public inline extern function get_AudioSampleRate(): cpp.Int32 return this.AudioSampleRate;
 	public extern var AudioCallbackBufferFrameSize(get, never): cpp.Int32;
@@ -323,8 +323,8 @@ abstract ConstAndroidRuntimeSettings(AndroidRuntimeSettings) from AndroidRuntime
 	public inline extern function get_CompressionQualityModifier(): cpp.Float32 return this.CompressionQualityModifier;
 	public extern var AutoStreamingThreshold(get, never): cpp.Float32;
 	public inline extern function get_AutoStreamingThreshold(): cpp.Float32 return this.AutoStreamingThreshold;
-	public extern var AndroidGraphicsDebugger(get, never): EAndroidGraphicsDebugger;
-	public inline extern function get_AndroidGraphicsDebugger(): EAndroidGraphicsDebugger return this.AndroidGraphicsDebugger;
+	public extern var AndroidGraphicsDebugger(get, never): TEnumAsByte<EAndroidGraphicsDebugger>;
+	public inline extern function get_AndroidGraphicsDebugger(): TEnumAsByte<EAndroidGraphicsDebugger> return this.AndroidGraphicsDebugger;
 	public extern var MaliGraphicsDebuggerPath(get, never): DirectoryPath;
 	public inline extern function get_MaliGraphicsDebuggerPath(): DirectoryPath return this.MaliGraphicsDebuggerPath;
 	public extern var bEnableMaliPerfCounters(get, never): Bool;

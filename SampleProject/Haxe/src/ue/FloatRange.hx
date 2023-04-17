@@ -5,8 +5,8 @@ package ue;
 @:include("UObject/NoExportTypes.h")
 @:structAccess
 extern class FloatRange {
-	public var LowerBound: FloatRangeBound;
-	public var UpperBound: FloatRangeBound;
+	private var LowerBound: FloatRangeBound;
+	private var UpperBound: FloatRangeBound;
 
 	@:native("FFloatRange") public function new();
 	@:native("FFloatRange") public static function make(LowerBound: FloatRangeBound, UpperBound: FloatRangeBound): FloatRange ;

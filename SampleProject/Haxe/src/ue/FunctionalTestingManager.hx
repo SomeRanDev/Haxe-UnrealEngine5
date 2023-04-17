@@ -11,7 +11,7 @@ extern class FunctionalTestingManager extends BlueprintFunctionLibrary {
 	public var OnTestsComplete: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnTestsBegin: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
-	public function RunAllFunctionalTests(WorldContextObject: cpp.Star<Object>, bNewLog: Bool, bRunLooped: Bool, FailedTestsReproString: FString): cpp.Reference<Bool>;
+	public function RunAllFunctionalTests(WorldContextObject: cpp.Star<Object>, bNewLog: Bool, bRunLooped: Bool, FailedTestsReproString: FString): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

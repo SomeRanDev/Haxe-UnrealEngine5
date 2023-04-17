@@ -3,9 +3,9 @@ package ue;
 
 @:native("EClearSceneOptions.Type")
 @:include("Engine/RendererSettings.h")
-extern enum EClearSceneOptions {
-	NoClear;
-	HardwareClear;
-	QuadAtMaxZ;
-	EClearSceneOptions_MAX;
+extern class EClearSceneOptions {
+	static var NoClear: EClearSceneOptions;
+	static var HardwareClear: EClearSceneOptions;
+	static var QuadAtMaxZ: EClearSceneOptions;
+	static var EClearSceneOptions_MAX: EClearSceneOptions;
 }

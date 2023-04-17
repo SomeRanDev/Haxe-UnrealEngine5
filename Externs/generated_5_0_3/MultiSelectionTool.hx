@@ -5,7 +5,7 @@ package ue;
 @:include("MultiSelectionTool.h")
 @:structAccess
 extern class MultiSelectionTool extends InteractiveTool {
-	public var Targets: TArray<cpp.Star<ToolTarget>>;
+	@:protected public var Targets: TArray<cpp.Star<ToolTarget>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MultiSelectionTool extends InteractiveTool {
 @:forward()
 @:nativeGen
 abstract ConstMultiSelectionTool(MultiSelectionTool) from MultiSelectionTool {
-	public extern var Targets(get, never): TArray<cpp.Star<ToolTarget.ConstToolTarget>>;
-	public inline extern function get_Targets(): TArray<cpp.Star<ToolTarget.ConstToolTarget>> return this.Targets;
 }
 
 @:forward

@@ -6,10 +6,10 @@ package ue;
 @:structAccess
 extern class MobilePatchingLibrary extends BlueprintFunctionLibrary {
 	public function RequestContent(RemoteManifestURL: FString, CloudURL: FString, InstallDirectory: FString, OnSucceeded: HaxeDelegateProperty<(cpp.Star<MobilePendingContent>) -> Void>, OnFailed: HaxeDelegateProperty<(FText, cpp.Int32) -> Void>): Void;
-	public function HasActiveWiFiConnection(): cpp.Reference<Bool>;
-	public function GetSupportedPlatformNames(): cpp.Reference<TArray<FString>>;
-	public function GetInstalledContent(InstallDirectory: FString): cpp.Reference<cpp.Star<MobileInstalledContent>>;
-	public function GetActiveDeviceProfileName(): cpp.Reference<FString>;
+	public function HasActiveWiFiConnection(): Bool;
+	public function GetSupportedPlatformNames(): TArray<FString>;
+	public function GetInstalledContent(InstallDirectory: FString): cpp.Star<MobileInstalledContent>;
+	public function GetActiveDeviceProfileName(): FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

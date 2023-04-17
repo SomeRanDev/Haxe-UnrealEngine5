@@ -15,7 +15,7 @@ extern class NiagaraOutlinerSystemInstanceData {
 	public var PoolMethod: ENCPoolMethod;
 	public var AverageTime: NiagaraOutlinerTimingData;
 	public var MaxTime: NiagaraOutlinerTimingData;
-	public var TickGroup: ETickingGroup;
+	public var TickGroup: TEnumAsByte<ETickingGroup>;
 	public var bIsSolo: Bool;
 	public var bRequiresDistanceFieldData: Bool;
 	public var bRequiresDepthBuffer: Bool;

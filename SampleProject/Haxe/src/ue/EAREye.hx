@@ -3,8 +3,8 @@ package ue;
 
 @:native("EAREye")
 @:include("ARTrackable.h")
-extern enum EAREye {
-	LeftEye;
-	RightEye;
-	EAREye_MAX;
+extern class EAREye {
+	static var LeftEye: EAREye;
+	static var RightEye: EAREye;
+	static var EAREye_MAX: EAREye;
 }

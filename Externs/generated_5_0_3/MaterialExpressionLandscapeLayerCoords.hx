@@ -5,8 +5,8 @@ package ue;
 @:include("Materials/MaterialExpressionLandscapeLayerCoords.h")
 @:structAccess
 extern class MaterialExpressionLandscapeLayerCoords extends MaterialExpression {
-	public var MappingType: ETerrainCoordMappingType;
-	public var CustomUVType: ELandscapeCustomizedCoordType;
+	public var MappingType: TEnumAsByte<ETerrainCoordMappingType>;
+	public var CustomUVType: TEnumAsByte<ELandscapeCustomizedCoordType>;
 	public var MappingScale: cpp.Float32;
 	public var MappingRotation: cpp.Float32;
 	public var MappingPanU: cpp.Float32;
@@ -18,10 +18,10 @@ extern class MaterialExpressionLandscapeLayerCoords extends MaterialExpression {
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionLandscapeLayerCoords(MaterialExpressionLandscapeLayerCoords) from MaterialExpressionLandscapeLayerCoords {
-	public extern var MappingType(get, never): ETerrainCoordMappingType;
-	public inline extern function get_MappingType(): ETerrainCoordMappingType return this.MappingType;
-	public extern var CustomUVType(get, never): ELandscapeCustomizedCoordType;
-	public inline extern function get_CustomUVType(): ELandscapeCustomizedCoordType return this.CustomUVType;
+	public extern var MappingType(get, never): TEnumAsByte<ETerrainCoordMappingType>;
+	public inline extern function get_MappingType(): TEnumAsByte<ETerrainCoordMappingType> return this.MappingType;
+	public extern var CustomUVType(get, never): TEnumAsByte<ELandscapeCustomizedCoordType>;
+	public inline extern function get_CustomUVType(): TEnumAsByte<ELandscapeCustomizedCoordType> return this.CustomUVType;
 	public extern var MappingScale(get, never): cpp.Float32;
 	public inline extern function get_MappingScale(): cpp.Float32 return this.MappingScale;
 	public extern var MappingRotation(get, never): cpp.Float32;

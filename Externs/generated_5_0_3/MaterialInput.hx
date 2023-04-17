@@ -5,14 +5,8 @@ package ue;
 @:include("Materials/Material.h")
 @:structAccess
 extern class MaterialInput {
-	public var Expression: cpp.Star<MaterialExpression>;
 	public var OutputIndex: cpp.Int32;
 	public var InputName: FName;
-	public var Mask: cpp.Int32;
-	public var MaskR: cpp.Int32;
-	public var MaskG: cpp.Int32;
-	public var MaskB: cpp.Int32;
-	public var MaskA: cpp.Int32;
 	public var ExpressionName: FName;
 
 	@:native("FMaterialInput") public function new();

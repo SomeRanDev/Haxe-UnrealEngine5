@@ -3,11 +3,11 @@ package ue;
 
 @:native("EAntiAliasingMethod")
 @:include("SceneUtils.h")
-extern enum EAntiAliasingMethod {
-	AAM_None;
-	AAM_FXAA;
-	AAM_TemporalAA;
-	AAM_MSAA;
-	AAM_TSR;
-	AAM_MAX;
+extern class EAntiAliasingMethod {
+	static var AAM_None: EAntiAliasingMethod;
+	static var AAM_FXAA: EAntiAliasingMethod;
+	static var AAM_TemporalAA: EAntiAliasingMethod;
+	static var AAM_MSAA: EAntiAliasingMethod;
+	static var AAM_TSR: EAntiAliasingMethod;
+	static var AAM_MAX: EAntiAliasingMethod;
 }

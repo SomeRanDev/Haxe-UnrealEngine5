@@ -7,9 +7,9 @@ package ue;
 extern class ConeConstraint extends ConstraintBaseParams {
 	public var Swing1LimitDegrees: cpp.Float32;
 	public var Swing2LimitDegrees: cpp.Float32;
-	public var Swing1Motion: EAngularConstraintMotion;
-	public var Swing2Motion: EAngularConstraintMotion;
+	public var Swing1Motion: TEnumAsByte<EAngularConstraintMotion>;
+	public var Swing2Motion: TEnumAsByte<EAngularConstraintMotion>;
 
 	@:native("FConeConstraint") public function new();
-	@:native("FConeConstraint") public static function make(Swing1LimitDegrees: cpp.Float32, Swing2LimitDegrees: cpp.Float32, Swing1Motion: EAngularConstraintMotion, Swing2Motion: EAngularConstraintMotion): ConeConstraint ;
+	@:native("FConeConstraint") public static function make(Swing1LimitDegrees: cpp.Float32, Swing2LimitDegrees: cpp.Float32, Swing1Motion: TEnumAsByte<EAngularConstraintMotion>, Swing2Motion: TEnumAsByte<EAngularConstraintMotion>): ConeConstraint ;
 }

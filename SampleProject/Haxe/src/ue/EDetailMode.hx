@@ -3,9 +3,9 @@ package ue;
 
 @:native("EDetailMode")
 @:include("Components/SceneComponent.h")
-extern enum EDetailMode {
-	DM_Low;
-	DM_Medium;
-	DM_High;
-	DM_MAX;
+extern class EDetailMode {
+	static var DM_Low: EDetailMode;
+	static var DM_Medium: EDetailMode;
+	static var DM_High: EDetailMode;
+	static var DM_MAX: EDetailMode;
 }

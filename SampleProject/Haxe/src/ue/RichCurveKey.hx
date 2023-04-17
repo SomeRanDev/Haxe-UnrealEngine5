@@ -5,9 +5,9 @@ package ue;
 @:include("Curves/RichCurve.h")
 @:structAccess
 extern class RichCurveKey {
-	public var InterpMode: ERichCurveInterpMode;
-	public var TangentMode: ERichCurveTangentMode;
-	public var TangentWeightMode: ERichCurveTangentWeightMode;
+	public var InterpMode: TEnumAsByte<ERichCurveInterpMode>;
+	public var TangentMode: TEnumAsByte<ERichCurveTangentMode>;
+	public var TangentWeightMode: TEnumAsByte<ERichCurveTangentWeightMode>;
 	public var Time: cpp.Float32;
 	public var Value: cpp.Float32;
 	public var ArriveTangent: cpp.Float32;

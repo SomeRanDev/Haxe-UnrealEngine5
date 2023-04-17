@@ -5,10 +5,10 @@ package ue;
 @:include("SimplifyMeshTool.h")
 @:structAccess
 extern class SimplifyMeshTool extends SingleSelectionMeshEditingTool {
-	public var SimplifyProperties: cpp.Star<SimplifyMeshToolProperties>;
-	public var MeshStatisticsProperties: cpp.Star<MeshStatisticsProperties>;
-	public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	public var MeshElementsDisplay: cpp.Star<MeshElementsVisualizer>;
+	private var SimplifyProperties: cpp.Star<SimplifyMeshToolProperties>;
+	private var MeshStatisticsProperties: cpp.Star<MeshStatisticsProperties>;
+	private var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	private var MeshElementsDisplay: cpp.Star<MeshElementsVisualizer>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class SimplifyMeshTool extends SingleSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstSimplifyMeshTool(SimplifyMeshTool) from SimplifyMeshTool {
-	public extern var SimplifyProperties(get, never): cpp.Star<SimplifyMeshToolProperties.ConstSimplifyMeshToolProperties>;
-	public inline extern function get_SimplifyProperties(): cpp.Star<SimplifyMeshToolProperties.ConstSimplifyMeshToolProperties> return this.SimplifyProperties;
-	public extern var MeshStatisticsProperties(get, never): cpp.Star<MeshStatisticsProperties.ConstMeshStatisticsProperties>;
-	public inline extern function get_MeshStatisticsProperties(): cpp.Star<MeshStatisticsProperties.ConstMeshStatisticsProperties> return this.MeshStatisticsProperties;
-	public extern var Preview(get, never): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
-	public inline extern function get_Preview(): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.Preview;
-	public extern var MeshElementsDisplay(get, never): cpp.Star<MeshElementsVisualizer.ConstMeshElementsVisualizer>;
-	public inline extern function get_MeshElementsDisplay(): cpp.Star<MeshElementsVisualizer.ConstMeshElementsVisualizer> return this.MeshElementsDisplay;
 }
 
 @:forward

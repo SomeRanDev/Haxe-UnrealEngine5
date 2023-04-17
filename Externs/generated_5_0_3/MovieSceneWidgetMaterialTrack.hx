@@ -5,8 +5,8 @@ package ue;
 @:include("Animation/MovieSceneWidgetMaterialTrack.h")
 @:structAccess
 extern class MovieSceneWidgetMaterialTrack extends MovieSceneMaterialTrack {
-	public var BrushPropertyNamePath: TArray<FName>;
-	public var TrackName: FName;
+	private var BrushPropertyNamePath: TArray<FName>;
+	private var TrackName: FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class MovieSceneWidgetMaterialTrack extends MovieSceneMaterialTrack {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneWidgetMaterialTrack(MovieSceneWidgetMaterialTrack) from MovieSceneWidgetMaterialTrack {
-	public extern var BrushPropertyNamePath(get, never): TArray<FName>;
-	public inline extern function get_BrushPropertyNamePath(): TArray<FName> return this.BrushPropertyNamePath;
-	public extern var TrackName(get, never): FName;
-	public inline extern function get_TrackName(): FName return this.TrackName;
 }
 
 @:forward

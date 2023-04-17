@@ -3,15 +3,15 @@ package ue;
 
 @:native("EMeshSculptFalloffType")
 @:include("Sculpting/MeshSculptToolBase.h")
-extern enum EMeshSculptFalloffType {
-	Smooth;
-	Linear;
-	Inverse;
-	Round;
-	BoxSmooth;
-	BoxLinear;
-	BoxInverse;
-	BoxRound;
-	LastValue;
-	EMeshSculptFalloffType_MAX;
+extern class EMeshSculptFalloffType {
+	static var Smooth: EMeshSculptFalloffType;
+	static var Linear: EMeshSculptFalloffType;
+	static var Inverse: EMeshSculptFalloffType;
+	static var Round: EMeshSculptFalloffType;
+	static var BoxSmooth: EMeshSculptFalloffType;
+	static var BoxLinear: EMeshSculptFalloffType;
+	static var BoxInverse: EMeshSculptFalloffType;
+	static var BoxRound: EMeshSculptFalloffType;
+	static var LastValue: EMeshSculptFalloffType;
+	static var EMeshSculptFalloffType_MAX: EMeshSculptFalloffType;
 }

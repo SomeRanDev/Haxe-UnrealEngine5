@@ -5,7 +5,7 @@ package ue;
 @:include("AnimGraphNode_RotationOffsetBlendSpaceGraph.h")
 @:structAccess
 extern class AnimGraphNode_RotationOffsetBlendSpaceGraph extends AnimGraphNode_BlendSpaceGraphBase {
-	public var Node: AnimNode_RotationOffsetBlendSpaceGraph;
+	private var Node: AnimNode_RotationOffsetBlendSpaceGraph;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class AnimGraphNode_RotationOffsetBlendSpaceGraph extends AnimGraphNode_B
 @:forward()
 @:nativeGen
 abstract ConstAnimGraphNode_RotationOffsetBlendSpaceGraph(AnimGraphNode_RotationOffsetBlendSpaceGraph) from AnimGraphNode_RotationOffsetBlendSpaceGraph {
-	public extern var Node(get, never): AnimNode_RotationOffsetBlendSpaceGraph;
-	public inline extern function get_Node(): AnimNode_RotationOffsetBlendSpaceGraph return this.Node;
 }
 
 @:forward

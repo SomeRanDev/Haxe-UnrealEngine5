@@ -3,10 +3,10 @@ package ue;
 
 @:native("EClassViewerDeveloperType")
 @:include("Settings/ClassViewerSettings.h")
-extern enum EClassViewerDeveloperType {
-	CVDT_None;
-	CVDT_CurrentUser;
-	CVDT_All;
-	CVDT_Max;
-	CVDT_MAX;
+extern class EClassViewerDeveloperType {
+	static var CVDT_None: EClassViewerDeveloperType;
+	static var CVDT_CurrentUser: EClassViewerDeveloperType;
+	static var CVDT_All: EClassViewerDeveloperType;
+	static var CVDT_Max: EClassViewerDeveloperType;
+	static var CVDT_MAX: EClassViewerDeveloperType;
 }

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EBackgroundType")
 @:include("MaterialEditorSettings.h")
-extern enum EBackgroundType {
-	SolidColor;
-	Checkered;
-	EBackgroundType_MAX;
+extern class EBackgroundType {
+	static var SolidColor: EBackgroundType;
+	static var Checkered: EBackgroundType;
+	static var EBackgroundType_MAX: EBackgroundType;
 }

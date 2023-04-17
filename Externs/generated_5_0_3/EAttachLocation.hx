@@ -3,10 +3,10 @@ package ue;
 
 @:native("EAttachLocation.Type")
 @:include("Engine/EngineTypes.h")
-extern enum EAttachLocation {
-	KeepRelativeOffset;
-	KeepWorldPosition;
-	SnapToTarget;
-	SnapToTargetIncludingScale;
-	EAttachLocation_MAX;
+extern class EAttachLocation {
+	static var KeepRelativeOffset: EAttachLocation;
+	static var KeepWorldPosition: EAttachLocation;
+	static var SnapToTarget: EAttachLocation;
+	static var SnapToTargetIncludingScale: EAttachLocation;
+	static var EAttachLocation_MAX: EAttachLocation;
 }

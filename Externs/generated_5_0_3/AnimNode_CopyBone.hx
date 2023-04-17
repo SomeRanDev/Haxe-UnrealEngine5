@@ -10,7 +10,7 @@ extern class AnimNode_CopyBone extends AnimNode_SkeletalControlBase {
 	public var bCopyTranslation: Bool;
 	public var bCopyRotation: Bool;
 	public var bCopyScale: Bool;
-	public var ControlSpace: EBoneControlSpace;
+	public var ControlSpace: TEnumAsByte<EBoneControlSpace>;
 
 	@:native("FAnimNode_CopyBone") public function new();
 }

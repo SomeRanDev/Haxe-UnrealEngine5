@@ -5,8 +5,8 @@ package ue;
 @:include("Components/TreeView.h")
 @:structAccess
 extern class TreeView extends ListView {
-	public var BP_OnGetItemChildren: HaxeDelegateProperty<(cpp.Star<Object>, cpp.Reference<TArray<cpp.Star<Object>>>) -> Void>;
-	public var BP_OnItemExpansionChanged: HaxeMulticastSparseDelegateProperty<(cpp.Star<Object>, Bool) -> Void>;
+	private var BP_OnGetItemChildren: HaxeDelegateProperty<(cpp.Star<Object>, cpp.Reference<TArray<cpp.Star<Object>>>) -> Void>;
+	private var BP_OnItemExpansionChanged: HaxeMulticastSparseDelegateProperty<(cpp.Star<Object>, Bool) -> Void>;
 
 	public function SetItemExpansion(Item: cpp.Star<Object>, bExpandItem: Bool): Void;
 	public function ExpandAll(): Void;
@@ -18,10 +18,6 @@ extern class TreeView extends ListView {
 @:forward()
 @:nativeGen
 abstract ConstTreeView(TreeView) from TreeView {
-	public extern var BP_OnGetItemChildren(get, never): HaxeDelegateProperty<(cpp.Star<Object.ConstObject>, cpp.Reference<TArray<cpp.Star<Object.ConstObject>>>) -> Void>;
-	public inline extern function get_BP_OnGetItemChildren(): HaxeDelegateProperty<(cpp.Star<Object.ConstObject>, cpp.Reference<TArray<cpp.Star<Object.ConstObject>>>) -> Void> return this.BP_OnGetItemChildren;
-	public extern var BP_OnItemExpansionChanged(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Object.ConstObject>, Bool) -> Void>;
-	public inline extern function get_BP_OnItemExpansionChanged(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Object.ConstObject>, Bool) -> Void> return this.BP_OnItemExpansionChanged;
 }
 
 @:forward

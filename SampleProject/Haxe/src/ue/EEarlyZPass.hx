@@ -3,10 +3,10 @@ package ue;
 
 @:native("EEarlyZPass.Type")
 @:include("Engine/RendererSettings.h")
-extern enum EEarlyZPass {
-	None;
-	OpaqueOnly;
-	OpaqueAndMasked;
-	Auto;
-	EEarlyZPass_MAX;
+extern class EEarlyZPass {
+	static var None: EEarlyZPass;
+	static var OpaqueOnly: EEarlyZPass;
+	static var OpaqueAndMasked: EEarlyZPass;
+	static var Auto: EEarlyZPass;
+	static var EEarlyZPass_MAX: EEarlyZPass;
 }

@@ -28,7 +28,7 @@ extern class SkyAtmosphereComp extends SceneComp {
 	public var HeightFogContribution: cpp.Float32;
 	public var TransmittanceMinLightElevationAngle: cpp.Float32;
 	public var AerialPerspectiveStartDepth: cpp.Float32;
-	public var bStaticLightingBuiltGUID: Guid;
+	private var bStaticLightingBuiltGUID: Guid;
 
 	public function SetSkyLuminanceFactor(NewValue: LinearColor): Void;
 	public function SetRayleighScatteringScale(NewValue: cpp.Float32): Void;
@@ -47,7 +47,7 @@ extern class SkyAtmosphereComp extends SceneComp {
 	public function SetAtmosphereHeight(NewValue: cpp.Float32): Void;
 	public function SetAerialPespectiveViewDistanceScale(NewValue: cpp.Float32): Void;
 	public function OverrideAtmosphereLightDirection(AtmosphereLightIndex: cpp.Int32, LightDirection: cpp.Reference<Vector>): Void;
-	public function GetAtmosphereTransmitanceOnGroundAtPlanetTop(DirectionalLight: cpp.Star<DirectionalLightComp>): cpp.Reference<LinearColor>;
+	public function GetAtmosphereTransmitanceOnGroundAtPlanetTop(DirectionalLight: cpp.Star<DirectionalLightComp>): LinearColor;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -101,8 +101,6 @@ abstract ConstSkyAtmosphereComp(SkyAtmosphereComp) from SkyAtmosphereComp {
 	public inline extern function get_TransmittanceMinLightElevationAngle(): cpp.Float32 return this.TransmittanceMinLightElevationAngle;
 	public extern var AerialPerspectiveStartDepth(get, never): cpp.Float32;
 	public inline extern function get_AerialPerspectiveStartDepth(): cpp.Float32 return this.AerialPerspectiveStartDepth;
-	public extern var bStaticLightingBuiltGUID(get, never): Guid;
-	public inline extern function get_bStaticLightingBuiltGUID(): Guid return this.bStaticLightingBuiltGUID;
 }
 
 @:forward

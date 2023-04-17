@@ -5,9 +5,9 @@ package ue;
 @:include("Components/ContentWidget.h")
 @:structAccess
 extern class ContentWidget extends PanelWidget {
-	public function SetContent(Content: cpp.Star<Widget>): cpp.Reference<cpp.Star<PanelSlot>>;
-	public function GetContentSlot(): cpp.Reference<cpp.Star<PanelSlot>>;
-	public function GetContent(): cpp.Reference<cpp.Star<Widget>>;
+	public function SetContent(Content: cpp.Star<Widget>): cpp.Star<PanelSlot>;
+	public function GetContentSlot(): cpp.Star<PanelSlot>;
+	public function GetContent(): cpp.Star<Widget>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

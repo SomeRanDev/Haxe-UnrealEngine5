@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class MaterialExpressionSamplePhysicsScalarField extends MaterialExpression {
 	public var WorldPosition: ExpressionInput;
-	public var FieldTarget: EFieldScalarType;
+	public var FieldTarget: TEnumAsByte<EFieldScalarType>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,8 @@ extern class MaterialExpressionSamplePhysicsScalarField extends MaterialExpressi
 abstract ConstMaterialExpressionSamplePhysicsScalarField(MaterialExpressionSamplePhysicsScalarField) from MaterialExpressionSamplePhysicsScalarField {
 	public extern var WorldPosition(get, never): ExpressionInput;
 	public inline extern function get_WorldPosition(): ExpressionInput return this.WorldPosition;
-	public extern var FieldTarget(get, never): EFieldScalarType;
-	public inline extern function get_FieldTarget(): EFieldScalarType return this.FieldTarget;
+	public extern var FieldTarget(get, never): TEnumAsByte<EFieldScalarType>;
+	public inline extern function get_FieldTarget(): TEnumAsByte<EFieldScalarType> return this.FieldTarget;
 }
 
 @:forward

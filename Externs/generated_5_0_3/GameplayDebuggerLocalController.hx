@@ -5,10 +5,10 @@ package ue;
 @:include("GameplayDebuggerLocalController.h")
 @:structAccess
 extern class GameplayDebuggerLocalController extends Object {
-	public var CachedReplicator: cpp.Star<GameplayDebuggerCategoryReplicator>;
-	public var CachedPlayerManager: cpp.Star<GameplayDebuggerPlayerManager>;
-	public var DebugActorCandidate: cpp.Star<Actor>;
-	public var HUDFont: cpp.Star<Font>;
+	@:protected public var CachedReplicator: cpp.Star<GameplayDebuggerCategoryReplicator>;
+	@:protected public var CachedPlayerManager: cpp.Star<GameplayDebuggerPlayerManager>;
+	@:protected public var DebugActorCandidate: cpp.Star<Actor>;
+	@:protected public var HUDFont: cpp.Star<Font>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class GameplayDebuggerLocalController extends Object {
 @:forward()
 @:nativeGen
 abstract ConstGameplayDebuggerLocalController(GameplayDebuggerLocalController) from GameplayDebuggerLocalController {
-	public extern var CachedReplicator(get, never): cpp.Star<GameplayDebuggerCategoryReplicator.ConstGameplayDebuggerCategoryReplicator>;
-	public inline extern function get_CachedReplicator(): cpp.Star<GameplayDebuggerCategoryReplicator.ConstGameplayDebuggerCategoryReplicator> return this.CachedReplicator;
-	public extern var CachedPlayerManager(get, never): cpp.Star<GameplayDebuggerPlayerManager.ConstGameplayDebuggerPlayerManager>;
-	public inline extern function get_CachedPlayerManager(): cpp.Star<GameplayDebuggerPlayerManager.ConstGameplayDebuggerPlayerManager> return this.CachedPlayerManager;
-	public extern var DebugActorCandidate(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_DebugActorCandidate(): cpp.Star<Actor.ConstActor> return this.DebugActorCandidate;
-	public extern var HUDFont(get, never): cpp.Star<Font.ConstFont>;
-	public inline extern function get_HUDFont(): cpp.Star<Font.ConstFont> return this.HUDFont;
 }
 
 @:forward

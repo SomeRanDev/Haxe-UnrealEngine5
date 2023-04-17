@@ -5,10 +5,10 @@ package ue;
 @:include("Evaluation/MovieSceneSequenceHierarchy.h")
 @:structAccess
 extern class MovieSceneSequenceHierarchy {
-	public var RootNode: MovieSceneSequenceHierarchyNode;
-	public var Tree: MovieSceneSubSequenceTree;
-	public var SubSequences: TMap<MovieSceneSequenceID, MovieSceneSubSequenceData>;
-	public var Hierarchy: TMap<MovieSceneSequenceID, MovieSceneSequenceHierarchyNode>;
+	private var RootNode: MovieSceneSequenceHierarchyNode;
+	private var Tree: MovieSceneSubSequenceTree;
+	private var SubSequences: TMap<MovieSceneSequenceID, MovieSceneSubSequenceData>;
+	private var Hierarchy: TMap<MovieSceneSequenceID, MovieSceneSequenceHierarchyNode>;
 
 	@:native("FMovieSceneSequenceHierarchy") public function new();
 	@:native("FMovieSceneSequenceHierarchy") public static function make(RootNode: MovieSceneSequenceHierarchyNode, Tree: MovieSceneSubSequenceTree, SubSequences: TMap<MovieSceneSequenceID, MovieSceneSubSequenceData>, Hierarchy: TMap<MovieSceneSequenceID, MovieSceneSequenceHierarchyNode>): MovieSceneSequenceHierarchy ;

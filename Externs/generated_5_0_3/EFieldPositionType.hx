@@ -3,9 +3,9 @@ package ue;
 
 @:native("EFieldPositionType")
 @:include("Field/FieldSystemTypes.h")
-extern enum EFieldPositionType {
-	Field_Position_CenterOfMass;
-	Field_Position_PivotPoint;
-	Field_Position_Max;
-	Field_Position_MAX;
+extern class EFieldPositionType {
+	static var Field_Position_CenterOfMass: EFieldPositionType;
+	static var Field_Position_PivotPoint: EFieldPositionType;
+	static var Field_Position_Max: EFieldPositionType;
+	static var Field_Position_MAX: EFieldPositionType;
 }

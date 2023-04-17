@@ -3,8 +3,8 @@ package ue;
 
 @:native("EARJointTransformSpace")
 @:include("ARTypes.h")
-extern enum EARJointTransformSpace {
-	Model;
-	ParentJoint;
-	EARJointTransformSpace_MAX;
+extern class EARJointTransformSpace {
+	static var Model: EARJointTransformSpace;
+	static var ParentJoint: EARJointTransformSpace;
+	static var EARJointTransformSpace_MAX: EARJointTransformSpace;
 }

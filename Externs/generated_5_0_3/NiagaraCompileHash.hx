@@ -5,7 +5,7 @@ package ue;
 @:include("NiagaraCompileHash.h")
 @:structAccess
 extern class NiagaraCompileHash {
-	public var DataHash: TArray<cpp.UInt8>;
+	private var DataHash: TArray<cpp.UInt8>;
 
 	@:native("FNiagaraCompileHash") public function new();
 	@:native("FNiagaraCompileHash") public static function make(DataHash: TArray<cpp.UInt8>): NiagaraCompileHash ;

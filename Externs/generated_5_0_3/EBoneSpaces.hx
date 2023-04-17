@@ -3,8 +3,8 @@ package ue;
 
 @:native("EBoneSpaces.Type")
 @:include("Components/SkinnedMeshComponent.h")
-extern enum EBoneSpaces {
-	WorldSpace;
-	ComponentSpace;
-	EBoneSpaces_MAX;
+extern class EBoneSpaces {
+	static var WorldSpace: EBoneSpaces;
+	static var ComponentSpace: EBoneSpaces;
+	static var EBoneSpaces_MAX: EBoneSpaces;
 }

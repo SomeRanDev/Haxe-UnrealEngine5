@@ -25,7 +25,7 @@ extern class SynthKnob extends Widget {
 	public function SetValue(InValue: cpp.Float32): Void;
 	public function SetStepSize(InValue: cpp.Float32): Void;
 	public function SetLocked(InValue: Bool): Void;
-	public function GetValue(): cpp.Reference<cpp.Float32>;
+	public function GetValue(): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

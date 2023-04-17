@@ -3,10 +3,10 @@ package ue;
 
 @:native("EChaosRemovalSortMethod")
 @:include("ChaosRemovalEventFilter.h")
-extern enum EChaosRemovalSortMethod {
-	SortNone;
-	SortByHighestMass;
-	SortByNearestFirst;
-	Count;
-	EChaosRemovalSortMethod_MAX;
+extern class EChaosRemovalSortMethod {
+	static var SortNone: EChaosRemovalSortMethod;
+	static var SortByHighestMass: EChaosRemovalSortMethod;
+	static var SortByNearestFirst: EChaosRemovalSortMethod;
+	static var Count: EChaosRemovalSortMethod;
+	static var EChaosRemovalSortMethod_MAX: EChaosRemovalSortMethod;
 }

@@ -3,13 +3,13 @@ package ue;
 
 @:native("ETextureLossyCompressionAmount")
 @:include("Engine/TextureDefines.h")
-extern enum ETextureLossyCompressionAmount {
-	TLCA_Default;
-	TLCA_None;
-	TLCA_Lowest;
-	TLCA_Low;
-	TLCA_Medium;
-	TLCA_High;
-	TLCA_Highest;
-	TLCA_MAX;
+extern class ETextureLossyCompressionAmount {
+	static var TLCA_Default: ETextureLossyCompressionAmount;
+	static var TLCA_None: ETextureLossyCompressionAmount;
+	static var TLCA_Lowest: ETextureLossyCompressionAmount;
+	static var TLCA_Low: ETextureLossyCompressionAmount;
+	static var TLCA_Medium: ETextureLossyCompressionAmount;
+	static var TLCA_High: ETextureLossyCompressionAmount;
+	static var TLCA_Highest: ETextureLossyCompressionAmount;
+	static var TLCA_MAX: ETextureLossyCompressionAmount;
 }

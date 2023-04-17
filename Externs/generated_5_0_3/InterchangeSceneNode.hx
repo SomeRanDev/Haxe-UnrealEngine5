@@ -5,23 +5,23 @@ package ue;
 @:include("InterchangeSceneNode.h")
 @:structAccess
 extern class InterchangeSceneNode extends InterchangeBaseNode {
-	public function SetCustomLocalTransform(AttributeValue: cpp.Reference<Transform>): cpp.Reference<Bool>;
-	public function SetCustomGlobalTransform(AttributeValue: cpp.Reference<Transform>): cpp.Reference<Bool>;
-	public function SetCustomAssetInstanceUid(AttributeValue: FString): cpp.Reference<Bool>;
-	public function RemoveSpecializedType(SpecializedType: FString): cpp.Reference<Bool>;
-	public function RemoveMaterialDependencyUid(MaterialDependencyUid: FString): cpp.Reference<Bool>;
-	public function IsSpecializedTypeContains(SpecializedType: FString): cpp.Reference<Bool>;
+	public function SetCustomLocalTransform(AttributeValue: cpp.Reference<Transform>): Bool;
+	public function SetCustomGlobalTransform(AttributeValue: cpp.Reference<Transform>): Bool;
+	public function SetCustomAssetInstanceUid(AttributeValue: FString): Bool;
+	public function RemoveSpecializedType(SpecializedType: FString): Bool;
+	public function RemoveMaterialDependencyUid(MaterialDependencyUid: FString): Bool;
+	public function IsSpecializedTypeContains(SpecializedType: FString): Bool;
 	public function GetSpecializedTypes(OutSpecializedTypes: cpp.Reference<TArray<FString>>): Void;
-	public function GetSpecializedTypeCount(): cpp.Reference<cpp.Int32>;
+	public function GetSpecializedTypeCount(): cpp.Int32;
 	public function GetSpecializedType(Index: cpp.Int32, OutSpecializedType: cpp.Reference<FString>): Void;
-	public function GetMaterialDependencyUidsCount(): cpp.Reference<cpp.Int32>;
+	public function GetMaterialDependencyUidsCount(): cpp.Int32;
 	public function GetMaterialDependencyUids(OutMaterialDependencyUids: cpp.Reference<TArray<FString>>): Void;
 	public function GetMaterialDependencyUid(Index: cpp.Int32, OutMaterialDependencyUid: cpp.Reference<FString>): Void;
-	public function GetCustomLocalTransform(AttributeValue: cpp.Reference<Transform>): cpp.Reference<Bool>;
-	public function GetCustomGlobalTransform(AttributeValue: cpp.Reference<Transform>): cpp.Reference<Bool>;
-	public function GetCustomAssetInstanceUid(AttributeValue: cpp.Reference<FString>): cpp.Reference<Bool>;
-	public function AddSpecializedType(SpecializedType: FString): cpp.Reference<Bool>;
-	public function AddMaterialDependencyUid(MaterialDependencyUid: FString): cpp.Reference<Bool>;
+	public function GetCustomLocalTransform(AttributeValue: cpp.Reference<Transform>): Bool;
+	public function GetCustomGlobalTransform(AttributeValue: cpp.Reference<Transform>): Bool;
+	public function GetCustomAssetInstanceUid(AttributeValue: cpp.Reference<FString>): Bool;
+	public function AddSpecializedType(SpecializedType: FString): Bool;
+	public function AddMaterialDependencyUid(MaterialDependencyUid: FString): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

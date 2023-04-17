@@ -3,8 +3,8 @@ package ue;
 
 @:native("EARServicePermissionRequestResult")
 @:include("ARDependencyHandler.h")
-extern enum EARServicePermissionRequestResult {
-	Granted;
-	Denied;
-	EARServicePermissionRequestResult_MAX;
+extern class EARServicePermissionRequestResult {
+	static var Granted: EARServicePermissionRequestResult;
+	static var Denied: EARServicePermissionRequestResult;
+	static var EARServicePermissionRequestResult_MAX: EARServicePermissionRequestResult;
 }

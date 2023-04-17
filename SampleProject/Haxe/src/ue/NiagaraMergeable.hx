@@ -5,7 +5,6 @@ package ue;
 @:include("NiagaraMergeable.h")
 @:structAccess
 extern class NiagaraMergeable extends Object {
-	public var MergeId: Guid;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +12,6 @@ extern class NiagaraMergeable extends Object {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraMergeable(NiagaraMergeable) from NiagaraMergeable {
-	public extern var MergeId(get, never): Guid;
-	public inline extern function get_MergeId(): Guid return this.MergeId;
 }
 
 @:forward

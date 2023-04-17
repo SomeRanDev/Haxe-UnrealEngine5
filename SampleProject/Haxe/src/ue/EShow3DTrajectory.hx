@@ -3,9 +3,9 @@ package ue;
 
 @:native("EShow3DTrajectory")
 @:include("Sections/MovieScene3DTransformSection.h")
-extern enum EShow3DTrajectory {
-	EST_OnlyWhenSelected;
-	EST_Always;
-	EST_Never;
-	EST_MAX;
+extern class EShow3DTrajectory {
+	static var EST_OnlyWhenSelected: EShow3DTrajectory;
+	static var EST_Always: EShow3DTrajectory;
+	static var EST_Never: EShow3DTrajectory;
+	static var EST_MAX: EShow3DTrajectory;
 }

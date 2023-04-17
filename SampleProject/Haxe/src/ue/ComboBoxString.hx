@@ -5,8 +5,8 @@ package ue;
 @:include("Components/ComboBoxString.h")
 @:structAccess
 extern class ComboBoxString extends Widget {
-	public var DefaultOptions: TArray<FString>;
-	public var SelectedOption: FString;
+	private var DefaultOptions: TArray<FString>;
+	private var SelectedOption: FString;
 	public var WidgetStyle: ComboBoxStyle;
 	public var ItemStyle: TableRowStyle;
 	public var ContentPadding: Margin;
@@ -17,21 +17,21 @@ extern class ComboBoxString extends Widget {
 	public var ForegroundColor: SlateColor;
 	public var bIsFocusable: Bool;
 	public var OnGenerateWidgetEvent: HaxeDelegateProperty<(FString) -> Void>;
-	public var OnSelectionChanged: HaxeMulticastSparseDelegateProperty<(FString, ESelectInfo) -> Void>;
+	public var OnSelectionChanged: HaxeMulticastSparseDelegateProperty<(FString, TEnumAsByte<ESelectInfo>) -> Void>;
 	public var OnOpening: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
 	public function SetSelectedOption(Option: FString): Void;
 	public function SetSelectedIndex(Index: cpp.Int32): Void;
-	public function RemoveOption(Option: FString): cpp.Reference<Bool>;
+	public function RemoveOption(Option: FString): Bool;
 	public function RefreshOptions(): Void;
-	public function OnSelectionChangedEvent__DelegateSignature(SelectedItem: FString, SelectionType: ESelectInfo): Void;
+	public function OnSelectionChangedEvent__DelegateSignature(SelectedItem: FString, SelectionType: TEnumAsByte<ESelectInfo>): Void;
 	public function OnOpeningEvent__DelegateSignature(): Void;
-	public function IsOpen(): cpp.Reference<Bool>;
-	public function GetSelectedOption(): cpp.Reference<FString>;
-	public function GetSelectedIndex(): cpp.Reference<cpp.Int32>;
-	public function GetOptionCount(): cpp.Reference<cpp.Int32>;
-	public function GetOptionAtIndex(Index: cpp.Int32): cpp.Reference<FString>;
-	public function FindOptionIndex(Option: FString): cpp.Reference<cpp.Int32>;
+	public function IsOpen(): Bool;
+	public function GetSelectedOption(): FString;
+	public function GetSelectedIndex(): cpp.Int32;
+	public function GetOptionCount(): cpp.Int32;
+	public function GetOptionAtIndex(Index: cpp.Int32): FString;
+	public function FindOptionIndex(Option: FString): cpp.Int32;
 	public function ClearSelection(): Void;
 	public function ClearOptions(): Void;
 	public function AddOption(Option: FString): Void;
@@ -42,10 +42,6 @@ extern class ComboBoxString extends Widget {
 @:forward(IsOpen, GetSelectedOption, GetSelectedIndex, GetOptionCount, GetOptionAtIndex, FindOptionIndex)
 @:nativeGen
 abstract ConstComboBoxString(ComboBoxString) from ComboBoxString {
-	public extern var DefaultOptions(get, never): TArray<FString>;
-	public inline extern function get_DefaultOptions(): TArray<FString> return this.DefaultOptions;
-	public extern var SelectedOption(get, never): FString;
-	public inline extern function get_SelectedOption(): FString return this.SelectedOption;
 	public extern var WidgetStyle(get, never): ComboBoxStyle;
 	public inline extern function get_WidgetStyle(): ComboBoxStyle return this.WidgetStyle;
 	public extern var ItemStyle(get, never): TableRowStyle;
@@ -66,8 +62,8 @@ abstract ConstComboBoxString(ComboBoxString) from ComboBoxString {
 	public inline extern function get_bIsFocusable(): Bool return this.bIsFocusable;
 	public extern var OnGenerateWidgetEvent(get, never): HaxeDelegateProperty<(FString) -> Void>;
 	public inline extern function get_OnGenerateWidgetEvent(): HaxeDelegateProperty<(FString) -> Void> return this.OnGenerateWidgetEvent;
-	public extern var OnSelectionChanged(get, never): HaxeMulticastSparseDelegateProperty<(FString, ESelectInfo) -> Void>;
-	public inline extern function get_OnSelectionChanged(): HaxeMulticastSparseDelegateProperty<(FString, ESelectInfo) -> Void> return this.OnSelectionChanged;
+	public extern var OnSelectionChanged(get, never): HaxeMulticastSparseDelegateProperty<(FString, TEnumAsByte<ESelectInfo>) -> Void>;
+	public inline extern function get_OnSelectionChanged(): HaxeMulticastSparseDelegateProperty<(FString, TEnumAsByte<ESelectInfo>) -> Void> return this.OnSelectionChanged;
 	public extern var OnOpening(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnOpening(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnOpening;
 }

@@ -18,7 +18,7 @@ extern class AutomatedLevelSequenceCapture extends MovieSceneCapture {
 	public var BurnInOptions: cpp.Star<LevelSequenceBurnInOptions>;
 	public var bWriteEditDecisionList: Bool;
 	public var bWriteFinalCutProXML: Bool;
-	public var LevelSequenceActor: TWeakObjectPtr<LevelSequenceActor>;
+	private var LevelSequenceActor: TWeakObjectPtr<LevelSequenceActor>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -52,8 +52,6 @@ abstract ConstAutomatedLevelSequenceCapture(AutomatedLevelSequenceCapture) from 
 	public inline extern function get_bWriteEditDecisionList(): Bool return this.bWriteEditDecisionList;
 	public extern var bWriteFinalCutProXML(get, never): Bool;
 	public inline extern function get_bWriteFinalCutProXML(): Bool return this.bWriteFinalCutProXML;
-	public extern var LevelSequenceActor(get, never): TWeakObjectPtr<LevelSequenceActor.ConstLevelSequenceActor>;
-	public inline extern function get_LevelSequenceActor(): TWeakObjectPtr<LevelSequenceActor.ConstLevelSequenceActor> return this.LevelSequenceActor;
 }
 
 @:forward

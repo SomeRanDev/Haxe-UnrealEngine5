@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETrail2SourceMethod")
 @:include("Particles/Trail/ParticleModuleTrailSource.h")
-extern enum ETrail2SourceMethod {
-	PET2SRCM_Default;
-	PET2SRCM_Particle;
-	PET2SRCM_Actor;
-	PET2SRCM_MAX;
+extern class ETrail2SourceMethod {
+	static var PET2SRCM_Default: ETrail2SourceMethod;
+	static var PET2SRCM_Particle: ETrail2SourceMethod;
+	static var PET2SRCM_Actor: ETrail2SourceMethod;
+	static var PET2SRCM_MAX: ETrail2SourceMethod;
 }

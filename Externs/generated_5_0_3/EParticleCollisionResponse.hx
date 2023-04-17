@@ -3,9 +3,9 @@ package ue;
 
 @:native("EParticleCollisionResponse.Type")
 @:include("Particles/Collision/ParticleModuleCollisionGPU.h")
-extern enum EParticleCollisionResponse {
-	Bounce;
-	Stop;
-	Kill;
-	EParticleCollisionResponse_MAX;
+extern class EParticleCollisionResponse {
+	static var Bounce: EParticleCollisionResponse;
+	static var Stop: EParticleCollisionResponse;
+	static var Kill: EParticleCollisionResponse;
+	static var EParticleCollisionResponse_MAX: EParticleCollisionResponse;
 }

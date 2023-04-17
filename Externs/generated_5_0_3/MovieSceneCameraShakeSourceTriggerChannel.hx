@@ -5,8 +5,8 @@ package ue;
 @:include("Channels/MovieSceneCameraShakeSourceTriggerChannel.h")
 @:structAccess
 extern class MovieSceneCameraShakeSourceTriggerChannel extends MovieSceneChannel {
-	public var KeyTimes: TArray<FrameNumber>;
-	public var KeyValues: TArray<MovieSceneCameraShakeSourceTrigger>;
+	private var KeyTimes: TArray<FrameNumber>;
+	private var KeyValues: TArray<MovieSceneCameraShakeSourceTrigger>;
 
 	@:native("FMovieSceneCameraShakeSourceTriggerChannel") public function new();
 	@:native("FMovieSceneCameraShakeSourceTriggerChannel") public static function make(KeyTimes: TArray<FrameNumber>, KeyValues: TArray<MovieSceneCameraShakeSourceTrigger>): MovieSceneCameraShakeSourceTriggerChannel ;

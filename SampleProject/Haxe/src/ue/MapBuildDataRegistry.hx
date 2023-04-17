@@ -5,7 +5,7 @@ package ue;
 @:include("Engine/MapBuildDataRegistry.h")
 @:structAccess
 extern class MapBuildDataRegistry extends Object {
-	public var LevelLightingQuality: ELightingBuildQuality;
+	public var LevelLightingQuality: TEnumAsByte<ELightingBuildQuality>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,8 @@ extern class MapBuildDataRegistry extends Object {
 @:forward()
 @:nativeGen
 abstract ConstMapBuildDataRegistry(MapBuildDataRegistry) from MapBuildDataRegistry {
-	public extern var LevelLightingQuality(get, never): ELightingBuildQuality;
-	public inline extern function get_LevelLightingQuality(): ELightingBuildQuality return this.LevelLightingQuality;
+	public extern var LevelLightingQuality(get, never): TEnumAsByte<ELightingBuildQuality>;
+	public inline extern function get_LevelLightingQuality(): TEnumAsByte<ELightingBuildQuality> return this.LevelLightingQuality;
 }
 
 @:forward

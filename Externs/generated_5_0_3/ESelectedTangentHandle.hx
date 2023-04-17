@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESelectedTangentHandle")
 @:include("SplineComponentVisualizer.h")
-extern enum ESelectedTangentHandle {
-	None;
-	Leave;
-	Arrive;
-	ESelectedTangentHandle_MAX;
+extern class ESelectedTangentHandle {
+	static var None: ESelectedTangentHandle;
+	static var Leave: ESelectedTangentHandle;
+	static var Arrive: ESelectedTangentHandle;
+	static var ESelectedTangentHandle_MAX: ESelectedTangentHandle;
 }

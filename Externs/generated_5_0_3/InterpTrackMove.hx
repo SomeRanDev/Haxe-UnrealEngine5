@@ -17,7 +17,7 @@ extern class InterpTrackMove extends InterpTrack {
 	public var bShowTranslationOnCurveEd: Bool;
 	public var bShowRotationOnCurveEd: Bool;
 	public var bHide3DTrack: Bool;
-	public var RotMode: EInterpTrackMoveRotMode;
+	public var RotMode: TEnumAsByte<EInterpTrackMoveRotMode>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -49,8 +49,8 @@ abstract ConstInterpTrackMove(InterpTrackMove) from InterpTrackMove {
 	public inline extern function get_bShowRotationOnCurveEd(): Bool return this.bShowRotationOnCurveEd;
 	public extern var bHide3DTrack(get, never): Bool;
 	public inline extern function get_bHide3DTrack(): Bool return this.bHide3DTrack;
-	public extern var RotMode(get, never): EInterpTrackMoveRotMode;
-	public inline extern function get_RotMode(): EInterpTrackMoveRotMode return this.RotMode;
+	public extern var RotMode(get, never): TEnumAsByte<EInterpTrackMoveRotMode>;
+	public inline extern function get_RotMode(): TEnumAsByte<EInterpTrackMoveRotMode> return this.RotMode;
 }
 
 @:forward

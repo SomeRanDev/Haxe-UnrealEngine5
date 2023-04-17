@@ -3,10 +3,10 @@ package ue;
 
 @:native("EFrictionCombineMode.Type")
 @:include("PhysicsSettingsEnums.h")
-extern enum EFrictionCombineMode {
-	Average;
-	Min;
-	Multiply;
-	Max;
-	EFrictionCombineMode_MAX;
+extern class EFrictionCombineMode {
+	static var Average: EFrictionCombineMode;
+	static var Min: EFrictionCombineMode;
+	static var Multiply: EFrictionCombineMode;
+	static var Max: EFrictionCombineMode;
+	static var EFrictionCombineMode_MAX: EFrictionCombineMode;
 }

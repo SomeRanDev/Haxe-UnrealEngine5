@@ -3,14 +3,14 @@ package ue;
 
 @:native("EClientRequestType")
 @:include("PartyBeaconClient.h")
-extern enum EClientRequestType {
-	NonePending;
-	ExistingSessionReservation;
-	ReservationUpdate;
-	EmptyServerReservation;
-	Reconnect;
-	Abandon;
-	ReservationRemoveMembers;
-	AddOrUpdateReservation;
-	EClientRequestType_MAX;
+extern class EClientRequestType {
+	static var NonePending: EClientRequestType;
+	static var ExistingSessionReservation: EClientRequestType;
+	static var ReservationUpdate: EClientRequestType;
+	static var EmptyServerReservation: EClientRequestType;
+	static var Reconnect: EClientRequestType;
+	static var Abandon: EClientRequestType;
+	static var ReservationRemoveMembers: EClientRequestType;
+	static var AddOrUpdateReservation: EClientRequestType;
+	static var EClientRequestType_MAX: EClientRequestType;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EUVProjectionToolInitializationMode")
 @:include("UVProjectionTool.h")
-extern enum EUVProjectionToolInitializationMode {
-	Default;
-	UsePrevious;
-	AutoFit;
-	AutoFitAlign;
-	EUVProjectionToolInitializationMode_MAX;
+extern class EUVProjectionToolInitializationMode {
+	static var Default: EUVProjectionToolInitializationMode;
+	static var UsePrevious: EUVProjectionToolInitializationMode;
+	static var AutoFit: EUVProjectionToolInitializationMode;
+	static var AutoFitAlign: EUVProjectionToolInitializationMode;
+	static var EUVProjectionToolInitializationMode_MAX: EUVProjectionToolInitializationMode;
 }

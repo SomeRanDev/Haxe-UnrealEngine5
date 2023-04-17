@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESubmixSendStage")
 @:include("Sound/SoundSubmixSend.h")
-extern enum ESubmixSendStage {
-	PostDistanceAttenuation;
-	PreDistanceAttenuation;
-	ESubmixSendStage_MAX;
+extern class ESubmixSendStage {
+	static var PostDistanceAttenuation: ESubmixSendStage;
+	static var PreDistanceAttenuation: ESubmixSendStage;
+	static var ESubmixSendStage_MAX: ESubmixSendStage;
 }

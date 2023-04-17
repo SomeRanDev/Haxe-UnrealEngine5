@@ -3,10 +3,10 @@ package ue;
 
 @:native("EDesiredImageFormat")
 @:include("ImageWriteTypes.h")
-extern enum EDesiredImageFormat {
-	PNG;
-	JPG;
-	BMP;
-	EXR;
-	EDesiredImageFormat_MAX;
+extern class EDesiredImageFormat {
+	static var PNG: EDesiredImageFormat;
+	static var JPG: EDesiredImageFormat;
+	static var BMP: EDesiredImageFormat;
+	static var EXR: EDesiredImageFormat;
+	static var EDesiredImageFormat_MAX: EDesiredImageFormat;
 }

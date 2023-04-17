@@ -3,14 +3,14 @@ package ue;
 
 @:native("EParticleUVFlipMode")
 @:include("Particles/ParticleModuleRequired.h")
-extern enum EParticleUVFlipMode {
-	None;
-	FlipUV;
-	FlipUOnly;
-	FlipVOnly;
-	RandomFlipUV;
-	RandomFlipUOnly;
-	RandomFlipVOnly;
-	RandomFlipUVIndependent;
-	EParticleUVFlipMode_MAX;
+extern class EParticleUVFlipMode {
+	static var None: EParticleUVFlipMode;
+	static var FlipUV: EParticleUVFlipMode;
+	static var FlipUOnly: EParticleUVFlipMode;
+	static var FlipVOnly: EParticleUVFlipMode;
+	static var RandomFlipUV: EParticleUVFlipMode;
+	static var RandomFlipUOnly: EParticleUVFlipMode;
+	static var RandomFlipVOnly: EParticleUVFlipMode;
+	static var RandomFlipUVIndependent: EParticleUVFlipMode;
+	static var EParticleUVFlipMode_MAX: EParticleUVFlipMode;
 }

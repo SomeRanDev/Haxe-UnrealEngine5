@@ -3,8 +3,8 @@ package ue;
 
 @:native("EMovieSceneEvaluationType")
 @:include("MovieSceneFwd.h")
-extern enum EMovieSceneEvaluationType {
-	FrameLocked;
-	WithSubFrames;
-	EMovieSceneEvaluationType_MAX;
+extern class EMovieSceneEvaluationType {
+	static var FrameLocked: EMovieSceneEvaluationType;
+	static var WithSubFrames: EMovieSceneEvaluationType;
+	static var EMovieSceneEvaluationType_MAX: EMovieSceneEvaluationType;
 }

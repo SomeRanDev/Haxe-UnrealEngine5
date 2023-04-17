@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class WidgetTree extends Object {
 	public var RootWidget: cpp.Star<Widget>;
-	public var AllWidgets: TArray<cpp.Star<Widget>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +15,6 @@ extern class WidgetTree extends Object {
 abstract ConstWidgetTree(WidgetTree) from WidgetTree {
 	public extern var RootWidget(get, never): cpp.Star<Widget.ConstWidget>;
 	public inline extern function get_RootWidget(): cpp.Star<Widget.ConstWidget> return this.RootWidget;
-	public extern var AllWidgets(get, never): TArray<cpp.Star<Widget.ConstWidget>>;
-	public inline extern function get_AllWidgets(): TArray<cpp.Star<Widget.ConstWidget>> return this.AllWidgets;
 }
 
 @:forward

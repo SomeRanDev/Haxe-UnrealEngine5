@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETutorialAnchorIdentifier.Type")
 @:include("EditorTutorial.h")
-extern enum ETutorialAnchorIdentifier {
-	None;
-	NamedWidget;
-	Asset;
-	ETutorialAnchorIdentifier_MAX;
+extern class ETutorialAnchorIdentifier {
+	static var None: ETutorialAnchorIdentifier;
+	static var NamedWidget: ETutorialAnchorIdentifier;
+	static var Asset: ETutorialAnchorIdentifier;
+	static var ETutorialAnchorIdentifier_MAX: ETutorialAnchorIdentifier;
 }

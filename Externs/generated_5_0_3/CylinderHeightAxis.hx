@@ -3,9 +3,9 @@ package ue;
 
 @:native("CylinderHeightAxis")
 @:include("Particles/Location/ParticleModuleLocationPrimitiveCylinder.h")
-extern enum CylinderHeightAxis {
-	PMLPC_HEIGHTAXIS_X;
-	PMLPC_HEIGHTAXIS_Y;
-	PMLPC_HEIGHTAXIS_Z;
-	PMLPC_HEIGHTAXIS_MAX;
+extern class CylinderHeightAxis {
+	static var PMLPC_HEIGHTAXIS_X: CylinderHeightAxis;
+	static var PMLPC_HEIGHTAXIS_Y: CylinderHeightAxis;
+	static var PMLPC_HEIGHTAXIS_Z: CylinderHeightAxis;
+	static var PMLPC_HEIGHTAXIS_MAX: CylinderHeightAxis;
 }

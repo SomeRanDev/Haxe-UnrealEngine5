@@ -3,8 +3,8 @@ package ue;
 
 @:native("FNiagaraCompileEventSource")
 @:include("NiagaraShared.h")
-extern enum FNiagaraCompileEventSource {
-	Unset;
-	ScriptDependency;
-	FNiagaraCompileEventSource_MAX;
+extern class FNiagaraCompileEventSource {
+	static var Unset: FNiagaraCompileEventSource;
+	static var ScriptDependency: FNiagaraCompileEventSource;
+	static var FNiagaraCompileEventSource_MAX: FNiagaraCompileEventSource;
 }

@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENiagaraSpriteAlignment")
 @:include("NiagaraSpriteRendererProperties.h")
-extern enum ENiagaraSpriteAlignment {
-	Unaligned;
-	VelocityAligned;
-	CustomAlignment;
-	ENiagaraSpriteAlignment_MAX;
+extern class ENiagaraSpriteAlignment {
+	static var Unaligned: ENiagaraSpriteAlignment;
+	static var VelocityAligned: ENiagaraSpriteAlignment;
+	static var CustomAlignment: ENiagaraSpriteAlignment;
+	static var ENiagaraSpriteAlignment_MAX: ENiagaraSpriteAlignment;
 }

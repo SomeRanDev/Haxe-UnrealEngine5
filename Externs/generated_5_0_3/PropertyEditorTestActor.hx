@@ -5,9 +5,9 @@ package ue;
 @:include("Editor/PropertyEditorTestObject.h")
 @:structAccess
 extern class PropertyEditorTestActor extends Actor {
-	public var GetOptionsValue: FName;
+	private var GetOptionsValue: FName;
 
-	public function GetOptionsFunc(): cpp.Reference<TArray<FString>>;
+	private function GetOptionsFunc(): TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,8 +15,6 @@ extern class PropertyEditorTestActor extends Actor {
 @:forward(GetOptionsFunc)
 @:nativeGen
 abstract ConstPropertyEditorTestActor(PropertyEditorTestActor) from PropertyEditorTestActor {
-	public extern var GetOptionsValue(get, never): FName;
-	public inline extern function get_GetOptionsValue(): FName return this.GetOptionsValue;
 }
 
 @:forward

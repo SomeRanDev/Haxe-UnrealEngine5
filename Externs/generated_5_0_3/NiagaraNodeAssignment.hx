@@ -5,11 +5,9 @@ package ue;
 @:include("NiagaraNodeAssignment.h")
 @:structAccess
 extern class NiagaraNodeAssignment extends NiagaraNodeFunctionCall {
-	public var AssignmentTarget_DEPRECATED: NiagaraVariable;
-	public var AssignmentDefaultValue_DEPRECATED: FString;
-	public var AssignmentTargets: TArray<NiagaraVariable>;
-	public var AssignmentDefaultValues: TArray<FString>;
-	public var OldFunctionCallName: FString;
+	@:protected public var AssignmentTargets: TArray<NiagaraVariable>;
+	@:protected public var AssignmentDefaultValues: TArray<FString>;
+	@:protected public var OldFunctionCallName: FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,16 +15,6 @@ extern class NiagaraNodeAssignment extends NiagaraNodeFunctionCall {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraNodeAssignment(NiagaraNodeAssignment) from NiagaraNodeAssignment {
-	public extern var AssignmentTarget_DEPRECATED(get, never): NiagaraVariable;
-	public inline extern function get_AssignmentTarget_DEPRECATED(): NiagaraVariable return this.AssignmentTarget_DEPRECATED;
-	public extern var AssignmentDefaultValue_DEPRECATED(get, never): FString;
-	public inline extern function get_AssignmentDefaultValue_DEPRECATED(): FString return this.AssignmentDefaultValue_DEPRECATED;
-	public extern var AssignmentTargets(get, never): TArray<NiagaraVariable>;
-	public inline extern function get_AssignmentTargets(): TArray<NiagaraVariable> return this.AssignmentTargets;
-	public extern var AssignmentDefaultValues(get, never): TArray<FString>;
-	public inline extern function get_AssignmentDefaultValues(): TArray<FString> return this.AssignmentDefaultValues;
-	public extern var OldFunctionCallName(get, never): FString;
-	public inline extern function get_OldFunctionCallName(): FString return this.OldFunctionCallName;
 }
 
 @:forward

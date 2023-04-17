@@ -8,9 +8,9 @@ extern class InAppPurchaseCallbackProxy2 extends Object {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(EInAppPurchaseStatus, cpp.Reference<TArray<InAppPurchaseReceiptInfo2>>) -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<(EInAppPurchaseStatus, cpp.Reference<TArray<InAppPurchaseReceiptInfo2>>) -> Void>;
 
-	public function CreateProxyObjectForInAppPurchaseUnprocessedPurchases(PlayerController: cpp.Star<PlayerController>): cpp.Reference<cpp.Star<InAppPurchaseCallbackProxy2>>;
-	public function CreateProxyObjectForInAppPurchaseQueryOwned(PlayerController: cpp.Star<PlayerController>): cpp.Reference<cpp.Star<InAppPurchaseCallbackProxy2>>;
-	public function CreateProxyObjectForInAppPurchase(PlayerController: cpp.Star<PlayerController>, ProductRequest: cpp.Reference<InAppPurchaseProductRequest2>): cpp.Reference<cpp.Star<InAppPurchaseCallbackProxy2>>;
+	public function CreateProxyObjectForInAppPurchaseUnprocessedPurchases(PlayerController: cpp.Star<PlayerController>): cpp.Star<InAppPurchaseCallbackProxy2>;
+	public function CreateProxyObjectForInAppPurchaseQueryOwned(PlayerController: cpp.Star<PlayerController>): cpp.Star<InAppPurchaseCallbackProxy2>;
+	public function CreateProxyObjectForInAppPurchase(PlayerController: cpp.Star<PlayerController>, ProductRequest: cpp.Reference<InAppPurchaseProductRequest2>): cpp.Star<InAppPurchaseCallbackProxy2>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

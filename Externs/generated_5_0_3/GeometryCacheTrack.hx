@@ -5,7 +5,7 @@ package ue;
 @:include("GeometryCacheTrack.h")
 @:structAccess
 extern class GeometryCacheTrack extends Object {
-	public var Duration: cpp.Float32;
+	@:protected public var Duration: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class GeometryCacheTrack extends Object {
 @:forward()
 @:nativeGen
 abstract ConstGeometryCacheTrack(GeometryCacheTrack) from GeometryCacheTrack {
-	public extern var Duration(get, never): cpp.Float32;
-	public inline extern function get_Duration(): cpp.Float32 return this.Duration;
 }
 
 @:forward

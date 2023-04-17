@@ -5,9 +5,6 @@ package ue;
 @:include("Editor/GroupActor.h")
 @:structAccess
 extern class GroupActor extends Actor {
-	public var bLocked: Bool;
-	public var GroupActors: TArray<cpp.Star<Actor>>;
-	public var SubGroups: TArray<cpp.Star<GroupActor>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +12,6 @@ extern class GroupActor extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstGroupActor(GroupActor) from GroupActor {
-	public extern var bLocked(get, never): Bool;
-	public inline extern function get_bLocked(): Bool return this.bLocked;
-	public extern var GroupActors(get, never): TArray<cpp.Star<Actor.ConstActor>>;
-	public inline extern function get_GroupActors(): TArray<cpp.Star<Actor.ConstActor>> return this.GroupActors;
-	public extern var SubGroups(get, never): TArray<cpp.Star<GroupActor.ConstGroupActor>>;
-	public inline extern function get_SubGroups(): TArray<cpp.Star<GroupActor.ConstGroupActor>> return this.SubGroups;
 }
 
 @:forward

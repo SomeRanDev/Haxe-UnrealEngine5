@@ -5,7 +5,6 @@ package ue;
 @:include("AnimNodes/AnimNode_BlendListByInt.h")
 @:structAccess
 extern class AnimNode_BlendListByInt extends AnimNode_BlendListBase {
-	public var ActiveChildIndex: cpp.Int32;
 
 	@:native("FAnimNode_BlendListByInt") public function new();
 	@:native("FAnimNode_BlendListByInt") public static function make(ActiveChildIndex: cpp.Int32): AnimNode_BlendListByInt ;

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EConstraintFrame.Type")
 @:include("Chaos/ChaosEngineInterface.h")
-extern enum EConstraintFrame {
-	Frame1;
-	Frame2;
-	EConstraintFrame_MAX;
+extern class EConstraintFrame {
+	static var Frame1: EConstraintFrame;
+	static var Frame2: EConstraintFrame;
+	static var EConstraintFrame_MAX: EConstraintFrame;
 }

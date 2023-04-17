@@ -5,7 +5,7 @@ package ue;
 @:include("AnimNodes/AnimNode_Mirror.h")
 @:structAccess
 extern class AnimNode_MirrorBase extends AnimNode_Base {
-	public var Source: PoseLink;
+	@:protected public var Source: PoseLink;
 
 	@:native("FAnimNode_MirrorBase") public function new();
 	@:native("FAnimNode_MirrorBase") public static function make(Source: PoseLink): AnimNode_MirrorBase ;

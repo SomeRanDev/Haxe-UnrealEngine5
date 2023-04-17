@@ -5,7 +5,7 @@ package ue;
 @:include("Components/Overlay.h")
 @:structAccess
 extern class Overlay extends PanelWidget {
-	public function AddChildToOverlay(Content: cpp.Star<Widget>): cpp.Reference<cpp.Star<OverlaySlot>>;
+	public function AddChildToOverlay(Content: cpp.Star<Widget>): cpp.Star<OverlaySlot>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

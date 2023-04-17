@@ -28,9 +28,9 @@ extern class DebugCameraController extends PlayerController {
 	public function ShowDebugSelectedInfo(): Void;
 	public function SetPawnMovementSpeedScale(NewSpeedScale: cpp.Float32): Void;
 	public function ReceiveOnDeactivate(RestoredPC: cpp.Star<PlayerController>): Void;
-	public function ReceiveOnActorSelected(NewSelectedActor: cpp.Star<Actor>, SelectHitLocation: cpp.Reference<Vector>, SelectHitNormal: cpp.Reference<Vector>, Hit: cpp.Reference<HitResult>): Void;
+	@:protected public function ReceiveOnActorSelected(NewSelectedActor: cpp.Star<Actor>, SelectHitLocation: cpp.Reference<Vector>, SelectHitNormal: cpp.Reference<Vector>, Hit: cpp.Reference<HitResult>): Void;
 	public function ReceiveOnActivate(OriginalPC: cpp.Star<PlayerController>): Void;
-	public function GetSelectedActor(): cpp.Reference<cpp.Star<Actor>>;
+	public function GetSelectedActor(): cpp.Star<Actor>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

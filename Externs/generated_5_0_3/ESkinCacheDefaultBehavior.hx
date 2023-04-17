@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESkinCacheDefaultBehavior")
 @:include("Engine/SkeletalMesh.h")
-extern enum ESkinCacheDefaultBehavior {
-	Exclusive;
-	Inclusive;
-	ESkinCacheDefaultBehavior_MAX;
+extern class ESkinCacheDefaultBehavior {
+	static var Exclusive: ESkinCacheDefaultBehavior;
+	static var Inclusive: ESkinCacheDefaultBehavior;
+	static var ESkinCacheDefaultBehavior_MAX: ESkinCacheDefaultBehavior;
 }

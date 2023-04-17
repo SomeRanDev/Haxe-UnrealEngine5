@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMeshGroupPaintBrushType")
 @:include("MeshGroupPaintTool.h")
-extern enum EMeshGroupPaintBrushType {
-	Paint;
-	Erase;
-	LastValue;
-	EMeshGroupPaintBrushType_MAX;
+extern class EMeshGroupPaintBrushType {
+	static var Paint: EMeshGroupPaintBrushType;
+	static var Erase: EMeshGroupPaintBrushType;
+	static var LastValue: EMeshGroupPaintBrushType;
+	static var EMeshGroupPaintBrushType_MAX: EMeshGroupPaintBrushType;
 }

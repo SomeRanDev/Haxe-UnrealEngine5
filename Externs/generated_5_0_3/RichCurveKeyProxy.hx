@@ -5,7 +5,7 @@ package ue;
 @:include("RichCurveKeyProxy.h")
 @:structAccess
 extern class RichCurveKeyProxy extends Object {
-	public var Value: RichCurveKey;
+	private var Value: RichCurveKey;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class RichCurveKeyProxy extends Object {
 @:forward()
 @:nativeGen
 abstract ConstRichCurveKeyProxy(RichCurveKeyProxy) from RichCurveKeyProxy {
-	public extern var Value(get, never): RichCurveKey;
-	public inline extern function get_Value(): RichCurveKey return this.Value;
 }
 
 @:forward

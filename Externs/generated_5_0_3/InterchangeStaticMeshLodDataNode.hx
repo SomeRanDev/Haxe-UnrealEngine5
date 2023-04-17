@@ -5,11 +5,11 @@ package ue;
 @:include("InterchangeStaticMeshLodDataNode.h")
 @:structAccess
 extern class InterchangeStaticMeshLodDataNode extends InterchangeBaseNode {
-	public function RemoveMeshUid(MeshName: FString): cpp.Reference<Bool>;
-	public function RemoveAllMeshes(): cpp.Reference<Bool>;
-	public function GetMeshUidsCount(): cpp.Reference<cpp.Int32>;
+	public function RemoveMeshUid(MeshName: FString): Bool;
+	public function RemoveAllMeshes(): Bool;
+	public function GetMeshUidsCount(): cpp.Int32;
 	public function GetMeshUids(OutMeshNames: cpp.Reference<TArray<FString>>): Void;
-	public function AddMeshUid(MeshName: FString): cpp.Reference<Bool>;
+	public function AddMeshUid(MeshName: FString): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

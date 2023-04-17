@@ -3,21 +3,21 @@ package ue;
 
 @:native("TextureCompressionSettings")
 @:include("Engine/TextureDefines.h")
-extern enum TextureCompressionSettings {
-	TC_Default;
-	TC_Normalmap;
-	TC_Masks;
-	TC_Grayscale;
-	TC_Displacementmap;
-	TC_VectorDisplacementmap;
-	TC_HDR;
-	TC_EditorIcon;
-	TC_Alpha;
-	TC_DistanceFieldFont;
-	TC_HDR_Compressed;
-	TC_BC7;
-	TC_HalfFloat;
-	TC_LQ;
-	TC_EncodedReflectionCapture;
-	TC_MAX;
+extern class TextureCompressionSettings {
+	static var TC_Default: TextureCompressionSettings;
+	static var TC_Normalmap: TextureCompressionSettings;
+	static var TC_Masks: TextureCompressionSettings;
+	static var TC_Grayscale: TextureCompressionSettings;
+	static var TC_Displacementmap: TextureCompressionSettings;
+	static var TC_VectorDisplacementmap: TextureCompressionSettings;
+	static var TC_HDR: TextureCompressionSettings;
+	static var TC_EditorIcon: TextureCompressionSettings;
+	static var TC_Alpha: TextureCompressionSettings;
+	static var TC_DistanceFieldFont: TextureCompressionSettings;
+	static var TC_HDR_Compressed: TextureCompressionSettings;
+	static var TC_BC7: TextureCompressionSettings;
+	static var TC_HalfFloat: TextureCompressionSettings;
+	static var TC_LQ: TextureCompressionSettings;
+	static var TC_EncodedReflectionCapture: TextureCompressionSettings;
+	static var TC_MAX: TextureCompressionSettings;
 }

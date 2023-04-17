@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETwitterRequestMethod")
 @:include("Engine/TwitterIntegrationBase.h")
-extern enum ETwitterRequestMethod {
-	TRM_Get;
-	TRM_Post;
-	TRM_Delete;
-	TRM_MAX;
+extern class ETwitterRequestMethod {
+	static var TRM_Get: ETwitterRequestMethod;
+	static var TRM_Post: ETwitterRequestMethod;
+	static var TRM_Delete: ETwitterRequestMethod;
+	static var TRM_MAX: ETwitterRequestMethod;
 }

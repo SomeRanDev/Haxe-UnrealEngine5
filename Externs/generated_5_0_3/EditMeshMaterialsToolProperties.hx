@@ -9,7 +9,7 @@ extern class EditMeshMaterialsToolProperties extends InteractiveToolPropertySet 
 	public var MaterialNamesList: TArray<FString>;
 	public var Materials: TArray<cpp.Star<MaterialInterface>>;
 
-	public function GetMaterialNamesFunc(): cpp.Reference<TArray<FString>>;
+	public function GetMaterialNamesFunc(): TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

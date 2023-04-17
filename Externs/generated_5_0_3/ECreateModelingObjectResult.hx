@@ -3,14 +3,14 @@ package ue;
 
 @:native("ECreateModelingObjectResult")
 @:include("ModelingObjectsCreationAPI.h")
-extern enum ECreateModelingObjectResult {
-	Ok;
-	Cancelled;
-	Failed_Unknown;
-	Failed_NoAPIFound;
-	Failed_InvalidWorld;
-	Failed_InvalidMesh;
-	Failed_InvalidTexture;
-	Failed_AssetCreationFailed;
-	ECreateModelingObjectResult_MAX;
+extern class ECreateModelingObjectResult {
+	static var Ok: ECreateModelingObjectResult;
+	static var Cancelled: ECreateModelingObjectResult;
+	static var Failed_Unknown: ECreateModelingObjectResult;
+	static var Failed_NoAPIFound: ECreateModelingObjectResult;
+	static var Failed_InvalidWorld: ECreateModelingObjectResult;
+	static var Failed_InvalidMesh: ECreateModelingObjectResult;
+	static var Failed_InvalidTexture: ECreateModelingObjectResult;
+	static var Failed_AssetCreationFailed: ECreateModelingObjectResult;
+	static var ECreateModelingObjectResult_MAX: ECreateModelingObjectResult;
 }

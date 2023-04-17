@@ -20,7 +20,7 @@ extern class ForceFeedbackComp extends SceneComp {
 	public function SetIntensityMultiplier(NewIntensityMultiplier: cpp.Float32): Void;
 	public function SetForceFeedbackEffect(NewForceFeedbackEffect: cpp.Star<ForceFeedbackEffect>): Void;
 	public function Play(StartTime: cpp.Float32): Void;
-	public function BP_GetAttenuationSettingsToApply(OutAttenuationSettings: cpp.Reference<ForceFeedbackAttenuationSettings>): cpp.Reference<Bool>;
+	public function BP_GetAttenuationSettingsToApply(OutAttenuationSettings: cpp.Reference<ForceFeedbackAttenuationSettings>): Bool;
 	public function AdjustAttenuation(InAttenuationSettings: cpp.Reference<ForceFeedbackAttenuationSettings>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;

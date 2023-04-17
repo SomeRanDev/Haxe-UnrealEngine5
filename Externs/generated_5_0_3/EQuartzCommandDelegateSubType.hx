@@ -3,12 +3,12 @@ package ue;
 
 @:native("EQuartzCommandDelegateSubType")
 @:include("Sound/QuartzQuantizationUtilities.h")
-extern enum EQuartzCommandDelegateSubType {
-	CommandOnFailedToQueue;
-	CommandOnQueued;
-	CommandOnCanceled;
-	CommandOnAboutToStart;
-	CommandOnStarted;
-	Count;
-	EQuartzCommandDelegateSubType_MAX;
+extern class EQuartzCommandDelegateSubType {
+	static var CommandOnFailedToQueue: EQuartzCommandDelegateSubType;
+	static var CommandOnQueued: EQuartzCommandDelegateSubType;
+	static var CommandOnCanceled: EQuartzCommandDelegateSubType;
+	static var CommandOnAboutToStart: EQuartzCommandDelegateSubType;
+	static var CommandOnStarted: EQuartzCommandDelegateSubType;
+	static var Count: EQuartzCommandDelegateSubType;
+	static var EQuartzCommandDelegateSubType_MAX: EQuartzCommandDelegateSubType;
 }

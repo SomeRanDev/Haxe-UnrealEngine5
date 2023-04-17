@@ -5,7 +5,7 @@ package ue;
 @:structAccess
 extern class GizmoTransformSource extends Interface {
 	public function SetTransform(NewTransform: cpp.Reference<Transform>): Void;
-	public function GetTransform(): cpp.Reference<Transform>;
+	public function GetTransform(): Transform;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

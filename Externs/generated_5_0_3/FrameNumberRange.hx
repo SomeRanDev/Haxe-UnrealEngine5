@@ -5,8 +5,8 @@ package ue;
 @:include("UObject/NoExportTypes.h")
 @:structAccess
 extern class FrameNumberRange {
-	public var LowerBound: FrameNumberRangeBound;
-	public var UpperBound: FrameNumberRangeBound;
+	private var LowerBound: FrameNumberRangeBound;
+	private var UpperBound: FrameNumberRangeBound;
 
 	@:native("FFrameNumberRange") public function new();
 	@:native("FFrameNumberRange") public static function make(LowerBound: FrameNumberRangeBound, UpperBound: FrameNumberRangeBound): FrameNumberRange ;

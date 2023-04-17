@@ -5,7 +5,7 @@ package ue;
 @:include("Factories/AnimBlueprintFactory.h")
 @:structAccess
 extern class AnimBlueprintFactory extends Factory {
-	public var BlueprintType: EBlueprintType;
+	public var BlueprintType: TEnumAsByte<EBlueprintType>;
 	public var ParentClass: TSubclassOf<AnimInstance>;
 	public var TargetSkeleton: cpp.Star<Skeleton>;
 	public var PreviewSkeletalMesh: cpp.Star<SkeletalMesh>;
@@ -17,8 +17,8 @@ extern class AnimBlueprintFactory extends Factory {
 @:forward()
 @:nativeGen
 abstract ConstAnimBlueprintFactory(AnimBlueprintFactory) from AnimBlueprintFactory {
-	public extern var BlueprintType(get, never): EBlueprintType;
-	public inline extern function get_BlueprintType(): EBlueprintType return this.BlueprintType;
+	public extern var BlueprintType(get, never): TEnumAsByte<EBlueprintType>;
+	public inline extern function get_BlueprintType(): TEnumAsByte<EBlueprintType> return this.BlueprintType;
 	public extern var ParentClass(get, never): TSubclassOf<AnimInstance.ConstAnimInstance>;
 	public inline extern function get_ParentClass(): TSubclassOf<AnimInstance.ConstAnimInstance> return this.ParentClass;
 	public extern var TargetSkeleton(get, never): cpp.Star<Skeleton.ConstSkeleton>;

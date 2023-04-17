@@ -11,7 +11,7 @@ extern class SplinePoint {
 	public var LeaveTangent: Vector;
 	public var Rotation: Rotator;
 	public var Scale: Vector;
-	public var Type: ESplinePointType;
+	public var Type: TEnumAsByte<ESplinePointType>;
 
 	@:native("FSplinePoint") public function new();
 }

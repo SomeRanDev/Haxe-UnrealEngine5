@@ -3,9 +3,9 @@ package ue;
 
 @:native("EToolMenuStringCommandType")
 @:include("ToolMenuMisc.h")
-extern enum EToolMenuStringCommandType {
-	Command;
-	Python;
-	Custom;
-	EToolMenuStringCommandType_MAX;
+extern class EToolMenuStringCommandType {
+	static var Command: EToolMenuStringCommandType;
+	static var Python: EToolMenuStringCommandType;
+	static var Custom: EToolMenuStringCommandType;
+	static var EToolMenuStringCommandType_MAX: EToolMenuStringCommandType;
 }

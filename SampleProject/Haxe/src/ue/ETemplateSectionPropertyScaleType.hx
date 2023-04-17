@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETemplateSectionPropertyScaleType")
 @:include("Sections/TemplateSequenceSection.h")
-extern enum ETemplateSectionPropertyScaleType {
-	FloatProperty;
-	TransformPropertyLocationOnly;
-	TransformPropertyRotationOnly;
-	ETemplateSectionPropertyScaleType_MAX;
+extern class ETemplateSectionPropertyScaleType {
+	static var FloatProperty: ETemplateSectionPropertyScaleType;
+	static var TransformPropertyLocationOnly: ETemplateSectionPropertyScaleType;
+	static var TransformPropertyRotationOnly: ETemplateSectionPropertyScaleType;
+	static var ETemplateSectionPropertyScaleType_MAX: ETemplateSectionPropertyScaleType;
 }

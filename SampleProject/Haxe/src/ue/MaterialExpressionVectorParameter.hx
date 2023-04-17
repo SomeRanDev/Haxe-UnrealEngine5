@@ -8,7 +8,6 @@ extern class MaterialExpressionVectorParameter extends MaterialExpressionParamet
 	public var DefaultValue: LinearColor;
 	public var bUseCustomPrimitiveData: Bool;
 	public var PrimitiveDataIndex: cpp.UInt8;
-	public var ChannelNames: ParameterChannelNames;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -22,8 +21,6 @@ abstract ConstMaterialExpressionVectorParameter(MaterialExpressionVectorParamete
 	public inline extern function get_bUseCustomPrimitiveData(): Bool return this.bUseCustomPrimitiveData;
 	public extern var PrimitiveDataIndex(get, never): cpp.UInt8;
 	public inline extern function get_PrimitiveDataIndex(): cpp.UInt8 return this.PrimitiveDataIndex;
-	public extern var ChannelNames(get, never): ParameterChannelNames;
-	public inline extern function get_ChannelNames(): ParameterChannelNames return this.ChannelNames;
 }
 
 @:forward

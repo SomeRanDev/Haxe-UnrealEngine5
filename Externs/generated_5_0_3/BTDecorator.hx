@@ -5,8 +5,8 @@ package ue;
 @:include("BehaviorTree/BTDecorator.h")
 @:structAccess
 extern class BTDecorator extends BTAuxiliaryNode {
-	public var bInverseCondition: Bool;
-	public var FlowAbortMode: EBTFlowAbortMode;
+	private var bInverseCondition: Bool;
+	@:protected public var FlowAbortMode: TEnumAsByte<EBTFlowAbortMode>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class BTDecorator extends BTAuxiliaryNode {
 @:forward()
 @:nativeGen
 abstract ConstBTDecorator(BTDecorator) from BTDecorator {
-	public extern var bInverseCondition(get, never): Bool;
-	public inline extern function get_bInverseCondition(): Bool return this.bInverseCondition;
-	public extern var FlowAbortMode(get, never): EBTFlowAbortMode;
-	public inline extern function get_FlowAbortMode(): EBTFlowAbortMode return this.FlowAbortMode;
 }
 
 @:forward

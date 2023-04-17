@@ -3,11 +3,11 @@ package ue;
 
 @:native("EEndPlayReason.Type")
 @:include("Engine/EngineTypes.h")
-extern enum EEndPlayReason {
-	Destroyed;
-	LevelTransition;
-	EndPlayInEditor;
-	RemovedFromWorld;
-	Quit;
-	EEndPlayReason_MAX;
+extern class EEndPlayReason {
+	static var Destroyed: EEndPlayReason;
+	static var LevelTransition: EEndPlayReason;
+	static var EndPlayInEditor: EEndPlayReason;
+	static var RemovedFromWorld: EEndPlayReason;
+	static var Quit: EEndPlayReason;
+	static var EEndPlayReason_MAX: EEndPlayReason;
 }

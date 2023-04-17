@@ -3,8 +3,8 @@ package ue;
 
 @:native("ELandscapeImportAlphamapType")
 @:include("LandscapeProxy.h")
-extern enum ELandscapeImportAlphamapType {
-	Additive;
-	Layered;
-	ELandscapeImportAlphamapType_MAX;
+extern class ELandscapeImportAlphamapType {
+	static var Additive: ELandscapeImportAlphamapType;
+	static var Layered: ELandscapeImportAlphamapType;
+	static var ELandscapeImportAlphamapType_MAX: ELandscapeImportAlphamapType;
 }

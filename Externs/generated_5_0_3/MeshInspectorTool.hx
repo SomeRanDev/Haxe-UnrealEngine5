@@ -5,11 +5,11 @@ package ue;
 @:include("MeshInspectorTool.h")
 @:structAccess
 extern class MeshInspectorTool extends SingleSelectionMeshEditingTool {
-	public var Settings: cpp.Star<MeshInspectorProperties>;
-	public var MaterialSettings: cpp.Star<ExistingMeshMaterialProperties>;
-	public var PreviewMesh: cpp.Star<PreviewMesh>;
-	public var DrawnLineSet: cpp.Star<LineSetComp>;
-	public var DefaultMaterial: cpp.Star<MaterialInterface>;
+	@:protected public var Settings: cpp.Star<MeshInspectorProperties>;
+	@:protected public var MaterialSettings: cpp.Star<ExistingMeshMaterialProperties>;
+	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
+	@:protected public var DrawnLineSet: cpp.Star<LineSetComp>;
+	@:protected public var DefaultMaterial: cpp.Star<MaterialInterface>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,16 +17,6 @@ extern class MeshInspectorTool extends SingleSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstMeshInspectorTool(MeshInspectorTool) from MeshInspectorTool {
-	public extern var Settings(get, never): cpp.Star<MeshInspectorProperties.ConstMeshInspectorProperties>;
-	public inline extern function get_Settings(): cpp.Star<MeshInspectorProperties.ConstMeshInspectorProperties> return this.Settings;
-	public extern var MaterialSettings(get, never): cpp.Star<ExistingMeshMaterialProperties.ConstExistingMeshMaterialProperties>;
-	public inline extern function get_MaterialSettings(): cpp.Star<ExistingMeshMaterialProperties.ConstExistingMeshMaterialProperties> return this.MaterialSettings;
-	public extern var PreviewMesh(get, never): cpp.Star<PreviewMesh.ConstPreviewMesh>;
-	public inline extern function get_PreviewMesh(): cpp.Star<PreviewMesh.ConstPreviewMesh> return this.PreviewMesh;
-	public extern var DrawnLineSet(get, never): cpp.Star<LineSetComp.ConstLineSetComp>;
-	public inline extern function get_DrawnLineSet(): cpp.Star<LineSetComp.ConstLineSetComp> return this.DrawnLineSet;
-	public extern var DefaultMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_DefaultMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.DefaultMaterial;
 }
 
 @:forward

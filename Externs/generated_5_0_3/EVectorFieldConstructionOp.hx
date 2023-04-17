@@ -3,8 +3,8 @@ package ue;
 
 @:native("EVectorFieldConstructionOp")
 @:include("VectorField/VectorFieldAnimated.h")
-extern enum EVectorFieldConstructionOp {
-	VFCO_Extrude;
-	VFCO_Revolve;
-	VFCO_MAX;
+extern class EVectorFieldConstructionOp {
+	static var VFCO_Extrude: EVectorFieldConstructionOp;
+	static var VFCO_Revolve: EVectorFieldConstructionOp;
+	static var VFCO_MAX: EVectorFieldConstructionOp;
 }

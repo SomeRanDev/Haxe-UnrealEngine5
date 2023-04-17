@@ -5,12 +5,12 @@ package ue;
 @:include("Tests/FbxAutomationCommon.h")
 @:structAccess
 extern class FbxTestPlanExpectedResult {
-	public var ExpectedPresetsType: EFBXExpectedResultPreset;
+	public var ExpectedPresetsType: TEnumAsByte<EFBXExpectedResultPreset>;
 	public var ExpectedPresetsDataInteger: TArray<cpp.Int32>;
 	public var ExpectedPresetsDataFloat: TArray<cpp.Float32>;
 	public var ExpectedPresetsDataDouble: TArray<cpp.Float64>;
 	public var ExpectedPresetsDataString: TArray<FString>;
 
 	@:native("FFbxTestPlanExpectedResult") public function new();
-	@:native("FFbxTestPlanExpectedResult") public static function make(ExpectedPresetsType: EFBXExpectedResultPreset, ExpectedPresetsDataInteger: TArray<cpp.Int32>, ExpectedPresetsDataFloat: TArray<cpp.Float32>, ExpectedPresetsDataDouble: TArray<cpp.Float64>, ExpectedPresetsDataString: TArray<FString>): FbxTestPlanExpectedResult ;
+	@:native("FFbxTestPlanExpectedResult") public static function make(ExpectedPresetsType: TEnumAsByte<EFBXExpectedResultPreset>, ExpectedPresetsDataInteger: TArray<cpp.Int32>, ExpectedPresetsDataFloat: TArray<cpp.Float32>, ExpectedPresetsDataDouble: TArray<cpp.Float64>, ExpectedPresetsDataString: TArray<FString>): FbxTestPlanExpectedResult ;
 }

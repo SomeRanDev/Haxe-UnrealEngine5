@@ -10,30 +10,27 @@ extern class ControlRigShapeActor extends Actor {
 	public var ControlRigIndex: cpp.UInt32;
 	public var ControlName: FName;
 	public var ColorParameterName: FName;
-	public var bEnabled: Bool;
-	public var bSelected: Bool;
-	public var bSelectable: Bool;
-	public var bHovered: Bool;
+	public function IsEnabled(): Bool;
+	public function SetEnabled(input: Bool): Void;
+	public function IsSelectedInEditor(): Bool;
+	public function SetSelected(input: Bool): Void;
+	public function IsSelectable(): Bool;
+	public function SetSelectable(input: Bool): Void;
+	public function IsHovered(): Bool;
+	public function SetHovered(input: Bool): Void;
 
-	public function SetSelected(bInSelected: Bool): Void;
-	public function SetSelectable(bInSelectable: Bool): Void;
-	public function SetHovered(bInHovered: Bool): Void;
 	public function SetGlobalTransform(InTransform: cpp.Reference<Transform>): Void;
-	public function SetEnabled(bInEnabled: Bool): Void;
 	public function OnTransformChanged(NewTransform: cpp.Reference<Transform>): Void;
 	public function OnSelectionChanged(bIsSelected: Bool): Void;
 	public function OnManipulatingChanged(bIsManipulating: Bool): Void;
 	public function OnHoveredChanged(bIsSelected: Bool): Void;
 	public function OnEnabledChanged(bIsEnabled: Bool): Void;
-	public function IsSelectedInEditor(): cpp.Reference<Bool>;
-	public function IsHovered(): cpp.Reference<Bool>;
-	public function IsEnabled(): cpp.Reference<Bool>;
-	public function GetGlobalTransform(): cpp.Reference<Transform>;
+	public function GetGlobalTransform(): Transform;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
 
-@:forward(IsSelectedInEditor, IsHovered, IsEnabled, GetGlobalTransform)
+@:forward(GetGlobalTransform)
 @:nativeGen
 abstract ConstControlRigShapeActor(ControlRigShapeActor) from ControlRigShapeActor {
 	public extern var ActorRootComponent(get, never): cpp.Star<SceneComp.ConstSceneComp>;
@@ -46,14 +43,6 @@ abstract ConstControlRigShapeActor(ControlRigShapeActor) from ControlRigShapeAct
 	public inline extern function get_ControlName(): FName return this.ControlName;
 	public extern var ColorParameterName(get, never): FName;
 	public inline extern function get_ColorParameterName(): FName return this.ColorParameterName;
-	public extern var bEnabled(get, never): Bool;
-	public inline extern function get_bEnabled(): Bool return this.bEnabled;
-	public extern var bSelected(get, never): Bool;
-	public inline extern function get_bSelected(): Bool return this.bSelected;
-	public extern var bSelectable(get, never): Bool;
-	public inline extern function get_bSelectable(): Bool return this.bSelectable;
-	public extern var bHovered(get, never): Bool;
-	public inline extern function get_bHovered(): Bool return this.bHovered;
 }
 
 @:forward

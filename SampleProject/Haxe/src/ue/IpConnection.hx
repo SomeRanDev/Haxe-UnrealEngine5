@@ -5,7 +5,7 @@ package ue;
 @:include("IpConnection.h")
 @:structAccess
 extern class IpConnection extends NetConnection {
-	public var SocketErrorDisconnectDelay: cpp.Float32;
+	private var SocketErrorDisconnectDelay: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class IpConnection extends NetConnection {
 @:forward()
 @:nativeGen
 abstract ConstIpConnection(IpConnection) from IpConnection {
-	public extern var SocketErrorDisconnectDelay(get, never): cpp.Float32;
-	public inline extern function get_SocketErrorDisconnectDelay(): cpp.Float32 return this.SocketErrorDisconnectDelay;
 }
 
 @:forward

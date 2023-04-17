@@ -5,7 +5,7 @@ package ue;
 @:include("EntitySystem/MovieSceneEntitySystem.h")
 @:structAccess
 extern class MovieSceneEntitySystem extends Object {
-	public var Linker: cpp.Star<MovieSceneEntitySystemLinker>;
+	@:protected public var Linker: cpp.Star<MovieSceneEntitySystemLinker>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MovieSceneEntitySystem extends Object {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneEntitySystem(MovieSceneEntitySystem) from MovieSceneEntitySystem {
-	public extern var Linker(get, never): cpp.Star<MovieSceneEntitySystemLinker.ConstMovieSceneEntitySystemLinker>;
-	public inline extern function get_Linker(): cpp.Star<MovieSceneEntitySystemLinker.ConstMovieSceneEntitySystemLinker> return this.Linker;
 }
 
 @:forward

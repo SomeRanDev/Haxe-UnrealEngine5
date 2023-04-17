@@ -3,9 +3,9 @@ package ue;
 
 @:native("EUVLayoutType")
 @:include("Properties/UVLayoutProperties.h")
-extern enum EUVLayoutType {
-	Transform;
-	Stack;
-	Repack;
-	EUVLayoutType_MAX;
+extern class EUVLayoutType {
+	static var Transform: EUVLayoutType;
+	static var Stack: EUVLayoutType;
+	static var Repack: EUVLayoutType;
+	static var EUVLayoutType_MAX: EUVLayoutType;
 }

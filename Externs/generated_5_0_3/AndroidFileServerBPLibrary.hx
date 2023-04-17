@@ -5,9 +5,9 @@ package ue;
 @:include("AndroidFileServerBPLibrary.h")
 @:structAccess
 extern class AndroidFileServerBPLibrary extends BlueprintFunctionLibrary {
-	public function StopFileServer(bUSB: Bool, bNetwork: Bool): cpp.Reference<Bool>;
-	public function StartFileServer(bUSB: Bool, bNetwork: Bool, Port: cpp.Int32): cpp.Reference<Bool>;
-	public function IsFileServerRunning(): cpp.Reference<EAFSActiveType>;
+	public function StopFileServer(bUSB: Bool, bNetwork: Bool): Bool;
+	public function StartFileServer(bUSB: Bool, bNetwork: Bool, Port: cpp.Int32): Bool;
+	public function IsFileServerRunning(): TEnumAsByte<EAFSActiveType>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

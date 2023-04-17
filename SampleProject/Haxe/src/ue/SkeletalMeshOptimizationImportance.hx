@@ -3,12 +3,12 @@ package ue;
 
 @:native("SkeletalMeshOptimizationImportance")
 @:include("SkeletalMeshReductionSettings.h")
-extern enum SkeletalMeshOptimizationImportance {
-	SMOI_Off;
-	SMOI_Lowest;
-	SMOI_Low;
-	SMOI_Normal;
-	SMOI_High;
-	SMOI_Highest;
-	SMOI_MAX;
+extern class SkeletalMeshOptimizationImportance {
+	static var SMOI_Off: SkeletalMeshOptimizationImportance;
+	static var SMOI_Lowest: SkeletalMeshOptimizationImportance;
+	static var SMOI_Low: SkeletalMeshOptimizationImportance;
+	static var SMOI_Normal: SkeletalMeshOptimizationImportance;
+	static var SMOI_High: SkeletalMeshOptimizationImportance;
+	static var SMOI_Highest: SkeletalMeshOptimizationImportance;
+	static var SMOI_MAX: SkeletalMeshOptimizationImportance;
 }

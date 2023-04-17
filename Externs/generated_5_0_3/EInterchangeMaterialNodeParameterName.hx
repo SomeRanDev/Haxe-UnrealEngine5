@@ -3,14 +3,14 @@ package ue;
 
 @:native("EInterchangeMaterialNodeParameterName")
 @:include("InterchangeMaterialNode.h")
-extern enum EInterchangeMaterialNodeParameterName {
-	BaseColor;
-	EmissiveColor;
-	Specular;
-	Roughness;
-	Metallic;
-	Normal;
-	Opacity;
-	OpacityMask;
-	EInterchangeMaterialNodeParameterName_MAX;
+extern class EInterchangeMaterialNodeParameterName {
+	static var BaseColor: EInterchangeMaterialNodeParameterName;
+	static var EmissiveColor: EInterchangeMaterialNodeParameterName;
+	static var Specular: EInterchangeMaterialNodeParameterName;
+	static var Roughness: EInterchangeMaterialNodeParameterName;
+	static var Metallic: EInterchangeMaterialNodeParameterName;
+	static var Normal: EInterchangeMaterialNodeParameterName;
+	static var Opacity: EInterchangeMaterialNodeParameterName;
+	static var OpacityMask: EInterchangeMaterialNodeParameterName;
+	static var EInterchangeMaterialNodeParameterName_MAX: EInterchangeMaterialNodeParameterName;
 }

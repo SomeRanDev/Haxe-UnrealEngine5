@@ -11,9 +11,6 @@ extern class MovieSceneGeometryCacheParams {
 	public var EndFrameOffset: FrameNumber;
 	public var PlayRate: cpp.Float32;
 	public var bReverse: Bool;
-	public var StartOffset_DEPRECATED: cpp.Float32;
-	public var EndOffset_DEPRECATED: cpp.Float32;
-	public var GeometryCache_DEPRECATED: SoftObjectPath;
 
 	@:native("FMovieSceneGeometryCacheParams") public function new();
 }

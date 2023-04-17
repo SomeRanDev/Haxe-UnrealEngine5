@@ -5,8 +5,8 @@ package ue;
 @:include("NavigationInvokerComponent.h")
 @:structAccess
 extern class NavigationInvokerComp extends ActorComp {
-	public var TileGenerationRadius: cpp.Float32;
-	public var TileRemovalRadius: cpp.Float32;
+	@:protected public var TileGenerationRadius: cpp.Float32;
+	@:protected public var TileRemovalRadius: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class NavigationInvokerComp extends ActorComp {
 @:forward()
 @:nativeGen
 abstract ConstNavigationInvokerComp(NavigationInvokerComp) from NavigationInvokerComp {
-	public extern var TileGenerationRadius(get, never): cpp.Float32;
-	public inline extern function get_TileGenerationRadius(): cpp.Float32 return this.TileGenerationRadius;
-	public extern var TileRemovalRadius(get, never): cpp.Float32;
-	public inline extern function get_TileRemovalRadius(): cpp.Float32 return this.TileRemovalRadius;
 }
 
 @:forward

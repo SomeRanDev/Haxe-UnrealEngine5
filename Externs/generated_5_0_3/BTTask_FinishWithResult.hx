@@ -5,7 +5,7 @@ package ue;
 @:include("BehaviorTree/Tasks/BTTask_FinishWithResult.h")
 @:structAccess
 extern class BTTask_FinishWithResult extends BTTaskNode {
-	public var Result: EBTNodeResult;
+	@:protected public var Result: TEnumAsByte<EBTNodeResult>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class BTTask_FinishWithResult extends BTTaskNode {
 @:forward()
 @:nativeGen
 abstract ConstBTTask_FinishWithResult(BTTask_FinishWithResult) from BTTask_FinishWithResult {
-	public extern var Result(get, never): EBTNodeResult;
-	public inline extern function get_Result(): EBTNodeResult return this.Result;
 }
 
 @:forward

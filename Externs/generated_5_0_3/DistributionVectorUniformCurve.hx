@@ -8,8 +8,8 @@ extern class DistributionVectorUniformCurve extends DistributionVector {
 	public var ConstantCurve: InterpCurveTwoVectors;
 	public var bLockAxes1: Bool;
 	public var bLockAxes2: Bool;
-	public var LockedAxes: EDistributionVectorLockFlags;
-	public var MirrorFlags: EDistributionVectorMirrorFlags;
+	public var LockedAxes: TEnumAsByte<EDistributionVectorLockFlags>;
+	public var MirrorFlags: TEnumAsByte<EDistributionVectorMirrorFlags>;
 	public var bUseExtremes: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -24,10 +24,10 @@ abstract ConstDistributionVectorUniformCurve(DistributionVectorUniformCurve) fro
 	public inline extern function get_bLockAxes1(): Bool return this.bLockAxes1;
 	public extern var bLockAxes2(get, never): Bool;
 	public inline extern function get_bLockAxes2(): Bool return this.bLockAxes2;
-	public extern var LockedAxes(get, never): EDistributionVectorLockFlags;
-	public inline extern function get_LockedAxes(): EDistributionVectorLockFlags return this.LockedAxes;
-	public extern var MirrorFlags(get, never): EDistributionVectorMirrorFlags;
-	public inline extern function get_MirrorFlags(): EDistributionVectorMirrorFlags return this.MirrorFlags;
+	public extern var LockedAxes(get, never): TEnumAsByte<EDistributionVectorLockFlags>;
+	public inline extern function get_LockedAxes(): TEnumAsByte<EDistributionVectorLockFlags> return this.LockedAxes;
+	public extern var MirrorFlags(get, never): TEnumAsByte<EDistributionVectorMirrorFlags>;
+	public inline extern function get_MirrorFlags(): TEnumAsByte<EDistributionVectorMirrorFlags> return this.MirrorFlags;
 	public extern var bUseExtremes(get, never): Bool;
 	public inline extern function get_bUseExtremes(): Bool return this.bUseExtremes;
 }

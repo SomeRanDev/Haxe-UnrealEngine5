@@ -5,11 +5,9 @@ package ue;
 @:include("PhysicalMaterials/PhysicalMaterialMask.h")
 @:structAccess
 extern class PhysicalMaterialMask extends Object {
-	public var AssetImportData: cpp.Star<AssetImportData>;
-	public var MaskTexture: cpp.Star<Texture>;
 	public var UVChannelIndex: cpp.Int32;
-	public var AddressX: TextureAddress;
-	public var AddressY: TextureAddress;
+	public var AddressX: TEnumAsByte<TextureAddress>;
+	public var AddressY: TEnumAsByte<TextureAddress>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,16 +15,12 @@ extern class PhysicalMaterialMask extends Object {
 @:forward()
 @:nativeGen
 abstract ConstPhysicalMaterialMask(PhysicalMaterialMask) from PhysicalMaterialMask {
-	public extern var AssetImportData(get, never): cpp.Star<AssetImportData.ConstAssetImportData>;
-	public inline extern function get_AssetImportData(): cpp.Star<AssetImportData.ConstAssetImportData> return this.AssetImportData;
-	public extern var MaskTexture(get, never): cpp.Star<Texture.ConstTexture>;
-	public inline extern function get_MaskTexture(): cpp.Star<Texture.ConstTexture> return this.MaskTexture;
 	public extern var UVChannelIndex(get, never): cpp.Int32;
 	public inline extern function get_UVChannelIndex(): cpp.Int32 return this.UVChannelIndex;
-	public extern var AddressX(get, never): TextureAddress;
-	public inline extern function get_AddressX(): TextureAddress return this.AddressX;
-	public extern var AddressY(get, never): TextureAddress;
-	public inline extern function get_AddressY(): TextureAddress return this.AddressY;
+	public extern var AddressX(get, never): TEnumAsByte<TextureAddress>;
+	public inline extern function get_AddressX(): TEnumAsByte<TextureAddress> return this.AddressX;
+	public extern var AddressY(get, never): TEnumAsByte<TextureAddress>;
+	public inline extern function get_AddressY(): TEnumAsByte<TextureAddress> return this.AddressY;
 }
 
 @:forward

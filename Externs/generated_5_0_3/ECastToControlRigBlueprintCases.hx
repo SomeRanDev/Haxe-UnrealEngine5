@@ -3,8 +3,8 @@ package ue;
 
 @:native("ECastToControlRigBlueprintCases")
 @:include("ControlRigBlueprintEditorLibrary.h")
-extern enum ECastToControlRigBlueprintCases {
-	CastSucceeded;
-	CastFailed;
-	ECastToControlRigBlueprintCases_MAX;
+extern class ECastToControlRigBlueprintCases {
+	static var CastSucceeded: ECastToControlRigBlueprintCases;
+	static var CastFailed: ECastToControlRigBlueprintCases;
+	static var ECastToControlRigBlueprintCases_MAX: ECastToControlRigBlueprintCases;
 }

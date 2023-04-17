@@ -5,9 +5,9 @@ package ue;
 @:include("MobilePatchingLibrary.h")
 @:structAccess
 extern class MobileInstalledContent extends Object {
-	public function Mount(PakOrder: cpp.Int32, MountPoint: FString): cpp.Reference<Bool>;
-	public function GetInstalledContentSize(): cpp.Reference<cpp.Float32>;
-	public function GetDiskFreeSpace(): cpp.Reference<cpp.Float32>;
+	public function Mount(PakOrder: cpp.Int32, MountPoint: FString): Bool;
+	public function GetInstalledContentSize(): cpp.Float32;
+	public function GetDiskFreeSpace(): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

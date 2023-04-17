@@ -3,18 +3,18 @@ package ue;
 
 @:native("ETravelFailure.Type")
 @:include("Engine/EngineBaseTypes.h")
-extern enum ETravelFailure {
-	NoLevel;
-	LoadMapFailure;
-	InvalidURL;
-	PackageMissing;
-	PackageVersion;
-	NoDownload;
-	TravelFailure;
-	CheatCommands;
-	PendingNetGameCreateFailure;
-	CloudSaveFailure;
-	ServerTravelFailure;
-	ClientTravelFailure;
-	ETravelFailure_MAX;
+extern class ETravelFailure {
+	static var NoLevel: ETravelFailure;
+	static var LoadMapFailure: ETravelFailure;
+	static var InvalidURL: ETravelFailure;
+	static var PackageMissing: ETravelFailure;
+	static var PackageVersion: ETravelFailure;
+	static var NoDownload: ETravelFailure;
+	static var TravelFailure: ETravelFailure;
+	static var CheatCommands: ETravelFailure;
+	static var PendingNetGameCreateFailure: ETravelFailure;
+	static var CloudSaveFailure: ETravelFailure;
+	static var ServerTravelFailure: ETravelFailure;
+	static var ClientTravelFailure: ETravelFailure;
+	static var ETravelFailure_MAX: ETravelFailure;
 }

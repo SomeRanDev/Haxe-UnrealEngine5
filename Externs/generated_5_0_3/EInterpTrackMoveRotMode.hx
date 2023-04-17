@@ -3,9 +3,9 @@ package ue;
 
 @:native("EInterpTrackMoveRotMode")
 @:include("Matinee/InterpTrackMove.h")
-extern enum EInterpTrackMoveRotMode {
-	IMR_Keyframed;
-	IMR_LookAtGroup;
-	IMR_Ignore;
-	IMR_MAX;
+extern class EInterpTrackMoveRotMode {
+	static var IMR_Keyframed: EInterpTrackMoveRotMode;
+	static var IMR_LookAtGroup: EInterpTrackMoveRotMode;
+	static var IMR_Ignore: EInterpTrackMoveRotMode;
+	static var IMR_MAX: EInterpTrackMoveRotMode;
 }

@@ -5,7 +5,7 @@ package ue;
 @:include("Commandlets/WorldPartitionBuilderCommandlet.h")
 @:structAccess
 extern class WorldPartitionBuilderCommandlet extends Commandlet {
-	public var Builders: TArray<cpp.Star<WorldPartitionBuilder>>;
+	private var Builders: TArray<cpp.Star<WorldPartitionBuilder>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class WorldPartitionBuilderCommandlet extends Commandlet {
 @:forward()
 @:nativeGen
 abstract ConstWorldPartitionBuilderCommandlet(WorldPartitionBuilderCommandlet) from WorldPartitionBuilderCommandlet {
-	public extern var Builders(get, never): TArray<cpp.Star<WorldPartitionBuilder.ConstWorldPartitionBuilder>>;
-	public inline extern function get_Builders(): TArray<cpp.Star<WorldPartitionBuilder.ConstWorldPartitionBuilder>> return this.Builders;
 }
 
 @:forward

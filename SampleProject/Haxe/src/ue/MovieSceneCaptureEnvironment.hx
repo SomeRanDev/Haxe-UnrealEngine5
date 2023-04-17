@@ -5,11 +5,11 @@ package ue;
 @:include("MovieSceneCaptureEnvironment.h")
 @:structAccess
 extern class MovieSceneCaptureEnvironment extends Object {
-	public function IsCaptureInProgress(): cpp.Reference<Bool>;
-	public function GetCaptureFrameNumber(): cpp.Reference<cpp.Int32>;
-	public function GetCaptureElapsedTime(): cpp.Reference<cpp.Float32>;
-	public function FindImageCaptureProtocol(): cpp.Reference<cpp.Star<MovieSceneImageCaptureProtocolBase>>;
-	public function FindAudioCaptureProtocol(): cpp.Reference<cpp.Star<MovieSceneAudioCaptureProtocolBase>>;
+	public function IsCaptureInProgress(): Bool;
+	public function GetCaptureFrameNumber(): cpp.Int32;
+	public function GetCaptureElapsedTime(): cpp.Float32;
+	public function FindImageCaptureProtocol(): cpp.Star<MovieSceneImageCaptureProtocolBase>;
+	public function FindAudioCaptureProtocol(): cpp.Star<MovieSceneAudioCaptureProtocolBase>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

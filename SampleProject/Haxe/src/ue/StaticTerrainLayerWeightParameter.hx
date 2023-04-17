@@ -5,9 +5,6 @@ package ue;
 @:include("StaticParameterSet.h")
 @:structAccess
 extern class StaticTerrainLayerWeightParameter {
-	public var ParameterInfo_DEPRECATED: MaterialParameterInfo;
-	public var ExpressionGUID_DEPRECATED: Guid;
-	public var bOverride_DEPRECATED: Bool;
 	public var LayerName: FName;
 	public var WeightmapIndex: cpp.Int32;
 	public var bWeightBasedBlend: Bool;

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EPortableObjectFormat")
 @:include("PortableObjectPipeline.h")
-extern enum EPortableObjectFormat {
-	Unreal;
-	Crowdin;
-	EPortableObjectFormat_MAX;
+extern class EPortableObjectFormat {
+	static var Unreal: EPortableObjectFormat;
+	static var Crowdin: EPortableObjectFormat;
+	static var EPortableObjectFormat_MAX: EPortableObjectFormat;
 }

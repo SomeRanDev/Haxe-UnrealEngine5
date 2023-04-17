@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELandscapeCullingPrecision.Type")
 @:include("Engine/MeshMerging.h")
-extern enum ELandscapeCullingPrecision {
-	High;
-	Medium;
-	Low;
-	ELandscapeCullingPrecision_MAX;
+extern class ELandscapeCullingPrecision {
+	static var High: ELandscapeCullingPrecision;
+	static var Medium: ELandscapeCullingPrecision;
+	static var Low: ELandscapeCullingPrecision;
+	static var ELandscapeCullingPrecision_MAX: ELandscapeCullingPrecision;
 }

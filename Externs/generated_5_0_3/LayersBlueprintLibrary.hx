@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class LayersBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function RemoveActorFromLayer(InActor: cpp.Star<Actor>, Layer: cpp.Reference<ActorLayer>): Void;
-	public function GetActors(WorldContextObject: cpp.Star<Object>, ActorLayer: cpp.Reference<ActorLayer>): cpp.Reference<TArray<cpp.Star<Actor>>>;
+	public function GetActors(WorldContextObject: cpp.Star<Object>, ActorLayer: cpp.Reference<ActorLayer>): TArray<cpp.Star<Actor>>;
 	public function AddActorToLayer(InActor: cpp.Star<Actor>, Layer: cpp.Reference<ActorLayer>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;

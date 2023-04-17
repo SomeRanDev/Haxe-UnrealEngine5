@@ -3,11 +3,11 @@ package ue;
 
 @:native("EModifyCurveApplyMode")
 @:include("AnimNodes/AnimNode_ModifyCurve.h")
-extern enum EModifyCurveApplyMode {
-	Add;
-	Scale;
-	Blend;
-	WeightedMovingAverage;
-	RemapCurve;
-	EModifyCurveApplyMode_MAX;
+extern class EModifyCurveApplyMode {
+	static var Add: EModifyCurveApplyMode;
+	static var Scale: EModifyCurveApplyMode;
+	static var Blend: EModifyCurveApplyMode;
+	static var WeightedMovingAverage: EModifyCurveApplyMode;
+	static var RemapCurve: EModifyCurveApplyMode;
+	static var EModifyCurveApplyMode_MAX: EModifyCurveApplyMode;
 }

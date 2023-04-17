@@ -5,7 +5,7 @@ package ue;
 @:include("CustomMeshComponent.h")
 @:structAccess
 extern class CustomMeshComp extends MeshComp {
-	public function SetCustomMeshTriangles(Triangles: cpp.Reference<TArray<CustomMeshTriangle>>): cpp.Reference<Bool>;
+	public function SetCustomMeshTriangles(Triangles: cpp.Reference<TArray<CustomMeshTriangle>>): Bool;
 	public function ClearCustomMeshTriangles(): Void;
 	public function AddCustomMeshTriangles(Triangles: cpp.Reference<TArray<CustomMeshTriangle>>): Void;
 

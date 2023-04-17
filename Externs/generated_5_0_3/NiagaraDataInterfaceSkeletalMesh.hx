@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class NiagaraDataInterfaceSkeletalMesh extends NiagaraDataInterface {
 	public var SourceMode: ENDISkeletalMesh_SourceMode;
-	public var PreviewMesh: TSoftObjectPtr<SkeletalMesh>;
 	public var Source: cpp.Star<Actor>;
 	public var MeshUserParameter: NiagaraUserParameterBinding;
 	public var SourceComponent: cpp.Star<SkeletalMeshComp>;
@@ -28,8 +27,6 @@ extern class NiagaraDataInterfaceSkeletalMesh extends NiagaraDataInterface {
 abstract ConstNiagaraDataInterfaceSkeletalMesh(NiagaraDataInterfaceSkeletalMesh) from NiagaraDataInterfaceSkeletalMesh {
 	public extern var SourceMode(get, never): ENDISkeletalMesh_SourceMode;
 	public inline extern function get_SourceMode(): ENDISkeletalMesh_SourceMode return this.SourceMode;
-	public extern var PreviewMesh(get, never): TSoftObjectPtr<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_PreviewMesh(): TSoftObjectPtr<SkeletalMesh.ConstSkeletalMesh> return this.PreviewMesh;
 	public extern var Source(get, never): cpp.Star<Actor.ConstActor>;
 	public inline extern function get_Source(): cpp.Star<Actor.ConstActor> return this.Source;
 	public extern var MeshUserParameter(get, never): NiagaraUserParameterBinding;

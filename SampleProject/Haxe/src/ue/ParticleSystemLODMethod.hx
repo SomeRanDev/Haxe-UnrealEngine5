@@ -3,9 +3,9 @@ package ue;
 
 @:native("ParticleSystemLODMethod")
 @:include("Particles/ParticleSystem.h")
-extern enum ParticleSystemLODMethod {
-	PARTICLESYSTEMLODMETHOD_Automatic;
-	PARTICLESYSTEMLODMETHOD_DirectSet;
-	PARTICLESYSTEMLODMETHOD_ActivateAutomatic;
-	PARTICLESYSTEMLODMETHOD_MAX;
+extern class ParticleSystemLODMethod {
+	static var PARTICLESYSTEMLODMETHOD_Automatic: ParticleSystemLODMethod;
+	static var PARTICLESYSTEMLODMETHOD_DirectSet: ParticleSystemLODMethod;
+	static var PARTICLESYSTEMLODMETHOD_ActivateAutomatic: ParticleSystemLODMethod;
+	static var PARTICLESYSTEMLODMETHOD_MAX: ParticleSystemLODMethod;
 }

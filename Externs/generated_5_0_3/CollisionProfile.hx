@@ -5,11 +5,11 @@ package ue;
 @:include("Engine/CollisionProfile.h")
 @:structAccess
 extern class CollisionProfile extends DeveloperSettings {
-	public var Profiles: TArray<CollisionResponseTemplate>;
-	public var DefaultChannelResponses: TArray<CustomChannelSetup>;
-	public var EditProfiles: TArray<CustomProfile>;
-	public var ProfileRedirects: TArray<Redirector>;
-	public var CollisionChannelRedirects: TArray<Redirector>;
+	private var Profiles: TArray<CollisionResponseTemplate>;
+	private var DefaultChannelResponses: TArray<CustomChannelSetup>;
+	private var EditProfiles: TArray<CustomProfile>;
+	private var ProfileRedirects: TArray<Redirector>;
+	private var CollisionChannelRedirects: TArray<Redirector>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,16 +17,6 @@ extern class CollisionProfile extends DeveloperSettings {
 @:forward()
 @:nativeGen
 abstract ConstCollisionProfile(CollisionProfile) from CollisionProfile {
-	public extern var Profiles(get, never): TArray<CollisionResponseTemplate>;
-	public inline extern function get_Profiles(): TArray<CollisionResponseTemplate> return this.Profiles;
-	public extern var DefaultChannelResponses(get, never): TArray<CustomChannelSetup>;
-	public inline extern function get_DefaultChannelResponses(): TArray<CustomChannelSetup> return this.DefaultChannelResponses;
-	public extern var EditProfiles(get, never): TArray<CustomProfile>;
-	public inline extern function get_EditProfiles(): TArray<CustomProfile> return this.EditProfiles;
-	public extern var ProfileRedirects(get, never): TArray<Redirector>;
-	public inline extern function get_ProfileRedirects(): TArray<Redirector> return this.ProfileRedirects;
-	public extern var CollisionChannelRedirects(get, never): TArray<Redirector>;
-	public inline extern function get_CollisionChannelRedirects(): TArray<Redirector> return this.CollisionChannelRedirects;
 }
 
 @:forward

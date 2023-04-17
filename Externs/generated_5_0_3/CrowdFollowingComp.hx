@@ -6,10 +6,6 @@ package ue;
 @:structAccess
 extern class CrowdFollowingComp extends PathFollowingComp {
 	public var CrowdAgentMoveDirection: Vector;
-	public var CharacterMovement: cpp.Star<CharacterMovementComp>;
-	public var AvoidanceGroup_DEPRECATED: NavAvoidanceMask;
-	public var GroupsToAvoid_DEPRECATED: NavAvoidanceMask;
-	public var GroupsToIgnore_DEPRECATED: NavAvoidanceMask;
 
 	public function SuspendCrowdSteering(bSuspend: Bool): Void;
 
@@ -21,14 +17,6 @@ extern class CrowdFollowingComp extends PathFollowingComp {
 abstract ConstCrowdFollowingComp(CrowdFollowingComp) from CrowdFollowingComp {
 	public extern var CrowdAgentMoveDirection(get, never): Vector;
 	public inline extern function get_CrowdAgentMoveDirection(): Vector return this.CrowdAgentMoveDirection;
-	public extern var CharacterMovement(get, never): cpp.Star<CharacterMovementComp.ConstCharacterMovementComp>;
-	public inline extern function get_CharacterMovement(): cpp.Star<CharacterMovementComp.ConstCharacterMovementComp> return this.CharacterMovement;
-	public extern var AvoidanceGroup_DEPRECATED(get, never): NavAvoidanceMask;
-	public inline extern function get_AvoidanceGroup_DEPRECATED(): NavAvoidanceMask return this.AvoidanceGroup_DEPRECATED;
-	public extern var GroupsToAvoid_DEPRECATED(get, never): NavAvoidanceMask;
-	public inline extern function get_GroupsToAvoid_DEPRECATED(): NavAvoidanceMask return this.GroupsToAvoid_DEPRECATED;
-	public extern var GroupsToIgnore_DEPRECATED(get, never): NavAvoidanceMask;
-	public inline extern function get_GroupsToIgnore_DEPRECATED(): NavAvoidanceMask return this.GroupsToIgnore_DEPRECATED;
 }
 
 @:forward

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EAndroidDepthBufferPreference.Type")
 @:include("AndroidRuntimeSettings.h")
-extern enum EAndroidDepthBufferPreference {
-	Default;
-	Bits16;
-	Bits24;
-	Bits32;
-	EAndroidDepthBufferPreference_MAX;
+extern class EAndroidDepthBufferPreference {
+	static var Default: EAndroidDepthBufferPreference;
+	static var Bits16: EAndroidDepthBufferPreference;
+	static var Bits24: EAndroidDepthBufferPreference;
+	static var Bits32: EAndroidDepthBufferPreference;
+	static var EAndroidDepthBufferPreference_MAX: EAndroidDepthBufferPreference;
 }

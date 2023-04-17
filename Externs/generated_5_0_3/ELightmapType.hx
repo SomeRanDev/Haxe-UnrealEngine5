@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELightmapType")
 @:include("Engine/EngineTypes.h")
-extern enum ELightmapType {
-	Default;
-	ForceSurface;
-	ForceVolumetric;
-	ELightmapType_MAX;
+extern class ELightmapType {
+	static var Default: ELightmapType;
+	static var ForceSurface: ELightmapType;
+	static var ForceVolumetric: ELightmapType;
+	static var ELightmapType_MAX: ELightmapType;
 }

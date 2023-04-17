@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELandscapeLayerDisplayMode")
 @:include("LandscapeProxy.h")
-extern enum ELandscapeLayerDisplayMode {
-	Default;
-	Alphabetical;
-	UserSpecific;
-	ELandscapeLayerDisplayMode_MAX;
+extern class ELandscapeLayerDisplayMode {
+	static var Default: ELandscapeLayerDisplayMode;
+	static var Alphabetical: ELandscapeLayerDisplayMode;
+	static var UserSpecific: ELandscapeLayerDisplayMode;
+	static var ELandscapeLayerDisplayMode_MAX: ELandscapeLayerDisplayMode;
 }

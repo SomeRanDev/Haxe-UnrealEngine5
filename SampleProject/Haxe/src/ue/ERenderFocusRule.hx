@@ -3,10 +3,10 @@ package ue;
 
 @:native("ERenderFocusRule")
 @:include("Engine/UserInterfaceSettings.h")
-extern enum ERenderFocusRule {
-	Always;
-	NonPointer;
-	NavigationOnly;
-	Never;
-	ERenderFocusRule_MAX;
+extern class ERenderFocusRule {
+	static var Always: ERenderFocusRule;
+	static var NonPointer: ERenderFocusRule;
+	static var NavigationOnly: ERenderFocusRule;
+	static var Never: ERenderFocusRule;
+	static var ERenderFocusRule_MAX: ERenderFocusRule;
 }

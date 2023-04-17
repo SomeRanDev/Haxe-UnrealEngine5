@@ -3,9 +3,9 @@ package ue;
 
 @:native("EDatasmithImportScene")
 @:include("DatasmithImportOptions.h")
-extern enum EDatasmithImportScene {
-	NewLevel;
-	CurrentLevel;
-	AssetsOnly;
-	EDatasmithImportScene_MAX;
+extern class EDatasmithImportScene {
+	static var NewLevel: EDatasmithImportScene;
+	static var CurrentLevel: EDatasmithImportScene;
+	static var AssetsOnly: EDatasmithImportScene;
+	static var EDatasmithImportScene_MAX: EDatasmithImportScene;
 }

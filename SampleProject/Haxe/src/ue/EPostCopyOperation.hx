@@ -3,8 +3,8 @@ package ue;
 
 @:native("EPostCopyOperation")
 @:include("Animation/ExposedValueHandler.h")
-extern enum EPostCopyOperation {
-	None;
-	LogicalNegateBool;
-	EPostCopyOperation_MAX;
+extern class EPostCopyOperation {
+	static var None: EPostCopyOperation;
+	static var LogicalNegateBool: EPostCopyOperation;
+	static var EPostCopyOperation_MAX: EPostCopyOperation;
 }

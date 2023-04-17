@@ -3,9 +3,9 @@ package ue;
 
 @:native("EBoneFilterActionOption")
 @:include("Engine/SkeletalMeshLODSettings.h")
-extern enum EBoneFilterActionOption {
-	Remove;
-	Keep;
-	Invalid;
-	EBoneFilterActionOption_MAX;
+extern class EBoneFilterActionOption {
+	static var Remove: EBoneFilterActionOption;
+	static var Keep: EBoneFilterActionOption;
+	static var Invalid: EBoneFilterActionOption;
+	static var EBoneFilterActionOption_MAX: EBoneFilterActionOption;
 }

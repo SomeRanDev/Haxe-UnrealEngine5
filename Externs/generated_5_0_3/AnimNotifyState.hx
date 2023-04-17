@@ -5,14 +5,12 @@ package ue;
 @:include("Animation/AnimNotifies/AnimNotifyState.h")
 @:structAccess
 extern class AnimNotifyState extends Object {
-	public var NotifyColor: Color;
-	public var bShouldFireInEditor: Bool;
 
-	public function Received_NotifyTick(MeshComp: cpp.Star<SkeletalMeshComp>, Animation: cpp.Star<AnimSequenceBase>, FrameDeltaTime: cpp.Float32, EventReference: cpp.Reference<AnimNotifyEventReference>): cpp.Reference<Bool>;
-	public function Received_NotifyEnd(MeshComp: cpp.Star<SkeletalMeshComp>, Animation: cpp.Star<AnimSequenceBase>, EventReference: cpp.Reference<AnimNotifyEventReference>): cpp.Reference<Bool>;
-	public function Received_NotifyBegin(MeshComp: cpp.Star<SkeletalMeshComp>, Animation: cpp.Star<AnimSequenceBase>, TotalDuration: cpp.Float32, EventReference: cpp.Reference<AnimNotifyEventReference>): cpp.Reference<Bool>;
-	public function GetNotifyName(): cpp.Reference<FString>;
-	public function GetDefaultTriggerWeightThreshold(): cpp.Reference<cpp.Float32>;
+	public function Received_NotifyTick(MeshComp: cpp.Star<SkeletalMeshComp>, Animation: cpp.Star<AnimSequenceBase>, FrameDeltaTime: cpp.Float32, EventReference: cpp.Reference<AnimNotifyEventReference>): Bool;
+	public function Received_NotifyEnd(MeshComp: cpp.Star<SkeletalMeshComp>, Animation: cpp.Star<AnimSequenceBase>, EventReference: cpp.Reference<AnimNotifyEventReference>): Bool;
+	public function Received_NotifyBegin(MeshComp: cpp.Star<SkeletalMeshComp>, Animation: cpp.Star<AnimSequenceBase>, TotalDuration: cpp.Float32, EventReference: cpp.Reference<AnimNotifyEventReference>): Bool;
+	public function GetNotifyName(): FString;
+	public function GetDefaultTriggerWeightThreshold(): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -20,10 +18,6 @@ extern class AnimNotifyState extends Object {
 @:forward(Received_NotifyTick, Received_NotifyEnd, Received_NotifyBegin, GetNotifyName, GetDefaultTriggerWeightThreshold)
 @:nativeGen
 abstract ConstAnimNotifyState(AnimNotifyState) from AnimNotifyState {
-	public extern var NotifyColor(get, never): Color;
-	public inline extern function get_NotifyColor(): Color return this.NotifyColor;
-	public extern var bShouldFireInEditor(get, never): Bool;
-	public inline extern function get_bShouldFireInEditor(): Bool return this.bShouldFireInEditor;
 }
 
 @:forward

@@ -9,9 +9,9 @@ extern class RadialIntMask extends FieldNodeInt {
 	public var Position: Vector;
 	public var InteriorValue: cpp.Int32;
 	public var ExteriorValue: cpp.Int32;
-	public var SetMaskCondition: ESetMaskConditionType;
+	public var SetMaskCondition: TEnumAsByte<ESetMaskConditionType>;
 
-	public function SetRadialIntMask(Radius: cpp.Float32, Position: Vector, InteriorValue: cpp.Int32, ExteriorValue: cpp.Int32, SetMaskConditionIn: ESetMaskConditionType): cpp.Reference<cpp.Star<RadialIntMask>>;
+	public function SetRadialIntMask(Radius: cpp.Float32, Position: Vector, InteriorValue: cpp.Int32, ExteriorValue: cpp.Int32, SetMaskConditionIn: TEnumAsByte<ESetMaskConditionType>): cpp.Star<RadialIntMask>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -27,8 +27,8 @@ abstract ConstRadialIntMask(RadialIntMask) from RadialIntMask {
 	public inline extern function get_InteriorValue(): cpp.Int32 return this.InteriorValue;
 	public extern var ExteriorValue(get, never): cpp.Int32;
 	public inline extern function get_ExteriorValue(): cpp.Int32 return this.ExteriorValue;
-	public extern var SetMaskCondition(get, never): ESetMaskConditionType;
-	public inline extern function get_SetMaskCondition(): ESetMaskConditionType return this.SetMaskCondition;
+	public extern var SetMaskCondition(get, never): TEnumAsByte<ESetMaskConditionType>;
+	public inline extern function get_SetMaskCondition(): TEnumAsByte<ESetMaskConditionType> return this.SetMaskCondition;
 }
 
 @:forward

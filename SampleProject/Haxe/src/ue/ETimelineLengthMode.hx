@@ -3,8 +3,8 @@ package ue;
 
 @:native("ETimelineLengthMode")
 @:include("Components/TimelineComponent.h")
-extern enum ETimelineLengthMode {
-	TL_TimelineLength;
-	TL_LastKeyFrame;
-	TL_MAX;
+extern class ETimelineLengthMode {
+	static var TL_TimelineLength: ETimelineLengthMode;
+	static var TL_LastKeyFrame: ETimelineLengthMode;
+	static var TL_MAX: ETimelineLengthMode;
 }

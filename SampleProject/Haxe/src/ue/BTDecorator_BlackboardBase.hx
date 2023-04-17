@@ -5,7 +5,7 @@ package ue;
 @:include("BehaviorTree/Decorators/BTDecorator_BlackboardBase.h")
 @:structAccess
 extern class BTDecorator_BlackboardBase extends BTDecorator {
-	public var BlackboardKey: BlackboardKeySelector;
+	@:protected public var BlackboardKey: BlackboardKeySelector;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class BTDecorator_BlackboardBase extends BTDecorator {
 @:forward()
 @:nativeGen
 abstract ConstBTDecorator_BlackboardBase(BTDecorator_BlackboardBase) from BTDecorator_BlackboardBase {
-	public extern var BlackboardKey(get, never): BlackboardKeySelector;
-	public inline extern function get_BlackboardKey(): BlackboardKeySelector return this.BlackboardKey;
 }
 
 @:forward

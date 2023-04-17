@@ -8,10 +8,10 @@ extern class VOIPTalker extends ActorComp {
 	public var Settings: VoiceSettings;
 
 	public function RegisterWithPlayerState(OwningState: cpp.Star<PlayerState>): Void;
-	public function GetVoiceLevel(): cpp.Reference<cpp.Float32>;
-	public function CreateTalkerForPlayer(OwningState: cpp.Star<PlayerState>): cpp.Reference<cpp.Star<VOIPTalker>>;
-	public function BPOnTalkingEnd(): Void;
-	public function BPOnTalkingBegin(AudioComponent: cpp.Star<AudioComp>): Void;
+	public function GetVoiceLevel(): cpp.Float32;
+	public function CreateTalkerForPlayer(OwningState: cpp.Star<PlayerState>): cpp.Star<VOIPTalker>;
+	@:protected public function BPOnTalkingEnd(): Void;
+	@:protected public function BPOnTalkingBegin(AudioComponent: cpp.Star<AudioComp>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

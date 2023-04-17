@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESoundAssetCompressionType")
 @:include("Sound/SoundWave.h")
-extern enum ESoundAssetCompressionType {
-	BinkAudio;
-	ADPCM;
-	PCM;
-	PlatformSpecific;
-	ESoundAssetCompressionType_MAX;
+extern class ESoundAssetCompressionType {
+	static var BinkAudio: ESoundAssetCompressionType;
+	static var ADPCM: ESoundAssetCompressionType;
+	static var PCM: ESoundAssetCompressionType;
+	static var PlatformSpecific: ESoundAssetCompressionType;
+	static var ESoundAssetCompressionType_MAX: ESoundAssetCompressionType;
 }

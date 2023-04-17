@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESubdivisionOutputUVs")
 @:include("Operations/SubdividePoly.h")
-extern enum ESubdivisionOutputUVs {
-	Interpolated;
-	None;
-	ESubdivisionOutputUVs_MAX;
+extern class ESubdivisionOutputUVs {
+	static var Interpolated: ESubdivisionOutputUVs;
+	static var None: ESubdivisionOutputUVs;
+	static var ESubdivisionOutputUVs_MAX: ESubdivisionOutputUVs;
 }

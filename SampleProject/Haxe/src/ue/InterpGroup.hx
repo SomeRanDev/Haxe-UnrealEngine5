@@ -12,7 +12,7 @@ extern class InterpGroup extends Object {
 	public var bVisible: Bool;
 	public var bIsFolder: Bool;
 	public var bIsParented: Bool;
-	public var bIsSelected: Bool;
+	private var bIsSelected: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -34,8 +34,6 @@ abstract ConstInterpGroup(InterpGroup) from InterpGroup {
 	public inline extern function get_bIsFolder(): Bool return this.bIsFolder;
 	public extern var bIsParented(get, never): Bool;
 	public inline extern function get_bIsParented(): Bool return this.bIsParented;
-	public extern var bIsSelected(get, never): Bool;
-	public inline extern function get_bIsSelected(): Bool return this.bIsSelected;
 }
 
 @:forward

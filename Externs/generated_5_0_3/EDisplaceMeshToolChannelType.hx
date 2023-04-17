@@ -3,10 +3,10 @@ package ue;
 
 @:native("EDisplaceMeshToolChannelType")
 @:include("DisplaceMeshTool.h")
-extern enum EDisplaceMeshToolChannelType {
-	Red;
-	Green;
-	Blue;
-	Alpha;
-	EDisplaceMeshToolChannelType_MAX;
+extern class EDisplaceMeshToolChannelType {
+	static var Red: EDisplaceMeshToolChannelType;
+	static var Green: EDisplaceMeshToolChannelType;
+	static var Blue: EDisplaceMeshToolChannelType;
+	static var Alpha: EDisplaceMeshToolChannelType;
+	static var EDisplaceMeshToolChannelType_MAX: EDisplaceMeshToolChannelType;
 }

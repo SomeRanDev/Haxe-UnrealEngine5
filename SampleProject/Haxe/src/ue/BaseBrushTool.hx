@@ -9,8 +9,8 @@ extern class BaseBrushTool extends MeshSurfacePointTool {
 	public var bInBrushStroke: Bool;
 	public var WorldToLocalScale: cpp.Float32;
 	public var LastBrushStamp: BrushStampData;
-	public var PropertyClass: TSoftClassPtr<Class>;
-	public var BrushStampIndicator: cpp.Star<BrushStampIndicator>;
+	@:protected public var PropertyClass: TSoftClassPtr<Class>;
+	@:protected public var BrushStampIndicator: cpp.Star<BrushStampIndicator>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -26,10 +26,6 @@ abstract ConstBaseBrushTool(BaseBrushTool) from BaseBrushTool {
 	public inline extern function get_WorldToLocalScale(): cpp.Float32 return this.WorldToLocalScale;
 	public extern var LastBrushStamp(get, never): BrushStampData;
 	public inline extern function get_LastBrushStamp(): BrushStampData return this.LastBrushStamp;
-	public extern var PropertyClass(get, never): TSoftClassPtr<Class.ConstClass>;
-	public inline extern function get_PropertyClass(): TSoftClassPtr<Class.ConstClass> return this.PropertyClass;
-	public extern var BrushStampIndicator(get, never): cpp.Star<BrushStampIndicator.ConstBrushStampIndicator>;
-	public inline extern function get_BrushStampIndicator(): cpp.Star<BrushStampIndicator.ConstBrushStampIndicator> return this.BrushStampIndicator;
 }
 
 @:forward

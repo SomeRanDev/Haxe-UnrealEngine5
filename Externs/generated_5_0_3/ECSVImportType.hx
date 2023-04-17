@@ -3,11 +3,11 @@ package ue;
 
 @:native("ECSVImportType")
 @:include("Factories/CSVImportFactory.h")
-extern enum ECSVImportType {
-	ECSV_DataTable;
-	ECSV_CurveTable;
-	ECSV_CurveFloat;
-	ECSV_CurveVector;
-	ECSV_CurveLinearColor;
-	ECSV_MAX;
+extern class ECSVImportType {
+	static var ECSV_DataTable: ECSVImportType;
+	static var ECSV_CurveTable: ECSVImportType;
+	static var ECSV_CurveFloat: ECSVImportType;
+	static var ECSV_CurveVector: ECSVImportType;
+	static var ECSV_CurveLinearColor: ECSVImportType;
+	static var ECSV_MAX: ECSVImportType;
 }

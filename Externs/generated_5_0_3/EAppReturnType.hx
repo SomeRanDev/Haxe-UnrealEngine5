@@ -3,14 +3,14 @@ package ue;
 
 @:native("EAppReturnType.Type")
 @:include("UObject/NoExportTypes.h")
-extern enum EAppReturnType {
-	No;
-	Yes;
-	YesAll;
-	NoAll;
-	Cancel;
-	Ok;
-	Retry;
-	Continue;
-	EAppReturnType_MAX;
+extern class EAppReturnType {
+	static var No: EAppReturnType;
+	static var Yes: EAppReturnType;
+	static var YesAll: EAppReturnType;
+	static var NoAll: EAppReturnType;
+	static var Cancel: EAppReturnType;
+	static var Ok: EAppReturnType;
+	static var Retry: EAppReturnType;
+	static var Continue: EAppReturnType;
+	static var EAppReturnType_MAX: EAppReturnType;
 }

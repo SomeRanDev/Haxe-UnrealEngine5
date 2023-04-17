@@ -3,11 +3,11 @@ package ue;
 
 @:native("EWidgetClipping")
 @:include("Layout/Clipping.h")
-extern enum EWidgetClipping {
-	Inherit;
-	ClipToBounds;
-	ClipToBoundsWithoutIntersecting;
-	ClipToBoundsAlways;
-	OnDemand;
-	EWidgetClipping_MAX;
+extern class EWidgetClipping {
+	static var Inherit: EWidgetClipping;
+	static var ClipToBounds: EWidgetClipping;
+	static var ClipToBoundsWithoutIntersecting: EWidgetClipping;
+	static var ClipToBoundsAlways: EWidgetClipping;
+	static var OnDemand: EWidgetClipping;
+	static var EWidgetClipping_MAX: EWidgetClipping;
 }

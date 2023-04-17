@@ -3,10 +3,10 @@ package ue;
 
 @:native("EPropertyAccessObjectType")
 @:include("PropertyAccess.h")
-extern enum EPropertyAccessObjectType {
-	None;
-	Object;
-	WeakObject;
-	SoftObject;
-	EPropertyAccessObjectType_MAX;
+extern class EPropertyAccessObjectType {
+	static var None: EPropertyAccessObjectType;
+	static var Object: EPropertyAccessObjectType;
+	static var WeakObject: EPropertyAccessObjectType;
+	static var SoftObject: EPropertyAccessObjectType;
+	static var EPropertyAccessObjectType_MAX: EPropertyAccessObjectType;
 }

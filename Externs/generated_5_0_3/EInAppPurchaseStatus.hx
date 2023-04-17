@@ -3,12 +3,12 @@ package ue;
 
 @:native("EInAppPurchaseStatus")
 @:include("InAppPurchaseCallbackProxy2.h")
-extern enum EInAppPurchaseStatus {
-	Invalid;
-	Failed;
-	Deferred;
-	Canceled;
-	Purchased;
-	Restored;
-	EInAppPurchaseStatus_MAX;
+extern class EInAppPurchaseStatus {
+	static var Invalid: EInAppPurchaseStatus;
+	static var Failed: EInAppPurchaseStatus;
+	static var Deferred: EInAppPurchaseStatus;
+	static var Canceled: EInAppPurchaseStatus;
+	static var Purchased: EInAppPurchaseStatus;
+	static var Restored: EInAppPurchaseStatus;
+	static var EInAppPurchaseStatus_MAX: EInAppPurchaseStatus;
 }

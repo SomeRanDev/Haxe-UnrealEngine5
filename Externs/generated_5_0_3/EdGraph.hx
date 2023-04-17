@@ -10,9 +10,6 @@ extern class EdGraph extends Object {
 	public var bEditable: Bool;
 	public var bAllowDeletion: Bool;
 	public var bAllowRenaming: Bool;
-	public var SubGraphs: TArray<cpp.Star<EdGraph>>;
-	public var GraphGuid: Guid;
-	public var InterfaceGuid: Guid;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -30,12 +27,6 @@ abstract ConstEdGraph(EdGraph) from EdGraph {
 	public inline extern function get_bAllowDeletion(): Bool return this.bAllowDeletion;
 	public extern var bAllowRenaming(get, never): Bool;
 	public inline extern function get_bAllowRenaming(): Bool return this.bAllowRenaming;
-	public extern var SubGraphs(get, never): TArray<cpp.Star<EdGraph.ConstEdGraph>>;
-	public inline extern function get_SubGraphs(): TArray<cpp.Star<EdGraph.ConstEdGraph>> return this.SubGraphs;
-	public extern var GraphGuid(get, never): Guid;
-	public inline extern function get_GraphGuid(): Guid return this.GraphGuid;
-	public extern var InterfaceGuid(get, never): Guid;
-	public inline extern function get_InterfaceGuid(): Guid return this.InterfaceGuid;
 }
 
 @:forward

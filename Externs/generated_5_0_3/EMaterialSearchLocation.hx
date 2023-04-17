@@ -3,11 +3,11 @@ package ue;
 
 @:native("EMaterialSearchLocation")
 @:include("Factories/MaterialImportHelpers.h")
-extern enum EMaterialSearchLocation {
-	Local;
-	UnderParent;
-	UnderRoot;
-	AllAssets;
-	DoNotSearch;
-	EMaterialSearchLocation_MAX;
+extern class EMaterialSearchLocation {
+	static var Local: EMaterialSearchLocation;
+	static var UnderParent: EMaterialSearchLocation;
+	static var UnderRoot: EMaterialSearchLocation;
+	static var AllAssets: EMaterialSearchLocation;
+	static var DoNotSearch: EMaterialSearchLocation;
+	static var EMaterialSearchLocation_MAX: EMaterialSearchLocation;
 }

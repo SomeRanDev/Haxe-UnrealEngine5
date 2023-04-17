@@ -3,9 +3,9 @@ package ue;
 
 @:native("ERigExecutionType")
 @:include("ControlRigDefines.h")
-extern enum ERigExecutionType {
-	Runtime;
-	Editing;
-	Max;
-	ERigExecutionType_MAX;
+extern class ERigExecutionType {
+	static var Runtime: ERigExecutionType;
+	static var Editing: ERigExecutionType;
+	static var Max: ERigExecutionType;
+	static var ERigExecutionType_MAX: ERigExecutionType;
 }

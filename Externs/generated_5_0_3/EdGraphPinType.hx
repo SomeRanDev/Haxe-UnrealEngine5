@@ -11,7 +11,6 @@ extern class EdGraphPinType {
 	public var PinSubCategoryMemberReference: SimpleMemberReference;
 	public var PinValueType: EdGraphTerminalType;
 	public var ContainerType: EPinContainerType;
-	public var bIsArray_DEPRECATED: Bool;
 	public var bIsReference: Bool;
 	public var bIsConst: Bool;
 	public var bIsWeakPointer: Bool;

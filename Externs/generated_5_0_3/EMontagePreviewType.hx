@@ -3,8 +3,8 @@ package ue;
 
 @:native("EMontagePreviewType")
 @:include("AnimPreviewInstance.h")
-extern enum EMontagePreviewType {
-	EMPT_Normal;
-	EMPT_AllSections;
-	EMPT_MAX;
+extern class EMontagePreviewType {
+	static var EMPT_Normal: EMontagePreviewType;
+	static var EMPT_AllSections: EMontagePreviewType;
+	static var EMPT_MAX: EMontagePreviewType;
 }

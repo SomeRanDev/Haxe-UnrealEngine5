@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESetMeshMaterialMode")
 @:include("Properties/MeshMaterialProperties.h")
-extern enum ESetMeshMaterialMode {
-	Original;
-	Checkerboard;
-	Override;
-	ESetMeshMaterialMode_MAX;
+extern class ESetMeshMaterialMode {
+	static var Original: ESetMeshMaterialMode;
+	static var Checkerboard: ESetMeshMaterialMode;
+	static var Override: ESetMeshMaterialMode;
+	static var ESetMeshMaterialMode_MAX: ESetMeshMaterialMode;
 }

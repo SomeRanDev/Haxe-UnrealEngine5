@@ -3,14 +3,14 @@ package ue;
 
 @:native("ETextureRotationDirection")
 @:include("AppleImageUtilsTypes.h")
-extern enum ETextureRotationDirection {
-	None;
-	Left;
-	Right;
-	Down;
-	LeftMirrored;
-	RightMirrored;
-	DownMirrored;
-	UpMirrored;
-	ETextureRotationDirection_MAX;
+extern class ETextureRotationDirection {
+	static var None: ETextureRotationDirection;
+	static var Left: ETextureRotationDirection;
+	static var Right: ETextureRotationDirection;
+	static var Down: ETextureRotationDirection;
+	static var LeftMirrored: ETextureRotationDirection;
+	static var RightMirrored: ETextureRotationDirection;
+	static var DownMirrored: ETextureRotationDirection;
+	static var UpMirrored: ETextureRotationDirection;
+	static var ETextureRotationDirection_MAX: ETextureRotationDirection;
 }

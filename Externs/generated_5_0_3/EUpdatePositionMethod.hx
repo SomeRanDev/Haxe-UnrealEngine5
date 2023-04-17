@@ -3,9 +3,9 @@ package ue;
 
 @:native("EUpdatePositionMethod")
 @:include("MovieSceneSequencePlayer.h")
-extern enum EUpdatePositionMethod {
-	Play;
-	Jump;
-	Scrub;
-	EUpdatePositionMethod_MAX;
+extern class EUpdatePositionMethod {
+	static var Play: EUpdatePositionMethod;
+	static var Jump: EUpdatePositionMethod;
+	static var Scrub: EUpdatePositionMethod;
+	static var EUpdatePositionMethod_MAX: EUpdatePositionMethod;
 }

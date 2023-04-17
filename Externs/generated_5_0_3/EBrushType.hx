@@ -3,9 +3,9 @@ package ue;
 
 @:native("EBrushType")
 @:include("Engine/Brush.h")
-extern enum EBrushType {
-	Brush_Default;
-	Brush_Add;
-	Brush_Subtract;
-	Brush_MAX;
+extern class EBrushType {
+	static var Brush_Default: EBrushType;
+	static var Brush_Add: EBrushType;
+	static var Brush_Subtract: EBrushType;
+	static var Brush_MAX: EBrushType;
 }

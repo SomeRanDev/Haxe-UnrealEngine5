@@ -11,12 +11,12 @@ extern class PredictProjectilePathParams {
 	public var ProjectileRadius: cpp.Float32;
 	public var MaxSimTime: cpp.Float32;
 	public var bTraceWithChannel: Bool;
-	public var TraceChannel: ECollisionChannel;
-	public var ObjectTypes: TArray<EObjectTypeQuery>;
+	public var TraceChannel: TEnumAsByte<ECollisionChannel>;
+	public var ObjectTypes: TArray<TEnumAsByte<EObjectTypeQuery>>;
 	public var ActorsToIgnore: TArray<cpp.Star<Actor>>;
 	public var SimFrequency: cpp.Float32;
 	public var OverrideGravityZ: cpp.Float32;
-	public var DrawDebugType: EDrawDebugTrace;
+	public var DrawDebugType: TEnumAsByte<EDrawDebugTrace>;
 	public var DrawDebugTime: cpp.Float32;
 	public var bTraceComplex: Bool;
 

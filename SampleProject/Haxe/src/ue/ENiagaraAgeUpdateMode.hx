@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENiagaraAgeUpdateMode")
 @:include("NiagaraCommon.h")
-extern enum ENiagaraAgeUpdateMode {
-	TickDeltaTime;
-	DesiredAge;
-	DesiredAgeNoSeek;
-	ENiagaraAgeUpdateMode_MAX;
+extern class ENiagaraAgeUpdateMode {
+	static var TickDeltaTime: ENiagaraAgeUpdateMode;
+	static var DesiredAge: ENiagaraAgeUpdateMode;
+	static var DesiredAgeNoSeek: ENiagaraAgeUpdateMode;
+	static var ENiagaraAgeUpdateMode_MAX: ENiagaraAgeUpdateMode;
 }

@@ -7,7 +7,7 @@ package ue;
 extern class BTCompositeNode extends BTNode {
 	public var Children: TArray<BTCompositeChild>;
 	public var Services: TArray<cpp.Star<BTService>>;
-	public var bApplyDecoratorScope: Bool;
+	@:protected public var bApplyDecoratorScope: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,8 +19,6 @@ abstract ConstBTCompositeNode(BTCompositeNode) from BTCompositeNode {
 	public inline extern function get_Children(): TArray<BTCompositeChild> return this.Children;
 	public extern var Services(get, never): TArray<cpp.Star<BTService.ConstBTService>>;
 	public inline extern function get_Services(): TArray<cpp.Star<BTService.ConstBTService>> return this.Services;
-	public extern var bApplyDecoratorScope(get, never): Bool;
-	public inline extern function get_bApplyDecoratorScope(): Bool return this.bApplyDecoratorScope;
 }
 
 @:forward

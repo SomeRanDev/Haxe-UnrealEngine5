@@ -3,8 +3,8 @@ package ue;
 
 @:native("ESoundSpatializationAlgorithm")
 @:include("Sound/SoundAttenuation.h")
-extern enum ESoundSpatializationAlgorithm {
-	SPATIALIZATION_Default;
-	SPATIALIZATION_HRTF;
-	SPATIALIZATION_MAX;
+extern class ESoundSpatializationAlgorithm {
+	static var SPATIALIZATION_Default: ESoundSpatializationAlgorithm;
+	static var SPATIALIZATION_HRTF: ESoundSpatializationAlgorithm;
+	static var SPATIALIZATION_MAX: ESoundSpatializationAlgorithm;
 }

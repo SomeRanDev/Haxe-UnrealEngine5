@@ -3,8 +3,8 @@ package ue;
 
 @:native("EMirrorCtrlClickBehavior")
 @:include("MirrorTool.h")
-extern enum EMirrorCtrlClickBehavior {
-	Reposition;
-	RepositionAndReorient;
-	EMirrorCtrlClickBehavior_MAX;
+extern class EMirrorCtrlClickBehavior {
+	static var Reposition: EMirrorCtrlClickBehavior;
+	static var RepositionAndReorient: EMirrorCtrlClickBehavior;
+	static var EMirrorCtrlClickBehavior_MAX: EMirrorCtrlClickBehavior;
 }

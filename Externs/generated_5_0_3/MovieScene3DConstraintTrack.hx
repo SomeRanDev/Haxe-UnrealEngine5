@@ -5,7 +5,7 @@ package ue;
 @:include("Tracks/MovieScene3DConstraintTrack.h")
 @:structAccess
 extern class MovieScene3DConstraintTrack extends MovieSceneTrack {
-	public var ConstraintSections: TArray<cpp.Star<MovieSceneSection>>;
+	@:protected public var ConstraintSections: TArray<cpp.Star<MovieSceneSection>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MovieScene3DConstraintTrack extends MovieSceneTrack {
 @:forward()
 @:nativeGen
 abstract ConstMovieScene3DConstraintTrack(MovieScene3DConstraintTrack) from MovieScene3DConstraintTrack {
-	public extern var ConstraintSections(get, never): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>>;
-	public inline extern function get_ConstraintSections(): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>> return this.ConstraintSections;
 }
 
 @:forward

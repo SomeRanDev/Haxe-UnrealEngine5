@@ -3,9 +3,9 @@ package ue;
 
 @:native("EGameplayDebuggerOverrideMode")
 @:include("GameplayDebuggerConfig.h")
-extern enum EGameplayDebuggerOverrideMode {
-	Enable;
-	Disable;
-	UseDefault;
-	EGameplayDebuggerOverrideMode_MAX;
+extern class EGameplayDebuggerOverrideMode {
+	static var Enable: EGameplayDebuggerOverrideMode;
+	static var Disable: EGameplayDebuggerOverrideMode;
+	static var UseDefault: EGameplayDebuggerOverrideMode;
+	static var EGameplayDebuggerOverrideMode_MAX: EGameplayDebuggerOverrideMode;
 }

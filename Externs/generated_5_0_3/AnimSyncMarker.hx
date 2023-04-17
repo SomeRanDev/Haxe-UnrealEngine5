@@ -7,8 +7,6 @@ package ue;
 extern class AnimSyncMarker {
 	public var MarkerName: FName;
 	public var Time: cpp.Float32;
-	public var TrackIndex: cpp.Int32;
-	public var Guid: Guid;
 
 	@:native("FAnimSyncMarker") public function new();
 	@:native("FAnimSyncMarker") public static function make(MarkerName: FName, Time: cpp.Float32, TrackIndex: cpp.Int32, Guid: Guid): AnimSyncMarker ;

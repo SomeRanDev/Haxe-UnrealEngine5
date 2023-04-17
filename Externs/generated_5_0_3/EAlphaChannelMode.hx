@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAlphaChannelMode.Type")
 @:include("Engine/RendererSettings.h")
-extern enum EAlphaChannelMode {
-	Disabled;
-	LinearColorSpaceOnly;
-	AllowThroughTonemapper;
-	EAlphaChannelMode_MAX;
+extern class EAlphaChannelMode {
+	static var Disabled: EAlphaChannelMode;
+	static var LinearColorSpaceOnly: EAlphaChannelMode;
+	static var AllowThroughTonemapper: EAlphaChannelMode;
+	static var EAlphaChannelMode_MAX: EAlphaChannelMode;
 }

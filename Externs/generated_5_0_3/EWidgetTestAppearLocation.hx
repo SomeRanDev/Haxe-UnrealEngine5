@@ -3,8 +3,8 @@ package ue;
 
 @:native("EWidgetTestAppearLocation")
 @:include("FunctionalUIScreenshotTest.h")
-extern enum EWidgetTestAppearLocation {
-	Viewport;
-	PlayerScreen;
-	EWidgetTestAppearLocation_MAX;
+extern class EWidgetTestAppearLocation {
+	static var Viewport: EWidgetTestAppearLocation;
+	static var PlayerScreen: EWidgetTestAppearLocation;
+	static var EWidgetTestAppearLocation_MAX: EWidgetTestAppearLocation;
 }

@@ -3,9 +3,9 @@ package ue;
 
 @:native("EOrbitChainMode")
 @:include("Particles/Orbit/ParticleModuleOrbit.h")
-extern enum EOrbitChainMode {
-	EOChainMode_Add;
-	EOChainMode_Scale;
-	EOChainMode_Link;
-	EOChainMode_MAX;
+extern class EOrbitChainMode {
+	static var EOChainMode_Add: EOrbitChainMode;
+	static var EOChainMode_Scale: EOrbitChainMode;
+	static var EOChainMode_Link: EOrbitChainMode;
+	static var EOChainMode_MAX: EOrbitChainMode;
 }

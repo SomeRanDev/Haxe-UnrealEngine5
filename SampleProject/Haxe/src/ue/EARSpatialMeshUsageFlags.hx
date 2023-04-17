@@ -3,9 +3,9 @@ package ue;
 
 @:native("EARSpatialMeshUsageFlags")
 @:include("ARTypes.h")
-extern enum EARSpatialMeshUsageFlags {
-	NotApplicable;
-	Visible;
-	Collision;
-	EARSpatialMeshUsageFlags_MAX;
+extern class EARSpatialMeshUsageFlags {
+	static var NotApplicable: EARSpatialMeshUsageFlags;
+	static var Visible: EARSpatialMeshUsageFlags;
+	static var Collision: EARSpatialMeshUsageFlags;
+	static var EARSpatialMeshUsageFlags_MAX: EARSpatialMeshUsageFlags;
 }

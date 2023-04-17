@@ -8,8 +8,8 @@ extern class TextRenderComp extends PrimitiveComp {
 	public var Text: FText;
 	public var TextMaterial: cpp.Star<MaterialInterface>;
 	public var Font: cpp.Star<Font>;
-	public var HorizontalAlignment: EHorizTextAligment;
-	public var VerticalAlignment: EVerticalTextAligment;
+	public var HorizontalAlignment: TEnumAsByte<EHorizTextAligment>;
+	public var VerticalAlignment: TEnumAsByte<EVerticalTextAligment>;
 	public var TextRenderColor: Color;
 	public var XScale: cpp.Float32;
 	public var YScale: cpp.Float32;
@@ -23,15 +23,15 @@ extern class TextRenderComp extends PrimitiveComp {
 	public function SetXScale(Value: cpp.Float32): Void;
 	public function SetWorldSize(Value: cpp.Float32): Void;
 	public function SetVertSpacingAdjust(Value: cpp.Float32): Void;
-	public function SetVerticalAlignment(Value: EVerticalTextAligment): Void;
+	public function SetVerticalAlignment(Value: TEnumAsByte<EVerticalTextAligment>): Void;
 	public function SetTextRenderColor(Value: Color): Void;
 	public function SetTextMaterial(Material: cpp.Star<MaterialInterface>): Void;
 	public function SetHorizSpacingAdjust(Value: cpp.Float32): Void;
-	public function SetHorizontalAlignment(Value: EHorizTextAligment): Void;
+	public function SetHorizontalAlignment(Value: TEnumAsByte<EHorizTextAligment>): Void;
 	public function SetFont(Value: cpp.Star<Font>): Void;
 	public function K2_SetText(Value: cpp.Reference<FText>): Void;
-	public function GetTextWorldSize(): cpp.Reference<Vector>;
-	public function GetTextLocalSize(): cpp.Reference<Vector>;
+	public function GetTextWorldSize(): Vector;
+	public function GetTextLocalSize(): Vector;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -45,10 +45,10 @@ abstract ConstTextRenderComp(TextRenderComp) from TextRenderComp {
 	public inline extern function get_TextMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.TextMaterial;
 	public extern var Font(get, never): cpp.Star<Font.ConstFont>;
 	public inline extern function get_Font(): cpp.Star<Font.ConstFont> return this.Font;
-	public extern var HorizontalAlignment(get, never): EHorizTextAligment;
-	public inline extern function get_HorizontalAlignment(): EHorizTextAligment return this.HorizontalAlignment;
-	public extern var VerticalAlignment(get, never): EVerticalTextAligment;
-	public inline extern function get_VerticalAlignment(): EVerticalTextAligment return this.VerticalAlignment;
+	public extern var HorizontalAlignment(get, never): TEnumAsByte<EHorizTextAligment>;
+	public inline extern function get_HorizontalAlignment(): TEnumAsByte<EHorizTextAligment> return this.HorizontalAlignment;
+	public extern var VerticalAlignment(get, never): TEnumAsByte<EVerticalTextAligment>;
+	public inline extern function get_VerticalAlignment(): TEnumAsByte<EVerticalTextAligment> return this.VerticalAlignment;
 	public extern var TextRenderColor(get, never): Color;
 	public inline extern function get_TextRenderColor(): Color return this.TextRenderColor;
 	public extern var XScale(get, never): cpp.Float32;

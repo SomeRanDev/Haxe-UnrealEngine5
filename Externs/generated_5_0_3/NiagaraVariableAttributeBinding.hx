@@ -5,14 +5,12 @@ package ue;
 @:include("NiagaraCommon.h")
 @:structAccess
 extern class NiagaraVariableAttributeBinding {
-	public var ParamMapVariable: NiagaraVariableBase;
-	public var DataSetVariable: NiagaraVariable;
-	public var RootVariable: NiagaraVariable;
-	public var BoundVariable: NiagaraVariable;
-	public var CachedDisplayName: FName;
-	public var BindingSourceMode: ENiagaraBindingSource;
-	public var bBindingExistsOnSource: Bool;
-	public var bIsCachedParticleValue: Bool;
+	@:protected public var ParamMapVariable: NiagaraVariableBase;
+	@:protected public var DataSetVariable: NiagaraVariable;
+	@:protected public var RootVariable: NiagaraVariable;
+	@:protected public var BindingSourceMode: TEnumAsByte<ENiagaraBindingSource>;
+	@:protected public var bBindingExistsOnSource: Bool;
+	@:protected public var bIsCachedParticleValue: Bool;
 
 	@:native("FNiagaraVariableAttributeBinding") public function new();
 }

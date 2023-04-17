@@ -3,8 +3,8 @@ package ue;
 
 @:native("ENiagaraIterationSource")
 @:include("NiagaraCommon.h")
-extern enum ENiagaraIterationSource {
-	Particles;
-	DataInterface;
-	ENiagaraIterationSource_MAX;
+extern class ENiagaraIterationSource {
+	static var Particles: ENiagaraIterationSource;
+	static var DataInterface: ENiagaraIterationSource;
+	static var ENiagaraIterationSource_MAX: ENiagaraIterationSource;
 }

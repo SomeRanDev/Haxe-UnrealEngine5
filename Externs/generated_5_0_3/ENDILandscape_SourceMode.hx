@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENDILandscape_SourceMode")
 @:include("NiagaraDataInterfaceLandscape.h")
-extern enum ENDILandscape_SourceMode {
-	Default;
-	Source;
-	AttachParent;
-	ENDILandscape_MAX;
+extern class ENDILandscape_SourceMode {
+	static var Default: ENDILandscape_SourceMode;
+	static var Source: ENDILandscape_SourceMode;
+	static var AttachParent: ENDILandscape_SourceMode;
+	static var ENDILandscape_MAX: ENDILandscape_SourceMode;
 }

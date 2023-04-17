@@ -11,15 +11,12 @@ extern class PlanarReflectionComp extends SceneCaptureComp {
 	public var PrefilterRoughnessDistance: cpp.Float32;
 	public var ScreenPercentage: cpp.Int32;
 	public var ExtraFOV: cpp.Float32;
-	public var DistanceFromPlaneFadeStart_DEPRECATED: cpp.Float32;
-	public var DistanceFromPlaneFadeEnd_DEPRECATED: cpp.Float32;
 	public var DistanceFromPlaneFadeoutStart: cpp.Float32;
 	public var DistanceFromPlaneFadeoutEnd: cpp.Float32;
 	public var AngleFromPlaneFadeStart: cpp.Float32;
 	public var AngleFromPlaneFadeEnd: cpp.Float32;
 	public var bShowPreviewPlane: Bool;
 	public var bRenderSceneTwoSided: Bool;
-	public var CaptureMaterial: cpp.Star<Material>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -39,10 +36,6 @@ abstract ConstPlanarReflectionComp(PlanarReflectionComp) from PlanarReflectionCo
 	public inline extern function get_ScreenPercentage(): cpp.Int32 return this.ScreenPercentage;
 	public extern var ExtraFOV(get, never): cpp.Float32;
 	public inline extern function get_ExtraFOV(): cpp.Float32 return this.ExtraFOV;
-	public extern var DistanceFromPlaneFadeStart_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_DistanceFromPlaneFadeStart_DEPRECATED(): cpp.Float32 return this.DistanceFromPlaneFadeStart_DEPRECATED;
-	public extern var DistanceFromPlaneFadeEnd_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_DistanceFromPlaneFadeEnd_DEPRECATED(): cpp.Float32 return this.DistanceFromPlaneFadeEnd_DEPRECATED;
 	public extern var DistanceFromPlaneFadeoutStart(get, never): cpp.Float32;
 	public inline extern function get_DistanceFromPlaneFadeoutStart(): cpp.Float32 return this.DistanceFromPlaneFadeoutStart;
 	public extern var DistanceFromPlaneFadeoutEnd(get, never): cpp.Float32;
@@ -55,8 +48,6 @@ abstract ConstPlanarReflectionComp(PlanarReflectionComp) from PlanarReflectionCo
 	public inline extern function get_bShowPreviewPlane(): Bool return this.bShowPreviewPlane;
 	public extern var bRenderSceneTwoSided(get, never): Bool;
 	public inline extern function get_bRenderSceneTwoSided(): Bool return this.bRenderSceneTwoSided;
-	public extern var CaptureMaterial(get, never): cpp.Star<Material.ConstMaterial>;
-	public inline extern function get_CaptureMaterial(): cpp.Star<Material.ConstMaterial> return this.CaptureMaterial;
 }
 
 @:forward

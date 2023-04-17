@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAndroidGraphicsDebugger.Type")
 @:include("AndroidRuntimeSettings.h")
-extern enum EAndroidGraphicsDebugger {
-	None;
-	Mali;
-	Adreno;
-	EAndroidGraphicsDebugger_MAX;
+extern class EAndroidGraphicsDebugger {
+	static var None: EAndroidGraphicsDebugger;
+	static var Mali: EAndroidGraphicsDebugger;
+	static var Adreno: EAndroidGraphicsDebugger;
+	static var EAndroidGraphicsDebugger_MAX: EAndroidGraphicsDebugger;
 }

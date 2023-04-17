@@ -12,8 +12,6 @@ extern class K2Node_CallFunction extends K2Node {
 	public var bIsFinalFunction: Bool;
 	public var bIsBeadFunction: Bool;
 	public var FunctionReference: MemberReference;
-	public var CallFunctionName_DEPRECATED: FName;
-	public var CallFunctionClass_DEPRECATED: TSubclassOf<Object>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -35,10 +33,6 @@ abstract ConstK2Node_CallFunction(K2Node_CallFunction) from K2Node_CallFunction 
 	public inline extern function get_bIsBeadFunction(): Bool return this.bIsBeadFunction;
 	public extern var FunctionReference(get, never): MemberReference;
 	public inline extern function get_FunctionReference(): MemberReference return this.FunctionReference;
-	public extern var CallFunctionName_DEPRECATED(get, never): FName;
-	public inline extern function get_CallFunctionName_DEPRECATED(): FName return this.CallFunctionName_DEPRECATED;
-	public extern var CallFunctionClass_DEPRECATED(get, never): TSubclassOf<Object.ConstObject>;
-	public inline extern function get_CallFunctionClass_DEPRECATED(): TSubclassOf<Object.ConstObject> return this.CallFunctionClass_DEPRECATED;
 }
 
 @:forward

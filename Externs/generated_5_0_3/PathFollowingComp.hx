@@ -5,13 +5,13 @@ package ue;
 @:include("Navigation/PathFollowingComponent.h")
 @:structAccess
 extern class PathFollowingComp extends ActorComp {
-	public var MovementComp: cpp.Star<NavMovementComp>;
-	public var MyNavData: cpp.Star<NavigationData>;
+	@:protected public var MovementComp: cpp.Star<NavMovementComp>;
+	@:protected public var MyNavData: cpp.Star<NavigationData>;
 
-	public function OnNavDataRegistered(NavData: cpp.Star<NavigationData>): Void;
+	@:protected public function OnNavDataRegistered(NavData: cpp.Star<NavigationData>): Void;
 	public function OnActorBump(SelfActor: cpp.Star<Actor>, OtherActor: cpp.Star<Actor>, NormalImpulse: Vector, Hit: cpp.Reference<HitResult>): Void;
-	public function GetPathDestination(): cpp.Reference<Vector>;
-	public function GetPathActionType(): cpp.Reference<EPathFollowingAction>;
+	public function GetPathDestination(): Vector;
+	public function GetPathActionType(): TEnumAsByte<EPathFollowingAction>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,10 +19,6 @@ extern class PathFollowingComp extends ActorComp {
 @:forward(GetPathDestination, GetPathActionType)
 @:nativeGen
 abstract ConstPathFollowingComp(PathFollowingComp) from PathFollowingComp {
-	public extern var MovementComp(get, never): cpp.Star<NavMovementComp.ConstNavMovementComp>;
-	public inline extern function get_MovementComp(): cpp.Star<NavMovementComp.ConstNavMovementComp> return this.MovementComp;
-	public extern var MyNavData(get, never): cpp.Star<NavigationData.ConstNavigationData>;
-	public inline extern function get_MyNavData(): cpp.Star<NavigationData.ConstNavigationData> return this.MyNavData;
 }
 
 @:forward

@@ -5,9 +5,9 @@ package ue;
 @:include("Engine/AutoDestroySubsystem.h")
 @:structAccess
 extern class AutoDestroySubsystem extends TickableWorldSubsystem {
-	public var ActorsToPoll: TArray<cpp.Star<Actor>>;
+	private var ActorsToPoll: TArray<cpp.Star<Actor>>;
 
-	public function OnActorEndPlay(Actor: cpp.Star<Actor>, EndPlayReason: EEndPlayReason): Void;
+	private function OnActorEndPlay(Actor: cpp.Star<Actor>, EndPlayReason: TEnumAsByte<EEndPlayReason>): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,8 +15,6 @@ extern class AutoDestroySubsystem extends TickableWorldSubsystem {
 @:forward()
 @:nativeGen
 abstract ConstAutoDestroySubsystem(AutoDestroySubsystem) from AutoDestroySubsystem {
-	public extern var ActorsToPoll(get, never): TArray<cpp.Star<Actor.ConstActor>>;
-	public inline extern function get_ActorsToPoll(): TArray<cpp.Star<Actor.ConstActor>> return this.ActorsToPoll;
 }
 
 @:forward

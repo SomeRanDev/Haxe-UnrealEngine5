@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESkinCacheUsage")
 @:include("Engine/SkeletalMesh.h")
-extern enum ESkinCacheUsage {
-	Auto;
-	Disabled;
-	Enabled;
-	ESkinCacheUsage_MAX;
+extern class ESkinCacheUsage {
+	static var Auto: ESkinCacheUsage;
+	static var Disabled: ESkinCacheUsage;
+	static var Enabled: ESkinCacheUsage;
+	static var ESkinCacheUsage_MAX: ESkinCacheUsage;
 }

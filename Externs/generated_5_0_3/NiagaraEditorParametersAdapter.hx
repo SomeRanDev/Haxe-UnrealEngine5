@@ -5,7 +5,6 @@ package ue;
 @:include("NiagaraEditorData.h")
 @:structAccess
 extern class NiagaraEditorParametersAdapter extends NiagaraEditorParametersAdapterBase {
-	public var EditorOnlyScriptVars: TArray<cpp.Star<NiagaraScriptVariable>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +12,6 @@ extern class NiagaraEditorParametersAdapter extends NiagaraEditorParametersAdapt
 @:forward()
 @:nativeGen
 abstract ConstNiagaraEditorParametersAdapter(NiagaraEditorParametersAdapter) from NiagaraEditorParametersAdapter {
-	public extern var EditorOnlyScriptVars(get, never): TArray<cpp.Star<NiagaraScriptVariable.ConstNiagaraScriptVariable>>;
-	public inline extern function get_EditorOnlyScriptVars(): TArray<cpp.Star<NiagaraScriptVariable.ConstNiagaraScriptVariable>> return this.EditorOnlyScriptVars;
 }
 
 @:forward

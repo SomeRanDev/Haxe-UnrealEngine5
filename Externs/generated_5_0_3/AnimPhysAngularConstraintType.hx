@@ -3,8 +3,8 @@ package ue;
 
 @:native("AnimPhysAngularConstraintType")
 @:include("BoneControllers/AnimNode_AnimDynamics.h")
-extern enum AnimPhysAngularConstraintType {
-	Angular;
-	Cone;
-	AnimPhysAngularConstraintType_MAX;
+extern class AnimPhysAngularConstraintType {
+	static var Angular: AnimPhysAngularConstraintType;
+	static var Cone: AnimPhysAngularConstraintType;
+	static var AnimPhysAngularConstraintType_MAX: AnimPhysAngularConstraintType;
 }

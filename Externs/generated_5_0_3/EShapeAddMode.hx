@@ -3,10 +3,10 @@ package ue;
 
 @:native("EShapeAddMode")
 @:include("SplineGeneratorPanel.h")
-extern enum EShapeAddMode {
-	AppendAfter;
-	AppendBefore;
-	InsertAfter;
-	InsertBefore;
-	EShapeAddMode_MAX;
+extern class EShapeAddMode {
+	static var AppendAfter: EShapeAddMode;
+	static var AppendBefore: EShapeAddMode;
+	static var InsertAfter: EShapeAddMode;
+	static var InsertBefore: EShapeAddMode;
+	static var EShapeAddMode_MAX: EShapeAddMode;
 }

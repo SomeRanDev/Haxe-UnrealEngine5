@@ -8,7 +8,6 @@ extern class AnimNode_LinkedAnimGraph extends AnimNode_CustomProperty {
 	public var InputPoses: TArray<PoseLink>;
 	public var InputPoseNames: TArray<FName>;
 	public var InstanceClass: TSubclassOf<AnimInstance>;
-	public var Tag_DEPRECATED: FName;
 	public var bReceiveNotifiesFromLinkedInstances: Bool;
 	public var bPropagateNotifiesToLinkedInstances: Bool;
 

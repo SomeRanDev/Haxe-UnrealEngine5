@@ -5,10 +5,10 @@ package ue;
 @:include("Transforms/MultiTransformer.h")
 @:structAccess
 extern class MultiTransformer extends Object {
-	public var GizmoManager: cpp.Star<InteractiveGizmoManager>;
-	public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	public var TransformProxy: cpp.Star<TransformProxy>;
-	public var DragAlignmentMechanic: cpp.Star<DragAlignmentMechanic>;
+	@:protected public var GizmoManager: cpp.Star<InteractiveGizmoManager>;
+	@:protected public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
+	@:protected public var TransformProxy: cpp.Star<TransformProxy>;
+	@:protected public var DragAlignmentMechanic: cpp.Star<DragAlignmentMechanic>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class MultiTransformer extends Object {
 @:forward()
 @:nativeGen
 abstract ConstMultiTransformer(MultiTransformer) from MultiTransformer {
-	public extern var GizmoManager(get, never): cpp.Star<InteractiveGizmoManager.ConstInteractiveGizmoManager>;
-	public inline extern function get_GizmoManager(): cpp.Star<InteractiveGizmoManager.ConstInteractiveGizmoManager> return this.GizmoManager;
-	public extern var TransformGizmo(get, never): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo>;
-	public inline extern function get_TransformGizmo(): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo> return this.TransformGizmo;
-	public extern var TransformProxy(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
-	public inline extern function get_TransformProxy(): cpp.Star<TransformProxy.ConstTransformProxy> return this.TransformProxy;
-	public extern var DragAlignmentMechanic(get, never): cpp.Star<DragAlignmentMechanic.ConstDragAlignmentMechanic>;
-	public inline extern function get_DragAlignmentMechanic(): cpp.Star<DragAlignmentMechanic.ConstDragAlignmentMechanic> return this.DragAlignmentMechanic;
 }
 
 @:forward

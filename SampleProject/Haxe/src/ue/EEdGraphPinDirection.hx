@@ -3,8 +3,8 @@ package ue;
 
 @:native("EEdGraphPinDirection")
 @:include("EdGraph/EdGraphNode.h")
-extern enum EEdGraphPinDirection {
-	EGPD_Input;
-	EGPD_Output;
-	EGPD_MAX;
+extern class EEdGraphPinDirection {
+	static var EGPD_Input: EEdGraphPinDirection;
+	static var EGPD_Output: EEdGraphPinDirection;
+	static var EGPD_MAX: EEdGraphPinDirection;
 }

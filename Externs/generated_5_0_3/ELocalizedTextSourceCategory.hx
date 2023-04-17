@@ -3,9 +3,9 @@ package ue;
 
 @:native("ELocalizedTextSourceCategory")
 @:include("UObject/NoExportTypes.h")
-extern enum ELocalizedTextSourceCategory {
-	Game;
-	Engine;
-	Editor;
-	ELocalizedTextSourceCategory_MAX;
+extern class ELocalizedTextSourceCategory {
+	static var Game: ELocalizedTextSourceCategory;
+	static var Engine: ELocalizedTextSourceCategory;
+	static var Editor: ELocalizedTextSourceCategory;
+	static var ELocalizedTextSourceCategory_MAX: ELocalizedTextSourceCategory;
 }

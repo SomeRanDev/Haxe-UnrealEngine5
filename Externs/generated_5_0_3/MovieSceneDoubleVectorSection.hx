@@ -5,8 +5,8 @@ package ue;
 @:include("Sections/MovieSceneVectorSection.h")
 @:structAccess
 extern class MovieSceneDoubleVectorSection extends MovieSceneSection {
-	public var Curves: MovieSceneDoubleChannel;
-	public var ChannelsUsed: cpp.Int32;
+	private var Curves: MovieSceneDoubleChannel;
+	private var ChannelsUsed: cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class MovieSceneDoubleVectorSection extends MovieSceneSection {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneDoubleVectorSection(MovieSceneDoubleVectorSection) from MovieSceneDoubleVectorSection {
-	public extern var Curves(get, never): MovieSceneDoubleChannel;
-	public inline extern function get_Curves(): MovieSceneDoubleChannel return this.Curves;
-	public extern var ChannelsUsed(get, never): cpp.Int32;
-	public inline extern function get_ChannelsUsed(): cpp.Int32 return this.ChannelsUsed;
 }
 
 @:forward

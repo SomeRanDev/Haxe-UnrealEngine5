@@ -3,8 +3,8 @@ package ue;
 
 @:native("EBakeVertexOutput")
 @:include("BakeMeshAttributeVertexTool.h")
-extern enum EBakeVertexOutput {
-	RGBA;
-	PerChannel;
-	EBakeVertexOutput_MAX;
+extern class EBakeVertexOutput {
+	static var RGBA: EBakeVertexOutput;
+	static var PerChannel: EBakeVertexOutput;
+	static var EBakeVertexOutput_MAX: EBakeVertexOutput;
 }

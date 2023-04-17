@@ -3,9 +3,9 @@ package ue;
 
 @:native("ECastRayTracedShadow.Type")
 @:include("Engine/EngineTypes.h")
-extern enum ECastRayTracedShadow {
-	Disabled;
-	UseProjectSetting;
-	Enabled;
-	ECastRayTracedShadow_MAX;
+extern class ECastRayTracedShadow {
+	static var Disabled: ECastRayTracedShadow;
+	static var UseProjectSetting: ECastRayTracedShadow;
+	static var Enabled: ECastRayTracedShadow;
+	static var ECastRayTracedShadow_MAX: ECastRayTracedShadow;
 }

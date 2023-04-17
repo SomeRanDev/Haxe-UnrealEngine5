@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENDISkelMesh_GpuUniformSamplingFormat.Type")
 @:include("NiagaraSettings.h")
-extern enum ENDISkelMesh_GpuUniformSamplingFormat {
-	Full;
-	Limited_24_8;
-	Limited_23_9;
-	ENDISkelMesh_MAX;
+extern class ENDISkelMesh_GpuUniformSamplingFormat {
+	static var Full: ENDISkelMesh_GpuUniformSamplingFormat;
+	static var Limited_24_8: ENDISkelMesh_GpuUniformSamplingFormat;
+	static var Limited_23_9: ENDISkelMesh_GpuUniformSamplingFormat;
+	static var ENDISkelMesh_MAX: ENDISkelMesh_GpuUniformSamplingFormat;
 }

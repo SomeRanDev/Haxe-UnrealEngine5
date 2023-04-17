@@ -14,7 +14,7 @@ extern class ToolMenuEntry {
 	public var bShouldCloseWindowAfterMenuSelection: Bool;
 	public var ScriptObject: cpp.Star<ToolMenuEntryScript>;
 	public var StyleNameOverride: FName;
-	public var bCommandIsKeybindOnly: Bool;
+	private var bCommandIsKeybindOnly: Bool;
 
 	@:native("FToolMenuEntry") public function new();
 }

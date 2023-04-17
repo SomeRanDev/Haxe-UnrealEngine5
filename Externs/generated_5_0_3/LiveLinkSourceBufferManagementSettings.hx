@@ -10,7 +10,6 @@ extern class LiveLinkSourceBufferManagementSettings {
 	public var EngineTimeOffset: cpp.Float32;
 	public var EngineTimeClockOffset: cpp.Float64;
 	public var SmoothEngineTimeOffset: cpp.Float64;
-	public var TimecodeFrameRate_DEPRECATED: FrameRate;
 	public var bGenerateSubFrame: Bool;
 	public var DetectedFrameRate: FrameRate;
 	public var bUseTimecodeSmoothLatest: Bool;

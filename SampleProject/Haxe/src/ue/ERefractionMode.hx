@@ -3,8 +3,8 @@ package ue;
 
 @:native("ERefractionMode")
 @:include("Engine/EngineTypes.h")
-extern enum ERefractionMode {
-	RM_IndexOfRefraction;
-	RM_PixelNormalOffset;
-	RM_MAX;
+extern class ERefractionMode {
+	static var RM_IndexOfRefraction: ERefractionMode;
+	static var RM_PixelNormalOffset: ERefractionMode;
+	static var RM_MAX: ERefractionMode;
 }

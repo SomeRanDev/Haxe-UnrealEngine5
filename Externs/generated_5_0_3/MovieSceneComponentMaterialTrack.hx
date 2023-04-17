@@ -5,7 +5,7 @@ package ue;
 @:include("Tracks/MovieSceneMaterialTrack.h")
 @:structAccess
 extern class MovieSceneComponentMaterialTrack extends MovieSceneMaterialTrack {
-	public var MaterialIndex: cpp.Int32;
+	private var MaterialIndex: cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MovieSceneComponentMaterialTrack extends MovieSceneMaterialTrack {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneComponentMaterialTrack(MovieSceneComponentMaterialTrack) from MovieSceneComponentMaterialTrack {
-	public extern var MaterialIndex(get, never): cpp.Int32;
-	public inline extern function get_MaterialIndex(): cpp.Int32 return this.MaterialIndex;
 }
 
 @:forward

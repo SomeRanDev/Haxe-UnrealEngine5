@@ -7,8 +7,8 @@ package ue;
 extern class MovieSceneScriptingIntegerKey extends MovieSceneScriptingKey {
 	public function SetValue(InNewValue: cpp.Int32): Void;
 	public function SetTime(NewFrameNumber: cpp.Reference<FrameNumber>, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): Void;
-	public function GetValue(): cpp.Reference<cpp.Int32>;
-	public function GetTime(TimeUnit: ESequenceTimeUnit): cpp.Reference<FrameTime>;
+	public function GetValue(): cpp.Int32;
+	public function GetTime(TimeUnit: ESequenceTimeUnit): FrameTime;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

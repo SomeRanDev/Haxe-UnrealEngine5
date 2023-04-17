@@ -54,9 +54,6 @@ extern class ProjectPackagingSettings extends Object {
 	public var LocalizationTargetCatchAllChunkId: cpp.Int32;
 	public var bCookAll: Bool;
 	public var bCookMapsOnly: Bool;
-	public var bEncryptIniFiles_DEPRECATED: Bool;
-	public var bEncryptPakIndex_DEPRECATED: Bool;
-	public var GenerateEarlyDownloaderPakFile_DEPRECATED: Bool;
 	public var bSkipEditorContent: Bool;
 	public var bSkipMovies: Bool;
 	public var UFSMovies: TArray<FString>;
@@ -64,7 +61,6 @@ extern class ProjectPackagingSettings extends Object {
 	public var CompressedChunkWildcard: TArray<FString>;
 	public var IniKeyBlacklist: TArray<FString>;
 	public var IniSectionBlacklist: TArray<FString>;
-	public var EarlyDownloaderPakFileFiles_DEPRECATED: TArray<FString>;
 	public var MapsToCook: TArray<FilePath>;
 	public var DirectoriesToAlwaysCook: TArray<DirectoryPath>;
 	public var DirectoriesToNeverCook: TArray<DirectoryPath>;
@@ -75,9 +71,9 @@ extern class ProjectPackagingSettings extends Object {
 	public var DirectoriesToAlwaysStageAsNonUFSServer: TArray<DirectoryPath>;
 	public var ProjectCustomBuilds: TArray<ProjectBuildSettings>;
 	public var EngineCustomBuilds: TArray<ProjectBuildSettings>;
-	public var PerPlatformBuildConfig: TMap<FName, EProjectPackagingBuildConfigurations>;
-	public var PerPlatformTargetFlavorName: TMap<FName, FName>;
-	public var PerPlatformBuildTarget: TMap<FName, FString>;
+	private var PerPlatformBuildConfig: TMap<FName, EProjectPackagingBuildConfigurations>;
+	private var PerPlatformTargetFlavorName: TMap<FName, FName>;
+	private var PerPlatformBuildTarget: TMap<FName, FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -183,12 +179,6 @@ abstract ConstProjectPackagingSettings(ProjectPackagingSettings) from ProjectPac
 	public inline extern function get_bCookAll(): Bool return this.bCookAll;
 	public extern var bCookMapsOnly(get, never): Bool;
 	public inline extern function get_bCookMapsOnly(): Bool return this.bCookMapsOnly;
-	public extern var bEncryptIniFiles_DEPRECATED(get, never): Bool;
-	public inline extern function get_bEncryptIniFiles_DEPRECATED(): Bool return this.bEncryptIniFiles_DEPRECATED;
-	public extern var bEncryptPakIndex_DEPRECATED(get, never): Bool;
-	public inline extern function get_bEncryptPakIndex_DEPRECATED(): Bool return this.bEncryptPakIndex_DEPRECATED;
-	public extern var GenerateEarlyDownloaderPakFile_DEPRECATED(get, never): Bool;
-	public inline extern function get_GenerateEarlyDownloaderPakFile_DEPRECATED(): Bool return this.GenerateEarlyDownloaderPakFile_DEPRECATED;
 	public extern var bSkipEditorContent(get, never): Bool;
 	public inline extern function get_bSkipEditorContent(): Bool return this.bSkipEditorContent;
 	public extern var bSkipMovies(get, never): Bool;
@@ -203,8 +193,6 @@ abstract ConstProjectPackagingSettings(ProjectPackagingSettings) from ProjectPac
 	public inline extern function get_IniKeyBlacklist(): TArray<FString> return this.IniKeyBlacklist;
 	public extern var IniSectionBlacklist(get, never): TArray<FString>;
 	public inline extern function get_IniSectionBlacklist(): TArray<FString> return this.IniSectionBlacklist;
-	public extern var EarlyDownloaderPakFileFiles_DEPRECATED(get, never): TArray<FString>;
-	public inline extern function get_EarlyDownloaderPakFileFiles_DEPRECATED(): TArray<FString> return this.EarlyDownloaderPakFileFiles_DEPRECATED;
 	public extern var MapsToCook(get, never): TArray<FilePath>;
 	public inline extern function get_MapsToCook(): TArray<FilePath> return this.MapsToCook;
 	public extern var DirectoriesToAlwaysCook(get, never): TArray<DirectoryPath>;
@@ -225,12 +213,6 @@ abstract ConstProjectPackagingSettings(ProjectPackagingSettings) from ProjectPac
 	public inline extern function get_ProjectCustomBuilds(): TArray<ProjectBuildSettings> return this.ProjectCustomBuilds;
 	public extern var EngineCustomBuilds(get, never): TArray<ProjectBuildSettings>;
 	public inline extern function get_EngineCustomBuilds(): TArray<ProjectBuildSettings> return this.EngineCustomBuilds;
-	public extern var PerPlatformBuildConfig(get, never): TMap<FName, EProjectPackagingBuildConfigurations>;
-	public inline extern function get_PerPlatformBuildConfig(): TMap<FName, EProjectPackagingBuildConfigurations> return this.PerPlatformBuildConfig;
-	public extern var PerPlatformTargetFlavorName(get, never): TMap<FName, FName>;
-	public inline extern function get_PerPlatformTargetFlavorName(): TMap<FName, FName> return this.PerPlatformTargetFlavorName;
-	public extern var PerPlatformBuildTarget(get, never): TMap<FName, FString>;
-	public inline extern function get_PerPlatformBuildTarget(): TMap<FName, FString> return this.PerPlatformBuildTarget;
 }
 
 @:forward

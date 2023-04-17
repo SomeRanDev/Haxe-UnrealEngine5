@@ -5,9 +5,9 @@ package ue;
 @:include("AnimGraphNode_CallFunction.h")
 @:structAccess
 extern class AnimGraphNode_CallFunction extends AnimGraphNode_Base {
-	public var InnerGraph: cpp.Star<EdGraph>;
-	public var CallFunctionPrototype: cpp.Star<K2Node_CallFunction>;
-	public var Node: AnimNode_CallFunction;
+	private var InnerGraph: cpp.Star<EdGraph>;
+	private var CallFunctionPrototype: cpp.Star<K2Node_CallFunction>;
+	private var Node: AnimNode_CallFunction;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class AnimGraphNode_CallFunction extends AnimGraphNode_Base {
 @:forward()
 @:nativeGen
 abstract ConstAnimGraphNode_CallFunction(AnimGraphNode_CallFunction) from AnimGraphNode_CallFunction {
-	public extern var InnerGraph(get, never): cpp.Star<EdGraph.ConstEdGraph>;
-	public inline extern function get_InnerGraph(): cpp.Star<EdGraph.ConstEdGraph> return this.InnerGraph;
-	public extern var CallFunctionPrototype(get, never): cpp.Star<K2Node_CallFunction.ConstK2Node_CallFunction>;
-	public inline extern function get_CallFunctionPrototype(): cpp.Star<K2Node_CallFunction.ConstK2Node_CallFunction> return this.CallFunctionPrototype;
-	public extern var Node(get, never): AnimNode_CallFunction;
-	public inline extern function get_Node(): AnimNode_CallFunction return this.Node;
 }
 
 @:forward

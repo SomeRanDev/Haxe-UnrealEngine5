@@ -7,22 +7,22 @@ package ue;
 extern class MovieSceneScriptingDoubleKey extends MovieSceneScriptingKey {
 	public function SetValue(InNewValue: cpp.Float64): Void;
 	public function SetTime(NewFrameNumber: cpp.Reference<FrameNumber>, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): Void;
-	public function SetTangentWeightMode(InNewValue: ERichCurveTangentWeightMode): Void;
-	public function SetTangentMode(InNewValue: ERichCurveTangentMode): Void;
+	public function SetTangentWeightMode(InNewValue: TEnumAsByte<ERichCurveTangentWeightMode>): Void;
+	public function SetTangentMode(InNewValue: TEnumAsByte<ERichCurveTangentMode>): Void;
 	public function SetLeaveTangentWeight(InNewValue: cpp.Float32): Void;
 	public function SetLeaveTangent(InNewValue: cpp.Float32): Void;
-	public function SetInterpolationMode(InNewValue: ERichCurveInterpMode): Void;
+	public function SetInterpolationMode(InNewValue: TEnumAsByte<ERichCurveInterpMode>): Void;
 	public function SetArriveTangentWeight(InNewValue: cpp.Float32): Void;
 	public function SetArriveTangent(InNewValue: cpp.Float32): Void;
-	public function GetValue(): cpp.Reference<cpp.Float64>;
-	public function GetTime(TimeUnit: ESequenceTimeUnit): cpp.Reference<FrameTime>;
-	public function GetTangentWeightMode(): cpp.Reference<ERichCurveTangentWeightMode>;
-	public function GetTangentMode(): cpp.Reference<ERichCurveTangentMode>;
-	public function GetLeaveTangentWeight(): cpp.Reference<cpp.Float32>;
-	public function GetLeaveTangent(): cpp.Reference<cpp.Float32>;
-	public function GetInterpolationMode(): cpp.Reference<ERichCurveInterpMode>;
-	public function GetArriveTangentWeight(): cpp.Reference<cpp.Float32>;
-	public function GetArriveTangent(): cpp.Reference<cpp.Float32>;
+	public function GetValue(): cpp.Float64;
+	public function GetTime(TimeUnit: ESequenceTimeUnit): FrameTime;
+	public function GetTangentWeightMode(): TEnumAsByte<ERichCurveTangentWeightMode>;
+	public function GetTangentMode(): TEnumAsByte<ERichCurveTangentMode>;
+	public function GetLeaveTangentWeight(): cpp.Float32;
+	public function GetLeaveTangent(): cpp.Float32;
+	public function GetInterpolationMode(): TEnumAsByte<ERichCurveInterpMode>;
+	public function GetArriveTangentWeight(): cpp.Float32;
+	public function GetArriveTangent(): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

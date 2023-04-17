@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENavSystemOverridePolicy")
 @:include("NavSystemConfigOverride.h")
-extern enum ENavSystemOverridePolicy {
-	Override;
-	Append;
-	Skip;
-	ENavSystemOverridePolicy_MAX;
+extern class ENavSystemOverridePolicy {
+	static var Override: ENavSystemOverridePolicy;
+	static var Append: ENavSystemOverridePolicy;
+	static var Skip: ENavSystemOverridePolicy;
+	static var ENavSystemOverridePolicy_MAX: ENavSystemOverridePolicy;
 }

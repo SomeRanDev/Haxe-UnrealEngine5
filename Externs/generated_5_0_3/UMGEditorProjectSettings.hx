@@ -5,8 +5,8 @@ package ue;
 @:include("UMGEditorProjectSettings.h")
 @:structAccess
 extern class UMGEditorProjectSettings extends DeveloperSettings {
-	public var DefaultCompilerOptions: WidgetCompilerOptions;
-	public var DirectoryCompilerOptions: TArray<DirectoryWidgetCompilerOptions>;
+	@:protected public var DefaultCompilerOptions: WidgetCompilerOptions;
+	@:protected public var DirectoryCompilerOptions: TArray<DirectoryWidgetCompilerOptions>;
 	public var bShowWidgetsFromEngineContent: Bool;
 	public var bShowWidgetsFromDeveloperContent: Bool;
 	public var CategoriesToHide: TArray<FString>;
@@ -15,7 +15,7 @@ extern class UMGEditorProjectSettings extends DeveloperSettings {
 	public var DefaultRootWidget: TSubclassOf<PanelWidget>;
 	public var DefaultWidgetParentClass: TSoftClassPtr<Class>;
 	public var DebugResolutions: TArray<DebugResolution>;
-	public var Version: cpp.Int32;
+	@:protected public var Version: cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -23,10 +23,6 @@ extern class UMGEditorProjectSettings extends DeveloperSettings {
 @:forward()
 @:nativeGen
 abstract ConstUMGEditorProjectSettings(UMGEditorProjectSettings) from UMGEditorProjectSettings {
-	public extern var DefaultCompilerOptions(get, never): WidgetCompilerOptions;
-	public inline extern function get_DefaultCompilerOptions(): WidgetCompilerOptions return this.DefaultCompilerOptions;
-	public extern var DirectoryCompilerOptions(get, never): TArray<DirectoryWidgetCompilerOptions>;
-	public inline extern function get_DirectoryCompilerOptions(): TArray<DirectoryWidgetCompilerOptions> return this.DirectoryCompilerOptions;
 	public extern var bShowWidgetsFromEngineContent(get, never): Bool;
 	public inline extern function get_bShowWidgetsFromEngineContent(): Bool return this.bShowWidgetsFromEngineContent;
 	public extern var bShowWidgetsFromDeveloperContent(get, never): Bool;
@@ -43,8 +39,6 @@ abstract ConstUMGEditorProjectSettings(UMGEditorProjectSettings) from UMGEditorP
 	public inline extern function get_DefaultWidgetParentClass(): TSoftClassPtr<Class.ConstClass> return this.DefaultWidgetParentClass;
 	public extern var DebugResolutions(get, never): TArray<DebugResolution>;
 	public inline extern function get_DebugResolutions(): TArray<DebugResolution> return this.DebugResolutions;
-	public extern var Version(get, never): cpp.Int32;
-	public inline extern function get_Version(): cpp.Int32 return this.Version;
 }
 
 @:forward

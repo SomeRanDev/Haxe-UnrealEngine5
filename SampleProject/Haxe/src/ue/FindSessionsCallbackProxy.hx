@@ -8,11 +8,11 @@ extern class FindSessionsCallbackProxy extends OnlineBlueprintCallProxyBase {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<BlueprintSessionResult>>) -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<BlueprintSessionResult>>) -> Void>;
 
-	public function GetServerName(Result: cpp.Reference<BlueprintSessionResult>): cpp.Reference<FString>;
-	public function GetPingInMs(Result: cpp.Reference<BlueprintSessionResult>): cpp.Reference<cpp.Int32>;
-	public function GetMaxPlayers(Result: cpp.Reference<BlueprintSessionResult>): cpp.Reference<cpp.Int32>;
-	public function GetCurrentPlayers(Result: cpp.Reference<BlueprintSessionResult>): cpp.Reference<cpp.Int32>;
-	public function FindSessions(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, MaxResults: cpp.Int32, bUseLAN: Bool): cpp.Reference<cpp.Star<FindSessionsCallbackProxy>>;
+	public function GetServerName(Result: cpp.Reference<BlueprintSessionResult>): FString;
+	public function GetPingInMs(Result: cpp.Reference<BlueprintSessionResult>): cpp.Int32;
+	public function GetMaxPlayers(Result: cpp.Reference<BlueprintSessionResult>): cpp.Int32;
+	public function GetCurrentPlayers(Result: cpp.Reference<BlueprintSessionResult>): cpp.Int32;
+	public function FindSessions(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, MaxResults: cpp.Int32, bUseLAN: Bool): cpp.Star<FindSessionsCallbackProxy>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

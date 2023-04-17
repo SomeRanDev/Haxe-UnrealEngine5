@@ -3,16 +3,16 @@ package ue;
 
 @:native("ESceneCaptureSource")
 @:include("Engine/EngineTypes.h")
-extern enum ESceneCaptureSource {
-	SCS_SceneColorHDR;
-	SCS_SceneColorHDRNoAlpha;
-	SCS_FinalColorLDR;
-	SCS_SceneColorSceneDepth;
-	SCS_SceneDepth;
-	SCS_DeviceDepth;
-	SCS_Normal;
-	SCS_BaseColor;
-	SCS_FinalColorHDR;
-	SCS_FinalToneCurveHDR;
-	SCS_MAX;
+extern class ESceneCaptureSource {
+	static var SCS_SceneColorHDR: ESceneCaptureSource;
+	static var SCS_SceneColorHDRNoAlpha: ESceneCaptureSource;
+	static var SCS_FinalColorLDR: ESceneCaptureSource;
+	static var SCS_SceneColorSceneDepth: ESceneCaptureSource;
+	static var SCS_SceneDepth: ESceneCaptureSource;
+	static var SCS_DeviceDepth: ESceneCaptureSource;
+	static var SCS_Normal: ESceneCaptureSource;
+	static var SCS_BaseColor: ESceneCaptureSource;
+	static var SCS_FinalColorHDR: ESceneCaptureSource;
+	static var SCS_FinalToneCurveHDR: ESceneCaptureSource;
+	static var SCS_MAX: ESceneCaptureSource;
 }

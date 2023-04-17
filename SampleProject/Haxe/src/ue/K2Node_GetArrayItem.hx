@@ -5,7 +5,7 @@ package ue;
 @:include("K2Node_GetArrayItem.h")
 @:structAccess
 extern class K2Node_GetArrayItem extends K2Node {
-	public var bReturnByRefDesired: Bool;
+	private var bReturnByRefDesired: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class K2Node_GetArrayItem extends K2Node {
 @:forward()
 @:nativeGen
 abstract ConstK2Node_GetArrayItem(K2Node_GetArrayItem) from K2Node_GetArrayItem {
-	public extern var bReturnByRefDesired(get, never): Bool;
-	public inline extern function get_bReturnByRefDesired(): Bool return this.bReturnByRefDesired;
 }
 
 @:forward

@@ -3,20 +3,20 @@ package ue;
 
 @:native("EEasingFunc.Type")
 @:include("Kismet/KismetMathLibrary.h")
-extern enum EEasingFunc {
-	Linear;
-	Step;
-	SinusoidalIn;
-	SinusoidalOut;
-	SinusoidalInOut;
-	EaseIn;
-	EaseOut;
-	EaseInOut;
-	ExpoIn;
-	ExpoOut;
-	ExpoInOut;
-	CircularIn;
-	CircularOut;
-	CircularInOut;
-	EEasingFunc_MAX;
+extern class EEasingFunc {
+	static var Linear: EEasingFunc;
+	static var Step: EEasingFunc;
+	static var SinusoidalIn: EEasingFunc;
+	static var SinusoidalOut: EEasingFunc;
+	static var SinusoidalInOut: EEasingFunc;
+	static var EaseIn: EEasingFunc;
+	static var EaseOut: EEasingFunc;
+	static var EaseInOut: EEasingFunc;
+	static var ExpoIn: EEasingFunc;
+	static var ExpoOut: EEasingFunc;
+	static var ExpoInOut: EEasingFunc;
+	static var CircularIn: EEasingFunc;
+	static var CircularOut: EEasingFunc;
+	static var CircularInOut: EEasingFunc;
+	static var EEasingFunc_MAX: EEasingFunc;
 }

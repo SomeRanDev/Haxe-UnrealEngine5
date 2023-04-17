@@ -12,8 +12,8 @@ extern class ControlRigPoseAsset extends Object {
 	public function ReplaceControlName(CurrentName: cpp.Reference<FName>, NewName: cpp.Reference<FName>): Void;
 	public function PastePose(InControlRig: cpp.Star<ControlRig>, bDoKey: Bool, bDoMirror: Bool): Void;
 	public function GetCurrentPose(InControlRig: cpp.Star<ControlRig>, OutPose: cpp.Reference<ControlRigControlPose>): Void;
-	public function GetControlNames(): cpp.Reference<TArray<FName>>;
-	public function DoesMirrorMatch(ControlRig: cpp.Star<ControlRig>, ControlName: cpp.Reference<FName>): cpp.Reference<Bool>;
+	public function GetControlNames(): TArray<FName>;
+	public function DoesMirrorMatch(ControlRig: cpp.Star<ControlRig>, ControlName: cpp.Reference<FName>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

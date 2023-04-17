@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class MaterialMergeOptions extends Object {
 	public var Method: EMaterialBakeMethod;
-	public var BlendMode: EBlendMode;
+	public var BlendMode: TEnumAsByte<EBlendMode>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,8 @@ extern class MaterialMergeOptions extends Object {
 abstract ConstMaterialMergeOptions(MaterialMergeOptions) from MaterialMergeOptions {
 	public extern var Method(get, never): EMaterialBakeMethod;
 	public inline extern function get_Method(): EMaterialBakeMethod return this.Method;
-	public extern var BlendMode(get, never): EBlendMode;
-	public inline extern function get_BlendMode(): EBlendMode return this.BlendMode;
+	public extern var BlendMode(get, never): TEnumAsByte<EBlendMode>;
+	public inline extern function get_BlendMode(): TEnumAsByte<EBlendMode> return this.BlendMode;
 }
 
 @:forward

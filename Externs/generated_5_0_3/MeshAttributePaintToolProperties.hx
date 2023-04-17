@@ -7,7 +7,7 @@ package ue;
 extern class MeshAttributePaintToolProperties extends InteractiveToolPropertySet {
 	public var Attribute: FString;
 
-	public function GetAttributeNames(): cpp.Reference<TArray<FString>>;
+	public function GetAttributeNames(): TArray<FString>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

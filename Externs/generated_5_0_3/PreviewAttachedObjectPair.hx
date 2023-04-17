@@ -5,8 +5,7 @@ package ue;
 @:include("Animation/PreviewAssetAttachComponent.h")
 @:structAccess
 extern class PreviewAttachedObjectPair {
-	public var AttachedObject: TSoftObjectPtr<Object>;
-	public var Object_DEPRECATED: cpp.Star<Object>;
+	private var AttachedObject: TSoftObjectPtr<Object>;
 	public var AttachedTo: FName;
 
 	@:native("FPreviewAttachedObjectPair") public function new();

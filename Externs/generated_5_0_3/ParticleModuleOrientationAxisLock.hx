@@ -5,7 +5,7 @@ package ue;
 @:include("Particles/Orientation/ParticleModuleOrientationAxisLock.h")
 @:structAccess
 extern class ParticleModuleOrientationAxisLock extends ParticleModuleOrientationBase {
-	public var LockAxisFlags: EParticleAxisLock;
+	public var LockAxisFlags: TEnumAsByte<EParticleAxisLock>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,8 @@ extern class ParticleModuleOrientationAxisLock extends ParticleModuleOrientation
 @:forward()
 @:nativeGen
 abstract ConstParticleModuleOrientationAxisLock(ParticleModuleOrientationAxisLock) from ParticleModuleOrientationAxisLock {
-	public extern var LockAxisFlags(get, never): EParticleAxisLock;
-	public inline extern function get_LockAxisFlags(): EParticleAxisLock return this.LockAxisFlags;
+	public extern var LockAxisFlags(get, never): TEnumAsByte<EParticleAxisLock>;
+	public inline extern function get_LockAxisFlags(): TEnumAsByte<EParticleAxisLock> return this.LockAxisFlags;
 }
 
 @:forward

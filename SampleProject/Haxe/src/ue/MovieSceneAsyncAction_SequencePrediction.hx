@@ -7,13 +7,13 @@ package ue;
 extern class MovieSceneAsyncAction_SequencePrediction extends BlueprintAsyncActionBase {
 	public var Result: HaxeMulticastSparseDelegateProperty<(Transform) -> Void>;
 	public var Failure: HaxeMulticastSparseDelegateProperty<() -> Void>;
-	public var SequencePlayer: cpp.Star<MovieSceneSequencePlayer>;
-	public var SceneComponent: cpp.Star<SceneComp>;
+	private var SequencePlayer: cpp.Star<MovieSceneSequencePlayer>;
+	private var SceneComponent: cpp.Star<SceneComp>;
 
-	public function PredictWorldTransformAtTime(Player: cpp.Star<MovieSceneSequencePlayer>, TargetComponent: cpp.Star<SceneComp>, TimeInSeconds: cpp.Float32): cpp.Reference<cpp.Star<MovieSceneAsyncAction_SequencePrediction>>;
-	public function PredictWorldTransformAtFrame(Player: cpp.Star<MovieSceneSequencePlayer>, TargetComponent: cpp.Star<SceneComp>, FrameTime: FrameTime): cpp.Reference<cpp.Star<MovieSceneAsyncAction_SequencePrediction>>;
-	public function PredictLocalTransformAtTime(Player: cpp.Star<MovieSceneSequencePlayer>, TargetComponent: cpp.Star<SceneComp>, TimeInSeconds: cpp.Float32): cpp.Reference<cpp.Star<MovieSceneAsyncAction_SequencePrediction>>;
-	public function PredictLocalTransformAtFrame(Player: cpp.Star<MovieSceneSequencePlayer>, TargetComponent: cpp.Star<SceneComp>, FrameTime: FrameTime): cpp.Reference<cpp.Star<MovieSceneAsyncAction_SequencePrediction>>;
+	public function PredictWorldTransformAtTime(Player: cpp.Star<MovieSceneSequencePlayer>, TargetComponent: cpp.Star<SceneComp>, TimeInSeconds: cpp.Float32): cpp.Star<MovieSceneAsyncAction_SequencePrediction>;
+	public function PredictWorldTransformAtFrame(Player: cpp.Star<MovieSceneSequencePlayer>, TargetComponent: cpp.Star<SceneComp>, FrameTime: FrameTime): cpp.Star<MovieSceneAsyncAction_SequencePrediction>;
+	public function PredictLocalTransformAtTime(Player: cpp.Star<MovieSceneSequencePlayer>, TargetComponent: cpp.Star<SceneComp>, TimeInSeconds: cpp.Float32): cpp.Star<MovieSceneAsyncAction_SequencePrediction>;
+	public function PredictLocalTransformAtFrame(Player: cpp.Star<MovieSceneSequencePlayer>, TargetComponent: cpp.Star<SceneComp>, FrameTime: FrameTime): cpp.Star<MovieSceneAsyncAction_SequencePrediction>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -25,10 +25,6 @@ abstract ConstMovieSceneAsyncAction_SequencePrediction(MovieSceneAsyncAction_Seq
 	public inline extern function get_Result(): HaxeMulticastSparseDelegateProperty<(Transform) -> Void> return this.Result;
 	public extern var Failure(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_Failure(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.Failure;
-	public extern var SequencePlayer(get, never): cpp.Star<MovieSceneSequencePlayer.ConstMovieSceneSequencePlayer>;
-	public inline extern function get_SequencePlayer(): cpp.Star<MovieSceneSequencePlayer.ConstMovieSceneSequencePlayer> return this.SequencePlayer;
-	public extern var SceneComponent(get, never): cpp.Star<SceneComp.ConstSceneComp>;
-	public inline extern function get_SceneComponent(): cpp.Star<SceneComp.ConstSceneComp> return this.SceneComponent;
 }
 
 @:forward

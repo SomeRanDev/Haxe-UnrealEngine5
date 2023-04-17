@@ -5,7 +5,7 @@ package ue;
 @:include("NiagaraTypes.h")
 @:structAccess
 extern class NiagaraLwcStructConverter {
-	public var ConversionSteps: TArray<NiagaraStructConversionStep>;
+	private var ConversionSteps: TArray<NiagaraStructConversionStep>;
 
 	@:native("FNiagaraLwcStructConverter") public function new();
 	@:native("FNiagaraLwcStructConverter") public static function make(ConversionSteps: TArray<NiagaraStructConversionStep>): NiagaraLwcStructConverter ;

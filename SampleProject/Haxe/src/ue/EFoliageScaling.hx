@@ -3,11 +3,11 @@ package ue;
 
 @:native("EFoliageScaling")
 @:include("FoliageType.h")
-extern enum EFoliageScaling {
-	Uniform;
-	Free;
-	LockXY;
-	LockXZ;
-	LockYZ;
-	EFoliageScaling_MAX;
+extern class EFoliageScaling {
+	static var Uniform: EFoliageScaling;
+	static var Free: EFoliageScaling;
+	static var LockXY: EFoliageScaling;
+	static var LockXZ: EFoliageScaling;
+	static var LockYZ: EFoliageScaling;
+	static var EFoliageScaling_MAX: EFoliageScaling;
 }

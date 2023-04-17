@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETranslucentSortPolicy.Type")
 @:include("Engine/EngineTypes.h")
-extern enum ETranslucentSortPolicy {
-	SortByDistance;
-	SortByProjectedZ;
-	SortAlongAxis;
-	ETranslucentSortPolicy_MAX;
+extern class ETranslucentSortPolicy {
+	static var SortByDistance: ETranslucentSortPolicy;
+	static var SortByProjectedZ: ETranslucentSortPolicy;
+	static var SortAlongAxis: ETranslucentSortPolicy;
+	static var ETranslucentSortPolicy_MAX: ETranslucentSortPolicy;
 }

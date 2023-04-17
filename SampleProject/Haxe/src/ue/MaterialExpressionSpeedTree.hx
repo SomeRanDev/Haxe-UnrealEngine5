@@ -9,9 +9,9 @@ extern class MaterialExpressionSpeedTree extends MaterialExpression {
 	public var WindInput: ExpressionInput;
 	public var LODInput: ExpressionInput;
 	public var ExtraBendWS: ExpressionInput;
-	public var GeometryType: ESpeedTreeGeometryType;
-	public var WindType: ESpeedTreeWindType;
-	public var LODType: ESpeedTreeLODType;
+	public var GeometryType: TEnumAsByte<ESpeedTreeGeometryType>;
+	public var WindType: TEnumAsByte<ESpeedTreeWindType>;
+	public var LODType: TEnumAsByte<ESpeedTreeLODType>;
 	public var BillboardThreshold: cpp.Float32;
 	public var bAccurateWindVelocities: Bool;
 
@@ -29,12 +29,12 @@ abstract ConstMaterialExpressionSpeedTree(MaterialExpressionSpeedTree) from Mate
 	public inline extern function get_LODInput(): ExpressionInput return this.LODInput;
 	public extern var ExtraBendWS(get, never): ExpressionInput;
 	public inline extern function get_ExtraBendWS(): ExpressionInput return this.ExtraBendWS;
-	public extern var GeometryType(get, never): ESpeedTreeGeometryType;
-	public inline extern function get_GeometryType(): ESpeedTreeGeometryType return this.GeometryType;
-	public extern var WindType(get, never): ESpeedTreeWindType;
-	public inline extern function get_WindType(): ESpeedTreeWindType return this.WindType;
-	public extern var LODType(get, never): ESpeedTreeLODType;
-	public inline extern function get_LODType(): ESpeedTreeLODType return this.LODType;
+	public extern var GeometryType(get, never): TEnumAsByte<ESpeedTreeGeometryType>;
+	public inline extern function get_GeometryType(): TEnumAsByte<ESpeedTreeGeometryType> return this.GeometryType;
+	public extern var WindType(get, never): TEnumAsByte<ESpeedTreeWindType>;
+	public inline extern function get_WindType(): TEnumAsByte<ESpeedTreeWindType> return this.WindType;
+	public extern var LODType(get, never): TEnumAsByte<ESpeedTreeLODType>;
+	public inline extern function get_LODType(): TEnumAsByte<ESpeedTreeLODType> return this.LODType;
 	public extern var BillboardThreshold(get, never): cpp.Float32;
 	public inline extern function get_BillboardThreshold(): cpp.Float32 return this.BillboardThreshold;
 	public extern var bAccurateWindVelocities(get, never): Bool;

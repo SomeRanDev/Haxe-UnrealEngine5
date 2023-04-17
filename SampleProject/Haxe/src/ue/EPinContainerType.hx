@@ -3,10 +3,10 @@ package ue;
 
 @:native("EPinContainerType")
 @:include("EdGraph/EdGraphNode.h")
-extern enum EPinContainerType {
-	None;
-	Array;
-	Set;
-	Map;
-	EPinContainerType_MAX;
+extern class EPinContainerType {
+	static var None: EPinContainerType;
+	static var Array: EPinContainerType;
+	static var Set: EPinContainerType;
+	static var Map: EPinContainerType;
+	static var EPinContainerType_MAX: EPinContainerType;
 }

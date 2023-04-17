@@ -3,8 +3,8 @@ package ue;
 
 @:native("ECurveEditorFFTFilterClass")
 @:include("Private/Filters/CurveEditorFFTFilter.h")
-extern enum ECurveEditorFFTFilterClass {
-	Butterworth;
-	Chebyshev;
-	ECurveEditorFFTFilterClass_MAX;
+extern class ECurveEditorFFTFilterClass {
+	static var Butterworth: ECurveEditorFFTFilterClass;
+	static var Chebyshev: ECurveEditorFFTFilterClass;
+	static var ECurveEditorFFTFilterClass_MAX: ECurveEditorFFTFilterClass;
 }

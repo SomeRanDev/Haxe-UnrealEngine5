@@ -6,13 +6,12 @@ package ue;
 @:structAccess
 extern class LocalLightComp extends LightComp {
 	public var IntensityUnits: ELightUnits;
-	public var Radius_DEPRECATED: cpp.Float32;
 	public var AttenuationRadius: cpp.Float32;
 	public var LightmassSettings: LightmassPointLightSettings;
 
 	public function SetIntensityUnits(NewIntensityUnits: ELightUnits): Void;
 	public function SetAttenuationRadius(NewRadius: cpp.Float32): Void;
-	public function GetUnitsConversionFactor(SrcUnits: ELightUnits, TargetUnits: ELightUnits, CosHalfConeAngle: cpp.Float32): cpp.Reference<cpp.Float32>;
+	public function GetUnitsConversionFactor(SrcUnits: ELightUnits, TargetUnits: ELightUnits, CosHalfConeAngle: cpp.Float32): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -22,8 +21,6 @@ extern class LocalLightComp extends LightComp {
 abstract ConstLocalLightComp(LocalLightComp) from LocalLightComp {
 	public extern var IntensityUnits(get, never): ELightUnits;
 	public inline extern function get_IntensityUnits(): ELightUnits return this.IntensityUnits;
-	public extern var Radius_DEPRECATED(get, never): cpp.Float32;
-	public inline extern function get_Radius_DEPRECATED(): cpp.Float32 return this.Radius_DEPRECATED;
 	public extern var AttenuationRadius(get, never): cpp.Float32;
 	public inline extern function get_AttenuationRadius(): cpp.Float32 return this.AttenuationRadius;
 	public extern var LightmassSettings(get, never): LightmassPointLightSettings;

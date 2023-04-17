@@ -3,9 +3,9 @@ package ue;
 
 @:native("EReflectedAndRefractedRayTracedShadows")
 @:include("Engine/Scene.h")
-extern enum EReflectedAndRefractedRayTracedShadows {
-	Disabled;
-	Hard_shadows;
-	Area_shadows;
-	EReflectedAndRefractedRayTracedShadows_MAX;
+extern class EReflectedAndRefractedRayTracedShadows {
+	static var Disabled: EReflectedAndRefractedRayTracedShadows;
+	static var Hard_shadows: EReflectedAndRefractedRayTracedShadows;
+	static var Area_shadows: EReflectedAndRefractedRayTracedShadows;
+	static var EReflectedAndRefractedRayTracedShadows_MAX: EReflectedAndRefractedRayTracedShadows;
 }

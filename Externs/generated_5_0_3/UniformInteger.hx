@@ -7,7 +7,7 @@ package ue;
 extern class UniformInteger extends FieldNodeInt {
 	public var Magnitude: cpp.Int32;
 
-	public function SetUniformInteger(Magnitude: cpp.Int32): cpp.Reference<cpp.Star<UniformInteger>>;
+	public function SetUniformInteger(Magnitude: cpp.Int32): cpp.Star<UniformInteger>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

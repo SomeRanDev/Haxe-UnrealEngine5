@@ -5,12 +5,12 @@ package ue;
 @:include("NiagaraNodeConvert.h")
 @:structAccess
 extern class NiagaraNodeConvert extends NiagaraNodeWithDynamicPins {
-	public var AutowireSwizzle: FString;
-	public var AutowireMakeType: NiagaraTypeDefinition;
-	public var AutowireBreakType: NiagaraTypeDefinition;
-	public var Connections: TArray<NiagaraConvertConnection>;
-	public var bIsWiringShown: Bool;
-	public var ExpandedItems: TArray<NiagaraConvertPinRecord>;
+	private var AutowireSwizzle: FString;
+	private var AutowireMakeType: NiagaraTypeDefinition;
+	private var AutowireBreakType: NiagaraTypeDefinition;
+	private var Connections: TArray<NiagaraConvertConnection>;
+	private var bIsWiringShown: Bool;
+	private var ExpandedItems: TArray<NiagaraConvertPinRecord>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,18 +18,6 @@ extern class NiagaraNodeConvert extends NiagaraNodeWithDynamicPins {
 @:forward()
 @:nativeGen
 abstract ConstNiagaraNodeConvert(NiagaraNodeConvert) from NiagaraNodeConvert {
-	public extern var AutowireSwizzle(get, never): FString;
-	public inline extern function get_AutowireSwizzle(): FString return this.AutowireSwizzle;
-	public extern var AutowireMakeType(get, never): NiagaraTypeDefinition;
-	public inline extern function get_AutowireMakeType(): NiagaraTypeDefinition return this.AutowireMakeType;
-	public extern var AutowireBreakType(get, never): NiagaraTypeDefinition;
-	public inline extern function get_AutowireBreakType(): NiagaraTypeDefinition return this.AutowireBreakType;
-	public extern var Connections(get, never): TArray<NiagaraConvertConnection>;
-	public inline extern function get_Connections(): TArray<NiagaraConvertConnection> return this.Connections;
-	public extern var bIsWiringShown(get, never): Bool;
-	public inline extern function get_bIsWiringShown(): Bool return this.bIsWiringShown;
-	public extern var ExpandedItems(get, never): TArray<NiagaraConvertPinRecord>;
-	public inline extern function get_ExpandedItems(): TArray<NiagaraConvertPinRecord> return this.ExpandedItems;
 }
 
 @:forward

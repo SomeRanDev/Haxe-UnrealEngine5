@@ -5,8 +5,8 @@ package ue;
 @:include("ActorSequenceObjectReference.h")
 @:structAccess
 extern class ActorSequenceObjectReferenceMap {
-	public var BindingIds: TArray<Guid>;
-	public var References: TArray<ActorSequenceObjectReferences>;
+	private var BindingIds: TArray<Guid>;
+	private var References: TArray<ActorSequenceObjectReferences>;
 
 	@:native("FActorSequenceObjectReferenceMap") public function new();
 	@:native("FActorSequenceObjectReferenceMap") public static function make(BindingIds: TArray<Guid>, References: TArray<ActorSequenceObjectReferences>): ActorSequenceObjectReferenceMap ;

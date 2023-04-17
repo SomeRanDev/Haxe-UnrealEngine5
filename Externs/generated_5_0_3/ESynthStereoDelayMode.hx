@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESynthStereoDelayMode")
 @:include("EpicSynth1Types.h")
-extern enum ESynthStereoDelayMode {
-	Normal;
-	Cross;
-	PingPong;
-	Count;
-	ESynthStereoDelayMode_MAX;
+extern class ESynthStereoDelayMode {
+	static var Normal: ESynthStereoDelayMode;
+	static var Cross: ESynthStereoDelayMode;
+	static var PingPong: ESynthStereoDelayMode;
+	static var Count: ESynthStereoDelayMode;
+	static var ESynthStereoDelayMode_MAX: ESynthStereoDelayMode;
 }

@@ -5,14 +5,14 @@ package ue;
 @:include("Components/ScaleBox.h")
 @:structAccess
 extern class ScaleBox extends ContentWidget {
-	public var Stretch: EStretch;
-	public var StretchDirection: EStretchDirection;
+	public var Stretch: TEnumAsByte<EStretch>;
+	public var StretchDirection: TEnumAsByte<EStretchDirection>;
 	public var UserSpecifiedScale: cpp.Float32;
 	public var IgnoreInheritedScale: Bool;
 
 	public function SetUserSpecifiedScale(InUserSpecifiedScale: cpp.Float32): Void;
-	public function SetStretchDirection(InStretchDirection: EStretchDirection): Void;
-	public function SetStretch(InStretch: EStretch): Void;
+	public function SetStretchDirection(InStretchDirection: TEnumAsByte<EStretchDirection>): Void;
+	public function SetStretch(InStretch: TEnumAsByte<EStretch>): Void;
 	public function SetIgnoreInheritedScale(bInIgnoreInheritedScale: Bool): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -21,10 +21,10 @@ extern class ScaleBox extends ContentWidget {
 @:forward()
 @:nativeGen
 abstract ConstScaleBox(ScaleBox) from ScaleBox {
-	public extern var Stretch(get, never): EStretch;
-	public inline extern function get_Stretch(): EStretch return this.Stretch;
-	public extern var StretchDirection(get, never): EStretchDirection;
-	public inline extern function get_StretchDirection(): EStretchDirection return this.StretchDirection;
+	public extern var Stretch(get, never): TEnumAsByte<EStretch>;
+	public inline extern function get_Stretch(): TEnumAsByte<EStretch> return this.Stretch;
+	public extern var StretchDirection(get, never): TEnumAsByte<EStretchDirection>;
+	public inline extern function get_StretchDirection(): TEnumAsByte<EStretchDirection> return this.StretchDirection;
 	public extern var UserSpecifiedScale(get, never): cpp.Float32;
 	public inline extern function get_UserSpecifiedScale(): cpp.Float32 return this.UserSpecifiedScale;
 	public extern var IgnoreInheritedScale(get, never): Bool;

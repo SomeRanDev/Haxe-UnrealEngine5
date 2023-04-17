@@ -5,20 +5,20 @@ package ue;
 @:include("KeysAndChannels/MovieSceneScriptingFloat.h")
 @:structAccess
 extern class MovieSceneScriptingFloatChannel extends MovieSceneScriptingChannel {
-	public function SetPreInfinityExtrapolation(InExtrapolation: ERichCurveExtrapolation): Void;
-	public function SetPostInfinityExtrapolation(InExtrapolation: ERichCurveExtrapolation): Void;
+	public function SetPreInfinityExtrapolation(InExtrapolation: TEnumAsByte<ERichCurveExtrapolation>): Void;
+	public function SetPostInfinityExtrapolation(InExtrapolation: TEnumAsByte<ERichCurveExtrapolation>): Void;
 	public function SetDefault(InDefaultValue: cpp.Float32): Void;
 	public function RemoveKey(Key: cpp.Star<MovieSceneScriptingKey>): Void;
 	public function RemoveDefault(): Void;
-	public function HasDefault(): cpp.Reference<Bool>;
-	public function GetPreInfinityExtrapolation(): cpp.Reference<ERichCurveExtrapolation>;
-	public function GetPostInfinityExtrapolation(): cpp.Reference<ERichCurveExtrapolation>;
-	public function GetNumKeys(): cpp.Reference<cpp.Int32>;
-	public function GetKeys(): cpp.Reference<TArray<cpp.Star<MovieSceneScriptingKey>>>;
-	public function GetDefault(): cpp.Reference<cpp.Float32>;
-	public function EvaluateKeys(Range: SequencerScriptingRange, FrameRate: FrameRate): cpp.Reference<TArray<cpp.Float32>>;
-	public function ComputeEffectiveRange(): cpp.Reference<SequencerScriptingRange>;
-	public function AddKey(InTime: cpp.Reference<FrameNumber>, NewValue: cpp.Float32, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit, InInterpolation: EMovieSceneKeyInterpolation): cpp.Reference<cpp.Star<MovieSceneScriptingFloatKey>>;
+	public function HasDefault(): Bool;
+	public function GetPreInfinityExtrapolation(): TEnumAsByte<ERichCurveExtrapolation>;
+	public function GetPostInfinityExtrapolation(): TEnumAsByte<ERichCurveExtrapolation>;
+	public function GetNumKeys(): cpp.Int32;
+	public function GetKeys(): TArray<cpp.Star<MovieSceneScriptingKey>>;
+	public function GetDefault(): cpp.Float32;
+	public function EvaluateKeys(Range: SequencerScriptingRange, FrameRate: FrameRate): TArray<cpp.Float32>;
+	public function ComputeEffectiveRange(): SequencerScriptingRange;
+	public function AddKey(InTime: cpp.Reference<FrameNumber>, NewValue: cpp.Float32, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit, InInterpolation: EMovieSceneKeyInterpolation): cpp.Star<MovieSceneScriptingFloatKey>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

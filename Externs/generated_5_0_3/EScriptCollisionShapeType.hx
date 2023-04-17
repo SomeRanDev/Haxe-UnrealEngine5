@@ -3,14 +3,14 @@ package ue;
 
 @:native("EScriptCollisionShapeType")
 @:include("StaticMeshEditorSubsystemHelpers.h")
-extern enum EScriptCollisionShapeType {
-	Box;
-	Sphere;
-	Capsule;
-	NDOP10_X;
-	NDOP10_Y;
-	NDOP10_Z;
-	NDOP18;
-	NDOP26;
-	EScriptCollisionShapeType_MAX;
+extern class EScriptCollisionShapeType {
+	static var Box: EScriptCollisionShapeType;
+	static var Sphere: EScriptCollisionShapeType;
+	static var Capsule: EScriptCollisionShapeType;
+	static var NDOP10_X: EScriptCollisionShapeType;
+	static var NDOP10_Y: EScriptCollisionShapeType;
+	static var NDOP10_Z: EScriptCollisionShapeType;
+	static var NDOP18: EScriptCollisionShapeType;
+	static var NDOP26: EScriptCollisionShapeType;
+	static var EScriptCollisionShapeType_MAX: EScriptCollisionShapeType;
 }

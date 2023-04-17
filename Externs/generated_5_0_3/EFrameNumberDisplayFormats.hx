@@ -3,11 +3,11 @@ package ue;
 
 @:native("EFrameNumberDisplayFormats")
 @:include("FrameNumberDisplayFormat.h")
-extern enum EFrameNumberDisplayFormats {
-	NonDropFrameTimecode;
-	DropFrameTimecode;
-	Seconds;
-	Frames;
-	MAX_Count;
-	EFrameNumberDisplayFormats_MAX;
+extern class EFrameNumberDisplayFormats {
+	static var NonDropFrameTimecode: EFrameNumberDisplayFormats;
+	static var DropFrameTimecode: EFrameNumberDisplayFormats;
+	static var Seconds: EFrameNumberDisplayFormats;
+	static var Frames: EFrameNumberDisplayFormats;
+	static var MAX_Count: EFrameNumberDisplayFormats;
+	static var EFrameNumberDisplayFormats_MAX: EFrameNumberDisplayFormats;
 }

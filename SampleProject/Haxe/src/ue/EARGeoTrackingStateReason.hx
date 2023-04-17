@@ -3,15 +3,15 @@ package ue;
 
 @:native("EARGeoTrackingStateReason")
 @:include("ARGeoTrackingSupport.h")
-extern enum EARGeoTrackingStateReason {
-	None;
-	NotAvailableAtLocation;
-	NeedLocationPermissions;
-	DevicePointedTooLow;
-	WorldTrackingUnstable;
-	WaitingForLocation;
-	GeoDataNotLoaded;
-	VisualLocalizationFailed;
-	WaitingForAvailabilityCheck;
-	EARGeoTrackingStateReason_MAX;
+extern class EARGeoTrackingStateReason {
+	static var None: EARGeoTrackingStateReason;
+	static var NotAvailableAtLocation: EARGeoTrackingStateReason;
+	static var NeedLocationPermissions: EARGeoTrackingStateReason;
+	static var DevicePointedTooLow: EARGeoTrackingStateReason;
+	static var WorldTrackingUnstable: EARGeoTrackingStateReason;
+	static var WaitingForLocation: EARGeoTrackingStateReason;
+	static var GeoDataNotLoaded: EARGeoTrackingStateReason;
+	static var VisualLocalizationFailed: EARGeoTrackingStateReason;
+	static var WaitingForAvailabilityCheck: EARGeoTrackingStateReason;
+	static var EARGeoTrackingStateReason_MAX: EARGeoTrackingStateReason;
 }

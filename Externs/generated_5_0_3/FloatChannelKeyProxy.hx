@@ -5,8 +5,8 @@ package ue;
 @:include("Channels/FloatChannelKeyProxy.h")
 @:structAccess
 extern class FloatChannelKeyProxy extends Object {
-	public var Time: FrameNumber;
-	public var Value: MovieSceneFloatValue;
+	private var Time: FrameNumber;
+	private var Value: MovieSceneFloatValue;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class FloatChannelKeyProxy extends Object {
 @:forward()
 @:nativeGen
 abstract ConstFloatChannelKeyProxy(FloatChannelKeyProxy) from FloatChannelKeyProxy {
-	public extern var Time(get, never): FrameNumber;
-	public inline extern function get_Time(): FrameNumber return this.Time;
-	public extern var Value(get, never): MovieSceneFloatValue;
-	public inline extern function get_Value(): MovieSceneFloatValue return this.Value;
 }
 
 @:forward

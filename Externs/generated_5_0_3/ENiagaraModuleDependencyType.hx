@@ -3,8 +3,8 @@ package ue;
 
 @:native("ENiagaraModuleDependencyType")
 @:include("NiagaraScript.h")
-extern enum ENiagaraModuleDependencyType {
-	PreDependency;
-	PostDependency;
-	ENiagaraModuleDependencyType_MAX;
+extern class ENiagaraModuleDependencyType {
+	static var PreDependency: ENiagaraModuleDependencyType;
+	static var PostDependency: ENiagaraModuleDependencyType;
+	static var ENiagaraModuleDependencyType_MAX: ENiagaraModuleDependencyType;
 }

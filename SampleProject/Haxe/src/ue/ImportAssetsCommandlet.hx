@@ -5,8 +5,8 @@ package ue;
 @:include("Commandlets/ImportAssetsCommandlet.h")
 @:structAccess
 extern class ImportAssetsCommandlet extends Commandlet {
-	public var GlobalImportData: cpp.Star<AutomatedAssetImportData>;
-	public var ImportDataList: TArray<cpp.Star<AutomatedAssetImportData>>;
+	private var GlobalImportData: cpp.Star<AutomatedAssetImportData>;
+	private var ImportDataList: TArray<cpp.Star<AutomatedAssetImportData>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class ImportAssetsCommandlet extends Commandlet {
 @:forward()
 @:nativeGen
 abstract ConstImportAssetsCommandlet(ImportAssetsCommandlet) from ImportAssetsCommandlet {
-	public extern var GlobalImportData(get, never): cpp.Star<AutomatedAssetImportData.ConstAutomatedAssetImportData>;
-	public inline extern function get_GlobalImportData(): cpp.Star<AutomatedAssetImportData.ConstAutomatedAssetImportData> return this.GlobalImportData;
-	public extern var ImportDataList(get, never): TArray<cpp.Star<AutomatedAssetImportData.ConstAutomatedAssetImportData>>;
-	public inline extern function get_ImportDataList(): TArray<cpp.Star<AutomatedAssetImportData.ConstAutomatedAssetImportData>> return this.ImportDataList;
 }
 
 @:forward

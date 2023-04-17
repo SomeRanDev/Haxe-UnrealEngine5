@@ -8,7 +8,7 @@ extern class CurveFloat extends CurveBase {
 	public var FloatCurve: RichCurve;
 	public var bIsEventCurve: Bool;
 
-	public function GetFloatValue(InTime: cpp.Float32): cpp.Reference<cpp.Float32>;
+	public function GetFloatValue(InTime: cpp.Float32): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

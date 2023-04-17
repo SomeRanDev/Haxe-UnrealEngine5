@@ -5,8 +5,7 @@ package ue;
 @:include("Sections/MovieSceneEventSection.h")
 @:structAccess
 extern class MovieSceneEventSection extends MovieSceneSection {
-	public var Events_DEPRECATED: NameCurve;
-	public var EventData: MovieSceneEventSectionData;
+	private var EventData: MovieSceneEventSectionData;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +13,6 @@ extern class MovieSceneEventSection extends MovieSceneSection {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneEventSection(MovieSceneEventSection) from MovieSceneEventSection {
-	public extern var Events_DEPRECATED(get, never): NameCurve;
-	public inline extern function get_Events_DEPRECATED(): NameCurve return this.Events_DEPRECATED;
-	public extern var EventData(get, never): MovieSceneEventSectionData;
-	public inline extern function get_EventData(): MovieSceneEventSectionData return this.EventData;
 }
 
 @:forward

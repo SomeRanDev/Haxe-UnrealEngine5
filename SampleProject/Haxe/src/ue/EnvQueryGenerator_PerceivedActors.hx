@@ -5,11 +5,11 @@ package ue;
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_PerceivedActors.h")
 @:structAccess
 extern class EnvQueryGenerator_PerceivedActors extends EnvQueryGenerator {
-	public var AllowedActorClass: TSubclassOf<Actor>;
-	public var SearchRadius: AIDataProviderFloatValue;
-	public var ListenerContext: TSubclassOf<EnvQueryContext>;
-	public var SenseToUse: TSubclassOf<AISense>;
-	public var bIncludeKnownActors: Bool;
+	@:protected public var AllowedActorClass: TSubclassOf<Actor>;
+	@:protected public var SearchRadius: AIDataProviderFloatValue;
+	@:protected public var ListenerContext: TSubclassOf<EnvQueryContext>;
+	@:protected public var SenseToUse: TSubclassOf<AISense>;
+	@:protected public var bIncludeKnownActors: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,16 +17,6 @@ extern class EnvQueryGenerator_PerceivedActors extends EnvQueryGenerator {
 @:forward()
 @:nativeGen
 abstract ConstEnvQueryGenerator_PerceivedActors(EnvQueryGenerator_PerceivedActors) from EnvQueryGenerator_PerceivedActors {
-	public extern var AllowedActorClass(get, never): TSubclassOf<Actor.ConstActor>;
-	public inline extern function get_AllowedActorClass(): TSubclassOf<Actor.ConstActor> return this.AllowedActorClass;
-	public extern var SearchRadius(get, never): AIDataProviderFloatValue;
-	public inline extern function get_SearchRadius(): AIDataProviderFloatValue return this.SearchRadius;
-	public extern var ListenerContext(get, never): TSubclassOf<EnvQueryContext.ConstEnvQueryContext>;
-	public inline extern function get_ListenerContext(): TSubclassOf<EnvQueryContext.ConstEnvQueryContext> return this.ListenerContext;
-	public extern var SenseToUse(get, never): TSubclassOf<AISense.ConstAISense>;
-	public inline extern function get_SenseToUse(): TSubclassOf<AISense.ConstAISense> return this.SenseToUse;
-	public extern var bIncludeKnownActors(get, never): Bool;
-	public inline extern function get_bIncludeKnownActors(): Bool return this.bIncludeKnownActors;
 }
 
 @:forward

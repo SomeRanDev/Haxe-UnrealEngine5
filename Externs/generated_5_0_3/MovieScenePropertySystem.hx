@@ -5,7 +5,7 @@ package ue;
 @:include("Systems/MovieScenePropertySystem.h")
 @:structAccess
 extern class MovieScenePropertySystem extends MovieSceneEntitySystem {
-	public var InstantiatorSystem: cpp.Star<MovieScenePropertyInstantiatorSystem>;
+	@:protected public var InstantiatorSystem: cpp.Star<MovieScenePropertyInstantiatorSystem>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MovieScenePropertySystem extends MovieSceneEntitySystem {
 @:forward()
 @:nativeGen
 abstract ConstMovieScenePropertySystem(MovieScenePropertySystem) from MovieScenePropertySystem {
-	public extern var InstantiatorSystem(get, never): cpp.Star<MovieScenePropertyInstantiatorSystem.ConstMovieScenePropertyInstantiatorSystem>;
-	public inline extern function get_InstantiatorSystem(): cpp.Star<MovieScenePropertyInstantiatorSystem.ConstMovieScenePropertyInstantiatorSystem> return this.InstantiatorSystem;
 }
 
 @:forward

@@ -10,11 +10,10 @@ extern class AnimBlueprintGeneratedClass extends BlueprintGeneratedClass {
 	public var AnimNotifies: TArray<AnimNotifyEvent>;
 	public var OrderedSavedPoseIndicesMap: TMap<FName, CachedPoseIndices>;
 	public var SyncGroupNames: TArray<FName>;
-	public var EvaluateGraphExposedInputs_DEPRECATED: TArray<ExposedValueHandler>;
 	public var GraphAssetPlayerInformation: TMap<FName, GraphAssetPlayerInformation>;
 	public var GraphBlendOptions: TMap<FName, AnimGraphBlendOptions>;
-	public var AnimNodeData: TArray<AnimNodeData>;
-	public var NodeTypeMap: TMap<cpp.Star<ScriptStruct>, AnimNodeStructData>;
+	private var AnimNodeData: TArray<AnimNodeData>;
+	private var NodeTypeMap: TMap<cpp.Star<ScriptStruct>, AnimNodeStructData>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -32,16 +31,10 @@ abstract ConstAnimBlueprintGeneratedClass(AnimBlueprintGeneratedClass) from Anim
 	public inline extern function get_OrderedSavedPoseIndicesMap(): TMap<FName, CachedPoseIndices> return this.OrderedSavedPoseIndicesMap;
 	public extern var SyncGroupNames(get, never): TArray<FName>;
 	public inline extern function get_SyncGroupNames(): TArray<FName> return this.SyncGroupNames;
-	public extern var EvaluateGraphExposedInputs_DEPRECATED(get, never): TArray<ExposedValueHandler>;
-	public inline extern function get_EvaluateGraphExposedInputs_DEPRECATED(): TArray<ExposedValueHandler> return this.EvaluateGraphExposedInputs_DEPRECATED;
 	public extern var GraphAssetPlayerInformation(get, never): TMap<FName, GraphAssetPlayerInformation>;
 	public inline extern function get_GraphAssetPlayerInformation(): TMap<FName, GraphAssetPlayerInformation> return this.GraphAssetPlayerInformation;
 	public extern var GraphBlendOptions(get, never): TMap<FName, AnimGraphBlendOptions>;
 	public inline extern function get_GraphBlendOptions(): TMap<FName, AnimGraphBlendOptions> return this.GraphBlendOptions;
-	public extern var AnimNodeData(get, never): TArray<AnimNodeData>;
-	public inline extern function get_AnimNodeData(): TArray<AnimNodeData> return this.AnimNodeData;
-	public extern var NodeTypeMap(get, never): TMap<cpp.Star<ScriptStruct.ConstScriptStruct>, AnimNodeStructData>;
-	public inline extern function get_NodeTypeMap(): TMap<cpp.Star<ScriptStruct.ConstScriptStruct>, AnimNodeStructData> return this.NodeTypeMap;
 }
 
 @:forward

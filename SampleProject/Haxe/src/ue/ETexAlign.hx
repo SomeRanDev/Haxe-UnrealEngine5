@@ -3,14 +3,14 @@ package ue;
 
 @:native("ETexAlign")
 @:include("TexAligner/TexAligner.h")
-extern enum ETexAlign {
-	TEXALIGN_None;
-	TEXALIGN_Default;
-	TEXALIGN_Box;
-	TEXALIGN_Planar;
-	TEXALIGN_Fit;
-	TEXALIGN_PlanarAuto;
-	TEXALIGN_PlanarWall;
-	TEXALIGN_PlanarFloor;
-	TEXALIGN_MAX;
+extern class ETexAlign {
+	static var TEXALIGN_None: ETexAlign;
+	static var TEXALIGN_Default: ETexAlign;
+	static var TEXALIGN_Box: ETexAlign;
+	static var TEXALIGN_Planar: ETexAlign;
+	static var TEXALIGN_Fit: ETexAlign;
+	static var TEXALIGN_PlanarAuto: ETexAlign;
+	static var TEXALIGN_PlanarWall: ETexAlign;
+	static var TEXALIGN_PlanarFloor: ETexAlign;
+	static var TEXALIGN_MAX: ETexAlign;
 }

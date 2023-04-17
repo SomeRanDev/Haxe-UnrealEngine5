@@ -5,11 +5,11 @@ package ue;
 @:include("Engine/LevelScriptActor.h")
 @:structAccess
 extern class LevelScriptActor extends Actor {
-	public var bInputEnabled: Bool;
+	private var bInputEnabled: Bool;
 
 	public function WorldOriginLocationChanged(OldOriginLocation: IntVector, NewOriginLocation: IntVector): Void;
 	public function SetCinematicMode(bCinematicMode: Bool, bHidePlayer: Bool, bAffectsHUD: Bool, bAffectsMovement: Bool, bAffectsTurning: Bool): Void;
-	public function RemoteEvent(EventName: FName): cpp.Reference<Bool>;
+	public function RemoteEvent(EventName: FName): Bool;
 	public function LevelReset(): Void;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -18,8 +18,6 @@ extern class LevelScriptActor extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstLevelScriptActor(LevelScriptActor) from LevelScriptActor {
-	public extern var bInputEnabled(get, never): Bool;
-	public inline extern function get_bInputEnabled(): Bool return this.bInputEnabled;
 }
 
 @:forward

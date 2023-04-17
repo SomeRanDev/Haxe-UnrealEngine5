@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAndroidAudio.Type")
 @:include("AndroidRuntimeSettings.h")
-extern enum EAndroidAudio {
-	Default;
-	OGG;
-	ADPCM;
-	EAndroidAudio_MAX;
+extern class EAndroidAudio {
+	static var Default: EAndroidAudio;
+	static var OGG: EAndroidAudio;
+	static var ADPCM: EAndroidAudio;
+	static var EAndroidAudio_MAX: EAndroidAudio;
 }

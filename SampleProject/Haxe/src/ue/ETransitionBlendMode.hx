@@ -3,8 +3,8 @@ package ue;
 
 @:native("ETransitionBlendMode.Type")
 @:include("Animation/AnimStateMachineTypes.h")
-extern enum ETransitionBlendMode {
-	TBM_Linear;
-	TBM_Cubic;
-	TBM_MAX;
+extern class ETransitionBlendMode {
+	static var TBM_Linear: ETransitionBlendMode;
+	static var TBM_Cubic: ETransitionBlendMode;
+	static var TBM_MAX: ETransitionBlendMode;
 }

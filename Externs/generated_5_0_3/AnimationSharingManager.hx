@@ -5,13 +5,13 @@ package ue;
 @:include("AnimationSharingManager.h")
 @:structAccess
 extern class AnimationSharingManager extends Object {
-	public var Skeletons: TArray<cpp.Star<Skeleton>>;
-	public var PerSkeletonData: TArray<cpp.Star<AnimSharingInstance>>;
+	@:protected public var Skeletons: TArray<cpp.Star<Skeleton>>;
+	@:protected public var PerSkeletonData: TArray<cpp.Star<AnimSharingInstance>>;
 
 	public function RegisterActorWithSkeletonBP(InActor: cpp.Star<Actor>, SharingSkeleton: cpp.Star<Skeleton.ConstSkeleton>): Void;
-	public function GetAnimationSharingManager(WorldContextObject: cpp.Star<Object>): cpp.Reference<cpp.Star<AnimationSharingManager>>;
-	public function CreateAnimationSharingManager(WorldContextObject: cpp.Star<Object>, Setup: cpp.Star<AnimationSharingSetup.ConstAnimationSharingSetup>): cpp.Reference<Bool>;
-	public function AnimationSharingEnabled(): cpp.Reference<Bool>;
+	public function GetAnimationSharingManager(WorldContextObject: cpp.Star<Object>): cpp.Star<AnimationSharingManager>;
+	public function CreateAnimationSharingManager(WorldContextObject: cpp.Star<Object>, Setup: cpp.Star<AnimationSharingSetup.ConstAnimationSharingSetup>): Bool;
+	public function AnimationSharingEnabled(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -19,10 +19,6 @@ extern class AnimationSharingManager extends Object {
 @:forward()
 @:nativeGen
 abstract ConstAnimationSharingManager(AnimationSharingManager) from AnimationSharingManager {
-	public extern var Skeletons(get, never): TArray<cpp.Star<Skeleton.ConstSkeleton>>;
-	public inline extern function get_Skeletons(): TArray<cpp.Star<Skeleton.ConstSkeleton>> return this.Skeletons;
-	public extern var PerSkeletonData(get, never): TArray<cpp.Star<AnimSharingInstance.ConstAnimSharingInstance>>;
-	public inline extern function get_PerSkeletonData(): TArray<cpp.Star<AnimSharingInstance.ConstAnimSharingInstance>> return this.PerSkeletonData;
 }
 
 @:forward

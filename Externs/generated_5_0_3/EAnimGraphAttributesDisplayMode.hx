@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAnimGraphAttributesDisplayMode")
 @:include("AnimGraphAttributes.h")
-extern enum EAnimGraphAttributesDisplayMode {
-	HideOnPins;
-	ShowOnPins;
-	Automatic;
-	EAnimGraphAttributesDisplayMode_MAX;
+extern class EAnimGraphAttributesDisplayMode {
+	static var HideOnPins: EAnimGraphAttributesDisplayMode;
+	static var ShowOnPins: EAnimGraphAttributesDisplayMode;
+	static var Automatic: EAnimGraphAttributesDisplayMode;
+	static var EAnimGraphAttributesDisplayMode_MAX: EAnimGraphAttributesDisplayMode;
 }

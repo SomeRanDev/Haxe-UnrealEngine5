@@ -3,16 +3,16 @@ package ue;
 
 @:native("EBakeTextureResolution")
 @:include("BakeMeshAttributeMapsToolBase.h")
-extern enum EBakeTextureResolution {
-	Resolution16;
-	Resolution32;
-	Resolution64;
-	Resolution128;
-	Resolution256;
-	Resolution512;
-	Resolution1024;
-	Resolution2048;
-	Resolution4096;
-	Resolution8192;
-	EBakeTextureResolution_MAX;
+extern class EBakeTextureResolution {
+	static var Resolution16: EBakeTextureResolution;
+	static var Resolution32: EBakeTextureResolution;
+	static var Resolution64: EBakeTextureResolution;
+	static var Resolution128: EBakeTextureResolution;
+	static var Resolution256: EBakeTextureResolution;
+	static var Resolution512: EBakeTextureResolution;
+	static var Resolution1024: EBakeTextureResolution;
+	static var Resolution2048: EBakeTextureResolution;
+	static var Resolution4096: EBakeTextureResolution;
+	static var Resolution8192: EBakeTextureResolution;
+	static var EBakeTextureResolution_MAX: EBakeTextureResolution;
 }

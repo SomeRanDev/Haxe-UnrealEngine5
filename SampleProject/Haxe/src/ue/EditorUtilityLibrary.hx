@@ -6,13 +6,13 @@ package ue;
 @:structAccess
 extern class EditorUtilityLibrary extends BlueprintFunctionLibrary {
 	public function RenameAsset(Asset: cpp.Star<Object>, NewName: FString): Void;
-	public function GetSelectionSet(): cpp.Reference<TArray<cpp.Star<Actor>>>;
+	public function GetSelectionSet(): TArray<cpp.Star<Actor>>;
 	public function GetSelectionBounds(Origin: cpp.Reference<Vector>, BoxExtent: cpp.Reference<Vector>, SphereRadius: cpp.Reference<cpp.Float32>): Void;
-	public function GetSelectedBlueprintClasses(): cpp.Reference<TArray<cpp.Star<Class>>>;
-	public function GetSelectedAssets(): cpp.Reference<TArray<cpp.Star<Object>>>;
-	public function GetSelectedAssetData(): cpp.Reference<TArray<AssetData>>;
-	public function GetCurrentContentBrowserPath(OutPath: cpp.Reference<FString>): cpp.Reference<Bool>;
-	public function GetActorReference(PathToActor: FString): cpp.Reference<cpp.Star<Actor>>;
+	public function GetSelectedBlueprintClasses(): TArray<cpp.Star<Class>>;
+	public function GetSelectedAssets(): TArray<cpp.Star<Object>>;
+	public function GetSelectedAssetData(): TArray<AssetData>;
+	public function GetCurrentContentBrowserPath(OutPath: cpp.Reference<FString>): Bool;
+	public function GetActorReference(PathToActor: FString): cpp.Star<Actor>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

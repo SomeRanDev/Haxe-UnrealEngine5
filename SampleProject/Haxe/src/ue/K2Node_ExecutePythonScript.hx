@@ -5,8 +5,8 @@ package ue;
 @:include("K2Node_ExecutePythonScript.h")
 @:structAccess
 extern class K2Node_ExecutePythonScript extends K2Node_CallFunction {
-	public var Inputs: TArray<FName>;
-	public var Outputs: TArray<FName>;
+	private var Inputs: TArray<FName>;
+	private var Outputs: TArray<FName>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class K2Node_ExecutePythonScript extends K2Node_CallFunction {
 @:forward()
 @:nativeGen
 abstract ConstK2Node_ExecutePythonScript(K2Node_ExecutePythonScript) from K2Node_ExecutePythonScript {
-	public extern var Inputs(get, never): TArray<FName>;
-	public inline extern function get_Inputs(): TArray<FName> return this.Inputs;
-	public extern var Outputs(get, never): TArray<FName>;
-	public inline extern function get_Outputs(): TArray<FName> return this.Outputs;
 }
 
 @:forward

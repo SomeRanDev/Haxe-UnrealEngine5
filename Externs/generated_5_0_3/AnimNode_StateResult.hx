@@ -5,7 +5,6 @@ package ue;
 @:include("AnimNodes/AnimNode_StateResult.h")
 @:structAccess
 extern class AnimNode_StateResult extends AnimNode_Root {
-	public var StateIndex: cpp.Int32;
 
 	@:native("FAnimNode_StateResult") public function new();
 	@:native("FAnimNode_StateResult") public static function make(StateIndex: cpp.Int32): AnimNode_StateResult ;

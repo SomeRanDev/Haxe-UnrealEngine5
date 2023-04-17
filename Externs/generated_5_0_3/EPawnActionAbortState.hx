@@ -3,11 +3,11 @@ package ue;
 
 @:native("EPawnActionAbortState.Type")
 @:include("AITypes.h")
-extern enum EPawnActionAbortState {
-	NeverStarted;
-	NotBeingAborted;
-	MarkPendingAbort;
-	LatentAbortInProgress;
-	AbortDone;
-	MAX;
+extern class EPawnActionAbortState {
+	static var NeverStarted: EPawnActionAbortState;
+	static var NotBeingAborted: EPawnActionAbortState;
+	static var MarkPendingAbort: EPawnActionAbortState;
+	static var LatentAbortInProgress: EPawnActionAbortState;
+	static var AbortDone: EPawnActionAbortState;
+	static var MAX: EPawnActionAbortState;
 }

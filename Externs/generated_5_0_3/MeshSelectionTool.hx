@@ -12,8 +12,8 @@ extern class MeshSelectionTool extends DynamicMeshBrushTool {
 	public var MeshElementsDisplay: cpp.Star<MeshElementsVisualizer>;
 	public var UVChannelProperties: cpp.Star<MeshUVChannelProperties>;
 	public var PolygroupLayerProperties: cpp.Star<PolygroupLayersProperties>;
-	public var Selection: cpp.Star<MeshSelectionSet>;
-	public var SpawnedActors: TArray<cpp.Star<Actor>>;
+	@:protected public var Selection: cpp.Star<MeshSelectionSet>;
+	@:protected public var SpawnedActors: TArray<cpp.Star<Actor>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -35,10 +35,6 @@ abstract ConstMeshSelectionTool(MeshSelectionTool) from MeshSelectionTool {
 	public inline extern function get_UVChannelProperties(): cpp.Star<MeshUVChannelProperties.ConstMeshUVChannelProperties> return this.UVChannelProperties;
 	public extern var PolygroupLayerProperties(get, never): cpp.Star<PolygroupLayersProperties.ConstPolygroupLayersProperties>;
 	public inline extern function get_PolygroupLayerProperties(): cpp.Star<PolygroupLayersProperties.ConstPolygroupLayersProperties> return this.PolygroupLayerProperties;
-	public extern var Selection(get, never): cpp.Star<MeshSelectionSet.ConstMeshSelectionSet>;
-	public inline extern function get_Selection(): cpp.Star<MeshSelectionSet.ConstMeshSelectionSet> return this.Selection;
-	public extern var SpawnedActors(get, never): TArray<cpp.Star<Actor.ConstActor>>;
-	public inline extern function get_SpawnedActors(): TArray<cpp.Star<Actor.ConstActor>> return this.SpawnedActors;
 }
 
 @:forward

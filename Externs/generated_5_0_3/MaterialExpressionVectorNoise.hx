@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class MaterialExpressionVectorNoise extends MaterialExpression {
 	public var Position: ExpressionInput;
-	public var NoiseFunction: EVectorNoiseFunction;
+	public var NoiseFunction: TEnumAsByte<EVectorNoiseFunction>;
 	public var Quality: cpp.Int32;
 	public var bTiling: Bool;
 	public var TileSize: cpp.UInt32;
@@ -19,8 +19,8 @@ extern class MaterialExpressionVectorNoise extends MaterialExpression {
 abstract ConstMaterialExpressionVectorNoise(MaterialExpressionVectorNoise) from MaterialExpressionVectorNoise {
 	public extern var Position(get, never): ExpressionInput;
 	public inline extern function get_Position(): ExpressionInput return this.Position;
-	public extern var NoiseFunction(get, never): EVectorNoiseFunction;
-	public inline extern function get_NoiseFunction(): EVectorNoiseFunction return this.NoiseFunction;
+	public extern var NoiseFunction(get, never): TEnumAsByte<EVectorNoiseFunction>;
+	public inline extern function get_NoiseFunction(): TEnumAsByte<EVectorNoiseFunction> return this.NoiseFunction;
 	public extern var Quality(get, never): cpp.Int32;
 	public inline extern function get_Quality(): cpp.Int32 return this.Quality;
 	public extern var bTiling(get, never): Bool;

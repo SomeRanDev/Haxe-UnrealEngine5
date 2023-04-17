@@ -10,7 +10,7 @@ extern class AngularDriveConstraint {
 	public var SlerpDrive: ConstraintDrive;
 	public var OrientationTarget: Rotator;
 	public var AngularVelocityTarget: Vector;
-	public var AngularDriveMode: EAngularDriveMode;
+	public var AngularDriveMode: TEnumAsByte<EAngularDriveMode>;
 
 	@:native("FAngularDriveConstraint") public function new();
 }

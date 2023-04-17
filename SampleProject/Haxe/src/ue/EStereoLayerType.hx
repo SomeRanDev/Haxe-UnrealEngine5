@@ -3,9 +3,9 @@ package ue;
 
 @:native("EStereoLayerType")
 @:include("Components/StereoLayerComponent.h")
-extern enum EStereoLayerType {
-	SLT_WorldLocked;
-	SLT_TrackerLocked;
-	SLT_FaceLocked;
-	SLT_MAX;
+extern class EStereoLayerType {
+	static var SLT_WorldLocked: EStereoLayerType;
+	static var SLT_TrackerLocked: EStereoLayerType;
+	static var SLT_FaceLocked: EStereoLayerType;
+	static var SLT_MAX: EStereoLayerType;
 }

@@ -5,14 +5,14 @@ package ue;
 @:include("RigVMModel/Nodes/RigVMVariableNode.h")
 @:structAccess
 extern class RigVMVariableNode extends RigVMNode {
-	public function IsLocalVariable(): cpp.Reference<Bool>;
-	public function IsInputArgument(): cpp.Reference<Bool>;
-	public function IsGetter(): cpp.Reference<Bool>;
-	public function GetVariableName(): cpp.Reference<FName>;
-	public function GetVariableDescription(): cpp.Reference<RigVMGraphVariableDescription>;
-	public function GetDefaultValue(): cpp.Reference<FString>;
-	public function GetCPPTypeObject(): cpp.Reference<cpp.Star<Object>>;
-	public function GetCPPType(): cpp.Reference<FString>;
+	public function IsLocalVariable(): Bool;
+	public function IsInputArgument(): Bool;
+	public function IsGetter(): Bool;
+	public function GetVariableName(): FName;
+	public function GetVariableDescription(): RigVMGraphVariableDescription;
+	public function GetDefaultValue(): FString;
+	public function GetCPPTypeObject(): cpp.Star<Object>;
+	public function GetCPPType(): FString;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

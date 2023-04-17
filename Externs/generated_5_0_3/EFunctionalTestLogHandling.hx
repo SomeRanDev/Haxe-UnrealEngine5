@@ -3,9 +3,9 @@ package ue;
 
 @:native("EFunctionalTestLogHandling")
 @:include("FunctionalTest.h")
-extern enum EFunctionalTestLogHandling {
-	ProjectDefault;
-	OutputIsError;
-	OutputIgnored;
-	EFunctionalTestLogHandling_MAX;
+extern class EFunctionalTestLogHandling {
+	static var ProjectDefault: EFunctionalTestLogHandling;
+	static var OutputIsError: EFunctionalTestLogHandling;
+	static var OutputIgnored: EFunctionalTestLogHandling;
+	static var EFunctionalTestLogHandling_MAX: EFunctionalTestLogHandling;
 }

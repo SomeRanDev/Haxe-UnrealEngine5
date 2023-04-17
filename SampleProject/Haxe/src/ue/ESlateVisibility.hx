@@ -3,11 +3,11 @@ package ue;
 
 @:native("ESlateVisibility")
 @:include("Components/SlateWrapperTypes.h")
-extern enum ESlateVisibility {
-	Visible;
-	Collapsed;
-	Hidden;
-	HitTestInvisible;
-	SelfHitTestInvisible;
-	ESlateVisibility_MAX;
+extern class ESlateVisibility {
+	static var Visible: ESlateVisibility;
+	static var Collapsed: ESlateVisibility;
+	static var Hidden: ESlateVisibility;
+	static var HitTestInvisible: ESlateVisibility;
+	static var SelfHitTestInvisible: ESlateVisibility;
+	static var ESlateVisibility_MAX: ESlateVisibility;
 }

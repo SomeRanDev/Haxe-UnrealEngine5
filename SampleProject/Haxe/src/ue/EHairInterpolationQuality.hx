@@ -3,10 +3,10 @@ package ue;
 
 @:native("EHairInterpolationQuality")
 @:include("GroomAssetInterpolation.h")
-extern enum EHairInterpolationQuality {
-	Low;
-	Medium;
-	High;
-	Unknown;
-	EHairInterpolationQuality_MAX;
+extern class EHairInterpolationQuality {
+	static var Low: EHairInterpolationQuality;
+	static var Medium: EHairInterpolationQuality;
+	static var High: EHairInterpolationQuality;
+	static var Unknown: EHairInterpolationQuality;
+	static var EHairInterpolationQuality_MAX: EHairInterpolationQuality;
 }

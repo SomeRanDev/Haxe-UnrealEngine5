@@ -3,8 +3,8 @@ package ue;
 
 @:native("LandscapeSplineMeshOrientation")
 @:include("LandscapeSplineSegment.h")
-extern enum LandscapeSplineMeshOrientation {
-	LSMO_XUp;
-	LSMO_YUp;
-	LSMO_MAX;
+extern class LandscapeSplineMeshOrientation {
+	static var LSMO_XUp: LandscapeSplineMeshOrientation;
+	static var LSMO_YUp: LandscapeSplineMeshOrientation;
+	static var LSMO_MAX: LandscapeSplineMeshOrientation;
 }

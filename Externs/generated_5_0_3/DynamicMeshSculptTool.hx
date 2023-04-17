@@ -13,13 +13,13 @@ extern class DynamicMeshSculptTool extends MeshSurfacePointTool {
 	public var GizmoProperties: cpp.Star<FixedPlaneBrushProperties>;
 	public var ViewProperties: cpp.Star<MeshEditingViewProperties>;
 	public var SculptToolActions: cpp.Star<DynamicSculptToolActions>;
-	public var BrushIndicator: cpp.Star<BrushStampIndicator>;
-	public var BrushIndicatorMaterial: cpp.Star<MaterialInstanceDynamic>;
-	public var BrushIndicatorMesh: cpp.Star<PreviewMesh>;
-	public var DynamicMeshComponent: cpp.Star<OctreeDynamicMeshComp>;
-	public var ActiveOverrideMaterial: cpp.Star<MaterialInstanceDynamic>;
-	public var PlaneTransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	public var PlaneTransformProxy: cpp.Star<TransformProxy>;
+	private var BrushIndicator: cpp.Star<BrushStampIndicator>;
+	private var BrushIndicatorMaterial: cpp.Star<MaterialInstanceDynamic>;
+	private var BrushIndicatorMesh: cpp.Star<PreviewMesh>;
+	private var DynamicMeshComponent: cpp.Star<OctreeDynamicMeshComp>;
+	private var ActiveOverrideMaterial: cpp.Star<MaterialInstanceDynamic>;
+	private var PlaneTransformGizmo: cpp.Star<CombinedTransformGizmo>;
+	private var PlaneTransformProxy: cpp.Star<TransformProxy>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -43,20 +43,6 @@ abstract ConstDynamicMeshSculptTool(DynamicMeshSculptTool) from DynamicMeshSculp
 	public inline extern function get_ViewProperties(): cpp.Star<MeshEditingViewProperties.ConstMeshEditingViewProperties> return this.ViewProperties;
 	public extern var SculptToolActions(get, never): cpp.Star<DynamicSculptToolActions.ConstDynamicSculptToolActions>;
 	public inline extern function get_SculptToolActions(): cpp.Star<DynamicSculptToolActions.ConstDynamicSculptToolActions> return this.SculptToolActions;
-	public extern var BrushIndicator(get, never): cpp.Star<BrushStampIndicator.ConstBrushStampIndicator>;
-	public inline extern function get_BrushIndicator(): cpp.Star<BrushStampIndicator.ConstBrushStampIndicator> return this.BrushIndicator;
-	public extern var BrushIndicatorMaterial(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_BrushIndicatorMaterial(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.BrushIndicatorMaterial;
-	public extern var BrushIndicatorMesh(get, never): cpp.Star<PreviewMesh.ConstPreviewMesh>;
-	public inline extern function get_BrushIndicatorMesh(): cpp.Star<PreviewMesh.ConstPreviewMesh> return this.BrushIndicatorMesh;
-	public extern var DynamicMeshComponent(get, never): cpp.Star<OctreeDynamicMeshComp.ConstOctreeDynamicMeshComp>;
-	public inline extern function get_DynamicMeshComponent(): cpp.Star<OctreeDynamicMeshComp.ConstOctreeDynamicMeshComp> return this.DynamicMeshComponent;
-	public extern var ActiveOverrideMaterial(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_ActiveOverrideMaterial(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.ActiveOverrideMaterial;
-	public extern var PlaneTransformGizmo(get, never): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo>;
-	public inline extern function get_PlaneTransformGizmo(): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo> return this.PlaneTransformGizmo;
-	public extern var PlaneTransformProxy(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
-	public inline extern function get_PlaneTransformProxy(): cpp.Star<TransformProxy.ConstTransformProxy> return this.PlaneTransformProxy;
 }
 
 @:forward

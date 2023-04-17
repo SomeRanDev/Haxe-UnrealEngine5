@@ -5,8 +5,7 @@ package ue;
 @:include("Tracks/MovieSceneAudioTrack.h")
 @:structAccess
 extern class MovieSceneAudioTrack extends MovieSceneNameableTrack {
-	public var AudioSections: TArray<cpp.Star<MovieSceneSection>>;
-	public var RowHeight: cpp.Int32;
+	private var AudioSections: TArray<cpp.Star<MovieSceneSection>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +13,6 @@ extern class MovieSceneAudioTrack extends MovieSceneNameableTrack {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneAudioTrack(MovieSceneAudioTrack) from MovieSceneAudioTrack {
-	public extern var AudioSections(get, never): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>>;
-	public inline extern function get_AudioSections(): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>> return this.AudioSections;
-	public extern var RowHeight(get, never): cpp.Int32;
-	public inline extern function get_RowHeight(): cpp.Int32 return this.RowHeight;
 }
 
 @:forward

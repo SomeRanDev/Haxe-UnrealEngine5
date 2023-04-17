@@ -5,7 +5,7 @@ package ue;
 @:include("IKRigProcessor.h")
 @:structAccess
 extern class IKRigProcessor extends Object {
-	public var Solvers: TArray<cpp.Star<IKRigSolver>>;
+	private var Solvers: TArray<cpp.Star<IKRigSolver>>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class IKRigProcessor extends Object {
 @:forward()
 @:nativeGen
 abstract ConstIKRigProcessor(IKRigProcessor) from IKRigProcessor {
-	public extern var Solvers(get, never): TArray<cpp.Star<IKRigSolver.ConstIKRigSolver>>;
-	public inline extern function get_Solvers(): TArray<cpp.Star<IKRigSolver.ConstIKRigSolver>> return this.Solvers;
 }
 
 @:forward

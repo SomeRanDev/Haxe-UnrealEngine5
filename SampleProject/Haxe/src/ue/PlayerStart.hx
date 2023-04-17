@@ -6,7 +6,6 @@ package ue;
 @:structAccess
 extern class PlayerStart extends NavigationObjectBase {
 	public var PlayerStartTag: FName;
-	public var ArrowComponent: cpp.Star<ArrowComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +15,6 @@ extern class PlayerStart extends NavigationObjectBase {
 abstract ConstPlayerStart(PlayerStart) from PlayerStart {
 	public extern var PlayerStartTag(get, never): FName;
 	public inline extern function get_PlayerStartTag(): FName return this.PlayerStartTag;
-	public extern var ArrowComponent(get, never): cpp.Star<ArrowComp.ConstArrowComp>;
-	public inline extern function get_ArrowComponent(): cpp.Star<ArrowComp.ConstArrowComp> return this.ArrowComponent;
 }
 
 @:forward

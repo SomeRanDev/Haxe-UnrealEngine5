@@ -3,12 +3,12 @@ package ue;
 
 @:native("EDrawPolygonDrawMode")
 @:include("DrawPolygonTool.h")
-extern enum EDrawPolygonDrawMode {
-	Freehand;
-	Circle;
-	Square;
-	Rectangle;
-	RoundedRectangle;
-	Ring;
-	EDrawPolygonDrawMode_MAX;
+extern class EDrawPolygonDrawMode {
+	static var Freehand: EDrawPolygonDrawMode;
+	static var Circle: EDrawPolygonDrawMode;
+	static var Square: EDrawPolygonDrawMode;
+	static var Rectangle: EDrawPolygonDrawMode;
+	static var RoundedRectangle: EDrawPolygonDrawMode;
+	static var Ring: EDrawPolygonDrawMode;
+	static var EDrawPolygonDrawMode_MAX: EDrawPolygonDrawMode;
 }

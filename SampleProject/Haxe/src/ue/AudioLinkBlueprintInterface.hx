@@ -7,7 +7,7 @@ extern class AudioLinkBlueprintInterface extends Interface {
 	public function StopLink(): Void;
 	public function SetLinkSound(NewSound: cpp.Star<SoundBase>): Void;
 	public function PlayLink(StartTime: cpp.Float32): Void;
-	public function IsLinkPlaying(): cpp.Reference<Bool>;
+	public function IsLinkPlaying(): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

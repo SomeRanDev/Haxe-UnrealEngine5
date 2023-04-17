@@ -5,10 +5,10 @@ package ue;
 @:include("ARComponent.h")
 @:structAccess
 extern class ARQRCodeComp extends ARComp {
-	public var ReplicatedPayload: ARQRCodeUpdatePayload;
+	@:protected public var ReplicatedPayload: ARQRCodeUpdatePayload;
 
 	public function SetQRCodeComponentDebugMode(NewDebugMode: EQRCodeComponentDebugMode): Void;
-	public function ServerUpdatePayload(NewPayload: cpp.Reference<ARQRCodeUpdatePayload>): Void;
+	@:protected public function ServerUpdatePayload(NewPayload: ARQRCodeUpdatePayload): Void;
 	public function ReceiveUpdate(Payload: cpp.Reference<ARQRCodeUpdatePayload>): Void;
 	public function ReceiveAdd(Payload: cpp.Reference<ARQRCodeUpdatePayload>): Void;
 
@@ -18,8 +18,6 @@ extern class ARQRCodeComp extends ARComp {
 @:forward()
 @:nativeGen
 abstract ConstARQRCodeComp(ARQRCodeComp) from ARQRCodeComp {
-	public extern var ReplicatedPayload(get, never): ARQRCodeUpdatePayload;
-	public inline extern function get_ReplicatedPayload(): ARQRCodeUpdatePayload return this.ReplicatedPayload;
 }
 
 @:forward

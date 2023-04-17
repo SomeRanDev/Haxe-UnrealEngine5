@@ -3,8 +3,8 @@ package ue;
 
 @:native("EPythonFileExecutionScope")
 @:include("PythonScriptTypes.h")
-extern enum EPythonFileExecutionScope {
-	Private;
-	Public;
-	EPythonFileExecutionScope_MAX;
+extern class EPythonFileExecutionScope {
+	static var Private: EPythonFileExecutionScope;
+	static var Public: EPythonFileExecutionScope;
+	static var EPythonFileExecutionScope_MAX: EPythonFileExecutionScope;
 }

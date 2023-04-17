@@ -5,9 +5,9 @@ package ue;
 @:include("ARComponent.h")
 @:structAccess
 extern class AREnvironmentProbeComp extends ARComp {
-	public var ReplicatedPayload: AREnvironmentProbeUpdatePayload;
+	@:protected public var ReplicatedPayload: AREnvironmentProbeUpdatePayload;
 
-	public function ServerUpdatePayload(NewPayload: cpp.Reference<AREnvironmentProbeUpdatePayload>): Void;
+	@:protected public function ServerUpdatePayload(NewPayload: AREnvironmentProbeUpdatePayload): Void;
 	public function ReceiveUpdate(Payload: cpp.Reference<AREnvironmentProbeUpdatePayload>): Void;
 	public function ReceiveAdd(Payload: cpp.Reference<AREnvironmentProbeUpdatePayload>): Void;
 
@@ -17,8 +17,6 @@ extern class AREnvironmentProbeComp extends ARComp {
 @:forward()
 @:nativeGen
 abstract ConstAREnvironmentProbeComp(AREnvironmentProbeComp) from AREnvironmentProbeComp {
-	public extern var ReplicatedPayload(get, never): AREnvironmentProbeUpdatePayload;
-	public inline extern function get_ReplicatedPayload(): AREnvironmentProbeUpdatePayload return this.ReplicatedPayload;
 }
 
 @:forward

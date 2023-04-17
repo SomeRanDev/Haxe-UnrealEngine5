@@ -3,10 +3,10 @@ package ue;
 
 @:native("EGroomInterpolationType")
 @:include("GroomAssetPhysics.h")
-extern enum EGroomInterpolationType {
-	None;
-	RigidTransform;
-	OffsetTransform;
-	SmoothTransform;
-	EGroomInterpolationType_MAX;
+extern class EGroomInterpolationType {
+	static var None: EGroomInterpolationType;
+	static var RigidTransform: EGroomInterpolationType;
+	static var OffsetTransform: EGroomInterpolationType;
+	static var SmoothTransform: EGroomInterpolationType;
+	static var EGroomInterpolationType_MAX: EGroomInterpolationType;
 }

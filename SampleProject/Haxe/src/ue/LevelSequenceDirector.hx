@@ -10,11 +10,11 @@ extern class LevelSequenceDirector extends Object {
 	public var MovieScenePlayerIndex: cpp.Int32;
 
 	public function OnCreated(): Void;
-	public function GetSequence(): cpp.Reference<cpp.Star<MovieSceneSequence>>;
-	public function GetBoundObjects(ObjectBinding: MovieSceneObjectBindingID): cpp.Reference<TArray<cpp.Star<Object>>>;
-	public function GetBoundObject(ObjectBinding: MovieSceneObjectBindingID): cpp.Reference<cpp.Star<Object>>;
-	public function GetBoundActors(ObjectBinding: MovieSceneObjectBindingID): cpp.Reference<TArray<cpp.Star<Actor>>>;
-	public function GetBoundActor(ObjectBinding: MovieSceneObjectBindingID): cpp.Reference<cpp.Star<Actor>>;
+	public function GetSequence(): cpp.Star<MovieSceneSequence>;
+	public function GetBoundObjects(ObjectBinding: MovieSceneObjectBindingID): TArray<cpp.Star<Object>>;
+	public function GetBoundObject(ObjectBinding: MovieSceneObjectBindingID): cpp.Star<Object>;
+	public function GetBoundActors(ObjectBinding: MovieSceneObjectBindingID): TArray<cpp.Star<Actor>>;
+	public function GetBoundActor(ObjectBinding: MovieSceneObjectBindingID): cpp.Star<Actor>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

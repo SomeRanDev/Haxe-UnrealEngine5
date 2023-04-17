@@ -5,15 +5,15 @@ package ue;
 @:include("Sequencer/MovieSceneControlRigParameterSection.h")
 @:structAccess
 extern class MovieSceneControlRigParameterSection extends MovieSceneParameterSection {
-	public var ControlRig: cpp.Star<ControlRig>;
+	private var ControlRig: cpp.Star<ControlRig>;
 	public var ControlRigClass: TSubclassOf<ControlRig>;
 	public var ControlsMask: TArray<Bool>;
 	public var TransformMask: MovieSceneTransformMask;
 	public var Weight: MovieSceneFloatChannel;
 	public var ControlChannelMap: TMap<FName, ChannelMapInfo>;
-	public var EnumParameterNamesAndCurves: TArray<EnumParameterNameAndCurve>;
-	public var IntegerParameterNamesAndCurves: TArray<IntegerParameterNameAndCurve>;
-	public var SpaceChannels: TArray<SpaceControlNameAndChannel>;
+	@:protected public var EnumParameterNamesAndCurves: TArray<EnumParameterNameAndCurve>;
+	@:protected public var IntegerParameterNamesAndCurves: TArray<IntegerParameterNameAndCurve>;
+	@:protected public var SpaceChannels: TArray<SpaceControlNameAndChannel>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -21,8 +21,6 @@ extern class MovieSceneControlRigParameterSection extends MovieSceneParameterSec
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneControlRigParameterSection(MovieSceneControlRigParameterSection) from MovieSceneControlRigParameterSection {
-	public extern var ControlRig(get, never): cpp.Star<ControlRig.ConstControlRig>;
-	public inline extern function get_ControlRig(): cpp.Star<ControlRig.ConstControlRig> return this.ControlRig;
 	public extern var ControlRigClass(get, never): TSubclassOf<ControlRig.ConstControlRig>;
 	public inline extern function get_ControlRigClass(): TSubclassOf<ControlRig.ConstControlRig> return this.ControlRigClass;
 	public extern var ControlsMask(get, never): TArray<Bool>;
@@ -33,12 +31,6 @@ abstract ConstMovieSceneControlRigParameterSection(MovieSceneControlRigParameter
 	public inline extern function get_Weight(): MovieSceneFloatChannel return this.Weight;
 	public extern var ControlChannelMap(get, never): TMap<FName, ChannelMapInfo>;
 	public inline extern function get_ControlChannelMap(): TMap<FName, ChannelMapInfo> return this.ControlChannelMap;
-	public extern var EnumParameterNamesAndCurves(get, never): TArray<EnumParameterNameAndCurve>;
-	public inline extern function get_EnumParameterNamesAndCurves(): TArray<EnumParameterNameAndCurve> return this.EnumParameterNamesAndCurves;
-	public extern var IntegerParameterNamesAndCurves(get, never): TArray<IntegerParameterNameAndCurve>;
-	public inline extern function get_IntegerParameterNamesAndCurves(): TArray<IntegerParameterNameAndCurve> return this.IntegerParameterNamesAndCurves;
-	public extern var SpaceChannels(get, never): TArray<SpaceControlNameAndChannel>;
-	public inline extern function get_SpaceChannels(): TArray<SpaceControlNameAndChannel> return this.SpaceChannels;
 }
 
 @:forward

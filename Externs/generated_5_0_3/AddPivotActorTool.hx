@@ -5,9 +5,9 @@ package ue;
 @:include("AddPivotActorTool.h")
 @:structAccess
 extern class AddPivotActorTool extends MultiSelectionMeshEditingTool {
-	public var DragAlignmentMechanic: cpp.Star<DragAlignmentMechanic>;
-	public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	public var TransformProxy: cpp.Star<TransformProxy>;
+	@:protected public var DragAlignmentMechanic: cpp.Star<DragAlignmentMechanic>;
+	@:protected public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
+	@:protected public var TransformProxy: cpp.Star<TransformProxy>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class AddPivotActorTool extends MultiSelectionMeshEditingTool {
 @:forward()
 @:nativeGen
 abstract ConstAddPivotActorTool(AddPivotActorTool) from AddPivotActorTool {
-	public extern var DragAlignmentMechanic(get, never): cpp.Star<DragAlignmentMechanic.ConstDragAlignmentMechanic>;
-	public inline extern function get_DragAlignmentMechanic(): cpp.Star<DragAlignmentMechanic.ConstDragAlignmentMechanic> return this.DragAlignmentMechanic;
-	public extern var TransformGizmo(get, never): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo>;
-	public inline extern function get_TransformGizmo(): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo> return this.TransformGizmo;
-	public extern var TransformProxy(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
-	public inline extern function get_TransformProxy(): cpp.Star<TransformProxy.ConstTransformProxy> return this.TransformProxy;
 }
 
 @:forward

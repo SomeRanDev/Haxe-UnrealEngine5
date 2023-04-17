@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class FbxStaticMeshImportData extends FbxMeshImportData {
 	public var StaticMeshLODGroup: FName;
-	public var VertexColorImportOption: EVertexColorImportOption;
+	public var VertexColorImportOption: TEnumAsByte<EVertexColorImportOption>;
 	public var VertexOverrideColor: Color;
 	public var bRemoveDegenerates: Bool;
 	public var bBuildReversedIndexBuffer: Bool;
@@ -25,8 +25,8 @@ extern class FbxStaticMeshImportData extends FbxMeshImportData {
 abstract ConstFbxStaticMeshImportData(FbxStaticMeshImportData) from FbxStaticMeshImportData {
 	public extern var StaticMeshLODGroup(get, never): FName;
 	public inline extern function get_StaticMeshLODGroup(): FName return this.StaticMeshLODGroup;
-	public extern var VertexColorImportOption(get, never): EVertexColorImportOption;
-	public inline extern function get_VertexColorImportOption(): EVertexColorImportOption return this.VertexColorImportOption;
+	public extern var VertexColorImportOption(get, never): TEnumAsByte<EVertexColorImportOption>;
+	public inline extern function get_VertexColorImportOption(): TEnumAsByte<EVertexColorImportOption> return this.VertexColorImportOption;
 	public extern var VertexOverrideColor(get, never): Color;
 	public inline extern function get_VertexOverrideColor(): Color return this.VertexOverrideColor;
 	public extern var bRemoveDegenerates(get, never): Bool;

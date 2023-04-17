@@ -5,17 +5,17 @@ package ue;
 @:include("UI/VREditorUISystem.h")
 @:structAccess
 extern class VREditorUISystem extends Object {
-	public var VRMode: cpp.Star<VREditorMode>;
-	public var FloatingUIs: TMap<FName, cpp.Star<VREditorFloatingUI>>;
-	public var PreviewWindowInfo: TMap<FName, cpp.Star<Actor>>;
-	public var InfoDisplayPanel: cpp.Star<VREditorFloatingUI>;
-	public var QuickRadialMenu: cpp.Star<VREditorRadialFloatingUI>;
-	public var DraggingUI: cpp.Star<VREditorDockableWindow>;
-	public var ColorPickerUI: cpp.Star<VREditorDockableWindow>;
-	public var LaserInteractor: cpp.Star<VREditorInteractor>;
-	public var UIInteractor: cpp.Star<VREditorInteractor>;
-	public var VRButtons: TArray<VRButton>;
-	public var RadialMenuHandler: cpp.Star<VRRadialMenuHandler>;
+	@:protected public var VRMode: cpp.Star<VREditorMode>;
+	@:protected public var FloatingUIs: TMap<FName, cpp.Star<VREditorFloatingUI>>;
+	@:protected public var PreviewWindowInfo: TMap<FName, cpp.Star<Actor>>;
+	@:protected public var InfoDisplayPanel: cpp.Star<VREditorFloatingUI>;
+	@:protected public var QuickRadialMenu: cpp.Star<VREditorRadialFloatingUI>;
+	@:protected public var DraggingUI: cpp.Star<VREditorDockableWindow>;
+	@:protected public var ColorPickerUI: cpp.Star<VREditorDockableWindow>;
+	@:protected public var LaserInteractor: cpp.Star<VREditorInteractor>;
+	@:protected public var UIInteractor: cpp.Star<VREditorInteractor>;
+	@:protected public var VRButtons: TArray<VRButton>;
+	@:protected public var RadialMenuHandler: cpp.Star<VRRadialMenuHandler>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -23,28 +23,6 @@ extern class VREditorUISystem extends Object {
 @:forward()
 @:nativeGen
 abstract ConstVREditorUISystem(VREditorUISystem) from VREditorUISystem {
-	public extern var VRMode(get, never): cpp.Star<VREditorMode.ConstVREditorMode>;
-	public inline extern function get_VRMode(): cpp.Star<VREditorMode.ConstVREditorMode> return this.VRMode;
-	public extern var FloatingUIs(get, never): TMap<FName, cpp.Star<VREditorFloatingUI.ConstVREditorFloatingUI>>;
-	public inline extern function get_FloatingUIs(): TMap<FName, cpp.Star<VREditorFloatingUI.ConstVREditorFloatingUI>> return this.FloatingUIs;
-	public extern var PreviewWindowInfo(get, never): TMap<FName, cpp.Star<Actor.ConstActor>>;
-	public inline extern function get_PreviewWindowInfo(): TMap<FName, cpp.Star<Actor.ConstActor>> return this.PreviewWindowInfo;
-	public extern var InfoDisplayPanel(get, never): cpp.Star<VREditorFloatingUI.ConstVREditorFloatingUI>;
-	public inline extern function get_InfoDisplayPanel(): cpp.Star<VREditorFloatingUI.ConstVREditorFloatingUI> return this.InfoDisplayPanel;
-	public extern var QuickRadialMenu(get, never): cpp.Star<VREditorRadialFloatingUI.ConstVREditorRadialFloatingUI>;
-	public inline extern function get_QuickRadialMenu(): cpp.Star<VREditorRadialFloatingUI.ConstVREditorRadialFloatingUI> return this.QuickRadialMenu;
-	public extern var DraggingUI(get, never): cpp.Star<VREditorDockableWindow.ConstVREditorDockableWindow>;
-	public inline extern function get_DraggingUI(): cpp.Star<VREditorDockableWindow.ConstVREditorDockableWindow> return this.DraggingUI;
-	public extern var ColorPickerUI(get, never): cpp.Star<VREditorDockableWindow.ConstVREditorDockableWindow>;
-	public inline extern function get_ColorPickerUI(): cpp.Star<VREditorDockableWindow.ConstVREditorDockableWindow> return this.ColorPickerUI;
-	public extern var LaserInteractor(get, never): cpp.Star<VREditorInteractor.ConstVREditorInteractor>;
-	public inline extern function get_LaserInteractor(): cpp.Star<VREditorInteractor.ConstVREditorInteractor> return this.LaserInteractor;
-	public extern var UIInteractor(get, never): cpp.Star<VREditorInteractor.ConstVREditorInteractor>;
-	public inline extern function get_UIInteractor(): cpp.Star<VREditorInteractor.ConstVREditorInteractor> return this.UIInteractor;
-	public extern var VRButtons(get, never): TArray<VRButton>;
-	public inline extern function get_VRButtons(): TArray<VRButton> return this.VRButtons;
-	public extern var RadialMenuHandler(get, never): cpp.Star<VRRadialMenuHandler.ConstVRRadialMenuHandler>;
-	public inline extern function get_RadialMenuHandler(): cpp.Star<VRRadialMenuHandler.ConstVRRadialMenuHandler> return this.RadialMenuHandler;
 }
 
 @:forward

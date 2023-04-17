@@ -5,12 +5,12 @@ package ue;
 @:include("Physics/ExtractCollisionGeometryTool.h")
 @:structAccess
 extern class ExtractCollisionGeometryTool extends SingleSelectionMeshEditingTool {
-	public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
-	public var Settings: cpp.Star<ExtractCollisionToolProperties>;
-	public var VizSettings: cpp.Star<CollisionGeometryVisualizationProperties>;
-	public var ObjectProps: cpp.Star<PhysicsObjectToolPropertySet>;
-	public var PreviewElements: cpp.Star<PreviewGeometry>;
-	public var PreviewMesh: cpp.Star<PreviewMesh>;
+	@:protected public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
+	@:protected public var Settings: cpp.Star<ExtractCollisionToolProperties>;
+	@:protected public var VizSettings: cpp.Star<CollisionGeometryVisualizationProperties>;
+	@:protected public var ObjectProps: cpp.Star<PhysicsObjectToolPropertySet>;
+	@:protected public var PreviewElements: cpp.Star<PreviewGeometry>;
+	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,18 +18,6 @@ extern class ExtractCollisionGeometryTool extends SingleSelectionMeshEditingTool
 @:forward()
 @:nativeGen
 abstract ConstExtractCollisionGeometryTool(ExtractCollisionGeometryTool) from ExtractCollisionGeometryTool {
-	public extern var OutputTypeProperties(get, never): cpp.Star<CreateMeshObjectTypeProperties.ConstCreateMeshObjectTypeProperties>;
-	public inline extern function get_OutputTypeProperties(): cpp.Star<CreateMeshObjectTypeProperties.ConstCreateMeshObjectTypeProperties> return this.OutputTypeProperties;
-	public extern var Settings(get, never): cpp.Star<ExtractCollisionToolProperties.ConstExtractCollisionToolProperties>;
-	public inline extern function get_Settings(): cpp.Star<ExtractCollisionToolProperties.ConstExtractCollisionToolProperties> return this.Settings;
-	public extern var VizSettings(get, never): cpp.Star<CollisionGeometryVisualizationProperties.ConstCollisionGeometryVisualizationProperties>;
-	public inline extern function get_VizSettings(): cpp.Star<CollisionGeometryVisualizationProperties.ConstCollisionGeometryVisualizationProperties> return this.VizSettings;
-	public extern var ObjectProps(get, never): cpp.Star<PhysicsObjectToolPropertySet.ConstPhysicsObjectToolPropertySet>;
-	public inline extern function get_ObjectProps(): cpp.Star<PhysicsObjectToolPropertySet.ConstPhysicsObjectToolPropertySet> return this.ObjectProps;
-	public extern var PreviewElements(get, never): cpp.Star<PreviewGeometry.ConstPreviewGeometry>;
-	public inline extern function get_PreviewElements(): cpp.Star<PreviewGeometry.ConstPreviewGeometry> return this.PreviewElements;
-	public extern var PreviewMesh(get, never): cpp.Star<PreviewMesh.ConstPreviewMesh>;
-	public inline extern function get_PreviewMesh(): cpp.Star<PreviewMesh.ConstPreviewMesh> return this.PreviewMesh;
 }
 
 @:forward

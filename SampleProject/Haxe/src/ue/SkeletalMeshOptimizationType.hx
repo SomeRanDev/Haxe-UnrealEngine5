@@ -3,9 +3,9 @@ package ue;
 
 @:native("SkeletalMeshOptimizationType")
 @:include("SkeletalMeshReductionSettings.h")
-extern enum SkeletalMeshOptimizationType {
-	SMOT_NumOfTriangles;
-	SMOT_MaxDeviation;
-	SMOT_TriangleOrDeviation;
-	SMOT_MAX;
+extern class SkeletalMeshOptimizationType {
+	static var SMOT_NumOfTriangles: SkeletalMeshOptimizationType;
+	static var SMOT_MaxDeviation: SkeletalMeshOptimizationType;
+	static var SMOT_TriangleOrDeviation: SkeletalMeshOptimizationType;
+	static var SMOT_MAX: SkeletalMeshOptimizationType;
 }

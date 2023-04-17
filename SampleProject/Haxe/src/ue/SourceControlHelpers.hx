@@ -5,28 +5,28 @@ package ue;
 @:include("SourceControlHelpers.h")
 @:structAccess
 extern class SourceControlHelpers extends Object {
-	public function SyncFiles(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): cpp.Reference<Bool>;
-	public function SyncFile(InFile: FString, bSilent: Bool): cpp.Reference<Bool>;
-	public function RevertUnchangedFiles(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): cpp.Reference<Bool>;
-	public function RevertUnchangedFile(InFile: FString, bSilent: Bool): cpp.Reference<Bool>;
-	public function RevertFiles(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): cpp.Reference<Bool>;
-	public function RevertFile(InFile: FString, bSilent: Bool): cpp.Reference<Bool>;
-	public function QueryFileState(InFile: FString, bSilent: Bool): cpp.Reference<SourceControlState>;
-	public function MarkFilesForDelete(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): cpp.Reference<Bool>;
-	public function MarkFilesForAdd(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): cpp.Reference<Bool>;
-	public function MarkFileForDelete(InFile: FString, bSilent: Bool): cpp.Reference<Bool>;
-	public function MarkFileForAdd(InFile: FString, bSilent: Bool): cpp.Reference<Bool>;
-	public function LastErrorMsg(): cpp.Reference<FText>;
-	public function IsEnabled(): cpp.Reference<Bool>;
-	public function IsAvailable(): cpp.Reference<Bool>;
-	public function CurrentProvider(): cpp.Reference<FString>;
-	public function CopyFile(InSourceFile: FString, InDestFile: FString, bSilent: Bool): cpp.Reference<Bool>;
-	public function CheckOutOrAddFiles(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): cpp.Reference<Bool>;
-	public function CheckOutOrAddFile(InFile: FString, bSilent: Bool): cpp.Reference<Bool>;
-	public function CheckOutFiles(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): cpp.Reference<Bool>;
-	public function CheckOutFile(InFile: FString, bSilent: Bool): cpp.Reference<Bool>;
-	public function CheckInFiles(InFiles: cpp.Reference<TArray<FString>>, InDescription: FString, bSilent: Bool): cpp.Reference<Bool>;
-	public function CheckInFile(InFile: FString, InDescription: FString, bSilent: Bool): cpp.Reference<Bool>;
+	public function SyncFiles(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): Bool;
+	public function SyncFile(InFile: FString, bSilent: Bool): Bool;
+	public function RevertUnchangedFiles(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): Bool;
+	public function RevertUnchangedFile(InFile: FString, bSilent: Bool): Bool;
+	public function RevertFiles(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): Bool;
+	public function RevertFile(InFile: FString, bSilent: Bool): Bool;
+	public function QueryFileState(InFile: FString, bSilent: Bool): SourceControlState;
+	public function MarkFilesForDelete(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): Bool;
+	public function MarkFilesForAdd(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): Bool;
+	public function MarkFileForDelete(InFile: FString, bSilent: Bool): Bool;
+	public function MarkFileForAdd(InFile: FString, bSilent: Bool): Bool;
+	public function LastErrorMsg(): FText;
+	public function IsEnabled(): Bool;
+	public function IsAvailable(): Bool;
+	public function CurrentProvider(): FString;
+	public function CopyFile(InSourceFile: FString, InDestFile: FString, bSilent: Bool): Bool;
+	public function CheckOutOrAddFiles(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): Bool;
+	public function CheckOutOrAddFile(InFile: FString, bSilent: Bool): Bool;
+	public function CheckOutFiles(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): Bool;
+	public function CheckOutFile(InFile: FString, bSilent: Bool): Bool;
+	public function CheckInFiles(InFiles: cpp.Reference<TArray<FString>>, InDescription: FString, bSilent: Bool): Bool;
+	public function CheckInFile(InFile: FString, InDescription: FString, bSilent: Bool): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

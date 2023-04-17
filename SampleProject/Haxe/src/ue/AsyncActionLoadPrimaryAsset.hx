@@ -7,7 +7,7 @@ package ue;
 extern class AsyncActionLoadPrimaryAsset extends AsyncActionLoadPrimaryAssetBase {
 	public var Completed: HaxeMulticastSparseDelegateProperty<(cpp.Star<Object>) -> Void>;
 
-	public function AsyncLoadPrimaryAsset(WorldContextObject: cpp.Star<Object>, PrimaryAsset: PrimaryAssetId, LoadBundles: cpp.Reference<TArray<FName>>): cpp.Reference<cpp.Star<AsyncActionLoadPrimaryAsset>>;
+	public function AsyncLoadPrimaryAsset(WorldContextObject: cpp.Star<Object>, PrimaryAsset: PrimaryAssetId, LoadBundles: cpp.Reference<TArray<FName>>): cpp.Star<AsyncActionLoadPrimaryAsset>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EUserDefinedStructureStatus")
 @:include("Engine/UserDefinedStruct.h")
-extern enum EUserDefinedStructureStatus {
-	UDSS_UpToDate;
-	UDSS_Dirty;
-	UDSS_Error;
-	UDSS_Duplicate;
-	UDSS_MAX;
+extern class EUserDefinedStructureStatus {
+	static var UDSS_UpToDate: EUserDefinedStructureStatus;
+	static var UDSS_Dirty: EUserDefinedStructureStatus;
+	static var UDSS_Error: EUserDefinedStructureStatus;
+	static var UDSS_Duplicate: EUserDefinedStructureStatus;
+	static var UDSS_MAX: EUserDefinedStructureStatus;
 }

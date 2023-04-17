@@ -5,11 +5,11 @@ package ue;
 @:include("Components/SceneCaptureComponent2D.h")
 @:structAccess
 extern class SceneCaptureComponent2D extends SceneCaptureComp {
-	public var ProjectionType: ECameraProjectionMode;
+	public var ProjectionType: TEnumAsByte<ECameraProjectionMode>;
 	public var FOVAngle: cpp.Float32;
 	public var OrthoWidth: cpp.Float32;
 	public var TextureTarget: cpp.Star<TextureRenderTarget2D>;
-	public var CompositeMode: ESceneCaptureCompositeMode;
+	public var CompositeMode: TEnumAsByte<ESceneCaptureCompositeMode>;
 	public var PostProcessSettings: PostProcessSettings;
 	public var PostProcessBlendWeight: cpp.Float32;
 	public var bOverride_CustomNearClippingPlane: Bool;
@@ -37,16 +37,16 @@ extern class SceneCaptureComponent2D extends SceneCaptureComp {
 @:forward()
 @:nativeGen
 abstract ConstSceneCaptureComponent2D(SceneCaptureComponent2D) from SceneCaptureComponent2D {
-	public extern var ProjectionType(get, never): ECameraProjectionMode;
-	public inline extern function get_ProjectionType(): ECameraProjectionMode return this.ProjectionType;
+	public extern var ProjectionType(get, never): TEnumAsByte<ECameraProjectionMode>;
+	public inline extern function get_ProjectionType(): TEnumAsByte<ECameraProjectionMode> return this.ProjectionType;
 	public extern var FOVAngle(get, never): cpp.Float32;
 	public inline extern function get_FOVAngle(): cpp.Float32 return this.FOVAngle;
 	public extern var OrthoWidth(get, never): cpp.Float32;
 	public inline extern function get_OrthoWidth(): cpp.Float32 return this.OrthoWidth;
 	public extern var TextureTarget(get, never): cpp.Star<TextureRenderTarget2D.ConstTextureRenderTarget2D>;
 	public inline extern function get_TextureTarget(): cpp.Star<TextureRenderTarget2D.ConstTextureRenderTarget2D> return this.TextureTarget;
-	public extern var CompositeMode(get, never): ESceneCaptureCompositeMode;
-	public inline extern function get_CompositeMode(): ESceneCaptureCompositeMode return this.CompositeMode;
+	public extern var CompositeMode(get, never): TEnumAsByte<ESceneCaptureCompositeMode>;
+	public inline extern function get_CompositeMode(): TEnumAsByte<ESceneCaptureCompositeMode> return this.CompositeMode;
 	public extern var PostProcessSettings(get, never): PostProcessSettings;
 	public inline extern function get_PostProcessSettings(): PostProcessSettings return this.PostProcessSettings;
 	public extern var PostProcessBlendWeight(get, never): cpp.Float32;

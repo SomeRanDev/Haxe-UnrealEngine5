@@ -3,10 +3,10 @@ package ue;
 
 @:native("ELandscapeImportTransformType")
 @:include("LandscapeImportHelper.h")
-extern enum ELandscapeImportTransformType {
-	None;
-	ExpandOffset;
-	ExpandCentered;
-	Resample;
-	ELandscapeImportTransformType_MAX;
+extern class ELandscapeImportTransformType {
+	static var None: ELandscapeImportTransformType;
+	static var ExpandOffset: ELandscapeImportTransformType;
+	static var ExpandCentered: ELandscapeImportTransformType;
+	static var Resample: ELandscapeImportTransformType;
+	static var ELandscapeImportTransformType_MAX: ELandscapeImportTransformType;
 }

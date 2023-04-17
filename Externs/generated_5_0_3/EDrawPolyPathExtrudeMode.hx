@@ -3,11 +3,11 @@ package ue;
 
 @:native("EDrawPolyPathExtrudeMode")
 @:include("DrawPolyPathTool.h")
-extern enum EDrawPolyPathExtrudeMode {
-	Flat;
-	Fixed;
-	Interactive;
-	RampFixed;
-	RampInteractive;
-	EDrawPolyPathExtrudeMode_MAX;
+extern class EDrawPolyPathExtrudeMode {
+	static var Flat: EDrawPolyPathExtrudeMode;
+	static var Fixed: EDrawPolyPathExtrudeMode;
+	static var Interactive: EDrawPolyPathExtrudeMode;
+	static var RampFixed: EDrawPolyPathExtrudeMode;
+	static var RampInteractive: EDrawPolyPathExtrudeMode;
+	static var EDrawPolyPathExtrudeMode_MAX: EDrawPolyPathExtrudeMode;
 }

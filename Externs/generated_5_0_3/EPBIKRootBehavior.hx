@@ -3,9 +3,9 @@ package ue;
 
 @:native("EPBIKRootBehavior")
 @:include("Core/PBIKSolver.h")
-extern enum EPBIKRootBehavior {
-	PrePull;
-	PinToInput;
-	Free;
-	EPBIKRootBehavior_MAX;
+extern class EPBIKRootBehavior {
+	static var PrePull: EPBIKRootBehavior;
+	static var PinToInput: EPBIKRootBehavior;
+	static var Free: EPBIKRootBehavior;
+	static var EPBIKRootBehavior_MAX: EPBIKRootBehavior;
 }

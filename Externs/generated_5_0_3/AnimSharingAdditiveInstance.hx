@@ -5,10 +5,10 @@ package ue;
 @:include("AnimationSharingInstances.h")
 @:structAccess
 extern class AnimSharingAdditiveInstance extends AnimInstance {
-	public var BaseComponent: TWeakObjectPtr<SkeletalMeshComp>;
-	public var AdditiveAnimation: TWeakObjectPtr<AnimSequence>;
-	public var Alpha: cpp.Float32;
-	public var bStateBool: Bool;
+	@:protected public var BaseComponent: TWeakObjectPtr<SkeletalMeshComp>;
+	@:protected public var AdditiveAnimation: TWeakObjectPtr<AnimSequence>;
+	@:protected public var Alpha: cpp.Float32;
+	@:protected public var bStateBool: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class AnimSharingAdditiveInstance extends AnimInstance {
 @:forward()
 @:nativeGen
 abstract ConstAnimSharingAdditiveInstance(AnimSharingAdditiveInstance) from AnimSharingAdditiveInstance {
-	public extern var BaseComponent(get, never): TWeakObjectPtr<SkeletalMeshComp.ConstSkeletalMeshComp>;
-	public inline extern function get_BaseComponent(): TWeakObjectPtr<SkeletalMeshComp.ConstSkeletalMeshComp> return this.BaseComponent;
-	public extern var AdditiveAnimation(get, never): TWeakObjectPtr<AnimSequence.ConstAnimSequence>;
-	public inline extern function get_AdditiveAnimation(): TWeakObjectPtr<AnimSequence.ConstAnimSequence> return this.AdditiveAnimation;
-	public extern var Alpha(get, never): cpp.Float32;
-	public inline extern function get_Alpha(): cpp.Float32 return this.Alpha;
-	public extern var bStateBool(get, never): Bool;
-	public inline extern function get_bStateBool(): Bool return this.bStateBool;
 }
 
 @:forward

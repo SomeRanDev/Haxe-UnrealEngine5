@@ -3,9 +3,9 @@ package ue;
 
 @:native("EVertexPaintAxis")
 @:include("MeshVertexPainter/MeshVertexPainter.h")
-extern enum EVertexPaintAxis {
-	X;
-	Y;
-	Z;
-	EVertexPaintAxis_MAX;
+extern class EVertexPaintAxis {
+	static var X: EVertexPaintAxis;
+	static var Y: EVertexPaintAxis;
+	static var Z: EVertexPaintAxis;
+	static var EVertexPaintAxis_MAX: EVertexPaintAxis;
 }

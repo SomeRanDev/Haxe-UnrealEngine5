@@ -5,7 +5,7 @@ package ue;
 @:include("MovieSceneBindingOverrides.h")
 @:structAccess
 extern class MovieSceneBindingOverrides extends Object {
-	public var BindingData: TArray<MovieSceneBindingOverrideData>;
+	private var BindingData: TArray<MovieSceneBindingOverrideData>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MovieSceneBindingOverrides extends Object {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneBindingOverrides(MovieSceneBindingOverrides) from MovieSceneBindingOverrides {
-	public extern var BindingData(get, never): TArray<MovieSceneBindingOverrideData>;
-	public inline extern function get_BindingData(): TArray<MovieSceneBindingOverrideData> return this.BindingData;
 }
 
 @:forward

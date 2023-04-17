@@ -5,7 +5,7 @@ package ue;
 @:include("Components/DecalComponent.h")
 @:structAccess
 extern class DecalComp extends SceneComp {
-	public var DecalMaterial: cpp.Star<MaterialInterface>;
+	@:protected public var DecalMaterial: cpp.Star<MaterialInterface>;
 	public var SortOrder: cpp.Int32;
 	public var FadeScreenSize: cpp.Float32;
 	public var FadeStartDelay: cpp.Float32;
@@ -20,12 +20,12 @@ extern class DecalComp extends SceneComp {
 	public function SetFadeOut(StartDelay: cpp.Float32, Duration: cpp.Float32, DestroyOwnerAfterFade: Bool): Void;
 	public function SetFadeIn(StartDelay: cpp.Float32, Duaration: cpp.Float32): Void;
 	public function SetDecalMaterial(NewDecalMaterial: cpp.Star<MaterialInterface>): Void;
-	public function GetFadeStartDelay(): cpp.Reference<cpp.Float32>;
-	public function GetFadeInStartDelay(): cpp.Reference<cpp.Float32>;
-	public function GetFadeInDuration(): cpp.Reference<cpp.Float32>;
-	public function GetFadeDuration(): cpp.Reference<cpp.Float32>;
-	public function GetDecalMaterial(): cpp.Reference<cpp.Star<MaterialInterface>>;
-	public function CreateDynamicMaterialInstance(): cpp.Reference<cpp.Star<MaterialInstanceDynamic>>;
+	public function GetFadeStartDelay(): cpp.Float32;
+	public function GetFadeInStartDelay(): cpp.Float32;
+	public function GetFadeInDuration(): cpp.Float32;
+	public function GetFadeDuration(): cpp.Float32;
+	public function GetDecalMaterial(): cpp.Star<MaterialInterface>;
+	public function CreateDynamicMaterialInstance(): cpp.Star<MaterialInstanceDynamic>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -33,8 +33,6 @@ extern class DecalComp extends SceneComp {
 @:forward(GetFadeStartDelay, GetFadeInStartDelay, GetFadeInDuration, GetFadeDuration, GetDecalMaterial)
 @:nativeGen
 abstract ConstDecalComp(DecalComp) from DecalComp {
-	public extern var DecalMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_DecalMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.DecalMaterial;
 	public extern var SortOrder(get, never): cpp.Int32;
 	public inline extern function get_SortOrder(): cpp.Int32 return this.SortOrder;
 	public extern var FadeScreenSize(get, never): cpp.Float32;

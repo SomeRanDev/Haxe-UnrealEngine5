@@ -16,16 +16,16 @@ extern class PawnSensingComp extends ActorComp {
 	public var bHearNoises: Bool;
 	public var OnSeePawn: HaxeMulticastSparseDelegateProperty<(cpp.Star<Pawn>) -> Void>;
 	public var OnHearNoise: HaxeMulticastSparseDelegateProperty<(cpp.Star<Pawn>, cpp.Reference<Vector>, cpp.Float32) -> Void>;
-	public var PeripheralVisionAngle: cpp.Float32;
-	public var PeripheralVisionCosine: cpp.Float32;
+	@:protected public var PeripheralVisionAngle: cpp.Float32;
+	@:protected public var PeripheralVisionCosine: cpp.Float32;
 
 	public function SetSensingUpdatesEnabled(bEnabled: Bool): Void;
 	public function SetSensingInterval(NewSensingInterval: cpp.Float32): Void;
 	public function SetPeripheralVisionAngle(NewPeripheralVisionAngle: cpp.Float32): Void;
 	public function SeePawnDelegate__DelegateSignature(Pawn: cpp.Star<Pawn>): Void;
 	public function HearNoiseDelegate__DelegateSignature(Instigator: cpp.Star<Pawn>, Location: cpp.Reference<Vector>, Volume: cpp.Float32): Void;
-	public function GetPeripheralVisionCosine(): cpp.Reference<cpp.Float32>;
-	public function GetPeripheralVisionAngle(): cpp.Reference<cpp.Float32>;
+	public function GetPeripheralVisionCosine(): cpp.Float32;
+	public function GetPeripheralVisionAngle(): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -55,10 +55,6 @@ abstract ConstPawnSensingComp(PawnSensingComp) from PawnSensingComp {
 	public inline extern function get_OnSeePawn(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Pawn.ConstPawn>) -> Void> return this.OnSeePawn;
 	public extern var OnHearNoise(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Pawn.ConstPawn>, cpp.Reference<Vector>, cpp.Float32) -> Void>;
 	public inline extern function get_OnHearNoise(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Pawn.ConstPawn>, cpp.Reference<Vector>, cpp.Float32) -> Void> return this.OnHearNoise;
-	public extern var PeripheralVisionAngle(get, never): cpp.Float32;
-	public inline extern function get_PeripheralVisionAngle(): cpp.Float32 return this.PeripheralVisionAngle;
-	public extern var PeripheralVisionCosine(get, never): cpp.Float32;
-	public inline extern function get_PeripheralVisionCosine(): cpp.Float32 return this.PeripheralVisionCosine;
 }
 
 @:forward

@@ -5,7 +5,7 @@ package ue;
 @:include("Engine/PlatformSettingsManager.h")
 @:structAccess
 extern class PlatformSettingsManager extends Object {
-	public var SettingsMap: TMap<TSubclassOf<PlatformSettings>, PlatformSettingsInstances>;
+	private var SettingsMap: TMap<TSubclassOf<PlatformSettings>, PlatformSettingsInstances>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class PlatformSettingsManager extends Object {
 @:forward()
 @:nativeGen
 abstract ConstPlatformSettingsManager(PlatformSettingsManager) from PlatformSettingsManager {
-	public extern var SettingsMap(get, never): TMap<TSubclassOf<PlatformSettings.ConstPlatformSettings>, PlatformSettingsInstances>;
-	public inline extern function get_SettingsMap(): TMap<TSubclassOf<PlatformSettings.ConstPlatformSettings>, PlatformSettingsInstances> return this.SettingsMap;
 }
 
 @:forward

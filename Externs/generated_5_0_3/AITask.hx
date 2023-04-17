@@ -5,7 +5,7 @@ package ue;
 @:include("Tasks/AITask.h")
 @:structAccess
 extern class AITask extends GameplayTask {
-	public var OwnerController: cpp.Star<AIController>;
+	@:protected public var OwnerController: cpp.Star<AIController>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class AITask extends GameplayTask {
 @:forward()
 @:nativeGen
 abstract ConstAITask(AITask) from AITask {
-	public extern var OwnerController(get, never): cpp.Star<AIController.ConstAIController>;
-	public inline extern function get_OwnerController(): cpp.Star<AIController.ConstAIController> return this.OwnerController;
 }
 
 @:forward

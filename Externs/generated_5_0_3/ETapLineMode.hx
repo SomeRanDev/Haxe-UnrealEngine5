@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETapLineMode")
 @:include("SubmixEffects/SubmixEffectTapDelay.h")
-extern enum ETapLineMode {
-	SendToChannel;
-	Panning;
-	Disabled;
-	ETapLineMode_MAX;
+extern class ETapLineMode {
+	static var SendToChannel: ETapLineMode;
+	static var Panning: ETapLineMode;
+	static var Disabled: ETapLineMode;
+	static var ETapLineMode_MAX: ETapLineMode;
 }

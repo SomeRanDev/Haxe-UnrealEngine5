@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENormalCalculationMethod")
 @:include("CleaningOps/EditNormalsOp.h")
-extern enum ENormalCalculationMethod {
-	AreaWeighted;
-	AngleWeighted;
-	AreaAngleWeighting;
-	ENormalCalculationMethod_MAX;
+extern class ENormalCalculationMethod {
+	static var AreaWeighted: ENormalCalculationMethod;
+	static var AngleWeighted: ENormalCalculationMethod;
+	static var AreaAngleWeighting: ENormalCalculationMethod;
+	static var ENormalCalculationMethod_MAX: ENormalCalculationMethod;
 }

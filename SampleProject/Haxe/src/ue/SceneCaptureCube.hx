@@ -5,7 +5,7 @@ package ue;
 @:include("Engine/SceneCaptureCube.h")
 @:structAccess
 extern class SceneCaptureCube extends SceneCapture {
-	public var CaptureComponentCube: cpp.Star<SceneCaptureComponentCube>;
+	private var CaptureComponentCube: cpp.Star<SceneCaptureComponentCube>;
 
 	public function OnInterpToggle(bEnable: Bool): Void;
 
@@ -15,8 +15,6 @@ extern class SceneCaptureCube extends SceneCapture {
 @:forward()
 @:nativeGen
 abstract ConstSceneCaptureCube(SceneCaptureCube) from SceneCaptureCube {
-	public extern var CaptureComponentCube(get, never): cpp.Star<SceneCaptureComponentCube.ConstSceneCaptureComponentCube>;
-	public inline extern function get_CaptureComponentCube(): cpp.Star<SceneCaptureComponentCube.ConstSceneCaptureComponentCube> return this.CaptureComponentCube;
 }
 
 @:forward

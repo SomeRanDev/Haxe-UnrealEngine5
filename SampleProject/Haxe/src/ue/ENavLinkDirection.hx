@@ -3,9 +3,9 @@ package ue;
 
 @:native("ENavLinkDirection.Type")
 @:include("AI/Navigation/NavLinkDefinition.h")
-extern enum ENavLinkDirection {
-	BothWays;
-	LeftToRight;
-	RightToLeft;
-	ENavLinkDirection_MAX;
+extern class ENavLinkDirection {
+	static var BothWays: ENavLinkDirection;
+	static var LeftToRight: ENavLinkDirection;
+	static var RightToLeft: ENavLinkDirection;
+	static var ENavLinkDirection_MAX: ENavLinkDirection;
 }

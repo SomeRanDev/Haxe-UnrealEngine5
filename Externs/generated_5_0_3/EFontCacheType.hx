@@ -3,8 +3,8 @@ package ue;
 
 @:native("EFontCacheType")
 @:include("Engine/Font.h")
-extern enum EFontCacheType {
-	Offline;
-	Runtime;
-	EFontCacheType_MAX;
+extern class EFontCacheType {
+	static var Offline: EFontCacheType;
+	static var Runtime: EFontCacheType;
+	static var EFontCacheType_MAX: EFontCacheType;
 }

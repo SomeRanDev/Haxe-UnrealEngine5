@@ -3,20 +3,20 @@ package ue;
 
 @:native("EMouseCursor.Type")
 @:include("UObject/NoExportTypes.h")
-extern enum EMouseCursor {
-	None;
-	Default;
-	TextEditBeam;
-	ResizeLeftRight;
-	ResizeUpDown;
-	ResizeSouthEast;
-	ResizeSouthWest;
-	CardinalCross;
-	Crosshairs;
-	Hand;
-	GrabHand;
-	GrabHandClosed;
-	SlashedCircle;
-	EyeDropper;
-	EMouseCursor_MAX;
+extern class EMouseCursor {
+	static var None: EMouseCursor;
+	static var Default: EMouseCursor;
+	static var TextEditBeam: EMouseCursor;
+	static var ResizeLeftRight: EMouseCursor;
+	static var ResizeUpDown: EMouseCursor;
+	static var ResizeSouthEast: EMouseCursor;
+	static var ResizeSouthWest: EMouseCursor;
+	static var CardinalCross: EMouseCursor;
+	static var Crosshairs: EMouseCursor;
+	static var Hand: EMouseCursor;
+	static var GrabHand: EMouseCursor;
+	static var GrabHandClosed: EMouseCursor;
+	static var SlashedCircle: EMouseCursor;
+	static var EyeDropper: EMouseCursor;
+	static var EMouseCursor_MAX: EMouseCursor;
 }

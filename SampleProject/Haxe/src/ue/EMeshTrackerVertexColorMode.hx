@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMeshTrackerVertexColorMode")
 @:include("MockDataMeshTrackerComponent.h")
-extern enum EMeshTrackerVertexColorMode {
-	None;
-	Confidence;
-	Block;
-	EMeshTrackerVertexColorMode_MAX;
+extern class EMeshTrackerVertexColorMode {
+	static var None: EMeshTrackerVertexColorMode;
+	static var Confidence: EMeshTrackerVertexColorMode;
+	static var Block: EMeshTrackerVertexColorMode;
+	static var EMeshTrackerVertexColorMode_MAX: EMeshTrackerVertexColorMode;
 }

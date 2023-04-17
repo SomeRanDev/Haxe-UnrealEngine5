@@ -3,16 +3,16 @@ package ue;
 
 @:native("EAutoUVTextureResolution")
 @:include("Private/FractureToolUV.h")
-extern enum EAutoUVTextureResolution {
-	Resolution16;
-	Resolution32;
-	Resolution64;
-	Resolution128;
-	Resolution256;
-	Resolution512;
-	Resolution1024;
-	Resolution2048;
-	Resolution4096;
-	Resolution8192;
-	EAutoUVTextureResolution_MAX;
+extern class EAutoUVTextureResolution {
+	static var Resolution16: EAutoUVTextureResolution;
+	static var Resolution32: EAutoUVTextureResolution;
+	static var Resolution64: EAutoUVTextureResolution;
+	static var Resolution128: EAutoUVTextureResolution;
+	static var Resolution256: EAutoUVTextureResolution;
+	static var Resolution512: EAutoUVTextureResolution;
+	static var Resolution1024: EAutoUVTextureResolution;
+	static var Resolution2048: EAutoUVTextureResolution;
+	static var Resolution4096: EAutoUVTextureResolution;
+	static var Resolution8192: EAutoUVTextureResolution;
+	static var EAutoUVTextureResolution_MAX: EAutoUVTextureResolution;
 }

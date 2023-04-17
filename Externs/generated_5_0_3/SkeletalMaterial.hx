@@ -7,9 +7,6 @@ package ue;
 extern class SkeletalMaterial {
 	public var MaterialInterface: cpp.Star<MaterialInterface>;
 	public var MaterialSlotName: FName;
-	public var bEnableShadowCasting_DEPRECATED: Bool;
-	public var bRecomputeTangent_DEPRECATED: Bool;
-	public var ImportedMaterialSlotName: FName;
 	public var UVChannelData: MeshUVChannelInfo;
 
 	@:native("FSkeletalMaterial") public function new();

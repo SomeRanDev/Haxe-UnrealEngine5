@@ -3,13 +3,13 @@ package ue;
 
 @:native("EWorkingColorSpace.Type")
 @:include("Engine/RendererSettings.h")
-extern enum EWorkingColorSpace {
-	sRGB;
-	Rec2020;
-	ACESAP0;
-	ACESAP1;
-	P3DCI;
-	P3D65;
-	Custom;
-	EWorkingColorSpace_MAX;
+extern class EWorkingColorSpace {
+	static var sRGB: EWorkingColorSpace;
+	static var Rec2020: EWorkingColorSpace;
+	static var ACESAP0: EWorkingColorSpace;
+	static var ACESAP1: EWorkingColorSpace;
+	static var P3DCI: EWorkingColorSpace;
+	static var P3D65: EWorkingColorSpace;
+	static var Custom: EWorkingColorSpace;
+	static var EWorkingColorSpace_MAX: EWorkingColorSpace;
 }

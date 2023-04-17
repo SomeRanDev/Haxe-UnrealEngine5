@@ -3,9 +3,9 @@ package ue;
 
 @:native("EMobileReflectionCompression")
 @:include("Components/ReflectionCaptureComponent.h")
-extern enum EMobileReflectionCompression {
-	Default;
-	On;
-	Off;
-	EMobileReflectionCompression_MAX;
+extern class EMobileReflectionCompression {
+	static var Default: EMobileReflectionCompression;
+	static var On: EMobileReflectionCompression;
+	static var Off: EMobileReflectionCompression;
+	static var EMobileReflectionCompression_MAX: EMobileReflectionCompression;
 }

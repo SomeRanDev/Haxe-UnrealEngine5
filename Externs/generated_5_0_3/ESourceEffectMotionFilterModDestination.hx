@@ -3,14 +3,14 @@ package ue;
 
 @:native("ESourceEffectMotionFilterModDestination")
 @:include("SourceEffects/SourceEffectMotionFilter.h")
-extern enum ESourceEffectMotionFilterModDestination {
-	FilterACutoffFrequency;
-	FilterAResonance;
-	FilterAOutputVolumeDB;
-	FilterBCutoffFrequency;
-	FilterBResonance;
-	FilterBOutputVolumeDB;
-	FilterMix;
-	Count;
-	ESourceEffectMotionFilterModDestination_MAX;
+extern class ESourceEffectMotionFilterModDestination {
+	static var FilterACutoffFrequency: ESourceEffectMotionFilterModDestination;
+	static var FilterAResonance: ESourceEffectMotionFilterModDestination;
+	static var FilterAOutputVolumeDB: ESourceEffectMotionFilterModDestination;
+	static var FilterBCutoffFrequency: ESourceEffectMotionFilterModDestination;
+	static var FilterBResonance: ESourceEffectMotionFilterModDestination;
+	static var FilterBOutputVolumeDB: ESourceEffectMotionFilterModDestination;
+	static var FilterMix: ESourceEffectMotionFilterModDestination;
+	static var Count: ESourceEffectMotionFilterModDestination;
+	static var ESourceEffectMotionFilterModDestination_MAX: ESourceEffectMotionFilterModDestination;
 }

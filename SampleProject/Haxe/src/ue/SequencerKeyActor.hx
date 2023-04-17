@@ -5,10 +5,10 @@ package ue;
 @:include("SequencerKeyActor.h")
 @:structAccess
 extern class SequencerKeyActor extends Actor {
-	public var KeyMeshComponent: cpp.Star<StaticMeshComp>;
-	public var AssociatedActor: cpp.Star<Actor>;
-	public var TrackSection: cpp.Star<MovieScene3DTransformSection>;
-	public var KeyTime: cpp.Float32;
+	private var KeyMeshComponent: cpp.Star<StaticMeshComp>;
+	private var AssociatedActor: cpp.Star<Actor>;
+	private var TrackSection: cpp.Star<MovieScene3DTransformSection>;
+	private var KeyTime: cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +16,6 @@ extern class SequencerKeyActor extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstSequencerKeyActor(SequencerKeyActor) from SequencerKeyActor {
-	public extern var KeyMeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_KeyMeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.KeyMeshComponent;
-	public extern var AssociatedActor(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_AssociatedActor(): cpp.Star<Actor.ConstActor> return this.AssociatedActor;
-	public extern var TrackSection(get, never): cpp.Star<MovieScene3DTransformSection.ConstMovieScene3DTransformSection>;
-	public inline extern function get_TrackSection(): cpp.Star<MovieScene3DTransformSection.ConstMovieScene3DTransformSection> return this.TrackSection;
-	public extern var KeyTime(get, never): cpp.Float32;
-	public inline extern function get_KeyTime(): cpp.Float32 return this.KeyTime;
 }
 
 @:forward

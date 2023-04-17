@@ -3,10 +3,10 @@ package ue;
 
 @:native("EInspectedAttributeEnum")
 @:include("Private/SGeometryCollectionHistogram.h")
-extern enum EInspectedAttributeEnum {
-	Volume;
-	Level;
-	InitialDynamicState;
-	Size;
-	EInspectedAttributeEnum_MAX;
+extern class EInspectedAttributeEnum {
+	static var Volume: EInspectedAttributeEnum;
+	static var Level: EInspectedAttributeEnum;
+	static var InitialDynamicState: EInspectedAttributeEnum;
+	static var Size: EInspectedAttributeEnum;
+	static var EInspectedAttributeEnum_MAX: EInspectedAttributeEnum;
 }

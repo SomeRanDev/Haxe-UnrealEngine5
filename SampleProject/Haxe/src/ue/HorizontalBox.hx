@@ -5,7 +5,7 @@ package ue;
 @:include("Components/HorizontalBox.h")
 @:structAccess
 extern class HorizontalBox extends PanelWidget {
-	public function AddChildToHorizontalBox(Content: cpp.Star<Widget>): cpp.Reference<cpp.Star<HorizontalBoxSlot>>;
+	public function AddChildToHorizontalBox(Content: cpp.Star<Widget>): cpp.Star<HorizontalBoxSlot>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

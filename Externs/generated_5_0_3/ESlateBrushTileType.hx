@@ -3,10 +3,10 @@ package ue;
 
 @:native("ESlateBrushTileType.Type")
 @:include("Styling/SlateBrush.h")
-extern enum ESlateBrushTileType {
-	NoTile;
-	Horizontal;
-	Vertical;
-	Both;
-	ESlateBrushTileType_MAX;
+extern class ESlateBrushTileType {
+	static var NoTile: ESlateBrushTileType;
+	static var Horizontal: ESlateBrushTileType;
+	static var Vertical: ESlateBrushTileType;
+	static var Both: ESlateBrushTileType;
+	static var ESlateBrushTileType_MAX: ESlateBrushTileType;
 }

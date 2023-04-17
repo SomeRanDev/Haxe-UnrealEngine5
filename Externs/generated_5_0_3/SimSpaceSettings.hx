@@ -11,7 +11,6 @@ extern class SimSpaceSettings {
 	public var MaxAngularVelocity: cpp.Float32;
 	public var MaxLinearAcceleration: cpp.Float32;
 	public var MaxAngularAcceleration: cpp.Float32;
-	public var ExternalLinearDrag_DEPRECATED: cpp.Float32;
 	public var ExternalLinearDragV: Vector;
 	public var ExternalLinearVelocity: Vector;
 	public var ExternalAngularVelocity: Vector;

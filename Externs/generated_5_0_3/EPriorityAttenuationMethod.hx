@@ -3,9 +3,9 @@ package ue;
 
 @:native("EPriorityAttenuationMethod")
 @:include("Sound/SoundAttenuation.h")
-extern enum EPriorityAttenuationMethod {
-	Linear;
-	CustomCurve;
-	Manual;
-	EPriorityAttenuationMethod_MAX;
+extern class EPriorityAttenuationMethod {
+	static var Linear: EPriorityAttenuationMethod;
+	static var CustomCurve: EPriorityAttenuationMethod;
+	static var Manual: EPriorityAttenuationMethod;
+	static var EPriorityAttenuationMethod_MAX: EPriorityAttenuationMethod;
 }

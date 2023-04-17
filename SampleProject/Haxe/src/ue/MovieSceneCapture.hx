@@ -17,8 +17,8 @@ extern class MovieSceneCapture extends Object {
 
 	public function SetImageCaptureProtocolType(ProtocolType: TSubclassOf<MovieSceneCaptureProtocolBase>): Void;
 	public function SetAudioCaptureProtocolType(ProtocolType: TSubclassOf<MovieSceneCaptureProtocolBase>): Void;
-	public function GetImageCaptureProtocol(): cpp.Reference<cpp.Star<MovieSceneCaptureProtocolBase>>;
-	public function GetAudioCaptureProtocol(): cpp.Reference<cpp.Star<MovieSceneCaptureProtocolBase>>;
+	public function GetImageCaptureProtocol(): cpp.Star<MovieSceneCaptureProtocolBase>;
+	public function GetAudioCaptureProtocol(): cpp.Star<MovieSceneCaptureProtocolBase>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

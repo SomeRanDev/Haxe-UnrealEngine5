@@ -5,7 +5,7 @@ package ue;
 @:include("Animation/AssetMappingTable.h")
 @:structAccess
 extern class AssetMappingTable extends Object {
-	public var MappedAssets: TArray<AssetMapping>;
+	private var MappedAssets: TArray<AssetMapping>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class AssetMappingTable extends Object {
 @:forward()
 @:nativeGen
 abstract ConstAssetMappingTable(AssetMappingTable) from AssetMappingTable {
-	public extern var MappedAssets(get, never): TArray<AssetMapping>;
-	public inline extern function get_MappedAssets(): TArray<AssetMapping> return this.MappedAssets;
 }
 
 @:forward

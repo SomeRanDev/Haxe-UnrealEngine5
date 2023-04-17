@@ -3,14 +3,14 @@ package ue;
 
 @:native("EMaterialShadingRate")
 @:include("Engine/EngineTypes.h")
-extern enum EMaterialShadingRate {
-	MSR_1x1;
-	MSR_2x1;
-	MSR_1x2;
-	MSR_2x2;
-	MSR_4x2;
-	MSR_2x4;
-	MSR_4x4;
-	MSR_Count;
-	MSR_MAX;
+extern class EMaterialShadingRate {
+	static var MSR_1x1: EMaterialShadingRate;
+	static var MSR_2x1: EMaterialShadingRate;
+	static var MSR_1x2: EMaterialShadingRate;
+	static var MSR_2x2: EMaterialShadingRate;
+	static var MSR_4x2: EMaterialShadingRate;
+	static var MSR_2x4: EMaterialShadingRate;
+	static var MSR_4x4: EMaterialShadingRate;
+	static var MSR_Count: EMaterialShadingRate;
+	static var MSR_MAX: EMaterialShadingRate;
 }

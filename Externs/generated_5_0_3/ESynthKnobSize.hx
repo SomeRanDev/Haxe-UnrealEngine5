@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESynthKnobSize")
 @:include("UI/SynthKnobStyle.h")
-extern enum ESynthKnobSize {
-	Medium;
-	Large;
-	Count;
-	ESynthKnobSize_MAX;
+extern class ESynthKnobSize {
+	static var Medium: ESynthKnobSize;
+	static var Large: ESynthKnobSize;
+	static var Count: ESynthKnobSize;
+	static var ESynthKnobSize_MAX: ESynthKnobSize;
 }

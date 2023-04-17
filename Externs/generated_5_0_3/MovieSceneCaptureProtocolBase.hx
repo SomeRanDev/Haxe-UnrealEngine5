@@ -5,10 +5,10 @@ package ue;
 @:include("MovieSceneCaptureProtocolBase.h")
 @:structAccess
 extern class MovieSceneCaptureProtocolBase extends Object {
-	public var State: EMovieSceneCaptureProtocolState;
+	private var State: EMovieSceneCaptureProtocolState;
 
-	public function IsCapturing(): cpp.Reference<Bool>;
-	public function GetState(): cpp.Reference<EMovieSceneCaptureProtocolState>;
+	public function IsCapturing(): Bool;
+	public function GetState(): EMovieSceneCaptureProtocolState;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,6 @@ extern class MovieSceneCaptureProtocolBase extends Object {
 @:forward(IsCapturing, GetState)
 @:nativeGen
 abstract ConstMovieSceneCaptureProtocolBase(MovieSceneCaptureProtocolBase) from MovieSceneCaptureProtocolBase {
-	public extern var State(get, never): EMovieSceneCaptureProtocolState;
-	public inline extern function get_State(): EMovieSceneCaptureProtocolState return this.State;
 }
 
 @:forward

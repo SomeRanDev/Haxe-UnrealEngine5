@@ -3,9 +3,9 @@ package ue;
 
 @:native("EAnimationViewportCameraFollowMode")
 @:include("Preferences/PersonaOptions.h")
-extern enum EAnimationViewportCameraFollowMode {
-	None;
-	Bounds;
-	Bone;
-	EAnimationViewportCameraFollowMode_MAX;
+extern class EAnimationViewportCameraFollowMode {
+	static var None: EAnimationViewportCameraFollowMode;
+	static var Bounds: EAnimationViewportCameraFollowMode;
+	static var Bone: EAnimationViewportCameraFollowMode;
+	static var EAnimationViewportCameraFollowMode_MAX: EAnimationViewportCameraFollowMode;
 }

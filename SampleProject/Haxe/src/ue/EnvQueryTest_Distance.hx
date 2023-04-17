@@ -5,7 +5,7 @@ package ue;
 @:include("EnvironmentQuery/Tests/EnvQueryTest_Distance.h")
 @:structAccess
 extern class EnvQueryTest_Distance extends EnvQueryTest {
-	public var TestMode: EEnvTestDistance;
+	public var TestMode: TEnumAsByte<EEnvTestDistance>;
 	public var DistanceTo: TSubclassOf<EnvQueryContext>;
 
 	public static function StaticClass(): cpp.Star<Class>;
@@ -14,8 +14,8 @@ extern class EnvQueryTest_Distance extends EnvQueryTest {
 @:forward()
 @:nativeGen
 abstract ConstEnvQueryTest_Distance(EnvQueryTest_Distance) from EnvQueryTest_Distance {
-	public extern var TestMode(get, never): EEnvTestDistance;
-	public inline extern function get_TestMode(): EEnvTestDistance return this.TestMode;
+	public extern var TestMode(get, never): TEnumAsByte<EEnvTestDistance>;
+	public inline extern function get_TestMode(): TEnumAsByte<EEnvTestDistance> return this.TestMode;
 	public extern var DistanceTo(get, never): TSubclassOf<EnvQueryContext.ConstEnvQueryContext>;
 	public inline extern function get_DistanceTo(): TSubclassOf<EnvQueryContext.ConstEnvQueryContext> return this.DistanceTo;
 }

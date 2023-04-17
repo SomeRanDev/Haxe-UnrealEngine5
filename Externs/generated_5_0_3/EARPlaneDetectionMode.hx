@@ -3,9 +3,9 @@ package ue;
 
 @:native("EARPlaneDetectionMode")
 @:include("ARSessionConfig.h")
-extern enum EARPlaneDetectionMode {
-	None;
-	HorizontalPlaneDetection;
-	VerticalPlaneDetection;
-	EARPlaneDetectionMode_MAX;
+extern class EARPlaneDetectionMode {
+	static var None: EARPlaneDetectionMode;
+	static var HorizontalPlaneDetection: EARPlaneDetectionMode;
+	static var VerticalPlaneDetection: EARPlaneDetectionMode;
+	static var EARPlaneDetectionMode_MAX: EARPlaneDetectionMode;
 }

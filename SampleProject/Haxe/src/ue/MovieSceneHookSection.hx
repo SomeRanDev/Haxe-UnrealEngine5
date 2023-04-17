@@ -5,8 +5,8 @@ package ue;
 @:include("Sections/MovieSceneHookSection.h")
 @:structAccess
 extern class MovieSceneHookSection extends MovieSceneSection {
-	public var bRequiresRangedHook: Bool;
-	public var bRequiresTriggerHooks: Bool;
+	@:protected public var bRequiresRangedHook: Bool;
+	@:protected public var bRequiresTriggerHooks: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class MovieSceneHookSection extends MovieSceneSection {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneHookSection(MovieSceneHookSection) from MovieSceneHookSection {
-	public extern var bRequiresRangedHook(get, never): Bool;
-	public inline extern function get_bRequiresRangedHook(): Bool return this.bRequiresRangedHook;
-	public extern var bRequiresTriggerHooks(get, never): Bool;
-	public inline extern function get_bRequiresTriggerHooks(): Bool return this.bRequiresTriggerHooks;
 }
 
 @:forward

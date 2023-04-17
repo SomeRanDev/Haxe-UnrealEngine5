@@ -5,16 +5,16 @@ package ue;
 @:include("AnimNode_ControlRigBase.h")
 @:structAccess
 extern class AnimNode_ControlRigBase extends AnimNode_CustomProperty {
-	public var Source: PoseLink;
-	public var bResetInputPoseToInitial: Bool;
-	public var bTransferInputPose: Bool;
-	public var bTransferInputCurves: Bool;
-	public var bTransferPoseInGlobalSpace: Bool;
-	public var InputBonesToTransfer: TArray<BoneReference>;
-	public var NodeMappingContainer: TWeakObjectPtr<NodeMappingContainer>;
-	public var InputSettings: ControlRigIOSettings;
-	public var OutputSettings: ControlRigIOSettings;
-	public var bExecute: Bool;
+	@:protected public var Source: PoseLink;
+	@:protected public var bResetInputPoseToInitial: Bool;
+	@:protected public var bTransferInputPose: Bool;
+	@:protected public var bTransferInputCurves: Bool;
+	@:protected public var bTransferPoseInGlobalSpace: Bool;
+	@:protected public var InputBonesToTransfer: TArray<BoneReference>;
+	@:protected public var NodeMappingContainer: TWeakObjectPtr<NodeMappingContainer>;
+	@:protected public var InputSettings: ControlRigIOSettings;
+	@:protected public var OutputSettings: ControlRigIOSettings;
+	@:protected public var bExecute: Bool;
 
 	@:native("FAnimNode_ControlRigBase") public function new();
 }

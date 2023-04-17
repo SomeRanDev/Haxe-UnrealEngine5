@@ -5,7 +5,7 @@ package ue;
 @:include("ControlPointMeshActor.h")
 @:structAccess
 extern class ControlPointMeshActor extends Actor {
-	public var ControlPointMeshComponent: cpp.Star<ControlPointMeshComp>;
+	private var ControlPointMeshComponent: cpp.Star<ControlPointMeshComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class ControlPointMeshActor extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstControlPointMeshActor(ControlPointMeshActor) from ControlPointMeshActor {
-	public extern var ControlPointMeshComponent(get, never): cpp.Star<ControlPointMeshComp.ConstControlPointMeshComp>;
-	public inline extern function get_ControlPointMeshComponent(): cpp.Star<ControlPointMeshComp.ConstControlPointMeshComp> return this.ControlPointMeshComponent;
 }
 
 @:forward

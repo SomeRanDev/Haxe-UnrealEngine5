@@ -3,12 +3,12 @@ package ue;
 
 @:native("EDynamicBoxType")
 @:include("Components/DynamicEntryBoxBase.h")
-extern enum EDynamicBoxType {
-	Horizontal;
-	Vertical;
-	Wrap;
-	VerticalWrap;
-	Radial;
-	Overlay;
-	EDynamicBoxType_MAX;
+extern class EDynamicBoxType {
+	static var Horizontal: EDynamicBoxType;
+	static var Vertical: EDynamicBoxType;
+	static var Wrap: EDynamicBoxType;
+	static var VerticalWrap: EDynamicBoxType;
+	static var Radial: EDynamicBoxType;
+	static var Overlay: EDynamicBoxType;
+	static var EDynamicBoxType_MAX: EDynamicBoxType;
 }

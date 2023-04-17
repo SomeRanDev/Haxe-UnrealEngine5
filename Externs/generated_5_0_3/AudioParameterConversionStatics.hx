@@ -5,16 +5,16 @@ package ue;
 @:include("Audio/SoundParameterControllerInterface.h")
 @:structAccess
 extern class AudioParameterConversionStatics extends BlueprintFunctionLibrary {
-	public function StringToAudioParameter(Name: FName, String: FString): cpp.Reference<AudioParameter>;
-	public function StringArrayToAudioParameter(Name: FName, Strings: TArray<FString>): cpp.Reference<AudioParameter>;
-	public function ObjectToAudioParameter(Name: FName, Object: cpp.Star<Object>): cpp.Reference<AudioParameter>;
-	public function ObjectArrayToAudioParameter(Name: FName, Objects: TArray<cpp.Star<Object>>): cpp.Reference<AudioParameter>;
-	public function IntegerToAudioParameter(Name: FName, Integer: cpp.Int32): cpp.Reference<AudioParameter>;
-	public function IntegerArrayToAudioParameter(Name: FName, Integers: TArray<cpp.Int32>): cpp.Reference<AudioParameter>;
-	public function FloatToAudioParameter(Name: FName, Float: cpp.Float32): cpp.Reference<AudioParameter>;
-	public function FloatArrayToAudioParameter(Name: FName, Floats: TArray<cpp.Float32>): cpp.Reference<AudioParameter>;
-	public function BooleanToAudioParameter(Name: FName, Bool: Bool): cpp.Reference<AudioParameter>;
-	public function BooleanArrayToAudioParameter(Name: FName, Bools: TArray<Bool>): cpp.Reference<AudioParameter>;
+	public function StringToAudioParameter(Name: FName, String: FString): AudioParameter;
+	public function StringArrayToAudioParameter(Name: FName, Strings: TArray<FString>): AudioParameter;
+	public function ObjectToAudioParameter(Name: FName, Object: cpp.Star<Object>): AudioParameter;
+	public function ObjectArrayToAudioParameter(Name: FName, Objects: TArray<cpp.Star<Object>>): AudioParameter;
+	public function IntegerToAudioParameter(Name: FName, Integer: cpp.Int32): AudioParameter;
+	public function IntegerArrayToAudioParameter(Name: FName, Integers: TArray<cpp.Int32>): AudioParameter;
+	public function FloatToAudioParameter(Name: FName, Float: cpp.Float32): AudioParameter;
+	public function FloatArrayToAudioParameter(Name: FName, Floats: TArray<cpp.Float32>): AudioParameter;
+	public function BooleanToAudioParameter(Name: FName, Bool: Bool): AudioParameter;
+	public function BooleanArrayToAudioParameter(Name: FName, Bools: TArray<Bool>): AudioParameter;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

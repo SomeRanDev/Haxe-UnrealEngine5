@@ -3,8 +3,8 @@ package ue;
 
 @:native("EXRVisualType")
 @:include("HeadMountedDisplayTypes.h")
-extern enum EXRVisualType {
-	Controller;
-	Hand;
-	EXRVisualType_MAX;
+extern class EXRVisualType {
+	static var Controller: EXRVisualType;
+	static var Hand: EXRVisualType;
+	static var EXRVisualType_MAX: EXRVisualType;
 }

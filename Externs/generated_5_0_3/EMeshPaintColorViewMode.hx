@@ -3,12 +3,12 @@ package ue;
 
 @:native("EMeshPaintColorViewMode")
 @:include("MeshPaintSettings.h")
-extern enum EMeshPaintColorViewMode {
-	Normal;
-	RGB;
-	Alpha;
-	Red;
-	Green;
-	Blue;
-	EMeshPaintColorViewMode_MAX;
+extern class EMeshPaintColorViewMode {
+	static var Normal: EMeshPaintColorViewMode;
+	static var RGB: EMeshPaintColorViewMode;
+	static var Alpha: EMeshPaintColorViewMode;
+	static var Red: EMeshPaintColorViewMode;
+	static var Green: EMeshPaintColorViewMode;
+	static var Blue: EMeshPaintColorViewMode;
+	static var EMeshPaintColorViewMode_MAX: EMeshPaintColorViewMode;
 }

@@ -5,7 +5,7 @@ package ue;
 @:include("Tracks/MovieSceneVectorTrack.h")
 @:structAccess
 extern class MovieSceneFloatVectorTrack extends MovieScenePropertyTrack {
-	public var NumChannelsUsed: cpp.Int32;
+	private var NumChannelsUsed: cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class MovieSceneFloatVectorTrack extends MovieScenePropertyTrack {
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneFloatVectorTrack(MovieSceneFloatVectorTrack) from MovieSceneFloatVectorTrack {
-	public extern var NumChannelsUsed(get, never): cpp.Int32;
-	public inline extern function get_NumChannelsUsed(): cpp.Int32 return this.NumChannelsUsed;
 }
 
 @:forward

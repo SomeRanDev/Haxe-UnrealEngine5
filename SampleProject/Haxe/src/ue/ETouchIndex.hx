@@ -3,18 +3,18 @@ package ue;
 
 @:native("ETouchIndex.Type")
 @:include("InputCoreTypes.h")
-extern enum ETouchIndex {
-	Touch1;
-	Touch2;
-	Touch3;
-	Touch4;
-	Touch5;
-	Touch6;
-	Touch7;
-	Touch8;
-	Touch9;
-	Touch10;
-	CursorPointerIndex;
-	MAX_TOUCHES;
-	ETouchIndex_MAX;
+extern class ETouchIndex {
+	static var Touch1: ETouchIndex;
+	static var Touch2: ETouchIndex;
+	static var Touch3: ETouchIndex;
+	static var Touch4: ETouchIndex;
+	static var Touch5: ETouchIndex;
+	static var Touch6: ETouchIndex;
+	static var Touch7: ETouchIndex;
+	static var Touch8: ETouchIndex;
+	static var Touch9: ETouchIndex;
+	static var Touch10: ETouchIndex;
+	static var CursorPointerIndex: ETouchIndex;
+	static var MAX_TOUCHES: ETouchIndex;
+	static var ETouchIndex_MAX: ETouchIndex;
 }

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EBodyCollisionResponse.Type")
 @:include("BodySetupEnums.h")
-extern enum EBodyCollisionResponse {
-	BodyCollision_Enabled;
-	BodyCollision_Disabled;
-	BodyCollision_MAX;
+extern class EBodyCollisionResponse {
+	static var BodyCollision_Enabled: EBodyCollisionResponse;
+	static var BodyCollision_Disabled: EBodyCollisionResponse;
+	static var BodyCollision_MAX: EBodyCollisionResponse;
 }

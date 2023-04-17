@@ -5,8 +5,8 @@ package ue;
 @:include("Engine/DebugCameraControllerSettings.h")
 @:structAccess
 extern class DebugCameraControllerSettingsViewModeIndex {
-	public var ViewModeIndex: EViewModeIndex;
+	public var ViewModeIndex: TEnumAsByte<EViewModeIndex>;
 
 	@:native("FDebugCameraControllerSettingsViewModeIndex") public function new();
-	@:native("FDebugCameraControllerSettingsViewModeIndex") public static function make(ViewModeIndex: EViewModeIndex): DebugCameraControllerSettingsViewModeIndex ;
+	@:native("FDebugCameraControllerSettingsViewModeIndex") public static function make(ViewModeIndex: TEnumAsByte<EViewModeIndex>): DebugCameraControllerSettingsViewModeIndex ;
 }

@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class ClothingAssetBase extends Object {
 	public var ImportedFilePath: FString;
-	public var AssetGuid: Guid;
+	@:protected public var AssetGuid: Guid;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,6 @@ extern class ClothingAssetBase extends Object {
 abstract ConstClothingAssetBase(ClothingAssetBase) from ClothingAssetBase {
 	public extern var ImportedFilePath(get, never): FString;
 	public inline extern function get_ImportedFilePath(): FString return this.ImportedFilePath;
-	public extern var AssetGuid(get, never): Guid;
-	public inline extern function get_AssetGuid(): Guid return this.AssetGuid;
 }
 
 @:forward

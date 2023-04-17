@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class MaterialExpressionAntialiasedTextureMask extends MaterialExpressionTextureSampleParameter2D {
 	public var Threshold: cpp.Float32;
-	public var Channel: ETextureColorChannel;
+	public var Channel: TEnumAsByte<ETextureColorChannel>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,8 @@ extern class MaterialExpressionAntialiasedTextureMask extends MaterialExpression
 abstract ConstMaterialExpressionAntialiasedTextureMask(MaterialExpressionAntialiasedTextureMask) from MaterialExpressionAntialiasedTextureMask {
 	public extern var Threshold(get, never): cpp.Float32;
 	public inline extern function get_Threshold(): cpp.Float32 return this.Threshold;
-	public extern var Channel(get, never): ETextureColorChannel;
-	public inline extern function get_Channel(): ETextureColorChannel return this.Channel;
+	public extern var Channel(get, never): TEnumAsByte<ETextureColorChannel>;
+	public inline extern function get_Channel(): TEnumAsByte<ETextureColorChannel> return this.Channel;
 }
 
 @:forward

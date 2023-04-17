@@ -20,10 +20,8 @@ extern class MeshBuildSettings {
 	public var MinLightmapResolution: cpp.Int32;
 	public var SrcLightmapIndex: cpp.Int32;
 	public var DstLightmapIndex: cpp.Int32;
-	public var BuildScale_DEPRECATED: cpp.Float32;
 	public var BuildScale3D: Vector;
 	public var DistanceFieldResolutionScale: cpp.Float32;
-	public var DistanceFieldBias_DEPRECATED: cpp.Float32;
 	public var DistanceFieldReplacementMesh: cpp.Star<StaticMesh>;
 	public var MaxLumenMeshCards: cpp.Int32;
 

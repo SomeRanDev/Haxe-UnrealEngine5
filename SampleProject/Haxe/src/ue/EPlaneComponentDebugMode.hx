@@ -3,9 +3,9 @@ package ue;
 
 @:native("EPlaneComponentDebugMode")
 @:include("ARComponent.h")
-extern enum EPlaneComponentDebugMode {
-	None;
-	ShowNetworkRole;
-	ShowClassification;
-	EPlaneComponentDebugMode_MAX;
+extern class EPlaneComponentDebugMode {
+	static var None: EPlaneComponentDebugMode;
+	static var ShowNetworkRole: EPlaneComponentDebugMode;
+	static var ShowClassification: EPlaneComponentDebugMode;
+	static var EPlaneComponentDebugMode_MAX: EPlaneComponentDebugMode;
 }

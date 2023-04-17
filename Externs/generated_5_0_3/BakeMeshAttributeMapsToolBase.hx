@@ -5,14 +5,14 @@ package ue;
 @:include("BakeMeshAttributeMapsToolBase.h")
 @:structAccess
 extern class BakeMeshAttributeMapsToolBase extends BakeMeshAttributeTool {
-	public var VisualizationProps: cpp.Star<BakeVisualizationProperties>;
-	public var PreviewMesh: cpp.Star<PreviewMesh>;
-	public var PreviewMaterial: cpp.Star<MaterialInstanceDynamic>;
-	public var BentNormalPreviewMaterial: cpp.Star<MaterialInstanceDynamic>;
-	public var CachedMaps: TMap<EBakeMapType, cpp.Star<Texture2D>>;
-	public var EmptyNormalMap: cpp.Star<Texture2D>;
-	public var EmptyColorMapBlack: cpp.Star<Texture2D>;
-	public var EmptyColorMapWhite: cpp.Star<Texture2D>;
+	@:protected public var VisualizationProps: cpp.Star<BakeVisualizationProperties>;
+	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
+	@:protected public var PreviewMaterial: cpp.Star<MaterialInstanceDynamic>;
+	@:protected public var BentNormalPreviewMaterial: cpp.Star<MaterialInstanceDynamic>;
+	@:protected public var CachedMaps: TMap<EBakeMapType, cpp.Star<Texture2D>>;
+	@:protected public var EmptyNormalMap: cpp.Star<Texture2D>;
+	@:protected public var EmptyColorMapBlack: cpp.Star<Texture2D>;
+	@:protected public var EmptyColorMapWhite: cpp.Star<Texture2D>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -20,22 +20,6 @@ extern class BakeMeshAttributeMapsToolBase extends BakeMeshAttributeTool {
 @:forward()
 @:nativeGen
 abstract ConstBakeMeshAttributeMapsToolBase(BakeMeshAttributeMapsToolBase) from BakeMeshAttributeMapsToolBase {
-	public extern var VisualizationProps(get, never): cpp.Star<BakeVisualizationProperties.ConstBakeVisualizationProperties>;
-	public inline extern function get_VisualizationProps(): cpp.Star<BakeVisualizationProperties.ConstBakeVisualizationProperties> return this.VisualizationProps;
-	public extern var PreviewMesh(get, never): cpp.Star<PreviewMesh.ConstPreviewMesh>;
-	public inline extern function get_PreviewMesh(): cpp.Star<PreviewMesh.ConstPreviewMesh> return this.PreviewMesh;
-	public extern var PreviewMaterial(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_PreviewMaterial(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.PreviewMaterial;
-	public extern var BentNormalPreviewMaterial(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_BentNormalPreviewMaterial(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.BentNormalPreviewMaterial;
-	public extern var CachedMaps(get, never): TMap<EBakeMapType, cpp.Star<Texture2D.ConstTexture2D>>;
-	public inline extern function get_CachedMaps(): TMap<EBakeMapType, cpp.Star<Texture2D.ConstTexture2D>> return this.CachedMaps;
-	public extern var EmptyNormalMap(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_EmptyNormalMap(): cpp.Star<Texture2D.ConstTexture2D> return this.EmptyNormalMap;
-	public extern var EmptyColorMapBlack(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_EmptyColorMapBlack(): cpp.Star<Texture2D.ConstTexture2D> return this.EmptyColorMapBlack;
-	public extern var EmptyColorMapWhite(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_EmptyColorMapWhite(): cpp.Star<Texture2D.ConstTexture2D> return this.EmptyColorMapWhite;
 }
 
 @:forward

@@ -6,26 +6,23 @@ package ue;
 @:structAccess
 extern class TemplateSequenceActor extends Actor {
 	public var PlaybackSettings: MovieSceneSequencePlaybackSettings;
-	public var SequencePlayer: cpp.Star<TemplateSequencePlayer>;
+	public function GetSequencePlayer(): cpp.Star<TemplateSequencePlayer>;
 	public var TemplateSequence: SoftObjectPath;
 	public var BindingOverride: TemplateSequenceBindingOverrideData;
 
 	public function SetSequence(InSequence: cpp.Star<TemplateSequence>): Void;
 	public function SetBinding(Actor: cpp.Star<Actor>, bOverridesDefault: Bool): Void;
-	public function LoadSequence(): cpp.Reference<cpp.Star<TemplateSequence>>;
-	public function GetSequencePlayer(): cpp.Reference<cpp.Star<TemplateSequencePlayer>>;
-	public function GetSequence(): cpp.Reference<cpp.Star<TemplateSequence>>;
+	public function LoadSequence(): cpp.Star<TemplateSequence>;
+	public function GetSequence(): cpp.Star<TemplateSequence>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
 
-@:forward(LoadSequence, GetSequencePlayer, GetSequence)
+@:forward(LoadSequence, GetSequence)
 @:nativeGen
 abstract ConstTemplateSequenceActor(TemplateSequenceActor) from TemplateSequenceActor {
 	public extern var PlaybackSettings(get, never): MovieSceneSequencePlaybackSettings;
 	public inline extern function get_PlaybackSettings(): MovieSceneSequencePlaybackSettings return this.PlaybackSettings;
-	public extern var SequencePlayer(get, never): cpp.Star<TemplateSequencePlayer.ConstTemplateSequencePlayer>;
-	public inline extern function get_SequencePlayer(): cpp.Star<TemplateSequencePlayer.ConstTemplateSequencePlayer> return this.SequencePlayer;
 	public extern var TemplateSequence(get, never): SoftObjectPath;
 	public inline extern function get_TemplateSequence(): SoftObjectPath return this.TemplateSequence;
 	public extern var BindingOverride(get, never): TemplateSequenceBindingOverrideData;

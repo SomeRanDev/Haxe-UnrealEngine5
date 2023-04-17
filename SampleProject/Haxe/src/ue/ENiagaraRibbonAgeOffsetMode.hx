@@ -3,8 +3,8 @@ package ue;
 
 @:native("ENiagaraRibbonAgeOffsetMode")
 @:include("NiagaraRibbonRendererProperties.h")
-extern enum ENiagaraRibbonAgeOffsetMode {
-	Scale;
-	Clip;
-	ENiagaraRibbonAgeOffsetMode_MAX;
+extern class ENiagaraRibbonAgeOffsetMode {
+	static var Scale: ENiagaraRibbonAgeOffsetMode;
+	static var Clip: ENiagaraRibbonAgeOffsetMode;
+	static var ENiagaraRibbonAgeOffsetMode_MAX: ENiagaraRibbonAgeOffsetMode;
 }

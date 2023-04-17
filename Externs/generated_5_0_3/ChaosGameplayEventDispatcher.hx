@@ -5,9 +5,9 @@ package ue;
 @:include("Chaos/ChaosGameplayEventDispatcher.h")
 @:structAccess
 extern class ChaosGameplayEventDispatcher extends ChaosEventListenerComp {
-	public var CollisionEventRegistrations: TMap<cpp.Star<PrimitiveComp>, ChaosHandlerSet>;
-	public var BreakEventRegistrations: TMap<cpp.Star<PrimitiveComp>, BreakEventCallbackWrapper>;
-	public var RemovalEventRegistrations: TMap<cpp.Star<PrimitiveComp>, RemovalEventCallbackWrapper>;
+	private var CollisionEventRegistrations: TMap<cpp.Star<PrimitiveComp>, ChaosHandlerSet>;
+	private var BreakEventRegistrations: TMap<cpp.Star<PrimitiveComp>, BreakEventCallbackWrapper>;
+	private var RemovalEventRegistrations: TMap<cpp.Star<PrimitiveComp>, RemovalEventCallbackWrapper>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -15,12 +15,6 @@ extern class ChaosGameplayEventDispatcher extends ChaosEventListenerComp {
 @:forward()
 @:nativeGen
 abstract ConstChaosGameplayEventDispatcher(ChaosGameplayEventDispatcher) from ChaosGameplayEventDispatcher {
-	public extern var CollisionEventRegistrations(get, never): TMap<cpp.Star<PrimitiveComp.ConstPrimitiveComp>, ChaosHandlerSet>;
-	public inline extern function get_CollisionEventRegistrations(): TMap<cpp.Star<PrimitiveComp.ConstPrimitiveComp>, ChaosHandlerSet> return this.CollisionEventRegistrations;
-	public extern var BreakEventRegistrations(get, never): TMap<cpp.Star<PrimitiveComp.ConstPrimitiveComp>, BreakEventCallbackWrapper>;
-	public inline extern function get_BreakEventRegistrations(): TMap<cpp.Star<PrimitiveComp.ConstPrimitiveComp>, BreakEventCallbackWrapper> return this.BreakEventRegistrations;
-	public extern var RemovalEventRegistrations(get, never): TMap<cpp.Star<PrimitiveComp.ConstPrimitiveComp>, RemovalEventCallbackWrapper>;
-	public inline extern function get_RemovalEventRegistrations(): TMap<cpp.Star<PrimitiveComp.ConstPrimitiveComp>, RemovalEventCallbackWrapper> return this.RemovalEventRegistrations;
 }
 
 @:forward

@@ -7,19 +7,13 @@ package ue;
 extern class AnimNode_Trail extends AnimNode_SkeletalControlBase {
 	public var TrailBone: BoneReference;
 	public var ChainLength: cpp.Int32;
-	public var ChainBoneAxis: EAxis;
+	public var ChainBoneAxis: TEnumAsByte<EAxis>;
 	public var bInvertChainBoneAxis: Bool;
 	public var bLimitStretch: Bool;
 	public var bLimitRotation: Bool;
 	public var bUsePlanarLimit: Bool;
 	public var bActorSpaceFakeVel: Bool;
 	public var bReorientParentToChild: Bool;
-	public var bEnableDebug: Bool;
-	public var bShowBaseMotion: Bool;
-	public var bShowTrailLocation: Bool;
-	public var bShowLimit: Bool;
-	public var DebugLifeTime: cpp.Float32;
-	public var TrailRelaxation_DEPRECATED: cpp.Float32;
 	public var MaxDeltaTime: cpp.Float32;
 	public var RelaxationSpeedScale: cpp.Float32;
 	public var TrailRelaxationSpeed: RuntimeFloatCurve;
@@ -30,7 +24,6 @@ extern class AnimNode_Trail extends AnimNode_SkeletalControlBase {
 	public var StretchLimit: cpp.Float32;
 	public var FakeVelocity: Vector;
 	public var BaseJoint: BoneReference;
-	public var TrailBoneRotationBlendAlpha_DEPRECATED: cpp.Float32;
 	public var LastBoneRotationAnimAlphaBlend: cpp.Float32;
 
 	@:native("FAnimNode_Trail") public function new();

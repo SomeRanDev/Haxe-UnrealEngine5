@@ -8,7 +8,6 @@ extern class ExponentialHeightFogComp extends SceneComp {
 	public var FogDensity: cpp.Float32;
 	public var FogHeightFalloff: cpp.Float32;
 	public var SecondFogData: ExponentialHeightFogData;
-	public var FogInscatteringColor_DEPRECATED: LinearColor;
 	public var FogInscatteringLuminance: LinearColor;
 	public var InscatteringColorCubemap: cpp.Star<TextureCube>;
 	public var InscatteringColorCubemapAngle: cpp.Float32;
@@ -17,7 +16,6 @@ extern class ExponentialHeightFogComp extends SceneComp {
 	public var NonDirectionalInscatteringColorDistance: cpp.Float32;
 	public var DirectionalInscatteringExponent: cpp.Float32;
 	public var DirectionalInscatteringStartDistance: cpp.Float32;
-	public var DirectionalInscatteringColor_DEPRECATED: LinearColor;
 	public var DirectionalInscatteringLuminance: LinearColor;
 	public var FogMaxOpacity: cpp.Float32;
 	public var StartDistance: cpp.Float32;
@@ -64,8 +62,6 @@ abstract ConstExponentialHeightFogComp(ExponentialHeightFogComp) from Exponentia
 	public inline extern function get_FogHeightFalloff(): cpp.Float32 return this.FogHeightFalloff;
 	public extern var SecondFogData(get, never): ExponentialHeightFogData;
 	public inline extern function get_SecondFogData(): ExponentialHeightFogData return this.SecondFogData;
-	public extern var FogInscatteringColor_DEPRECATED(get, never): LinearColor;
-	public inline extern function get_FogInscatteringColor_DEPRECATED(): LinearColor return this.FogInscatteringColor_DEPRECATED;
 	public extern var FogInscatteringLuminance(get, never): LinearColor;
 	public inline extern function get_FogInscatteringLuminance(): LinearColor return this.FogInscatteringLuminance;
 	public extern var InscatteringColorCubemap(get, never): cpp.Star<TextureCube.ConstTextureCube>;
@@ -82,8 +78,6 @@ abstract ConstExponentialHeightFogComp(ExponentialHeightFogComp) from Exponentia
 	public inline extern function get_DirectionalInscatteringExponent(): cpp.Float32 return this.DirectionalInscatteringExponent;
 	public extern var DirectionalInscatteringStartDistance(get, never): cpp.Float32;
 	public inline extern function get_DirectionalInscatteringStartDistance(): cpp.Float32 return this.DirectionalInscatteringStartDistance;
-	public extern var DirectionalInscatteringColor_DEPRECATED(get, never): LinearColor;
-	public inline extern function get_DirectionalInscatteringColor_DEPRECATED(): LinearColor return this.DirectionalInscatteringColor_DEPRECATED;
 	public extern var DirectionalInscatteringLuminance(get, never): LinearColor;
 	public inline extern function get_DirectionalInscatteringLuminance(): LinearColor return this.DirectionalInscatteringLuminance;
 	public extern var FogMaxOpacity(get, never): cpp.Float32;

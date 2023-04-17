@@ -3,9 +3,9 @@ package ue;
 
 @:native("ETrackActiveCondition")
 @:include("Matinee/InterpTrack.h")
-extern enum ETrackActiveCondition {
-	ETAC_Always;
-	ETAC_GoreEnabled;
-	ETAC_GoreDisabled;
-	ETAC_MAX;
+extern class ETrackActiveCondition {
+	static var ETAC_Always: ETrackActiveCondition;
+	static var ETAC_GoreEnabled: ETrackActiveCondition;
+	static var ETAC_GoreDisabled: ETrackActiveCondition;
+	static var ETAC_MAX: ETrackActiveCondition;
 }

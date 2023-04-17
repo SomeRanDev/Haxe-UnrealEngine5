@@ -5,10 +5,10 @@ package ue;
 @:include("RigVMModel/Nodes/RigVMPrototypeNode.h")
 @:structAccess
 extern class RigVMPrototypeNode extends RigVMNode {
-	public var PrototypeNotation: FName;
-	public var SupportedTypesCache: TMap<FString, Bool>;
+	private var PrototypeNotation: FName;
+	private var SupportedTypesCache: TMap<FString, Bool>;
 
-	public function GetNotation(): cpp.Reference<FName>;
+	public function GetNotation(): FName;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,10 +16,6 @@ extern class RigVMPrototypeNode extends RigVMNode {
 @:forward(GetNotation)
 @:nativeGen
 abstract ConstRigVMPrototypeNode(RigVMPrototypeNode) from RigVMPrototypeNode {
-	public extern var PrototypeNotation(get, never): FName;
-	public inline extern function get_PrototypeNotation(): FName return this.PrototypeNotation;
-	public extern var SupportedTypesCache(get, never): TMap<FString, Bool>;
-	public inline extern function get_SupportedTypesCache(): TMap<FString, Bool> return this.SupportedTypesCache;
 }
 
 @:forward

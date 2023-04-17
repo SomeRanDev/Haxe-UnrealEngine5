@@ -5,12 +5,12 @@ package ue;
 @:include("Editor/ControlRigContextMenuContext.h")
 @:structAccess
 extern class ControlRigContextMenuContext extends Object {
-	public function IsAltDown(): cpp.Reference<Bool>;
-	public function GetRigHierarchyToGraphDragAndDropContext(): cpp.Reference<ControlRigRigHierarchyToGraphDragAndDropContext>;
-	public function GetRigHierarchyDragAndDropContext(): cpp.Reference<ControlRigRigHierarchyDragAndDropContext>;
-	public function GetGraphNodeContextMenuContext(): cpp.Reference<ControlRigGraphNodeContextMenuContext>;
-	public function GetControlRigBlueprint(): cpp.Reference<cpp.Star<ControlRigBlueprint>>;
-	public function GetControlRig(): cpp.Reference<cpp.Star<ControlRig>>;
+	public function IsAltDown(): Bool;
+	public function GetRigHierarchyToGraphDragAndDropContext(): ControlRigRigHierarchyToGraphDragAndDropContext;
+	public function GetRigHierarchyDragAndDropContext(): ControlRigRigHierarchyDragAndDropContext;
+	public function GetGraphNodeContextMenuContext(): ControlRigGraphNodeContextMenuContext;
+	public function GetControlRigBlueprint(): cpp.Star<ControlRigBlueprint>;
+	public function GetControlRig(): cpp.Star<ControlRig>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

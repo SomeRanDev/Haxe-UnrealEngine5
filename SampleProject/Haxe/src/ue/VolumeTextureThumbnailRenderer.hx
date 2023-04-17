@@ -5,7 +5,7 @@ package ue;
 @:include("ThumbnailRendering/VolumeTextureThumbnailRenderer.h")
 @:structAccess
 extern class VolumeTextureThumbnailRenderer extends DefaultSizedThumbnailRenderer {
-	public var MaterialInstance: cpp.Star<MaterialInstanceConstant>;
+	private var MaterialInstance: cpp.Star<MaterialInstanceConstant>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class VolumeTextureThumbnailRenderer extends DefaultSizedThumbnailRendere
 @:forward()
 @:nativeGen
 abstract ConstVolumeTextureThumbnailRenderer(VolumeTextureThumbnailRenderer) from VolumeTextureThumbnailRenderer {
-	public extern var MaterialInstance(get, never): cpp.Star<MaterialInstanceConstant.ConstMaterialInstanceConstant>;
-	public inline extern function get_MaterialInstance(): cpp.Star<MaterialInstanceConstant.ConstMaterialInstanceConstant> return this.MaterialInstance;
 }
 
 @:forward

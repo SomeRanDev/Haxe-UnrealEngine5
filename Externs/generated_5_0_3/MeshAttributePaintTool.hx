@@ -5,8 +5,8 @@ package ue;
 @:include("MeshAttributePaintTool.h")
 @:structAccess
 extern class MeshAttributePaintTool extends DynamicMeshBrushTool {
-	public var BrushActionProps: cpp.Star<MeshAttributePaintBrushOperationProperties>;
-	public var AttribProps: cpp.Star<MeshAttributePaintToolProperties>;
+	@:protected public var BrushActionProps: cpp.Star<MeshAttributePaintBrushOperationProperties>;
+	@:protected public var AttribProps: cpp.Star<MeshAttributePaintToolProperties>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +14,6 @@ extern class MeshAttributePaintTool extends DynamicMeshBrushTool {
 @:forward()
 @:nativeGen
 abstract ConstMeshAttributePaintTool(MeshAttributePaintTool) from MeshAttributePaintTool {
-	public extern var BrushActionProps(get, never): cpp.Star<MeshAttributePaintBrushOperationProperties.ConstMeshAttributePaintBrushOperationProperties>;
-	public inline extern function get_BrushActionProps(): cpp.Star<MeshAttributePaintBrushOperationProperties.ConstMeshAttributePaintBrushOperationProperties> return this.BrushActionProps;
-	public extern var AttribProps(get, never): cpp.Star<MeshAttributePaintToolProperties.ConstMeshAttributePaintToolProperties>;
-	public inline extern function get_AttribProps(): cpp.Star<MeshAttributePaintToolProperties.ConstMeshAttributePaintToolProperties> return this.AttribProps;
 }
 
 @:forward

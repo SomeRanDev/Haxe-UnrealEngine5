@@ -5,7 +5,7 @@ package ue;
 @:include("PaperTileMapActor.h")
 @:structAccess
 extern class PaperTileMapActor extends Actor {
-	public var RenderComponent: cpp.Star<PaperTileMapComp>;
+	private var RenderComponent: cpp.Star<PaperTileMapComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class PaperTileMapActor extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstPaperTileMapActor(PaperTileMapActor) from PaperTileMapActor {
-	public extern var RenderComponent(get, never): cpp.Star<PaperTileMapComp.ConstPaperTileMapComp>;
-	public inline extern function get_RenderComponent(): cpp.Star<PaperTileMapComp.ConstPaperTileMapComp> return this.RenderComponent;
 }
 
 @:forward

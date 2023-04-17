@@ -3,8 +3,8 @@ package ue;
 
 @:native("ENDIExport_GPUAllocationMode")
 @:include("NiagaraDataInterfaceExport.h")
-extern enum ENDIExport_GPUAllocationMode {
-	FixedSize;
-	PerParticle;
-	ENDIExport_MAX;
+extern class ENDIExport_GPUAllocationMode {
+	static var FixedSize: ENDIExport_GPUAllocationMode;
+	static var PerParticle: ENDIExport_GPUAllocationMode;
+	static var ENDIExport_MAX: ENDIExport_GPUAllocationMode;
 }

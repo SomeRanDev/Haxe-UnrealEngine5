@@ -6,12 +6,12 @@ package ue;
 @:structAccess
 extern class PolygonSelectionMechanic extends InteractionMechanic {
 	public var Properties: cpp.Star<PolygonSelectionMechanicProperties>;
-	public var HoverBehavior: cpp.Star<MouseHoverBehavior>;
-	public var ClickOrDragBehavior: cpp.Star<SingleClickOrDragInputBehavior>;
-	public var MarqueeMechanic: cpp.Star<RectangleMarqueeMechanic>;
-	public var PreviewGeometryActor: cpp.Star<PreviewGeometryActor>;
-	public var DrawnTriangleSetComponent: cpp.Star<TriangleSetComp>;
-	public var HighlightedFaceMaterial: cpp.Star<MaterialInterface>;
+	@:protected public var HoverBehavior: cpp.Star<MouseHoverBehavior>;
+	@:protected public var ClickOrDragBehavior: cpp.Star<SingleClickOrDragInputBehavior>;
+	@:protected public var MarqueeMechanic: cpp.Star<RectangleMarqueeMechanic>;
+	@:protected public var PreviewGeometryActor: cpp.Star<PreviewGeometryActor>;
+	@:protected public var DrawnTriangleSetComponent: cpp.Star<TriangleSetComp>;
+	@:protected public var HighlightedFaceMaterial: cpp.Star<MaterialInterface>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -21,18 +21,6 @@ extern class PolygonSelectionMechanic extends InteractionMechanic {
 abstract ConstPolygonSelectionMechanic(PolygonSelectionMechanic) from PolygonSelectionMechanic {
 	public extern var Properties(get, never): cpp.Star<PolygonSelectionMechanicProperties.ConstPolygonSelectionMechanicProperties>;
 	public inline extern function get_Properties(): cpp.Star<PolygonSelectionMechanicProperties.ConstPolygonSelectionMechanicProperties> return this.Properties;
-	public extern var HoverBehavior(get, never): cpp.Star<MouseHoverBehavior.ConstMouseHoverBehavior>;
-	public inline extern function get_HoverBehavior(): cpp.Star<MouseHoverBehavior.ConstMouseHoverBehavior> return this.HoverBehavior;
-	public extern var ClickOrDragBehavior(get, never): cpp.Star<SingleClickOrDragInputBehavior.ConstSingleClickOrDragInputBehavior>;
-	public inline extern function get_ClickOrDragBehavior(): cpp.Star<SingleClickOrDragInputBehavior.ConstSingleClickOrDragInputBehavior> return this.ClickOrDragBehavior;
-	public extern var MarqueeMechanic(get, never): cpp.Star<RectangleMarqueeMechanic.ConstRectangleMarqueeMechanic>;
-	public inline extern function get_MarqueeMechanic(): cpp.Star<RectangleMarqueeMechanic.ConstRectangleMarqueeMechanic> return this.MarqueeMechanic;
-	public extern var PreviewGeometryActor(get, never): cpp.Star<PreviewGeometryActor.ConstPreviewGeometryActor>;
-	public inline extern function get_PreviewGeometryActor(): cpp.Star<PreviewGeometryActor.ConstPreviewGeometryActor> return this.PreviewGeometryActor;
-	public extern var DrawnTriangleSetComponent(get, never): cpp.Star<TriangleSetComp.ConstTriangleSetComp>;
-	public inline extern function get_DrawnTriangleSetComponent(): cpp.Star<TriangleSetComp.ConstTriangleSetComp> return this.DrawnTriangleSetComponent;
-	public extern var HighlightedFaceMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_HighlightedFaceMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.HighlightedFaceMaterial;
 }
 
 @:forward

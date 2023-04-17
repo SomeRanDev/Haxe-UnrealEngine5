@@ -3,10 +3,10 @@ package ue;
 
 @:native("EMatrixColumns.Type")
 @:include("Kismet/KismetMathLibrary.h")
-extern enum EMatrixColumns {
-	First;
-	Second;
-	Third;
-	Fourth;
-	EMatrixColumns_MAX;
+extern class EMatrixColumns {
+	static var First: EMatrixColumns;
+	static var Second: EMatrixColumns;
+	static var Third: EMatrixColumns;
+	static var Fourth: EMatrixColumns;
+	static var EMatrixColumns_MAX: EMatrixColumns;
 }

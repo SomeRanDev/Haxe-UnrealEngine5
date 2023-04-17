@@ -6,18 +6,18 @@ package ue;
 @:structAccess
 extern class GeometryCacheComp extends MeshComp {
 	public var GeometryCache: cpp.Star<GeometryCache>;
-	public var bRunning: Bool;
-	public var bLooping: Bool;
-	public var bExtrapolateFrames: Bool;
-	public var StartTimeOffset: cpp.Float32;
-	public var PlaybackSpeed: cpp.Float32;
-	public var MotionVectorScale: cpp.Float32;
-	public var NumTracks: cpp.Int32;
-	public var ElapsedTime: cpp.Float32;
-	public var Duration: cpp.Float32;
-	public var bManualTick: Bool;
-	public var bOverrideWireframeColor: Bool;
-	public var WireframeOverrideColor: LinearColor;
+	@:protected public var bRunning: Bool;
+	@:protected public var bLooping: Bool;
+	@:protected public var bExtrapolateFrames: Bool;
+	@:protected public var StartTimeOffset: cpp.Float32;
+	@:protected public var PlaybackSpeed: cpp.Float32;
+	@:protected public var MotionVectorScale: cpp.Float32;
+	@:protected public var NumTracks: cpp.Int32;
+	@:protected public var ElapsedTime: cpp.Float32;
+	@:protected public var Duration: cpp.Float32;
+	@:protected public var bManualTick: Bool;
+	@:protected public var bOverrideWireframeColor: Bool;
+	@:protected public var WireframeOverrideColor: LinearColor;
 
 	public function TickAtThisTime(Time: cpp.Float32, bInIsRunning: Bool, bInBackwards: Bool, bInIsLooping: Bool): Void;
 	public function Stop(): Void;
@@ -27,26 +27,26 @@ extern class GeometryCacheComp extends MeshComp {
 	public function SetOverrideWireframeColor(bOverride: Bool): Void;
 	public function SetMotionVectorScale(NewMotionVectorScale: cpp.Float32): Void;
 	public function SetLooping(bNewLooping: Bool): Void;
-	public function SetGeometryCache(NewGeomCache: cpp.Star<GeometryCache>): cpp.Reference<Bool>;
+	public function SetGeometryCache(NewGeomCache: cpp.Star<GeometryCache>): Bool;
 	public function SetExtrapolateFrames(bNewExtrapolating: Bool): Void;
 	public function PlayReversedFromEnd(): Void;
 	public function PlayReversed(): Void;
 	public function PlayFromStart(): Void;
 	public function Play(): Void;
 	public function Pause(): Void;
-	public function IsPlayingReversed(): cpp.Reference<Bool>;
-	public function IsPlaying(): cpp.Reference<Bool>;
-	public function IsLooping(): cpp.Reference<Bool>;
-	public function IsExtrapolatingFrames(): cpp.Reference<Bool>;
-	public function GetWireframeOverrideColor(): cpp.Reference<LinearColor>;
-	public function GetStartTimeOffset(): cpp.Reference<cpp.Float32>;
-	public function GetPlaybackSpeed(): cpp.Reference<cpp.Float32>;
-	public function GetPlaybackDirection(): cpp.Reference<cpp.Float32>;
-	public function GetOverrideWireframeColor(): cpp.Reference<Bool>;
-	public function GetNumberOfFrames(): cpp.Reference<cpp.Int32>;
-	public function GetMotionVectorScale(): cpp.Reference<cpp.Float32>;
-	public function GetDuration(): cpp.Reference<cpp.Float32>;
-	public function GetAnimationTime(): cpp.Reference<cpp.Float32>;
+	public function IsPlayingReversed(): Bool;
+	public function IsPlaying(): Bool;
+	public function IsLooping(): Bool;
+	public function IsExtrapolatingFrames(): Bool;
+	public function GetWireframeOverrideColor(): LinearColor;
+	public function GetStartTimeOffset(): cpp.Float32;
+	public function GetPlaybackSpeed(): cpp.Float32;
+	public function GetPlaybackDirection(): cpp.Float32;
+	public function GetOverrideWireframeColor(): Bool;
+	public function GetNumberOfFrames(): cpp.Int32;
+	public function GetMotionVectorScale(): cpp.Float32;
+	public function GetDuration(): cpp.Float32;
+	public function GetAnimationTime(): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -60,30 +60,6 @@ extern class GeometryCacheComp extends MeshComp {
 abstract ConstGeometryCacheComp(GeometryCacheComp) from GeometryCacheComp {
 	public extern var GeometryCache(get, never): cpp.Star<GeometryCache.ConstGeometryCache>;
 	public inline extern function get_GeometryCache(): cpp.Star<GeometryCache.ConstGeometryCache> return this.GeometryCache;
-	public extern var bRunning(get, never): Bool;
-	public inline extern function get_bRunning(): Bool return this.bRunning;
-	public extern var bLooping(get, never): Bool;
-	public inline extern function get_bLooping(): Bool return this.bLooping;
-	public extern var bExtrapolateFrames(get, never): Bool;
-	public inline extern function get_bExtrapolateFrames(): Bool return this.bExtrapolateFrames;
-	public extern var StartTimeOffset(get, never): cpp.Float32;
-	public inline extern function get_StartTimeOffset(): cpp.Float32 return this.StartTimeOffset;
-	public extern var PlaybackSpeed(get, never): cpp.Float32;
-	public inline extern function get_PlaybackSpeed(): cpp.Float32 return this.PlaybackSpeed;
-	public extern var MotionVectorScale(get, never): cpp.Float32;
-	public inline extern function get_MotionVectorScale(): cpp.Float32 return this.MotionVectorScale;
-	public extern var NumTracks(get, never): cpp.Int32;
-	public inline extern function get_NumTracks(): cpp.Int32 return this.NumTracks;
-	public extern var ElapsedTime(get, never): cpp.Float32;
-	public inline extern function get_ElapsedTime(): cpp.Float32 return this.ElapsedTime;
-	public extern var Duration(get, never): cpp.Float32;
-	public inline extern function get_Duration(): cpp.Float32 return this.Duration;
-	public extern var bManualTick(get, never): Bool;
-	public inline extern function get_bManualTick(): Bool return this.bManualTick;
-	public extern var bOverrideWireframeColor(get, never): Bool;
-	public inline extern function get_bOverrideWireframeColor(): Bool return this.bOverrideWireframeColor;
-	public extern var WireframeOverrideColor(get, never): LinearColor;
-	public inline extern function get_WireframeOverrideColor(): LinearColor return this.WireframeOverrideColor;
 }
 
 @:forward

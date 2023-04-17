@@ -3,9 +3,9 @@ package ue;
 
 @:native("ESkyAtmosphereTransformMode")
 @:include("Components/SkyAtmosphereComponent.h")
-extern enum ESkyAtmosphereTransformMode {
-	PlanetTopAtAbsoluteWorldOrigin;
-	PlanetTopAtComponentTransform;
-	PlanetCenterAtComponentTransform;
-	ESkyAtmosphereTransformMode_MAX;
+extern class ESkyAtmosphereTransformMode {
+	static var PlanetTopAtAbsoluteWorldOrigin: ESkyAtmosphereTransformMode;
+	static var PlanetTopAtComponentTransform: ESkyAtmosphereTransformMode;
+	static var PlanetCenterAtComponentTransform: ESkyAtmosphereTransformMode;
+	static var ESkyAtmosphereTransformMode_MAX: ESkyAtmosphereTransformMode;
 }

@@ -7,8 +7,8 @@ package ue;
 extern class MirrorFindReplaceExpression {
 	public var FindExpression: FName;
 	public var ReplaceExpression: FName;
-	public var FindReplaceMethod: EMirrorFindReplaceMethod;
+	public var FindReplaceMethod: TEnumAsByte<EMirrorFindReplaceMethod>;
 
 	@:native("FMirrorFindReplaceExpression") public function new();
-	@:native("FMirrorFindReplaceExpression") public static function make(FindExpression: FName, ReplaceExpression: FName, FindReplaceMethod: EMirrorFindReplaceMethod): MirrorFindReplaceExpression ;
+	@:native("FMirrorFindReplaceExpression") public static function make(FindExpression: FName, ReplaceExpression: FName, FindReplaceMethod: TEnumAsByte<EMirrorFindReplaceMethod>): MirrorFindReplaceExpression ;
 }

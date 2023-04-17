@@ -9,18 +9,18 @@ extern class MediaSoundComp extends SynthComp {
 	public var DynamicRateAdjustment: Bool;
 	public var RateAdjustmentFactor: cpp.Float32;
 	public var RateAdjustmentRange: FloatRange;
-	public var MediaPlayer: cpp.Star<MediaPlayer>;
+	@:protected public var MediaPlayer: cpp.Star<MediaPlayer>;
 
 	public function SetSpectralAnalysisSettings(InFrequenciesToAnalyze: TArray<cpp.Float32>, InFFTSize: EMediaSoundComponentFFTSize): Void;
 	public function SetMediaPlayer(NewMediaPlayer: cpp.Star<MediaPlayer>): Void;
 	public function SetEnvelopeFollowingsettings(AttackTimeMsec: cpp.Int32, ReleaseTimeMsec: cpp.Int32): Void;
 	public function SetEnableSpectralAnalysis(bInSpectralAnalysisEnabled: Bool): Void;
 	public function SetEnableEnvelopeFollowing(bInEnvelopeFollowing: Bool): Void;
-	public function GetSpectralData(): cpp.Reference<TArray<MediaSoundComponentSpectralData>>;
-	public function GetNormalizedSpectralData(): cpp.Reference<TArray<MediaSoundComponentSpectralData>>;
-	public function GetMediaPlayer(): cpp.Reference<cpp.Star<MediaPlayer>>;
-	public function GetEnvelopeValue(): cpp.Reference<cpp.Float32>;
-	public function BP_GetAttenuationSettingsToApply(OutAttenuationSettings: cpp.Reference<SoundAttenuationSettings>): cpp.Reference<Bool>;
+	public function GetSpectralData(): TArray<MediaSoundComponentSpectralData>;
+	public function GetNormalizedSpectralData(): TArray<MediaSoundComponentSpectralData>;
+	public function GetMediaPlayer(): cpp.Star<MediaPlayer>;
+	public function GetEnvelopeValue(): cpp.Float32;
+	public function BP_GetAttenuationSettingsToApply(OutAttenuationSettings: cpp.Reference<SoundAttenuationSettings>): Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -36,8 +36,6 @@ abstract ConstMediaSoundComp(MediaSoundComp) from MediaSoundComp {
 	public inline extern function get_RateAdjustmentFactor(): cpp.Float32 return this.RateAdjustmentFactor;
 	public extern var RateAdjustmentRange(get, never): FloatRange;
 	public inline extern function get_RateAdjustmentRange(): FloatRange return this.RateAdjustmentRange;
-	public extern var MediaPlayer(get, never): cpp.Star<MediaPlayer.ConstMediaPlayer>;
-	public inline extern function get_MediaPlayer(): cpp.Star<MediaPlayer.ConstMediaPlayer> return this.MediaPlayer;
 }
 
 @:forward

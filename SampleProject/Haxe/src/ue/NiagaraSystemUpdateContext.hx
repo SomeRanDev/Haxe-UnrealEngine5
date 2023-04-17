@@ -5,10 +5,10 @@ package ue;
 @:include("NiagaraCommon.h")
 @:structAccess
 extern class NiagaraSystemUpdateContext {
-	public var ComponentsToReset: TArray<cpp.Star<NiagaraComp>>;
-	public var ComponentsToReInit: TArray<cpp.Star<NiagaraComp>>;
-	public var ComponentsToNotifySimDestroy: TArray<cpp.Star<NiagaraComp>>;
-	public var SystemSimsToDestroy: TArray<cpp.Star<NiagaraSystem>>;
+	private var ComponentsToReset: TArray<cpp.Star<NiagaraComp>>;
+	private var ComponentsToReInit: TArray<cpp.Star<NiagaraComp>>;
+	private var ComponentsToNotifySimDestroy: TArray<cpp.Star<NiagaraComp>>;
+	private var SystemSimsToDestroy: TArray<cpp.Star<NiagaraSystem>>;
 
 	@:native("FNiagaraSystemUpdateContext") public function new();
 	@:native("FNiagaraSystemUpdateContext") public static function make(ComponentsToReset: TArray<cpp.Star<NiagaraComp>>, ComponentsToReInit: TArray<cpp.Star<NiagaraComp>>, ComponentsToNotifySimDestroy: TArray<cpp.Star<NiagaraComp>>, SystemSimsToDestroy: TArray<cpp.Star<NiagaraSystem>>): NiagaraSystemUpdateContext ;

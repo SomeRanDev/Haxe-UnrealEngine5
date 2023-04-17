@@ -5,8 +5,7 @@ package ue;
 @:include("Lightmass/LightmassPortal.h")
 @:structAccess
 extern class LightmassPortal extends Actor {
-	public var PortalComponent: cpp.Star<LightmassPortalComp>;
-	public var SpriteComponent: cpp.Star<BillboardComp>;
+	private var PortalComponent: cpp.Star<LightmassPortalComp>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -14,10 +13,6 @@ extern class LightmassPortal extends Actor {
 @:forward()
 @:nativeGen
 abstract ConstLightmassPortal(LightmassPortal) from LightmassPortal {
-	public extern var PortalComponent(get, never): cpp.Star<LightmassPortalComp.ConstLightmassPortalComp>;
-	public inline extern function get_PortalComponent(): cpp.Star<LightmassPortalComp.ConstLightmassPortalComp> return this.PortalComponent;
-	public extern var SpriteComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
-	public inline extern function get_SpriteComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
 }
 
 @:forward

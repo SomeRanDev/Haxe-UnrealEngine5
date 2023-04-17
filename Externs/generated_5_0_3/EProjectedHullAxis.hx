@@ -3,11 +3,11 @@ package ue;
 
 @:native("EProjectedHullAxis")
 @:include("Physics/SetCollisionGeometryTool.h")
-extern enum EProjectedHullAxis {
-	X;
-	Y;
-	Z;
-	SmallestBoxDimension;
-	SmallestVolume;
-	EProjectedHullAxis_MAX;
+extern class EProjectedHullAxis {
+	static var X: EProjectedHullAxis;
+	static var Y: EProjectedHullAxis;
+	static var Z: EProjectedHullAxis;
+	static var SmallestBoxDimension: EProjectedHullAxis;
+	static var SmallestVolume: EProjectedHullAxis;
+	static var EProjectedHullAxis_MAX: EProjectedHullAxis;
 }

@@ -6,8 +6,6 @@ package ue;
 @:structAccess
 extern class MaterialExpressionTextureBase extends MaterialExpression {
 	public var Texture: cpp.Star<Texture>;
-	public var SamplerType: EMaterialSamplerType;
-	public var IsDefaultMeshpaintTexture: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -17,10 +15,6 @@ extern class MaterialExpressionTextureBase extends MaterialExpression {
 abstract ConstMaterialExpressionTextureBase(MaterialExpressionTextureBase) from MaterialExpressionTextureBase {
 	public extern var Texture(get, never): cpp.Star<Texture.ConstTexture>;
 	public inline extern function get_Texture(): cpp.Star<Texture.ConstTexture> return this.Texture;
-	public extern var SamplerType(get, never): EMaterialSamplerType;
-	public inline extern function get_SamplerType(): EMaterialSamplerType return this.SamplerType;
-	public extern var IsDefaultMeshpaintTexture(get, never): Bool;
-	public inline extern function get_IsDefaultMeshpaintTexture(): Bool return this.IsDefaultMeshpaintTexture;
 }
 
 @:forward

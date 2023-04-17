@@ -6,8 +6,8 @@ package ue;
 @:structAccess
 extern class FbxImportUI extends Object {
 	public var bIsObjImport: Bool;
-	public var OriginalImportType: EFBXImportType;
-	public var MeshTypeToImport: EFBXImportType;
+	public var OriginalImportType: TEnumAsByte<EFBXImportType>;
+	public var MeshTypeToImport: TEnumAsByte<EFBXImportType>;
 	public var bOverrideFullName: Bool;
 	public var bImportAsSkeletal: Bool;
 	public var bImportMesh: Bool;
@@ -55,10 +55,10 @@ extern class FbxImportUI extends Object {
 abstract ConstFbxImportUI(FbxImportUI) from FbxImportUI {
 	public extern var bIsObjImport(get, never): Bool;
 	public inline extern function get_bIsObjImport(): Bool return this.bIsObjImport;
-	public extern var OriginalImportType(get, never): EFBXImportType;
-	public inline extern function get_OriginalImportType(): EFBXImportType return this.OriginalImportType;
-	public extern var MeshTypeToImport(get, never): EFBXImportType;
-	public inline extern function get_MeshTypeToImport(): EFBXImportType return this.MeshTypeToImport;
+	public extern var OriginalImportType(get, never): TEnumAsByte<EFBXImportType>;
+	public inline extern function get_OriginalImportType(): TEnumAsByte<EFBXImportType> return this.OriginalImportType;
+	public extern var MeshTypeToImport(get, never): TEnumAsByte<EFBXImportType>;
+	public inline extern function get_MeshTypeToImport(): TEnumAsByte<EFBXImportType> return this.MeshTypeToImport;
 	public extern var bOverrideFullName(get, never): Bool;
 	public inline extern function get_bOverrideFullName(): Bool return this.bOverrideFullName;
 	public extern var bImportAsSkeletal(get, never): Bool;

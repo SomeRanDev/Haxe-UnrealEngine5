@@ -5,7 +5,7 @@ package ue;
 @:include("FractureToolRecomputeNormals.h")
 @:structAccess
 extern class FractureToolRecomputeNormals extends FractureToolCutterBase {
-	public var NormalsSettings: cpp.Star<FractureRecomputeNormalsSettings>;
+	@:protected public var NormalsSettings: cpp.Star<FractureRecomputeNormalsSettings>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -13,8 +13,6 @@ extern class FractureToolRecomputeNormals extends FractureToolCutterBase {
 @:forward()
 @:nativeGen
 abstract ConstFractureToolRecomputeNormals(FractureToolRecomputeNormals) from FractureToolRecomputeNormals {
-	public extern var NormalsSettings(get, never): cpp.Star<FractureRecomputeNormalsSettings.ConstFractureRecomputeNormalsSettings>;
-	public inline extern function get_NormalsSettings(): cpp.Star<FractureRecomputeNormalsSettings.ConstFractureRecomputeNormalsSettings> return this.NormalsSettings;
 }
 
 @:forward

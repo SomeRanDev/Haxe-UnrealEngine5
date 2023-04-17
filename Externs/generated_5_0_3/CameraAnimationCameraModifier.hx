@@ -5,17 +5,17 @@ package ue;
 @:include("CameraAnimationCameraModifier.h")
 @:structAccess
 extern class CameraAnimationCameraModifier extends CameraModifier {
-	public var ActiveAnimations: TArray<ActiveCameraAnimationInfo>;
-	public var InstanceSerialNumber: cpp.UInt16;
+	@:protected public var ActiveAnimations: TArray<ActiveCameraAnimationInfo>;
+	@:protected public var InstanceSerialNumber: cpp.UInt16;
 
 	public function StopCameraAnimation(Handle: cpp.Reference<CameraAnimationHandle>, bImmediate: Bool): Void;
 	public function StopAllCameraAnimationsOf(Sequence: cpp.Star<CameraAnimationSequence>, bImmediate: Bool): Void;
 	public function StopAllCameraAnimations(bImmediate: Bool): Void;
-	public function PlayCameraAnimation(Sequence: cpp.Star<CameraAnimationSequence>, Params: CameraAnimationParams): cpp.Reference<CameraAnimationHandle>;
-	public function IsCameraAnimationActive(Handle: cpp.Reference<CameraAnimationHandle>): cpp.Reference<Bool>;
-	public function GetCameraAnimationCameraModifierFromPlayerController(PlayerController: cpp.Star<PlayerController.ConstPlayerController>): cpp.Reference<cpp.Star<CameraAnimationCameraModifier>>;
-	public function GetCameraAnimationCameraModifierFromID(WorldContextObject: cpp.Star<Object.ConstObject>, ControllerID: cpp.Int32): cpp.Reference<cpp.Star<CameraAnimationCameraModifier>>;
-	public function GetCameraAnimationCameraModifier(WorldContextObject: cpp.Star<Object.ConstObject>, PlayerIndex: cpp.Int32): cpp.Reference<cpp.Star<CameraAnimationCameraModifier>>;
+	public function PlayCameraAnimation(Sequence: cpp.Star<CameraAnimationSequence>, Params: CameraAnimationParams): CameraAnimationHandle;
+	public function IsCameraAnimationActive(Handle: cpp.Reference<CameraAnimationHandle>): Bool;
+	public function GetCameraAnimationCameraModifierFromPlayerController(PlayerController: cpp.Star<PlayerController.ConstPlayerController>): cpp.Star<CameraAnimationCameraModifier>;
+	public function GetCameraAnimationCameraModifierFromID(WorldContextObject: cpp.Star<Object.ConstObject>, ControllerID: cpp.Int32): cpp.Star<CameraAnimationCameraModifier>;
+	public function GetCameraAnimationCameraModifier(WorldContextObject: cpp.Star<Object.ConstObject>, PlayerIndex: cpp.Int32): cpp.Star<CameraAnimationCameraModifier>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -23,10 +23,6 @@ extern class CameraAnimationCameraModifier extends CameraModifier {
 @:forward(IsCameraAnimationActive)
 @:nativeGen
 abstract ConstCameraAnimationCameraModifier(CameraAnimationCameraModifier) from CameraAnimationCameraModifier {
-	public extern var ActiveAnimations(get, never): TArray<ActiveCameraAnimationInfo>;
-	public inline extern function get_ActiveAnimations(): TArray<ActiveCameraAnimationInfo> return this.ActiveAnimations;
-	public extern var InstanceSerialNumber(get, never): cpp.UInt16;
-	public inline extern function get_InstanceSerialNumber(): cpp.UInt16 return this.InstanceSerialNumber;
 }
 
 @:forward

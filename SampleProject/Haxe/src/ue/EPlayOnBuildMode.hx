@@ -3,10 +3,10 @@ package ue;
 
 @:native("EPlayOnBuildMode")
 @:include("Settings/LevelEditorPlaySettings.h")
-extern enum EPlayOnBuildMode {
-	PlayOnBuild_Always;
-	PlayOnBuild_Never;
-	PlayOnBuild_Default;
-	PlayOnBuild_IfEditorBuiltLocally;
-	PlayOnBuild_MAX;
+extern class EPlayOnBuildMode {
+	static var PlayOnBuild_Always: EPlayOnBuildMode;
+	static var PlayOnBuild_Never: EPlayOnBuildMode;
+	static var PlayOnBuild_Default: EPlayOnBuildMode;
+	static var PlayOnBuild_IfEditorBuiltLocally: EPlayOnBuildMode;
+	static var PlayOnBuild_MAX: EPlayOnBuildMode;
 }

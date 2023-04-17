@@ -3,11 +3,11 @@ package ue;
 
 @:native("AnimPhysSimSpaceType")
 @:include("BoneControllers/AnimNode_AnimDynamics.h")
-extern enum AnimPhysSimSpaceType {
-	Component;
-	Actor;
-	World;
-	RootRelative;
-	BoneRelative;
-	AnimPhysSimSpaceType_MAX;
+extern class AnimPhysSimSpaceType {
+	static var Component: AnimPhysSimSpaceType;
+	static var Actor: AnimPhysSimSpaceType;
+	static var World: AnimPhysSimSpaceType;
+	static var RootRelative: AnimPhysSimSpaceType;
+	static var BoneRelative: AnimPhysSimSpaceType;
+	static var AnimPhysSimSpaceType_MAX: AnimPhysSimSpaceType;
 }

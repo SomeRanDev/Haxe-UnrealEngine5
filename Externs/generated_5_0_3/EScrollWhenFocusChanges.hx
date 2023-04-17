@@ -3,9 +3,9 @@ package ue;
 
 @:native("EScrollWhenFocusChanges")
 @:include("Widgets/Layout/SScrollBox.h")
-extern enum EScrollWhenFocusChanges {
-	NoScroll;
-	InstantScroll;
-	AnimatedScroll;
-	EScrollWhenFocusChanges_MAX;
+extern class EScrollWhenFocusChanges {
+	static var NoScroll: EScrollWhenFocusChanges;
+	static var InstantScroll: EScrollWhenFocusChanges;
+	static var AnimatedScroll: EScrollWhenFocusChanges;
+	static var EScrollWhenFocusChanges_MAX: EScrollWhenFocusChanges;
 }

@@ -7,8 +7,8 @@ package ue;
 extern class WidgetAnimationPlayCallbackProxy extends Object {
 	public var Finished: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
-	public function CreatePlayAnimationTimeRangeProxyObject(Result: cpp.Reference<cpp.Star<UMGSequencePlayer>>, Widget: cpp.Star<UserWidget>, InAnimation: cpp.Star<WidgetAnimation>, StartAtTime: cpp.Float32, EndAtTime: cpp.Float32, NumLoopsToPlay: cpp.Int32, PlayMode: EUMGSequencePlayMode, PlaybackSpeed: cpp.Float32): cpp.Reference<cpp.Star<WidgetAnimationPlayCallbackProxy>>;
-	public function CreatePlayAnimationProxyObject(Result: cpp.Reference<cpp.Star<UMGSequencePlayer>>, Widget: cpp.Star<UserWidget>, InAnimation: cpp.Star<WidgetAnimation>, StartAtTime: cpp.Float32, NumLoopsToPlay: cpp.Int32, PlayMode: EUMGSequencePlayMode, PlaybackSpeed: cpp.Float32): cpp.Reference<cpp.Star<WidgetAnimationPlayCallbackProxy>>;
+	public function CreatePlayAnimationTimeRangeProxyObject(Result: cpp.Reference<cpp.Star<UMGSequencePlayer>>, Widget: cpp.Star<UserWidget>, InAnimation: cpp.Star<WidgetAnimation>, StartAtTime: cpp.Float32, EndAtTime: cpp.Float32, NumLoopsToPlay: cpp.Int32, PlayMode: TEnumAsByte<EUMGSequencePlayMode>, PlaybackSpeed: cpp.Float32): cpp.Star<WidgetAnimationPlayCallbackProxy>;
+	public function CreatePlayAnimationProxyObject(Result: cpp.Reference<cpp.Star<UMGSequencePlayer>>, Widget: cpp.Star<UserWidget>, InAnimation: cpp.Star<WidgetAnimation>, StartAtTime: cpp.Float32, NumLoopsToPlay: cpp.Int32, PlayMode: TEnumAsByte<EUMGSequencePlayMode>, PlaybackSpeed: cpp.Float32): cpp.Star<WidgetAnimationPlayCallbackProxy>;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }

@@ -3,8 +3,8 @@ package ue;
 
 @:native("EBlendListTransitionType")
 @:include("AnimNodes/AnimNode_BlendListBase.h")
-extern enum EBlendListTransitionType {
-	StandardBlend;
-	Inertialization;
-	EBlendListTransitionType_MAX;
+extern class EBlendListTransitionType {
+	static var StandardBlend: EBlendListTransitionType;
+	static var Inertialization: EBlendListTransitionType;
+	static var EBlendListTransitionType_MAX: EBlendListTransitionType;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("EDynamicStateOverrideEnum")
 @:include("Private/FractureToolProperties.h")
-extern enum EDynamicStateOverrideEnum {
-	NoOverride;
-	Sleeping;
-	Kinematic;
-	Static;
-	EDynamicStateOverrideEnum_MAX;
+extern class EDynamicStateOverrideEnum {
+	static var NoOverride: EDynamicStateOverrideEnum;
+	static var Sleeping: EDynamicStateOverrideEnum;
+	static var Kinematic: EDynamicStateOverrideEnum;
+	static var Static: EDynamicStateOverrideEnum;
+	static var EDynamicStateOverrideEnum_MAX: EDynamicStateOverrideEnum;
 }

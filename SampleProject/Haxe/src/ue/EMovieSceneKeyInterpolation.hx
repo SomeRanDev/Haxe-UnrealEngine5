@@ -3,11 +3,11 @@ package ue;
 
 @:native("EMovieSceneKeyInterpolation")
 @:include("KeyParams.h")
-extern enum EMovieSceneKeyInterpolation {
-	Auto;
-	User;
-	Break;
-	Linear;
-	Constant;
-	EMovieSceneKeyInterpolation_MAX;
+extern class EMovieSceneKeyInterpolation {
+	static var Auto: EMovieSceneKeyInterpolation;
+	static var User: EMovieSceneKeyInterpolation;
+	static var Break: EMovieSceneKeyInterpolation;
+	static var Linear: EMovieSceneKeyInterpolation;
+	static var Constant: EMovieSceneKeyInterpolation;
+	static var EMovieSceneKeyInterpolation_MAX: EMovieSceneKeyInterpolation;
 }

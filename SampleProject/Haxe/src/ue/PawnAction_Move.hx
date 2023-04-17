@@ -5,17 +5,17 @@ package ue;
 @:include("Actions/PawnAction_Move.h")
 @:structAccess
 extern class PawnAction_Move extends PawnAction {
-	public var GoalActor: cpp.Star<Actor>;
-	public var GoalLocation: Vector;
-	public var AcceptableRadius: cpp.Float32;
-	public var FilterClass: TSubclassOf<NavigationQueryFilter>;
-	public var bAllowStrafe: Bool;
-	public var bFinishOnOverlap: Bool;
-	public var bUsePathfinding: Bool;
-	public var bAllowPartialPath: Bool;
-	public var bProjectGoalToNavigation: Bool;
-	public var bUpdatePathToGoal: Bool;
-	public var bAbortChildActionOnPathChange: Bool;
+	@:protected public var GoalActor: cpp.Star<Actor>;
+	@:protected public var GoalLocation: Vector;
+	@:protected public var AcceptableRadius: cpp.Float32;
+	@:protected public var FilterClass: TSubclassOf<NavigationQueryFilter>;
+	@:protected public var bAllowStrafe: Bool;
+	@:protected public var bFinishOnOverlap: Bool;
+	@:protected public var bUsePathfinding: Bool;
+	@:protected public var bAllowPartialPath: Bool;
+	@:protected public var bProjectGoalToNavigation: Bool;
+	@:protected public var bUpdatePathToGoal: Bool;
+	@:protected public var bAbortChildActionOnPathChange: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -23,28 +23,6 @@ extern class PawnAction_Move extends PawnAction {
 @:forward()
 @:nativeGen
 abstract ConstPawnAction_Move(PawnAction_Move) from PawnAction_Move {
-	public extern var GoalActor(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_GoalActor(): cpp.Star<Actor.ConstActor> return this.GoalActor;
-	public extern var GoalLocation(get, never): Vector;
-	public inline extern function get_GoalLocation(): Vector return this.GoalLocation;
-	public extern var AcceptableRadius(get, never): cpp.Float32;
-	public inline extern function get_AcceptableRadius(): cpp.Float32 return this.AcceptableRadius;
-	public extern var FilterClass(get, never): TSubclassOf<NavigationQueryFilter.ConstNavigationQueryFilter>;
-	public inline extern function get_FilterClass(): TSubclassOf<NavigationQueryFilter.ConstNavigationQueryFilter> return this.FilterClass;
-	public extern var bAllowStrafe(get, never): Bool;
-	public inline extern function get_bAllowStrafe(): Bool return this.bAllowStrafe;
-	public extern var bFinishOnOverlap(get, never): Bool;
-	public inline extern function get_bFinishOnOverlap(): Bool return this.bFinishOnOverlap;
-	public extern var bUsePathfinding(get, never): Bool;
-	public inline extern function get_bUsePathfinding(): Bool return this.bUsePathfinding;
-	public extern var bAllowPartialPath(get, never): Bool;
-	public inline extern function get_bAllowPartialPath(): Bool return this.bAllowPartialPath;
-	public extern var bProjectGoalToNavigation(get, never): Bool;
-	public inline extern function get_bProjectGoalToNavigation(): Bool return this.bProjectGoalToNavigation;
-	public extern var bUpdatePathToGoal(get, never): Bool;
-	public inline extern function get_bUpdatePathToGoal(): Bool return this.bUpdatePathToGoal;
-	public extern var bAbortChildActionOnPathChange(get, never): Bool;
-	public inline extern function get_bAbortChildActionOnPathChange(): Bool return this.bAbortChildActionOnPathChange;
 }
 
 @:forward

@@ -3,10 +3,10 @@ package ue;
 
 @:native("ENiagaraGpuBufferFormat")
 @:include("NiagaraCommon.h")
-extern enum ENiagaraGpuBufferFormat {
-	Float;
-	HalfFloat;
-	UnsignedNormalizedByte;
-	Max;
-	ENiagaraGpuBufferFormat_MAX;
+extern class ENiagaraGpuBufferFormat {
+	static var Float: ENiagaraGpuBufferFormat;
+	static var HalfFloat: ENiagaraGpuBufferFormat;
+	static var UnsignedNormalizedByte: ENiagaraGpuBufferFormat;
+	static var Max: ENiagaraGpuBufferFormat;
+	static var ENiagaraGpuBufferFormat_MAX: ENiagaraGpuBufferFormat;
 }

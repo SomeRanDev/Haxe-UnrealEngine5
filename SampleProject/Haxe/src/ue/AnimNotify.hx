@@ -5,12 +5,10 @@ package ue;
 @:include("Animation/AnimNotifies/AnimNotify.h")
 @:structAccess
 extern class AnimNotify extends Object {
-	public var NotifyColor: Color;
-	public var bShouldFireInEditor: Bool;
 
-	public function Received_Notify(MeshComp: cpp.Star<SkeletalMeshComp>, Animation: cpp.Star<AnimSequenceBase>, EventReference: cpp.Reference<AnimNotifyEventReference>): cpp.Reference<Bool>;
-	public function GetNotifyName(): cpp.Reference<FString>;
-	public function GetDefaultTriggerWeightThreshold(): cpp.Reference<cpp.Float32>;
+	public function Received_Notify(MeshComp: cpp.Star<SkeletalMeshComp>, Animation: cpp.Star<AnimSequenceBase>, EventReference: cpp.Reference<AnimNotifyEventReference>): Bool;
+	public function GetNotifyName(): FString;
+	public function GetDefaultTriggerWeightThreshold(): cpp.Float32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -18,10 +16,6 @@ extern class AnimNotify extends Object {
 @:forward(Received_Notify, GetNotifyName, GetDefaultTriggerWeightThreshold)
 @:nativeGen
 abstract ConstAnimNotify(AnimNotify) from AnimNotify {
-	public extern var NotifyColor(get, never): Color;
-	public inline extern function get_NotifyColor(): Color return this.NotifyColor;
-	public extern var bShouldFireInEditor(get, never): Bool;
-	public inline extern function get_bShouldFireInEditor(): Bool return this.bShouldFireInEditor;
 }
 
 @:forward

@@ -8,7 +8,7 @@ extern class EmitterDynamicParameter {
 	public var ParamName: FName;
 	public var bUseEmitterTime: Bool;
 	public var bSpawnTimeOnly: Bool;
-	public var ValueMethod: EEmitterDynamicParameterValue;
+	public var ValueMethod: TEnumAsByte<EEmitterDynamicParameterValue>;
 	public var bScaleVelocityByParamValue: Bool;
 	public var ParamValue: RawDistributionFloat;
 

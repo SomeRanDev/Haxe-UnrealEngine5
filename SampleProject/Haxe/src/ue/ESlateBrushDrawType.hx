@@ -3,11 +3,11 @@ package ue;
 
 @:native("ESlateBrushDrawType.Type")
 @:include("Styling/SlateBrush.h")
-extern enum ESlateBrushDrawType {
-	NoDrawType;
-	Box;
-	Border;
-	Image;
-	RoundedBox;
-	ESlateBrushDrawType_MAX;
+extern class ESlateBrushDrawType {
+	static var NoDrawType: ESlateBrushDrawType;
+	static var Box: ESlateBrushDrawType;
+	static var Border: ESlateBrushDrawType;
+	static var Image: ESlateBrushDrawType;
+	static var RoundedBox: ESlateBrushDrawType;
+	static var ESlateBrushDrawType_MAX: ESlateBrushDrawType;
 }

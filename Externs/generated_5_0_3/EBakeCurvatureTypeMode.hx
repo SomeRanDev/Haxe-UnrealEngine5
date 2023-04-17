@@ -3,10 +3,10 @@ package ue;
 
 @:native("EBakeCurvatureTypeMode")
 @:include("BakeMeshAttributeToolCommon.h")
-extern enum EBakeCurvatureTypeMode {
-	MeanAverage;
-	Max;
-	Min;
-	Gaussian;
-	EBakeCurvatureTypeMode_MAX;
+extern class EBakeCurvatureTypeMode {
+	static var MeanAverage: EBakeCurvatureTypeMode;
+	static var Max: EBakeCurvatureTypeMode;
+	static var Min: EBakeCurvatureTypeMode;
+	static var Gaussian: EBakeCurvatureTypeMode;
+	static var EBakeCurvatureTypeMode_MAX: EBakeCurvatureTypeMode;
 }

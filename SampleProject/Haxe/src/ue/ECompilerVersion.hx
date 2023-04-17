@@ -3,11 +3,11 @@ package ue;
 
 @:native("ECompilerVersion")
 @:include("WindowsTargetSettings.h")
-extern enum ECompilerVersion {
-	Default;
-	VisualStudio2015;
-	VisualStudio2017;
-	VisualStudio2019;
-	VisualStudio2022;
-	ECompilerVersion_MAX;
+extern class ECompilerVersion {
+	static var Default: ECompilerVersion;
+	static var VisualStudio2015: ECompilerVersion;
+	static var VisualStudio2017: ECompilerVersion;
+	static var VisualStudio2019: ECompilerVersion;
+	static var VisualStudio2022: ECompilerVersion;
+	static var ECompilerVersion_MAX: ECompilerVersion;
 }

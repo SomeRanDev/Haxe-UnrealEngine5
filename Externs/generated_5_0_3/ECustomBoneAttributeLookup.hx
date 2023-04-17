@@ -3,9 +3,9 @@ package ue;
 
 @:native("ECustomBoneAttributeLookup")
 @:include("Components/SkeletalMeshComponent.h")
-extern enum ECustomBoneAttributeLookup {
-	BoneOnly;
-	ImmediateParent;
-	ParentHierarchy;
-	ECustomBoneAttributeLookup_MAX;
+extern class ECustomBoneAttributeLookup {
+	static var BoneOnly: ECustomBoneAttributeLookup;
+	static var ImmediateParent: ECustomBoneAttributeLookup;
+	static var ParentHierarchy: ECustomBoneAttributeLookup;
+	static var ECustomBoneAttributeLookup_MAX: ECustomBoneAttributeLookup;
 }

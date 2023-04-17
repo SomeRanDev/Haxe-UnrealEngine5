@@ -6,13 +6,9 @@ package ue;
 @:structAccess
 extern class ProgressBar extends Widget {
 	public var WidgetStyle: ProgressBarStyle;
-	public var Style_DEPRECATED: cpp.Star<SlateWidgetStyleAsset>;
-	public var BackgroundImage_DEPRECATED: cpp.Star<SlateBrushAsset>;
-	public var FillImage_DEPRECATED: cpp.Star<SlateBrushAsset>;
-	public var MarqueeImage_DEPRECATED: cpp.Star<SlateBrushAsset>;
 	public var Percent: cpp.Float32;
-	public var BarFillType: EProgressBarFillType;
-	public var BarFillStyle: EProgressBarFillStyle;
+	public var BarFillType: TEnumAsByte<EProgressBarFillType>;
+	public var BarFillStyle: TEnumAsByte<EProgressBarFillStyle>;
 	public var bIsMarquee: Bool;
 	public var BorderPadding: Vector2D;
 	public var PercentDelegate: HaxeDelegateProperty<() -> Void>;
@@ -31,20 +27,12 @@ extern class ProgressBar extends Widget {
 abstract ConstProgressBar(ProgressBar) from ProgressBar {
 	public extern var WidgetStyle(get, never): ProgressBarStyle;
 	public inline extern function get_WidgetStyle(): ProgressBarStyle return this.WidgetStyle;
-	public extern var Style_DEPRECATED(get, never): cpp.Star<SlateWidgetStyleAsset.ConstSlateWidgetStyleAsset>;
-	public inline extern function get_Style_DEPRECATED(): cpp.Star<SlateWidgetStyleAsset.ConstSlateWidgetStyleAsset> return this.Style_DEPRECATED;
-	public extern var BackgroundImage_DEPRECATED(get, never): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset>;
-	public inline extern function get_BackgroundImage_DEPRECATED(): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset> return this.BackgroundImage_DEPRECATED;
-	public extern var FillImage_DEPRECATED(get, never): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset>;
-	public inline extern function get_FillImage_DEPRECATED(): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset> return this.FillImage_DEPRECATED;
-	public extern var MarqueeImage_DEPRECATED(get, never): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset>;
-	public inline extern function get_MarqueeImage_DEPRECATED(): cpp.Star<SlateBrushAsset.ConstSlateBrushAsset> return this.MarqueeImage_DEPRECATED;
 	public extern var Percent(get, never): cpp.Float32;
 	public inline extern function get_Percent(): cpp.Float32 return this.Percent;
-	public extern var BarFillType(get, never): EProgressBarFillType;
-	public inline extern function get_BarFillType(): EProgressBarFillType return this.BarFillType;
-	public extern var BarFillStyle(get, never): EProgressBarFillStyle;
-	public inline extern function get_BarFillStyle(): EProgressBarFillStyle return this.BarFillStyle;
+	public extern var BarFillType(get, never): TEnumAsByte<EProgressBarFillType>;
+	public inline extern function get_BarFillType(): TEnumAsByte<EProgressBarFillType> return this.BarFillType;
+	public extern var BarFillStyle(get, never): TEnumAsByte<EProgressBarFillStyle>;
+	public inline extern function get_BarFillStyle(): TEnumAsByte<EProgressBarFillStyle> return this.BarFillStyle;
 	public extern var bIsMarquee(get, never): Bool;
 	public inline extern function get_bIsMarquee(): Bool return this.bIsMarquee;
 	public extern var BorderPadding(get, never): Vector2D;

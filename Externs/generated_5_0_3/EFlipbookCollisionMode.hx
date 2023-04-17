@@ -3,9 +3,9 @@ package ue;
 
 @:native("EFlipbookCollisionMode.Type")
 @:include("PaperFlipbook.h")
-extern enum EFlipbookCollisionMode {
-	NoCollision;
-	FirstFrameCollision;
-	EachFrameCollision;
-	EFlipbookCollisionMode_MAX;
+extern class EFlipbookCollisionMode {
+	static var NoCollision: EFlipbookCollisionMode;
+	static var FirstFrameCollision: EFlipbookCollisionMode;
+	static var EachFrameCollision: EFlipbookCollisionMode;
+	static var EFlipbookCollisionMode_MAX: EFlipbookCollisionMode;
 }

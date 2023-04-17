@@ -5,10 +5,6 @@ package ue;
 @:include("Engine/VolumeTexture.h")
 @:structAccess
 extern class VolumeTexture extends Texture {
-	public var Source2DTexture: cpp.Star<Texture2D>;
-	public var SourceLightingGuid: Guid;
-	public var Source2DTileSizeX: cpp.Int32;
-	public var Source2DTileSizeY: cpp.Int32;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,14 +12,6 @@ extern class VolumeTexture extends Texture {
 @:forward()
 @:nativeGen
 abstract ConstVolumeTexture(VolumeTexture) from VolumeTexture {
-	public extern var Source2DTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_Source2DTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.Source2DTexture;
-	public extern var SourceLightingGuid(get, never): Guid;
-	public inline extern function get_SourceLightingGuid(): Guid return this.SourceLightingGuid;
-	public extern var Source2DTileSizeX(get, never): cpp.Int32;
-	public inline extern function get_Source2DTileSizeX(): cpp.Int32 return this.Source2DTileSizeX;
-	public extern var Source2DTileSizeY(get, never): cpp.Int32;
-	public inline extern function get_Source2DTileSizeY(): cpp.Int32 return this.Source2DTileSizeY;
 }
 
 @:forward

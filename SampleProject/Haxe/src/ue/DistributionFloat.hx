@@ -6,7 +6,7 @@ package ue;
 @:structAccess
 extern class DistributionFloat extends Distribution {
 	public var bCanBeBaked: Bool;
-	public var bBakedDataSuccesfully: Bool;
+	@:protected public var bBakedDataSuccesfully: Bool;
 
 	public static function StaticClass(): cpp.Star<Class>;
 }
@@ -16,8 +16,6 @@ extern class DistributionFloat extends Distribution {
 abstract ConstDistributionFloat(DistributionFloat) from DistributionFloat {
 	public extern var bCanBeBaked(get, never): Bool;
 	public inline extern function get_bCanBeBaked(): Bool return this.bCanBeBaked;
-	public extern var bBakedDataSuccesfully(get, never): Bool;
-	public inline extern function get_bBakedDataSuccesfully(): Bool return this.bBakedDataSuccesfully;
 }
 
 @:forward
