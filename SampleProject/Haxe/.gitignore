@@ -1,0 +1,19 @@
+# Haxe C++ output
+output/
+CopyHxOutputToSourceFolder/Classes.txt
+HaxeStaticLib/bin/
+
+# Haxe hscript output
+script_output/
+
+# No need to recommit bindings
+src/ue/
+
+# Personal components of the project I do not wish to commit yet
+build.bat
+
+# Temporary File of Class List for Renaming Files
+BuildScripts/UObjectClassList.txt
+
+# Custom .hxml I use to make VS Code work properly
+vscodeCompile.hxml

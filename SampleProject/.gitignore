@@ -1,29 +1,13 @@
 # Haxe C++ output
 Source/HaxeProject/HaxeOutput/
 Source/HaxeCompatibility/HaxeOutput/
-Haxe/output/
-Haxe/CopyHxOutputToSourceFolder/Classes.txt
 HaxePlugin/Haxe/bin/
-Haxe/HaxeStaticLib/bin/
-
-# Haxe hscript output
-Haxe/script_output/
-
-# No need to recommit bindings
-Haxe/src/ue/
 
 # Personal components of the project I do not wish to commit yet
-Haxe/build.bat
 HaxePlugin/PersonalBuild.bat
 
 # This is built using "HaxePlugin"
 Plugins/HaxeCompatibility
-
-# Temporary File of Class List for Renaming Files
-Haxe/BuildScripts/UObjectClassList.txt
-
-# Custom .hxml I use to make VS Code work properly
-Haxe/vscodeCompile.hxml
 
 # Visual Studio 2015 user specific files
 .vs/
