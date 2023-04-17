@@ -10,7 +10,7 @@ import haxe.macro.Type.ClassType;
 @:genericBuild(ue_helpers.Ptr.PtrHelper.build())
 #end
 @:forward
-abstract Ptr<T>(cpp.Star<T>) from cpp.Star<T> to cpp.Star<T> {
+abstract Ptr<T>(ucpp.Ptr<T>) from ucpp.Ptr<T> to ucpp.Ptr<T> {
 }
 
 #if macro
