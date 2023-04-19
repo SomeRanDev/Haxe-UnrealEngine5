@@ -256,18 +256,18 @@ FString ConvertCPPTypeStringToHaxeTypeString(const FString cppType) {
 
 	if(t == "bool") return "Bool";
 	else if(t == "int") return "Int";
-	else if(t == "float") return "cpp.Float32";
-	else if(t == "double") return "cpp.Float64";
-	else if(t == "int8") return "cpp.Int8";
-	else if(t == "int16") return "cpp.Int16";
-	else if(t == "int32") return "cpp.Int32";
-	else if(t == "int64") return "cpp.Int64";
-	else if(t == "uint8") return "cpp.UInt8";
-	else if(t == "uint16") return "cpp.UInt16";
-	else if(t == "uint32") return "cpp.UInt32";
-	else if(t == "uint64") return "cpp.UInt64";
-	else if(t == "float32") return "cpp.Float32";
-	else if(t == "float64") return "cpp.Float64";
+	else if(t == "float") return "ucpp.num.Float32";
+	else if(t == "double") return "ucpp.num.Float64";
+	else if(t == "int8") return "ucpp.num.Int8";
+	else if(t == "int16") return "ucpp.num.Int16";
+	else if(t == "int32") return "ucpp.num.Int32";
+	else if(t == "int64") return "ucpp.num.Int64";
+	else if(t == "uint8") return "ucpp.num.UInt8";
+	else if(t == "uint16") return "ucpp.num.UInt16";
+	else if(t == "uint32") return "ucpp.num.UInt32";
+	else if(t == "uint64") return "ucpp.num.UInt64";
+	else if(t == "float32") return "ucpp.num.Float32";
+	else if(t == "float64") return "ucpp.num.Float64";
 
 	return t;
 }
@@ -359,7 +359,7 @@ FString ConvertFBytePropertyToHaxeTypeString(FProperty* prop) {
 		ConvertUEnumToHaxe(en);
 		return "TEnumAsByte<" + en->GetName() + ">";
 	} else {
-		return "cpp.UInt8";
+		return "ucpp.num.UInt8";
 	}
 }
 
@@ -713,10 +713,13 @@ void ConvertUClassToHaxe(UClass* cls) {
 	auto hasExtraExterns = ExtraExterns.Contains(name);
 	if(hasExtraExterns) {
 		auto& extraExtern = ExtraExterns[name];
+		UE_LOG(LogTemp, Warning, TEXT("%s"), (*name));
 		extraExtern.Used = true;
 		if(extraExtern.Include.IsSet()) {
 			headerPath = extraExtern.Include.GetValue();
 		}
+	} else {
+		//UE_LOG(LogTemp, Warning, TEXT("2222"));
 	}
 
 	auto cppName = GetClassCPPName(cls);
@@ -832,11 +835,11 @@ void SetupExtraExterns() {
 	UObjectBase.AddFunc("public function GetFlags(): EObjectFlags");
 	UObjectBase.AddFunc("public function GetFName(): FName");
 	UObjectBase.AddFunc("public function GetOuter(): " + HX_PTR_CLASS + "<" + GetHaxeName(UObject::StaticClass()) + ">");
-	UObjectBase.AddFunc("public function GetUniqueID(): cpp.UInt32");
+	UObjectBase.AddFunc("public function GetUniqueID(): ucpp.num.UInt32");
 	UObjectBase.AddFunc("public function IsValidLowLevel(): Bool");
 	UObjectBase.AddFunc("public function IsValidLowLevelFast(bRecursive: Bool): Bool");
 	UObjectBase.AddFunc("@:protected public function LowLevelRename(NewName: FName, NewOuter: " + HX_PTR_CLASS + "<" + GetHaxeName(UObject::StaticClass()) + ">): Void");
-	UObjectBase.AddFunc("@:protected public function Register(PackageName: cpp.ConstTCHARStar, Name: cpp.ConstTCHARStar): Void");
+	UObjectBase.AddFunc("@:protected public function Register(PackageName: ue_helpers.ConstTCHARStar, Name: ue_helpers.ConstTCHARStar): Void");
 	ExtraExterns.Add("UObjectBase", UObjectBase);
 
 	// ----------------------
@@ -861,7 +864,7 @@ void SetupExtraExterns() {
 	// ----------------------
 	ExtraExtern AActor("Actor", "AActor", FString("Object"), FString("GameFramework/Actor.h"));
 	AActor.AddFunc("@:protected public function BeginPlay(): Void");
-	AActor.AddFunc("public function Tick(DeltaTime: cpp.Float32): Void");
+	AActor.AddFunc("public function Tick(DeltaTime: ucpp.num.Float32): Void");
 	AActor.AddFunc("public function PreRegisterAllComponents(): Void");
 	AActor.AddFunc("public function PostRegisterAllComponents(): Void");
 	AActor.AddFunc("public function PostActorCreated(): Void");
@@ -951,7 +954,7 @@ void SetupExtraExterns() {
 	AActor.AddFunc("@:const public function GetAutoDestroyWhenFinished(): Bool");
 	AActor.AddFunc("@:const public function GetIsReplicated(): Bool");
 	AActor.AddFunc("@:const public function GetIsSpatiallyLoaded(): Bool");
-	AActor.AddFunc("@:const public function GetLastRenderTime(): cpp.Float32");
+	AActor.AddFunc("@:const public function GetLastRenderTime(): ucpp.num.Float32");
 	AActor.AddFunc("@:const public function GetPivotOffset(): Vector");
 	AActor.AddFunc("@:const public function GetPlacementExtent(): Vector");
 	AActor.AddFunc("@:const public function GetWorld(): " + HX_PTR_CLASS + "<World>");
@@ -986,7 +989,7 @@ void SetupExtraExterns() {
 	UActorComponent.AddFunc("@:protected public function EndPlay(Reason: EEndPlayReason): Void");
 	UActorComponent.AddFunc("public function InitializeComponent(): Void");
 	UActorComponent.AddFunc("public function UninitializeComponent(): Void");
-	UActorComponent.AddFunc("public function TickComponent(DeltaTime: cpp.Float32, TickType: ELevelTick, ThisTickFunction: " + HX_PTR_CLASS + "<ActorComponentTickFunction>): Void");
+	UActorComponent.AddFunc("public function TickComponent(DeltaTime: ucpp.num.Float32, TickType: ELevelTick, ThisTickFunction: " + HX_PTR_CLASS + "<ActorComponentTickFunction>): Void");
 	ExtraExterns.Add("ActorComponent", UActorComponent);
 
 	// ----------------------
